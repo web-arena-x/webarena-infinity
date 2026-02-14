@@ -101,7 +101,7 @@ Before writing verifiers, you must determine:
 2. **How can a Python verifier access it?** (direct file reads, HTTP API, database queries, etc.)
 3. **What bridge infrastructure is needed?** (API endpoints, state sync mechanisms, etc.)
 
-For this specific website, the data store is the browser's `localStorage`, which is not directly accessible from Python. A state synchronization mechanism has been implemented (see below).
+For browser-based web apps in this benchmark, the data store is typically the browser's `localStorage`, which is not directly accessible from Python. A state synchronization mechanism bridges this gap (see below and `docs/environment-protocol.md`).
 
 ## Verification Architecture
 
@@ -130,7 +130,7 @@ python3 server.py              # default port 8000
 python3 server.py --port 9000  # custom port
 ```
 
-The core logic, data flow, and navigation of system components are described in `./ARCHITECTURE.md`. Make sure you fully understand the system architecture before designing verifiers. You are also encouraged to navigate the codebase inside `./js` and `./css` whenever the description is not clear to you.
+The core logic, data flow, and navigation of system components are described in each environment's `ARCHITECTURE.md`. Make sure you fully understand the system architecture before designing verifiers. You are also encouraged to navigate the codebase whenever the description is not clear to you.
 
 ## Verifier Interface
 
