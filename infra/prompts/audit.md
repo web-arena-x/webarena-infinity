@@ -1,0 +1,1 @@
+Audit the agent evaluation results in {results_dir}/ following the guide at {repo_dir}/docs/evaluation-audit-guide.md. This is iteration {iteration} of {max_iterations}. If you made changes, respond with CHANGES_MADE. If no changes needed, respond with NO_CHANGES.

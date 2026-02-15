@@ -44,6 +44,19 @@ from config import (
 )
 from sqs_utils import delete_message, receive_message, send_message
 
+# ---------------------------------------------------------------------------
+# Prompt templates (loaded from infra/prompts/*.md)
+# ---------------------------------------------------------------------------
+PROMPTS_DIR = os.path.join(os.path.dirname(__file__), "prompts")
+
+
+def load_prompt(name: str, **kwargs: str) -> str:
+    """Load a prompt template from infra/prompts/{name}.md and fill placeholders."""
+    path = os.path.join(PROMPTS_DIR, f"{name}.md")
+    with open(path) as f:
+        template = f.read().strip()
+    return template.format(**kwargs)
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [env-worker] %(message)s",
@@ -188,22 +201,12 @@ def generate_environment(env_id: str, docs_source: str, worktree_path: str) -> b
     app_dir = os.path.join(worktree_path, "apps", env_id)
     os.makedirs(app_dir, exist_ok=True)
 
-    prompt = (
-        f"Generate a complete web application environment under this directory. "
-        f"Use apps/{REFERENCE_APP}/ as the reference implementation — study its "
-        f"server.py, index.html, js/, css/, tasks.json, tasks/*.py, and "
-        f"sanity_check.py to understand the architecture. "
-        f"Also follow the project-level guides at "
-        f"{worktree_path}/docs/web-app-design-guide.md, "
-        f"{worktree_path}/docs/task-design-guide.md, and "
-        f"{worktree_path}/docs/environment-protocol.md. "
-        f"The documentation theme for this environment is: {docs_source}. "
-        f"The environment must include: server.py, index.html, js/, css/, "
-        f"tasks.json (30 tasks: 10 easy, 10 medium, 10 hard), tasks/*.py verifiers, "
-        f"and sanity_check.py. Make the web application a unique variation with "
-        f"different seed data, UI theme, and task content from the reference. "
-        f"The app must implement the state sync protocol (PUT/GET /api/state, "
-        f"POST /api/reset, SSE /api/events)."
+    prompt = load_prompt(
+        "generate",
+        reference_app=REFERENCE_APP,
+        repo_dir=REPO_DIR,
+        worktree_path=worktree_path,
+        docs_source=docs_source,
     )
 
     result = run_claude_code(prompt, app_dir)
@@ -253,17 +256,13 @@ def run_audit(env_id: str, iteration: int, worktree_path: str) -> bool:
     if not results_files:
         return False
 
-    prompt = (
-        f"Audit the agent evaluation results in {results_dir}/ following the guide at "
-        f"{worktree_path}/docs/evaluation-audit-guide.md. "
-        f"This is iteration {iteration} of {MAX_ITERATIONS}. "
-        f"Review each failed task and determine if the failure is due to: "
-        f"(a) a verifier bug, (b) an impossible task, (c) ambiguous instructions, "
-        f"(d) seed data mismatch, or (e) agent capability limitations. "
-        f"For cases (a)-(d), fix the tasks/verifiers and update sanity_check.py. "
-        f"For case (e), do NOT change anything. "
-        f"If you made changes, respond with CHANGES_MADE. "
-        f"If no changes needed, respond with NO_CHANGES."
+    prompt = load_prompt(
+        "audit",
+        results_dir=results_dir,
+        repo_dir=REPO_DIR,
+        worktree_path=worktree_path,
+        iteration=str(iteration),
+        max_iterations=str(MAX_ITERATIONS),
     )
 
     result = run_claude_code(prompt, app_dir)

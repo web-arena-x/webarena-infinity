@@ -69,31 +69,14 @@ while IFS= read -r line; do
     fi
   done
 
-  # Create the env stub directory and copy the specified docs into it
-  mkdir -p "$ENV_DIR/docs"
+  # Create the env stub directory
+  mkdir -p "$ENV_DIR"
   echo "# Environment $BRANCH" > "$ENV_DIR/README.md"
 
-  if [ -d "$DOCS_PATH" ]; then
-    echo "  ERROR: docs_path '$DOCS_PATH' not found on this branch (already removed)."
-    echo "  Checking out docs from main..."
-  fi
-
-  # Always copy docs from main (since we may have git-rm'd the source app)
-  git checkout main -- "$DOCS_PATH" 2>/dev/null || true
-  if [ -d "$DOCS_PATH" ]; then
-    cp -r "$DOCS_PATH"/* "$ENV_DIR/docs/"
-    # Clean up the checked-out source (don't leave it on the branch)
-    git checkout HEAD -- . 2>/dev/null || true
-    # Re-remove other apps that got restored
-    for app_dir in apps/*/; do
-      app_name="$(basename "$app_dir")"
-      if [ "$app_name" != "$REFERENCE_APP" ] && [ "$app_name" != "$ENV_ID" ]; then
-        rm -rf "$app_dir"
-      fi
-    done
-  else
-    echo "  WARNING: docs_path '$DOCS_PATH' not found, seeding without docs"
-  fi
+  # Docs are NOT copied into the branch. Workers read docs directly from
+  # the main repo checkout (REPO_DIR), which stays on the main branch and
+  # has all docs intact. This avoids bloating branches and keeps
+  # cross-linked docs working.
 
   git add "$ENV_DIR"
   git commit -m "Seed branch $BRANCH (docs: $DOCS_PATH)"
