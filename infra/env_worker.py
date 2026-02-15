@@ -84,7 +84,11 @@ _git_lock = multiprocessing.Lock()
 
 def git(*args: str, cwd: str = REPO_DIR) -> subprocess.CompletedProcess:
     cmd = ["git", *args]
-    return subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, check=True)
+    result = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
+    if result.returncode != 0:
+        log.error("git %s failed (rc=%d): %s", " ".join(args), result.returncode, result.stderr.strip())
+        result.check_returncode()
+    return result
 
 
 def setup_worktree(worker_id: int, env_id: str) -> str:
@@ -96,6 +100,9 @@ def setup_worktree(worker_id: int, env_id: str) -> str:
     branch = f"{BRANCH_PREFIX}{env_id.removeprefix(BRANCH_PREFIX)}"
 
     with _git_lock:
+        # Clean stale worktree entries
+        git("worktree", "prune")
+
         # Fetch the branch
         git("fetch", GIT_REMOTE, branch)
 
