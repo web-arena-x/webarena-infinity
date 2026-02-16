@@ -286,16 +286,23 @@ def run_audit(env_id: str, iteration: int, worktree_path: str) -> bool:
     if not os.path.isdir(results_dir):
         return False
 
-    results_files = sorted(
-        [f for f in os.listdir(results_dir) if f.endswith("results.json")],
+    # Find the latest run subdirectory (e.g., gemini_20260216_003903_parallel/)
+    run_dirs = sorted(
+        [
+            d
+            for d in os.listdir(results_dir)
+            if os.path.isdir(os.path.join(results_dir, d))
+        ],
         reverse=True,
     )
-    if not results_files:
+    if not run_dirs:
         return False
+
+    latest_run_dir = os.path.join(results_dir, run_dirs[0])
 
     prompt = load_prompt(
         "audit",
-        results_dir=results_dir,
+        results_dir=latest_run_dir,
         repo_dir=REPO_DIR,
         worktree_path=worktree_path,
         iteration=str(iteration),

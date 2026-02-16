@@ -12,8 +12,8 @@ wheels/
 # Environment variables
 .env
 
-# Run results
-results/
+# Run results (only ignore top-level evaluation results, not per-app results)
+/evaluation/results/
 .notes.md
 
 # Infra worker logs and temp files

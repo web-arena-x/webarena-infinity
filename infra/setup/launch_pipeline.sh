@@ -292,6 +292,7 @@ for gen_id in $GEN_IDS; do
   echo "  ssh -i ~/.ssh/${KEY_PAIR_NAME}.pem ec2-user@${GEN_IP}"
   echo "    # Wait for setup: tail -f /var/log/mirror-mirror-setup.log"
   echo "    # Then: claude login"
+  echo "    # Then: claude plugins install frontend-design"
   echo "    # Then: cd ~/mirror-mirror && nohup python infra/env_worker.py > /tmp/mirror-mirror-logs/env-worker.log 2>&1 &"
   echo ""
 done
