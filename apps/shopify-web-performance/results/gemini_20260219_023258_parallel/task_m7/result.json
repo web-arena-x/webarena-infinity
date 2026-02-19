@@ -1,0 +1,25 @@
+{
+  "task_id": "task_m7",
+  "difficulty": "medium",
+  "instruction": "Add a new event annotation with the title 'Migrated to new image CDN', type 'Code Change', with the affected metric set to 'LCP' and impact set to 'Positive'.",
+  "passed": true,
+  "verifier_message": "Event 'Migrated to new image CDN' added correctly.",
+  "elapsed": 84.4,
+  "steps": 12,
+  "is_done": true,
+  "final_result": "Successfully added the event annotation with the title 'Migrated to new image CDN', type 'Code Change', affected metric 'LCP', and impact 'Positive'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

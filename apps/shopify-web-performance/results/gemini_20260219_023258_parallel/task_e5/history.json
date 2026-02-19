@@ -1,0 +1,342 @@
+{
+  "history": [
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Start",
+        "memory": null,
+        "next_goal": "Initial navigation",
+        "action": [
+          {
+            "navigate": {
+              "url": "http://10.0.1.172:8033",
+              "new_tab": false
+            }
+          }
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "long_term_memory": "Found initial url and automatically loaded it. Navigated to http://10.0.1.172:8033",
+          "extracted_content": "\ud83d\udd17 Navigated to http://10.0.1.172:8033",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [],
+        "screenshot_path": null,
+        "interacted_element": [
+          null
+        ],
+        "url": "http://10.0.1.172:8033",
+        "title": "Initial Actions"
+      },
+      "metadata": {
+        "step_start_time": 1771468399.6488218,
+        "step_end_time": 1771468399.6488218,
+        "step_number": 0,
+        "step_interval": null
+      },
+      "state_message": null
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "The page loaded successfully. Verdict: Success",
+        "memory": "The page has loaded. I need to delete the 'Product Page CLS Report'.",
+        "next_goal": "Click on the 'Reports' link to navigate to the reports page.",
+        "action": [
+          {
+            "click": {
+              "index": 16
+            }
+          }
+        ],
+        "thinking": "I need to delete the 'Product Page CLS Report'. I will start by clicking on the 'Reports' link and then try to find the report to delete.",
+        "current_plan_item": 0,
+        "plan_update": [
+          "Click on the 'Reports' link.",
+          "Find the 'Product Page CLS Report'.",
+          "Delete the 'Product Page CLS Report'."
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked a \"Reports\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 119.5,
+            "click_y": 380.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8033/#/",
+            "title": "Shopify - Web Performance Dashboard",
+            "target_id": "3CEB",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996766-7a19-72ad-8000-86aba0352664_1771468391/screenshots/step_1.png",
+        "interacted_element": [
+          {
+            "node_id": 77,
+            "backend_node_id": 16,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "A",
+            "attributes": {
+              "class": "sidebar-item",
+              "data-route": "/reports",
+              "data-testid": "nav-reports"
+            },
+            "x_path": "html/body/div/aside/nav/div[3]/a[1]",
+            "element_hash": 930808284985449172,
+            "stable_hash": 12460023331053918927,
+            "bounds": {
+              "x": 0.0,
+              "y": 362.0,
+              "width": 239.0,
+              "height": 37.0
+            },
+            "ax_name": "Reports"
+          }
+        ],
+        "url": "http://10.0.1.172:8033/#/",
+        "title": "Shopify - Web Performance Dashboard"
+      },
+      "metadata": {
+        "step_start_time": 1771468399.6488652,
+        "step_end_time": 1771468413.9444802,
+        "step_number": 1,
+        "step_interval": 0.0
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8033\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8033. Your task: Delete the 'Product Page CLS Report' saved report.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step1 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>15 links, 45 interactive, 0 iframes, 316 total elements</page_stats>\nCurrent tab: 3CEB\nAvailable tabs:\nTab 3CEB: http://10.0.1.172:8033/#/ - Shopify - Web Performance Dash\n\n<page_info>0.0 above, 0.3 below </page_info>\n\nInteractive elements:\n[Start of page]\n[10]<button id=sidebarToggle aria-label=Toggle sidebar />\n\t[63]<span />\n<svg /> <!-- SVG content collapsed -->\n[77]<span />\n\tShopify\n[11]<div id=currentUserAvatar />\n\tJR\nJordan Rivera\njordan@urbanthreads.com\n[101]<div />\n\tSettings\n[106]<div />\n\tSign out\n[12]<a />\n\tDashboard\nOnline Store\n[13]<a />\n\tThemes\n[14]<a />\n\tApps\n[15]<a />\n\tPages\nAnalytics\n[16]<a />\n\tReports\n[17]<a />\n\tOptimizations\n[18]<a />\n\tAlerts\n[19]<a />\n\tEvents\nConfiguration\n[20]<a />\n\tSettings\nWeb Performance Dashboard\nUrban Threads \u2014 urbanthreads.myshopify.com\nYour performance scores are based on real user data from the past 30 days.\n[263]<a />\n\tView detailed reports\n[21]<div />\n\tLCP P75 (ms)\n\tModerate\n\t3,052\n\t[283]<span />\n\t\tms\n\tLargest Contentful Paint\n[22]<div />\n\tINP P75 (ms)\n\tModerate\n\t248\n\t[306]<span />\n\t\tms\n\tInteraction to Next Paint\n[23]<div />\n\tCLS P75\n\tGood\n\t0.10\n\tCumulative Layout Shift\nActive Theme\nDawn\n[353]<span />\n\tv15.0.0\nby Shopify\n92\nPerformance Score\n[24]<a />\n\tManage Theme\nInstalled Apps\n8 apps\nTotal estimated impact:\n+1590ms LCP\n[25]<a />\n\tManage Apps\nPending Optimizations\n[413]<span />\nCompress hero banner image on homepage\nCritical\nRemove unused Instafeed scripts from product pages\n[435]<span />\n\tHigh\nDefer Klaviyo popup script loading\n[445]<span />\n\tHigh\n+3 more\n[26]<a />\n\tView All\nActive Alerts\n[466]<span />\nLCP Budget Exceeded\nLCP > 2500ms\nMobile INP Warning\nINP > 300ms\nCLS Regression Alert\nCLS > 0.15\n[27]<a />\n\tManage Alerts\nRecent Events\n[28]<a />\n\tView All\n[523]<div />\nValentines Day sale ended\nFeb 17, 2026\nHigh traffic period concluded\nNeutral\nAll Metrics\n[29]<button />\n\tEdit\n[30]<button />\n\tRemove\n[559]<div />\nInstalled PageFly Builder\nFeb 14, 2026\nAdded landing page builder for campaigns\nNegative\n[580]<span />\n\tLCP\n[31]<button />\n\tEdit\n[32]<button />\n\tRemove\n[595]<div />\nOptimized collection page images\nFeb 10, 2026\nCompressed and resized collection hero images\nPositive\n[616]<span />\n\tLCP\n[33]<button />\n\tEdit\n[34]<button />\n\tRemove\n[631]<div />\nTested Prestige theme (reverted)\nFeb 8, 2026\nBriefly activated Prestige theme for testing\nNeutral\nAll Metrics\n[35]<button />\n\tEdit\n[36]<button />\n\tRemove\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully navigated to the reports page. Verdict: Success",
+        "memory": "Navigated to the reports page. Ready to delete 'Product Page CLS Report'.",
+        "next_goal": "Click on the delete button with index 759 to delete the 'Product Page CLS Report'.",
+        "action": [
+          {
+            "click": {
+              "index": 759
+            }
+          }
+        ],
+        "thinking": "I have successfully navigated to the reports page. Now I need to find the 'Product Page CLS Report' and delete it. According to the browser state, the 'Product Page CLS Report' is visible and there is a delete button next to it. I will click on the delete button with index 759 to delete the report.",
+        "current_plan_item": 1,
+        "plan_update": [
+          "Click on the 'Reports' link.",
+          "Find the 'Product Page CLS Report'.",
+          "Delete the 'Product Page CLS Report'."
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Delete\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 566.1796875,
+            "click_y": 666.25
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8033/#/reports",
+            "title": "Shopify - Web Performance Dashboard",
+            "target_id": "3CEB",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996766-7a19-72ad-8000-86aba0352664_1771468391/screenshots/step_2.png",
+        "interacted_element": [
+          {
+            "node_id": 555,
+            "backend_node_id": 759,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "btn btn-sm btn-danger",
+              "data-testid": "delete-report-2",
+              "data-action": "delete-report",
+              "data-report-id": "2"
+            },
+            "x_path": "html/body/div/main/div/div[3]/div[2]/div[2]/button",
+            "element_hash": 2223090379826374669,
+            "stable_hash": 10583630958148745157,
+            "bounds": {
+              "x": 533.0,
+              "y": 651.5,
+              "width": 66.359375,
+              "height": 29.5
+            },
+            "ax_name": "Delete"
+          }
+        ],
+        "url": "http://10.0.1.172:8033/#/reports",
+        "title": "Shopify - Web Performance Dashboard"
+      },
+      "metadata": {
+        "step_start_time": 1771468413.9505818,
+        "step_end_time": 1771468422.828223,
+        "step_number": 2,
+        "step_interval": 14.295614957809448
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8033\n<step>\nThe page loaded successfully. Verdict: Success\nThe page has loaded. I need to delete the 'Product Page CLS Report'.\nClick on the 'Reports' link to navigate to the reports page.\nResult\nClicked a \"Reports\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8033. Your task: Delete the 'Product Page CLS Report' saved report.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Click on the 'Reports' link.\n[ ] 1: Find the 'Product Page CLS Report'.\n[ ] 2: Delete the 'Product Page CLS Report'.\n</plan>\n<step_info>Step2 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>9 links, 33 interactive, 0 iframes, 176 total elements</page_stats>\nCurrent tab: 3CEB\nAvailable tabs:\nTab 3CEB: http://10.0.1.172:8033/#/reports - Shopify - Web Performance Dash\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n[10]<button id=sidebarToggle aria-label=Toggle sidebar />\n\t[63]<span />\n<svg /> <!-- SVG content collapsed -->\n[77]<span />\n\tShopify\n[11]<div id=currentUserAvatar />\n\tJR\nJordan Rivera\njordan@urbanthreads.com\n[101]<div />\n\tSettings\n[106]<div />\n\tSign out\n[12]<a />\n\tDashboard\nOnline Store\n[13]<a />\n\tThemes\n[14]<a />\n\tApps\n[15]<a />\n\tPages\nAnalytics\n[16]<a />\n\tReports\n[17]<a />\n\tOptimizations\n[18]<a />\n\tAlerts\n[19]<a />\n\tEvents\nConfiguration\n[20]<a />\n\tSettings\nReports\nWeb performance reports for your online store\n*[714]<button id=createReportBtn />\n\tSave Custom Report\nWeb Performance Reports\n*[719]<div />\n\tLargest Contentful Paint: Over Time\n*[722]<div />\n\tInteraction to Next Paint: Over Time\n*[725]<div />\n\tCumulative Layout Shift: Over Time\n*[728]<div />\n\tLargest Contentful Paint: Page URL\n*[731]<div />\n\tInteraction to Next Paint: Page URL\n*[734]<div />\n\tCumulative Layout Shift: Page URL\n*[737]<div />\n\tLargest Contentful Paint: Page Type\n*[740]<div />\n\tInteraction to Next Paint: Page Type\n*[743]<div />\n\tCumulative Layout Shift: Page Type\nSaved Reports\n*[751]<div />\n\tMobile LCP Weekly\n\tLCP \u00b7 over time \u00b7 mobile \u00b7 last 7 days\n*[754]<button />\n\tDelete\n*[756]<div />\n\tProduct Page CLS Report\n\tCLS \u00b7 by page url \u00b7 all \u00b7 last 30 days\n*[759]<button />\n\tDelete\n*[761]<div />\n\tDesktop INP by Page Type\n\tINP \u00b7 by page type \u00b7 desktop \u00b7 last 30 days\n*[764]<button />\n\tDelete\n*[766]<div />\n\tHomepage Performance Trend\n\tLCP \u00b7 over time \u00b7 all \u00b7 last 30 days\n*[769]<button />\n\tDelete\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Clicked the delete button for the 'Product Page CLS Report'. Verdict: Success",
+        "memory": "Clicked the delete button for the 'Product Page CLS Report'. Now I need to confirm the deletion by clicking the 'Delete' button in the modal.",
+        "next_goal": "Confirm the deletion by clicking the 'Delete' button in the modal.",
+        "action": [
+          {
+            "click": {
+              "index": 901
+            }
+          }
+        ],
+        "thinking": "I have successfully clicked the delete button for the 'Product Page CLS Report'. Now I need to confirm the deletion by clicking the 'Delete' button in the modal.",
+        "current_plan_item": 0,
+        "plan_update": [
+          "Todo item 1",
+          "Todo item 2",
+          "Todo item 3"
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Delete\" id=modalConfirmBtn",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1211.265625,
+            "click_y": 607.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8033/#/reports",
+            "title": "Shopify - Web Performance Dashboard",
+            "target_id": "3CEB",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996766-7a19-72ad-8000-86aba0352664_1771468391/screenshots/step_3.png",
+        "interacted_element": [
+          {
+            "node_id": 819,
+            "backend_node_id": 901,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "btn btn-danger",
+              "data-testid": "modal-confirm",
+              "id": "modalConfirmBtn"
+            },
+            "x_path": "html/body/div/div[1]/div/div[3]/button[2]",
+            "element_hash": 690764766485906434,
+            "stable_hash": 9914136803340682238,
+            "bounds": {
+              "x": 1172.53125,
+              "y": 588.0,
+              "width": 77.46875,
+              "height": 39.0
+            },
+            "ax_name": "Delete"
+          }
+        ],
+        "url": "http://10.0.1.172:8033/#/reports",
+        "title": "Shopify - Web Performance Dashboard"
+      },
+      "metadata": {
+        "step_start_time": 1771468422.8299456,
+        "step_end_time": 1771468429.0403564,
+        "step_number": 3,
+        "step_interval": 8.877641201019287
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8033\n<step>\nThe page loaded successfully. Verdict: Success\nThe page has loaded. I need to delete the 'Product Page CLS Report'.\nClick on the 'Reports' link to navigate to the reports page.\nResult\nClicked a \"Reports\"\n<step>\nSuccessfully navigated to the reports page. Verdict: Success\nNavigated to the reports page. Ready to delete 'Product Page CLS Report'.\nClick on the delete button with index 759 to delete the 'Product Page CLS Report'.\nResult\nClicked button \"Delete\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8033. Your task: Delete the 'Product Page CLS Report' saved report.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Click on the 'Reports' link.\n[ ] 1: Find the 'Product Page CLS Report'.\n[ ] 2: Delete the 'Product Page CLS Report'.\n</plan>\n<step_info>Step3 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>9 links, 4 interactive, 0 iframes, 190 total elements</page_stats>\nCurrent tab: 3CEB\nAvailable tabs:\nTab 3CEB: http://10.0.1.172:8033/#/reports - Shopify - Web Performance Dash\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n<svg /> <!-- SVG content collapsed -->\nShopify\n[11]<div id=currentUserAvatar />\n\tJR\nJordan Rivera\njordan@urbanthreads.com\nSettings\nSign out\nDashboard\nOnline Store\nThemes\nApps\nPages\nAnalytics\nReports\nOptimizations\nAlerts\nEvents\nConfiguration\nSettings\nReports\nWeb performance reports for your online store\nSave Custom Report\nWeb Performance Reports\nLargest Contentful Paint: Over Time\nInteraction to Next Paint: Over Time\nCumulative Layout Shift: Over Time\nLargest Contentful Paint: Page URL\nInteraction to Next Paint: Page URL\nCumulative Layout Shift: Page URL\nLargest Contentful Paint: Page Type\nInteraction to Next Paint: Page Type\nCumulative Layout Shift: Page Type\nSaved Reports\nMobile LCP Weekly\nLCP \u00b7 over time \u00b7 mobile \u00b7 last 7 days\nDelete\nProduct Page CLS Report\nCLS \u00b7 by page url \u00b7 all \u00b7 last 30 days\nDelete\nDesktop INP by Page Type\nINP \u00b7 by page type \u00b7 desktop \u00b7 last 30 days\nDelete\nHomepage Performance Trend\nLCP \u00b7 over time \u00b7 all \u00b7 last 30 days\nDelete\nDelete Report\n*[679]<button id=modalClose aria-label=Close modal />\nAre you sure you want to delete this saved report?\n*[900]<button />\n\tCancel\n*[901]<button id=modalConfirmBtn />\n\tDelete\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully confirmed the deletion of the 'Product Page CLS Report'. Verdict: Success",
+        "memory": "Successfully deleted the 'Product Page CLS Report'. The task is now complete.",
+        "next_goal": "Call the done action to complete the task.",
+        "action": [
+          {
+            "done": {
+              "text": "Successfully deleted the 'Product Page CLS Report'.",
+              "success": true
+            }
+          }
+        ],
+        "thinking": "I have successfully deleted the 'Product Page CLS Report'. Now I need to verify that the report is deleted from the list of saved reports. Since the user request is completed, I will call the done action.",
+        "current_plan_item": 0,
+        "plan_update": [
+          "Todo item 1",
+          "Todo item 2",
+          "Todo item 3"
+        ]
+      },
+      "result": [
+        {
+          "is_done": true,
+          "success": true,
+          "judgement": {
+            "reasoning": "The agent successfully navigated to the web application, clicked on the 'Reports' button, then clicked the 'Delete' button twice to confirm the deletion of the 'Product Page CLS Report'. The agent reports successful completion of the task.",
+            "verdict": true,
+            "failure_reason": "",
+            "impossible_task": false,
+            "reached_captcha": false
+          },
+          "attachments": [],
+          "long_term_memory": "Task completed: True - Successfully deleted the 'Product Page CLS Report'.",
+          "extracted_content": "Successfully deleted the 'Product Page CLS Report'.",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8033/#/reports",
+            "title": "Shopify - Web Performance Dashboard",
+            "target_id": "3CEB",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996766-7a19-72ad-8000-86aba0352664_1771468391/screenshots/step_4.png",
+        "interacted_element": [
+          null
+        ],
+        "url": "http://10.0.1.172:8033/#/reports",
+        "title": "Shopify - Web Performance Dashboard"
+      },
+      "metadata": {
+        "step_start_time": 1771468429.0415962,
+        "step_end_time": 1771468433.7698493,
+        "step_number": 4,
+        "step_interval": 6.210410833358765
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8033\n<step>\nThe page loaded successfully. Verdict: Success\nThe page has loaded. I need to delete the 'Product Page CLS Report'.\nClick on the 'Reports' link to navigate to the reports page.\nResult\nClicked a \"Reports\"\n<step>\nSuccessfully navigated to the reports page. Verdict: Success\nNavigated to the reports page. Ready to delete 'Product Page CLS Report'.\nClick on the delete button with index 759 to delete the 'Product Page CLS Report'.\nResult\nClicked button \"Delete\"\n<step>\nClicked the delete button for the 'Product Page CLS Report'. Verdict: Success\nClicked the delete button for the 'Product Page CLS Report'. Now I need to confirm the deletion by clicking the 'Delete' button in the modal.\nConfirm the deletion by clicking the 'Delete' button in the modal.\nResult\nClicked button \"Delete\" id=modalConfirmBtn\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8033. Your task: Delete the 'Product Page CLS Report' saved report.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Todo item 1\n[ ] 1: Todo item 2\n[ ] 2: Todo item 3\n</plan>\n<step_info>Step4 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>9 links, 31 interactive, 0 iframes, 172 total elements</page_stats>\nCurrent tab: 3CEB\nAvailable tabs:\nTab 3CEB: http://10.0.1.172:8033/#/reports - Shopify - Web Performance Dash\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n*[10]<button id=sidebarToggle aria-label=Toggle sidebar />\n\t*[63]<span />\n<svg /> <!-- SVG content collapsed -->\n*[77]<span />\n\tShopify\n[11]<div id=currentUserAvatar />\n\tJR\nJordan Rivera\njordan@urbanthreads.com\n*[101]<div />\n\tSettings\n*[106]<div />\n\tSign out\n*[12]<a />\n\tDashboard\nOnline Store\n*[13]<a />\n\tThemes\n*[14]<a />\n\tApps\n*[15]<a />\n\tPages\nAnalytics\n*[16]<a />\n\tReports\n*[17]<a />\n\tOptimizations\n*[18]<a />\n\tAlerts\n*[19]<a />\n\tEvents\nConfiguration\n*[20]<a />\n\tSettings\nReports\nWeb performance reports for your online store\n*[919]<button id=createReportBtn />\n\tSave Custom Report\nWeb Performance Reports\n*[924]<div />\n\tLargest Contentful Paint: Over Time\n*[927]<div />\n\tInteraction to Next Paint: Over Time\n*[930]<div />\n\tCumulative Layout Shift: Over Time\n*[933]<div />\n\tLargest Contentful Paint: Page URL\n*[936]<div />\n\tInteraction to Next Paint: Page URL\n*[939]<div />\n\tCumulative Layout Shift: Page URL\n*[942]<div />\n\tLargest Contentful Paint: Page Type\n*[945]<div />\n\tInteraction to Next Paint: Page Type\n*[948]<div />\n\tCumulative Layout Shift: Page Type\nSaved Reports\n*[956]<div />\n\tMobile LCP Weekly\n\tLCP \u00b7 over time \u00b7 mobile \u00b7 last 7 days\n*[959]<button />\n\tDelete\n*[961]<div />\n\tDesktop INP by Page Type\n\tINP \u00b7 by page type \u00b7 desktop \u00b7 last 30 days\n*[964]<button />\n\tDelete\n*[966]<div />\n\tHomepage Performance Trend\n\tLCP \u00b7 over time \u00b7 all \u00b7 last 30 days\n*[969]<button />\n\tDelete\nReport deleted\n[End of page]\n</browser_state>\n"
+    }
+  ]
+}

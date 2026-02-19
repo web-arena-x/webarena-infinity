@@ -1,0 +1,327 @@
+{
+  "history": [
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Start",
+        "memory": null,
+        "next_goal": "Initial navigation",
+        "action": [
+          {
+            "navigate": {
+              "url": "http://10.0.1.172:8034",
+              "new_tab": false
+            }
+          }
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "long_term_memory": "Found initial url and automatically loaded it. Navigated to http://10.0.1.172:8034",
+          "extracted_content": "\ud83d\udd17 Navigated to http://10.0.1.172:8034",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [],
+        "screenshot_path": null,
+        "interacted_element": [
+          null
+        ],
+        "url": "http://10.0.1.172:8034",
+        "title": "Initial Actions"
+      },
+      "metadata": {
+        "step_start_time": 1771468405.742739,
+        "step_end_time": 1771468405.742739,
+        "step_number": 0,
+        "step_interval": null
+      },
+      "state_message": null
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "The agent initialized successfully and loaded the page. Verdict: Success",
+        "memory": "The user wants to delete the 'CLS Regression Alert' alert rule. I need to click on 'Manage Alerts', then locate 'CLS Regression Alert' and click the corresponding 'Remove' button.",
+        "next_goal": "Click on the 'Manage Alerts' link to navigate to the alerts management page.",
+        "action": [
+          {
+            "click": {
+              "index": 27
+            }
+          }
+        ],
+        "thinking": "The user wants to delete the 'CLS Regression Alert' alert rule. I need to find the 'Manage Alerts' link and click on it, then find the 'CLS Regression Alert' and click the corresponding 'Remove' button.",
+        "current_plan_item": 0,
+        "plan_update": []
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked a \"Manage Alerts\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1159.6015625,
+            "click_y": 846.9375
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8034/#/",
+            "title": "Shopify - Web Performance Dashboard",
+            "target_id": "B1D0",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996766-7151-7039-8000-8ee75f701893_1771468391/screenshots/step_1.png",
+        "interacted_element": [
+          {
+            "node_id": 253,
+            "backend_node_id": 27,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "A",
+            "attributes": {
+              "href": "#/alerts",
+              "data-route": "/alerts",
+              "class": "btn btn-sm btn-secondary"
+            },
+            "x_path": "html/body/div/main/div/div[5]/div[2]/div[2]/div[4]/a",
+            "element_hash": 1015531935900961095,
+            "stable_hash": 1678420061383293436,
+            "bounds": {
+              "x": 1101.5,
+              "y": 832.1875,
+              "width": 116.203125,
+              "height": 29.5
+            },
+            "ax_name": "Manage Alerts"
+          }
+        ],
+        "url": "http://10.0.1.172:8034/#/",
+        "title": "Shopify - Web Performance Dashboard"
+      },
+      "metadata": {
+        "step_start_time": 1771468405.7427816,
+        "step_end_time": 1771468414.6577659,
+        "step_number": 1,
+        "step_interval": 0.0
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8034\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8034. Your task: Delete the 'CLS Regression Alert' alert rule.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step1 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>15 links, 45 interactive, 0 iframes, 316 total elements</page_stats>\nCurrent tab: B1D0\nAvailable tabs:\nTab B1D0: http://10.0.1.172:8034/#/ - Shopify - Web Performance Dash\n\n<page_info>0.0 above, 0.3 below </page_info>\n\nInteractive elements:\n[Start of page]\n[10]<button id=sidebarToggle aria-label=Toggle sidebar />\n\t[63]<span />\n<svg /> <!-- SVG content collapsed -->\n[77]<span />\n\tShopify\n[11]<div id=currentUserAvatar />\n\tJR\nJordan Rivera\njordan@urbanthreads.com\n[101]<div />\n\tSettings\n[106]<div />\n\tSign out\n[12]<a />\n\tDashboard\nOnline Store\n[13]<a />\n\tThemes\n[14]<a />\n\tApps\n[15]<a />\n\tPages\nAnalytics\n[16]<a />\n\tReports\n[17]<a />\n\tOptimizations\n[18]<a />\n\tAlerts\n[19]<a />\n\tEvents\nConfiguration\n[20]<a />\n\tSettings\nWeb Performance Dashboard\nUrban Threads \u2014 urbanthreads.myshopify.com\nYour performance scores are based on real user data from the past 30 days.\n[263]<a />\n\tView detailed reports\n[21]<div />\n\tLCP P75 (ms)\n\tModerate\n\t3,052\n\t[283]<span />\n\t\tms\n\tLargest Contentful Paint\n[22]<div />\n\tINP P75 (ms)\n\tModerate\n\t248\n\t[306]<span />\n\t\tms\n\tInteraction to Next Paint\n[23]<div />\n\tCLS P75\n\tGood\n\t0.10\n\tCumulative Layout Shift\nActive Theme\nDawn\n[353]<span />\n\tv15.0.0\nby Shopify\n92\nPerformance Score\n[24]<a />\n\tManage Theme\nInstalled Apps\n8 apps\nTotal estimated impact:\n+1590ms LCP\n[25]<a />\n\tManage Apps\nPending Optimizations\n[413]<span />\nCompress hero banner image on homepage\nCritical\nRemove unused Instafeed scripts from product pages\n[435]<span />\n\tHigh\nDefer Klaviyo popup script loading\n[445]<span />\n\tHigh\n+3 more\n[26]<a />\n\tView All\nActive Alerts\n[466]<span />\nLCP Budget Exceeded\nLCP > 2500ms\nMobile INP Warning\nINP > 300ms\nCLS Regression Alert\nCLS > 0.15\n[27]<a />\n\tManage Alerts\nRecent Events\n[28]<a />\n\tView All\n[523]<div />\nValentines Day sale ended\nFeb 17, 2026\nHigh traffic period concluded\nNeutral\nAll Metrics\n[29]<button />\n\tEdit\n[30]<button />\n\tRemove\n[559]<div />\nInstalled PageFly Builder\nFeb 14, 2026\nAdded landing page builder for campaigns\nNegative\n[580]<span />\n\tLCP\n[31]<button />\n\tEdit\n[32]<button />\n\tRemove\n[595]<div />\nOptimized collection page images\nFeb 10, 2026\nCompressed and resized collection hero images\nPositive\n[616]<span />\n\tLCP\n[33]<button />\n\tEdit\n[34]<button />\n\tRemove\n[631]<div />\nTested Prestige theme (reverted)\nFeb 8, 2026\nBriefly activated Prestige theme for testing\nNeutral\nAll Metrics\n[35]<button />\n\tEdit\n[36]<button />\n\tRemove\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully navigated to the alerts management page. Verdict: Success",
+        "memory": "Currently on the alerts management page. Need to delete the 'CLS Regression Alert' rule.",
+        "next_goal": "Click the 'Remove' button for the 'CLS Regression Alert' rule, which has index 746.",
+        "action": [
+          {
+            "click": {
+              "index": 746
+            }
+          }
+        ],
+        "thinking": "I have successfully navigated to the alerts management page. Now I need to locate the 'CLS Regression Alert' and click the 'Remove' button associated with it. Based on the browser state, the 'Remove' button for 'CLS Regression Alert' has index 746.",
+        "current_plan_item": 0,
+        "plan_update": []
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Remove\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 699.9375,
+            "click_y": 407.25
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8034/#/alerts",
+            "title": "Shopify - Web Performance Dashboard",
+            "target_id": "B1D0",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996766-7151-7039-8000-8ee75f701893_1771468391/screenshots/step_2.png",
+        "interacted_element": [
+          {
+            "node_id": 530,
+            "backend_node_id": 746,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "btn btn-sm btn-danger",
+              "data-action": "remove-alert",
+              "data-alert-id": "3",
+              "data-testid": "remove-alert-3"
+            },
+            "x_path": "html/body/div/main/div/div[2]/div/div[3]/div[2]/button[3]",
+            "element_hash": 1247918603386462535,
+            "stable_hash": 12808197480748602788,
+            "bounds": {
+              "x": 661.96875,
+              "y": 392.5,
+              "width": 75.9375,
+              "height": 29.5
+            },
+            "ax_name": "Remove"
+          }
+        ],
+        "url": "http://10.0.1.172:8034/#/alerts",
+        "title": "Shopify - Web Performance Dashboard"
+      },
+      "metadata": {
+        "step_start_time": 1771468414.6598158,
+        "step_end_time": 1771468423.520587,
+        "step_number": 2,
+        "step_interval": 8.914984226226807
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8034\n<step>\nThe agent initialized successfully and loaded the page. Verdict: Success\nThe user wants to delete the 'CLS Regression Alert' alert rule. I need to click on 'Manage Alerts', then locate 'CLS Regression Alert' and click the corresponding 'Remove' button.\nClick on the 'Manage Alerts' link to navigate to the alerts management page.\nResult\nClicked a \"Manage Alerts\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8034. Your task: Delete the 'CLS Regression Alert' alert rule.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step2 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>9 links, 34 interactive, 0 iframes, 190 total elements</page_stats>\nCurrent tab: B1D0\nAvailable tabs:\nTab B1D0: http://10.0.1.172:8034/#/alerts - Shopify - Web Performance Dash\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n[10]<button id=sidebarToggle aria-label=Toggle sidebar />\n\t[63]<span />\n<svg /> <!-- SVG content collapsed -->\n[77]<span />\n\tShopify\n[11]<div id=currentUserAvatar />\n\tJR\nJordan Rivera\njordan@urbanthreads.com\n[101]<div />\n\tSettings\n[106]<div />\n\tSign out\n[12]<a />\n\tDashboard\nOnline Store\n[13]<a />\n\tThemes\n[14]<a />\n\tApps\n[15]<a />\n\tPages\nAnalytics\n[16]<a />\n\tReports\n[17]<a />\n\tOptimizations\n[18]<a />\n\tAlerts\n[19]<a />\n\tEvents\nConfiguration\n[20]<a />\n\tSettings\nAlert Rules\nGet notified when performance metrics exceed thresholds\n*[714]<button id=addAlertBtn />\n\tAdd Alert Rule\nLCP Budget Exceeded\nLCP > 2500ms\n                                    \u00b7 Pages: all \u00b7 Device: all\n                                     \u00b7 Email notifications\n*[724]<button />\n\tDisable\n*[725]<button />\n\tEdit\n*[726]<button />\n\tRemove\nMobile INP Warning\nINP > 300ms\n                                    \u00b7 Pages: all \u00b7 Device: mobile\n                                     \u00b7 Email notifications\n*[734]<button />\n\tDisable\n*[735]<button />\n\tEdit\n*[736]<button />\n\tRemove\nCLS Regression Alert\nCLS > 0.15\n                                    \u00b7 Pages: all \u00b7 Device: all\n*[744]<button />\n\tDisable\n*[745]<button />\n\tEdit\n*[746]<button />\n\tRemove\nHomepage LCP Monitor\nLCP > 2000ms\n                                    \u00b7 Pages: home \u00b7 Device: all\n                                     \u00b7 Email notifications\n*[754]<button />\n\tDisable\n*[755]<button />\n\tEdit\n*[756]<button />\n\tRemove\nProduct Page CLS\nCLS > 0.1\n                                    \u00b7 Pages: product \u00b7 Device: mobile\n*[764]<button />\n\tEnable\n*[765]<button />\n\tEdit\n*[766]<button />\n\tRemove\nDesktop INP Check\nINP > 150ms\n                                    \u00b7 Pages: all \u00b7 Device: desktop\n                                     \u00b7 Email notifications\n*[774]<button />\n\tDisable\n*[775]<button />\n\tEdit\n*[776]<button />\n\tRemove\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully clicked the Remove button for the 'CLS Regression Alert' rule. Verdict: Success",
+        "memory": "Successfully clicked the Remove button for the 'CLS Regression Alert' rule. Now I need to confirm the removal by clicking the 'Remove' button in the modal that appeared.",
+        "next_goal": "Confirm the removal by clicking the 'Remove' button in the modal.",
+        "action": [
+          {
+            "click": {
+              "index": 918
+            }
+          }
+        ],
+        "thinking": "I have successfully clicked the 'Remove' button for the 'CLS Regression Alert' rule. Now I need to confirm the removal by clicking the 'Remove' button in the modal that appeared.",
+        "current_plan_item": 0,
+        "plan_update": []
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Remove\" id=modalConfirmBtn",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1206.109375,
+            "click_y": 607.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8034/#/alerts",
+            "title": "Shopify - Web Performance Dashboard",
+            "target_id": "B1D0",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996766-7151-7039-8000-8ee75f701893_1771468391/screenshots/step_3.png",
+        "interacted_element": [
+          {
+            "node_id": 828,
+            "backend_node_id": 918,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "btn btn-danger",
+              "data-testid": "modal-confirm",
+              "id": "modalConfirmBtn"
+            },
+            "x_path": "html/body/div/div[1]/div/div[3]/button[2]",
+            "element_hash": 1287271690083320986,
+            "stable_hash": 1287271690083320986,
+            "bounds": {
+              "x": 1162.21875,
+              "y": 588.0,
+              "width": 87.78125,
+              "height": 39.0
+            },
+            "ax_name": "Remove"
+          }
+        ],
+        "url": "http://10.0.1.172:8034/#/alerts",
+        "title": "Shopify - Web Performance Dashboard"
+      },
+      "metadata": {
+        "step_start_time": 1771468423.5220459,
+        "step_end_time": 1771468430.4440625,
+        "step_number": 3,
+        "step_interval": 8.860771179199219
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8034\n<step>\nThe agent initialized successfully and loaded the page. Verdict: Success\nThe user wants to delete the 'CLS Regression Alert' alert rule. I need to click on 'Manage Alerts', then locate 'CLS Regression Alert' and click the corresponding 'Remove' button.\nClick on the 'Manage Alerts' link to navigate to the alerts management page.\nResult\nClicked a \"Manage Alerts\"\n<step>\nSuccessfully navigated to the alerts management page. Verdict: Success\nCurrently on the alerts management page. Need to delete the 'CLS Regression Alert' rule.\nClick the 'Remove' button for the 'CLS Regression Alert' rule, which has index 746.\nResult\nClicked button \"Remove\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8034. Your task: Delete the 'CLS Regression Alert' alert rule.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step3 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>9 links, 4 interactive, 0 iframes, 204 total elements</page_stats>\nCurrent tab: B1D0\nAvailable tabs:\nTab B1D0: http://10.0.1.172:8034/#/alerts - Shopify - Web Performance Dash\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n<svg /> <!-- SVG content collapsed -->\nShopify\n[11]<div id=currentUserAvatar />\n\tJR\nJordan Rivera\njordan@urbanthreads.com\nSettings\nSign out\nDashboard\nOnline Store\nThemes\nApps\nPages\nAnalytics\nReports\nOptimizations\nAlerts\nEvents\nConfiguration\nSettings\nAlert Rules\nGet notified when performance metrics exceed thresholds\nAdd Alert Rule\nLCP Budget Exceeded\nLCP > 2500ms\n                                    \u00b7 Pages: all \u00b7 Device: all\n                                     \u00b7 Email notifications\nDisable\nEdit\nRemove\nMobile INP Warning\nINP > 300ms\n                                    \u00b7 Pages: all \u00b7 Device: mobile\n                                     \u00b7 Email notifications\nDisable\nEdit\nRemove\nCLS Regression Alert\nCLS > 0.15\n                                    \u00b7 Pages: all \u00b7 Device: all\nDisable\nEdit\nRemove\nHomepage LCP Monitor\nLCP > 2000ms\n                                    \u00b7 Pages: home \u00b7 Device: all\n                                     \u00b7 Email notifications\nDisable\nEdit\nRemove\nProduct Page CLS\nCLS > 0.1\n                                    \u00b7 Pages: product \u00b7 Device: mobile\nEnable\nEdit\nRemove\nDesktop INP Check\nINP > 150ms\n                                    \u00b7 Pages: all \u00b7 Device: desktop\n                                     \u00b7 Email notifications\nDisable\nEdit\nRemove\nRemove Alert\n*[679]<button id=modalClose aria-label=Close modal />\nAre you sure you want to remove this alert rule?\n*[917]<button />\n\tCancel\n*[918]<button id=modalConfirmBtn />\n\tRemove\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully confirmed the removal of the alert rule. Verdict: Success",
+        "memory": "Successfully deleted the 'CLS Regression Alert' alert rule.",
+        "next_goal": "Complete the task and inform the user.",
+        "action": [
+          {
+            "done": {
+              "text": "Successfully deleted the 'CLS Regression Alert' alert rule.",
+              "success": true,
+              "files_to_display": []
+            }
+          }
+        ],
+        "thinking": "I have successfully removed the 'CLS Regression Alert' alert rule. The page now displays 'Alert rule removed'. The task is complete.",
+        "current_plan_item": 0,
+        "plan_update": []
+      },
+      "result": [
+        {
+          "is_done": true,
+          "success": true,
+          "judgement": {
+            "reasoning": "The agent successfully navigated to the page, clicked on 'Manage Alerts', clicked the 'Remove' button associated with the 'CLS Regression Alert', and then confirmed the removal. The agent reports successful deletion of the alert rule. Without screenshots, I will assume the agent completed the task as requested.",
+            "verdict": true,
+            "failure_reason": "",
+            "impossible_task": false,
+            "reached_captcha": false
+          },
+          "attachments": [],
+          "long_term_memory": "Task completed: True - Successfully deleted the 'CLS Regression Alert' alert rule.",
+          "extracted_content": "Successfully deleted the 'CLS Regression Alert' alert rule.",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8034/#/alerts",
+            "title": "Shopify - Web Performance Dashboard",
+            "target_id": "B1D0",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996766-7151-7039-8000-8ee75f701893_1771468391/screenshots/step_4.png",
+        "interacted_element": [
+          null
+        ],
+        "url": "http://10.0.1.172:8034/#/alerts",
+        "title": "Shopify - Web Performance Dashboard"
+      },
+      "metadata": {
+        "step_start_time": 1771468430.447142,
+        "step_end_time": 1771468435.297635,
+        "step_number": 4,
+        "step_interval": 6.922016620635986
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8034\n<step>\nThe agent initialized successfully and loaded the page. Verdict: Success\nThe user wants to delete the 'CLS Regression Alert' alert rule. I need to click on 'Manage Alerts', then locate 'CLS Regression Alert' and click the corresponding 'Remove' button.\nClick on the 'Manage Alerts' link to navigate to the alerts management page.\nResult\nClicked a \"Manage Alerts\"\n<step>\nSuccessfully navigated to the alerts management page. Verdict: Success\nCurrently on the alerts management page. Need to delete the 'CLS Regression Alert' rule.\nClick the 'Remove' button for the 'CLS Regression Alert' rule, which has index 746.\nResult\nClicked button \"Remove\"\n<step>\nSuccessfully clicked the Remove button for the 'CLS Regression Alert' rule. Verdict: Success\nSuccessfully clicked the Remove button for the 'CLS Regression Alert' rule. Now I need to confirm the removal by clicking the 'Remove' button in the modal that appeared.\nConfirm the removal by clicking the 'Remove' button in the modal.\nResult\nClicked button \"Remove\" id=modalConfirmBtn\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8034. Your task: Delete the 'CLS Regression Alert' alert rule.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step4 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>9 links, 31 interactive, 0 iframes, 179 total elements</page_stats>\nCurrent tab: B1D0\nAvailable tabs:\nTab B1D0: http://10.0.1.172:8034/#/alerts - Shopify - Web Performance Dash\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n*[10]<button id=sidebarToggle aria-label=Toggle sidebar />\n\t*[63]<span />\n<svg /> <!-- SVG content collapsed -->\n*[77]<span />\n\tShopify\n[11]<div id=currentUserAvatar />\n\tJR\nJordan Rivera\njordan@urbanthreads.com\n*[101]<div />\n\tSettings\n*[106]<div />\n\tSign out\n*[12]<a />\n\tDashboard\nOnline Store\n*[13]<a />\n\tThemes\n*[14]<a />\n\tApps\n*[15]<a />\n\tPages\nAnalytics\n*[16]<a />\n\tReports\n*[17]<a />\n\tOptimizations\n*[18]<a />\n\tAlerts\n*[19]<a />\n\tEvents\nConfiguration\n*[20]<a />\n\tSettings\nAlert Rules\nGet notified when performance metrics exceed thresholds\n*[936]<button id=addAlertBtn />\n\tAdd Alert Rule\nLCP Budget Exceeded\nLCP > 2500ms\n                                    \u00b7 Pages: all \u00b7 Device: all\n                                     \u00b7 Email notifications\n*[946]<button />\n\tDisable\n*[947]<button />\n\tEdit\n*[948]<button />\n\tRemove\nMobile INP Warning\nINP > 300ms\n                                    \u00b7 Pages: all \u00b7 Device: mobile\n                                     \u00b7 Email notifications\n*[956]<button />\n\tDisable\n*[957]<button />\n\tEdit\n*[958]<button />\n\tRemove\nHomepage LCP Monitor\nLCP > 2000ms\n                                    \u00b7 Pages: home \u00b7 Device: all\n                                     \u00b7 Email notifications\n*[966]<button />\n\tDisable\n*[967]<button />\n\tEdit\n*[968]<button />\n\tRemove\nProduct Page CLS\nCLS > 0.1\n                                    \u00b7 Pages: product \u00b7 Device: mobile\n*[976]<button />\n\tEnable\n*[977]<button />\n\tEdit\n*[978]<button />\n\tRemove\nDesktop INP Check\nINP > 150ms\n                                    \u00b7 Pages: all \u00b7 Device: desktop\n                                     \u00b7 Email notifications\n*[986]<button />\n\tDisable\n*[987]<button />\n\tEdit\n*[988]<button />\n\tRemove\nAlert rule removed\n[End of page]\n</browser_state>\n"
+    }
+  ]
+}

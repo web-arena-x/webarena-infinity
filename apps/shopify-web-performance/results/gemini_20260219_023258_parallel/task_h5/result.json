@@ -1,0 +1,30 @@
+{
+  "task_id": "task_h5",
+  "difficulty": "hard",
+  "instruction": "Create a new optimization with title 'Implement responsive images with srcset', metric 'LCP', priority 'Critical', category 'Images', page affected '/products/*', and estimated impact '400ms LCP improvement'. Then mark the existing 'Remove unused Instafeed scripts from product pages' optimization as completed.",
+  "passed": true,
+  "verifier_message": "New optimization created and existing optimization marked completed.",
+  "elapsed": 115.8,
+  "steps": 17,
+  "is_done": true,
+  "final_result": "Created a new optimization with title 'Implement responsive images with srcset', metric 'LCP', priority 'Critical', category 'Images', page affected '/products/*', and estimated impact '400ms LCP improvement'. Also, marked 'Remove unused Instafeed scripts from product pages' as completed.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

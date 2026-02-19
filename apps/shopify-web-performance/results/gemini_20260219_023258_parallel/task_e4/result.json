@@ -1,0 +1,18 @@
+{
+  "task_id": "task_e4",
+  "difficulty": "easy",
+  "instruction": "Delete the 'CLS Regression Alert' alert rule.",
+  "passed": true,
+  "verifier_message": "Alert rule 'CLS Regression Alert' deleted.",
+  "elapsed": 47.2,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully deleted the 'CLS Regression Alert' alert rule.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

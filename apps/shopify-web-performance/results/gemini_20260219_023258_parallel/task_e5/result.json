@@ -1,0 +1,18 @@
+{
+  "task_id": "task_e5",
+  "difficulty": "easy",
+  "instruction": "Delete the 'Product Page CLS Report' saved report.",
+  "passed": true,
+  "verifier_message": "Saved report 'Product Page CLS Report' deleted.",
+  "elapsed": 47.4,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully deleted the 'Product Page CLS Report'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

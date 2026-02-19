@@ -1,0 +1,20 @@
+{
+  "task_id": "task_h10",
+  "difficulty": "hard",
+  "instruction": "Uninstall both the 'Instafeed Instagram Feed' app and the 'Lucky Orange Analytics' app.",
+  "passed": true,
+  "verifier_message": "Both apps uninstalled successfully.",
+  "elapsed": 37.0,
+  "steps": 7,
+  "is_done": true,
+  "final_result": "Successfully uninstalled both 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

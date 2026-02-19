@@ -1,0 +1,472 @@
+{
+  "history": [
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Start",
+        "memory": null,
+        "next_goal": "Initial navigation",
+        "action": [
+          {
+            "navigate": {
+              "url": "http://10.0.1.172:8035",
+              "new_tab": false
+            }
+          }
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "long_term_memory": "Found initial url and automatically loaded it. Navigated to http://10.0.1.172:8035",
+          "extracted_content": "\ud83d\udd17 Navigated to http://10.0.1.172:8035",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [],
+        "screenshot_path": null,
+        "interacted_element": [
+          null
+        ],
+        "url": "http://10.0.1.172:8035",
+        "title": "Initial Actions"
+      },
+      "metadata": {
+        "step_start_time": 1771468639.169431,
+        "step_end_time": 1771468639.169431,
+        "step_number": 0,
+        "step_interval": null
+      },
+      "state_message": null
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully navigated to the initial URL. Verdict: Success",
+        "memory": "Navigated to the initial URL. Need to uninstall 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps.",
+        "next_goal": "Click on the 'Manage Apps' link to access the app management page.",
+        "action": [
+          {
+            "click": {
+              "index": 5826
+            }
+          }
+        ],
+        "thinking": "The user wants me to uninstall two apps from the Shopify web application. I need to find the 'Manage Apps' link and click it. Then I need to find the apps 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' and uninstall them.",
+        "current_plan_item": 0,
+        "plan_update": []
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked a \"Manage Apps\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1156.921875,
+            "click_y": 537.34375
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8035/#/",
+            "title": "Shopify - Web Performance Dashboard",
+            "target_id": "9F1D",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996775-9b29-762e-8000-53c868f546ed_1771468633/screenshots/step_1.png",
+        "interacted_element": [
+          {
+            "node_id": 10120,
+            "backend_node_id": 5826,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "A",
+            "attributes": {
+              "href": "#/apps",
+              "data-route": "/apps",
+              "class": "btn btn-sm btn-secondary"
+            },
+            "x_path": "html/body/div/main/div/div[4]/div[2]/div[2]/div[2]/a",
+            "element_hash": 815557341411890426,
+            "stable_hash": 6436717319682271143,
+            "bounds": {
+              "x": 1101.5,
+              "y": 522.59375,
+              "width": 110.84375,
+              "height": 29.5
+            },
+            "ax_name": "Manage Apps"
+          }
+        ],
+        "url": "http://10.0.1.172:8035/#/",
+        "title": "Shopify - Web Performance Dashboard"
+      },
+      "metadata": {
+        "step_start_time": 1771468639.1694798,
+        "step_end_time": 1771468644.8944924,
+        "step_number": 1,
+        "step_interval": 0.0
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8035\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8035. Your task: Uninstall both the 'Instafeed Instagram Feed' app and the 'Lucky Orange Analytics' app.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step1 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>15 links, 45 interactive, 0 iframes, 316 total elements</page_stats>\nCurrent tab: 9F1D\nAvailable tabs:\nTab 9F1D: http://10.0.1.172:8035/#/ - Shopify - Web Performance Dash\n\n<page_info>0.0 above, 0.3 below </page_info>\n\nInteractive elements:\n[Start of page]\n[5811]<button id=sidebarToggle aria-label=Toggle sidebar />\n\t[5864]<span />\n<svg /> <!-- SVG content collapsed -->\n[5878]<span />\n\tShopify\n[5812]<div id=currentUserAvatar />\n\tJR\nJordan Rivera\njordan@urbanthreads.com\n[5902]<div />\n\tSettings\n[5907]<div />\n\tSign out\n[5813]<a />\n\tDashboard\nOnline Store\n[5814]<a />\n\tThemes\n[5815]<a />\n\tApps\n[5816]<a />\n\tPages\nAnalytics\n[5817]<a />\n\tReports\n[5818]<a />\n\tOptimizations\n[5819]<a />\n\tAlerts\n[5820]<a />\n\tEvents\nConfiguration\n[5821]<a />\n\tSettings\nWeb Performance Dashboard\nUrban Threads \u2014 urbanthreads.myshopify.com\nYour performance scores are based on real user data from the past 30 days.\n[6064]<a />\n\tView detailed reports\n[5822]<div />\n\tLCP P75 (ms)\n\tModerate\n\t3,052\n\t[6084]<span />\n\t\tms\n\tLargest Contentful Paint\n[5823]<div />\n\tINP P75 (ms)\n\tModerate\n\t248\n\t[6107]<span />\n\t\tms\n\tInteraction to Next Paint\n[5824]<div />\n\tCLS P75\n\tGood\n\t0.10\n\tCumulative Layout Shift\nActive Theme\nDawn\n[6154]<span />\n\tv15.0.0\nby Shopify\n92\nPerformance Score\n[5825]<a />\n\tManage Theme\nInstalled Apps\n8 apps\nTotal estimated impact:\n+1590ms LCP\n[5826]<a />\n\tManage Apps\nPending Optimizations\n[6214]<span />\nCompress hero banner image on homepage\nCritical\nRemove unused Instafeed scripts from product pages\n[6236]<span />\n\tHigh\nDefer Klaviyo popup script loading\n[6246]<span />\n\tHigh\n+3 more\n[5827]<a />\n\tView All\nActive Alerts\n[6267]<span />\nLCP Budget Exceeded\nLCP > 2500ms\nMobile INP Warning\nINP > 300ms\nCLS Regression Alert\nCLS > 0.15\n[5828]<a />\n\tManage Alerts\nRecent Events\n[5829]<a />\n\tView All\n[6324]<div />\nValentines Day sale ended\nFeb 17, 2026\nHigh traffic period concluded\nNeutral\nAll Metrics\n[5830]<button />\n\tEdit\n[5831]<button />\n\tRemove\n[6360]<div />\nInstalled PageFly Builder\nFeb 14, 2026\nAdded landing page builder for campaigns\nNegative\n[6381]<span />\n\tLCP\n[5832]<button />\n\tEdit\n[5833]<button />\n\tRemove\n[6396]<div />\nOptimized collection page images\nFeb 10, 2026\nCompressed and resized collection hero images\nPositive\n[6417]<span />\n\tLCP\n[5834]<button />\n\tEdit\n[5835]<button />\n\tRemove\n[6432]<div />\nTested Prestige theme (reverted)\nFeb 8, 2026\nBriefly activated Prestige theme for testing\nNeutral\nAll Metrics\n[5836]<button />\n\tEdit\n[5837]<button />\n\tRemove\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully navigated to the Apps page. Verdict: Success",
+        "memory": "Currently on the Apps page. Need to uninstall 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps.",
+        "next_goal": "Click the 'Uninstall' button for the 'Instafeed Instagram Feed' app.",
+        "action": [
+          {
+            "click": {
+              "index": 6623
+            }
+          }
+        ],
+        "thinking": "I have successfully navigated to the Apps page. Now I need to uninstall the 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps. I will start by uninstalling 'Instafeed Instagram Feed'.",
+        "current_plan_item": 0
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Uninstall\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1561.8359375,
+            "click_y": 887.0
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8035/#/apps",
+            "title": "Shopify - Web Performance Dashboard",
+            "target_id": "9F1D",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996775-9b29-762e-8000-53c868f546ed_1771468633/screenshots/step_2.png",
+        "interacted_element": [
+          {
+            "node_id": 10592,
+            "backend_node_id": 6623,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "btn btn-sm btn-danger",
+              "data-testid": "uninstall-app-6",
+              "data-action": "uninstall-app",
+              "data-app-id": "6"
+            },
+            "x_path": "html/body/div/main/div/div[3]/div[2]/div[6]/div[4]/button",
+            "element_hash": 7060543665237417468,
+            "stable_hash": 3155444505990080712,
+            "bounds": {
+              "x": 1521.171875,
+              "y": 872.25,
+              "width": 81.328125,
+              "height": 29.5
+            },
+            "ax_name": "Uninstall"
+          }
+        ],
+        "url": "http://10.0.1.172:8035/#/apps",
+        "title": "Shopify - Web Performance Dashboard"
+      },
+      "metadata": {
+        "step_start_time": 1771468644.8960717,
+        "step_end_time": 1771468650.1911197,
+        "step_number": 2,
+        "step_interval": 5.725012540817261
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8035\n<step>\nSuccessfully navigated to the initial URL. Verdict: Success\nNavigated to the initial URL. Need to uninstall 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps.\nClick on the 'Manage Apps' link to access the app management page.\nResult\nClicked a \"Manage Apps\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8035. Your task: Uninstall both the 'Instafeed Instagram Feed' app and the 'Lucky Orange Analytics' app.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step2 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>17 links, 69 interactive, 0 iframes, 372 total elements</page_stats>\nCurrent tab: 9F1D\nAvailable tabs:\nTab 9F1D: http://10.0.1.172:8035/#/apps - Shopify - Web Performance Dash\n\n<page_info>0.0 above, 0.4 below </page_info>\n\nInteractive elements:\n[Start of page]\n[5811]<button id=sidebarToggle aria-label=Toggle sidebar />\n\t[5864]<span />\n<svg /> <!-- SVG content collapsed -->\n[5878]<span />\n\tShopify\n[5812]<div id=currentUserAvatar />\n\tJR\nJordan Rivera\njordan@urbanthreads.com\n[5902]<div />\n\tSettings\n[5907]<div />\n\tSign out\n[5813]<a />\n\tDashboard\nOnline Store\n[5814]<a />\n\tThemes\n[5815]<a />\n\tApps\n[5816]<a />\n\tPages\nAnalytics\n[5817]<a />\n\tReports\n[5818]<a />\n\tOptimizations\n[5819]<a />\n\tAlerts\n[5820]<a />\n\tEvents\nConfiguration\n[5821]<a />\n\tSettings\nApps\nManage installed apps and their performance impact\nApps can significantly impact your store performance. Review each app's performance impact and remove apps that aren't providing enough value.\nInstalled Apps (8)\nTotal LCP impact:\n+1590ms\n*[6523]<div />\nLoox Product Reviews\nLoox \u00b7 Reviews\nCollect photo reviews and boost social proof\nLCP:\n*[6531]<span />\n\t+180ms\nINP:\n*[6533]<span />\n\t+35ms\nCLS:\n*[6535]<span />\n\t+0.02\n*[6537]<a />\n\tSettings\n*[6538]<button />\n\tUninstall\n*[6540]<div />\nKlaviyo Email Marketing\nKlaviyo \u00b7 Marketing\nEmail marketing automation and segmentation\nLCP:\n*[6548]<span />\n\t+120ms\nINP:\n*[6550]<span />\n\t+80ms\nCLS:\n*[6552]<span />\n\t+0.01\n*[6554]<a />\n\tSettings\n*[6555]<button />\n\tUninstall\n*[6557]<div />\nRebuy Personalization\nRebuy Engine \u00b7 Conversion\nAI-powered product recommendations and upsells\nLCP:\n*[6565]<span />\n\t+250ms\nINP:\n*[6567]<span />\n\t+60ms\nCLS:\n*[6569]<span />\n\t+0.04\n*[6571]<a />\n\tSettings\n*[6572]<button />\n\tUninstall\n*[6574]<div />\nHotjar Behavior Analytics\nHotjar \u00b7 Analytics\nHeatmaps, recordings, and user behavior analytics\nLCP:\n*[6582]<span />\n\t+90ms\nINP:\n*[6584]<span />\n\t+110ms\nCLS:\n*[6586]<span />\n\t+0.00\n*[6588]<a />\n\tSettings\n*[6589]<button />\n\tUninstall\n*[6591]<div />\nPrivy Pop Ups\nPrivy \u00b7 Marketing\nPop ups, banners, and email capture\nLCP:\n*[6599]<span />\n\t+200ms\nINP:\n*[6601]<span />\n\t+45ms\nCLS:\n*[6603]<span />\n\t+0.08\n*[6605]<a />\n\tSettings\n*[6606]<button />\n\tUninstall\n*[6608]<div />\nInstafeed Instagram Feed\nMintt Studio \u00b7 Social Media\nDisplay Instagram feed on your store\nLCP:\n*[6616]<span />\n\t+320ms\nINP:\n*[6618]<span />\n\t+25ms\nCLS:\n*[6620]<span />\n\t+0.06\n*[6622]<a />\n\tSettings\n*[6623]<button />\n\tUninstall\n*[6625]<div />\nLucky Orange Analytics\nLucky Orange \u00b7 Analytics\nSession recordings, heatmaps, and live chat\nLCP:\n*[6633]<span />\n\t+150ms\nINP:\n*[6635]<span />\n\t+95ms\nCLS:\n*[6637]<span />\n\t+0.01\n*[6639]<a />\n\tSettings\n*[6640]<button />\n\tUninstall\n*[6642]<div />\nPageFly Landing Page Builder\nPageFly \u00b7 Page Builder\nDrag and drop page builder for custom landing pages\nLCP:\n*[6650]<span />\n\t+280ms\nINP:\n*[6652]<span />\n\t+70ms\nCLS:\n*[6654]<span />\n\t+0.05\n*[6656]<a />\n\tSettings\n*[6657]<button />\n\tUninstall\nAvailable Apps\n*[6663]<div />\nYotpo Reviews & UGC\nYotpo \u00b7 Reviews\nCustomer reviews, photos, and Q&A\nEst. LCP:\n*[6671]<span />\n\t+160ms\n*[6673]<button />\n\tInstall\n*[6675]<div />\nGoogle Tag Manager\nGoogle \u00b7 Analytics\nTag management system for marketing and analytics tags\nEst. LCP:\n*[6683]<span />\n\t+100ms\n*[6685]<button />\n\tInstall\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully clicked the 'Uninstall' button for the 'Instafeed Instagram Feed' app, and a confirmation modal appeared. Verdict: Success",
+        "memory": "Currently uninstalling 'Instafeed Instagram Feed' app. Need to uninstall 'Lucky Orange Analytics' app after this. Modal is currently displayed.",
+        "next_goal": "Click the 'Uninstall' button in the confirmation modal to uninstall the 'Instafeed Instagram Feed' app.",
+        "action": [
+          {
+            "click": {
+              "index": 6999
+            }
+          }
+        ],
+        "thinking": "I am currently uninstalling the 'Instafeed Instagram Feed' app. The previous action clicked the 'Uninstall' button for this app, and now a modal has appeared asking for confirmation. I need to click the 'Uninstall' button in the modal to proceed with the uninstallation.",
+        "current_plan_item": 0
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Uninstall\" id=modalConfirmBtn",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1195.7109375,
+            "click_y": 618.0
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8035/#/apps",
+            "title": "Shopify - Web Performance Dashboard",
+            "target_id": "9F1D",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996775-9b29-762e-8000-53c868f546ed_1771468633/screenshots/step_3.png",
+        "interacted_element": [
+          {
+            "node_id": 11139,
+            "backend_node_id": 6999,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "btn btn-danger",
+              "data-testid": "modal-confirm",
+              "id": "modalConfirmBtn"
+            },
+            "x_path": "html/body/div/div[1]/div/div[3]/button[2]",
+            "element_hash": 2104916155584748557,
+            "stable_hash": 11328288192439524361,
+            "bounds": {
+              "x": 1148.921875,
+              "y": 598.5,
+              "width": 93.578125,
+              "height": 39.0
+            },
+            "ax_name": "Uninstall"
+          }
+        ],
+        "url": "http://10.0.1.172:8035/#/apps",
+        "title": "Shopify - Web Performance Dashboard"
+      },
+      "metadata": {
+        "step_start_time": 1771468650.192771,
+        "step_end_time": 1771468655.2903268,
+        "step_number": 3,
+        "step_interval": 5.295047998428345
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8035\n<step>\nSuccessfully navigated to the initial URL. Verdict: Success\nNavigated to the initial URL. Need to uninstall 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps.\nClick on the 'Manage Apps' link to access the app management page.\nResult\nClicked a \"Manage Apps\"\n<step>\nSuccessfully navigated to the Apps page. Verdict: Success\nCurrently on the Apps page. Need to uninstall 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps.\nClick the 'Uninstall' button for the 'Instafeed Instagram Feed' app.\nResult\nClicked button \"Uninstall\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8035. Your task: Uninstall both the 'Instafeed Instagram Feed' app and the 'Lucky Orange Analytics' app.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step3 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>17 links, 16 interactive, 0 iframes, 386 total elements</page_stats>\nCurrent tab: 9F1D\nAvailable tabs:\nTab 9F1D: http://10.0.1.172:8035/#/apps - Shopify - Web Performance Dash\n\n<page_info>0.0 above, 0.4 below </page_info>\n\nInteractive elements:\n[Start of page]\n<svg /> <!-- SVG content collapsed -->\nShopify\n[5812]<div id=currentUserAvatar />\n\tJR\nJordan Rivera\njordan@urbanthreads.com\nSettings\nSign out\nDashboard\nOnline Store\nThemes\nApps\nPages\nAnalytics\nReports\nOptimizations\nAlerts\nEvents\nConfiguration\nSettings\nApps\nManage installed apps and their performance impact\nApps can significantly impact your store performance. Review each app's performance impact and remove apps that aren't providing enough value.\nInstalled Apps (8)\nTotal LCP impact:\n+1590ms\nLoox Product Reviews\nLoox \u00b7 Reviews\nCollect photo reviews and boost social proof\nLCP:\n+180ms\nINP:\n+35ms\nCLS:\n+0.02\nSettings\nUninstall\nKlaviyo Email Marketing\nKlaviyo \u00b7 Marketing\nEmail marketing automation and segmentation\nLCP:\n+120ms\nINP:\n+80ms\nCLS:\n+0.01\nSettings\nUninstall\nRebuy Personalization\nRebuy Engine \u00b7 Conversion\nAI-powered product recommendations and upsells\nLCP:\n+250ms\nINP:\n+60ms\nCLS:\n+0.04\nSettings\nUninstall\nHotjar Behavior Analytics\nHotjar \u00b7 Analytics\nHeatmaps, recordings, and user behavior analytics\nLCP:\n+90ms\nINP:\n+110ms\nCLS:\n+0.00\nSettings\nUninstall\nPrivy Pop Ups\nPrivy \u00b7 Marketing\nPop ups, banners, and email capture\nLCP:\n+200ms\nINP:\n+45ms\nCLS:\n+0.08\nSettings\nUninstall\nInstafeed Instagram Feed\nMintt Studio \u00b7 Social Media\nDisplay Instagram feed on your store\nLCP:\n+320ms\nINP:\n+25ms\nCLS:\n+0.06\nSettings\nUninstall\nLucky Orange Analytics\nLucky Orange \u00b7 Analytics\nSession recordings, heatmaps, and live chat\nLCP:\n+150ms\nINP:\n+95ms\nCLS:\n+0.01\nSettings\nUninstall\n[6642]<div />\nPageFly Landing Page Builder\nPageFly \u00b7 Page Builder\nDrag and drop page builder for custom landing pages\nLCP:\n[6650]<span />\n\t+280ms\nINP:\n[6652]<span />\n\t+70ms\nCLS:\n[6654]<span />\n\t+0.05\n[6656]<a />\n\tSettings\n[6657]<button />\n\tUninstall\nAvailable Apps\n[6663]<div />\nYotpo Reviews & UGC\nYotpo \u00b7 Reviews\nCustomer reviews, photos, and Q&A\nEst. LCP:\n[6671]<span />\n\t+160ms\n[6673]<button />\n\tInstall\n[6675]<div />\nGoogle Tag Manager\nGoogle \u00b7 Analytics\nTag management system for marketing and analytics tags\nEst. LCP:\n[6683]<span />\n\t+100ms\n[6685]<button />\n\tInstall\nUninstall App\n*[6480]<button id=modalClose aria-label=Close modal />\nAre you sure you want to uninstall \"Instafeed Instagram Feed\"? This may improve your store's performance.\n*[6998]<button />\n\tCancel\n*[6999]<button id=modalConfirmBtn />\n\tUninstall\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully uninstalled the 'Instafeed Instagram Feed' app. Verdict: Success",
+        "memory": "Successfully uninstalled 'Instafeed Instagram Feed'. Now uninstalling 'Lucky Orange Analytics'.",
+        "next_goal": "Click the 'Uninstall' button for the 'Lucky Orange Analytics' app.",
+        "action": [
+          {
+            "click": {
+              "index": 7125
+            }
+          }
+        ],
+        "thinking": "The previous step successfully uninstalled the 'Instafeed Instagram Feed' app. Now, the next step is to uninstall the 'Lucky Orange Analytics' app. I will click the 'Uninstall' button associated with the 'Lucky Orange Analytics' app.",
+        "current_plan_item": 0
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Uninstall\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1561.8359375,
+            "click_y": 887.0
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8035/#/apps",
+            "title": "Shopify - Web Performance Dashboard",
+            "target_id": "9F1D",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996775-9b29-762e-8000-53c868f546ed_1771468633/screenshots/step_4.png",
+        "interacted_element": [
+          {
+            "node_id": 11457,
+            "backend_node_id": 7125,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "btn btn-sm btn-danger",
+              "data-testid": "uninstall-app-7",
+              "data-action": "uninstall-app",
+              "data-app-id": "7"
+            },
+            "x_path": "html/body/div/main/div/div[3]/div[2]/div[6]/div[4]/button",
+            "element_hash": 882143479179326218,
+            "stable_hash": 8603706326871155388,
+            "bounds": {
+              "x": 1521.171875,
+              "y": 872.25,
+              "width": 81.328125,
+              "height": 29.5
+            },
+            "ax_name": "Uninstall"
+          }
+        ],
+        "url": "http://10.0.1.172:8035/#/apps",
+        "title": "Shopify - Web Performance Dashboard"
+      },
+      "metadata": {
+        "step_start_time": 1771468655.2918658,
+        "step_end_time": 1771468661.2130485,
+        "step_number": 4,
+        "step_interval": 5.097555875778198
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8035\n<step>\nSuccessfully navigated to the initial URL. Verdict: Success\nNavigated to the initial URL. Need to uninstall 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps.\nClick on the 'Manage Apps' link to access the app management page.\nResult\nClicked a \"Manage Apps\"\n<step>\nSuccessfully navigated to the Apps page. Verdict: Success\nCurrently on the Apps page. Need to uninstall 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps.\nClick the 'Uninstall' button for the 'Instafeed Instagram Feed' app.\nResult\nClicked button \"Uninstall\"\n<step>\nSuccessfully clicked the 'Uninstall' button for the 'Instafeed Instagram Feed' app, and a confirmation modal appeared. Verdict: Success\nCurrently uninstalling 'Instafeed Instagram Feed' app. Need to uninstall 'Lucky Orange Analytics' app after this. Modal is currently displayed.\nClick the 'Uninstall' button in the confirmation modal to uninstall the 'Instafeed Instagram Feed' app.\nResult\nClicked button \"Uninstall\" id=modalConfirmBtn\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8035. Your task: Uninstall both the 'Instafeed Instagram Feed' app and the 'Lucky Orange Analytics' app.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step4 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>16 links, 66 interactive, 0 iframes, 366 total elements</page_stats>\nCurrent tab: 9F1D\nAvailable tabs:\nTab 9F1D: http://10.0.1.172:8035/#/apps - Shopify - Web Performance Dash\n\n<page_info>0.0 above, 0.4 below </page_info>\n\nInteractive elements:\n[Start of page]\n*[5811]<button id=sidebarToggle aria-label=Toggle sidebar />\n\t*[5864]<span />\n<svg /> <!-- SVG content collapsed -->\n*[5878]<span />\n\tShopify\n[5812]<div id=currentUserAvatar />\n\tJR\nJordan Rivera\njordan@urbanthreads.com\n*[5902]<div />\n\tSettings\n*[5907]<div />\n\tSign out\n*[5813]<a />\n\tDashboard\nOnline Store\n*[5814]<a />\n\tThemes\n*[5815]<a />\n\tApps\n*[5816]<a />\n\tPages\nAnalytics\n*[5817]<a />\n\tReports\n*[5818]<a />\n\tOptimizations\n*[5819]<a />\n\tAlerts\n*[5820]<a />\n\tEvents\nConfiguration\n*[5821]<a />\n\tSettings\nApps\nManage installed apps and their performance impact\nApps can significantly impact your store performance. Review each app's performance impact and remove apps that aren't providing enough value.\nInstalled Apps (7)\nTotal LCP impact:\n+1270ms\n*[7025]<div />\nLoox Product Reviews\nLoox \u00b7 Reviews\nCollect photo reviews and boost social proof\nLCP:\n*[7033]<span />\n\t+180ms\nINP:\n*[7035]<span />\n\t+35ms\nCLS:\n*[7037]<span />\n\t+0.02\n*[7039]<a />\n\tSettings\n*[7040]<button />\n\tUninstall\n*[7042]<div />\nKlaviyo Email Marketing\nKlaviyo \u00b7 Marketing\nEmail marketing automation and segmentation\nLCP:\n*[7050]<span />\n\t+120ms\nINP:\n*[7052]<span />\n\t+80ms\nCLS:\n*[7054]<span />\n\t+0.01\n*[7056]<a />\n\tSettings\n*[7057]<button />\n\tUninstall\n*[7059]<div />\nRebuy Personalization\nRebuy Engine \u00b7 Conversion\nAI-powered product recommendations and upsells\nLCP:\n*[7067]<span />\n\t+250ms\nINP:\n*[7069]<span />\n\t+60ms\nCLS:\n*[7071]<span />\n\t+0.04\n*[7073]<a />\n\tSettings\n*[7074]<button />\n\tUninstall\n*[7076]<div />\nHotjar Behavior Analytics\nHotjar \u00b7 Analytics\nHeatmaps, recordings, and user behavior analytics\nLCP:\n*[7084]<span />\n\t+90ms\nINP:\n*[7086]<span />\n\t+110ms\nCLS:\n*[7088]<span />\n\t+0.00\n*[7090]<a />\n\tSettings\n*[7091]<button />\n\tUninstall\n*[7093]<div />\nPrivy Pop Ups\nPrivy \u00b7 Marketing\nPop ups, banners, and email capture\nLCP:\n*[7101]<span />\n\t+200ms\nINP:\n*[7103]<span />\n\t+45ms\nCLS:\n*[7105]<span />\n\t+0.08\n*[7107]<a />\n\tSettings\n*[7108]<button />\n\tUninstall\n*[7110]<div />\nLucky Orange Analytics\nLucky Orange \u00b7 Analytics\nSession recordings, heatmaps, and live chat\nLCP:\n*[7118]<span />\n\t+150ms\nINP:\n*[7120]<span />\n\t+95ms\nCLS:\n*[7122]<span />\n\t+0.01\n*[7124]<a />\n\tSettings\n*[7125]<button />\n\tUninstall\n*[7127]<div />\nPageFly Landing Page Builder\nPageFly \u00b7 Page Builder\nDrag and drop page builder for custom landing pages\nLCP:\n*[7135]<span />\n\t+280ms\nINP:\n*[7137]<span />\n\t+70ms\nCLS:\n*[7139]<span />\n\t+0.05\n*[7141]<a />\n\tSettings\n*[7142]<button />\n\tUninstall\nAvailable Apps\n*[7148]<div />\nInstafeed Instagram Feed\nMintt Studio \u00b7 Social Media\nDisplay Instagram feed on your store\nEst. LCP:\n*[7156]<span />\n\t+320ms\n*[7158]<button />\n\tInstall\n*[7160]<div />\nYotpo Reviews & UGC\nYotpo \u00b7 Reviews\nCustomer reviews, photos, and Q&A\nEst. LCP:\n*[7168]<span />\n\t+160ms\n*[7170]<button />\n\tInstall\n*[7172]<div />\nGoogle Tag Manager\nGoogle \u00b7 Analytics\nTag management system for marketing and analytics tags\nEst. LCP:\n*[7180]<span />\n\t+100ms\n*[7182]<button />\n\tInstall\n\"Instafeed Instagram Feed\" uninstalled\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully clicked the 'Uninstall' button for the 'Lucky Orange Analytics' app, and a confirmation modal appeared. Verdict: Success",
+        "memory": "Successfully uninstalled 'Instafeed Instagram Feed'. Currently uninstalling 'Lucky Orange Analytics'.",
+        "next_goal": "Click the 'Uninstall' button in the confirmation modal to uninstall the 'Lucky Orange Analytics' app.",
+        "action": [
+          {
+            "click": {
+              "index": 7489
+            }
+          }
+        ],
+        "thinking": "I have successfully uninstalled the 'Instafeed Instagram Feed' app and clicked the 'Uninstall' button for the 'Lucky Orange Analytics' app. Now I need to confirm the uninstallation of 'Lucky Orange Analytics' by clicking the 'Uninstall' button in the confirmation modal.",
+        "current_plan_item": 0,
+        "plan_update": []
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Uninstall\" id=modalConfirmBtn",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1195.7109375,
+            "click_y": 618.0
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8035/#/apps",
+            "title": "Shopify - Web Performance Dashboard",
+            "target_id": "9F1D",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996775-9b29-762e-8000-53c868f546ed_1771468633/screenshots/step_5.png",
+        "interacted_element": [
+          {
+            "node_id": 11996,
+            "backend_node_id": 7489,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "btn btn-danger",
+              "data-testid": "modal-confirm",
+              "id": "modalConfirmBtn"
+            },
+            "x_path": "html/body/div/div[1]/div/div[3]/button[2]",
+            "element_hash": 2104916155584748557,
+            "stable_hash": 11328288192439524361,
+            "bounds": {
+              "x": 1148.921875,
+              "y": 598.5,
+              "width": 93.578125,
+              "height": 39.0
+            },
+            "ax_name": "Uninstall"
+          }
+        ],
+        "url": "http://10.0.1.172:8035/#/apps",
+        "title": "Shopify - Web Performance Dashboard"
+      },
+      "metadata": {
+        "step_start_time": 1771468661.2147906,
+        "step_end_time": 1771468666.6233277,
+        "step_number": 5,
+        "step_interval": 5.921182632446289
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8035\n<step>\nSuccessfully navigated to the initial URL. Verdict: Success\nNavigated to the initial URL. Need to uninstall 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps.\nClick on the 'Manage Apps' link to access the app management page.\nResult\nClicked a \"Manage Apps\"\n<step>\nSuccessfully navigated to the Apps page. Verdict: Success\nCurrently on the Apps page. Need to uninstall 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps.\nClick the 'Uninstall' button for the 'Instafeed Instagram Feed' app.\nResult\nClicked button \"Uninstall\"\n<step>\nSuccessfully clicked the 'Uninstall' button for the 'Instafeed Instagram Feed' app, and a confirmation modal appeared. Verdict: Success\nCurrently uninstalling 'Instafeed Instagram Feed' app. Need to uninstall 'Lucky Orange Analytics' app after this. Modal is currently displayed.\nClick the 'Uninstall' button in the confirmation modal to uninstall the 'Instafeed Instagram Feed' app.\nResult\nClicked button \"Uninstall\" id=modalConfirmBtn\n<step>\nSuccessfully uninstalled the 'Instafeed Instagram Feed' app. Verdict: Success\nSuccessfully uninstalled 'Instafeed Instagram Feed'. Now uninstalling 'Lucky Orange Analytics'.\nClick the 'Uninstall' button for the 'Lucky Orange Analytics' app.\nResult\nClicked button \"Uninstall\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8035. Your task: Uninstall both the 'Instafeed Instagram Feed' app and the 'Lucky Orange Analytics' app.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step5 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>16 links, 13 interactive, 0 iframes, 376 total elements</page_stats>\nCurrent tab: 9F1D\nAvailable tabs:\nTab 9F1D: http://10.0.1.172:8035/#/apps - Shopify - Web Performance Dash\n\n<page_info>0.0 above, 0.4 below </page_info>\n\nInteractive elements:\n[Start of page]\n<svg /> <!-- SVG content collapsed -->\nShopify\n[5812]<div id=currentUserAvatar />\n\tJR\nJordan Rivera\njordan@urbanthreads.com\nSettings\nSign out\nDashboard\nOnline Store\nThemes\nApps\nPages\nAnalytics\nReports\nOptimizations\nAlerts\nEvents\nConfiguration\nSettings\nApps\nManage installed apps and their performance impact\nApps can significantly impact your store performance. Review each app's performance impact and remove apps that aren't providing enough value.\nInstalled Apps (7)\nTotal LCP impact:\n+1270ms\nLoox Product Reviews\nLoox \u00b7 Reviews\nCollect photo reviews and boost social proof\nLCP:\n+180ms\nINP:\n+35ms\nCLS:\n+0.02\nSettings\nUninstall\nKlaviyo Email Marketing\nKlaviyo \u00b7 Marketing\nEmail marketing automation and segmentation\nLCP:\n+120ms\nINP:\n+80ms\nCLS:\n+0.01\nSettings\nUninstall\nRebuy Personalization\nRebuy Engine \u00b7 Conversion\nAI-powered product recommendations and upsells\nLCP:\n+250ms\nINP:\n+60ms\nCLS:\n+0.04\nSettings\nUninstall\nHotjar Behavior Analytics\nHotjar \u00b7 Analytics\nHeatmaps, recordings, and user behavior analytics\nLCP:\n+90ms\nINP:\n+110ms\nCLS:\n+0.00\nSettings\nUninstall\nPrivy Pop Ups\nPrivy \u00b7 Marketing\nPop ups, banners, and email capture\nLCP:\n+200ms\nINP:\n+45ms\nCLS:\n+0.08\nSettings\nUninstall\nLucky Orange Analytics\nLucky Orange \u00b7 Analytics\nSession recordings, heatmaps, and live chat\nLCP:\n+150ms\nINP:\n+95ms\nCLS:\n+0.01\nSettings\nUninstall\nPageFly Landing Page Builder\nPageFly \u00b7 Page Builder\nDrag and drop page builder for custom landing pages\nLCP:\n+280ms\nINP:\n+70ms\nCLS:\n+0.05\nSettings\nUninstall\nAvailable Apps\n[7148]<div />\nInstafeed Instagram Feed\nMintt Studio \u00b7 Social Media\nDisplay Instagram feed on your store\nEst. LCP:\n[7156]<span />\n\t+320ms\n[7158]<button />\n\tInstall\n[7160]<div />\nYotpo Reviews & UGC\nYotpo \u00b7 Reviews\nCustomer reviews, photos, and Q&A\nEst. LCP:\n[7168]<span />\n\t+160ms\n[7170]<button />\n\tInstall\n[7172]<div />\nGoogle Tag Manager\nGoogle \u00b7 Analytics\nTag management system for marketing and analytics tags\nEst. LCP:\n[7180]<span />\n\t+100ms\n[7182]<button />\n\tInstall\nUninstall App\n*[6480]<button id=modalClose aria-label=Close modal />\nAre you sure you want to uninstall \"Lucky Orange Analytics\"? This may improve your store's performance.\n*[7488]<button />\n\tCancel\n*[7489]<button id=modalConfirmBtn />\n\tUninstall\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully uninstalled the 'Lucky Orange Analytics' app. Verdict: Success",
+        "memory": "Successfully uninstalled both 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps.",
+        "next_goal": "Call the done action to complete the task.",
+        "action": [
+          {
+            "done": {
+              "text": "Successfully uninstalled both 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps.",
+              "success": true
+            }
+          }
+        ],
+        "thinking": "Both 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps have been uninstalled. Now I need to call the done action to complete the task.",
+        "current_plan_item": 0,
+        "plan_update": []
+      },
+      "result": [
+        {
+          "is_done": true,
+          "success": true,
+          "judgement": {
+            "reasoning": "The agent successfully navigated to the web application, accessed the 'Manage Apps' section, and uninstalled both 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps by clicking the appropriate 'Uninstall' buttons and confirming the action. The agent's actions align with the task requirements, and it reports successful completion.",
+            "verdict": true,
+            "failure_reason": "",
+            "impossible_task": false,
+            "reached_captcha": false
+          },
+          "attachments": [],
+          "long_term_memory": "Task completed: True - Successfully uninstalled both 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps.",
+          "extracted_content": "Successfully uninstalled both 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps.",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8035/#/apps",
+            "title": "Shopify - Web Performance Dashboard",
+            "target_id": "9F1D",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996775-9b29-762e-8000-53c868f546ed_1771468633/screenshots/step_6.png",
+        "interacted_element": [
+          null
+        ],
+        "url": "http://10.0.1.172:8035/#/apps",
+        "title": "Shopify - Web Performance Dashboard"
+      },
+      "metadata": {
+        "step_start_time": 1771468666.6250138,
+        "step_end_time": 1771468668.46684,
+        "step_number": 6,
+        "step_interval": 5.408537149429321
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8035\n<step>\nSuccessfully navigated to the initial URL. Verdict: Success\nNavigated to the initial URL. Need to uninstall 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps.\nClick on the 'Manage Apps' link to access the app management page.\nResult\nClicked a \"Manage Apps\"\n<step>\nSuccessfully navigated to the Apps page. Verdict: Success\nCurrently on the Apps page. Need to uninstall 'Instafeed Instagram Feed' and 'Lucky Orange Analytics' apps.\nClick the 'Uninstall' button for the 'Instafeed Instagram Feed' app.\nResult\nClicked button \"Uninstall\"\n<step>\nSuccessfully clicked the 'Uninstall' button for the 'Instafeed Instagram Feed' app, and a confirmation modal appeared. Verdict: Success\nCurrently uninstalling 'Instafeed Instagram Feed' app. Need to uninstall 'Lucky Orange Analytics' app after this. Modal is currently displayed.\nClick the 'Uninstall' button in the confirmation modal to uninstall the 'Instafeed Instagram Feed' app.\nResult\nClicked button \"Uninstall\" id=modalConfirmBtn\n<step>\nSuccessfully uninstalled the 'Instafeed Instagram Feed' app. Verdict: Success\nSuccessfully uninstalled 'Instafeed Instagram Feed'. Now uninstalling 'Lucky Orange Analytics'.\nClick the 'Uninstall' button for the 'Lucky Orange Analytics' app.\nResult\nClicked button \"Uninstall\"\n<step>\nSuccessfully clicked the 'Uninstall' button for the 'Lucky Orange Analytics' app, and a confirmation modal appeared. Verdict: Success\nSuccessfully uninstalled 'Instafeed Instagram Feed'. Currently uninstalling 'Lucky Orange Analytics'.\nClick the 'Uninstall' button in the confirmation modal to uninstall the 'Lucky Orange Analytics' app.\nResult\nClicked button \"Uninstall\" id=modalConfirmBtn\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8035. Your task: Uninstall both the 'Instafeed Instagram Feed' app and the 'Lucky Orange Analytics' app.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step6 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>15 links, 63 interactive, 0 iframes, 361 total elements</page_stats>\nCurrent tab: 9F1D\nAvailable tabs:\nTab 9F1D: http://10.0.1.172:8035/#/apps - Shopify - Web Performance Dash\n\n<page_info>0.0 above, 0.4 below </page_info>\n\nInteractive elements:\n[Start of page]\n*[5811]<button id=sidebarToggle aria-label=Toggle sidebar />\n\t*[5864]<span />\n<svg /> <!-- SVG content collapsed -->\n*[5878]<span />\n\tShopify\n[5812]<div id=currentUserAvatar />\n\tJR\nJordan Rivera\njordan@urbanthreads.com\n*[5902]<div />\n\tSettings\n*[5907]<div />\n\tSign out\n*[5813]<a />\n\tDashboard\nOnline Store\n*[5814]<a />\n\tThemes\n*[5815]<a />\n\tApps\n*[5816]<a />\n\tPages\nAnalytics\n*[5817]<a />\n\tReports\n*[5818]<a />\n\tOptimizations\n*[5819]<a />\n\tAlerts\n*[5820]<a />\n\tEvents\nConfiguration\n*[5821]<a />\n\tSettings\nApps\nManage installed apps and their performance impact\nApps can significantly impact your store performance. Review each app's performance impact and remove apps that aren't providing enough value.\nInstalled Apps (6)\nTotal LCP impact:\n+1120ms\n*[7515]<div />\nLoox Product Reviews\nLoox \u00b7 Reviews\nCollect photo reviews and boost social proof\nLCP:\n*[7523]<span />\n\t+180ms\nINP:\n*[7525]<span />\n\t+35ms\nCLS:\n*[7527]<span />\n\t+0.02\n*[7529]<a />\n\tSettings\n*[7530]<button />\n\tUninstall\n*[7532]<div />\nKlaviyo Email Marketing\nKlaviyo \u00b7 Marketing\nEmail marketing automation and segmentation\nLCP:\n*[7540]<span />\n\t+120ms\nINP:\n*[7542]<span />\n\t+80ms\nCLS:\n*[7544]<span />\n\t+0.01\n*[7546]<a />\n\tSettings\n*[7547]<button />\n\tUninstall\n*[7549]<div />\nRebuy Personalization\nRebuy Engine \u00b7 Conversion\nAI-powered product recommendations and upsells\nLCP:\n*[7557]<span />\n\t+250ms\nINP:\n*[7559]<span />\n\t+60ms\nCLS:\n*[7561]<span />\n\t+0.04\n*[7563]<a />\n\tSettings\n*[7564]<button />\n\tUninstall\n*[7566]<div />\nHotjar Behavior Analytics\nHotjar \u00b7 Analytics\nHeatmaps, recordings, and user behavior analytics\nLCP:\n*[7574]<span />\n\t+90ms\nINP:\n*[7576]<span />\n\t+110ms\nCLS:\n*[7578]<span />\n\t+0.00\n*[7580]<a />\n\tSettings\n*[7581]<button />\n\tUninstall\n*[7583]<div />\nPrivy Pop Ups\nPrivy \u00b7 Marketing\nPop ups, banners, and email capture\nLCP:\n*[7591]<span />\n\t+200ms\nINP:\n*[7593]<span />\n\t+45ms\nCLS:\n*[7595]<span />\n\t+0.08\n*[7597]<a />\n\tSettings\n*[7598]<button />\n\tUninstall\n*[7600]<div />\nPageFly Landing Page Builder\nPageFly \u00b7 Page Builder\nDrag and drop page builder for custom landing pages\nLCP:\n*[7608]<span />\n\t+280ms\nINP:\n*[7610]<span />\n\t+70ms\nCLS:\n*[7612]<span />\n\t+0.05\n*[7614]<a />\n\tSettings\n*[7615]<button />\n\tUninstall\nAvailable Apps\n*[7621]<div />\nInstafeed Instagram Feed\nMintt Studio \u00b7 Social Media\nDisplay Instagram feed on your store\nEst. LCP:\n*[7629]<span />\n\t+320ms\n*[7631]<button />\n\tInstall\n*[7633]<div />\nLucky Orange Analytics\nLucky Orange \u00b7 Analytics\nSession recordings, heatmaps, and live chat\nEst. LCP:\n*[7641]<span />\n\t+150ms\n*[7643]<button />\n\tInstall\n*[7645]<div />\nYotpo Reviews & UGC\nYotpo \u00b7 Reviews\nCustomer reviews, photos, and Q&A\nEst. LCP:\n*[7653]<span />\n\t+160ms\n*[7655]<button />\n\tInstall\n*[7657]<div />\nGoogle Tag Manager\nGoogle \u00b7 Analytics\nTag management system for marketing and analytics tags\nEst. LCP:\n*[7665]<span />\n\t+100ms\n*[7667]<button />\n\tInstall\n\"Lucky Orange Analytics\" uninstalled\n</browser_state>\n"
+    }
+  ]
+}

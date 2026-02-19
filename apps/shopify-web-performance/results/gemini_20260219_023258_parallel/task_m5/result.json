@@ -1,0 +1,14 @@
+{
+  "task_id": "task_m5",
+  "difficulty": "medium",
+  "instruction": "Create a new saved report named 'Mobile CLS Trends' for the CLS metric, report type 'Over Time', with device type filter set to 'mobile' and date range 'Last 30 days'.",
+  "passed": false,
+  "verifier_message": "Timed out after 300s",
+  "elapsed": 300,
+  "steps": -1,
+  "is_done": false,
+  "final_result": null,
+  "errors": [
+    "Timeout after 300s"
+  ]
+}

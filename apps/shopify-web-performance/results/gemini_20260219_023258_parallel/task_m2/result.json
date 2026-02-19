@@ -1,0 +1,24 @@
+{
+  "task_id": "task_m2",
+  "difficulty": "medium",
+  "instruction": "Create a new alert rule named 'Collection Page LCP' for the LCP metric with a threshold of 3000ms for collection pages only.",
+  "passed": true,
+  "verifier_message": "Alert rule 'Collection Page LCP' created correctly.",
+  "elapsed": 84.9,
+  "steps": 11,
+  "is_done": true,
+  "final_result": "Created alert rule named 'Collection Page LCP' for the LCP metric with a threshold of 3000ms for collection pages only.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

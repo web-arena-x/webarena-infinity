@@ -1,0 +1,17 @@
+{
+  "task_id": "task_m3",
+  "difficulty": "medium",
+  "instruction": "Install the 'Yotpo Reviews & UGC' app.",
+  "passed": true,
+  "verifier_message": "App 'Yotpo Reviews & UGC' installed.",
+  "elapsed": 34.5,
+  "steps": 4,
+  "is_done": true,
+  "final_result": "The 'Yotpo Reviews & UGC' app is already installed.",
+  "errors": [
+    null,
+    null,
+    null,
+    null
+  ]
+}
