@@ -1,0 +1,416 @@
+{
+  "history": [
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Start",
+        "memory": null,
+        "next_goal": "Initial navigation",
+        "action": [
+          {
+            "navigate": {
+              "url": "http://10.0.1.172:8025",
+              "new_tab": false
+            }
+          }
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "long_term_memory": "Found initial url and automatically loaded it. Navigated to http://10.0.1.172:8025",
+          "extracted_content": "\ud83d\udd17 Navigated to http://10.0.1.172:8025",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [],
+        "screenshot_path": null,
+        "interacted_element": [
+          null
+        ],
+        "url": "http://10.0.1.172:8025",
+        "title": "Initial Actions"
+      },
+      "metadata": {
+        "step_start_time": 1771468834.1193078,
+        "step_end_time": 1771468834.1193078,
+        "step_number": 0,
+        "step_interval": null
+      },
+      "state_message": null
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "The agent initialized and navigated to the given URL. Verdict: Success",
+        "memory": "Currently at the base URL. Need to navigate to Notifications and then modify the email digest settings.",
+        "next_goal": "Click on the 'Notifications' link to navigate to the notifications settings page.",
+        "action": [
+          {
+            "click": {
+              "index": 1852
+            }
+          }
+        ],
+        "thinking": "I need to navigate to the Notifications page, then find and interact with the 'Send immediately on SLA breach' and 'Delay low priority emails to work hours' settings. First, I will click on the 'Notifications' link."
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked a \"\ud83d\udd12\n\n                        Sec...\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 109.5,
+            "click_y": 218.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8025/",
+            "title": "10.0.1.172:8025",
+            "target_id": "18C5",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996782-06b4-766b-8000-c6a94a7e1f1c_1771468832/screenshots/step_1.png",
+        "interacted_element": [
+          {
+            "node_id": 2055,
+            "backend_node_id": 1852,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "A",
+            "attributes": {
+              "class": "sidebar-item",
+              "data-route": "/security",
+              "data-testid": "nav-security"
+            },
+            "x_path": "html/body/div/aside/nav/div[1]/a[4]",
+            "element_hash": 8370605381034260494,
+            "stable_hash": 8370605381034260494,
+            "bounds": {
+              "x": 0.0,
+              "y": 200.5,
+              "width": 219.0,
+              "height": 36.0
+            },
+            "ax_name": "\ud83d\udd12 Security & Access"
+          }
+        ],
+        "url": "http://10.0.1.172:8025/",
+        "title": "10.0.1.172:8025"
+      },
+      "metadata": {
+        "step_start_time": 1771468834.1193535,
+        "step_end_time": 1771468841.405051,
+        "step_number": 1,
+        "step_interval": 0.0
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8025\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8025. Your task: Enable the 'Send immediately on SLA breach' setting and disable the 'Delay low priority emails to work hours' setting in the Email digest settings on the Notifications page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step1 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>6 links, 33 interactive, 0 iframes, 3 shadow(open), 0 shadow(closed), 209 total elements</page_stats>\nCurrent tab: 18C5\nAvailable tabs:\nTab 18C5: http://10.0.1.172:8025/ - 10.0.1.172:8025\n\n<page_info>0.0 above, 0.7 below </page_info>\n\nInteractive elements:\n[Start of page]\n[1927]<div />\nLinear\n[1939]<div id=userMenu />\n\t[1941]<div id=currentUserAvatar />\n\t\t[1942]<div />\n\t\t\tJR\nAccount\n[1849]<a />\n\tProfile\n[1850]<a />\n\tPreferences\n[1851]<a />\n\tNotifications\n[1852]<a />\n\tSecurity & Access\n[1853]<a />\n\tReset to defaults\n[1854]<a />\n\tSettings\nAccount\n[2003]<span />\n\tProfile\nProfile\nPersonalize how other team members see you in your workspace.\nJR\n[1855]<button title=Change avatar />\nClick to update your profile picture. Once updated, you can only replace it with another photo.\nName and Username\nFull name\n|SHADOW(open)|[1843]<input type=text id=profileName value=Jordan Rivera placeholder=Enter your full name />\nUsername\n|SHADOW(open)|[1844]<input type=text id=profileUsername value=jordan.rivera placeholder=Enter your username />\n[1856]<button />\n\tSave changes\nEmail address\njordan.rivera@nextera.io\n[1857]<button />\n\tChange\nChanging your email address will change it for all workspaces using this email.\nPronouns\nPronouns\n|SHADOW(open)|[1845]<input type=text id=profilePronouns value=they/them placeholder=e.g., they/them, she/her, he/him />\n[1858]<button />\n\tSave\nTimezone\nTimezone\n[1859]<div />\n\tAmerica/New_York\n\t[2064]<span />\n[1891]<button />\n\tSave\nConnected Accounts\nSoftware integrations where each user has their own account. This helps Linear associate your Linear user with third-party integration actions.\n[1892]<button />\n\tConnect account\n[2112]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitHub\njordanrivera \u00b7 jordan@github.com\nConnected Apr 15, 2023\n[1893]<button />\n\tDisconnect\n[2126]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitLab\njordan.rivera \u00b7 jordan.rivera@gitlab.com\nConnected May 20, 2023\n[1894]<button />\n\tDisconnect\n[2140]<div />\n\t<svg /> <!-- SVG content collapsed -->\nSlack\njordan.rivera \u00b7 jordan.rivera@nextera.io\nConnected Apr 15, 2023\n[1895]<button />\n\tDisconnect\n[2154]<div />\n\t<svg /> <!-- SVG content collapsed -->\nFigma\njordan.rivera \u00b7 jordan.rivera@nextera.io\nConnected Jun 20, 2023\n[1896]<button />\n\tDisconnect\n[2168]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGoogle\njordan.rivera \u00b7 jordan.rivera@gmail.com\nConnected Feb 10, 2024\n[1897]<button />\n\tDisconnect\nLeave workspace\nOnce removed, you no longer have access to the workspace. An admin will have to unsuspend your account in order for you to log back in.\n[1898]<button />\n\tLeave workspace\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully navigated to the security page. Verdict: Success",
+        "memory": "Currently on the security page. The next step is to navigate to the notifications page.",
+        "next_goal": "Click on the 'Notifications' link to navigate to the notifications settings page.",
+        "action": [
+          {
+            "click": {
+              "index": 1851
+            }
+          }
+        ],
+        "thinking": "I have successfully navigated to the security page. Now I need to click on the 'Notifications' link to navigate to the notifications settings page.",
+        "current_plan_item": 0
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked a \"\ud83d\udd14\n\n                        Not...\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 109.5,
+            "click_y": 182.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8025/#/security",
+            "title": "Linear - Account Settings",
+            "target_id": "18C5",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996782-06b4-766b-8000-c6a94a7e1f1c_1771468832/screenshots/step_2.png",
+        "interacted_element": [
+          {
+            "node_id": 2403,
+            "backend_node_id": 1851,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "A",
+            "attributes": {
+              "class": "sidebar-item",
+              "data-route": "/notifications",
+              "data-testid": "nav-notifications"
+            },
+            "x_path": "html/body/div/aside/nav/div[1]/a[3]",
+            "element_hash": 7227730906138621732,
+            "stable_hash": 7227730906138621732,
+            "bounds": {
+              "x": 0.0,
+              "y": 164.5,
+              "width": 219.0,
+              "height": 36.0
+            },
+            "ax_name": "\ud83d\udd14 Notifications"
+          }
+        ],
+        "url": "http://10.0.1.172:8025/#/security",
+        "title": "Linear - Account Settings"
+      },
+      "metadata": {
+        "step_start_time": 1771468841.4063487,
+        "step_end_time": 1771468847.2561324,
+        "step_number": 2,
+        "step_interval": 7.2856974601745605
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8025\n<step>\nThe agent initialized and navigated to the given URL. Verdict: Success\nCurrently at the base URL. Need to navigate to Notifications and then modify the email digest settings.\nClick on the 'Notifications' link to navigate to the notifications settings page.\nResult\nClicked a \"\ud83d\udd12\n\n                        Sec...\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8025. Your task: Enable the 'Send immediately on SLA breach' setting and disable the 'Delay low priority emails to work hours' setting in the Email digest settings on the Notifications page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step2 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>6 links, 72 interactive, 0 iframes, 394 total elements</page_stats>\nCurrent tab: 18C5\nAvailable tabs:\nTab 18C5: http://10.0.1.172:8025/#/security - Linear - Account Settings\n\n<page_info>0.0 above, 1.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n[1927]<div />\nLinear\n[1939]<div id=userMenu />\n\t[1941]<div id=currentUserAvatar />\n\t\t*[2506]<div />\n\t\t\tJR\nAccount\n[1849]<a />\n\tProfile\n[1850]<a />\n\tPreferences\n[1851]<a />\n\tNotifications\n[1852]<a />\n\tSecurity & Access\n[1853]<a />\n\tReset to defaults\n*[2246]<a />\n\tSettings\nAccount\nSecurity & Access\nSecurity & Access\nManage your account security, sessions, and authorized applications.\nSessions\nView and manage connected devices.\n*[2260]<button />\n\tRevoke all\nInactive sessions will be automatically expired after 30 days.\n*[2266]<div />\n\t*[2267]<span />\nMacBook Pro 16\"\nCurrent\nDesktop App \u00b7 New York, NY, US \u00b7 Last seen 12h ago\n*[2273]<button />\n\tDetails\n*[2276]<div />\n\t*[2277]<span />\nChrome on Windows\nWeb Browser \u00b7 New York, NY, US \u00b7 Last seen 1d ago\n*[2282]<button />\n\tDetails\n*[2283]<button />\n\tRevoke\n*[2286]<div />\n\t*[2287]<span />\niPhone 15 Pro\nMobile App \u00b7 Newark, NJ, US \u00b7 Last seen 2d ago\n*[2292]<button />\n\tDetails\n*[2293]<button />\n\tRevoke\n*[2296]<div />\n\t*[2297]<span />\nSafari on MacBook Air\nWeb Browser \u00b7 Brooklyn, NY, US \u00b7 Last seen 6d ago\n*[2302]<button />\n\tDetails\n*[2303]<button />\n\tRevoke\n*[2306]<div />\n\t*[2307]<span />\nFirefox on Ubuntu\nWeb Browser \u00b7 San Francisco, CA, US \u00b7 Last seen 27d ago\n*[2312]<button />\n\tDetails\n*[2313]<button />\n\tRevoke\n*[2316]<div />\n\t*[2317]<span />\niPad Pro 12.9\"\nMobile App \u00b7 New York, NY, US \u00b7 Last seen 1mo ago\n*[2322]<button />\n\tDetails\n*[2323]<button />\n\tRevoke\n*[2326]<div />\n\t*[2327]<span />\n\t\t>_\nlinear-cli\nCLI \u00b7 New York, NY, US \u00b7 Last seen 4d ago\n*[2332]<button />\n\tDetails\n*[2333]<button />\n\tRevoke\nPasskeys\nPasskeys allow secure and fast login without passwords. Supported by all major browsers, mobile operating systems, and password managers like 1Password.\n*[2340]<button />\n\tRegister device\n*[2344]<div />\n\t*[2345]<span />\nMacBook Pro Touch ID\nRegistered Jun 15, 2025 \u00b7 Last used 17h ago\n*[2350]<button />\n\tRename\n*[2351]<button />\n\tRemove\n*[2354]<div />\n\t*[2355]<span />\n1Password\nRegistered Sep 20, 2025 \u00b7 Last used 8d ago\n*[2360]<button />\n\tRename\n*[2361]<button />\n\tRemove\nPersonal API keys\nCreate and manage API keys associated with your account.\n*[2368]<button />\n\tCreate key\n*[2372]<div />\n\t*[2373]<span />\nCI/CD Pipeline\nlin_api_x1y2...z3\n\u00b7 Created Mar 10, 2025 \u00b7 Last used 20h ago\n*[2379]<button />\n\tRename\n*[2380]<button />\n\tRevoke\n*[2383]<div />\n\t*[2384]<span />\nPersonal Automation\nlin_api_a4b5...c6\n\u00b7 Created Aug 22, 2025 \u00b7 Last used 3d ago\n*[2390]<button />\n\tRename\n*[2391]<button />\n\tRevoke\n*[2394]<div />\n\t*[2395]<span />\nMonitoring Dashboard\nlin_api_d7e8...f9\n\u00b7 Created Nov 5, 2025 \u00b7 Last used 19d ago\n*[2401]<button />\n\tRename\n*[2402]<button />\n\tRevoke\nAuthorized applications\nView and manage OAuth applications that have been granted access to your account.\n*[2411]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitHub\nSource code integration for pull requests and branches\nread:issues\nwrite:issues\nread:pull_requests\nwrite:webhooks\nAuthorized Apr 15, 2023\n*[2424]<button />\n\tRevoke access\n*[2427]<div />\n\t<svg /> <!-- SVG content collapsed -->\nSlack\nTeam communication and notification integration\nread:messages\nwrite:messages\nread:channels\nAuthorized Apr 15, 2023\n*[2439]<button />\n\tRevoke access\n*[2442]<div />\n\t<svg /> <!-- SVG content collapsed -->\nFigma\nDesign file linking and preview integration\nread:files\nread:comments\nAuthorized Jun 20, 2023\n*[2453]<button />\n\tRevoke access\n*[2456]<div />\n\t<svg /> <!-- SVG content collapsed -->\nSentry\nError tracking and issue auto-creation\nread:issues\nwrite:issues\nread:projects\nAuthorized Jan 10, 2024\n*[2469]<button />\n\tRevoke access\n*[2472]<div />\n\t<svg /> <!-- SVG content collapsed -->\nZendesk\nCustomer support ticket integration\nread:tickets\nwrite:tickets\nAuthorized Sep 5, 2024\n*[2484]<button />\n\tRevoke access\n*[2487]<div />\n\t<svg /> <!-- SVG content collapsed -->\nNotion\nDocument and wiki linking\nread:pages\nread:databases\nAuthorized Feb 14, 2025\n*[2499]<button />\n\tRevoke access\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully navigated to the Notifications page. Verdict: Success",
+        "memory": "Currently on the Notifications page. Need to enable 'Send immediately on SLA breach' and disable 'Delay low priority emails to work hours'.",
+        "next_goal": "Enable the 'Send immediately on SLA breach' setting.",
+        "action": [
+          {
+            "click": {
+              "index": 2838
+            }
+          }
+        ],
+        "thinking": "I am currently on the Notifications page. The user wants me to enable the 'Send immediately on SLA breach' setting and disable the 'Delay low priority emails to work hours' setting. I can see both of these settings in the current browser state. I will click on the 'Send immediately on SLA breach' setting to enable it, and then click on the 'Delay low priority emails to work hours' setting to disable it.",
+        "current_plan_item": 0,
+        "plan_update": [
+          "Enable 'Send immediately on SLA breach'",
+          "Disable 'Delay low priority emails to work hours'",
+          "Verify settings are correct"
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked div role=switch id=sendImmediatelyOnSLA",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 933.0,
+            "click_y": 539.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8025/#/notifications",
+            "title": "Linear - Account Settings",
+            "target_id": "18C5",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996782-06b4-766b-8000-c6a94a7e1f1c_1771468832/screenshots/step_3.png",
+        "interacted_element": [
+          {
+            "node_id": 3134,
+            "backend_node_id": 2838,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "DIV",
+            "attributes": {
+              "class": "toggle-switch off ",
+              "id": "sendImmediatelyOnSLABreach",
+              "data-testid": "toggle-sendImmediatelyOnSLABreach",
+              "data-checked": "false",
+              "role": "switch",
+              "aria-checked": "false",
+              "tabindex": "0"
+            },
+            "x_path": "html/body/div/main/div/div[4]/div[3]/div[2]",
+            "element_hash": 1790624171266718325,
+            "stable_hash": 15014756196064579509,
+            "bounds": {
+              "x": 915.0,
+              "y": 1333.5,
+              "width": 36.0,
+              "height": 20.0
+            },
+            "ax_name": null
+          }
+        ],
+        "url": "http://10.0.1.172:8025/#/notifications",
+        "title": "Linear - Account Settings"
+      },
+      "metadata": {
+        "step_start_time": 1771468847.2579463,
+        "step_end_time": 1771468854.5497034,
+        "step_number": 3,
+        "step_interval": 5.849783658981323
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8025\n<step>\nThe agent initialized and navigated to the given URL. Verdict: Success\nCurrently at the base URL. Need to navigate to Notifications and then modify the email digest settings.\nClick on the 'Notifications' link to navigate to the notifications settings page.\nResult\nClicked a \"\ud83d\udd12\n\n                        Sec...\"\n<step>\nSuccessfully navigated to the security page. Verdict: Success\nCurrently on the security page. The next step is to navigate to the notifications page.\nClick on the 'Notifications' link to navigate to the notifications settings page.\nResult\nClicked a \"\ud83d\udd14\n\n                        Not...\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8025. Your task: Enable the 'Send immediately on SLA breach' setting and disable the 'Delay low priority emails to work hours' setting in the Email digest settings on the Notifications page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step3 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>6 links, 92 interactive, 0 iframes, 369 total elements</page_stats>\nCurrent tab: 18C5\nAvailable tabs:\nTab 18C5: http://10.0.1.172:8025/#/notifications - Linear - Account Settings\n\n<page_info>0.0 above, 1.3 below </page_info>\n\nInteractive elements:\n[Start of page]\n[1927]<div />\nLinear\n[1939]<div id=userMenu />\n\t[1941]<div id=currentUserAvatar />\n\t\t*[2951]<div />\n\t\t\tJR\nAccount\n[1849]<a />\n\tProfile\n[1850]<a />\n\tPreferences\n[1851]<a />\n\tNotifications\n[1852]<a />\n\tSecurity & Access\n[1853]<a />\n\tReset to defaults\n*[2643]<a />\n\tSettings\nAccount\nNotifications\nNotifications\nReceive alerts on important updates in the Linear desktop app, mobile app, Slack, or email.\nNotification channels\nConfigure which channels you want to receive notifications through.\nDesktop\n*[2664]<div id=channel-desktop role=switch aria-checked=true checked=true />\n\t*[2665]<div />\nReceive notifications via the Linear desktop app\nMobile\n*[2674]<div id=channel-mobile role=switch aria-checked=true checked=true />\n\t*[2675]<div />\nReceive push notifications on your mobile device\nEmail\n*[2684]<div id=channel-email role=switch aria-checked=true checked=true />\n\t*[2685]<div />\nReceive email digest notifications\n*[2689]<div />\n\tSlack\n*[2694]<div id=channel-slack role=switch aria-checked=true checked=true />\n\t*[2695]<div />\nReceive notifications via Slack\nNotifications are grouped. For example, if you enable status changes, you will be notified for status, priority, and blocking relationship changes together.\nNotification types\nChoose which types of notifications to receive on each channel.\nNotification type\nDesktop\nMobile\nEmail\nSlack\nIssue status changes\nCompletions, cancellations, priority changes, and blocking relationships\n*[2716]<div role=switch aria-checked=true checked=true />\n\t*[2717]<div />\n*[2719]<div role=switch aria-checked=false checked=false />\n\t*[2720]<div />\n*[2722]<div role=switch aria-checked=true checked=true />\n\t*[2723]<div />\n*[2725]<div role=switch aria-checked=true checked=true />\n\t*[2726]<div />\nIssue assignments\nWhen issues are assigned or unassigned to you\n*[2732]<div role=switch aria-checked=true checked=true />\n\t*[2733]<div />\n*[2735]<div role=switch aria-checked=false checked=false />\n\t*[2736]<div />\n*[2738]<div role=switch aria-checked=true checked=true />\n\t*[2739]<div />\n*[2741]<div role=switch aria-checked=true checked=true />\n\t*[2742]<div />\nComments and mentions\nNew comments on subscribed issues and @mentions\n*[2748]<div role=switch aria-checked=true checked=true />\n\t*[2749]<div />\n*[2751]<div role=switch aria-checked=false checked=false />\n\t*[2752]<div />\n*[2754]<div role=switch aria-checked=true checked=true />\n\t*[2755]<div />\n*[2757]<div role=switch aria-checked=true checked=true />\n\t*[2758]<div />\nProject updates\nProject status changes, milestones, and progress updates\n*[2764]<div role=switch aria-checked=true checked=true />\n\t*[2765]<div />\n*[2767]<div role=switch aria-checked=false checked=false />\n\t*[2768]<div />\n*[2770]<div role=switch aria-checked=false checked=false />\n\t*[2771]<div />\n*[2773]<div role=switch aria-checked=true checked=true />\n\t*[2774]<div />\nCycle updates\nCycle starts, ends, and progress summaries\n*[2780]<div role=switch aria-checked=false checked=false />\n\t*[2781]<div />\n*[2783]<div role=switch aria-checked=false checked=false />\n\t*[2784]<div />\n*[2786]<div role=switch aria-checked=true checked=true />\n\t*[2787]<div />\n*[2789]<div role=switch aria-checked=false checked=false />\n\t*[2790]<div />\nSLA breaches\nWhen issues breach their SLA targets\n*[2796]<div role=switch aria-checked=true checked=true />\n\t*[2797]<div />\n*[2799]<div role=switch aria-checked=false checked=false />\n\t*[2800]<div />\n*[2802]<div role=switch aria-checked=true checked=true />\n\t*[2803]<div />\n*[2805]<div role=switch aria-checked=true checked=true />\n\t*[2806]<div />\nTeam activity\nNew members joining, team configuration changes\n*[2812]<div role=switch aria-checked=false checked=false />\n\t*[2813]<div />\n*[2815]<div role=switch aria-checked=false checked=false />\n\t*[2816]<div />\n*[2818]<div role=switch aria-checked=false checked=false />\n\t*[2819]<div />\n*[2821]<div role=switch aria-checked=false checked=false />\n\t*[2822]<div />\nEmail digest settings\nEmail digests send a summary of unread notifications with time delays based on urgency.\nSend immediately for urgent issues\nSend a notification email immediately if an issue assigned to you is marked urgent\n*[2832]<div id=sendImmediatelyOnUrgent role=switch aria-checked=true checked=true />\n\t*[2833]<div />\nSend immediately on SLA breach\nSend a notification email immediately when an issue breaches its SLA\n*[2838]<div id=sendImmediatelyOnSLABreach role=switch aria-checked=false checked=false />\n\t*[2839]<div />\nDelay low priority emails to work hours\nDelay low priority notification emails until work hours the next day (8 am - 6 pm in your timezone)\n*[2844]<div id=delayLowPriorityToWorkHours role=switch aria-checked=true checked=true />\n\t*[2845]<div />\nCommunication preferences\nCustomize the types of updates you receive from Linear.\nChangelog updates\nReceive updates about new features and improvements\n*[2855]<div id=changelog role=switch aria-checked=true checked=true />\n\t*[2856]<div />\nDPA updates\nReceive updates about Data Processing Agreement changes\n*[2861]<div id=dpaUpdates role=switch aria-checked=true checked=true />\n\t*[2862]<div />\nProduct updates\nReceive product announcements and newsletters\n*[2867]<div id=productUpdates role=switch aria-checked=false checked=false />\n\t*[2868]<div />\nTips and best practices\nReceive tips on how to use Linear more effectively\n*[2873]<div id=tips role=switch aria-checked=true checked=true />\n\t*[2874]<div />\nIssue subscriptions\nYou are automatically subscribed to issues you create, are assigned to, or are @mentioned in.\nNEX-1042\nMigrate authentication to OAuth 2.0\nBackend \u00b7 assigned \u00b7 8d ago\n*[2888]<button />\n\tUnsubscribe\nNEX-987\nFix dashboard performance regression\nFrontend \u00b7 created \u00b7 13d ago\n*[2896]<button />\n\tUnsubscribe\nNEX-1105\nAdd dark mode support for mobile app\n*[2904]<button />\n\tUnsubscribe\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully enabled the 'Send immediately on SLA breach' setting. Verdict: Success",
+        "memory": "Enabled 'Send immediately on SLA breach'. Next, disable 'Delay low priority emails to work hours' and verify settings.",
+        "next_goal": "Disable the 'Delay low priority emails to work hours' setting.",
+        "action": [
+          {
+            "click": {
+              "index": 2844
+            }
+          }
+        ],
+        "thinking": "I have successfully enabled the 'Send immediately on SLA breach' setting in the previous step. Now I need to disable the 'Delay low priority emails to work hours' setting. After that, I will verify that both settings are configured correctly before completing the task.",
+        "current_plan_item": 1,
+        "plan_update": [
+          "Enable 'Send immediately on SLA breach'",
+          "Disable 'Delay low priority emails to work hours'",
+          "Verify settings are correct"
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked div role=switch id=delayLowPriorityToWo",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 933.0,
+            "click_y": 600.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8025/#/notifications",
+            "title": "Linear - Account Settings",
+            "target_id": "18C5",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996782-06b4-766b-8000-c6a94a7e1f1c_1771468832/screenshots/step_4.png",
+        "interacted_element": [
+          {
+            "node_id": 3609,
+            "backend_node_id": 2844,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "DIV",
+            "attributes": {
+              "class": "toggle-switch on ",
+              "id": "delayLowPriorityToWorkHours",
+              "data-testid": "toggle-delayLowPriorityToWorkHours",
+              "data-checked": "true",
+              "role": "switch",
+              "aria-checked": "true",
+              "tabindex": "0"
+            },
+            "x_path": "html/body/div/main/div/div[4]/div[4]/div[2]",
+            "element_hash": 358150688747550512,
+            "stable_hash": 15980322263965415014,
+            "bounds": {
+              "x": 915.0,
+              "y": 590.5,
+              "width": 36.0,
+              "height": 20.0
+            },
+            "ax_name": null
+          }
+        ],
+        "url": "http://10.0.1.172:8025/#/notifications",
+        "title": "Linear - Account Settings"
+      },
+      "metadata": {
+        "step_start_time": 1771468854.5517602,
+        "step_end_time": 1771468863.0546467,
+        "step_number": 4,
+        "step_interval": 7.291757106781006
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8025\n<step>\nThe agent initialized and navigated to the given URL. Verdict: Success\nCurrently at the base URL. Need to navigate to Notifications and then modify the email digest settings.\nClick on the 'Notifications' link to navigate to the notifications settings page.\nResult\nClicked a \"\ud83d\udd12\n\n                        Sec...\"\n<step>\nSuccessfully navigated to the security page. Verdict: Success\nCurrently on the security page. The next step is to navigate to the notifications page.\nClick on the 'Notifications' link to navigate to the notifications settings page.\nResult\nClicked a \"\ud83d\udd14\n\n                        Not...\"\n<step>\nSuccessfully navigated to the Notifications page. Verdict: Success\nCurrently on the Notifications page. Need to enable 'Send immediately on SLA breach' and disable 'Delay low priority emails to work hours'.\nEnable the 'Send immediately on SLA breach' setting.\nResult\nClicked div role=switch id=sendImmediatelyOnSLA\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8025. Your task: Enable the 'Send immediately on SLA breach' setting and disable the 'Delay low priority emails to work hours' setting in the Email digest settings on the Notifications page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Enable 'Send immediately on SLA breach'\n[ ] 1: Disable 'Delay low priority emails to work hours'\n[ ] 2: Verify settings are correct\n</plan>\n<step_info>Step4 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>6 links, 97 interactive, 0 iframes, 431 total elements</page_stats>\nCurrent tab: 18C5\nAvailable tabs:\nTab 18C5: http://10.0.1.172:8025/#/notifications - Linear - Account Settings\n\n<page_info>0.7 above, 0.6 below </page_info>\n\nInteractive elements:\n[1927]<div />\nLinear\n[1939]<div id=userMenu />\n\t[1941]<div id=currentUserAvatar />\n\t\t[2951]<div />\n\t\t\tJR\nAccount\n[1849]<a />\n\tProfile\n[1850]<a />\n\tPreferences\n[1851]<a />\n\tNotifications\n[1852]<a />\n\tSecurity & Access\n[1853]<a />\n\tReset to defaults\n[2643]<a />\n\tSettings\nAccount\nNotifications\nNotifications\nReceive alerts on important updates in the Linear desktop app, mobile app, Slack, or email.\nNotification channels\nConfigure which channels you want to receive notifications through.\nDesktop\n[2664]<div id=channel-desktop role=switch aria-checked=true checked=true />\n\t[2665]<div />\nReceive notifications via the Linear desktop app\nMobile\n[2674]<div id=channel-mobile role=switch aria-checked=true checked=true />\n\t[2675]<div />\nReceive push notifications on your mobile device\nEmail\n[2684]<div id=channel-email role=switch aria-checked=true checked=true />\n\t[2685]<div />\nReceive email digest notifications\n[2689]<div />\n\tSlack\n[2694]<div id=channel-slack role=switch aria-checked=true checked=true />\n\t[2695]<div />\nReceive notifications via Slack\nNotifications are grouped. For example, if you enable status changes, you will be notified for status, priority, and blocking relationship changes together.\nNotification types\nChoose which types of notifications to receive on each channel.\nNotification type\nDesktop\nMobile\nEmail\nSlack\nIssue status changes\nCompletions, cancellations, priority changes, and blocking relationships\n[2716]<div role=switch aria-checked=true checked=true />\n\t[2717]<div />\n[2719]<div role=switch aria-checked=false checked=false />\n\t[2720]<div />\n[2722]<div role=switch aria-checked=true checked=true />\n\t[2723]<div />\n[2725]<div role=switch aria-checked=true checked=true />\n\t[2726]<div />\nIssue assignments\nWhen issues are assigned or unassigned to you\n[2732]<div role=switch aria-checked=true checked=true />\n\t[2733]<div />\n[2735]<div role=switch aria-checked=false checked=false />\n\t[2736]<div />\n[2738]<div role=switch aria-checked=true checked=true />\n\t[2739]<div />\n[2741]<div role=switch aria-checked=true checked=true />\n\t[2742]<div />\nComments and mentions\nNew comments on subscribed issues and @mentions\n[2748]<div role=switch aria-checked=true checked=true />\n\t[2749]<div />\n[2751]<div role=switch aria-checked=false checked=false />\n\t[2752]<div />\n[2754]<div role=switch aria-checked=true checked=true />\n\t[2755]<div />\n[2757]<div role=switch aria-checked=true checked=true />\n\t[2758]<div />\nProject updates\nProject status changes, milestones, and progress updates\n[2764]<div role=switch aria-checked=true checked=true />\n\t[2765]<div />\n[2767]<div role=switch aria-checked=false checked=false />\n\t[2768]<div />\n[2770]<div role=switch aria-checked=false checked=false />\n\t[2771]<div />\n[2773]<div role=switch aria-checked=true checked=true />\n\t[2774]<div />\nCycle updates\nCycle starts, ends, and progress summaries\n[2780]<div role=switch aria-checked=false checked=false />\n\t[2781]<div />\n[2783]<div role=switch aria-checked=false checked=false />\n\t[2784]<div />\n[2786]<div role=switch aria-checked=true checked=true />\n\t[2787]<div />\n[2789]<div role=switch aria-checked=false checked=false />\n\t[2790]<div />\nSLA breaches\nWhen issues breach their SLA targets\n[2796]<div role=switch aria-checked=true checked=true />\n\t[2797]<div />\n[2799]<div role=switch aria-checked=false checked=false />\n\t[2800]<div />\n[2802]<div role=switch aria-checked=true checked=true />\n\t[2803]<div />\n[2805]<div role=switch aria-checked=true checked=true />\n\t[2806]<div />\nTeam activity\nNew members joining, team configuration changes\n[2812]<div role=switch aria-checked=false checked=false />\n\t[2813]<div />\n[2815]<div role=switch aria-checked=false checked=false />\n\t[2816]<div />\n[2818]<div role=switch aria-checked=false checked=false />\n\t[2819]<div />\n[2821]<div role=switch aria-checked=false checked=false />\n\t[2822]<div />\nEmail digest settings\nEmail digests send a summary of unread notifications with time delays based on urgency.\nSend immediately for urgent issues\nSend a notification email immediately if an issue assigned to you is marked urgent\n[2832]<div id=sendImmediatelyOnUrgent role=switch aria-checked=true checked=true />\n\t[2833]<div />\nSend immediately on SLA breach\nSend a notification email immediately when an issue breaches its SLA\n[2838]<div id=sendImmediatelyOnSLABreach role=switch aria-checked=true checked=true />\n\t[2839]<div />\nDelay low priority emails to work hours\nDelay low priority notification emails until work hours the next day (8 am - 6 pm in your timezone)\n[2844]<div id=delayLowPriorityToWorkHours role=switch aria-checked=true checked=true />\n\t[2845]<div />\nCommunication preferences\nCustomize the types of updates you receive from Linear.\nChangelog updates\nReceive updates about new features and improvements\n[2855]<div id=changelog role=switch aria-checked=true checked=true />\n\t[2856]<div />\nDPA updates\nReceive updates about Data Processing Agreement changes\n[2861]<div id=dpaUpdates role=switch aria-checked=true checked=true />\n\t[2862]<div />\nProduct updates\nReceive product announcements and newsletters\n[2867]<div id=productUpdates role=switch aria-checked=false checked=false />\n\t[2868]<div />\nTips and best practices\nReceive tips on how to use Linear more effectively\n[2873]<div id=tips role=switch aria-checked=true checked=true />\n\t[2874]<div />\nIssue subscriptions\nYou are automatically subscribed to issues you create, are assigned to, or are @mentioned in.\nNEX-1042\nMigrate authentication to OAuth 2.0\nBackend \u00b7 assigned \u00b7 8d ago\n[2888]<button />\n\tUnsubscribe\nNEX-987\nFix dashboard performance regression\nFrontend \u00b7 created \u00b7 13d ago\n[2896]<button />\n\tUnsubscribe\nNEX-1105\nAdd dark mode support for mobile app\nMobile \u00b7 mentioned \u00b7 3d ago\n[2904]<button />\n\tUnsubscribe\nNEX-1089\nUpdate API rate limiting implementation\nPlatform \u00b7 manual \u00b7 6d ago\n*[2912]<button />\n\tUnsubscribe\nNEX-1120\nDesign new onboarding flow\nDesign \u00b7 mentioned \u00b7 1d ago\n*[2920]<button />\n\tUnsubscribe\nNEX-856\nRefactor notification service architecture\nBackend \u00b7 created \u00b7 29d ago\n*[2928]<button />\n\tUnsubscribe\nNEX-1134\nImplement webhook retry logic\nPlatform \u00b7 assigned \u00b7 17h ago\n*[2936]<button />\n\tUnsubscribe\nNEX-1098\nCustomer data export compliance\nSecurity \u00b7 manual \u00b7 5d ago\n*[2944]<button />\n\tUnsubscribe\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully disabled the 'Delay low priority emails to work hours' setting. Verdict: Success",
+        "memory": "Enabled 'Send immediately on SLA breach' and disabled 'Delay low priority emails to work hours'. Need to verify the settings.",
+        "next_goal": "Verify that 'Send immediately on SLA breach' is enabled and 'Delay low priority emails to work hours' is disabled, then call done.",
+        "action": [
+          {
+            "done": {
+              "text": "Successfully enabled 'Send immediately on SLA breach' and disabled 'Delay low priority emails to work hours' in the Email digest settings on the Notifications page.",
+              "success": true
+            }
+          }
+        ],
+        "thinking": "I have successfully disabled 'Delay low priority emails to work hours'. Now I need to verify that both settings, 'Send immediately on SLA breach' and 'Delay low priority emails to work hours' are enabled and disabled respectively.",
+        "current_plan_item": 0,
+        "plan_update": [
+          "Enable 'Send immediately on SLA breach'",
+          "Disable 'Delay low priority emails to work hours'",
+          "Verify settings are correct"
+        ]
+      },
+      "result": [
+        {
+          "is_done": true,
+          "success": true,
+          "judgement": {
+            "reasoning": "The agent successfully navigated to the Notifications page and interacted with the switches as requested. The agent clicked on the notification button and then clicked on the two switches to enable and disable the settings. The agent then reported success.",
+            "verdict": true,
+            "failure_reason": "",
+            "impossible_task": false,
+            "reached_captcha": false
+          },
+          "attachments": [],
+          "long_term_memory": "Task completed: True - Successfully enabled 'Send immediately on SLA breach' and disabled 'Delay low priority emails to wor - 64 more characters",
+          "extracted_content": "Successfully enabled 'Send immediately on SLA breach' and disabled 'Delay low priority emails to work hours' in the Email digest settings on the Notifications page.",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8025/#/notifications",
+            "title": "Linear - Account Settings",
+            "target_id": "18C5",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996782-06b4-766b-8000-c6a94a7e1f1c_1771468832/screenshots/step_5.png",
+        "interacted_element": [
+          null
+        ],
+        "url": "http://10.0.1.172:8025/#/notifications",
+        "title": "Linear - Account Settings"
+      },
+      "metadata": {
+        "step_start_time": 1771468863.05651,
+        "step_end_time": 1771468867.414811,
+        "step_number": 5,
+        "step_interval": 8.502886533737183
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8025\n<step>\nThe agent initialized and navigated to the given URL. Verdict: Success\nCurrently at the base URL. Need to navigate to Notifications and then modify the email digest settings.\nClick on the 'Notifications' link to navigate to the notifications settings page.\nResult\nClicked a \"\ud83d\udd12\n\n                        Sec...\"\n<step>\nSuccessfully navigated to the security page. Verdict: Success\nCurrently on the security page. The next step is to navigate to the notifications page.\nClick on the 'Notifications' link to navigate to the notifications settings page.\nResult\nClicked a \"\ud83d\udd14\n\n                        Not...\"\n<step>\nSuccessfully navigated to the Notifications page. Verdict: Success\nCurrently on the Notifications page. Need to enable 'Send immediately on SLA breach' and disable 'Delay low priority emails to work hours'.\nEnable the 'Send immediately on SLA breach' setting.\nResult\nClicked div role=switch id=sendImmediatelyOnSLA\n<step>\nSuccessfully enabled the 'Send immediately on SLA breach' setting. Verdict: Success\nEnabled 'Send immediately on SLA breach'. Next, disable 'Delay low priority emails to work hours' and verify settings.\nDisable the 'Delay low priority emails to work hours' setting.\nResult\nClicked div role=switch id=delayLowPriorityToWo\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8025. Your task: Enable the 'Send immediately on SLA breach' setting and disable the 'Delay low priority emails to work hours' setting in the Email digest settings on the Notifications page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Enable 'Send immediately on SLA breach'\n[ ] 1: Disable 'Delay low priority emails to work hours'\n[ ] 2: Verify settings are correct\n</plan>\n<step_info>Step5 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>6 links, 97 interactive, 0 iframes, 431 total elements</page_stats>\nCurrent tab: 18C5\nAvailable tabs:\nTab 18C5: http://10.0.1.172:8025/#/notifications - Linear - Account Settings\n\n<page_info>0.7 above, 0.6 below </page_info>\n\nInteractive elements:\n[1927]<div />\nLinear\n[1939]<div id=userMenu />\n\t[1941]<div id=currentUserAvatar />\n\t\t[2951]<div />\n\t\t\tJR\nAccount\n[1849]<a />\n\tProfile\n[1850]<a />\n\tPreferences\n[1851]<a />\n\tNotifications\n[1852]<a />\n\tSecurity & Access\n[1853]<a />\n\tReset to defaults\n[2643]<a />\n\tSettings\nAccount\nNotifications\nNotifications\nReceive alerts on important updates in the Linear desktop app, mobile app, Slack, or email.\nNotification channels\nConfigure which channels you want to receive notifications through.\nDesktop\n[2664]<div id=channel-desktop role=switch aria-checked=true checked=true />\n\t[2665]<div />\nReceive notifications via the Linear desktop app\nMobile\n[2674]<div id=channel-mobile role=switch aria-checked=true checked=true />\n\t[2675]<div />\nReceive push notifications on your mobile device\nEmail\n[2684]<div id=channel-email role=switch aria-checked=true checked=true />\n\t[2685]<div />\nReceive email digest notifications\n[2689]<div />\n\tSlack\n[2694]<div id=channel-slack role=switch aria-checked=true checked=true />\n\t[2695]<div />\nReceive notifications via Slack\nNotifications are grouped. For example, if you enable status changes, you will be notified for status, priority, and blocking relationship changes together.\nNotification types\nChoose which types of notifications to receive on each channel.\nNotification type\nDesktop\nMobile\nEmail\nSlack\nIssue status changes\nCompletions, cancellations, priority changes, and blocking relationships\n[2716]<div role=switch aria-checked=true checked=true />\n\t[2717]<div />\n[2719]<div role=switch aria-checked=false checked=false />\n\t[2720]<div />\n[2722]<div role=switch aria-checked=true checked=true />\n\t[2723]<div />\n[2725]<div role=switch aria-checked=true checked=true />\n\t[2726]<div />\nIssue assignments\nWhen issues are assigned or unassigned to you\n[2732]<div role=switch aria-checked=true checked=true />\n\t[2733]<div />\n[2735]<div role=switch aria-checked=false checked=false />\n\t[2736]<div />\n[2738]<div role=switch aria-checked=true checked=true />\n\t[2739]<div />\n[2741]<div role=switch aria-checked=true checked=true />\n\t[2742]<div />\nComments and mentions\nNew comments on subscribed issues and @mentions\n[2748]<div role=switch aria-checked=true checked=true />\n\t[2749]<div />\n[2751]<div role=switch aria-checked=false checked=false />\n\t[2752]<div />\n[2754]<div role=switch aria-checked=true checked=true />\n\t[2755]<div />\n[2757]<div role=switch aria-checked=true checked=true />\n\t[2758]<div />\nProject updates\nProject status changes, milestones, and progress updates\n[2764]<div role=switch aria-checked=true checked=true />\n\t[2765]<div />\n[2767]<div role=switch aria-checked=false checked=false />\n\t[2768]<div />\n[2770]<div role=switch aria-checked=false checked=false />\n\t[2771]<div />\n[2773]<div role=switch aria-checked=true checked=true />\n\t[2774]<div />\nCycle updates\nCycle starts, ends, and progress summaries\n[2780]<div role=switch aria-checked=false checked=false />\n\t[2781]<div />\n[2783]<div role=switch aria-checked=false checked=false />\n\t[2784]<div />\n[2786]<div role=switch aria-checked=true checked=true />\n\t[2787]<div />\n[2789]<div role=switch aria-checked=false checked=false />\n\t[2790]<div />\nSLA breaches\nWhen issues breach their SLA targets\n[2796]<div role=switch aria-checked=true checked=true />\n\t[2797]<div />\n[2799]<div role=switch aria-checked=false checked=false />\n\t[2800]<div />\n[2802]<div role=switch aria-checked=true checked=true />\n\t[2803]<div />\n[2805]<div role=switch aria-checked=true checked=true />\n\t[2806]<div />\nTeam activity\nNew members joining, team configuration changes\n[2812]<div role=switch aria-checked=false checked=false />\n\t[2813]<div />\n[2815]<div role=switch aria-checked=false checked=false />\n\t[2816]<div />\n[2818]<div role=switch aria-checked=false checked=false />\n\t[2819]<div />\n[2821]<div role=switch aria-checked=false checked=false />\n\t[2822]<div />\nEmail digest settings\nEmail digests send a summary of unread notifications with time delays based on urgency.\nSend immediately for urgent issues\nSend a notification email immediately if an issue assigned to you is marked urgent\n[2832]<div id=sendImmediatelyOnUrgent role=switch aria-checked=true checked=true />\n\t[2833]<div />\nSend immediately on SLA breach\nSend a notification email immediately when an issue breaches its SLA\n[2838]<div id=sendImmediatelyOnSLABreach role=switch aria-checked=true checked=true />\n\t[2839]<div />\nDelay low priority emails to work hours\nDelay low priority notification emails until work hours the next day (8 am - 6 pm in your timezone)\n[2844]<div id=delayLowPriorityToWorkHours role=switch aria-checked=false checked=false />\n\t[2845]<div />\nCommunication preferences\nCustomize the types of updates you receive from Linear.\nChangelog updates\nReceive updates about new features and improvements\n[2855]<div id=changelog role=switch aria-checked=true checked=true />\n\t[2856]<div />\nDPA updates\nReceive updates about Data Processing Agreement changes\n[2861]<div id=dpaUpdates role=switch aria-checked=true checked=true />\n\t[2862]<div />\nProduct updates\nReceive product announcements and newsletters\n[2867]<div id=productUpdates role=switch aria-checked=false checked=false />\n\t[2868]<div />\nTips and best practices\nReceive tips on how to use Linear more effectively\n[2873]<div id=tips role=switch aria-checked=true checked=true />\n\t[2874]<div />\nIssue subscriptions\nYou are automatically subscribed to issues you create, are assigned to, or are @mentioned in.\nNEX-1042\nMigrate authentication to OAuth 2.0\nBackend \u00b7 assigned \u00b7 8d ago\n[2888]<button />\n\tUnsubscribe\nNEX-987\nFix dashboard performance regression\nFrontend \u00b7 created \u00b7 13d ago\n[2896]<button />\n\tUnsubscribe\nNEX-1105\nAdd dark mode support for mobile app\nMobile \u00b7 mentioned \u00b7 3d ago\n[2904]<button />\n\tUnsubscribe\nNEX-1089\nUpdate API rate limiting implementation\nPlatform \u00b7 manual \u00b7 6d ago\n[2912]<button />\n\tUnsubscribe\nNEX-1120\nDesign new onboarding flow\nDesign \u00b7 mentioned \u00b7 1d ago\n[2920]<button />\n\tUnsubscribe\nNEX-856\nRefactor notification service architecture\nBackend \u00b7 created \u00b7 29d ago\n[2928]<button />\n\tUnsubscribe\nNEX-1134\nImplement webhook retry logic\nPlatform \u00b7 assigned \u00b7 17h ago\n[2936]<button />\n\tUnsubscribe\nNEX-1098\nCustomer data export compliance\nSecurity \u00b7 manual \u00b7 5d ago\n[2944]<button />\n\tUnsubscribe\n</browser_state>\n"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "task_id": "task_m3",
+  "difficulty": "medium",
+  "instruction": "Change the user's email address to 'jordan@nextera-labs.com' on the Profile page.",
+  "passed": true,
+  "verifier_message": "Email successfully changed to 'jordan@nextera-labs.com'.",
+  "elapsed": 34.8,
+  "steps": 4,
+  "is_done": true,
+  "final_result": "The user's email address has been successfully updated to 'jordan@nextera-labs.com' on the Profile page.",
+  "errors": [
+    null,
+    null,
+    null,
+    null
+  ]
+}

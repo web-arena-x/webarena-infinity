@@ -1,0 +1,16 @@
+{
+  "task_id": "task_e2",
+  "difficulty": "easy",
+  "instruction": "Change the user's username to 'j.rivera' on the Profile page.",
+  "passed": true,
+  "verifier_message": "User's username successfully changed to 'j.rivera'.",
+  "elapsed": 33.7,
+  "steps": 3,
+  "is_done": true,
+  "final_result": "The username has been successfully changed to 'j.rivera'.",
+  "errors": [
+    null,
+    null,
+    null
+  ]
+}

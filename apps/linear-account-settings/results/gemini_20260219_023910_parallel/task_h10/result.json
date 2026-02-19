@@ -1,0 +1,18 @@
+{
+  "task_id": "task_h10",
+  "difficulty": "hard",
+  "instruction": "Enable the Email notification channel on the Notifications page and then enable the 'Project updates' notification type for the Email channel specifically.",
+  "passed": true,
+  "verifier_message": "Email channel enabled and project updates notification enabled for email.",
+  "elapsed": 24.8,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "The task is complete. Email notification channel was already enabled on the Notifications page. 'Project updates' notification type was already enabled for the Email channel.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

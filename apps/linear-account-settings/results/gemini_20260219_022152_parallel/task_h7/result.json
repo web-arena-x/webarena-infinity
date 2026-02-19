@@ -1,0 +1,18 @@
+{
+  "task_id": "task_h7",
+  "difficulty": "hard",
+  "instruction": "Disable the 'Issue status changes' notification for the Slack channel on the Notifications page. The notification group should remain enabled on other channels.",
+  "passed": true,
+  "verifier_message": "Issue status changes notification disabled for Slack, other channels unchanged.",
+  "elapsed": 26.6,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully disabled the 'Issue status changes' notification for the Slack channel, while ensuring the notification group remains enabled on other channels as requested.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

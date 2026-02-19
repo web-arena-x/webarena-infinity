@@ -1,0 +1,19 @@
+{
+  "task_id": "task_h3",
+  "difficulty": "hard",
+  "instruction": "Register a new passkey named 'YubiKey 5C' with device type 'Security key or password manager' on the Security & Access page.",
+  "passed": true,
+  "verifier_message": "Passkey 'YubiKey 5C' successfully registered with cross-platform type.",
+  "elapsed": 37.9,
+  "steps": 6,
+  "is_done": true,
+  "final_result": "Successfully registered the passkey 'YubiKey 5C' with device type 'Security key or password manager'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "history": [
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Start",
+        "memory": null,
+        "next_goal": "Initial navigation",
+        "action": [
+          {
+            "navigate": {
+              "url": "http://10.0.1.172:8026",
+              "new_tab": false
+            }
+          }
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "long_term_memory": "Found initial url and automatically loaded it. Navigated to http://10.0.1.172:8026",
+          "extracted_content": "\ud83d\udd17 Navigated to http://10.0.1.172:8026",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [],
+        "screenshot_path": null,
+        "interacted_element": [
+          null
+        ],
+        "url": "http://10.0.1.172:8026",
+        "title": "Initial Actions"
+      },
+      "metadata": {
+        "step_start_time": 1771468796.3038263,
+        "step_end_time": 1771468796.3038266,
+        "step_number": 0,
+        "step_interval": null
+      },
+      "state_message": null
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully loaded the initial URL. Verdict: Success",
+        "memory": "Navigated to the main page of the web application. The next step is to navigate to the Notifications page and unsubscribe from the specified issue.",
+        "next_goal": "Navigate to the Notifications page.",
+        "action": [
+          {
+            "click": {
+              "index": 884
+            }
+          }
+        ],
+        "thinking": "The user wants to unsubscribe from the issue 'NEX-987' titled 'Fix dashboard performance regression' on the Notifications page. First, I need to navigate to the Notifications page. Then, I will search for the issue and unsubscribe from it.",
+        "current_plan_item": 0,
+        "plan_update": [
+          "Navigate to the Notifications page.",
+          "Search for the issue 'NEX-987' titled 'Fix dashboard performance regression'.",
+          "Unsubscribe from the issue.",
+          "Verify the unsubscription."
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked a \"\ud83d\udd14\n\n                        Not...\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 109.5,
+            "click_y": 182.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8026/",
+            "title": "10.0.1.172:8026",
+            "target_id": "9F19",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_0699677f-5717-7010-8000-639b6e82a992_1771468789/screenshots/step_1.png",
+        "interacted_element": [
+          {
+            "node_id": 685,
+            "backend_node_id": 884,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "A",
+            "attributes": {
+              "class": "sidebar-item",
+              "data-route": "/notifications",
+              "data-testid": "nav-notifications"
+            },
+            "x_path": "html/body/div/aside/nav/div[1]/a[3]",
+            "element_hash": 7227730906138621732,
+            "stable_hash": 7227730906138621732,
+            "bounds": {
+              "x": 0.0,
+              "y": 164.5,
+              "width": 219.0,
+              "height": 36.0
+            },
+            "ax_name": "\ud83d\udd14 Notifications"
+          }
+        ],
+        "url": "http://10.0.1.172:8026/",
+        "title": "10.0.1.172:8026"
+      },
+      "metadata": {
+        "step_start_time": 1771468796.3038704,
+        "step_end_time": 1771468807.3832295,
+        "step_number": 1,
+        "step_interval": 2.384185791015625e-07
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8026\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8026. Your task: Unsubscribe from the issue 'NEX-987' titled 'Fix dashboard performance regression' on the Notifications page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step1 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>6 links, 33 interactive, 0 iframes, 3 shadow(open), 0 shadow(closed), 209 total elements</page_stats>\nCurrent tab: 9F19\nAvailable tabs:\nTab 9F19: http://10.0.1.172:8026/ - 10.0.1.172:8026\n\n<page_info>0.0 above, 0.7 below </page_info>\n\nInteractive elements:\n[Start of page]\n[960]<div />\nLinear\n[972]<div id=userMenu />\n\t[974]<div id=currentUserAvatar />\n\t\t[975]<div />\n\t\t\tJR\nAccount\n[882]<a />\n\tProfile\n[883]<a />\n\tPreferences\n[884]<a />\n\tNotifications\n[885]<a />\n\tSecurity & Access\n[886]<a />\n\tReset to defaults\n[887]<a />\n\tSettings\nAccount\n[1036]<span />\n\tProfile\nProfile\nPersonalize how other team members see you in your workspace.\nJR\n[888]<button title=Change avatar />\nClick to update your profile picture. Once updated, you can only replace it with another photo.\nName and Username\nFull name\n|SHADOW(open)|[875]<input type=text id=profileName value=Jordan Rivera placeholder=Enter your full name />\nUsername\n|SHADOW(open)|[876]<input type=text id=profileUsername value=jordan.rivera placeholder=Enter your username />\n[889]<button />\n\tSave changes\nEmail address\njordan.rivera@nextera.io\n[890]<button />\n\tChange\nChanging your email address will change it for all workspaces using this email.\nPronouns\nPronouns\n|SHADOW(open)|[877]<input type=text id=profilePronouns value=they/them placeholder=e.g., they/them, she/her, he/him />\n[891]<button />\n\tSave\nTimezone\nTimezone\n[892]<div />\n\tAmerica/New_York\n\t[1097]<span />\n[924]<button />\n\tSave\nConnected Accounts\nSoftware integrations where each user has their own account. This helps Linear associate your Linear user with third-party integration actions.\n[925]<button />\n\tConnect account\n[1145]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitHub\njordanrivera \u00b7 jordan@github.com\nConnected Apr 15, 2023\n[926]<button />\n\tDisconnect\n[1159]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitLab\njordan.rivera \u00b7 jordan.rivera@gitlab.com\nConnected May 20, 2023\n[927]<button />\n\tDisconnect\n[1173]<div />\n\t<svg /> <!-- SVG content collapsed -->\nSlack\njordan.rivera \u00b7 jordan.rivera@nextera.io\nConnected Apr 15, 2023\n[928]<button />\n\tDisconnect\n[1187]<div />\n\t<svg /> <!-- SVG content collapsed -->\nFigma\njordan.rivera \u00b7 jordan.rivera@nextera.io\nConnected Jun 20, 2023\n[929]<button />\n\tDisconnect\n[1201]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGoogle\njordan.rivera \u00b7 jordan.rivera@gmail.com\nConnected Feb 10, 2024\n[930]<button />\n\tDisconnect\nLeave workspace\nOnce removed, you no longer have access to the workspace. An admin will have to unsuspend your account in order for you to log back in.\n[931]<button />\n\tLeave workspace\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully navigated to the Notifications page. Verdict: Success.",
+        "memory": "Currently on the Notifications page. The goal is to unsubscribe from the issue 'NEX-987' titled 'Fix dashboard performance regression'.",
+        "next_goal": "Click the unsubscribe button for the issue 'NEX-987'.",
+        "action": [
+          {
+            "click": {
+              "index": 1532
+            }
+          }
+        ],
+        "thinking": "I have successfully navigated to the Notifications page. The next step is to unsubscribe from the issue 'NEX-987' titled 'Fix dashboard performance regression'. I can see the unsubscribe button for this issue in the current browser state. I will click the unsubscribe button.",
+        "current_plan_item": 0,
+        "plan_update": [
+          "Navigate to the Notifications page.",
+          "Search for the issue 'NEX-987' titled 'Fix dashboard performance regression'.",
+          "Unsubscribe from the issue.",
+          "Verify the unsubscription."
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Unsubscribe\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 887.203125,
+            "click_y": 589.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8026/#/notifications",
+            "title": "Linear - Account Settings",
+            "target_id": "9F19",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_0699677f-5717-7010-8000-639b6e82a992_1771468789/screenshots/step_2.png",
+        "interacted_element": [
+          {
+            "node_id": 1375,
+            "backend_node_id": 1532,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "btn btn-secondary btn-sm",
+              "data-action": "unsubscribe",
+              "data-sub-id": "sub-002",
+              "data-testid": "unsubscribe-sub-002"
+            },
+            "x_path": "html/body/div/main/div/div[6]/div[2]/div[2]/div[2]/button",
+            "element_hash": 6562488673617384753,
+            "stable_hash": 6562488673617384753,
+            "bounds": {
+              "x": 840.40625,
+              "y": 2008.0,
+              "width": 93.59375,
+              "height": 27.0
+            },
+            "ax_name": "Unsubscribe"
+          }
+        ],
+        "url": "http://10.0.1.172:8026/#/notifications",
+        "title": "Linear - Account Settings"
+      },
+      "metadata": {
+        "step_start_time": 1771468807.3852963,
+        "step_end_time": 1771468814.730453,
+        "step_number": 2,
+        "step_interval": 11.07935905456543
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8026\n<step>\nSuccessfully loaded the initial URL. Verdict: Success\nNavigated to the main page of the web application. The next step is to navigate to the Notifications page and unsubscribe from the specified issue.\nNavigate to the Notifications page.\nResult\nClicked a \"\ud83d\udd14\n\n                        Not...\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8026. Your task: Unsubscribe from the issue 'NEX-987' titled 'Fix dashboard performance regression' on the Notifications page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Navigate to the Notifications page.\n[ ] 1: Search for the issue 'NEX-987' titled 'Fix dashboard performance regression'.\n[ ] 2: Unsubscribe from the issue.\n[ ] 3: Verify the unsubscription.\n</plan>\n<step_info>Step2 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>6 links, 92 interactive, 0 iframes, 369 total elements</page_stats>\nCurrent tab: 9F19\nAvailable tabs:\nTab 9F19: http://10.0.1.172:8026/#/notifications - Linear - Account Settings\n\n<page_info>0.0 above, 1.3 below </page_info>\n\nInteractive elements:\n[Start of page]\n[960]<div />\nLinear\n[972]<div id=userMenu />\n\t[974]<div id=currentUserAvatar />\n\t\t*[1587]<div />\n\t\t\tJR\nAccount\n[882]<a />\n\tProfile\n[883]<a />\n\tPreferences\n[884]<a />\n\tNotifications\n[885]<a />\n\tSecurity & Access\n[886]<a />\n\tReset to defaults\n*[1279]<a />\n\tSettings\nAccount\nNotifications\nNotifications\nReceive alerts on important updates in the Linear desktop app, mobile app, Slack, or email.\nNotification channels\nConfigure which channels you want to receive notifications through.\nDesktop\n*[1300]<div id=channel-desktop role=switch aria-checked=true checked=true />\n\t*[1301]<div />\nReceive notifications via the Linear desktop app\nMobile\n*[1310]<div id=channel-mobile role=switch aria-checked=true checked=true />\n\t*[1311]<div />\nReceive push notifications on your mobile device\nEmail\n*[1320]<div id=channel-email role=switch aria-checked=true checked=true />\n\t*[1321]<div />\nReceive email digest notifications\n*[1325]<div />\n\tSlack\n*[1330]<div id=channel-slack role=switch aria-checked=true checked=true />\n\t*[1331]<div />\nReceive notifications via Slack\nNotifications are grouped. For example, if you enable status changes, you will be notified for status, priority, and blocking relationship changes together.\nNotification types\nChoose which types of notifications to receive on each channel.\nNotification type\nDesktop\nMobile\nEmail\nSlack\nIssue status changes\nCompletions, cancellations, priority changes, and blocking relationships\n*[1352]<div role=switch aria-checked=true checked=true />\n\t*[1353]<div />\n*[1355]<div role=switch aria-checked=false checked=false />\n\t*[1356]<div />\n*[1358]<div role=switch aria-checked=true checked=true />\n\t*[1359]<div />\n*[1361]<div role=switch aria-checked=true checked=true />\n\t*[1362]<div />\nIssue assignments\nWhen issues are assigned or unassigned to you\n*[1368]<div role=switch aria-checked=true checked=true />\n\t*[1369]<div />\n*[1371]<div role=switch aria-checked=false checked=false />\n\t*[1372]<div />\n*[1374]<div role=switch aria-checked=true checked=true />\n\t*[1375]<div />\n*[1377]<div role=switch aria-checked=true checked=true />\n\t*[1378]<div />\nComments and mentions\nNew comments on subscribed issues and @mentions\n*[1384]<div role=switch aria-checked=true checked=true />\n\t*[1385]<div />\n*[1387]<div role=switch aria-checked=false checked=false />\n\t*[1388]<div />\n*[1390]<div role=switch aria-checked=true checked=true />\n\t*[1391]<div />\n*[1393]<div role=switch aria-checked=true checked=true />\n\t*[1394]<div />\nProject updates\nProject status changes, milestones, and progress updates\n*[1400]<div role=switch aria-checked=true checked=true />\n\t*[1401]<div />\n*[1403]<div role=switch aria-checked=false checked=false />\n\t*[1404]<div />\n*[1406]<div role=switch aria-checked=false checked=false />\n\t*[1407]<div />\n*[1409]<div role=switch aria-checked=true checked=true />\n\t*[1410]<div />\nCycle updates\nCycle starts, ends, and progress summaries\n*[1416]<div role=switch aria-checked=false checked=false />\n\t*[1417]<div />\n*[1419]<div role=switch aria-checked=false checked=false />\n\t*[1420]<div />\n*[1422]<div role=switch aria-checked=true checked=true />\n\t*[1423]<div />\n*[1425]<div role=switch aria-checked=false checked=false />\n\t*[1426]<div />\nSLA breaches\nWhen issues breach their SLA targets\n*[1432]<div role=switch aria-checked=true checked=true />\n\t*[1433]<div />\n*[1435]<div role=switch aria-checked=false checked=false />\n\t*[1436]<div />\n*[1438]<div role=switch aria-checked=true checked=true />\n\t*[1439]<div />\n*[1441]<div role=switch aria-checked=true checked=true />\n\t*[1442]<div />\nTeam activity\nNew members joining, team configuration changes\n*[1448]<div role=switch aria-checked=false checked=false />\n\t*[1449]<div />\n*[1451]<div role=switch aria-checked=false checked=false />\n\t*[1452]<div />\n*[1454]<div role=switch aria-checked=false checked=false />\n\t*[1455]<div />\n*[1457]<div role=switch aria-checked=false checked=false />\n\t*[1458]<div />\nEmail digest settings\nEmail digests send a summary of unread notifications with time delays based on urgency.\nSend immediately for urgent issues\nSend a notification email immediately if an issue assigned to you is marked urgent\n*[1468]<div id=sendImmediatelyOnUrgent role=switch aria-checked=true checked=true />\n\t*[1469]<div />\nSend immediately on SLA breach\nSend a notification email immediately when an issue breaches its SLA\n*[1474]<div id=sendImmediatelyOnSLABreach role=switch aria-checked=false checked=false />\n\t*[1475]<div />\nDelay low priority emails to work hours\nDelay low priority notification emails until work hours the next day (8 am - 6 pm in your timezone)\n*[1480]<div id=delayLowPriorityToWorkHours role=switch aria-checked=true checked=true />\n\t*[1481]<div />\nCommunication preferences\nCustomize the types of updates you receive from Linear.\nChangelog updates\nReceive updates about new features and improvements\n*[1491]<div id=changelog role=switch aria-checked=true checked=true />\n\t*[1492]<div />\nDPA updates\nReceive updates about Data Processing Agreement changes\n*[1497]<div id=dpaUpdates role=switch aria-checked=true checked=true />\n\t*[1498]<div />\nProduct updates\nReceive product announcements and newsletters\n*[1503]<div id=productUpdates role=switch aria-checked=false checked=false />\n\t*[1504]<div />\nTips and best practices\nReceive tips on how to use Linear more effectively\n*[1509]<div id=tips role=switch aria-checked=true checked=true />\n\t*[1510]<div />\nIssue subscriptions\nYou are automatically subscribed to issues you create, are assigned to, or are @mentioned in.\nNEX-1042\nMigrate authentication to OAuth 2.0\nBackend \u00b7 assigned \u00b7 8d ago\n*[1524]<button />\n\tUnsubscribe\nNEX-987\nFix dashboard performance regression\nFrontend \u00b7 created \u00b7 13d ago\n*[1532]<button />\n\tUnsubscribe\nNEX-1105\nAdd dark mode support for mobile app\n*[1540]<button />\n\tUnsubscribe\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully unsubscribed from the issue 'NEX-987'. Verdict: Success.",
+        "memory": "Unsubscribed from the issue 'NEX-987' titled 'Fix dashboard performance regression'.",
+        "next_goal": "Verify the unsubscription and complete the task.",
+        "action": [
+          {
+            "done": {
+              "text": "Successfully unsubscribed from the issue 'NEX-987' titled 'Fix dashboard performance regression'.",
+              "success": true
+            }
+          }
+        ],
+        "thinking": "I have successfully navigated to the Notifications page and clicked the unsubscribe button for the issue 'NEX-987'. According to the user request, the task is to unsubscribe from the issue 'NEX-987' titled 'Fix dashboard performance regression'.\nNow I need to verify the unsubscription.",
+        "current_plan_item": 0,
+        "plan_update": [
+          "Navigate to the Notifications page.",
+          "Search for the issue 'NEX-987' titled 'Fix dashboard performance regression'.",
+          "Unsubscribe from the issue.",
+          "Verify the unsubscription."
+        ]
+      },
+      "result": [
+        {
+          "is_done": true,
+          "success": true,
+          "judgement": {
+            "reasoning": "The agent successfully navigated to the notifications page and unsubscribed from the specified issue. The agent clicked the notification button and then clicked the unsubscribe button. The agent then reported success.",
+            "verdict": true,
+            "failure_reason": "",
+            "impossible_task": false,
+            "reached_captcha": false
+          },
+          "attachments": [],
+          "long_term_memory": "Task completed: True - Successfully unsubscribed from the issue 'NEX-987' titled 'Fix dashboard performance regression'.",
+          "extracted_content": "Successfully unsubscribed from the issue 'NEX-987' titled 'Fix dashboard performance regression'.",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8026/#/notifications",
+            "title": "Linear - Account Settings",
+            "target_id": "9F19",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_0699677f-5717-7010-8000-639b6e82a992_1771468789/screenshots/step_3.png",
+        "interacted_element": [
+          null
+        ],
+        "url": "http://10.0.1.172:8026/#/notifications",
+        "title": "Linear - Account Settings"
+      },
+      "metadata": {
+        "step_start_time": 1771468814.732004,
+        "step_end_time": 1771468818.6945229,
+        "step_number": 3,
+        "step_interval": 7.345156669616699
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8026\n<step>\nSuccessfully loaded the initial URL. Verdict: Success\nNavigated to the main page of the web application. The next step is to navigate to the Notifications page and unsubscribe from the specified issue.\nNavigate to the Notifications page.\nResult\nClicked a \"\ud83d\udd14\n\n                        Not...\"\n<step>\nSuccessfully navigated to the Notifications page. Verdict: Success.\nCurrently on the Notifications page. The goal is to unsubscribe from the issue 'NEX-987' titled 'Fix dashboard performance regression'.\nClick the unsubscribe button for the issue 'NEX-987'.\nResult\nClicked button \"Unsubscribe\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8026. Your task: Unsubscribe from the issue 'NEX-987' titled 'Fix dashboard performance regression' on the Notifications page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<plan>\n[>] 0: Navigate to the Notifications page.\n[ ] 1: Search for the issue 'NEX-987' titled 'Fix dashboard performance regression'.\n[ ] 2: Unsubscribe from the issue.\n[ ] 3: Verify the unsubscription.\n</plan>\n<step_info>Step3 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>0 links, 82 interactive, 0 iframes, 349 total elements</page_stats>\nCurrent tab: 9F19\nAvailable tabs:\nTab 9F19: http://10.0.1.172:8026/#/notifications - Linear - Account Settings\n\n<page_info>1.3 above, 0.0 below </page_info>\n\nInteractive elements:\nEmail\n*[1724]<div id=channel-email role=switch aria-checked=true checked=true />\n\t*[1725]<div />\nReceive email digest notifications\n*[1729]<div />\n\tSlack\n*[1734]<div id=channel-slack role=switch aria-checked=true checked=true />\n\t*[1735]<div />\nReceive notifications via Slack\nNotifications are grouped. For example, if you enable status changes, you will be notified for status, priority, and blocking relationship changes together.\nNotification types\nChoose which types of notifications to receive on each channel.\nNotification type\nDesktop\nMobile\nEmail\nSlack\nIssue status changes\nCompletions, cancellations, priority changes, and blocking relationships\n*[1756]<div role=switch aria-checked=true checked=true />\n\t*[1757]<div />\n*[1759]<div role=switch aria-checked=false checked=false />\n\t*[1760]<div />\n*[1762]<div role=switch aria-checked=true checked=true />\n\t*[1763]<div />\n*[1765]<div role=switch aria-checked=true checked=true />\n\t*[1766]<div />\nIssue assignments\nWhen issues are assigned or unassigned to you\n*[1772]<div role=switch aria-checked=true checked=true />\n\t*[1773]<div />\n*[1775]<div role=switch aria-checked=false checked=false />\n\t*[1776]<div />\n*[1778]<div role=switch aria-checked=true checked=true />\n\t*[1779]<div />\n*[1781]<div role=switch aria-checked=true checked=true />\n\t*[1782]<div />\nComments and mentions\nNew comments on subscribed issues and @mentions\n*[1788]<div role=switch aria-checked=true checked=true />\n\t*[1789]<div />\n*[1791]<div role=switch aria-checked=false checked=false />\n\t*[1792]<div />\n*[1794]<div role=switch aria-checked=true checked=true />\n\t*[1795]<div />\n*[1797]<div role=switch aria-checked=true checked=true />\n\t*[1798]<div />\nProject updates\nProject status changes, milestones, and progress updates\n*[1804]<div role=switch aria-checked=true checked=true />\n\t*[1805]<div />\n*[1807]<div role=switch aria-checked=false checked=false />\n\t*[1808]<div />\n*[1810]<div role=switch aria-checked=false checked=false />\n\t*[1811]<div />\n*[1813]<div role=switch aria-checked=true checked=true />\n\t*[1814]<div />\nCycle updates\nCycle starts, ends, and progress summaries\n*[1820]<div role=switch aria-checked=false checked=false />\n\t*[1821]<div />\n*[1823]<div role=switch aria-checked=false checked=false />\n\t*[1824]<div />\n*[1826]<div role=switch aria-checked=true checked=true />\n\t*[1827]<div />\n*[1829]<div role=switch aria-checked=false checked=false />\n\t*[1830]<div />\nSLA breaches\nWhen issues breach their SLA targets\n*[1836]<div role=switch aria-checked=true checked=true />\n\t*[1837]<div />\n*[1839]<div role=switch aria-checked=false checked=false />\n\t*[1840]<div />\n*[1842]<div role=switch aria-checked=true checked=true />\n\t*[1843]<div />\n*[1845]<div role=switch aria-checked=true checked=true />\n\t*[1846]<div />\nTeam activity\nNew members joining, team configuration changes\n*[1852]<div role=switch aria-checked=false checked=false />\n\t*[1853]<div />\n*[1855]<div role=switch aria-checked=false checked=false />\n\t*[1856]<div />\n*[1858]<div role=switch aria-checked=false checked=false />\n\t*[1859]<div />\n*[1861]<div role=switch aria-checked=false checked=false />\n\t*[1862]<div />\nEmail digest settings\nEmail digests send a summary of unread notifications with time delays based on urgency.\nSend immediately for urgent issues\nSend a notification email immediately if an issue assigned to you is marked urgent\n*[1872]<div id=sendImmediatelyOnUrgent role=switch aria-checked=true checked=true />\n\t*[1873]<div />\nSend immediately on SLA breach\nSend a notification email immediately when an issue breaches its SLA\n*[1878]<div id=sendImmediatelyOnSLABreach role=switch aria-checked=false checked=false />\n\t*[1879]<div />\nDelay low priority emails to work hours\nDelay low priority notification emails until work hours the next day (8 am - 6 pm in your timezone)\n*[1884]<div id=delayLowPriorityToWorkHours role=switch aria-checked=true checked=true />\n\t*[1885]<div />\nCommunication preferences\nCustomize the types of updates you receive from Linear.\nChangelog updates\nReceive updates about new features and improvements\n*[1895]<div id=changelog role=switch aria-checked=true checked=true />\n\t*[1896]<div />\nDPA updates\nReceive updates about Data Processing Agreement changes\n*[1901]<div id=dpaUpdates role=switch aria-checked=true checked=true />\n\t*[1902]<div />\nProduct updates\nReceive product announcements and newsletters\n*[1907]<div id=productUpdates role=switch aria-checked=false checked=false />\n\t*[1908]<div />\nTips and best practices\nReceive tips on how to use Linear more effectively\n*[1913]<div id=tips role=switch aria-checked=true checked=true />\n\t*[1914]<div />\nIssue subscriptions\nYou are automatically subscribed to issues you create, are assigned to, or are @mentioned in.\nNEX-1042\nMigrate authentication to OAuth 2.0\nBackend \u00b7 assigned \u00b7 8d ago\n*[1928]<button />\n\tUnsubscribe\nNEX-1105\nAdd dark mode support for mobile app\nMobile \u00b7 mentioned \u00b7 3d ago\n*[1936]<button />\n\tUnsubscribe\nNEX-1089\nUpdate API rate limiting implementation\nPlatform \u00b7 manual \u00b7 6d ago\n*[1944]<button />\n\tUnsubscribe\nNEX-1120\nDesign new onboarding flow\nDesign \u00b7 mentioned \u00b7 1d ago\n*[1952]<button />\n\tUnsubscribe\nNEX-856\nRefactor notification service architecture\nBackend \u00b7 created \u00b7 29d ago\n*[1960]<button />\n\tUnsubscribe\nNEX-1134\nImplement webhook retry logic\nPlatform \u00b7 assigned \u00b7 17h ago\n*[1968]<button />\n\tUnsubscribe\nNEX-1098\nCustomer data export compliance\nSecurity \u00b7 manual \u00b7 5d ago\n*[1976]<button />\n\tUnsubscribe\nUnsubscribed from issue\n[End of page]\n</browser_state>\n"
+    }
+  ]
+}

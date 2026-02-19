@@ -1,0 +1,483 @@
+{
+  "history": [
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Start",
+        "memory": null,
+        "next_goal": "Initial navigation",
+        "action": [
+          {
+            "navigate": {
+              "url": "http://10.0.1.172:8031",
+              "new_tab": false
+            }
+          }
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "long_term_memory": "Found initial url and automatically loaded it. Navigated to http://10.0.1.172:8031",
+          "extracted_content": "\ud83d\udd17 Navigated to http://10.0.1.172:8031",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [],
+        "screenshot_path": null,
+        "interacted_element": [
+          null
+        ],
+        "url": "http://10.0.1.172:8031",
+        "title": "Initial Actions"
+      },
+      "metadata": {
+        "step_start_time": 1771468876.2574239,
+        "step_end_time": 1771468876.2574239,
+        "step_number": 0,
+        "step_interval": null
+      },
+      "state_message": null
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully loaded the page. Verdict: Success",
+        "memory": "Need to disable 'Changelog updates' and 'Tips and best practices' and enable 'Product updates' on the Notifications page.",
+        "next_goal": "Navigate to the Notifications page.",
+        "action": [
+          {
+            "click": {
+              "index": 3168
+            }
+          }
+        ],
+        "thinking": "The user wants me to disable 'Changelog updates' and 'Tips and best practices' and enable 'Product updates' on the Notifications page. First, I need to navigate to the Notifications page."
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked a \"\ud83d\udd12\n\n                        Sec...\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 109.5,
+            "click_y": 218.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8031/",
+            "title": "10.0.1.172:8031",
+            "target_id": "FB89",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996784-7954-7c94-8000-298321fca1e4_1771468871/screenshots/step_1.png",
+        "interacted_element": [
+          {
+            "node_id": 3637,
+            "backend_node_id": 3168,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "A",
+            "attributes": {
+              "class": "sidebar-item",
+              "data-route": "/security",
+              "data-testid": "nav-security"
+            },
+            "x_path": "html/body/div/aside/nav/div[1]/a[4]",
+            "element_hash": 8370605381034260494,
+            "stable_hash": 8370605381034260494,
+            "bounds": {
+              "x": 0.0,
+              "y": 200.5,
+              "width": 219.0,
+              "height": 36.0
+            },
+            "ax_name": "\ud83d\udd12 Security & Access"
+          }
+        ],
+        "url": "http://10.0.1.172:8031/",
+        "title": "10.0.1.172:8031"
+      },
+      "metadata": {
+        "step_start_time": 1771468876.2574692,
+        "step_end_time": 1771468885.7811224,
+        "step_number": 1,
+        "step_interval": 0.0
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8031\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8031. Your task: Disable the 'Changelog updates' and 'Tips and best practices' communication preferences, and enable the 'Product updates' communication preference on the Notifications page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step1 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>6 links, 33 interactive, 0 iframes, 3 shadow(open), 0 shadow(closed), 209 total elements</page_stats>\nCurrent tab: FB89\nAvailable tabs:\nTab FB89: http://10.0.1.172:8031/ - 10.0.1.172:8031\n\n<page_info>0.0 above, 0.7 below </page_info>\n\nInteractive elements:\n[Start of page]\n[3243]<div />\nLinear\n[3255]<div id=userMenu />\n\t[3257]<div id=currentUserAvatar />\n\t\t[3258]<div />\n\t\t\tJR\nAccount\n[3165]<a />\n\tProfile\n[3166]<a />\n\tPreferences\n[3167]<a />\n\tNotifications\n[3168]<a />\n\tSecurity & Access\n[3169]<a />\n\tReset to defaults\n[3170]<a />\n\tSettings\nAccount\n[3319]<span />\n\tProfile\nProfile\nPersonalize how other team members see you in your workspace.\nJR\n[3171]<button title=Change avatar />\nClick to update your profile picture. Once updated, you can only replace it with another photo.\nName and Username\nFull name\n|SHADOW(open)|[3159]<input type=text id=profileName value=Jordan Rivera placeholder=Enter your full name />\nUsername\n|SHADOW(open)|[3160]<input type=text id=profileUsername value=jordan.rivera placeholder=Enter your username />\n[3172]<button />\n\tSave changes\nEmail address\njordan.rivera@nextera.io\n[3173]<button />\n\tChange\nChanging your email address will change it for all workspaces using this email.\nPronouns\nPronouns\n|SHADOW(open)|[3161]<input type=text id=profilePronouns value=they/them placeholder=e.g., they/them, she/her, he/him />\n[3174]<button />\n\tSave\nTimezone\nTimezone\n[3175]<div />\n\tAmerica/New_York\n\t[3380]<span />\n[3207]<button />\n\tSave\nConnected Accounts\nSoftware integrations where each user has their own account. This helps Linear associate your Linear user with third-party integration actions.\n[3208]<button />\n\tConnect account\n[3428]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitHub\njordanrivera \u00b7 jordan@github.com\nConnected Apr 15, 2023\n[3209]<button />\n\tDisconnect\n[3442]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitLab\njordan.rivera \u00b7 jordan.rivera@gitlab.com\nConnected May 20, 2023\n[3210]<button />\n\tDisconnect\n[3456]<div />\n\t<svg /> <!-- SVG content collapsed -->\nSlack\njordan.rivera \u00b7 jordan.rivera@nextera.io\nConnected Apr 15, 2023\n[3211]<button />\n\tDisconnect\n[3470]<div />\n\t<svg /> <!-- SVG content collapsed -->\nFigma\njordan.rivera \u00b7 jordan.rivera@nextera.io\nConnected Jun 20, 2023\n[3212]<button />\n\tDisconnect\n[3484]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGoogle\njordan.rivera \u00b7 jordan.rivera@gmail.com\nConnected Feb 10, 2024\n[3213]<button />\n\tDisconnect\nLeave workspace\nOnce removed, you no longer have access to the workspace. An admin will have to unsuspend your account in order for you to log back in.\n[3214]<button />\n\tLeave workspace\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully navigated to the Security & Access page. Verdict: Success",
+        "memory": "Currently on the Security & Access page. The next step is to navigate to the Notifications page to adjust communication preferences.",
+        "next_goal": "Navigate to the Notifications page by clicking the 'Notifications' link.",
+        "action": [
+          {
+            "click": {
+              "index": 3168
+            }
+          }
+        ],
+        "thinking": "I have successfully navigated to the Security & Access page. Now I need to navigate to the Notifications page to disable 'Changelog updates' and 'Tips and best practices' and enable 'Product updates'. I will click on the 'Notifications' link.",
+        "current_plan_item": 0
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked a \"\ud83d\udd12\n\n                        Sec...\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 109.5,
+            "click_y": 218.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8031/#/security",
+            "title": "Linear - Account Settings",
+            "target_id": "FB89",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996784-7954-7c94-8000-298321fca1e4_1771468871/screenshots/step_2.png",
+        "interacted_element": [
+          {
+            "node_id": 3989,
+            "backend_node_id": 3168,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "A",
+            "attributes": {
+              "class": "sidebar-item active",
+              "data-route": "/security",
+              "data-testid": "nav-security"
+            },
+            "x_path": "html/body/div/aside/nav/div[1]/a[4]",
+            "element_hash": 6671877951132861003,
+            "stable_hash": 8370605381034260494,
+            "bounds": {
+              "x": 0.0,
+              "y": 200.5,
+              "width": 219.0,
+              "height": 36.0
+            },
+            "ax_name": "\ud83d\udd12 Security & Access"
+          }
+        ],
+        "url": "http://10.0.1.172:8031/#/security",
+        "title": "Linear - Account Settings"
+      },
+      "metadata": {
+        "step_start_time": 1771468885.7825027,
+        "step_end_time": 1771468892.4628685,
+        "step_number": 2,
+        "step_interval": 9.523653268814087
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8031\n<step>\nSuccessfully loaded the page. Verdict: Success\nNeed to disable 'Changelog updates' and 'Tips and best practices' and enable 'Product updates' on the Notifications page.\nNavigate to the Notifications page.\nResult\nClicked a \"\ud83d\udd12\n\n                        Sec...\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8031. Your task: Disable the 'Changelog updates' and 'Tips and best practices' communication preferences, and enable the 'Product updates' communication preference on the Notifications page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step2 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>6 links, 72 interactive, 0 iframes, 394 total elements</page_stats>\nCurrent tab: FB89\nAvailable tabs:\nTab FB89: http://10.0.1.172:8031/#/security - Linear - Account Settings\n\n<page_info>0.0 above, 1.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n[3243]<div />\nLinear\n[3255]<div id=userMenu />\n\t[3257]<div id=currentUserAvatar />\n\t\t*[3822]<div />\n\t\t\tJR\nAccount\n[3165]<a />\n\tProfile\n[3166]<a />\n\tPreferences\n[3167]<a />\n\tNotifications\n[3168]<a />\n\tSecurity & Access\n[3169]<a />\n\tReset to defaults\n*[3562]<a />\n\tSettings\nAccount\nSecurity & Access\nSecurity & Access\nManage your account security, sessions, and authorized applications.\nSessions\nView and manage connected devices.\n*[3576]<button />\n\tRevoke all\nInactive sessions will be automatically expired after 30 days.\n*[3582]<div />\n\t*[3583]<span />\nMacBook Pro 16\"\nCurrent\nDesktop App \u00b7 New York, NY, US \u00b7 Last seen 12h ago\n*[3589]<button />\n\tDetails\n*[3592]<div />\n\t*[3593]<span />\nChrome on Windows\nWeb Browser \u00b7 New York, NY, US \u00b7 Last seen 1d ago\n*[3598]<button />\n\tDetails\n*[3599]<button />\n\tRevoke\n*[3602]<div />\n\t*[3603]<span />\niPhone 15 Pro\nMobile App \u00b7 Newark, NJ, US \u00b7 Last seen 2d ago\n*[3608]<button />\n\tDetails\n*[3609]<button />\n\tRevoke\n*[3612]<div />\n\t*[3613]<span />\nSafari on MacBook Air\nWeb Browser \u00b7 Brooklyn, NY, US \u00b7 Last seen 6d ago\n*[3618]<button />\n\tDetails\n*[3619]<button />\n\tRevoke\n*[3622]<div />\n\t*[3623]<span />\nFirefox on Ubuntu\nWeb Browser \u00b7 San Francisco, CA, US \u00b7 Last seen 27d ago\n*[3628]<button />\n\tDetails\n*[3629]<button />\n\tRevoke\n*[3632]<div />\n\t*[3633]<span />\niPad Pro 12.9\"\nMobile App \u00b7 New York, NY, US \u00b7 Last seen 1mo ago\n*[3638]<button />\n\tDetails\n*[3639]<button />\n\tRevoke\n*[3642]<div />\n\t*[3643]<span />\n\t\t>_\nlinear-cli\nCLI \u00b7 New York, NY, US \u00b7 Last seen 4d ago\n*[3648]<button />\n\tDetails\n*[3649]<button />\n\tRevoke\nPasskeys\nPasskeys allow secure and fast login without passwords. Supported by all major browsers, mobile operating systems, and password managers like 1Password.\n*[3656]<button />\n\tRegister device\n*[3660]<div />\n\t*[3661]<span />\nMacBook Pro Touch ID\nRegistered Jun 15, 2025 \u00b7 Last used 17h ago\n*[3666]<button />\n\tRename\n*[3667]<button />\n\tRemove\n*[3670]<div />\n\t*[3671]<span />\n1Password\nRegistered Sep 20, 2025 \u00b7 Last used 8d ago\n*[3676]<button />\n\tRename\n*[3677]<button />\n\tRemove\nPersonal API keys\nCreate and manage API keys associated with your account.\n*[3684]<button />\n\tCreate key\n*[3688]<div />\n\t*[3689]<span />\nCI/CD Pipeline\nlin_api_x1y2...z3\n\u00b7 Created Mar 10, 2025 \u00b7 Last used 20h ago\n*[3695]<button />\n\tRename\n*[3696]<button />\n\tRevoke\n*[3699]<div />\n\t*[3700]<span />\nPersonal Automation\nlin_api_a4b5...c6\n\u00b7 Created Aug 22, 2025 \u00b7 Last used 3d ago\n*[3706]<button />\n\tRename\n*[3707]<button />\n\tRevoke\n*[3710]<div />\n\t*[3711]<span />\nMonitoring Dashboard\nlin_api_d7e8...f9\n\u00b7 Created Nov 5, 2025 \u00b7 Last used 19d ago\n*[3717]<button />\n\tRename\n*[3718]<button />\n\tRevoke\nAuthorized applications\nView and manage OAuth applications that have been granted access to your account.\n*[3727]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitHub\nSource code integration for pull requests and branches\nread:issues\nwrite:issues\nread:pull_requests\nwrite:webhooks\nAuthorized Apr 15, 2023\n*[3740]<button />\n\tRevoke access\n*[3743]<div />\n\t<svg /> <!-- SVG content collapsed -->\nSlack\nTeam communication and notification integration\nread:messages\nwrite:messages\nread:channels\nAuthorized Apr 15, 2023\n*[3755]<button />\n\tRevoke access\n*[3758]<div />\n\t<svg /> <!-- SVG content collapsed -->\nFigma\nDesign file linking and preview integration\nread:files\nread:comments\nAuthorized Jun 20, 2023\n*[3769]<button />\n\tRevoke access\n*[3772]<div />\n\t<svg /> <!-- SVG content collapsed -->\nSentry\nError tracking and issue auto-creation\nread:issues\nwrite:issues\nread:projects\nAuthorized Jan 10, 2024\n*[3785]<button />\n\tRevoke access\n*[3788]<div />\n\t<svg /> <!-- SVG content collapsed -->\nZendesk\nCustomer support ticket integration\nread:tickets\nwrite:tickets\nAuthorized Sep 5, 2024\n*[3800]<button />\n\tRevoke access\n*[3803]<div />\n\t<svg /> <!-- SVG content collapsed -->\nNotion\nDocument and wiki linking\nread:pages\nread:databases\nAuthorized Feb 14, 2025\n*[3815]<button />\n\tRevoke access\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "The previous attempt to navigate to the Notifications page failed. I ended up on the Security & Access page again. Verdict: Failure",
+        "memory": "Currently on the Security & Access page. Need to navigate to the Notifications page to disable 'Changelog updates' and 'Tips and best practices' and enable 'Product updates'.",
+        "next_goal": "Navigate to the Notifications page by clicking the 'Notifications' link.",
+        "action": [
+          {
+            "click": {
+              "index": 3167
+            }
+          }
+        ],
+        "thinking": "I am currently on the Security & Access page, but my goal is to modify the notification settings. I need to navigate to the Notifications page by clicking the 'Notifications' link. The previous attempt to click the 'Notifications' link resulted in navigating to the Security & Access page again, which is unexpected. I will try clicking the 'Notifications' link again to see if it works this time.",
+        "current_plan_item": 0
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked a \"\ud83d\udd14\n\n                        Not...\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 109.5,
+            "click_y": 182.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8031/#/security",
+            "title": "Linear - Account Settings",
+            "target_id": "FB89",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996784-7954-7c94-8000-298321fca1e4_1771468871/screenshots/step_3.png",
+        "interacted_element": [
+          {
+            "node_id": 4457,
+            "backend_node_id": 3167,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "A",
+            "attributes": {
+              "class": "sidebar-item",
+              "data-route": "/notifications",
+              "data-testid": "nav-notifications"
+            },
+            "x_path": "html/body/div/aside/nav/div[1]/a[3]",
+            "element_hash": 7227730906138621732,
+            "stable_hash": 7227730906138621732,
+            "bounds": {
+              "x": 0.0,
+              "y": 164.5,
+              "width": 219.0,
+              "height": 36.0
+            },
+            "ax_name": "\ud83d\udd14 Notifications"
+          }
+        ],
+        "url": "http://10.0.1.172:8031/#/security",
+        "title": "Linear - Account Settings"
+      },
+      "metadata": {
+        "step_start_time": 1771468892.4647825,
+        "step_end_time": 1771468902.8363404,
+        "step_number": 3,
+        "step_interval": 6.680365800857544
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8031\n<step>\nSuccessfully loaded the page. Verdict: Success\nNeed to disable 'Changelog updates' and 'Tips and best practices' and enable 'Product updates' on the Notifications page.\nNavigate to the Notifications page.\nResult\nClicked a \"\ud83d\udd12\n\n                        Sec...\"\n<step>\nSuccessfully navigated to the Security & Access page. Verdict: Success\nCurrently on the Security & Access page. The next step is to navigate to the Notifications page to adjust communication preferences.\nNavigate to the Notifications page by clicking the 'Notifications' link.\nResult\nClicked a \"\ud83d\udd12\n\n                        Sec...\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8031. Your task: Disable the 'Changelog updates' and 'Tips and best practices' communication preferences, and enable the 'Product updates' communication preference on the Notifications page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step3 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>6 links, 72 interactive, 0 iframes, 394 total elements</page_stats>\nCurrent tab: FB89\nAvailable tabs:\nTab FB89: http://10.0.1.172:8031/#/security - Linear - Account Settings\n\n<page_info>0.0 above, 1.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n[3243]<div />\nLinear\n[3255]<div id=userMenu />\n\t[3257]<div id=currentUserAvatar />\n\t\t*[4219]<div />\n\t\t\tJR\nAccount\n[3165]<a />\n\tProfile\n[3166]<a />\n\tPreferences\n[3167]<a />\n\tNotifications\n[3168]<a />\n\tSecurity & Access\n[3169]<a />\n\tReset to defaults\n*[3959]<a />\n\tSettings\nAccount\nSecurity & Access\nSecurity & Access\nManage your account security, sessions, and authorized applications.\nSessions\nView and manage connected devices.\n*[3973]<button />\n\tRevoke all\nInactive sessions will be automatically expired after 30 days.\n*[3979]<div />\n\t*[3980]<span />\nMacBook Pro 16\"\nCurrent\nDesktop App \u00b7 New York, NY, US \u00b7 Last seen 12h ago\n*[3986]<button />\n\tDetails\n*[3989]<div />\n\t*[3990]<span />\nChrome on Windows\nWeb Browser \u00b7 New York, NY, US \u00b7 Last seen 1d ago\n*[3995]<button />\n\tDetails\n*[3996]<button />\n\tRevoke\n*[3999]<div />\n\t*[4000]<span />\niPhone 15 Pro\nMobile App \u00b7 Newark, NJ, US \u00b7 Last seen 2d ago\n*[4005]<button />\n\tDetails\n*[4006]<button />\n\tRevoke\n*[4009]<div />\n\t*[4010]<span />\nSafari on MacBook Air\nWeb Browser \u00b7 Brooklyn, NY, US \u00b7 Last seen 6d ago\n*[4015]<button />\n\tDetails\n*[4016]<button />\n\tRevoke\n*[4019]<div />\n\t*[4020]<span />\nFirefox on Ubuntu\nWeb Browser \u00b7 San Francisco, CA, US \u00b7 Last seen 27d ago\n*[4025]<button />\n\tDetails\n*[4026]<button />\n\tRevoke\n*[4029]<div />\n\t*[4030]<span />\niPad Pro 12.9\"\nMobile App \u00b7 New York, NY, US \u00b7 Last seen 1mo ago\n*[4035]<button />\n\tDetails\n*[4036]<button />\n\tRevoke\n*[4039]<div />\n\t*[4040]<span />\n\t\t>_\nlinear-cli\nCLI \u00b7 New York, NY, US \u00b7 Last seen 4d ago\n*[4045]<button />\n\tDetails\n*[4046]<button />\n\tRevoke\nPasskeys\nPasskeys allow secure and fast login without passwords. Supported by all major browsers, mobile operating systems, and password managers like 1Password.\n*[4053]<button />\n\tRegister device\n*[4057]<div />\n\t*[4058]<span />\nMacBook Pro Touch ID\nRegistered Jun 15, 2025 \u00b7 Last used 17h ago\n*[4063]<button />\n\tRename\n*[4064]<button />\n\tRemove\n*[4067]<div />\n\t*[4068]<span />\n1Password\nRegistered Sep 20, 2025 \u00b7 Last used 8d ago\n*[4073]<button />\n\tRename\n*[4074]<button />\n\tRemove\nPersonal API keys\nCreate and manage API keys associated with your account.\n*[4081]<button />\n\tCreate key\n*[4085]<div />\n\t*[4086]<span />\nCI/CD Pipeline\nlin_api_x1y2...z3\n\u00b7 Created Mar 10, 2025 \u00b7 Last used 20h ago\n*[4092]<button />\n\tRename\n*[4093]<button />\n\tRevoke\n*[4096]<div />\n\t*[4097]<span />\nPersonal Automation\nlin_api_a4b5...c6\n\u00b7 Created Aug 22, 2025 \u00b7 Last used 3d ago\n*[4103]<button />\n\tRename\n*[4104]<button />\n\tRevoke\n*[4107]<div />\n\t*[4108]<span />\nMonitoring Dashboard\nlin_api_d7e8...f9\n\u00b7 Created Nov 5, 2025 \u00b7 Last used 19d ago\n*[4114]<button />\n\tRename\n*[4115]<button />\n\tRevoke\nAuthorized applications\nView and manage OAuth applications that have been granted access to your account.\n*[4124]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitHub\nSource code integration for pull requests and branches\nread:issues\nwrite:issues\nread:pull_requests\nwrite:webhooks\nAuthorized Apr 15, 2023\n*[4137]<button />\n\tRevoke access\n*[4140]<div />\n\t<svg /> <!-- SVG content collapsed -->\nSlack\nTeam communication and notification integration\nread:messages\nwrite:messages\nread:channels\nAuthorized Apr 15, 2023\n*[4152]<button />\n\tRevoke access\n*[4155]<div />\n\t<svg /> <!-- SVG content collapsed -->\nFigma\nDesign file linking and preview integration\nread:files\nread:comments\nAuthorized Jun 20, 2023\n*[4166]<button />\n\tRevoke access\n*[4169]<div />\n\t<svg /> <!-- SVG content collapsed -->\nSentry\nError tracking and issue auto-creation\nread:issues\nwrite:issues\nread:projects\nAuthorized Jan 10, 2024\n*[4182]<button />\n\tRevoke access\n*[4185]<div />\n\t<svg /> <!-- SVG content collapsed -->\nZendesk\nCustomer support ticket integration\nread:tickets\nwrite:tickets\nAuthorized Sep 5, 2024\n*[4197]<button />\n\tRevoke access\n*[4200]<div />\n\t<svg /> <!-- SVG content collapsed -->\nNotion\nDocument and wiki linking\nread:pages\nread:databases\nAuthorized Feb 14, 2025\n*[4212]<button />\n\tRevoke access\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully navigated to the Notifications page. Verdict: Success",
+        "memory": "Currently on the Notifications page. Need to disable 'Changelog updates' and 'Tips and best practices' and enable 'Product updates'.",
+        "next_goal": "Disable 'Changelog updates', disable 'Tips and best practices', and enable 'Product updates'.",
+        "action": [
+          {
+            "click": {
+              "index": 4568
+            }
+          },
+          {
+            "click": {
+              "index": 4586
+            }
+          },
+          {
+            "click": {
+              "index": 4580
+            }
+          }
+        ],
+        "thinking": "I have successfully navigated to the Notifications page. Now I need to disable the 'Changelog updates' and 'Tips and best practices' communication preferences, and enable the 'Product updates' communication preference. I will click on the corresponding switches to achieve this.",
+        "current_plan_item": 0,
+        "plan_update": []
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked div role=switch id=changelog",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 933.0,
+            "click_y": 540.0
+          },
+          "include_in_memory": false
+        },
+        {
+          "is_done": false,
+          "extracted_content": "Clicked div role=switch id=tips",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 933.0,
+            "click_y": 723.0
+          },
+          "include_in_memory": false
+        },
+        {
+          "is_done": false,
+          "extracted_content": "Clicked div role=switch id=productUpdates",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 933.0,
+            "click_y": 662.0
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8031/#/notifications",
+            "title": "Linear - Account Settings",
+            "target_id": "FB89",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996784-7954-7c94-8000-298321fca1e4_1771468871/screenshots/step_4.png",
+        "interacted_element": [
+          {
+            "node_id": 5211,
+            "backend_node_id": 4568,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "DIV",
+            "attributes": {
+              "class": "toggle-switch on ",
+              "id": "changelog",
+              "data-testid": "toggle-changelog",
+              "data-checked": "true",
+              "role": "switch",
+              "aria-checked": "true",
+              "tabindex": "0"
+            },
+            "x_path": "html/body/div/main/div/div[5]/div[2]/div[2]",
+            "element_hash": 6058461947761847906,
+            "stable_hash": 10135445261003267718,
+            "bounds": {
+              "x": 915.0,
+              "y": 1577.0,
+              "width": 36.0,
+              "height": 20.0
+            },
+            "ax_name": null
+          },
+          {
+            "node_id": 5235,
+            "backend_node_id": 4586,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "DIV",
+            "attributes": {
+              "class": "toggle-switch on ",
+              "id": "tips",
+              "data-testid": "toggle-tips",
+              "data-checked": "true",
+              "role": "switch",
+              "aria-checked": "true",
+              "tabindex": "0"
+            },
+            "x_path": "html/body/div/main/div/div[5]/div[5]/div[2]",
+            "element_hash": 8664343487698909118,
+            "stable_hash": 5550852398613767804,
+            "bounds": {
+              "x": 915.0,
+              "y": 1760.0,
+              "width": 36.0,
+              "height": 20.0
+            },
+            "ax_name": null
+          },
+          {
+            "node_id": 5227,
+            "backend_node_id": 4580,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "DIV",
+            "attributes": {
+              "class": "toggle-switch off ",
+              "id": "productUpdates",
+              "data-testid": "toggle-productUpdates",
+              "data-checked": "false",
+              "role": "switch",
+              "aria-checked": "false",
+              "tabindex": "0"
+            },
+            "x_path": "html/body/div/main/div/div[5]/div[4]/div[2]",
+            "element_hash": 739618265773529884,
+            "stable_hash": 16906101310704668903,
+            "bounds": {
+              "x": 915.0,
+              "y": 1699.0,
+              "width": 36.0,
+              "height": 20.0
+            },
+            "ax_name": null
+          }
+        ],
+        "url": "http://10.0.1.172:8031/#/notifications",
+        "title": "Linear - Account Settings"
+      },
+      "metadata": {
+        "step_start_time": 1771468902.837999,
+        "step_end_time": 1771468915.5428915,
+        "step_number": 4,
+        "step_interval": 10.37155795097351
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8031\n<step>\nSuccessfully loaded the page. Verdict: Success\nNeed to disable 'Changelog updates' and 'Tips and best practices' and enable 'Product updates' on the Notifications page.\nNavigate to the Notifications page.\nResult\nClicked a \"\ud83d\udd12\n\n                        Sec...\"\n<step>\nSuccessfully navigated to the Security & Access page. Verdict: Success\nCurrently on the Security & Access page. The next step is to navigate to the Notifications page to adjust communication preferences.\nNavigate to the Notifications page by clicking the 'Notifications' link.\nResult\nClicked a \"\ud83d\udd12\n\n                        Sec...\"\n<step>\nThe previous attempt to navigate to the Notifications page failed. I ended up on the Security & Access page again. Verdict: Failure\nCurrently on the Security & Access page. Need to navigate to the Notifications page to disable 'Changelog updates' and 'Tips and best practices' and enable 'Product updates'.\nNavigate to the Notifications page by clicking the 'Notifications' link.\nResult\nClicked a \"\ud83d\udd14\n\n                        Not...\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8031. Your task: Disable the 'Changelog updates' and 'Tips and best practices' communication preferences, and enable the 'Product updates' communication preference on the Notifications page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step4 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>6 links, 92 interactive, 0 iframes, 369 total elements</page_stats>\nCurrent tab: FB89\nAvailable tabs:\nTab FB89: http://10.0.1.172:8031/#/notifications - Linear - Account Settings\n\n<page_info>0.0 above, 1.3 below </page_info>\n\nInteractive elements:\n[Start of page]\n[3243]<div />\nLinear\n[3255]<div id=userMenu />\n\t[3257]<div id=currentUserAvatar />\n\t\t*[4664]<div />\n\t\t\tJR\nAccount\n[3165]<a />\n\tProfile\n[3166]<a />\n\tPreferences\n[3167]<a />\n\tNotifications\n[3168]<a />\n\tSecurity & Access\n[3169]<a />\n\tReset to defaults\n*[4356]<a />\n\tSettings\nAccount\nNotifications\nNotifications\nReceive alerts on important updates in the Linear desktop app, mobile app, Slack, or email.\nNotification channels\nConfigure which channels you want to receive notifications through.\nDesktop\n*[4377]<div id=channel-desktop role=switch aria-checked=true checked=true />\n\t*[4378]<div />\nReceive notifications via the Linear desktop app\nMobile\n*[4387]<div id=channel-mobile role=switch aria-checked=true checked=true />\n\t*[4388]<div />\nReceive push notifications on your mobile device\nEmail\n*[4397]<div id=channel-email role=switch aria-checked=true checked=true />\n\t*[4398]<div />\nReceive email digest notifications\n*[4402]<div />\n\tSlack\n*[4407]<div id=channel-slack role=switch aria-checked=true checked=true />\n\t*[4408]<div />\nReceive notifications via Slack\nNotifications are grouped. For example, if you enable status changes, you will be notified for status, priority, and blocking relationship changes together.\nNotification types\nChoose which types of notifications to receive on each channel.\nNotification type\nDesktop\nMobile\nEmail\nSlack\nIssue status changes\nCompletions, cancellations, priority changes, and blocking relationships\n*[4429]<div role=switch aria-checked=true checked=true />\n\t*[4430]<div />\n*[4432]<div role=switch aria-checked=false checked=false />\n\t*[4433]<div />\n*[4435]<div role=switch aria-checked=true checked=true />\n\t*[4436]<div />\n*[4438]<div role=switch aria-checked=true checked=true />\n\t*[4439]<div />\nIssue assignments\nWhen issues are assigned or unassigned to you\n*[4445]<div role=switch aria-checked=true checked=true />\n\t*[4446]<div />\n*[4448]<div role=switch aria-checked=false checked=false />\n\t*[4449]<div />\n*[4451]<div role=switch aria-checked=true checked=true />\n\t*[4452]<div />\n*[4454]<div role=switch aria-checked=true checked=true />\n\t*[4455]<div />\nComments and mentions\nNew comments on subscribed issues and @mentions\n*[4461]<div role=switch aria-checked=true checked=true />\n\t*[4462]<div />\n*[4464]<div role=switch aria-checked=false checked=false />\n\t*[4465]<div />\n*[4467]<div role=switch aria-checked=true checked=true />\n\t*[4468]<div />\n*[4470]<div role=switch aria-checked=true checked=true />\n\t*[4471]<div />\nProject updates\nProject status changes, milestones, and progress updates\n*[4477]<div role=switch aria-checked=true checked=true />\n\t*[4478]<div />\n*[4480]<div role=switch aria-checked=false checked=false />\n\t*[4481]<div />\n*[4483]<div role=switch aria-checked=false checked=false />\n\t*[4484]<div />\n*[4486]<div role=switch aria-checked=true checked=true />\n\t*[4487]<div />\nCycle updates\nCycle starts, ends, and progress summaries\n*[4493]<div role=switch aria-checked=false checked=false />\n\t*[4494]<div />\n*[4496]<div role=switch aria-checked=false checked=false />\n\t*[4497]<div />\n*[4499]<div role=switch aria-checked=true checked=true />\n\t*[4500]<div />\n*[4502]<div role=switch aria-checked=false checked=false />\n\t*[4503]<div />\nSLA breaches\nWhen issues breach their SLA targets\n*[4509]<div role=switch aria-checked=true checked=true />\n\t*[4510]<div />\n*[4512]<div role=switch aria-checked=false checked=false />\n\t*[4513]<div />\n*[4515]<div role=switch aria-checked=true checked=true />\n\t*[4516]<div />\n*[4518]<div role=switch aria-checked=true checked=true />\n\t*[4519]<div />\nTeam activity\nNew members joining, team configuration changes\n*[4525]<div role=switch aria-checked=false checked=false />\n\t*[4526]<div />\n*[4528]<div role=switch aria-checked=false checked=false />\n\t*[4529]<div />\n*[4531]<div role=switch aria-checked=false checked=false />\n\t*[4532]<div />\n*[4534]<div role=switch aria-checked=false checked=false />\n\t*[4535]<div />\nEmail digest settings\nEmail digests send a summary of unread notifications with time delays based on urgency.\nSend immediately for urgent issues\nSend a notification email immediately if an issue assigned to you is marked urgent\n*[4545]<div id=sendImmediatelyOnUrgent role=switch aria-checked=true checked=true />\n\t*[4546]<div />\nSend immediately on SLA breach\nSend a notification email immediately when an issue breaches its SLA\n*[4551]<div id=sendImmediatelyOnSLABreach role=switch aria-checked=false checked=false />\n\t*[4552]<div />\nDelay low priority emails to work hours\nDelay low priority notification emails until work hours the next day (8 am - 6 pm in your timezone)\n*[4557]<div id=delayLowPriorityToWorkHours role=switch aria-checked=true checked=true />\n\t*[4558]<div />\nCommunication preferences\nCustomize the types of updates you receive from Linear.\nChangelog updates\nReceive updates about new features and improvements\n*[4568]<div id=changelog role=switch aria-checked=true checked=true />\n\t*[4569]<div />\nDPA updates\nReceive updates about Data Processing Agreement changes\n*[4574]<div id=dpaUpdates role=switch aria-checked=true checked=true />\n\t*[4575]<div />\nProduct updates\nReceive product announcements and newsletters\n*[4580]<div id=productUpdates role=switch aria-checked=false checked=false />\n\t*[4581]<div />\nTips and best practices\nReceive tips on how to use Linear more effectively\n*[4586]<div id=tips role=switch aria-checked=true checked=true />\n\t*[4587]<div />\nIssue subscriptions\nYou are automatically subscribed to issues you create, are assigned to, or are @mentioned in.\nNEX-1042\nMigrate authentication to OAuth 2.0\nBackend \u00b7 assigned \u00b7 8d ago\n*[4601]<button />\n\tUnsubscribe\nNEX-987\nFix dashboard performance regression\nFrontend \u00b7 created \u00b7 13d ago\n*[4609]<button />\n\tUnsubscribe\nNEX-1105\nAdd dark mode support for mobile app\n*[4617]<button />\n\tUnsubscribe\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully disabled 'Changelog updates' and 'Tips and best practices' and enabled 'Product updates'. Verdict: Success",
+        "memory": "Successfully disabled 'Changelog updates' and 'Tips and best practices' and enabled 'Product updates' on the Notifications page.",
+        "next_goal": "Complete the task by calling the `done` action.",
+        "action": [
+          {
+            "done": {
+              "text": "Successfully disabled 'Changelog updates' and 'Tips and best practices' and enabled 'Product updates' on the Notifications page.",
+              "success": true
+            }
+          }
+        ],
+        "thinking": "I have successfully disabled 'Changelog updates' and 'Tips and best practices' and enabled 'Product updates' on the Notifications page as requested. Now I will call the `done` action to complete the task.",
+        "current_plan_item": 0,
+        "plan_update": []
+      },
+      "result": [
+        {
+          "is_done": true,
+          "success": true,
+          "judgement": {
+            "reasoning": "The agent successfully navigated to the Notifications page and disabled the 'Changelog updates' and 'Tips and best practices' communication preferences, and enabled the 'Product updates' communication preference as requested. The agent's actions align with the task instructions, and it appropriately used clicks to interact with the switches. The final 'done' action confirms successful completion.",
+            "verdict": true,
+            "failure_reason": "",
+            "impossible_task": false,
+            "reached_captcha": false
+          },
+          "attachments": [],
+          "long_term_memory": "Task completed: True - Successfully disabled 'Changelog updates' and 'Tips and best practices' and enabled 'Product updates - 28 more characters",
+          "extracted_content": "Successfully disabled 'Changelog updates' and 'Tips and best practices' and enabled 'Product updates' on the Notifications page.",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8031/#/notifications",
+            "title": "Linear - Account Settings",
+            "target_id": "FB89",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996784-7954-7c94-8000-298321fca1e4_1771468871/screenshots/step_5.png",
+        "interacted_element": [
+          null
+        ],
+        "url": "http://10.0.1.172:8031/#/notifications",
+        "title": "Linear - Account Settings"
+      },
+      "metadata": {
+        "step_start_time": 1771468915.5455735,
+        "step_end_time": 1771468919.4367151,
+        "step_number": 5,
+        "step_interval": 12.70489239692688
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8031\n<step>\nSuccessfully loaded the page. Verdict: Success\nNeed to disable 'Changelog updates' and 'Tips and best practices' and enable 'Product updates' on the Notifications page.\nNavigate to the Notifications page.\nResult\nClicked a \"\ud83d\udd12\n\n                        Sec...\"\n<step>\nSuccessfully navigated to the Security & Access page. Verdict: Success\nCurrently on the Security & Access page. The next step is to navigate to the Notifications page to adjust communication preferences.\nNavigate to the Notifications page by clicking the 'Notifications' link.\nResult\nClicked a \"\ud83d\udd12\n\n                        Sec...\"\n<step>\nThe previous attempt to navigate to the Notifications page failed. I ended up on the Security & Access page again. Verdict: Failure\nCurrently on the Security & Access page. Need to navigate to the Notifications page to disable 'Changelog updates' and 'Tips and best practices' and enable 'Product updates'.\nNavigate to the Notifications page by clicking the 'Notifications' link.\nResult\nClicked a \"\ud83d\udd14\n\n                        Not...\"\n<step>\nSuccessfully navigated to the Notifications page. Verdict: Success\nCurrently on the Notifications page. Need to disable 'Changelog updates' and 'Tips and best practices' and enable 'Product updates'.\nDisable 'Changelog updates', disable 'Tips and best practices', and enable 'Product updates'.\nResult\nClicked div role=switch id=changelog\nClicked div role=switch id=tips\nClicked div role=switch id=productUpdates\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8031. Your task: Disable the 'Changelog updates' and 'Tips and best practices' communication preferences, and enable the 'Product updates' communication preference on the Notifications page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step5 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>6 links, 93 interactive, 0 iframes, 420 total elements</page_stats>\nCurrent tab: FB89\nAvailable tabs:\nTab FB89: http://10.0.1.172:8031/#/notifications - Linear - Account Settings\n\n<page_info>1.0 above, 0.4 below </page_info>\n\nInteractive elements:\nAccount\n[3165]<a />\n\tProfile\n[3166]<a />\n\tPreferences\n[3167]<a />\n\tNotifications\n[3168]<a />\n\tSecurity & Access\n[3169]<a />\n\tReset to defaults\n[4356]<a />\n\tSettings\nAccount\nNotifications\nNotifications\nReceive alerts on important updates in the Linear desktop app, mobile app, Slack, or email.\nNotification channels\nConfigure which channels you want to receive notifications through.\nDesktop\n[4377]<div id=channel-desktop role=switch aria-checked=true checked=true />\n\t[4378]<div />\nReceive notifications via the Linear desktop app\nMobile\n[4387]<div id=channel-mobile role=switch aria-checked=true checked=true />\n\t[4388]<div />\nReceive push notifications on your mobile device\nEmail\n[4397]<div id=channel-email role=switch aria-checked=true checked=true />\n\t[4398]<div />\nReceive email digest notifications\n[4402]<div />\n\tSlack\n[4407]<div id=channel-slack role=switch aria-checked=true checked=true />\n\t[4408]<div />\nReceive notifications via Slack\nNotifications are grouped. For example, if you enable status changes, you will be notified for status, priority, and blocking relationship changes together.\nNotification types\nChoose which types of notifications to receive on each channel.\nNotification type\nDesktop\nMobile\nEmail\nSlack\nIssue status changes\nCompletions, cancellations, priority changes, and blocking relationships\n[4429]<div role=switch aria-checked=true checked=true />\n\t[4430]<div />\n[4432]<div role=switch aria-checked=false checked=false />\n\t[4433]<div />\n[4435]<div role=switch aria-checked=true checked=true />\n\t[4436]<div />\n[4438]<div role=switch aria-checked=true checked=true />\n\t[4439]<div />\nIssue assignments\nWhen issues are assigned or unassigned to you\n[4445]<div role=switch aria-checked=true checked=true />\n\t[4446]<div />\n[4448]<div role=switch aria-checked=false checked=false />\n\t[4449]<div />\n[4451]<div role=switch aria-checked=true checked=true />\n\t[4452]<div />\n[4454]<div role=switch aria-checked=true checked=true />\n\t[4455]<div />\nComments and mentions\nNew comments on subscribed issues and @mentions\n[4461]<div role=switch aria-checked=true checked=true />\n\t[4462]<div />\n[4464]<div role=switch aria-checked=false checked=false />\n\t[4465]<div />\n[4467]<div role=switch aria-checked=true checked=true />\n\t[4468]<div />\n[4470]<div role=switch aria-checked=true checked=true />\n\t[4471]<div />\nProject updates\nProject status changes, milestones, and progress updates\n[4477]<div role=switch aria-checked=true checked=true />\n\t[4478]<div />\n[4480]<div role=switch aria-checked=false checked=false />\n\t[4481]<div />\n[4483]<div role=switch aria-checked=false checked=false />\n\t[4484]<div />\n[4486]<div role=switch aria-checked=true checked=true />\n\t[4487]<div />\nCycle updates\nCycle starts, ends, and progress summaries\n[4493]<div role=switch aria-checked=false checked=false />\n\t[4494]<div />\n[4496]<div role=switch aria-checked=false checked=false />\n\t[4497]<div />\n[4499]<div role=switch aria-checked=true checked=true />\n\t[4500]<div />\n[4502]<div role=switch aria-checked=false checked=false />\n\t[4503]<div />\nSLA breaches\nWhen issues breach their SLA targets\n[4509]<div role=switch aria-checked=true checked=true />\n\t[4510]<div />\n[4512]<div role=switch aria-checked=false checked=false />\n\t[4513]<div />\n[4515]<div role=switch aria-checked=true checked=true />\n\t[4516]<div />\n[4518]<div role=switch aria-checked=true checked=true />\n\t[4519]<div />\nTeam activity\nNew members joining, team configuration changes\n[4525]<div role=switch aria-checked=false checked=false />\n\t[4526]<div />\n[4528]<div role=switch aria-checked=false checked=false />\n\t[4529]<div />\n[4531]<div role=switch aria-checked=false checked=false />\n\t[4532]<div />\n[4534]<div role=switch aria-checked=false checked=false />\n\t[4535]<div />\nEmail digest settings\nEmail digests send a summary of unread notifications with time delays based on urgency.\nSend immediately for urgent issues\nSend a notification email immediately if an issue assigned to you is marked urgent\n[4545]<div id=sendImmediatelyOnUrgent role=switch aria-checked=true checked=true />\n\t[4546]<div />\nSend immediately on SLA breach\nSend a notification email immediately when an issue breaches its SLA\n[4551]<div id=sendImmediatelyOnSLABreach role=switch aria-checked=false checked=false />\n\t[4552]<div />\nDelay low priority emails to work hours\nDelay low priority notification emails until work hours the next day (8 am - 6 pm in your timezone)\n[4557]<div id=delayLowPriorityToWorkHours role=switch aria-checked=true checked=true />\n\t[4558]<div />\nCommunication preferences\nCustomize the types of updates you receive from Linear.\nChangelog updates\nReceive updates about new features and improvements\n[4568]<div id=changelog role=switch aria-checked=false checked=false />\n\t[4569]<div />\nDPA updates\nReceive updates about Data Processing Agreement changes\n[4574]<div id=dpaUpdates role=switch aria-checked=true checked=true />\n\t[4575]<div />\nProduct updates\nReceive product announcements and newsletters\n[4580]<div id=productUpdates role=switch aria-checked=true checked=true />\n\t[4581]<div />\nTips and best practices\nReceive tips on how to use Linear more effectively\n[4586]<div id=tips role=switch aria-checked=false checked=false />\n\t[4587]<div />\nIssue subscriptions\nYou are automatically subscribed to issues you create, are assigned to, or are @mentioned in.\nNEX-1042\nMigrate authentication to OAuth 2.0\nBackend \u00b7 assigned \u00b7 8d ago\n[4601]<button />\n\tUnsubscribe\nNEX-987\nFix dashboard performance regression\nFrontend \u00b7 created \u00b7 13d ago\n[4609]<button />\n\tUnsubscribe\nNEX-1105\nAdd dark mode support for mobile app\nMobile \u00b7 mentioned \u00b7 3d ago\n[4617]<button />\n\tUnsubscribe\nNEX-1089\nUpdate API rate limiting implementation\nPlatform \u00b7 manual \u00b7 6d ago\n*[4625]<button />\n\tUnsubscribe\nNEX-1120\nDesign new onboarding flow\nDesign \u00b7 mentioned \u00b7 1d ago\n*[4633]<button />\n\tUnsubscribe\nNEX-856\nRefactor notification service architecture\nBackend \u00b7 created \u00b7 29d ago\n*[4641]<button />\n\tUnsubscribe\nNEX-1134\nImplement webhook retry logic\nPlatform \u00b7 assigned \u00b7 17h ago\n*[4649]<button />\n\tUnsubscribe\nNEX-1098\nCustomer data export compliance\nSecurity \u00b7 manual \u00b7 5d ago\n*[4657]<button />\n\tUnsubscribe\n</browser_state>\n"
+    }
+  ]
+}

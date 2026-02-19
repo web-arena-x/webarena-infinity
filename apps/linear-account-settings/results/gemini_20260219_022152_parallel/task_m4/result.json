@@ -1,0 +1,18 @@
+{
+  "task_id": "task_m4",
+  "difficulty": "medium",
+  "instruction": "Remove the passkey named '1Password' from the Security & Access page.",
+  "passed": true,
+  "verifier_message": "Passkey '1Password' successfully removed.",
+  "elapsed": 38.3,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully removed the '1Password' passkey from the Security & Access page.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

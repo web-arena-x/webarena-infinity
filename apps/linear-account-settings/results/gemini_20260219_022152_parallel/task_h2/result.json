@@ -1,0 +1,20 @@
+{
+  "task_id": "task_h2",
+  "difficulty": "hard",
+  "instruction": "Revoke all sessions except the current one on the Security & Access page, and then disable the Desktop notification channel on the Notifications page.",
+  "passed": true,
+  "verifier_message": "All non-current sessions revoked and Desktop notifications disabled.",
+  "elapsed": 50.1,
+  "steps": 7,
+  "is_done": true,
+  "final_result": "Successfully revoked all sessions except the current one on the Security & Access page and disabled the Desktop notification channel on the Notifications page.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

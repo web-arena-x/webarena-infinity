@@ -1,0 +1,22 @@
+{
+  "task_id": "task_m1",
+  "difficulty": "medium",
+  "instruction": "Change the default home view to 'My Issues' in Preferences.",
+  "passed": true,
+  "verifier_message": "Default home view successfully changed to 'My Issues'.",
+  "elapsed": 77.1,
+  "steps": 9,
+  "is_done": true,
+  "final_result": "Successfully changed the default home view to 'My Issues'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

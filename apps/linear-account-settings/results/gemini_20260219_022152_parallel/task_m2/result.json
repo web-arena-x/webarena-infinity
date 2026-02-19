@@ -1,0 +1,18 @@
+{
+  "task_id": "task_m2",
+  "difficulty": "medium",
+  "instruction": "Change the first day of the week to 'Sunday' in Preferences.",
+  "passed": true,
+  "verifier_message": "First day of the week successfully changed to 'Sunday'.",
+  "elapsed": 30.2,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully changed the first day of the week to 'Sunday' in Preferences.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

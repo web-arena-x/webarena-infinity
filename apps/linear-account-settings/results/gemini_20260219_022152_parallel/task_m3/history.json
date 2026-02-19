@@ -1,0 +1,329 @@
+{
+  "history": [
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Start",
+        "memory": null,
+        "next_goal": "Initial navigation",
+        "action": [
+          {
+            "navigate": {
+              "url": "http://10.0.1.172:8027",
+              "new_tab": false
+            }
+          }
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "long_term_memory": "Found initial url and automatically loaded it. Navigated to http://10.0.1.172:8027",
+          "extracted_content": "\ud83d\udd17 Navigated to http://10.0.1.172:8027",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [],
+        "screenshot_path": null,
+        "interacted_element": [
+          null
+        ],
+        "url": "http://10.0.1.172:8027",
+        "title": "Initial Actions"
+      },
+      "metadata": {
+        "step_start_time": 1771467767.204358,
+        "step_end_time": 1771467767.204358,
+        "step_number": 0,
+        "step_interval": null
+      },
+      "state_message": null
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully loaded the profile page. Verdict: Success",
+        "memory": "Currently on the profile page. Need to click the 'Change' button next to the email address and input the new email.",
+        "next_goal": "Click the 'Change' button next to the email address.",
+        "action": [
+          {
+            "click": {
+              "index": 1885
+            }
+          }
+        ],
+        "thinking": "The user wants to change the email address to 'jordan@nextera-labs.com' on the Profile page. I can see the 'Change' button next to the email address. I should click that button and then input the new email address into the input field that appears.",
+        "current_plan_item": 0,
+        "plan_update": []
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Change\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 480.5859375,
+            "click_y": 641.0
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8027/",
+            "title": "10.0.1.172:8027",
+            "target_id": "7198",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_0699673f-315d-75a8-8000-ca0c2ab4153f_1771467763/screenshots/step_1.png",
+        "interacted_element": [
+          {
+            "node_id": 1918,
+            "backend_node_id": 1885,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "btn btn-secondary btn-sm",
+              "data-action": "change-email",
+              "data-testid": "change-email-btn"
+            },
+            "x_path": "html/body/div/main/div/div[4]/div[2]/button",
+            "element_hash": 818404353215839312,
+            "stable_hash": 16959305417711696969,
+            "bounds": {
+              "x": 447.625,
+              "y": 627.5,
+              "width": 65.921875,
+              "height": 27.0
+            },
+            "ax_name": "Change"
+          }
+        ],
+        "url": "http://10.0.1.172:8027/",
+        "title": "10.0.1.172:8027"
+      },
+      "metadata": {
+        "step_start_time": 1771467767.2044084,
+        "step_end_time": 1771467774.0797,
+        "step_number": 1,
+        "step_interval": 0.0
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8027\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8027. Your task: Change the user's email address to 'jordan@nextera-labs.com' on the Profile page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step1 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>6 links, 33 interactive, 0 iframes, 3 shadow(open), 0 shadow(closed), 209 total elements</page_stats>\nCurrent tab: 7198\nAvailable tabs:\nTab 7198: http://10.0.1.172:8027/ - 10.0.1.172:8027\n\n<page_info>0.0 above, 0.7 below </page_info>\n\nInteractive elements:\n[Start of page]\n[1955]<div />\nLinear\n[1967]<div id=userMenu />\n\t[1969]<div id=currentUserAvatar />\n\t\t[1970]<div />\n\t\t\tJR\nAccount\n[1877]<a />\n\tProfile\n[1878]<a />\n\tPreferences\n[1879]<a />\n\tNotifications\n[1880]<a />\n\tSecurity & Access\n[1881]<a />\n\tReset to defaults\n[1882]<a />\n\tSettings\nAccount\n[2031]<span />\n\tProfile\nProfile\nPersonalize how other team members see you in your workspace.\nJR\n[1883]<button title=Change avatar />\nClick to update your profile picture. Once updated, you can only replace it with another photo.\nName and Username\nFull name\n|SHADOW(open)|[1871]<input type=text id=profileName value=Jordan Rivera placeholder=Enter your full name />\nUsername\n|SHADOW(open)|[1872]<input type=text id=profileUsername value=jordan.rivera placeholder=Enter your username />\n[1884]<button />\n\tSave changes\nEmail address\njordan.rivera@nextera.io\n[1885]<button />\n\tChange\nChanging your email address will change it for all workspaces using this email.\nPronouns\nPronouns\n|SHADOW(open)|[1873]<input type=text id=profilePronouns value=they/them placeholder=e.g., they/them, she/her, he/him />\n[1886]<button />\n\tSave\nTimezone\nTimezone\n[1887]<div />\n\tAmerica/New_York\n\t[2092]<span />\n[1919]<button />\n\tSave\nConnected Accounts\nSoftware integrations where each user has their own account. This helps Linear associate your Linear user with third-party integration actions.\n[1920]<button />\n\tConnect account\n[2140]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitHub\njordanrivera \u00b7 jordan@github.com\nConnected Apr 15, 2023\n[1921]<button />\n\tDisconnect\n[2154]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitLab\njordan.rivera \u00b7 jordan.rivera@gitlab.com\nConnected May 20, 2023\n[1922]<button />\n\tDisconnect\n[2168]<div />\n\t<svg /> <!-- SVG content collapsed -->\nSlack\njordan.rivera \u00b7 jordan.rivera@nextera.io\nConnected Apr 15, 2023\n[1923]<button />\n\tDisconnect\n[2182]<div />\n\t<svg /> <!-- SVG content collapsed -->\nFigma\njordan.rivera \u00b7 jordan.rivera@nextera.io\nConnected Jun 20, 2023\n[1924]<button />\n\tDisconnect\n[2196]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGoogle\njordan.rivera \u00b7 jordan.rivera@gmail.com\nConnected Feb 10, 2024\n[1925]<button />\n\tDisconnect\nLeave workspace\nOnce removed, you no longer have access to the workspace. An admin will have to unsuspend your account in order for you to log back in.\n[1926]<button />\n\tLeave workspace\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully clicked the 'Change' button next to the email address. Verdict: Success",
+        "memory": "Clicked the change button next to the email address and the modal appeared. Now I need to input the new email address and click the 'Change email' button.",
+        "next_goal": "Input the new email address 'jordan@nextera-labs.com' into the input field.",
+        "action": [
+          {
+            "input": {
+              "index": 2277,
+              "text": "jordan@nextera-labs.com",
+              "clear": true
+            }
+          }
+        ],
+        "thinking": "I have successfully clicked the 'Change' button next to the email address. This has opened a modal overlay on the page. Now I need to input the new email address into the input field and then click the 'Change email' button in the modal.",
+        "current_plan_item": 0
+      },
+      "result": [
+        {
+          "is_done": false,
+          "long_term_memory": "Typed 'jordan@nextera-labs.com'",
+          "extracted_content": "Typed 'jordan@nextera-labs.com'",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "input_x": 957.0,
+            "input_y": 514.25
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8027/",
+            "title": "10.0.1.172:8027",
+            "target_id": "7198",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_0699673f-315d-75a8-8000-ca0c2ab4153f_1771467763/screenshots/step_2.png",
+        "interacted_element": [
+          {
+            "node_id": 2469,
+            "backend_node_id": 2277,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "INPUT",
+            "attributes": {
+              "class": "form-input",
+              "type": "email",
+              "id": "newEmail",
+              "data-testid": "input-new-email",
+              "placeholder": "Enter new email address"
+            },
+            "x_path": "html/body/div/div[1]/div/div[2]/div[1]/input",
+            "element_hash": 613199209427094708,
+            "stable_hash": 613199209427094708,
+            "bounds": {
+              "x": 738.0,
+              "y": 495.75,
+              "width": 438.0,
+              "height": 37.0
+            },
+            "ax_name": "Enter new email address"
+          }
+        ],
+        "url": "http://10.0.1.172:8027/",
+        "title": "10.0.1.172:8027"
+      },
+      "metadata": {
+        "step_start_time": 1771467774.0811465,
+        "step_end_time": 1771467784.0967326,
+        "step_number": 2,
+        "step_interval": 6.875291585922241
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8027\n<step>\nSuccessfully loaded the profile page. Verdict: Success\nCurrently on the profile page. Need to click the 'Change' button next to the email address and input the new email.\nClick the 'Change' button next to the email address.\nResult\nClicked button \"Change\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8027. Your task: Change the user's email address to 'jordan@nextera-labs.com' on the Profile page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step2 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>6 links, 20 interactive, 0 iframes, 4 shadow(open), 0 shadow(closed), 228 total elements</page_stats>\nCurrent tab: 7198\nAvailable tabs:\nTab 7198: http://10.0.1.172:8027/ - 10.0.1.172:8027\n\n<page_info>0.0 above, 0.7 below </page_info>\n\nInteractive elements:\n[Start of page]\nLinear\nJR\nAccount\nProfile\nPreferences\nNotifications\nSecurity & Access\nReset to defaults\nSettings\nAccount\nProfile\nProfile\nPersonalize how other team members see you in your workspace.\nJR\nClick to update your profile picture. Once updated, you can only replace it with another photo.\nName and Username\nFull name\nUsername\nSave changes\nEmail address\njordan.rivera@nextera.io\nChange\nChanging your email address will change it for all workspaces using this email.\nPronouns\nPronouns\nSave\nTimezone\nTimezone\n[1887]<div />\n\tAmerica/New_York\n\t[2092]<span />\n[1919]<button />\n\tSave\nConnected Accounts\nSoftware integrations where each user has their own account. This helps Linear associate your Linear user with third-party integration actions.\n[1920]<button />\n\tConnect account\n[2140]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitHub\njordanrivera \u00b7 jordan@github.com\nConnected Apr 15, 2023\n[1921]<button />\n\tDisconnect\n[2154]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitLab\njordan.rivera \u00b7 jordan.rivera@gitlab.com\nConnected May 20, 2023\n[1922]<button />\n\tDisconnect\n[2168]<div />\n\t<svg /> <!-- SVG content collapsed -->\nSlack\njordan.rivera \u00b7 jordan.rivera@nextera.io\nConnected Apr 15, 2023\n[1923]<button />\n\tDisconnect\n[2182]<div />\n\t<svg /> <!-- SVG content collapsed -->\nFigma\njordan.rivera \u00b7 jordan.rivera@nextera.io\nConnected Jun 20, 2023\n[1924]<button />\n\tDisconnect\n[2196]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGoogle\njordan.rivera \u00b7 jordan.rivera@gmail.com\nConnected Feb 10, 2024\n[1925]<button />\n\tDisconnect\nLeave workspace\nOnce removed, you no longer have access to the workspace. An admin will have to unsuspend your account in order for you to log back in.\n[1926]<button />\n\tLeave workspace\n*[1927]<div id=modalOverlay />\n\tChange email address\n\t*[1928]<button id=modalClose />\n\tNew email address\n\t|SHADOW(open)|*[2277]<input type=email id=newEmail placeholder=Enter new email address />\n\tA confirmation email will be sent to both old and new email addresses.\n\t*[2281]<button />\n\t\tCancel\n\t*[2283]<button />\n\t\tChange email\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully inputted the new email address. Verdict: Success",
+        "memory": "Inputted the new email address 'jordan@nextera-labs.com' into the input field. Now I need to click the 'Change email' button.",
+        "next_goal": "Click the 'Change email' button to submit the change.",
+        "action": [
+          {
+            "click": {
+              "index": 2283
+            }
+          }
+        ],
+        "thinking": "I have successfully inputted the new email address. Now I need to click the 'Change email' button to submit the change.",
+        "current_plan_item": 0,
+        "plan_update": []
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Change email\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1119.3671875,
+            "click_y": 657.75
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8027/",
+            "title": "10.0.1.172:8027",
+            "target_id": "7198",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_0699673f-315d-75a8-8000-ca0c2ab4153f_1771467763/screenshots/step_3.png",
+        "interacted_element": [
+          {
+            "node_id": 2835,
+            "backend_node_id": 2283,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "btn btn-primary",
+              "data-action": "confirm-email-change",
+              "data-testid": "modal-confirm"
+            },
+            "x_path": "html/body/div/div[1]/div/div[3]/button[2]",
+            "element_hash": 723120111995453569,
+            "stable_hash": 14558178167277617275,
+            "bounds": {
+              "x": 1062.734375,
+              "y": 640.75,
+              "width": 113.265625,
+              "height": 34.0
+            },
+            "ax_name": "Change email"
+          }
+        ],
+        "url": "http://10.0.1.172:8027/",
+        "title": "10.0.1.172:8027"
+      },
+      "metadata": {
+        "step_start_time": 1771467784.098742,
+        "step_end_time": 1771467790.1906579,
+        "step_number": 3,
+        "step_interval": 10.015586137771606
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8027\n<step>\nSuccessfully loaded the profile page. Verdict: Success\nCurrently on the profile page. Need to click the 'Change' button next to the email address and input the new email.\nClick the 'Change' button next to the email address.\nResult\nClicked button \"Change\"\n<step>\nSuccessfully clicked the 'Change' button next to the email address. Verdict: Success\nClicked the change button next to the email address and the modal appeared. Now I need to input the new email address and click the 'Change email' button.\nInput the new email address 'jordan@nextera-labs.com' into the input field.\nResult\nTyped 'jordan@nextera-labs.com'\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8027. Your task: Change the user's email address to 'jordan@nextera-labs.com' on the Profile page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step3 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>6 links, 20 interactive, 0 iframes, 4 shadow(open), 0 shadow(closed), 228 total elements</page_stats>\nCurrent tab: 7198\nAvailable tabs:\nTab 7198: http://10.0.1.172:8027/ - 10.0.1.172:8027\n\n<page_info>0.0 above, 0.7 below </page_info>\n\nInteractive elements:\n[Start of page]\nLinear\nJR\nAccount\nProfile\nPreferences\nNotifications\nSecurity & Access\nReset to defaults\nSettings\nAccount\nProfile\nProfile\nPersonalize how other team members see you in your workspace.\nJR\nClick to update your profile picture. Once updated, you can only replace it with another photo.\nName and Username\nFull name\nUsername\nSave changes\nEmail address\njordan.rivera@nextera.io\nChange\nChanging your email address will change it for all workspaces using this email.\nPronouns\nPronouns\nSave\nTimezone\nTimezone\n[1887]<div />\n\tAmerica/New_York\n\t[2092]<span />\n[1919]<button />\n\tSave\nConnected Accounts\nSoftware integrations where each user has their own account. This helps Linear associate your Linear user with third-party integration actions.\n[1920]<button />\n\tConnect account\n[2140]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitHub\njordanrivera \u00b7 jordan@github.com\nConnected Apr 15, 2023\n[1921]<button />\n\tDisconnect\n[2154]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitLab\njordan.rivera \u00b7 jordan.rivera@gitlab.com\nConnected May 20, 2023\n[1922]<button />\n\tDisconnect\n[2168]<div />\n\t<svg /> <!-- SVG content collapsed -->\nSlack\njordan.rivera \u00b7 jordan.rivera@nextera.io\nConnected Apr 15, 2023\n[1923]<button />\n\tDisconnect\n[2182]<div />\n\t<svg /> <!-- SVG content collapsed -->\nFigma\njordan.rivera \u00b7 jordan.rivera@nextera.io\nConnected Jun 20, 2023\n[1924]<button />\n\tDisconnect\n[2196]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGoogle\njordan.rivera \u00b7 jordan.rivera@gmail.com\nConnected Feb 10, 2024\n[1925]<button />\n\tDisconnect\nLeave workspace\nOnce removed, you no longer have access to the workspace. An admin will have to unsuspend your account in order for you to log back in.\n[1926]<button />\n\tLeave workspace\n[1927]<div id=modalOverlay />\n\tChange email address\n\t[1928]<button id=modalClose />\n\tNew email address\n\t|SHADOW(open)|[2277]<input type=email id=newEmail placeholder=Enter new email address />\n\tA confirmation email will be sent to both old and new email addresses.\n\t[2281]<button />\n\t\tCancel\n\t[2283]<button />\n\t\tChange email\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully clicked the 'Change email' button and the email address has been updated. Verdict: Success",
+        "memory": "Successfully changed the user's email address to 'jordan@nextera-labs.com'.",
+        "next_goal": "Call the 'done' action to complete the task.",
+        "action": [
+          {
+            "done": {
+              "text": "The user's email address has been successfully changed to 'jordan@nextera-labs.com'.",
+              "success": true
+            }
+          }
+        ],
+        "thinking": "I have successfully clicked the 'Change email' button. According to the browser state, the email address has been updated and a confirmation email has been sent to both addresses. Therefore, the task is complete.",
+        "current_plan_item": 0,
+        "plan_update": []
+      },
+      "result": [
+        {
+          "is_done": true,
+          "success": true,
+          "judgement": {
+            "reasoning": "The agent successfully navigated to the page, clicked the 'Change' button, entered the new email address 'jordan@nextera-labs.com', and clicked the 'Change email' button. The agent reported success, indicating that the email address was successfully changed. Without screenshots, I am assuming the agent successfully changed the email.",
+            "verdict": true,
+            "failure_reason": "",
+            "impossible_task": false,
+            "reached_captcha": false
+          },
+          "attachments": [],
+          "long_term_memory": "Task completed: True - The user's email address has been successfully changed to 'jordan@nextera-labs.com'.",
+          "extracted_content": "The user's email address has been successfully changed to 'jordan@nextera-labs.com'.",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8027/",
+            "title": "10.0.1.172:8027",
+            "target_id": "7198",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_0699673f-315d-75a8-8000-ca0c2ab4153f_1771467763/screenshots/step_4.png",
+        "interacted_element": [
+          null
+        ],
+        "url": "http://10.0.1.172:8027/",
+        "title": "10.0.1.172:8027"
+      },
+      "metadata": {
+        "step_start_time": 1771467790.191835,
+        "step_end_time": 1771467794.699965,
+        "step_number": 4,
+        "step_interval": 6.091915845870972
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8027\n<step>\nSuccessfully loaded the profile page. Verdict: Success\nCurrently on the profile page. Need to click the 'Change' button next to the email address and input the new email.\nClick the 'Change' button next to the email address.\nResult\nClicked button \"Change\"\n<step>\nSuccessfully clicked the 'Change' button next to the email address. Verdict: Success\nClicked the change button next to the email address and the modal appeared. Now I need to input the new email address and click the 'Change email' button.\nInput the new email address 'jordan@nextera-labs.com' into the input field.\nResult\nTyped 'jordan@nextera-labs.com'\n<step>\nSuccessfully inputted the new email address. Verdict: Success\nInputted the new email address 'jordan@nextera-labs.com' into the input field. Now I need to click the 'Change email' button.\nClick the 'Change email' button to submit the change.\nResult\nClicked button \"Change email\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8027. Your task: Change the user's email address to 'jordan@nextera-labs.com' on the Profile page.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step4 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>6 links, 33 interactive, 0 iframes, 3 shadow(open), 0 shadow(closed), 213 total elements</page_stats>\nCurrent tab: 7198\nAvailable tabs:\nTab 7198: http://10.0.1.172:8027/ - 10.0.1.172:8027\n\n<page_info>0.0 above, 0.7 below </page_info>\n\nInteractive elements:\n[Start of page]\n*[1955]<div />\nLinear\n*[1967]<div id=userMenu />\n\t*[1969]<div id=currentUserAvatar />\n\t\t*[2479]<div />\n\t\t\tJR\nAccount\n*[1877]<a />\n\tProfile\n*[1878]<a />\n\tPreferences\n*[1879]<a />\n\tNotifications\n*[1880]<a />\n\tSecurity & Access\n*[1881]<a />\n\tReset to defaults\n*[2312]<a />\n\tSettings\nAccount\n*[2316]<span />\n\tProfile\nProfile\nPersonalize how other team members see you in your workspace.\nJR\n*[2324]<button title=Change avatar />\nClick to update your profile picture. Once updated, you can only replace it with another photo.\nName and Username\nFull name\n|SHADOW(open)|*[2335]<input type=text id=profileName value=Jordan Rivera placeholder=Enter your full name />\nUsername\n|SHADOW(open)|*[2338]<input type=text id=profileUsername value=jordan.rivera placeholder=Enter your username />\n*[2340]<button />\n\tSave changes\nEmail address\njordan@nextera-labs.com\n*[2347]<button />\n\tChange\nChanging your email address will change it for all workspaces using this email.\nPronouns\nPronouns\n|SHADOW(open)|*[2356]<input type=text id=profilePronouns value=they/them placeholder=e.g., they/them, she/her, he/him />\n*[2358]<button />\n\tSave\nTimezone\nTimezone\n*[2365]<div />\n\tAmerica/New_York\n\t*[2366]<span />\n*[2400]<button />\n\tSave\nConnected Accounts\nSoftware integrations where each user has their own account. This helps Linear associate your Linear user with third-party integration actions.\n*[2407]<button />\n\tConnect account\n*[2411]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitHub\njordanrivera \u00b7 jordan@github.com\nConnected Apr 15, 2023\n*[2419]<button />\n\tDisconnect\n*[2422]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGitLab\njordan.rivera \u00b7 jordan.rivera@gitlab.com\nConnected May 20, 2023\n*[2430]<button />\n\tDisconnect\n*[2433]<div />\n\t<svg /> <!-- SVG content collapsed -->\nSlack\njordan.rivera \u00b7 jordan.rivera@nextera.io\nConnected Apr 15, 2023\n*[2441]<button />\n\tDisconnect\n*[2444]<div />\n\t<svg /> <!-- SVG content collapsed -->\nFigma\njordan.rivera \u00b7 jordan.rivera@nextera.io\nConnected Jun 20, 2023\n*[2452]<button />\n\tDisconnect\n*[2455]<div />\n\t<svg /> <!-- SVG content collapsed -->\nGoogle\njordan.rivera \u00b7 jordan.rivera@gmail.com\nConnected Feb 10, 2024\n*[2466]<button />\n\tDisconnect\nLeave workspace\nOnce removed, you no longer have access to the workspace. An admin will have to unsuspend your account in order for you to log back in.\n*[2472]<button />\n\tLeave workspace\nEmail address updated. Confirmation sent to both addresses.\n</browser_state>\n"
+    }
+  ]
+}

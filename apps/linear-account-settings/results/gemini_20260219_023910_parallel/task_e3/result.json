@@ -1,0 +1,16 @@
+{
+  "task_id": "task_e3",
+  "difficulty": "easy",
+  "instruction": "Update the user's pronouns to 'he/him' on the Profile page.",
+  "passed": true,
+  "verifier_message": "User's pronouns successfully updated to 'he/him'.",
+  "elapsed": 25.5,
+  "steps": 3,
+  "is_done": true,
+  "final_result": "The user's pronouns have been updated to 'he/him' on the Profile page.",
+  "errors": [
+    null,
+    null,
+    null
+  ]
+}

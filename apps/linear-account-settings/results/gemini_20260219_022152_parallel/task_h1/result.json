@@ -1,0 +1,23 @@
+{
+  "task_id": "task_h1",
+  "difficulty": "hard",
+  "instruction": "Change the user's timezone to 'Europe/London' on the Profile page, and then change the theme to 'Light' on the Preferences page.",
+  "passed": true,
+  "verifier_message": "Timezone changed to 'Europe/London' and theme changed to 'Light'.",
+  "elapsed": 64.0,
+  "steps": 10,
+  "is_done": true,
+  "final_result": "Successfully changed the timezone to 'Europe/London' on the Profile page and the theme to 'Light' on the Preferences page.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

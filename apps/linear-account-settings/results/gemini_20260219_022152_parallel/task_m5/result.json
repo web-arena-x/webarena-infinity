@@ -1,0 +1,17 @@
+{
+  "task_id": "task_m5",
+  "difficulty": "medium",
+  "instruction": "Disconnect the 'GitLab' connected account from the Profile page.",
+  "passed": true,
+  "verifier_message": "GitLab connected account successfully disconnected.",
+  "elapsed": 28.2,
+  "steps": 4,
+  "is_done": true,
+  "final_result": "Successfully disconnected the GitLab account from the profile page.",
+  "errors": [
+    null,
+    null,
+    null,
+    null
+  ]
+}

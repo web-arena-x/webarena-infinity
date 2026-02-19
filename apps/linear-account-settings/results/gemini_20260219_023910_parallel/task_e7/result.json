@@ -1,0 +1,18 @@
+{
+  "task_id": "task_e7",
+  "difficulty": "easy",
+  "instruction": "Revoke the session from 'Firefox on Ubuntu' on the Security & Access page.",
+  "passed": true,
+  "verifier_message": "Session 'Firefox on Ubuntu' successfully revoked.",
+  "elapsed": 39.9,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully revoked the 'Firefox on Ubuntu' session.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "task_m7",
+  "difficulty": "medium",
+  "instruction": "Enable both 'Auto-assign issues you create to yourself' and 'Auto-assign on move to started' in the Automations and workflows section of Preferences.",
+  "passed": true,
+  "verifier_message": "Both auto-assign settings successfully enabled.",
+  "elapsed": 50.9,
+  "steps": 6,
+  "is_done": true,
+  "final_result": "Successfully enabled both 'Auto-assign issues you create to yourself' and 'Auto-assign on move to started' in the Automations and workflows section of Preferences.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

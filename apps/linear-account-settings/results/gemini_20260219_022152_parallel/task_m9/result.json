@@ -1,0 +1,19 @@
+{
+  "task_id": "task_m9",
+  "difficulty": "medium",
+  "instruction": "Enable the 'Send immediately on SLA breach' setting and disable the 'Delay low priority emails to work hours' setting in the Email digest settings on the Notifications page.",
+  "passed": true,
+  "verifier_message": "Email digest settings updated correctly.",
+  "elapsed": 46.7,
+  "steps": 6,
+  "is_done": true,
+  "final_result": "Successfully enabled 'Send immediately on SLA breach' and disabled 'Delay low priority emails to work hours' in the email digest settings on the Notifications page.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}
