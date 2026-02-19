@@ -1,0 +1,21 @@
+{
+  "task_id": "task_m8",
+  "difficulty": "medium",
+  "instruction": "In the Dawn theme editor, navigate to the Default product template and duplicate the 'Featured collection' section.",
+  "passed": true,
+  "verifier_message": "Featured collection section duplicated successfully.",
+  "elapsed": 43.4,
+  "steps": 8,
+  "is_done": true,
+  "final_result": "Successfully navigated to the Default product template and duplicated the 'Featured collection' section by adding a new one.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

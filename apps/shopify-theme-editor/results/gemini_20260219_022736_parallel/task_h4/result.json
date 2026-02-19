@@ -1,0 +1,21 @@
+{
+  "task_id": "task_h4",
+  "difficulty": "hard",
+  "instruction": "In the Dawn theme settings, navigate to the Cart settings and change the cart type to 'Popup notification', then also disable the cart note (uncheck 'Enable cart note').",
+  "passed": true,
+  "verifier_message": "Cart type changed to 'popup' and cart note disabled.",
+  "elapsed": 47.4,
+  "steps": 8,
+  "is_done": true,
+  "final_result": "Successfully changed the cart type to 'Popup notification' and disabled the cart note in the Dawn theme settings.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

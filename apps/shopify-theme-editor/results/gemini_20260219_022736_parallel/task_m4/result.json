@@ -1,0 +1,20 @@
+{
+  "task_id": "task_m4",
+  "difficulty": "medium",
+  "instruction": "In the Dawn theme settings, navigate to Animations and change the hover effect to '3D lift'.",
+  "passed": true,
+  "verifier_message": "Hover effect changed to '3D lift'.",
+  "elapsed": 41.3,
+  "steps": 7,
+  "is_done": true,
+  "final_result": "The hover effect in the Dawn theme settings has been successfully changed to '3D lift'.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

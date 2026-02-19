@@ -1,0 +1,182 @@
+[
+  {
+    "id": "task_e1",
+    "difficulty": "easy",
+    "instruction": "Rename the theme 'Craft' to 'Artisan'.",
+    "verify": "tasks/task_e1.py"
+  },
+  {
+    "id": "task_e2",
+    "difficulty": "easy",
+    "instruction": "Delete the theme named 'Crave'.",
+    "verify": "tasks/task_e2.py"
+  },
+  {
+    "id": "task_e3",
+    "difficulty": "easy",
+    "instruction": "Publish the theme 'Sense' so it becomes the live theme.",
+    "verify": "tasks/task_e3.py"
+  },
+  {
+    "id": "task_e4",
+    "difficulty": "easy",
+    "instruction": "Duplicate the theme 'Dawn'.",
+    "verify": "tasks/task_e4.py"
+  },
+  {
+    "id": "task_e5",
+    "difficulty": "easy",
+    "instruction": "Add a new theme named 'Minimalist' with the 'Free Shopify theme' source and 'Online Store 2.0' architecture.",
+    "verify": "tasks/task_e5.py"
+  },
+  {
+    "id": "task_e6",
+    "difficulty": "easy",
+    "instruction": "In the theme editor for the 'Dawn' theme, show (unhide) the 'Related products' section in the Default product template. It is currently hidden.",
+    "verify": "tasks/task_e6.py"
+  },
+  {
+    "id": "task_e7",
+    "difficulty": "easy",
+    "instruction": "In the theme editor for the 'Dawn' theme's Default product template, remove the section named 'Email signup'.",
+    "verify": "tasks/task_e7.py"
+  },
+  {
+    "id": "task_e8",
+    "difficulty": "easy",
+    "instruction": "In the Dawn theme settings, navigate to the Typography settings and change the heading font to 'Montserrat'.",
+    "verify": "tasks/task_e8.py"
+  },
+  {
+    "id": "task_e9",
+    "difficulty": "easy",
+    "instruction": "In the Dawn theme settings, navigate to Search settings and disable search suggestions (uncheck 'Enable search suggestions').",
+    "verify": "tasks/task_e9.py"
+  },
+  {
+    "id": "task_e10",
+    "difficulty": "easy",
+    "instruction": "In the Dawn theme settings, navigate to the Currency settings and enable the option to show currency codes with prices.",
+    "verify": "tasks/task_e10.py"
+  },
+  {
+    "id": "task_m1",
+    "difficulty": "medium",
+    "instruction": "In the Dawn theme editor, navigate to the Default product template and add a new 'Rich text' section to the Template area.",
+    "verify": "tasks/task_m1.py"
+  },
+  {
+    "id": "task_m2",
+    "difficulty": "medium",
+    "instruction": "In the Dawn theme editor, select the 'Image banner' section in the Default product template and rename it to 'Hero Section'.",
+    "verify": "tasks/task_m2.py"
+  },
+  {
+    "id": "task_m3",
+    "difficulty": "medium",
+    "instruction": "In the Dawn theme settings, navigate to Cart settings and change the cart type to 'Page'.",
+    "verify": "tasks/task_m3.py"
+  },
+  {
+    "id": "task_m4",
+    "difficulty": "medium",
+    "instruction": "In the Dawn theme settings, navigate to Animations and change the hover effect to '3D lift'.",
+    "verify": "tasks/task_m4.py"
+  },
+  {
+    "id": "task_m5",
+    "difficulty": "medium",
+    "instruction": "In the Dawn theme editor, navigate to the 'About' template (page type) and remove the block named 'Aisha Patel' from the 'Team members' section.",
+    "verify": "tasks/task_m5.py"
+  },
+  {
+    "id": "task_m6",
+    "difficulty": "medium",
+    "instruction": "In the Dawn theme settings, navigate to Social media and set the YouTube URL to 'https://youtube.com/@northwindtraders'.",
+    "verify": "tasks/task_m6.py"
+  },
+  {
+    "id": "task_m7",
+    "difficulty": "medium",
+    "instruction": "In the Dawn theme settings, navigate to Colors and add a new color scheme.",
+    "verify": "tasks/task_m7.py"
+  },
+  {
+    "id": "task_m8",
+    "difficulty": "medium",
+    "instruction": "In the Dawn theme editor, navigate to the Default product template and duplicate the 'Featured collection' section.",
+    "verify": "tasks/task_m8.py"
+  },
+  {
+    "id": "task_m9",
+    "difficulty": "medium",
+    "instruction": "In the Dawn theme settings, navigate to Buttons and change the button style to 'Pill'.",
+    "verify": "tasks/task_m9.py"
+  },
+  {
+    "id": "task_m10",
+    "difficulty": "medium",
+    "instruction": "In the Dawn theme settings, navigate to Badges and change the sale badge position to 'Top right' and the sale badge shape to 'Circle'.",
+    "verify": "tasks/task_m10.py"
+  },
+  {
+    "id": "task_h1",
+    "difficulty": "hard",
+    "instruction": "In the Dawn theme editor, navigate to the 'About' template (page type), select the 'Our story' section, and change the text of the 'Heading' block to 'Our Values'. Then, also change the 'Content' block text to 'We are committed to sustainability and ethical sourcing in everything we do.'",
+    "verify": "tasks/task_h1.py"
+  },
+  {
+    "id": "task_h2",
+    "difficulty": "hard",
+    "instruction": "In the Dawn theme editor, navigate to the Contact template (page type), add a new 'Rich text' section to the Template area, then add a 'Heading' block to that new section.",
+    "verify": "tasks/task_h2.py"
+  },
+  {
+    "id": "task_h3",
+    "difficulty": "hard",
+    "instruction": "In the Dawn theme settings, navigate to Colors, select the 'Accent' color scheme (the third one), and change its name to 'Forest' and its background color to '#1b4332'.",
+    "verify": "tasks/task_h3.py"
+  },
+  {
+    "id": "task_h4",
+    "difficulty": "hard",
+    "instruction": "In the Dawn theme settings, navigate to the Cart settings and change the cart type to 'Popup notification', then also disable the cart note (uncheck 'Enable cart note').",
+    "verify": "tasks/task_h4.py"
+  },
+  {
+    "id": "task_h5",
+    "difficulty": "hard",
+    "instruction": "In the Dawn theme settings, navigate to Social media and set the TikTok URL to 'https://tiktok.com/@northwindtraders' and the LinkedIn URL to 'https://linkedin.com/company/northwindtraders'. Also, clear the Pinterest URL (make it empty).",
+    "verify": "tasks/task_h5.py"
+  },
+  {
+    "id": "task_h6",
+    "difficulty": "hard",
+    "instruction": "In the Dawn theme editor, navigate to the Default product template. Select the 'Announcement bar' section and add a new 'Announcement' block to it.",
+    "verify": "tasks/task_h6.py"
+  },
+  {
+    "id": "task_h7",
+    "difficulty": "hard",
+    "instruction": "In the Dawn theme editor, navigate to the Default product template. Remove the 'Sale announcement' block from the 'Announcement bar' section, and then also hide the 'Subheading' block in the 'Image banner' section.",
+    "verify": "tasks/task_h7.py"
+  },
+  {
+    "id": "task_h8",
+    "difficulty": "hard",
+    "instruction": "In the Dawn theme settings, navigate to Typography and change the heading font to 'Playfair Display' and the body font to 'Lato'. Then navigate to Layout settings and change the page width to 1400px.",
+    "verify": "tasks/task_h8.py"
+  },
+  {
+    "id": "task_h9",
+    "difficulty": "hard",
+    "instruction": "Publish the 'Impact' theme, then navigate to the themes list and rename it to 'Impact Pro'.",
+    "verify": "tasks/task_h9.py"
+  },
+  {
+    "id": "task_h10",
+    "difficulty": "hard",
+    "instruction": "In the Dawn theme settings, navigate to Colors and remove the 'Dark Mode' color scheme (the fourth one). Then navigate to Inputs settings and change the input style to 'Filled'.",
+    "verify": "tasks/task_h10.py"
+  }
+]

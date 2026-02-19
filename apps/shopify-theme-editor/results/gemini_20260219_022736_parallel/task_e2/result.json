@@ -1,0 +1,18 @@
+{
+  "task_id": "task_e2",
+  "difficulty": "easy",
+  "instruction": "Delete the theme named 'Crave'.",
+  "passed": true,
+  "verifier_message": "Theme 'Crave' successfully deleted.",
+  "elapsed": 28.9,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully deleted the 'Crave' theme.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

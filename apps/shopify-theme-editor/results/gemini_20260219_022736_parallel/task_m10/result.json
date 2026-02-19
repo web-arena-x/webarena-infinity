@@ -1,0 +1,22 @@
+{
+  "task_id": "task_m10",
+  "difficulty": "medium",
+  "instruction": "In the Dawn theme settings, navigate to Badges and change the sale badge position to 'Top right' and the sale badge shape to 'Circle'.",
+  "passed": true,
+  "verifier_message": "Sale badge position changed to 'top-right' and shape to 'circle'.",
+  "elapsed": 49.5,
+  "steps": 9,
+  "is_done": true,
+  "final_result": "Successfully changed the sale badge position to 'Top right' and the sale badge shape to 'Circle' in the Dawn theme settings.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

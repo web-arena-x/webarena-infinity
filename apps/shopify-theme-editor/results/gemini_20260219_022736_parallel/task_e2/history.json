@@ -1,0 +1,321 @@
+{
+  "history": [
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Start",
+        "memory": null,
+        "next_goal": "Initial navigation",
+        "action": [
+          {
+            "navigate": {
+              "url": "http://10.0.1.172:8024",
+              "new_tab": false
+            }
+          }
+        ]
+      },
+      "result": [
+        {
+          "is_done": false,
+          "long_term_memory": "Found initial url and automatically loaded it. Navigated to http://10.0.1.172:8024",
+          "extracted_content": "\ud83d\udd17 Navigated to http://10.0.1.172:8024",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [],
+        "screenshot_path": null,
+        "interacted_element": [
+          null
+        ],
+        "url": "http://10.0.1.172:8024",
+        "title": "Initial Actions"
+      },
+      "metadata": {
+        "step_start_time": 1771468076.7040431,
+        "step_end_time": 1771468076.7040431,
+        "step_number": 0,
+        "step_interval": null
+      },
+      "state_message": null
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully loaded the page. Verdict: Success",
+        "memory": "Navigated to the page. The task is to delete the theme named 'Crave'.",
+        "next_goal": "Click the delete button associated with the 'Crave' theme.",
+        "action": [
+          {
+            "click": {
+              "index": 46
+            }
+          }
+        ],
+        "thinking": "I need to find a delete button associated with the 'Crave' theme and click it. I will start by searching for the text 'Crave' on the page to locate the theme, then look for a delete button nearby.",
+        "current_plan_item": 0,
+        "plan_update": []
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"\u22ee\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1842.3828125,
+            "click_y": 783.0
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8024/",
+            "title": "10.0.1.172:8024",
+            "target_id": "3ECA",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996752-3937-7d59-8000-745977c3d3f9_1771468067/screenshots/step_1.png",
+        "interacted_element": [
+          {
+            "node_id": 217,
+            "backend_node_id": 46,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "btn btn-icon btn-sm theme-more-btn",
+              "data-action": "theme-menu",
+              "data-theme-id": "6"
+            },
+            "x_path": "html/body/div[1]/div[3]/div/div[5]/div[2]/div[3]/div/button",
+            "element_hash": 2131894615151020332,
+            "stable_hash": 13661109661219490087,
+            "bounds": {
+              "x": 1828.78125,
+              "y": 769.5,
+              "width": 27.203125,
+              "height": 27.0
+            },
+            "ax_name": "\u22ee"
+          }
+        ],
+        "url": "http://10.0.1.172:8024/",
+        "title": "10.0.1.172:8024"
+      },
+      "metadata": {
+        "step_start_time": 1771468076.7040837,
+        "step_end_time": 1771468080.5998116,
+        "step_number": 1,
+        "step_interval": 0.0
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8024\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8024. Your task: Delete the theme named 'Crave'.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step1 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>0 links, 54 interactive, 0 iframes, 190 total elements</page_stats>\nCurrent tab: 3ECA\nAvailable tabs:\nTab 3ECA: http://10.0.1.172:8024/ - 10.0.1.172:8024\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n|scroll element|<div id=contentWrapper /> (0.0 pages above, 0.1 pages below)\n\tThemes\n\t[10]<button id=addThemeBtn />\n\t\tAdd theme\n\tCurrent theme\n\t[99]<div />\n\t\t[101]<span />\n\t\t\tDawn\n\t\t[104]<span />\n\t\t\tv15.0\n\t[113]<h3 level=3 />\n\t\tDawn\n\t[116]<span />\n\t\tLive\n\tLast saved: 12h ago\n\tUpdate available (v16.0)\n\t[11]<button />\n\t\tCustomize\n\t[133]<div />\n\t\t[12]<button />\n\tTheme library\n\t[156]<span />\n\t[164]<div />\n\t\t[166]<span />\n\t\t\tCraft\n\t\t[169]<span />\n\t\t\tv8.0\n\t[178]<h3 level=3 />\n\t\tCraft\n\tDraft\n\tLast saved: 21d ago\n\t[16]<button />\n\t\tCustomize\n\t[17]<button />\n\t\tPublish\n\t[197]<div />\n\t\t[18]<button />\n\t[219]<div />\n\t\t[221]<span />\n\t\t\tSense\n\t\t[224]<span />\n\t\t\tv12.0\n\t[233]<h3 level=3 />\n\t\tSense\n\tDraft\n\tLast saved: Dec 5, 2025\n\tUpdate available (v13.2)\n\t[23]<button />\n\t\tCustomize\n\t[24]<button />\n\t\tPublish\n\t[255]<div />\n\t\t[25]<button />\n\t[276]<div />\n\t\t[278]<span />\n\t\t\tRide\n\t\t[281]<span />\n\t\t\tv4.0\n\t[290]<h3 level=3 />\n\t\tRide\n\t[293]<span />\n\t\tTrial\n\tLast saved: 8d ago\n\t[30]<button />\n\t\tCustomize\n\t[31]<button />\n\t\tPublish\n\t[309]<div />\n\t\t[32]<button />\n\tImpact\n\t[336]<span />\n\t\tv6.2\n\tImpact\n\tDraft\n\tLast saved: 4d ago\n\t[37]<button />\n\t\tCustomize\n\t[38]<button />\n\t\tPublish\n\t[364]<div />\n\t\t[39]<button />\n\t[386]<div />\n\t\t[388]<span />\n\t\t\tCrave\n\t\t[391]<span />\n\t\t\tv3.1\n\t[400]<h3 level=3 />\n\t\tCrave\n\tDraft\n\tLast saved: Sep 18, 2025\n\tUpdate available (v4.0)\n\t[44]<button />\n\t\tCustomize\n\t[45]<button />\n\t\tPublish\n\t[422]<div />\n\t\t[46]<button />\n\tCopy of Dawn\n\t[449]<span />\n\t\tv15.0\n\tCopy of Dawn\n\tDraft\n\tLast saved: 17d ago\n\t[51]<button />\n\t\tCustomize\n\t[52]<button />\n\t\tPublish\n\t[477]<div />\n\t\t[53]<button />\n\t[58]<button id=resetDataBtn />\n\t\tReset to default data\n\tRestore all themes and settings to their original state\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully clicked the button with index 46 to reveal the options for the 'Crave' theme. Verdict: Success",
+        "memory": "Clicked the button with index 46 and now I need to click the 'Delete' button with index 50 to delete the 'Crave' theme.",
+        "next_goal": "Click the 'Delete' button with index 50 to delete the 'Crave' theme.",
+        "action": [
+          {
+            "click": {
+              "index": 50
+            }
+          }
+        ],
+        "thinking": "I have successfully clicked the button with index 46. Now I need to click the 'Delete' button with index 50 to delete the 'Crave' theme.",
+        "current_plan_item": 0
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked div \"Delete\"",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1775.984375,
+            "click_y": 787.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8024/",
+            "title": "10.0.1.172:8024",
+            "target_id": "3ECA",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996752-3937-7d59-8000-745977c3d3f9_1771468067/screenshots/step_2.png",
+        "interacted_element": [
+          {
+            "node_id": 510,
+            "backend_node_id": 50,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "DIV",
+            "attributes": {
+              "class": "theme-menu-item theme-menu-item-danger",
+              "data-action": "delete",
+              "data-theme-id": "6"
+            },
+            "x_path": "html/body/div[1]/div[3]/div/div[5]/div[2]/div[3]/div/div/div[4]",
+            "element_hash": 687102706894213764,
+            "stable_hash": 14522160762176377470,
+            "bounds": {
+              "x": 1696.984375,
+              "y": 903.5,
+              "width": 158.0,
+              "height": 34.0
+            },
+            "ax_name": null
+          }
+        ],
+        "url": "http://10.0.1.172:8024/",
+        "title": "10.0.1.172:8024"
+      },
+      "metadata": {
+        "step_start_time": 1771468080.6010892,
+        "step_end_time": 1771468086.366719,
+        "step_number": 2,
+        "step_interval": 3.8957278728485107
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8024\n<step>\nSuccessfully loaded the page. Verdict: Success\nNavigated to the page. The task is to delete the theme named 'Crave'.\nClick the delete button associated with the 'Crave' theme.\nResult\nClicked button \"\u22ee\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8024. Your task: Delete the theme named 'Crave'.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step2 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>0 links, 58 interactive, 0 iframes, 199 total elements</page_stats>\nCurrent tab: 3ECA\nAvailable tabs:\nTab 3ECA: http://10.0.1.172:8024/ - 10.0.1.172:8024\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n|scroll element|<div id=contentWrapper /> (0.0 pages above, 0.1 pages below)\n\tThemes\n\t[10]<button id=addThemeBtn />\n\t\tAdd theme\n\tCurrent theme\n\t[99]<div />\n\t\t[101]<span />\n\t\t\tDawn\n\t\t[104]<span />\n\t\t\tv15.0\n\t[113]<h3 level=3 />\n\t\tDawn\n\t[116]<span />\n\t\tLive\n\tLast saved: 12h ago\n\tUpdate available (v16.0)\n\t[11]<button />\n\t\tCustomize\n\t[133]<div />\n\t\t[12]<button />\n\tTheme library\n\t[156]<span />\n\t[164]<div />\n\t\t[166]<span />\n\t\t\tCraft\n\t\t[169]<span />\n\t\t\tv8.0\n\t[178]<h3 level=3 />\n\t\tCraft\n\tDraft\n\tLast saved: 21d ago\n\t[16]<button />\n\t\tCustomize\n\t[17]<button />\n\t\tPublish\n\t[197]<div />\n\t\t[18]<button />\n\t[219]<div />\n\t\t[221]<span />\n\t\t\tSense\n\t\t[224]<span />\n\t\t\tv12.0\n\t[233]<h3 level=3 />\n\t\tSense\n\tDraft\n\tLast saved: Dec 5, 2025\n\tUpdate available (v13.2)\n\t[23]<button />\n\t\tCustomize\n\t[24]<button />\n\t\tPublish\n\t[255]<div />\n\t\t[25]<button />\n\t[276]<div />\n\t\t[278]<span />\n\t\t\tRide\n\t\t[281]<span />\n\t\t\tv4.0\n\t[290]<h3 level=3 />\n\t\tRide\n\t[293]<span />\n\t\tTrial\n\tLast saved: 8d ago\n\t[30]<button />\n\t\tCustomize\n\t[31]<button />\n\t\tPublish\n\t[309]<div />\n\t\t[32]<button />\n\tImpact\n\t[336]<span />\n\t\tv6.2\n\tImpact\n\tDraft\n\tLast saved: 4d ago\n\t[37]<button />\n\t\tCustomize\n\t[38]<button />\n\t\tPublish\n\t[364]<div />\n\t\t[39]<button />\n\t[386]<div />\n\t\t[388]<span />\n\t\t\tCrave\n\t\t[391]<span />\n\t\t\tv3.1\n\t[400]<h3 level=3 />\n\t\tCrave\n\tDraft\n\tLast saved: Sep 18, 2025\n\tUpdate available (v4.0)\n\t[44]<button />\n\t\tCustomize\n\t[45]<button />\n\t\tPublish\n\t[422]<div />\n\t\t[46]<button />\n\t\t*[47]<div />\n\t\t\tRename\n\t\t*[48]<div />\n\t\t\tDuplicate\n\t\t*[49]<div />\n\t\t\tPreview\n\t\t*[50]<div />\n\t\t\tDelete\n\tCopy of Dawn\n\t[449]<span />\n\t\tv15.0\n\tCopy of Dawn\n\tDraft\n\tLast saved: 17d ago\n\t[51]<button />\n\t\tCustomize\n\t[52]<button />\n\t\tPublish\n\t[477]<div />\n\t\t[53]<button />\n\t[58]<button id=resetDataBtn />\n\t\tReset to default data\n\tRestore all themes and settings to their original state\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully clicked the delete button. Now a confirmation dialog is open. Verdict: Success",
+        "memory": "Clicked the delete button, and now I need to confirm the deletion of the 'Crave' theme by clicking the 'Delete' button in the confirmation dialog.",
+        "next_goal": "Confirm the deletion of the 'Crave' theme by clicking the 'Delete' button in the confirmation dialog.",
+        "action": [
+          {
+            "click": {
+              "index": 558
+            }
+          }
+        ],
+        "thinking": "I have successfully clicked the 'Delete' button. Now, I need to confirm the deletion by clicking the 'Delete' button inside the confirmation dialog.",
+        "current_plan_item": 0,
+        "plan_update": []
+      },
+      "result": [
+        {
+          "is_done": false,
+          "extracted_content": "Clicked button \"Delete\" id=modalConfirmBtn",
+          "include_extracted_content_only_once": false,
+          "metadata": {
+            "click_x": 1142.8203125,
+            "click_y": 613.5
+          },
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8024/",
+            "title": "10.0.1.172:8024",
+            "target_id": "3ECA",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996752-3937-7d59-8000-745977c3d3f9_1771468067/screenshots/step_3.png",
+        "interacted_element": [
+          {
+            "node_id": 856,
+            "backend_node_id": 558,
+            "frame_id": null,
+            "node_type": 1,
+            "node_value": "",
+            "node_name": "BUTTON",
+            "attributes": {
+              "class": "btn btn-danger",
+              "id": "modalConfirmBtn"
+            },
+            "x_path": "html/body/div[2]/div/div[3]/button[2]",
+            "element_hash": 1789470191023110076,
+            "stable_hash": 17930371255518967733,
+            "bounds": {
+              "x": 1105.640625,
+              "y": 595.5,
+              "width": 74.359375,
+              "height": 36.0
+            },
+            "ax_name": "Delete"
+          }
+        ],
+        "url": "http://10.0.1.172:8024/",
+        "title": "10.0.1.172:8024"
+      },
+      "metadata": {
+        "step_start_time": 1771468086.368218,
+        "step_end_time": 1771468092.1751661,
+        "step_number": 3,
+        "step_interval": 5.765629768371582
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8024\n<step>\nSuccessfully loaded the page. Verdict: Success\nNavigated to the page. The task is to delete the theme named 'Crave'.\nClick the delete button associated with the 'Crave' theme.\nResult\nClicked button \"\u22ee\"\n<step>\nSuccessfully clicked the button with index 46 to reveal the options for the 'Crave' theme. Verdict: Success\nClicked the button with index 46 and now I need to click the 'Delete' button with index 50 to delete the 'Crave' theme.\nClick the 'Delete' button with index 50 to delete the 'Crave' theme.\nResult\nClicked div \"Delete\"\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8024. Your task: Delete the theme named 'Crave'.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step3 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>0 links, 8 interactive, 0 iframes, 204 total elements</page_stats>\nCurrent tab: 3ECA\nAvailable tabs:\nTab 3ECA: http://10.0.1.172:8024/ - 10.0.1.172:8024\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\n|scroll element|<div id=contentWrapper /> (0.0 pages above, 0.1 pages below)\n\tThemes\n\tAdd theme\n\tCurrent theme\n\tDawn\n\tv15.0\n\tDawn\n\tLive\n\tLast saved: 12h ago\n\tUpdate available (v16.0)\n\tCustomize\n\tTheme library\n\tCraft\n\tv8.0\n\tCraft\n\tDraft\n\tLast saved: 21d ago\n\tCustomize\n\tPublish\n\tSense\n\tv12.0\n\tSense\n\tDraft\n\tLast saved: Dec 5, 2025\n\tUpdate available (v13.2)\n\tCustomize\n\tPublish\n\tRide\n\tv4.0\n\tRide\n\tTrial\n\tLast saved: 8d ago\n\tCustomize\n\tPublish\n\tImpact\n\tv6.2\n\tImpact\n\tDraft\n\tLast saved: 4d ago\n\tCustomize\n\tPublish\n\tCrave\n\tv3.1\n\tCrave\n\tDraft\n\tLast saved: Sep 18, 2025\n\tUpdate available (v4.0)\n\tCustomize\n\tPublish\n\tCopy of Dawn\n\tv15.0\n\tCopy of Dawn\n\tDraft\n\tLast saved: 17d ago\n\t[51]<button />\n\t\tCustomize\n\t[52]<button />\n\t\tPublish\n\t[477]<div />\n\t\t[53]<button />\n\t[58]<button id=resetDataBtn />\n\t\tReset to default data\n\tRestore all themes and settings to their original state\nDelete theme\n*[59]<button />\nAre you sure you want to delete \"Crave\"? This action cannot be undone.\n*[557]<button />\n\tCancel\n*[558]<button id=modalConfirmBtn />\n\tDelete\n[End of page]\n</browser_state>\n"
+    },
+    {
+      "model_output": {
+        "evaluation_previous_goal": "Successfully confirmed the deletion of the 'Crave' theme. Verdict: Success",
+        "memory": "Successfully deleted the 'Crave' theme.",
+        "next_goal": "The task is complete. Call done to finish.",
+        "action": [
+          {
+            "done": {
+              "text": "Successfully deleted the 'Crave' theme.",
+              "success": true
+            }
+          }
+        ],
+        "thinking": "I have successfully deleted the 'Crave' theme. The browser state shows 'Theme deleted'. The user request is to delete the theme named 'Crave'. Therefore, the task is complete."
+      },
+      "result": [
+        {
+          "is_done": true,
+          "success": true,
+          "judgement": {
+            "reasoning": "The agent successfully navigated to the web application, clicked the '...' button associated with the 'Crave' theme, selected 'Delete', confirmed the deletion, and reported success. The trajectory appears logical and efficient for the task.",
+            "verdict": true,
+            "failure_reason": "",
+            "impossible_task": false,
+            "reached_captcha": false
+          },
+          "attachments": [],
+          "long_term_memory": "Task completed: True - Successfully deleted the 'Crave' theme.",
+          "extracted_content": "Successfully deleted the 'Crave' theme.",
+          "include_extracted_content_only_once": false,
+          "include_in_memory": false
+        }
+      ],
+      "state": {
+        "tabs": [
+          {
+            "url": "http://10.0.1.172:8024/",
+            "title": "10.0.1.172:8024",
+            "target_id": "3ECA",
+            "parent_target_id": null
+          }
+        ],
+        "screenshot_path": "/tmp/browser_use_agent_06996752-3937-7d59-8000-745977c3d3f9_1771468067/screenshots/step_4.png",
+        "interacted_element": [
+          null
+        ],
+        "url": "http://10.0.1.172:8024/",
+        "title": "10.0.1.172:8024"
+      },
+      "metadata": {
+        "step_start_time": 1771468092.176436,
+        "step_end_time": 1771468094.7399838,
+        "step_number": 4,
+        "step_interval": 5.806948184967041
+      },
+      "state_message": "<agent_history>\nAgent initialized\n<step>\nResult\nFound initial url and automatically loaded it. Navigated to http://10.0.1.172:8024\n<step>\nSuccessfully loaded the page. Verdict: Success\nNavigated to the page. The task is to delete the theme named 'Crave'.\nClick the delete button associated with the 'Crave' theme.\nResult\nClicked button \"\u22ee\"\n<step>\nSuccessfully clicked the button with index 46 to reveal the options for the 'Crave' theme. Verdict: Success\nClicked the button with index 46 and now I need to click the 'Delete' button with index 50 to delete the 'Crave' theme.\nClick the 'Delete' button with index 50 to delete the 'Crave' theme.\nResult\nClicked div \"Delete\"\n<step>\nSuccessfully clicked the delete button. Now a confirmation dialog is open. Verdict: Success\nClicked the delete button, and now I need to confirm the deletion of the 'Crave' theme by clicking the 'Delete' button in the confirmation dialog.\nConfirm the deletion of the 'Crave' theme by clicking the 'Delete' button in the confirmation dialog.\nResult\nClicked button \"Delete\" id=modalConfirmBtn\n</agent_history>\n\n<agent_state>\n<user_request>\nYou are interacting with a web application at http://10.0.1.172:8024. Your task: Delete the theme named 'Crave'.\n</user_request>\n<file_system>\n\n</file_system>\n<todo_contents>\n[empty todo.md, fill it when applicable]\n</todo_contents>\n<step_info>Step4 maximum:500\nToday:2026-02-19</step_info>\n</agent_state>\n<browser_state>\n<page_stats>0 links, 47 interactive, 0 iframes, 170 total elements</page_stats>\nCurrent tab: 3ECA\nAvailable tabs:\nTab 3ECA: http://10.0.1.172:8024/ - 10.0.1.172:8024\n\n<page_info>0.0 above, 0.0 below </page_info>\n\nInteractive elements:\n[Start of page]\nThemes\n*[574]<button id=addThemeBtn />\n\tAdd theme\nCurrent theme\n*[580]<div />\n\t*[581]<span />\n\t\tDawn\n\t*[582]<span />\n\t\tv15.0\n*[585]<h3 level=3 />\n\tDawn\n*[586]<span />\n\tLive\nLast saved: 12h ago\nUpdate available (v16.0)\n*[591]<button />\n\tCustomize\n*[592]<div />\n\t*[593]<button />\nTheme library\n*[600]<span />\n*[604]<div />\n\t*[605]<span />\n\t\tCraft\n\t*[606]<span />\n\t\tv8.0\n*[609]<h3 level=3 />\n\tCraft\nDraft\nLast saved: 21d ago\n*[614]<button />\n\tCustomize\n*[615]<button />\n\tPublish\n*[616]<div />\n\t*[617]<button />\n*[625]<div />\n\t*[626]<span />\n\t\tSense\n\t*[627]<span />\n\t\tv12.0\n*[630]<h3 level=3 />\n\tSense\nDraft\nLast saved: Dec 5, 2025\nUpdate available (v13.2)\n*[636]<button />\n\tCustomize\n*[637]<button />\n\tPublish\n*[638]<div />\n\t*[639]<button />\n*[647]<div />\n\t*[648]<span />\n\t\tRide\n\t*[649]<span />\n\t\tv4.0\n*[652]<h3 level=3 />\n\tRide\n*[653]<span />\n\tTrial\nLast saved: 8d ago\n*[657]<button />\n\tCustomize\n*[658]<button />\n\tPublish\n*[659]<div />\n\t*[660]<button />\nImpact\n*[670]<span />\n\tv6.2\nImpact\nDraft\nLast saved: 4d ago\n*[678]<button />\n\tCustomize\n*[679]<button />\n\tPublish\n*[680]<div />\n\t*[681]<button />\nCopy of Dawn\n*[691]<span />\n\tv15.0\nCopy of Dawn\nDraft\nLast saved: 17d ago\n*[699]<button />\n\tCustomize\n*[700]<button />\n\tPublish\n*[701]<div />\n\t*[702]<button />\n*[710]<button id=resetDataBtn />\n\tReset to default data\nRestore all themes and settings to their original state\nTheme deleted\n*[569]<button />\n[End of page]\n</browser_state>\n"
+    }
+  ]
+}

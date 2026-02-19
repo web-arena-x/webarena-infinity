@@ -1,0 +1,18 @@
+{
+  "task_id": "task_e6",
+  "difficulty": "easy",
+  "instruction": "In the theme editor for the 'Dawn' theme, show (unhide) the 'Related products' section in the Default product template. It is currently hidden.",
+  "passed": true,
+  "verifier_message": "Section 'Related products' is now visible.",
+  "elapsed": 30.1,
+  "steps": 5,
+  "is_done": true,
+  "final_result": "Successfully unhid the 'Related products' section in the Default product template within the theme editor for the 'Dawn' theme.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

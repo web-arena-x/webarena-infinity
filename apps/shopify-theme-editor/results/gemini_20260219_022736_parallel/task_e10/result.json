@@ -1,0 +1,19 @@
+{
+  "task_id": "task_e10",
+  "difficulty": "easy",
+  "instruction": "In the Dawn theme settings, navigate to the Currency settings and enable the option to show currency codes with prices.",
+  "passed": true,
+  "verifier_message": "Currency codes enabled.",
+  "elapsed": 37.8,
+  "steps": 6,
+  "is_done": true,
+  "final_result": "Successfully enabled the option to show currency codes with prices in the Dawn theme settings.",
+  "errors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}
