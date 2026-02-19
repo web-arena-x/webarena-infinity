@@ -1,0 +1,182 @@
+[
+  {
+    "id": "task_e1",
+    "difficulty": "easy",
+    "instruction": "Change the user's full name to 'Jordan R. Rivera' on the Profile page.",
+    "verify": "tasks/task_e1.py"
+  },
+  {
+    "id": "task_e2",
+    "difficulty": "easy",
+    "instruction": "Change the user's username to 'j.rivera' on the Profile page.",
+    "verify": "tasks/task_e2.py"
+  },
+  {
+    "id": "task_e3",
+    "difficulty": "easy",
+    "instruction": "Update the user's pronouns to 'he/him' on the Profile page.",
+    "verify": "tasks/task_e3.py"
+  },
+  {
+    "id": "task_e4",
+    "difficulty": "easy",
+    "instruction": "Turn off the 'Display full names' setting in Preferences.",
+    "verify": "tasks/task_e4.py"
+  },
+  {
+    "id": "task_e5",
+    "difficulty": "easy",
+    "instruction": "Enable the 'Convert text emoticons into emojis' setting in Preferences. (It may already be enabled; verify it is on.)",
+    "verify": "tasks/task_e5.py"
+  },
+  {
+    "id": "task_e6",
+    "difficulty": "easy",
+    "instruction": "Disable the Mobile notification channel on the Notifications page.",
+    "verify": "tasks/task_e6.py"
+  },
+  {
+    "id": "task_e7",
+    "difficulty": "easy",
+    "instruction": "Revoke the session from 'Firefox on Ubuntu' on the Security & Access page.",
+    "verify": "tasks/task_e7.py"
+  },
+  {
+    "id": "task_e8",
+    "difficulty": "easy",
+    "instruction": "Revoke the API key labeled 'Monitoring Dashboard' on the Security & Access page.",
+    "verify": "tasks/task_e8.py"
+  },
+  {
+    "id": "task_e9",
+    "difficulty": "easy",
+    "instruction": "Disable the 'Notification badge' setting for the desktop application in Preferences.",
+    "verify": "tasks/task_e9.py"
+  },
+  {
+    "id": "task_e10",
+    "difficulty": "easy",
+    "instruction": "Unsubscribe from the issue 'NEX-987' titled 'Fix dashboard performance regression' on the Notifications page.",
+    "verify": "tasks/task_e10.py"
+  },
+  {
+    "id": "task_m1",
+    "difficulty": "medium",
+    "instruction": "Change the default home view to 'My Issues' in Preferences.",
+    "verify": "tasks/task_m1.py"
+  },
+  {
+    "id": "task_m2",
+    "difficulty": "medium",
+    "instruction": "Change the first day of the week to 'Sunday' in Preferences.",
+    "verify": "tasks/task_m2.py"
+  },
+  {
+    "id": "task_m3",
+    "difficulty": "medium",
+    "instruction": "Change the user's email address to 'jordan@nextera-labs.com' on the Profile page.",
+    "verify": "tasks/task_m3.py"
+  },
+  {
+    "id": "task_m4",
+    "difficulty": "medium",
+    "instruction": "Remove the passkey named '1Password' from the Security & Access page.",
+    "verify": "tasks/task_m4.py"
+  },
+  {
+    "id": "task_m5",
+    "difficulty": "medium",
+    "instruction": "Disconnect the 'GitLab' connected account from the Profile page.",
+    "verify": "tasks/task_m5.py"
+  },
+  {
+    "id": "task_m6",
+    "difficulty": "medium",
+    "instruction": "Revoke access for the 'Zendesk' authorized application on the Security & Access page.",
+    "verify": "tasks/task_m6.py"
+  },
+  {
+    "id": "task_m7",
+    "difficulty": "medium",
+    "instruction": "Enable both 'Auto-assign issues you create to yourself' and 'Auto-assign on move to started' in the Automations and workflows section of Preferences.",
+    "verify": "tasks/task_m7.py"
+  },
+  {
+    "id": "task_m8",
+    "difficulty": "medium",
+    "instruction": "Change the theme to 'Dark' and set the font size to 'Large' in the Interface and theme section of Preferences.",
+    "verify": "tasks/task_m8.py"
+  },
+  {
+    "id": "task_m9",
+    "difficulty": "medium",
+    "instruction": "Enable the 'Send immediately on SLA breach' setting and disable the 'Delay low priority emails to work hours' setting in the Email digest settings on the Notifications page.",
+    "verify": "tasks/task_m9.py"
+  },
+  {
+    "id": "task_m10",
+    "difficulty": "medium",
+    "instruction": "Create a new API key with the label 'Staging Environment' on the Security & Access page.",
+    "verify": "tasks/task_m10.py"
+  },
+  {
+    "id": "task_h1",
+    "difficulty": "hard",
+    "instruction": "Change the user's timezone to 'Europe/London' on the Profile page, and then change the theme to 'Light' on the Preferences page.",
+    "verify": "tasks/task_h1.py"
+  },
+  {
+    "id": "task_h2",
+    "difficulty": "hard",
+    "instruction": "Revoke all sessions except the current one on the Security & Access page, and then disable the Desktop notification channel on the Notifications page.",
+    "verify": "tasks/task_h2.py"
+  },
+  {
+    "id": "task_h3",
+    "difficulty": "hard",
+    "instruction": "Register a new passkey named 'YubiKey 5C' with device type 'Security key or password manager' on the Security & Access page.",
+    "verify": "tasks/task_h3.py"
+  },
+  {
+    "id": "task_h4",
+    "difficulty": "hard",
+    "instruction": "Disconnect the 'Figma' connected account from the Profile page, and then revoke access for the 'Figma' authorized application on the Security & Access page.",
+    "verify": "tasks/task_h4.py"
+  },
+  {
+    "id": "task_h5",
+    "difficulty": "hard",
+    "instruction": "Change the git attachment format to 'Title and repository' and enable 'On git branch copy, auto-assign to yourself' in the Automations and workflows section of Preferences.",
+    "verify": "tasks/task_h5.py"
+  },
+  {
+    "id": "task_h6",
+    "difficulty": "hard",
+    "instruction": "Disable the 'Changelog updates' and 'Tips and best practices' communication preferences, and enable the 'Product updates' communication preference on the Notifications page.",
+    "verify": "tasks/task_h6.py"
+  },
+  {
+    "id": "task_h7",
+    "difficulty": "hard",
+    "instruction": "Disable the 'Issue status changes' notification for the Slack channel on the Notifications page. The notification group should remain enabled on other channels.",
+    "verify": "tasks/task_h7.py"
+  },
+  {
+    "id": "task_h8",
+    "difficulty": "hard",
+    "instruction": "Change the user's full name to 'Jordan Rivera-Chen' and username to 'jordan.rc' on the Profile page, then change the default home view to 'Inbox' on the Preferences page.",
+    "verify": "tasks/task_h8.py"
+  },
+  {
+    "id": "task_h9",
+    "difficulty": "hard",
+    "instruction": "Rename the API key labeled 'Personal Automation' to 'Production Monitoring' on the Security & Access page.",
+    "verify": "tasks/task_h9.py"
+  },
+  {
+    "id": "task_h10",
+    "difficulty": "hard",
+    "instruction": "Enable the Email notification channel on the Notifications page and then enable the 'Project updates' notification type for the Email channel specifically.",
+    "verify": "tasks/task_h10.py"
+  }
+]
