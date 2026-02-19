@@ -1,34 +1,128 @@
 #!/usr/bin/env bash
-# Terminate all pipeline EC2 instances.
+# Terminate pipeline EC2 instances.
 # Does NOT delete VPC/SQS/IAM — those are cheap to keep for next run.
 #
 # Usage:
-#   bash infra/setup/teardown.sh              # terminate all mm instances
-#   bash infra/setup/teardown.sh --all        # also delete VPC, SQS, IAM role
+#   bash infra/setup/teardown.sh                       # terminate all mm instances
+#   bash infra/setup/teardown.sh --keep-generators     # keep env-generator instances
+#   bash infra/setup/teardown.sh --clean-generators    # keep + clean generators (implies --keep-generators)
+#   bash infra/setup/teardown.sh --purge-queues        # also purge SQS queues
+#   bash infra/setup/teardown.sh --all                 # also delete VPC, SQS, IAM role
+#
+# Flags can be combined: --clean-generators --purge-queues
+# SSH key: defaults to ~/.ssh/mirror-mirror.pem, override with --ssh-key=/path/to/key
 
 set -euo pipefail
 
 REGION="${AWS_REGION:-us-east-1}"
-DELETE_ALL="${1:-}"
+SSH_KEY="${SSH_KEY:-$HOME/.ssh/mirror-mirror.pem}"
+KEEP_GENERATORS=false
+CLEAN_GENERATORS=false
+PURGE_QUEUES=false
+DELETE_ALL=false
+
+for arg in "$@"; do
+  case "$arg" in
+    --keep-generators)  KEEP_GENERATORS=true ;;
+    --clean-generators) CLEAN_GENERATORS=true; KEEP_GENERATORS=true ;;
+    --purge-queues)     PURGE_QUEUES=true ;;
+    --all)              DELETE_ALL=true ;;
+    --ssh-key=*)        SSH_KEY="${arg#*=}" ;;
+    *) echo "Unknown flag: $arg"; exit 1 ;;
+  esac
+done
 
 echo "=== Terminating mirror-mirror EC2 instances ==="
 
-INSTANCE_IDS=$(aws ec2 describe-instances \
-  --filters "Name=tag:Project,Values=mirror-mirror" "Name=instance-state-name,Values=pending,running,stopping,stopped" \
-  --query 'Reservations[].Instances[].InstanceId' \
-  --output text --region "$REGION")
+if $KEEP_GENERATORS; then
+  echo "  (keeping env-generator instances)"
+  # Get all mm instances
+  ALL_IDS=$(aws ec2 describe-instances \
+    --filters "Name=tag:Project,Values=mirror-mirror" "Name=instance-state-name,Values=pending,running,stopping,stopped" \
+    --query 'Reservations[].Instances[].InstanceId' \
+    --output text --region "$REGION")
+  # Get generator instances to exclude
+  GEN_IDS=$(aws ec2 describe-instances \
+    --filters "Name=tag:Project,Values=mirror-mirror" "Name=tag:Role,Values=env-generator" "Name=instance-state-name,Values=pending,running,stopping,stopped" \
+    --query 'Reservations[].Instances[].InstanceId' \
+    --output text --region "$REGION")
+  # Subtract generators from all
+  INSTANCE_IDS=""
+  for id in $ALL_IDS; do
+    skip=false
+    for gen in $GEN_IDS; do
+      [ "$id" = "$gen" ] && skip=true && break
+    done
+    $skip || INSTANCE_IDS="$INSTANCE_IDS $id"
+  done
+  INSTANCE_IDS=$(echo "$INSTANCE_IDS" | xargs)  # trim whitespace
+  if [ -n "$GEN_IDS" ]; then
+    echo "  Keeping generators: $GEN_IDS"
+  fi
+else
+  INSTANCE_IDS=$(aws ec2 describe-instances \
+    --filters "Name=tag:Project,Values=mirror-mirror" "Name=instance-state-name,Values=pending,running,stopping,stopped" \
+    --query 'Reservations[].Instances[].InstanceId' \
+    --output text --region "$REGION")
+fi
 
 if [ -n "$INSTANCE_IDS" ]; then
   echo "  Terminating: $INSTANCE_IDS"
   aws ec2 terminate-instances --instance-ids $INSTANCE_IDS --region "$REGION" > /dev/null
   echo "  Waiting for termination..."
   aws ec2 wait instance-terminated --instance-ids $INSTANCE_IDS --region "$REGION"
-  echo "  All instances terminated."
+  echo "  Terminated."
 else
-  echo "  No running instances found."
+  echo "  No instances to terminate."
 fi
 
-if [ "$DELETE_ALL" != "--all" ]; then
+# Clean generator instances (remove worktrees, pull latest, kill workers)
+if $CLEAN_GENERATORS; then
+  echo ""
+  echo "=== Cleaning env-generator instances ==="
+  GEN_IPS=$(aws ec2 describe-instances \
+    --filters "Name=tag:Project,Values=mirror-mirror" "Name=tag:Role,Values=env-generator" "Name=instance-state-name,Values=running" \
+    --query 'Reservations[].Instances[].PublicIpAddress' \
+    --output text --region "$REGION")
+  for ip in $GEN_IPS; do
+    echo "  Cleaning $ip ..."
+    ssh -i "$SSH_KEY" -o StrictHostKeyChecking=no -o ConnectTimeout=10 "ec2-user@$ip" bash -s <<'REMOTE_SCRIPT' 2>&1 | sed 's/^/    /'
+# Kill any running worker processes
+pkill -f 'env_worker.py' 2>/dev/null && echo "Killed env_worker" || echo "No env_worker running"
+pkill -f 'claude.*--print' 2>/dev/null && echo "Killed claude processes" || echo "No claude processes"
+# Clean worktrees
+cd ~/mirror-mirror
+for wt in ~/mirror-mirror-workers/worker-*; do
+  [ -d "$wt" ] && git worktree remove --force "$wt" 2>/dev/null
+done
+git worktree prune
+rm -rf ~/mirror-mirror-workers/*
+# Pull latest
+git checkout main 2>/dev/null
+git fetch origin
+git reset --hard origin/main
+echo "Git: $(git log --oneline -1)"
+echo "Worktrees: $(git worktree list | wc -l) (main only)"
+echo "Workers dir: $(ls ~/mirror-mirror-workers/ 2>/dev/null | wc -w) items"
+REMOTE_SCRIPT
+    echo "  Done: $ip"
+  done
+fi
+
+# Purge SQS queues (clear messages but keep queues)
+if $PURGE_QUEUES; then
+  echo ""
+  echo "=== Purging SQS queues ==="
+  for var in GENERATE_QUEUE_URL EVAL_QUEUE_URL EVAL_DONE_QUEUE_URL PIPELINE_DONE_QUEUE_URL; do
+    url="${!var:-}"
+    if [ -n "$url" ]; then
+      aws sqs purge-queue --queue-url "$url" --region "$REGION" 2>/dev/null && \
+        echo "  Purged: $var" || echo "  Skip (not found): $var"
+    fi
+  done
+fi
+
+if ! $DELETE_ALL; then
   echo ""
   echo "VPC, SQS queues, and IAM role preserved (re-use on next run)."
   echo "To delete everything: bash infra/setup/teardown.sh --all"
