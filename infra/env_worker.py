@@ -322,7 +322,6 @@ def generate_environment(env_id: str, docs_source: str, worktree_path: str, work
     prompt = load_prompt(
         "generate",
         reference_app=REFERENCE_APP,
-        repo_dir=REPO_DIR,
         worktree_path=worktree_path,
         docs_source=docs_source,
     )
@@ -388,7 +387,6 @@ def run_audit(env_id: str, iteration: int, worktree_path: str, worker_id: int = 
     prompt = load_prompt(
         "audit",
         results_dir=latest_run_dir,
-        repo_dir=REPO_DIR,
         worktree_path=worktree_path,
         iteration=str(iteration),
         max_iterations=str(MAX_ITERATIONS),

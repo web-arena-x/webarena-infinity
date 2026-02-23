@@ -7,7 +7,8 @@
 #
 # Each branch gets:
 #   - apps/gitlab-org-management/  (reference implementation for Claude Code to learn from)
-#   - apps/env-XXX/docs/           (the specified docs, copied from main)
+#   - apps/{parent_app}/docs/      (full docs tree for the source app, copied from main)
+#   - apps/env-XXX/                (stub directory where Claude generates the environment)
 #   - docs/                        (project-level guides)
 #   - evaluation/                  (eval harness)
 #   - All other apps are REMOVED so Claude Code only sees the reference.
@@ -73,10 +74,12 @@ while IFS= read -r line; do
   mkdir -p "$ENV_DIR"
   echo "# Environment $BRANCH" > "$ENV_DIR/README.md"
 
-  # Docs are NOT copied into the branch. Workers read docs directly from
-  # the main repo checkout (REPO_DIR), which stays on the main branch and
-  # has all docs intact. This avoids bloating branches and keeps
-  # cross-linked docs working.
+  # Copy full docs tree for the parent app from main into the branch.
+  # e.g., docs_path "apps/shopify/docs/themes" -> restore all of "apps/shopify/docs/"
+  PARENT_APP=$(echo "$DOCS_PATH" | cut -d'/' -f2)
+  if [ "$PARENT_APP" != "$REFERENCE_APP" ]; then
+    git checkout main -- "apps/$PARENT_APP/docs/"
+  fi
 
   git add "$ENV_DIR"
   git commit -m "Seed branch $BRANCH (docs: $DOCS_PATH)"
