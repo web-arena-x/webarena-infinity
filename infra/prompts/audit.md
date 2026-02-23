@@ -1,4 +1,4 @@
-Audit the agent evaluation results following the guide at `{repo_dir}/docs/evaluation-audit-guide.md.`
+Audit the agent evaluation results following the guide at `{worktree_path}/docs/evaluation-audit-guide.md.`
 
 This is iteration {iteration} of {max_iterations}.
 
