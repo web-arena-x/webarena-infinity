@@ -19,7 +19,7 @@ Vendors can be reinvited to bid from the bid list screen. This feature can be us
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project’s Bidding tool.
+ - 'Admin' level permissions on the project’s Bidding tool.
 
 ## Prerequisites
 
@@ -29,8 +29,8 @@ Vendors can be reinvited to bid from the bid list screen. This feature can be us
 
 1. Navigate to the project’s **Bidding** tool.
 2. Click **View** next to the bid package you wish to reinvite a vendor to.
-3. Click **Reinvite** next to the vendor you wish to reinvite to bid.  
-   *Note:* This sends an email that reinvites them to bid on your project in Procore.  
+3. Click **Reinvite** next to the vendor you wish to reinvite to bid. 
+   *Note:* This sends an email that reinvites them to bid on your project in Procore. 
      
    ![reinvite-bidders.png](https://support.procore.com/@api/deki/files/70385/reinvite-bidders.png?revision=3)
 4. Add additional cost codes or recipients from the drop-down menu. By adding additional recipients, you are adding them to bid on the project.
@@ -41,8 +41,8 @@ Vendors can be reinvited to bid from the bid list screen. This feature can be us
 1. Navigate to the project's **Bidding** tool.
 2. Click **View** next to the bid package you wish to reinvite multiple users to.
 3. Select which vendors you want to invite or reinvite by marking the checkbox at the beginning of the row.
-4. From the **Bulk Actions** drop-down menu, select **Invite bidders**.  
-   *Note:* Invitations will not be sent to bidders with the status of "Will Not Bid."  
+4. From the **Bulk Actions** drop-down menu, select **Invite bidders**. 
+   *Note:* Invitations will not be sent to bidders with the status of "Will Not Bid." 
      
    ![bulk-reinvite-bidders.png](https://support.procore.com/@api/deki/files/70386/bulk-invite-bidders.png?revision=5)
 5. Add additional cost codes or recipients from the drop-down menu. By adding additional recipients, you are adding them to bid on the project.

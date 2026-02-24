@@ -13,8 +13,8 @@ You can choose to forward all of your new messages to another email address, or 
 - We forward all new messages to the account, except for spam.
 - To forward messages that match a specific criteria, you can create a filter.
 - To choose what happens to the copy of an incoming email, you can:
-  - Save a copy in your inbox.
-  - Automatically archive the copy.
+ - Save a copy in your inbox.
+ - Automatically archive the copy.
 
 ## Turn on automatic forwarding
 

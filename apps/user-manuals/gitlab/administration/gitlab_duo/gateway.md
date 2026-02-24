@@ -10,18 +10,15 @@ The AI gateway is a standalone service that gives access to AI-native GitLab Duo
 GitLab operates an instance of the AI gateway, based in the cloud.
 This instance is used by GitLab.com, [GitLab Self-Managed](setup.md), and GitLab Dedicated.
 
-You can also use a self-hosted AI gateway instance on GitLab Self-Managed
-through [GitLab Duo Self-Hosted](../../administration/gitlab_duo_self_hosted/_index.md).
+You can also use a self-hosted AI gateway instance on GitLab Self-Managed through [GitLab Duo Self-Hosted](../../administration/gitlab_duo_self_hosted/_index.md).
 
 ## Region support
 
 ### GitLab.com
 
-For GitLab.com, the routing mechanism is based on the GitLab instance
-location instead of the user's instance location.
+For GitLab.com, the routing mechanism is based on the GitLab instance location instead of the user's instance location.
 
-Because GitLab.com is single-homed in `us-east1`, requests to the AI gateway
-are routed to `us-east4` in almost all cases.
+Because GitLab.com is single-homed in `us-east1`, requests to the AI gateway are routed to `us-east4` in almost all cases.
 The routing might not always result in the absolute nearest deployment for every user.
 
 ### GitLab Self-Managed and GitLab Dedicated
@@ -34,19 +31,16 @@ Runway is the GitLab internal developer platform and is not available to externa
 
 ## Automatic data routing
 
-GitLab uses Cloudflare and Google Cloud Platform (GCP) load balancers to route AI
-gateway requests to the nearest available deployment automatically.
+GitLab uses Cloudflare and Google Cloud Platform (GCP) load balancers to route AI gateway requests to the nearest available deployment automatically.
 This routing mechanism prioritizes low latency and efficient processing of user requests.
 
 You cannot manually control this routing process.
 The following factors influence where data is routed:
 
 - Network latency: The primary routing mechanism focuses on minimizing latency.
-  Data might be processed in a region other than the nearest one if network conditions dictate.
-- Service availability: In case of regional outages or service disruptions,
-  requests might be automatically rerouted to ensure uninterrupted service.
-- Third-party dependencies: The GitLab AI infrastructure relies on third-party model providers,
-  like Google Vertex AI, which have their own data-handling practices.
+ Data might be processed in a region other than the nearest one if network conditions dictate.
+- Service availability: In case of regional outages or service disruptions, requests might be automatically rerouted to ensure uninterrupted service.
+- Third-party dependencies: The GitLab AI infrastructure relies on third-party model providers, like Google Vertex AI, which have their own data-handling practices.
 
 ### Direct and indirect connections
 
@@ -59,10 +53,8 @@ To change this behavior, [configure direct and indirect connections](../../user/
 
 You cannot directly trace your AI requests to specific regions.
 
-If you need assistance with tracing a particular request, GitLab Support can access and
-analyze logs that contain Cloudflare headers and instance UUIDs.
-These logs provide insights into the routing path and can help
-identify the region where a request was processed.
+If you need assistance with tracing a particular request, GitLab Support can access and analyze logs that contain Cloudflare headers and instance UUIDs.
+These logs provide insights into the routing path and can help identify the region where a request was processed.
 
 ## Data sovereignty
 
@@ -79,11 +71,9 @@ GitLab deploys the AI gateway in the following regions:
 - Europe (`europe-west2`, `europe-west3`, and `europe-west9`)
 - Asia Pacific (`asia-northeast1` and `asia-northeast3`)
 
-For the most current information, see the
-[Runway configuration file](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/-/blob/main/.runway/runway.yml?ref_type=heads#L12).
+For the most current information, see the [Runway configuration file](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/-/blob/main/.runway/runway.yml?ref_type=heads#L12).
 
 The exact location of the LLM models used by the AI gateway is determined by third-party model providers.
 The models are not guaranteed to reside in the same geographical regions as the AI gateway deployments.
-Data might flow to other regions where the model provider operates,
-even if the AI gateway processes the initial request in a different region.
+Data might flow to other regions where the model provider operates, even if the AI gateway processes the initial request in a different region.
 Data is routed to the most optimal region based on performance and availability.

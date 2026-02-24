@@ -84,7 +84,7 @@ Use Docker-in-Docker to handle container operations:
 ```yaml
 image: docker:20.10
 services:
-  - docker:20.10-dind
+ - docker:20.10-dind
 ```
 
 ### Define pipeline variables
@@ -93,9 +93,9 @@ Set up the required variables for the pipeline:
 
 ```yaml
 variables:
-  DOCKER_DRIVER: overlay2
-  DOCKER_TLS_CERTDIR: ""
-  BULK_MIGRATE: "true"
+ DOCKER_DRIVER: overlay2
+ DOCKER_TLS_CERTDIR: ""
+ BULK_MIGRATE: "true"
 ```
 
 ### Configure the migration job
@@ -104,8 +104,8 @@ Create the migration job that handles the transfer:
 
 ```yaml
 migration:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     # Install required tools
     - apk add --no-cache aws-cli jq
 
@@ -161,16 +161,16 @@ When you follow all the previous steps, the `.gitlab-ci.yml` file should look li
 ```yaml
 image: docker:20.10
 services:
-  - docker:20.10-dind
+ - docker:20.10-dind
 
 variables:
-  DOCKER_DRIVER: overlay2
-  DOCKER_TLS_CERTDIR: ""
-  BULK_MIGRATE: "true"
+ DOCKER_DRIVER: overlay2
+ DOCKER_TLS_CERTDIR: ""
+ BULK_MIGRATE: "true"
 
 migration:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     # Install required tools
     - apk add --no-cache aws-cli jq
 
@@ -206,6 +206,6 @@ migration:
           docker push ${CI_REGISTRY_IMAGE}/${repo}:${tag}
         done
       done
-  rules:
+ rules:
     - if: $BULK_MIGRATE == "true"
 ```

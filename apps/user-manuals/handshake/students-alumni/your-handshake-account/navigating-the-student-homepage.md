@@ -16,7 +16,7 @@ Depending on your activity and career preferences, your explore page may feature
 - **Jobs**: Top job listings in your field, including opportunities from popular employers and roles well-suited to your major.
 - **Events**: Upcoming career-related events and career fairs.
 - **From Your School**: Curated highlights from your school's Career Center.
-  - If your school's Career Center has personalized categories, you may also find the featured categories here. These categories include employers and jobs your school decided to highlight. To learn more about the employers and jobs that your school has curated, check out [Career Center Collections At Your School](https://support.joinhandshake.com/hc/en-us/articles/9067686853015-Curated-Employers-At-Your-School).
+ - If your school's Career Center has personalized categories, you may also find the featured categories here. These categories include employers and jobs your school decided to highlight. To learn more about the employers and jobs that your school has curated, check out [Career Center Collections At Your School](https://support.joinhandshake.com/hc/en-us/articles/9067686853015-Curated-Employers-At-Your-School).
 
 ### School resources
 

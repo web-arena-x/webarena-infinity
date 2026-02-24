@@ -33,20 +33,20 @@ Parameters:
 
 | Attribute | Type     | Required               | Description |
 |-----------|----------|------------------------|-------------|
-| `active`  | boolean  | No | Limit by active status. |
+| `active` | boolean | No | Limit by active status. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/deploy_tokens"
+ --url "https://gitlab.example.com/api/v4/deploy_tokens"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "MyToken",
     "username": "gitlab+deploy-token-1",
@@ -57,14 +57,13 @@ Example response:
       "read_repository",
       "read_registry"
     ]
-  }
+ }
 ]
 ```
 
 ## Project deploy tokens
 
-Project deploy token API endpoints require at least the Maintainer role
-for the project.
+Project deploy token API endpoints require at least the Maintainer role for the project.
 
 ### List project deploy tokens
 
@@ -85,14 +84,14 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/deploy_tokens"
+ --url "https://gitlab.example.com/api/v4/projects/1/deploy_tokens"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "MyToken",
     "username": "gitlab+deploy-token-1",
@@ -103,7 +102,7 @@ Example response:
       "read_repository",
       "read_registry"
     ]
-  }
+ }
 ]
 ```
 
@@ -117,7 +116,7 @@ GET /projects/:id/deploy_tokens/:token_id
 
 Parameters:
 
-| Attribute  | Type           | Required               | Description |
+| Attribute | Type           | Required               | Description |
 | ---------- | -------------- | ---------------------- | ----------- |
 | `id`       | integer or string | Yes | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
 | `token_id` | integer        | Yes | ID of the deploy token |
@@ -126,23 +125,23 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/deploy_tokens/1"
+ --url "https://gitlab.example.com/api/v4/projects/1/deploy_tokens/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "name": "MyToken",
-  "username": "gitlab+deploy-token-1",
-  "expires_at": "2020-02-14T00:00:00.000Z",
-  "revoked": false,
-  "expired": false,
-  "scopes": [
+ "id": 1,
+ "name": "MyToken",
+ "username": "gitlab+deploy-token-1",
+ "expires_at": "2020-02-14T00:00:00.000Z",
+ "revoked": false,
+ "expired": false,
+ "scopes": [
     "read_repository",
     "read_registry"
-  ]
+ ]
 }
 ```
 
@@ -168,26 +167,26 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --data '{"name": "My deploy token", "expires_at": "2021-01-01", "username": "custom-user", "scopes": ["read_repository"]}' \
-  --url "https://gitlab.example.com/api/v4/projects/5/deploy_tokens/"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --data '{"name": "My deploy token", "expires_at": "2021-01-01", "username": "custom-user", "scopes": ["read_repository"]}' \
+ --url "https://gitlab.example.com/api/v4/projects/5/deploy_tokens/"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "name": "My deploy token",
-  "username": "custom-user",
-  "expires_at": "2021-01-01T00:00:00.000Z",
-  "token": "jMRvtPNxrn3crTAGukpZ",
-  "revoked": false,
-  "expired": false,
-  "scopes": [
+ "id": 1,
+ "name": "My deploy token",
+ "username": "custom-user",
+ "expires_at": "2021-01-01T00:00:00.000Z",
+ "token": "jMRvtPNxrn3crTAGukpZ",
+ "revoked": false,
+ "expired": false,
+ "scopes": [
     "read_repository"
-  ]
+ ]
 }
 ```
 
@@ -201,7 +200,7 @@ DELETE /projects/:id/deploy_tokens/:token_id
 
 Parameters:
 
-| Attribute  | Type           | Required               | Description |
+| Attribute | Type           | Required               | Description |
 | ---------- | -------------- | ---------------------- | ----------- |
 | `id`       | integer or string | Yes | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
 | `token_id` | integer        | Yes | ID of the deploy token |
@@ -210,14 +209,13 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/deploy_tokens/13"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/deploy_tokens/13"
 ```
 
 ## Group deploy tokens
 
-Users with at least the Maintainer role for the group can list group deploy
-tokens. Only group Owners can create and delete group deploy tokens.
+Users with at least the Maintainer role for the group can list group deploy tokens. Only group Owners can create and delete group deploy tokens.
 
 ### List group deploy tokens
 
@@ -238,14 +236,14 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url"https://gitlab.example.com/api/v4/groups/1/deploy_tokens"
+ --url"https://gitlab.example.com/api/v4/groups/1/deploy_tokens"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "MyToken",
     "username": "gitlab+deploy-token-1",
@@ -256,7 +254,7 @@ Example response:
       "read_repository",
       "read_registry"
     ]
-  }
+ }
 ]
 ```
 
@@ -273,29 +271,29 @@ Parameters:
 | Attribute   | Type           | Required               | Description |
 | ----------- | -------------- | ---------------------- | ----------- |
 | `id`        | integer or string | Yes | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
-| `token_id`  | integer        | Yes | ID of the deploy token |
+| `token_id` | integer        | Yes | ID of the deploy token |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/deploy_tokens/1"
+ --url "https://gitlab.example.com/api/v4/groups/1/deploy_tokens/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "name": "MyToken",
-  "username": "gitlab+deploy-token-1",
-  "expires_at": "2020-02-14T00:00:00.000Z",
-  "revoked": false,
-  "expired": false,
-  "scopes": [
+ "id": 1,
+ "name": "MyToken",
+ "username": "gitlab+deploy-token-1",
+ "expires_at": "2020-02-14T00:00:00.000Z",
+ "revoked": false,
+ "expired": false,
+ "scopes": [
     "read_repository",
     "read_registry"
-  ]
+ ]
 }
 ```
 
@@ -309,7 +307,7 @@ POST /groups/:id/deploy_tokens
 
 Parameters:
 
-| Attribute    | Type | Required  | Description |
+| Attribute    | Type | Required | Description |
 | ------------ | ---- | --------- | ----------- |
 | `id`         | integer or string   | Yes | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
 | `name`       | string           | Yes | New deploy token's name |
@@ -321,26 +319,26 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --data '{"name": "My deploy token", "expires_at": "2021-01-01", "username": "custom-user", "scopes": ["read_repository"]}' \
-  --url "https://gitlab.example.com/api/v4/groups/5/deploy_tokens/"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --data '{"name": "My deploy token", "expires_at": "2021-01-01", "username": "custom-user", "scopes": ["read_repository"]}' \
+ --url "https://gitlab.example.com/api/v4/groups/5/deploy_tokens/"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "name": "My deploy token",
-  "username": "custom-user",
-  "expires_at": "2021-01-01T00:00:00.000Z",
-  "token": "jMRvtPNxrn3crTAGukpZ",
-  "revoked": false,
-  "expired": false,
-  "scopes": [
+ "id": 1,
+ "name": "My deploy token",
+ "username": "custom-user",
+ "expires_at": "2021-01-01T00:00:00.000Z",
+ "token": "jMRvtPNxrn3crTAGukpZ",
+ "revoked": false,
+ "expired": false,
+ "scopes": [
     "read_registry"
-  ]
+ ]
 }
 ```
 
@@ -357,12 +355,12 @@ Parameters:
 | Attribute   | Type           | Required               | Description |
 | ----------- | -------------- | ---------------------- | ----------- |
 | `id`        | integer or string | Yes | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
-| `token_id`  | integer        | Yes | ID of the deploy token |
+| `token_id` | integer        | Yes | ID of the deploy token |
 
 Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/deploy_tokens/13"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/5/deploy_tokens/13"
 ```

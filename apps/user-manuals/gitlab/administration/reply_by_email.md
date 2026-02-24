@@ -13,8 +13,7 @@ description: Configure comments on issues and merge requests with replies by ema
 
 {{< /details >}}
 
-GitLab can be set up to allow users to comment on issues and merge requests by
-replying to notification emails.
+GitLab can be set up to allow users to comment on issues and merge requests by replying to notification emails.
 
 ## Prerequisite
 
@@ -41,25 +40,18 @@ When GitLab sends a notification email:
 When you reply to the notification email, your email client:
 
 - Sends the email to the `Reply-To` address it got from the notification email.
-- Sets the `In-Reply-To` header to the value of the `Message-ID` header from the
-  notification email.
-- Sets the `References` header to the value of the `Message-ID` plus the value of
-  the notification email's `References` header.
+- Sets the `In-Reply-To` header to the value of the `Message-ID` header from the notification email.
+- Sets the `References` header to the value of the `Message-ID` plus the value of the notification email's `References` header.
 
 ### GitLab receives your reply to the notification email
 
-When GitLab receives your reply, it looks for the reply key in the
-[list of accepted headers](incoming_email.md#accepted-headers).
+When GitLab receives your reply, it looks for the reply key in the [list of accepted headers](incoming_email.md#accepted-headers).
 
-If a reply key is found, your response appears as a comment on the relevant issue,
-merge request, commit, or other item that triggered the notification.
+If a reply key is found, your response appears as a comment on the relevant issue, merge request, commit, or other item that triggered the notification.
 
-For more information about the `Message-ID`, `In-Reply-To`, and `References` headers,
-see [RFC 5322](https://www.rfc-editor.org/rfc/rfc5322#section-3.6.4).
+For more information about the `Message-ID`, `In-Reply-To`, and `References` headers, see [RFC 5322](https://www.rfc-editor.org/rfc/rfc5322#section-3.6.4).
 
 ## Retention policy for notifications
 
 Some incoming email features require GitLab to store metadata about sent email notifications.
-We retain these records for two years. If an email notification is older than two years,
-you cannot reply by email to that notification. This includes
-replying by email to issue and merge request threads.
+We retain these records for two years. If an email notification is older than two years, you cannot reply by email to that notification. This includes replying by email to issue and merge request threads.

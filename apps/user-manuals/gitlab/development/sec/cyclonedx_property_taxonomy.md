@@ -5,13 +5,11 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: GitLab CycloneDX property taxonomy
 ---
 
-This document defines the namespaces and properties used by the `gitlab` namespace
-in the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy).
+This document defines the namespaces and properties used by the `gitlab` namespace in the [CycloneDX Property Taxonomy](https://github.com/CycloneDX/cyclonedx-property-taxonomy).
 
 {{< alert type="note" >}}
 
-Before making changes to this file, reach out to the threat insights engineering team,
-`@gitlab-org/govern/threat-insights`.
+Before making changes to this file, reach out to the threat insights engineering team, `@gitlab-org/govern/threat-insights`.
 
 {{< /alert >}}
 
@@ -29,7 +27,7 @@ The `Property of` column describes what object a property may be attached to.
 | --------------------- | ----------- |
 | `meta`                | Namespace for data about the property schema. |
 | `dependency_scanning` | Namespace for data related to dependency scanning. |
-| `container_scanning`  | Namespace for data related to container scanning. |
+| `container_scanning` | Namespace for data related to container scanning. |
 
 ## `gitlab:meta` namespace taxonomy
 
@@ -98,7 +96,7 @@ The `Property of` column describes what object a property may be attached to.
 | Property                               | Description | Example values | Property of |
 | ---------------------------------------| ----------- | -------------- | ----------- |
 | `gitlab:container_scanning:image:name` | The name of the scanned image. | `registry.gitlab.com/gitlab-org/security-products/analyzers/gemnasium/tmp/main` | `metadata`, `component` |
-| `gitlab:container_scanning:image:tag` | The tag of the scanned image.  | `91d61f07e0a4b3dd34b39d77f47f6f9bf48cde0a` | `metadata`, `component` |
+| `gitlab:container_scanning:image:tag` | The tag of the scanned image. | `91d61f07e0a4b3dd34b39d77f47f6f9bf48cde0a` | `metadata`, `component` |
 
 ## `gitlab:container_scanning:operating_system` namespace taxonomy
 

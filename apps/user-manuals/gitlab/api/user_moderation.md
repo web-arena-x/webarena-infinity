@@ -28,14 +28,14 @@ POST /users/:id/approve
 
 Supported attributes:
 
-| Attribute  | Type    | Required | Description        |
+| Attribute | Type    | Required | Description        |
 |------------|---------|----------|--------------------|
 | `id`       | integer | yes      | ID of user account |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/42/approve"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/users/42/approve"
 ```
 
 Returns:
@@ -73,14 +73,14 @@ POST /users/:id/reject
 
 Supported attributes:
 
-| Attribute  | Type    | Required | Description        |
+| Attribute | Type    | Required | Description        |
 |------------|---------|----------|--------------------|
 | `id`       | integer | yes      | ID of user account |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/42/reject"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/users/42/reject"
 ```
 
 Returns:
@@ -118,14 +118,14 @@ POST /users/:id/deactivate
 
 Supported attributes:
 
-| Attribute  | Type    | Required | Description        |
+| Attribute | Type    | Required | Description        |
 |------------|---------|----------|--------------------|
 | `id`       | integer | yes      | ID of user account |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/42/deactivate"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/users/42/deactivate"
 ```
 
 Returns:
@@ -133,9 +133,9 @@ Returns:
 - `201 OK` on success.
 - `404 User Not Found` if user cannot be found.
 - `403 Forbidden` when trying to deactivate a user that is:
-  - Blocked by administrator or by LDAP synchronization.
-  - Not [dormant](../administration/moderate_users.md#automatically-deactivate-dormant-users).
-  - Internal.
+ - Blocked by administrator or by LDAP synchronization.
+ - Not [dormant](../administration/moderate_users.md#automatically-deactivate-dormant-users).
+ - Internal.
 
 ## Reactivate a user
 
@@ -151,14 +151,14 @@ POST /users/:id/activate
 
 Supported attributes:
 
-| Attribute  | Type    | Required | Description        |
+| Attribute | Type    | Required | Description        |
 |------------|---------|----------|--------------------|
 | `id`       | integer | yes      | ID of user account |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/42/activate"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/users/42/activate"
 ```
 
 Returns:
@@ -181,14 +181,14 @@ POST /users/:id/block
 
 Supported attributes:
 
-| Attribute  | Type    | Required | Description        |
+| Attribute | Type    | Required | Description        |
 |------------|---------|----------|--------------------|
 | `id`       | integer | yes      | ID of user account |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/42/block"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/users/42/block"
 ```
 
 Returns:
@@ -196,8 +196,8 @@ Returns:
 - `201 OK` on success.
 - `404 User Not Found` if user cannot be found.
 - `403 Forbidden` when trying to block:
-  - A user that is blocked through LDAP.
-  - An internal user.
+ - A user that is blocked through LDAP.
+ - An internal user.
 
 ## Unblock access to a user
 
@@ -213,14 +213,14 @@ POST /users/:id/unblock
 
 Supported attributes:
 
-| Attribute  | Type    | Required | Description        |
+| Attribute | Type    | Required | Description        |
 |------------|---------|----------|--------------------|
 | `id`       | integer | yes      | ID of user account |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/42/unblock"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/users/42/unblock"
 ```
 
 Returns:
@@ -243,14 +243,14 @@ POST /users/:id/ban
 
 Supported attributes:
 
-| Attribute  | Type    | Required | Description        |
+| Attribute | Type    | Required | Description        |
 |------------|---------|----------|--------------------|
 | `id`       | integer | yes      | ID of user account |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/42/ban"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/users/42/ban"
 ```
 
 Returns:
@@ -273,14 +273,14 @@ POST /users/:id/unban
 
 Supported attributes:
 
-| Attribute  | Type    | Required | Description        |
+| Attribute | Type    | Required | Description        |
 |------------|---------|----------|--------------------|
 | `id`       | integer | yes      | ID of user account |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/42/unban"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/users/42/unban"
 ```
 
 Returns:

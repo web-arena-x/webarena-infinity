@@ -36,6 +36,6 @@ Filter By Title
 
 x
 
-Filter by Device?Mobile  Web
+Filter by Device?Mobile Web
 
 There are no videos that match your search query.

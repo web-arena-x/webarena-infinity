@@ -13,8 +13,7 @@ description: Manage the GitLab agent for Kubernetes.
 
 {{< /details >}}
 
-The agent server is a component installed together with GitLab. It is required to
-manage the [GitLab agent for Kubernetes](https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent).
+The agent server is a component installed together with GitLab. It is required to manage the [GitLab agent for Kubernetes](https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent).
 
 The KAS acronym refers to the former name, `Kubernetes agent server`.
 
@@ -86,8 +85,8 @@ gitlab_kas['private_api_listen_address'] = 'A.B.C.D:8155' # Listen on a particul
 # gitlab_kas['private_api_key_file'] = '<path_to_kas_server_certificate_key>'
 
 gitlab_kas['env'] = {
-  # 'OWN_PRIVATE_API_HOST' => '<server-name-from-cert>' # Add if you want to use TLS for KAS->KAS communication. This name is used to verify the TLS certificate host name instead of the host in the URL of the destination KAS.
-  'SSL_CERT_DIR' => "/opt/gitlab/embedded/ssl/certs/",
+ # 'OWN_PRIVATE_API_HOST' => '<server-name-from-cert>' # Add if you want to use TLS for KAS->KAS communication. This name is used to verify the TLS certificate host name instead of the host in the URL of the destination KAS.
+ 'SSL_CERT_DIR' => "/opt/gitlab/embedded/ssl/certs/",
 }
 
 gitlab_rails['gitlab_kas_external_url'] = 'wss://gitlab.example.com/-/kubernetes-agent/'
@@ -111,13 +110,13 @@ For each KAS node, edit the file at `/etc/gitlab/gitlab.rb` and set the `OWN_PRI
 
 ```ruby
 gitlab_kas['env'] = {
-  # OWN_PRIVATE_API_URL examples, pick one. Each node must use its own unique IP or DNS name.
-  # Use grpcs:// when using TLS on the private API endpoint.
+ # OWN_PRIVATE_API_URL examples, pick one. Each node must use its own unique IP or DNS name.
+ # Use grpcs:// when using TLS on the private API endpoint.
 
-  'OWN_PRIVATE_API_URL' => 'grpc://A.B.C.D:8155' # IPv4
-  # 'OWN_PRIVATE_API_URL' => 'grpcs://A.B.C.D:8155' # IPv4 + TLS
-  # 'OWN_PRIVATE_API_URL' => 'grpc://[A:B:C::D]:8155' # IPv6
-  # 'OWN_PRIVATE_API_URL' => 'grpc://kas-N-private-api.gitlab.example.com:8155' # DNS name
+ 'OWN_PRIVATE_API_URL' => 'grpc://A.B.C.D:8155' # IPv4
+ # 'OWN_PRIVATE_API_URL' => 'grpcs://A.B.C.D:8155' # IPv4 + TLS
+ # 'OWN_PRIVATE_API_URL' => 'grpc://[A:B:C::D]:8155' # IPv6
+ # 'OWN_PRIVATE_API_URL' => 'grpc://kas-N-private-api.gitlab.example.com:8155' # DNS name
 }
 ```
 
@@ -130,17 +129,13 @@ gitlab_kas['env'] = {
 
 {{< /history >}}
 
-You might not be able to set an exact IP address or hostname in the `OWN_PRIVATE_API_URL` variable if, for example,
-the KAS host is assigned an IP address and a hostname dynamically.
+You might not be able to set an exact IP address or hostname in the `OWN_PRIVATE_API_URL` variable if, for example, the KAS host is assigned an IP address and a hostname dynamically.
 
-If you cannot set an exact IP address or hostname, you can configure `OWN_PRIVATE_API_CIDR` to set up KAS to dynamically construct
-`OWN_PRIVATE_API_URL` based on one or more [CIDRs](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing):
+If you cannot set an exact IP address or hostname, you can configure `OWN_PRIVATE_API_CIDR` to set up KAS to dynamically construct `OWN_PRIVATE_API_URL` based on one or more [CIDRs](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing):
 
-This approach allows each KAS node to use a static configuration that works as long as
-the CIDR doesn't change.
+This approach allows each KAS node to use a static configuration that works as long as the CIDR doesn't change.
 
-For each KAS node, edit the file at `/etc/gitlab/gitlab.rb` to dynamically construct the
-`OWN_PRIVATE_API_URL` URL:
+For each KAS node, edit the file at `/etc/gitlab/gitlab.rb` to dynamically construct the `OWN_PRIVATE_API_URL` URL:
 
 1. Comment out `OWN_PRIVATE_API_URL` in your common configuration to turn off this variable.
 1. Configure `OWN_PRIVATE_API_CIDR` to specify what networks the KAS nodes listen on.
@@ -150,12 +145,12 @@ For each KAS node, edit the file at `/etc/gitlab/gitlab.rb` to dynamically const
 
 ```ruby
 gitlab_kas['env'] = {
-  # 'OWN_PRIVATE_API_CIDR' => '10.0.0.0/8', # IPv4 example
-  # 'OWN_PRIVATE_API_CIDR' => '2001:db8:8a2e:370::7334/64', # IPv6 example
-  # 'OWN_PRIVATE_API_CIDR' => '10.0.0.0/8,2001:db8:8a2e:370::7334/64', # multiple CIRDs example
+ # 'OWN_PRIVATE_API_CIDR' => '10.0.0.0/8', # IPv4 example
+ # 'OWN_PRIVATE_API_CIDR' => '2001:db8:8a2e:370::7334/64', # IPv6 example
+ # 'OWN_PRIVATE_API_CIDR' => '10.0.0.0/8,2001:db8:8a2e:370::7334/64', # multiple CIRDs example
 
-  # 'OWN_PRIVATE_API_PORT' => '8155',
-  # 'OWN_PRIVATE_API_SCHEME' => 'grpc',
+ # 'OWN_PRIVATE_API_PORT' => '8155',
+ # 'OWN_PRIVATE_API_SCHEME' => 'grpc',
 }
 ```
 
@@ -168,17 +163,14 @@ gitlab_kas['env'] = {
 
 {{< /history >}}
 
-A KAS node can determine what IP addresses are available based on the `private_api_listen_network` and
-`private_api_listen_address` settings:
+A KAS node can determine what IP addresses are available based on the `private_api_listen_network` and `private_api_listen_address` settings:
 
 - If `private_api_listen_address` is set to a fixed IP address and port number (for example, `ip:port`), it uses this IP address.
-- If `private_api_listen_address` has no IP address (for example, `:8155`), or has an unspecified IP address
-  (for example, `[::]:8155` or `0.0.0.0:8155`), KAS assigns all non-loopback and non-link-local IP addresses to the node.
-  IPv4 and IPv6 addresses are filtered based on the value of `private_api_listen_network`.
-- If `private_api_listen_address` is a `hostname:PORT` (for example, `kas-N-private-api.gitlab.example.com:8155`), KAS
-  resolves the DNS name and assigns all IP addresses to the node.
-  In this mode, KAS listens only on the first IP address (This behavior is defined by the [Go standard library](https://pkg.go.dev/net#Listen)).
-  IPv4 and IPv6 addresses are filtered based on the value of `private_api_listen_network`.
+- If `private_api_listen_address` has no IP address (for example, `:8155`), or has an unspecified IP address (for example, `[::]:8155` or `0.0.0.0:8155`), KAS assigns all non-loopback and non-link-local IP addresses to the node.
+ IPv4 and IPv6 addresses are filtered based on the value of `private_api_listen_network`.
+- If `private_api_listen_address` is a `hostname:PORT` (for example, `kas-N-private-api.gitlab.example.com:8155`), KAS resolves the DNS name and assigns all IP addresses to the node.
+ In this mode, KAS listens only on the first IP address (This behavior is defined by the [Go standard library](https://pkg.go.dev/net#Listen)).
+ IPv4 and IPv6 addresses are filtered based on the value of `private_api_listen_network`.
 
 Before exposing the private API address of a KAS on all IP addresses, make sure this action does not conflict with your organization's security policy.
 The private API endpoint requires a valid authentication token for all requests.
@@ -206,13 +198,12 @@ gitlab_kas['private_api_listen_network'] = 'tcp6'
 gitlab_kas['private_api_listen_address'] = ':8155'
 ```
 
-You can use environment variables to override the scheme and port that
-construct the `OWN_PRIVATE_API_URL`:
+You can use environment variables to override the scheme and port that construct the `OWN_PRIVATE_API_URL`:
 
 ```ruby
 gitlab_kas['env'] = {
-  # 'OWN_PRIVATE_API_PORT' => '8155',
-  # 'OWN_PRIVATE_API_SCHEME' => 'grpc',
+ # 'OWN_PRIVATE_API_PORT' => '8155',
+ # 'OWN_PRIVATE_API_SCHEME' => 'grpc',
 }
 ```
 
@@ -263,10 +254,8 @@ KAS proxies Kubernetes API requests to the GitLab agent for Kubernetes with eith
 - [GitLab user credentials](https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent/-/blob/master/doc/kubernetes_user_access.md).
 
 To authenticate with user credentials, Rails sets a cookie for the GitLab frontend.
-This cookie is called `_gitlab_kas` and it contains an encrypted
-session ID, like the [`_gitlab_session` cookie](../../user/profile/_index.md#cookies-used-for-sign-in).
-The `_gitlab_kas` cookie must be sent to the KAS proxy endpoint with every request
-to authenticate and authorize the user.
+This cookie is called `_gitlab_kas` and it contains an encrypted session ID, like the [`_gitlab_session` cookie](../../user/profile/_index.md#cookies-used-for-sign-in).
+The `_gitlab_kas` cookie must be sent to the KAS proxy endpoint with every request to authenticate and authorize the user.
 
 ## Enable receptive agents
 
@@ -283,8 +272,7 @@ to authenticate and authorize the user.
 
 {{< /history >}}
 
-[Receptive agents](../../user/clusters/agent/_index.md#receptive-agents) allow GitLab to integrate with Kubernetes clusters
-that cannot establish a network connection to the GitLab instance, but can be connected to by GitLab.
+[Receptive agents](../../user/clusters/agent/_index.md#receptive-agents) allow GitLab to integrate with Kubernetes clusters that cannot establish a network connection to the GitLab instance, but can be connected to by GitLab.
 
 To enable receptive agents:
 
@@ -307,27 +295,22 @@ Secure and well-known Kubernetes and HTTP headers are allowed by default.
 
 For a list of allowed response headers, see the [response header allowlist](https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent/-/blob/master/internal/module/kubernetes_api/server/proxy_headers.go).
 
-If you require response headers
-that are not in the default allowlist,
-you can add your response headers
-in the KAS configuration.
+If you require response headers that are not in the default allowlist, you can add your response headers in the KAS configuration.
 
 To add extra allowed response headers:
 
 ```yaml
 agent:
-  kubernetes_api:
+ kubernetes_api:
     extra_allowed_response_headers:
       - 'X-My-Custom-Header-To-Allow'
 ```
 
-Support for the addition of more response headers is tracked in
-[issue 550614](https://gitlab.com/gitlab-org/gitlab/-/issues/550614).
+Support for the addition of more response headers is tracked in [issue 550614](https://gitlab.com/gitlab-org/gitlab/-/issues/550614).
 
 ## Troubleshooting
 
-If you have issues while using the agent server for Kubernetes, view the
-service logs by running the following command:
+If you have issues while using the agent server for Kubernetes, view the service logs by running the following command:
 
 ```shell
 kubectl logs -f -l=app=kas -n <YOUR-GITLAB-NAMESPACE>
@@ -366,8 +349,7 @@ When the agent server tries to connect to the GitLab API, the following error mi
 {"level":"error","time":"2021-08-16T14:56:47.289Z","msg":"GetAgentInfo()","correlation_id":"01FD7QE35RXXXX8R47WZFBAXTN","grpc_service":"gitlab.agent.reverse_tunnel.rpc.ReverseTunnel","grpc_method":"Connect","error":"Get \"https://gitlab.example.com/api/v4/internal/kubernetes/agent_info\": dial tcp 172.17.0.4:443: connect: connection refused"}
 ```
 
-To fix this issue for Linux package installations,
-set the following parameter in `/etc/gitlab/gitlab.rb`. Replace `gitlab.example.com` with your GitLab instance's hostname:
+To fix this issue for Linux package installations, set the following parameter in `/etc/gitlab/gitlab.rb`. Replace `gitlab.example.com` with your GitLab instance's hostname:
 
 ```ruby
 gitlab_kas['gitlab_address'] = 'http://gitlab.example.com'
@@ -437,11 +419,8 @@ If HTTP response headers are lost when sent from the Kubernetes cluster to the u
 Blocked Kubernetes API proxy response header. Please configure extra allowed headers for your instance in the KAS config with `extra_allowed_response_headers` and have a look at the troubleshooting guide at https://docs.gitlab.com/administration/clusters/kas/#troubleshooting.
 ```
 
-This error means that the Kubernetes API proxy blocked response headers because
-they are not defined in the response header allowlist.
+This error means that the Kubernetes API proxy blocked response headers because they are not defined in the response header allowlist.
 
-For more information on adding response headers,
-see [configure the response header allowlist](#configure-kubernetes-api-proxy-response-header-allowlist).
+For more information on adding response headers, see [configure the response header allowlist](#configure-kubernetes-api-proxy-response-header-allowlist).
 
-Support for the addition of more response headers is tracked in
-[issue 550614](https://gitlab.com/gitlab-org/gitlab/-/issues/550614).
+Support for the addition of more response headers is tracked in [issue 550614](https://gitlab.com/gitlab-org/gitlab/-/issues/550614).

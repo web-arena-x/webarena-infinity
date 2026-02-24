@@ -26,7 +26,7 @@ You can access the original style from any object that is currently using it:
 
 1. Select an object in the canvas that uses that style.
 2. Click on the style in the right sidebar
-3. Click the  icon to edit the style.
+3. Click the icon to edit the style.
 4. Click **Go to style definition** to open the style in the library.
 
 Note: You will also see an option to **Move style definition into this file**. This allows you to edit or delete that style without leaving the current file. Moving a style removes it from the original file. If you re-publish the original file, the style would no longer be included.
@@ -36,7 +36,7 @@ Note: You will also see an option to **Move style definition into this file**. T
 You can hide a style from a library without deleting the style itself. You can only do this from the original style, the style definition.
 
 1. Open the file where the style lives.
-2. Click **Assets** in the left sidebar, then click the  **Libraries** icon. The tooltip may read **Review library updates** if there are updates to libraries you are using in the file, or **Review unpublished changes** if you have unpublished updates in your file.
+2. Click **Assets** in the left sidebar, then click the **Libraries** icon. The tooltip may read **Review library updates** if there are updates to libraries you are using in the file, or **Review unpublished changes** if you have unpublished updates in your file.
 3. Click **Publish # changes**.
 4. Right-click the style and select **Hide when publishing**.
 5. Repeat for any other style you want to unpublish.
@@ -75,8 +75,8 @@ Like styles and components, you can hide variables when publishing your library.
 
 1. Open the library file where the variable is defined.
 2. Click an empty spot on the canvas or press `Esc` to deselect all layers.
-3. From **Local variables** in the right sidebar, click the  **Open variables** icon.
-4. From the **Variables** modal, find the variable you’d like to hide and click the  **Edit variable** icon at the end of the row.
+3. From **Local variables** in the right sidebar, click the **Open variables** icon.
+4. From the **Variables** modal, find the variable you’d like to hide and click the **Edit variable** icon at the end of the row.
 5. Check the **Hide from publishing** box and [publish your changes](https://help.figma.com/hc/en-us/articles/360038682574).
 
 ### Hide a variable collection

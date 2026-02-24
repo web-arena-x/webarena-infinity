@@ -88,7 +88,7 @@ After setting up dependency scanning, follow these steps to set up the license c
 
 ```yaml
 rules:
-  - type: license_finding
+ - type: license_finding
     match_on_inclusion_license: false
     license_types:
     # Replace this section with the full list of licenses from the Complete Policy Configuration section
@@ -124,36 +124,36 @@ For reference, here is the complete policy configuration:
 ```yaml
 scan_execution_policy:
 - name: License scan policy
-  description: Enforces dependency scanning to get a list of OSS licenses used, in
+ description: Enforces dependency scanning to get a list of OSS licenses used, in
     order to remain compliant with OSS usage guidance.
-  enabled: true
-  policy_scope:
+ enabled: true
+ policy_scope:
     projects:
       excluding:
       - id: YOUR_PROJECT_ID_HERE
       - id: YOUR_PROJECT_ID_HERE
-  rules:
-  - type: pipeline
+ rules:
+ - type: pipeline
     branch_type: all
-  actions:
-  - scan: dependency_scanning
-  skip_ci:
+ actions:
+ - scan: dependency_scanning
+ skip_ci:
     allowed: true
     allowlist:
       users: []
 approval_policy:
 - name: OSS Compliance Policy
-  description: |-
+ description: |-
     Block any licenses that are not included in the Blue Oak Council's Gold, Silver, or Bronze tiers.
     https://blueoakcouncil.org/list
-  enabled: true
-  policy_scope:
+ enabled: true
+ policy_scope:
     projects:
       excluding:
       - id: YOUR_PROJECT_ID_HERE
       - id: YOUR_PROJECT_ID_HERE
-  rules:
-  - type: license_finding
+ rules:
+ - type: license_finding
     match_on_inclusion_license: false
     license_types:
     - BSD-2-Clause Plus Patent License
@@ -310,8 +310,8 @@ approval_policy:
     license_states:
     - newly_detected
     branch_type: default
-  actions:
-  - type: require_approval
+ actions:
+ - type: require_approval
     approvals_required: 1
     user_approvers_ids:
     # Replace with the user IDs of your compliance approver(s)
@@ -325,9 +325,9 @@ approval_policy:
     # Replace with the roles of your compliance approver(s)
     - owner
     - maintainer
-  - type: send_bot_message
+ - type: send_bot_message
     enabled: true
-  approval_settings:
+ approval_settings:
     block_branch_modification: true
     block_group_branch_modification: true
     prevent_pushing_and_force_pushing: true
@@ -335,7 +335,7 @@ approval_policy:
     prevent_approval_by_commit_author: true
     remove_approvals_with_new_commit: true
     require_password_to_approve: false
-  fallback_behavior:
+ fallback_behavior:
     fail: closed
 ```
 
@@ -351,9 +351,9 @@ approval_policy:
 ## Customization Options
 
 - **Approvers**: You can specify approvers in three ways:
-  - `user_approvers_ids`: Replace with the user IDs of individuals who should approve licenses (for example, `1234567`)
-  - `group_approvers_ids`: Replace with the group IDs that contain approvers (for example, `9876543`)
-  - `role_approvers`: Specify roles that can approve, options are `developer`, `maintainer`, or `owner`
+ - `user_approvers_ids`: Replace with the user IDs of individuals who should approve licenses (for example, `1234567`)
+ - `group_approvers_ids`: Replace with the group IDs that contain approvers (for example, `9876543`)
+ - `role_approvers`: Specify roles that can approve, options are `developer`, `maintainer`, or `owner`
 - **Project Exclusions**: Add project IDs to the `policy_scope.projects.excluding` section to exempt them from the policy
 - **Required approvals**: Change `approvals_required: 1` to require more approvals
 - **Bot messages**: Set `enabled: false` under `send_bot_message` to disable bot notifications
@@ -370,7 +370,7 @@ def fetch_license_data():
     url = "https://blueoakcouncil.org/list.json"
     try:
         response = requests.get(url)
-        response.raise_for_status()  # Raise an exception for bad status codes
+        response.raise_for_status() # Raise an exception for bad status codes
         return response.json()
     except requests.RequestException as e:
         print(f"Error fetching data: {e}")

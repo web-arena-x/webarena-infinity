@@ -32,7 +32,7 @@ You can’t create a Gmail address if the username you requested is:
 
 - Already being used.
 - Very similar to an existing username.
-  - For example, if example@gmail.com already exists, you can't use examp1e@gmail.com.
+ - For example, if example@gmail.com already exists, you can't use examp1e@gmail.com.
 - The same as a username that someone used in the past and then deleted.
 - Reserved by Google to prevent spam or abuse.
 

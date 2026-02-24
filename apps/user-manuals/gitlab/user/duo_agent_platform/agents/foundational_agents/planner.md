@@ -21,9 +21,7 @@ title: Planner Agent
 
 {{< /history >}}
 
-The Planner Agent is a specialized AI agent that assists with product management
-and planning workflows in GitLab. It helps you create, prioritize, and track work more effectively
-because it combines:
+The Planner Agent is a specialized AI agent that assists with product management and planning workflows in GitLab. It helps you create, prioritize, and track work more effectively because it combines:
 
 - Product management expertise.
 - Awareness of GitLab planning objects, like issues and epics.
@@ -50,9 +48,7 @@ Prerequisites:
 
 1. On the top bar, select **Search or go to** and find your project or group.
 1. Open an issue, epic, or merge request.
-1. On the GitLab Duo sidebar, select either **New GitLab Duo Chat**
-   ({{< icon name="pencil-square" >}}) or **Current GitLab Duo Chat**
-   ({{< icon name="duo-chat" >}}).
+1. On the GitLab Duo sidebar, select either **New GitLab Duo Chat** ({{< icon name="pencil-square" >}}) or **Current GitLab Duo Chat** ({{< icon name="duo-chat" >}}).
 
    A Chat conversation opens in the GitLab Duo sidebar on the right side of your screen.
 

@@ -38,7 +38,7 @@ Use the **Region** **tools** menu to access the **Frame**, **Section**, and **Sl
 
 ## Shape tools
 
-The **Shape** **tools** menu gives you a number of default shapes to use. The **Rectangle** tool is selected by default. Click the  arrow to choose from:
+The **Shape** **tools** menu gives you a number of default shapes to use. The **Rectangle** tool is selected by default. Click the arrow to choose from:
 
 - Rectangle
 - Line
@@ -61,7 +61,7 @@ Use the **Creation tools** menu to access the following tools:
 
 [Text](https://help.figma.com/hc/en-us/articles/360039956434) is a crucial component of interface design. Everything from the placement and arrangement of text, to the choice of font, has a part to play.
 
-Select the  **Text** tool, or press `T` to add text layers to your file.
+Select the **Text** tool, or press `T` to add text layers to your file.
 
 - Click once in the canvas to add a text layer that grows horizontally
 - Click and drag to create a text layer with a fixed size
@@ -78,7 +78,7 @@ Use the **Comment tools**menu to access the following tools:
 
 ## Actions menu
 
-The  [Actions](https://help.figma.com/hc/en-us/articles/23570416033943) menu is a collection of productivity tools in design files to help you stay in the flow. From here, you can access:
+The [Actions](https://help.figma.com/hc/en-us/articles/23570416033943) menu is a collection of productivity tools in design files to help you stay in the flow. From here, you can access:
 
 - [AI tools](https://help.figma.com/hc/en-us/articles/23870272542231), like generating a design, replacing content, or creating images
 - [A search tool](https://help.figma.com/hc/en-us/articles/24037716110615) for finding library assets by name or by description
@@ -87,8 +87,8 @@ The  [Actions](https://help.figma.com/hc/en-us/articles/23570416033943) menu is 
 
 ## Enter Dev Mode
 
-Dev Mode is a developer-focused interface for inspecting and navigating designs. To enter Dev Mode, click the  **Dev Mode** toggle or use the keyboard shortcut `Shift` `D`. Learn more about [Dev Mode](https://help.figma.com/hc/en-us/articles/15023124644247).
+Dev Mode is a developer-focused interface for inspecting and navigating designs. To enter Dev Mode, click the **Dev Mode** toggle or use the keyboard shortcut `Shift` `D`. Learn more about [Dev Mode](https://help.figma.com/hc/en-us/articles/15023124644247).
 
 ## Enter Figma Draw
 
-Figma Draw is a set of visual design tools within the Figma Design editor. To open Figma Draw, click  **Draw** in the toolbar. Learn more about [Figma Draw](../figma-draw/explore-figma-draw.md).
+Figma Draw is a set of visual design tools within the Figma Design editor. To open Figma Draw, click **Draw** in the toolbar. Learn more about [Figma Draw](../figma-draw/explore-figma-draw.md).

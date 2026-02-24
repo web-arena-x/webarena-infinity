@@ -42,24 +42,24 @@ Supported attributes:
 | `username`             | string   | no       | Get a single user with a specific username. |
 | `public_email`         | string   | no       | Get a single user with a specific public email. |
 | `search`               | string   | no       | Search for users by name, username, or public email. |
-| `active`               | boolean  | no       | Filters only active users. Default is `false`. |
-| `external`             | boolean  | no       | Filters only external users. Default is `false`. |
-| `blocked`              | boolean  | no       | Filters only blocked users. Default is `false`. |
-| `humans`               | boolean  | no       | Filters only regular users that are not bot or internal users. Default is `false`. |
+| `active`               | boolean | no       | Filters only active users. Default is `false`. |
+| `external`             | boolean | no       | Filters only external users. Default is `false`. |
+| `blocked`              | boolean | no       | Filters only blocked users. Default is `false`. |
+| `humans`               | boolean | no       | Filters only regular users that are not bot or internal users. Default is `false`. |
 | `created_after`        | DateTime | no       | Returns users created after specified time. |
 | `created_before`       | DateTime | no       | Returns users created before specified time. |
-| `exclude_active`       | boolean  | no       | Filters only non active users. Default is `false`. |
-| `exclude_external`     | boolean  | no       | Filters only non external users. Default is `false`. |
-| `exclude_humans`       | boolean  | no       | Filters only bot or internal users. Default is `false`. |
-| `exclude_internal`     | boolean  | no       | Filters only non internal users. Default is `false`. |
-| `without_project_bots` | boolean  | no       | Filters user without project bots. Default is `false`. |
+| `exclude_active`       | boolean | no       | Filters only non active users. Default is `false`. |
+| `exclude_external`     | boolean | no       | Filters only non external users. Default is `false`. |
+| `exclude_humans`       | boolean | no       | Filters only bot or internal users. Default is `false`. |
+| `exclude_internal`     | boolean | no       | Filters only non internal users. Default is `false`. |
+| `without_project_bots` | boolean | no       | Filters user without project bots. Default is `false`. |
 | `saml_provider_id`     | number   | no       | Removed in GitLab 18.2. Use [`GET /groups/:id/saml_users`](groups.md#list-all-saml-users) instead. |
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "username": "john_smith",
     "name": "John Smith",
@@ -67,8 +67,8 @@ Example response:
     "locked": false,
     "avatar_url": "http://localhost:3000/uploads/user/avatar/1/cd8.jpeg",
     "web_url": "http://localhost:3000/john_smith"
-  },
-  {
+ },
+ {
     "id": 2,
     "username": "jack_smith",
     "name": "Jack Smith",
@@ -76,7 +76,7 @@ Example response:
     "locked": false,
     "avatar_url": "http://gravatar.com/../e32131cd8.jpeg",
     "web_url": "http://localhost:3000/jack_smith"
-  }
+ }
 ]
 ```
 
@@ -142,8 +142,7 @@ GET /users?exclude_external=true
 ```
 
 To exclude [bot users for projects](../user/project/settings/project_access_tokens.md#bot-users-for-projects)
-and [bot users for groups](../user/group/settings/group_access_tokens.md#bot-users-for-groups), you can use the
-parameter `without_project_bots=true`.
+and [bot users for groups](../user/group/settings/group_access_tokens.md#bot-users-for-groups), you can use the parameter `without_project_bots=true`.
 
 ```plaintext
 GET /users?without_project_bots=true
@@ -172,19 +171,18 @@ GET /users?without_project_bots=true
 GET /users
 ```
 
-You can use all [parameters available for everyone](#as-a-regular-user) plus these additional attributes
-available only for administrators.
+You can use all [parameters available for everyone](#as-a-regular-user) plus these additional attributes available only for administrators.
 
 Supported attributes:
 
 | Attribute          | Type    | Required | Description |
 |:-------------------|:--------|:---------|:------------|
-| `search`           | string  | no       | Search for users by name, username, public email, or private email. |
-| `extern_uid`       | string  | no       | Get a single user with a specific external authentication provider UID. |
-| `provider`         | string  | no       | The external provider. |
-| `order_by`         | string  | no       | Return users ordered by `id`, `name`, `username`, `created_at`, or `updated_at` fields. Default is `id` |
-| `sort`             | string  | no       | Return users sorted in `asc` or `desc` order. Default is `desc` |
-| `two_factor`       | string  | no       | Filter users by Two-factor authentication. Filter values are `enabled` or `disabled`. By default it returns all users |
+| `search`           | string | no       | Search for users by name, username, public email, or private email. |
+| `extern_uid`       | string | no       | Get a single user with a specific external authentication provider UID. |
+| `provider`         | string | no       | The external provider. |
+| `order_by`         | string | no       | Return users ordered by `id`, `name`, `username`, `created_at`, or `updated_at` fields. Default is `id` |
+| `sort`             | string | no       | Return users sorted in `asc` or `desc` order. Default is `desc` |
+| `two_factor`       | string | no       | Filter users by Two-factor authentication. Filter values are `enabled` or `disabled`. By default it returns all users |
 | `without_projects` | boolean | no       | Filter users without projects. Default is `false`, which means that all users are returned, with and without projects. |
 | `admins`           | boolean | no       | Return only administrators. Default is `false` |
 | `auditors`         | boolean | no       | Return only auditor users. Default is `false`. If not included, it returns all users. Premium and Ultimate only. |
@@ -194,7 +192,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "username": "john_smith",
     "email": "john@example.com",
@@ -236,8 +234,8 @@ Example response:
     "last_sign_in_ip": "172.127.2.22",
     "namespace_id": 1,
     "created_by": null
-  },
-  {
+ },
+ {
     "id": 2,
     "username": "jack_smith",
     "email": "jack@example.com",
@@ -274,16 +272,15 @@ Example response:
     "last_sign_in_ip": "172.127.2.22",
     "namespace_id": 2,
     "created_by": null
-  }
+ }
 ]
 ```
 
-Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also see the
-`shared_runners_minutes_limit`, `extra_shared_runners_minutes_limit`, `is_auditor`, and `using_license_seat` parameters.
+Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also see the `shared_runners_minutes_limit`, `extra_shared_runners_minutes_limit`, `is_auditor`, and `using_license_seat` parameters.
 
 ```json
 [
-  {
+ {
     "id": 1,
     ...
     "shared_runners_minutes_limit": 133,
@@ -291,16 +288,15 @@ Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also se
     "is_auditor": false,
     "using_license_seat": true
     ...
-  }
+ }
 ]
 ```
 
-Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also see
-the `group_saml` provider option and `provisioned_by_group_id` parameter:
+Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also see the `group_saml` provider option and `provisioned_by_group_id` parameter:
 
 ```json
 [
-  {
+ {
     "id": 1,
     ...
     "identities": [
@@ -311,7 +307,7 @@ the `group_saml` provider option and `provisioned_by_group_id` parameter:
     ],
     "provisioned_by_group_id": 123789
     ...
-  }
+ }
 ]
 ```
 
@@ -391,31 +387,31 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "username": "john_smith",
-  "name": "John Smith",
-  "state": "active",
-  "locked": false,
-  "avatar_url": "http://localhost:3000/uploads/user/avatar/1/cd8.jpeg",
-  "web_url": "http://localhost:3000/john_smith",
-  "created_at": "2012-05-23T08:00:58Z",
-  "bio": "",
-  "bot": false,
-  "location": null,
-  "public_email": "john@example.com",
-  "linkedin": "",
-  "twitter": "",
-  "discord": "",
-  "github": "",
-  "website_url": "",
-  "organization": "",
-  "job_title": "Operations Specialist",
-  "pronouns": "he/him",
-  "work_information": null,
-  "followers": 1,
-  "following": 1,
-  "local_time": "3:38 PM",
-  "is_followed": false
+ "id": 1,
+ "username": "john_smith",
+ "name": "John Smith",
+ "state": "active",
+ "locked": false,
+ "avatar_url": "http://localhost:3000/uploads/user/avatar/1/cd8.jpeg",
+ "web_url": "http://localhost:3000/john_smith",
+ "created_at": "2012-05-23T08:00:58Z",
+ "bio": "",
+ "bot": false,
+ "location": null,
+ "public_email": "john@example.com",
+ "linkedin": "",
+ "twitter": "",
+ "discord": "",
+ "github": "",
+ "website_url": "",
+ "organization": "",
+ "job_title": "Operations Specialist",
+ "pronouns": "he/him",
+ "work_information": null,
+ "followers": 1,
+ "following": 1,
+ "local_time": "3:38 PM",
+ "is_followed": false
 }
 ```
 
@@ -452,109 +448,106 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "username": "john_smith",
-  "email": "john@example.com",
-  "name": "John Smith",
-  "state": "active",
-  "locked": false,
-  "avatar_url": "http://localhost:3000/uploads/user/avatar/1/index.jpg",
-  "web_url": "http://localhost:3000/john_smith",
-  "created_at": "2012-05-23T08:00:58Z",
-  "is_admin": false,
-  "bio": "",
-  "location": null,
-  "public_email": "john@example.com",
-  "linkedin": "",
-  "twitter": "",
-  "discord": "",
-  "github": "",
-  "website_url": "",
-  "organization": "",
-  "job_title": "Operations Specialist",
-  "pronouns": "he/him",
-  "work_information": null,
-  "followers": 1,
-  "following": 1,
-  "local_time": "3:38 PM",
-  "last_sign_in_at": "2012-06-01T11:41:01Z",
-  "confirmed_at": "2012-05-23T09:05:22Z",
-  "theme_id": 1,
-  "last_activity_on": "2012-05-23",
-  "color_scheme_id": 2,
-  "projects_limit": 100,
-  "current_sign_in_at": "2012-06-02T06:36:55Z",
-  "note": "DMCA Request: 2018-11-05 | DMCA Violation | Abuse | https://gitlab.zendesk.com/agent/tickets/123",
-  "identities": [
+ "id": 1,
+ "username": "john_smith",
+ "email": "john@example.com",
+ "name": "John Smith",
+ "state": "active",
+ "locked": false,
+ "avatar_url": "http://localhost:3000/uploads/user/avatar/1/index.jpg",
+ "web_url": "http://localhost:3000/john_smith",
+ "created_at": "2012-05-23T08:00:58Z",
+ "is_admin": false,
+ "bio": "",
+ "location": null,
+ "public_email": "john@example.com",
+ "linkedin": "",
+ "twitter": "",
+ "discord": "",
+ "github": "",
+ "website_url": "",
+ "organization": "",
+ "job_title": "Operations Specialist",
+ "pronouns": "he/him",
+ "work_information": null,
+ "followers": 1,
+ "following": 1,
+ "local_time": "3:38 PM",
+ "last_sign_in_at": "2012-06-01T11:41:01Z",
+ "confirmed_at": "2012-05-23T09:05:22Z",
+ "theme_id": 1,
+ "last_activity_on": "2012-05-23",
+ "color_scheme_id": 2,
+ "projects_limit": 100,
+ "current_sign_in_at": "2012-06-02T06:36:55Z",
+ "note": "DMCA Request: 2018-11-05 | DMCA Violation | Abuse | https://gitlab.zendesk.com/agent/tickets/123",
+ "identities": [
     {"provider": "github", "extern_uid": "2435223452345"},
     {"provider": "bitbucket", "extern_uid": "john.smith"},
     {"provider": "google_oauth2", "extern_uid": "8776128412476123468721346"}
-  ],
-  "can_create_group": true,
-  "can_create_project": true,
-  "two_factor_enabled": true,
-  "external": false,
-  "private_profile": false,
-  "commit_email": "john-codes@example.com",
-  "current_sign_in_ip": "196.165.1.102",
-  "last_sign_in_ip": "172.127.2.22",
-  "plan": "gold",
-  "trial": true,
-  "sign_in_count": 1337,
-  "namespace_id": 1,
-  "created_by": null
+ ],
+ "can_create_group": true,
+ "can_create_project": true,
+ "two_factor_enabled": true,
+ "external": false,
+ "private_profile": false,
+ "commit_email": "john-codes@example.com",
+ "current_sign_in_ip": "196.165.1.102",
+ "last_sign_in_ip": "172.127.2.22",
+ "plan": "gold",
+ "trial": true,
+ "sign_in_count": 1337,
+ "namespace_id": 1,
+ "created_by": null
 }
 ```
 
 > [!note]
 > The `plan` and `trial` parameters are only available on GitLab Enterprise Edition.
 
-Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also see
-the `shared_runners_minutes_limit`, `is_auditor`, and `extra_shared_runners_minutes_limit` parameters.
+Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also see the `shared_runners_minutes_limit`, `is_auditor`, and `extra_shared_runners_minutes_limit` parameters.
 
 ```json
 {
-  "id": 1,
-  "username": "john_smith",
-  "is_auditor": false,
-  "shared_runners_minutes_limit": 133,
-  "extra_shared_runners_minutes_limit": 133,
-  ...
+ "id": 1,
+ "username": "john_smith",
+ "is_auditor": false,
+ "shared_runners_minutes_limit": 133,
+ "extra_shared_runners_minutes_limit": 133,
+ ...
 }
 ```
 
-Users on [GitLab.com Premium or Ultimate](https://about.gitlab.com/pricing/) also
-see the `group_saml` option and `provisioned_by_group_id` parameter:
+Users on [GitLab.com Premium or Ultimate](https://about.gitlab.com/pricing/) also see the `group_saml` option and `provisioned_by_group_id` parameter:
 
 ```json
 {
-  "id": 1,
-  "username": "john_smith",
-  "shared_runners_minutes_limit": 133,
-  "extra_shared_runners_minutes_limit": 133,
-  "identities": [
+ "id": 1,
+ "username": "john_smith",
+ "shared_runners_minutes_limit": 133,
+ "extra_shared_runners_minutes_limit": 133,
+ "identities": [
     {"provider": "github", "extern_uid": "2435223452345"},
     {"provider": "bitbucket", "extern_uid": "john.smith"},
     {"provider": "google_oauth2", "extern_uid": "8776128412476123468721346"},
     {"provider": "group_saml", "extern_uid": "123789", "saml_provider_id": 10}
-  ],
-  "provisioned_by_group_id": 123789
-  ...
+ ],
+ "provisioned_by_group_id": 123789
+ ...
 }
 ```
 
-Users on [GitLab.com Premium or Ultimate](https://about.gitlab.com/pricing/) also
-see the `scim_identities` parameter:
+Users on [GitLab.com Premium or Ultimate](https://about.gitlab.com/pricing/) also see the `scim_identities` parameter:
 
 ```json
 {
-  ...
-  "extra_shared_runners_minutes_limit": null,
-  "scim_identities": [
+ ...
+ "extra_shared_runners_minutes_limit": null,
+ "scim_identities": [
       {"extern_uid": "2435223452345", "group_id": "3", "active": true},
       {"extern_uid": "john.smith", "group_id": "42", "active": false}
     ]
-  ...
+ ...
 }
 ```
 
@@ -587,50 +580,50 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "username": "john_smith",
-  "email": "john@example.com",
-  "name": "John Smith",
-  "state": "active",
-  "locked": false,
-  "avatar_url": "http://localhost:3000/uploads/user/avatar/1/index.jpg",
-  "web_url": "http://localhost:3000/john_smith",
-  "created_at": "2012-05-23T08:00:58Z",
-  "bio": "",
-  "location": null,
-  "public_email": "john@example.com",
-  "linkedin": "",
-  "twitter": "",
-  "discord": "",
-  "github": "",
-  "website_url": "",
-  "organization": "",
-  "job_title": "",
-  "pronouns": "he/him",
-  "bot": false,
-  "work_information": null,
-  "followers": 0,
-  "following": 0,
-  "local_time": "3:38 PM",
-  "last_sign_in_at": "2012-06-01T11:41:01Z",
-  "confirmed_at": "2012-05-23T09:05:22Z",
-  "theme_id": 1,
-  "last_activity_on": "2012-05-23",
-  "color_scheme_id": 2,
-  "projects_limit": 100,
-  "current_sign_in_at": "2012-06-02T06:36:55Z",
-  "identities": [
+ "id": 1,
+ "username": "john_smith",
+ "email": "john@example.com",
+ "name": "John Smith",
+ "state": "active",
+ "locked": false,
+ "avatar_url": "http://localhost:3000/uploads/user/avatar/1/index.jpg",
+ "web_url": "http://localhost:3000/john_smith",
+ "created_at": "2012-05-23T08:00:58Z",
+ "bio": "",
+ "location": null,
+ "public_email": "john@example.com",
+ "linkedin": "",
+ "twitter": "",
+ "discord": "",
+ "github": "",
+ "website_url": "",
+ "organization": "",
+ "job_title": "",
+ "pronouns": "he/him",
+ "bot": false,
+ "work_information": null,
+ "followers": 0,
+ "following": 0,
+ "local_time": "3:38 PM",
+ "last_sign_in_at": "2012-06-01T11:41:01Z",
+ "confirmed_at": "2012-05-23T09:05:22Z",
+ "theme_id": 1,
+ "last_activity_on": "2012-05-23",
+ "color_scheme_id": 2,
+ "projects_limit": 100,
+ "current_sign_in_at": "2012-06-02T06:36:55Z",
+ "identities": [
     {"provider": "github", "extern_uid": "2435223452345"},
     {"provider": "bitbucket", "extern_uid": "john_smith"},
     {"provider": "google_oauth2", "extern_uid": "8776128412476123468721346"}
-  ],
-  "can_create_group": true,
-  "can_create_project": true,
-  "two_factor_enabled": true,
-  "external": false,
-  "private_profile": false,
-  "commit_email": "admin@example.com",
-  "preferred_language": "en",
+ ],
+ "can_create_group": true,
+ "can_create_project": true,
+ "two_factor_enabled": true,
+ "external": false,
+ "private_profile": false,
+ "commit_email": "admin@example.com",
+ "preferred_language": "en",
 }
 ```
 
@@ -667,54 +660,53 @@ Supported attributes:
 
 ```json
 {
-  "id": 1,
-  "username": "john_smith",
-  "email": "john@example.com",
-  "name": "John Smith",
-  "state": "active",
-  "locked": false,
-  "avatar_url": "http://localhost:3000/uploads/user/avatar/1/index.jpg",
-  "web_url": "http://localhost:3000/john_smith",
-  "created_at": "2012-05-23T08:00:58Z",
-  "is_admin": true,
-  "bio": "",
-  "location": null,
-  "public_email": "john@example.com",
-  "linkedin": "",
-  "twitter": "",
-  "discord": "",
-  "github": "",
-  "website_url": "",
-  "organization": "",
-  "job_title": "",
-  "last_sign_in_at": "2012-06-01T11:41:01Z",
-  "confirmed_at": "2012-05-23T09:05:22Z",
-  "theme_id": 1,
-  "last_activity_on": "2012-05-23",
-  "color_scheme_id": 2,
-  "projects_limit": 100,
-  "current_sign_in_at": "2012-06-02T06:36:55Z",
-  "identities": [
+ "id": 1,
+ "username": "john_smith",
+ "email": "john@example.com",
+ "name": "John Smith",
+ "state": "active",
+ "locked": false,
+ "avatar_url": "http://localhost:3000/uploads/user/avatar/1/index.jpg",
+ "web_url": "http://localhost:3000/john_smith",
+ "created_at": "2012-05-23T08:00:58Z",
+ "is_admin": true,
+ "bio": "",
+ "location": null,
+ "public_email": "john@example.com",
+ "linkedin": "",
+ "twitter": "",
+ "discord": "",
+ "github": "",
+ "website_url": "",
+ "organization": "",
+ "job_title": "",
+ "last_sign_in_at": "2012-06-01T11:41:01Z",
+ "confirmed_at": "2012-05-23T09:05:22Z",
+ "theme_id": 1,
+ "last_activity_on": "2012-05-23",
+ "color_scheme_id": 2,
+ "projects_limit": 100,
+ "current_sign_in_at": "2012-06-02T06:36:55Z",
+ "identities": [
     {"provider": "github", "extern_uid": "2435223452345"},
     {"provider": "bitbucket", "extern_uid": "john_smith"},
     {"provider": "google_oauth2", "extern_uid": "8776128412476123468721346"}
-  ],
-  "can_create_group": true,
-  "can_create_project": true,
-  "two_factor_enabled": true,
-  "external": false,
-  "private_profile": false,
-  "commit_email": "john-codes@example.com",
-  "current_sign_in_ip": "196.165.1.102",
-  "last_sign_in_ip": "172.127.2.22",
-  "namespace_id": 1,
-  "created_by": null,
-  "note": null
+ ],
+ "can_create_group": true,
+ "can_create_project": true,
+ "two_factor_enabled": true,
+ "external": false,
+ "private_profile": false,
+ "commit_email": "john-codes@example.com",
+ "current_sign_in_ip": "196.165.1.102",
+ "last_sign_in_ip": "172.127.2.22",
+ "namespace_id": 1,
+ "created_by": null,
+ "note": null
 }
 ```
 
-Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also see these
-parameters:
+Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) also see these parameters:
 
 - `shared_runners_minutes_limit`
 - `extra_shared_runners_minutes_limit`
@@ -745,8 +737,7 @@ Prerequisites:
 
 {{< alert type="note" >}}
 
-`private_profile` defaults to the value of the
-[Set profiles of new users to private by default](../administration/settings/account_and_limit_settings.md#set-profiles-of-new-users-to-private-by-default)
+`private_profile` defaults to the value of the [Set profiles of new users to private by default](../administration/settings/account_and_limit_settings.md#set-profiles-of-new-users-to-private-by-default)
 setting. `bio` defaults to `""` instead of `null`.
 
 {{< /alert >}}
@@ -815,8 +806,7 @@ Prerequisites:
 
 - You must be an administrator.
 
-The `email` field is the user's primary email address. You can only change this field to an already-added secondary
-email address for that user. To add more email addresses to the same user, use the [add email endpoint](user_email_addresses.md#add-an-email-address).
+The `email` field is the user's primary email address. You can only change this field to an already-added secondary email address for that user. To add more email addresses to the same user, use the [add email endpoint](user_email_addresses.md#add-an-email-address).
 
 ```plaintext
 PUT /users/:id
@@ -913,18 +903,18 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/user/status"
+ --url "https://gitlab.example.com/api/v4/user/status"
 ```
 
 Example response:
 
 ```json
 {
-  "emoji":"coffee",
-  "availability":"busy",
-  "message":"I crave coffee :coffee:",
-  "message_html": "I crave coffee <gl-emoji title=\"hot beverage\" data-name=\"coffee\" data-unicode-version=\"4.0\">☕</gl-emoji>",
-  "clear_status_at": null
+ "emoji":"coffee",
+ "availability":"busy",
+ "message":"I crave coffee :coffee:",
+ "message_html": "I crave coffee <gl-emoji title=\"hot beverage\" data-name=\"coffee\" data-unicode-version=\"4.0\">☕</gl-emoji>",
+ "clear_status_at": null
 }
 ```
 
@@ -952,11 +942,11 @@ Example response:
 
 ```json
 {
-  "emoji":"coffee",
-  "availability":"busy",
-  "message":"I crave coffee :coffee:",
-  "message_html": "I crave coffee <gl-emoji title=\"hot beverage\" data-name=\"coffee\" data-unicode-version=\"4.0\">☕</gl-emoji>",
-  "clear_status_at": null
+ "emoji":"coffee",
+ "availability":"busy",
+ "message":"I crave coffee :coffee:",
+ "message_html": "I crave coffee <gl-emoji title=\"hot beverage\" data-name=\"coffee\" data-unicode-version=\"4.0\">☕</gl-emoji>",
+ "clear_status_at": null
 }
 ```
 
@@ -991,22 +981,22 @@ Example request:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --data "clear_status_after=1_day" \
-  --data "emoji=coffee" \
-  --data "message=I crave coffee" --data "availability=busy" \
-  --url "https://gitlab.example.com/api/v4/user/status"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --data "clear_status_after=1_day" \
+ --data "emoji=coffee" \
+ --data "message=I crave coffee" --data "availability=busy" \
+ --url "https://gitlab.example.com/api/v4/user/status"
 ```
 
 Example response:
 
 ```json
 {
-  "emoji":"coffee",
-  "availability":"busy",
-  "message":"I crave coffee",
-  "message_html": "I crave coffee",
-  "clear_status_at":"2021-02-15T10:49:01.311Z"
+ "emoji":"coffee",
+ "availability":"busy",
+ "message":"I crave coffee",
+ "message_html": "I crave coffee",
+ "clear_status_at":"2021-02-15T10:49:01.311Z"
 }
 ```
 
@@ -1026,11 +1016,11 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "user_id": 1,
-  "view_diffs_file_by_file": true,
-  "show_whitespace_in_diffs": false,
-  "pass_user_identities_to_ci_jwt": false
+ "id": 1,
+ "user_id": 1,
+ "view_diffs_file_by_file": true,
+ "show_whitespace_in_diffs": false,
+ "pass_user_identities_to_ci_jwt": false
 }
 ```
 
@@ -1048,11 +1038,11 @@ PUT /user/preferences
 
 ```json
 {
-  "id": 1,
-  "user_id": 1,
-  "view_diffs_file_by_file": true,
-  "show_whitespace_in_diffs": false,
-  "pass_user_identities_to_ci_jwt": false
+ "id": 1,
+ "user_id": 1,
+ "view_diffs_file_by_file": true,
+ "show_whitespace_in_diffs": false,
+ "pass_user_identities_to_ci_jwt": false
 }
 ```
 
@@ -1079,12 +1069,12 @@ Prerequisites:
 - You must be authenticated.
 - Your file must be 200 KB or smaller. The ideal image size is 192 x 192 pixels.
 - The image must be one of the following file types:
-  - `.bmp`
-  - `.gif`
-  - `.ico`
-  - `.jpeg`
-  - `.png`
-  - `.tiff`
+ - `.bmp`
+ - `.gif`
+ - `.ico`
+ - `.jpeg`
+ - `.png`
+ - `.tiff`
 
 ```plaintext
 PUT /user/avatar
@@ -1094,27 +1084,24 @@ Supported attributes:
 
 | Attribute | Type   | Required | Description |
 |:----------|:-------|:---------|:------------|
-| `avatar`  | string | Yes      | The file to be uploaded. |
+| `avatar` | string | Yes      | The file to be uploaded. |
 
-To upload an avatar from your file system, use the `--form` argument. This causes
-cURL to post data using the header `Content-Type: multipart/form-data`. The
-`avatar=` parameter must point to an image file on your file system and be
-preceded by `@`.
+To upload an avatar from your file system, use the `--form` argument. This causes cURL to post data using the header `Content-Type: multipart/form-data`. The `avatar=` parameter must point to an image file on your file system and be preceded by `@`.
 
 Example request:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --form "avatar=@/path/to/your/avatar.png" \
-  --url "https://gitlab.example.com/api/v4/user/avatar"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --form "avatar=@/path/to/your/avatar.png" \
+ --url "https://gitlab.example.com/api/v4/user/avatar"
 ```
 
 Example response:
 
 ```json
 {
-  "avatar_url": "http://gitlab.example.com/uploads/-/system/user/avatar/76/avatar.png",
+ "avatar_url": "http://gitlab.example.com/uploads/-/system/user/avatar/76/avatar.png",
 }
 ```
 
@@ -1149,18 +1136,18 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/user_counts"
+ --url "https://gitlab.example.com/api/v4/user_counts"
 ```
 
 Example response:
 
 ```json
 {
-  "merge_requests": 4,
-  "assigned_issues": 15,
-  "assigned_merge_requests": 11,
-  "review_requested_merge_requests": 0,
-  "todos": 1
+ "merge_requests": 4,
+ "assigned_issues": 15,
+ "assigned_merge_requests": 11,
+ "review_requested_merge_requests": 0,
+ "todos": 1
 }
 ```
 
@@ -1189,10 +1176,10 @@ Example response:
 
 ```json
 {
-  "groups_count": 2,
-  "projects_count": 3,
-  "issues_count": 8,
-  "merge_requests_count": 5
+ "groups_count": 2,
+ "projects_count": 3,
+ "issues_count": 8,
+ "merge_requests_count": 5
 }
 ```
 
@@ -1219,8 +1206,7 @@ The activities that update the user event timestamps (`last_activity_on` and `cu
 - User using the API
 - User using the GraphQL API
 
-By default, it shows the activity for users with public profiles in the last 6 months, but this can be
-amended by using the `from` parameter.
+By default, it shows the activity for users with public profiles in the last 6 months, but this can be amended by using the `from` parameter.
 
 ```plaintext
 GET /user/activities
@@ -1236,28 +1222,28 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/user/activities"
+ --url "https://gitlab.example.com/api/v4/user/activities"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "username": "user1",
     "last_activity_on": "2015-12-14",
     "last_activity_at": "2015-12-14"
-  },
-  {
+ },
+ {
     "username": "user2",
     "last_activity_on": "2015-12-15",
     "last_activity_at": "2015-12-15"
-  },
-  {
+ },
+ {
     "username": "user3",
     "last_activity_on": "2015-12-16",
     "last_activity_at": "2015-12-16"
-  }
+ }
 ]
 ```
 
@@ -1300,31 +1286,31 @@ Supported attributes:
 | Attribute | Type    | Required | Description |
 |:----------|:--------|:---------|:------------|
 | `id`      | integer | yes      | ID of a specified user |
-| `type`    | string  | no       | Filter memberships by type. Can be either `Project` or `Namespace` |
+| `type`    | string | no       | Filter memberships by type. Can be either `Project` or `Namespace` |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/:user_id/memberships"
+ --url "https://gitlab.example.com/api/v4/users/:user_id/memberships"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "source_id": 1,
     "source_name": "Project one",
     "source_type": "Project",
     "access_level": "20"
-  },
-  {
+ },
+ {
     "source_id": 3,
     "source_name": "Group three",
     "source_type": "Namespace",
     "access_level": "20"
-  }
+ }
 ]
 ```
 
@@ -1356,8 +1342,7 @@ Prerequisites:
 
 Disables two-factor authentication (2FA) for the specified user.
 
-Administrators cannot disable 2FA for their own user account or other administrators using the API. Instead, they can disable an
-administrator's 2FA [using the Rails console](../security/two_factor_authentication.md#for-a-single-user).
+Administrators cannot disable 2FA for their own user account or other administrators using the API. Instead, they can disable an administrator's 2FA [using the Rails console](../security/two_factor_authentication.md#for-a-single-user).
 
 ```plaintext
 PATCH /users/:id/disable_two_factor
@@ -1373,7 +1358,7 @@ Example request:
 
 ```shell
 curl --request PATCH --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/1/disable_two_factor"
+ --url "https://gitlab.example.com/api/v4/users/1/disable_two_factor"
 ```
 
 Returns:
@@ -1420,16 +1405,16 @@ Supported attributes:
 | `run_untagged`     | boolean      | no       | Specifies if the runner should handle untagged jobs. |
 | `tag_list`         | string | no       | A comma-separated list of runner tags. |
 | `access_level`     | string       | no       | The access level of the runner; `not_protected` or `ref_protected`. |
-| `maximum_timeout`  | integer      | no       | Maximum timeout that limits the amount of time (in seconds) that runners can run jobs. |
+| `maximum_timeout` | integer      | no       | Maximum timeout that limits the amount of time (in seconds) that runners can run jobs. |
 | `maintenance_note` | string       | no       | Free-form maintenance notes for the runner (1024 characters). |
 
 Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --data "runner_type=instance_type" \
-  --url "https://gitlab.example.com/api/v4/user/runners"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --data "runner_type=instance_type" \
+ --url "https://gitlab.example.com/api/v4/user/runners"
 ```
 
 Example response:
@@ -1463,10 +1448,10 @@ DELETE /users/:id/identities/:provider
 
 Supported attributes:
 
-| Attribute  | Type    | Required | Description |
+| Attribute | Type    | Required | Description |
 |:-----------|:--------|:---------|:------------|
 | `id`       | integer | yes      | ID of a user |
-| `provider` | string  | yes      | External provider name |
+| `provider` | string | yes      | External provider name |
 
 ## Create a Support PIN
 
@@ -1498,16 +1483,16 @@ Example request:
 
 ```shell
 curl --request POST |
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/user/support_pin"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/user/support_pin"
 ```
 
 Example response:
 
 ```json
 {
-  "pin":"123456",
-  "expires_at":"2025-02-27T22:06:57Z"
+ "pin":"123456",
+ "expires_at":"2025-02-27T22:06:57Z"
 }
 ```
 
@@ -1541,15 +1526,15 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/user/support_pin"
+ --url "https://gitlab.example.com/api/v4/user/support_pin"
 ```
 
 Example response:
 
 ```json
 {
-  "pin":"123456",
-  "expires_at":"2025-02-27T22:06:57Z"
+ "pin":"123456",
+ "expires_at":"2025-02-27T22:06:57Z"
 }
 ```
 
@@ -1583,15 +1568,15 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/1234/support_pin"
+ --url "https://gitlab.example.com/api/v4/users/1234/support_pin"
 ```
 
 Example response:
 
 ```json
 {
-  "pin":"123456",
-  "expires_at":"2025-02-27T22:06:57Z"
+ "pin":"123456",
+ "expires_at":"2025-02-27T22:06:57Z"
 }
 ```
 
@@ -1631,8 +1616,8 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/1234/support_pin/revoke"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/users/1234/support_pin/revoke"
 ```
 
 Example response:

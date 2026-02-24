@@ -52,7 +52,7 @@ Figma will create an interactive preview if embeds are supported by the resource
 
 ## Toolbar
 
-1. Click  in your toolbar.
+1. Click in your toolbar.
 2. Select the **More** tab.
 3. Select **Links**.
 4. Paste your link in the available field, then click **Add**.
@@ -88,12 +88,12 @@ Create interactive previews of Figma Design and FigJam files in FigJam. You can 
 
 Select a link preview to view formatting options and other actions. Different options will be available depending on whether it is a static or interactive preview.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Action** | Static previews | Interactive previews |
-| **Open in new tab**  Open the preview's original source in a new browser tab. | ✓ | ✓ |
-| **Change back to text**  Preview will change back to its source URL or embed code. | ✓ | ✓ |
-| **Display vertical**  Preview will display in a vertical orientation. | ✓ | ✕ |
-| **Display horizontal**  Preview will display in a horizontal orientation. | ✓ | ✕ |
-| **Maximize**  View preview in full-window in your file. Increase preview size to fit window | ✕ | ✓ |
-| **Minimize**  Close the maximized preview. | ✕ | ✓ |
+| **Open in new tab** Open the preview's original source in a new browser tab. | ✓ | ✓ |
+| **Change back to text** Preview will change back to its source URL or embed code. | ✓ | ✓ |
+| **Display vertical** Preview will display in a vertical orientation. | ✓ | ✕ |
+| **Display horizontal** Preview will display in a horizontal orientation. | ✓ | ✕ |
+| **Maximize** View preview in full-window in your file. Increase preview size to fit window | ✕ | ✓ |
+| **Minimize** Close the maximized preview. | ✕ | ✓ |

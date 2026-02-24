@@ -40,10 +40,8 @@ Advanced search works in:
 Prerequisites:
 
 - Advanced search must be enabled:
-  - For GitLab.com and GitLab Dedicated, advanced search is
-    enabled by default in paid subscriptions.
-  - For GitLab Self-Managed, an administrator must
-    [enable advanced search](../../integration/advanced_search/elasticsearch.md#enable-advanced-search).
+ - For GitLab.com and GitLab Dedicated, advanced search is enabled by default in paid subscriptions.
+ - For GitLab Self-Managed, an administrator must [enable advanced search](../../integration/advanced_search/elasticsearch.md#enable-advanced-search).
 
 To use advanced search:
 
@@ -72,11 +70,11 @@ The following scopes are available for advanced search:
 | Code                        | {{< yes >}}                      | {{< yes >}} | {{< yes >}} |
 | Comments                    | {{< yes >}}                      | {{< yes >}} | {{< yes >}} |
 | Commits                     | {{< yes >}}                      | {{< yes >}} | {{< yes >}} |
-| Epics                       | {{< yes >}}                      | {{< yes >}} | {{< no >}}  |
+| Epics                       | {{< yes >}}                      | {{< yes >}} | {{< no >}} |
 | Issues <sup>3</sup>         | {{< yes >}}                      | {{< yes >}} | {{< yes >}} |
 | Merge requests <sup>3</sup> | {{< yes >}}                      | {{< yes >}} | {{< yes >}} |
 | Milestones                  | {{< yes >}}                      | {{< yes >}} | {{< yes >}} |
-| Projects                    | {{< yes >}}                      | {{< yes >}} | {{< no >}}  |
+| Projects                    | {{< yes >}}                      | {{< yes >}} | {{< no >}} |
 | Users                       | {{< yes >}}                      | {{< yes >}} | {{< yes >}} |
 | Wikis                       | {{< yes >}}                      | {{< yes >}} | {{< yes >}} |
 
@@ -86,15 +84,13 @@ The following scopes are available for advanced search:
    On GitLab Self-Managed, global search is not available when limited indexing is enabled by default.
    An administrator can [enable global search for limited indexing](../../integration/advanced_search/elasticsearch.md#indexed-namespaces).
 1. On GitLab.com, global search is not enabled for code, commits, and wikis.
-1. When you search issues and merge requests, results
-   include comments that match your search term.
+1. When you search issues and merge requests, results include comments that match your search term.
 
 ## Syntax
 
 <!-- Remember to also update the tables in `doc/drawers/advanced_search_syntax.md` -->
 
-Advanced search uses [`simple_query_string`](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html),
-which supports both exact and fuzzy queries.
+Advanced search uses [`simple_query_string`](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-simple-query-string-query.html), which supports both exact and fuzzy queries.
 
 When you search for a user, the [`fuzzy`](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-fuzzy-query.html) query is used by default.
 You can refine user search with `simple_query_string`.
@@ -107,7 +103,7 @@ You can refine user search with `simple_query_string`.
 | `+`    | And              | `display +banner` |
 | `-`    | Exclude          | `display -banner` |
 | `*`    | Partial          | `bug error 50*` |
-| ` \ `  | Escape           | `\*md`  |
+| ` \ ` | Escape           | `\*md` |
 | `#`    | Issue ID         | `#23456` |
 | `!`    | Merge request ID | `!23456` |
 
@@ -115,7 +111,7 @@ You can refine user search with `simple_query_string`.
 
 | Syntax       | Description                                     | Example |
 |--------------|-------------------------------------------------|---------|
-| `filename:`  | Filename                                        | `filename:*spec.rb` |
+| `filename:` | Filename                                        | `filename:*spec.rb` |
 | `path:`      | Repository location (full or partial matches)   | `path:spec/workers/` |
 | `extension:` | File extension without `.` (exact matches only) | `extension:js` |
 | `blob:`      | Git object ID (exact matches only)              | `blob:998707*` |
@@ -125,7 +121,7 @@ You can refine user search with `simple_query_string`.
 | Query                                 | Description |
 |---------------------------------------|-------------|
 | `rails -filename:gemfile.lock`        | Returns `rails` in all files except the `gemfile.lock` file. |
-| `RSpec.describe Resolvers -*builder`  | Returns `RSpec.describe Resolvers` that does not start with `builder`. |
+| `RSpec.describe Resolvers -*builder` | Returns `RSpec.describe Resolvers` that does not start with `builder`. |
 | `bug \| (display +banner)`            | Returns `bug` or both `display` and `banner`. |
 | `helper -extension:yml -extension:js` | Returns `helper` in all files except files with a `.yml` or `.js` extension. |
 | `helper path:lib/git`                 | Returns `helper` in all files with a `lib/git*` path (for example, `spec/lib/gitlab`). |
@@ -133,15 +129,14 @@ You can refine user search with `simple_query_string`.
 ## Known issues
 
 - You can search only files smaller than 1 MB.
-  For GitLab Self-Managed, an administrator can set a limit on the
-  [maximum file size indexed](../../administration/instance_limits.md#maximum-file-size-indexed).
+ For GitLab Self-Managed, an administrator can set a limit on the [maximum file size indexed](../../administration/instance_limits.md#maximum-file-size-indexed).
 - You can use advanced search only on the default branch of a project.
-  For more information, see [issue 229966](https://gitlab.com/gitlab-org/gitlab/-/issues/229966).
+ For more information, see [issue 229966](https://gitlab.com/gitlab-org/gitlab/-/issues/229966).
 - The search query must not contain any of the following characters:
 
-  ```plaintext
-  . , : ; / ` ' = ? $ & ^ | < > ( ) { } [ ] @
-  ```
+ ```plaintext
+ . , : ; / ` ' = ? $ & ^ | < > ( ) { } [ ] @
+ ```
 
 - Search results show only the first match in a file.
 

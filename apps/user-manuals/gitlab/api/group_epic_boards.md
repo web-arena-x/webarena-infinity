@@ -20,8 +20,7 @@ title: Group epic boards API
 
 Use this API to manage [group epic boards](../user/group/epics/epic_boards.md). Every request to this API must be authenticated.
 
-If a user is not a member of a group and the group is private, a `GET`
-request results in `404` status code.
+If a user is not a member of a group and the group is private, a `GET` request results in `404` status code.
 
 ## List all epic boards in a group
 
@@ -43,7 +42,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "name": "group epic board",
     "hide_backlog_list": false,
@@ -104,7 +103,7 @@ Example response:
         "list_type": "label"
       }
     ]
-  }
+ }
 ]
 ```
 
@@ -128,7 +127,7 @@ curl --header "PRIVATE-TOKEN: <your_access_token>" "https://gitlab.example.com/a
 Example response:
 
 ```json
-  {
+ {
     "id": 1,
     "name": "group epic board",
     "hide_backlog_list": false,
@@ -187,7 +186,7 @@ Example response:
         "list_type": "label"
       }
     ]
-  }
+ }
 ```
 
 ## List group epic board lists
@@ -218,7 +217,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id" : 1,
     "label" : {
       "name" : "Testing",
@@ -228,8 +227,8 @@ Example response:
     "position" : 1,
     "list_type" : "label",
     "collapsed" : false
-  },
-  {
+ },
+ {
     "id" : 2,
     "label" : {
       "name" : "Ready",
@@ -239,8 +238,8 @@ Example response:
     "position" : 2,
     "list_type" : "label",
     "collapsed" : false
-  },
-  {
+ },
+ {
     "id" : 3,
     "label" : {
       "name" : "Production",
@@ -250,7 +249,7 @@ Example response:
     "position" : 3,
     "list_type" : "label",
     "collapsed" : false
-  }
+ }
 ]
 ```
 
@@ -282,14 +281,14 @@ Example response:
 
 ```json
 {
-  "id" : 1,
-  "label" : {
+ "id" : 1,
+ "label" : {
     "name" : "Testing",
     "color" : "#F0AD4E",
     "description" : null
-  },
-  "position" : 1,
-  "list_type" : "label",
-  "collapsed" : false
+ },
+ "position" : 1,
+ "list_type" : "label",
+ "collapsed" : false
 }
 ```

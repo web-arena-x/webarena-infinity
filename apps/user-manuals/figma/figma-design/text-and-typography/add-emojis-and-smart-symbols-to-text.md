@@ -49,7 +49,7 @@ To enable this setting, open the Main menu from a Figma Design file and navigate
 
 Here are some character combinations and their resulting smart symbols:
 
-|  |  |
+| | |
 | --- | --- |
 | **Characters** | **Result** |
 | -> | → |

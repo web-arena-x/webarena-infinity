@@ -11,12 +11,12 @@ The Agent Presence feature in Engage is designed to help customer service agents
 Before enabling and using the Agent Presence feature in Engage, ensure the following prerequisites are met:
 
 - **CloudFormation Stack Upgrade**:
-  - Your Engage instance must be updated to **version 5.99.2 or higher**. Ensure that the latest CloudFormation stack is deployed.
+ - Your Engage instance must be updated to **version 5.99.2 or higher**. Ensure that the latest CloudFormation stack is deployed.
 
 ‍
 
 - **Contact Flow Setup:**   
-  - Add the following two contact flows (both of type 'Transfer to Queue') to the Amazon Connect instance to route the contact to a given agent/queue given in the contact attributes:
+ - Add the following two contact flows (both of type 'Transfer to Queue') to the Amazon Connect instance to route the contact to a given agent/queue given in the contact attributes:
 
 ‍
 
@@ -35,17 +35,17 @@ Please reach out to our Support team at engage-support@getlocalmeasure.com to re
 ![__wf_reserved_inherit](https://support.zendesk.com/hc/article_attachments/9731474417562)
 
 - **Quick Connects Setup**:
-  - Create two **Quick Connects** of type "Queue" in Amazon Connect with the following names:
+ - Create two **Quick Connects** of type "Queue" in Amazon Connect with the following names:
     - **`Direct Queue Transfer`** - link to the Direct Queue Transfer contact flow.
     - **`Direct Agent Transfer`** - link to the Direct Agent Transfer contact flow.**‍**
-  - **Note:** These Quick Connects do not need to be added to queues like standard Quick Connects. Engage can still access and use them even if the agent does not have direct access to them.
+ - **Note:** These Quick Connects do not need to be added to queues like standard Quick Connects. Engage can still access and use them even if the agent does not have direct access to them.
 
 ![__wf_reserved_inherit](https://support.zendesk.com/hc/article_attachments/9731465996826)
 
 ![__wf_reserved_inherit](https://support.zendesk.com/hc/article_attachments/9731449528346)
 
 - **Engage Workflow Settings**:
-  - Once the Quick Connects are created, configure them within the **Engage Workflow Settings** to ensure proper routing.
+ - Once the Quick Connects are created, configure them within the **Engage Workflow Settings** to ensure proper routing.
 
 ![__wf_reserved_inherit](https://support.zendesk.com/hc/article_attachments/9731461924506)
 
@@ -55,15 +55,15 @@ When you're on a call and need to transfer it to another agent:
 
 1. Click the Transfer button. This will open the Transfer Modal.
 2. The transfer modal includes the following tabs:   
-   **Agents** (Displays a list of Quick Connect Agents).  
-   **Queues** (Displays a list of Quick Connect queues).  
-   **External** (Shows a list of all the external numbers that have been configured).  
+   **Agents** (Displays a list of Quick Connect Agents). 
+   **Queues** (Displays a list of Quick Connect queues). 
+   **External** (Shows a list of all the external numbers that have been configured). 
    **Number Pad** (Displays a number pad where you can manually enter a contact number). Once you've chosen a tab, you can transfer the call to an available agent who is prepared to take the call.
 
 ## Searching and Filtering Agents
 
 The transfer modal allows you to search for specific agents or filter the list based on various criteria. Use the Search Bar to quickly find an agent by typing their name. Apply filters to sort agents by their availability (e.g., Available, Busy, Offline) or any custom filters that have been set up in your system, for example filtering by Routing Profiles.   
-Additionally, agents can filter by **Queues**, allowing them to see which agents are assigned to specific customer service queues (e.g., Sales, Support). This helps ensure that the transfer goes to the agent best suited for the customer’s needs based on their assigned role and expertise.  
+Additionally, agents can filter by **Queues**, allowing them to see which agents are assigned to specific customer service queues (e.g., Sales, Support). This helps ensure that the transfer goes to the agent best suited for the customer’s needs based on their assigned role and expertise. 
 ‍
 
 ## Viewing Agent Status and Availability

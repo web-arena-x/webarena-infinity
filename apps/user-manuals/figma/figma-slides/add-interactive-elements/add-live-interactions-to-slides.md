@@ -8,15 +8,11 @@ Before you Start
 
 Who can use this feature
 
-Available on
-[any plan](https://help.figma.com/hc/en-us/articles/360040328273-Choose-a-Figma-Plan)
+Available on [any plan](https://help.figma.com/hc/en-us/articles/360040328273-Choose-a-Figma-Plan)
 
-Anyone with `can edit` access to a slide deck
-can add live interactions to slides
+Anyone with `can edit` access to a slide deck can add live interactions to slides
 
-To use live interactions while viewing a presentation, audience
-members must be logged in to their Figma account and have
-at least `can view` access to a slide deck
+To use live interactions while viewing a presentation, audience members must be logged in to their Figma account and have at least `can view` access to a slide deck
 
 Live interactions are objects that your audience can interact with when viewing your presentation. Use live interactions to keep your audience engaged, drive decision-making, and capture stakeholder feedback, so you and your team can move forward productively.
 
@@ -26,7 +22,7 @@ Live interactions are visible to everyone viewing the presentation. As your audi
 
 To add a live interaction to a slide:
 
-1. Click  **Live interactions** in the toolbar.
+1. Click **Live interactions** in the toolbar.
 2. Select the interaction you’d like to add.
 3. Click on the slide to add the interaction.
 4. Add your content to the interaction’s text fields.

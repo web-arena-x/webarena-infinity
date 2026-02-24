@@ -16,20 +16,15 @@ To record a manual bill payment, choose from the available payment sources, appl
 
 **Note:** If a client’s payment fails, they will be notified by email.
 
-Direct payment
-:   Select the appropriate direct payment source when recording payments received outside of Clio Payments, such as cash, check, wire transfer, or ACH. Recording a direct payment automatically marks the transaction as paid.
+Direct payment :   Select the appropriate direct payment source when recording payments received outside of Clio Payments, such as cash, check, wire transfer, or ACH. Recording a direct payment automatically marks the transaction as paid.
 
-Credit card
-:   With Clio Payments, you can manually record credit card payments using a client's securely stored credit card information. US customers will see payment processing within 1-2 business days and Canadian customers will see payment processing within three business days.
+Credit card :   With Clio Payments, you can manually record credit card payments using a client's securely stored credit card information. US customers will see payment processing within 1-2 business days and Canadian customers will see payment processing within three business days.
 
-eCheck
-:   You can use Clio Payments to securely save client bank account information for eCheck payments. Manually record eCheck payments after you review the account details and confirm the billing information.
+eCheck :   You can use Clio Payments to securely save client bank account information for eCheck payments. Manually record eCheck payments after you review the account details and confirm the billing information.
 
-Other sources
-:   Manually record payments received from external platforms like Cash App or Venmo or credit card payments processed outside of Clio Payments as "Other." This selection marks the transaction as paid.
+Other sources :   Manually record payments received from external platforms like Cash App or Venmo or credit card payments processed outside of Clio Payments as "Other." This selection marks the transaction as paid.
 
-Trust account
-:   You can apply any trust funds previously received at the client or matter levels for bill payments.
+Trust account :   You can apply any trust funds previously received at the client or matter levels for bill payments.
 
 ## Record single bill or multi-matter bill payments
 
@@ -168,29 +163,21 @@ Once a payment has been made, you can view the status of the payment. Paid trans
 3. *Optional:* Select one of the **All**, **Authorized**, **Completed**, or **Failed** quick filters or click **Filters** to narrow your results.
 4. Scroll through the list of transactions to find your payment. See the explanations below to learn more about each status.
 
-Authorized
-:   Your client's payment details have been accepted, and the payment is currently being processed. You can still void the payment.
+Authorized :   Your client's payment details have been accepted, and the payment is currently being processed. You can still void the payment.
 
-Completed
-:   The payment was successfully processed and will be deposited into your firm's bank account. You can no longer void a completed payment. You can, however, refund it. See the section above on [Understand payment sources when recording bill payments](#h_01HAAFP4QGXZV0D58V47S1SD5E) for payout timeframes for credit card and eCheck payments. Completed transactions cannot be voided and can only be refunded.
+Completed :   The payment was successfully processed and will be deposited into your firm's bank account. You can no longer void a completed payment. You can, however, refund it. See the section above on [Understand payment sources when recording bill payments](#h_01HAAFP4QGXZV0D58V47S1SD5E) for payout timeframes for credit card and eCheck payments. Completed transactions cannot be voided and can only be refunded.
 
-Failed
-:   The payment details were rejected by the issuing bank, or an error occurred during the transaction.
+Failed :   The payment details were rejected by the issuing bank, or an error occurred during the transaction.
 
-Chargeback
-:   A red **Chargeback** indicates a dispute resulting in a chargeback, and funds were taken from your firm's bank account.
+Chargeback :   A red **Chargeback** indicates a dispute resulting in a chargeback, and funds were taken from your firm's bank account.
 
-Disputed
-:   A red **Disputed** tag indicates that the payment has been disputed. This status appears for all disputes, regardless of whether the dispute is an inquiry or a chargeback.
+Disputed :   A red **Disputed** tag indicates that the payment has been disputed. This status appears for all disputes, regardless of whether the dispute is an inquiry or a chargeback.
 
-Evidence Submitted
-:   A blue **Evidence Submitted** tag indicates that you have submitted evidence to dispute a transaction. A response from the issuing bank typically takes 40–90 days. You can select the payment to review the case.
+Evidence Submitted :   A blue **Evidence Submitted** tag indicates that you have submitted evidence to dispute a transaction. A response from the issuing bank typically takes 40–90 days. You can select the payment to review the case.
 
-Dispute Lost
-:   A red **Dispute Lost** tag indicates that the bank ruled in the cardholder's favor, that the dispute was not eligible for submitting evidence, or that the dispute was accepted by the firm.
+Dispute Lost :   A red **Dispute Lost** tag indicates that the bank ruled in the cardholder's favor, that the dispute was not eligible for submitting evidence, or that the dispute was accepted by the firm.
 
-Dispute Won
-:   A green **Dispute Won** tag indicates that the case was resolved in your favor, and the funds from a chargeback were returned to your firm. Learn more about disputes and chargebacks [here](https://help.clio.com/hc/en-us/articles/9285643407003).
+Dispute Won :   A green **Dispute Won** tag indicates that the case was resolved in your favor, and the funds from a chargeback were returned to your firm. Learn more about disputes and chargebacks [here](https://help.clio.com/hc/en-us/articles/9285643407003).
 
 ## Link payments to matters
 

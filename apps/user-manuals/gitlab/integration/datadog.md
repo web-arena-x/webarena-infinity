@@ -12,13 +12,11 @@ title: Datadog
 
 {{< /details >}}
 
-The Datadog integration enables you to connect your GitLab projects to [Datadog](https://www.datadoghq.com/),
-synchronizing repository metadata to enrich your Datadog telemetry, have Datadog comment on Merge Requests, and send CI/CD pipeline and job information to Datadog.
+The Datadog integration enables you to connect your GitLab projects to [Datadog](https://www.datadoghq.com/), synchronizing repository metadata to enrich your Datadog telemetry, have Datadog comment on Merge Requests, and send CI/CD pipeline and job information to Datadog.
 
 ## Connect your Datadog account
 
-Users with the **Administrator** role can configure the integration for the entire instance
-or for a specific project or group:
+Users with the **Administrator** role can configure the integration for the entire instance or for a specific project or group:
 
 1. If you do not have a Datadog API key:
    1. Sign in to Datadog.
@@ -40,8 +38,7 @@ or for a specific project or group:
 ## Configure CI Visibility
 
 You can optionally enable [Datadog CI Visibility](https://www.datadoghq.com/product/ci-cd-monitoring/)
-to send the CI/CD pipeline and job data to Datadog. Use this feature to monitor and troubleshoot job
-failures and performance issues.
+to send the CI/CD pipeline and job data to Datadog. Use this feature to monitor and troubleshoot job failures and performance issues.
 
 For more information, see the [Datadog CI Visibility documentation](https://docs.datadoghq.com/continuous_integration/pipelines/?tab=gitlab).
 
@@ -52,19 +49,14 @@ For details, see the [Datadog pricing page](https://www.datadoghq.com/pricing/?p
 
 {{< /alert >}}
 
-This feature is based on [Webhooks](../user/project/integrations/webhooks.md),
-and only requires configuration in GitLab:
+This feature is based on [Webhooks](../user/project/integrations/webhooks.md), and only requires configuration in GitLab:
 
 1. Optional. Select **Enable Pipeline job logs collection** to enable logs collection for the output of jobs. ([Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/346339) in GitLab 15.3.)
-1. Optional. If you use more than one GitLab instance, provide a unique **Service** name
-   to differentiate between your GitLab instances.
+1. Optional. If you use more than one GitLab instance, provide a unique **Service** name to differentiate between your GitLab instances.
 <!-- vale gitlab_base.Spelling = NO -->
-1. Optional. If you use groups of GitLab instances (such as staging and production
-   environments), provide an **Env** name. This value is attached to each span
-   the integration generates.
+1. Optional. If you use groups of GitLab instances (such as staging and production environments), provide an **Env** name. This value is attached to each span the integration generates.
 <!-- vale gitlab_base.Spelling = YES -->
-1. Optional. To define any custom tags for all spans at which the integration is being configured,
-   enter one tag per line in **Tags**. Each line must be in the format `key:value`.
+1. Optional. To define any custom tags for all spans at which the integration is being configured, enter one tag per line in **Tags**. Each line must be in the format `key:value`.
 1. Optional. Select **Test settings**.
 1. Select **Save changes**.
 

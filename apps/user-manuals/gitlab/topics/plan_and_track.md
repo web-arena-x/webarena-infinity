@@ -6,20 +6,14 @@ description: Epics, issues, milestones, and labels.
 title: Plan and track work
 ---
 
-Plan your work by creating requirements, issues, and epics. Schedule work
-with milestones and track your team's time. Learn how to save time with
-quick actions, see how GitLab renders Markdown text, and learn how to
-use Git to interact with GitLab.
+Plan your work by creating requirements, issues, and epics. Schedule work with milestones and track your team's time. Learn how to save time with quick actions, see how GitLab renders Markdown text, and learn how to use Git to interact with GitLab.
 
 <!-- vale gitlab_base.Spelling = NO -->
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
-For a thorough demo of Plan features, see
-[Multi-team planning with GitLab Ultimate](https://www.youtube.com/watch?v=KmASFwSap7c).
-In this video, Gabe describes a use case of a multi-team organization that uses GitLab
-with Scaled Agile Framework (SAFe).
-Alternatively, to learn how to map the SAFe to what you can do in GitLab see
-[SAFe without silos in GitLab](https://about.gitlab.com/blog/2025/04/08/safe-without-silos-in-gitlab/).
+For a thorough demo of Plan features, see [Multi-team planning with GitLab Ultimate](https://www.youtube.com/watch?v=KmASFwSap7c).
+In this video, Gabe describes a use case of a multi-team organization that uses GitLab with Scaled Agile Framework (SAFe).
+Alternatively, to learn how to map the SAFe to what you can do in GitLab see [SAFe without silos in GitLab](https://about.gitlab.com/blog/2025/04/08/safe-without-silos-in-gitlab/).
 
 <!-- vale gitlab_base.Spelling = YES -->
 

@@ -15,9 +15,7 @@ title: 'Tutorial: Use Fortanix Data Security Manager (DSM) with GitLab'
 
 You can use Fortanix Data Security Manager (DSM) as your secrets manager for GitLab CI/CD pipelines.
 
-This tutorial explains the steps required to generate new secrets in Fortanix DSM, or use existing secrets,
-and use them in GitLab CI/CD jobs. Follow the instructions carefully, to implement this integration,
-enhancing data security and optimizing your CI/CD pipelines.
+This tutorial explains the steps required to generate new secrets in Fortanix DSM, or use existing secrets, and use them in GitLab CI/CD jobs. Follow the instructions carefully, to implement this integration, enhancing data security and optimizing your CI/CD pipelines.
 
 ## Before you begin
 

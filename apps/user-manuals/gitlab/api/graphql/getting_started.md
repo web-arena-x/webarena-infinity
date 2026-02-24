@@ -41,33 +41,28 @@ To get started, refer to the [example queries and mutations](#queries-and-mutati
 
 ### Command line
 
-You can run GraphQL queries in a `curl` request on the command line on your
-local computer. The requests `POST` to `/api/graphql`
-with the query as the payload. You can authorize your request by generating a
-[personal access token](../../user/profile/personal_access_tokens.md) to use as
-a bearer token. Read more about [GraphQL Authentication](_index.md#authentication).
+You can run GraphQL queries in a `curl` request on the command line on your local computer. The requests `POST` to `/api/graphql` with the query as the payload. You can authorize your request by generating a [personal access token](../../user/profile/personal_access_tokens.md) to use as a bearer token. Read more about [GraphQL Authentication](_index.md#authentication).
 
 Example:
 
 ```shell
 GRAPHQL_TOKEN=<your-token>
 curl --request POST \
-  --url "https://gitlab.com/api/graphql" \
-  --header "Authorization: Bearer $GRAPHQL_TOKEN" \
-  --header "Content-Type: application/json" \
-  --data "{\"query\": \"query {currentUser {name}}\"}"
+ --url "https://gitlab.com/api/graphql" \
+ --header "Authorization: Bearer $GRAPHQL_TOKEN" \
+ --header "Content-Type: application/json" \
+ --data "{\"query\": \"query {currentUser {name}}\"}"
 ```
 
-To nest strings in the query string,
-wrap the data in single quotes or escape the strings with ` \\ `:
+To nest strings in the query string, wrap the data in single quotes or escape the strings with ` \\ `:
 
 ```shell
 curl --request POST \
-  --url "https://gitlab.com/api/graphql" \
-  --header "Authorization: Bearer $GRAPHQL_TOKEN" \
-  --header "Content-Type: application/json" \
-  --data '{"query": "query {project(fullPath: \"<group>/<subgroup>/<project>\") {jobs {nodes {id duration}}}}"}'
-  # or "{\"query\": \"query {project(fullPath: \\\"<group>/<subgroup>/<project>\\\") {jobs {nodes {id duration}}}}\"}"
+ --url "https://gitlab.com/api/graphql" \
+ --header "Authorization: Bearer $GRAPHQL_TOKEN" \
+ --header "Content-Type: application/json" \
+ --data '{"query": "query {project(fullPath: \"<group>/<subgroup>/<project>\") {jobs {nodes {id duration}}}}"}'
+ # or "{\"query\": \"query {project(fullPath: \\\"<group>/<subgroup>/<project>\\\") {jobs {nodes {id duration}}}}\"}"
 ```
 
 ### Rails console
@@ -85,11 +80,11 @@ GraphQL queries can be run in a [Rails console session](../../administration/ope
 current_user = User.find_by_id(1)
 query = <<~EOQ
 query securityGetProjects($search: String!) {
-  projects(search: $search) {
+ projects(search: $search) {
     nodes {
       path
     }
-  }
+ }
 }
 EOQ
 
@@ -108,22 +103,18 @@ The GitLab GraphQL API can be used to perform:
 
 {{< alert type="note" >}}
 
-In the GitLab GraphQL API, `id` refers to a
-[Global ID](https://graphql.org/learn/global-object-identification/),
-which is an object identifier in the format of `"gid://gitlab/Issue/123"`.
+In the GitLab GraphQL API, `id` refers to a [Global ID](https://graphql.org/learn/global-object-identification/), which is an object identifier in the format of `"gid://gitlab/Issue/123"`.
 For more information, see [Global IDs](_index.md#global-ids).
 
 {{< /alert >}}
 
-[GitLab GraphQL Schema](reference/_index.md) outlines which objects and fields are
-available for clients to query and their corresponding data types.
+[GitLab GraphQL Schema](reference/_index.md) outlines which objects and fields are available for clients to query and their corresponding data types.
 
-Example: Get only the names of all the projects the currently authenticated user can
-access (up to a limit) in the group `gitlab-org`.
+Example: Get only the names of all the projects the currently authenticated user can access (up to a limit) in the group `gitlab-org`.
 
 ```graphql
 query {
-  group(fullPath: "gitlab-org") {
+ group(fullPath: "gitlab-org") {
     id
     name
     projects {
@@ -131,7 +122,7 @@ query {
         name
       }
     }
-  }
+ }
 }
 ```
 
@@ -139,12 +130,12 @@ Example: Get a specific project and the title of Issue #2.
 
 ```graphql
 query {
-  project(fullPath: "gitlab-org/graphql-sandbox") {
+ project(fullPath: "gitlab-org/graphql-sandbox") {
     name
     issue(iid: "2") {
       title
     }
-  }
+ }
 }
 ```
 
@@ -161,7 +152,7 @@ Example: Get the name of a project, and the titles of all its issues.
 
 ```graphql
 query {
-  project(fullPath: "gitlab-org/graphql-sandbox") {
+ project(fullPath: "gitlab-org/graphql-sandbox") {
     name
     issues {
       nodes {
@@ -169,7 +160,7 @@ query {
         description
       }
     }
-  }
+ }
 }
 ```
 
@@ -178,9 +169,7 @@ More about queries:
 
 ### Authorization
 
-If you've signed in to GitLab and use [GraphiQL](#graphiql), all queries are performed as
-you, the authenticated user. For more information, read about
-[GraphQL Authentication](_index.md#authentication).
+If you've signed in to GitLab and use [GraphiQL](#graphiql), all queries are performed as you, the authenticated user. For more information, read about [GraphQL Authentication](_index.md#authentication).
 
 ### Mutations
 
@@ -189,8 +178,7 @@ Mutations generally use InputTypes and variables, neither of which appear here.
 
 Mutations have:
 
-- Inputs. For example, arguments, such as which emoji reaction you'd like to add,
-  and to which object.
+- Inputs. For example, arguments, such as which emoji reaction you'd like to add, and to which object.
 - Return statements. That is, what you'd like to get back when it's successful.
 - Errors. Always ask for what went wrong, just in case.
 
@@ -200,7 +188,7 @@ Example: Let's have some tea - add a `:tea:` reaction emoji to an issue.
 
 ```graphql
 mutation {
-  awardEmojiAdd(input: { awardableId: "gid://gitlab/Issue/27039960",
+ awardEmojiAdd(input: { awardableId: "gid://gitlab/Issue/27039960",
       name: "tea"
     }) {
     awardEmoji {
@@ -214,17 +202,15 @@ mutation {
       }
     }
     errors
-  }
+ }
 }
 ```
 
-Example: Add a comment to the issue. This example uses the ID of the
-`GitLab.com` issue. If you're using a local instance, you must get the ID of an
-issue you can write to.
+Example: Add a comment to the issue. This example uses the ID of the `GitLab.com` issue. If you're using a local instance, you must get the ID of an issue you can write to.
 
 ```graphql
 mutation {
-  createNote(input: { noteableId: "gid://gitlab/Issue/27039960",
+ createNote(input: { noteableId: "gid://gitlab/Issue/27039960",
       body: "*sips tea*"
     }) {
     note {
@@ -235,18 +221,17 @@ mutation {
       }
     }
     errors
-  }
+ }
 }
 ```
 
 #### Update mutations
 
-When you see the result `id` of the note you created, take a note of it. Let's
-edit it to sip faster.
+When you see the result `id` of the note you created, take a note of it. Let's edit it to sip faster.
 
 ```graphql
 mutation {
-  updateNote(input: { id: "gid://gitlab/Note/<note ID>",
+ updateNote(input: { id: "gid://gitlab/Note/<note ID>",
       body: "*SIPS TEA*"
     }) {
     note {
@@ -254,7 +239,7 @@ mutation {
       body
     }
     errors
-  }
+ }
 }
 ```
 
@@ -264,13 +249,13 @@ Let's delete the comment, because our tea is all gone.
 
 ```graphql
 mutation {
-  destroyNote(input: { id: "gid://gitlab/Note/<note ID>" }) {
+ destroyNote(input: { id: "gid://gitlab/Note/<note ID>" }) {
     note {
       id
       body
     }
     errors
-  }
+ }
 }
 ```
 
@@ -278,12 +263,12 @@ You should get something like the following output:
 
 ```json
 {
-  "data": {
+ "data": {
     "destroyNote": {
       "errors": [],
       "note": null
     }
-  }
+ }
 }
 ```
 
@@ -300,22 +285,20 @@ in `CI_JOB_TOKEN` scoping behavior.
 
 ```graphql
 mutation DisableCI_JOB_TOKENscope {
-  projectCiCdSettingsUpdate(input:{fullPath: "<namespace>/<project-name>", inboundJobTokenScopeEnabled: false}) {
+ projectCiCdSettingsUpdate(input:{fullPath: "<namespace>/<project-name>", inboundJobTokenScopeEnabled: false}) {
     ciCdSettings {
       inboundJobTokenScopeEnabled
     }
     errors
-  }
+ }
 }
 ```
 
 ### Introspection queries
 
-Clients can query the GraphQL endpoint for information about its schema
-by making an [introspection query](https://graphql.org/learn/introspection/).
+Clients can query the GraphQL endpoint for information about its schema by making an [introspection query](https://graphql.org/learn/introspection/).
 
-The [GraphiQL Query Explorer](#graphiql) uses an
-introspection query to:
+The [GraphiQL Query Explorer](#graphiql) uses an introspection query to:
 
 - Gain knowledge about the GitLab GraphQL schema.
 - Do autocompletion.
@@ -325,20 +308,19 @@ Example: Get all the type names in the schema.
 
 ```graphql
 {
-  __schema {
+ __schema {
     types {
       name
     }
-  }
+ }
 }
 ```
 
-Example: Get all the fields associated with Issue. `kind` tells us the enum
-value for the type, like `OBJECT`, `SCALAR` or `INTERFACE`.
+Example: Get all the fields associated with Issue. `kind` tells us the enum value for the type, like `OBJECT`, `SCALAR` or `INTERFACE`.
 
 ```graphql
 query IssueTypes {
-  __type(name: "Issue") {
+ __type(name: "Issue") {
     kind
     name
     fields {
@@ -348,7 +330,7 @@ query IssueTypes {
         name
       }
     }
-  }
+ }
 }
 ```
 
@@ -357,32 +339,30 @@ More about introspection:
 
 ### Query complexity
 
-The calculated [complexity score and limit](_index.md#maximum-query-complexity) for a query can be revealed to clients by
-querying for `queryComplexity`.
+The calculated [complexity score and limit](_index.md#maximum-query-complexity) for a query can be revealed to clients by querying for `queryComplexity`.
 
 ```graphql
 query {
-  queryComplexity {
+ queryComplexity {
     score
     limit
-  }
+ }
 
-  project(fullPath: "gitlab-org/graphql-sandbox") {
+ project(fullPath: "gitlab-org/graphql-sandbox") {
     name
-  }
+ }
 }
 ```
 
 ## Sorting
 
-Some of the GitLab GraphQL endpoints allow you to specify how to sort a
-collection of objects. You can only sort by what the schema allows you to.
+Some of the GitLab GraphQL endpoints allow you to specify how to sort a collection of objects. You can only sort by what the schema allows you to.
 
 Example: Issues can be sorted by creation date:
 
 ```graphql
 query {
-  project(fullPath: "gitlab-org/graphql-sandbox") {
+ project(fullPath: "gitlab-org/graphql-sandbox") {
    name
     issues(sort: created_asc) {
       nodes {
@@ -390,28 +370,22 @@ query {
         createdAt
       }
     }
-  }
+ }
 }
 ```
 
 ## Pagination
 
-Pagination is a way of only asking for a subset of the records, such as the
-first ten. If you want more of them, you can make another request for the next
-ten from the server in the form of something like `give me the next ten records`.
+Pagination is a way of only asking for a subset of the records, such as the first ten. If you want more of them, you can make another request for the next ten from the server in the form of something like `give me the next ten records`.
 
-By default, the GitLab GraphQL API returns 100 records per page. To change this
-behavior, use `first` or `last` arguments. Both arguments take a value, so
-`first: 10` returns the first ten records, and `last: 10` the last ten records.
-There is a limit on how many records are returned per page, which is generally
-`100`.
+By default, the GitLab GraphQL API returns 100 records per page. To change this behavior, use `first` or `last` arguments. Both arguments take a value, so `first: 10` returns the first ten records, and `last: 10` the last ten records.
+There is a limit on how many records are returned per page, which is generally `100`.
 
-Example: Retrieve only the first two issues (slicing). The `cursor` field gives
-you a position from which you can retrieve further records relative to that one.
+Example: Retrieve only the first two issues (slicing). The `cursor` field gives you a position from which you can retrieve further records relative to that one.
 
 ```graphql
 query {
-  project(fullPath: "gitlab-org/graphql-sandbox") {
+ project(fullPath: "gitlab-org/graphql-sandbox") {
     name
     issues(first: 2) {
       edges {
@@ -424,18 +398,15 @@ query {
         hasNextPage
       }
     }
-  }
+ }
 }
 ```
 
-Example: Retrieve the next three. (The cursor value
-`eyJpZCI6IjI3MDM4OTMzIiwiY3JlYXRlZF9hdCI6IjIwMTktMTEtMTQgMDU6NTY6NDQgVVRDIn0`
-could be different, but it's the `cursor` value returned for the second issue
-returned above.)
+Example: Retrieve the next three. (The cursor value `eyJpZCI6IjI3MDM4OTMzIiwiY3JlYXRlZF9hdCI6IjIwMTktMTEtMTQgMDU6NTY6NDQgVVRDIn0` could be different, but it's the `cursor` value returned for the second issue returned above.)
 
 ```graphql
 query {
-  project(fullPath: "gitlab-org/graphql-sandbox") {
+ project(fullPath: "gitlab-org/graphql-sandbox") {
     name
     issues(first: 3, after: "eyJpZCI6IjI3MDM4OTMzIiwiY3JlYXRlZF9hdCI6IjIwMTktMTEtMTQgMDU6NTY6NDQgVVRDIn0") {
       edges {
@@ -449,7 +420,7 @@ query {
         hasNextPage
       }
     }
-  }
+ }
 }
 ```
 
@@ -464,6 +435,6 @@ To change the URL of a GraphQL request in the GraphiQL explorer, set a custom he
 
 ```JSON
 {
-  "REQUEST_PATH": "<the URL to make the graphQL request against>"
+ "REQUEST_PATH": "<the URL to make the graphQL request against>"
 }
 ```

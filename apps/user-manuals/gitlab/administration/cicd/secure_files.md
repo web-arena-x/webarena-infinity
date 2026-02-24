@@ -20,11 +20,9 @@ title: Secure Files administration
 
 You can securely store up to 100 files for use in CI/CD pipelines as secure files.
 These files are stored securely outside of your project's repository and are not version controlled.
-It is safe to store sensitive information in these files. Secure files support both plain text
-and binary file types, and must be 5 MB or less.
+It is safe to store sensitive information in these files. Secure files support both plain text and binary file types, and must be 5 MB or less.
 
-The storage location of these files can be configured using the options described below,
-but the default locations are:
+The storage location of these files can be configured using the options described below, but the default locations are:
 
 - `/var/opt/gitlab/gitlab-rails/shared/ci_secure_files` for installations using the Linux package.
 - `/home/git/gitlab/shared/ci_secure_files` for self-compiled installations.
@@ -34,8 +32,7 @@ configuration for [GitLab Helm chart](https://docs.gitlab.com/charts/) installat
 
 ## Disabling Secure Files
 
-You can disable Secure Files across the entire GitLab instance. You might want to disable
-Secure Files to reduce disk space, or to remove access to the feature.
+You can disable Secure Files across the entire GitLab instance. You might want to disable Secure Files to reduce disk space, or to remove access to the feature.
 
 To disable Secure Files, follow the steps below according to your installation.
 
@@ -66,13 +63,11 @@ Prerequisites:
 
 ## Using local storage
 
-The default configuration uses local storage. To change the location where Secure Files
-are stored locally, follow the steps below.
+The default configuration uses local storage. To change the location where Secure Files are stored locally, follow the steps below.
 
 **For Linux package installations**
 
-1. To change the storage path for example to `/mnt/storage/ci_secure_files`, edit
-   `/etc/gitlab/gitlab.rb` and add the following line:
+1. To change the storage path for example to `/mnt/storage/ci_secure_files`, edit `/etc/gitlab/gitlab.rb` and add the following line:
 
    ```ruby
    gitlab_rails['ci_secure_files_storage_path'] = "/mnt/storage/ci_secure_files"
@@ -82,8 +77,7 @@ are stored locally, follow the steps below.
 
 **For self-compiled installations**
 
-1. To change the storage path for example to `/mnt/storage/ci_secure_files`, edit
-   `/home/git/gitlab/config/gitlab.yml` and add or amend the following lines:
+1. To change the storage path for example to `/mnt/storage/ci_secure_files`, edit `/home/git/gitlab/config/gitlab.yml` and add or amend the following lines:
 
    ```yaml
    ci_secure_files:
@@ -138,8 +132,7 @@ See [the available connection settings for different providers](../object_storag
 
 {{< tab title="Linux package (Omnibus)" >}}
 
-1. Edit `/etc/gitlab/gitlab.rb` and add the following lines, but using
-   the values you want:
+1. Edit `/etc/gitlab/gitlab.rb` and add the following lines, but using the values you want:
 
    ```ruby
    gitlab_rails['ci_secure_files_object_store_enabled'] = true
@@ -152,11 +145,11 @@ See [the available connection settings for different providers](../object_storag
    }
    ```
 
-  {{< alert type="note" >}}
+ {{< alert type="note" >}}
 
-  If you are using AWS IAM profiles, be sure to omit the AWS access key and secret access key/value pairs:
+ If you are using AWS IAM profiles, be sure to omit the AWS access key and secret access key/value pairs:
 
-  {{< /alert >}}
+ {{< /alert >}}
 
    ```ruby
    gitlab_rails['ci_secure_files_object_store_connection'] = {
@@ -185,9 +178,9 @@ See [the available connection settings for different providers](../object_storag
      enabled: true
      object_store:
        enabled: true
-       remote_directory: "ci_secure_files"  # The bucket name
+       remote_directory: "ci_secure_files" # The bucket name
        connection:
-         provider: AWS  # Only AWS supported at the moment
+         provider: AWS # Only AWS supported at the moment
          aws_access_key_id: AWS_ACCESS_KEY_ID
          aws_secret_access_key: AWS_SECRET_ACCESS_KEY
          region: eu-central-1
@@ -219,8 +212,7 @@ See [the available connection settings for different providers](../object_storag
 
 {{< alert type="warning" >}}
 
-It's not possible to migrate Secure Files from object storage back to local storage,
-so proceed with caution.
+It's not possible to migrate Secure Files from object storage back to local storage, so proceed with caution.
 
 {{< /alert >}}
 
@@ -228,12 +220,12 @@ To migrate Secure Files to object storage, follow the instructions below.
 
 - For Linux package installations:
 
-  ```shell
-  sudo gitlab-rake gitlab:ci_secure_files:migrate
-  ```
+ ```shell
+ sudo gitlab-rake gitlab:ci_secure_files:migrate
+ ```
 
 - For self-compiled installations:
 
-  ```shell
-  sudo -u git -H bundle exec rake gitlab:ci_secure_files:migrate RAILS_ENV=production
-  ```
+ ```shell
+ sudo -u git -H bundle exec rake gitlab:ci_secure_files:migrate RAILS_ENV=production
+ ```

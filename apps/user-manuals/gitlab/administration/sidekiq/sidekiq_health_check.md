@@ -12,9 +12,7 @@ title: Sidekiq health check
 
 {{< /details >}}
 
-GitLab provides liveness and readiness probes to indicate service health and
-reachability to the Sidekiq cluster. These endpoints
-[can be provided to schedulers like Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
+GitLab provides liveness and readiness probes to indicate service health and reachability to the Sidekiq cluster. These endpoints [can be provided to schedulers like Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)
 to hold traffic until the system is ready or restart the container as needed.
 
 The health check server can be set up when [configuring Sidekiq](_index.md).

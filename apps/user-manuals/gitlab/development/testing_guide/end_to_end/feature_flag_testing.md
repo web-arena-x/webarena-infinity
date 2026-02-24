@@ -70,8 +70,7 @@ To view the individual test errors, click the `Pipeline` link and view the faili
 1. In case the test hasn't failed recently but is flaky, search for a failure issue for the test:
 
    - From the issues list in the [Test Failure Issues](https://gitlab.com/gitlab-org/quality/test-failure-issues/-/issues)
-     project, search the path of the test, for example `browser_ui/2_plan/issue/create_issue_spec.rb`,
-     and exclude test case issue types.
+     project, search the path of the test, for example `browser_ui/2_plan/issue/create_issue_spec.rb`, and exclude test case issue types.
 
    ![Failed issue search example](img/failure-issue-search_v18_0.png)
 

@@ -49,7 +49,7 @@ If available, upgrade to the latest version of your email client.
 
 - If you recently changed your Google Account password, you might need to re-enter your account information or completely repeat the Gmail account setup on your other email client.
 - Use an app password. If you use 2-Step Verification, try signing in with an [app password](/accounts/answer/185833).
-  - **Important**: App passwords aren’t recommended and are unnecessary in most cases. To help keep your account secure, look for the option to sign in with your Google Account to connect Gmail to your email client.
+ - **Important**: App passwords aren’t recommended and are unnecessary in most cases. To help keep your account secure, look for the option to sign in with your Google Account to connect Gmail to your email client.
 
 "Too many simultaneous connections" error
 
@@ -66,13 +66,13 @@ To fix the issue:
 - Update your IMAP settings so you don't sync certain folders.
 - Remove your Google Account from your email client, then try adding it again.
 - In your Gmail IMAP settings, set IMAP to only sync folders with 10,000 emails or fewer:
-  1. On your computer, open [Gmail](https://mail.google.com/mail/u/0/#settings/fwdandpop).
-  2. In the top right, click Settings ![](//storage.googleapis.com/support-kms-prod/6jPJImBixftgtQ7PUefP5Ke2qJfrtBex61wL) ![and then ](//lh3.googleusercontent.com/qm5go1tef2s-jWA6FVfAJ7C35KMIo-dOgUMlF8G56AMvu29vKhhqOGOII9OQ9Q9NOQne=h36) **See all settings**.
-  3. Click the **Forwarding and POP/IMAP** tab.
+ 1. On your computer, open [Gmail](https://mail.google.com/mail/u/0/#settings/fwdandpop).
+ 2. In the top right, click Settings ![](//storage.googleapis.com/support-kms-prod/6jPJImBixftgtQ7PUefP5Ke2qJfrtBex61wL) ![and then ](//lh3.googleusercontent.com/qm5go1tef2s-jWA6FVfAJ7C35KMIo-dOgUMlF8G56AMvu29vKhhqOGOII9OQ9Q9NOQne=h36) **See all settings**.
+ 3. Click the **Forwarding and POP/IMAP** tab.
      - If you have a Google Workspace account managed by an organization, you may not have access to this tab.
-  4. In the "IMAP access" section, under “Folder size limits,” click **Limit IMAP folders to contain no more than this many messages**.
-  5. Click the dropdown and select the maximum number of emails to sync.
-  6. Click **Save Changes**.
+ 4. In the "IMAP access" section, under “Folder size limits,” click **Limit IMAP folders to contain no more than this many messages**.
+ 5. Click the dropdown and select the maximum number of emails to sync.
+ 6. Click **Save Changes**.
 
 ## Related resources
 

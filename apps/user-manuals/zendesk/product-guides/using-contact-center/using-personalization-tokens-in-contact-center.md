@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/9696137593626-Using-person
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Zendesk for Contact Center |
 
@@ -14,12 +14,9 @@ Verified AI summary ◀▼
 
 Personalization tokens let you add customer and company details into messages, templates, and snippets. Enclose tokens in double curly brackets to autofill fields, like `{{customer.FirstName}}`. If an attribute is missing, use a fallback with `{{contact.first_name || "Unknown"}}`. This feature helps tailor interactions by using available customer data, enhancing the support experience.
 
-Personalization tokens are placeholders within Zendesk for Contact Center that
-can be used to add customer and company attributes into several areas such as snippets,
-welcome messages, task templates, and utilities.
+Personalization tokens are placeholders within Zendesk for Contact Center that can be used to add customer and company attributes into several areas such as snippets, welcome messages, task templates, and utilities.
 
-When a personalization token is used, it gets replaced by the value stored for
-that attribute, associated to the customer profile or contact.
+When a personalization token is used, it gets replaced by the value stored for that attribute, associated to the customer profile or contact.
 
 This article contains the following topics:
 
@@ -28,8 +25,7 @@ This article contains the following topics:
 
 ## Using personalization tokens
 
-Personalization tokens can be used to autofill task template fields or
-within snippets. They must be enclosed in double curly brackets.
+Personalization tokens can be used to autofill task template fields or within snippets. They must be enclosed in double curly brackets.
 
 For example:
 
@@ -37,8 +33,7 @@ For example:
 Hello {{customer.FirstName}}, welcome to Cloud Company. My name is {{user.first_name}}, how can I help you today?
 ```
 
-If the attribute doesn’t exist or is empty, by default the token wont be
-replaced. However, you can provide a fallback in the template using this syntax:
+If the attribute doesn’t exist or is empty, by default the token wont be replaced. However, you can provide a fallback in the template using this syntax:
 
 ```
 {{contact.first_name || "Unknown"}}
@@ -48,7 +43,7 @@ replaced. However, you can provide a fallback in the template using this syntax:
 
 The table below lists all of the available personalization tokens.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Category** | **Personalization token** | **Description** |
 | user | {{user.first\_name}} | The Contact Center user's first name |

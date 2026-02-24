@@ -16,60 +16,54 @@ For example, if you use `"PRIVATE-TOKEN: ${PRIVATE_TOKEN}"` as part of a cURL co
 
 ```yaml
 pages-job:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - curl --header 'PRIVATE-TOKEN: ${PRIVATE_TOKEN}' "https://gitlab.example.com/api/v4/projects"
-  environment: production
+ environment: production
 ```
 
-The YAML parser thinks the `:` defines a YAML keyword, and outputs the
-`Syntax is incorrect` error.
+The YAML parser thinks the `:` defines a YAML keyword, and outputs the `Syntax is incorrect` error.
 
-To use commands that contain a colon, you should wrap the whole command
-in single quotes. You might need to change existing single quotes (`'`) into double quotes (`"`):
+To use commands that contain a colon, you should wrap the whole command in single quotes. You might need to change existing single quotes (`'`) into double quotes (`"`):
 
 ```yaml
 pages-job:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - 'curl --header "PRIVATE-TOKEN: ${PRIVATE_TOKEN}" "https://gitlab.example.com/api/v4/projects"'
-  environment: production
+ environment: production
 ```
 
 ## Job does not fail when using `&&` in a script
 
-If you use `&&` to combine two commands together in a single script line, the job
-might return as successful, even if one of the commands failed. For example:
+If you use `&&` to combine two commands together in a single script line, the job might return as successful, even if one of the commands failed. For example:
 
 ```yaml
 job-does-not-fail:
-  script:
+ script:
     - invalid-command xyz && invalid-command abc
     - echo $?
     - echo "The job should have failed already, but this is executed unexpectedly."
 ```
 
-The `&&` operator returns an exit code of `0` even though the two commands failed,
-and the job continues to run. To force the script to exit when either command fails,
-enclose the entire line in parentheses:
+The `&&` operator returns an exit code of `0` even though the two commands failed, and the job continues to run. To force the script to exit when either command fails, enclose the entire line in parentheses:
 
 ```yaml
 job-fails:
-  script:
+ script:
     - (invalid-command xyz && invalid-command abc)
     - echo "The job failed already, and this is not executed."
 ```
 
 ## Multiline commands not preserved by folded YAML multiline block scalar
 
-If you use the `- >` folded YAML multiline block scalar to split long commands,
-additional indentation causes the lines to be processed as individual commands.
+If you use the `- >` folded YAML multiline block scalar to split long commands, additional indentation causes the lines to be processed as individual commands.
 
 For example:
 
 ```yaml
 script:
-  - >
+ - >
     RESULT=$(curl --silent
       --header
         "Authorization: Bearer $CI_JOB_TOKEN"
@@ -91,36 +85,34 @@ Resolve this by either:
 
 - Removing the extra indentation:
 
-  ```yaml
-  script:
+ ```yaml
+ script:
     - >
       RESULT=$(curl --silent
       --header
       "Authorization: Bearer $CI_JOB_TOKEN"
       "${CI_API_V4_URL}/job"
       )
-  ```
+ ```
 
 - Modifying the script so the extra line breaks are handled, for example using shell line continuation:
 
-  ```yaml
-  script:
+ ```yaml
+ script:
     - >
       RESULT=$(curl --silent \
         --header \
           "Authorization: Bearer $CI_JOB_TOKEN" \
         "${CI_API_V4_URL}/job")
-  ```
+ ```
 
 ## Job log output is not formatted as expected or contains unexpected characters
 
-Sometimes the formatting in the job log displays incorrectly with tools that rely
-on the `TERM` environment variable for coloring or formatting. For example, with the `mypy` command:
+Sometimes the formatting in the job log displays incorrectly with tools that rely on the `TERM` environment variable for coloring or formatting. For example, with the `mypy` command:
 
 ![Example output](img/incorrect_log_rendering_v16_5.png)
 
-GitLab Runner runs the container's shell in non-interactive mode, so the shell's `TERM`
-environment variable is set to `dumb`. To fix the formatting for these tools, you can:
+GitLab Runner runs the container's shell in non-interactive mode, so the shell's `TERM` environment variable is set to `dumb`. To fix the formatting for these tools, you can:
 
 - Add an additional script line to set `TERM=ansi` in the shell's environment before running the command.
 - Add a `TERM` [CI/CD variable](../variables/_index.md) with a value of `ansi`.
@@ -130,5 +122,4 @@ environment variable is set to `dumb`. To fix the formatting for these tools, yo
 In GitLab Runner 16.9.0 to 16.11.0:
 
 - The `after_script` section execution sometimes stops too early.
-- The status of the `$CI_JOB_STATUS` predefined variable is
-  [incorrectly set as `failed` while the job is canceling](https://gitlab.com/gitlab-org/gitlab-runner/-/issues/37485).
+- The status of the `$CI_JOB_STATUS` predefined variable is [incorrectly set as `failed` while the job is canceling](https://gitlab.com/gitlab-org/gitlab-runner/-/issues/37485).

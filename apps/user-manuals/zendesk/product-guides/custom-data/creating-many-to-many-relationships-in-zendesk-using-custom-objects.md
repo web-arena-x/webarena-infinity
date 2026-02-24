@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/8415083900698-Creating-man
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Enterprise |
 
-Location:  Admin Center > Objects and rules > Custom objects > Objects
+Location: Admin Center > Objects and rules > Custom objects > Objects
 
 Within Zendesk Support, you can use lookup relationship fields to create many-to-one relationships between objects. However, there are many scenarios that would be more accurately represented by a many-to-many relationship. For example, in an asset management workflow, employees might be assigned multiple assets and an individual asset might be assigned to multiple employees.
 
@@ -143,16 +143,16 @@ In this example, the following related records would be visible:
 
 - On William Carlton's profile page, the Related tab displays two asset assignment records: Assignment#0000094 and Assignment#0000096.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/many_to_many_wflow_related_user1.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/many_to_many_wflow_related_user1.png)
 - On Harper Yoshimoto's profile page, the Related tab displays two asset assignment records: Assignment#0000095 and Assignment#0000097.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/many_to_many_wflow_related_user2.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/many_to_many_wflow_related_user2.png)
 - The A001 asset record displays one asset assignment record (Assignment#0000094), which is listed as assigned to William Carlton.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/many_to_many_wflow_related_A001.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/many_to_many_wflow_related_A001.png)
 - The A002 asset record displays one asset assignment record (Assignment#0000095), which is listed as assigned to Harper Yoshimoto.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/many_to_many_wflow_related_A002.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/many_to_many_wflow_related_A002.png)
 - The A003 asset record displays two asset assignment records: Assignment#0000096 and Assignment#0000097 with assignments to both William Carlton and Harper Yoshimoto.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/many_to_many_wflow_related_A003.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/many_to_many_wflow_related_A003.png)

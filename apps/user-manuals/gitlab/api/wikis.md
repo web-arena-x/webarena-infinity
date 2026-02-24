@@ -32,33 +32,33 @@ GET /projects/:id/wikis
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/wikis?with_content=1"
+ --url "https://gitlab.example.com/api/v4/projects/1/wikis?with_content=1"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "content" : "Here is an instruction how to deploy this project.",
     "format" : "markdown",
     "slug" : "deploy",
     "title" : "deploy",
     "encoding": "UTF-8"
-  },
-  {
+ },
+ {
     "content" : "Our development process is described here.",
     "format" : "markdown",
     "slug" : "development",
     "title" : "development",
     "encoding": "UTF-8"
-  },{
-    "content" : "*  [Deploy](deploy)\n*  [Development](development)",
+ },{
+    "content" : "* [Deploy](deploy)\n* [Development](development)",
     "format" : "markdown",
     "slug" : "home",
     "title" : "home",
     "encoding": "UTF-8"
-  }
+ }
 ]
 ```
 
@@ -79,18 +79,18 @@ GET /projects/:id/wikis/:slug
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/wikis/home"
+ --url "https://gitlab.example.com/api/v4/projects/1/wikis/home"
 ```
 
 Example response:
 
 ```json
 {
-  "content" : "home page",
-  "format" : "markdown",
-  "slug" : "home",
-  "title" : "home",
-  "encoding": "UTF-8"
+ "content" : "home page",
+ "format" : "markdown",
+ "slug" : "home",
+ "title" : "home",
+ "encoding": "UTF-8"
 }
 ```
 
@@ -107,43 +107,40 @@ POST /projects/:id/wikis
 | `id`      | integer or string | Yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `content` | string         | Yes      | The content of the wiki page. |
 | `title`   | string         | Yes      | The title of the wiki page. |
-| `format`  | string         | No       | The format of the wiki page. Available formats are: `markdown` (default), `rdoc`, `asciidoc`, and `org`. |
+| `format` | string         | No       | The format of the wiki page. Available formats are: `markdown` (default), `rdoc`, `asciidoc`, and `org`. |
 
 ```shell
 curl --data "format=rdoc&title=Hello&content=Hello world" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/wikis"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/wikis"
 ```
 
 Example response:
 
 ```json
 {
-  "content" : "Hello world",
-  "format" : "markdown",
-  "slug" : "Hello",
-  "title" : "Hello",
-  "encoding": "UTF-8"
+ "content" : "Hello world",
+ "format" : "markdown",
+ "slug" : "Hello",
+ "title" : "Hello",
+ "encoding": "UTF-8"
 }
 ```
 
-For Markdown content with special characters and diagrams,
-use `--data-urlencode` with a file reference to handle encoding automatically.
+For Markdown content with special characters and diagrams, use `--data-urlencode` with a file reference to handle encoding automatically.
 
 For example, create a file named `content.md` with your wiki content, then run:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --data-urlencode "title=Page with Complex Content" \
-  --data-urlencode "content@content.md" \
-  --url "https://gitlab.example.com/api/v4/projects/1/wikis"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --data-urlencode "title=Page with Complex Content" \
+ --data-urlencode "content@content.md" \
+ --url "https://gitlab.example.com/api/v4/projects/1/wikis"
 ```
 
-The `--data-urlencode "content@content.md"` option URL-encodes the contents of the Markdown file
-and assigns it to the `content` attribute.
-This encoding handles special characters, line breaks, and complex Markdown syntax that might
-otherwise cause errors.
+The `--data-urlencode "content@content.md"` option URL-encodes the contents of the Markdown file and assigns it to the `content` attribute.
+This encoding handles special characters, line breaks, and complex Markdown syntax that might otherwise cause errors.
 
 Example response:
 
@@ -170,25 +167,25 @@ PUT /projects/:id/wikis/:slug
 | `id`      | integer or string | Yes                               | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `content` | string         | Yes, if `title` is not provided   | The content of the wiki page. |
 | `title`   | string         | Yes, if `content` is not provided | The title of the wiki page. |
-| `format`  | string         | No                                | The format of the wiki page. Available formats are: `markdown` (default), `rdoc`, `asciidoc`, and `org`. |
+| `format` | string         | No                                | The format of the wiki page. Available formats are: `markdown` (default), `rdoc`, `asciidoc`, and `org`. |
 | `slug`    | string         | Yes                               | URL-encoded slug (a unique string) of the wiki page, such as `dir%2Fpage_name`. |
 
 ```shell
 curl --request PUT \
-  --data "format=rdoc&content=documentation&title=Docs" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/wikis/foo"
+ --data "format=rdoc&content=documentation&title=Docs" \
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/wikis/foo"
 ```
 
 Example response:
 
 ```json
 {
-  "content" : "documentation",
-  "format" : "markdown",
-  "slug" : "Docs",
-  "title" : "Docs",
-  "encoding": "UTF-8"
+ "content" : "documentation",
+ "format" : "markdown",
+ "slug" : "Docs",
+ "title" : "Docs",
+ "encoding": "UTF-8"
 }
 ```
 
@@ -207,16 +204,15 @@ DELETE /projects/:id/wikis/:slug
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/wikis/foo"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/wikis/foo"
 ```
 
 If successful, a `204 No Content` HTTP response with an empty body is expected.
 
 ## Upload an attachment to the wiki repository
 
-Uploads a file to the attachment folder inside the wiki's repository. The
- attachment folder is the `uploads` folder.
+Uploads a file to the attachment folder inside the wiki's repository. The attachment folder is the `uploads` folder.
 
 ```plaintext
 POST /projects/:id/wikis/attachments
@@ -226,30 +222,28 @@ POST /projects/:id/wikis/attachments
 | --------- | -------------- | -------- | ----------- |
 | `id`      | integer or string | Yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `file`    | string         | Yes      | The attachment to be uploaded. |
-| `branch`  | string         | No       | The name of the branch. Defaults to the wiki repository default branch. |
+| `branch` | string         | No       | The name of the branch. Defaults to the wiki repository default branch. |
 
-To upload a file from your file system, use the `--form` argument. This causes
-cURL to post data using the header `Content-Type: multipart/form-data`.
-The `file=` parameter must point to a file on your file system and be preceded
-by `@`. For example:
+To upload a file from your file system, use the `--form` argument. This causes cURL to post data using the header `Content-Type: multipart/form-data`.
+The `file=` parameter must point to a file on your file system and be preceded by `@`. For example:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --form "file=@dk.png" \
-  --url "https://gitlab.example.com/api/v4/projects/1/wikis/attachments"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --form "file=@dk.png" \
+ --url "https://gitlab.example.com/api/v4/projects/1/wikis/attachments"
 ```
 
 Example response:
 
 ```json
 {
-  "file_name" : "dk.png",
-  "file_path" : "uploads/6a061c4cf9f1c28cb22c384b4b8d4e3c/dk.png",
-  "branch" : "main",
-  "link" : {
+ "file_name" : "dk.png",
+ "file_path" : "uploads/6a061c4cf9f1c28cb22c384b4b8d4e3c/dk.png",
+ "branch" : "main",
+ "link" : {
     "url" : "uploads/6a061c4cf9f1c28cb22c384b4b8d4e3c/dk.png",
     "markdown" : "![A description of the attachment](uploads/6a061c4cf9f1c28cb22c384b4b8d4e3c/dk.png)"
-  }
+ }
 }
 ```

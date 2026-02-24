@@ -33,8 +33,7 @@ Gets all feature flags of the requested project.
 GET /projects/:id/feature_flags
 ```
 
-Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to
-control the pagination of results.
+Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to control the pagination of results.
 
 | Attribute           | Type             | Required   | Description                                                                                                                 |
 | ------------------- | ---------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -43,7 +42,7 @@ control the pagination of results.
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/feature_flags"
+ --url "https://gitlab.example.com/api/v4/projects/1/feature_flags"
 ```
 
 Example response:
@@ -137,8 +136,7 @@ Gets a single feature flag.
 GET /projects/:id/feature_flags/:feature_flag_name
 ```
 
-Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to
-control the pagination of results.
+Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to control the pagination of results.
 
 | Attribute           | Type             | Required   | Description                                                                            |
 | ------------------- | ---------------- | ---------- | ---------------------------------------------------------------------------------------|
@@ -147,21 +145,21 @@ control the pagination of results.
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/feature_flags/awesome_feature"
+ --url "https://gitlab.example.com/api/v4/projects/1/feature_flags/awesome_feature"
 ```
 
 Example response:
 
 ```json
 {
-  "name": "awesome_feature",
-  "description": null,
-  "active": true,
-  "version": "new_version_flag",
-  "created_at": "2020-05-13T19:56:33.119Z",
-  "updated_at": "2020-05-13T19:56:33.119Z",
-  "scopes": [],
-  "strategies": [
+ "name": "awesome_feature",
+ "description": null,
+ "active": true,
+ "version": "new_version_flag",
+ "created_at": "2020-05-13T19:56:33.119Z",
+ "updated_at": "2020-05-13T19:56:33.119Z",
+ "scopes": [],
+ "strategies": [
     {
       "id": 36,
       "name": "default",
@@ -174,7 +172,7 @@ Example response:
       ],
       "user_list": null
     }
-  ]
+ ]
 }
 ```
 
@@ -206,9 +204,9 @@ curl "https://gitlab.example.com/api/v4/projects/1/feature_flags" \
      --header "Content-type: application/json" \
      --data @- << EOF
 {
-  "name": "awesome_feature",
-  "version": "new_version_flag",
-  "strategies": [{ "name": "default", "parameters": {}, "scopes": [{ "environment_scope": "production" }] }]
+ "name": "awesome_feature",
+ "version": "new_version_flag",
+ "strategies": [{ "name": "default", "parameters": {}, "scopes": [{ "environment_scope": "production" }] }]
 }
 EOF
 ```
@@ -217,14 +215,14 @@ Example response:
 
 ```json
 {
-  "name": "awesome_feature",
-  "description": null,
-  "active": true,
-  "version": "new_version_flag",
-  "created_at": "2020-05-13T19:56:33.119Z",
-  "updated_at": "2020-05-13T19:56:33.119Z",
-  "scopes": [],
-  "strategies": [
+ "name": "awesome_feature",
+ "description": null,
+ "active": true,
+ "version": "new_version_flag",
+ "created_at": "2020-05-13T19:56:33.119Z",
+ "updated_at": "2020-05-13T19:56:33.119Z",
+ "scopes": [],
+ "strategies": [
     {
       "id": 36,
       "name": "default",
@@ -236,7 +234,7 @@ Example response:
         }
       ]
     }
-  ]
+ ]
 }
 ```
 
@@ -272,7 +270,7 @@ curl "https://gitlab.example.com/api/v4/projects/1/feature_flags/awesome_feature
      --header "Content-type: application/json" \
      --data @- << EOF
 {
-  "strategies": [{ "name": "gradualRolloutUserId", "parameters": { "groupId": "default", "percentage": "25" }, "scopes": [{ "environment_scope": "staging" }] }]
+ "strategies": [{ "name": "gradualRolloutUserId", "parameters": { "groupId": "default", "percentage": "25" }, "scopes": [{ "environment_scope": "staging" }] }]
 }
 EOF
 ```
@@ -281,14 +279,14 @@ Example response:
 
 ```json
 {
-  "name": "awesome_feature",
-  "description": null,
-  "active": true,
-  "version": "new_version_flag",
-  "created_at": "2020-05-13T20:10:32.891Z",
-  "updated_at": "2020-05-13T20:10:32.891Z",
-  "scopes": [],
-  "strategies": [
+ "name": "awesome_feature",
+ "description": null,
+ "active": true,
+ "version": "new_version_flag",
+ "created_at": "2020-05-13T20:10:32.891Z",
+ "updated_at": "2020-05-13T20:10:32.891Z",
+ "scopes": [],
+ "strategies": [
     {
       "id": 38,
       "name": "gradualRolloutUserId",
@@ -314,7 +312,7 @@ Example response:
         }
       ]
     }
-  ]
+ ]
 }
 ```
 
@@ -333,6 +331,6 @@ DELETE /projects/:id/feature_flags/:feature_flag_name
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/feature_flags/awesome_feature"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/feature_flags/awesome_feature"
 ```

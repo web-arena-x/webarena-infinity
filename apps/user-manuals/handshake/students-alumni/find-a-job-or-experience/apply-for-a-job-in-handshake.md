@@ -25,14 +25,14 @@ To view any previously saved jobs, click **Saved** in the upper-left corner of t
 3. Click on **Apply**, **Apply Externally**, or **Quick** **Apply** as applicable for that particular job. 
 
 - **Apply** appears if one or more of the following are true:
-  - You don’t meet all employer preferences
-  - One or more documents are required, and you don’t have them uploaded
-  - More than one document is required
-  - You’re accessing a job via "Saved Jobs" that leads to an external application
+ - You don’t meet all employer preferences
+ - One or more documents are required, and you don’t have them uploaded
+ - More than one document is required
+ - You’re accessing a job via "Saved Jobs" that leads to an external application
 - **Apply Externally** indicates the employer is using an external site to collect applications. Additional steps outside of Handshake are required to complete your application. **Learn more about the next steps in** [**Jobs: Apply Externally**](https://support.joinhandshake.com/hc/en-us/articles/360043604173)**.**
 - **Quick Apply** indicates you meet all employer preferences and either:
-  - No documents are required
-  - Only one document (a resume) is required, and you have at least one approved or pending resume uploaded. **Learn more about this in** [**Jobs: Quick Apply in Handshake**](jobs-quick-apply-in-handshake.md)**.**
+ - No documents are required
+ - Only one document (a resume) is required, and you have at least one approved or pending resume uploaded. **Learn more about this in** [**Jobs: Quick Apply in Handshake**](jobs-quick-apply-in-handshake.md)**.**
 
 **Note:** There is a daily limit of 300 applications. If you exceed this limit, your account will be automatically blocked. You’ll receive a notification explaining the reason, and your account will remain blocked until it is reviewed and cleared by our Trust & Safety team.
 

@@ -38,7 +38,7 @@ For example, let’s say we have a collection of variables with light and dark m
 
 Even though modes are built for variables, Figma allows us to apply them to styles.
 
-> Say we have a number variable for a default font size. The variable has two single, raw values: `16` for a mobile mode and `18` for a desktop mode. We apply this variable to a text style’s font family property, as well as other variables and values to other properties.  
+> Say we have a number variable for a default font size. The variable has two single, raw values: `16` for a mobile mode and `18` for a desktop mode. We apply this variable to a text style’s font family property, as well as other variables and values to other properties. 
 >   
 > Now, we can switch the mode on any text layer using this text style, because it uses a variable with multiple modes.
 

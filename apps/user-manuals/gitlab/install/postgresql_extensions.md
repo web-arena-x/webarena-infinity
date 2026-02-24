@@ -13,8 +13,7 @@ title: Managing PostgreSQL extensions
 
 {{< /details >}}
 
-This guide documents how to manage PostgreSQL extensions for installations with an external
-PostgreSQL database.
+This guide documents how to manage PostgreSQL extensions for installations with an external PostgreSQL database.
 
 You must load the following extensions into the main GitLab database (defaults to `gitlabhq_production`):
 
@@ -25,17 +24,14 @@ You must load the following extensions into the main GitLab database (defaults t
 | `plpgsql`    | 11.7                   |
 | `amcheck`    | 18.4                   |
 
-If you are using [GitLab Geo](../administration/geo/_index.md), you must load the following
-extensions into all secondary tracking databases (defaults to `gitlabhq_geo_production`):
+If you are using [GitLab Geo](../administration/geo/_index.md), you must load the following extensions into all secondary tracking databases (defaults to `gitlabhq_geo_production`):
 
 | Extension    | Minimum GitLab version |
 |--------------|------------------------|
 | `plpgsql`    | 9.0                    |
 
 To install extensions, PostgreSQL requires the user to have superuser privileges.
-Typically, the GitLab database user is not a superuser. Therefore, regular database migrations
-cannot be used in installing extensions and instead, extensions have to be installed manually
-prior to upgrading GitLab to a newer version.
+Typically, the GitLab database user is not a superuser. Therefore, regular database migrations cannot be used in installing extensions and instead, extensions have to be installed manually prior to upgrading GitLab to a newer version.
 
 ## Installing PostgreSQL extensions manually
 
@@ -67,26 +63,23 @@ To install a PostgreSQL extension, this procedure should be followed:
     (3 rows)
    ```
 
-On some systems you may need to install an additional package (for example,
-`postgresql-contrib`) for certain extensions to become available.
+On some systems you may need to install an additional package (for example, `postgresql-contrib`) for certain extensions to become available.
 
 ## Typical failure scenarios
 
-The following is an example of a new GitLab installation failing because the extension hasn't been
-installed first.
+The following is an example of a new GitLab installation failing because the extension hasn't been installed first.
 
 ```shell
----- Begin output of "bash"  "/tmp/chef-script20210513-52940-d9b1gs" ----
-STDOUT: psql:/opt/gitlab/embedded/service/gitlab-rails/db/structure.sql:9: ERROR:  permission denied to create extension "btree_gist"
-HINT:  Must be superuser to create this extension.
+---- Begin output of "bash" "/tmp/chef-script20210513-52940-d9b1gs" ----
+STDOUT: psql:/opt/gitlab/embedded/service/gitlab-rails/db/structure.sql:9: ERROR: permission denied to create extension "btree_gist"
+HINT: Must be superuser to create this extension.
 rake aborted!
 failed to execute:
 psql -v ON_ERROR_STOP=1 -q -X -f /opt/gitlab/embedded/service/gitlab-rails/db/structure.sql --single-transaction gitlabhq_production
 ```
 
 The following is an example of a situation when the extension hasn't been installed before running migrations.
-In this scenario, the database migration fails to create the extension `btree_gist` because of insufficient
-privileges.
+In this scenario, the database migration fails to create the extension `btree_gist` because of insufficient privileges.
 
 ```shell
 == 20200515152649 EnableBtreeGistExtension: migrating =========================
@@ -97,7 +90,7 @@ the database user is not allowed to install the extension.
 
 You can either install the extension manually using a database superuser:
 
-  CREATE EXTENSION IF NOT EXISTS btree_gist
+ CREATE EXTENSION IF NOT EXISTS btree_gist
 
 Or, you can solve this by logging in to the GitLab database (gitlabhq_production) using a superuser and running:
 
@@ -107,8 +100,7 @@ This query will grant the user superuser permissions, ensuring any database exte
 can be installed through migrations.
 ```
 
-To recover from failed migrations, the extension must be installed manually by a superuser, and the
-GitLab upgrade completed by [re-running the database migrations](../administration/raketasks/maintenance.md#run-incomplete-database-migrations):
+To recover from failed migrations, the extension must be installed manually by a superuser, and the GitLab upgrade completed by [re-running the database migrations](../administration/raketasks/maintenance.md#run-incomplete-database-migrations):
 
 ```shell
 sudo gitlab-rake db:migrate

@@ -10,7 +10,7 @@ Once the kiosk is open, students check in via one of the methods below:
 
 - entering their username or email address
 - swiping their card
-  - **Note:** if your institution hasn't enabled card swipe and is interested, check out [How to Enable Card Swipe Check-in for Students](how-to-enable-card-swipe-check-in-for-students.md).![Logged_out_using_Check-in_Kiosk.png](https://support.joinhandshake.com/hc/article_attachments/25991264146455)
+ - **Note:** if your institution hasn't enabled card swipe and is interested, check out [How to Enable Card Swipe Check-in for Students](how-to-enable-card-swipe-check-in-for-students.md).![Logged_out_using_Check-in_Kiosk.png](https://support.joinhandshake.com/hc/article_attachments/25991264146455)
 
 *To learn more about Check-in Kiosks, refer to [An Overview of Check-in Kiosks](https://support.joinhandshake.com/hc/en-us/articles/219133317).*
 
@@ -20,9 +20,9 @@ Topics:
 
 - [Launch a General Check-in Kiosk](#h_01FPT4KZPA4KFT2HDPV48XMP8T)
 - Launch a Check-in Kiosk for a specific:
-  - [Career Fair](#h_01FPT4NAKDEBEY8B9P441ECSZS)
-  - [Event](#h_01FPZT7HDQH4TM2HP61JXVV96V)
-  - [Interview Schedule](#h_01FPT4P1S90FH9XDTMNVHWGVS5)
+ - [Career Fair](#h_01FPT4NAKDEBEY8B9P441ECSZS)
+ - [Event](#h_01FPZT7HDQH4TM2HP61JXVV96V)
+ - [Interview Schedule](#h_01FPT4P1S90FH9XDTMNVHWGVS5)
 - [Test a student check-in](#h_01FPX0AQCWEGKKS6J7Q50ZC5KM)
 
 ### Launch a General Check-in Kiosk
@@ -38,14 +38,14 @@ Topics:
 4. From the popup that appears on the screen, select from the following settings, then click **Launch Kiosk**:
 
 - **Choose an Office Location** *(dropdown menu)*
-  - **Note**: If an office location is not selected, appointments across all locations will become available.
+ - **Note**: If an office location is not selected, appointments across all locations will become available.
 - **Choose a Career Center** *(dropdown menu)*
 - **Keep me logged in** *(checkbox)*
-  - **Note**: It is strongly recommended that you do not stay logged in, because doing so will allow anyone using the Kiosk full access to your account.
+ - **Note**: It is strongly recommended that you do not stay logged in, because doing so will allow anyone using the Kiosk full access to your account.
 - **Allow Drop-In Appointments** *(checkbox)*
-  - If checked, appointments marked as drop-in will display when students check in.
+ - If checked, appointments marked as drop-in will display when students check in.
 - **Appointment-Only Kiosk** *(checkbox)*
-  - If checked, students will only be able to check into appointments through this kiosk.
+ - If checked, students will only be able to check into appointments through this kiosk.
 
 ![launch_kiosk.png](https://support.joinhandshake.com/hc/article_attachments/25991264132631)
 
@@ -61,8 +61,8 @@ Topics:
 
 - **Allow All Sessions** *(checkbox)*
 - **Keep me logged in** *(checkbox)*
-  - If unchecked, your account will be put into a limited access mode when the kiosk is launched to prevent unintended access to your account.
-  - If you'd like to keep your account in full access mode, you may choose the **Keep me logged in option**. Keep in mind that anyone using the kiosk will have full access to Handshake via your account if you remain logged in.
+ - If unchecked, your account will be put into a limited access mode when the kiosk is launched to prevent unintended access to your account.
+ - If you'd like to keep your account in full access mode, you may choose the **Keep me logged in option**. Keep in mind that anyone using the kiosk will have full access to Handshake via your account if you remain logged in.
 
 ![launch_check-in_kiosk_fair.png](https://support.joinhandshake.com/hc/article_attachments/25991264135575)
 
@@ -77,8 +77,8 @@ Topics:
 4. In the popup that appears, choose where to stay logged in or not, then click **Launch Kiosk**:
 
 - **Keep me logged in** *(checkbox)*
-  - If unchecked, your account will be put into a limited access mode when the kiosk is launched to prevent unintended access to your account.
-  - If you'd like to keep your account in full access mode, you may choose the **Keep me logged in option**. Keep in mind that anyone using the kiosk will have full access to Handshake via your account if you remain logged in.
+ - If unchecked, your account will be put into a limited access mode when the kiosk is launched to prevent unintended access to your account.
+ - If you'd like to keep your account in full access mode, you may choose the **Keep me logged in option**. Keep in mind that anyone using the kiosk will have full access to Handshake via your account if you remain logged in.
 
 ![launch_event_kiosk.png](https://support.joinhandshake.com/hc/article_attachments/25991249925399)
 
@@ -97,8 +97,8 @@ Topics:
 4. In the popup that appears, choose where to stay logged in or not, then click **Launch Kiosk**:
 
 - **Keep me logged in** *(checkbox)*
-  - If unchecked, your account will be put into a limited access mode when the kiosk is launched to prevent unintended access to your account.
-  - If you'd like to keep your account in full access mode, you may choose the **Keep me logged in option**. Keep in mind that anyone using the kiosk will have full access to Handshake via your account if you remain logged in.
+ - If unchecked, your account will be put into a limited access mode when the kiosk is launched to prevent unintended access to your account.
+ - If you'd like to keep your account in full access mode, you may choose the **Keep me logged in option**. Keep in mind that anyone using the kiosk will have full access to Handshake via your account if you remain logged in.
 
 ![launch_event_kiosk.png](https://support.joinhandshake.com/hc/article_attachments/25991249925399)
 

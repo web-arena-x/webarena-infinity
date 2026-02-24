@@ -45,8 +45,7 @@ To configure the Language Server to use a proxy:
 
 ### Update your editor extension
 
-The Language Server is bundled with each editor extension for GitLab. To ensure you have the latest features and bug fixes
-available, update to the latest version of your extension:
+The Language Server is bundled with each editor extension for GitLab. To ensure you have the latest features and bug fixes available, update to the latest version of your extension:
 
 - Update instructions [for Eclipse](../eclipse/_index.md#update-the-plugin)
 - Update instructions [for JetBrains IDEs](../jetbrains_ide/_index.md#update-the-extension)
@@ -70,16 +69,13 @@ To enable proxy authentication in the Language Server, follow the steps for your
 {{< tab title="Visual Studio Code" >}}
 
 1. Open your user or workspace [settings](https://code.visualstudio.com/docs/getstarted/settings).
-1. Configure [`http.proxy`](https://code.visualstudio.com/docs/setup/network#_legacy-proxy-server-support),
-   including username and password, to authenticate with your HTTP proxy.
+1. Configure [`http.proxy`](https://code.visualstudio.com/docs/setup/network#_legacy-proxy-server-support), including username and password, to authenticate with your HTTP proxy.
 1. Restart Visual Studio Code to ensure connections to GitLab use the latest proxy settings.
 
 {{< alert type="note" >}}
 
-The VS Code extension does not support the legacy
-[`http.proxyAuthorization`](https://code.visualstudio.com/docs/setup/network#_legacy-proxy-server-support)
-setting in VS Code for authenticating the language server with an HTTP proxy. Support is proposed in
-[issue 1672](https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/issues/1672).
+The VS Code extension does not support the legacy [`http.proxyAuthorization`](https://code.visualstudio.com/docs/setup/network#_legacy-proxy-server-support)
+setting in VS Code for authenticating the language server with an HTTP proxy. Support is proposed in [issue 1672](https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/issues/1672).
 
 {{< /alert >}}
 

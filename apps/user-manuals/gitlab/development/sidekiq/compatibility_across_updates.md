@@ -5,36 +5,23 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Sidekiq Compatibility across Updates
 ---
 
-The arguments for a Sidekiq job are stored in a queue while it is
-scheduled for execution. During a online update, this could lead to
-several possible situations:
+The arguments for a Sidekiq job are stored in a queue while it is scheduled for execution. During a online update, this could lead to several possible situations:
 
-1. An older version of the application publishes a job, which is executed by an
-   upgraded Sidekiq node.
+1. An older version of the application publishes a job, which is executed by an upgraded Sidekiq node.
 1. A job is queued before an upgrade, but executed after an upgrade.
-1. A job is queued by a node running the newer version of the application, but
-   executed on a node running an older version of the application.
+1. A job is queued by a node running the newer version of the application, but executed on a node running an older version of the application.
 
 ## Adding new workers
 
-On GitLab.com, we
-[do not currently have a Sidekiq deployment in the canary stage](https://gitlab.com/gitlab-org/gitlab/-/issues/19239).
-This means that a new worker than can be scheduled from an HTTP endpoint may
-be scheduled from canary but not run on Sidekiq until the full
-production deployment is complete. This can be several hours later than
-scheduling the job. For some workers, this will not be a problem. For
-others - particularly [latency-sensitive jobs](worker_attributes.md#latency-sensitive-jobs) -
-this will result in a poor user experience.
+On GitLab.com, we [do not currently have a Sidekiq deployment in the canary stage](https://gitlab.com/gitlab-org/gitlab/-/issues/19239).
+This means that a new worker than can be scheduled from an HTTP endpoint may be scheduled from canary but not run on Sidekiq until the full production deployment is complete. This can be several hours later than scheduling the job. For some workers, this will not be a problem. For others - particularly [latency-sensitive jobs](worker_attributes.md#latency-sensitive-jobs) - this will result in a poor user experience.
 
 This only applies to new worker classes when they are first introduced.
-As we recommend [using feature flags](../feature_flags/_index.md) as a general
-development process, it's best to control the entire change (including
-scheduling of the new Sidekiq worker) with a feature flag.
+As we recommend [using feature flags](../feature_flags/_index.md) as a general development process, it's best to control the entire change (including scheduling of the new Sidekiq worker) with a feature flag.
 
 ## Changing the arguments for a worker
 
-Jobs need to be backward and forward compatible between consecutive versions
-of the application. Adding or removing an argument may cause problems.
+Jobs need to be backward and forward compatible between consecutive versions of the application. Adding or removing an argument may cause problems.
 
 During any deployment, there's a period of time where some application nodes have been updated while others haven't.
 If an updated node queues a job with new arguments, but an older Sidekiq node processes it, the job will fail due to an argument mismatch.
@@ -43,11 +30,9 @@ For GitLab.com, this can occur if there are multiple deployments in the same mil
 
 ### Deprecate and remove an argument
 
-**Before you remove arguments from the `perform_async` and `perform` methods.**, deprecate them. The
-following example deprecates and then removes `arg2` from the `perform_async` method:
+**Before you remove arguments from the `perform_async` and `perform` methods.**, deprecate them. The following example deprecates and then removes `arg2` from the `perform_async` method:
 
-1. Provide a default value (usually `nil`) and use a comment to mark the
-   argument as deprecated in the coming minor release. (Release M)
+1. Provide a default value (usually `nil`) and use a comment to mark the argument as deprecated in the coming minor release. (Release M)
 
    ```ruby
    class ExampleWorker
@@ -113,8 +98,7 @@ This approach requires multiple releases.
 
 #### Parameter hash
 
-This approach doesn't require multiple releases if an existing worker already
-uses a parameter hash.
+This approach doesn't require multiple releases if an existing worker already uses a parameter hash.
 
 1. Use a parameter hash in the worker to allow future flexibility.
 
@@ -204,38 +188,33 @@ Delete the worker class file and follow the guidance in our [Sidekiq queues docu
 
 ## Renaming queues
 
-For the same reasons that removing workers is dangerous, care should be taken
-when renaming queues.
+For the same reasons that removing workers is dangerous, care should be taken when renaming queues.
 
-When renaming queues, use the `sidekiq_queue_migrate` helper migration method
-in a **post-deployment migration**:
+When renaming queues, use the `sidekiq_queue_migrate` helper migration method in a **post-deployment migration**:
 
 ```ruby
 class MigrateTheRenamedSidekiqQueue < Gitlab::Database::Migration[2.1]
-  restrict_gitlab_migration gitlab_schema: :gitlab_main_org
-  disable_ddl_transaction!
+ restrict_gitlab_migration gitlab_schema: :gitlab_main_org
+ disable_ddl_transaction!
 
-  def up
+ def up
     sidekiq_queue_migrate 'old_queue_name', to: 'new_queue_name'
-  end
+ end
 
-  def down
+ def down
     sidekiq_queue_migrate 'new_queue_name', to: 'old_queue_name'
-  end
+ end
 end
 
 ```
 
-You must rename the queue in a post-deployment migration not in a standard
-migration. Otherwise, it runs too early, before all the workers that
-schedule these jobs have stopped running. See also [other examples](../database/post_deployment_migrations.md#use-cases).
+You must rename the queue in a post-deployment migration not in a standard migration. Otherwise, it runs too early, before all the workers that schedule these jobs have stopped running. See also [other examples](../database/post_deployment_migrations.md#use-cases).
 
 ## Renaming worker classes
 
 We should treat this similar to adding a new worker. That means we only start scheduling the newly-named worker after the Sidekiq deployment finishes.
 
-To ensure backward and forward compatibility between consecutive versions
-of the application, follow these steps over three minor releases:
+To ensure backward and forward compatibility between consecutive versions of the application, follow these steps over three minor releases:
 
 1. Create the newly named worker, and have the old worker call the new worker's `#perform` method. Introduce a feature flag to control when we start scheduling the new worker. (Release M)
 

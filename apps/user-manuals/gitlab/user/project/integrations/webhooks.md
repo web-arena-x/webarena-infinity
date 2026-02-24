@@ -49,11 +49,9 @@ GitLab limits webhook triggers for push events that include multiple changes:
 - Default limit: 3 branches or tags per push.
 - Behavior when exceeded: No webhooks are triggered for the entire push event.
 - Applies to: Both project webhooks and system hooks.
-- Configuration: GitLab Self-Managed administrators can modify the `push_event_hooks_limit`
-  setting through the application settings API.
+- Configuration: GitLab Self-Managed administrators can modify the `push_event_hooks_limit` setting through the application settings API.
 
-If you frequently push multiple tags or branches simultaneously and need webhook
-notifications, contact your GitLab administrator to increase this limit.
+If you frequently push multiple tags or branches simultaneously and need webhook notifications, contact your GitLab administrator to increase this limit.
 
 ## Group webhooks
 
@@ -74,8 +72,7 @@ You can configure group webhooks to listen for:
 
 ### Webhooks in both a project and a group
 
-If you configure identical webhooks in both a group and a project in that group,
-both webhooks are triggered for events in that project.
+If you configure identical webhooks in both a group and a project in that group, both webhooks are triggered for events in that project.
 This allows for flexible event handling at different levels of your GitLab organization.
 
 ## Configure webhooks
@@ -117,8 +114,7 @@ Your webhook endpoint can use this token to verify the legitimacy of the request
 ### Mask sensitive portions of webhook URLs
 
 Mask sensitive portions of webhook URLs to enhance security.
-Masked portions are replaced with configured values when webhooks are executed, are not logged, and
-are encrypted at rest in the database.
+Masked portions are replaced with configured values when webhooks are executed, are not logged, and are encrypted at rest in the database.
 
 To mask sensitive portions of a webhook URL:
 
@@ -195,8 +191,8 @@ For this custom payload template:
 
 ```json
 {
-  "event": "{{object_kind}}",
-  "project_name": "{{project.name}}"
+ "event": "{{object_kind}}",
+ "project_name": "{{project.name}}"
 }
 ```
 
@@ -204,8 +200,8 @@ The resulting request payload for a `push` event is:
 
 ```json
 {
-  "event": "push",
-  "project_name": "Example"
+ "event": "push",
+ "project_name": "Example"
 }
 ```
 
@@ -376,9 +372,9 @@ The **Recent events** section displays all requests made to a webhook in the las
 The table includes:
 
 - HTTP status code:
-  - Green for `200`-`299` codes
-  - Red for other codes
-  - `internal error` for failed deliveries
+ - Green for `200`-`299` codes
+ - Red for other codes
+ - `internal error` for failed deliveries
 - Triggered event
 - Elapsed time of the request
 - Relative time the request was made
@@ -511,8 +507,7 @@ Failure occurs when:
 - The webhook experiences a timeout when attempting to connect to the webhook receiver.
 - The webhook encounters other HTTP errors.
 
-Temporarily disabled webhooks are initially disabled for one minute,
-with the duration extending on subsequent failures up to 24 hours.
+Temporarily disabled webhooks are initially disabled for one minute, with the duration extending on subsequent failures up to 24 hours.
 After this period has elapsed, these webhooks are automatically re-enabled.
 
 #### Permanently disabled webhooks
@@ -521,8 +516,7 @@ Webhooks are permanently disabled if they fail 40 consecutive times.
 Unlike temporarily disabled webhooks, these webhooks are not automatically re-enabled.
 
 Webhooks that were permanently disabled in GitLab 17.10 and earlier underwent a data migration.
-These webhooks might display four failures in **Recent events**
-even though the UI might state they have 40 failures.
+These webhooks might display four failures in **Recent events** even though the UI might state they have 40 failures.
 
 #### Re-enable disabled webhooks
 

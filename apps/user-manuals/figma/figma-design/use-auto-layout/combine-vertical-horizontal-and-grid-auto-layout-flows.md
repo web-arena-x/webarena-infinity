@@ -47,13 +47,13 @@ Try it out
 
 **Step 1: Create the text layers.**
 
-1. Select the  text tool from the toolbar, or press `T`, then click on the canvas to type a placeholder name.
+1. Select the text tool from the toolbar, or press `T`, then click on the canvas to type a placeholder name.
 2. Duplicate the text layer, moving it below the name layer, then update the text to a placeholder date.
 
 **Step 2: Add auto layout.**
 
-1. Select both text layers, then add an auto layout frame around them by pressing `⇧ Shift` `A` or clicking  **Use auto layout** from the **Layout** section of the right sidebar.
-2. Set the auto layout flow to  **Vertical**.
+1. Select both text layers, then add an auto layout frame around them by pressing `⇧ Shift` `A` or clicking **Use auto layout** from the **Layout** section of the right sidebar.
+2. Set the auto layout flow to **Vertical**.
 
 ![Animation of auto layout in Figma shown with vertical flow for text layers: FirstName LastName and Month DD.](https://help.figma.com/hc/article_attachments/33916919627415)
 
@@ -67,14 +67,14 @@ Try it out
 
 **Step 1: Create the avatar.**
 
-1. Select the  **Ellipse** tool from the toolbar or press `O`.
+1. Select the **Ellipse** tool from the toolbar or press `O`.
 2. Click and drag your cursor to create an ellipse. Do this while holding `⇧ Shift` to lock the ellipse to a 1:1 ratio as you create.
 
 **Step 2: Add auto layout for the profile element.**
 
 1. Select both the avatar ellipse and author and date frame.
-2. Add an auto layout frame around them by pressing `⇧ Shift` `A` or clicking  **Use auto layout** from the right sidebar.
-3. Set the auto layout flow to  **Horizontal**.
+2. Add an auto layout frame around them by pressing `⇧ Shift` `A` or clicking **Use auto layout** from the right sidebar.
+3. Set the auto layout flow to **Horizontal**.
 
 ![Horizontal auto layout applied to a profile component with avatar and text layers for name and date on a canvas.](https://help.figma.com/hc/article_attachments/33916931905047)
 
@@ -94,9 +94,9 @@ Try it out
 
 **Step 1: Create the image.**
 
-1. Select the  **Rectangle** tool from the toolbar, or press `R`. Click and drag to draw a rectangle.
+1. Select the **Rectangle** tool from the toolbar, or press `R`. Click and drag to draw a rectangle.
 2. Click the color swatch from the **Fill** section of the right sidebar to open the color picker.
-3. Select  **Image**. You can leave this as a checkerboard placeholder, or insert an image of your own.
+3. Select **Image**. You can leave this as a checkerboard placeholder, or insert an image of your own.
 
 **Step 2: Create the description.**
 
@@ -106,7 +106,7 @@ Try it out
 **Step 3: Add an auto layout frame.**
 
 1. Select the profile element, image, and text description. Then add auto layout.
-2. Set the flow to  **Vertical**.
+2. Set the flow to **Vertical**.
 
 ![Vertical auto layout settings in the right sidebar for a social media post, showing profile name, date, and placeholder text.](https://help.figma.com/hc/article_attachments/33916919628951)
 
@@ -115,11 +115,11 @@ Try it out
 To make sure our content reflows the way we want them to in our final product, let’s update the resizing properties on a few elements.
 
 - Profile element and post description
-  - Set their width resizing to **Fill container** so that it will always fill the width of the container, even if the parent resizes.
-  - Set their height resizing to **Hug contents** so that it will grow and shrink to accommodate the layers inside the frame.
+ - Set their width resizing to **Fill container** so that it will always fill the width of the container, even if the parent resizes.
+ - Set their height resizing to **Hug contents** so that it will grow and shrink to accommodate the layers inside the frame.
 - Image
-  - Set the width resizing to **Fill container**.
-  - Toggle on **Aspect ratio** to maintain the current ratio of the image whenever it resizes.
+ - Set the width resizing to **Fill container**.
+ - Toggle on **Aspect ratio** to maintain the current ratio of the image whenever it resizes.
 - Update other auto layout properties as you see fit. Padding and gap between are great places to start.
 
 **Tip**: Add a background color or stroke to the social media post frame so that you can see the bounds of the frame resizing more easily.
@@ -135,14 +135,14 @@ Try it out
 **Step 1: Add the newsfeed auto layout frame.**
 
 1. Select the social media post and press `⇧ Shift` `A` to add another level of auto layout to it. This will be the newsfeed frame.
-2. On the new frame, set the auto layout flow to  **Vertical**.
+2. On the new frame, set the auto layout flow to **Vertical**.
 3. Make sure the height resizing property is set to **Hug contents**.
 
 **Step 2: Update auto layout properties**.
 
 - Select the social media post, and set its width resizing to **Fill container**. Keep the height resizing to **Hug contents**.
 
-  ![Social media post with vertical auto layout, showing an avatar, text layers, and an image placeholder. The width and height boxes in the right sidebar are highlighted.](https://help.figma.com/hc/article_attachments/33916919630231)
+ ![Social media post with vertical auto layout, showing an avatar, text layers, and an image placeholder. The width and height boxes in the right sidebar are highlighted.](https://help.figma.com/hc/article_attachments/33916919630231)
 - Update the padding and gap between properties as desired for the newsfeed frame.
 
 **Step 3: Duplicate the social media post element.**
@@ -177,12 +177,12 @@ Try it out
 
 **Step 1: Create a frame.**
 
-1. Select the  **Frame** tool or press `F`.
+1. Select the **Frame** tool or press `F`.
 2. Choose a mobile [frame preset](../create-and-edit-layers/frames-in-figma-design.md#h_01JH5Y0VVZJVB5AXYNYAHJRV3R) from the right sidebar.
 
 **Step 2: Use grid auto layout flow.**
 
-1. With the frame selected, click the  **Grid** option in the **Layout** section of the right sidebar.
+1. With the frame selected, click the **Grid** option in the **Layout** section of the right sidebar.
 2. Click the grid selector, and set the **Number of columns** to `3` and **Number of rows** to `6`.
 
 ![](https://help.figma.com/hc/article_attachments/33916919633815)

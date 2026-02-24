@@ -62,17 +62,17 @@ As soon as students are added to the interview group, the next step is to assign
 3. In the pop-up modal, complete the **Jobs and Interview Groups** field. All other fields are optional.
 
 - **Jobs and Interview Groups**
-  - Select Interview Group created. You may also select jobs to associate with this interview slot. Only students who have applied to these jobs will be able to take this slot.
+ - Select Interview Group created. You may also select jobs to associate with this interview slot. Only students who have applied to these jobs will be able to take this slot.
 - **Interviewer**
-  - Type the name of the interviewer in the textbox provided
+ - Type the name of the interviewer in the textbox provided
 - **Unavailable?** (*select one*)
-  - Available
-  - Unavailable
+ - Available
+ - Unavailable
     - Select this if these slots should be treated as unavailable (for example, a lunch break). If this is selected, students will not be able to take these slots.
 - **Checked in?** 
-  - Checked in
+ - Checked in
     - Check this box to manually set the students as Checked In.
-  - Not Checked in
+ - Not Checked in
 
 4. Click the blue button **Save** in the lower right corner of the modal to save your changes.
 

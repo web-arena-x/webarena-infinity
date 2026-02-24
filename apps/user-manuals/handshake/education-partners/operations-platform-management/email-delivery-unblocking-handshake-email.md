@@ -6,7 +6,7 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360012324954-Email-D
 
 Handshake maintains highly reputable emailing domains to ensure that emails are delivered. However, email delivery can sometimes fail due to the various systems in between Handshake and students which are designed to prevent email abuse. In order to maintain high deliverability, Handshake monitors and acts on spam scores, domain blocking, IP throttling and more.
 
-In addition to unblocking IPs and domains, please identify any **internal limitations** you may have with receiving email and surface them to your Handshake Relationship Manager.  
+In addition to unblocking IPs and domains, please identify any **internal limitations** you may have with receiving email and surface them to your Handshake Relationship Manager. 
 *(e.g. 5k rate limit for recipients every hour)*
 
 # Unblock by IP
@@ -26,17 +26,17 @@ We send email from a dedicated set of IP addresses; please allow access to all o
 192.237.159.133
 159.112.247.180
 159.135.237.56
-159.112.247.182  
-159.112.247.181  
+159.112.247.182 
+159.112.247.181 
 69.72.44.24
-69.72.46.79  
+69.72.46.79 
 69.72.40.228
-159.135.226.83  
+159.135.226.83 
 159.112.241.1
-159.112.242.178  
-159.112.252.237  
-161.38.197.221  
-161.38.198.110  
+159.112.242.178 
+159.112.252.237 
+161.38.197.221 
+161.38.198.110 
 161.38.199.254
 ```
 
@@ -50,7 +50,7 @@ We only send email from these domains:
 joinhandshake.com
 notifications.joinhandshake.com
 mail.joinhandshake.com
-m.joinhandshake.com  
+m.joinhandshake.com 
 g.joinhandshake.com
 cm.joinhandshake.com
 ```

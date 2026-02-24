@@ -11,23 +11,23 @@ The Bid Leveling Notes feature allows you to add specific notes for each bidder 
 ## Things to Consider
 
 - **Required User Permissions**:
-  - 'Admin' level permissions on the project's Bidding tool.
-  - ‘Read Only’ and ‘Standard’ level permissions on the project's Bidding tool to view bid leveling notes.
+ - 'Admin' level permissions on the project's Bidding tool.
+ - ‘Read Only’ and ‘Standard’ level permissions on the project's Bidding tool to view bid leveling notes.
 - **Additional Information**:
-  - Unlimited Leveling Notes: Add as many notes as you need.
-  - Bid Leveling Notes are distinct from the notes added to a bidder in the **Bidders** tab. You can view the history of notes from the Bidders tab, but they do not appear in the bid leveling row.
-  - This feature only works for newer bid packages that have response types configured (after October 2023). See [Create a Bid Form](create-a-bid-form.md#Add_Line_Items).
+ - Unlimited Leveling Notes: Add as many notes as you need.
+ - Bid Leveling Notes are distinct from the notes added to a bidder in the **Bidders** tab. You can view the history of notes from the Bidders tab, but they do not appear in the bid leveling row.
+ - This feature only works for newer bid packages that have response types configured (after October 2023). See [Create a Bid Form](create-a-bid-form.md#Add_Line_Items).
 
 ## Steps
 
 1. Navigate to the project's **Bidding** tool.
-2. Click **View** or the name of the relevant bid package.  
+2. Click **View** or the name of the relevant bid package. 
    *Note:*You can also click the name of the bid package.
 3. Click the bid form **name**.
 4. Click the **Bid Leveling tab**.
 5. Click the **Leveled Bids view**.
 6. In the **Leveling Note** row, click **+ Add Note**.
-7. A text field will appear on the right. Type your note and click **Add Note**.  
+7. A text field will appear on the right. Type your note and click **Add Note**. 
    *Note:*To add another note to the same bidder, click the note in the **Leveling Notes** row. The same text field will appear on the right to type your note and save.
 
 #### Edit a Bid Leveling Note

@@ -12,21 +12,21 @@ When handling the transition from Senior to Alumni, a lot can vary based on your
 
 - **school\_year\_name** changed to **Alumni**
 - **primary\_education:end\_date** should be updated to the correct graduation date, if it’s not     already.
-- **primary\_education:currently\_attending** should be set to FALSE (unless they are returning for a graduate degree/additional education at your institution)  
+- **primary\_education:currently\_attending** should be set to FALSE (unless they are returning for a graduate degree/additional education at your institution) 
     
-  **Note**: This student should drop from your sync over time, since they will have no further information to update.
-  - *This will not disable their account.*
+ **Note**: This student should drop from your sync over time, since they will have no further information to update.
+ - *This will not disable their account.*
 
 2.)  If the student returns later, they can return to the sync with their new information (school year, majors, education dates, etc.):
 
 - **If an alumni returns**, their new **primary\_education:end\_date** and **start\_date** must be provided in your upload file or manually updated on their profile.  Otherwise, this will error during future uploads.
-  - This import error typically shows as *{"primary\_education.end\_date":["must be a date on or after primary\_education:start\_date"]}}*
-  - If you are providing an updated **start\_date** in your import, but not **end\_date**, you should pass \*\*CLEAR\*\* (Every letter capitalized with two asterisks at the beginning and end of the word) in the **end\_date** field to wipe out the old date and prevent errors. Leaving the **end\_date** field blank in imports will not clear the old **end\_date** value.
+ - This import error typically shows as *{"primary\_education.end\_date":["must be a date on or after primary\_education:start\_date"]}}*
+ - If you are providing an updated **start\_date** in your import, but not **end\_date**, you should pass \*\*CLEAR\*\* (Every letter capitalized with two asterisks at the beginning and end of the word) in the **end\_date** field to wipe out the old date and prevent errors. Leaving the **end\_date** field blank in imports will not clear the old **end\_date** value.
     - **Note:** Some users reported receiving a warning from the Importer that \*\*CLEAR\*\* is an "invalid value" for **primary\_education:end\_date** or **start\_date**. This is not accurate, and you may proceed with running the job because it will still recognize it as clearing the field. We are looking into updating the Importer to no longer suggest this as a warning.
 - If they were disabled previously, you will need to either:
-  - Manually unarchive the user from their student profile **OR**
-  - Manually upload a file, including the **disabled** field and set it to FALSE
-  - For automatic syncs: Add the **disabled** field to your upload and set it to FALSE
+ - Manually unarchive the user from their student profile **OR**
+ - Manually upload a file, including the **disabled** field and set it to FALSE
+ - For automatic syncs: Add the **disabled** field to your upload and set it to FALSE
 
 **Note**: This is a student upload, and thus all standard required fields for any student upload file **must** be present in order for your file to process successfully. These fields can be found [here](importing-student-data.md) for your reference. The listed fields above are **in addition to** the standard required fields for student uploads.
 
@@ -37,10 +37,10 @@ When handling the transition from Senior to Alumni, a lot can vary based on your
 - **school\_year\_name** to change to **Alumni**
 - **primary\_education:end\_date** should be updated to the correct graduation date, if it’s not     already.
 - **email\_address**:
-  - You **cannot** update a student email to an address that is associated with another institution/.edu, as those institutions would create separate accounts for these users.
-  - You **can** change these email addresses to personal accounts, such as @gmail, etc.
-  - If they keep their .edu email from your institution active for an extended period (1 year+), you will not need to change this address yet.
-  - If they do *not* keep their .edu email after graduation, you will need to gather their preferred alternate email to continue using Handshake.
+ - You **cannot** update a student email to an address that is associated with another institution/.edu, as those institutions would create separate accounts for these users.
+ - You **can** change these email addresses to personal accounts, such as @gmail, etc.
+ - If they keep their .edu email from your institution active for an extended period (1 year+), you will not need to change this address yet.
+ - If they do *not* keep their .edu email after graduation, you will need to gather their preferred alternate email to continue using Handshake.
     - We recommend sending a targeted email out requesting their alternate email.
       - If you need the information before a certain date, you may choose to use the verbiage "*we will archive your Handshake account on [insert date] if you do not respond with an alternate email*" or something similar.
 - **primary\_education:currently\_attending** should be set to FALSE (unless they are returning for a graduate degree/additional education at your institution)
@@ -69,10 +69,10 @@ If you do not use automatic syncs to manage students, or Alumni are removed from
 Generate a new CSV file containing these users and the include following fields:
 
 - - username - Current Handshake Username
-  - email\_address - Existing Handshake E-mail, or new email if updating
-  - school\_year\_name - Set to **Alumni**
-  - primary\_education:end\_date - Set to recent graduation date if not already updated
-  - disabled - (optional) Include if you need to archive Alumni.  See **Disabling Graduated Students** above for details.
+ - email\_address - Existing Handshake E-mail, or new email if updating
+ - school\_year\_name - Set to **Alumni**
+ - primary\_education:end\_date - Set to recent graduation date if not already updated
+ - disabled - (optional) Include if you need to archive Alumni.  See **Disabling Graduated Students** above for details.
 
 **Note**: This is a student upload, and thus all standard required fields for any student upload file *must* be present in order for your file to process successfully. These fields can be found [here](importing-student-data.md) for your reference. The listed fields above are *in addition to* the standard required fields for student uploads.
 

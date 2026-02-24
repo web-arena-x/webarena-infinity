@@ -29,7 +29,7 @@ Note: When you upload an SVG to Figma Slides, it is no longer treated as an imag
 
 Drag and drop files from your computer into Figma Slides, or use the media picker to select the files you want to add. You can import multiple files at the same time.
 
-1. Click  **Image/video** in the toolbar or use the keyboard shortcut:
+1. Click **Image/video** in the toolbar or use the keyboard shortcut:
    - **Mac:** `Shift` `Command` `K`
    - **Windows:** `Shift` `Ctrl` `K`
 2. The media picker opens. Select the files you’d like to add to your slide deck and click **Open**.
@@ -52,7 +52,7 @@ Some templates include slide layouts with media placeholders. Media placeholders
 To replace a media placeholder:
 
 1. Select the media placeholder.
-2. Click  **Image/video** in the toolbar or **Choose media** in the right sidebar.
+2. Click **Image/video** in the toolbar or **Choose media** in the right sidebar.
 3. Select the file you want to import.
 4. Click **Open**.
 

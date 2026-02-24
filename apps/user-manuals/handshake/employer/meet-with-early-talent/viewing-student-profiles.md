@@ -35,7 +35,7 @@ Student profiles display information that students either add themselves or sync
 Profiles are designed to highlight key details relevant to employers, such as:
 
 - **Highlights** 
-  - Key information varies depending on where the profile is accessed and may include:
+ - Key information varies depending on where the profile is accessed and may include:
     - Major and minor
     - Work authorization (*if disclosed by student*)
     - Graduation month and year
@@ -47,32 +47,32 @@ Profiles are designed to highlight key details relevant to employers, such as:
     - Interested in industries
     - Matching skills (*visible if the student’s skills match your job’s requirements or preferences*)
 - **How they interacted with you**
-  - Each activity is displayed as buttons, showing the number of occurrences for each:
+ - Each activity is displayed as buttons, showing the number of occurrences for each:
     - Messages
     - Jobs
     - Events
     - Career Fairs
 - **Notes and labels**
-  - Displays notes and labels added by you or your teammates.
+ - Displays notes and labels added by you or your teammates.
 - **Summary**
-  - A concise overview of the student’s professional background, skills, and career goals.
+ - A concise overview of the student’s professional background, skills, and career goals.
 
 ---
 
 Profiles may also include the following detailed sections:
 
 - **Work Experience**
-  - Employer name
-  - Location
-  - Job title
-  - Dates of employment
+ - Employer name
+ - Location
+ - Job title
+ - Dates of employment
 - **Education**
-  - School name
-  - School year
-  - Graduation date
-  - Major(s)
-  - Minor
-  - GPA (*if disclosed by student*)
+ - School name
+ - School year
+ - Graduation date
+ - Major(s)
+ - Minor
+ - GPA (*if disclosed by student*)
 
 **Additional sections**
 

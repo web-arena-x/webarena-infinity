@@ -27,15 +27,15 @@ You can export FigJam tables or sticky notes to a CSV file.
 3. Fill out the export modal details, choosing whether you are exporting **Stickies** or **Tables**.
 4. Click **Export**.
 
-Note: Each sticky note translates to a cell in a CSV file. The CSV file contains one column for the **Content** of a sticky and a **Created by** column to show who created the sticky.  
-  
-Stickies must have the  option turned on for the author's name to be included in the **Created by** column of the CSV file. [**Learn how to add your name to a sticky note →**](../work-on-boards/sticky-notes-in-figjam.md#Add_your_name_to_a_sticky)
+Note: Each sticky note translates to a cell in a CSV file. The CSV file contains one column for the **Content** of a sticky and a **Created by** column to show who created the sticky. 
+ 
+Stickies must have the option turned on for the author's name to be included in the **Created by** column of the CSV file. [**Learn how to add your name to a sticky note →**](../work-on-boards/sticky-notes-in-figjam.md#Add_your_name_to_a_sticky)
 
 ## Export entire file
 
 You can export an entire FigJam board as an image.
 
-1. Click  in the left sidebar.
+1. Click in the left sidebar.
 2. Go to **File** > **Export as**.
 3. Select a file type. If exporting as PNG or JPG, select a **Background** style. If exporting as JPG or PDF, select the **Q****uality** of the exported image.
 4. Click **Export**.
@@ -53,7 +53,7 @@ If you only need to save a portion of your board, you can export a selection. Th
 
 Depending on the file type, your exported image can have a solid, transparent, or grid background.
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | Format | Transparent | Solid | Grid |
 | PNG | ✓ | ✓ | ✓ |

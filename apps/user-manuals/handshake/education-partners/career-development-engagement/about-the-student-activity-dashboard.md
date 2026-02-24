@@ -62,9 +62,9 @@ You'll be asked to verify which format you'd like to download the report in. You
 
 The following reports expand on information provided from the Student Activity Dashboard
 
-[Pre-Built Reports: Students](https://support.joinhandshake.com/hc/en-us/articles/115015624127)  
-[Pre-Built Reports: Appointments](https://support.joinhandshake.com/hc/en-us/articles/360000687107)  
-[Pre-Built Reports: Applications](https://support.joinhandshake.com/hc/en-us/articles/115015624247)  
+[Pre-Built Reports: Students](https://support.joinhandshake.com/hc/en-us/articles/115015624127) 
+[Pre-Built Reports: Appointments](https://support.joinhandshake.com/hc/en-us/articles/360000687107) 
+[Pre-Built Reports: Applications](https://support.joinhandshake.com/hc/en-us/articles/115015624247) 
 [Pre-Built Reports: Career Interests](https://support.joinhandshake.com/hc/en-us/articles/115004916628)
 
 #### Additional Resources

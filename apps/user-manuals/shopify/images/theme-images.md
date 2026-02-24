@@ -46,7 +46,7 @@ Desktop
 6. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Tap **Edit theme** for the theme that you want to upload an image for.

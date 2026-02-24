@@ -43,33 +43,32 @@ Supported attributes:
 |-----------|-------------------|----------|----------------------------------------------------------------------------------|
 | `id`      | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).       |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the
-following response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute                                         | Type    | Description |
 |---------------------------------------------------|---------|-------------|
 | `create_access_levels`                            | array   | Array of create access level configurations. |
 | `create_access_levels[].access_level`             | integer | Access level for creating tags. |
-| `create_access_levels[].access_level_description` | string  | Human-readable description of the access level. |
+| `create_access_levels[].access_level_description` | string | Human-readable description of the access level. |
 | `create_access_levels[].deploy_key_id`            | integer | ID of the deploy key with create access. |
 | `create_access_levels[].group_id`                 | integer | ID of the group with create access. Premium and Ultimate only. |
 | `create_access_levels[].id`                       | integer | ID of the create access level configuration. |
 | `create_access_levels[].user_id`                  | integer | ID of the user with create access. Premium and Ultimate only. |
-| `name`                                            | string  | Name of the protected tag. |
+| `name`                                            | string | Name of the protected tag. |
 
 Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/protected_tags"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/protected_tags"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "name": "release-1-0",
     "create_access_levels": [
       {
@@ -84,7 +83,7 @@ Example response:
         "deploy_key_id": 1
       }
     ]
-  }
+ }
 ]
 ```
 
@@ -103,40 +102,39 @@ Supported attributes:
 | `id`      | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `name`    | string            | Yes      | Name of the tag or wildcard. |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the
-following response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute                                         | Type    | Description |
 |---------------------------------------------------|---------|-------------|
 | `create_access_levels`                            | array   | Array of create access level configurations. |
 | `create_access_levels[].access_level`             | integer | Access level for creating tags. |
-| `create_access_levels[].access_level_description` | string  | Human-readable description of the access level. |
+| `create_access_levels[].access_level_description` | string | Human-readable description of the access level. |
 | `create_access_levels[].deploy_key_id`            | integer | ID of the deploy key with create access. |
 | `create_access_levels[].group_id`                 | integer | ID of the group with create access. Premium and Ultimate only. |
 | `create_access_levels[].id`                       | integer | ID of the create access level configuration. |
 | `create_access_levels[].user_id`                  | integer | ID of the user with create access. Premium and Ultimate only. |
-| `name`                                            | string  | Name of the protected tag. |
+| `name`                                            | string | Name of the protected tag. |
 
 Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/protected_tags/release-1-0"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/protected_tags/release-1-0"
 ```
 
 Example response:
 
 ```json
 {
-  "name": "release-1-0",
-  "create_access_levels": [
+ "name": "release-1-0",
+ "create_access_levels": [
     {
       "id": 1,
       "access_level": 40,
       "access_level_description": "Maintainers"
     }
-  ]
+ ]
 }
 ```
 
@@ -148,8 +146,7 @@ Example response:
 
 {{< /history >}}
 
-Protect a single repository tag, or several project repository
-tags, using a wildcard protected tag.
+Protect a single repository tag, or several project repository tags, using a wildcard protected tag.
 
 ```plaintext
 POST /projects/:id/protected_tags
@@ -164,28 +161,27 @@ Supported attributes:
 | `allowed_to_create`   | array             | No       | Array of access levels allowed to create tags, with each described by a hash of the form `{user_id: integer}`, `{group_id: integer}`, `{deploy_key_id: integer}`, or `{access_level: integer}`. Premium and Ultimate only. |
 | `create_access_level` | integer           | No       | Access levels allowed to create. Default is `40` (Maintainer role). |
 
-If successful, returns [`201 Created`](rest/troubleshooting.md#status-codes) and the
-following response attributes:
+If successful, returns [`201 Created`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute                                         | Type    | Description |
 |---------------------------------------------------|---------|-------------|
 | `create_access_levels`                            | array   | Array of create access level configurations. |
 | `create_access_levels[].access_level`             | integer | Access level for creating tags. |
-| `create_access_levels[].access_level_description` | string  | Human-readable description of the access level. |
+| `create_access_levels[].access_level_description` | string | Human-readable description of the access level. |
 | `create_access_levels[].deploy_key_id`            | integer | ID of the deploy key with create access. |
 | `create_access_levels[].group_id`                 | integer | ID of the group with create access. Premium and Ultimate only. |
 | `create_access_levels[].id`                       | integer | ID of the create access level configuration. |
 | `create_access_levels[].user_id`                  | integer | ID of the user with create access. Premium and Ultimate only. |
-| `name`                                            | string  | Name of the protected tag. |
+| `name`                                            | string | Name of the protected tag. |
 
 Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --url "https://gitlab.example.com/api/v4/projects/5/protected_tags" \
-  --data '{
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --url "https://gitlab.example.com/api/v4/projects/5/protected_tags" \
+ --data '{
    "allowed_to_create" : [
       {
          "user_id" : 1
@@ -203,14 +199,14 @@ Example response:
 
 ```json
 {
-  "name": "*-stable",
-  "create_access_levels": [
+ "name": "*-stable",
+ "create_access_levels": [
     {
       "id": 1,
       "access_level": 30,
       "access_level_description": "Developers + Maintainers"
     }
-  ]
+ ]
 }
 ```
 
@@ -221,13 +217,12 @@ Each user must have access to the project and each group must [have this project
 These access levels allow more granular control over protected tag access.
 For more information, see [Add a group to protected tags](../user/project/protected_tags.md#add-a-group-to-protected-tags).
 
-This example request demonstrates how to create a protected tag that allows creation access
-to a specific user and group:
+This example request demonstrates how to create a protected tag that allows creation access to a specific user and group:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/protected_tags?name=*-stable&allowed_to_create%5B%5D%5Buser_id%5D=10&allowed_to_create%5B%5D%5Bgroup_id%5D=20"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/protected_tags?name=*-stable&allowed_to_create%5B%5D%5Buser_id%5D=10&allowed_to_create%5B%5D%5Bgroup_id%5D=20"
 ```
 
 This example response includes:
@@ -238,8 +233,8 @@ This example response includes:
 
 ```json
 {
-  "name": "*-stable",
-  "create_access_levels": [
+ "name": "*-stable",
+ "create_access_levels": [
     {
       "id": 1,
       "access_level": null,
@@ -254,7 +249,7 @@ This example response includes:
       "group_id": 20,
       "access_level_description": "Example Create Group"
     }
-  ]
+ ]
 }
 ```
 
@@ -279,8 +274,8 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/protected_tags/*-stable"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/protected_tags/*-stable"
 ```
 
 ## Related topics

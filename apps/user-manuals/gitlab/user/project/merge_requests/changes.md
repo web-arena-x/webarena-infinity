@@ -13,10 +13,7 @@ title: Changes in merge requests
 
 {{< /details >}}
 
-A [merge request](_index.md) proposes a set of changes to files in a branch in your repository. GitLab
-shows these changes as a _diff_ (difference) between the current state and the proposed
-changes. By default, the diff compares your proposed changes (the source branch) with
-the target branch. By default, GitLab shows only the changed portions of the files.
+A [merge request](_index.md) proposes a set of changes to files in a branch in your repository. GitLab shows these changes as a _diff_ (difference) between the current state and the proposed changes. By default, the diff compares your proposed changes (the source branch) with the target branch. By default, GitLab shows only the changed portions of the files.
 
 This example shows changes to a text file. In the default syntax highlighting theme:
 
@@ -28,26 +25,21 @@ This example shows changes to a text file. In the default syntax highlighting th
 The header for each file in the diff contains:
 
 - **Hide file contents** ({{< icon name="chevron-down" >}}) to hide all changes to this file.
-- **Path**: The full path to this file. To copy this path, select
-  **Copy file path** ({{< icon name="copy-to-clipboard" >}}).
+- **Path**: The full path to this file. To copy this path, select **Copy file path** ({{< icon name="copy-to-clipboard" >}}).
 - **Lines changed**: The number of lines added and removed in this file, in the format `+2 -2`.
 - **Viewed**: Select this checkbox to [mark the file as viewed](#mark-files-as-viewed)
-  until it changes again.
-- **Comment on this file** ({{< icon name="comment" >}}) to leave a general comment on the file, without
-  pinning the comment to a specific line.
+ until it changes again.
+- **Comment on this file** ({{< icon name="comment" >}}) to leave a general comment on the file, without pinning the comment to a specific line.
 - **Options**: Select ({{< icon name="ellipsis_v" >}}) to display more file viewing options.
 
 The diff also includes navigation and comment aids to the left of the file, in the gutter:
 
-- Show more context: Select **Previous 20 lines** ({{< icon name="expand-up" >}}) to display
-  the previous 20 unchanged lines, or **Next 20 lines** ({{< icon name="expand-down" >}}) to
-  show the next 20 unchanged lines.
-- Line numbers are shown in two columns. Previous line numbers are shown on
-  the left, and proposed line numbers on the right. To interact with a line:
-  - To show [comment options](#add-a-comment-to-a-merge-request-file), hover over a line number.
-  - To copy a link to the line, press <kbd>Command</kbd> and select (or right-click)
+- Show more context: Select **Previous 20 lines** ({{< icon name="expand-up" >}}) to display the previous 20 unchanged lines, or **Next 20 lines** ({{< icon name="expand-down" >}}) to show the next 20 unchanged lines.
+- Line numbers are shown in two columns. Previous line numbers are shown on the left, and proposed line numbers on the right. To interact with a line:
+ - To show [comment options](#add-a-comment-to-a-merge-request-file), hover over a line number.
+ - To copy a link to the line, press <kbd>Command</kbd> and select (or right-click)
     a line number, then select **Copy link address**.
-  - To highlight a line, select the line number.
+ - To highlight a line, select the line number.
 
 ## Show a list of changed files
 
@@ -56,8 +48,7 @@ Use the file browser to view a list of files changed in a merge request:
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Code** > **Merge requests** and find your merge request.
 1. Below the merge request title, select **Changes**.
-1. Select **Show file browser** ({{< icon name="file-tree" >}}) or press <kbd>F</kbd> to show
-   the file tree.
+1. Select **Show file browser** ({{< icon name="file-tree" >}}) or press <kbd>F</kbd> to show the file tree.
    - For a tree view that shows nesting, select **Tree view** ({{< icon name="file-tree" >}}).
    - For a file list without nesting, select **List view** ({{< icon name="list-bulleted" >}}).
 
@@ -92,15 +83,13 @@ GitLab collapses files with many changes to improve performance, and displays th
 
 {{< /history >}}
 
-When you share a merge request link with a team member, you might want to show a specific file
-first in the list of changed files. To copy a merge request link that shows your desired file first:
+When you share a merge request link with a team member, you might want to show a specific file first in the list of changed files. To copy a merge request link that shows your desired file first:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Code** > **Merge requests** and find your merge request.
 1. Below the merge request title, select **Changes**.
 1. Find the file you want to show first. Right-click the name of the file to copy the link to it.
-1. When you visit that link, your chosen file is shown at the top of the list. The file browser
-   shows a link icon ({{< icon name="link" >}}) next to the filename:
+1. When you visit that link, your chosen file is shown at the top of the list. The file browser shows a link icon ({{< icon name="link" >}}) next to the filename:
 
    ![A merge request listing files, with the selected YAML file at the top.](img/linked_file_v17_4.png)
 
@@ -121,9 +110,7 @@ first in the list of changed files. To copy a merge request link that shows your
 
 {{< /history >}}
 
-To help reviewers focus on the files needed to perform a code review, GitLab collapses
-several common types of generated files. GitLab collapses these files by default, because
-they rarely require code reviews:
+To help reviewers focus on the files needed to perform a code review, GitLab collapses several common types of generated files. GitLab collapses these files by default, because they rarely require code reviews:
 
 1. Files with `.nib`, `.xcworkspacedata`, or `.xcurserstate` extensions.
 1. Package lock files such as `package-lock.json` or `Gopkg.lock`.
@@ -132,8 +119,7 @@ they rarely require code reviews:
 1. Source map reference files.
 1. Generated Go files, including the generated files by protocol buffer compiler.
 
-To mark a file or path as generated, set the `gitlab-generated` attribute for it
-in your [`.gitattributes` file](../repository/files/git_attributes.md).
+To mark a file or path as generated, set the `gitlab-generated` attribute for it in your [`.gitattributes` file](../repository/files/git_attributes.md).
 
 ### View a collapsed file
 
@@ -146,10 +132,8 @@ in your [`.gitattributes` file](../repository/files/git_attributes.md).
 
 To change the default collapse behavior for a file type:
 
-1. If a `.gitattributes` file does not exist in the root directory of your project,
-   create a blank file with this name.
-1. For each file type you want to modify, add a line to the `.gitattributes` file
-   declaring the file extension and your desired behavior:
+1. If a `.gitattributes` file does not exist in the root directory of your project, create a blank file with this name.
+1. For each file type you want to modify, add a line to the `.gitattributes` file declaring the file extension and your desired behavior:
 
    ```conf
    # Collapse all files with a .txt extension
@@ -164,17 +148,13 @@ To change the default collapse behavior for a file type:
 
 1. Commit, push, and merge your changes into your default branch.
 
-After the changes merge into your [default branch](../repository/branches/default.md),
-all files of this type in your project use this behavior in merge requests.
+After the changes merge into your [default branch](../repository/branches/default.md), all files of this type in your project use this behavior in merge requests.
 
-For technical details about how GitLab detects generated files, see the
-[`go-enry`](https://github.com/go-enry/go-enry/blob/master/data/generated.go) repository.
+For technical details about how GitLab detects generated files, see the [`go-enry`](https://github.com/go-enry/go-enry/blob/master/data/generated.go) repository.
 
 ## Show one file at a time
 
-For larger merge requests, you can review one file at a time. You can change this
-setting in your user preferences, or when you review a merge request. If you change this
-setting in a merge request, it updates your user settings as well.
+For larger merge requests, you can review one file at a time. You can change this setting in your user preferences, or when you review a merge request. If you change this setting in a merge request, it updates your user settings as well.
 
 {{< tabs >}}
 
@@ -204,19 +184,17 @@ setting in a merge request, it updates your user settings as well.
 To select another file to view when this setting is enabled, either:
 
 - Scroll to the end of the file and select either **Prev** or **Next**.
-- If [keyboard shortcuts are enabled](../../shortcuts.md#enable-keyboard-shortcuts),
-  press <kbd>\[</kbd>, <kbd>]</kbd>, <kbd>k</kbd>, or <kbd>j</kbd>.
+- If [keyboard shortcuts are enabled](../../shortcuts.md#enable-keyboard-shortcuts), press <kbd>\[</kbd>, <kbd>]</kbd>, <kbd>k</kbd>, or <kbd>j</kbd>.
 - Select **Show file browser** ({{< icon name="file-tree" >}}) and select another file to view.
 
 ## Compare changes
 
 You can view the changes in a merge request either:
 
-- Inline, which shows the changes vertically. The old version of a line is shown
-  first, with the new version shown directly below it.
-  Inline mode is often better for changes to single lines.
+- Inline, which shows the changes vertically. The old version of a line is shown first, with the new version shown directly below it.
+ Inline mode is often better for changes to single lines.
 - Side-by-side, which shows the old and new versions of lines in separate columns.
-  Side-by-side mode is often better for changes affecting large numbers of sequential lines.
+ Side-by-side mode is often better for changes affecting large numbers of sequential lines.
 
 To change how a merge request shows changed lines:
 
@@ -267,17 +245,14 @@ To change how a merge request shows changed lines:
 
 {{< /history >}}
 
-If you spend a lot of time trying to understand code that others have created, or
-you struggle to understand code written in a language you are not familiar with,
-you can ask GitLab Duo to explain the code to you.
+If you spend a lot of time trying to understand code that others have created, or you struggle to understand code written in a language you are not familiar with, you can ask GitLab Duo to explain the code to you.
 
 - <i class="fa-youtube-play" aria-hidden="true"></i> [Watch an overview](https://youtu.be/1izKaLmmaCA?si=O2HDokLLujRro_3O)
 <!-- Video published on 2023-11-18 -->
 
 Prerequisites:
 
-- You must belong to at least one group with the
-  [experiment and beta features setting](../../gitlab_duo/turn_on_off.md#turn-on-beta-and-experimental-features) enabled.
+- You must belong to at least one group with the [experiment and beta features setting](../../gitlab_duo/turn_on_off.md#turn-on-beta-and-experimental-features) enabled.
 - You must have access to view the project.
 
 To explain the code in a merge request:
@@ -327,8 +302,7 @@ To expand inline comments and show them again:
 
 ## Ignore whitespace changes
 
-Whitespace changes can make it more difficult to see the substantive changes in
-a merge request. You can choose to hide or show whitespace changes:
+Whitespace changes can make it more difficult to see the substantive changes in a merge request. You can choose to hide or show whitespace changes:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Code** > **Merge requests** and find your merge request.
@@ -340,8 +314,7 @@ a merge request. You can choose to hide or show whitespace changes:
 
 ## Mark files as viewed
 
-When reviewing a merge request with many files multiple times, you can ignore files
-you've already reviewed. To hide files that haven't changed after your last review:
+When reviewing a merge request with many files multiple times, you can ignore files you've already reviewed. To hide files that haven't changed after your last review:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Code** > **Merge requests** and find your merge request.
@@ -355,11 +328,9 @@ Files marked as viewed are not shown to you again unless either:
 
 ## Show merge request conflicts in diff
 
-To avoid displaying changes already on target branch, GitLab compares the merge request's
-source branch with the `HEAD` of the target branch.
+To avoid displaying changes already on target branch, GitLab compares the merge request's source branch with the `HEAD` of the target branch.
 
-When the source and target branch conflict, GitLab show an alert
-per conflicted file on the merge request diff:
+When the source and target branch conflict, GitLab show an alert per conflicted file on the merge request diff:
 
 ![A conflict alert in a merge request diff.](img/conflict_ui_v15_6.png)
 
@@ -390,9 +361,7 @@ To download the changes as a diff:
 1. Select the merge request.
 1. In the upper-right corner, select **Code** > **Plain diff**.
 
-If you know the URL of the merge request, you can also download the diff from
-the command line by appending `.diff` to the URL. This example downloads the diff
-for merge request `000000`:
+If you know the URL of the merge request, you can also download the diff from the command line by appending `.diff` to the URL. This example downloads the diff for merge request `000000`:
 
 ```plaintext
 https://gitlab.com/gitlab-org/gitlab/-/merge_requests/000000.diff
@@ -413,9 +382,7 @@ To download the changes as a patch file:
 1. Select the merge request.
 1. In the upper-right corner, select **Code** > **Patches**.
 
-If you know the URL of the merge request, you can also download the patch from
-the command line by appending `.patch` to the URL. This example downloads the patch
-file for merge request `000000`:
+If you know the URL of the merge request, you can also download the patch from the command line by appending `.patch` to the URL. This example downloads the patch file for merge request `000000`:
 
 ```plaintext
 https://gitlab.com/gitlab-org/gitlab/-/merge_requests/000000.patch
@@ -472,8 +439,7 @@ https://gitlab.com/gitlab-org/gitlab/-/merge_requests/123456/diffs.patch?diff_id
 
 {{< /history >}}
 
-You can add comments to a merge request diff file. These comments persist across
-rebases and file changes.
+You can add comments to a merge request diff file. These comments persist across rebases and file changes.
 
 To add a comment to a merge request file:
 

@@ -39,8 +39,8 @@ Click **More details** to select advanced search options:
 
 - **Additional contact information:** Include details such as **middle name**, **contact information** (including email addresses and phone numbers), **address**, and **date of birth (D.O.B.)**.
 - **Flex search or Exact search:**
-  - **Flex search** allows for results that are similar to your search parameters.
-  - **Exact search** limits results to exact matches.
+ - **Flex search** allows for results that are similar to your search parameters.
+ - **Exact search** limits results to exact matches.
 
 #### Select search categories
 

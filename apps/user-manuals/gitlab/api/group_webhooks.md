@@ -13,9 +13,7 @@ description: "Set up and manage webhooks for a group with the REST API."
 
 {{< /details >}}
 
-Use this API to manage [group webhooks](../user/project/integrations/webhooks.md#group-webhooks). Group
-webhooks are different from [system hooks](system_hooks.md) that impact the entire instance, and
-[project webhooks](project_webhooks.md) that are limited to a single project.
+Use this API to manage [group webhooks](../user/project/integrations/webhooks.md#group-webhooks). Group webhooks are different from [system hooks](system_hooks.md) that impact the entire instance, and [project webhooks](project_webhooks.md) that are limited to a single project.
 
 Prerequisites:
 
@@ -33,21 +31,21 @@ Supported attributes:
 
 | Attribute | Type            | Required | Description |
 | --------- | --------------- | -------- | ----------- |
-| `id`      | integer or string  | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
+| `id`      | integer or string | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
 
 Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/hooks"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/hooks"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "url": "http://example.com/hook",
     "name": "Test group hook",
@@ -86,7 +84,7 @@ Example response:
         "key": "Authorization"
       }
     ]
-  }
+ }
 ]
 ```
 
@@ -109,51 +107,51 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/hooks/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/hooks/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "url": "http://example.com/hook",
-  "name": "Hook name",
-  "description": "Hook description",
-  "group_id": 3,
-  "push_events": true,
-  "push_events_branch_filter": "",
-  "branch_filter_strategy": "wildcard",
-  "issues_events": true,
-  "confidential_issues_events": true,
-  "merge_requests_events": true,
-  "tag_push_events": true,
-  "note_events": true,
-  "confidential_note_events": true,
-  "job_events": true,
-  "pipeline_events": true,
-  "wiki_page_events": true,
-  "deployment_events": true,
-  "feature_flag_events": false,
-  "releases_events": true,
-  "milestone_events": false,
-  "subgroup_events": true,
-  "member_events": true,
-  "project_events": true,
-  "enable_ssl_verification": true,
-  "repository_update_events": false,
-  "alert_status": "executable",
-  "disabled_until": null,
-  "url_variables": [ ],
-  "created_at": "2012-10-12T17:04:47Z",
-  "resource_access_token_events": true,
-  "custom_webhook_template": "{\"event\":\"{{object_kind}}\"}",
-  "custom_headers": [
+ "id": 1,
+ "url": "http://example.com/hook",
+ "name": "Hook name",
+ "description": "Hook description",
+ "group_id": 3,
+ "push_events": true,
+ "push_events_branch_filter": "",
+ "branch_filter_strategy": "wildcard",
+ "issues_events": true,
+ "confidential_issues_events": true,
+ "merge_requests_events": true,
+ "tag_push_events": true,
+ "note_events": true,
+ "confidential_note_events": true,
+ "job_events": true,
+ "pipeline_events": true,
+ "wiki_page_events": true,
+ "deployment_events": true,
+ "feature_flag_events": false,
+ "releases_events": true,
+ "milestone_events": false,
+ "subgroup_events": true,
+ "member_events": true,
+ "project_events": true,
+ "enable_ssl_verification": true,
+ "repository_update_events": false,
+ "alert_status": "executable",
+ "disabled_until": null,
+ "url_variables": [ ],
+ "created_at": "2012-10-12T17:04:47Z",
+ "resource_access_token_events": true,
+ "custom_webhook_template": "{\"event\":\"{{object_kind}}\"}",
+ "custom_headers": [
     {
       "key": "Authorization"
     }
-  ]
+ ]
 }
 ```
 
@@ -173,9 +171,9 @@ GET /groups/:id/hooks/:hook_id/events
 
 Supported attributes:
 
-| Attribute  | Type                 | Required | Description |
+| Attribute | Type                 | Required | Description |
 |----------- |--------------------- |--------- |------------ |
-| `hook_id`  | Integer              | Yes      | The ID of a project hook. |
+| `hook_id` | Integer              | Yes      | The ID of a project hook. |
 | `id`       | Integer or string    | Yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
 | `page`     | Integer              | No       | Page to retrieve. Defaults to `1`. |
 | `per_page` | Integer              | No       | Number of records to return per page. Defaults to `20`. |
@@ -185,15 +183,15 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/hooks/1/events"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/hooks/1/events"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "url": "https://example.net/",
     "trigger": "push_hooks",
@@ -313,8 +311,8 @@ Example response:
     "response_body": "{\"success\":true}",
     "execution_duration": 1.0906479999999874,
     "response_status": "200"
-  },
-  {
+ },
+ {
     "id": 2,
     "url": "https://example.net/",
     "trigger": "push_hooks",
@@ -435,7 +433,7 @@ Example response:
     "response_body": "{\"success\":true}",
     "execution_duration": 1.0716120000000728,
     "response_status": "200"
-  }
+ }
 ]
 ```
 
@@ -450,8 +448,7 @@ Example response:
 Resends a specific hook event.
 
 This endpoint has a rate limit of five requests per minute for each hook and authenticated user.
-To disable this limit on GitLab Self-Managed and GitLab Dedicated, an administrator can
-[disable the feature flag](../administration/feature_flags/_index.md) named `web_hook_event_resend_api_endpoint_rate_limit`.
+To disable this limit on GitLab Self-Managed and GitLab Dedicated, an administrator can [disable the feature flag](../administration/feature_flags/_index.md) named `web_hook_event_resend_api_endpoint_rate_limit`.
 
 ```plaintext
 POST /groups/:id/hooks/:hook_id/events/:hook_event_id/resend
@@ -469,15 +466,15 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/hooks/1/events/1/resend"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/hooks/1/events/1/resend"
 ```
 
 Example response:
 
 ```json
 {
-  "response_status": 200
+ "response_status": 200
 }
 ```
 
@@ -526,48 +523,48 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "content-type: application/json" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/hooks" \
-  --data '{"url": "https://example.com/hook", "name": "My Hook", "description": "Hook description"}'
+ --header "content-type: application/json" \
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/hooks" \
+ --data '{"url": "https://example.com/hook", "name": "My Hook", "description": "Hook description"}'
 ```
 
 Example response:
 
 ```json
 {
-  "id": 42,
-  "url": "https://example.com/hook",
-  "name": "My Hook",
-  "description": "Hook description",
-  "group_id": 3,
-  "push_events": true,
-  "push_events_branch_filter": "",
-  "branch_filter_strategy": "wildcard",
-  "issues_events": true,
-  "confidential_issues_events": true,
-  "merge_requests_events": true,
-  "tag_push_events": true,
-  "note_events": true,
-  "confidential_note_events": true,
-  "job_events": true,
-  "pipeline_events": true,
-  "wiki_page_events": true,
-  "deployment_events": true,
-  "feature_flag_events": true,
-  "releases_events": true,
-  "milestone_events": true,
-  "subgroup_events": true,
-  "member_events": true,
-  "project_events": true,
-  "enable_ssl_verification": true,
-  "repository_update_events": false,
-  "alert_status": "executable",
-  "disabled_until": null,
-  "url_variables": [ ],
-  "created_at": "2012-10-12T17:04:47Z",
-  "resource_access_token_events": true,
-  "custom_webhook_template": "{\"event\":\"{{object_kind}}\"}",
+ "id": 42,
+ "url": "https://example.com/hook",
+ "name": "My Hook",
+ "description": "Hook description",
+ "group_id": 3,
+ "push_events": true,
+ "push_events_branch_filter": "",
+ "branch_filter_strategy": "wildcard",
+ "issues_events": true,
+ "confidential_issues_events": true,
+ "merge_requests_events": true,
+ "tag_push_events": true,
+ "note_events": true,
+ "confidential_note_events": true,
+ "job_events": true,
+ "pipeline_events": true,
+ "wiki_page_events": true,
+ "deployment_events": true,
+ "feature_flag_events": true,
+ "releases_events": true,
+ "milestone_events": true,
+ "subgroup_events": true,
+ "member_events": true,
+ "project_events": true,
+ "enable_ssl_verification": true,
+ "repository_update_events": false,
+ "alert_status": "executable",
+ "disabled_until": null,
+ "url_variables": [ ],
+ "created_at": "2012-10-12T17:04:47Z",
+ "resource_access_token_events": true,
+ "custom_webhook_template": "{\"event\":\"{{object_kind}}\"}",
 }
 ```
 
@@ -618,53 +615,53 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "content-type: application/json" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/hooks/1" \
-  --data '{"url": "https://example.com/hook", "name": "New hook name", "description": "Changed hook description"}'
+ --header "content-type: application/json" \
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/hooks/1" \
+ --data '{"url": "https://example.com/hook", "name": "New hook name", "description": "Changed hook description"}'
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "url": "https://example.com/hook",
-  "name": "New hook name",
-  "description": "Changed hook description",
-  "group_id": 3,
-  "push_events": true,
-  "push_events_branch_filter": "",
-  "branch_filter_strategy": "wildcard",
-  "issues_events": true,
-  "confidential_issues_events": true,
-  "merge_requests_events": true,
-  "tag_push_events": true,
-  "note_events": true,
-  "confidential_note_events": true,
-  "job_events": true,
-  "pipeline_events": true,
-  "wiki_page_events": true,
-  "deployment_events": true,
-  "feature_flag_events": true,
-  "releases_events": true,
-  "milestone_events": true,
-  "subgroup_events": true,
-  "member_events": true,
-  "project_events": true,
-  "enable_ssl_verification": true,
-  "repository_update_events": false,
-  "alert_status": "executable",
-  "disabled_until": null,
-  "url_variables": [ ],
-  "created_at": "2012-10-12T17:04:47Z",
-  "resource_access_token_events": true,
-  "custom_webhook_template": "{\"event\":\"{{object_kind}}\"}",
-  "custom_headers": [
+ "id": 1,
+ "url": "https://example.com/hook",
+ "name": "New hook name",
+ "description": "Changed hook description",
+ "group_id": 3,
+ "push_events": true,
+ "push_events_branch_filter": "",
+ "branch_filter_strategy": "wildcard",
+ "issues_events": true,
+ "confidential_issues_events": true,
+ "merge_requests_events": true,
+ "tag_push_events": true,
+ "note_events": true,
+ "confidential_note_events": true,
+ "job_events": true,
+ "pipeline_events": true,
+ "wiki_page_events": true,
+ "deployment_events": true,
+ "feature_flag_events": true,
+ "releases_events": true,
+ "milestone_events": true,
+ "subgroup_events": true,
+ "member_events": true,
+ "project_events": true,
+ "enable_ssl_verification": true,
+ "repository_update_events": false,
+ "alert_status": "executable",
+ "disabled_until": null,
+ "url_variables": [ ],
+ "created_at": "2012-10-12T17:04:47Z",
+ "resource_access_token_events": true,
+ "custom_webhook_template": "{\"event\":\"{{object_kind}}\"}",
+ "custom_headers": [
     {
       "key": "Authorization"
     }
-  ]
+ ]
 }
 ```
 
@@ -688,8 +685,8 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/hooks/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/hooks/1"
 ```
 
 On success, no message is returned.
@@ -706,8 +703,7 @@ On success, no message is returned.
 Trigger a test hook for a specified group.
 
 This endpoint has a rate limit of five requests per minute for each group and authenticated user.
-To disable this limit on GitLab Self-Managed and GitLab Dedicated, an administrator can
-[disable the feature flag](../administration/feature_flags/_index.md) named `web_hook_test_api_endpoint_rate_limit`.
+To disable this limit on GitLab Self-Managed and GitLab Dedicated, an administrator can [disable the feature flag](../administration/feature_flags/_index.md) named `web_hook_test_api_endpoint_rate_limit`.
 
 ```plaintext
 POST /groups/:id/hooks/:hook_id/test/:trigger
@@ -723,8 +719,8 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/hooks/1/test/push_events"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/hooks/1/test/push_events"
 ```
 
 Example response:
@@ -760,8 +756,8 @@ Example request:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/hooks/1/custom_headers/header_key?value='header_value'"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/hooks/1/custom_headers/header_key?value='header_value'"
 ```
 
 On success, no message is returned.
@@ -792,8 +788,8 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/hooks/1/custom_headers/header_key"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/hooks/1/custom_headers/header_key"
 ```
 
 On success, no message is returned.
@@ -823,8 +819,8 @@ Example request:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/hooks/1/url_variables/my_key?value='my_key_value'"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/hooks/1/url_variables/my_key?value='my_key_value'"
 ```
 
 On success, no message is returned.
@@ -847,8 +843,8 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/3/hooks/1/url_variables/my_key"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/3/hooks/1/url_variables/my_key"
 ```
 
 On success, no message is returned.

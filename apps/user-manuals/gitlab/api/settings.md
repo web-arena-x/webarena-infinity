@@ -12,8 +12,7 @@ title: Application settings API
 
 {{< /details >}}
 
-Use this API to interact with the
-[application settings](#available-settings)
+Use this API to interact with the [application settings](#available-settings)
 for your GitLab instance.
 
 Changes to your application settings are subject to caching and might not immediately take effect.
@@ -45,19 +44,19 @@ GET /application/settings
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/application/settings"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/application/settings"
 ```
 
 Example response:
 
 ```json
 {
-  "default_projects_limit" : 100000,
-  "signup_enabled" : true,
-  "id" : 1,
-  "default_branch_protection" : 2,
-  "default_branch_protection_defaults": {
+ "default_projects_limit" : 100000,
+ "signup_enabled" : true,
+ "id" : 1,
+ "default_branch_protection" : 2,
+ "default_branch_protection_defaults": {
         "allowed_to_push": [
             {
                 "access_level": 40
@@ -70,117 +69,116 @@ Example response:
             }
         ]
     },
-  "default_preferred_language" : "en",
-  "deletion_adjourned_period": 7,
-  "failed_login_attempts_unlock_period_in_minutes": 30,
-  "restricted_visibility_levels" : [],
-  "sign_in_restrictions": {},
-  "password_authentication_enabled_for_web" : true,
-  "after_sign_out_path" : null,
-  "max_attachment_size" : 100,
-  "max_decompressed_archive_size": 25600,
-  "max_export_size": 50,
-  "max_import_size": 50,
-  "max_import_remote_file_size": 10240,
-  "max_login_attempts": 3,
-  "user_oauth_applications" : true,
-  "updated_at" : "2016-01-04T15:44:55.176Z",
-  "session_expire_delay" : 10080,
-  "home_page_url" : null,
-  "default_snippet_visibility" : "private",
-  "outbound_local_requests_whitelist": [],
-  "domain_allowlist" : [],
-  "domain_denylist_enabled" : false,
-  "domain_denylist" : [],
-  "created_at" : "2016-01-04T15:44:55.176Z",
-  "default_ci_config_path" : null,
-  "default_project_visibility" : "private",
-  "default_group_visibility" : "private",
-  "gravatar_enabled" : true,
-  "container_expiration_policies_enable_historic_entries": true,
-  "container_registry_cleanup_tags_service_max_list_size": 200,
-  "container_registry_delete_tags_service_timeout": 250,
-  "container_registry_expiration_policies_caching": true,
-  "container_registry_expiration_policies_worker_capacity": 4,
-  "container_registry_token_expire_delay": 5,
-  "decompress_archive_file_timeout": 210,
-  "repository_storages_weighted": {"default": 100},
-  "plantuml_enabled": false,
-  "plantuml_url": null,
-  "diagramsnet_enabled": true,
-  "diagramsnet_url": "https://embed.diagrams.net",
-  "kroki_enabled": false,
-  "kroki_url": null,
-  "terminal_max_session_time": 0,
-  "polling_interval_multiplier": 1.0,
-  "rsa_key_restriction": 0,
-  "dsa_key_restriction": 0,
-  "ecdsa_key_restriction": 0,
-  "ed25519_key_restriction": 0,
-  "ecdsa_sk_key_restriction": 0,
-  "ed25519_sk_key_restriction": 0,
-  "first_day_of_week": 0,
-  "enforce_terms": true,
-  "terms": "Hello world!",
-  "inactive_resource_access_tokens_delete_after_days": 30,
-  "performance_bar_allowed_group_id": 42,
-  "user_show_add_ssh_key_message": true,
-  "allow_account_deletion": true,
-  "updating_name_disabled_for_users": false,
-  "local_markdown_version": 0,
-  "allow_local_requests_from_hooks_and_services": true,
-  "allow_local_requests_from_web_hooks_and_services": true,
-  "allow_local_requests_from_system_hooks": false,
-  "asset_proxy_enabled": true,
-  "asset_proxy_url": "https://assets.example.com",
-  "asset_proxy_whitelist": ["example.com", "*.example.com", "your-instance.com"],
-  "asset_proxy_allowlist": ["example.com", "*.example.com", "your-instance.com"],
-  "maven_package_requests_forwarding": true,
-  "npm_package_requests_forwarding": true,
-  "pypi_package_requests_forwarding": true,
-  "snippet_size_limit": 52428800,
-  "issues_create_limit": 300,
-  "raw_blob_request_limit": 300,
-  "wiki_page_max_content_bytes": 5242880,
-  "require_admin_approval_after_user_signup": false,
-  "require_personal_access_token_expiry": true,
-  "personal_access_token_prefix": "glpat-",
-  "rate_limiting_response_text": null,
-  "keep_latest_artifact": true,
-  "admin_mode": false,
-  "floc_enabled": false,
-  "external_pipeline_validation_service_timeout": null,
-  "external_pipeline_validation_service_token": null,
-  "external_pipeline_validation_service_url": null,
-  "jira_connect_application_key": null,
-  "jira_connect_public_key_storage_enabled": false,
-  "jira_connect_proxy_url": null,
-  "jira_connect_additional_audience_url": null,
-  "silent_mode_enabled": false,
-  "package_registry_allow_anyone_to_pull_option": true,
-  "bulk_import_max_download_file_size": 5120,
-  "project_jobs_api_rate_limit": 600,
-  "runner_jobs_request_api_limit": 2000,
-  "runner_jobs_patch_trace_api_limit": 200,
-  "runner_jobs_endpoints_api_limit": 200,
-  "security_txt_content": null,
-  "bulk_import_concurrent_pipeline_batch_limit": 25,
-  "concurrent_relation_batch_export_limit": 25,
-  "relation_export_batch_size": 50,
-  "concurrent_github_import_jobs_limit": 1000,
-  "concurrent_bitbucket_import_jobs_limit": 100,
-  "concurrent_bitbucket_server_import_jobs_limit": 100,
-  "silent_admin_exports_enabled": false,
-  "top_level_group_creation_enabled": true,
-  "disable_invite_members": false,
-  "enforce_pipl_compliance": true,
-  "model_prompt_cache_enabled": true,
-  "lock_model_prompt_cache_enabled": false
+ "default_preferred_language" : "en",
+ "deletion_adjourned_period": 7,
+ "failed_login_attempts_unlock_period_in_minutes": 30,
+ "restricted_visibility_levels" : [],
+ "sign_in_restrictions": {},
+ "password_authentication_enabled_for_web" : true,
+ "after_sign_out_path" : null,
+ "max_attachment_size" : 100,
+ "max_decompressed_archive_size": 25600,
+ "max_export_size": 50,
+ "max_import_size": 50,
+ "max_import_remote_file_size": 10240,
+ "max_login_attempts": 3,
+ "user_oauth_applications" : true,
+ "updated_at" : "2016-01-04T15:44:55.176Z",
+ "session_expire_delay" : 10080,
+ "home_page_url" : null,
+ "default_snippet_visibility" : "private",
+ "outbound_local_requests_whitelist": [],
+ "domain_allowlist" : [],
+ "domain_denylist_enabled" : false,
+ "domain_denylist" : [],
+ "created_at" : "2016-01-04T15:44:55.176Z",
+ "default_ci_config_path" : null,
+ "default_project_visibility" : "private",
+ "default_group_visibility" : "private",
+ "gravatar_enabled" : true,
+ "container_expiration_policies_enable_historic_entries": true,
+ "container_registry_cleanup_tags_service_max_list_size": 200,
+ "container_registry_delete_tags_service_timeout": 250,
+ "container_registry_expiration_policies_caching": true,
+ "container_registry_expiration_policies_worker_capacity": 4,
+ "container_registry_token_expire_delay": 5,
+ "decompress_archive_file_timeout": 210,
+ "repository_storages_weighted": {"default": 100},
+ "plantuml_enabled": false,
+ "plantuml_url": null,
+ "diagramsnet_enabled": true,
+ "diagramsnet_url": "https://embed.diagrams.net",
+ "kroki_enabled": false,
+ "kroki_url": null,
+ "terminal_max_session_time": 0,
+ "polling_interval_multiplier": 1.0,
+ "rsa_key_restriction": 0,
+ "dsa_key_restriction": 0,
+ "ecdsa_key_restriction": 0,
+ "ed25519_key_restriction": 0,
+ "ecdsa_sk_key_restriction": 0,
+ "ed25519_sk_key_restriction": 0,
+ "first_day_of_week": 0,
+ "enforce_terms": true,
+ "terms": "Hello world!",
+ "inactive_resource_access_tokens_delete_after_days": 30,
+ "performance_bar_allowed_group_id": 42,
+ "user_show_add_ssh_key_message": true,
+ "allow_account_deletion": true,
+ "updating_name_disabled_for_users": false,
+ "local_markdown_version": 0,
+ "allow_local_requests_from_hooks_and_services": true,
+ "allow_local_requests_from_web_hooks_and_services": true,
+ "allow_local_requests_from_system_hooks": false,
+ "asset_proxy_enabled": true,
+ "asset_proxy_url": "https://assets.example.com",
+ "asset_proxy_whitelist": ["example.com", "*.example.com", "your-instance.com"],
+ "asset_proxy_allowlist": ["example.com", "*.example.com", "your-instance.com"],
+ "maven_package_requests_forwarding": true,
+ "npm_package_requests_forwarding": true,
+ "pypi_package_requests_forwarding": true,
+ "snippet_size_limit": 52428800,
+ "issues_create_limit": 300,
+ "raw_blob_request_limit": 300,
+ "wiki_page_max_content_bytes": 5242880,
+ "require_admin_approval_after_user_signup": false,
+ "require_personal_access_token_expiry": true,
+ "personal_access_token_prefix": "glpat-",
+ "rate_limiting_response_text": null,
+ "keep_latest_artifact": true,
+ "admin_mode": false,
+ "floc_enabled": false,
+ "external_pipeline_validation_service_timeout": null,
+ "external_pipeline_validation_service_token": null,
+ "external_pipeline_validation_service_url": null,
+ "jira_connect_application_key": null,
+ "jira_connect_public_key_storage_enabled": false,
+ "jira_connect_proxy_url": null,
+ "jira_connect_additional_audience_url": null,
+ "silent_mode_enabled": false,
+ "package_registry_allow_anyone_to_pull_option": true,
+ "bulk_import_max_download_file_size": 5120,
+ "project_jobs_api_rate_limit": 600,
+ "runner_jobs_request_api_limit": 2000,
+ "runner_jobs_patch_trace_api_limit": 200,
+ "runner_jobs_endpoints_api_limit": 200,
+ "security_txt_content": null,
+ "bulk_import_concurrent_pipeline_batch_limit": 25,
+ "concurrent_relation_batch_export_limit": 25,
+ "relation_export_batch_size": 50,
+ "concurrent_github_import_jobs_limit": 1000,
+ "concurrent_bitbucket_import_jobs_limit": 100,
+ "concurrent_bitbucket_server_import_jobs_limit": 100,
+ "silent_admin_exports_enabled": false,
+ "top_level_group_creation_enabled": true,
+ "disable_invite_members": false,
+ "enforce_pipl_compliance": true,
+ "model_prompt_cache_enabled": true,
+ "lock_model_prompt_cache_enabled": false
 }
 ```
 
-Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) may also see
-these parameters:
+Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) may also see these parameters:
 
 - `allow_all_integrations`
 - `allowed_integrations`
@@ -207,26 +205,26 @@ these parameters:
 
 ```json
 {
-  "allow_all_integrations": true,
-  "allowed_integrations": [],
-  "default_project_deletion_protection": false,
-  "disable_personal_access_tokens": false,
-  "duo_features_enabled": true,
-  "elasticsearch_index_settings": [
+ "allow_all_integrations": true,
+ "allowed_integrations": [],
+ "default_project_deletion_protection": false,
+ "disable_personal_access_tokens": false,
+ "duo_features_enabled": true,
+ "elasticsearch_index_settings": [
     {
       "alias_name": "gitlab-production",
       "number_of_shards": 5,
       "number_of_replicas": 1
     }
-  ],
-  "file_template_project_id": 1,
-  "geo_node_allowed_ips": "0.0.0.0/0, ::/0",
-  "group_owners_can_manage_default_branch_protection": true,
-  "id": 1,
-  "lock_duo_features_enabled": false,
-  "signup_enabled": true,
-  "virtual_registries_endpoints_api_limit": 1000,
-  ...
+ ],
+ "file_template_project_id": 1,
+ "geo_node_allowed_ips": "0.0.0.0/0, ::/0",
+ "group_owners_can_manage_default_branch_protection": true,
+ "id": 1,
+ "lock_duo_features_enabled": false,
+ "signup_enabled": true,
+ "virtual_registries_endpoints_api_limit": 1000,
+ ...
 }
 ```
 
@@ -255,26 +253,26 @@ PUT /application/settings
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/application/settings?signup_enabled=false&default_project_visibility=internal"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/application/settings?signup_enabled=false&default_project_visibility=internal"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "default_projects_limit": 100000,
-  "default_preferred_language": "en",
-  "failed_login_attempts_unlock_period_in_minutes": 30,
-  "signup_enabled": false,
-  "password_authentication_enabled_for_web": true,
-  "gravatar_enabled": true,
-  "created_at": "2015-06-12T15:51:55.432Z",
-  "updated_at": "2015-06-30T13:22:42.210Z",
-  "home_page_url": "",
-  "default_branch_protection": 2,
-  "default_branch_protection_defaults": {
+ "id": 1,
+ "default_projects_limit": 100000,
+ "default_preferred_language": "en",
+ "failed_login_attempts_unlock_period_in_minutes": 30,
+ "signup_enabled": false,
+ "password_authentication_enabled_for_web": true,
+ "gravatar_enabled": true,
+ "created_at": "2015-06-12T15:51:55.432Z",
+ "updated_at": "2015-06-30T13:22:42.210Z",
+ "home_page_url": "",
+ "default_branch_protection": 2,
+ "default_branch_protection_defaults": {
     "allowed_to_push": [
         {
             "access_level": 40
@@ -286,121 +284,120 @@ Example response:
             "access_level": 40
         }
     ]
-  },
-  "restricted_visibility_levels": [],
-  "sign_in_restrictions": {},
-  "max_attachment_size": 100,
-  "max_decompressed_archive_size": 25600,
-  "max_export_size": 50,
-  "max_import_size": 50,
-  "max_import_remote_file_size": 10240,
-  "max_login_attempts": 3,
-  "session_expire_delay": 10080,
-  "default_ci_config_path" : null,
-  "default_project_visibility": "internal",
-  "default_snippet_visibility": "private",
-  "default_group_visibility": "private",
-  "outbound_local_requests_whitelist": [],
-  "domain_allowlist": [],
-  "domain_denylist_enabled" : false,
-  "domain_denylist" : [],
-  "external_authorization_service_enabled": true,
-  "external_authorization_service_url": "https://authorize.me",
-  "external_authorization_service_default_label": "default",
-  "external_authorization_service_timeout": 0.5,
-  "user_oauth_applications": true,
-  "after_sign_out_path": "",
-  "container_expiration_policies_enable_historic_entries": true,
-  "container_registry_cleanup_tags_service_max_list_size": 200,
-  "container_registry_delete_tags_service_timeout": 250,
-  "container_registry_expiration_policies_caching": true,
-  "container_registry_expiration_policies_worker_capacity": 4,
-  "container_registry_token_expire_delay": 5,
-  "decompress_archive_file_timeout": 210,
-  "package_registry_cleanup_policies_worker_capacity": 2,
-  "plantuml_enabled": false,
-  "plantuml_url": null,
-  "diagramsnet_enabled": true,
-  "diagramsnet_url": "https://embed.diagrams.net",
-  "terminal_max_session_time": 0,
-  "polling_interval_multiplier": 1.0,
-  "rsa_key_restriction": 0,
-  "dsa_key_restriction": 0,
-  "ecdsa_key_restriction": 0,
-  "ed25519_key_restriction": 0,
-  "ecdsa_sk_key_restriction": 0,
-  "ed25519_sk_key_restriction": 0,
-  "first_day_of_week": 0,
-  "enforce_terms": true,
-  "terms": "Hello world!",
-  "inactive_resource_access_tokens_delete_after_days": 30,
-  "performance_bar_allowed_group_id": 42,
-  "user_show_add_ssh_key_message": true,
-  "file_template_project_id": 1,
-  "local_markdown_version": 0,
-  "asset_proxy_enabled": true,
-  "asset_proxy_url": "https://assets.example.com",
-  "asset_proxy_allowlist": ["example.com", "*.example.com", "your-instance.com"],
-  "globally_allowed_ips": "",
-  "geo_node_allowed_ips": "0.0.0.0/0, ::/0",
-  "allow_local_requests_from_hooks_and_services": true,
-  "allow_local_requests_from_web_hooks_and_services": true,
-  "allow_local_requests_from_system_hooks": false,
-  "maven_package_requests_forwarding": true,
-  "npm_package_requests_forwarding": true,
-  "pypi_package_requests_forwarding": true,
-  "snippet_size_limit": 52428800,
-  "issues_create_limit": 300,
-  "raw_blob_request_limit": 300,
-  "wiki_page_max_content_bytes": 5242880,
-  "require_admin_approval_after_user_signup": false,
-  "require_personal_access_token_expiry": true,
-  "personal_access_token_prefix": "glpat-",
-  "rate_limiting_response_text": null,
-  "keep_latest_artifact": true,
-  "admin_mode": false,
-  "external_pipeline_validation_service_timeout": null,
-  "external_pipeline_validation_service_token": null,
-  "external_pipeline_validation_service_url": null,
-  "can_create_group": false,
-  "jira_connect_application_key": "123",
-  "jira_connect_public_key_storage_enabled": true,
-  "jira_connect_proxy_url": "http://gitlab.example.com",
-  "user_defaults_to_private_profile": true,
-  "projects_api_rate_limit_unauthenticated": 400,
-  "runner_jobs_request_api_limit": 2000,
-  "runner_jobs_patch_trace_api_limit": 200,
-  "runner_jobs_endpoints_api_limit": 200,
-  "users_api_limit_followers": 100,
-  "users_api_limit_following": 100,
-  "users_api_limit_status": 240,
-  "users_api_limit_ssh_keys": 120,
-  "users_api_limit_ssh_key": 120,
-  "users_api_limit_gpg_keys": 120,
-  "users_api_limit_gpg_key": 120,
-  "silent_mode_enabled": false,
-  "security_policy_global_group_approvers_enabled": true,
-  "security_approval_policies_limit": 5,
-  "scan_execution_policies_action_limit": 0,
-  "scan_execution_policies_schedule_limit": 0,
-  "package_registry_allow_anyone_to_pull_option": true,
-  "bulk_import_max_download_file_size": 5120,
-  "project_jobs_api_rate_limit": 600,
-  "security_txt_content": null,
-  "bulk_import_concurrent_pipeline_batch_limit": 25,
-  "concurrent_relation_batch_export_limit": 25,
-  "relation_export_batch_size": 50,
-  "downstream_pipeline_trigger_limit_per_project_user_sha": 0,
-  "concurrent_github_import_jobs_limit": 1000,
-  "concurrent_bitbucket_import_jobs_limit": 100,
-  "concurrent_bitbucket_server_import_jobs_limit": 100,
-  "silent_admin_exports_enabled": false,
-  "enforce_pipl_compliance": true
+ },
+ "restricted_visibility_levels": [],
+ "sign_in_restrictions": {},
+ "max_attachment_size": 100,
+ "max_decompressed_archive_size": 25600,
+ "max_export_size": 50,
+ "max_import_size": 50,
+ "max_import_remote_file_size": 10240,
+ "max_login_attempts": 3,
+ "session_expire_delay": 10080,
+ "default_ci_config_path" : null,
+ "default_project_visibility": "internal",
+ "default_snippet_visibility": "private",
+ "default_group_visibility": "private",
+ "outbound_local_requests_whitelist": [],
+ "domain_allowlist": [],
+ "domain_denylist_enabled" : false,
+ "domain_denylist" : [],
+ "external_authorization_service_enabled": true,
+ "external_authorization_service_url": "https://authorize.me",
+ "external_authorization_service_default_label": "default",
+ "external_authorization_service_timeout": 0.5,
+ "user_oauth_applications": true,
+ "after_sign_out_path": "",
+ "container_expiration_policies_enable_historic_entries": true,
+ "container_registry_cleanup_tags_service_max_list_size": 200,
+ "container_registry_delete_tags_service_timeout": 250,
+ "container_registry_expiration_policies_caching": true,
+ "container_registry_expiration_policies_worker_capacity": 4,
+ "container_registry_token_expire_delay": 5,
+ "decompress_archive_file_timeout": 210,
+ "package_registry_cleanup_policies_worker_capacity": 2,
+ "plantuml_enabled": false,
+ "plantuml_url": null,
+ "diagramsnet_enabled": true,
+ "diagramsnet_url": "https://embed.diagrams.net",
+ "terminal_max_session_time": 0,
+ "polling_interval_multiplier": 1.0,
+ "rsa_key_restriction": 0,
+ "dsa_key_restriction": 0,
+ "ecdsa_key_restriction": 0,
+ "ed25519_key_restriction": 0,
+ "ecdsa_sk_key_restriction": 0,
+ "ed25519_sk_key_restriction": 0,
+ "first_day_of_week": 0,
+ "enforce_terms": true,
+ "terms": "Hello world!",
+ "inactive_resource_access_tokens_delete_after_days": 30,
+ "performance_bar_allowed_group_id": 42,
+ "user_show_add_ssh_key_message": true,
+ "file_template_project_id": 1,
+ "local_markdown_version": 0,
+ "asset_proxy_enabled": true,
+ "asset_proxy_url": "https://assets.example.com",
+ "asset_proxy_allowlist": ["example.com", "*.example.com", "your-instance.com"],
+ "globally_allowed_ips": "",
+ "geo_node_allowed_ips": "0.0.0.0/0, ::/0",
+ "allow_local_requests_from_hooks_and_services": true,
+ "allow_local_requests_from_web_hooks_and_services": true,
+ "allow_local_requests_from_system_hooks": false,
+ "maven_package_requests_forwarding": true,
+ "npm_package_requests_forwarding": true,
+ "pypi_package_requests_forwarding": true,
+ "snippet_size_limit": 52428800,
+ "issues_create_limit": 300,
+ "raw_blob_request_limit": 300,
+ "wiki_page_max_content_bytes": 5242880,
+ "require_admin_approval_after_user_signup": false,
+ "require_personal_access_token_expiry": true,
+ "personal_access_token_prefix": "glpat-",
+ "rate_limiting_response_text": null,
+ "keep_latest_artifact": true,
+ "admin_mode": false,
+ "external_pipeline_validation_service_timeout": null,
+ "external_pipeline_validation_service_token": null,
+ "external_pipeline_validation_service_url": null,
+ "can_create_group": false,
+ "jira_connect_application_key": "123",
+ "jira_connect_public_key_storage_enabled": true,
+ "jira_connect_proxy_url": "http://gitlab.example.com",
+ "user_defaults_to_private_profile": true,
+ "projects_api_rate_limit_unauthenticated": 400,
+ "runner_jobs_request_api_limit": 2000,
+ "runner_jobs_patch_trace_api_limit": 200,
+ "runner_jobs_endpoints_api_limit": 200,
+ "users_api_limit_followers": 100,
+ "users_api_limit_following": 100,
+ "users_api_limit_status": 240,
+ "users_api_limit_ssh_keys": 120,
+ "users_api_limit_ssh_key": 120,
+ "users_api_limit_gpg_keys": 120,
+ "users_api_limit_gpg_key": 120,
+ "silent_mode_enabled": false,
+ "security_policy_global_group_approvers_enabled": true,
+ "security_approval_policies_limit": 5,
+ "scan_execution_policies_action_limit": 0,
+ "scan_execution_policies_schedule_limit": 0,
+ "package_registry_allow_anyone_to_pull_option": true,
+ "bulk_import_max_download_file_size": 5120,
+ "project_jobs_api_rate_limit": 600,
+ "security_txt_content": null,
+ "bulk_import_concurrent_pipeline_batch_limit": 25,
+ "concurrent_relation_batch_export_limit": 25,
+ "relation_export_batch_size": 50,
+ "downstream_pipeline_trigger_limit_per_project_user_sha": 0,
+ "concurrent_github_import_jobs_limit": 1000,
+ "concurrent_bitbucket_import_jobs_limit": 100,
+ "concurrent_bitbucket_server_import_jobs_limit": 100,
+ "silent_admin_exports_enabled": false,
+ "enforce_pipl_compliance": true
 }
 ```
 
-Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) may also see
-these parameters:
+Users on [GitLab Premium or Ultimate](https://about.gitlab.com/pricing/) may also see these parameters:
 
 - `allow_all_integrations`
 - `allowed_integrations`
@@ -425,20 +422,19 @@ these parameters:
 Example responses:
 
 ```json
-  "file_template_project_id": 1,
-  "geo_node_allowed_ips": "0.0.0.0/0, ::/0",
-  "duo_features_enabled": true,
-  "lock_duo_features_enabled": false,
-  "allow_all_integrations": true,
-  "allowed_integrations": [],
-  "virtual_registries_endpoints_api_limit": 1000
+ "file_template_project_id": 1,
+ "geo_node_allowed_ips": "0.0.0.0/0, ::/0",
+ "duo_features_enabled": true,
+ "lock_duo_features_enabled": false,
+ "allow_all_integrations": true,
+ "allowed_integrations": [],
+ "virtual_registries_endpoints_api_limit": 1000
 ```
 
 ## Available settings
 
 <!--
-This heading is referenced by a script: `scripts/cells/application-settings-analysis.rb`
- Any updates to this heading should be reflected for the DOC_API_SETTINGS_TABLE_REGEX variable.
+This heading is referenced by a script: `scripts/cells/application-settings-analysis.rb` Any updates to this heading should be reflected for the DOC_API_SETTINGS_TABLE_REGEX variable.
  -->
 
 {{< history >}}
@@ -454,9 +450,7 @@ This heading is referenced by a script: `scripts/cells/application-settings-anal
 
 {{< /history >}}
 
-In general, all settings are optional. When enabling some settings, you might also need
-to configure other related settings. These requirements are
-`Required` column of the following table.
+In general, all settings are optional. When enabling some settings, you might also need to configure other related settings. These requirements are `Required` column of the following table.
 
 | Attribute                                | Type             | Required                             | Description |
 |------------------------------------------|------------------|:------------------------------------:|-------------|
@@ -494,7 +488,7 @@ to configure other related settings. These requirements are
 | `automatic_purchased_storage_allocation` | boolean          | no                                   | Enabling this permits automatic allocation of purchased storage in a namespace. Relevant only to EE distributions. |
 | `bulk_import_enabled`                    | boolean          | no                                   | Enable migrating GitLab groups by direct transfer. Setting also [available](../administration/settings/import_and_export_settings.md#enable-migration-of-groups-and-projects-by-direct-transfer) in the **Admin** area. |
 | `bulk_import_max_download_file_size`     | integer          | no                                   | Maximum download file size when importing from source GitLab instances by direct transfer. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/384976) in GitLab 16.3. |
-| `allow_bypass_placeholder_confirmation`  | boolean          | no                                   | Skip confirmation when administrators reassign placeholder users. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/534330) in GitLab 18.0. |
+| `allow_bypass_placeholder_confirmation` | boolean          | no                                   | Skip confirmation when administrators reassign placeholder users. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/534330) in GitLab 18.0. |
 | `can_create_group`                       | boolean          | no                                   | Indicates whether users can create top-level groups. Defaults to `true`. |
 | `check_namespace_plan`                   | boolean          | no                                   | Enabling this makes only licensed EE features available to projects if the project namespace's plan includes the feature or if the project is public. Premium and Ultimate only. |
 | `ci_delete_pipelines_in_seconds_limit_human_readable` | string | no                                | Maximum value that is allowed for configuring pipeline retention. Defaults to `1 year`. |
@@ -511,7 +505,7 @@ to configure other related settings. These requirements are
 | `container_registry_cleanup_tags_service_max_list_size`   | integer | no                           | The maximum number of tags that can be deleted in a single execution of [cleanup policies](../user/packages/container_registry/reduce_container_registry_storage.md#set-cleanup-limits-to-conserve-resources). |
 | `container_registry_delete_tags_service_timeout`          | integer | no                           | The maximum time, in seconds, that the cleanup process can take to delete a batch of tags for [cleanup policies](../user/packages/container_registry/reduce_container_registry_storage.md#set-cleanup-limits-to-conserve-resources). |
 | `container_registry_expiration_policies_caching`          | boolean | no                           | Caching during the execution of [cleanup policies](../user/packages/container_registry/reduce_container_registry_storage.md#set-cleanup-limits-to-conserve-resources). |
-| `container_registry_expiration_policies_worker_capacity`  | integer | no                           | Number of workers for [cleanup policies](../user/packages/container_registry/reduce_container_registry_storage.md#set-cleanup-limits-to-conserve-resources). |
+| `container_registry_expiration_policies_worker_capacity` | integer | no                           | Number of workers for [cleanup policies](../user/packages/container_registry/reduce_container_registry_storage.md#set-cleanup-limits-to-conserve-resources). |
 | `container_registry_token_expire_delay`                   | integer | no                           | Container registry token duration in minutes. |
 | `package_registry_cleanup_policies_worker_capacity`       | integer | no                           | Number of workers assigned to the packages cleanup policies. |
 | `updating_name_disabled_for_users`       | boolean          | no                                   | [Disable user profile name changes](../administration/settings/account_and_limit_settings.md#disable-user-profile-name-changes). |
@@ -602,7 +596,7 @@ to configure other related settings. These requirements are
 | `external_pipeline_validation_service_timeout` | integer    | no                                   | How long to wait for a response from the pipeline validation service. Assumes `OK` if it times out. |
 | `static_objects_external_storage_url`        | string       | no                                   | URL to an external storage for repository static objects. |
 | `static_objects_external_storage_auth_token` | string       | required by: `static_objects_external_storage_url` | Authentication token for the external storage linked in `static_objects_external_storage_url`. |
-| `failed_login_attempts_unlock_period_in_minutes` | integer  | no                                   | Time period in minutes after which the user is unlocked when maximum number of failed sign-in attempts reached. |
+| `failed_login_attempts_unlock_period_in_minutes` | integer | no                                   | Time period in minutes after which the user is unlocked when maximum number of failed sign-in attempts reached. |
 | `file_template_project_id`               | integer          | no                                   | The ID of a project to load custom file templates from. Premium and Ultimate only. |
 | `first_day_of_week`                      | integer          | no                                   | Start day of the week for calendar views and date pickers. Valid values are `0` (default) for Sunday, `1` for Monday, and `6` for Saturday. |
 | `globally_allowed_ips`                   | string           | no                                   | Comma-separated list of IP addresses and CIDRs always allowed for inbound traffic. For example, `1.1.1.1, 2.2.2.0/24`. |
@@ -670,7 +664,7 @@ to configure other related settings. These requirements are
 | `max_number_of_repository_downloads_within_time_period` | integer | no                             | Reporting time period (in seconds). Default: 0, Maximum: 864000 seconds (10 days). GitLab Self-Managed, Ultimate only. |
 | `max_yaml_depth`                         | integer          | no                                   | The maximum depth of nested CI/CD configuration added with the [`include` keyword](../ci/yaml/_index.md#include). Default: `100`. |
 | `max_yaml_size_bytes`                    | integer          | no                                   | The maximum size in bytes of a single CI/CD configuration file. Default: `2097152`. |
-| `git_rate_limit_users_allowlist`         | array of strings  | no                                  | List of usernames excluded from Git anti-abuse rate limits. Default: `[]`, Maximum: 100 usernames. GitLab Self-Managed, Ultimate only. |
+| `git_rate_limit_users_allowlist`         | array of strings | no                                  | List of usernames excluded from Git anti-abuse rate limits. Default: `[]`, Maximum: 100 usernames. GitLab Self-Managed, Ultimate only. |
 | `git_rate_limit_users_alertlist`         | array of integers | no                                  | List of user IDs that are emailed when the Git abuse rate limit is exceeded. Default: `[]`, Maximum: 100 user IDs. GitLab Self-Managed, Ultimate only. |
 | `auto_ban_user_on_excessive_projects_download` | boolean    | no                                   | When enabled, users will get automatically banned from the application when they download more than the maximum number of unique projects in the time period specified by `max_number_of_repository_downloads` and `max_number_of_repository_downloads_within_time_period`. GitLab Self-Managed, Ultimate only. |
 | `mirror_available`                       | boolean          | no                                   | Allow repository mirroring to configured by project Maintainers. If disabled, only Administrators can configure repository mirroring. |
@@ -718,14 +712,14 @@ to configure other related settings. These requirements are
 | `users_api_limit_status`    | integer |    no    | Max number of requests per minute, per user or IP address. Default: 240. Set to `0` to disable limits. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/181054) in GitLab 17.10. |
 | `users_api_limit_keys`      | integer |    no    | Max number of requests per minute, per user or IP address. Default: 120. Set to `0` to disable limits. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/181054) in GitLab 17.10. |
 | `users_api_limit_key`       | integer |    no    | Max number of requests per minute, per user or IP address. Default: 120. Set to `0` to disable limits. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/181054) in GitLab 17.10. |
-| `users_api_limit_gpg_keys`  | integer |    no    | Max number of requests per minute, per user or IP address. Default: 120. Set to `0` to disable limits. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/181054) in GitLab 17.10. |
+| `users_api_limit_gpg_keys` | integer |    no    | Max number of requests per minute, per user or IP address. Default: 120. Set to `0` to disable limits. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/181054) in GitLab 17.10. |
 | `users_api_limit_gpg_key`   | integer |    no    | Max number of requests per minute, per user or IP address. Default: 120. Set to `0` to disable limits. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/181054) in GitLab 17.10. |
 | `virtual_registries_endpoints_api_limit`          | integer          | no                                   | Max number of requests on virtual registries endpoints, per IP address, per 15 seconds. Default: 1000. To disable limits, set to `0`. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/521692) in GitLab 17.11. |
 | `prometheus_metrics_enabled`             | boolean          | no                                   | Enable Prometheus metrics. |
 | `protected_ci_variables`                 | boolean          | no                                   | CI/CD variables are protected by default. |
-| `disable_overriding_approvers_per_merge_request` | boolean  | no                                   | Prevent editing approval rules in projects and merge requests |
-| `prevent_merge_requests_author_approval`         | boolean  | no                                   | Prevent approval by merge request creator (author) |
-| `prevent_merge_requests_committers_approval`     | boolean  | no                                   | Prevent approval by committers to merge requests |
+| `disable_overriding_approvers_per_merge_request` | boolean | no                                   | Prevent editing approval rules in projects and merge requests |
+| `prevent_merge_requests_author_approval`         | boolean | no                                   | Prevent approval by merge request creator (author) |
+| `prevent_merge_requests_committers_approval`     | boolean | no                                   | Prevent approval by committers to merge requests |
 | `push_event_activities_limit`            | integer          | no                                   | Maximum number of changes (branches or tags) in a single push above which a [bulk push event is created](../administration/settings/push_event_activities_limit.md). Setting to `0` does not disable throttling. |
 | `push_event_hooks_limit`                 | integer          | no                                   | Maximum number of changes (branches or tags) in a single push above which webhooks and integrations are not triggered. Setting to `0` does not disable throttling. Default: `3`. |
 | `rate_limiting_response_text`            | string           | no                                   | When rate limiting is enabled via the `throttle_*` settings, send this plain text response when a rate limit is exceeded. 'Retry later' is sent if this is blank. |
@@ -752,7 +746,7 @@ to configure other related settings. These requirements are
 | `rsa_key_restriction`                    | integer          | no                                   | The minimum allowed bit length of an uploaded RSA key. Default is `0` (no restriction). `-1` disables RSA keys. |
 | `session_expire_delay`                   | integer          | no                                   | Session duration in minutes. GitLab restart is required to apply changes. |
 | `session_expire_from_init`               | boolean          | no                                   | If `true`, sessions expire a number of minutes after the session was created rather than after the last activity. This lifetime of a session is defined by `session_expire_delay`. |
-| `security_policy_global_group_approvers_enabled` | boolean  | no                                   | Whether to look up merge request approval policy approval groups globally or within project hierarchies. |
+| `security_policy_global_group_approvers_enabled` | boolean | no                                   | Whether to look up merge request approval policy approval groups globally or within project hierarchies. |
 | `security_approval_policies_limit`       | integer          | no                                   | Maximum number of active merge request approval policies per security policy project. Default: 5. Maximum: 20 |
 | `scan_execution_policies_action_limit`   | integer          | no                                   | Maximum number of `actions` per scan execution policy. Default: 0. Maximum: 20 |
 | `scan_execution_policies_schedule_limit` | integer          | no                                   | Maximum number of `type: schedule` rules per scan execution policy. Default: 0. Maximum: 20 |
@@ -764,7 +758,7 @@ to configure other related settings. These requirements are
 | `runner_token_expiration_interval`         | integer        | no                                   | Set the expiration time (in seconds) of authentication tokens of newly registered instance runners. Minimum value is 7200 seconds. For more information, see [Automatically rotate authentication tokens](../ci/runners/configure_runners.md#automatically-rotate-runner-authentication-tokens). |
 | `group_runner_token_expiration_interval`   | integer        | no                                   | Set the expiration time (in seconds) of authentication tokens of newly registered group runners. Minimum value is 7200 seconds. For more information, see [Automatically rotate authentication tokens](../ci/runners/configure_runners.md#automatically-rotate-runner-authentication-tokens). |
 | `project_runner_token_expiration_interval` | integer        | no                                   | Set the expiration time (in seconds) of authentication tokens of newly registered project runners. Minimum value is 7200 seconds. For more information, see [Automatically rotate authentication tokens](../ci/runners/configure_runners.md#automatically-rotate-runner-authentication-tokens). |
-| `sidekiq_job_limiter_mode`                        | string  | no                                   | `track` or `compress`. Sets the behavior for [Sidekiq job size limits](../administration/settings/sidekiq_job_limits.md). Default: 'compress'. |
+| `sidekiq_job_limiter_mode`                        | string | no                                   | `track` or `compress`. Sets the behavior for [Sidekiq job size limits](../administration/settings/sidekiq_job_limits.md). Default: 'compress'. |
 | `sidekiq_job_limiter_compression_threshold_bytes` | integer | no                                   | The threshold in bytes at which Sidekiq jobs are compressed before being stored in Redis. Default: 100,000 bytes (100 KB). |
 | `sidekiq_job_limiter_limit_bytes`                 | integer | no                                   | The threshold in bytes at which Sidekiq jobs are rejected. Default: 0 bytes (doesn't reject any job). |
 | `signin_enabled`                         | string           | no                                   | (Deprecated: Use `password_authentication_enabled_for_web` instead) Flag indicating if password authentication is enabled for the web interface. |
@@ -790,7 +784,7 @@ to configure other related settings. These requirements are
 | `spam_check_endpoint_url`                | string           | no                                   | URL of the external Spamcheck service endpoint. Valid URI schemes are `grpc` or `tls`. Specifying `tls` forces communication to be encrypted.|
 | `spam_check_api_key`                     | string           | no                                   | API key used by GitLab for accessing the Spam Check service endpoint. |
 | `suggest_pipeline_enabled`               | boolean          | no                                   | Enable pipeline suggestion banner. |
-| `enable_artifact_external_redirect_warning_page` | boolean  | no                                   | Show the external redirect page that warns you about user-generated content in GitLab Pages. |
+| `enable_artifact_external_redirect_warning_page` | boolean | no                                   | Show the external redirect page that warns you about user-generated content in GitLab Pages. |
 | `terminal_max_session_time`              | integer          | no                                   | Maximum time for web terminal websocket connection (in seconds). Set to `0` for unlimited time. |
 | `terms`                                  | text             | required by: `enforce_terms`         | (**Required by**: `enforce_terms`) Markdown content for the ToS. |
 | `throttle_authenticated_api_enabled`                      | boolean | no                                                              | (**If enabled, requires**: `throttle_authenticated_api_period_in_seconds` and `throttle_authenticated_api_requests_per_period`) Enable authenticated API request rate limit. Helps reduce request volume (for example, from crawlers or abusive bots). |
@@ -865,7 +859,7 @@ You can configure dormant projects deletion or turn it off.
 | Attribute                                | Type             | Required                             | Description |
 |------------------------------------------|------------------|:------------------------------------:|-------------|
 | `delete_inactive_projects`               | boolean          | no                                   | Enable [dormant project deletion](../administration/dormant_project_deletion.md). Default is `false`. [Became operational without feature flag](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/96803) in GitLab 15.4. |
-| `inactive_projects_delete_after_months`  | integer          | no                                   | If `delete_inactive_projects` is `true`, the time (in months) to wait before deleting dormant projects. Default is `2`. [Became operational](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/85689) in GitLab 15.0. |
+| `inactive_projects_delete_after_months` | integer          | no                                   | If `delete_inactive_projects` is `true`, the time (in months) to wait before deleting dormant projects. Default is `2`. [Became operational](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/85689) in GitLab 15.0. |
 | `inactive_projects_min_size_mb`          | integer          | no                                   | If `delete_inactive_projects` is `true`, the minimum repository size for projects to be checked for inactivity. Default is `0`. [Became operational](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/85689) in GitLab 15.0. |
 | `inactive_projects_send_warning_email_after_months` | integer | no                                 | If `delete_inactive_projects` is `true`, sets the time (in months) to wait before emailing Maintainers that the project is scheduled be deleted because it is dormant. Default is `1`. [Became operational](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/85689) in GitLab 15.0. |
 

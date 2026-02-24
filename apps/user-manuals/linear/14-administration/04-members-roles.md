@@ -31,7 +31,7 @@ Administrative roles can suspend a member from the workspace:
 
 Suspended users lose all access immediately and are removed from your next billing cycle. They remain visible in the members list for historical purposes—for example, when viewing issues they created or were assigned to.
 
-To view issue activity for a suspended user, visit their profile page at:  
+To view issue activity for a suspended user, visit their profile page at: 
 `linear.app/<workspace-name>/profiles/<username>`
 
 Admins can access this link from the user’s avatar or by filtering the Members page for **Suspended** users.
@@ -68,14 +68,11 @@ If you are upgrading an existing workspace that uses SCIM to the Enterprise plan
 
 Admins have elevated permissions to manage routine workspace operations. This role is well-suited for managers, team leads, and operations-focused members.
 
-**Free plan behavior**  
-All workspace members become admins automatically
+**Free plan behavior** All workspace members become admins automatically
 
-**Basic and Business plan behavior**  
-The user who upgrades the workspace is granted the admin role
+**Basic and Business plan behavior** The user who upgrades the workspace is granted the admin role
 
-**Enterprise plan behavior**  
-Admins will have limited permissions
+**Enterprise plan behavior** Admins will have limited permissions
 
 ---
 

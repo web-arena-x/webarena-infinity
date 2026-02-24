@@ -17,8 +17,7 @@ title: Compliance standards adherence dashboard (deprecated)
 
 {{< alert type="warning" >}}
 
-This feature was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/470834) in GitLab 17.11
-and is planned for removal in 18.6. Use the [compliance status report](compliance_status_report.md) instead.
+This feature was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/470834) in GitLab 17.11 and is planned for removal in 18.6. Use the [compliance status report](compliance_status_report.md) instead.
 
 {{< /alert >}}
 
@@ -77,8 +76,7 @@ The GitLab standard consists of the following rules:
 
 ### Prevent authors as approvers
 
-To comply with the GitLab standard, you must prevent users from approving their own merge requests. For more information,
-see [Prevent approval by merge request creator](../../project/merge_requests/approvals/settings.md#prevent-approval-by-merge-request-creator).
+To comply with the GitLab standard, you must prevent users from approving their own merge requests. For more information, see [Prevent approval by merge request creator](../../project/merge_requests/approvals/settings.md#prevent-approval-by-merge-request-creator).
 
 On GitLab Self-Managed, when instance-level setting for [prevent approval by merge request creator](../../../administration/merge_requests_approvals.md)
 is updated, the adherence status for all the projects on the instance is not updated automatically.
@@ -86,8 +84,7 @@ To update the adherence status for these projects, the group-level or the projec
 
 ### Prevent committers as approvers
 
-To comply with the GitLab standard, you must prevent users from approving merge requests where they've added commits. For
-more information, see [Prevent approvals by users who add commits](../../project/merge_requests/approvals/settings.md#prevent-approvals-by-users-who-add-commits).
+To comply with the GitLab standard, you must prevent users from approving merge requests where they've added commits. For more information, see [Prevent approvals by users who add commits](../../project/merge_requests/approvals/settings.md#prevent-approvals-by-users-who-add-commits).
 
 On GitLab Self-Managed, when instance-level setting for [prevent approvals by users who add commits](../../../administration/merge_requests_approvals.md)
 is updated, the adherence status for all the projects on the instance is not updated automatically.
@@ -95,18 +92,15 @@ To update the adherence status for these projects, the group-level or the projec
 
 ### At least two approvals
 
-To comply with the GitLab standard, you must have at least two users approve a merge request to get it merged. For more
-information, see [Merge request approval rules](../../project/merge_requests/approvals/rules.md).
+To comply with the GitLab standard, you must have at least two users approve a merge request to get it merged. For more information, see [Merge request approval rules](../../project/merge_requests/approvals/rules.md).
 
 ### SAST scanner artifact
 
-To comply with the GitLab standard, you must have the SAST scanner enabled, configured, and producing an artifact in the project's pipeline. For more
-information, see [static application security testing (SAST)](../../application_security/sast/_index.md).
+To comply with the GitLab standard, you must have the SAST scanner enabled, configured, and producing an artifact in the project's pipeline. For more information, see [static application security testing (SAST)](../../application_security/sast/_index.md).
 
 ### DAST scanner artifact
 
-To comply with the GitLab standard, you must have the DAST scanner enabled, configured, and producing an artifact in the project's pipeline. For more
-information, see [DAST on-demand scan](../../application_security/dast/on-demand_scan.md).
+To comply with the GitLab standard, you must have the DAST scanner enabled, configured, and producing an artifact in the project's pipeline. For more information, see [DAST on-demand scan](../../application_security/dast/on-demand_scan.md).
 
 ## SOC 2 standard
 
@@ -124,15 +118,11 @@ The SOC 2 standard consists of one rule:
 
 To comply with the SOC 2 standard, you must:
 
-- Prevent users from approving their own merge requests. For more information, see
-  [Prevent approval by merge request creator](../../project/merge_requests/approvals/settings.md#prevent-approval-by-merge-request-creator).
-- Prevent users from approving merge requests where they've added commits, see
-  [Prevent approvals by users who add commits](../../project/merge_requests/approvals/settings.md#prevent-approvals-by-users-who-add-commits).
+- Prevent users from approving their own merge requests. For more information, see [Prevent approval by merge request creator](../../project/merge_requests/approvals/settings.md#prevent-approval-by-merge-request-creator).
+- Prevent users from approving merge requests where they've added commits, see [Prevent approvals by users who add commits](../../project/merge_requests/approvals/settings.md#prevent-approvals-by-users-who-add-commits).
 - At least one approval is required, see [Merge request approval rules](../../project/merge_requests/approvals/rules.md).
 
-These settings are available for an entire instance. However, when these settings are updated at the instance level,
-the adherence status for all the projects on the instance is not updated automatically. To update the adherence status
-for these projects, you must update the group-level or project-level setting. For more information on the instance-level settings, see:
+These settings are available for an entire instance. However, when these settings are updated at the instance level, the adherence status for all the projects on the instance is not updated automatically. To update the adherence status for these projects, you must update the group-level or project-level setting. For more information on the instance-level settings, see:
 
 - [Prevent approval by merge request creator](../../../administration/merge_requests_approvals.md).
 - [Prevent approvals by users who add commits](../../../administration/merge_requests_approvals.md).

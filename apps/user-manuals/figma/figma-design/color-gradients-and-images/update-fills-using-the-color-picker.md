@@ -35,12 +35,12 @@ If the layers in your selection have different fills, you can open the color pic
 You can use the color picker to manage the following fill properties:
 
 1. Choose a custom color, or browse color styles and variables from your libraries. Learn more about [applying colors from libraries](../use-libraries/apply-styles-to-layers-and-objects.md#01H8Q2P6WPNJS32VXCV4C6A0K0).
-2. Click the  plus to add a new color [style](../styles/create-color-text-effect-and-layout-guide-styles.md) or [variable](../variables/overview-of-variables-collections-and-modes.md).
+2. Click the plus to add a new color [style](../styles/create-color-text-effect-and-layout-guide-styles.md) or [variable](../variables/overview-of-variables-collections-and-modes.md).
 3. Choose a fill type. Learn more about the [different types of fills](https://help.figma.com/hc/en-us/articles/360041003694-Paints-in-Figma).
-4. Click  **Blend mode** to preview or apply a [blend mode](https://help.figma.com/hc/en-us/articles/360040667874-Use-blend-modes-to-create-unique-effects).
-5. Click  **Check color contrast** to check color contrast for WCAG accessibility. Learn more about [checking designs for accessibility](https://help.figma.com/hc/en-us/articles/360041003774-Apply-paints-with-the-color-picker#h_01JQF1T71AC72G6VDXN27B77V0).
+4. Click **Blend mode** to preview or apply a [blend mode](https://help.figma.com/hc/en-us/articles/360040667874-Use-blend-modes-to-create-unique-effects).
+5. Click **Check color contrast** to check color contrast for WCAG accessibility. Learn more about [checking designs for accessibility](https://help.figma.com/hc/en-us/articles/360041003774-Apply-paints-with-the-color-picker#h_01JQF1T71AC72G6VDXN27B77V0).
 6. Use the color palette to select a color.
-7. Use the  [eyedropper tool](sample-colors-with-the-eyedropper-tool.md) to select a color from another layer on the canvas.
+7. Use the [eyedropper tool](sample-colors-with-the-eyedropper-tool.md) to select a color from another layer on the canvas.
 8. Use the slider to adjust the hue.
 9. Use the slider to adjust the opacity.
 10. View and adjust the color notation across different color models. Use the dropdown menu to choose between RGB, HEX, CSS, HSL, or HSB. Learn more about [color models](https://help.figma.com/hc/en-us/articles/360043042113-Color-models-in-Figma-Design).
@@ -68,7 +68,7 @@ The [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-gui
 
 ### Check color contrast
 
-1. Click  to open the accessibility view in the color modal.
+1. Click to open the accessibility view in the color modal.
 2. Review the contrast ratio between your foreground and background colors.
 
    **![](https://help.figma.com/hc/article_attachments/31043996133911)**
@@ -76,12 +76,12 @@ The [Web Content Accessibility Guidelines](https://www.w3.org/WAI/standards-gui
    **Note:** The color of your selected layer is always considered the foreground. The contrast ratio measures the luminance (brightness) difference between two colors. It ranges from **1:1 (no contrast)** to **21:1 (maximum contrast, black on white).**
 3. Follow accessibility guidance to see if your colors meet [WCAG level AA or AAA standards](https://www.w3.org/WAI/standards-guidelines/wcag/).
    - **AA:** essential accessibility for standard compliance
-   - **AAA:** highest-level accessibility for enhanced complianceA  next to **AA** or **AAA** indicates that your current values don’t meet accessibility standards and need to be adjusted.
+   - **AAA:** highest-level accessibility for enhanced complianceA next to **AA** or **AAA** indicates that your current values don’t meet accessibility standards and need to be adjusted.
 
-   **Tip:** Click the  indicator to auto-correct the value to its nearest compliant color.
+   **Tip:** Click the indicator to auto-correct the value to its nearest compliant color.
 
    ![](https://help.figma.com/hc/article_attachments/31043996134295)
-4. Click  to adjust color contrast accessibility settings. The following options are available:
+4. Click to adjust color contrast accessibility settings. The following options are available:
    - **Categories:**
      - Auto (based on selected layer)
      - Large text

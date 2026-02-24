@@ -24,15 +24,13 @@ To check the links on a single project:
 
 1. Install [Lychee](https://lychee.cli.rs/guides/getting-started/).
 1. Change into the root directory of the project.
-1. Run `lychee --offline --include-fragments <doc_directory>`, where `<doc_directory>` is the directory that contains
-   documentation to check. For example: `lychee --offline --include-fragments doc`.
+1. Run `lychee --offline --include-fragments <doc_directory>`, where `<doc_directory>` is the directory that contains documentation to check. For example: `lychee --offline --include-fragments doc`.
 
 ### Check all GitLab Docs site projects
 
 To check links on the entire [GitLab documentation site](https://docs.gitlab.com):
 
-1. Make sure you have all the documentation projects cloned in the same directory as your `docs-gitlab-com` clone. You can
-   run `make clone-docs-projects` to clone any projects you don't have in that location.
+1. Make sure you have all the documentation projects cloned in the same directory as your `docs-gitlab-com` clone. You can run `make clone-docs-projects` to clone any projects you don't have in that location.
 1. Go to the [`docs-gitlab-com`](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com) directory.
 1. Run `hugo`, which builds the GitLab Docs site.
 1. Run `lychee --offline public` to check links.
@@ -53,8 +51,7 @@ To test documentation links from GitLab code files locally, you can run:
    scripts/frontend/lint_docs_links.mjs
    ```
 
-If you receive an error the first time you run this test, run `yarn install`, which
-installs the dependencies for GitLab, and try again.
+If you receive an error the first time you run this test, run `yarn install`, which installs the dependencies for GitLab, and try again.
 
 ### Run `rubocop` tests
 

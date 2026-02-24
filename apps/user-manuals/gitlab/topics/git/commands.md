@@ -5,10 +5,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: Common Git commands
 ---
 
-Git commands save you time throughout your development workflow. This reference page contains
-frequently used commands for common tasks such as code changes, branch management,
-and history review. Each command section provides the exact syntax, practical examples,
-and links to additional documentation.
+Git commands save you time throughout your development workflow. This reference page contains frequently used commands for common tasks such as code changes, branch management, and history review. Each command section provides the exact syntax, practical examples, and links to additional documentation.
 
 ## `git add`
 
@@ -18,8 +15,7 @@ Use `git add` to files to the staging area.
 git add <file_path>
 ```
 
-You can recursively stage changes from the current working directory with `git add .`, or stage all changes in the Git
-repository with `git add --all`.
+You can recursively stage changes from the current working directory with `git add .`, or stage all changes in the Git repository with `git add --all`.
 
 For more information, see [Add files to your branch](add_files.md).
 
@@ -56,8 +52,7 @@ git bisect bad                 # Current version is bad
 git bisect good v2.6.13-rc2    # v2.6.13-rc2 is known to be good
 ```
 
-`git bisect` then picks a commit in between the two points and asks you identify if the commit is "good" or "bad" with
-`git bisect good`or `git bisect bad`. Repeat the process until the commit is found.
+`git bisect` then picks a commit in between the two points and asks you identify if the commit is "good" or "bad" with `git bisect good`or `git bisect bad`. Repeat the process until the commit is found.
 
 ## `git checkout`
 
@@ -89,8 +84,7 @@ Use `git commit` to commits staged changes to the repository.
 git commit -m "<commit_message>"
 ```
 
-If the commit message contains a blank line, the first line becomes the commit subject while the remainder becomes the
-commit body. Use the subject to briefly summarize a change, and the commit body to provide additional details.
+If the commit message contains a blank line, the first line becomes the commit subject while the remainder becomes the commit body. Use the subject to briefly summarize a change, and the commit body to provide additional details.
 
 For more information, see [Stage, commit, and push changes](commit.md).
 
@@ -104,15 +98,13 @@ git commit --amend
 
 ## `git diff`
 
-Use `git diff` to view the differences between your local unstaged changes and the latest version that you cloned or
-pulled.
+Use `git diff` to view the differences between your local unstaged changes and the latest version that you cloned or pulled.
 
 ```shell
 git diff
 ```
 
-You can display the difference (or diff) between your local changes and the most recent version of a branch. View a
-diff to understand your local changes before you commit them to the branch.
+You can display the difference (or diff) between your local changes and the most recent version of a branch. View a diff to understand your local changes before you commit them to the branch.
 
 To compare your changes against a specific branch, run:
 
@@ -135,8 +127,7 @@ git init
 
 A `.git` file with configuration and log files is added to the directory. You shouldn't edit the `.git` file directly.
 
-The default branch is set to `main`. You can change the name of the default branch with `git branch -m <branch_name>`,
-or initialize with `git init -b <branch_name>`.
+The default branch is set to `main`. You can change the name of the default branch with `git branch -m <branch_name>`, or initialize with `git init -b <branch_name>`.
 
 ## `git pull`
 

@@ -32,7 +32,7 @@ Before you can use the Outlook integration, you must perform the following tasks
 
 **To install the Zendesk add-in**
 
-1. Open Outlook, then click **Add apps** in the app finder.  
+1. Open Outlook, then click **Add apps** in the app finder. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/outlook_integration_add_apps.png)
 2. Type **Zendesk** to search for the **Zendesk Support for Outlook** app.
 3. Click the app name, then click **Add**. The app is now added to your account.

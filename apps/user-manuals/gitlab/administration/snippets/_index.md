@@ -13,16 +13,13 @@ title: Snippets
 
 {{< /details >}}
 
-To prevent abuse of snippets on your instance, configure a maximum snippet size that is enforced
-when users create or update snippets. Existing snippets are not affected by the limit unless a
-user updates them, and their content changes.
+To prevent abuse of snippets on your instance, configure a maximum snippet size that is enforced when users create or update snippets. Existing snippets are not affected by the limit unless a user updates them, and their content changes.
 
 The default limit is 52428800 bytes (50 MB).
 
 ## Configure the snippet size limit
 
-To configure the snippet size limit, use either the Rails console
-or the [Application settings API](../../api/settings.md).
+To configure the snippet size limit, use either the Rails console or the [Application settings API](../../api/settings.md).
 
 The limit must be in bytes.
 
@@ -41,20 +38,18 @@ To configure this setting through the Rails console:
 
 To retrieve the current value, start the Rails console and run:
 
-  ```ruby
-  Gitlab::CurrentSettings.snippet_size_limit
-  ```
+ ```ruby
+ Gitlab::CurrentSettings.snippet_size_limit
+ ```
 
 ### Use the API
 
-To set the limit by using the Application Settings API
-(similar to [updating any other setting](../../api/settings.md#update-application-settings)),
-use this command:
+To set the limit by using the Application Settings API (similar to [updating any other setting](../../api/settings.md#update-application-settings)), use this command:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>"
-  --url "https://gitlab.example.com/api/v4/application/settings?snippet_size_limit=52428800"
+ --header "PRIVATE-TOKEN: <your_access_token>"
+ --url "https://gitlab.example.com/api/v4/application/settings?snippet_size_limit=52428800"
 ```
 
 To [retrieve the current value](../../api/settings.md#get-details-on-current-application-settings)
@@ -62,7 +57,7 @@ from the API:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/application/settings"
+ --url "https://gitlab.example.com/api/v4/application/settings"
 ```
 
 ## Related topics

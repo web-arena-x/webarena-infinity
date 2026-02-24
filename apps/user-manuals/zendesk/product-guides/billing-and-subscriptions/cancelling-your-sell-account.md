@@ -42,6 +42,6 @@ The cancellation process differs depending on when you created your Sell account
 
 1. In Sell, click the **Settings** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/guide_icon_settings.png)).
 2. Go to **[Manage > Account](https://app.futuresimple.com/account)**.
-3. Scroll down and click **Cancel my entire Account**, and click it at your own risk.  
+3. Scroll down and click **Cancel my entire Account**, and click it at your own risk. 
 
    Note: At the end of your current billing cycle, this action terminates your entire Sell account including all users. This action cannot be reversed.

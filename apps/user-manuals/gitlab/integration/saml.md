@@ -16,12 +16,9 @@ description: Configure enterprise authentication with SAML integration for singl
 > [!note]
 > For GitLab.com, see [SAML SSO for GitLab.com groups](../user/group/saml_sso/_index.md).
 
-This page describes how to set up instance-wide SAML single sign on (SSO) for
-GitLab Self-Managed.
+This page describes how to set up instance-wide SAML single sign on (SSO) for GitLab Self-Managed.
 
-You can configure GitLab to act as a SAML service provider (SP). This allows
-GitLab to consume assertions from a SAML identity provider (IdP), such as
-Okta, to authenticate users.
+You can configure GitLab to act as a SAML service provider (SP). This allows GitLab to consume assertions from a SAML identity provider (IdP), such as Okta, to authenticate users.
 
 For more information on:
 
@@ -36,18 +33,15 @@ For more information on:
 
 1. Make sure GitLab is [configured with HTTPS](https://docs.gitlab.com/omnibus/settings/ssl/).
 1. Configure the [common settings](omniauth.md#configure-common-settings)
-   to add `saml` as a single sign-on provider. This enables Just-In-Time
-   account provisioning for users who do not have an existing GitLab account.
-1. To allow your users to use SAML to sign up without having to manually create
-   an account first, edit `/etc/gitlab/gitlab.rb`:
+   to add `saml` as a single sign-on provider. This enables Just-In-Time account provisioning for users who do not have an existing GitLab account.
+1. To allow your users to use SAML to sign up without having to manually create an account first, edit `/etc/gitlab/gitlab.rb`:
 
    ```ruby
    gitlab_rails['omniauth_allow_single_sign_on'] = ['saml']
    gitlab_rails['omniauth_block_auto_created_users'] = false
    ```
 
-1. Optional. You should automatically link a first-time SAML sign-in with existing GitLab users if their
-   email addresses match. To do this, add the following setting in `/etc/gitlab/gitlab.rb`:
+1. Optional. You should automatically link a first-time SAML sign-in with existing GitLab users if their email addresses match. To do this, add the following setting in `/etc/gitlab/gitlab.rb`:
 
    ```ruby
    gitlab_rails['omniauth_auto_link_saml_user'] = true
@@ -55,8 +49,7 @@ For more information on:
 
    Only the GitLab account's primary email address is matched against the email in the SAML response.
 
-   Alternatively, a user can manually link their SAML identity to an existing GitLab
-   account by [enabling OmniAuth for an existing user](omniauth.md#enable-omniauth-for-an-existing-user).
+   Alternatively, a user can manually link their SAML identity to an existing GitLab account by [enabling OmniAuth for an existing user](omniauth.md#enable-omniauth-for-an-existing-user).
 
 1. Configure the following attributes so your SAML users cannot change them:
 
@@ -64,8 +57,7 @@ For more information on:
    - `Email` when used with `omniauth_auto_link_saml_user`.
 
    If users can change these attributes, they can sign in as other authorized users.
-   See your SAML IdP documentation for information on how to make these attributes
-   unchangeable.
+   See your SAML IdP documentation for information on how to make these attributes unchangeable.
 
 1. Edit `/etc/gitlab/gitlab.rb` and add the provider configuration:
 
@@ -107,16 +99,14 @@ For more information on:
 
 1. Make sure GitLab is [configured with HTTPS](https://docs.gitlab.com/charts/installation/tls.html).
 1. Configure the [common settings](omniauth.md#configure-common-settings)
-   to add `saml` as a single sign-on provider. This enables Just-In-Time
-   account provisioning for users who do not have an existing GitLab account.
+   to add `saml` as a single sign-on provider. This enables Just-In-Time account provisioning for users who do not have an existing GitLab account.
 1. Export the Helm values:
 
    ```shell
    helm get values gitlab > gitlab_values.yaml
    ```
 
-1. To allow your users to use SAML to sign up without having to manually create
-   an account first, edit `gitlab_values.yaml`:
+1. To allow your users to use SAML to sign up without having to manually create an account first, edit `gitlab_values.yaml`:
 
    ```yaml
    global:
@@ -127,8 +117,7 @@ For more information on:
          blockAutoCreatedUsers: false
    ```
 
-1. Optional. You can automatically link SAML users with existing GitLab users if their
-   email addresses match by adding the following setting in `gitlab_values.yaml`:
+1. Optional. You can automatically link SAML users with existing GitLab users if their email addresses match by adding the following setting in `gitlab_values.yaml`:
 
    ```yaml
    global:
@@ -137,8 +126,7 @@ For more information on:
          autoLinkSamlUser: true
    ```
 
-   Alternatively, a user can manually link their SAML identity to an existing GitLab
-   account by [enabling OmniAuth for an existing user](omniauth.md#enable-omniauth-for-an-existing-user).
+   Alternatively, a user can manually link their SAML identity to an existing GitLab account by [enabling OmniAuth for an existing user](omniauth.md#enable-omniauth-for-an-existing-user).
 
 1. Configure the following attributes so your SAML users cannot change them:
 
@@ -146,11 +134,9 @@ For more information on:
    - `Email` when used with `omniauth_auto_link_saml_user`.
 
    If users can change these attributes, they can sign in as other authorized users.
-   See your SAML IdP documentation for information on how to make these attributes
-   unchangeable.
+   See your SAML IdP documentation for information on how to make these attributes unchangeable.
 
-1. Put the following content in a file named `saml.yaml` to be used as a
-   [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
+1. Put the following content in a file named `saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
 
    ```yaml
    name: 'saml'
@@ -201,10 +187,8 @@ For more information on:
 
 1. Make sure GitLab is [configured with HTTPS](https://docs.gitlab.com/omnibus/settings/ssl/).
 1. Configure the [common settings](omniauth.md#configure-common-settings)
-   to add `saml` as a single sign-on provider. This enables Just-In-Time
-   account provisioning for users who do not have an existing GitLab account.
-1. To allow your users to use SAML to sign up without having to manually create
-   an account first, edit `docker-compose.yml`:
+   to add `saml` as a single sign-on provider. This enables Just-In-Time account provisioning for users who do not have an existing GitLab account.
+1. To allow your users to use SAML to sign up without having to manually create an account first, edit `docker-compose.yml`:
 
    ```yaml
    version: "3.6"
@@ -216,8 +200,7 @@ For more information on:
            gitlab_rails['omniauth_block_auto_created_users'] = false
    ```
 
-1. Optional. You can automatically link SAML users with existing GitLab users if their
-   email addresses match by adding the following setting in `docker-compose.yml`:
+1. Optional. You can automatically link SAML users with existing GitLab users if their email addresses match by adding the following setting in `docker-compose.yml`:
 
    ```yaml
    version: "3.6"
@@ -228,8 +211,7 @@ For more information on:
            gitlab_rails['omniauth_auto_link_saml_user'] = true
    ```
 
-   Alternatively, a user can manually link their SAML identity to an existing GitLab
-   account by [enabling OmniAuth for an existing user](omniauth.md#enable-omniauth-for-an-existing-user).
+   Alternatively, a user can manually link their SAML identity to an existing GitLab account by [enabling OmniAuth for an existing user](omniauth.md#enable-omniauth-for-an-existing-user).
 
 1. Configure the following attributes so your SAML users cannot change them:
 
@@ -237,8 +219,7 @@ For more information on:
    - `Email` when used with `omniauth_auto_link_saml_user`.
 
    If users can change these attributes, they can sign in as other authorized users.
-   See your SAML IdP documentation for information on how to make these attributes
-   unchangeable.
+   See your SAML IdP documentation for information on how to make these attributes unchangeable.
 
 1. Edit `docker-compose.yml` and add the provider configuration:
 
@@ -285,10 +266,8 @@ For more information on:
 
 1. Make sure GitLab is [configured with HTTPS](../install/self_compiled/_index.md#using-https).
 1. Configure the [common settings](omniauth.md#configure-common-settings)
-   to add `saml` as a single sign-on provider. This enables Just-In-Time
-   account provisioning for users who do not have an existing GitLab account.
-1. To allow your users to use SAML to sign up without having to manually create
-   an account first, edit `/home/git/gitlab/config/gitlab.yml`:
+   to add `saml` as a single sign-on provider. This enables Just-In-Time account provisioning for users who do not have an existing GitLab account.
+1. To allow your users to use SAML to sign up without having to manually create an account first, edit `/home/git/gitlab/config/gitlab.yml`:
 
    ```yaml
    production: &base
@@ -298,8 +277,7 @@ For more information on:
        block_auto_created_users: false
    ```
 
-1. Optional. You can automatically link SAML users with existing GitLab users if their
-   email addresses match by adding the following setting in `/home/git/gitlab/config/gitlab.yml`:
+1. Optional. You can automatically link SAML users with existing GitLab users if their email addresses match by adding the following setting in `/home/git/gitlab/config/gitlab.yml`:
 
    ```yaml
    production: &base
@@ -307,8 +285,7 @@ For more information on:
        auto_link_saml_user: true
    ```
 
-   Alternatively, a user can manually link their SAML identity to an existing GitLab
-   account by [enabling OmniAuth for an existing user](omniauth.md#enable-omniauth-for-an-existing-user).
+   Alternatively, a user can manually link their SAML identity to an existing GitLab account by [enabling OmniAuth for an existing user](omniauth.md#enable-omniauth-for-an-existing-user).
 
 1. Configure the following attributes so your SAML users cannot change them:
 
@@ -316,8 +293,7 @@ For more information on:
    - `Email` when used with `omniauth_auto_link_saml_user`.
 
    If users can change these attributes, they can sign in as other authorized users.
-   See your SAML IdP documentation for information on how to make these attributes
-   unchangeable.
+   See your SAML IdP documentation for information on how to make these attributes unchangeable.
 
 1. Edit `/home/git/gitlab/config/gitlab.yml` and add the provider configuration:
 
@@ -365,21 +341,16 @@ For more information on:
 
 1. Register the GitLab SP in your SAML IdP, using the application name specified in `issuer`.
 
-1. To provide configuration information to the IdP, build a metadata URL for the
-   application. To build the metadata URL for GitLab, append `users/auth/saml/metadata`
-   to the HTTPS URL of your GitLab installation. For example:
+1. To provide configuration information to the IdP, build a metadata URL for the application. To build the metadata URL for GitLab, append `users/auth/saml/metadata` to the HTTPS URL of your GitLab installation. For example:
 
    ```plaintext
    https://gitlab.example.com/users/auth/saml/metadata
    ```
 
-   At a minimum the IdP **must** provide a claim containing the user's email address
-   using `email` or `mail`. For more information on other available claims, see
-   [configuring assertions](#configure-assertions).
+   At a minimum the IdP **must** provide a claim containing the user's email address using `email` or `mail`. For more information on other available claims, see [configuring assertions](#configure-assertions).
 
 1. On the sign in page there should now be a SAML icon below the regular sign in form.
-   Select the icon to begin the authentication process. If authentication is successful,
-   you are returned to GitLab and signed in.
+   Select the icon to begin the authentication process. If authentication is successful, you are returned to GitLab and signed in.
 
 ### Configure SAML on your IdP
 
@@ -392,8 +363,7 @@ To configure a SAML application on your IdP, you need at least the following inf
 
 For an example configuration, see [set up identity providers](#set-up-identity-providers).
 
-Your IdP may need additional configuration. For more information, see
-[additional configuration for SAML apps on your IdP](#additional-configuration-for-saml-apps-on-your-idp).
+Your IdP may need additional configuration. For more information, see [additional configuration for SAML apps on your IdP](#additional-configuration-for-saml-apps-on-your-idp).
 
 ### Configure GitLab to use multiple SAML IdPs
 
@@ -401,12 +371,10 @@ You can configure GitLab to use multiple SAML IdPs if:
 
 - Each provider has a unique name set that matches a name set in `args`.
 - The providers' names are used:
-  - In OmniAuth configuration for properties based on the provider name. For example,
-    `allowBypassTwoFactor`, `allowSingleSignOn`, and `syncProfileFromProvider`.
-  - For association to each existing user as an additional identity.
+ - In OmniAuth configuration for properties based on the provider name. For example, `allowBypassTwoFactor`, `allowSingleSignOn`, and `syncProfileFromProvider`.
+ - For association to each existing user as an additional identity.
 - The `assertion_consumer_service_url` matches the provider name.
-- The `strategy_class` is explicitly set because it cannot be inferred from provider
-  name.
+- The `strategy_class` is explicitly set because it cannot be inferred from provider name.
 
 > [!note]
 > When you configure multiple SAML IdPs, to ensure that SAML Group Links work, you must configure all SAML IdPs to contain group attributes in the SAML response. For more information, see [SAML Group Links](../user/group/saml_sso/group_sync.md).
@@ -444,8 +412,7 @@ To set up multiple SAML IdPs:
    ]
    ```
 
-   To allow your users to use SAML to sign up without having to manually create an
-   account from either of the providers, add the following values to your configuration:
+   To allow your users to use SAML to sign up without having to manually create an account from either of the providers, add the following values to your configuration:
 
    ```ruby
    gitlab_rails['omniauth_allow_single_sign_on'] = ['saml', 'saml_2']
@@ -461,8 +428,7 @@ To set up multiple SAML IdPs:
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-1. Put the following content in a file named `saml.yaml` to be used as a
-   [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers)
+1. Put the following content in a file named `saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers)
    for the first SAML provider:
 
    ```yaml
@@ -475,8 +441,7 @@ To set up multiple SAML IdPs:
      # Include all required arguments similar to a single provider
    ```
 
-1. Put the following content in a file named `saml_2.yaml` to be used as a
-   [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers)
+1. Put the following content in a file named `saml_2.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers)
    for the second SAML provider:
 
    ```yaml
@@ -517,8 +482,7 @@ To set up multiple SAML IdPs:
              key: saml_2
    ```
 
-   To allow your users to use SAML to sign up without having to manually create an
-   account from either of the providers, add the following values to your configuration:
+   To allow your users to use SAML to sign up without having to manually create an account from either of the providers, add the following values to your configuration:
 
    ```yaml
    global:
@@ -570,8 +534,7 @@ To set up multiple SAML IdPs:
            ]
    ```
 
-   To allow your users to use SAML to sign up without having to manually create an
-   account from either of the providers, add the following values to your configuration:
+   To allow your users to use SAML to sign up without having to manually create an account from either of the providers, add the following values to your configuration:
 
    ```yaml
    version: "3.6"
@@ -620,8 +583,7 @@ To set up multiple SAML IdPs:
          }
    ```
 
-   To allow your users to use SAML to sign up without having to manually create an
-   account from either of the providers, add the following values to your configuration:
+   To allow your users to use SAML to sign up without having to manually create an account from either of the providers, add the following values to your configuration:
 
    ```yaml
    production: &base
@@ -645,18 +607,14 @@ To set up multiple SAML IdPs:
 
 ## Set up identity providers
 
-GitLab support of SAML means you can sign in to GitLab through a wide range
-of IdPs.
+GitLab support of SAML means you can sign in to GitLab through a wide range of IdPs.
 
-GitLab provides the following content on setting up the Okta and Google Workspace
-IdPs for guidance only. If you have any questions on configuring either of these
-IdPs, contact your provider's support.
+GitLab provides the following content on setting up the Okta and Google Workspace IdPs for guidance only. If you have any questions on configuring either of these IdPs, contact your provider's support.
 
 ### Set up Okta
 
 1. In the Okta administrator section choose **Applications**.
-1. On the app screen, select **Create App Integration** and then select
-   **SAML 2.0** on the next screen.
+1. On the app screen, select **Create App Integration** and then select **SAML 2.0** on the next screen.
 1. Optional. Choose and add a logo from [GitLab Press](https://about.gitlab.com/press/press-kit/).
    You must crop and resize the logo.
 1. Complete the SAML general configuration. Enter:
@@ -664,30 +622,26 @@ IdPs, contact your provider's support.
    - `"Audience URI"`: Use the issuer.
    - [`NameID`](../user/group/saml_sso/_index.md#manage-user-saml-identity).
    - [Assertions](#configure-assertions).
-1. In the feedback section, enter that you're a customer and creating an
-   app for internal use.
+1. In the feedback section, enter that you're a customer and creating an app for internal use.
 1. At the top of your new app's profile, select **SAML 2.0 configuration instructions**.
-1. Note the **Identity Provider Single Sign-On URL**. Use this URL for the
-   `idp_sso_target_url` on your GitLab configuration file.
+1. Note the **Identity Provider Single Sign-On URL**. Use this URL for the `idp_sso_target_url` on your GitLab configuration file.
 1. Before you sign out of Okta, make sure you add your user and groups if any.
 
 ### Set up Google Workspace
 
 Prerequisites:
 
-- Make sure you have access to a
-  [Google Workspace Super Admin account](https://support.google.com/a/answer/2405986#super_admin).
+- Make sure you have access to a [Google Workspace Super Admin account](https://support.google.com/a/answer/2405986#super_admin).
 
 To set up a Google Workspace:
 
-1. Use the following information, and follow the instructions in
-   [Set up your own custom SAML application in Google Workspace](https://support.google.com/a/answer/6087519?hl=en).
+1. Use the following information, and follow the instructions in [Set up your own custom SAML application in Google Workspace](https://support.google.com/a/answer/6087519?hl=en).
 
    |                  | Typical value                                      | Description                                                                                   |
    |:-----------------|:---------------------------------------------------|:----------------------------------------------------------------------------------------------|
    | Name of SAML App | GitLab                                             | Other names OK.                                                                               |
    | ACS URL          | `https://<GITLAB_DOMAIN>/users/auth/saml/callback` | Assertion Consumer Service URL.                                                               |
-   | `GITLAB_DOMAIN`  | `gitlab.example.com`                               | Your GitLab instance domain.                                                                  |
+   | `GITLAB_DOMAIN` | `gitlab.example.com`                               | Your GitLab instance domain.                                                                  |
    | Entity ID        | `https://gitlab.example.com`                       | A value unique to your SAML application. Set it to the `issuer` in your GitLab configuration. |
    | Name ID format   | `EMAIL`                                            | Required value. Also known as `name_identifier_format`.                                       |
    | Name ID          | Primary email address                              | Your email address. Make sure someone receives content sent to that address.                  |
@@ -702,8 +656,7 @@ To set up a Google Workspace:
    | Basic Information > First name    | `first_name`   |
    | Basic Information > Last name     | `last_name`    |
 
-   You might use some of this information when you
-   [configure SAML support in GitLab](#configure-saml-support-in-gitlab).
+   You might use some of this information when you [configure SAML support in GitLab](#configure-saml-support-in-gitlab).
 
 When configuring the Google Workspace SAML application, record the following information:
 
@@ -713,9 +666,7 @@ When configuring the Google Workspace SAML application, record the following inf
 | Certificate        | Downloadable | Google SAML certificate. |
 | SHA256 fingerprint | Depends      | Available when you download the certificate. To generate the SHA256 fingerprint from the certificate, see [calculate the fingerprint](../user/group/saml_sso/troubleshooting.md#calculate-the-fingerprint). |
 
-Google Workspace Administrator also provides the IdP metadata, Entity ID, and SHA-256
-fingerprint. However, GitLab does not need this information to connect to the
-Google Workspace SAML application.
+Google Workspace Administrator also provides the IdP metadata, Entity ID, and SHA-256 fingerprint. However, GitLab does not need this information to connect to the Google Workspace SAML application.
 
 ### Set up Microsoft Entra ID
 
@@ -747,8 +698,7 @@ For example:
 - [Active Directory Federation Services (ADFS)](https://learn.microsoft.com/en-us/previous-versions/windows-server/it-pro/windows-server-2012/identity/ad-fs/operations/Create-a-Relying-Party-Trust)
 - [Auth0](https://auth0.com/docs/authenticate/single-sign-on/outbound-single-sign-on/configure-auth0-saml-identity-provider)
 
-If you have any questions on configuring your IdP in a SAML configuration, contact
-your provider's support.
+If you have any questions on configuring your IdP in a SAML configuration, contact your provider's support.
 
 ### Configure assertions
 
@@ -787,7 +737,7 @@ You must include these values correctly in the attribute `Name` field so that Gi
 
 - This is accepted because the `Name` attribute is set to one of the required values from the previous table.
 
-  ```xml
+ ```xml
            <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">
                <AttributeValue>Alvin</AttributeValue>
            </Attribute>
@@ -797,11 +747,11 @@ You must include these values correctly in the attribute `Name` field so that Gi
            <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress">
                <AttributeValue>alvintest@example.com</AttributeValue>
            </Attribute>
-  ```
+ ```
 
 - This is accepted because the `Name` attribute matches one of the values from the previous table.
 
-  ```xml
+ ```xml
            <Attribute Name="firstname">
                <AttributeValue>Alvin</AttributeValue>
            </Attribute>
@@ -811,14 +761,13 @@ You must include these values correctly in the attribute `Name` field so that Gi
            <Attribute Name="email">
                <AttributeValue>alvintest@example.com</AttributeValue>
            </Attribute>
-  ```
+ ```
 
 However, GitLab cannot parse the following SAML response snippets:
 
-- This will not be accepted because value in the `Name` attribute is not one of the supported
-  values in the previous table.
+- This will not be accepted because value in the `Name` attribute is not one of the supported values in the previous table.
 
-  ```xml
+ ```xml
            <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/firstname">
                <AttributeValue>Alvin</AttributeValue>
            </Attribute>
@@ -828,11 +777,11 @@ However, GitLab cannot parse the following SAML response snippets:
            <Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail">
                <AttributeValue>alvintest@example.com</AttributeValue>
            </Attribute>
-  ```
+ ```
 
 - This will fail because, even though the `FriendlyName` has a supported value, the `Name` attribute does not.
 
-  ```xml
+ ```xml
            <Attribute FriendlyName="firstname" Name="urn:oid:2.5.4.42">
                <AttributeValue>Alvin</AttributeValue>
            </Attribute>
@@ -842,7 +791,7 @@ However, GitLab cannot parse the following SAML response snippets:
            <Attribute FriendlyName="email" Name="urn:oid:0.9.2342.19200300.100.1.3">
                <AttributeValue>alvintest@example.com</AttributeValue>
            </Attribute>
-  ```
+ ```
 
 See [`attribute_statements`](#map-saml-response-attribute-names) for:
 
@@ -859,8 +808,7 @@ You can:
 - Assign users [external](../administration/external_users.md), administrator or [auditor](../administration/auditor_users.md) roles based on group membership.
 
 GitLab checks these groups on each SAML sign in and updates user attributes as necessary.
-This feature **does not** allow you to automatically add users to GitLab
-[Groups](../user/group/_index.md).
+This feature **does not** allow you to automatically add users to GitLab [Groups](../user/group/_index.md).
 
 Support for these groups depends on:
 
@@ -876,38 +824,32 @@ Support for these groups depends on:
 
 Prerequisites:
 
-- You must tell GitLab where to look for group information. To do this, make sure
-  that your IdP server sends a specific `AttributeStatement` along with the regular
-  SAML response. For example:
+- You must tell GitLab where to look for group information. To do this, make sure that your IdP server sends a specific `AttributeStatement` along with the regular SAML response. For example:
 
-  ```xml
-  <saml:AttributeStatement>
+ ```xml
+ <saml:AttributeStatement>
     <saml:Attribute Name="Groups">
       <saml:AttributeValue xsi:type="xs:string">Developers</saml:AttributeValue>
       <saml:AttributeValue xsi:type="xs:string">Freelancers</saml:AttributeValue>
       <saml:AttributeValue xsi:type="xs:string">Admins</saml:AttributeValue>
       <saml:AttributeValue xsi:type="xs:string">Auditors</saml:AttributeValue>
     </saml:Attribute>
-  </saml:AttributeStatement>
-  ```
+ </saml:AttributeStatement>
+ ```
 
-  The name of the attribute must contain the groups that a user belongs to.
-  To tell GitLab where to find these groups, add a `groups_attribute:`
-  element to your SAML settings. This attribute is case-sensitive.
+ The name of the attribute must contain the groups that a user belongs to.
+ To tell GitLab where to find these groups, add a `groups_attribute:` element to your SAML settings. This attribute is case-sensitive.
 
 ### Required groups
 
-Your IdP passes group information to GitLab in the SAML response. To use this
-response, configure GitLab to identify:
+Your IdP passes group information to GitLab in the SAML response. To use this response, configure GitLab to identify:
 
 - Where to look for the groups in the SAML response, using the `groups_attribute` setting.
 - Information about a group or user, using a group setting.
 
-Use the `required_groups` setting to configure GitLab to identify which group
-membership is required to sign in.
+Use the `required_groups` setting to configure GitLab to identify which group membership is required to sign in.
 
-If you do not set `required_groups` or leave the setting empty, anyone with proper
-authentication can use the service.
+If you do not set `required_groups` or leave the setting empty, anyone with proper authentication can use the service.
 
 If the attribute specified in `groups_attribute` is incorrect or missing then all users will be blocked.
 
@@ -944,8 +886,7 @@ If the attribute specified in `groups_attribute` is incorrect or missing then al
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-1. Put the following content in a file named `saml.yaml` to be used as a
-   [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
+1. Put the following content in a file named `saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
 
    ```yaml
    name: 'saml'
@@ -1062,20 +1003,16 @@ If the attribute specified in `groups_attribute` is incorrect or missing then al
 
 ### External groups
 
-Your IdP passes group information to GitLab in the SAML response. To use this
-response, configure GitLab to identify:
+Your IdP passes group information to GitLab in the SAML response. To use this response, configure GitLab to identify:
 
 - Where to look for the groups in the SAML response, using the `groups_attribute` setting.
 - Information about a group or user, using a group setting.
 
-SAML can automatically identify a user as an
-[external user](../administration/external_users.md), based on the `external_groups`
-setting.
+SAML can automatically identify a user as an [external user](../administration/external_users.md), based on the `external_groups` setting.
 
 {{< alert type="note" >}}
 
-If the attribute specified in `groups_attribute` is incorrect or missing then the user will
-access as a standard user.
+If the attribute specified in `groups_attribute` is incorrect or missing then the user will access as a standard user.
 
 {{< /alert >}}
 
@@ -1118,8 +1055,7 @@ Example configuration:
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-1. Put the following content in a file named `saml.yaml` to be used as a
-   [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
+1. Put the following content in a file named `saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
 
    ```yaml
    name: 'saml'
@@ -1238,14 +1174,12 @@ Example configuration:
 
 ### Administrator groups
 
-Your IdP passes group information to GitLab in the SAML response. To use this
-response, configure GitLab to identify:
+Your IdP passes group information to GitLab in the SAML response. To use this response, configure GitLab to identify:
 
 - Where to look for the groups in the SAML response, using the `groups_attribute` setting.
 - Information about a group or user, using a group setting.
 
-Use the `admin_groups` setting to configure GitLab to identify which groups grant
-the user administrator access.
+Use the `admin_groups` setting to configure GitLab to identify which groups grant the user administrator access.
 
 If the attribute specified in `groups_attribute` is incorrect or missing then users will lose their administrator access.
 
@@ -1287,8 +1221,7 @@ Example configuration:
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-1. Put the following content in a file named `saml.yaml` to be used as a
-   [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
+1. Put the following content in a file named `saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
 
    ```yaml
    name: 'saml'
@@ -1412,14 +1345,12 @@ Example configuration:
 
 {{< /details >}}
 
-Your IdP passes group information to GitLab in the SAML response. To use this
-response, configure GitLab to identify:
+Your IdP passes group information to GitLab in the SAML response. To use this response, configure GitLab to identify:
 
 - Where to look for the groups in the SAML response, using the `groups_attribute` setting.
 - Information about a group or user, using a group setting.
 
-Use the `auditor_groups` setting to configure GitLab to identify which groups include
-users with [auditor access](../administration/auditor_users.md).
+Use the `auditor_groups` setting to configure GitLab to identify which groups include users with [auditor access](../administration/auditor_users.md).
 
 If the attribute specified in `groups_attribute` is incorrect or missing then users will lose their auditor access.
 
@@ -1458,8 +1389,7 @@ Example configuration:
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-1. Put the following content in a file named `saml.yaml` to be used as a
-   [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
+1. Put the following content in a file named `saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
 
    ```yaml
    name: 'saml'
@@ -1586,14 +1516,9 @@ For information on automatically managing GitLab group membership, see [SAML Gro
 
 {{< /history >}}
 
-By default, GitLab ends SAML sessions after 24 hours. You can customize this duration with
-the `SessionNotOnOrAfter` attribute in the SAML2 AuthnStatement. This attribute contains an
-ISO 8601 timestamp value that indicates when to end the user session. When specified this
-value overrides the default SAML session timeout of 24 hours.
+By default, GitLab ends SAML sessions after 24 hours. You can customize this duration with the `SessionNotOnOrAfter` attribute in the SAML2 AuthnStatement. This attribute contains an ISO 8601 timestamp value that indicates when to end the user session. When specified this value overrides the default SAML session timeout of 24 hours.
 
-If the instance has a custom [session duration](../administration/settings/account_and_limit_settings.md#session-duration) configured
-that is earlier than the `SessionNotOnOrAfter` timestamp, users must re-authenticate
-when their GitLab user session ends.
+If the instance has a custom [session duration](../administration/settings/account_and_limit_settings.md#session-duration) configured that is earlier than the `SessionNotOnOrAfter` timestamp, users must re-authenticate when their GitLab user session ends.
 
 ## Bypass two-factor authentication
 
@@ -1604,9 +1529,7 @@ when their GitLab user session ends.
 
 {{< /history >}}
 
-To configure a SAML authentication method to count as two-factor authentication
-(2FA) on a per session basis, register that method in the `upstream_two_factor_authn_contexts`
-list.
+To configure a SAML authentication method to count as two-factor authentication (2FA) on a per session basis, register that method in the `upstream_two_factor_authn_contexts` list.
 
 1. Make sure that your IdP is returning the `AuthnContext`. For example:
 
@@ -1618,8 +1541,7 @@ list.
    </saml:AuthnStatement>
    ```
 
-1. Edit your installation configuration to register the SAML authentication method
-   in the `upstream_two_factor_authn_contexts` list. You must enter the `AuthnContext` from your SAML response.
+1. Edit your installation configuration to register the SAML authentication method in the `upstream_two_factor_authn_contexts` list. You must enter the `AuthnContext` from your SAML response.
 
    {{< tabs >}}
 
@@ -1658,8 +1580,7 @@ list.
 
    {{< tab title="Helm chart (Kubernetes)" >}}
 
-   1. Put the following content in a file named `saml.yaml` to be used as a
-      [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
+   1. Put the following content in a file named `saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
 
       ```yaml
       name: 'saml'
@@ -1788,8 +1709,7 @@ list.
 
 IdPs must sign SAML responses to ensure that the assertions are not tampered with.
 
-This prevents user impersonation and privilege escalation when specific group
-membership is required.
+This prevents user impersonation and privilege escalation when specific group membership is required.
 
 ### Using `idp_cert_fingerprint`
 
@@ -1827,8 +1747,7 @@ An example configuration:
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-1. Put the following content in a file named `saml.yaml` to be used as a
-   [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
+1. Put the following content in a file named `saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
 
    ```yaml
    name: 'saml'
@@ -1975,8 +1894,7 @@ An example configuration:
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-1. Put the following content in a file named `saml.yaml` to be used as a
-   [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
+1. Put the following content in a file named `saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
 
    ```yaml
    name: 'saml'
@@ -2092,8 +2010,7 @@ An example configuration:
 
 {{< /tabs >}}
 
-If you have configured the response signature validation incorrectly, you might see
-error messages such as:
+If you have configured the response signature validation incorrectly, you might see error messages such as:
 
 - A key validation error.
 - Digest mismatch.
@@ -2105,9 +2022,7 @@ For more information on solving these errors, see the [troubleshooting SAML guid
 
 ### Redirect users to SAML server for authentication
 
-You can add the `auto_sign_in_with_provider` setting to your GitLab configuration
-to automatically redirect you to your SAML server for authentication. This removes
-the requirement to select an element before actually signing in.
+You can add the `auto_sign_in_with_provider` setting to your GitLab configuration to automatically redirect you to your SAML server for authentication. This removes the requirement to select an element before actually signing in.
 
 {{< tabs >}}
 
@@ -2197,13 +2112,11 @@ the requirement to select an element before actually signing in.
 
 {{< /tabs >}}
 
-Every sign in attempt redirects to the SAML server, so you cannot sign in using
-local credentials. Make sure at least one of the SAML users has administrator access.
+Every sign in attempt redirects to the SAML server, so you cannot sign in using local credentials. Make sure at least one of the SAML users has administrator access.
 
 {{< alert type="note" >}}
 
-To bypass the auto sign-in setting, append `?auto_sign_in=false` in the sign in
-URL, for example: `https://gitlab.example.com/users/sign_in?auto_sign_in=false`.
+To bypass the auto sign-in setting, append `?auto_sign_in=false` in the sign in URL, for example: `https://gitlab.example.com/users/sign_in?auto_sign_in=false`.
 
 {{< /alert >}}
 
@@ -2216,20 +2129,14 @@ URL, for example: `https://gitlab.example.com/users/sign_in?auto_sign_in=false`.
 
 {{< /details >}}
 
-You can use `attribute_statements` to map attribute names in a SAML response to entries
-in the OmniAuth [`info` hash](https://github.com/omniauth/omniauth/wiki/Auth-Hash-Schema#schema-10-and-later).
+You can use `attribute_statements` to map attribute names in a SAML response to entries in the OmniAuth [`info` hash](https://github.com/omniauth/omniauth/wiki/Auth-Hash-Schema#schema-10-and-later).
 
 > [!note]
 > Only use this setting to map attributes that are part of the OmniAuth `info` hash schema.
 
-For example, if your `SAMLResponse` contains an Attribute called `EmailAddress`,
-specify `{ email: ['EmailAddress'] }` to map the Attribute to the
-corresponding key in the `info` hash. URI-named Attributes are also supported, for example,
-`{ email: ['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'] }`.
+For example, if your `SAMLResponse` contains an Attribute called `EmailAddress`, specify `{ email: ['EmailAddress'] }` to map the Attribute to the corresponding key in the `info` hash. URI-named Attributes are also supported, for example, `{ email: ['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'] }`.
 
-Use this setting to tell GitLab where to look for certain attributes required
-to create an account. For example, if your IdP sends the user's email address as `EmailAddress`
-instead of `email`, let GitLab know by setting it on your configuration:
+Use this setting to tell GitLab where to look for certain attributes required to create an account. For example, if your IdP sends the user's email address as `EmailAddress` instead of `email`, let GitLab know by setting it on your configuration:
 
 {{< tabs >}}
 
@@ -2263,8 +2170,7 @@ instead of `email`, let GitLab know by setting it on your configuration:
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-1. Put the following content in a file named `saml.yaml` to be used as a
-   [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
+1. Put the following content in a file named `saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
 
    ```yaml
    name: 'saml'
@@ -2379,8 +2285,7 @@ instead of `email`, let GitLab know by setting it on your configuration:
 
 #### Set a username
 
-By default, the local part of the email address in the SAML response is used to
-generate the user's GitLab username.
+By default, the local part of the email address in the SAML response is used to generate the user's GitLab username.
 
 Configure [`username` or `nickname`](omniauth.md#per-provider-configuration) in `attribute_statements` to specify one or more attributes that contain a user's desired username:
 
@@ -2416,8 +2321,7 @@ Configure [`username` or `nickname`](omniauth.md#per-provider-configuration) in 
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-1. Put the following content in a file named `saml.yaml` to be used as a
-   [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
+1. Put the following content in a file named `saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
 
    ```yaml
    name: 'saml'
@@ -2590,8 +2494,7 @@ These attributes have no default mappings and do not sync unless explicitly conf
 {{< tab title="Helm chart (Kubernetes)" >}}
 
 1. [Configure OmniAuth to sync the desired attributes](omniauth.md#keep-omniauth-user-profiles-up-to-date).
-1. Save the following YAML content in a file named `saml.yaml` to be used as a
-   [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
+1. Save the following YAML content in a file named `saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
 
    ```yaml
    name: 'saml'
@@ -2716,8 +2619,7 @@ These attributes have no default mappings and do not sync unless explicitly conf
 ### Allow for clock drift
 
 The clock of the IdP may drift slightly ahead of your system clocks.
-To allow for a small amount of clock drift, use `allowed_clock_drift` in
-your settings. You must enter the parameter's value in a number and fraction of seconds.
+To allow for a small amount of clock drift, use `allowed_clock_drift` in your settings. You must enter the parameter's value in a number and fraction of seconds.
 The value given is added to the current time at which the response is validated.
 
 {{< tabs >}}
@@ -2738,7 +2640,7 @@ The value given is added to the current time at which the response is validated.
                idp_sso_target_url: 'https://login.example.com/idp',
                issuer: 'https://gitlab.example.com',
                name_identifier_format: 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent',
-               allowed_clock_drift: 1  # for one second clock drift
+               allowed_clock_drift: 1 # for one second clock drift
        }
      }
    ]
@@ -2754,8 +2656,7 @@ The value given is added to the current time at which the response is validated.
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-1. Put the following content in a file named `saml.yaml` to be used as a
-   [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
+1. Put the following content in a file named `saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
 
    ```yaml
    name: 'saml'
@@ -2768,7 +2669,7 @@ The value given is added to the current time at which the response is validated.
      idp_sso_target_url: 'https://login.example.com/idp'
      issuer: 'https://gitlab.example.com'
      name_identifier_format: 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent'
-     allowed_clock_drift: 1  # for one second clock drift
+     allowed_clock_drift: 1 # for one second clock drift
    ```
 
 1. Create the Kubernetes Secret:
@@ -2822,7 +2723,7 @@ The value given is added to the current time at which the response is validated.
                         idp_sso_target_url: 'https://login.example.com/idp',
                         issuer: 'https://gitlab.example.com',
                         name_identifier_format: 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent',
-                        allowed_clock_drift: 1  # for one second clock drift
+                        allowed_clock_drift: 1 # for one second clock drift
                 }
               }
            ]
@@ -2854,7 +2755,7 @@ The value given is added to the current time at which the response is validated.
                      idp_sso_target_url: 'https://login.example.com/idp',
                      issuer: 'https://gitlab.example.com',
                      name_identifier_format: 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent',
-                     allowed_clock_drift: 1  # for one second clock drift
+                     allowed_clock_drift: 1 # for one second clock drift
              }
            }
    ```
@@ -2875,18 +2776,15 @@ The value given is added to the current time at which the response is validated.
 
 ### Designate a unique attribute for the `uid` (optional)
 
-By default, the users `uid` is set as the `NameID` attribute in the SAML response. To designate
-a different attribute for the `uid`, you can set the `uid_attribute`.
+By default, the users `uid` is set as the `NameID` attribute in the SAML response. To designate a different attribute for the `uid`, you can set the `uid_attribute`.
 
-Before setting the `uid` to a unique attribute, make sure that you have configured
-the following attributes so your SAML users cannot change them:
+Before setting the `uid` to a unique attribute, make sure that you have configured the following attributes so your SAML users cannot change them:
 
 - [`NameID`](../user/group/saml_sso/_index.md#manage-user-saml-identity).
 - `Email` when used with `omniauth_auto_link_saml_user`.
 
 If users can change these attributes, they can sign in as other authorized users.
-See your SAML IdP documentation for information on how to make these attributes
-unchangeable.
+See your SAML IdP documentation for information on how to make these attributes unchangeable.
 In the following example, the value of `uid` attribute in the SAML response is set as the `uid_attribute`.
 
 {{< tabs >}}
@@ -2921,8 +2819,7 @@ In the following example, the value of `uid` attribute in the SAML response is s
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-1. Put the following content in a file named `saml.yaml` to be used as a
-   [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
+1. Put the following content in a file named `saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
 
    ```yaml
    name: 'saml'
@@ -3042,19 +2939,15 @@ In the following example, the value of `uid` attribute in the SAML response is s
 
 ## Assertion encryption (optional)
 
-Encrypting the SAML assertion is optional but recommended. This adds an additional layer of protection
-to prevent unencrypted data being logged or intercepted by malicious actors.
+Encrypting the SAML assertion is optional but recommended. This adds an additional layer of protection to prevent unencrypted data being logged or intercepted by malicious actors.
 
 {{< alert type="note" >}}
 
-This integration uses the `certificate` and `private_key` settings for both
-assertion encryption and request signing.
+This integration uses the `certificate` and `private_key` settings for both assertion encryption and request signing.
 
 {{< /alert >}}
 
-To encrypt your SAML assertions, define the private key and the public certificate in the GitLab
-SAML settings. Your IdP encrypts the assertion with the public certificate and
-GitLab decrypts the assertion with the private key.
+To encrypt your SAML assertions, define the private key and the public certificate in the GitLab SAML settings. Your IdP encrypts the assertion with the public certificate and GitLab decrypts the assertion with the private key.
 
 When you define the key and certificate, replace all line feeds in the key file with `\n`.
 This makes the key file one long string with no line feeds.
@@ -3100,8 +2993,7 @@ This makes the key file one long string with no line feeds.
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-1. Put the following content in a file named `saml.yaml` to be used as a
-   [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
+1. Put the following content in a file named `saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
 
    ```yaml
    name: 'saml'
@@ -3236,13 +3128,11 @@ This makes the key file one long string with no line feeds.
 
 ## Sign SAML authentication requests (optional)
 
-You can configure GitLab to sign SAML authentication requests. This configuration
-is optional because GitLab SAML requests use the SAML redirect binding.
+You can configure GitLab to sign SAML authentication requests. This configuration is optional because GitLab SAML requests use the SAML redirect binding.
 
 To implement signing:
 
-1. Create a private key and public certificate pair for your GitLab instance to
-   use for SAML.
+1. Create a private key and public certificate pair for your GitLab instance to use for SAML.
 1. Configure the signing settings in the `security` section of the configuration.
    For example:
 
@@ -3265,10 +3155,10 @@ To implement signing:
                   certificate: '-----BEGIN CERTIFICATE-----\n<redacted>\n-----END CERTIFICATE-----',
                   private_key: '-----BEGIN PRIVATE KEY-----\n<redacted>\n-----END PRIVATE KEY-----',
                   security: {
-                    authn_requests_signed: true,  # enable signature on AuthNRequest
-                    want_assertions_signed: true,  # enable the requirement of signed assertion
-                    want_assertions_encrypted: false,  # enable the requirement of encrypted assertion
-                    metadata_signed: false,  # enable signature on Metadata
+                    authn_requests_signed: true, # enable signature on AuthNRequest
+                    want_assertions_signed: true, # enable the requirement of signed assertion
+                    want_assertions_encrypted: false, # enable the requirement of encrypted assertion
+                    metadata_signed: false, # enable signature on Metadata
                     signature_method: 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
                     digest_method: 'http://www.w3.org/2001/04/xmlenc#sha256',
                   }
@@ -3287,8 +3177,7 @@ To implement signing:
 
    {{< tab title="Helm chart (Kubernetes)" >}}
 
-   1. Put the following content in a file named `saml.yaml` to be used as a
-      [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
+   1. Put the following content in a file named `saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
 
       ```yaml
       name: 'saml'
@@ -3302,10 +3191,10 @@ To implement signing:
         certificate: '-----BEGIN CERTIFICATE-----\n<redacted>\n-----END CERTIFICATE-----'
         private_key: '-----BEGIN PRIVATE KEY-----\n<redacted>\n-----END PRIVATE KEY-----'
         security:
-          authn_requests_signed: true  # enable signature on AuthNRequest
-          want_assertions_signed: true  # enable the requirement of signed assertion
-          want_assertions_encrypted: false  # enable the requirement of encrypted assertion
-          metadata_signed: false  # enable signature on Metadata
+          authn_requests_signed: true # enable signature on AuthNRequest
+          want_assertions_signed: true # enable the requirement of signed assertion
+          want_assertions_encrypted: false # enable the requirement of encrypted assertion
+          metadata_signed: false # enable signature on Metadata
           signature_method: 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'
           digest_method: 'http://www.w3.org/2001/04/xmlenc#sha256'
       ```
@@ -3362,10 +3251,10 @@ To implement signing:
                            certificate: '-----BEGIN CERTIFICATE-----\n<redacted>\n-----END CERTIFICATE-----',
                            private_key: '-----BEGIN PRIVATE KEY-----\n<redacted>\n-----END PRIVATE KEY-----',
                            security: {
-                             authn_requests_signed: true,  # enable signature on AuthNRequest
-                             want_assertions_signed: true,  # enable the requirement of signed assertion
-                             want_assertions_encrypted: false,  # enable the requirement of encrypted assertion
-                             metadata_signed: false,  # enable signature on Metadata
+                             authn_requests_signed: true, # enable signature on AuthNRequest
+                             want_assertions_signed: true, # enable the requirement of signed assertion
+                             want_assertions_encrypted: false, # enable the requirement of encrypted assertion
+                             metadata_signed: false, # enable signature on Metadata
                              signature_method: 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
                              digest_method: 'http://www.w3.org/2001/04/xmlenc#sha256',
                            }
@@ -3401,10 +3290,10 @@ To implement signing:
                         certificate: '-----BEGIN CERTIFICATE-----\n<redacted>\n-----END CERTIFICATE-----',
                         private_key: '-----BEGIN PRIVATE KEY-----\n<redacted>\n-----END PRIVATE KEY-----',
                         security: {
-                          authn_requests_signed: true,  # enable signature on AuthNRequest
-                          want_assertions_signed: true,  # enable the requirement of signed assertion
-                          want_assertions_encrypted: false,  # enable the requirement of encrypted assertion
-                          metadata_signed: false,  # enable signature on Metadata
+                          authn_requests_signed: true, # enable signature on AuthNRequest
+                          want_assertions_signed: true, # enable the requirement of signed assertion
+                          want_assertions_encrypted: false, # enable the requirement of encrypted assertion
+                          metadata_signed: false, # enable signature on Metadata
                           signature_method: 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
                           digest_method: 'http://www.w3.org/2001/04/xmlenc#sha256',
                         }
@@ -3429,20 +3318,15 @@ To implement signing:
 GitLab then:
 
 - Signs the request with the provided private key.
-- Includes the configured public x500 certificate in the metadata for your IdP
-  to validate the signature of the received request with.
+- Includes the configured public x500 certificate in the metadata for your IdP to validate the signature of the received request with.
 
-For more information on this option, see the
-[Ruby SAML gem documentation](https://github.com/SAML-Toolkits/ruby-saml/tree/v1.7.0).
+For more information on this option, see the [Ruby SAML gem documentation](https://github.com/SAML-Toolkits/ruby-saml/tree/v1.7.0).
 
-The Ruby SAML gem is used by the
-[OmniAuth SAML gem](https://github.com/omniauth/omniauth-saml) to implement the
-client side of the SAML authentication.
+The Ruby SAML gem is used by the [OmniAuth SAML gem](https://github.com/omniauth/omniauth-saml) to implement the client side of the SAML authentication.
 
 {{< alert type="note" >}}
 
-The SAML redirect binding is different to the SAML POST binding. In the POST binding,
-signing is required to prevent intermediaries from tampering with the requests.
+The SAML redirect binding is different to the SAML POST binding. In the POST binding, signing is required to prevent intermediaries from tampering with the requests.
 
 {{< /alert >}}
 
@@ -3450,8 +3334,7 @@ signing is required to prevent intermediaries from tampering with the requests.
 
 GitLab [generates and sets passwords for users created through SAML](../security/passwords_for_integrated_authentication_methods.md).
 
-Users authenticated with SSO or SAML must not use a password for Git operations
-over HTTPS. These users can instead:
+Users authenticated with SSO or SAML must not use a password for Git operations over HTTPS. These users can instead:
 
 - Set up a [personal](../user/profile/personal_access_tokens.md), [project](../user/project/settings/project_access_tokens.md), or [group](../user/group/settings/group_access_tokens.md) access token.
 - Use an [OAuth credential helper](../user/profile/account/two_factor_authentication.md#oauth-credential-helpers).
@@ -3461,8 +3344,7 @@ over HTTPS. These users can instead:
 An administrator can configure GitLab to automatically link SAML users with existing GitLab users.
 For more information, see [Configure SAML support in GitLab](#configure-saml-support-in-gitlab).
 
-A user can manually link their SAML identity to an existing GitLab account. For more information,
-see [Enable OmniAuth for an existing user](omniauth.md#enable-omniauth-for-an-existing-user).
+A user can manually link their SAML identity to an existing GitLab account. For more information, see [Enable OmniAuth for an existing user](omniauth.md#enable-omniauth-for-an-existing-user).
 
 ## Configure group SAML SSO on GitLab Self-Managed
 
@@ -3473,8 +3355,7 @@ see [Enable OmniAuth for an existing user](omniauth.md#enable-omniauth-for-an-ex
 
 {{< /details >}}
 
-Use group SAML SSO if you have to allow access through multiple SAML IdPs on your
-GitLab Self-Managed instance.
+Use group SAML SSO if you have to allow access through multiple SAML IdPs on your GitLab Self-Managed instance.
 
 To configure group SAML SSO:
 
@@ -3501,8 +3382,7 @@ To configure group SAML SSO:
 {{< tab title="Helm chart (Kubernetes)" >}}
 
 1. Make sure GitLab is [configured with HTTPS](https://docs.gitlab.com/charts/installation/tls.html).
-1. Put the following content in a file named `group_saml.yaml` to be used as a
-   [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
+1. Put the following content in a file named `group_saml.yaml` to be used as a [Kubernetes Secret](https://docs.gitlab.com/charts/charts/globals.html#providers):
 
    ```yaml
    name: 'group_saml'
@@ -3589,9 +3469,7 @@ To configure group SAML SSO:
 
 {{< /tabs >}}
 
-As a multi-tenant solution, group SAML on GitLab Self-Managed is limited compared
-to the recommended [instance-wide SAML](saml.md). Use
-instance-wide SAML to take advantage of:
+As a multi-tenant solution, group SAML on GitLab Self-Managed is limited compared to the recommended [instance-wide SAML](saml.md). Use instance-wide SAML to take advantage of:
 
 - [LDAP compatibility](../administration/auth/ldap/_index.md).
 - [LDAP Group Sync](../user/group/access_and_permissions.md#manage-group-memberships-with-ldap).
@@ -3601,8 +3479,7 @@ instance-wide SAML to take advantage of:
 
 ## Additional configuration for SAML apps on your IdP
 
-When configuring a SAML app on the IdP, your IdP may need additional configuration,
-such as the following:
+When configuring a SAML app on the IdP, your IdP may need additional configuration, such as the following:
 
 | Field | Value | Notes |
 |-------|-------|-------|

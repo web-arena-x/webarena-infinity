@@ -22,36 +22,30 @@ GitLab merge requests commonly follow one of these flows:
 
 With the protected branch flow, everybody works in the same GitLab project, instead of forks.
 
-The project maintainers get the Maintainer role and the regular developers
-get the Developer role.
+The project maintainers get the Maintainer role and the regular developers get the Developer role.
 
 Maintainers mark the authoritative branches as 'Protected'.
 
-Developers push feature branches to the project and create merge requests
-to have their feature branches reviewed and merged into one of the protected
-branches.
+Developers push feature branches to the project and create merge requests to have their feature branches reviewed and merged into one of the protected branches.
 
-By default, only users with the Maintainer role can merge changes into a
-protected branch.
+By default, only users with the Maintainer role can merge changes into a protected branch.
 
 - Advantages:
-  - Fewer projects means less clutter.
-  - Developers need to consider only one remote repository.
+ - Fewer projects means less clutter.
+ - Developers need to consider only one remote repository.
 - Disadvantages:
-  - Manual setup of protected branch required for each new project
+ - Manual setup of protected branch required for each new project
 
 To set up a protected branch flow:
 
 1. Start with ensuring that your default branch is protected with [default branch protections](../repository/branches/default.md).
-1. If your team has multiple branches, and you would like to manage who can merge changes and who
-   explicitly has the option to push or force push, consider making those branches protected:
+1. If your team has multiple branches, and you would like to manage who can merge changes and who explicitly has the option to push or force push, consider making those branches protected:
 
    - [Manage and Protect Branches](../repository/branches/_index.md#manage-and-protect-branches)
    - [Protected Branches](../repository/branches/protected.md)
 
 1. Each change to the code comes through as a commit.
-   You can specify the format and security measures such as requiring SSH key signing for changes
-   coming into your codebase with push rules:
+   You can specify the format and security measures such as requiring SSH key signing for changes coming into your codebase with push rules:
 
    - [Push rules](../repository/push_rules.md)
 
@@ -67,20 +61,13 @@ Also available in the Ultimate tier:
 
 ## Forking workflow
 
-With the forking workflow, maintainers get the Maintainer role and regular
-developers get the Reporter role on the authoritative repository, which prohibits
-them from pushing any changes to it.
+With the forking workflow, maintainers get the Maintainer role and regular developers get the Reporter role on the authoritative repository, which prohibits them from pushing any changes to it.
 
-Developers create forks of the authoritative project and push their feature
-branches to their own forks.
+Developers create forks of the authoritative project and push their feature branches to their own forks.
 
-To get their changes into the default branch, they need to create a merge request across
-forks.
+To get their changes into the default branch, they need to create a merge request across forks.
 
 - Advantages:
-  - In an appropriately configured GitLab group, new projects automatically get
-    the required access restrictions for regular developers: fewer manual steps
-    to configure authorization for new projects.
+ - In an appropriately configured GitLab group, new projects automatically get the required access restrictions for regular developers: fewer manual steps to configure authorization for new projects.
 - Disadvantages:
-  - The project need to keep their forks up to date, which requires more advanced
-    Git skills (managing multiple remotes).
+ - The project need to keep their forks up to date, which requires more advanced Git skills (managing multiple remotes).

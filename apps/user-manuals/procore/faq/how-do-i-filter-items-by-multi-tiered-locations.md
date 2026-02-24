@@ -17,9 +17,9 @@ If you tie an item to a multi-tiered location, you will be able to view all item
 
    ##### Example
 
-   If you search for Floor 1 *and* select the checkbox that says, "Include Sub-locations," you will see all items tied to all sub locations under floor 1 (highlighted in red below).  
+   If you search for Floor 1 *and* select the checkbox that says, "Include Sub-locations," you will see all items tied to all sub locations under floor 1 (highlighted in red below). 
      
-   ![filter by location.png](https://support.procore.com/@api/deki/files/4276/filter_by_location.png?revision=1&size=bestfit&width=252&height=94)  
+   ![filter by location.png](https://support.procore.com/@api/deki/files/4276/filter_by_location.png?revision=1&size=bestfit&width=252&height=94) 
      
    ![sub locations.png](https://support.procore.com/@api/deki/files/4277/sub_locations.png?revision=1&size=bestfit&width=245&height=168)
 

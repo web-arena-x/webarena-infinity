@@ -13,8 +13,7 @@ title: Troubleshooting the GitLab Duo Agent Platform
 
 {{< /details >}}
 
-If you are working with the GitLab Duo Agent Platform,
-you might encounter the following issues.
+If you are working with the GitLab Duo Agent Platform, you might encounter the following issues.
 
 ## View logs
 
@@ -45,12 +44,9 @@ If a session for your flow does not start:
 
 ### Allow members to be added to projects
 
-Flows that use a [composite identity](composite_identity.md) must add the `@duo-developer`
-service account to your project. If your group is restricted, you cannot add users directly to projects,
-and your flows will not run.
+Flows that use a [composite identity](composite_identity.md) must add the `@duo-developer` service account to your project. If your group is restricted, you cannot add users directly to projects, and your flows will not run.
 
-Prior to running a flow in your project, turn off the setting that
-[prevents members from being added to projects]( ../group/access_and_permissions.md#prevent-members-from-being-added-to-projects-in-a-group).
+Prior to running a flow in your project, turn off the setting that [prevents members from being added to projects]( ../group/access_and_permissions.md#prevent-members-from-being-added-to-projects-in-a-group).
 This step only needs to be done one time, for the first flow to run.
 After that, you can turn the setting back on.
 

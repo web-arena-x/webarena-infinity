@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/7043760141978-Understandin
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Quality Assurance (QA) or Workforce Engagement Management (WEM) |
 
@@ -14,25 +14,19 @@ Verified AI summary ◀▼
 
 Understand roles and permissions to manage team access and security. Admins can set roles in Admin Center, while workspace permissions allow flexibility across different workspaces. Assign roles like Manager, Lead, Reviewer, or Agent to control access to features such as calibration, coaching, quizzes, disputes, and dashboards. Tailor permissions to fit your team's needs and streamline operations without compromising security.
 
-Zendesk Admin Center provides a central location for setting team members’ roles
-and product access in Zendesk Quality assurance (QA). A team member is anyone you add to a
-Zendesk account who is not an end user. Additional workspace permissions can be added on the
-Zendesk QA side.
+Zendesk Admin Center provides a central location for setting team members’ roles and product access in Zendesk Quality assurance (QA). A team member is anyone you add to a Zendesk account who is not an end user. Additional workspace permissions can be added on the Zendesk QA side.
 
-Ensuring that team members have the appropriate access levels maintains efficiency
-and security within your team.
+Ensuring that team members have the appropriate access levels maintains efficiency and security within your team.
 
 This article contains the following topics:
 
-- [About roles and permissions in
-  Zendesk QA](#topic_kcp_yv1_cbc)
+- [About roles and permissions in Zendesk QA](#topic_kcp_yv1_cbc)
 - [Workspace permissions](#topic_dzc_fgq_q2c)
 - [Permissions by feature](#topic_ph4_bkq_42c)
 
 Related articles:
 
-- [Setting roles and access in Zendesk Admin
-  Center](https://support.zendesk.com/hc/en-us/articles/4408824375450)
+- [Setting roles and access in Zendesk Admin Center](https://support.zendesk.com/hc/en-us/articles/4408824375450)
 - [Managing users and workspaces in Zendesk QA](https://support.zendesk.com/hc/en-us/articles/7043760162074)
 
 ## About roles and permissions in Zendesk QA
@@ -48,17 +42,15 @@ Zendesk admins can update the following [Zendesk QA role permissions in Admin Ce
 
 See [Setting roles and access in Zendesk Admin Center](https://support.zendesk.com/hc/en-us/articles/4408824375450).
 
-Zendesk QA role permissions apply only to the [default workspace](https://support.zendesk.com/hc/en-us/articles/7043669430426#topic_wsw_cly_ydc), and users cannot be removed from
-the default workspace. Additional [workspace permissions](https://support.zendesk.com/hc/en-us/articles/9203020826266) can be added on the Zendesk QA side.
+Zendesk QA role permissions apply only to the [default workspace](https://support.zendesk.com/hc/en-us/articles/7043669430426#topic_wsw_cly_ydc), and users cannot be removed from the default workspace. Additional [workspace permissions](https://support.zendesk.com/hc/en-us/articles/9203020826266) can be added on the Zendesk QA side.
 
 ## Workspace permissions
 
-Workspace permissions apply only within a specific workspace. Team members can
-have different permissions in different workspaces.
+Workspace permissions apply only within a specific workspace. Team members can have different permissions in different workspaces.
 
 The following workspace permissions can be assigned:
 
-|  |  |
+| | |
 | --- | --- |
 | **Workspace permission** | **Description** |
 | **Manager** | Can view all reviews and manage all workspace settings. |
@@ -68,10 +60,9 @@ The following workspace permissions can be assigned:
 
 ## Permissions by feature
 
-Different features in Zendesk QA have specific permissions associated with
-them:
+Different features in Zendesk QA have specific permissions associated with them:
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Feature** | **Role** | **Permissions** |
 | Calibration | - Admin, workspace manager, and lead | - Can create calibration sessions |

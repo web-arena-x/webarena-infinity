@@ -159,9 +159,9 @@ Per-event pricing uses a different calculation that accounts for snowfall depth 
 Here’s how that might look:
 
 - **Base cost per inch tier:**
-  - 0-3 inches: Vendor charges $120, you bill $180 (50% markup)
-  - 3-6 inches: Vendor charges $200, you bill $300 (50% markup)
-  - 6+ inches: Vendor charges $350, you bill $525 (50% markup)
+ - 0-3 inches: Vendor charges $120, you bill $180 (50% markup)
+ - 3-6 inches: Vendor charges $200, you bill $300 (50% markup)
+ - 6+ inches: Vendor charges $350, you bill $525 (50% markup)
 - **Time factor:** Add 25% for overnight or holiday service.
 - **Pass multiplier:** Each additional pass beyond the first adds 30% to the base rate.
 

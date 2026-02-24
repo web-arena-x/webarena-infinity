@@ -6,8 +6,7 @@ description: Connect and use GitLab Duo in JetBrains IDEs.
 title: Troubleshooting JetBrains
 ---
 
-If the steps on this page don't solve your problem, check the
-[list of open issues](https://gitlab.com/gitlab-org/editor-extensions/gitlab-jetbrains-plugin/-/issues/?sort=created_date&state=opened&first_page_size=100)
+If the steps on this page don't solve your problem, check the [list of open issues](https://gitlab.com/gitlab-org/editor-extensions/gitlab-jetbrains-plugin/-/issues/?sort=created_date&state=opened&first_page_size=100)
 in the JetBrains plugin's project. If an issue matches your problem, update the issue.
 If no issues match your problem, [create a new issue](https://gitlab.com/gitlab-org/editor-extensions/gitlab-jetbrains-plugin/-/issues/new)
 and provide the [required information for Support](#required-information-for-support).
@@ -18,12 +17,12 @@ If GitLab Duo Chat or GitLab Duo Code Suggestions are not available in your IDE:
 
 - Ensure you meet the [prerequisites](setup.md#configure-gitlab-duo).
 - Review diagnostics output:
-  - In your JetBrains IDE, go to **Tools** > **GitLab** > **Diagnostics** and review the output for any failed checks.
+ - In your JetBrains IDE, go to **Tools** > **GitLab** > **Diagnostics** and review the output for any failed checks.
 - If the diagnostics indicate that the feature is not enabled:
-  1. In your JetBrains IDE, go to **Settings** > **Tools** > **GitLab Duo**.
-  1. Find and select the checkbox to enable the missing feature.
-  1. Select **OK** or **Save**.
-  1. Restart your IDE if prompted.
+ 1. In your JetBrains IDE, go to **Settings** > **Tools** > **GitLab Duo**.
+ 1. Find and select the checkbox to enable the missing feature.
+ 1. Select **OK** or **Save**.
+ 1. Restart your IDE if prompted.
 
 For additional support:
 
@@ -34,14 +33,11 @@ For additional support:
 
 To enable debug logs in JetBrains:
 
-1. On the top bar, go to **Help** > **Diagnostic Tools** > **Debug Log Settings**, or
-   search for the action by going to **Help** > **Find Action** > **Debug log settings**.
+1. On the top bar, go to **Help** > **Diagnostic Tools** > **Debug Log Settings**, or search for the action by going to **Help** > **Find Action** > **Debug log settings**.
 1. Add this line: `com.gitlab.plugin`
 1. Select **OK** or **Save**.
 
-If you experience [certificate errors](#certificate-errors) or other connection errors, and
-use an HTTP proxy to connect to your GitLab instance, you must
-[configure the Language Server to use a proxy](../language_server/_index.md#configure-the-language-server-to-use-a-proxy)
+If you experience [certificate errors](#certificate-errors) or other connection errors, and use an HTTP proxy to connect to your GitLab instance, you must [configure the Language Server to use a proxy](../language_server/_index.md#configure-the-language-server-to-use-a-proxy)
 for the GitLab Language Server.
 
 You can also [enable proxy authentication](../language_server/_index.md#enable-proxy-authentication).
@@ -64,17 +60,13 @@ The debug logs are available in the `idea.log` log file. To view this file, eith
 <!-- vale gitlab_base.SubstitutionWarning = NO -->
 
 - In your IDE, go to **Help** > **Show Log in Finder**.
-- Go to the directory `/Users/<user>/Library/Logs/JetBrains/IntelliJIdea<build_version>`, replacing
-  `<user>` and `<build_version>` with the appropriate values.
+- Go to the directory `/Users/<user>/Library/Logs/JetBrains/IntelliJIdea<build_version>`, replacing `<user>` and `<build_version>` with the appropriate values.
 
 <!-- vale gitlab_base.SubstitutionWarning = YES -->
 
 ## Certificate errors
 
-If your machine connects to your GitLab instance through a proxy, you might encounter
-SSL certificate errors in JetBrains. GitLab Duo attempts to detect certificates in your system store;
-however, Language Server cannot do this. If you see errors from the Language Server
-about certificates, try enabling the option to pass a Certificate Authority (CA) certificate:
+If your machine connects to your GitLab instance through a proxy, you might encounter SSL certificate errors in JetBrains. GitLab Duo attempts to detect certificates in your system store; however, Language Server cannot do this. If you see errors from the Language Server about certificates, try enabling the option to pass a Certificate Authority (CA) certificate:
 
 To do this:
 
@@ -89,9 +81,7 @@ To do this:
 
 ### Ignore certificate errors
 
-If GitLab Duo still fails to connect, you might need to
-ignore certificate errors. You might see errors in the GitLab Language Server logs after enabling
-[debug mode](jetbrains_troubleshooting.md#enable-debug-mode):
+If GitLab Duo still fails to connect, you might need to ignore certificate errors. You might see errors in the GitLab Language Server logs after enabling [debug mode](jetbrains_troubleshooting.md#enable-debug-mode):
 
 ```plaintext
 2024-10-31T10:32:54:165 [error]: fetch: request to https://gitlab.com/api/v4/personal_access_tokens/self failed with:
@@ -100,13 +90,11 @@ FetchError: request to https://gitlab.com/api/v4/personal_access_tokens/self fai
 ```
 
 By design, this setting represents a security risk:
-these errors alert you to potential security breaches. You should enable this
-setting only if you are absolutely certain the proxy causes the problem.
+these errors alert you to potential security breaches. You should enable this setting only if you are absolutely certain the proxy causes the problem.
 
 Prerequisites:
 
-- You verified the certificate chain in your system browser or your machine's administrator
-  confirmed that this error is safe to ignore.
+- You verified the certificate chain in your system browser or your machine's administrator confirmed that this error is safe to ignore.
 
 To do this:
 
@@ -120,8 +108,7 @@ To do this:
 
 ### Authentication fails in PyCharm
 
-If you encounter problems during the **Verify setup** phase of GitLab authentication, confirm you
-are running a supported version of PyCharm:
+If you encounter problems during the **Verify setup** phase of GitLab authentication, confirm you are running a supported version of PyCharm:
 
 1. Go to the [plugin compatibility](https://plugins.jetbrains.com/plugin/22325-gitlab-duo/versions) page.
 1. For **Compatibility**, select `PyCharm Community` or `PyCharm Professional`.
@@ -144,14 +131,12 @@ If you experience issues with GitLab Duo Chat related to JCEF (Java Chromium Emb
 
 ## Required information for support
 
-Before contacting Support, make sure the latest GitLab Duo plugin is installed. All releases
-are available in the [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/22325-gitlab-duo/versions),
-on the **Versions** tab.
+Before contacting Support, make sure the latest GitLab Duo plugin is installed. All releases are available in the [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/22325-gitlab-duo/versions), on the **Versions** tab.
 
 Gather this information from affected users, and provide it in your bug report:
 
 1. The error message shown to the user.
-1. Diagnostics and logs. Choose one of the following methods:  
+1. Diagnostics and logs. Choose one of the following methods: 
    - Automatic (recommended):
      - Run the `GitLab: Export Diagnostics Bundle` quick action. Available with GitLab Duo plugin 3.27.0 or later.
      - This downloads a zip file containing IDE logs and diagnostics to a location you specify.
@@ -166,6 +151,4 @@ Gather this information from affected users, and provide it in your bug report:
    - Is GitLab Quick Chat functional?
    - Is Code Suggestions working?
    - Does GitLab Duo Chat in the Web IDE return responses?
-1. Perform extension isolation testing. Try disabling (or uninstalling) all other extensions to determine
-   if another extension is causing the issue. This helps determine if the problem is with our extension,
-   or from an external source.
+1. Perform extension isolation testing. Try disabling (or uninstalling) all other extensions to determine if another extension is causing the issue. This helps determine if the problem is with our extension, or from an external source.

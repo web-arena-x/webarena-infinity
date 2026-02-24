@@ -9,7 +9,7 @@ To respond to pre-bid questions you may receive from subcontractors or vendors s
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.
+ - 'Admin' level permissions on the project's Bidding tool.
 
 ## Prerequisites
 
@@ -22,10 +22,10 @@ To respond to pre-bid questions you may receive from subcontractors or vendors s
 3. Navigate to the **Bidders** tab.
 4. Click **View** next to the company that has the RFI question you want to answer.
 5. Click the **Emails** tab. This is where any emails sent from the potential bidder will appear.
-6. To respond to an email, click the subject of the email you want to respond to.   
+6. To respond to an email, click the subject of the email you want to respond to.  
      
    ![respond to pre bid question 1.jpg](https://support.procore.com/@api/deki/files/81373/respond_to_pre_bid_question_1.jpg?revision=1)
-7. Scroll to the bottom of the page and enter in an answer below "Post a New Reply."  
+7. Scroll to the bottom of the page and enter in an answer below "Post a New Reply." 
      
    ![BID-reply.png](https://support.procore.com/@api/deki/files/1139/BID-reply.png?revision=1&size=bestfit&width=700&height=402)
 8. Click **Send Reply**. The user who posted the question will receive your answer in their inbox.

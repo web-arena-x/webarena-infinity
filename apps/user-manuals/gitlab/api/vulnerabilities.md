@@ -25,27 +25,21 @@ description: Manage GitLab vulnerabilities with REST API (deprecated). Supports 
 
 {{< alert type="note" >}}
 
-The former Vulnerabilities API was renamed to Vulnerability Findings API
-and its documentation was moved to [a different location](vulnerability_findings.md).
-This document now describes the new Vulnerabilities API that provides access to
-[Vulnerabilities](https://gitlab.com/groups/gitlab-org/-/epics/634).
+The former Vulnerabilities API was renamed to Vulnerability Findings API and its documentation was moved to [a different location](vulnerability_findings.md).
+This document now describes the new Vulnerabilities API that provides access to [Vulnerabilities](https://gitlab.com/groups/gitlab-org/-/epics/634).
 
 {{< /alert >}}
 
 {{< alert type="warning" >}}
 
 This API is in the process of being deprecated and considered unstable.
-The response payload may be subject to change or breakage
-across GitLab releases. Use the
-[GraphQL API](graphql/reference/_index.md#queryvulnerabilities) instead. For more information, see [GraphQL examples](#replace-vulnerability-rest-api-with-graphql).
+The response payload may be subject to change or breakage across GitLab releases. Use the [GraphQL API](graphql/reference/_index.md#queryvulnerabilities) instead. For more information, see [GraphQL examples](#replace-vulnerability-rest-api-with-graphql).
 
 {{< /alert >}}
 
 Every API call to vulnerabilities must be [authenticated](rest/authentication.md).
 
-If an authenticated user does not have permission to
-[view vulnerability report](../user/permissions.md#project-application-security),
-this request returns a `403 Forbidden` status code.
+If an authenticated user does not have permission to [view vulnerability report](../user/permissions.md#project-application-security), this request returns a `403 Forbidden` status code.
 
 ## Single vulnerability
 
@@ -61,32 +55,32 @@ GET /vulnerabilities/:id
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/vulnerabilities/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/vulnerabilities/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "title": "Predictable pseudorandom number generator",
-  "description": null,
-  "state": "opened",
-  "severity": "medium",
-  "confidence": "medium",
-  "report_type": "sast",
-  "project": {
+ "id": 1,
+ "title": "Predictable pseudorandom number generator",
+ "description": null,
+ "state": "opened",
+ "severity": "medium",
+ "confidence": "medium",
+ "report_type": "sast",
+ "project": {
     "id": 32,
     "name": "security-reports",
     "full_path": "/gitlab-examples/security/security-reports",
     "full_name": "gitlab-examples / security / security-reports"
-  },
-  "author_id": 1,
-  "closed_by_id": null,
-  "created_at": "2019-10-13T15:08:40.219Z",
-  "updated_at": "2019-10-13T15:09:40.382Z",
-  "closed_at": null
+ },
+ "author_id": 1,
+ "closed_by_id": null,
+ "created_at": "2019-10-13T15:08:40.219Z",
+ "updated_at": "2019-10-13T15:09:40.382Z",
+ "closed_at": null
 }
 ```
 
@@ -94,9 +88,7 @@ Example response:
 
 Confirms a given vulnerability. Returns status code `304` if the vulnerability is already confirmed.
 
-If an authenticated user does not have permission to
-[change vulnerability status](../user/permissions.md#project-application-security),
-this request results in a `403` status code.
+If an authenticated user does not have permission to [change vulnerability status](../user/permissions.md#project-application-security), this request results in a `403` status code.
 
 ```plaintext
 POST /vulnerabilities/:id/confirm
@@ -108,32 +100,32 @@ POST /vulnerabilities/:id/confirm
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/vulnerabilities/5/confirm"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/vulnerabilities/5/confirm"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 2,
-  "title": "Predictable pseudorandom number generator",
-  "description": null,
-  "state": "confirmed",
-  "severity": "medium",
-  "confidence": "medium",
-  "report_type": "sast",
-  "project": {
+ "id": 2,
+ "title": "Predictable pseudorandom number generator",
+ "description": null,
+ "state": "confirmed",
+ "severity": "medium",
+ "confidence": "medium",
+ "report_type": "sast",
+ "project": {
     "id": 32,
     "name": "security-reports",
     "full_path": "/gitlab-examples/security/security-reports",
     "full_name": "gitlab-examples / security / security-reports"
-  },
-  "author_id": 1,
-  "closed_by_id": null,
-  "created_at": "2019-10-13T15:08:40.219Z",
-  "updated_at": "2019-10-13T15:09:40.382Z",
-  "closed_at": null
+ },
+ "author_id": 1,
+ "closed_by_id": null,
+ "created_at": "2019-10-13T15:08:40.219Z",
+ "updated_at": "2019-10-13T15:09:40.382Z",
+ "closed_at": null
 }
 ```
 
@@ -141,9 +133,7 @@ Example response:
 
 Resolves a given vulnerability. Returns status code `304` if the vulnerability is already resolved.
 
-If an authenticated user does not have permission to
-[change vulnerability status](../user/permissions.md#project-application-security),
-this request results in a `403` status code.
+If an authenticated user does not have permission to [change vulnerability status](../user/permissions.md#project-application-security), this request results in a `403` status code.
 
 ```plaintext
 POST /vulnerabilities/:id/resolve
@@ -155,32 +145,32 @@ POST /vulnerabilities/:id/resolve
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/vulnerabilities/5/resolve"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/vulnerabilities/5/resolve"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 2,
-  "title": "Predictable pseudorandom number generator",
-  "description": null,
-  "state": "resolved",
-  "severity": "medium",
-  "confidence": "medium",
-  "report_type": "sast",
-  "project": {
+ "id": 2,
+ "title": "Predictable pseudorandom number generator",
+ "description": null,
+ "state": "resolved",
+ "severity": "medium",
+ "confidence": "medium",
+ "report_type": "sast",
+ "project": {
     "id": 32,
     "name": "security-reports",
     "full_path": "/gitlab-examples/security/security-reports",
     "full_name": "gitlab-examples / security / security-reports"
-  },
-  "author_id": 1,
-  "closed_by_id": null,
-  "created_at": "2019-10-13T15:08:40.219Z",
-  "updated_at": "2019-10-13T15:09:40.382Z",
-  "closed_at": null
+ },
+ "author_id": 1,
+ "closed_by_id": null,
+ "created_at": "2019-10-13T15:08:40.219Z",
+ "updated_at": "2019-10-13T15:09:40.382Z",
+ "closed_at": null
 }
 ```
 
@@ -188,9 +178,7 @@ Example response:
 
 Dismisses a given vulnerability. Returns status code `304` if the vulnerability is already dismissed.
 
-If an authenticated user does not have permission to
-[change vulnerability status](../user/permissions.md#project-application-security),
-this request results in a `403` status code.
+If an authenticated user does not have permission to [change vulnerability status](../user/permissions.md#project-application-security), this request results in a `403` status code.
 
 ```plaintext
 POST /vulnerabilities/:id/dismiss
@@ -202,32 +190,32 @@ POST /vulnerabilities/:id/dismiss
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/vulnerabilities/5/dismiss"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/vulnerabilities/5/dismiss"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 2,
-  "title": "Predictable pseudorandom number generator",
-  "description": null,
-  "state": "closed",
-  "severity": "medium",
-  "confidence": "medium",
-  "report_type": "sast",
-  "project": {
+ "id": 2,
+ "title": "Predictable pseudorandom number generator",
+ "description": null,
+ "state": "closed",
+ "severity": "medium",
+ "confidence": "medium",
+ "report_type": "sast",
+ "project": {
     "id": 32,
     "name": "security-reports",
     "full_path": "/gitlab-examples/security/security-reports",
     "full_name": "gitlab-examples / security / security-reports"
-  },
-  "author_id": 1,
-  "closed_by_id": null,
-  "created_at": "2019-10-13T15:08:40.219Z",
-  "updated_at": "2019-10-13T15:09:40.382Z",
-  "closed_at": null
+ },
+ "author_id": 1,
+ "closed_by_id": null,
+ "created_at": "2019-10-13T15:08:40.219Z",
+ "updated_at": "2019-10-13T15:09:40.382Z",
+ "closed_at": null
 }
 ```
 
@@ -235,9 +223,7 @@ Example response:
 
 Reverts a given vulnerability to detected state. Returns status code `304` if the vulnerability is already in detected state.
 
-If an authenticated user does not have permission to
-[change vulnerability status](../user/permissions.md#project-application-security),
-this request results in a `403` status code.
+If an authenticated user does not have permission to [change vulnerability status](../user/permissions.md#project-application-security), this request results in a `403` status code.
 
 ```plaintext
 POST /vulnerabilities/:id/revert
@@ -249,40 +235,38 @@ POST /vulnerabilities/:id/revert
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/vulnerabilities/5/revert"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/vulnerabilities/5/revert"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 2,
-  "title": "Predictable pseudorandom number generator",
-  "description": null,
-  "state": "detected",
-  "severity": "medium",
-  "confidence": "medium",
-  "report_type": "sast",
-  "project": {
+ "id": 2,
+ "title": "Predictable pseudorandom number generator",
+ "description": null,
+ "state": "detected",
+ "severity": "medium",
+ "confidence": "medium",
+ "report_type": "sast",
+ "project": {
     "id": 32,
     "name": "security-reports",
     "full_path": "/gitlab-examples/security/security-reports",
     "full_name": "gitlab-examples / security / security-reports"
-  },
-  "author_id": 1,
-  "closed_by_id": null,
-  "created_at": "2019-10-13T15:08:40.219Z",
-  "updated_at": "2019-10-13T15:09:40.382Z",
-  "closed_at": null
+ },
+ "author_id": 1,
+ "closed_by_id": null,
+ "created_at": "2019-10-13T15:08:40.219Z",
+ "updated_at": "2019-10-13T15:09:40.382Z",
+ "closed_at": null
 }
 ```
 
 ## Replace Vulnerability REST API with GraphQL
 
-To prepare for the [upcoming deprecation](https://gitlab.com/groups/gitlab-org/-/epics/5118) of
-the Vulnerability REST API endpoint, use the examples below to perform the equivalent operations
-with the GraphQL API.
+To prepare for the [upcoming deprecation](https://gitlab.com/groups/gitlab-org/-/epics/5118) of the Vulnerability REST API endpoint, use the examples below to perform the equivalent operations with the GraphQL API.
 
 ### GraphQL - Single vulnerability
 
@@ -290,7 +274,7 @@ Use [`Query.vulnerability`](graphql/reference/_index.md#queryvulnerability).
 
 ```graphql
 {
-  vulnerability(id: "gid://gitlab/Vulnerability/20345379") {
+ vulnerability(id: "gid://gitlab/Vulnerability/20345379") {
     title
     description
     state
@@ -308,7 +292,7 @@ Use [`Query.vulnerability`](graphql/reference/_index.md#queryvulnerability).
       id
       username
     }
-  }
+ }
 }
 ```
 
@@ -316,7 +300,7 @@ Example response:
 
 ```json
 {
-  "data": {
+ "data": {
     "vulnerability": {
       "title": "Improper Input Validation in railties",
       "description": "A remote code execution vulnerability in development mode Rails beta3 can allow an attacker to guess the automatically generated development mode secret token. This secret token can be used in combination with other Rails internals to escalate to a remote code execution exploit.",
@@ -336,7 +320,7 @@ Example response:
         "username": "thiagocsf"
       }
     }
-  }
+ }
 }
 ```
 
@@ -346,12 +330,12 @@ Use [`Mutation.vulnerabilityConfirm`](graphql/reference/_index.md#mutationvulner
 
 ```graphql
 mutation {
-  vulnerabilityConfirm(input: { id: "gid://gitlab/Vulnerability/23577695"}) {
+ vulnerabilityConfirm(input: { id: "gid://gitlab/Vulnerability/23577695"}) {
     vulnerability {
       state
     }
     errors
-  }
+ }
 }
 ```
 
@@ -359,14 +343,14 @@ Example response:
 
 ```json
 {
-  "data": {
+ "data": {
     "vulnerabilityConfirm": {
       "vulnerability": {
         "state": "CONFIRMED"
       },
       "errors": []
     }
-  }
+ }
 }
 ```
 
@@ -376,12 +360,12 @@ Use [`Mutation.vulnerabilityResolve`](graphql/reference/_index.md#mutationvulner
 
 ```graphql
 mutation {
-  vulnerabilityResolve(input: { id: "gid://gitlab/Vulnerability/23577695"}) {
+ vulnerabilityResolve(input: { id: "gid://gitlab/Vulnerability/23577695"}) {
     vulnerability {
       state
     }
     errors
-  }
+ }
 }
 ```
 
@@ -389,14 +373,14 @@ Example response:
 
 ```json
 {
-  "data": {
+ "data": {
     "vulnerabilityConfirm": {
       "vulnerability": {
         "state": "RESOLVED"
       },
       "errors": []
     }
-  }
+ }
 }
 ```
 
@@ -406,12 +390,12 @@ Use [`Mutation.vulnerabilityDismiss`](graphql/reference/_index.md#mutationvulner
 
 ```graphql
 mutation {
-  vulnerabilityDismiss(input: { id: "gid://gitlab/Vulnerability/23577695"}) {
+ vulnerabilityDismiss(input: { id: "gid://gitlab/Vulnerability/23577695"}) {
     vulnerability {
       state
     }
     errors
-  }
+ }
 }
 ```
 
@@ -419,14 +403,14 @@ Example response:
 
 ```json
 {
-  "data": {
+ "data": {
     "vulnerabilityConfirm": {
       "vulnerability": {
         "state": "DISMISSED"
       },
       "errors": []
     }
-  }
+ }
 }
 ```
 
@@ -436,12 +420,12 @@ Use [`Mutation.vulnerabilityRevertToDetected`](graphql/reference/_index.md#mutat
 
 ```graphql
 mutation {
-  vulnerabilityRevertToDetected(input: { id: "gid://gitlab/Vulnerability/20345379"}) {
+ vulnerabilityRevertToDetected(input: { id: "gid://gitlab/Vulnerability/20345379"}) {
     vulnerability {
       state
     }
     errors
-  }
+ }
 }
 ```
 
@@ -449,13 +433,13 @@ Example response:
 
 ```json
 {
-  "data": {
+ "data": {
     "vulnerabilityConfirm": {
       "vulnerability": {
         "state": "DETECTED"
       },
       "errors": []
     }
-  }
+ }
 }
 ```

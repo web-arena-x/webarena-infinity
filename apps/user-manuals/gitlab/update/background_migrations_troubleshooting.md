@@ -23,22 +23,20 @@ When updating to GitLab version 14.2 or later, database migrations might fail wi
 StandardError: An error has occurred, all later migrations canceled:
 
 Expected batched background migration for the given configuration to be marked as 'finished', but it is 'active':
-  {:job_class_name=>"CopyColumnUsingBackgroundMigrationJob",
+ {:job_class_name=>"CopyColumnUsingBackgroundMigrationJob",
    :table_name=>"push_event_payloads",
    :column_name=>"event_id",
    :job_arguments=>[["event_id"],
    ["event_id_convert_to_bigint"]]
-  }
+ }
 ```
 
 To resolve this error:
 
-- If you followed the [version-specific upgrade instructions for 14.2](https://archives.docs.gitlab.com/17.3/ee/update/versions/gitlab_14_changes.html#1420),
-  [manually finish the batched background migration](background_migrations.md#finish-a-failed-migration-manually).
+- If you followed the [version-specific upgrade instructions for 14.2](https://archives.docs.gitlab.com/17.3/ee/update/versions/gitlab_14_changes.html#1420), [manually finish the batched background migration](background_migrations.md#finish-a-failed-migration-manually).
 - If you didn't follow those instructions, you must either:
-  - [Roll back and upgrade](#roll-back-and-follow-the-required-upgrade-path) through one of the required
-    versions before updating to 14.2+.
-  - [Roll forward](#roll-forward-and-finish-the-migrations-on-the-upgraded-version), staying on the current
+ - [Roll back and upgrade](#roll-back-and-follow-the-required-upgrade-path) through one of the required versions before updating to 14.2+.
+ - [Roll forward](#roll-forward-and-finish-the-migrations-on-the-upgraded-version), staying on the current
    version and manually ensuring that the batched migrations complete successfully.
 
 ### Roll back and follow the required upgrade path
@@ -47,9 +45,7 @@ To roll back and follow the required upgrade path:
 
 1. [Roll back and restore the previously installed version](../administration/backup_restore/_index.md).
 1. Update to either 14.0.5 or 14.1 before updating to 14.2+.
-1. [Check the status](background_migrations.md#check-the-status-of-batched-background-migrations) of the batched
-   background migrations and make sure they are all marked as finished before attempting to upgrade again. If any remain
-   marked as active, [manually finish them](background_migrations.md#finish-a-failed-migration-manually).
+1. [Check the status](background_migrations.md#check-the-status-of-batched-background-migrations) of the batched background migrations and make sure they are all marked as finished before attempting to upgrade again. If any remain marked as active, [manually finish them](background_migrations.md#finish-a-failed-migration-manually).
 
 ### Roll forward and finish the migrations on the upgraded version
 
@@ -59,9 +55,7 @@ The process for rolling forward depends on whether no downtime is required or no
 
 Running all batched background migrations can take a significant amount of time depending on the size of your GitLab installation.
 
-1. [Check the status](background_migrations.md#check-the-status-of-batched-background-migrations) of the batched background migrations in the
-   database, and [manually run them](background_migrations.md#finish-a-failed-migration-manually) with the appropriate
-   arguments until the status query returns no rows.
+1. [Check the status](background_migrations.md#check-the-status-of-batched-background-migrations) of the batched background migrations in the database, and [manually run them](background_migrations.md#finish-a-failed-migration-manually) with the appropriate arguments until the status query returns no rows.
 1. When the status of all of all them is marked as complete, re-run migrations for your installation.
 1. [Complete the database migrations](../administration/raketasks/maintenance.md#run-incomplete-database-migrations) from your GitLab upgrade:
 
@@ -79,33 +73,25 @@ Running all batched background migrations can take a significant amount of time 
 
 #### For a no-downtime deployment
 
-Because the failing migrations are post-deployment migrations, you can remain on a running instance of the upgraded
-version and wait for the batched background migrations to finish.
+Because the failing migrations are post-deployment migrations, you can remain on a running instance of the upgraded version and wait for the batched background migrations to finish.
 
-1. [Check the status](background_migrations.md#check-the-status-of-batched-background-migrations) of the batched
-   background migration from the error message, and make sure it is listed as finished. If the migration is still active,
-   either:
+1. [Check the status](background_migrations.md#check-the-status-of-batched-background-migrations) of the batched background migration from the error message, and make sure it is listed as finished. If the migration is still active, either:
    - Wait until it is finished.
    - [Manually finish it](background_migrations.md#finish-a-failed-migration-manually).
 1. Re-run migrations for your installation so the remaining post-deployment migrations finish.
 
 ## Advanced search migrations are stuck
 
-In GitLab 15.0, an advanced search migration named `DeleteOrphanedCommit` can be permanently stuck
-in a pending state across upgrades. This issue
-[is corrected in GitLab 15.1](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/89539).
+In GitLab 15.0, an advanced search migration named `DeleteOrphanedCommit` can be permanently stuck in a pending state across upgrades. This issue [is corrected in GitLab 15.1](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/89539).
 
 If you are a GitLab Self-Managed customer who uses GitLab 15.0 with advanced search, you will experience performance degradation.
 To clean up the migration, upgrade to 15.1 or later.
 
 For other advanced search migrations stuck in pending problems, [retry the halted migrations](../integration/advanced_search/elasticsearch.md#retry-a-halted-migration).
 
-If you upgrade GitLab before all pending advanced search migrations are completed, any pending migrations
-that have been removed in the new version cannot be executed or retried.
-In this case, you must
-[re-create your index from scratch](../integration/elasticsearch/troubleshooting/indexing.md#last-resort-to-recreate-an-index).
+If you upgrade GitLab before all pending advanced search migrations are completed, any pending migrations that have been removed in the new version cannot be executed or retried.
+In this case, you must [re-create your index from scratch](../integration/elasticsearch/troubleshooting/indexing.md#last-resort-to-recreate-an-index).
 
 ## Error: `Elasticsearch version not compatible`
 
-To resolve this problem, confirm that your version of Elasticsearch or OpenSearch is
-[compatible with your version of GitLab](../integration/advanced_search/elasticsearch.md#version-requirements).
+To resolve this problem, confirm that your version of Elasticsearch or OpenSearch is [compatible with your version of GitLab](../integration/advanced_search/elasticsearch.md#version-requirements).

@@ -27,9 +27,7 @@ For more information, see the history.
 
 {{< /alert >}}
 
-The GitLab container virtual registry is a local proxy you can use to cache container images from
-upstream registries. It acts as a pull-through cache, storing frequently-accessed images locally
-to reduce bandwidth usage and improve build performance.
+The GitLab container virtual registry is a local proxy you can use to cache container images from upstream registries. It acts as a pull-through cache, storing frequently-accessed images locally to reduce bandwidth usage and improve build performance.
 
 ## Prerequisites
 
@@ -46,16 +44,12 @@ When using the container virtual registry, remember the following restrictions:
 
 ## Manage virtual registries
 
-To create, edit, or delete a container virtual registry, see the
-[Container virtual registry API](../../../../api/container_virtual_registries.md).
+To create, edit, or delete a container virtual registry, see the [Container virtual registry API](../../../../api/container_virtual_registries.md).
 
 ## Authenticate with the container virtual registry
 
-The container virtual registry stores and
-associates container images in a registry associated
-with your top-level group.
-To access container images, you must authenticate
-with your group's container virtual registry.
+The container virtual registry stores and associates container images in a registry associated with your top-level group.
+To access container images, you must authenticate with your group's container virtual registry.
 
 To authenticate manually, run the following command:
 
@@ -86,27 +80,27 @@ For example:
 
 - Pull an image by its tag:
 
-  ```shell
-  docker pull gitlab.example.com/virtual_registries/container/1/library/alpine:latest
-  ```
+ ```shell
+ docker pull gitlab.example.com/virtual_registries/container/1/library/alpine:latest
+ ```
 
 - Pull an image by digest:
 
-  ```shell
-  docker pull gitlab.example.com/virtual_registries/container/1/library/alpine@sha256:c9375e662992791e3f39e919b26f510e5254b42792519c180aad254e6b38f4dc
-  ```
+ ```shell
+ docker pull gitlab.example.com/virtual_registries/container/1/library/alpine@sha256:c9375e662992791e3f39e919b26f510e5254b42792519c180aad254e6b38f4dc
+ ```
 
 - Pull an image in a `Dockerfile`:
 
-  ```dockerfile
-  FROM gitlab.example.com/virtual_registries/container/1/library/alpine:latest
-  ```
+ ```dockerfile
+ FROM gitlab.example.com/virtual_registries/container/1/library/alpine:latest
+ ```
 
 - Pull an image in a `.gitlab-ci.yml` file:
 
-  ```yaml
-  image: gitlab.example.com/virtual_registries/container/1/library/alpine:latest
-  ```
+ ```yaml
+ image: gitlab.example.com/virtual_registries/container/1/library/alpine:latest
+ ```
 
 When you pull an image, the virtual registry:
 
@@ -130,13 +124,11 @@ For example, if your pipeline pulls `node:latest` and you've set the `cache_vali
 
 ### Authentication error: `HTTP Basic: Access Denied`
 
-If you receive an `HTTP Basic: Access denied` error when authenticating against the virtual registry,
-refer to [two-factor authentication troubleshooting](../../../profile/account/two_factor_authentication_troubleshooting.md#error-http-basic-access-denied-if-a-password-was-provided-for-git-authentication-).
+If you receive an `HTTP Basic: Access denied` error when authenticating against the virtual registry, refer to [two-factor authentication troubleshooting](../../../profile/account/two_factor_authentication_troubleshooting.md#error-http-basic-access-denied-if-a-password-was-provided-for-git-authentication-).
 
 ### Virtual registry connection failure
 
-If a service alias is not set, the `docker:20.10.16` image is unable to find the
-`dind` service, and an error like the following is thrown:
+If a service alias is not set, the `docker:20.10.16` image is unable to find the `dind` service, and an error like the following is thrown:
 
 ```plaintext
 error during connect: Get http://docker:2376/v1.39/info: dial tcp: lookup docker on 192.168.0.1:53: no such host
@@ -146,14 +138,13 @@ To resolve this error, set a service alias for the Docker service:
 
 ```yaml
 services:
-  - name: docker:20.10.16-dind
+ - name: docker:20.10.16-dind
     alias: docker
 ```
 
 ### Virtual registry authentication issues from CI/CD jobs
 
-GitLab Runner authenticates automatically using the CI/CD job token. However, the underlying Docker engine
-is still subject to its [authorization resolving process](https://docs.gitlab.com/runner/configuration/advanced-configuration.html#precedence-of-docker-authorization-resolving).
+GitLab Runner authenticates automatically using the CI/CD job token. However, the underlying Docker engine is still subject to its [authorization resolving process](https://docs.gitlab.com/runner/configuration/advanced-configuration.html#precedence-of-docker-authorization-resolving).
 
 Misconfigurations in the authentication mechanism may cause `HTTP Basic: Access denied` and `403: Access forbidden` errors.
 

@@ -28,7 +28,7 @@ In order for two objects to be considered matching, they must:
 Figma uses the following terms to help define matching object requirements:
 
 - **Parent objects**: Objects such as frames, components, and groups, that contain other objects.
-  - **Grandparent objects** are objects that contain the parent object. **Ancestors** are any other objects in the hierarchy that contain child, parent, or grandparent objects.
+ - **Grandparent objects** are objects that contain the parent object. **Ancestors** are any other objects in the hierarchy that contain child, parent, or grandparent objects.
 - **Children**, or **child objects**: Objects that are contained within a parent.
 - **Top-level frames**: Frames placed directly on the canvas. They do not have any parent objects.
 

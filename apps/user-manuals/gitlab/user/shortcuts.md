@@ -13,18 +13,14 @@ description: Global shortcuts, navigation, and quick access.
 
 {{< /details >}}
 
-GitLab has several keyboard shortcuts you can use to access its different
-features.
+GitLab has several keyboard shortcuts you can use to access its different features.
 
-To display a window in GitLab that lists its keyboard shortcuts, use one of the
-following methods:
+To display a window in GitLab that lists its keyboard shortcuts, use one of the following methods:
 
 - Press <kbd>?</kbd>.
 - In the lower-left corner of the application, select **Help** and then **Keyboard shortcuts**.
 
-Although [global shortcuts](#global-shortcuts) work from any area of GitLab,
-you must be in specific pages for the other shortcuts to be available, as
-explained in each section.
+Although [global shortcuts](#global-shortcuts) work from any area of GitLab, you must be in specific pages for the other shortcuts to be available, as explained in each section.
 
 ## Global shortcuts
 
@@ -51,9 +47,7 @@ These shortcuts are available in most areas of GitLab:
 | <kbd>.</kbd>                       | Open the [Web IDE](project/web_ide/_index.md). |
 | <kbd>d</kbd>                       | Open GitLab Duo Chat |
 
-Additionally, the following shortcuts are available when editing text in text
-fields (for example, comments, replies, issue descriptions, and merge request
-descriptions):
+Additionally, the following shortcuts are available when editing text in text fields (for example, comments, replies, issue descriptions, and merge request descriptions):
 
 | macOS shortcut                                       | Windows shortcut                                   | Description |
 |------------------------------------------------------|----------------------------------------------------|-------------|
@@ -67,13 +61,11 @@ descriptions):
 | <kbd>Command</kbd>+<kbd>]</kbd>                      | <kbd>Control</kbd>+<kbd>]</kbd>                    | Indent text. |
 | <kbd>Command</kbd>+<kbd>Enter</kbd>                  | <kbd>Control</kbd>+<kbd>Enter</kbd>                | Submit or save changes |
 
-The shortcuts for editing in text fields are always enabled, even if other
-keyboard shortcuts are disabled.
+The shortcuts for editing in text fields are always enabled, even if other keyboard shortcuts are disabled.
 
 ## Project
 
-These shortcuts are available from any page in a project. You must type them
-relatively quickly to work, and they take you to another page in the project.
+These shortcuts are available from any page in a project. You must type them relatively quickly to work, and they take you to another page in the project.
 
 | Keyboard shortcut           | Description |
 |-----------------------------|-------------|
@@ -120,7 +112,7 @@ These shortcuts are available when viewing [merge requests](project/merge_reques
 | macOS shortcut                    | Windows shortcut                  | Description |
 |-----------------------------------|-----------------------------------|-------------|
 | <kbd>]</kbd> or <kbd>j</kbd>      |                                   | Move to next file. |
-| <kbd>&#91;</kbd> or <kbd>k</kbd>  |                                   | Move to previous file. |
+| <kbd>&#91;</kbd> or <kbd>k</kbd> |                                   | Move to previous file. |
 | <kbd>Command</kbd>+<kbd>p</kbd>   | <kbd>Control</kbd>+<kbd>p</kbd>   | Search for, and then jump to a file for review. |
 | <kbd>n</kbd>                      |                                   | Move to next open thread. |
 | <kbd>p</kbd>                      |                                   | Move to previous open thread. |
@@ -138,14 +130,13 @@ These shortcuts are available when viewing [merge requests](project/merge_reques
 
 ### Project files
 
-These shortcuts are available when browsing the files in a project (go to
-**Code** > **Repository**):
+These shortcuts are available when browsing the files in a project (go to **Code** > **Repository**):
 
 | Keyboard shortcut | Description |
 |-------------------|-------------|
 | <kbd>↑</kbd>      | Move selection up (only while searching for files, **Code** > **Repository**, then select **Find File**). |
 | <kbd>↓</kbd>      | Move selection down (only while searching for files, **Code** > **Repository**, then select **Find File**). |
-| <kbd>Enter</kbd>  | Open selection (only while searching for files, **Code** > **Repository**, then select **Find File**). |
+| <kbd>Enter</kbd> | Open selection (only while searching for files, **Code** > **Repository**, then select **Find File**). |
 | <kbd>Escape</kbd> | Go back to the **Find File** screen (only while searching for files, **Code** > **Repository**, then select **Find File**). |
 | <kbd>y</kbd>      | Go to file permalink (only while viewing a file). |
 | <kbd>.</kbd>      | Open the Web IDE. |
@@ -182,8 +173,7 @@ This shortcut is available when viewing a [wiki page](project/wiki/_index.md):
 
 ### Rich text editor
 
-These shortcuts are available when editing a file with the
-[rich text editor](https://about.gitlab.com/direction/plan/knowledge/content_editor/):
+These shortcuts are available when editing a file with the [rich text editor](https://about.gitlab.com/direction/plan/knowledge/content_editor/):
 
 | macOS shortcut | Windows shortcut | Description |
 |----------------|------------------|-------------|
@@ -199,9 +189,9 @@ These shortcuts are available when editing a file with the
 
 | macOS shortcut | Windows/Linux shortcut | Description |
 |----------------|------------------------|-------------|
-| <kbd>Command</kbd>+<kbd>b</kbd> | <kbd>Control</kbd>+<kbd>b</kbd>  | Bold |
+| <kbd>Command</kbd>+<kbd>b</kbd> | <kbd>Control</kbd>+<kbd>b</kbd> | Bold |
 | <kbd>Command</kbd>+<kbd>i</kbd> | <kbd>Control</kbd>+<kbd>i</kbd>   | Italic |
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>x</kbd>  | <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>x</kbd>   | Strikethrough |
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>x</kbd> | <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>x</kbd>   | Strikethrough |
 | <kbd>Command</kbd>+<kbd>k</kbd> | <kbd>Control</kbd>+<kbd>k</kbd>   | Insert a link |
 | <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>0</kbd> | <kbd>Control</kbd>+<kbd>Alt</kbd>+<kbd>0</kbd> | Apply normal text style |
 | <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>1</kbd> | <kbd>Control</kbd>+<kbd>Alt</kbd>+<kbd>1</kbd> | Apply heading style 1 |
@@ -210,11 +200,11 @@ These shortcuts are available when editing a file with the
 | <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>4</kbd> | <kbd>Control</kbd>+<kbd>Alt</kbd>+<kbd>4</kbd> | Apply heading style 4 |
 | <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>5</kbd> | <kbd>Control</kbd>+<kbd>Alt</kbd>+<kbd>5</kbd> | Apply heading style 5 |
 | <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>6</kbd> | <kbd>Control</kbd>+<kbd>Alt</kbd>+<kbd>6</kbd> | Apply heading style 6 |
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd>  | <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> | Ordered list |
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd>  | <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> | Unordered list |
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>9</kbd>  | <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>9</kbd> | Task list |
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> | <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>7</kbd> | Ordered list |
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> | <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>8</kbd> | Unordered list |
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>9</kbd> | <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>9</kbd> | Task list |
 | <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>c</kbd> | <kbd>Control</kbd>+<kbd>Alt</kbd>+<kbd>c</kbd> | Code block |
-| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>h</kbd>  | <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>h</kbd> | Highlight |
+| <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>h</kbd> | <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>h</kbd> | Highlight |
 | <kbd>Command</kbd>+<kbd>,</kbd> | <kbd>Control</kbd>+<kbd>,</kbd> | Subscript |
 | <kbd>Command</kbd>+<kbd>.</kbd> | <kbd>Control</kbd>+<kbd>.</kbd> | Superscript |
 | <kbd>Tab</kbd> | <kbd>Tab</kbd> | Indent list |
@@ -283,5 +273,4 @@ To enable keyboard shortcuts:
 
 ### Linux shortcuts
 
-Linux users may encounter GitLab keyboard shortcuts that are overridden by
-their operating system, or their browser.
+Linux users may encounter GitLab keyboard shortcuts that are overridden by their operating system, or their browser.

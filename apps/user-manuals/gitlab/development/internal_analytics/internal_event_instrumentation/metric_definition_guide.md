@@ -21,7 +21,7 @@ Internal events supports three different metric types which are grouped like thi
 
 | Count type / Time frame | `7d` / `28d`                | `all`                   |
 |-------------------------|-----------------------------|-------------------------|
-| **Total count**         | Time framed total counters  | All time total counters |
+| **Total count**         | Time framed total counters | All time total counters |
 | **Unique count**        | Time framed unique counters |                         |
 
 You can tell if a metric is counting unique values or total values by looking at the [event selection rules](#event-selection-rules).
@@ -30,7 +30,7 @@ A snippet from a unique metric could look like below. Notice the `unique` proper
 
 ```yaml
 events:
-  - name: create_merge_request
+ - name: create_merge_request
     unique: user.id
 ```
 
@@ -38,7 +38,7 @@ Similarly, a snippet from a total count metric can look like below. Notice how t
 
 ```yaml
 events:
-  - name: create_merge_request
+ - name: create_merge_request
 ```
 
 We can track multiple events within one metric via [aggregated metrics](#aggregated-metrics).
@@ -65,8 +65,7 @@ performance_indicator_type: []
 milestone: "<13.9"
 ```
 
-The combination of `time_frame: all` and the event selection rule under `events` referring to the
-`view_productivity_analytics` event means that this is an "all time total count" metric.
+The combination of `time_frame: all` and the event selection rule under `events` referring to the `view_productivity_analytics` event means that this is an "all time total count" metric.
 
 ### Time framed total counters
 
@@ -84,14 +83,13 @@ introduced_by_url: https://gitlab.com/gitlab-org/gitlab/-/merge_requests/142328
 data_source: internal_events
 data_category: optional
 tiers:
-  - ultimate
+ - ultimate
 time_frame: 7d
 events:
-  - name: export_runner_usage_by_project_as_csv
+ - name: export_runner_usage_by_project_as_csv
 ```
 
-The combination of `time_frame: 7d` and the event selection rule under `events` referring to the
-`export_runner_usage_by_project_as_csv` event means that this is a "timed framed total count" metric.
+The combination of `time_frame: 7d` and the event selection rule under `events` referring to the `export_runner_usage_by_project_as_csv` event means that this is a "timed framed total count" metric.
 
 ### Time framed unique counters
 
@@ -113,11 +111,10 @@ tiers:
 - ultimate
 events:
 - name: exclude_anonymised_users
-  unique: user.id
+ unique: user.id
 ```
 
-The combination of `time_frame: 28d`, the event selection rule under `events` referring to the
-`exclude_anonymised_users` event and the unique value (`unique: user.id`) means that this is a "timed framed unique count" metric.
+The combination of `time_frame: 28d`, the event selection rule under `events` referring to the `exclude_anonymised_users` event and the unique value (`unique: user.id`) means that this is a "timed framed unique count" metric.
 
 ## Event Selection Rules
 
@@ -136,8 +133,8 @@ An example of a single event selection rule which updates a unique count metric 
 
 ```yaml
 - name: pull_package
-  unique: user.id
-  filter:
+ unique: user.id
+ filter:
     label: rubygems
 ```
 
@@ -149,7 +146,7 @@ This filter includes only `pull_package` events with `label: rubygems`:
 
 ```yaml
 - name: pull_package
-  filter:
+ filter:
     label: rubygems
 ```
 
@@ -157,7 +154,7 @@ Whereas, this filter is even more restricted and only includes `pull_package` ev
 
 ```yaml
 - name: pull_package
-  filter:
+ filter:
     label: rubygems
     property: deploy_token
 ```
@@ -166,7 +163,7 @@ Filters support also [custom additional properties](quick_start.md#additional-pr
 
 ```yaml
 - name: pull_package
-  filter:
+ filter:
     custom_key: custom_value
 ```
 
@@ -189,9 +186,9 @@ To get the number of unique users that have at least pushed or pulled a package 
 ```yaml
 events:
 - name: pull_package
-  unique: user.id
+ unique: user.id
 - name: push_package
-  unique: user.id
+ unique: user.id
 ```
 
 Notice that unique metrics and total count metrics cannot be mixed in a single metric.

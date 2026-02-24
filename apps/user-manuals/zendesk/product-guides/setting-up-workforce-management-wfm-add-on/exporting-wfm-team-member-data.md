@@ -6,29 +6,22 @@ Source: https://support.zendesk.com/hc/en-us/articles/7446311222042-Exporting-WF
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Workforce Management (WFM) or Workforce Engagement Management (WEM) |
 
-The [User management page](https://support.zendesk.com/hc/en-us/articles/7052274669338) in Zendesk Workforce management
-(WFM) provides a central place for admins to view their team members’ information, such as
-their role, teams, assigned workstreams, and so on. This article describes how admins can
-export WFM team-member data to a comma-separated values (CSV) file.
+The [User management page](https://support.zendesk.com/hc/en-us/articles/7052274669338) in Zendesk Workforce management (WFM) provides a central place for admins to view their team members’ information, such as their role, teams, assigned workstreams, and so on. This article describes how admins can export WFM team-member data to a comma-separated values (CSV) file.
 
-By exporting team member data into a spreadsheet you can analyze your agents
-information, pinpoint areas for improvement, or use it as a backup file
+By exporting team member data into a spreadsheet you can analyze your agents information, pinpoint areas for improvement, or use it as a backup file
 
 This article includes the following sections:
 
-- [Generating an export of WFM team
-  members](#topic_ab2_zqr_tbc)
-- [WFM team member data included in
-  CSV file](#topic_lqk_tds_tbc)
+- [Generating an export of WFM team members](#topic_ab2_zqr_tbc)
+- [WFM team member data included in CSV file](#topic_lqk_tds_tbc)
 
 ## Generating an export of WFM team members
 
-You can export all team members’ data from the User management page in
-Zendesk WFM.
+You can export all team members’ data from the User management page in Zendesk WFM.
 
 **To generate an export of team members**
 
@@ -38,8 +31,7 @@ Zendesk WFM.
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/wfm_user_mgmt_export.png)
 
-   You’ll receive an email with a link to download your CSV file
-   when the export is complete.
+   You’ll receive an email with a link to download your CSV file when the export is complete.
 
 ## WFM team member data included in CSV file
 

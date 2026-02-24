@@ -86,48 +86,36 @@ Explore our most frequently asked Workday integration questions.
 
 **Getting started**
 
-**1. What is the timeline for setting up and validating?**  
-It takes 5–10 days for setup and validation to complete.
+**1. What is the timeline for setting up and validating?** It takes 5–10 days for setup and validation to complete.
 
-**2. Is there a testing environment?**  
-Yes. Handshake refers to it as Staging, and validation testing takes place there. After successful testing, the configuration will move to production.
+**2. Is there a testing environment?** Yes. Handshake refers to it as Staging, and validation testing takes place there. After successful testing, the configuration will move to production.
 
-**3. What does Handshake do with non-Handshake candidate data gathered during testing?**  
-The testing process takes place in the implementation tenant on Workday and Handshake’s development environment. The test data used will not reflect real applicant information.
+**3. What does Handshake do with non-Handshake candidate data gathered during testing?** The testing process takes place in the implementation tenant on Workday and Handshake’s development environment. The test data used will not reflect real applicant information.
 
 **Candidate & applicant data**
 
-**4. What is the candidate experience once the integration is complete?**  
-Students search and apply for jobs in Handshake. When they click Apply Externally, they are taken to Workday to complete the application. Within a few minutes, the application appears in Workday automatically. The Handshake posting then prompts the student to confirm whether their application was submitted.
+**4. What is the candidate experience once the integration is complete?** Students search and apply for jobs in Handshake. When they click Apply Externally, they are taken to Workday to complete the application. Within a few minutes, the application appears in Workday automatically. The Handshake posting then prompts the student to confirm whether their application was submitted.
 
-**5. Does Handshake access applicants that don’t come from Handshake?**  
-Handshake pulls all candidates from the specific job posted in Handshake after a candidate is referred from Handshake to apply in Workday. Pulling all applicants is necessary to pair candidate records between both systems, since candidates may re-enter the application flow without the appropriate source tracking. Only candidates with details that match those referred from Handshake are synced. We do not log any candidates that are not paired through this matching process.
+**5. Does Handshake access applicants that don’t come from Handshake?** Handshake pulls all candidates from the specific job posted in Handshake after a candidate is referred from Handshake to apply in Workday. Pulling all applicants is necessary to pair candidate records between both systems, since candidates may re-enter the application flow without the appropriate source tracking. Only candidates with details that match those referred from Handshake are synced. We do not log any candidates that are not paired through this matching process.
 
-**6. What applicants do we access with the permission "Compliance re: security group ‘Get Only - Candidate Data: Job Applications"?**  
-Refer to #5.
+**6. What applicants do we access with the permission "Compliance re: security group ‘Get Only - Candidate Data: Job Applications"?** Refer to #5.
 
 **Jobs & postings**
 
-**7. Are jobs automatically posted in Handshake?**  
-No. Employers must still post new jobs in Handshake to link them to Workday.
+**7. Are jobs automatically posted in Handshake?** No. Employers must still post new jobs in Handshake to link them to Workday.
 
-**8. When jobs close in Workday, are they also closed in Handshake?**  
-Yes. Jobs close in Handshake within an hour of closing in Workday.
+**8. When jobs close in Workday, are they also closed in Handshake?** Yes. Jobs close in Handshake within an hour of closing in Workday.
 
 **Integration capabilities & limitations**
 
-**9. Can we integrate multiple ATSs (e.g., Greenhouse, Workday, iCIMS) simultaneously?**  
-Not at this time.
+**9. Can we integrate multiple ATSs (e.g., Greenhouse, Workday, iCIMS) simultaneously?** Not at this time.
 
-**10. Is application status updating bi-directional?**  
-No. For compliance reasons, Handshake cannot push updates regarding changes to application statuses. Updates only flow from Workday to Handshake. Because Handshake is not an ATS, it would be inappropriate for Handshake to update an ATS’s application records.
+**10. Is application status updating bi-directional?** No. For compliance reasons, Handshake cannot push updates regarding changes to application statuses. Updates only flow from Workday to Handshake. Because Handshake is not an ATS, it would be inappropriate for Handshake to update an ATS’s application records.
 
 **Technical details**
 
-**11. Which Workday Web Service does the integration use?**  
-Recruiting: <https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html>
+**11. Which Workday Web Service does the integration use?** Recruiting: <https://community.workday.com/sites/default/files/file-hosting/productionapi/index.html>
 
-**12. Does the integration require certificate updates?**  
-No. Workday may periodically send communications about certificate updates, but these do not apply to our integration with Workday.
+**12. Does the integration require certificate updates?** No. Workday may periodically send communications about certificate updates, but these do not apply to our integration with Workday.
 
 *Learn more about using* [*Using the Workday Integration in Handshake*](https://www.youtube.com/watch?v=STJQrNOBOpo).

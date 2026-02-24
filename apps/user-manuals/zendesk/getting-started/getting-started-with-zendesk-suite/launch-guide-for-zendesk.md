@@ -42,11 +42,10 @@ Agent groups are important building blocks for creating business rules that impa
 
 ### Examples
 
-- You can define groups of agents based on the Zendesk channels they support.  
-  **Zendesk Triage Chat, Talk, Support**
-- You can define groups based on the functions agents perform, or their level of expertise.  
-  **Zendesk Triage Sales, Finance, Shipping**  
-  **Zendesk Triage Tier 1 Agents, Tier 2 Agents, Tier 3 Agents**
+- You can define groups of agents based on the Zendesk channels they support. 
+ **Zendesk Triage Chat, Talk, Support**
+- You can define groups based on the functions agents perform, or their level of expertise. 
+ **Zendesk Triage Sales, Finance, Shipping** **Zendesk Triage Tier 1 Agents, Tier 2 Agents, Tier 3 Agents**
 
 ### Best practice
 
@@ -56,7 +55,7 @@ Groups matter because you can use them to manage ticket routing and define ticke
 
 - The following video gives you an overview of how to arrange teams into groups:
 
-  Arranging teams into groups [0:57]
+ Arranging teams into groups [0:57]
 - [Creating groups](https://support.zendesk.com/hc/en-us/articles/4408894175130-Creating-managing-and-using-groups)
 - [About organizations and groups](../../product-guides/end-users-and-organizations/about-organizations-and-groups.md)
 - [Managing your escalation queue](https://support.zendesk.com/hc/en-us/articles/4408821995290)
@@ -154,7 +153,7 @@ When you add custom fields to organizations, focus on information that applies t
 
 - The following video gives you an overview of how to create custom fields for organizations:
 
-  Creating custom fields for organizations [1:40]
+ Creating custom fields for organizations [1:40]
 - [Adding custom fields to organizations](../../product-guides/end-users-and-organizations/adding-custom-fields-to-organizations.md)
 - [Automatically tagging tickets from specific users and organizations](https://support.zendesk.com/hc/en-us/articles/4408883863450)
 
@@ -190,7 +189,7 @@ Adding organizations early in your launch process is important because you can c
 
 - The following video gives you an overview of how to create an organization:
 
-  Creating organizations [1:01]
+ Creating organizations [1:01]
 - [Creating, managing, and using organizations](https://support.zendesk.com/hc/en-us/articles/4408882246298-Creating-managing-and-using-organizations)
 - [About organizations and groups](../../product-guides/end-users-and-organizations/about-organizations-and-groups.md)
 - [Adding custom fields to organizations](../../product-guides/end-users-and-organizations/adding-custom-fields-to-organizations.md)
@@ -320,7 +319,7 @@ Support Enterprise enables you to have multiple ticket forms, so you can tailor 
 
 - The following video gives you an overview of how to create custom ticket fields:
 
-  Creating custom ticket fields [1:41]
+ Creating custom ticket fields [1:41]
 - [About ticket fields](../../product-guides/ticket-management/about-ticket-fields.md)
 - [Adding custom fields to your tickets](https://support.zendesk.com/hc/en-us/articles/4408883152794)
 - [Viewing ticket fields](https://support.zendesk.com/hc/en-us/articles/4408832419738-Managing-ticket-fields)
@@ -412,7 +411,7 @@ You can tag all requests that are actually sales inquiries with a tag like 'sale
 
 - The following video gives you an overview of how to add tags to your tickets:
 
-  Adding tags to tickets [0:54]
+ Adding tags to tickets [0:54]
 - [About tags](../../product-guides/business-rules/about-tags.md)
 - [Enabling and disabling ticket tags](https://support.zendesk.com/hc/en-us/articles/4408829424794-Enabling-and-disabling-ticket-tags)
 - [Using ticket tags in macros, triggers, and automations](../../product-guides/business-rules/managing-ticket-tags.md#topic_umd_ona_vb)
@@ -727,7 +726,7 @@ You can use triggers to:
 
 - The following video gives you an overview of how to add triggers:
 
-  Automating notifications with triggers [2:02]
+ Automating notifications with triggers [2:02]
 - [Creating triggers for automatic ticket updates and notifications](https://support.zendesk.com/hc/en-us/articles/4408886797466-Setting-up-automatic-ticket-updates-and-notifications-with-triggers)
 - [About triggers and how they work](https://support.zendesk.com/hc/en-us/articles/4408822236058-About-triggers-and-how-they-work)
 - [Triggers best practices and recipes reference](https://support.zendesk.com/hc/en-us/articles/4408884068378-Triggers-best-practices-and-recipes-reference)
@@ -821,14 +820,13 @@ There is a pre-defined set of views provided by default for the day-to-day suppo
 
 - When you define shared views, consider the following: Are there certain tickets that take precedence over others? What are their characteristics?
 
-- Agents can get very attached to their views. Before changing the order of shared  
-  views, or the columns and order of a view, consult with your agents.
+- Agents can get very attached to their views. Before changing the order of shared views, or the columns and order of a view, consult with your agents.
 
 ### Show me how
 
 - The following video gives you an overview of how to add views to filter your tickets:
 
-  Adding views to filter tickets [1:23]
+ Adding views to filter tickets [1:23]
 - [Using views to manage agent workflow](https://support.zendesk.com/hc/en-us/articles/4408888828570-Using-views-to-manage-ticket-workflow)
 - [Views: Best practice](https://support.zendesk.com/hc/en-us/community/posts/203188553)
 
@@ -860,7 +858,7 @@ Macros are available on all Zendesk Support plans. Unlike triggers and automatio
 
 - The following video gives you an overview of how to use macros to respond to tickets faster:
 
-  Use quick responses with macros [1:40]
+ Use quick responses with macros [1:40]
 - [Using macros to update tickets](../../agent-guide/ticket-automation-and-collaboration/using-macros-to-update-tickets.md)
 - [Creating macros for tickets](https://support.zendesk.com/hc/en-us/articles/4408844187034)
 - [Organizing and managing your macros](../../agent-guide/ticket-automation-and-collaboration/organizing-and-managing-your-macros.md)
@@ -1024,7 +1022,7 @@ Be sure to set up automatic forwarding, rather than manually forwarding. Manuall
 
 - The following video gives you an overview of how to connect your existing support email:
 
-  Connecting your existing email account [1:39]
+ Connecting your existing email account [1:39]
 - [Connect an external support email address](https://support.zendesk.com/hc/en-us/articles/4408842868506#topic_glt_l3w_jw)
 
 ## Set up and embed the web widget
@@ -1053,7 +1051,7 @@ You can customize the appearance of Web Widget (Classic), if you want for furthe
 
 - The following video gives you an overview of how to add messaging to your website:
 
-  Adding messaging to your website [1:40]
+ Adding messaging to your website [1:40]
 - [Using Web Widget (Classic) to embed customer service in your website](https://support.zendesk.com/hc/en-us/articles/4408836216218)
 - [Configuring components in Web Widget (Classic)](https://support.zendesk.com/hc/en-us/articles/4408838063258)
 - [Web Widget (Classic) resources](https://support.zendesk.com/hc/en-us/articles/4408833907354)

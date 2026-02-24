@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408821265178-Browsing-you
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Team, Professional, or Enterprise |
 
@@ -37,7 +37,7 @@ Table 1.
 
 | List view | Visual view |
 | --- | --- |
-|  |  |
+| | |
 
 Each visitor is placed into a category, represented by an icon (for the List view) or a color-coded dot (for the Visual view). The table below shows the icons, and the category each represents:
 
@@ -52,7 +52,7 @@ Table 2.
 | / | Currently served | Visitors who are being currently served by other agents or yourself. |
 | / | Active website visitors | Visitors who are moving around the website and clicking on links. |
 | / | Idle website visitors | Visitors who are currently on the site, but not interacting with it. |
-|  | Offline visitors (Visual view only) | Visitors who have recently signed off. Reload the view to remove from the visual. |
+| | Offline visitors (Visual view only) | Visitors who have recently signed off. Reload the view to remove from the visual. |
 
 In the **List view**, Each category includes a combination of the following columns, containing information about the visitor:
 

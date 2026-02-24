@@ -36,13 +36,11 @@ You can use GitLab Flavored Markdown in:
 - Markdown documents inside repositories
 - Releases
 
-You can also use other rich text files in GitLab. You might have to install a dependency
-to do so. For more information, see the [`gitlab-markup` gem project](https://gitlab.com/gitlab-org/gitlab-markup).
+You can also use other rich text files in GitLab. You might have to install a dependency to do so. For more information, see the [`gitlab-markup` gem project](https://gitlab.com/gitlab-org/gitlab-markup).
 
 {{< alert type="note" >}}
 
-This Markdown specification is valid for GitLab only. We do our best to render the Markdown faithfully here,
-however the [GitLab documentation website](https://docs.gitlab.com) and the [GitLab handbook](https://handbook.gitlab.com)
+This Markdown specification is valid for GitLab only. We do our best to render the Markdown faithfully here, however the [GitLab documentation website](https://docs.gitlab.com) and the [GitLab handbook](https://handbook.gitlab.com)
 use a different Markdown renderer.
 
 {{< /alert >}}
@@ -50,16 +48,14 @@ use a different Markdown renderer.
 To see exact examples of how GitLab renders any of these examples:
 
 1. Copy the relevant raw Markdown example (not the rendered version of the example).
-1. Paste the Markdown somewhere in GitLab that supports Markdown previews, for example
-   issue or merge request comments or descriptions, or a new Markdown file.
+1. Paste the Markdown somewhere in GitLab that supports Markdown previews, for example issue or merge request comments or descriptions, or a new Markdown file.
 1. Select **Preview** to view the GitLab-rendered Markdown.
 
 ## Differences with standard Markdown
 
 <!--
 Use this topic to list features that are not present in standard Markdown.
-Don't repeat this information in each individual topic, unless there's a specific
-reason, like in "Newlines".
+Don't repeat this information in each individual topic, unless there's a specific reason, like in "Newlines".
 -->
 
 GitLab Flavored Markdown consists of the following:
@@ -68,8 +64,7 @@ GitLab Flavored Markdown consists of the following:
 - Extensions from [GitHub Flavored Markdown](https://github.github.com/gfm/).
 - Extensions made specifically for GitLab.
 
-All standard Markdown formatting should work as expected in GitLab. Some standard
-functionality is extended with additional features, without affecting the standard usage.
+All standard Markdown formatting should work as expected in GitLab. Some standard functionality is extended with additional features, without affecting the standard usage.
 
 The following features are not found in standard Markdown:
 
@@ -105,8 +100,7 @@ The following features are extended from standard Markdown:
 
 When you use GitLab Flavored Markdown, you are creating digital content.
 This content should be as accessible as possible to your audience.
-The following list is not exhaustive, but it provides guidance for some of the GitLab Flavored Markdown styles to pay
-particular attention to:
+The following list is not exhaustive, but it provides guidance for some of the GitLab Flavored Markdown styles to pay particular attention to:
 
 ### Accessible headings
 
@@ -155,11 +149,9 @@ Alt-H2
 
 {{< /history >}}
 
-All Markdown-rendered headings automatically
-get IDs that can be linked to, except in comments.
+All Markdown-rendered headings automatically get IDs that can be linked to, except in comments.
 
-On hover, a link to those IDs becomes visible to make it easier to copy the link to
-the heading to use it somewhere else.
+On hover, a link to those IDs becomes visible to make it easier to copy the link to the heading to use it somewhere else.
 
 The IDs are generated from the content of the heading according to the following rules:
 
@@ -167,14 +159,12 @@ The IDs are generated from the content of the heading according to the following
 1. All non-word text (such as punctuation or HTML) is removed.
 1. All spaces are converted to hyphens.
 1. Two or more hyphens in a row are converted to one.
-1. If a heading with the same ID has already been generated, a unique
-   incrementing number is appended, starting at 1.
+1. If a heading with the same ID has already been generated, a unique incrementing number is appended, starting at 1.
 
 Example:
 
 <!--
-Translation note: DO NOT TRANSLATE this example. The example must stay untranslated
-to stay in sync with the example link IDs.
+Translation note: DO NOT TRANSLATE this example. The example must stay untranslated to stay in sync with the example link IDs.
 -->
 
 ```markdown
@@ -184,7 +174,7 @@ to stay in sync with the example link IDs.
 ## This heading has spaces in it
 ### This heading has spaces in it
 ## This heading has 3.5 in it (and parentheses)
-## This heading has  multiple spaces and --- hyphens
+## This heading has multiple spaces and --- hyphens
 ```
 
 Would generate the following link IDs:
@@ -199,11 +189,7 @@ Would generate the following link IDs:
 
 ## Line breaks
 
-A line break is inserted (a new paragraph starts) if the previous text is
-ended with two newlines. For example, when you press <kbd>Enter</kbd> twice in a row. If you only
-use one newline (press <kbd>Enter</kbd> once), the next sentence remains part of the
-same paragraph. Use this approach if you want to keep long lines from wrapping, and keep
-them editable:
+A line break is inserted (a new paragraph starts) if the previous text is ended with two newlines. For example, when you press <kbd>Enter</kbd> twice in a row. If you only use one newline (press <kbd>Enter</kbd> once), the next sentence remains part of the same paragraph. Use this approach if you want to keep long lines from wrapping, and keep them editable:
 
 ```markdown
 Here's a line for us to start with.
@@ -229,12 +215,9 @@ When rendered, the example looks similar to:
 
 ### Newlines
 
-A paragraph is one or more consecutive lines of text, separated by one or
-more blank lines (two newlines at the end of the first paragraph), as explained in [line breaks](#line-breaks).
+A paragraph is one or more consecutive lines of text, separated by one or more blank lines (two newlines at the end of the first paragraph), as explained in [line breaks](#line-breaks).
 
-Need more control over line breaks or soft returns? Add a single line break
-by ending a line with a backslash, or two or more spaces. Two newlines in a row create a new
-paragraph, with a blank line in between:
+Need more control over line breaks or soft returns? Add a single line break by ending a line with a backslash, or two or more spaces. Two newlines in a row create a new paragraph, with a blank line in between:
 
 ```markdown
 First paragraph.
@@ -258,13 +241,11 @@ When rendered, the example looks similar to:
 > Another line, this time ending with a backslash.\
 > A new line due to the previous backslash.
 
-This syntax adheres to the Markdown specification for handling
-[paragraphs and line breaks](https://spec.commonmark.org/current/).
+This syntax adheres to the Markdown specification for handling [paragraphs and line breaks](https://spec.commonmark.org/current/).
 
 ## Emphasis
 
-You can emphasize text in multiple ways. Use italics, bold, strikethrough,
-or combine these emphasis styles together.
+You can emphasize text in multiple ways. Use italics, bold, strikethrough, or combine these emphasis styles together.
 
 Examples:
 
@@ -290,11 +271,9 @@ When rendered, the example looks similar to:
 
 ### Mid-word emphasis
 
-Avoid italicizing a portion of a word, especially when you're
-dealing with code and names that often appear with multiple underscores.
+Avoid italicizing a portion of a word, especially when you're dealing with code and names that often appear with multiple underscores.
 
-GitLab Flavored Markdown ignores multiple underlines in words,
-to allow better rendering of Markdown documents discussing code:
+GitLab Flavored Markdown ignores multiple underlines in words, to allow better rendering of Markdown documents discussing code:
 
 <!--
 Translation note: DO NOT TRANSLATE these examples or the rendered versions.
@@ -342,8 +321,7 @@ With inline diff tags, you can display `{+ additions +}` or `[- deletions -]`.
 The wrapping tags can be either curly braces or square brackets:
 
 <!--
-Translation note: DO NOT TRANSLATE this example. The example must stay untranslated
-to stay in sync with the image.
+Translation note: DO NOT TRANSLATE this example. The example must stay untranslated to stay in sync with the image.
 -->
 
 ```markdown
@@ -370,8 +348,7 @@ Diff highlighting doesn't work with `` `inline code` ``. If your text includes b
 each backtick with a backslash ` \ `:
 
 <!--
-Translation note: DO NOT TRANSLATE this example. The example must stay untranslated
-to stay in sync with the image.
+Translation note: DO NOT TRANSLATE this example. The example must stay untranslated to stay in sync with the image.
 -->
 
 ```markdown
@@ -402,12 +379,8 @@ When rendered, all horizontal rules look similar to:
 
 You can create ordered and unordered lists.
 
-For an ordered list, add the number you want the list
-to start with, like `1.`, followed by a space, at the start of each line.
-After the first number, it does not matter what number you use. Ordered lists are
-numbered automatically by vertical order, so repeating `1.` for all items in the
-same list is common. If you start with a number other than `1.`, it uses that as the first
-number, and counts up from there.
+For an ordered list, add the number you want the list to start with, like `1.`, followed by a space, at the start of each line.
+After the first number, it does not matter what number you use. Ordered lists are numbered automatically by vertical order, so repeating `1.` for all items in the same list is common. If you start with a number other than `1.`, it uses that as the first number, and counts up from there.
 
 Examples:
 
@@ -422,10 +395,8 @@ Examples:
 ```
 
 <!--
-The "2." and "4." in the previous example are changed to "1." in the following example,
-to match the style standards on docs.gitlab.com.
-See https://docs.gitlab.com/ee/development/documentation/styleguide/#lists
--->
+The "2." and "4." in the previous example are changed to "1." in the following example, to match the style standards on docs.gitlab.com.
+See https://docs.gitlab.com/ee/development/documentation/styleguide/#lists -->
 
 When rendered, the example looks similar to:
 
@@ -437,8 +408,7 @@ When rendered, the example looks similar to:
 >    1. Next ordered sub-list item
 > 1. And another item.
 
-For an unordered list, add a `-`, `*` or `+`, followed by a space, at the start of
-each line. Don't mix the characters in the same list.
+For an unordered list, add a `-`, `*` or `+`, followed by a space, at the start of each line. Don't mix the characters in the same list.
 
 ```markdown
 Unordered lists can:
@@ -458,10 +428,8 @@ They can even:
 ```
 
 <!--
-The "*" and "+" in the previous example are changed to "-" in the following example,
-to match the style standards on docs.gitlab.com.
-See https://docs.gitlab.com/ee/development/documentation/styleguide/#lists
--->
+The "*" and "+" in the previous example are changed to "-" in the following example, to match the style standards on docs.gitlab.com.
+See https://docs.gitlab.com/ee/development/documentation/styleguide/#lists -->
 
 When rendered, the example looks similar to:
 
@@ -482,8 +450,7 @@ When rendered, the example looks similar to:
 
 ---
 
-If a list item contains multiple paragraphs, each subsequent paragraph should be indented
-to the same level as the start of the list item text.
+If a list item contains multiple paragraphs, each subsequent paragraph should be indented to the same level as the start of the list item text.
 
 Example:
 
@@ -503,15 +470,14 @@ When rendered, the example looks similar to:
 >
 > 1. Another item
 
-If the first item's paragraph isn't indented with the proper number of spaces,
-the paragraph appears outside the list.
+If the first item's paragraph isn't indented with the proper number of spaces, the paragraph appears outside the list.
 Use the correct number of spaces to properly indent under the list item.
 For example:
 
 ```markdown
 1. First ordered list item
 
-  (Misaligned paragraph of first item.)
+ (Misaligned paragraph of first item.)
 
 1. Another item
 ```
@@ -537,7 +503,7 @@ For example, with a blank line:
 ```markdown
 - Unordered list item
 
-  5. First ordered list item
+ 5. First ordered list item
 ```
 
 When rendered, the example looks similar to:
@@ -554,7 +520,7 @@ If the blank line is missing, the second list item renders as part of the first 
 
 ```markdown
 - Unordered list item
-  5. First ordered list item
+ 5. First ordered list item
 ```
 
 When rendered, the example looks similar to:
@@ -564,8 +530,7 @@ When rendered, the example looks similar to:
 
 ---
 
-CommonMark ignores blank lines between ordered and unordered list items, and considers them part of a single list. The items are rendered as a
-[loose](https://spec.commonmark.org/0.30/#loose) list. Each list item is enclosed in a paragraph tag and therefore has paragraph spacing and margins.
+CommonMark ignores blank lines between ordered and unordered list items, and considers them part of a single list. The items are rendered as a [loose](https://spec.commonmark.org/0.30/#loose) list. Each list item is enclosed in a paragraph tag and therefore has paragraph spacing and margins.
 This makes the list look like there is extra spacing between each item.
 
 For example:
@@ -623,8 +588,7 @@ Fruits
 
 {{< alert type="note" >}}
 
-The rich text editor does not support inserting new description lists. To insert a new description list, use the
-plain text editor. For more information, see [issue 535956](https://gitlab.com/gitlab-org/gitlab/-/issues/535956).
+The rich text editor does not support inserting new description lists. To insert a new description list, use the plain text editor. For more information, see [issue 535956](https://gitlab.com/gitlab-org/gitlab/-/issues/535956).
 
 {{< /alert >}}
 
@@ -633,26 +597,23 @@ plain text editor. For more information, see [issue 535956](https://gitlab.com/g
 You can add task lists anywhere Markdown is supported.
 
 - In issues, merge requests, epics, and comments, you can select the boxes.
-- In all other places, you cannot select the boxes. You must edit the Markdown manually
-  by adding or removing an `x` in the brackets.
+- In all other places, you cannot select the boxes. You must edit the Markdown manually by adding or removing an `x` in the brackets.
 
-Besides complete and incomplete, tasks can also be **inapplicable**. Selecting an inapplicable checkbox
-in an issue, merge request, epic, or comment has no effect.
+Besides complete and incomplete, tasks can also be **inapplicable**. Selecting an inapplicable checkbox in an issue, merge request, epic, or comment has no effect.
 
 To create a task list, follow the format of an ordered or unordered list:
 
 <!--
-Translation note: DO NOT TRANSLATE this example. The example must stay untranslated
-to stay in sync with the image.
+Translation note: DO NOT TRANSLATE this example. The example must stay untranslated to stay in sync with the image.
 -->
 
 ```markdown
 - [x] Completed task
 - [~] Inapplicable task
 - [ ] Incomplete task
-  - [x] Sub-task 1
-  - [~] Sub-task 2
-  - [ ] Sub-task 3
+ - [x] Sub-task 1
+ - [~] Sub-task 2
+ - [ ] Sub-task 3
 
 1. [x] Completed task
 1. [~] Inapplicable task
@@ -686,10 +647,7 @@ When rendered, the examples look similar to:
 
 {{< alert type="note" >}}
 
-You cannot use relative links to reference project files in a wiki
-page, or a wiki page in a project file. This limitation exists because wikis are always
-in separate Git repositories in GitLab. For example, `[I'm a reference-style link](style)`
-points to `wikis/style` only when the link is inside a wiki Markdown file.
+You cannot use relative links to reference project files in a wiki page, or a wiki page in a project file. This limitation exists because wikis are always in separate Git repositories in GitLab. For example, `[I'm a reference-style link](style)` points to `wikis/style` only when the link is inside a wiki Markdown file.
 For more information, see [Wiki-specific Markdown](project/wiki/markdown.md).
 
 {{< /alert >}}
@@ -713,17 +671,17 @@ The following codeblock uses extra spaces to avoid the Vale ReferenceLinks test.
 Do not remove the two-space nesting.
 -->
 
-  ```markdown
-  - This line shows a [reference-style link, see below][Arbitrary case-insensitive reference text]
-  - You can [use numbers for reference-style link definitions, see below][1]
-  - Or leave it empty and use the [link text itself][], see below.
+ ```markdown
+ - This line shows a [reference-style link, see below][Arbitrary case-insensitive reference text]
+ - You can [use numbers for reference-style link definitions, see below][1]
+ - Or leave it empty and use the [link text itself][], see below.
 
-  Some text to show that the reference links can follow later.
+ Some text to show that the reference links can follow later.
 
-  [arbitrary case-insensitive reference text]: https://www.mozilla.org/en-US/
-  [1]: https://slashdot.org
-  [link text itself]: https://about.gitlab.com/
-  ```
+ [arbitrary case-insensitive reference text]: https://www.mozilla.org/en-US/
+ [1]: https://slashdot.org
+ [link text itself]: https://about.gitlab.com/
+ ```
 
 <!--
 The example below uses in-line links to pass the Vale ReferenceLinks test.
@@ -773,13 +731,9 @@ When rendered, the example looks similar to:
 
 {{< /history >}}
 
-GitLab Flavored Markdown renders GitLab-specific references. For example, you can reference
-an issue, a commit, a team member, or even an entire project team. GitLab Flavored Markdown turns
-that reference into a link so you can navigate between them. All references to projects should use the
-**project slug** rather than the project name.
+GitLab Flavored Markdown renders GitLab-specific references. For example, you can reference an issue, a commit, a team member, or even an entire project team. GitLab Flavored Markdown turns that reference into a link so you can navigate between them. All references to projects should use the **project slug** rather than the project name.
 
-Additionally, GitLab Flavored Markdown recognizes certain cross-project references and also has a shorthand
-version to reference other projects from the same namespace.
+Additionally, GitLab Flavored Markdown recognizes certain cross-project references and also has a shorthand version to reference other projects from the same namespace.
 
 GitLab Flavored Markdown recognizes the following:
 
@@ -793,7 +747,7 @@ GitLab Flavored Markdown recognizes the following:
 | [Work item](work_items/_index.md)                                                    | `[work_item:123]`                                     | `[work_item:namespace/project/123]`            | `[work_item:project/123]`          |
 | Merge request                                                                        | `!123`                                                | `namespace/project!123`                        | `project!123`                      |
 | Snippet                                                                              | `$123`                                                | `namespace/project$123`                        | `project$123`                      |
-| [Epic](group/epics/_index.md)                                                        | `#123`, `&123`, `[work_item:123]`, or `[epic:123]`    | `group1/subgroup#123`, `group1/subgroup&123`, `[work_item:group1/subgroup/123]`, or `[epic:group1/subgroup/123]` |  |
+| [Epic](group/epics/_index.md)                                                        | `#123`, `&123`, `[work_item:123]`, or `[epic:123]`    | `group1/subgroup#123`, `group1/subgroup&123`, `[work_item:group1/subgroup/123]`, or `[epic:group1/subgroup/123]` | |
 | [Iteration](group/iterations/_index.md)                                              | `*iteration:"iteration title"`                        |                                                |                                    |
 | [Iteration cadence](group/iterations/_index.md) by ID<sup>1</sup>                    | `[cadence:123]`                                       |                                                |                                    |
 | [Iteration cadence](group/iterations/_index.md) by title (one word)<sup>1</sup>      | `[cadence:plan]`                                      |                                                |                                    |
@@ -820,15 +774,10 @@ GitLab Flavored Markdown recognizes the following:
 
 1. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/384885) in GitLab 16.9.
    Iteration cadence references are always rendered following the format `[cadence:<ID>]`.
-   For example, the text reference `[cadence:"plan"]` renders as `[cadence:1]` if the referenced
-   iterations cadence's ID is `1`.
-1. For labels or milestones, prepend a `/` before `namespace/project` to specify the exact label
-   or milestone, removing any possible ambiguity.
+   For example, the text reference `[cadence:"plan"]` renders as `[cadence:1]` if the referenced iterations cadence's ID is `1`.
+1. For labels or milestones, prepend a `/` before `namespace/project` to specify the exact label or milestone, removing any possible ambiguity.
 
-For example, referencing an issue by using `#123` formats the output as a link
-to issue number 123 with text `#123`. Likewise, a link to issue number 123 is
-recognized and formatted with text `#123`. If you don't want `#123` to link to an issue,
-add a leading backslash `\#123`.
+For example, referencing an issue by using `#123` formats the output as a link to issue number 123 with text `#123`. Likewise, a link to issue number 123 is recognized and formatted with text `#123`. If you don't want `#123` to link to an issue, add a leading backslash `\#123`.
 
 In addition to this, links to some objects are also recognized and formatted.
 For example:
@@ -871,8 +820,7 @@ To include an extended summary in the rendered link of an epic, issue, task, obj
 
 Summary includes information about **assignees**, **milestone** and **health status**, as applicable by work item type, of referenced item.
 
-For example, a reference like `#123+s` is rendered as
-`The issue title (#123) • First Assignee, Second Assignee+ • v15.10 • Needs attention`.
+For example, a reference like `#123+s` is rendered as `The issue title (#123) • First Assignee, Second Assignee+ • v15.10 • Needs attention`.
 
 URL references like `https://gitlab.com/gitlab-org/gitlab/-/issues/1234+s` are also expanded.
 
@@ -906,13 +854,13 @@ When creating tables:
 
 - The first line contains the headers, separated by pipe characters (`|`).
 - The second line separates the headers from the cells.
-  - The cells can contain only empty spaces, hyphens, and (optionally) colons for horizontal alignment.
-  - Each cell must contain at least one hyphen, but adding more hyphens to a cell does not change the cell's rendering.
-  - Any content other than hyphens, whitespace, or colons is not allowed
+ - The cells can contain only empty spaces, hyphens, and (optionally) colons for horizontal alignment.
+ - Each cell must contain at least one hyphen, but adding more hyphens to a cell does not change the cell's rendering.
+ - Any content other than hyphens, whitespace, or colons is not allowed
 - The third, and any following lines, contain the cell values.
-  - You **can't** have cells separated over many lines in the Markdown, they must be kept to single lines, but they can be very long. You can also include HTML `<br>` tags to force newlines if needed.
-  - The cell sizes **don't** have to match each other. They are flexible, but must be separated by pipes (`|`).
-  - You **can** have blank cells.
+ - You **can't** have cells separated over many lines in the Markdown, they must be kept to single lines, but they can be very long. You can also include HTML `<br>` tags to force newlines if needed.
+ - The cell sizes **don't** have to match each other. They are flexible, but must be separated by pipes (`|`).
+ - You **can** have blank cells.
 - Column widths are calculated dynamically based on the content of the cells.
 - To use the pipe character (`|`) in the text and not as table delimiter, you must [escape](#escape-characters) it with a backslash (`\|`).
 
@@ -953,16 +901,14 @@ When rendered, the example looks similar to:
 > | Cell 1       | Cell 2   | Cell 3        |
 > | Cell 4       | Cell 5   | Cell 6        |
 
-[In GitLab itself](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/user/markdown.md#tables),
-the headers are always left-aligned in Chrome and Firefox, and centered in Safari.
+[In GitLab itself](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/user/markdown.md#tables), the headers are always left-aligned in Chrome and Firefox, and centered in Safari.
 
 ### Cells with multiple lines
 
-You can use HTML formatting to adjust the rendering of tables. For example, you can
-use `<br>` tags to force a cell to have multiple lines:
+You can use HTML formatting to adjust the rendering of tables. For example, you can use `<br>` tags to force a cell to have multiple lines:
 
 ```markdown
-| Name  | Details |
+| Name | Details |
 | ----- | ------- |
 | Item1 | This text is on one line |
 | Item2 | This item has:<br>- Multiple items<br>- That we want listed separately |
@@ -970,7 +916,7 @@ use `<br>` tags to force a cell to have multiple lines:
 
 When rendered, the example looks similar to:
 
-> | Name  | Details |
+> | Name | Details |
 > | ----- | ------- |
 > | Item1 | This text is on one line |
 > | Item2 | This item has:<br>- Multiple items<br>- That we want listed separately |
@@ -979,55 +925,50 @@ When rendered, the example looks similar to:
 
 To add [task lists](#task-lists) with checkboxes, use HTML formatting. Using either:
 
-- **An HTML table with Markdown in the cells**. Tables formatted this way result in fully functioning
-  task lists.
+- **An HTML table with Markdown in the cells**. Tables formatted this way result in fully functioning task lists.
 
-  ```html
-  <table>
-  <thead>
-  <tr><th>header 1</th><th>header 2</th></tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td>cell 1</td>
-  <td>cell 2</td>
-  </tr>
-  <tr>
-  <td>cell 3</td>
-  <td>
+ ```html
+ <table>
+ <thead>
+ <tr><th>header 1</th><th>header 2</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>cell 1</td>
+ <td>cell 2</td>
+ </tr>
+ <tr>
+ <td>cell 3</td>
+ <td>
 
-  - [ ] Task one
-  - [ ] Task two
+ - [ ] Task one
+ - [ ] Task two
 
-  </td>
-  </tr>
-  </tbody>
-  </table>
-  ```
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ ```
 
 - **A Markdown table with HTML list tags**. These tasks don't save their state when selected.
-  Tables formatted this way do not render properly on `docs.gitlab.com`.
+ Tables formatted this way do not render properly on `docs.gitlab.com`.
 
-  ```markdown
-  | header 1 | header 2 |
-  | ---      | ---      |
-  | cell 1   | cell 2   |
-  | cell 3   | <ul><li> - [ ] Task one </li><li> - [ ] Task two </li></ul> |
-  ```
+ ```markdown
+ | header 1 | header 2 |
+ | ---      | ---      |
+ | cell 1   | cell 2   |
+ | cell 3   | <ul><li> - [ ] Task one </li><li> - [ ] Task two </li></ul> |
+ ```
 
 You can also [create a table in the rich text editor](rich_text_editor.md#tables) and insert a task list then.
 
 ### Copy and paste from a spreadsheet
 
-If you're working in spreadsheet software (for example, Microsoft Excel, Google
-Sheets, or Apple Numbers), GitLab creates a Markdown table when you copy and paste
-from a spreadsheet. For example, suppose you have the
-following spreadsheet:
+If you're working in spreadsheet software (for example, Microsoft Excel, Google Sheets, or Apple Numbers), GitLab creates a Markdown table when you copy and paste from a spreadsheet. For example, suppose you have the following spreadsheet:
 
 ![Copy from spreadsheet](img/markdown_copy_from_spreadsheet_v12_7.png)
 
-Select the cells and copy them to your clipboard. Open a GitLab Markdown
-entry and paste the spreadsheet:
+Select the cells and copy them to your clipboard. Open a GitLab Markdown entry and paste the spreadsheet:
 
 ![Paste to Markdown table](img/markdown_paste_table_v12_7.png)
 
@@ -1050,10 +991,10 @@ To render tables with JSON code blocks, use the following syntax:
 Watch the following video walkthrough of this feature:
 
 <div class="video-fallback">
-  See the video: <a href="https://www.youtube.com/watch?v=12yWKw1AdKY">Demo: JSON Tables in Markdown</a>.
+ See the video: <a href="https://www.youtube.com/watch?v=12yWKw1AdKY">Demo: JSON Tables in Markdown</a>.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/12yWKw1AdKY" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/12yWKw1AdKY" frameborder="0" allowfullscreen> </iframe>
 </figure>
 
 {{< alert type="note" >}}
@@ -1064,11 +1005,7 @@ The `items` attribute is a list of objects representing the data points.
 
 ````markdown
 ```json:table
-{
-    "items" : [
-      {"a": "11", "b": "22", "c": "33"}
-    ]
-}
+{ "items" : [ {"a": "11", "b": "22", "c": "33"} ] }
 ```
 ````
 
@@ -1076,12 +1013,7 @@ To specify the table labels, use the `fields` attribute.
 
 ````markdown
 ```json:table
-{
-    "fields" : ["a", "b", "c"],
-    "items" : [
-      {"a": "11", "b": "22", "c": "33"}
-    ]
-}
+{ "fields" : ["a", "b", "c"], "items" : [ {"a": "11", "b": "22", "c": "33"} ] }
 ```
 ````
 
@@ -1089,13 +1021,7 @@ Not all elements of `items` must have corresponding values in `fields`.
 
 ````markdown
 ```json:table
-{
-    "fields" : ["a", "b", "c"],
-    "items" : [
-      {"a": "11", "b": "22", "c": "33"},
-      {"a": "211", "c": "233"}
-    ]
-}
+{ "fields" : ["a", "b", "c"], "items" : [ {"a": "11", "b": "22", "c": "33"}, {"a": "211", "c": "233"} ] }
 ```
 ````
 
@@ -1103,12 +1029,7 @@ When `fields` is not explicitly specified, the labels are picked from the first 
 
 ````markdown
 ```json:table
-{
-    "items" : [
-      {"a": "11", "b": "22", "c": "33"},
-      {"a": "211", "c": "233"}
-    ]
-}
+{ "items" : [ {"a": "11", "b": "22", "c": "33"}, {"a": "211", "c": "233"} ] }
 ```
 ````
 
@@ -1116,17 +1037,7 @@ You can specify custom labels for `fields`.
 
 ````markdown
 ```json:table
-{
-    "fields" : [
-        {"key": "a", "label": "AA"},
-        {"key": "b", "label": "BB"},
-        {"key": "c", "label": "CC"}
-    ],
-    "items" : [
-      {"a": "11", "b": "22", "c": "33"},
-      {"a": "211", "b": "222", "c": "233"}
-    ]
-}
+{ "fields" : [ {"key": "a", "label": "AA"}, {"key": "b", "label": "BB"}, {"key": "c", "label": "CC"} ], "items" : [ {"a": "11", "b": "22", "c": "33"}, {"a": "211", "b": "222", "c": "233"} ] }
 ```
 ````
 
@@ -1134,17 +1045,7 @@ You can enable sorting for individual elements of `fields`.
 
 ````markdown
 ```json:table
-{
-    "fields" : [
-        {"key": "a", "label": "AA", "sortable": true},
-        {"key": "b", "label": "BB"},
-        {"key": "c", "label": "CC"}
-    ],
-    "items" : [
-      {"a": "11", "b": "22", "c": "33"},
-      {"a": "211", "b": "222", "c": "233"}
-    ]
-}
+{ "fields" : [ {"key": "a", "label": "AA", "sortable": true}, {"key": "b", "label": "BB"}, {"key": "c", "label": "CC"} ], "items" : [ {"a": "11", "b": "22", "c": "33"}, {"a": "211", "b": "222", "c": "233"} ] }
 ```
 ````
 
@@ -1152,38 +1053,15 @@ You can use the `filter` attribute to render a table with content filtered dynam
 
 ````markdown
 ```json:table
-{
-    "fields" : [
-        {"key": "a", "label": "AA"},
-        {"key": "b", "label": "BB"},
-        {"key": "c", "label": "CC"}
-    ],
-    "items" : [
-      {"a": "11", "b": "22", "c": "33"},
-      {"a": "211", "b": "222", "c": "233"}
-    ],
-    "filter" : true
-}
+{ "fields" : [ {"key": "a", "label": "AA"}, {"key": "b", "label": "BB"}, {"key": "c", "label": "CC"} ], "items" : [ {"a": "11", "b": "22", "c": "33"}, {"a": "211", "b": "222", "c": "233"} ], "filter" : true }
 ```
 ````
 
-You can use the `markdown` attribute to allow for GitLab Flavored Markdown in the items and caption,
-including GitLab references. Fields do not support Markdown.
+You can use the `markdown` attribute to allow for GitLab Flavored Markdown in the items and caption, including GitLab references. Fields do not support Markdown.
 
 ````markdown
 ```json:table
-{
-    "fields" : [
-        {"key": "a", "label": "AA"},
-        {"key": "b", "label": "BB"},
-        {"key": "c", "label": "CC"}
-    ],
-    "items" : [
-      {"a": "11", "b": "**22**", "c": "33"},
-      {"a": "#1", "b": "222", "c": "233"}
-    ],
-    "markdown" : true
-}
+{ "fields" : [ {"key": "a", "label": "AA"}, {"key": "b", "label": "BB"}, {"key": "c", "label": "CC"} ], "items" : [ {"a": "11", "b": "**22**", "c": "33"}, {"a": "#1", "b": "222", "c": "233"} ], "markdown" : true }
 ```
 ````
 
@@ -1192,12 +1070,7 @@ You can override this caption by specifying the `caption` attribute.
 
 ````markdown
 ```json:table
-{
-    "items" : [
-      {"a": "11", "b": "22", "c": "33"}
-    ],
-    "caption" : "Custom caption"
-}
+{ "items" : [ {"a": "11", "b": "22", "c": "33"} ], "caption" : "Custom caption" }
 ```
 ````
 
@@ -1205,11 +1078,7 @@ If JSON is invalid, an error occurs.
 
 ````markdown
 ```json:table
-{
-    "items" : [
-      {"a": "11", "b": "22", "c": "33"}
-    ],
-}
+{ "items" : [ {"a": "11", "b": "22", "c": "33"} ], }
 ```
 ````
 
@@ -1217,8 +1086,7 @@ If JSON is invalid, an error occurs.
 
 Embed images, videos, and audio.
 You can add multimedia using Markdown syntax to link files, set dimensions, and display them inline.
-Formatting options let you customize titles, specify width and height, and control how media appears
-in the rendered output.
+Formatting options let you customize titles, specify width and height, and control how media appears in the rendered output.
 
 ### Images
 
@@ -1231,8 +1099,7 @@ in the rendered output.
 Embed images using inline or reference [links](#links) prepended with a `!`. For example:
 
 <!--
-DO NOT change the name of markdown_logo_v17_11.png. This file is used for a test in
-spec/controllers/help_controller_spec.rb.
+DO NOT change the name of markdown_logo_v17_11.png. This file is used for a test in spec/controllers/help_controller_spec.rb.
 -->
 
 ```markdown
@@ -1245,7 +1112,7 @@ In image links:
 
 - Text in the square brackets (`[ ]`) becomes the image alt text.
 - Text in double quotes after the image link path becomes the title text.
-  To see title text, hover over the image.
+ To see title text, hover over the image.
 
 To learn about creating accessible alt text, see [Accessible images and videos](#accessible-images-and-videos).
 
@@ -1253,8 +1120,7 @@ When an image is selected, it opens in an overlay.
 
 ### Videos
 
-Image tags that link to files with a video extension are automatically converted to
-a video player. The valid video extensions are `.mp4`, `.m4v`, `.mov`, `.webm`, and `.ogv`:
+Image tags that link to files with a video extension are automatically converted to a video player. The valid video extensions are `.mp4`, `.m4v`, `.mov`, `.webm`, and `.ogv`:
 
 Here's an example video:
 
@@ -1268,8 +1134,7 @@ This example only works when [rendered in GitLab](https://gitlab.com/gitlab-org/
 
 ### Change image or video dimensions
 
-You can control the width and height of an image or video by following the image with
-an attribute list.
+You can control the width and height of an image or video by following the image with an attribute list.
 The value must an integer with a unit of either `px` (default) or `%`.
 
 For example
@@ -1284,21 +1149,15 @@ This example only works when [rendered in GitLab](https://gitlab.com/gitlab-org/
 
 > ![GitLab logo](img/markdown_logo_v17_11.png "Title Text"){width=100 height=100px}
 
-You can also use the `img` HTML tag instead of Markdown and set its `height` and
-`width` parameters.
+You can also use the `img` HTML tag instead of Markdown and set its `height` and `width` parameters.
 
-When you paste a higher resolution PNG image into a Markdown text box [in GitLab 17.1 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/419913),
-dimensions are always appended. The dimensions are automatically adjusted to
-accommodate for retina (and other higher-resolution) displays. For instance,
-a 144ppi image is resized to 50% of its dimensions, whereas a 96ppi image is
-resized to 75% of its dimensions.
+When you paste a higher resolution PNG image into a Markdown text box [in GitLab 17.1 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/419913), dimensions are always appended. The dimensions are automatically adjusted to accommodate for retina (and other higher-resolution) displays. For instance, a 144ppi image is resized to 50% of its dimensions, whereas a 96ppi image is resized to 75% of its dimensions.
 
 When selected, images open in an overlay scaled to either 100% or the largest size that fits in the window.
 
 ### Audio
 
-Similar to videos, link tags for files with an audio extension are automatically converted to
-an audio player. The valid audio extensions are `.mp3`, `.oga`, `.ogg`, `.spx`, and `.wav`:
+Similar to videos, link tags for files with an audio extension are automatically converted to an audio player. The valid audio extensions are `.mp3`, `.oga`, `.ogg`, `.spx`, and `.wav`:
 
 Here's an example audio clip:
 
@@ -1312,8 +1171,7 @@ This example only works when [rendered in GitLab](https://gitlab.com/gitlab-org/
 
 ## Blockquotes
 
-Use a blockquote to highlight information, such as a side note. It's generated
-by starting the lines of the blockquote with `>`:
+Use a blockquote to highlight information, such as a side note. It's generated by starting the lines of the blockquote with `>`:
 
 ```markdown
 > Blockquotes help you emulate reply text.
@@ -1370,8 +1228,7 @@ When rendered, the example looks similar to:
 For a similar effect with a larger code example, you can use a code block.
 To create a code block:
 
-- Fence an entire block of code with triple backticks (```` ``` ````). You can use more than three backticks,
-  as long as both the opening and closing set have the same number.
+- Fence an entire block of code with triple backticks (```` ``` ````). You can use more than three backticks, as long as both the opening and closing set have the same number.
 - Fence an entire block of code with triple tildes (`~~~`).
 - Indent it four or more spaces.
 
@@ -1382,9 +1239,7 @@ Python code block:
 
 ```python
 def function():
-    #indenting works just fine in the fenced code block
-    s = "Python code"
-    print s
+    #indenting works just fine in the fenced code block s = "Python code" print s
 ```
 
 Markdown code block using 4 spaces:
@@ -1396,8 +1251,7 @@ Markdown code block using 4 spaces:
 JavaScript code block using tildes:
 
 ~~~javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
+var s = "JavaScript syntax highlighting"; alert(s);
 ~~~
 ````
 
@@ -1429,21 +1283,17 @@ The three previous examples render as:
 
 ### Syntax highlighting
 
-GitLab uses the [Rouge Ruby library](https://github.com/rouge-ruby/rouge) for more colorful syntax
-highlighting in code blocks. For a list of supported languages visit the
-[Rouge project wiki](https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers).
+GitLab uses the [Rouge Ruby library](https://github.com/rouge-ruby/rouge) for more colorful syntax highlighting in code blocks. For a list of supported languages visit the [Rouge project wiki](https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers).
 Syntax highlighting is supported only in code blocks, so you can't highlight inline code.
 
-To fence and apply syntax highlighting to a block of code, append the code language
-to the opening code declaration, after the three back-ticks (```` ``` ````) or three tildes (`~~~`).
+To fence and apply syntax highlighting to a block of code, append the code language to the opening code declaration, after the three back-ticks (```` ``` ````) or three tildes (`~~~`).
 
 Code blocks that use `plaintext` or have no code language specified have no syntax highlighting:
 
 ````plaintext
 ```
 No language indicated, so **no** syntax highlighting.
-s = "No highlighting is shown for this line."
-But let's throw in a <b>tag</b>.
+s = "No highlighting is shown for this line." But let's throw in a <b>tag</b>.
 ```
 ````
 
@@ -1473,24 +1323,15 @@ In wikis, you can also add and edit diagrams created with the [diagrams.net edit
 
 {{< /history >}}
 
-Visit the [official page](https://mermaidjs.github.io/) for more details. The
-[Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/) helps you
-learn Mermaid and debug issues in your Mermaid code. Use it to identify and resolve
-issues in your diagrams.
+Visit the [official page](https://mermaidjs.github.io/) for more details. The [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/) helps you learn Mermaid and debug issues in your Mermaid code. Use it to identify and resolve issues in your diagrams.
 
 To generate a diagram or flowchart, write your text inside the `mermaid` block:
 
 ````markdown
 ```mermaid
-%%{init: { "fontFamily": "GitLab Sans" }}%%
-graph TD
-    accTitle: Basic Mermaid diagram example
-    accDescr: Simple flowchart showing nodes A, B, C, and D with connections between them.
+%%{init: { "fontFamily": "GitLab Sans" }}%% graph TD accTitle: Basic Mermaid diagram example accDescr: Simple flowchart showing nodes A, B, C, and D with connections between them.
 
-  A-->B;
-  A-->C;
-  B-->D;
-  C-->D;
+ A-->B; A-->C; B-->D; C-->D;
 ```
 ````
 
@@ -1502,34 +1343,25 @@ graph TD
     accTitle: Basic Mermaid diagram example
     accDescr: Simple flowchart showing nodes A, B, C, and D with connections between them.
 
-  A-->B;
-  A-->C;
-  B-->D;
-  C-->D;
+ A-->B;
+ A-->C;
+ B-->D;
+ C-->D;
 ```
 
 You can also include subgraphs:
 
 ````markdown
 ```mermaid
-%%{init: { "fontFamily": "GitLab Sans" }}%%
-graph TB
-    accTitle: Mermaid diagram with subgraphs
-    accDescr: Flowchart showing main graph with two subgraphs containing nodes and decision flows.
+%%{init: { "fontFamily": "GitLab Sans" }}%% graph TB accTitle: Mermaid diagram with subgraphs accDescr: Flowchart showing main graph with two subgraphs containing nodes and decision flows.
 
-  SubGraph1 --> SubGraph1Flow
+ SubGraph1 --> SubGraph1Flow
 
-  subgraph "SubGraph 1 Flow"
-    SubGraph1Flow(SubNode 1)
-    SubGraph1Flow -- Choice1 --> DoChoice1
-    SubGraph1Flow -- Choice2 --> DoChoice2
-  end
+ subgraph "SubGraph 1 Flow" SubGraph1Flow(SubNode 1)
+    SubGraph1Flow -- Choice1 --> DoChoice1 SubGraph1Flow -- Choice2 --> DoChoice2
+ end
 
-  subgraph "Main Graph"
-    Node1[Node 1] --> Node2[Node 2]
-    Node2 --> SubGraph1[Jump to SubGraph1]
-    SubGraph1 --> FinalThing[Final Thing]
-  end
+ subgraph "Main Graph" Node1[Node 1] --> Node2[Node 2] Node2 --> SubGraph1[Jump to SubGraph1] SubGraph1 --> FinalThing[Final Thing] end
 ```
 ````
 
@@ -1541,38 +1373,34 @@ graph TB
     accTitle: Mermaid diagram with subgraphs rendered
     accDescr: Flowchart showing main graph with two subgraphs containing nodes and decision flows as rendered.
 
-  SubGraph1 --> SubGraph1Flow
+ SubGraph1 --> SubGraph1Flow
 
-  subgraph "SubGraph 1 Flow"
+ subgraph "SubGraph 1 Flow"
     SubGraph1Flow(SubNode 1)
     SubGraph1Flow -- Choice1 --> DoChoice1
     SubGraph1Flow -- Choice2 --> DoChoice2
-  end
+ end
 
-  subgraph "Main Graph"
+ subgraph "Main Graph"
     Node1[Node 1] --> Node2[Node 2]
     Node2 --> SubGraph1[Jump to SubGraph1]
     SubGraph1 --> FinalThing[Final Thing]
-  end
+ end
 ```
 
 ### PlantUML
 
-PlantUML integration is enabled on GitLab.com. To make PlantUML available in GitLab Self-Managed
-installation of GitLab, a GitLab administrator [must enable it](../administration/integration/plantuml.md).
+PlantUML integration is enabled on GitLab.com. To make PlantUML available in GitLab Self-Managed installation of GitLab, a GitLab administrator [must enable it](../administration/integration/plantuml.md).
 
-After you enable PlantUML, diagram delimiters `@startuml`/`@enduml` aren't required, as these
-are replaced by the `plantuml` block. For example:
+After you enable PlantUML, diagram delimiters `@startuml`/`@enduml` aren't required, as these are replaced by the `plantuml` block. For example:
 
 ````markdown
 ```plantuml
-Bob -> Alice : hello
-Alice -> Bob : hi
+Bob -> Alice : hello Alice -> Bob : hi
 ```
 ````
 
-You can include or embed a PlantUML diagram from separate files in the repository using
-the `::include` directive.
+You can include or embed a PlantUML diagram from separate files in the repository using the `::include` directive.
 For more information, see [Include diagram files](../administration/integration/plantuml.md#include-diagram-files).
 
 ### Kroki
@@ -1583,27 +1411,21 @@ For more information, see the [Kroki integration](../administration/integration/
 ## Math equations
 
 Math written in LaTeX syntax is rendered with [KaTeX](https://github.com/KaTeX/KaTeX).
-_KaTeX only supports a [subset](https://katex.org/docs/supported.html) of LaTeX._
-This syntax also works in AsciiDoc wikis and files using `:stem: latexmath`. For details, see
-the [Asciidoctor user manual](https://asciidoctor.org/docs/user-manual/#activating-stem-support).
+_KaTeX only supports a [subset](https://katex.org/docs/supported.html) of LaTeX._ This syntax also works in AsciiDoc wikis and files using `:stem: latexmath`. For details, see the [Asciidoctor user manual](https://asciidoctor.org/docs/user-manual/#activating-stem-support).
 
 To prevent malicious activity, GitLab renders only the first 50 inline math instances.
 You can disable this limit [for a group](../api/graphql/reference/_index.md#mutationgroupupdate)
 or for the entire [GitLab Self-Managed instance](../administration/instance_limits.md#math-rendering-limits).
 
-The number of math blocks is also limited based on render time. If the limit is exceeded,
-GitLab renders the excess math instances as text. Wiki and repository files do not have
-these limits.
+The number of math blocks is also limited based on render time. If the limit is exceeded, GitLab renders the excess math instances as text. Wiki and repository files do not have these limits.
 
 Math written between dollar signs with backticks (``` $`...`$ ```) or single dollar signs (`$...$`)
 is rendered inline with the text.
 
-Math written between double dollar signs (`$$...$$`) or in a [code block](#code-spans-and-blocks) with
-the language declared as `math` is rendered on a separate line:
+Math written between double dollar signs (`$$...$$`) or in a [code block](#code-spans-and-blocks) with the language declared as `math` is rendered on a separate line:
 
 <!--
-Translation note: DO NOT TRANSLATE this example. The example must stay untranslated
-to stay in sync with the image.
+Translation note: DO NOT TRANSLATE this example. The example must stay untranslated to stay in sync with the image.
 -->
 
 `````markdown
@@ -1630,19 +1452,16 @@ When rendered, the example looks like:
 
 {{< alert type="note" >}}
 
-The rich text editor does not support inserting new math blocks. To insert a new math block, use the
-plain text editor. For more information, see [issue 366527](https://gitlab.com/gitlab-org/gitlab/-/issues/366527).
+The rich text editor does not support inserting new math blocks. To insert a new math block, use the plain text editor. For more information, see [issue 366527](https://gitlab.com/gitlab-org/gitlab/-/issues/366527).
 
 {{< /alert >}}
 
 ## Table of contents
 
 A table of contents is an unordered list that links to subheadings in the document.
-You can add a table of contents to issues, merge requests, and epics, but you can't add one
-to notes or comments.
+You can add a table of contents to issues, merge requests, and epics, but you can't add one to notes or comments.
 
-Add one of these tags on their own line to the **description** field of any of the supported
-content types:
+Add one of these tags on their own line to the **description** field of any of the supported content types:
 
 <!--
 Tags for the table of contents are presented in a code block to work around a Markdown bug.
@@ -1664,15 +1483,13 @@ or
 
 {{< alert type="note" >}}
 
-A table of contents renders also when you use the TOC code in single square brackets, regardless of
-being on its own line or not. This behavior is unintended.
+A table of contents renders also when you use the TOC code in single square brackets, regardless of being on its own line or not. This behavior is unintended.
 For more information, see [issue 359077](https://gitlab.com/gitlab-org/gitlab/-/issues/359077).
 
 {{< /alert >}}
 
 <!--
-Translation note: DO NOT TRANSLATE this example. The example must stay untranslated
-to stay in sync with the image.
+Translation note: DO NOT TRANSLATE this example. The example must stay untranslated to stay in sync with the image.
 -->
 
 ```markdown
@@ -1699,54 +1516,51 @@ Second section content.
 
 {{< /history >}}
 
-Alerts can be used to highlight or call attention to something. The alert syntax
-uses the Markdown blockquote syntax followed by the type of alert.
+Alerts can be used to highlight or call attention to something. The alert syntax uses the Markdown blockquote syntax followed by the type of alert.
 You can use alerts in any text box that supports Markdown.
 
 You can use the following types of alerts:
 
 <!--
-Translation note: DO NOT TRANSLATE any examples in this section. The examples must stay untranslated
-to stay in sync with the image.
+Translation note: DO NOT TRANSLATE any examples in this section. The examples must stay untranslated to stay in sync with the image.
 -->
 
 - Note: information that users should take into account, even when skimming:
 
-  ```markdown
-  > [!note]
-  > The following information is useful.
-  ```
+ ```markdown
+ > [!note]
+ > The following information is useful.
+ ```
 
 - Tip: Optional information to help a user be more successful:
 
-  ```markdown
-  > [!tip]
-  > Tip of the day.
-  ```
+ ```markdown
+ > [!tip]
+ > Tip of the day.
+ ```
 
 - Important: Crucial information necessary for users to succeed:
 
-  ```markdown
-  > [!important]
-  > This is something important you should know.
-  ```
+ ```markdown
+ > [!important]
+ > This is something important you should know.
+ ```
 
 - Caution: Negative potential consequences of an action:
 
-  ```markdown
-  > [!caution]
-  > You need to be very careful about the following.
-  ```
+ ```markdown
+ > [!caution]
+ > You need to be very careful about the following.
+ ```
 
 - Warning: Critical potential risks:
 
-  ```markdown
-  > [!warning]
-  > The following would be dangerous.
-  ```
+ ```markdown
+ > [!warning]
+ > The following would be dangerous.
+ ```
 
-The title text shown for an alert defaults to the name of the alert. For example,
-`> [!warning]` alert has the title `Warning`.
+The title text shown for an alert defaults to the name of the alert. For example, `> [!warning]` alert has the title `Warning`.
 
 To override an alert block's title, enter any text on the same line.
 For example, to use the warning color but have `Data deletion` as the title:
@@ -1756,8 +1570,7 @@ For example, to use the warning color but have `Data deletion` as the title:
 > The following instructions will make your data unrecoverable.
 ```
 
-[Multiline blockquotes](#multiline-blockquote) also support the alert syntax. This
-allows you to wrap large and more complex text in an alert.
+[Multiline blockquotes](#multiline-blockquote) also support the alert syntax. This allows you to wrap large and more complex text in an alert.
 
 ```markdown
 >>> [!note] Things to consider
@@ -1784,8 +1597,7 @@ You can write a color code in the formats: `HEX`, `RGB`, or `HSL`.
 
 Named colors are not supported.
 
-In the GitLab application (but not the GitLab documentation) color codes in backticks
-display a color chip next to the color code. For example:
+In the GitLab application (but not the GitLab documentation) color codes in backticks display a color chip next to the color code. For example:
 
 ```markdown
 - `#F00`
@@ -1829,8 +1641,7 @@ For example:
 
 In all cases, the backslash is removed, and no color chip is rendered in the output.
 
-Use when you want to include values like issue numbers in inline code
-without accidentally triggering a color chip.
+Use when you want to include values like issue numbers in inline code without accidentally triggering a color chip.
 
 ## Emoji
 
@@ -1872,17 +1683,14 @@ for a list of all supported emoji codes.
 
 ### Emoji and your operating system
 
-The previous emoji example uses hard-coded images. Rendered emoji
-in GitLab might look different depending on the OS and browser used.
+The previous emoji example uses hard-coded images. Rendered emoji in GitLab might look different depending on the OS and browser used.
 
-Most emoji are natively supported on macOS, Windows, iOS, Android, and fall back on image-based
-emoji where there is no support.
+Most emoji are natively supported on macOS, Windows, iOS, Android, and fall back on image-based emoji where there is no support.
 
 <!-- vale gitlab_base.Spelling = NO -->
 
 On Linux, you can download [Noto Color Emoji](https://github.com/googlefonts/noto-emoji)
-to get full native emoji support. Ubuntu 22.04 (like many modern Linux distributions) has
-this font installed by default.
+to get full native emoji support. Ubuntu 22.04 (like many modern Linux distributions) has this font installed by default.
 
 <!-- vale gitlab_base.Spelling = YES -->
 
@@ -1890,62 +1698,54 @@ To learn more about adding custom emoji, see [Custom emoji](emoji_reactions.md#c
 
 ## Front matter
 
-Front matter is metadata included at the beginning of a Markdown document, preceding
-the content. This data can be used by static site generators like [Jekyll](https://jekyllrb.com/docs/front-matter/),
-[Hugo](https://gohugo.io/content-management/front-matter/), and many other applications.
+Front matter is metadata included at the beginning of a Markdown document, preceding the content. This data can be used by static site generators like [Jekyll](https://jekyllrb.com/docs/front-matter/), [Hugo](https://gohugo.io/content-management/front-matter/), and many other applications.
 
-When you view a Markdown file rendered by GitLab, front matter is displayed as-is,
-in a box at the top of the document. The HTML content displays after the front matter. To view an example,
-you can toggle between the source and rendered version of a
-[GitLab documentation file](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/_index.md).
+When you view a Markdown file rendered by GitLab, front matter is displayed as-is, in a box at the top of the document. The HTML content displays after the front matter. To view an example, you can toggle between the source and rendered version of a [GitLab documentation file](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/_index.md).
 
-In GitLab, front matter is used only in Markdown files and wiki pages, not the other
-places where Markdown formatting is supported. It must be at the very top of the document
-and must be between delimiters.
+In GitLab, front matter is used only in Markdown files and wiki pages, not the other places where Markdown formatting is supported. It must be at the very top of the document and must be between delimiters.
 
 The following delimiters are supported:
 
 - YAML (`---`):
 
-  ```yaml
-  ---
-  title: About Front Matter
-  example:
+ ```yaml
+ ---
+ title: About Front Matter
+ example:
     language: yaml
-  ---
-  ```
+ ---
+ ```
 
 - TOML (`+++`):
 
-  ```toml
-  +++
-  title = "About Front Matter"
-  [example]
-  language = "toml"
-  +++
-  ```
+ ```toml
+ +++
+ title = "About Front Matter"
+ [example]
+ language = "toml"
+ +++
+ ```
 
 - JSON (`;;;`):
 
-  ```json
-  ;;;
-  {
+ ```json
+ ;;;
+ {
     "title": "About Front Matter",
     "example": {
       "language": "json"
     }
-  }
-  ;;;
-  ```
+ }
+ ;;;
+ ```
 
-Other languages are supported by adding a specifier to any of the existing
-delimiters. For example:
+Other languages are supported by adding a specifier to any of the existing delimiters. For example:
 
 ```php
 ---php
 $title = "About Front Matter";
 $example = array(
-  'language' => "php",
+ 'language' => "php",
 );
 ---
 ```
@@ -1960,8 +1760,7 @@ $example = array(
 
 Use includes, or include directives, to add the content of a document inside another document.
 
-For example, a book could be split into multiple chapters, and then each chapter could be included in
-the main book document:
+For example, a book could be split into multiple chapters, and then each chapter could be included in the main book document:
 
 ```markdown
 ::include{file=chapter1.md}
@@ -1969,8 +1768,7 @@ the main book document:
 ::include{file=chapter2.md}
 ```
 
-In GitLab, include directives are used only in Markdown files and wiki pages, not the other
-places where Markdown formatting is supported.
+In GitLab, include directives are used only in Markdown files and wiki pages, not the other places where Markdown formatting is supported.
 
 Use an include directive in a Markdown file:
 
@@ -1985,28 +1783,21 @@ Use an include directive in a wiki page:
 ```
 
 Each `::include` must start at the beginning of a line, and specifies a file or URL for `file=`.
-The content of the specified file (or URL) is included at the position of the `::include` and
-processed with the remaining Markdown.
+The content of the specified file (or URL) is included at the position of the `::include` and processed with the remaining Markdown.
 
 Include directives inside the included file are ignored.
-For example, if `file1` includes `file2`, and `file2` includes `file3`, when `file1` is processed,
-it doesn't have the contents of `file3`.
+For example, if `file1` includes `file2`, and `file2` includes `file3`, when `file1` is processed, it doesn't have the contents of `file3`.
 
 ### Include limits
 
-To guarantee good system performance and prevent malicious documents from causing problems, GitLab
-enforces a maximum limit on the number of include directives processed in a document.
+To guarantee good system performance and prevent malicious documents from causing problems, GitLab enforces a maximum limit on the number of include directives processed in a document.
 By default, a document can have up to 32 include directives.
 
-To customize the number of processed include directives, administrators can change the
-`asciidoc_max_includes` application setting with the
-[application settings API](../api/settings.md#available-settings).
+To customize the number of processed include directives, administrators can change the `asciidoc_max_includes` application setting with the [application settings API](../api/settings.md#available-settings).
 
 ### Use includes from external URLs
 
-To use includes from separate wiki pages or external URLs, administrators can enable the
-`wiki_asciidoc_allow_uri_includes`
-[application setting](../administration/wikis/_index.md#allow-uri-includes-for-asciidoc).
+To use includes from separate wiki pages or external URLs, administrators can enable the `wiki_asciidoc_allow_uri_includes` [application setting](../administration/wikis/_index.md#allow-uri-includes-for-asciidoc).
 
 ```markdown
 <!-- define application setting wiki_asciidoc_allow_uri_includes to true to allow content to be read from URI -->
@@ -2058,15 +1849,14 @@ This feature is available for testing, but not ready for production use.
 
 {{< /alert >}}
 
-Placeholders can be used to display certain types of changeable data, such as a project's title
-or latest tag. They are filled in each time the Markdown is rendered.
+Placeholders can be used to display certain types of changeable data, such as a project's title or latest tag. They are filled in each time the Markdown is rendered.
 
 The syntax is `%{PLACEHOLDER}`.
 
 | Placeholder               | Example value       | Description |
 |---------------------------|---------------------|-------------|
 | `%{gitlab_server}`        | `gitlab.com`        | Server of a project |
-| `%{gitlab_pages_domain}`  | `pages.gitlab.com`  | Domain hosting GitLab Pages |
+| `%{gitlab_pages_domain}` | `pages.gitlab.com` | Domain hosting GitLab Pages |
 | `%{project_path}`         | `gitlab-org/gitlab` | Path of a project including the parent groups |
 | `%{project_name}`         | `gitlab`            | Name of a project |
 | `%{project_id}`           | `278964`            | Database ID associated with a project |
@@ -2086,16 +1876,14 @@ Markdown reserves the following ASCII characters to format the page:
 ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~
 ```
 
-To use one of these reserved characters in your text, add the backslash character (` \ `) immediately before the
-reserved character. When you place the backslash before a reserved character, the Markdown parser omits the
-backslash and treats the reserved character as regular text.
+To use one of these reserved characters in your text, add the backslash character (` \ `) immediately before the reserved character. When you place the backslash before a reserved character, the Markdown parser omits the backslash and treats the reserved character as regular text.
 
 Examples:
 
 ```plaintext
 \# Not a heading
 
-| Food  | Do you like this food? (circle) |
+| Food | Do you like this food? (circle) |
 |-------|---------------------------------|
 | Pizza | Yes \| No                       |
 
@@ -2106,7 +1894,7 @@ When rendered, the example looks similar to:
 
 > \# Not a heading
 >
-> | Food  | Do you like this food? (circle) |
+> | Food | Do you like this food? (circle) |
 > |-------|---------------------------------|
 > | Pizza | Yes \| No                       |
 >
@@ -2116,10 +1904,10 @@ A backslash doesn't always escape the character that follows it. The backslash a
 
 - When the backslash appears before a non-reserved character, such as `A`, `3`, or a space.
 - When the backslash appears inside of these Markdown elements:
-  - Auto-links
-  - Inline HTML, such as `<kbd>`
-  - Code blocks
-  - Code spans
+ - Auto-links
+ - Inline HTML, such as `<kbd>`
+ - Code blocks
+ - Code spans
 
 In these instances you might need to use the equivalent HTML entity, such as `&#93;` for `]`.
 
@@ -2128,8 +1916,7 @@ In these instances you might need to use the equivalent HTML entity, such as `&#
 The previous advice does not apply to code blocks or code spans, where literal contents are always displayed.
 Instead, use additional backticks to nest the code.
 
-If you need to include three backticks in a code block, use a greater number of backticks
-to create the code block:
+If you need to include three backticks in a code block, use a greater number of backticks to create the code block:
 
 `````markdown
 To create a code block in Markdown, use three or more matching backticks:
@@ -2151,9 +1938,7 @@ When rendered, the example looks similar to:
 > ```
 > ````
 
-To include one or more backticks in a code span, use a greater number of matching backticks
-to create the code span. If the content begins and ends with a space, those spaces are also
-trimmed:
+To include one or more backticks in a code span, use a greater number of matching backticks to create the code span. If the content begins and ends with a space, those spaces are also trimmed:
 
 ```markdown
 To create a code span in Markdown, use matching backticks: `` `hello, world` ``
@@ -2165,9 +1950,7 @@ When rendered, the example looks similar to:
 
 ### Use backslash with backticks
 
-When the backslash (` \ `) character is at the end of an inline code sample, the backslash
-can escape the last backtick. In this case, add extra spaces around the inline code,
-for example:
+When the backslash (` \ `) character is at the end of an inline code sample, the backslash can escape the last backtick. In this case, add extra spaces around the inline code, for example:
 
 ```markdown
 Use the backslash ` \ ` character to escape inline code that ends in a ` backslash\ `.
@@ -2181,11 +1964,9 @@ When rendered, the example looks similar to:
 
 Footnotes add a link to a note rendered at the end of a Markdown file.
 
-To make a footnote, you need both a reference tag and a separate line (anywhere in the file) with
-the note content.
+To make a footnote, you need both a reference tag and a separate line (anywhere in the file) with the note content.
 
-Regardless of the tag names, the relative order of the reference tags determines the rendered
-numbering.
+Regardless of the tag names, the relative order of the reference tags determines the rendered numbering.
 
 Regardless where you put the note, it's always shown at the bottom of the rendered file.
 
@@ -2193,18 +1974,18 @@ For example:
 
 - Referencing footnotes:
 
-  ```markdown
-  A footnote reference tag looks like this:[^1]
+ ```markdown
+ A footnote reference tag looks like this:[^1]
 
-  This reference tag is a mix of letters and numbers. [^footnote-42]
-  ```
+ This reference tag is a mix of letters and numbers. [^footnote-42]
+ ```
 
 - Defining footnotes in a different part of the file:
 
-  ```markdown
-  [^1]: This text is inside a footnote.
-  [^footnote-42]: This text is another footnote.
-  ```
+ ```markdown
+ [^1]: This text is inside a footnote.
+ [^footnote-42]: This text is another footnote.
+ ```
 
 When rendered, footnotes look similar to:
 
@@ -2218,8 +1999,7 @@ When rendered, footnotes look similar to:
 
 {{< alert type="note" >}}
 
-The rich text editor does not support inserting new footnotes. To insert a new footnote, use the
-plain text editor. For more information, see [issue 365265](https://gitlab.com/gitlab-org/gitlab/-/issues/365265).
+The rich text editor does not support inserting new footnotes. To insert a new footnote, use the plain text editor. For more information, see [issue 365265](https://gitlab.com/gitlab-org/gitlab/-/issues/365265).
 
 {{< /alert >}}
 
@@ -2228,17 +2008,16 @@ plain text editor. For more information, see [issue 365265](https://gitlab.com/g
 You can also use raw HTML in your Markdown, and it usually works pretty well.
 
 See the documentation for `HTML::Pipeline`'s [SanitizationFilter](https://github.com/gjtorikian/html-pipeline/blob/v2.12.3/lib/html/pipeline/sanitization_filter.rb#L42)
-class for the list of allowed HTML tags and attributes. In addition to the default
-`SanitizationFilter` allowlist, GitLab allows `span`, `abbr`, `details` and `summary` elements.
+class for the list of allowed HTML tags and attributes. In addition to the default `SanitizationFilter` allowlist, GitLab allows `span`, `abbr`, `details` and `summary` elements.
 `rel="license"` is allowed on links to support the [Rel-License microformat](https://microformats.org/wiki/rel-license) and license attribution.
 
 ```html
 <dl>
-  <dt>Definition list</dt>
-  <dd>Is something people use sometimes.</dd>
+ <dt>Definition list</dt>
+ <dd>Is something people use sometimes.</dd>
 
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. HTML <em>tags</em> do <b>work</b>, in most cases.</dd>
+ <dt>Markdown in HTML</dt>
+ <dd>Does *not* work **very** well. HTML <em>tags</em> do <b>work</b>, in most cases.</dd>
 </dl>
 ```
 
@@ -2252,24 +2031,22 @@ When rendered, the example looks similar to:
 >   <dd>Does *not* work **very** well. HTML <em>tags</em> do <b>work</b>, in most cases.</dd>
 > </dl>
 
-It's still possible to use Markdown inside HTML tags, but only if the lines containing Markdown
-are separated into their own lines:
+It's still possible to use Markdown inside HTML tags, but only if the lines containing Markdown are separated into their own lines:
 
 ```html
 <dl>
-  <dt>Markdown in HTML</dt>
+ <dt>Markdown in HTML</dt>
 
-  Does *not* work **very** well. HTML tags work, in most cases.
+ Does *not* work **very** well. HTML tags work, in most cases.
 
-  </dd>
+ </dd>
 </dl>
 ```
 
 When rendered, the example looks similar to:
 
 <!--
-The example below uses HTML to force correct rendering on docs.gitlab.com,
-Markdown is fine in GitLab.
+The example below uses HTML to force correct rendering on docs.gitlab.com, Markdown is fine in GitLab.
 -->
 
 <!-- markdownlint-disable MD027 -->
@@ -2336,8 +2113,7 @@ PASTE LOGS HERE
 ````
 
 <!--
-The example below uses HTML to force correct rendering on docs.gitlab.com, Markdown
-works correctly in GitLab.
+The example below uses HTML to force correct rendering on docs.gitlab.com, Markdown works correctly in GitLab.
 -->
 
 When rendered, the example looks similar to:
@@ -2386,8 +2162,7 @@ GitLab Flavored Markdown doesn't support the Redcarpet superscript syntax ( `x^2
 
 ### HTML comments
 
-You can use HTML comments in GitLab Flavored Markdown to add notes or explanations that aren't
-visible in the rendered output.
+You can use HTML comments in GitLab Flavored Markdown to add notes or explanations that aren't visible in the rendered output.
 
 Use HTML comments to:
 
@@ -2403,8 +2178,7 @@ When using HTML comments, you should:
 - Use them for temporary notes rather than permanent documentation.
 - Avoid including sensitive or confidential information. HTML comments are visible to anyone who can view the Markdown source.
 
-HTML comments use the standard HTML syntax `<!-- comment text -->` and can span single or multiple
-lines:
+HTML comments use the standard HTML syntax `<!-- comment text -->` and can span single or multiple lines:
 
 ```html
 <!-- This is a single-line comment -->

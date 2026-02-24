@@ -15,52 +15,52 @@ Access to Handshake consists of both configurable and non-configurable permissio
 **The default permissions for the Recruiter (Advanced) role are**: 
 
 - **Posts**
-  - Post content (as yourself)
+ - Post content (as yourself)
 - **Jobs**
-  - View jobs
-  - Manage jobs
-  - Manage job applicants
+ - View jobs
+ - Manage jobs
+ - Manage job applicants
 - **On-Campus Interviews**
-  - View on-campus interviews
-  - Manage on-campus interviews
-  - Manage on-campus interviews applicants
+ - View on-campus interviews
+ - Manage on-campus interviews
+ - Manage on-campus interviews applicants
 - **Events**
-  - Attend events
-  - Manage events
-  - Manage event attendees
+ - Attend events
+ - Manage events
+ - Manage event attendees
 - **Career Fairs**
-  - Attend fairs
-  - Manage fairs
-  - Manage fair attendees
+ - Attend fairs
+ - Manage fairs
+ - Manage fair attendees
 - **1:1 Schedules (Limited)**
-  - Attend 1:1 schedules (Limited)
-  - Manage 1:1 schedules (Limited)
-  - Manage 1:1 schedule Attendees (Limited)
+ - Attend 1:1 schedules (Limited)
+ - Manage 1:1 schedules (Limited)
+ - Manage 1:1 schedule Attendees (Limited)
 - **Schools & Contacts**
-  - View schools
-  - Manage schools
-  - Manage contact list
+ - View schools
+ - Manage schools
+ - Manage contact list
 - **Candidate sourcing (1:1, Limited)**
 
 **TES-based permissions enabled by default**:
 
 - **Candidate sourcing (Advanced)**
-  - View candidate engagement
-  - Talent List
-  - Tagged in message intros or campaigns
-  - Candidate sourcing (bulk messaging)
-  - Message introductions
+ - View candidate engagement
+ - Talent List
+ - Tagged in message intros or campaigns
+ - Candidate sourcing (bulk messaging)
+ - Message introductions
 - **Schools & Contacts**
-  - Manage your school lists
+ - Manage your school lists
 - **Analytics & Reporting**
-  - Analytics (Standard)
+ - Analytics (Standard)
 
 **TES-based permissions available**:
 
 - **Candidate sourcing (Advanced)**
-  - Tagged in message intros or campaigns
+ - Tagged in message intros or campaigns
 - **Analytics & Reporting**
-  - Insights (Standard)
+ - Insights (Standard)
 
 **TES-based non-configurable permissions**: 
 
@@ -76,8 +76,8 @@ Access to Handshake consists of both configurable and non-configurable permissio
 
 - **Check-in kiosk**
 - **1:1 Schedules (Advanced)**
-  - Attend 1:1 schedules (Advanced)
-  - Manage 1:1 schedules (Advanced)
+ - Attend 1:1 schedules (Advanced)
+ - Manage 1:1 schedules (Advanced)
 - **Use mobile events app**
 
 **Permissions with School Explorer**

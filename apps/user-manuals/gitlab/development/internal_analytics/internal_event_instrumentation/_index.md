@@ -13,9 +13,7 @@ Currently Internal Event Tracking is consolidating the following systems:
 - Snowplow
 - AiTracking (GitLab Duo Chat) WIP
 
-Internal Events is an unified interface to track events in GitLab. Each tracking call represents a user action and the
-associated properties. Internal Events then provides underlying systems the properties they require for their specific
-analytics needs.
+Internal Events is an unified interface to track events in GitLab. Each tracking call represents a user action and the associated properties. Internal Events then provides underlying systems the properties they require for their specific analytics needs.
 
 Analytics systems summary:
 
@@ -28,8 +26,7 @@ Analytics systems summary:
 | Receiving delay | Up to 1 week | A few minutes |
 | Implementation | Utilises Internal Events, Database records, System Settings | Internal Events plus custom tracking context |
 
-This page is a work in progress. If you have access to the GitLab Slack workspace, use the
-`#g_monitor_analytics_instrumentation` channel for any questions or clarifications.
+This page is a work in progress. If you have access to the GitLab Slack workspace, use the `#g_monitor_analytics_instrumentation` channel for any questions or clarifications.
 
 - [Quick start for internal event tracking](quick_start.md)
 - [Migrating existing tracking to internal event tracking](migration.md)

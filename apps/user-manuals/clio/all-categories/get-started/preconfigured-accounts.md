@@ -55,7 +55,7 @@ The Personal Injury custom fields preconfiguration comprises five matter and one
 - **Litigation Info:** This set captures essential procedural and court details for cases that have moved to litigation, including the Case Number, Opposing Party, Opposing Counsel, Judge, Court, and key dates like the Initial Filing, Service, and Answer Dates.
 - **Defense Insurance:** This set allows you to track comprehensive information for an insurance policy, capturing the insurer's name, the adjuster's name, the Claim Number, Policy Holder, Policy Number, and Policy Limits for each.
 
-  **Note:** You can add two additional field sets for a second and third defense insurance organization.
+ **Note:** You can add two additional field sets for a second and third defense insurance organization.
 - **Client Insurance:** This set allows you to capture information like the insurance company, adjuster, claim number, policy holder, and policy number.
 
 **Note:** Depending on the type of matters your firm typically works with you may choose to remove the Incident Info or MVA Info custom fields set, since these sets collect information for different types of incidents. Alternatively, you can keep both sets and collect information in the relevant set for each client.
@@ -74,16 +74,16 @@ The Wills & Estates custom fields preconfiguration comprises seven matter sets r
 **Matter custom fields: Estate Planning**
 
 - **Estate Info:** This set captures general details about the estate, including the total estate value, whether it is considered a taxable estate, the date the documents are executed, if there are any pre-existing estate planning documents, and the client's overall estate planning goals.
-- **Client Will:** This set is used to record the names of up to four designated individuals who will serve as the Personal Representatives (or executors) for the client's Last Will and Testament.  
-  **Note:** You can add an additional field sets for a second client.
-- **Client Trust:** This set is used to used to record the names of up to four designated individuals who will serve as Trustees for each client's respective Trust documents.  
-  **Note:** You can add an additional field sets for a second client.
-- **Client DPOA:** This set is used to record the names of up to four designated individuals who will serve as Agents under each client's respective Durable Power of Attorney.  
-  **Note:** You can add an additional field sets for a second client.
-- **Client Healthcare POA:** This set is used to record the names of up to four designated individuals who will serve as Healthcare Agents under each client's respective Healthcare Power of Attorney.  
-  **Note:** You can add an additional field sets for a second client.
-- **Client Minor Guardians:** This set is used to record the names of up to four designated individuals who will serve as Minor Guardians for each client's children, as nominated in their documents.  
-  **Note:** You can add an additional field sets for a second client.
+- **Client Will:** This set is used to record the names of up to four designated individuals who will serve as the Personal Representatives (or executors) for the client's Last Will and Testament. 
+ **Note:** You can add an additional field sets for a second client.
+- **Client Trust:** This set is used to used to record the names of up to four designated individuals who will serve as Trustees for each client's respective Trust documents. 
+ **Note:** You can add an additional field sets for a second client.
+- **Client DPOA:** This set is used to record the names of up to four designated individuals who will serve as Agents under each client's respective Durable Power of Attorney. 
+ **Note:** You can add an additional field sets for a second client.
+- **Client Healthcare POA:** This set is used to record the names of up to four designated individuals who will serve as Healthcare Agents under each client's respective Healthcare Power of Attorney. 
+ **Note:** You can add an additional field sets for a second client.
+- **Client Minor Guardians:** This set is used to record the names of up to four designated individuals who will serve as Minor Guardians for each client's children, as nominated in their documents. 
+ **Note:** You can add an additional field sets for a second client.
 - **Asset Info:** This set allows for a high-level inventory of the client's assets, including whether they own real estate, bank accounts, stocks and bonds, life insurance, retirement plans, or business interests, along with details about the number of properties and specific notes for each asset category.
 
 **Matter custom fields: Probate**
@@ -221,7 +221,7 @@ For more information on custom fields, see [Get started with custom fields](http
 - This option requires no extra effort and is most suitable for firms with many matters that do not last for extended periods.
 - Use preconfigured matter templates immediately for new matters.
 - Leave existing matters in their original format.
-  - If you have migrated matters and applied custom fields, all fields remain in the General custom fields section of a matter.
+ - If you have migrated matters and applied custom fields, all fields remain in the General custom fields section of a matter.
 - Existing and new matters will have different layouts.
 
 **Option 2: Apply matter templates to all imported matters. Retain original field data.**
@@ -232,9 +232,9 @@ For more information on custom fields, see [Get started with custom fields](http
 - Simple text Custom fields with the same name as standard template fields will automatically move into the template.
 - Imported custom fields (including **\_old** fields) remain in the General section.
 - Data labelled **\_old** will not automatically move with the standard template fields. They cannot automatically populate templates.
-  1. Open an imported matter, click **Edit**, and apply a [matter template](../matters/matter-templates.md).
-  2. The matter template will organize the template custom fields according to the template, and imported custom fields remain in the General custom field section.
-  3. Click **Save matter**.
+ 1. Open an imported matter, click **Edit**, and apply a [matter template](../matters/matter-templates.md).
+ 2. The matter template will organize the template custom fields according to the template, and imported custom fields remain in the General custom field section.
+ 3. Click **Save matter**.
 
 **Option 3: Apply matter templates to existing matters and manually move old data.**
 
@@ -242,10 +242,10 @@ This option requires medium effort, depending on the number of **\_old** fields 
 
 - This option is most suitable for firms with fewer, longer-lasting matters that rely heavily on document automation and automated workflows.
 - Imported matters and new matters will appear identical.
-  1. Open an imported matter, click **Edit**, and apply a [matter template](../matters/matter-templates.md).
-  2. For each custom field ending in **\_old**, copy the information from the **\_old** field into the matching standard template Clio Manage field.
-  3. Delete the **\_old** custom fields.
-  4. Click **Save matter**.
+ 1. Open an imported matter, click **Edit**, and apply a [matter template](../matters/matter-templates.md).
+ 2. For each custom field ending in **\_old**, copy the information from the **\_old** field into the matching standard template Clio Manage field.
+ 3. Delete the **\_old** custom fields.
+ 4. Click **Save matter**.
 
 ## Understand preconfigured matter stages
 

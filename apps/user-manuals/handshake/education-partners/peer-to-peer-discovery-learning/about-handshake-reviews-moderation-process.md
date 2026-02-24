@@ -26,13 +26,13 @@ We only moderate reviews that are public or anonymous - we do not moderate priva
 ## **Moderation FAQs**
 
 - **Are Career Centers a part of the approval process?**
-  - Handshake will handle the entire approval/moderation process, with the aim to put no additional burden on schools.
-  - Career Centers have the ability to flag any approved reviews they feel do not meet our Content Guidelines for secondary moderation, in the process described in the question above.
+ - Handshake will handle the entire approval/moderation process, with the aim to put no additional burden on schools.
+ - Career Centers have the ability to flag any approved reviews they feel do not meet our Content Guidelines for secondary moderation, in the process described in the question above.
 - **Will schools be expected to take over moderation responsibilities?**
-  - No, Handshake has (and will continue to have) responsibility for the moderation process, with the goal of not adding any additional burden on schools.
+ - No, Handshake has (and will continue to have) responsibility for the moderation process, with the goal of not adding any additional burden on schools.
 - **Where can we find the Content Guidelines?**
-  - You may find our Content Guidelines below. Once reviews are live in Handshake, the guidelines will be easily accessible for students, employers and career centers within the product and the Help Center.
-  - All reviews must be:
+ - You may find our Content Guidelines below. Once reviews are live in Handshake, the guidelines will be easily accessible for students, employers and career centers within the product and the Help Center.
+ - All reviews must be:
     - **Authoritative:** The reviewer must have worked for the employer being reviewed
     - **Unique:** Only one review per internship or job experience
     - **Original:** All reviews should be original
@@ -42,14 +42,14 @@ We only moderate reviews that are public or anonymous - we do not moderate priva
     - **Not Confidential:** Cannot reveal confidential company information
     - **Not Spam:** No advertisements or irrelevant content
 - **What is your timeline for approving or declining reviews?**
-  - We hope to have all existing collected reviews moderated before reviews appear in Handshake in early March. Following launch, we hope to have an SLA of 3 - 4 business days. Most reviews should be approved within a few hours.
+ - We hope to have all existing collected reviews moderated before reviews appear in Handshake in early March. Following launch, we hope to have an SLA of 3 - 4 business days. Most reviews should be approved within a few hours.
 - **What about industries with higher standards of confidentiality? How do you catch sensitive but not “inappropriate” content?**
-  - This provision is covered in our Content Guidelines, under the “Not Confidential” clause. With feedback from several employers in these more “sensitive” industries, our employment and privacy counsel developed extensive guidelines for our moderators to ensure we are not publishing confidential company information.
+ - This provision is covered in our Content Guidelines, under the “Not Confidential” clause. With feedback from several employers in these more “sensitive” industries, our employment and privacy counsel developed extensive guidelines for our moderators to ensure we are not publishing confidential company information.
 - **What is your process for handling reviews that report harassment or illegal activity in general?**
-  - Our process is as follows:
+ - Our process is as follows:
     - **Handshake will report any review that mentions illegal activity** directly to the Director of the Career Center (and main POC)
     - **Handshake WILL tell the student** the review was referred to the Career Center.
     - **Handshake will NOT show the employer** the review, or tell them it has been referred to a Career Center.
     - **Handshake will NOT publish the review** until we hear back from the Career Center.
 - **How are you building the auto-flag terminology lists? So for example "got high with coworkers" doesn't have obviously inappropriate words but is coded language for inappropriate activity.**
-  - Our text analysis is compiled from industry-standard lexicons for this type of user-generated content. The lexicon also includes hundreds of phrases in addition to isolated words to ensure maximum coverage.
+ - Our text analysis is compiled from industry-standard lexicons for this type of user-generated content. The lexicon also includes hundreds of phrases in addition to isolated words to ensure maximum coverage.

@@ -11,15 +11,15 @@ How to reorder drawings in your Drawings log.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' on the project's Drawings tool.
+ - 'Admin' on the project's Drawings tool.
 - **Additional Information:**
-  - When you reorder drawings in the Drawings tool, the new order will be displayed for everyone who can access the Drawings tool.
+ - When you reorder drawings in the Drawings tool, the new order will be displayed for everyone who can access the Drawings tool.
 
 ## Steps
 
 1. Navigate to the project's **Drawings** tool.
 2. Click the **vertical ellipsis**  ![icon-ellipsis-options-menu.png](https://support.procore.com/@api/deki/files/90868/icon-ellipsis-options-menu.png?revision=1&size=bestfit&width=4&height=16)  icon for a discipline and select **Reorder Drawings**.
-3. Click and drag over the **reorder**  ![icon-reorder.png](https://support.procore.com/@api/deki/files/91308/icon-reorder.png?revision=1&size=bestfit&width=15&height=15)  icon for a drawing to move it to a new position.  
+3. Click and drag over the **reorder**  ![icon-reorder.png](https://support.procore.com/@api/deki/files/91308/icon-reorder.png?revision=1&size=bestfit&width=15&height=15)  icon for a drawing to move it to a new position. 
      
    ![reorder-table-rows4.png](https://support.procore.com/@api/deki/files/71302/reorder-table-rows4.png?revision=2)
 4. Continue moving drawings as necessary.

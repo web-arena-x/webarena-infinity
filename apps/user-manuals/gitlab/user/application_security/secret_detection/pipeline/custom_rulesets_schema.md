@@ -17,8 +17,7 @@ to customize the behavior of pipeline secret detection.
 
 ## Schema
 
-Customization of pipeline secret detection rulesets must adhere to a strict schema. The following
-sections describe each of the available options and the schema that applies to that section.
+Customization of pipeline secret detection rulesets must adhere to a strict schema. The following sections describe each of the available options and the schema that applies to that section.
 
 ### The top-level section
 
@@ -37,8 +36,7 @@ Configuration example:
 
 ### The `[secrets]` configuration section
 
-The `[secrets]` section lets you customize the behavior of the analyzer. Valid properties differ
-based on the kind of configuration you're making.
+The `[secrets]` section lets you customize the behavior of the analyzer. Valid properties differ based on the kind of configuration you're making.
 
 | Setting               | Applies to       | Description                                                                                                                                                                                                                                                                              |
 |-----------------------|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -54,25 +52,22 @@ based on the kind of configuration you're making.
 > [!warning]
 > To reduce the risk of leaking secrets, use this feature with caution.
 
-The example below shows a configuration that uses the `$GITURL` environment variable to access a
-private repository. The variable contains a username and token
-(for example `https://user:token@url`), so they're not explicitly stored in the configuration file.
+The example below shows a configuration that uses the `$GITURL` environment variable to access a private repository. The variable contains a username and token (for example `https://user:token@url`), so they're not explicitly stored in the configuration file.
 
 ```toml
 [secrets]
-  description = "My private remote ruleset"
-  interpolate = true
+ description = "My private remote ruleset"
+ interpolate = true
 
-  [[secrets.passthrough]]
-    type  = "git"
+ [[secrets.passthrough]]
+    type = "git"
     value = "$GITURL"
     ref = "main"
 ```
 
 ### The `[[secrets.ruleset]]` section
 
-The `[[secrets.ruleset]]` section targets and modifies a single predefined rule. You can define
-one to many of these sections for the analyzer.
+The `[[secrets.ruleset]]` section targets and modifies a single predefined rule. You can define one to many of these sections for the analyzer.
 
 | Setting                        | Description                                             |
 |--------------------------------|---------------------------------------------------------|
@@ -84,32 +79,28 @@ Configuration example:
 
 ```toml
 [secrets]
-  [[secrets.ruleset]]
+ [[secrets.ruleset]]
     disable = true
     ...
 ```
 
 ### The `[secrets.ruleset.identifier]` section
 
-The `[secrets.ruleset.identifier]` section defines the identifiers of the predefined
-rule that you wish to modify.
+The `[secrets.ruleset.identifier]` section defines the identifiers of the predefined rule that you wish to modify.
 
 | Setting | Description |
 | --------| ----------- |
-| `type`  | The type of identifier used by the predefined rule. |
+| `type` | The type of identifier used by the predefined rule. |
 | `value` | The value of the identifier used by the predefined rule. |
 
-To determine the correct values for `type` and `value`, view the
-[`gl-secret-detection-report.json`](_index.md#secret-detection-results) produced by the analyzer.
+To determine the correct values for `type` and `value`, view the [`gl-secret-detection-report.json`](_index.md#secret-detection-results) produced by the analyzer.
 You can download this file as a job artifact from the analyzer's CI/CD job.
 
-For example, the snippet below shows a finding from a `gitlab_personal_access_token` rule with one
-identifier. The `type` and `value` keys in the JSON object correspond to the values you should
-provide in this section.
+For example, the snippet below shows a finding from a `gitlab_personal_access_token` rule with one identifier. The `type` and `value` keys in the JSON object correspond to the values you should provide in this section.
 
 ```json
 ...
-  "vulnerabilities": [
+ "vulnerabilities": [
     {
       "id": "fccb407005c0fb58ad6cfcae01bea86093953ed1ae9f9623ecc3e4117675c91a",
       "category": "secret_detection",
@@ -125,7 +116,7 @@ provide in this section.
       ]
     }
     ...
-  ]
+ ]
 ...
 ```
 
@@ -133,7 +124,7 @@ Configuration example:
 
 ```toml
 [secrets]
-  [[secrets.ruleset]]
+ [[secrets.ruleset]]
     [secrets.ruleset.identifier]
       type = "gitleaks_rule_id"
       value = "gitlab_personal_access_token"
@@ -162,7 +153,7 @@ Configuration example:
 
 ```toml
 [secrets]
-  [[secrets.ruleset]]
+ [[secrets.ruleset]]
     [secrets.ruleset.override]
       severity = "Medium"
       name = "systemd machine-id"
@@ -186,18 +177,18 @@ When creating custom rules, you can use both [Gitleaks' standard rule format](ht
 | `remediation` | No | A GitLab-specific field that provides remediation guidance when the rule is triggered. |
 | `regex` | Yes | The regular expression pattern used to detect secrets. |
 | `keywords` | No | A list of keywords to pre-filter content before applying the regex. |
-| `id` | Yes |  A unique identifier for the rule. |
+| `id` | Yes | A unique identifier for the rule. |
 
 Example of a custom rule with all available fields:
 
 ```toml
 [[rules]]
-  title = "API Key Detection Rule"
-  description = "Detects potential API keys in the codebase"
-  remediation = "Rotate the exposed API key and store it in a secure credential manager"
-  id = "custom_api_key"
-  keywords = ["apikey", "api_key"]
-  regex = '''api[_-]key[_-][a-zA-Z0-9]{16,}'''
+ title = "API Key Detection Rule"
+ description = "Detects potential API keys in the codebase"
+ remediation = "Rotate the exposed API key and store it in a secure credential manager"
+ id = "custom_api_key"
+ keywords = ["apikey", "api_key"]
+ regex = '''api[_-]key[_-][a-zA-Z0-9]{16,}'''
 ```
 
 When you create a custom rule that shares the same ID as a rule in the extended ruleset, your custom rule takes precedence. All properties of your custom rule replace the corresponding values from the extended rule.
@@ -208,29 +199,24 @@ Example of extending default rules with a custom rule:
 title = "Extension of GitLab's default Gitleaks config"
 
 [extend]
-  path = "/gitleaks.toml"
+ path = "/gitleaks.toml"
 
 [[rules]]
-  title = "Custom API Key Rule"
-  description = "Detects custom API key format"
-  remediation = "Rotate the exposed API key"
-  id = "custom_api_123"
-  keywords = ["testing"]
-  regex = '''testing-key-[1-9]{3}'''
+ title = "Custom API Key Rule"
+ description = "Detects custom API key format"
+ remediation = "Rotate the exposed API key"
+ id = "custom_api_123"
+ keywords = ["testing"]
+ regex = '''testing-key-[1-9]{3}'''
 ```
 
 ### The `[[secrets.passthrough]]` section
 
-The `[[secrets.passthrough]]` section allows you to synthesize a custom configuration for an
-analyzer.
+The `[[secrets.passthrough]]` section allows you to synthesize a custom configuration for an analyzer.
 
-You can define up to 20 of these sections per analyzer. Passthroughs are then composed into a
-passthrough chain that evaluates into a complete configuration that can be used to replace or
-extend the predefined rules of the analyzer.
+You can define up to 20 of these sections per analyzer. Passthroughs are then composed into a passthrough chain that evaluates into a complete configuration that can be used to replace or extend the predefined rules of the analyzer.
 
-Passthroughs are evaluated in order. Passthroughs listed later in the chain have a higher precedence
-and can overwrite or append to data yielded by previous passthroughs (depending on the `mode`). Use
-passthroughs when you need to use or modify an existing configuration.
+Passthroughs are evaluated in order. Passthroughs listed later in the chain have a higher precedence and can overwrite or append to data yielded by previous passthroughs (depending on the `mode`). Use passthroughs when you need to use or modify an existing configuration.
 
 The size of the configuration generated by a single passthrough is limited to 10 MB.
 
@@ -250,6 +236,6 @@ The size of the configuration generated by a single passthrough is limited to 10
 | Type   | Description                                           |
 |--------|-------------------------------------------------------|
 | `file` | Use a file that is stored in the same Git repository. |
-| `raw`  | Provide the ruleset configuration inline.             |
-| `git`  | Pull the configuration from a remote Git repository.  |
-| `url`  | Fetch the configuration using HTTP.                   |
+| `raw` | Provide the ruleset configuration inline.             |
+| `git` | Pull the configuration from a remote Git repository. |
+| `url` | Fetch the configuration using HTTP.                   |

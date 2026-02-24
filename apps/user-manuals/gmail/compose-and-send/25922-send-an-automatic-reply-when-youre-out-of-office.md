@@ -33,7 +33,7 @@ Someone can get your reply more than once if:
 
 - The same person contacts you again after four days and your automatic reply is still on.
 - You edit the automatic reply.
-  - If someone gets your initial automatic reply, then emails you again after you edit the reply, they get the updated email.
+ - If someone gets your initial automatic reply, then emails you again after you edit the reply, they get the updated email.
 
 **Tips:**
 

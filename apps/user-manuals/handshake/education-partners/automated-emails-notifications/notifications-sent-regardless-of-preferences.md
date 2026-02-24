@@ -4,7 +4,7 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/219133137-Notificati
 
 ---
 
-There are some notifications in Handshake that will be sent regardless of the preferences that are chosen in the User Settings. Listed below are the emails that are sent to students, career services and employers no matter what notification preferences are selected.   
+There are some notifications in Handshake that will be sent regardless of the preferences that are chosen in the User Settings. Listed below are the emails that are sent to students, career services and employers no matter what notification preferences are selected.  
 
 Attendee Welcome Email
 

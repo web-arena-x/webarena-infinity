@@ -28,8 +28,7 @@ The chain of custody report provides a one-month trailing window of all commits 
 To generate the report for all commits, GitLab:
 
 1. Fetches all projects under the group.
-1. For each project, fetches the last one month of commits in chronological order (newest first). Each project is capped at 1024 commits. If there are more than
-   1024 commits in the one-month window, they are truncated.
+1. For each project, fetches the last one month of commits in chronological order (newest first). Each project is capped at 1024 commits. If there are more than 1024 commits in the one-month window, they are truncated.
 1. Sorts all commits by committed date (descending) with deterministic secondary sorting by commit SHA for consistent ordering.
 1. Writes the commits to a CSV file. The file is truncated at 15 MB because the report is emailed as an attachment.
 
@@ -71,8 +70,7 @@ Depending on your version of GitLab, the chain of custody report is either sent 
 
 {{< /history >}}
 
-You can generate a commit-specific chain of custody report for a given commit SHA. This report provides only the
-details for the provided commit SHA.
+You can generate a commit-specific chain of custody report for a given commit SHA. This report provides only the details for the provided commit SHA.
 
 To generate a commit-specific Chain of Custody report:
 
@@ -84,5 +82,4 @@ To generate a commit-specific Chain of Custody report:
 
 Depending on your version of GitLab, the chain of custody report is either sent through email or available for download.
 
-Alternatively, use a direct link: `https://gitlab.com/groups/<group-name>/-/security/merge_commit_reports.csv?commit_sha={optional_commit_sha}`,
-passing in an optional value to the `commit_sha` query parameter.
+Alternatively, use a direct link: `https://gitlab.com/groups/<group-name>/-/security/merge_commit_reports.csv?commit_sha={optional_commit_sha}`, passing in an optional value to the `commit_sha` query parameter.

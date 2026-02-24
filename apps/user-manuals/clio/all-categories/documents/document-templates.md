@@ -72,22 +72,17 @@ In Clio Grow, you can use Clio Grow’s built-in text editor template to create 
 
 There are several different kinds of merge fields that you can add to a text editor template. They are color-coded throughout the template for easy visual recognition, as explained below:
 
-**Person fields**
-:   Includes all default contact fields and contact custom fields that you created. These fields will be highlighted in yellow within the document template builder.
+**Person fields** :   Includes all default contact fields and contact custom fields that you created. These fields will be highlighted in yellow within the document template builder.
 
-**Matter fields**
-:   Includes all default matter fields and matter custom fields that you created. These fields will be highlighted in orange within the document template builder.
+**Matter fields** :   Includes all default matter fields and matter custom fields that you created. These fields will be highlighted in orange within the document template builder.
 
     For [Personal Injury](https://help.clio.com/hc/articles/15815962459931-Medical-Records) matters, a special set of matter fields are available pertaining to medical providers, recoveries, outstanding balances, etc. Since a matter can have multiple medical providers, you will be able to select the relevant medical provider [at the time that you create a document from your document template](create-and-upload-document-files-and-folders.md#h_01K6P1J6J1YW14HW9Q5TWWG6X4).
 
-**Company fields**
-:   Includes all default contact fields and contact custom fields. These fields will also be highlighted in yellow within the document template builder.
+**Company fields** :   Includes all default contact fields and contact custom fields. These fields will also be highlighted in yellow within the document template builder.
 
-**Dropbox Sign**
-:   You can add signature blocks, fillable text boxes, checkboxes, initials fields, or date fields into your template and they will automatically be converted into signable fields in Dropbox Sign. These fields will be highlighted in blue within the document template builder
+**Dropbox Sign** :   You can add signature blocks, fillable text boxes, checkboxes, initials fields, or date fields into your template and they will automatically be converted into signable fields in Dropbox Sign. These fields will be highlighted in blue within the document template builder
 
-**Additional fields**
-:   Other relevant information such as the current day’s date in various formats, the name of the user drafting the document, or the name of the law firm. These fields will be highlighted in green within the document template builder
+**Additional fields** :   Other relevant information such as the current day’s date in various formats, the name of the user drafting the document, or the name of the law firm. These fields will be highlighted in green within the document template builder
 
 ## Edit and duplicate document templates in Clio Grow
 

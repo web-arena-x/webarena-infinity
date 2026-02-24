@@ -10,7 +10,7 @@ Your ability to add or edit attachments depends on your employer account type an
 
 - **Basic employers:** **Owners** and **Recruiters** can only add attachments to jobs they have personally created. Jobs posted by teammates will appear as **view-only** and cannot be modified.
 
-  - To add attachments to jobs you did not create, you must upgrade to an eligible paid plan.
+ - To add attachments to jobs you did not create, you must upgrade to an eligible paid plan.
 - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**, can add attachments to any job posting, whether created by themselves or a teammate, provided they have the appropriate permissions.
 
 *If you have not yet posted a job, and would like to, refer to* [*How to Post a Job*](https://support.joinhandshake.com/hc/en-us/articles/218693198).

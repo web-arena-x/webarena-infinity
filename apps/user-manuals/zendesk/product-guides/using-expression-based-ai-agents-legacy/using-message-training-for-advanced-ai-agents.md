@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357749400602-Using-Messag
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -40,7 +40,7 @@ For example, if you want to add expressions to the intent “Password reset”, 
 
 You can use the operators below to enhance your search results:
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | Operators | Description | Examples | Results |
 | \* | Match any word | `*ould` | Any message that contains "should", "would", or "could" |

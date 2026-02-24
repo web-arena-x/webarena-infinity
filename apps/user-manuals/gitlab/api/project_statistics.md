@@ -19,8 +19,7 @@ You must have read access to the repository. [Personal access tokens](../user/pr
 must have the `read_api` scope. [Group access tokens](../user/group/settings/group_access_tokens.md)
 can use the Reporter role and the `read_api` scope.
 
-This API retrieves the number of times the project is either cloned or pulled
-with the HTTP method. SSH fetches are not included.
+This API retrieves the number of times the project is either cloned or pulled with the HTTP method. SSH fetches are not included.
 
 ## Get the statistics of the last 30 days
 
@@ -36,29 +35,28 @@ Supported attributes:
 |-----------|-------------------|----------|--------------------------------------------------------------------------------|
 | `id`      | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).     |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the
-following response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute              | Type    | Description |
 |------------------------|---------|-------------|
-| `fetches`              | object  | Fetch statistics for the project. |
+| `fetches`              | object | Fetch statistics for the project. |
 | `fetches.days`         | array   | Array of daily fetch statistics. |
 | `fetches.days[].count` | integer | Number of fetches for the specific date. |
-| `fetches.days[].date`  | string  | Date in ISO format (`YYYY-MM-DD`). |
+| `fetches.days[].date` | string | Date in ISO format (`YYYY-MM-DD`). |
 | `fetches.total`        | integer | Total number of fetches for the last 30 days. |
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/42/statistics"
+ --url "https://gitlab.example.com/api/v4/projects/42/statistics"
 ```
 
 Example response:
 
 ```json
 {
-  "fetches": {
+ "fetches": {
     "total": 50,
     "days": [
       {
@@ -82,6 +80,6 @@ Example response:
         "date": "2018-01-06"
       }
     ]
-  }
+ }
 }
 ```

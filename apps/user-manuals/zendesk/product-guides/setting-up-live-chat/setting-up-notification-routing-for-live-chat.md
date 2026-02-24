@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408836490138-Setting-up-n
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Professional or Enterprise |
 
@@ -172,7 +172,7 @@ You can analyze live chat routing data in Analytics with two statistics:
 
 - **Acceptance**: the percentage of assigned chats that were served by agents out of all the chats routed to the agent.
 
-  Note: If [auto-accept](https://support.zendesk.com/hc/en-us/articles/6009407849754) is turned on, acceptance stats are not displayed.
+ Note: If [auto-accept](https://support.zendesk.com/hc/en-us/articles/6009407849754) is turned on, acceptance stats are not displayed.
 - **Capacity (beta)**: The estimated amount of chats that can be served by the account in a given period of time. The capacity is a function of 1) the number of agents logged in, 2) the average chat duration of an account and 3) the chat limit set by the agent.
 
 For more details about where to view these stats, see [Monitoring chat activity with Analytics](https://support.zendesk.com/hc/en-us/articles/4408828193562).

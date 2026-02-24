@@ -27,21 +27,21 @@ You need admin rights to configure smart links.
 **To configure smart links**
 
 1. Click the **Settings** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/settings_icon.png)), then select **[Customize > Leads](https://app.futuresimple.com/settings/leads/)**for leads, **[Customize > Contacts](https://app.futuresimple.com/settings/contacts/)**for contacts, or **[Customize > Deals](https://app.futuresimple.com/settings/deals/)** for deals.
-2. If you haven't done so already, on the **Fields**  tab, create a custom field to hold your unique identifier. For example, we've used a custom field called **YouTube video**.  
-   Note: The custom field used for storing a unique identifier must be a "Single Line Text" field type (see [Creating and managing custom fields](https://support.zendesk.com/hc/en-us/articles/4408838289562-Creating-and-managing-custom-fields)).  
-   Each YouTube video has a unique identifier at the end of its URL, for example:  
+2. If you haven't done so already, on the **Fields** tab, create a custom field to hold your unique identifier. For example, we've used a custom field called **YouTube video**. 
+   Note: The custom field used for storing a unique identifier must be a "Single Line Text" field type (see [Creating and managing custom fields](https://support.zendesk.com/hc/en-us/articles/4408838289562-Creating-and-managing-custom-fields)). 
+   Each YouTube video has a unique identifier at the end of its URL, for example: 
    https://www.youtube.com/watch?v=**dQw4w9WgXcQ**. This would be the unique identifier that you enter into the custom field on your contact card.
 3. Select the **Smart links**tab.
 4. Click **Add Smart Link** to start setting up your new link.
-5. Give your smart link an App name and URL.  
-   For example, if you were setting up a smart link for YouTube, the App name might be **YouTube** and the URL would be:  
+5. Give your smart link an App name and URL. 
+   For example, if you were setting up a smart link for YouTube, the App name might be **YouTube** and the URL would be: 
    <https://www.youtube.com/watch?v=>
 6. Click **Insert merge tag** to add the custom field that you've used to store the unique identifier.
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_smart_link_overview.png)
 7. Choose where the application should open.  Click either the **Open in new window** or **Open inside Sell**.
 8. Click **Save**to save the new smart link.
-9. On a contacts page, add a value to the new custom field, for example, dQw4w9WgXcQ.  
+9. On a contacts page, add a value to the new custom field, for example, dQw4w9WgXcQ. 
    You'll see a new **Smart Links**button appear on the right side of your lead, contact, or deal page and you'll see the new smart link as a clickable link. Click the link to take you directly to your application or web page.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_smart_link_card.png)
@@ -56,9 +56,8 @@ A common example for using smart links is to track shipments. For example, you c
 
 ### Reporting and billing system example
 
-Some customers use smart links to connect to reporting systems or ERP billing systems. For example, you could set up a custom field called **Reporting system**.  The field would contain an external ID, for example, 123990092. A URL link including this ID would take you to the reporting details page for that contact. You could then create a smart link so that you could click your company's equivalent of:   
-https://abcinc.tableau.com/views/customer/**123990092**/dashboard   
-to view the reporting details.
+Some customers use smart links to connect to reporting systems or ERP billing systems. For example, you could set up a custom field called **Reporting system**.  The field would contain an external ID, for example, 123990092. A URL link including this ID would take you to the reporting details page for that contact. You could then create a smart link so that you could click your company's equivalent of:  
+https://abcinc.tableau.com/views/customer/**123990092**/dashboard to view the reporting details.
 
 ## Using smart links from a mobile device
 

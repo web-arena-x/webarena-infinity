@@ -5,8 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Frontend Development Guidelines
 ---
 
-This document describes various guidelines to ensure consistency and quality
-across the GitLab frontend team.
+This document describes various guidelines to ensure consistency and quality across the GitLab frontend team.
 
 ## Introduction
 
@@ -20,14 +19,12 @@ For more information, see [Hamlit](https://github.com/k0kubun/hamlit/blob/master
 
 When it comes to CSS, we use a utils-based CSS approach. For more information and to find where CSS utilities are defined, refer to the [SCSS style section](style/scss.md#where-are-css-utility-classes-defined) of this guide.
 
-We also use [SCSS](https://sass-lang.com) and plain JavaScript with
-modern ECMAScript standards supported through [Babel](https://babeljs.io/) and ES module support through [webpack](https://webpack.js.org/).
+We also use [SCSS](https://sass-lang.com) and plain JavaScript with modern ECMAScript standards supported through [Babel](https://babeljs.io/) and ES module support through [webpack](https://webpack.js.org/).
 
 When making API calls, we use [GraphQL](graphql.md) as the first choice.
 There are still instances where the GitLab REST API is used, such as when creating new simple Haml pages, or in legacy parts of the codebase, but we should always default to GraphQL when possible.
 
-For [client-side state management](state_management.md) in Vue, depending on the specific needs of the feature,
-we use:
+For [client-side state management](state_management.md) in Vue, depending on the specific needs of the feature, we use:
 
 - [Apollo](https://www.apollographql.com/) (default choice for applications relying on [GraphQL](graphql.md))
 - [Pinia](pinia.md)
@@ -39,9 +36,7 @@ Learn: [How do I know which state manager to use?](state_management.md)
 
 For copy strings and translations, we have frontend utilities available. See the JavaScript section of [Preparing a page for translation](../i18n/externalization.md#javascript-files) for more information.
 
-Working with our frontend assets requires Node (v12.22.1 or greater) and Yarn
-(v1.10.0 or greater). You can find information on how to install these on our
-[installation guide](../../install/self_compiled/_index.md#5-node).
+Working with our frontend assets requires Node (v12.22.1 or greater) and Yarn (v1.10.0 or greater). You can find information on how to install these on our [installation guide](../../install/self_compiled/_index.md#5-node).
 
 ### High-level overview
 
@@ -52,12 +47,12 @@ Since GitLab uses the [Ruby on Rails](https://rubyonrails.org) framework, we inj
 The application structure typically follows the pattern: `app/assets/javascripts/<feature-name>`. For example, the directory for a specific feature might look like [`app/assets/javascripts/ci/pipeline_schedules`](https://gitlab.com/gitlab-org/gitlab/-/tree/4ce851345054dbf09956dabcc9b958ae8aab77bb/app/assets/javascripts/ci/pipeline_schedules). Within these type of directories, we organize our code into subfolders like `components` or `graphql`, which house the code that makes up a feature. A typical structure might look like
 
 - `feature_name/`
-  - `components/` (vue components that make up a feature)
-  - `graphql/` (queries/mutations)
-  - `utils/` (helper functions)
-  - `router/` (optional: only for Vue Router powered apps)
-  - `constants.js` (shared variables)
-  - `index.js` (file that injects the Vue app)
+ - `components/` (vue components that make up a feature)
+ - `graphql/` (queries/mutations)
+ - `utils/` (helper functions)
+ - `router/` (optional: only for Vue Router powered apps)
+ - `constants.js` (shared variables)
+ - `index.js` (file that injects the Vue app)
 
 There is always a top-level Vue component that acts as the "main" component and imports lower-level components to build a feature. In all cases, there is an accompanying file (often named index.js or app.js but often varies) that looks for the injection point on a Haml view (for example, `#pipeline-schedules-app`) and mounts the Vue app to the page.
 
@@ -126,18 +121,15 @@ For a guided introduction to frontend development at GitLab, you can watch the [
 
 #### Initiatives
 
-You can find current frontend initiatives with a cross-functional impact on epics
-with the label [frontend-initiative](https://gitlab.com/groups/gitlab-org/-/epics?state=opened&page=1&sort=UPDATED_AT_DESC&label_name[]=frontend-initiative).
+You can find current frontend initiatives with a cross-functional impact on epics with the label [frontend-initiative](https://gitlab.com/groups/gitlab-org/-/epics?state=opened&page=1&sort=UPDATED_AT_DESC&label_name[]=frontend-initiative).
 
 #### Testing
 
-How we write [frontend tests](../testing_guide/frontend_testing.md), run the GitLab test suite, and debug test related
-issues.
+How we write [frontend tests](../testing_guide/frontend_testing.md), run the GitLab test suite, and debug test related issues.
 
 #### Pajamas Design System
 
-Reusable components with technical and usage guidelines can be found in our
-[Pajamas Design System](https://design.gitlab.com/).
+Reusable components with technical and usage guidelines can be found in our [Pajamas Design System](https://design.gitlab.com/).
 
 #### Frontend FAQ
 

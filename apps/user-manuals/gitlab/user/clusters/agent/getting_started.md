@@ -18,13 +18,13 @@ When you finish, you will be able to:
 Make sure you have the following before you complete this tutorial:
 
 - A Kubernetes cluster that you can access locally with `kubectl`.
-  To see what versions of Kubernetes GitLab supports, see [Supported Kubernetes versions for GitLab features](_index.md#supported-kubernetes-versions-for-gitlab-features).
+ To see what versions of Kubernetes GitLab supports, see [Supported Kubernetes versions for GitLab features](_index.md#supported-kubernetes-versions-for-gitlab-features).
 
-  You can check that everything is properly configured by running:
+ You can check that everything is properly configured by running:
 
-  ```shell
-  kubectl cluster-info
-  ```
+ ```shell
+ kubectl cluster-info
+ ```
 
 ## Install and configure Flux
 
@@ -42,8 +42,7 @@ flux -v
 
 ### Create a personal access token
 
-To authenticate with the Flux CLI, create a personal access token with
-the `api` scope:
+To authenticate with the Flux CLI, create a personal access token with the `api` scope:
 
 1. In the upper-right corner, select your avatar.
 1. Select **Edit profile**.
@@ -56,22 +55,21 @@ You can also use a [project](../../project/settings/project_access_tokens.md) or
 
 ### Bootstrap Flux
 
-In this section, you'll bootstrap Flux into an empty GitLab repository with the
-[`flux bootstrap`](https://fluxcd.io/flux/installation/bootstrap/gitlab/) command.
+In this section, you'll bootstrap Flux into an empty GitLab repository with the [`flux bootstrap`](https://fluxcd.io/flux/installation/bootstrap/gitlab/) command.
 
 To bootstrap a Flux installation:
 
 - Run the `flux bootstrap gitlab` command. For example:
 
-  ```shell
-  flux bootstrap gitlab \
-  --hostname=gitlab.example.org \
-  --owner=my-group/optional-subgroup \
-  --repository=my-repository \
-  --branch=main \
-  --path=clusters/testing \
-  --deploy-token-auth
-  ```
+ ```shell
+ flux bootstrap gitlab \
+ --hostname=gitlab.example.org \
+ --owner=my-group/optional-subgroup \
+ --repository=my-repository \
+ --branch=main \
+ --path=clusters/testing \
+ --deploy-token-auth
+ ```
 
 The arguments of `bootstrap` are:
 
@@ -91,8 +89,7 @@ The bootstrap script does the following:
 1. Commits the definition files to the branch specified by the `--branch` argument.
 1. Applies the definition files to your cluster.
 
-After you run the script, Flux will be ready to manage itself and any other resources
-you add to the GitLab project and path.
+After you run the script, Flux will be ready to manage itself and any other resources you add to the GitLab project and path.
 
 The rest of this tutorial assumes your path is `clusters/testing`, and your project is under `my-group/optional-subgroup/my-repository`.
 

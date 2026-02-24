@@ -14,7 +14,7 @@ Accessibility features in Figma are available when using Figma in a web browser,
 
 Once you’ve set up accessibility features on your computer, you can adjust your **Accessibility settings** in Figma. To do so:
 
-1. Press `F6` on Mac or `Control` `F6` on Windows to select the  main menu in the top left and press `Enter` to open the menu.
+1. Press `F6` on Mac or `Control` `F6` on Windows to select the main menu in the top left and press `Enter` to open the menu.
 2. Use arrow keys to navigate to **Preferences** and press `Enter` to open the submenu.
 3. Use the arrow keys to navigate to **Accessibility settings** and press `Enter` to open the modal.
 
@@ -150,7 +150,7 @@ Press `Esc` or click anywhere on the canvas to exit selection mode.
 
 ### Rotate objects with a keyboard
 
-Use your keyboard to rotate an object in a Figma Design, FigJam, or Slides file from the **Accessibility settings** section of the  main menu.
+Use your keyboard to rotate an object in a Figma Design, FigJam, or Slides file from the **Accessibility settings** section of the main menu.
 
 - Press `⌘Command`  `⌥Option` `↑`/ `↓` on Mac or `Control` `Alt` `↑`/`↓` on Windows to rotate an object one degree at a time
 - Press `⌘Command`  `⌥Option` `⇧Shift` `↑`/ `↓` on Mac or `Control` `Alt` `Shift` `↑`/`↓` on Windowsto rotate an object 15 degrees at a time
@@ -214,7 +214,7 @@ At this point you will see measurements between the first selected object, and t
 
 ### Add and adjust guides
 
-Before you can add and view page ruler guides, make sure they are turned on by going to the  **File** menu > **View** > and checking **Rulers**.
+Before you can add and view page ruler guides, make sure they are turned on by going to the **File** menu > **View** > and checking **Rulers**.
 
 To add and adjust ruler guides with a keyboard:
 
@@ -223,13 +223,13 @@ To add and adjust ruler guides with a keyboard:
 3. Use `F6`/`Control` `F6` to move through accessible areas until you reach the right sidebar.
 4. Use `Tab` to navigate to the **Page ruler Guides** section of the sidebar.
 
-Once there, press `Return`/`Enter` when focused on the  **Plus** icon for the **Vertical** and **Horizontal** sections to add a guide, enter a value in the text field, and press the  **Minus** icon to remove the guide.
+Once there, press `Return`/`Enter` when focused on the **Plus** icon for the **Vertical** and **Horizontal** sections to add a guide, enter a value in the text field, and press the **Minus** icon to remove the guide.
 
-To exit, press `Esc`, or click  **Close** in the right sidebar.
+To exit, press `Esc`, or click **Close** in the right sidebar.
 
 ### Add, view, and manage annotations
 
-To get started from a file in Design or Dev Mode, go to  > **Preferences** > **Accessibility settings** > and toggle on **Adapt content for screen readers**.
+To get started from a file in Design or Dev Mode, go to > **Preferences** > **Accessibility settings** > and toggle on **Adapt content for screen readers**.
 
 #### Add an annotation
 
@@ -323,26 +323,26 @@ With a cell selected, use `F6`/`Control` `F6` to navigate to the text properties
 
 | **Action** | Mac | Windows |
 | --- | --- | --- |
-| Selection |  |  |
+| Selection | | |
 | Select cell | Command+Option+Space | Control+Alt+Space |
 | Select current column | Command+↑, Command+↓ | Control+↑, Control+↓ |
 | Select current row | Command+←, Command+→ | Control+←, Control+→ |
-| Cell navigation |  |  |
+| Cell navigation | | |
 | Move cell selection left | ← | ← |
 | Move cell selection right | → | → |
 | Move cell selection up | ↑ | ↑ |
 | Move cell selection down | ↓ | ↓ |
-| Extend selection |  |  |
+| Extend selection | | |
 | Extend cell selection left | Shift+← | Shift+← |
 | Extend cell selection right | Shift+→ | Shift+→ |
 | Extend cell selection up | Shift+↑ | Shift+↑ |
 | Extend cell selection down | Shift+↓ | Shift+↓ |
-| Insert rows and columns |  |  |
+| Insert rows and columns | | |
 | Add row above | Option+Shift+Enter | Alt+Shift+Enter |
 | Add row below | Option+Enter | Alt+Enter |
 | Add column before | Option+[ | Alt+[ |
 | Add column after | Option+] | Alt+] |
-| Resize rows and columns |  |  |
+| Resize rows and columns | | |
 | Increase row height | Option+↓ | Alt+↓ |
 | Decrease row height | Option+↑ | Alt+↑ |
 | Increase row height (large step) | Option+Shift+↓ | Alt+Shift+↓ |
@@ -351,19 +351,19 @@ With a cell selected, use `F6`/`Control` `F6` to navigate to the text properties
 | Decrease column width | Option+← | Alt+← |
 | Increase column width (large step) | Option+Shift+→ | Alt+Shift+→ |
 | Decrease column width (large step) | Option+Shift+← | Alt+Shift+← |
-| Reorder rows and columns (must select entire row/column) |  |  |
+| Reorder rows and columns (must select entire row/column) | | |
 | Move row up | Command+Shift+↑ | Control+Shift+↑ |
 | Move row down | Command+Shift+↓ | Control+Shift+↓ |
 | Move column left | Command+Shift+← | Control+Shift+← |
 | Move column right | Command+Shift+→ | Control+Shift+→ |
-| Deletion |  |  |
+| Deletion | | |
 | Delete selection | Backspace | Backspace |
 
 ## Dev Mode
 
 ### View annotations in Dev Mode
 
-To get started from a file in Design or Dev Mode, go to  > **Preferences** > **Accessibility settings** > and toggle on **Adapt content for screen readers**.
+To get started from a file in Design or Dev Mode, go to > **Preferences** > **Accessibility settings** > and toggle on **Adapt content for screen readers**.
 
 #### Add an annotation
 
@@ -385,7 +385,7 @@ Note: It’s currently not possible to add measurements using a keyboard.
 You can use Figma AI to adjust the tone of any text within your slides.
 
 1. In **Slide** view, use `F6`/`Control` `F6` to navigate to the right sidebar.
-2. Focus on the  **Adjust tone** icon > press `Return`/`Enter`.
+2. Focus on the **Adjust tone** icon > press `Return`/`Enter`.
 3. Press `Tab` once to focus the tone dial.
 4. Use arrow keys to progress left to right and top to bottom. The tone adjusts as you move around the grid.
 

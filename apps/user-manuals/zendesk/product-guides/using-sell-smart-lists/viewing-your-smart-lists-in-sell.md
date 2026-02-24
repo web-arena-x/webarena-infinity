@@ -77,7 +77,7 @@ As with the Index Views for leads and contacts, in Stage View you can also apply
 
 ## Displaying your deals in Board view
 
-Browsing your deals in  **Board view** allows you see an overview of all your deals and which stage they are at in your sales pipeline.
+Browsing your deals in **Board view** allows you see an overview of all your deals and which stage they are at in your sales pipeline.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_deals_board_view_kanban.png)
 

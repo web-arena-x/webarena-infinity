@@ -33,15 +33,15 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/11/resource_weight_events"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/11/resource_weight_events"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 142,
     "user": {
       "id": 1,
@@ -54,8 +54,8 @@ Example response:
     "created_at": "2018-08-20T13:38:20.077Z",
     "issue_id": 253,
     "weight": 3
-  },
-  {
+ },
+ {
     "id": 143,
     "user": {
       "id": 1,
@@ -68,7 +68,7 @@ Example response:
     "created_at": "2018-08-21T14:38:20.077Z",
     "issue_id": 253,
     "weight": 2
-  }
+ }
 ]
 ```
 
@@ -92,8 +92,8 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/11/resource_weight_events/143"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/11/resource_weight_events/143"
 ```
 
 Example response:
@@ -102,12 +102,12 @@ Example response:
 {
 "id": 143,
 "user": {
-  "id": 1,
-  "name": "Administrator",
-  "username": "root",
-  "state": "active",
-  "avatar_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
-  "web_url": "http://gitlab.example.com/root"
+ "id": 1,
+ "name": "Administrator",
+ "username": "root",
+ "state": "active",
+ "avatar_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
+ "web_url": "http://gitlab.example.com/root"
 },
 "created_at": "2018-08-21T14:38:20.077Z",
 "issue_id": 253,

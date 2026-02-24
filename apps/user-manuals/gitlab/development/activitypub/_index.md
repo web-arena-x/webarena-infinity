@@ -19,28 +19,22 @@ title: ActivityPub
 
 {{< alert type="flag" >}}
 
-On GitLab Self-Managed, by default this feature is not available. To make it available,
-an administrator can [enable the feature flags](../../administration/feature_flags/_index.md)
+On GitLab Self-Managed, by default this feature is not available. To make it available, an administrator can [enable the feature flags](../../administration/feature_flags/_index.md)
 named `activity_pub` and `activity_pub_project`.
 On GitLab.com and GitLab Dedicated, this feature is not available.
 This feature is not ready for production use.
 
 {{< /alert >}}
 
-Usage of ActivityPub in GitLab is governed by the
-[GitLab Testing Agreement](https://handbook.gitlab.com/handbook/legal/testing-agreement/).
+Usage of ActivityPub in GitLab is governed by the [GitLab Testing Agreement](https://handbook.gitlab.com/handbook/legal/testing-agreement/).
 
-The goal of those documents is to provide an implementation path for adding
-Fediverse capabilities to GitLab.
+The goal of those documents is to provide an implementation path for adding Fediverse capabilities to GitLab.
 
 ActivityPub requires two feature flags:
 
 - `activity_pub`: Enables or disables all ActivityPub-related features.
-- `activity_pub_project`: Enables and disables ActivityPub features specific to
-  projects. Requires the `activity_pub` flag to also be enabled.
+- `activity_pub_project`: Enables and disables ActivityPub features specific to projects. Requires the `activity_pub` flag to also be enabled.
 
-Most of the implementation is being discussed in
-[an architecture design document](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/activity_pub/),
-see this document for more information.
+Most of the implementation is being discussed in [an architecture design document](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/activity_pub/), see this document for more information.
 
 For now, see [how to implement an ActivityPub actor](actors/_index.md).

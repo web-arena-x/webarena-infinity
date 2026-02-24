@@ -31,8 +31,7 @@ This tutorial explains how to update the remote URL for your local repository wi
 - Losing changes that are not yet published to GitLab.
 - Creating a new cloned working copy of the repository from the new URL.
 
-This tutorial uses the `git-remote` command to
-[manage remote and tracked repositories](https://git-scm.com/docs/git-remote).
+This tutorial uses the `git-remote` command to [manage remote and tracked repositories](https://git-scm.com/docs/git-remote).
 
 To update Git remote URLs:
 
@@ -47,13 +46,11 @@ You must have:
 - A GitLab project with a Git repository and a new GitLab URL.
 - A cloned local working copy of the project that you are migrating to the new GitLab URL.
 - Git [installed on your local machine](../../topics/git/how_to_install_git/_index.md).
-- Access to your local machine's command-line interface (CLI). In macOS,
-  you can use Terminal. In Windows, you can use PowerShell. Linux users are probably
-  already familiar with their system's CLI.
+- Access to your local machine's command-line interface (CLI). In macOS, you can use Terminal. In Windows, you can use PowerShell. Linux users are probably already familiar with their system's CLI.
 - Authentication credentials for GitLab:
-  - You must authenticate with GitLab to update Git remote URLs. If your GitLab account uses
-  basic username and password authentication, you must have [two factor authentication (2FA)](../../user/profile/account/two_factor_authentication.md)
-  disabled to authenticate from the CLI. Alternatively, you can [use an SSH key to authenticate with GitLab](../../user/ssh.md).
+ - You must authenticate with GitLab to update Git remote URLs. If your GitLab account uses
+ basic username and password authentication, you must have [two factor authentication (2FA)](../../user/profile/account/two_factor_authentication.md)
+ disabled to authenticate from the CLI. Alternatively, you can [use an SSH key to authenticate with GitLab](../../user/ssh.md).
 
 ## Determine existing and new URLs
 
@@ -67,8 +64,7 @@ To update the Git remote URL, determine the existing and new URLs for your repos
    cd <repository-name>
    ```
 
-1. Each repository has a default remote named `origin`. To view the current remote _fetch_ and _push_ URLs
-   for your remote repository, run:
+1. Each repository has a default remote named `origin`. To view the current remote _fetch_ and _push_ URLs for your remote repository, run:
 
    ```shell
    git remote -v
@@ -104,8 +100,7 @@ To update the Git remote URL:
    ```
 
 1. Verify that the remote URL update is successful.
-   The following command displays the new URL for both fetch and push operations,
-   lists the local branches, and confirms that they are tracked to GitLab:
+   The following command displays the new URL for both fetch and push operations, lists the local branches, and confirms that they are tracked to GitLab:
 
    ```shell
    git remote show origin
@@ -116,8 +111,7 @@ To update the Git remote URL:
 
 To update the remote URLs for multiple repositories:
 
-1. Use the `git remote set-url` command. Replace `origin` with the name of the
-   remote you want to update. For example:
+1. Use the `git remote set-url` command. Replace `origin` with the name of the remote you want to update. For example:
 
    ```shell
    git remote set-url <remote_name> <new_url>
@@ -137,14 +131,11 @@ Congratulations, you have successfully updated the remote URL for your repositor
 ## (Optional) Keep original remote URLs
 
 Your project might have more than one remote location.
-For example, you have a forked repository from a project hosted on GitHub,
-but you want to work on your fork in GitLab before you make a pull request to GitHub.
+For example, you have a forked repository from a project hosted on GitHub, but you want to work on your fork in GitLab before you make a pull request to GitHub.
 
-To keep the original remote URL in addition to updating it, and maintain both new and old
-remote URLs, you can add a new remote instead of modifying the existing one.
+To keep the original remote URL in addition to updating it, and maintain both new and old remote URLs, you can add a new remote instead of modifying the existing one.
 
-With this approach, you can gradually transition to the new URL while still maintaining
-access to the original repository.
+With this approach, you can gradually transition to the new URL while still maintaining access to the original repository.
 
 To add a new remote URL:
 
@@ -152,8 +143,7 @@ To add a new remote URL:
 
 1. Go to your local repository working copy.
 
-1. Add a new remote URL. Replace `<new_remote_name>` with a name for the new remote,
-   for example, `new-origin`, and `<new_url>` with the new repository URL:
+1. Add a new remote URL. Replace `<new_remote_name>` with a name for the new remote, for example, `new-origin`, and `<new_url>` with the new repository URL:
 
    ```shell
    git remote add <new_remote_name> <new_url>

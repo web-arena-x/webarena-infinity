@@ -39,8 +39,7 @@ GitLab.com generates an application ID and secret key for you to use.
    - Only want to use this application for authentication, you should use a more minimal set of scopes. `read_user` is sufficient.
 
 1. Select **Save application**.
-1. You should now see an **Application ID** and **Secret**. Keep this page open as you continue
-   configuration.
+1. You should now see an **Application ID** and **Secret**. Keep this page open as you continue configuration.
 1. On your GitLab server, open the configuration file.
 
    For Linux package installations:
@@ -58,8 +57,7 @@ GitLab.com generates an application ID and secret key for you to use.
    ```
 
 1. Configure the [common settings](omniauth.md#configure-common-settings)
-   to add `gitlab` as a single sign-on provider. This enables Just-In-Time
-   account provisioning for users who do not have an existing GitLab account.
+   to add `gitlab` as a single sign-on provider. This enables Just-In-Time account provisioning for users who do not have an existing GitLab account.
 1. Add the provider configuration:
 
    For Linux package installations authenticating against **GitLab.com**:
@@ -124,11 +122,8 @@ GitLab.com generates an application ID and secret key for you to use.
    - For Linux package installations, [reconfigure GitLab](../administration/restart_gitlab.md#reconfigure-a-linux-package-installation).
    - For self-compiled installations, [restart GitLab](../administration/restart_gitlab.md#self-compiled-installations).
 
-On the sign-in page, there should now be a GitLab.com icon following the
-regular sign-in form. Select the icon to begin the authentication process.
-GitLab.com asks the user to sign in and authorize the GitLab application. If
-everything goes well, the user is returned to your GitLab instance and is
-signed in.
+On the sign-in page, there should now be a GitLab.com icon following the regular sign-in form. Select the icon to begin the authentication process.
+GitLab.com asks the user to sign in and authorize the GitLab application. If everything goes well, the user is returned to your GitLab instance and is signed in.
 
 ## Reduce access privileges on sign in
 
@@ -142,10 +137,6 @@ signed in.
 
 If you use a GitLab instance for authentication, you can reduce access rights when an OAuth application is used for sign in.
 
-Any OAuth application can advertise the purpose of the application with the
-authorization parameter: `gl_auth_type=login`. If the application is
-configured with `api` or `read_api`, the access token is issued with
-`read_user` for login, because no higher permissions are needed.
+Any OAuth application can advertise the purpose of the application with the authorization parameter: `gl_auth_type=login`. If the application is configured with `api` or `read_api`, the access token is issued with `read_user` for login, because no higher permissions are needed.
 
-The GitLab OAuth client is configured to pass this parameter, but other
-applications can also pass it.
+The GitLab OAuth client is configured to pass this parameter, but other applications can also pass it.

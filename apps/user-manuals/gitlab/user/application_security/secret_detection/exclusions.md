@@ -20,11 +20,9 @@ title: Secret detection exclusions
 
 {{< /history >}}
 
-Secret detection may detect something that's not actually a secret. For example, if you use
-a fake value as a placeholder in your code, it might be detected and possibly blocked.
+Secret detection may detect something that's not actually a secret. For example, if you use a fake value as a placeholder in your code, it might be detected and possibly blocked.
 
-To avoid false positives and [optimize performance](secret_push_protection/_index.md#optimize-performance),
-you can exclude from secret detection:
+To avoid false positives and [optimize performance](secret_push_protection/_index.md#optimize-performance), you can exclude from secret detection:
 
 - A path.
 - A raw value.
@@ -63,10 +61,8 @@ To define an exclusion:
 1. Select **Add exclusion** to open the exclusion form.
 1. Enter the details of the exclusion, then select **Add exclusion**.
 
-Path exclusions support glob patterns which are supported and interpreted with the Ruby method
-[`File.fnmatch`](https://docs.ruby-lang.org/en/master/File.html#method-c-fnmatch)
+Path exclusions support glob patterns which are supported and interpreted with the Ruby method [`File.fnmatch`](https://docs.ruby-lang.org/en/master/File.html#method-c-fnmatch)
 with the [flags](https://docs.ruby-lang.org/en/master/File/Constants.html#module-File::Constants-label-Filename+Globbing+Constants+-28File-3A-3AFNM_-2A-29)
 `File::FNM_PATHNAME | File::FNM_DOTMATCH | File::FNM_EXTGLOB`.
 
-Rule exclusions support any of the IDs listed in the [default ruleset](https://gitlab.com/gitlab-org/security-products/secret-detection/secret-detection-rules). For example,
-`gitlab_personal_access_token` is the rule ID for GitLab personal access tokens.
+Rule exclusions support any of the IDs listed in the [default ruleset](https://gitlab.com/gitlab-org/security-products/secret-detection/secret-detection-rules). For example, `gitlab_personal_access_token` is the rule ID for GitLab personal access tokens.

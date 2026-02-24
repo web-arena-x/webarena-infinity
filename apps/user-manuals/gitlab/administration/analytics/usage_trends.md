@@ -17,16 +17,16 @@ Usage trends give you an overview of how much data your instance contains, and h
 The usage trends page displays:
 
 - An overview of the total numbers of:
-  - Projects
-  - Groups
-  - Users
-  - Issues
-  - Merge requests
-  - Pipelines
+ - Projects
+ - Groups
+ - Users
+ - Issues
+ - Merge requests
+ - Pipelines
 - Line charts with monthly values for one year for:
-  - Projects and groups
-  - Pipelines
-  - Issues and merge requests
+ - Projects and groups
+ - Pipelines
+ - Issues and merge requests
 
 ![Usage trends counts and charts for total users, projects and groups](img/usage_trends_v17_7.png)
 

@@ -8,18 +8,15 @@ Use this article to discover the metrics and attributes you can use to build rep
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Guide Professional or Enterprise |
 
-Use this article to discover the metrics and attributes you can use to build reports
-based on your usage of Knowledge. These datasets are also used for the prebuilt
-dashboards (see [Overview of the Zendesk Knowledge
-dashboard](https://support.zendesk.com/hc/en-us/articles/4408823886874)).
+Use this article to discover the metrics and attributes you can use to build reports based on your usage of Knowledge. These datasets are also used for the prebuilt dashboards (see [Overview of the Zendesk Knowledge dashboard](https://support.zendesk.com/hc/en-us/articles/4408823886874)).
 
 This article contains the following topics:
 
@@ -38,10 +35,7 @@ Related articles:
 
 ## Knowledge Capture dataset
 
-The Knowledge Capture dataset contains metrics and attributes that relate to
-Knowledge in the context panel in Agent Workspace. This section lists all the
-available elements for the Knowledge Capture dataset. Use this dataset to help you
-understand the efficiency of selecting articles to deflect support tickets.
+The Knowledge Capture dataset contains metrics and attributes that relate to Knowledge in the context panel in Agent Workspace. This section lists all the available elements for the Knowledge Capture dataset. Use this dataset to help you understand the efficiency of selecting articles to deflect support tickets.
 
 This section contains the following topics:
 
@@ -51,15 +45,13 @@ This section contains the following topics:
 
 ### Knowledge Capture dataset schema
 
-Use this diagram to help you understand the elements of the Knowledge Capture
-dataset and their relationships.
+Use this diagram to help you understand the elements of the Knowledge Capture dataset and their relationships.
 
 ![Knowledge Capture dataset schema](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Knowledge%20Capture.jpg)
 
 ### Knowledge Capture metrics
 
-This section lists and defines all metrics available in the Knowledge Capture
-dataset.
+This section lists and defines all metrics available in the Knowledge Capture dataset.
 
 Table 1. Knowledge Capture metrics
 
@@ -87,8 +79,7 @@ Table 1. Knowledge Capture metrics
 
 ### Knowledge Capture attributes
 
-This section lists and defines all attributes available in the Knowledge Capture
-dataset.
+This section lists and defines all attributes available in the Knowledge Capture dataset.
 
 Table 2. Knowledge Capture attributes
 
@@ -149,10 +140,7 @@ Table 2. Knowledge Capture attributes
 
 ## Team Publishing dataset (Enterprise only)
 
-The Team Publishing dataset contains metrics and attributes that relate to knowledge
-activity. This section lists all the available elements for the Team Publishing
-dataset. Use this dataset to help you understand the efficiency of your knowledge
-management workflows.
+The Team Publishing dataset contains metrics and attributes that relate to knowledge activity. This section lists all the available elements for the Team Publishing dataset. Use this dataset to help you understand the efficiency of your knowledge management workflows.
 
 This section contains the following topics:
 
@@ -161,8 +149,7 @@ This section contains the following topics:
 
 ### Team Publishing metrics
 
-This section lists and defines all metrics available in the Team Publishing
-dataset.
+This section lists and defines all metrics available in the Team Publishing dataset.
 
 Table 3. Team Publishing metrics
 
@@ -198,14 +185,9 @@ Table 3. Team Publishing metrics
 
 ### Team Publishing attributes
 
-This section lists and defines all attributes available in the Team Publishing
-dataset.
+This section lists and defines all attributes available in the Team Publishing dataset.
 
-Note: When an agent [schedules an article for
-publication](https://support.zendesk.com/hc/en-us/articles/4408820403226), the publish event in Explore is attributed to a
-system user, not the agent who scheduled the event. The agent details (such
-as name and ID) appear as null values because that's how system users are
-represented in Explore.
+Note: When an agent [schedules an article for publication](https://support.zendesk.com/hc/en-us/articles/4408820403226), the publish event in Explore is attributed to a system user, not the agent who scheduled the event. The agent details (such as name and ID) appear as null values because that's how system users are represented in Explore.
 
 Table 4. Team Publishing attributes
 
@@ -239,10 +221,7 @@ This section contains the following topics:
 
 ### Knowledge Base metrics
 
-This section lists and defines all metrics available in the Knowledge Base
-dataset. These metrics are event-driven, meaning that the data represents the
-last time an event took place. They do not indicate current values. For example,
-the article comments metric only updates when a comment is added.
+This section lists and defines all metrics available in the Knowledge Base dataset. These metrics are event-driven, meaning that the data represents the last time an event took place. They do not indicate current values. For example, the article comments metric only updates when a comment is added.
 
 Table 5. Knowledge Base metrics
 
@@ -258,13 +237,11 @@ Table 5. Knowledge Base metrics
 | Article downvotes | The number of downvotes on articles. Data is available from February 25, 2023 onwards. | [Article downvotes] |
 | Article votes | The total number of votes on articles (upvotes plus downvotes). Data is available from February 25, 2023 onwards. | [Article upvotes]+[Article downvotes] |
 | Net article votes | The net number of votes on articles (upvotes minus downvotes). Data is available from February 25, 2023 onwards. | [Article upvotes]-[Article downvotes] |
-| Net article votes - all time | The current state of the votes on an article. This metric is an all-time total that is not affected by time-based filters. For a metric that is affected by time-based filters, use **Net article votes** instead. |  |
+| Net article votes - all time | The current state of the votes on an article. This metric is an all-time total that is not affected by time-based filters. For a metric that is affected by time-based filters, use **Net article votes** instead. | |
 
 ### Knowledge Base attributes
 
-This section lists and defines all attributes available in the Knowledge Base
-dataset. These attributes are event-driven, meaning that the data represents the
-last time an event took place. They do not indicate current values.
+This section lists and defines all attributes available in the Knowledge Base dataset. These attributes are event-driven, meaning that the data represents the last time an event took place. They do not indicate current values.
 
 Table 6. Knowledge Base attributes
 
@@ -292,12 +269,9 @@ Table 6. Knowledge Base attributes
 
 ## Search dataset
 
-The Search dataset contains metrics and attributes that relate to the
-searches that users performed and the terms they searched for in your knowledge
-base. This section lists all the available elements for the dataset.
+The Search dataset contains metrics and attributes that relate to the searches that users performed and the terms they searched for in your knowledge base. This section lists all the available elements for the dataset.
 
-Note: The data in this dataset is retained for a maximum of
-390 days in the past.
+Note: The data in this dataset is retained for a maximum of 390 days in the past.
 
 This section contains the following topics:
 
@@ -307,8 +281,7 @@ This section contains the following topics:
 
 ### Search dataset schema
 
-Use this diagram to help you understand the elements of the Search
-dataset and their relationships.
+Use this diagram to help you understand the elements of the Search dataset and their relationships.
 
 ![](https://zen-marketing-documentation.s3.us-west-1.amazonaws.com/docs/en/explore_search_dataset_schema.png)
 
@@ -318,7 +291,7 @@ This section lists and defines all of the Search metrics available.
 
 Table 7. Search metrics
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Metric** | **Definition** | **Calculation** |
 | Searches | The total number of searches performed. | IF ([Event type] = "Search") THEN [Search query] ELSE NULL ENDIF |
@@ -340,7 +313,7 @@ This section lists and defines all the Search attributes available.
 
 Table 8. Search attributes
 
-|  |  |
+| | |
 | --- | --- |
 | **Attribute** | **Definition** |
 | Article ID | The ID of the knowledge base article. |
@@ -361,11 +334,9 @@ Table 8. Search attributes
 
 ## Community dataset
 
-The Community dataset contains metrics and attributes that relate to your Zendesk
-community activity. This section lists all the available elements for the dataset.
+The Community dataset contains metrics and attributes that relate to your Zendesk community activity. This section lists all the available elements for the dataset.
 
-Note: Data in this dataset is available from February 9, 2022
-onwards.
+Note: Data in this dataset is available from February 9, 2022 onwards.
 
 This section contains the following topics:
 
@@ -378,30 +349,30 @@ This section lists and defines all of the available community metrics.
 
 Table 9. Community metrics
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Metric** | **Definition** | **Calculation** |
 | Community events | The total actions taken on a community forum, including created posts, viewed posts, added votes, created comments, added subscriptions, and submitted tickets. | [guide\_community\_engagement\_community\_post\_id] |
 | Existing community posts | The number of existing posts in the community. | [guide\_community\_posts\_community\_post\_id] |
 | Posts created | The total number of posts created in the selected time period. | IF ([guide\_community\_engagement\_event\_type] = "Post created") THEN [guide\_community\_engagement\_community\_post\_id] ENDIF |
-| Post views | The total number of post views on the community forum. | IF ([guide\_community\_engagement\_event\_type] = "Post viewed") THEN [guide\_community\_engagement\_community\_post\_id]  ENDIF |
-| Post votes | The total number of votes—either up or down—on a community post. | IF ([guide\_community\_engagement\_event\_type] = "Vote added") THEN [guide\_community\_engagement\_community\_post\_id]  ENDIF |
-| Post upvotes | The total number of upvotes on a post. | IF ([guide\_community\_engagement\_event\_type] = "Vote added" AND [guide\_community\_engagement\_vote\_direction]  = "Up") THEN [guide\_community\_engagement\_community\_post\_id] ENDIF |
-| Post downvotes | The total number of downvotes on a post. | IF ([guide\_community\_engagement\_event\_type] = "Vote added" AND [guide\_community\_engagement\_vote\_direction]  = "Down") THEN [guide\_community\_engagement\_community\_post\_id] ENDIF |
-| Comments | The total number of comments made on the community forum. | IF ([guide\_community\_engagement\_event\_type] = "Comment created") THEN  [guide\_community\_engagement\_community\_post\_id] ENDIF |
-| Post subscriptions | The total number of subscriptions to posts on the community forum. | IF ([guide\_community\_engagement\_event\_type] = "Subscription added")  THEN [guide\_community\_engagement\_community\_post\_id] ENDIF |
-| Post creation timestamps | The exact time when a community post was created. | IF ([guide\_community\_engagement\_event\_type] = "Post created") THEN  DATE\_TO\_TIMESTAMP([timeDimension##guide\_community\_engagement\_timestamp##date])  ENDIF |
+| Post views | The total number of post views on the community forum. | IF ([guide\_community\_engagement\_event\_type] = "Post viewed") THEN [guide\_community\_engagement\_community\_post\_id] ENDIF |
+| Post votes | The total number of votes—either up or down—on a community post. | IF ([guide\_community\_engagement\_event\_type] = "Vote added") THEN [guide\_community\_engagement\_community\_post\_id] ENDIF |
+| Post upvotes | The total number of upvotes on a post. | IF ([guide\_community\_engagement\_event\_type] = "Vote added" AND [guide\_community\_engagement\_vote\_direction] = "Up") THEN [guide\_community\_engagement\_community\_post\_id] ENDIF |
+| Post downvotes | The total number of downvotes on a post. | IF ([guide\_community\_engagement\_event\_type] = "Vote added" AND [guide\_community\_engagement\_vote\_direction] = "Down") THEN [guide\_community\_engagement\_community\_post\_id] ENDIF |
+| Comments | The total number of comments made on the community forum. | IF ([guide\_community\_engagement\_event\_type] = "Comment created") THEN [guide\_community\_engagement\_community\_post\_id] ENDIF |
+| Post subscriptions | The total number of subscriptions to posts on the community forum. | IF ([guide\_community\_engagement\_event\_type] = "Subscription added") THEN [guide\_community\_engagement\_community\_post\_id] ENDIF |
+| Post creation timestamps | The exact time when a community post was created. | IF ([guide\_community\_engagement\_event\_type] = "Post created") THEN DATE\_TO\_TIMESTAMP([timeDimension##guide\_community\_engagement\_timestamp##date]) ENDIF |
 | Post creation timestamp by community post | The exact time when each community post was created. | ATTRIBUTE\_FIX(MIN(guide\_community\_post\_creation\_timestamps), [guide\_community\_engagement\_community\_post\_id]) |
-| Staff response timestamps | The exact time when a staff member commented on a community post. | IF ([guide\_community\_engagement\_event\_type] = "Comment created" AND  [guide\_community\_engagement\_grouped\_user\_role] = "Staff member (signed in)")  THEN DATE\_TO\_TIMESTAMP([timeDimension##guide\_community\_engagement\_timestamp##date])  ENDIF |
+| Staff response timestamps | The exact time when a staff member commented on a community post. | IF ([guide\_community\_engagement\_event\_type] = "Comment created" AND [guide\_community\_engagement\_grouped\_user\_role] = "Staff member (signed in)") THEN DATE\_TO\_TIMESTAMP([timeDimension##guide\_community\_engagement\_timestamp##date]) ENDIF |
 | Staff response timestamp by community post | The exact time when a staff member commented on each community post. | ATTRIBUTE\_FIX(MIN(guide\_community\_staff\_response\_timestamps), [guide\_community\_engagement\_community\_post\_id]) |
-| Response timestamps | The exact time when a community member responded to a post. | IF ([guide\_community\_engagement\_event\_type] = "Comment created") THEN  DATE\_TO\_TIMESTAMP([timeDimension##guide\_community\_engagement\_timestamp##date])  ENDIF |
+| Response timestamps | The exact time when a community member responded to a post. | IF ([guide\_community\_engagement\_event\_type] = "Comment created") THEN DATE\_TO\_TIMESTAMP([timeDimension##guide\_community\_engagement\_timestamp##date]) ENDIF |
 | First response timestamp by community post | The exact time when a community member responded to each post. | ATTRIBUTE\_FIX(MIN(guide\_community\_response\_timestamps), [guide\_community\_engagement\_community\_post\_id]) |
-| Time to staff response (hours) | The time in hours between when a post was created and when the first staff member responded. | (MIN(guide\_community\_staff\_response\_timestamp) - MIN(guide\_community\_post\_creation\_timestamp))  / 3600 |
-| Time to first response (hours) | The time in hours between when a post was created and when the first comment was made. | (MIN(guide\_community\_response\_timestamp) - MIN(guide\_community\_post\_creation\_timestamp))  / 3600 |
+| Time to staff response (hours) | The time in hours between when a post was created and when the first staff member responded. | (MIN(guide\_community\_staff\_response\_timestamp) - MIN(guide\_community\_post\_creation\_timestamp)) / 3600 |
+| Time to first response (hours) | The time in hours between when a post was created and when the first comment was made. | (MIN(guide\_community\_response\_timestamp) - MIN(guide\_community\_post\_creation\_timestamp)) / 3600 |
 | Number of posts without any comments | The total number of community posts that don't have a response from any user. | IF ([Community engagement event type] = "Post created") THEN 1 ELIF ([First reply time] != NULL AND VALUE(Post creation timestamp by community post) != NULL) THEN -1 ELSE 0 ENDIF |
-| Number of posts without staff comments | The total number of community posts that don’t have a staff member response. | IF ([guide\_community\_engagement\_event\_type] = "Post created") THEN  1 ELIF ([guide\_community\_engagement\_first\_staff\_response] != NULL AND VALUE(guide\_community\_post\_creation\_timestamp)  != NULL) THEN -1 ELSE 0 ENDIF |
-| Number of days without comments | The total number of days since the last comment was made on the community forum. | IF ([guide\_community\_engagement\_response\_time\_bracket] = "No comments")  THEN DATE\_DIFF(DATE\_LAST\_FIX([timeDimension##guide\_community\_engagement\_timestamp##date]),  [timeDimension##guide\_community\_posts\_created\_at##date], "nb\_of\_days") ENDIF |
-| Submitted tickets | The total number of tickets created in the help center. | IF ([guide\_community\_engagement\_event\_type] = "Ticket submitted") THEN  [guide\_community\_engagement\_event\_type] ENDIF |
+| Number of posts without staff comments | The total number of community posts that don’t have a staff member response. | IF ([guide\_community\_engagement\_event\_type] = "Post created") THEN 1 ELIF ([guide\_community\_engagement\_first\_staff\_response] != NULL AND VALUE(guide\_community\_post\_creation\_timestamp) != NULL) THEN -1 ELSE 0 ENDIF |
+| Number of days without comments | The total number of days since the last comment was made on the community forum. | IF ([guide\_community\_engagement\_response\_time\_bracket] = "No comments") THEN DATE\_DIFF(DATE\_LAST\_FIX([timeDimension##guide\_community\_engagement\_timestamp##date]), [timeDimension##guide\_community\_posts\_created\_at##date], "nb\_of\_days") ENDIF |
+| Submitted tickets | The total number of tickets created in the help center. | IF ([guide\_community\_engagement\_event\_type] = "Ticket submitted") THEN [guide\_community\_engagement\_event\_type] ENDIF |
 
 ### Community attributes
 
@@ -409,7 +380,7 @@ This section lists and defines all of the available community attributes.
 
 Table 10. Community attributes
 
-|  |  |
+| | |
 | --- | --- |
 | **Attribute** | **Definition** |
 | Community user email | The email address of the community member. |
@@ -424,7 +395,7 @@ Table 10. Community attributes
 | Community topic title | The title of the topic that a post or comment is part of. |
 | Brand ID | The unique ID of the brand associated with the community forum. |
 | Brand name | The name of the brand associated with the community forum. |
-| Channel | The channel from which a user viewed a post. Possible values are **HC** (help center), **Agent workspace**, and **API**.  For more information about the ticket channels Explore collects, see [Understanding ticket channels in Explore](https://support.zendesk.com/hc/en-us/articles/4408836378394). |
+| Channel | The channel from which a user viewed a post. Possible values are **HC** (help center), **Agent workspace**, and **API**. For more information about the ticket channels Explore collects, see [Understanding ticket channels in Explore](https://support.zendesk.com/hc/en-us/articles/4408836378394). |
 | Community post ID | The unique ID of a community post. |
 | Community engagement event type | The type of action taken on a community forum. Possible values are **Post created**, **Post viewed**, **Vote added**, **Comment created**, **Subscription added**, and **Ticket submitted**. |
 | User role | The role of the community member. Possible values are **End user**, **Anonymous**, **Agent**, **Admin**, and **Viewer**. |
@@ -440,21 +411,12 @@ Table 10. Community attributes
 
 ## Page efficiency dataset
 
-The Page efficiency dataset helps you examine help center page analytics to pinpoint
-self-service content that effectively provides answers, as well as content that may
-need enhancement. This section lists all the available elements for the dataset.
+The Page efficiency dataset helps you examine help center page analytics to pinpoint self-service content that effectively provides answers, as well as content that may need enhancement. This section lists all the available elements for the dataset.
 Self-service data is available from January 15, 2025 onwards.
 
-Important: As of April 4, 2025, the self-service datasets have been
-filtered to only events that originate from the help center. Before this date,
-some events from other sources, such as the Agent Workspace including page views
-(articles and community posts), searches, and quick answers might appear in
-reports. All ticket deflection reports, such as confirmed and assumed
-deflections, only track tickets submitted using the help center request form.
+Important: As of April 4, 2025, the self-service datasets have been filtered to only events that originate from the help center. Before this date, some events from other sources, such as the Agent Workspace including page views (articles and community posts), searches, and quick answers might appear in reports. All ticket deflection reports, such as confirmed and assumed deflections, only track tickets submitted using the help center request form.
 
-Depending on your usage of other channels, the inclusion of these
-additional events will have some impact on session duration, page view
-duration, and number of sessions and visitors.
+Depending on your usage of other channels, the inclusion of these additional events will have some impact on session duration, page view duration, and number of sessions and visitors.
 
 This section contains the following topics:
 
@@ -467,7 +429,7 @@ This section lists and defines all of the available page efficiency metrics.
 
 Table 11. Page efficiency metrics
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Metric** | **Definition** | **Calculation** |
 | Confirmed deflections | The number of confirmed deflections attributed to the page. A confirmed deflection is registered as a help center session when a user selected an article from the suggested articles on the request form and did not submit a ticket during their session. | VALUE(Confirmed deflections) |
@@ -480,12 +442,11 @@ Table 11. Page efficiency metrics
 
 ### Page efficiency attributes
 
-This section lists and defines all of the available page efficiency
-attributes.
+This section lists and defines all of the available page efficiency attributes.
 
 Table 12. Page efficiency attributes
 
-|  |  |
+| | |
 | --- | --- |
 | **Attribute** | **Definition** |
 | Page type | Identifies whether the page is an article or a community post. |
@@ -494,7 +455,7 @@ Table 12. Page efficiency attributes
 | Page ID | The page ID consists of the article ID or the community post ID of the help center content which your users have interacted with. This enables you to report on both article and community post views without having to use filters. |
 | Page language | The language of the article being viewed. This offers the ability to see which article translation is providing the most assistance in a help center. |
 | Page locale | The locale of the article being viewed, for example, en-us. |
-| Page visitor role | The user role of users who have viewed the help center page. For example:  - Anonymous - End user - Viewer - Agent - Admin |
+| Page visitor role | The user role of users who have viewed the help center page. For example: - Anonymous - End user - Viewer - Agent - Admin |
 | Page author name | The name of the author of the community post or the help center article. |
 | Page author ID | The user ID of the author of a page. |
 | Article category | The name of the top-level category where the article resides in the help center's hierarchy. |
@@ -512,21 +473,11 @@ Table 12. Page efficiency attributes
 
 ## User session dataset
 
-The user session dataset helps you see user session outcomes for specific users and
-identify trends across different roles. This section lists all the available
-elements for the dataset. Self-service data is available from January 15, 2025
-onwards.
+The user session dataset helps you see user session outcomes for specific users and identify trends across different roles. This section lists all the available elements for the dataset. Self-service data is available from January 15, 2025 onwards.
 
-Important: As of April 4, 2025, the self-service datasets have been
-filtered to only events that originate from the help center. Before this date,
-some events from other sources, such as the Agent Workspace including page views
-(articles and community posts), searches, and quick answers might appear in
-reports. All ticket deflection reports, such as confirmed and assumed
-deflections, only track tickets submitted using the help center request form.
+Important: As of April 4, 2025, the self-service datasets have been filtered to only events that originate from the help center. Before this date, some events from other sources, such as the Agent Workspace including page views (articles and community posts), searches, and quick answers might appear in reports. All ticket deflection reports, such as confirmed and assumed deflections, only track tickets submitted using the help center request form.
 
-Depending on your usage of other channels, the inclusion of these
-additional events will have some impact on session duration, page view
-duration, and number of sessions and visitors.
+Depending on your usage of other channels, the inclusion of these additional events will have some impact on session duration, page view duration, and number of sessions and visitors.
 
 This section contains the following topics:
 
@@ -539,7 +490,7 @@ This section lists and defines all of the available user session metrics.
 
 Table 13. User session metrics
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Metric** | **Definition** | **Calculation** |
 | Sessions | The count of user sessions where the user has interacted with the help center. | [Session ID] |
@@ -579,7 +530,7 @@ This section lists and defines all of the available user session attributes.
 
 Table 14. User session attributes
 
-|  |  |
+| | |
 | --- | --- |
 | **Attribute** | **Definition** |
 | Session ID | Identifier for the unique user session. |
@@ -613,10 +564,8 @@ Table 14. User session attributes
 
 ## Quick answers dataset
 
-Quick answers reports help you understand how your customers interact with your help
-center, including what they’re searching for and how successfully they find answers.
-They help you identify topics that interest customers most, and also helps you
-detect gaps in your knowledge base that need to be addressed.
+Quick answers reports help you understand how your customers interact with your help center, including what they’re searching for and how successfully they find answers.
+They help you identify topics that interest customers most, and also helps you detect gaps in your knowledge base that need to be addressed.
 
 This section contains the following topics:
 
@@ -625,10 +574,9 @@ This section contains the following topics:
 
 ### Quick answers metrics
 
-This section lists and defines the metrics available in the Quick
-answers dataset.
+This section lists and defines the metrics available in the Quick answers dataset.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | Metric | Definition | Formula |
 | Searches | The total number of searches performed. | [Search ID] |
@@ -647,10 +595,9 @@ answers dataset.
 
 ### Quick answers attributes
 
-This section lists and defines the attributes available in the quick
-answers dataset.
+This section lists and defines the attributes available in the quick answers dataset.
 
-|  |  |
+| | |
 | --- | --- |
 | Attribute | Definition |
 | Search ID | The ID of the search. |

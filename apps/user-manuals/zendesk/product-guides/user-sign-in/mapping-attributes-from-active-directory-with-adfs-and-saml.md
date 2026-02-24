@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408842661530-Mapping-attr
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -20,8 +20,8 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408842661530-Mapping-attr
 
 When using [SAML login with ADFS](https://support.zendesk.com/hc/en-us/articles/4408834714650--Single-Sign-On-to-Zendesk-using-Active-Directory-with-ADFS-and-SAML-Plus-and-Enterprise-), you can pass other values in addition to the authentication values. This article describes how to pass a user's full name, organization, phone number, role, or custom role.
 
-These values are defined as Claim Rules in the Relying Party Trust. To edit the Claim Rules, select the **Relying Party Trusts folder** from **AD FS Management**, and choose **Edit Claim Rules** from the **Actions** sidebar. New rules are added by clicking **Add Rule** and then selecting a template from the window that pops up. Example:  
-  
+These values are defined as Claim Rules in the Relying Party Trust. To edit the Claim Rules, select the **Relying Party Trusts folder** from **AD FS Management**, and choose **Edit Claim Rules** from the **Actions** sidebar. New rules are added by clicking **Add Rule** and then selecting a template from the window that pops up. Example: 
+ 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/claim_rules.png)
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/claim_transform1.png)
@@ -40,7 +40,7 @@ To pass the full name of a user, create a rule with the **Send LDAP Attributes**
 To define the organization that a user will be associated with in Zendesk, create a rule with the **Send LDAP Attributes** template. This rule will map a field in Active Directory to the outgoing claim type of organization. The LDAP attribute will depend on how you wish to map users. For example, you might want to map departments to different organizations.
 
 1. For the **LDAP Attribute**, select the field you are mapping to organization.
-2. For the **Outgoing Claim Type**, type the word **organization** in lowercase in the field.  
+2. For the **Outgoing Claim Type**, type the word **organization** in lowercase in the field. 
      
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/2014-08-18_1434.png)
 
@@ -60,20 +60,20 @@ Setting the role of a user based on their membership in a group is a two-step pr
 **To create the group membership rule:**
 
 1. Add a new rule and **Select Send Group Membership as a Claim** for the template.
-2. Locate the group that you wish to map to the role by using the Browse button.  
+2. Locate the group that you wish to map to the role by using the Browse button. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/group1.png)
-3. For **Outgoing claim type**, select **Role**.  
+3. For **Outgoing claim type**, select **Role**. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/group2.png)
 4. For **Outgoing claim value**, use the value specified in the user attributes table on our [SAML documentation](https://support.zendesk.com/hc/en-us/articles/4408887505690).
 5. Click **Finish**, then click **Edit Rule** for the rule you just created.
-6. Use the **View Rule Language** button to get the raw code for the rule. Copy the code somewhere. You'll use it in the next step.  
+6. Use the **View Rule Language** button to get the raw code for the rule. Copy the code somewhere. You'll use it in the next step. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/group3.png)
 
 **To create the functioning custom rule:**
 
 1. After copying the code from the rule language window, click **OK** to close the dialogue.
 2. Remove the rule and add a new rule with the **Send Claims using a Custom Rule** template.
-3. Paste the code you copied into the custom rule editor, and then delete the "http://schemas.microsoft.com/ws/2008/06/identity/claims/" string from the **Type** field. This should leave only the word **role**.  
+3. Paste the code you copied into the custom rule editor, and then delete the "http://schemas.microsoft.com/ws/2008/06/identity/claims/" string from the **Type** field. This should leave only the word **role**. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/group4.png)
 4. Save the rule.
 

@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357756544410-Using-the-In
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -24,7 +24,7 @@ Be sure to review the generated expressions with care - do not hesitate to rejec
 
 The best way to get the results you're looking for is by trying out different variations of the description and examples iteratively.
 
-|  |  |
+| | |
 | --- | --- |
 | Screenshot | Screenshot |
 

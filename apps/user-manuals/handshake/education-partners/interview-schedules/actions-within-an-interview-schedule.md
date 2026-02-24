@@ -19,7 +19,7 @@ Navigate to the individual schedule within Handshake:
 - **Payment History**: this will display the full payment history on the schedule.
 - **Manually Record Charge**: if your employer is paying via check or external payment system, you can use this option to record a payment and additional notes.
 - **View/Create Invoices**: use this to create a new invoice for your employer or view an existing invoice.
-  - **Note**: invoices aren't live documents — if an employer would like an updated invoice after payment, you'll need to generate a new invoice.
+ - **Note**: invoices aren't live documents — if an employer would like an updated invoice after payment, you'll need to generate a new invoice.
 
 ## payments.png
 
@@ -30,33 +30,33 @@ For more information on charging employers for on-campus interviews, refer to [C
 ## Actions
 
 - **Add an Applicant**: if you'd like to add an Applicant, you can use this option. Adding the Applicant will add them to both the job and the OCI.
-  - **Note**: as a Career Services user, adding an Applicant overrides any existing qualifications or preferences on the job and related OCI.
+ - **Note**: as a Career Services user, adding an Applicant overrides any existing qualifications or preferences on the job and related OCI.
 - **Add Another Date**: if you choose to add a date to an OCI, you'll need to add slots to that date.
 - **View & Add Notes**: you may want to note changes that take place with the schedule so you can review them when creating another.
 - **Duplicate this Interview Schedule**: if you would like to use this same schedule for another interview, you can open the schedule and duplicate it.
-  - **Note**: You'll need to update the dates of the duplicated OCI.
+ - **Note**: You'll need to update the dates of the duplicated OCI.
 - **Build Interview Packet:** a report that can be downloaded or sent via email to you or the employer. Choose the information you'd like included in the packet:
-  - Schedule Details
-  - Contact Information
-  - Application Documents
+ - Schedule Details
+ - Contact Information
+ - Application Documents
     - Resume
     - Cover Letter
     - Transcript
     - Other Documents
-  - Applicant Profiles
+ - Applicant Profiles
 - **Export Interview Schedule**: this will allow you to download a file with the following information:
-  - Date
-  - Time
-  - Room
-  - Interviewer
-  - Student Name
-  - Student Majors
-  - Student School Year
-  - Student School
-  - Student Graduation Date
+ - Date
+ - Time
+ - Room
+ - Interviewer
+ - Student Name
+ - Student Majors
+ - Student School Year
+ - Student School
+ - Student Graduation Date
 - **Build Interview Schedule Slots**: build the slots based on the template assigned to the Interview.
 - **Open Check-in Kiosk**: allows students to check in for the OCI. You can have the check-in kiosk open on a tablet or computer at the check-in area.
-  - **Note**: if you are part of a consortia within Handshake, you'll need to open a checkin kiosk for each OCI individually.
+ - **Note**: if you are part of a consortia within Handshake, you'll need to open a checkin kiosk for each OCI individually.
 - **Pin Item**: show students this OCI as an announcement on their home page.
 
 ## actions.png

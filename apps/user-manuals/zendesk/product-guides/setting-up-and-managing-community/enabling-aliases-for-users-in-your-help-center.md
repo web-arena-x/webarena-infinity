@@ -6,20 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408883623322-Enabling-ali
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-When you enable aliases, users can create an alias in their help center profile that is used
-in place of their name when they post or comment in the help center. The alias setting is not
-enabled by default.
+When you enable aliases, users can create an alias in their help center profile that is used in place of their name when they post or comment in the help center. The alias setting is not enabled by default.
 
-You must be a Knowledge admin to enable or disable the alias feature. If you disable the alias
-feature, any aliases that have already been set up by users are deleted. This means that a
-user's real name becomes visible in all their historical posts and comments.
+You must be a Knowledge admin to enable or disable the alias feature. If you disable the alias feature, any aliases that have already been set up by users are deleted. This means that a user's real name becomes visible in all their historical posts and comments.
 
-Note: If [user profiles are not enabled](https://support.zendesk.com/hc/en-us/articles/4408832453658) (not available on Suite Team), then
-aliases cannot be used.
+Note: If [user profiles are not enabled](https://support.zendesk.com/hc/en-us/articles/4408832453658) (not available on Suite Team), then aliases cannot be used.
 
 **To enable aliases**
 

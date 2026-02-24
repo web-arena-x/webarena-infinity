@@ -27,8 +27,7 @@ These levels are recognized:
 - `mention`: Receive notifications when you are mentioned in a comment
 - `custom`: Receive notifications for selected events
 
-If you use the `custom` level, you can control specific email events. Available events are returned
-by `NotificationSetting.email_events`.
+If you use the `custom` level, you can control specific email events. Available events are returned by `NotificationSetting.email_events`.
 These events are recognized:
 
 | Event                          | Description |
@@ -67,7 +66,7 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/notification_settings"
+ --url "https://gitlab.example.com/api/v4/notification_settings"
 ```
 
 If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
@@ -81,8 +80,8 @@ Example response:
 
 ```json
 {
-  "level": "participating",
-  "notification_email": "admin@example.com"
+ "level": "participating",
+ "notification_email": "admin@example.com"
 }
 ```
 
@@ -98,7 +97,7 @@ Example request:
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/notification_settings?level=watch"
+ --url "https://gitlab.example.com/api/v4/notification_settings?level=watch"
 ```
 
 Supported attributes:
@@ -112,7 +111,7 @@ Supported attributes:
 | `failed_pipeline`              | boolean | No       | Turn on notifications when a pipeline fails |
 | `fixed_pipeline`               | boolean | No       | Turn on notifications when a previously failed pipeline is fixed |
 | `issue_due`                    | boolean | No       | Turn on notifications when an issue is due tomorrow |
-| `level`                        | string  | No       | Global notification level |
+| `level`                        | string | No       | Global notification level |
 | `merge_merge_request`          | boolean | No       | Turn on notifications when a merge request is merged |
 | `merge_when_pipeline_succeeds` | boolean | No       | Turn on notifications when a merge request is set to auto-merge |
 | `moved_project`                | boolean | No       | Turn on notifications when a project is moved |
@@ -121,7 +120,7 @@ Supported attributes:
 | `new_merge_request`            | boolean | No       | Turn on notifications when a new merge request is created |
 | `new_note`                     | boolean | No       | Turn on notifications when a new comment is added |
 | `new_release`                  | boolean | No       | Turn on notifications when a new release is published |
-| `notification_email`           | string  | No       | Email address where notifications are sent |
+| `notification_email`           | string | No       | Email address where notifications are sent |
 | `push_to_merge_request`        | boolean | No       | Turn on notifications when someone pushes to a merge request |
 | `reassign_issue`               | boolean | No       | Turn on notifications when an issue is reassigned |
 | `reassign_merge_request`       | boolean | No       | Turn on notifications when a merge request is reassigned |
@@ -140,8 +139,8 @@ Example response:
 
 ```json
 {
-  "level": "watch",
-  "notification_email": "admin@example.com"
+ "level": "watch",
+ "notification_email": "admin@example.com"
 }
 ```
 
@@ -158,12 +157,12 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/notification_settings"
+ --url "https://gitlab.example.com/api/v4/groups/5/notification_settings"
 ```
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/8/notification_settings"
+ --url "https://gitlab.example.com/api/v4/projects/8/notification_settings"
 ```
 
 Supported attributes:
@@ -182,7 +181,7 @@ Example response for standard notification level:
 
 ```json
 {
-  "level": "global"
+ "level": "global"
 }
 ```
 
@@ -190,8 +189,8 @@ Example response for a group with custom notification level:
 
 ```json
 {
-  "level": "custom",
-  "events": {
+ "level": "custom",
+ "events": {
     "new_release": null,
     "new_note": null,
     "new_issue": null,
@@ -212,7 +211,7 @@ Example response for a group with custom notification level:
     "moved_project": true,
     "merge_when_pipeline_succeeds": false,
     "new_epic": null
-  }
+ }
 }
 ```
 
@@ -238,12 +237,12 @@ Example requests:
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/notification_settings?level=watch"
+ --url "https://gitlab.example.com/api/v4/groups/5/notification_settings?level=watch"
 ```
 
 ```shell
 curl --request PUT --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/8/notification_settings?level=custom&new_note=true"
+ --url "https://gitlab.example.com/api/v4/projects/8/notification_settings?level=custom&new_note=true"
 ```
 
 Supported attributes:
@@ -280,7 +279,7 @@ For a non-custom notification level:
 
 ```json
 {
-  "level": "watch"
+ "level": "watch"
 }
 ```
 
@@ -288,8 +287,8 @@ For a custom notification level, the response includes an `events` object showin
 
 ```json
 {
-  "level": "custom",
-  "events": {
+ "level": "custom",
+ "events": {
     "new_release": null,
     "new_note": true,
     "new_issue": false,
@@ -310,7 +309,7 @@ For a custom notification level, the response includes an `events` object showin
     "moved_project": false,
     "merge_when_pipeline_succeeds": false,
     "new_epic": null
-  }
+ }
 }
 ```
 

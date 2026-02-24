@@ -53,11 +53,8 @@ To add a new accessibility spec for your team, you can:
 
 Browse the list of test cases for your team by either:
 
-- [Looking through Test Cases page](https://gitlab.com/gitlab-org/gitlab/-/quality/test_cases),
-  which you can filter by your group's label.
-- Navigating to the E2E [`browser_ui` directory](https://gitlab.com/gitlab-org/gitlab/-/tree/master/qa/qa/specs/features/browser_ui) and
-  [`ee/browser_ui` directory](https://gitlab.com/gitlab-org/gitlab/-/tree/master/qa/qa/specs/features/ee/browser_ui),
-  then selecting the director for your stage and a feature you want to cover.
+- [Looking through Test Cases page](https://gitlab.com/gitlab-org/gitlab/-/quality/test_cases), which you can filter by your group's label.
+- Navigating to the E2E [`browser_ui` directory](https://gitlab.com/gitlab-org/gitlab/-/tree/master/qa/qa/specs/features/browser_ui) and [`ee/browser_ui` directory](https://gitlab.com/gitlab-org/gitlab/-/tree/master/qa/qa/specs/features/ee/browser_ui), then selecting the director for your stage and a feature you want to cover.
 
 Once you know the user journey you want to cover:
 
@@ -76,18 +73,17 @@ Axe provides the custom matcher `be_axe_clean`, which can be used like the follo
 ```ruby
 # spec/features/accessibility/create/repository/add_new_branch_rule_spec.rb
 it 'passes axe automated accessibility testing', :js do
-  visit_settings_page
+ visit_settings_page
 
-  wait_for_requests # ensures page is fully loaded
+ wait_for_requests # ensures page is fully loaded
 
-  expect(page).to be_axe_clean
+ expect(page).to be_axe_clean
 end
 ```
 
 If needed, you can scope testing to a specific area of the page by using `within`.
 
-Axe also provides specific [clauses](https://github.com/dequelabs/axe-core-gems/blob/develop/packages/axe-core-rspec/README.md#clauses),
-for example:
+Axe also provides specific [clauses](https://github.com/dequelabs/axe-core-gems/blob/develop/packages/axe-core-rspec/README.md#clauses), for example:
 
 ```ruby
 expect(page).to be_axe_clean.within '[data-testid="element"]'
@@ -103,9 +99,7 @@ expect(page).to be_axe_clean.within('[data-testid="element"]')
                             .according_to(:wcag21aa)
 ```
 
-Axe does not test hidden regions, such as inactive menus or modal windows. To test
-hidden regions for accessibility, write tests that activate or render the regions visible
-and run the matcher again.
+Axe does not test hidden regions, such as inactive menus or modal windows. To test hidden regions for accessibility, write tests that activate or render the regions visible and run the matcher again.
 
 You can run accessibility tests locally in the same way as you [run any feature tests](../../testing_guide/frontend_testing.md#how-to-run-a-feature-test).
 
@@ -143,10 +137,7 @@ In most cases you do not want to test accessibility of a whole page. There are a
 
 #### Test output not specific enough
 
-When axe test case fails, it outputs the violation found and an element that it concerns. Because we often use Pajamas Components,
-it may happen that the element will be a `<div>` without any annotation that could help you identify it. However, we can take
-advantage of a fact that axe_core rules is used both for Ruby tests and Deque browser extension - axe devTools. They both
-provide the same output.
+When axe test case fails, it outputs the violation found and an element that it concerns. Because we often use Pajamas Components, it may happen that the element will be a `<div>` without any annotation that could help you identify it. However, we can take advantage of a fact that axe_core rules is used both for Ruby tests and Deque browser extension - axe devTools. They both provide the same output.
 
 1. Make sure you have axe DevTools extension installed in a browser of your choice. See [axe DevTools official website for more information](https://www.deque.com/axe/browser-extensions/).
 
@@ -160,6 +151,5 @@ provide the same output.
 
 This section documents violations where a recommendation differs with the [design system](https://design.gitlab.com/):
 
-- `link-in-text-block`: For now, use the `skipping` clause to skip `:'link-in-text-block'`
-  rule to fix the violation. After this is fixed as part of [issue 1444](https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/issues/1444)
-  and underline is added to the `GlLink` component, this clause can be removed.
+- `link-in-text-block`: For now, use the `skipping` clause to skip `:'link-in-text-block'` rule to fix the violation. After this is fixed as part of [issue 1444](https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/issues/1444)
+ and underline is added to the `GlLink` component, this clause can be removed.

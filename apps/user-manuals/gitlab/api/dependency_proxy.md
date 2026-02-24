@@ -17,8 +17,7 @@ Use this API to manage the [dependency proxy](../user/packages/dependency_proxy/
 
 ## Purge the dependency proxy for a group
 
-Schedules for deletion the cached manifests and blobs for a group. This endpoint requires the
-Owner role for the group.
+Schedules for deletion the cached manifests and blobs for a group. This endpoint requires the Owner role for the group.
 
 ```plaintext
 DELETE /groups/:id/dependency_proxy/cache

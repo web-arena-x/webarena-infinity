@@ -31,13 +31,13 @@ There are two (2) ways to install Procore Drive on a Windows computer. Choose 
      - Go to the 'Downloads' area of your browser, and click **ProcoreDriveSetup.exe.**
    - **From your computer**:
      - Locate the **ProcoreDriveSetup.exe** file in the Downloads area of your computer and click **ProcoreDriveSetup.exe**.
-3. Wait for the installer to finish.   
+3. Wait for the installer to finish.  
    *Notes*:
    - The installation typically requires approximately one (1) minute. To avoid running a second instance of the installer, always wait for the installation to complete instead of attempting to run the installer a second time.
-   - The default installation path for Procore Drive is:   
-     C:\users\account name\appdata\local\Procore Technologies\Procore Drive.  
+   - The default installation path for Procore Drive is:  
+     C:\users\account name\appdata\local\Procore Technologies\Procore Drive. 
      This cannot be changed.
-4. When installed, Procore Drive launches automatically. If it does not launch, double-click the **Procore Drive** icon on your computer's desktop.   
+4. When installed, Procore Drive launches automatically. If it does not launch, double-click the **Procore Drive** icon on your computer's desktop.  
    You can now log in to your account and begin using Procore Drive. See [Log in to Procore Drive](https://support.procore.com/products/procore-drive/tutorials/log-in-to-procore-drive "Logging into Procore Drive").
 
 ## See Also

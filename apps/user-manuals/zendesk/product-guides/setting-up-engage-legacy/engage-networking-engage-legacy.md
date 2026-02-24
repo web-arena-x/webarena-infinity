@@ -23,7 +23,7 @@ In order for an Engage deployment to be accessible in your network, the followin
 | https://logs.browser-intake-datadoghq.com/ | error logs for application monitoring | https://docs.datadoghq.com/api/latest/ip-ranges/ | 443 (TCP) | Outbound | Send/Receive |
 | www.facebook.com | Enable this only if Facebook chat is required | N/A | 443 (TCP) | Outbound | Send/Receive |
 | connect.facebook.net | Enable this only if Facebook chat is required | N/A | 443 (TCP) | Outbound | Send/Receive |
-| cdn.segment.com | Application analytics |  | 443 (TCP) | Outbound | Send/Receive |
+| cdn.segment.com | Application analytics | | 443 (TCP) | Outbound | Send/Receive |
 
 ## IP Address Ranges
 

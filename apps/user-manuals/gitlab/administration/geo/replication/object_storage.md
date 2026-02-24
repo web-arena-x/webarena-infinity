@@ -27,11 +27,9 @@ Geo can be used in combination with Object Storage (AWS S3, or other compatible 
 - A replicated storage bucket.
 - Local storage, if the primary uses local storage.
 
-The storage method (local or object storage) for files is recorded in the database, and the database
-is replicated from the **primary** Geo site to the **secondary** Geo site.
+The storage method (local or object storage) for files is recorded in the database, and the database is replicated from the **primary** Geo site to the **secondary** Geo site.
 
-When accessing an uploaded object, we get its storage method (local or object storage) from the
-database, so the **secondary** Geo site must match the storage method of the **primary** Geo site.
+When accessing an uploaded object, we get its storage method (local or object storage) from the database, so the **secondary** Geo site must match the storage method of the **primary** Geo site.
 
 Therefore, if the **primary** Geo site uses object storage, the **secondary** Geo site must use it too.
 
@@ -67,43 +65,32 @@ When the `geo_object_storage_verification` feature flag is disabled:
 > [!warning]
 > In case of issues, avoid manually deleting individual files as that can lead to [data inconsistencies](#inconsistencies-after-the-migration).
 
-**Secondary** sites can replicate files stored by the **primary** site regardless of
-whether they are stored on the local file system or in object storage.
+**Secondary** sites can replicate files stored by the **primary** site regardless of whether they are stored on the local file system or in object storage.
 
 To enable GitLab replication:
 
 1. In the upper-right corner, select **Admin**.
 1. Select **Geo** > **Sites**.
 1. Select **Edit** on the **secondary** site.
-1. In the **Synchronization Settings** section, find the **Allow this secondary site to replicate content on Object Storage**
-   checkbox to enable it.
+1. In the **Synchronization Settings** section, find the **Allow this secondary site to replicate content on Object Storage** checkbox to enable it.
 
-For LFS, follow the documentation to
-[set up LFS object storage](../../lfs/_index.md#storing-lfs-objects-in-remote-object-storage).
+For LFS, follow the documentation to [set up LFS object storage](../../lfs/_index.md#storing-lfs-objects-in-remote-object-storage).
 
-For CI job artifacts, there is similar documentation to configure
-[jobs artifact object storage](../../cicd/job_artifacts.md#using-object-storage).
+For CI job artifacts, there is similar documentation to configure [jobs artifact object storage](../../cicd/job_artifacts.md#using-object-storage).
 
 For user uploads, there is similar documentation to configure [upload object storage](../../uploads.md#using-object-storage).
 
-If you want to migrate the **primary** site's files to object storage, you can
-configure the **secondary** in a few ways:
+If you want to migrate the **primary** site's files to object storage, you can configure the **secondary** in a few ways:
 
 - Use the exact same object storage.
-- Use a separate object store but leverage your object storage solution's built-in
-  replication.
-- Use a separate object store and enable the **Allow this secondary site to replicate
-  content on Object Storage** setting.
+- Use a separate object store but leverage your object storage solution's built-in replication.
+- Use a separate object store and enable the **Allow this secondary site to replicate content on Object Storage** setting.
 
-If the **Allow this secondary site to replicate content on Object Storage** setting
-is disabled, and if you have migrated all your files from local storage to object storage,
-then many **Admin** > **Geo** > **Sites** progress bars display **Nothing to synchronize**.
+If the **Allow this secondary site to replicate content on Object Storage** setting is disabled, and if you have migrated all your files from local storage to object storage, then many **Admin** > **Geo** > **Sites** progress bars display **Nothing to synchronize**.
 
 {{< alert type="warning" >}}
 
-To avoid data loss, you should only enable the **Allow this secondary site to replicate content on
-Object Storage** setting if you are using separate object stores for the Primary and Secondary
-sites.
+To avoid data loss, you should only enable the **Allow this secondary site to replicate content on Object Storage** setting if you are using separate object stores for the Primary and Secondary sites.
 
 {{< /alert >}}
 
@@ -114,20 +101,14 @@ GitLab does not support the case where both:
 
 ### Inconsistencies after the migration
 
-Data inconsistencies can occur when migrating from local to object storage,
-which is further described in the [object storage troubleshooting section](../../object_storage.md#inconsistencies-after-migrating-to-object-storage).
+Data inconsistencies can occur when migrating from local to object storage, which is further described in the [object storage troubleshooting section](../../object_storage.md#inconsistencies-after-migrating-to-object-storage).
 
 ## Third-party replication services
 
-When using Amazon S3, you can use
-[Cross-Region Replication (CRR)](https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) to
-have automatic replication between the bucket used by the **primary** site and
-the bucket used by **secondary** sites.
+When using Amazon S3, you can use [Cross-Region Replication (CRR)](https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html) to have automatic replication between the bucket used by the **primary** site and the bucket used by **secondary** sites.
 
-If you are using Google Cloud Storage, consider using
-[Multi-Regional Storage](https://cloud.google.com/storage/docs/storage-classes#multi-regional).
-Or you can use the [Storage Transfer Service](https://cloud.google.com/storage-transfer/docs/overview),
-although this only supports daily synchronization.
+If you are using Google Cloud Storage, consider using [Multi-Regional Storage](https://cloud.google.com/storage/docs/storage-classes#multi-regional).
+Or you can use the [Storage Transfer Service](https://cloud.google.com/storage-transfer/docs/overview), although this only supports daily synchronization.
 
 For manual synchronization, or scheduled by `cron`, see:
 

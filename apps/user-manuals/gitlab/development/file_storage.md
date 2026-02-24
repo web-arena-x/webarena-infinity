@@ -12,28 +12,27 @@ File uploads should be accelerated by workhorse, for details refer to [uploads d
 There are many places where file uploading is used, according to contexts:
 
 - System
-  - Instance Logo (logo visible in sign in/sign up pages)
-  - Header Logo (one displayed in the navigation bar)
+ - Instance Logo (logo visible in sign in/sign up pages)
+ - Header Logo (one displayed in the navigation bar)
 - Group
-  - Group avatars
+ - Group avatars
 - User
-  - User avatars
-  - User snippet attachments
+ - User avatars
+ - User snippet attachments
 - Project
-  - Project avatars
-  - Issues/MR/Notes Markdown attachments
-  - Issues/MR/Notes Legacy Markdown attachments
-  - CI Artifacts (archive, metadata, trace)
-  - LFS Objects
-  - Merge request diffs
-  - Design Management design thumbnails
+ - Project avatars
+ - Issues/MR/Notes Markdown attachments
+ - Issues/MR/Notes Legacy Markdown attachments
+ - CI Artifacts (archive, metadata, trace)
+ - LFS Objects
+ - Merge request diffs
+ - Design Management design thumbnails
 - Topic
-  - Topic avatars
+ - Topic avatars
 
 ## Disk storage
 
-GitLab started saving everything on local disk. While directory location changed from previous versions,
-they are still not 100% standardized. You can see them below:
+GitLab started saving everything on local disk. While directory location changed from previous versions, they are still not 100% standardized. You can see them below:
 
 | Description                           | In DB? | Relative path (from CarrierWave.root)                       | Uploader class         | Model type |
 | ------------------------------------- | ------ | ----------------------------------------------------------- | ---------------------- | ---------- |
@@ -44,23 +43,19 @@ they are still not 100% standardized. You can see them below:
 | User snippet attachments              | yes    | `uploads/-/system/personal_snippet/:id/:random_hex/:filename` | `PersonalFileUploader` | Snippet    |
 | Project avatars                       | yes    | `uploads/-/system/project/avatar/:id/:filename`               | `AvatarUploader`       | Project    |
 | Topic avatars                         | yes    | `uploads/-/system/projects/topic/avatar/:id/:filename`        | `AvatarUploader`       | Topic      |
-| Issues/MR/Notes Markdown attachments  | yes    | `uploads/:hash_project_id/:random_hex/:filename`  | `FileUploader`         | Project    |
+| Issues/MR/Notes Markdown attachments | yes    | `uploads/:hash_project_id/:random_hex/:filename` | `FileUploader`         | Project    |
 | Design Management design thumbnails   | yes | `uploads/-/system/design_management/action/image_v432x230/:id/:filename` | `DesignManagement::DesignV432x230Uploader` | DesignManagement::Action |
-| CI Artifacts (CE)                     | yes    | `shared/artifacts/:disk_hash[0..1]/:disk_hash[2..3]/:disk_hash/:year_:month_:date/:job_id/:job_artifact_id` (`:disk_hash` is SHA256 digest of `project_id`) | `JobArtifactUploader`  | Ci::JobArtifact  |
-| LFS Objects (CE)                      | yes    | `shared/lfs-objects/:hex/:hex/:object_hash`                   | `LfsObjectUploader`    | LfsObject  |
+| CI Artifacts (CE)                     | yes    | `shared/artifacts/:disk_hash[0..1]/:disk_hash[2..3]/:disk_hash/:year_:month_:date/:job_id/:job_artifact_id` (`:disk_hash` is SHA256 digest of `project_id`) | `JobArtifactUploader` | Ci::JobArtifact |
+| LFS Objects (CE)                      | yes    | `shared/lfs-objects/:hex/:hex/:object_hash`                   | `LfsObjectUploader`    | LfsObject |
 | External merge request diffs          | yes    | `shared/external-diffs/merge_request_diffs/mr-:parent_id/diff-:id` | `ExternalDiffUploader` | MergeRequestDiff |
 | Issuable metric images                | yes    | `uploads/-/system/issuable_metric_image/file/:id/:filename` | `IssuableMetricImageUploader` | IssuableMetricImage |
 
-CI Artifacts and LFS Objects behave differently in CE and EE. In CE they inherit the `GitlabUploader`
-while in EE they inherit the `ObjectStorage` and store files in and S3 API compatible object store.
+CI Artifacts and LFS Objects behave differently in CE and EE. In CE they inherit the `GitlabUploader` while in EE they inherit the `ObjectStorage` and store files in and S3 API compatible object store.
 
-Attachments for issues, merge requests (MR), and notes in Markdown use
-[hashed storage](../administration/repository_storage_paths.md) with the hash of the project ID.
+Attachments for issues, merge requests (MR), and notes in Markdown use [hashed storage](../administration/repository_storage_paths.md) with the hash of the project ID.
 
 We provide an [all-in-one Rake task](../administration/raketasks/uploads/migrate.md)
-to migrate all uploads to object storage in one go. If a new Uploader class or model
-type is introduced, make sure you add a Rake task invocation corresponding to it to the
-[category list](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/tasks/gitlab/uploads/migrate.rake).
+to migrate all uploads to object storage in one go. If a new Uploader class or model type is introduced, make sure you add a Rake task invocation corresponding to it to the [category list](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/tasks/gitlab/uploads/migrate.rake).
 
 ### Path segments
 
@@ -72,7 +67,7 @@ All the `GitlabUploader` derived classes should comply with this path segment sc
 | ----------------------- + ------------------------- + --------------------------------- + -------------------------------- |
 | `<gitlab_root>/public/` | `uploads/-/system/`       | `user/avatar/:id/`                | `:filename`                      |
 | ----------------------- + ------------------------- + --------------------------------- + -------------------------------- |
-| `CarrierWave.root`      | `GitlabUploader.base_dir` | `GitlabUploader#dynamic_segment`  | `CarrierWave::Uploader#filename` |
+| `CarrierWave.root`      | `GitlabUploader.base_dir` | `GitlabUploader#dynamic_segment` | `CarrierWave::Uploader#filename` |
 |                         | `CarrierWave::Uploader#store_dir`                             |                                  |
 
 |   FileUploader
@@ -80,7 +75,7 @@ All the `GitlabUploader` derived classes should comply with this path segment sc
 | `<gitlab_root>/shared/` | `artifacts/`              | `:year_:month/:id`                | `:filename`                      |
 | `<gitlab_root>/shared/` | `snippets/`               | `:secret/`                        | `:filename`                      |
 | ----------------------- + ------------------------- + --------------------------------- + -------------------------------- |
-| `CarrierWave.root`      | `GitlabUploader.base_dir` | `GitlabUploader#dynamic_segment`  | `CarrierWave::Uploader#filename` |
+| `CarrierWave.root`      | `GitlabUploader.base_dir` | `GitlabUploader#dynamic_segment` | `CarrierWave::Uploader#filename` |
 |                         | `CarrierWave::Uploader#store_dir`                             |                                  |
 |                         |                           | `FileUploader#upload_path`                                           |
 
@@ -89,17 +84,15 @@ All the `GitlabUploader` derived classes should comply with this path segment sc
 | `<bucket_name>`         | <ignored>                 | `user/avatar/:id/`                  | `:filename`                      |
 | ----------------------- + ------------------------- + ----------------------------------- + -------------------------------- |
 | `#fog_dir`              | `GitlabUploader.base_dir` | `GitlabUploader#dynamic_segment`    | `CarrierWave::Uploader#filename` |
-|                         |                           | `ObjectStorage::Concern#store_dir`  |                                  |
+|                         |                           | `ObjectStorage::Concern#store_dir` |                                  |
 |                         |                           | `ObjectStorage::Concern#upload_path`                                   |
 ```
 
-The `RecordsUploads::Concern` concern creates an `Upload` entry for every file stored by a `GitlabUploader` persisting the dynamic parts of the path using
-`GitlabUploader#dynamic_path`. You may then use the `Upload#build_uploader` method to manipulate the file.
+The `RecordsUploads::Concern` concern creates an `Upload` entry for every file stored by a `GitlabUploader` persisting the dynamic parts of the path using `GitlabUploader#dynamic_path`. You may then use the `Upload#build_uploader` method to manipulate the file.
 
 ## Object Storage
 
-By including the `ObjectStorage::Concern` in the `GitlabUploader` derived class, you may enable the object storage for this uploader. To enable the object storage
-in your uploader, you need to either 1) include `RecordsUpload::Concern` and prepend `ObjectStorage::Extension::RecordsUploads` or 2) mount the uploader and create a new field named `<mount>_store`.
+By including the `ObjectStorage::Concern` in the `GitlabUploader` derived class, you may enable the object storage for this uploader. To enable the object storage in your uploader, you need to either 1) include `RecordsUpload::Concern` and prepend `ObjectStorage::Extension::RecordsUploads` or 2) mount the uploader and create a new field named `<mount>_store`.
 
 The `CarrierWave::Uploader#store_dir` is overridden to
 
@@ -114,17 +107,17 @@ The `ObjectStorage::Concern` uploader searches for the matching `Upload` to sele
 
 ```ruby
 class SongUploader < GitlabUploader
-  include RecordsUploads::Concern
-  include ObjectStorage::Concern
-  prepend ObjectStorage::Extension::RecordsUploads
+ include RecordsUploads::Concern
+ include ObjectStorage::Concern
+ prepend ObjectStorage::Extension::RecordsUploads
 
-  ...
+ ...
 end
 
 class Thing < ActiveRecord::Base
-  mount :theme, SongUploader # we have a great theme song!
+ mount :theme, SongUploader # we have a great theme song!
 
-  ...
+ ...
 end
 ```
 
@@ -135,19 +128,19 @@ This column must be present in the model schema.
 
 ```ruby
 class SongUploader < GitlabUploader
-  include ObjectStorage::Concern
+ include ObjectStorage::Concern
 
-  ...
+ ...
 end
 
 class Thing < ActiveRecord::Base
-  attr_reader :theme_store # this is an ActiveRecord attribute
-  mount :theme, SongUploader # we have a great theme song!
+ attr_reader :theme_store # this is an ActiveRecord attribute
+ mount :theme, SongUploader # we have a great theme song!
 
-  def theme_store
+ def theme_store
     super || ObjectStorage::Store::LOCAL
-  end
+ end
 
-  ...
+ ...
 end
 ```

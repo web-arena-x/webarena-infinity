@@ -24,8 +24,7 @@ The Linux package requires about 2.5 GB of storage space for installation.
 For storage flexibility, consider mounting your hard drive through logical volume management.
 You should have a hard drive with at least 7,200 RPM or a solid-state drive to reduce response times.
 
-Because file system performance might affect the overall performance of GitLab, you should
-[avoid using cloud-based file systems for storage](../administration/nfs.md#avoid-using-cloud-based-file-systems).
+Because file system performance might affect the overall performance of GitLab, you should [avoid using cloud-based file systems for storage](../administration/nfs.md#avoid-using-cloud-based-file-systems).
 
 ## CPU
 
@@ -33,8 +32,7 @@ CPU requirements depend on the number of users and expected workload.
 The workload includes your users' activity, use of automation and mirroring, and repository size.
 
 For a maximum of 20 requests per second or 1,000 users, you should have 8 vCPU.
-For more users or higher workload,
-see [reference architectures](../administration/reference_architectures/_index.md).
+For more users or higher workload, see [reference architectures](../administration/reference_architectures/_index.md).
 
 ## Memory
 
@@ -42,12 +40,10 @@ Memory requirements depend on the number of users and expected workload.
 The workload includes your users' activity, use of automation and mirroring, and repository size.
 
 For a maximum of 20 requests per second or 1,000 users, you should have 16 GB of memory.
-For more users or higher workload,
-see [reference architectures](../administration/reference_architectures/_index.md).
+For more users or higher workload, see [reference architectures](../administration/reference_architectures/_index.md).
 
 In some cases, GitLab can run with at least 8 GB of memory.
-For more information, see
-[running GitLab in a memory-constrained environment](https://docs.gitlab.com/omnibus/settings/memory_constrained_envs.html).
+For more information, see [running GitLab in a memory-constrained environment](https://docs.gitlab.com/omnibus/settings/memory_constrained_envs.html).
 
 ## PostgreSQL
 
@@ -55,12 +51,10 @@ For more information, see
 You can also use an [external PostgreSQL database](https://docs.gitlab.com/omnibus/settings/database.html#using-a-non-packaged-postgresql-database-management-server)
 [which must be configured correctly](#postgresql-settings).
 
-Depending on the [number of users](../administration/reference_architectures/_index.md),
-the PostgreSQL server should have:
+Depending on the [number of users](../administration/reference_architectures/_index.md), the PostgreSQL server should have:
 
 - For most GitLab instances, at least 5 to 10 GB of storage
-- For GitLab Ultimate, at least 12 GB of storage
-  (1 GB of vulnerability data must be imported)
+- For GitLab Ultimate, at least 12 GB of storage (1 GB of vulnerability data must be imported)
 
 For the following versions of GitLab, use these PostgreSQL versions:
 
@@ -75,16 +69,14 @@ Minor PostgreSQL releases [include only bug and security fixes](https://www.post
 Always use the latest minor version to avoid known issues in PostgreSQL.
 For more information, see [issue 364763](https://gitlab.com/gitlab-org/gitlab/-/issues/364763).
 
-To use a later major version of PostgreSQL than specified, check if a
-[later version is bundled with the Linux package](http://gitlab-org.gitlab.io/omnibus-gitlab/licenses.html).
+To use a later major version of PostgreSQL than specified, check if a [later version is bundled with the Linux package](http://gitlab-org.gitlab.io/omnibus-gitlab/licenses.html).
 
 You must also ensure some extensions are loaded into every GitLab database.
 For more information, see [managing PostgreSQL extensions](postgresql_extensions.md).
 
 ### GitLab Geo
 
-For [GitLab Geo](../administration/geo/_index.md), you should use the Linux package or
-[validated cloud providers](../administration/reference_architectures/_index.md#recommended-cloud-providers-and-services)
+For [GitLab Geo](../administration/geo/_index.md), you should use the Linux package or [validated cloud providers](../administration/reference_architectures/_index.md#recommended-cloud-providers-and-services)
 to install GitLab.
 Compatibility with other external databases is not guaranteed.
 
@@ -92,10 +84,8 @@ For more information, see [requirements for running Geo](../administration/geo/_
 
 ### Locale compatibility
 
-When you change locale data in `glibc`, PostgreSQL database files are
-no longer fully compatible between different operating systems.
-To avoid index corruption,
-[check for locale compatibility](../administration/geo/replication/troubleshooting/common.md#check-os-locale-data-compatibility)
+When you change locale data in `glibc`, PostgreSQL database files are no longer fully compatible between different operating systems.
+To avoid index corruption, [check for locale compatibility](../administration/geo/replication/troubleshooting/common.md#check-os-locale-data-compatibility)
 when you:
 
 - Move binary PostgreSQL data between servers.
@@ -106,8 +96,7 @@ For more information, see [upgrading operating systems for PostgreSQL](../admini
 
 ### GitLab schemas
 
-You should create or use databases exclusively for GitLab, [Geo](../administration/geo/_index.md),
-[Gitaly Cluster (Praefect)](../administration/gitaly/praefect/_index.md), or other components.
+You should create or use databases exclusively for GitLab, [Geo](../administration/geo/_index.md), [Gitaly Cluster (Praefect)](../administration/gitaly/praefect/_index.md), or other components.
 Do not create or modify databases, schemas, users, or other properties except when you follow:
 
 - Procedures in the GitLab documentation
@@ -129,20 +118,19 @@ Here are some required settings for externally managed PostgreSQL instances.
 
 | Tunable setting        | Required value | More information |
 |:-----------------------|:---------------|:-----------------|
-| `work_mem`             | minimum `8 MB`  | This value is the Linux package default. In large deployments, if queries create temporary files, you should increase this setting. |
+| `work_mem`             | minimum `8 MB` | This value is the Linux package default. In large deployments, if queries create temporary files, you should increase this setting. |
 | `maintenance_work_mem` | minimum `64 MB` | You require [more for larger database servers](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/8377#note_1728173087). |
 | `max_connections`      | minimum `400`   | Calculate based on your GitLab components. See [Tune PostgreSQL](../administration/postgresql/tune.md) page for detailed guidance. |
-| `shared_buffers`       | minimum `2 GB`  | You require more for larger database servers. The Linux package default is set to 25% of server RAM. |
+| `shared_buffers`       | minimum `2 GB` | You require more for larger database servers. The Linux package default is set to 25% of server RAM. |
 | `statement_timeout`    | 15000 to 60000 | A statement timeout prevents runaway issues with locks and the database rejecting new clients. You should use values between 15 and 60 seconds (15000 to 60000 milliseconds), where one minute matches the Puma rack timeout setting. |
 | `hot_standby_feedback` | `on` | For configurations with multiple nodes and [database load balancing](../administration/postgresql/database_load_balancing.md#configuring-database-load-balancing) configured, ensure that all replica nodes have `hot_standby_feedback` enabled to prevent lag buildup. |
 
-You can configure some PostgreSQL settings for the specific database, rather than for all
-databases on the server.
+You can configure some PostgreSQL settings for the specific database, rather than for all databases on the server.
 
 - You might limit configuration to specific databases when hosting multiple databases on the same server.
 - For guidance on where to apply configuration, consult your database administrator or vendor.
 - For GCP Cloud SQL, you can set `statement_timeout` on a specific database or user, but not [as a database flag](https://cloud.google.com/sql/docs/postgres/flags#list-flags-postgres).
-  For example: `ALTER DATABASE gitlab SET statement_timeout = '60s';`
+ For example: `ALTER DATABASE gitlab SET statement_timeout = '60s';`
 
 ## Puma
 
@@ -152,15 +140,13 @@ By default, the Linux package uses the recommended settings.
 To adjust Puma settings:
 
 - For the Linux package, see [Puma settings](../administration/operations/puma.md).
-- For the GitLab Helm chart, see the
-  [`webservice` chart](https://docs.gitlab.com/charts/charts/gitlab/webservice/).
+- For the GitLab Helm chart, see the [`webservice` chart](https://docs.gitlab.com/charts/charts/gitlab/webservice/).
 
 ### Workers
 
 The recommended number of Puma workers largely depends on CPU and memory capacity.
 By default, the Linux package uses the recommended number of workers.
-For more information about how this number is calculated,
-see [`puma.rb`](https://gitlab.com/gitlab-org/omnibus-gitlab/-/blob/master/files/gitlab-cookbooks/gitlab/libraries/puma.rb?ref_type=heads#L46-69).
+For more information about how this number is calculated, see [`puma.rb`](https://gitlab.com/gitlab-org/omnibus-gitlab/-/blob/master/files/gitlab-cookbooks/gitlab/libraries/puma.rb?ref_type=heads#L46-69).
 
 A node must never have fewer than two Puma workers.
 For example, a node should have:
@@ -190,35 +176,30 @@ More threads would lead to excessive swapping and lower performance.
 
 ## Redis
 
-[Redis](https://redis.io/) stores all user sessions and background tasks
-and requires about 25 kB per user on average.
+[Redis](https://redis.io/) stores all user sessions and background tasks and requires about 25 kB per user on average.
 
 In GitLab 16.0 and later, Redis 6.x or 7.x is required.
-For more information about end-of-life dates, see the
-[Redis documentation](https://redis.io/docs/latest/operate/rs/installing-upgrading/product-lifecycle/).
+For more information about end-of-life dates, see the [Redis documentation](https://redis.io/docs/latest/operate/rs/installing-upgrading/product-lifecycle/).
 
 For Redis:
 
 - Use a standalone instance (with or without high availability).
-  Redis Cluster is not supported.
+ Redis Cluster is not supported.
 - Set the [eviction policy](../administration/redis/replication_and_failover_external.md#setting-the-eviction-policy) as appropriate.
 
 ## Sidekiq
 
 [Sidekiq](https://sidekiq.org/) uses a multi-threaded process for background jobs.
-This process initially consumes more than 200 MB of memory
-and might grow over time due to memory leaks.
+This process initially consumes more than 200 MB of memory and might grow over time due to memory leaks.
 
-On a very active server with more than 10,000 billable users,
-the Sidekiq process might consume more than 1 GB of memory.
+On a very active server with more than 10,000 billable users, the Sidekiq process might consume more than 1 GB of memory.
 
 ## Prometheus
 
 By default, [Prometheus](https://prometheus.io) and its related exporters are enabled to monitor GitLab.
 These processes consume approximately 200 MB of memory.
 
-For more information, see
-[monitoring GitLab with Prometheus](../administration/monitoring/prometheus/_index.md).
+For more information, see [monitoring GitLab with Prometheus](../administration/monitoring/prometheus/_index.md).
 
 ## Supported web browsers
 

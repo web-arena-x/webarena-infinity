@@ -2,9 +2,7 @@
 
 Are you looking for a handy resource to translate the terminology you are familiar using in Jira to the applicable features in Linear? Look no further! See the most common terms used in Jira below and the equivalent in Linear.
 
-Jira | Linear
---- | ---
-**Burndown Chart** | **Burn-up Chart**
+Jira | Linear --- | --- **Burndown Chart** | **Burn-up Chart**
 
 Also known as cumulative flow diagrams, show how streams of work have changed over time. Unlike other insights, burn-up charts display your historical issue data so you can analyze and detect patterns across specific time windows. See documentation [here](https://linear.app/docs/insights#burn-up-charts).
 

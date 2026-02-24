@@ -6,19 +6,17 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408889279514-Keyboard-sho
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Guide Professional or Enterprise |
 
-In addition to the [help center article editor toolbar](https://support.zendesk.com/hc/en-us/articles/4408839186586), you can use
-keyboard shortcuts to help format your knowledge base articles.
+In addition to the [help center article editor toolbar](https://support.zendesk.com/hc/en-us/articles/4408839186586), you can use keyboard shortcuts to help format your knowledge base articles.
 
-This article describes the keyboard shortcuts available with both the [new article editor](https://support.zendesk.com/hc/en-us/articles/7595840358042) and the legacy editor. For more information about
-transitioning from the legacy editor to the new article editor, see [Transitioning to the new article editor: Phase overview](https://support.zendesk.com/hc/en-us/community/posts/9228848607002).
+This article describes the keyboard shortcuts available with both the [new article editor](https://support.zendesk.com/hc/en-us/articles/7595840358042) and the legacy editor. For more information about transitioning from the legacy editor to the new article editor, see [Transitioning to the new article editor: Phase overview](https://support.zendesk.com/hc/en-us/community/posts/9228848607002).
 
 This article includes the following sections:
 
@@ -27,8 +25,7 @@ This article includes the following sections:
 
 ## Keyboard shortcuts for the new article editor
 
-The following table lists the PC and Mac keyboard shortcuts available for the new article
-editor.
+The following table lists the PC and Mac keyboard shortcuts available for the new article editor.
 
 | Shortcut | PC | Mac |
 | --- | --- | --- |
@@ -47,8 +44,7 @@ editor.
 
 ## Keyboard shortcuts for the legacy article editor
 
-The following table lists the PC and Mac keyboard shortcuts available for the legacy
-article editor.
+The following table lists the PC and Mac keyboard shortcuts available for the legacy article editor.
 
 | Shortcut | PC | Mac |
 | --- | --- | --- |

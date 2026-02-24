@@ -56,7 +56,7 @@ To react to a post, choose the following:
 - Three dots to either "hide" or "report" content, or "unfollow" a user
 - User or employer's name to be directed to their profile in Handshake
 - The plus sign on a users icon to follow them
-  - T*o learn more about following users on Handshake, refer to* [Following Users on Handshake](../build-your-network/following-users-on-handshake.md).
+ - T*o learn more about following users on Handshake, refer to* [Following Users on Handshake](../build-your-network/following-users-on-handshake.md).
 
 **Important**: If you come across content in the home feed that you believe violates our Content Policy or Terms of Service, you can report it directly within the app. We take all reports seriously and will review them promptly.
 

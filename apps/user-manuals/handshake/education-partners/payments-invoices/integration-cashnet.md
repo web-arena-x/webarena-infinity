@@ -41,11 +41,11 @@ If you are interested in using different item codes for each career center in Ha
 ## **FAQs**
 
 - Can two career centers use the same item code?
-  - Yes, you can use the same item code at multiple career centers or different ones at each.
-- What fields are sent to CASHNet from Handshake?   
-  - Event ID or Fair ID or Interview Schedule ID
-  - Event Name or Fair Name or Interview Name
-  - Employer ID (if employer payment) or User ID (if student payment)
-  - Employer Name
-  - Career Center Name
-  - Career Center ID
+ - Yes, you can use the same item code at multiple career centers or different ones at each.
+- What fields are sent to CASHNet from Handshake?  
+ - Event ID or Fair ID or Interview Schedule ID
+ - Event Name or Fair Name or Interview Name
+ - Employer ID (if employer payment) or User ID (if student payment)
+ - Employer Name
+ - Career Center Name
+ - Career Center ID

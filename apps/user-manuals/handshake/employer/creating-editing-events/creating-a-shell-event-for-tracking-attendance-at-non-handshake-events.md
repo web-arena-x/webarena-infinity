@@ -25,18 +25,18 @@ Features available only to Premium partners are indicated by an asterisk (\*).*F
 2. Complete the form below, paying special attention to the fields below:
 
 - **Where is your event being held?** 
-  - Off-campus
-  - Virtually
+ - Off-campus
+ - Virtually
     - **\*Handshake Video** *(only available to Premium partners with the Events Module)*
     - **External video platform** *(enter your video platform details (Zoom, Youtube, Webex, etc.)*
 - **\*Attendee check-in** (*only available for events with Handshake hosted video*)
-  - Check this box to enable automatic check-in when candidates join a virtual event hosted via Handshake Video.
+ - Check this box to enable automatic check-in when candidates join a virtual event hosted via Handshake Video.
 - **Invite schools to promote your event** 
-  - Don't select any schools in this field.
-  - **Note**: Excluding schools makes the event private and invisible to students, allowing it to function solely as a check-in tool for tracking attendance.
+ - Don't select any schools in this field.
+ - **Note**: Excluding schools makes the event private and invisible to students, allowing it to function solely as a check-in tool for tracking attendance.
 - **Add a registration limit** *(optional)* 
-  - Set a registration limit if preferred.
-  - **Note**: Handshake Video supports up to 100 attendees, including your team members. Limits for external platforms are determined by the provider.
+ - Set a registration limit if preferred.
+ - **Note**: Handshake Video supports up to 100 attendees, including your team members. Limits for external platforms are determined by the provider.
 
 ### Event overview
 

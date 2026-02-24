@@ -12,21 +12,16 @@ title: Protected environments
 
 {{< /details >}}
 
-[Environments](_index.md) can be used for both testing and
-production reasons.
+[Environments](_index.md) can be used for both testing and production reasons.
 
-Because deploy jobs can be raised by different users with different roles, it's
-important to be able to protect specific environments from the effects of
-unauthorized users.
+Because deploy jobs can be raised by different users with different roles, it's important to be able to protect specific environments from the effects of unauthorized users.
 
-By default, a protected environment ensures that only people with the
-appropriate privileges can deploy to it, keeping the environment safe.
+By default, a protected environment ensures that only people with the appropriate privileges can deploy to it, keeping the environment safe.
 
 > [!note]
 > GitLab administrators can use all environments, including protected environments.
 
-To protect, update, or unprotect an environment, you need to have at least the
-Maintainer role.
+To protect, update, or unprotect an environment, you need to have at least the Maintainer role.
 
 ## Protecting environments
 
@@ -34,8 +29,8 @@ Prerequisites:
 
 - When granting the **Allowed to deploy** permission to an approver group, the user configuring the protected environment must be a **direct member** of the approver group to be added. Otherwise, the group or subgroup does not show up in the dropdown list. For more information see [issue #345140](https://gitlab.com/gitlab-org/gitlab/-/issues/345140).
 - When granting **Approvers** permissions to an approver group or project, by default only direct members of the approver group or project receive these permissions. To also grant these permissions to inherited members of the approver group or project:
-  - Select the **Enable group inheritance** checkbox.
-  - [Use the API](../../api/protected_environments.md#group-inheritance-types).
+ - Select the **Enable group inheritance** checkbox.
+ - [Use the API](../../api/protected_environments.md#group-inheritance-types).
 
 To protect an environment:
 
@@ -44,28 +39,23 @@ To protect an environment:
 1. Expand **Protected environments**.
 1. Select **Protect an environment**.
 1. From the **Environment** list, select the environment you want to protect.
-1. In the **Allowed to deploy** list, select the role, users, or groups you
-   want to give deploy access to. Keep in mind that:
+1. In the **Allowed to deploy** list, select the role, users, or groups you want to give deploy access to. Keep in mind that:
    - There are two roles to choose from:
      - **Maintainers**: Allows access to all of the project's users with the Maintainer role.
      - **Developers**: Allows access to all of the project's users with the Maintainer and Developer role.
    - You can also select groups that are already [invited](../../user/project/members/sharing_projects_groups.md#invite-a-group-to-a-project) to the project. Invited groups added to the project with the Reporter role appear in the dropdown list for [deployment-only access](#deployment-only-access-to-protected-environments).
-   - You can also select specific users. The users must have at least the Developer role to appear in
-     the **Allowed to deploy** list.
-1. In the **Approvers** list, select the role, users, or groups you
-   want to give deploy access to. Keep in mind that:
+   - You can also select specific users. The users must have at least the Developer role to appear in the **Allowed to deploy** list.
+1. In the **Approvers** list, select the role, users, or groups you want to give deploy access to. Keep in mind that:
 
    - There are two roles to choose from:
      - **Maintainers**: Allows access to all of the project's users with the Maintainer role.
      - **Developers**: Allows access to all of the project's users with the Maintainer and Developer role.
    - You can only select groups that are already [invited](../../user/project/members/sharing_projects_groups.md#invite-a-group-to-a-project) to the project.
-   - Users must have at least the Developer role to appear in
-     the **Approvers** list.
+   - Users must have at least the Developer role to appear in the **Approvers** list.
 
 1. In the **Approval rules** section:
 
-   - Ensure that this number is less than or equal to the number of members in
-     the rule.
+   - Ensure that this number is less than or equal to the number of members in the rule.
    - See [Deployment Approvals](deployment_approvals.md) for more information about this feature.
 
 1. Select **Protect**.
@@ -98,8 +88,7 @@ Alternatively, you can use the API to protect an environment:
    ```
 
 1. Use the UI to [create a new group](../../user/group/_index.md#create-a-group).
-   For example, this group is called `protected-access-group` and has the group ID `9899826`. Note
-   that the rest of the examples in these steps use this group.
+   For example, this group is called `protected-access-group` and has the group ID `9899826`. Note that the rest of the examples in these steps use this group.
 
    ![Protected access group interface with the New project button highlighted.](img/protected_access_group_v13_6.png)
 
@@ -132,20 +121,16 @@ The group now has access and can be seen in the UI.
 
 ## Environment access by group membership
 
-A user may be granted access to protected environments as part of [group membership](../../user/group/_index.md). Users
-with the Reporter role can only be granted access to protected environments with this
-method.
+A user may be granted access to protected environments as part of [group membership](../../user/group/_index.md). Users with the Reporter role can only be granted access to protected environments with this method.
 
 ## Deployment branch access
 
-Users with the Developer role can be granted
-access to a protected environment through any of these methods:
+Users with the Developer role can be granted access to a protected environment through any of these methods:
 
 - As an individual contributor, through a role.
 - Through a group membership.
 
-If the user also has push or merge access to the branch deployed on production,
-they have the following privileges:
+If the user also has push or merge access to the branch deployed on production, they have the following privileges:
 
 - [Stop an environment](_index.md#stopping-an-environment).
 - [Delete an environment](_index.md#delete-an-environment).
@@ -153,10 +138,8 @@ they have the following privileges:
 
 ## Deployment-only access to protected environments
 
-Users granted access to a protected environment, but not push or merge access
-to the branch deployed to it, are only granted access to deploy the environment.
-[Invited groups](../../user/project/members/sharing_projects_groups.md#invite-a-group-to-a-project) added
-to the project with [Reporter role](../../user/permissions.md#project-permissions), appear in the dropdown list for deployment-only access.
+Users granted access to a protected environment, but not push or merge access to the branch deployed to it, are only granted access to deploy the environment.
+[Invited groups](../../user/project/members/sharing_projects_groups.md#invite-a-group-to-a-project) added to the project with [Reporter role](../../user/permissions.md#project-permissions), appear in the dropdown list for deployment-only access.
 
 To add deployment-only access:
 
@@ -168,12 +151,10 @@ To add deployment-only access:
 
 Maintainers can:
 
-- Update existing protected environments at any time by changing the access in the
-  **Allowed to Deploy** dropdown list.
+- Update existing protected environments at any time by changing the access in the **Allowed to Deploy** dropdown list.
 - Unprotect a protected environment by selecting the **Unprotect** button for that environment.
 
-After an environment is unprotected, all access entries are deleted and must
-be re-entered if the environment is re-protected.
+After an environment is unprotected, all access entries are deleted and must be re-entered if the environment is re-protected.
 
 After an approval rule is deleted, previously approved deployments do not show who approved the deployment.
 Information on who approved a deployment is still available in the [project audit events](../../user/compliance/audit_events.md#project-audit-events).
@@ -183,36 +164,29 @@ For more information, see [Deployment safety](deployment_safety.md).
 
 ## Group-level protected environments
 
-Typically, large enterprise organizations have an explicit permission boundary
-between [developers and operators](https://about.gitlab.com/topics/devops/).
-Developers build and test their code, and operators deploy and monitor the
-application. With group-level protected environments, operators can
-restrict access to critical environments from developers. Group-level protected environments
-extend the [project-level protected environments](#protecting-environments)
+Typically, large enterprise organizations have an explicit permission boundary between [developers and operators](https://about.gitlab.com/topics/devops/).
+Developers build and test their code, and operators deploy and monitor the application. With group-level protected environments, operators can restrict access to critical environments from developers. Group-level protected environments extend the [project-level protected environments](#protecting-environments)
 to the group-level.
 
 The permissions of deployments can be illustrated in the following table:
 
-| Environment | Developer  | Operator | Category |
+| Environment | Developer | Operator | Category |
 |-------------|------------|----------|----------|
-| Development | Allowed    | Allowed  | Lower environment |
-| Testing     | Allowed    | Allowed  | Lower environment |
-| Staging     | Disallowed | Allowed  | Higher environment |
-| Production  | Disallowed | Allowed  | Higher environment |
+| Development | Allowed    | Allowed | Lower environment |
+| Testing     | Allowed    | Allowed | Lower environment |
+| Staging     | Disallowed | Allowed | Higher environment |
+| Production | Disallowed | Allowed | Higher environment |
 
 _(Reference: [Deployment environments on Wikipedia](https://en.wikipedia.org/wiki/Deployment_environment))_
 
 ### Group-level protected environments names
 
-Contrary to project-level protected environments, group-level protected
-environments use the [deployment tier](_index.md#deployment-tier-of-environments)
+Contrary to project-level protected environments, group-level protected environments use the [deployment tier](_index.md#deployment-tier-of-environments)
 as their name.
 
 A group may consist of many project environments that have unique names.
-For example, Project-A has a `gprd` environment and Project-B has a `Production`
-environment, so protecting a specific environment name doesn't scale well.
-By using deployment tiers, both are recognized as `production` deployment tier
-and are protected at the same time.
+For example, Project-A has a `gprd` environment and Project-B has a `Production` environment, so protecting a specific environment name doesn't scale well.
+By using deployment tiers, both are recognized as `production` deployment tier and are protected at the same time.
 
 ### Configure group-level memberships
 
@@ -223,47 +197,25 @@ and are protected at the same time.
 
 {{< /history >}}
 
-To maximize the effectiveness of group-level protected environments,
-[group-level memberships](../../user/group/_index.md) must be correctly
-configured:
+To maximize the effectiveness of group-level protected environments, [group-level memberships](../../user/group/_index.md) must be correctly configured:
 
-- Operators should be given the Owner role
-  for the top-level group. They can maintain CI/CD configurations for
-  the higher environments (such as production) in the group-level settings page,
-  which includes group-level protected environments,
-  [group-level runners](../runners/runners_scope.md#group-runners), and
-  [group-level clusters](../../user/group/clusters/_index.md). Those
-  configurations are inherited to the child projects as read-only entries.
-  This ensures that only operators can configure the organization-wide
-  deployment ruleset.
-- Developers should be given no more than the Developer role
-  for the top-level group, or explicitly given the Owner role for a child project.
-  They do not have access to the CI/CD configurations in the
-  top-level group, so operators can ensure that the critical configuration won't
-  be accidentally changed by the developers.
+- Operators should be given the Owner role for the top-level group. They can maintain CI/CD configurations for the higher environments (such as production) in the group-level settings page, which includes group-level protected environments, [group-level runners](../runners/runners_scope.md#group-runners), and [group-level clusters](../../user/group/clusters/_index.md). Those configurations are inherited to the child projects as read-only entries.
+ This ensures that only operators can configure the organization-wide deployment ruleset.
+- Developers should be given no more than the Developer role for the top-level group, or explicitly given the Owner role for a child project.
+ They do not have access to the CI/CD configurations in the top-level group, so operators can ensure that the critical configuration won't be accidentally changed by the developers.
 - For subgroups and child projects:
-  - Regarding [subgroups](../../user/group/subgroups/_index.md), if a higher
-    group has configured the group-level protected environment, the lower groups
-    cannot override it.
-  - [Project-level protected environments](#protecting-environments) can be
-    combined with the group-level setting. If both group-level and project-level
-    environment configurations exist, to run a deployment job, the user must be allowed in **both**
-    rulesets.
-  - In a project or a subgroup of the top-level group, developers can be
-    safely assigned the Maintainer role to tune their lower environments (such
-    as `testing`).
+ - Regarding [subgroups](../../user/group/subgroups/_index.md), if a higher group has configured the group-level protected environment, the lower groups cannot override it.
+ - [Project-level protected environments](#protecting-environments) can be combined with the group-level setting. If both group-level and project-level environment configurations exist, to run a deployment job, the user must be allowed in **both** rulesets.
+ - In a project or a subgroup of the top-level group, developers can be safely assigned the Maintainer role to tune their lower environments (such as `testing`).
 
 Having this configuration in place:
 
-- If a user is about to run a deployment job in a project and allowed to deploy
-  to the environment, the deployment job proceeds.
-- If a user is about to run a deployment job in a project but disallowed to
-  deploy to the environment, the deployment job fails with an error message.
+- If a user is about to run a deployment job in a project and allowed to deploy to the environment, the deployment job proceeds.
+- If a user is about to run a deployment job in a project but disallowed to deploy to the environment, the deployment job fails with an error message.
 
 ### Protect critical environments under a group
 
-To protect a group-level environment, make sure your environments have the correct
-[`deployment_tier`](_index.md#deployment-tier-of-environments) defined in `.gitlab-ci.yml`.
+To protect a group-level environment, make sure your environments have the correct [`deployment_tier`](_index.md#deployment-tier-of-environments) defined in `.gitlab-ci.yml`.
 
 #### Using the UI
 

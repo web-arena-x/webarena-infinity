@@ -13,8 +13,7 @@ title: File management
 
 {{< /details >}}
 
-The GitLab UI extends the history and tracking capabilities of Git with user-friendly
-features in your browser. You can:
+The GitLab UI extends the history and tracking capabilities of Git with user-friendly features in your browser. You can:
 
 - Search for files.
 - Change file handling.
@@ -22,8 +21,7 @@ features in your browser. You can:
 
 ## Understand how file types render in the UI
 
-When you add files of these types to your project, GitLab renders their output
-to improve readability:
+When you add files of these types to your project, GitLab renders their output to improve readability:
 
 - [GeoJSON](geojson.md) files display as maps.
 - [Jupyter Notebook](jupyter_notebooks/_index.md) files display as rendered HTML.
@@ -31,8 +29,7 @@ to improve readability:
 
 ### Supported markup languages
 
-If your file has one of the these file extensions, GitLab renders the contents of the file's
-[markup language](https://en.wikipedia.org/wiki/Lightweight_markup_language) in the UI.
+If your file has one of the these file extensions, GitLab renders the contents of the file's [markup language](https://en.wikipedia.org/wiki/Lightweight_markup_language) in the UI.
 
 | Markup language                                              | Extensions |
 |--------------------------------------------------------------|------------|
@@ -40,7 +37,7 @@ If your file has one of the these file extensions, GitLab renders the contents o
 | [Markdown](../../../markdown.md)                             | `mdown`, `mkd`, `mkdn`, `md`, `markdown` |
 | [reStructuredText](https://docutils.sourceforge.io/rst.html) | `rst`      |
 | [AsciiDoc](../../../asciidoc.md)                             | `adoc`, `ad`, `asciidoc` |
-| [Textile](https://textile-lang.com/)                         | `textile`  |
+| [Textile](https://textile-lang.com/)                         | `textile` |
 | [Rdoc](https://rdoc.sourceforge.net/doc/index.html)          | `rdoc`     |
 | [Org mode](https://orgmode.org/)                             | `org`      |
 | [creole](http://www.wikicreole.org/)                         | `creole`   |
@@ -55,17 +52,14 @@ If your file has one of the these file extensions, GitLab renders the contents o
 {{< /history >}}
 
 When a `README`, `index`, or `_index` file is present in a repository, GitLab renders its contents.
-These files can either be plain text or have the extension of a
-supported markup language.
+These files can either be plain text or have the extension of a supported markup language.
 
 The priority order for automatic rendering is:
 
 - Previewable files: `README.md`, `index.md`, `_index.md`, etc.
 - Plain text files: `README`, `index`, `_index`, etc.
 
-The first file found in each category (in alphabetical order) is selected, with
-previewable files taking precedence over plain text files. For example, if
-multiple READMEs are available GitLab renders them in the following order:
+The first file found in each category (in alphabetical order) is selected, with previewable files taking precedence over plain text files. For example, if multiple READMEs are available GitLab renders them in the following order:
 
 1. `README.adoc`
 1. `README.md`
@@ -74,8 +68,7 @@ multiple READMEs are available GitLab renders them in the following order:
 
 ### Render OpenAPI files
 
-GitLab renders OpenAPI specification files if the filename includes `openapi` or `swagger`,
-and the extension is `yaml`, `yml`, or `json`. These examples are all correct:
+GitLab renders OpenAPI specification files if the filename includes `openapi` or `swagger`, and the extension is `yaml`, `yml`, or `json`. These examples are all correct:
 
 - `openapi.yml`, `openapi.yaml`, `openapi.json`
 - `swagger.yml`, `swagger.yaml`, `swagger.json`
@@ -92,8 +85,7 @@ To render an OpenAPI file:
 
 {{< alert type="note" >}}
 
-When `displayOperationId` is present in the query string and has any value, it
-evaluates to `true`. This behavior matches the default behavior of Swagger.
+When `displayOperationId` is present in the query string and has any value, it evaluates to `true`. This behavior matches the default behavior of Swagger.
 
 {{< /alert >}}
 
@@ -102,14 +94,11 @@ evaluates to `true`. This behavior matches the default behavior of Swagger.
 Historical information about files in your repository is available in the GitLab UI:
 
 - [Git file history](git_history.md): shows the commit history of an entire file.
-- [Git blame](git_blame.md): shows each line of a text-based file, and the most
-  recent commit that changed the line.
+- [Git blame](git_blame.md): shows each line of a text-based file, and the most recent commit that changed the line.
 
 ## Create permalinks
 
-Permalinks are permanent URLs that point to specific files, directories, or sections of code
-in your repository. They remain valid even when the repository changes, making them ideal for
-sharing and referencing code in documentation, issues, or merge requests.
+Permalinks are permanent URLs that point to specific files, directories, or sections of code in your repository. They remain valid even when the repository changes, making them ideal for sharing and referencing code in documentation, issues, or merge requests.
 
 To create a permalink:
 
@@ -139,15 +128,13 @@ The availability of this feature is controlled by a feature flag. For more infor
 
 {{< /alert >}}
 
-When viewing a repository file, GitLab shows a badge with the number of open merge requests that target
-the current branch and modify the file. This helps you identify files that have pending changes.
+When viewing a repository file, GitLab shows a badge with the number of open merge requests that target the current branch and modify the file. This helps you identify files that have pending changes.
 
 To view the open merge requests for a file:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Go to the file you want to view.
-1. In the upper right of the screen, next to the filename, look for the green badge with the number
-   of {{< icon name="merge-request-open" >}} **Open** merge requests.
+1. In the upper right of the screen, next to the filename, look for the green badge with the number of {{< icon name="merge-request-open" >}} **Open** merge requests.
 1. Select the badge to see a list of open merge requests created in the past 30 days.
 1. Select any merge request in the list to go to that merge request.
 
@@ -171,8 +158,7 @@ To search for a file, press <kbd>t</kbd> anywhere in your project, or:
 
    ![Find file button](img/file_finder_v17_2.png)
 
-1. Optional. To narrow the search options, press <kbd>Command</kbd>+<kbd>K</kbd> or
-   select **Commands** on the lower right corner of the dialog:
+1. Optional. To narrow the search options, press <kbd>Command</kbd>+<kbd>K</kbd> or select **Commands** on the lower right corner of the dialog:
    - For **Pages or actions**, enter <kbd>></kbd>.
    - For **Users**, enter <kbd>@</kbd>.
    - For **Projects**, enter <kbd>:</kbd>.
@@ -185,13 +171,11 @@ This feature uses the [`fuzzaldrin-plus`](https://github.com/jeancroy/fuzz-aldri
 
 ## Change how Git handles a file
 
-To change the default handling of a file or file type, create a
-[`.gitattributes` file](git_attributes.md). Use `.gitattributes` files to:
+To change the default handling of a file or file type, create a [`.gitattributes` file](git_attributes.md). Use `.gitattributes` files to:
 
 - Configure file display in diffs, such as [syntax highlighting](highlighting.md)
-  or [collapsing generated files](../../merge_requests/changes.md#collapse-generated-files).
-- Control file storage and protection, such as [making files read-only](../../file_lock.md),
-  or storing large files [with Git LFS](../../../../topics/git/lfs/_index.md).
+ or [collapsing generated files](../../merge_requests/changes.md#collapse-generated-files).
+- Control file storage and protection, such as [making files read-only](../../file_lock.md), or storing large files [with Git LFS](../../../../topics/git/lfs/_index.md).
 
 ## Related topics
 
@@ -210,11 +194,9 @@ that defines which file extensions to parse. These file types can take excessive
 - Files with the `.txt` extension.
 - XML files with an extension not defined by the gem.
 
-To fix this problem, edit your `.gitattributes` file and assign a language to
-specific file extensions. You can also use this approach to fix misidentified file types:
+To fix this problem, edit your `.gitattributes` file and assign a language to specific file extensions. You can also use this approach to fix misidentified file types:
 
-1. Identify the language to specify. The gem contains a
-   [configuration file for known data types](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
+1. Identify the language to specify. The gem contains a [configuration file for known data types](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
 1. To add an entry for text files, for example:
 
@@ -235,4 +217,4 @@ specific file extensions. You can also use this approach to fix misidentified fi
    *.txt linguist-language=Text
    ```
 
-  `*.txt` files have an entry in the heuristics file. This example prevents parsing of these files.
+ `*.txt` files have an entry in the heuristics file. This example prevents parsing of these files.

@@ -6,8 +6,8 @@ Source: https://support.procore.com/products/online/user-guide/project-level/dra
 
 ## Overview
 
-![drawing sheet linking2.png](https://support.procore.com/@api/deki/files/6447/drawing_sheet_linking2.png?revision=1&size=bestfit&width=395&height=342)﻿Drawing sheet links make it easier for users to quickly navigate between related drawing sheets.  
-  
+![drawing sheet linking2.png](https://support.procore.com/@api/deki/files/6447/drawing_sheet_linking2.png?revision=1&size=bestfit&width=395&height=342)﻿Drawing sheet links make it easier for users to quickly navigate between related drawing sheets. 
+ 
 Procore leverages [Optical Character Recognition﻿ (OCR)](http://en.wikipedia.org/wiki/Optical_character_recognition "http://en.wikipedia.org/wiki/Optical_character_recognition") technology to intelligently scan a drawing for shapes and characters that are most likely callouts that reference section cuts, other drawings, or even of the drawing itself. Procore will attempt to decipher the drawing sheet number of a callout and create a link to the related drawing if an existing drawing can be found with the same drawing number, which is why it's important to use drawing sheet numbers that match the detailed callouts as much as possible.
 
 Procore always recommends that you upload drawings with vector callouts that are unflattened and not scanned because accuracy in identifying callouts is increased in vector-based files.
@@ -18,8 +18,8 @@ See [What is the difference between raster and vector content in PDFs?](https:/
 
 ### Vector PDFs
 
-- Procore can reliably find drawing numbers as long as it is vector text, inside, or outside of a circle callout symbol. Procore also attempts to partially match drawing numbers.   
-  *Note:* Procore will hyperlink alphanumerics, but not one or two digit numbers. For example, a drawing number of A-1 would be linked, while a drawing number of 55 would not.
+- Procore can reliably find drawing numbers as long as it is vector text, inside, or outside of a circle callout symbol. Procore also attempts to partially match drawing numbers.  
+ *Note:* Procore will hyperlink alphanumerics, but not one or two digit numbers. For example, a drawing number of A-1 would be linked, while a drawing number of 55 would not.
 - Procore will not ignore spaces, dots or dashes when matching for hyperlinks. For example, a drawing number of A-100 would not get a hyperlink on a callout that said A100, A 100, A - 100, A.100, or A   100.
 - If a drawing is recognized as vector, then Procore will be able to read the vector text easily. For example, Procore might confuse an ’S’ for a ‘5’ in a raster file.
 - If the callout is recognized as vector, Procore will draw a turquoise **rectangle** around the drawing number.
@@ -33,11 +33,11 @@ See [What is the difference between raster and vector content in PDFs?](https:/
 
 ### Three Types of Callouts that Procore Automatically Links To:
 
-1. **Detail Callouts**: Detail callouts reference a closer view of a smaller aspect of a project.  
+1. **Detail Callouts**: Detail callouts reference a closer view of a smaller aspect of a project. 
    ![detailcallout.png](https://support.procore.com/@api/deki/files/9074/detailcallout.png?revision=1&size=bestfit&width=58&height=53)
-2. **Section Cut Callouts**: Section callouts are usually shown on a floor plan and reference a vertical 2-D view of a building, from the perspective of where the callout is located.   
+2. **Section Cut Callouts**: Section callouts are usually shown on a floor plan and reference a vertical 2-D view of a building, from the perspective of where the callout is located.  
    ![sectioncut.png](https://support.procore.com/@api/deki/files/9075/sectioncut.png?revision=1&size=bestfit&width=87&height=83)
-3. **Elevation Callouts**: Elevation callouts reference a 2-D view of the building, and can show either the interior or exterior view.   
+3. **Elevation Callouts**: Elevation callouts reference a 2-D view of the building, and can show either the interior or exterior view.  
    ![elevationcallout.png](https://support.procore.com/@api/deki/files/9076/elevationcallout.png?revision=1&size=bestfit&width=73&height=63)
 
 ## Things to Consider

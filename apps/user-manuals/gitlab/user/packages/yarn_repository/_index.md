@@ -7,18 +7,14 @@ title: Publish packages with Yarn
 
 You can publish and install packages with [Yarn 1 (Classic)](https://classic.yarnpkg.com) and [Yarn 2+](https://yarnpkg.com).
 
-To find the Yarn version used in the deployment container, run `yarn --version` in the `script` block of the CI/CD
-script job block that is responsible for calling `yarn publish`. The Yarn version is shown in the pipeline output.
+To find the Yarn version used in the deployment container, run `yarn --version` in the `script` block of the CI/CD script job block that is responsible for calling `yarn publish`. The Yarn version is shown in the pipeline output.
 
 ## Authenticating to the package registry
 
-You need a token to interact with the package registry. Different tokens are available depending on what you're trying to
-achieve. For more information, review the [guidance on tokens](../package_registry/supported_functionality.md#authenticate-with-the-registry).
+You need a token to interact with the package registry. Different tokens are available depending on what you're trying to achieve. For more information, review the [guidance on tokens](../package_registry/supported_functionality.md#authenticate-with-the-registry).
 
-- If your organization uses two-factor authentication (2FA), you must use a
-  [personal access token](../../profile/personal_access_tokens.md) with the scope set to `api`.
-- If you publish a package with CI/CD pipelines, you can use a [CI/CD job token](../../../ci/jobs/ci_job_token.md) with
-  private runners. You can also [register a variable](https://docs.gitlab.com/runner/register/#register-with-a-runner-authentication-token) for instance runners.
+- If your organization uses two-factor authentication (2FA), you must use a [personal access token](../../profile/personal_access_tokens.md) with the scope set to `api`.
+- If you publish a package with CI/CD pipelines, you can use a [CI/CD job token](../../../ci/jobs/ci_job_token.md) with private runners. You can also [register a variable](https://docs.gitlab.com/runner/register/#register-with-a-runner-authentication-token) for instance runners.
 
 ### Configure Yarn for publication
 
@@ -27,20 +23,20 @@ You can find this file in root directory of your project, in the same place as t
 
 - Edit `.yarnrc.yml` and add the following configuration:
 
-  ```yaml
-  npmScopes:
+ ```yaml
+ npmScopes:
     <my-org>:
       npmPublishRegistry: 'https://<domain>/api/v4/projects/<project_id>/packages/npm/'
       npmAlwaysAuth: true
       npmAuthToken: '<token>'
-  ```
+ ```
 
-  In this configuration:
+ In this configuration:
 
-  - Replace `<my-org>` with your organization scope. Do not include the `@` symbol.
-  - Replace `<domain>` with your domain name.
-  - Replace `<project_id>` with your project's ID, which you can find on the [project overview page](../../project/working_with_projects.md#find-the-project-id).
-  - Replace `<token>` with a deployment token, group access token, project access token, or personal access token.
+ - Replace `<my-org>` with your organization scope. Do not include the `@` symbol.
+ - Replace `<domain>` with your domain name.
+ - Replace `<project_id>` with your project's ID, which you can find on the [project overview page](../../project/working_with_projects.md#find-the-project-id).
+ - Replace `<token>` with a deployment token, group access token, project access token, or personal access token.
 
 In Yarn Classic, scoped registries with `publishConfig["@scope:registry"]` are not supported. See [Yarn pull request 7829](https://github.com/yarnpkg/yarn/pull/7829) for more information.
 Instead, set `publishConfig` to `registry` in your `package.json` file.
@@ -55,13 +51,13 @@ To publish a package manually:
 
 - Run the following command:
 
-  ```shell
-  # Yarn 1 (Classic)
-  yarn publish
+ ```shell
+ # Yarn 1 (Classic)
+ yarn publish
 
-  # Yarn 2+
-  yarn npm publish
-  ```
+ # Yarn 2+
+ yarn npm publish
+ ```
 
 ### With CI/CD
 
@@ -96,8 +92,7 @@ You can use pipeline variables when you publish with CI/CD.
       - If you are building from branches with tags, select **Protected Tags** and add `v*` (wildcard) for semantic versioning.
       - If you are building from branches without tags, select **Branch rules**.
 
-1. Add the `NPM_AUTH_TOKEN` you created to the `.yarnrc.yml` configuration
-   in your package project root directory where `package.json` is found:
+1. Add the `NPM_AUTH_TOKEN` you created to the `.yarnrc.yml` configuration in your package project root directory where `package.json` is found:
 
    ```yaml
    npmScopes:
@@ -173,8 +168,7 @@ When the pipeline runs, your package is added to the package registry.
 
 ## Install a package
 
-You can install from an instance or project. If multiple packages have the same name and version,
-only the most recently published package is retrieved when you install a package.
+You can install from an instance or project. If multiple packages have the same name and version, only the most recently published package is retrieved when you install a package.
 
 ### Scoped package names
 
@@ -348,8 +342,7 @@ Prerequisites:
 
 - You must have at least the Maintainer role.
 
-Before you delete a package, make sure you understand
-the [associated security risks](../package_registry/supported_functionality.md#deleting-packages).
+Before you delete a package, make sure you understand the [associated security risks](../package_registry/supported_functionality.md#deleting-packages).
 
 To delete a package, you can either:
 
@@ -373,8 +366,8 @@ yarn install v1.15.2
 warning package.json: No license field
 info No lockfile found.
 warning XXX: No license field
-[1/4] 🔍  Resolving packages...
-[2/4] 🚚  Fetching packages...
+[1/4] 🔍 Resolving packages...
+[2/4] 🚚 Fetching packages...
 error An unexpected error occurred: "https://gitlab.example.com/api/v4/projects/XXX/packages/npm/XXX/XXX/-/XXX/XXX-X.X.X.tgz: Request failed \"404 Not Found\"".
 info If you think this is a bug, please open a bug report with the information provided in "/Users/XXX/gitlab-migration/module-util/yarn-error.log".
 info Visit https://classic.yarnpkg.com/en/docs/cli/install for documentation about this command

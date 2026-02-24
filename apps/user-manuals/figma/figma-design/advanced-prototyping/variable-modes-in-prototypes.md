@@ -56,7 +56,7 @@ By using multiple modes, each item count can be updated separately.
 1. [Set the mode](https://help.figma.com/hc/en-us/articles/15343816063383) on the parent layers or objects.
 
 1. Select the layer, group, or object that contains the applied variable. (For example, select the frame that contains the product image and information for the melon.)
-2. From the **Appearance** section of the right sidebar, click  **Apply variable mode**.
+2. From the **Appearance** section of the right sidebar, click **Apply variable mode**.
 3. Hover over a variable collection and choose a mode. (Select the “melon” mode.)
 4. Repeat for any other objects or layers that only apply to a specific mode. (Apply the “shiitakes” mode to the frame that contains the product image and information for the shiitake mushrooms).
 

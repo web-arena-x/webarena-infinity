@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408824571674-Using-the-he
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Guide Professional or Enterprise |
 
@@ -46,7 +46,7 @@ help center provides you with helpers and named properties to customize your con
 
 ```
 {{#each comments}}
-  <li class="comment" id="{{comment_id}}">
+ <li class="comment" id="{{comment_id}}">
     <div class="comment-avatar {{#if author.agent}} comment-avatar-agent {{/if}}">
       <img src="{{author.avatar_url}}" alt="Avatar" />
     </div>
@@ -58,7 +58,7 @@ help center provides you with helpers and named properties to customize your con
         </strong>
       </header>
     </div>
-  </li>
+ </li>
 {{/each}}
 ```
 
@@ -108,8 +108,8 @@ There are situations where having some notes in the template that do not leak in
 
 ```
 {{!
-  This template aims to
-  show details of an article
+ This template aims to
+ show details of an article
 }}
 
 <h1>Article</h1>
@@ -133,8 +133,8 @@ Unfortunately, the comment syntax described so far isn't suitable for commenting
 
 ```
 {{!
-  This template aims to
-  show details of an article
+ This template aims to
+ show details of an article
 }}
 
 <h1>Article</h1>
@@ -142,9 +142,9 @@ Unfortunately, the comment syntax described so far isn't suitable for commenting
 <p>Some details on the article</p>
 
 {{!--
-  I want to commend out the following code:
+ I want to commend out the following code:
 
-  {{ ... some Curlybars expressions }}
+ {{ ... some Curlybars expressions }}
 
 --}}
 ```
@@ -227,7 +227,7 @@ You can create an `if` block with this information. The `if` expression must spe
 
 ```
 {{#if condition}}
-  This is rendered if the condition is true.
+ This is rendered if the condition is true.
 {{/if}}
 ```
 
@@ -237,7 +237,7 @@ You can modify the example template as follows:
 <h1>Article</h1>
 
 {{#if article.internal}}
-  <p>This article is internal.</p>
+ <p>This article is internal.</p>
 {{/if}}
 
 <p>Author: {{article.author.name}}</p>
@@ -249,7 +249,7 @@ You might want to render a block when the condition is false. In that case, use 
 
 ```
 {{#unless condition}}
-  This is rendered if the condition is false.
+ This is rendered if the condition is false.
 {{/unless}}
 ```
 
@@ -259,11 +259,11 @@ Back to the example, suppose you also want to render a message when an article i
 <h1>Article</h1>
 
 {{#if article.internal}}
-  <p>This article is internal.</p>
+ <p>This article is internal.</p>
 {{/if}}
 
 {{#unless article.internal}}
-  <p>This is a publicly visible article!</p>
+ <p>This is a publicly visible article!</p>
 {{/unless}}
 
 <p>Author: {{article.author.name}}</p>
@@ -275,9 +275,9 @@ This kind of conditional logic -- "if true do this or else do this" -- is usuall
 
 ```
 {{#if condition}}
-  This is rendered if the condition is true.
+ This is rendered if the condition is true.
 {{else}}
-  This is rendered if the condition is false.
+ This is rendered if the condition is false.
 {{/if}}
 ```
 
@@ -287,9 +287,9 @@ You can modify the example as follows:
 <h1>Article</h1>
 
 {{#if article.internal}}
-  <p>This article is internal.</p>
+ <p>This article is internal.</p>
 {{else}}
-  <p>This is a publicly visible article!</p>
+ <p>This is a publicly visible article!</p>
 {{/if}}
 
 <p>Author: {{article.author.name}}</p>
@@ -303,9 +303,9 @@ The `unless` block also has an `unless-else` variant. You could use it to achiev
 <h1>Article</h1>
 
 {{#unless article.internal}}
-  <p>This is a publicly visible article!</p>
+ <p>This is a publicly visible article!</p>
 {{else}}
-  <p>This article is internal.</p>
+ <p>This article is internal.</p>
 {{/unless}}
 
 <p>Author: {{article.author.name}}</p>
@@ -332,7 +332,7 @@ Suppose you want to set up some conditional logic that checks numbers. The Artic
 <article>{{article.body}}</article>
 
 {{#if article.comment_count}}
-  <p>Yahoo! This article has got some comments!</p>
+ <p>Yahoo! This article has got some comments!</p>
 {{/if}}
 ```
 
@@ -368,9 +368,9 @@ The tilde character trims any blank character that doesn't have a graphical repr
 
 ```
 <a href="..." class="
-  {{~#if highlighted~}}
+ {{~#if highlighted~}}
     highlight
-  {{~/if~}}
+ {{~/if~}}
 ">Click me!</a>
 ```
 
@@ -410,7 +410,7 @@ How to add such a logic then? Fortunately, you can use the `is` helper. It takes
 <h1>{{excerpt article.title characters=50}}</h1>
 
 {{#is article.author.name 'John Venturini'}}
-  <p>Cool! John Venturini is the author of this article!</p>
+ <p>Cool! John Venturini is the author of this article!</p>
 {{/is}}
 
 <article>{{article.body}}</article>
@@ -422,9 +422,9 @@ The snippet above renders the cheerful message if the author is John Venturini. 
 <h1>{{excerpt article.title characters=50}}</h1>
 
 {{#is article.author.name 'John Venturini'}}
-  <p>Cool! John Venturini is the author of this article!</p>
+ <p>Cool! John Venturini is the author of this article!</p>
 {{else}}
-  <p>Author: {{article.author.name}}</p>
+ <p>Author: {{article.author.name}}</p>
 {{/is}}
 
 <article>{{article.body}}</article>
@@ -439,9 +439,9 @@ Accessing data is pretty straightforward using dot notation, especially when the
 
 <img src="{{article.author.avatar_url}}" alt="Author's avatar" height="42" width="42">
 {{#is article.author.name 'John Venturini'}}
-  <p>Cool! John Venturini is the author of this article!</p>
+ <p>Cool! John Venturini is the author of this article!</p>
 {{else}}
-  <p>Author: {{article.author.name}}</p>
+ <p>Author: {{article.author.name}}</p>
 {{/is}}
 
 <article>{{article.body}}</article>
@@ -461,12 +461,12 @@ You can improve the example as follows:
 <h1>{{excerpt article.title characters=50}}</h1>
 
 {{#with article.author}}
-  <img src="{{avatar_url}}" alt="Author's avatar" height="42" width="42">
-  {{#is name 'John Venturini'}}
+ <img src="{{avatar_url}}" alt="Author's avatar" height="42" width="42">
+ {{#is name 'John Venturini'}}
     <p>Cool! John Venturini is the author of this article!</p>
-  {{else}}
+ {{else}}
     <p>Author: {{name}}</p>
-  {{/is}}
+ {{/is}}
 {{/with}}
 
 <article>{{article.body}}</article>
@@ -482,14 +482,14 @@ To escape from the context set by `with` and access the outer context, use the `
 <h1>{{excerpt article.title characters=50}}</h1>
 
 {{#with article.author}}
-  {{../article.title}}
+ {{../article.title}}
 
-  <img src="{{avatar_url}}" alt="Author's avatar" height="42" width="42">
-  {{#is name 'John Venturini'}}
+ <img src="{{avatar_url}}" alt="Author's avatar" height="42" width="42">
+ {{#is name 'John Venturini'}}
     <p>Cool! John Venturini is the author of this article!</p>
-  {{else}}
+ {{else}}
     <p>Author: {{name}}</p>
-  {{/is}}
+ {{/is}}
 {{/with}}
 
 <article>{{article.body}}</article>
@@ -501,7 +501,7 @@ You can use the `../` notation repeatedly in the same path. It'll jump back the 
 <h1>{{excerpt article.title characters=50}}</h1>
 
 {{#with article}}
-  {{#with author}}
+ {{#with author}}
     {{../../article.title}}
 
     ...
@@ -517,11 +517,11 @@ You might want to be defensive and render a specific message whenever the author
 <h1>{{excerpt article.title characters=50}}</h1>
 
 {{#if article.author}}
-  {{#with article.author}}
+ {{#with article.author}}
     ...
-  {{/with}}
+ {{/with}}
 {{else}}
-  No author is present for this article!
+ No author is present for this article!
 {{/if}}
 
 <article>{{article.body}}</article>
@@ -535,9 +535,9 @@ The snippet above works just fine, but you can achieve the same result with an `
 <h1>{{excerpt article.title characters=50}}</h1>
 
 {{#with article.author}}
-  ...
+ ...
 {{else}}
-  No author is present for this article!
+ No author is present for this article!
 {{/with}}
 
 <article>{{article.body}}</article>
@@ -553,7 +553,7 @@ Use the `this` keyword to pass the current root context to a helper. Suppose you
 <h1>{{excerpt article.title characters=50}}</h1>
 
 {{#with article}}
-  {{render_author this}}
+ {{render_author this}}
 {{/with}}
 
 <article>{{article.body}}</article>
@@ -571,14 +571,14 @@ To access the items in an array, you need to iterate over each one. The `each` h
 <h1>{{excerpt article.title characters=50}}</h1>
 
 {{#with article.author}}
-  ...
+ ...
 {{/with}}
 
 <article>{{article.body}}</article>
 
 {{#each attachments}}
-  <a href="{{url}}" target="_blank">{{name}}</a>
-  <span>({{size}})</span>
+ <a href="{{url}}" target="_blank">{{name}}</a>
+ <span>({{size}})</span>
 {{/each}}
 ```
 
@@ -592,12 +592,12 @@ You might want to render a message when an array is empty. You can easily achiev
 ...
 
 {{#if attachments}}
-  {{#each attachments}}
+ {{#each attachments}}
     <a href="{{url}}" target="_blank">{{name}}</a>
     <span>({{size}})</span>
-  {{/each}}
+ {{/each}}
 {{else}}
-  Sorry, no attachments available!
+ Sorry, no attachments available!
 {{/if}}
 ```
 
@@ -607,10 +607,10 @@ This works just fine, but you could also use an `else` block to make the code ea
 ...
 
 {{#each attachments}}
-  <a href="{{url}}" target="_blank">{{name}}</a>
-  <span>({{size}})</span>
+ <a href="{{url}}" target="_blank">{{name}}</a>
+ <span>({{size}})</span>
 {{else}}
-  Sorry, no attachments available!
+ Sorry, no attachments available!
 {{/each}}
 ```
 
@@ -624,8 +624,8 @@ Every array has an implicit `length` property that gives the number of elements 
 There are {{attachments.length}}.
 
 {{#each attachments}}
-  <a href="{{url}}" target="_blank">{{name}}</a>
-  <span>({{size}})</span>
+ <a href="{{url}}" target="_blank">{{name}}</a>
+ <span>({{size}})</span>
 {{/each}}
 ```
 
@@ -648,10 +648,10 @@ Subexpressions can be nested:
 Subexpressions can be used in conditional helpers:
 
 ```
-{{#if (compare collection.length "==" 0)}}  
-  <div>Empty collection.</div>  
-{{else}}  
-  <div>Your collection has {{collection.length}} items</div>  
+{{#if (compare collection.length "==" 0)}} 
+ <div>Empty collection.</div> 
+{{else}} 
+ <div>Your collection has {{collection.length}} items</div> 
 {{/if}}
 ```
 
@@ -659,11 +659,11 @@ Subexpressions can be used in array iterator helpers:
 
 ```
 {{#each (slice (filter user.badges on="category_slug" equals="achievements")   
-0 4)}}  
-  
-   <section>  
-      <h3>{{name}}</h3>  
-      <div>{{description}}</div>  
-   </section>  
+0 4)}} 
+ 
+   <section> 
+      <h3>{{name}}</h3> 
+      <div>{{description}}</div> 
+   </section> 
 {{/each}}
 ```

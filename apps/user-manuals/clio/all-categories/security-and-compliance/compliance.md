@@ -12,7 +12,7 @@ Every year, Clio conducts a self-assessment to ensure that our processes, config
 - **Restricted access to production environment:** This security measure ensures that only authorized personnel can access production data, reducing the risk of unauthorized access to the infrastructure.
 - **Data backups performed multiple times per day:** Data backups are conducted several times throughout the day, ensuring frequent and comprehensive protection of your information.
 
-  **Note:** Despite the security protection mechanisms in place, we recommend that you retain a local backup of your data.
+ **Note:** Despite the security protection mechanisms in place, we recommend that you retain a local backup of your data.
 - **Strict logical system access controls:** Clio has stringent measures and protocols implemented to regulate and manage access to computer systems and networks. These controls are designed to ensure that only authorized individuals can access data or resources within the system.
 - **Mirrored data center facilities with daily backups to mitigate disaster situations**: Mirrored data center facilities with daily backups offer extra protection against disasters. Data is copied to multiple centers and backed up daily, so even if one center fails, your information stays safe and operations can continue smoothly.
 - **99.9% uptime Service Level Agreement:** Take a look at Clio’s current status and uptime percentages [here](https://status.clio.com/).

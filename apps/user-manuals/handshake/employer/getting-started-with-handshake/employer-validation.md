@@ -17,8 +17,8 @@ When creating a new company profile, you will be required to provide the followi
 - **Industry**
 - **Website**
 - **Address**
-  - Address (full address or city, state, and country)
-  - **Note**: Providing the complete address will accelerate the verification process.
+ - Address (full address or city, state, and country)
+ - **Note**: Providing the complete address will accelerate the verification process.
 - **Description**
 - **Company size**
 - **Government ID**
@@ -48,7 +48,7 @@ When you create a new company profile, a modal appears prompting you to verify y
 - You will be prompted to upload photos of the front and back of your ID.
 - If your images cannot be verified, tips will be provided to help you confirm your identity. After reviewing the tips, click the **Retry** button to upload your photos again.
 
-5. Persona will process the submission. Upon successful completion, the confirmation message displays:  
+5. Persona will process the submission. Upon successful completion, the confirmation message displays: 
 “Congratulations, you’re done! Thanks for verifying your identity. Click the **Done** button to finalize the process.
 
 - If Persona cannot process your ID on the first attempt (e.g., due to blurriness, expiration, etc.), you will have four additional attempts.
@@ -94,8 +94,7 @@ Need help getting started? Here are a few helpful insights and tips that will ju
 
 If your company requires additional review by our Trust and Safety team, the following message will be displayed:
 
-**"Hang tight—your company requires further review.**  
-Your job is not posted yet.  
+**"Hang tight—your company requires further review.** Your job is not posted yet.
 After new employer verification, your account needs further review by our Trust and Safety team. We'll email you as soon as your account is ready, usually within 1 business day. If you have additional questions, contact us."
 
 Access to the platform will be restricted during this period and will only be granted after the review is complete.
@@ -106,8 +105,7 @@ Access to the platform will be restricted during this period and will only be gr
 
 If your company cannot be verified, the following message will be displayed:
 
-"**Your company could not be verified, and your job was not posted.**  
-Your company didn’t pass our verification check. Please reach out as soon as possible."
+"**Your company could not be verified, and your job was not posted.** Your company didn’t pass our verification check. Please reach out as soon as possible."
 
 Click the **Contact us** button on the screen to connect with our Trust and Safety team for assistance.
 
@@ -137,8 +135,7 @@ If a potential risk is detected during verification or subsequent account activi
 
 When this occurs, the following message will be displayed:
 
-"**Your company is temporarily suspended.**  
-Your job is not posted yet.  
+"**Your company is temporarily suspended.** Your job is not posted yet.
 {Company name} account has been suspended by our Trust and Safety team for a potential violation of our Terms of Service. If you have additional questions – Contact us."
 
 An email will also be sent to the address associated with the account, explaining the reason for the suspension and providing next steps, including a direct link to contact our Trust and Safety team.

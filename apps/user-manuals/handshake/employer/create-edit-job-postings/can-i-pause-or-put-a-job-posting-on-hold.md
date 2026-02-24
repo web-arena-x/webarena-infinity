@@ -12,7 +12,7 @@ To temporarily stop receiving applications, you can close the job posting. When 
 - When reopened, the job is resubmitted for approval by each school where it was originally posted.
 - Applications submitted before the job was closed remain accessible on the posting.
 
-  - **Basic employers**: Applicant data remains visible for **30 days** after a job is closed. To view applicant data beyond this period, you must upgrade to an eligible paid plan.
-  - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**, retain unlimited access to view and manage applicants.
+ - **Basic employers**: Applicant data remains visible for **30 days** after a job is closed. To view applicant data beyond this period, you must upgrade to an eligible paid plan.
+ - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**, retain unlimited access to view and manage applicants.
 
 *Have questions about closing a job? Read more about how to* [*Close a Job Posting*](https://support.joinhandshake.com/hc/en-us/articles/115011841627).

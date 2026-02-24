@@ -21,8 +21,8 @@ Follow the instructions below to create and send a new Targeted Email. For an ov
 4. Edit the content of the email.
 
 - ***New feature highlight!*** You can rearrange email content sections via drag and drop.
-  - To rearrange email content, hover your mouse pointer over the specific section until the section highlights with a light pink dotted line border, as shown in the example below around the **Call to Action** button.
-  - Click and hold on the section, then drag it up or down as desired. Release the section to place it.
+ - To rearrange email content, hover your mouse pointer over the specific section until the section highlights with a light pink dotted line border, as shown in the example below around the **Call to Action** button.
+ - Click and hold on the section, then drag it up or down as desired. Release the section to place it.
 
 ![drag_and_drop.png](https://support.joinhandshake.com/hc/article_attachments/25998584937367)
 
@@ -31,9 +31,9 @@ The different content elements are included below. After customizing the message
 ***New in May 2022!*** *Our EDU Product Team has updated the UI for Handshake Content to improve functionality and provide a better user experience!*
 
 - **Primary Color**: this will set the button and Handshake Content icon color in your email
-  - **Tip**: use your school hex code here to create consistency! ![](https://support.joinhandshake.com/hc/article_attachments/25998584934551)
+ - **Tip**: use your school hex code here to create consistency! ![](https://support.joinhandshake.com/hc/article_attachments/25998584934551)
 - **Basic Content**
-  - **Text**: use the text to add verbiage to the email
+ - **Text**: use the text to add verbiage to the email
     - **Tip**: add mail merge fields to the email to make it personal, via the Insert variable drop-down. **Preferred Name** will use a student's preferred name or first name if they don't have a preferred name set.
 
 ![](https://support.joinhandshake.com/hc/article_attachments/25998584928023)
@@ -57,7 +57,7 @@ The different content elements are included below. After customizing the message
 ![](https://support.joinhandshake.com/hc/article_attachments/25998571809815)
 
 - **Handshake Content**
-  - **Career Fair**: select an approved career fair, and Handshake will add the following fields to the email:
+ - **Career Fair**: select an approved career fair, and Handshake will add the following fields to the email:
     - Fair Name
     - Date
     - Location
@@ -116,15 +116,15 @@ Example of selecting 65,000 or fewer Contact recipients:
 6. Click **Next** to proceed and finalize email details.
 
 - **Subject\***
-  - **Tip**: use students or contacts first name to increase open rates! *(exact formatting required - refer to [About Mail Merge Fields](about-mail-merge-fields.md) for more details)*
+ - **Tip**: use students or contacts first name to increase open rates! *(exact formatting required - refer to [About Mail Merge Fields](about-mail-merge-fields.md) for more details)*
 - **Sender Name\***
 - **Reply To Email\***
-  - **Note:**The Sender Name and Reply to Email fields will need to be filled out for each email unless the Targeted Email Configuration is set up in your institution's School Settings. Learn more about this process here: [School Settings: Targeted Email Configuration](https://support.joinhandshake.com/hc/en-us/articles/219132807)
+ - **Note:**The Sender Name and Reply to Email fields will need to be filled out for each email unless the Targeted Email Configuration is set up in your institution's School Settings. Learn more about this process here: [School Settings: Targeted Email Configuration](https://support.joinhandshake.com/hc/en-us/articles/219132807)
 - **Carbon Copy Emails**
-  - **Note:** this will only send one copy of the email to CCs listed.
+ - **Note:** this will only send one copy of the email to CCs listed.
 - **Campaign Name\***
 - **Send Now** or **Send Later**
-  - If you choose to send later, select a date and time to send the email.
+ - If you choose to send later, select a date and time to send the email.
     - **Note**: unless your recipients are pre-selected based on email address *(i.e. the email is created via Contacts or Manage Students)*, recipients will be identified at the time the email is scheduled to be sent. For example, if you select recipients based on Major, on the scheduled send date/time, the recipients are identified based on the Major selected on their profile at that date/time *(which may differ from when the email was originally created)*.
 
 ![Finalizing_Details_for_a_Targeted_Email.png](https://support.joinhandshake.com/hc/article_attachments/25998584950039)

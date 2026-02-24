@@ -72,7 +72,7 @@ For active chat customers, we'll also be migrating the following chat settings t
 
 You will receive an in-product confirmation once messaging is turned on at the account level. At that point, they will be encouraged to finalize the move by completing a series of optional configuration steps to make messaging live for individual brands.
 
-If you are actively using Chat/Web Widget (Classic), when your account is converted to messaging, live chats will end, and any in-progress tickets will remain pending. We recommend that you complete this step during an off-peak period, close out any active live chats, and take agents offline. Once completed, the [Web Widget will change from Classic to messaging](https://support.zendesk.com/hc/en-us/articles/4429429087002) , and the end user, agent,  [and admin](https://support.zendesk.com/hc/en-us/articles/4408824780186) experience will change to messaging for that brand.
+If you are actively using Chat/Web Widget (Classic), when your account is converted to messaging, live chats will end, and any in-progress tickets will remain pending. We recommend that you complete this step during an off-peak period, close out any active live chats, and take agents offline. Once completed, the [Web Widget will change from Classic to messaging](https://support.zendesk.com/hc/en-us/articles/4429429087002) , and the end user, agent, [and admin](https://support.zendesk.com/hc/en-us/articles/4408824780186) experience will change to messaging for that brand.
 
 If you aren’t using Chat/ Web Widget (Classic), you can customize the Web Widget and embed it in your help center or website to start using messaging. As noted above, the Web Widget (Classic) will automatically be updated to the (messaging) Web Widget on any web pages where it’s not actively being used.
 
@@ -86,7 +86,7 @@ Note that customers who have been targeted for messaging activation do not curre
 
 ## Are there any specific behaviors that are “different” from Chat and that I should be aware of when moving from Chat to messaging?
 
-|  |  |
+| | |
 | --- | --- |
 | **Desired messaging functionality** | **New behavior** |
 | **Shortcuts** | There are no plans to bring “Chat shortcuts” as they’re known to Agent Workspace. All shortcuts should now be handled as macros. |

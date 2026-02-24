@@ -39,10 +39,10 @@ and are not meant for manual consumption.
 {{< alert type="note" >}}
 
 - These endpoints do not adhere to the standard API authentication methods.
-  See each route for details on how credentials are expected to be passed. Undocumented authentication methods might be removed in the future.
+ See each route for details on how credentials are expected to be passed. Undocumented authentication methods might be removed in the future.
 
 - The Conan registry is not FIPS compliant and is disabled when FIPS mode is enabled.
-  These endpoints all return `404 Not Found`.
+ These endpoints all return `404 Not Found`.
 
 {{< /alert >}}
 
@@ -131,7 +131,7 @@ Example response:
 
 ```json
 {
-  "results": [
+ "results": [
     "Hello/0.1@foo+conan_test_prod/beta",
     "Hello/0.1@foo+conan_test_prod/stable",
     "Hello/0.2@foo+conan_test_prod/beta",
@@ -139,7 +139,7 @@ Example response:
     "Hello/0.1@foo+conan-reference-test/stable",
     "HelloWorld/0.1@baz+conan-reference-test/beta"
     "hello-world/0.4@buz+conan-test/alpha"
-  ]
+ ]
 }
 ```
 
@@ -155,9 +155,9 @@ GET /projects/:id/packages/conan/v2/conans/:package_name/:package_version/:packa
 | ------------------ | ------ | -------- | ------------------------------------------------------------------------------------------- |
 | `id`               | string | yes      | The project ID or full project path.                                                        |
 | `package_name`     | string | yes      | Name of a package.                                                                          |
-| `package_version`  | string | yes      | Version of a package.                                                                       |
+| `package_version` | string | yes      | Version of a package.                                                                       |
 | `package_username` | string | yes      | Conan username of a package. This attribute is the `+`-separated full path of your project. |
-| `package_channel`  | string | yes      | Channel of a package.                                                                       |
+| `package_channel` | string | yes      | Channel of a package.                                                                       |
 
 ```shell
 curl --header "Authorization: Bearer <authenticate_token>" \
@@ -168,8 +168,8 @@ Example response:
 
 ```json
 {
-  "revision" : "75151329520e7685dcf5da49ded2fec0",
-  "time" : "2024-12-17T09:16:40.334+0000"
+ "revision" : "75151329520e7685dcf5da49ded2fec0",
+ "time" : "2024-12-17T09:16:40.334+0000"
 }
 ```
 
@@ -185,9 +185,9 @@ GET /projects/:id/packages/conan/v2/conans/:package_name/:package_version/:packa
 | ------------------ | ------ | -------- | ------------------------------------------------------------------------------------------- |
 | `id`               | string | yes      | The project ID or full project path.                                                        |
 | `package_name`     | string | yes      | Name of a package.                                                                          |
-| `package_version`  | string | yes      | Version of a package.                                                                       |
+| `package_version` | string | yes      | Version of a package.                                                                       |
 | `package_username` | string | yes      | Conan username of a package. This attribute is the `+`-separated full path of your project. |
-| `package_channel`  | string | yes      | Channel of a package.                                                                       |
+| `package_channel` | string | yes      | Channel of a package.                                                                       |
 
 ```shell
 curl --header "Authorization: Bearer <authenticate_token>" \
@@ -198,8 +198,8 @@ Example response:
 
 ```json
 {
-  "reference": "my-package/1.0@my-group+my-project/stable",
-  "revisions": [
+ "reference": "my-package/1.0@my-group+my-project/stable",
+ "revisions": [
     {
       "revision": "75151329520e7685dcf5da49ded2fec0",
       "time": "2024-12-17T09:16:40.334+0000"
@@ -208,7 +208,7 @@ Example response:
       "revision": "df28fd816be3a119de5ce4d374436b25",
       "time": "2024-12-17T09:15:30.123+0000"
     }
-  ]
+ ]
 }
 ```
 
@@ -224,10 +224,10 @@ DELETE /projects/:id/packages/conan/conans/:package_name/package_version/:packag
 | ------------------ | ------ | -------- | ------------------------------------------------------------------------------------------- |
 | `id`               | string | yes      | The project ID or full project path.                                                        |
 | `package_name`     | string | yes      | Name of a package.                                                                          |
-| `package_version`  | string | yes      | Version of a package.                                                                       |
+| `package_version` | string | yes      | Version of a package.                                                                       |
 | `package_username` | string | yes      | Conan username of a package. This attribute is the `+`-separated full path of your project. |
-| `package_channel`  | string | yes      | Channel of a package.                                                                       |
-| `recipe_revision`  | string | yes      | Revision hash of the recipe revision to delete.                                                |
+| `package_channel` | string | yes      | Channel of a package.                                                                       |
+| `recipe_revision` | string | yes      | Revision hash of the recipe revision to delete.                                                |
 
 ```shell
 curl --request DELETE \
@@ -247,10 +247,10 @@ GET /projects/:id/packages/conan/v2/conans/:package_name/:package_version/:packa
 | ------------------ | ------ | -------- | ------------------------------------------------------------------------------------------- |
 | `id`               | string | yes      | The project ID or full project path.                                                        |
 | `package_name`     | string | yes      | Name of a package.                                                                          |
-| `package_version`  | string | yes      | Version of a package.                                                                       |
+| `package_version` | string | yes      | Version of a package.                                                                       |
 | `package_username` | string | yes      | Conan username of a package. This attribute is the `+`-separated full path of your project. |
-| `package_channel`  | string | yes      | Channel of a package.                                                                       |
-| `recipe_revision`  | string | yes      | Revision of the recipe. Does not accept a value of `0`.                                     |
+| `package_channel` | string | yes      | Channel of a package.                                                                       |
+| `recipe_revision` | string | yes      | Revision of the recipe. Does not accept a value of `0`.                                     |
 
 ```shell
 curl --header "Authorization: Bearer <authenticate_token>" \
@@ -261,11 +261,11 @@ Example response:
 
 ```json
 {
-  "files": {
+ "files": {
     "conan_sources.tgz": {},
     "conanfile.py": {},
     "conanmanifest.txt": {}
-  }
+ }
 }
 ```
 
@@ -281,10 +281,10 @@ GET /projects/:id/packages/conan/v2/conans/:package_name/:package_version/:packa
 | ------------------ | ------ | -------- | ------------------------------------------------------------------------------------------- |
 | `id`               | string | yes      | The project ID or full project path.                                                        |
 | `package_name`     | string | yes      | Name of a package.                                                                          |
-| `package_version`  | string | yes      | Version of a package.                                                                       |
+| `package_version` | string | yes      | Version of a package.                                                                       |
 | `package_username` | string | yes      | Conan username of a package. This attribute is the `+`-separated full path of your project. |
-| `package_channel`  | string | yes      | Channel of a package.                                                                       |
-| `recipe_revision`  | string | yes      | Revision of the recipe. Does not accept a value of `0`.                                     |
+| `package_channel` | string | yes      | Channel of a package.                                                                       |
+| `recipe_revision` | string | yes      | Revision of the recipe. Does not accept a value of `0`.                                     |
 | `file_name`        | string | yes      | The name and file extension of the requested file.                                          |
 
 ```shell
@@ -314,10 +314,10 @@ PUT /projects/:id/packages/conan/v2/conans/:package_name/:package_version/:packa
 | ------------------ | ------ | -------- | ------------------------------------------------------------------------------------------- |
 | `id`               | string | yes      | The project ID or full project path.                                                        |
 | `package_name`     | string | yes      | Name of a package.                                                                          |
-| `package_version`  | string | yes      | Version of a package.                                                                       |
+| `package_version` | string | yes      | Version of a package.                                                                       |
 | `package_username` | string | yes      | Conan username of a package. This attribute is the `+`-separated full path of your project. |
-| `package_channel`  | string | yes      | Channel of a package.                                                                       |
-| `recipe_revision`  | string | yes      | Revision of the recipe. Does not accept a value of `0`.                                     |
+| `package_channel` | string | yes      | Channel of a package.                                                                       |
+| `recipe_revision` | string | yes      | Revision of the recipe. Does not accept a value of `0`.                                     |
 | `file_name`        | string | yes      | The name and file extension of the requested file.                                          |
 
 ```shell
@@ -331,30 +331,30 @@ Example response:
 
 ```json
 {
-  "id": 38,
-  "package_id": 28,
-  "created_at": "2025-04-07T12:35:40.841Z",
-  "updated_at": "2025-04-07T12:35:40.841Z",
-  "size": 24,
-  "file_store": 1,
-  "file_md5": "131f806af123b497209a516f46d12ffd",
-  "file_sha1": "01b992b2b1976a3f4c1e5294d0cab549cd438502",
-  "file_name": "conanfile.py",
-  "file": {
+ "id": 38,
+ "package_id": 28,
+ "created_at": "2025-04-07T12:35:40.841Z",
+ "updated_at": "2025-04-07T12:35:40.841Z",
+ "size": 24,
+ "file_store": 1,
+ "file_md5": "131f806af123b497209a516f46d12ffd",
+ "file_sha1": "01b992b2b1976a3f4c1e5294d0cab549cd438502",
+ "file_name": "conanfile.py",
+ "file": {
     "url": "/94/00/9400f1b21cb527d7fa3d3eabba93557a18ebe7a2ca4e471cfe5e4c5b4ca7f767/packages/28/files/38/conanfile.py"
-  },
-  "file_sha256": null,
-  "verification_retry_at": null,
-  "verified_at": null,
-  "verification_failure": null,
-  "verification_retry_count": null,
-  "verification_checksum": null,
-  "verification_state": 0,
-  "verification_started_at": null,
-  "status": "default",
-  "file_final_path": null,
-  "project_id": 9,
-  "new_file_path": null
+ },
+ "file_sha256": null,
+ "verification_retry_at": null,
+ "verified_at": null,
+ "verification_failure": null,
+ "verification_retry_count": null,
+ "verification_checksum": null,
+ "verification_state": 0,
+ "verification_started_at": null,
+ "status": "default",
+ "file_final_path": null,
+ "project_id": 9,
+ "new_file_path": null
 }
 ```
 
@@ -385,8 +385,8 @@ Example response:
 
 ```json
 {
-  "reference": "my-package/1.0@my-group+my-project/stable#75151329520e7685dcf5da49ded2fec0:103f6067a947f366ef91fc1b7da351c588d1827f",
-  "revisions": [
+ "reference": "my-package/1.0@my-group+my-project/stable#75151329520e7685dcf5da49ded2fec0:103f6067a947f366ef91fc1b7da351c588d1827f",
+ "revisions": [
     {
       "revision": "2bfb52659449d84ed11356c353bfbe86",
       "time": "2024-12-17T09:16:40.334+0000"
@@ -395,7 +395,7 @@ Example response:
       "revision": "3bdd2d8c8e76c876ebd1ac0469a4e72c",
       "time": "2024-12-17T09:15:30.123+0000"
     }
-  ]
+ ]
 }
 ```
 
@@ -426,8 +426,8 @@ Example response:
 
 ```json
 {
-  "revision" : "3bdd2d8c8e76c876ebd1ac0469a4e72c",
-  "time" : "2024-12-17T09:16:40.334+0000"
+ "revision" : "3bdd2d8c8e76c876ebd1ac0469a4e72c",
+ "time" : "2024-12-17T09:16:40.334+0000"
 }
 ```
 
@@ -524,30 +524,30 @@ Example response:
 
 ```json
 {
-  "id": 202,
-  "package_id": 48,
-  "created_at": "2025-03-19T10:06:53.626Z",
-  "updated_at": "2025-03-19T10:06:53.626Z",
-  "size": 208,
-  "file_store": 1,
-  "file_md5": "bf996313bbdd75944b58f8c673661d99",
-  "file_sha1": "02c8adf14c94135fb95d472f96525063efe09ee8",
-  "file_name": "conaninfo.txt",
-  "file": {
+ "id": 202,
+ "package_id": 48,
+ "created_at": "2025-03-19T10:06:53.626Z",
+ "updated_at": "2025-03-19T10:06:53.626Z",
+ "size": 208,
+ "file_store": 1,
+ "file_md5": "bf996313bbdd75944b58f8c673661d99",
+ "file_sha1": "02c8adf14c94135fb95d472f96525063efe09ee8",
+ "file_name": "conaninfo.txt",
+ "file": {
       "url": "/94/00/9400f1b21cb527d7fa3d3eabba93557a18ebe7a2ca4e471cfe5e4c5b4ca7f767/packages/48/files/202/conaninfo.txt"
-  },
-  "file_sha256": null,
-  "verification_retry_at": null,
-  "verified_at": null,
-  "verification_failure": null,
-  "verification_retry_count": null,
-  "verification_checksum": null,
-  "verification_state": 0,
-  "verification_started_at": null,
-  "status": "default",
-  "file_final_path": null,
-  "project_id": 9,
-  "new_file_path": null
+ },
+ "file_sha256": null,
+ "verification_retry_at": null,
+ "verified_at": null,
+ "verification_failure": null,
+ "verification_retry_count": null,
+ "verification_checksum": null,
+ "verification_state": 0,
+ "verification_started_at": null,
+ "status": "default",
+ "file_final_path": null,
+ "project_id": 9,
+ "new_file_path": null
 }
 ```
 
@@ -564,7 +564,7 @@ GET /projects/:id/packages/conan/v2/conans/:package_name/:package_version/:packa
 | `id`                | string | yes | The project ID or full project path. |
 | `package_name`      | string | yes | Name of a package. |
 | `package_version`   | string | yes | Version of a package. |
-| `package_username`  | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
+| `package_username` | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
 | `package_channel`   | string | yes | Channel of a package. |
 
 ```shell
@@ -576,7 +576,7 @@ Example response:
 
 ```json
 {
-  "103f6067a947f366ef91fc1b7da351c588d1827f": {
+ "103f6067a947f366ef91fc1b7da351c588d1827f": {
     "settings": {
       "arch": "x86_64",
       "build_type": "Release",
@@ -592,7 +592,7 @@ Example response:
       "zlib/1.2.11": null
     },
     "recipe_hash": "75151329520e7685dcf5da49ded2fec0"
-  }
+ }
 }
 ```
 
@@ -616,7 +616,7 @@ GET /projects/:id/packages/conan/v2/conans/:package_name/:package_version/:packa
 | `id`                | string | yes | The project ID or full project path. |
 | `package_name`      | string | yes | Name of a package. |
 | `package_version`   | string | yes | Version of a package. |
-| `package_username`  | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
+| `package_username` | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
 | `package_channel`   | string | yes | Channel of a package. |
 | `recipe_revision`   | string | yes | Revision of the recipe. Does not accept a value of `0`. |
 
@@ -629,7 +629,7 @@ Example response:
 
 ```json
 {
-  "103f6067a947f366ef91fc1b7da351c588d1827f": {
+ "103f6067a947f366ef91fc1b7da351c588d1827f": {
     "settings": {
       "arch": "x86_64",
       "build_type": "Release",
@@ -645,7 +645,7 @@ Example response:
       "zlib/1.2.11": null
     },
     "recipe_hash": "75151329520e7685dcf5da49ded2fec0"
-  }
+ }
 }
 ```
 

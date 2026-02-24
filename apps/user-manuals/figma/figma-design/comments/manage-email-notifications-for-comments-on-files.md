@@ -22,8 +22,8 @@ Note: When a file's permissions changes from **Anyone** to **Only invited peopl
 
 To modify your email notification settings for a file:
 
-1. Click  **Comment** or press `C` to enter comment mode.
-2. Click  **Settings** at the top of the right sidebar in comment mode:
+1. Click **Comment** or press `C` to enter comment mode.
+2. Click **Settings** at the top of the right sidebar in comment mode:
 3. From the dropdown, select one of the following:
    - **Everything**: This setting will notify you of any comments made on the file, @mentions that mention you (including mentions of [user groups](https://help.figma.com/hc/en-us/articles/38020006913943-Create-and-manage-user-groups) you’re a part of), and replies or reacts to threads you’ve created or participated in.
    - **Just mentions and replies**: This setting will notify you of @mentions that mention you (including mentions of [user groups](https://help.figma.com/hc/en-us/articles/38020006913943-Create-and-manage-user-groups) you’re a part of) and replies or reacts to threads you’ve created or participated in.

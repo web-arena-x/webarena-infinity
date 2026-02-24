@@ -15,13 +15,13 @@ You can customize the columns in the Bidding tool so it shows data that is relev
 ## Things to Consider Edit section
 
 - ****Required User Permissions:****
-  - 'Read Only' level permissions or higher on the project's Bidding tool.
+ - 'Read Only' level permissions or higher on the project's Bidding tool.
 
 ## Steps
 
 - [Bid Management Enhanced Experience](#Bid_Management_Enhanced_Experience "Customize the Column Display in the Bidding Tool")
-  - [Bid Package](#Adjust_columns_in_a_Bid_Package "Customize the Column Display in the Bidding Tool")
-  - [Bid Form](#Adjust_columns_in_a_Bid_Form "Customize the Column Display in the Bidding Tool")
+ - [Bid Package](#Adjust_columns_in_a_Bid_Package "Customize the Column Display in the Bidding Tool")
+ - [Bid Form](#Adjust_columns_in_a_Bid_Form "Customize the Column Display in the Bidding Tool")
 - [Legacy Bid Management Experience](#Legacy_Bid_Management_Experience "Customize the Column Display in the Bidding Tool")
 
 ### Bid Management Enhanced Experience
@@ -31,7 +31,7 @@ You can customize the columns in the Bidding tool so it shows data that is relev
 1. Navigate to the project's **Bidding** tool.
 2. Click the **bid package**.
 3. From the 'Bidding'tab, click the **table settings** ![icon-ag-grid-table-filter-menu.png](https://support.procore.com/@api/deki/files/233087/icon-ag-grid-table-filter-menu.png?revision=3&size=bestfit&width=15&height=15) icon to configure what data is displayed in the table.
-   1. Move the **toggles** ![icon-toggle-on.png](https://support.procore.com/@api/deki/files/93011/icon-toggle-on.png?revision=1&size=bestfit&width=25&height=25) ON or ![icon-toggle-off.png](https://support.procore.com/@api/deki/files/93010/icon-toggle-off.png?revision=1&size=bestfit&width=25&height=25) OFF to show or hide a column.   
+   1. Move the **toggles** ![icon-toggle-on.png](https://support.procore.com/@api/deki/files/93011/icon-toggle-on.png?revision=1&size=bestfit&width=25&height=25) ON or ![icon-toggle-off.png](https://support.procore.com/@api/deki/files/93010/icon-toggle-off.png?revision=1&size=bestfit&width=25&height=25) OFF to show or hide a column.  
       The following fields are available:
       - Bidders
       - Bid Status
@@ -91,24 +91,20 @@ You can customize the columns in the Bidding tool so it shows data that is relev
 This is a legacy experience. Learn more about the [Enhanced Bid Management Experience](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/about-bid-management-enhanced-experience "About Bid Management Enhanced Experience").
 
 1. Navigate to the project's ****Bidding**** tool.
-2. Open the bid package.  
+2. Open the bid package. 
    This reveals the Bid List.
-3. In the Bid List tab, click the ****vertical ellipsis**** icon.   
-   This opens the Show, Hide, or Reorder Columns shortcut menu.  
+3. In the Bid List tab, click the ****vertical ellipsis**** icon.  
+   This opens the Show, Hide, or Reorder Columns shortcut menu. 
      
    ![customize-column.png](https://support.procore.com/@api/deki/files/69846/customize-table-options-menu.png?revision=3)
 4. Choose from these options:
-   - ****Show a Column****  
-     Mark the checkbox next to a column to show on the Bid List page.
-   - ****Hide a Column****  
-     Remove the mark from the checkbox that corresponds to the column to hide on the Bid List page.
-   - ****Reorder the Columns****  
-     Grab the column name by the dots(⁞⁞). Then use a drag-and-drop operation to place the column into the desired position in the list.
+   - ****Show a Column**** Mark the checkbox next to a column to show on the Bid List page.
+   - ****Hide a Column**** Remove the mark from the checkbox that corresponds to the column to hide on the Bid List page.
+   - ****Reorder the Columns**** Grab the column name by the dots(⁞⁞). Then use a drag-and-drop operation to place the column into the desired position in the list.
 
 ![reorder-column.png](https://support.procore.com/@api/deki/files/69847/reorder-table-rows3.png?revision=3)
 
-- ****Restore the Default Settings****  
-  Click the ****Reset to Default**** link at the top of the drop-down menu to restore to the original column settings.
+- ****Restore the Default Settings**** Click the ****Reset to Default**** link at the top of the drop-down menu to restore to the original column settings.
 
 ## See Also
 

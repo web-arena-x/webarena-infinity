@@ -25,21 +25,21 @@ You can enter a First Destination Survey response for a student with the followi
 - **Grad Month and Grad Year**
 - **Degree Type**
 - **Students preferred email** (.edu or non-.edu)
-  - **Note**: if you're submitting a Knowledge Answer, this field is not required.
+ - **Note**: if you're submitting a Knowledge Answer, this field is not required.
     - *If you don’t know this student’s personal email address, leave the field blank—we'll auto-populate their school email address as a placeholder.*
 - **Activity after graduation**
-  - Working
-  - Volunteering
-  - Continuing Education
-  - Military
-  - Still Looking
-  - Not Seeking
+ - Working
+ - Volunteering
+ - Continuing Education
+ - Military
+ - Still Looking
+ - Not Seeking
     - **Note:** When choosing Working, Volunteering, or Continuing Education, select the title of the employer, organization, or institution from the dropdown menu that appears.
 - **Knowledge Source**
 - **Response Answer** or **Knowledge Answer**
 - **Status** 
-  - In-Progress
-  - Submitted
+ - In-Progress
+ - Submitted
 
 **Note**: if your school has attached required custom questions, and you're submitting a Knowledge Answer, these questions are not required in order to save the response.
 

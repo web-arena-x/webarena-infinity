@@ -6,10 +6,10 @@ title: Lesson 1
 ---
 
 <div class="video-fallback">
-  See the video: <a href="https://www.youtube.com/watch?v=k4C3-FKvZyI">Lesson 1 intro</a>.
+ See the video: <a href="https://www.youtube.com/watch?v=k4C3-FKvZyI">Lesson 1 intro</a>.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/k4C3-FKvZyI" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/k4C3-FKvZyI" frameborder="0" allowfullscreen> </iframe>
 </figure>
 
 In this lesson you tackle the smallest of problems - a one-character text change. To do so, we have to learn:
@@ -26,10 +26,10 @@ There is a list of issues that are very similar to the one we'll be live coding 
 ## What is the GDK?
 
 <div class="video-fallback">
-  See the video: <a href="https://www.youtube.com/watch?v=qXGXshfo934">What is the GDK</a>?
+ See the video: <a href="https://www.youtube.com/watch?v=qXGXshfo934">What is the GDK</a>?
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/qXGXshfo934" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/qXGXshfo934" frameborder="0" allowfullscreen> </iframe>
 </figure>
 
 The GDK (GitLab Development Kit) is a local instance of GitLab that allows developers to run and test GitLab on their own computers.
@@ -39,22 +39,22 @@ This allows developers to make changes, test them in real-time, and validate the
 Tips for using the GDK:
 
 - Troubleshooting documentation: When encountering issues with the GDK, refer to the troubleshooting documentation in the [GDK repository](https://gitlab.com/gitlab-org/gitlab-development-kit/-/tree/main/doc/troubleshooting).
-  These resources provide useful commands and tips to help resolve common problems.
+ These resources provide useful commands and tips to help resolve common problems.
 - Using the Rails console: The Rails console is an essential tool for interacting with your local instance of GitLab.
-  You can access it by running `gdk rails c` and use it to enable or disable feature flags, perform backend operations, and more.
+ You can access it by running `gdk rails c` and use it to enable or disable feature flags, perform backend operations, and more.
 - Stay updated: Regularly update your GDK by running `gdk update`.
-  This command fetches the latest branch of the GitLab project, as well as the latest branch of the GDK and its dependencies.
-  Keeping your GDK up to date helps ensure you will be working with the latest version of GitLab and make sure you have the latest bug fixes.
+ This command fetches the latest branch of the GitLab project, as well as the latest branch of the GDK and its dependencies.
+ Keeping your GDK up to date helps ensure you will be working with the latest version of GitLab and make sure you have the latest bug fixes.
 
 Remember, if you need further assistance or have specific questions, you can reach out to the GitLab community through our [Discord](https://discord.com/invite/gitlab) or [other available support channels](https://about.gitlab.com/community/contribute/).
 
 ## Installing and using the GDK locally
 
 <div class="video-fallback">
-  See the video: <a href="https://www.youtube.com/watch?v=fcOyjuCizmY">Installing the GDK</a>.
+ See the video: <a href="https://www.youtube.com/watch?v=fcOyjuCizmY">Installing the GDK</a>.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/fcOyjuCizmY" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/fcOyjuCizmY" frameborder="0" allowfullscreen> </iframe>
 </figure>
 
 For the latest installation instructions, refer to the [GitLab Development Kit documentation](https://gitlab.com/gitlab-org/gitlab-development-kit#installation).
@@ -65,8 +65,7 @@ Here's a step-by-step summary:
    - 16 GB RAM.
    - Ensure that Git is installed on your machine.
    - Install a code editor, such as Visual Studio Code.
-   - [Create an account](https://gitlab.com/users/sign_up) or [sign in](https://gitlab.com/users/sign_in) on GitLab.com and start your
-     [contributor onboarding](https://contributors.gitlab.com/start).
+   - [Create an account](https://gitlab.com/users/sign_up) or [sign in](https://gitlab.com/users/sign_in) on GitLab.com and start your [contributor onboarding](https://contributors.gitlab.com/start).
 1. Installation:
    - Choose a directory to install the GitLab Development Kit (GDK).
    - Open your terminal and go to the chosen directory.
@@ -94,10 +93,10 @@ Remember to consult the documentation or seek community support if you have any 
 ## Navigating the GitLab codebase
 
 <div class="video-fallback">
-  See the video: <a href="https://www.youtube.com/watch?v=Wc5u879_0Aw">How to navigate the GitLab codebase</a>.
+ See the video: <a href="https://www.youtube.com/watch?v=Wc5u879_0Aw">How to navigate the GitLab codebase</a>.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/Wc5u879_0Aw" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/Wc5u879_0Aw" frameborder="0" allowfullscreen> </iframe>
 </figure>
 
 Understanding how to navigate the GitLab codebase is essential for contributors.
@@ -124,29 +123,29 @@ If you know which page you need to fix and you want to find the file path, here 
 ## Writing a good merge request
 
 <div class="video-fallback">
-  See the video: <a href="https://www.youtube.com/watch?v=H5zozDNIn98">How to write a good MR</a>.
+ See the video: <a href="https://www.youtube.com/watch?v=H5zozDNIn98">How to write a good MR</a>.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/H5zozDNIn98" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/H5zozDNIn98" frameborder="0" allowfullscreen> </iframe>
 </figure>
 
 When writing a merge request there are some important things to be aware of:
 
 - Your MR will become a permanent part of the documentation of the GitLab project.
-  It may be used in the future to help people understand why some code works the way it does and why it doesn't use an alternative solution.
+ It may be used in the future to help people understand why some code works the way it does and why it doesn't use an alternative solution.
 - At least 2 other engineers are going to review your code. For the sake of efficiency (much like the code itself you have written) it is best to take a little while longer to get your MR right so that it is quicker and easier for others to read.
 - The MRs that you create on GitLab are available to the public. This means you can add a link to MRs you are particularly proud of to your portfolio page when looking for a job.
 - Since an MR is a technical document, you should try to implement a technical writing style.
-  If you don't know what that is, here is a highly recommended short course from [Google on Technical writing](https://developers.google.com/tech-writing/one).
-  If you are also contributing to the documentation at GitLab, there is a [Technical Writing Fundamentals course available here from GitLab](https://university.gitlab.com/courses/gitlab-technical-writing-fundamentals).
+ If you don't know what that is, here is a highly recommended short course from [Google on Technical writing](https://developers.google.com/tech-writing/one).
+ If you are also contributing to the documentation at GitLab, there is a [Technical Writing Fundamentals course available here from GitLab](https://university.gitlab.com/courses/gitlab-technical-writing-fundamentals).
 
 ## Live coding
 
 <div class="video-fallback">
-  See the video: <a href="https://www.youtube.com/watch?v=BJCCwc1Czt4">Lesson 1 code walkthrough</a>.
+ See the video: <a href="https://www.youtube.com/watch?v=BJCCwc1Czt4">Lesson 1 code walkthrough</a>.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/BJCCwc1Czt4" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/BJCCwc1Czt4" frameborder="0" allowfullscreen> </iframe>
 </figure>
 
 Now it is your turn to complete your first MR, there is a list of issues that are very similar to the one we just finished that need completing [here in the "Linked items" section](https://gitlab.com/gitlab-org/gitlab/-/issues/389920). Thanks for contributing! (if there are none left, let us know on [Discord](https://discord.com/invite/gitlab) or [other available support channels](https://about.gitlab.com/community/contribute/) and we'll find more for you)

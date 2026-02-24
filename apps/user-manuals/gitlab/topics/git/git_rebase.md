@@ -6,36 +6,27 @@ description: Introduction to Git rebase and force push, methods to resolve merge
 title: Rebase and resolve merge conflicts
 ---
 
-Git rebase combines changes from one branch into another by moving your commits to the
-tip of the target branch. This action:
+Git rebase combines changes from one branch into another by moving your commits to the tip of the target branch. This action:
 
 - Updates branches with the latest code from the target branch.
 - Maintains a clean, linear commit history for easier debugging and code reviews.
-- Resolves [merge conflicts](../../user/project/merge_requests/conflicts.md) at the commit level
-  for conflict resolution.
+- Resolves [merge conflicts](../../user/project/merge_requests/conflicts.md) at the commit level for conflict resolution.
 - Preserves the chronological order of code changes.
 
 When you rebase:
 
-1. Git imports all the commits submitted to your target branch after you initially created
-   your branch from it.
-1. Git applies the commits from your branch on top of the imported commits. In this example, after
-   a branch named `feature` is created (in orange), four commits from `main` (in purple) are
-   imported into the `feature` branch:
+1. Git imports all the commits submitted to your target branch after you initially created your branch from it.
+1. Git applies the commits from your branch on top of the imported commits. In this example, after a branch named `feature` is created (in orange), four commits from `main` (in purple) are imported into the `feature` branch:
 
    ![Git rebase illustration](img/rebase_v17_10.drawio.svg)
 
-While most rebases are performed against `main`, you can rebase against any other
-branch. You can also specify a different remote repository.
+While most rebases are performed against `main`, you can rebase against any other branch. You can also specify a different remote repository.
 For example, `upstream` instead of `origin`.
 
 {{< alert type="warning" >}}
 
-`git rebase` rewrites the commit history. It can cause conflicts in
-shared branches and complex merge conflicts.
-Instead of rebasing your branch against the default branch,
-consider using `git pull origin master`. Pulling has similar
-effects with less risk of compromising others' work.
+`git rebase` rewrites the commit history. It can cause conflicts in shared branches and complex merge conflicts.
+Instead of rebasing your branch against the default branch, consider using `git pull origin master`. Pulling has similar effects with less risk of compromising others' work.
 
 {{< /alert >}}
 
@@ -72,8 +63,7 @@ To use Git to rebase your branch against the target branch:
    git branch my-branch-backup
    ```
 
-   Changes added to `my-branch` after this point are lost
-   if you restore from the backup branch.
+   Changes added to `my-branch` after this point are lost if you restore from the backup branch.
 
 1. Rebase against the `main` branch:
 
@@ -128,11 +118,9 @@ To rebase interactively:
    git branch my-branch-backup
    ```
 
-   Changes added to `my-branch` after this point are lost
-   if you restore from the backup branch.
+   Changes added to `my-branch` after this point are lost if you restore from the backup branch.
 
-1. In the GitLab UI, in your merge request, confirm the number of commits
-   to rebase in the **Commits** tab.
+1. In the GitLab UI, in your merge request, confirm the number of commits to rebase in the **Commits** tab.
 1. Open these commits. For example, to edit the last five commits:
 
    ```shell
@@ -170,11 +158,9 @@ To rebase interactively:
 
 1. When squashing, Git prompts you to edit the commit message:
 
-   - Lines starting with `#` are ignored and not included in the commit
-     message.
+   - Lines starting with `#` are ignored and not included in the commit message.
    - To keep the current message, type `:wq`.
-   - To edit the commit message, switch to
-     edit mode, make changes, and save.
+   - To edit the commit message, switch to edit mode, make changes, and save.
 
 1. Push your changes to the target branch.
 
@@ -235,8 +221,7 @@ Prerequisites:
    {{< alert type="warning" >}}
 
    You can run `git rebase --abort` to stop the process before this point.
-   Git aborts the rebase and rolls back the branch to the state
-   before running `git rebase`. After you run `git rebase --continue`, you cannot abort the rebase.
+   Git aborts the rebase and rolls back the branch to the state before running `git rebase`. After you run `git rebase --continue`, you cannot abort the rebase.
 
    {{< /alert >}}
 
@@ -246,8 +231,7 @@ Prerequisites:
    git rebase --continue
    ```
 
-1. Force push the changes to your
-   remote branch:
+1. Force push the changes to your remote branch:
 
    ```shell
    git push origin my-feature-branch --force-with-lease
@@ -258,11 +242,9 @@ Prerequisites:
 Complex Git operations like squashing commits, resetting a branch, or rebasing rewrite branch history.
 Git requires a forced update for these changes.
 
-Force pushing is not recommended on shared branches, because you risk destroying
-others' changes.
+Force pushing is not recommended on shared branches, because you risk destroying others' changes.
 
-If the branch is [protected](../../user/project/repository/branches/protected.md),
-you can't force push unless you:
+If the branch is [protected](../../user/project/repository/branches/protected.md), you can't force push unless you:
 
 - Unprotect it.
 - Allow force pushes.
@@ -287,14 +269,9 @@ If a rebase or force push fails, restore your branch from its backup:
 
 ## Approving after rebase
 
-If you rebase a branch, you've added commits. If your project is configured to
-[prevent approvals by users who add commits](../../user/project/merge_requests/approvals/settings.md#prevent-approvals-by-users-who-add-commits),
-you can't approve a merge request you've rebased. In addition, users who were previously committers,
-and could not previously approve, might now be able to approve the changes.
+If you rebase a branch, you've added commits. If your project is configured to [prevent approvals by users who add commits](../../user/project/merge_requests/approvals/settings.md#prevent-approvals-by-users-who-add-commits), you can't approve a merge request you've rebased. In addition, users who were previously committers, and could not previously approve, might now be able to approve the changes.
 
-Additionally, users who approved and then performed a rebase might still show as having approved
-the merge request. However, the user's approval does not count toward the required approvals for
-the merge request.
+Additionally, users who approved and then performed a rebase might still show as having approved the merge request. However, the user's approval does not count toward the required approvals for the merge request.
 
 ## Related topics
 
@@ -309,11 +286,8 @@ For CI/CD pipeline troubleshooting information, see [Debugging CI/CD pipelines](
 
 ### `Unmergeable state` after `/rebase` quick action
 
-The `/rebase` command schedules a background task. The task attempts to rebase
-the changes in the source branch on the latest commit of the target branch.
-If, after using the
-[`/rebase` quick action](../../user/project/quick_actions.md#rebase),
-you see this error, a rebase cannot be scheduled:
+The `/rebase` command schedules a background task. The task attempts to rebase the changes in the source branch on the latest commit of the target branch.
+If, after using the [`/rebase` quick action](../../user/project/quick_actions.md#rebase), you see this error, a rebase cannot be scheduled:
 
 ```plaintext
 This merge request is currently in an unmergeable state, and cannot be rebased.

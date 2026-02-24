@@ -12,14 +12,11 @@ title: Use Microsoft Azure as an OAuth 2.0 authentication provider
 
 {{< /details >}}
 
-You can enable the Microsoft Azure OAuth 2.0 OmniAuth provider and sign in to
-GitLab with your Microsoft Azure credentials.
+You can enable the Microsoft Azure OAuth 2.0 OmniAuth provider and sign in to GitLab with your Microsoft Azure credentials.
 
 {{< alert type="note" >}}
 
-If you're integrating GitLab with Azure/Entra ID for the first time,
-configure the [OpenID Connect protocol](../administration/auth/oidc.md#configure-microsoft-azure),
-which uses the Microsoft identity platform (v2.0) endpoint.
+If you're integrating GitLab with Azure/Entra ID for the first time, configure the [OpenID Connect protocol](../administration/auth/oidc.md#configure-microsoft-azure), which uses the Microsoft identity platform (v2.0) endpoint.
 
 {{< /alert >}}
 
@@ -29,24 +26,20 @@ In GitLab 17.0 and later, instances using `azure_oauth2` must migrate to the Gen
 
 ## Register an Azure application
 
-To enable the Microsoft Azure OAuth 2.0 OmniAuth provider, you must register
-an Azure application and get a client ID and secret key.
+To enable the Microsoft Azure OAuth 2.0 OmniAuth provider, you must register an Azure application and get a client ID and secret key.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. If you have multiple Azure Active Directory tenants, switch to the desired tenant. Note the tenant ID.
 1. [Register an application](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app)
    and provide the following information:
-   - The redirect URI, which requires the URL of the Azure OAuth callback of your GitLab
-     installation. `https://gitlab.example.com/users/auth/azure_activedirectory_v2/callback`.
+   - The redirect URI, which requires the URL of the Azure OAuth callback of your GitLab installation. `https://gitlab.example.com/users/auth/azure_activedirectory_v2/callback`.
    - The application type, which must be set to **Web**.
-1. Save the client ID and client secret. The client secret is only
-   displayed once.
+1. Save the client ID and client secret. The client secret is only displayed once.
 
    If required, you can [create a new application secret](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-service-principal-portal#option-3-create-a-new-client-secret).
 
 `client ID` and `client secret` are terms associated with OAuth 2.0.
-In some Microsoft documentation, the terms are named `Application ID` and
-`Application Secret`.
+In some Microsoft documentation, the terms are named `Application ID` and `Application Secret`.
 
 ## Add API permissions (scopes)
 
@@ -63,9 +56,7 @@ Alternatively, add the `User.Read.All` application permission.
 
 {{< alert type="note" >}}
 
-For new projects, you should use the
-[OpenID Connect protocol](../administration/auth/oidc.md#configure-microsoft-azure),
-which uses the Microsoft identity platform (v2.0) endpoint.
+For new projects, you should use the [OpenID Connect protocol](../administration/auth/oidc.md#configure-microsoft-azure), which uses the Microsoft identity platform (v2.0) endpoint.
 
 {{< /alert >}}
 
@@ -86,11 +77,9 @@ which uses the Microsoft identity platform (v2.0) endpoint.
      ```
 
 1. Configure the [common settings](omniauth.md#configure-common-settings)
-   to add `azure_activedirectory_v2` as a single sign-on provider. This enables Just-In-Time
-   account provisioning for users who do not have an existing GitLab account.
+   to add `azure_activedirectory_v2` as a single sign-on provider. This enables Just-In-Time account provisioning for users who do not have an existing GitLab account.
 
-1. Add the provider configuration. Replace `<client_id>`, `<client_secret>`, and `<tenant_id>`
-   with the values you got when you registered the Azure application.
+1. Add the provider configuration. Replace `<client_id>`, `<client_secret>`, and `<tenant_id>` with the values you got when you registered the Azure application.
 
    - For Linux package installations:
 
@@ -109,8 +98,7 @@ which uses the Microsoft identity platform (v2.0) endpoint.
 
      ```
 
-   - For [alternative Azure clouds](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud),
-     configure `base_azure_url` under the `args` section. For example, for Azure Government Community Cloud (GCC):
+   - For [alternative Azure clouds](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud), configure `base_azure_url` under the `args` section. For example, for Azure Government Community Cloud (GCC):
 
      ```ruby
      gitlab_rails['omniauth_providers'] = [
@@ -139,8 +127,7 @@ which uses the Microsoft identity platform (v2.0) endpoint.
                  tenant_id: "<tenant_id>" } }
      ```
 
-     For [alternative Azure clouds](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud),
-     configure `base_azure_url` under the `args` section. For example, for Azure Government Community Cloud (GCC):
+     For [alternative Azure clouds](https://learn.microsoft.com/en-us/entra/identity-platform/authentication-national-cloud), configure `base_azure_url` under the `args` section. For example, for Azure Government Community Cloud (GCC):
 
      ```yaml
      - { name: 'azure_activedirectory_v2',
@@ -159,8 +146,7 @@ which uses the Microsoft identity platform (v2.0) endpoint.
    if you installed using the Linux package, or [restart GitLab](../administration/restart_gitlab.md#self-compiled-installations)
    if you self-compiled your installation.
 
-1. Refresh the GitLab sign-in page. A Microsoft icon should display below the
-   sign-in form.
+1. Refresh the GitLab sign-in page. A Microsoft icon should display below the sign-in form.
 
 1. Select the icon. Sign in to Microsoft and authorize the GitLab application.
 

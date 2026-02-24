@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/6443363799066-Setting-busi
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Workforce Management (WFM) or Workforce Engagement Management (WEM) |
 
@@ -19,7 +19,7 @@ In Zendesk Workforce management (WFM), you can specify the business hours you wa
    You can apply business hours in any view. It's recommended to use the day view because the week and month views might not show the impact of applying business hours.
 3. Choose the [workstream](https://support.tymeshift.com/hc/en-us/articles/10679984897043) you want to apply business hours to.
 4. Under Staffing Parameters, check **Availability**.
-5. Select your business hours and click **Save**.  
+5. Select your business hours and click **Save**. 
    The forecast recalculates the newly configured business hours.
 6. To turn off business hours, uncheck the box and save.   
    The forecast is automatically recalculated.

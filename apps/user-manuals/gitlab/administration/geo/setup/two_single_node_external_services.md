@@ -17,19 +17,18 @@ The following guide provides concise instructions on how to deploy GitLab Geo fo
 Prerequisites:
 
 - You have at least two independently working GitLab sites.
-  To create the sites, see the [GitLab reference architectures documentation](../../reference_architectures/_index.md).
-  - One GitLab site serves as the **Geo primary site**. You can use different reference architecture sizes for each Geo site. If you already have a working GitLab instance, you can use it as the primary site.
-  - The second GitLab site serves as the **Geo secondary site**. Geo supports multiple secondary sites.
+ To create the sites, see the [GitLab reference architectures documentation](../../reference_architectures/_index.md).
+ - One GitLab site serves as the **Geo primary site**. You can use different reference architecture sizes for each Geo site. If you already have a working GitLab instance, you can use it as the primary site.
+ - The second GitLab site serves as the **Geo secondary site**. Geo supports multiple secondary sites.
 - The Geo primary site has at least a [GitLab Premium](https://about.gitlab.com/pricing/) license.
-  You need only one license for all sites.
+ You need only one license for all sites.
 - Confirm all sites meet the [requirements for running Geo](../_index.md#requirements-for-running-geo).
 
 ## Set up Geo for Linux package (Omnibus)
 
 Prerequisites:
 
-- You use PostgreSQL 12 or later,
-  which includes the [`pg_basebackup` tool](https://www.postgresql.org/docs/16/app-pgbasebackup.html).
+- You use PostgreSQL 12 or later, which includes the [`pg_basebackup` tool](https://www.postgresql.org/docs/16/app-pgbasebackup.html).
 
 ### Configure the primary site
 
@@ -75,11 +74,9 @@ To set up an external database, you can either:
 #### Leverage your cloud provider's tools to replicate the primary database
 
 Given you have a primary site set up on AWS EC2 that uses RDS.
-You can now just create a read-only replica in a different region and the
-replication process is managed by AWS. Make sure you've set Network ACL (Access Control List), Subnet, and Security Group according to your needs, so the secondary Rails nodes can access the database.
+You can now just create a read-only replica in a different region and the replication process is managed by AWS. Make sure you've set Network ACL (Access Control List), Subnet, and Security Group according to your needs, so the secondary Rails nodes can access the database.
 
-The following instructions detail how to create a read-only replica for common
-cloud providers:
+The following instructions detail how to create a read-only replica for common cloud providers:
 
 - Amazon RDS - [Creating a Read Replica](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html#USER_ReadRepl.Create)
 - Azure Database for PostgreSQL - [Create and manage read replicas in Azure Database for PostgreSQL](https://learn.microsoft.com/en-us/azure/postgresql/single-server/how-to-read-replicas-portal)
@@ -89,8 +86,7 @@ When your read-only replica is set up, you can skip to [configure your secondary
 
 ### Configure the secondary site to use the external read-replica
 
-With Linux package installations, the
-[`geo_secondary_role`](https://docs.gitlab.com/omnibus/roles/#gitlab-geo-roles)
+With Linux package installations, the [`geo_secondary_role`](https://docs.gitlab.com/omnibus/roles/#gitlab-geo-roles)
 has three main functions:
 
 1. Configure the replica database.
@@ -126,33 +122,27 @@ To configure the connection to the external read-replica database:
    postgresql['enable'] = false
    ```
 
-1. Copy the configuration example from
-   [Complete secondary site with external PostgreSQL](#complete-secondary-site-with-external-postgresql).
+1. Copy the configuration example from [Complete secondary site with external PostgreSQL](#complete-secondary-site-with-external-postgresql).
    To apply the changes, save the file and reconfigure GitLab:
 
    ```shell
    gitlab-ctl reconfigure
    ```
 
-If you have connectivity issues to your replica database,
-[check TCP connectivity](../../raketasks/maintenance.md) from your server with the following command:
+If you have connectivity issues to your replica database, [check TCP connectivity](../../raketasks/maintenance.md) from your server with the following command:
 
 ```shell
 gitlab-rake gitlab:tcp_check[<replica FQDN>,5432]
 ```
 
-If this step fails, you might be using the wrong IP address, or a firewall might
-be preventing access to the site. Check the IP address, paying close
-attention to the difference between public and private addresses.
-If a firewall is present, ensure the secondary site is allowed to connect to the
-primary site on port 5432.
+If this step fails, you might be using the wrong IP address, or a firewall might be preventing access to the site. Check the IP address, paying close attention to the difference between public and private addresses.
+If a firewall is present, ensure the secondary site is allowed to connect to the primary site on port 5432.
 
 #### Manually replicate secret GitLab values
 
 GitLab stores a number of secret values in `/etc/gitlab/gitlab-secrets.json`.
 This JSON file must be the same across each of the site nodes.
-You must manually replicate the secret file across all of your secondary sites, although
-[issue 3789](https://gitlab.com/gitlab-org/gitlab/-/issues/3789) proposes to change this behavior.
+You must manually replicate the secret file across all of your secondary sites, although [issue 3789](https://gitlab.com/gitlab-org/gitlab/-/issues/3789) proposes to change this behavior.
 
 1. SSH into a Rails node on your primary site, and execute the command below:
 
@@ -283,16 +273,14 @@ You must manually replicate the secret file across all of your secondary sites, 
 
 #### Fast lookup of authorized SSH keys
 
-After the initial replication process is complete, follow the steps to
-[configure fast lookup of authorized SSH keys](../../operations/fast_ssh_key_lookup.md).
+After the initial replication process is complete, follow the steps to [configure fast lookup of authorized SSH keys](../../operations/fast_ssh_key_lookup.md).
 
 Fast lookup is [required for Geo](../../operations/fast_ssh_key_lookup.md#fast-lookup-is-required-for-geo).
 
 {{< alert type="note" >}}
 
 Authentication is handled by the primary site. Don't set up custom authentication for the secondary site.
-Any change that requires access to the **Admin** area should be made in the primary site, because the
-secondary site is a read-only copy.
+Any change that requires access to the **Admin** area should be made in the primary site, because the secondary site is a read-only copy.
 
 {{< /alert >}}
 
@@ -329,14 +317,11 @@ secondary site is a read-only copy.
 
       ![Form to add a new secondary Geo site](img/adding_a_secondary_v15_8.png)
 
-   1. In **Name**, enter the value for `gitlab_rails['geo_node_name']` in
-      `/etc/gitlab/gitlab.rb`. The values must match exactly.
+   1. In **Name**, enter the value for `gitlab_rails['geo_node_name']` in `/etc/gitlab/gitlab.rb`. The values must match exactly.
    1. In **External URL**, enter the value for `external_url` in `/etc/gitlab/gitlab.rb`.
-      It's okay if one values ends in `/` and the other doesn't. Otherwise, the values must
-      match exactly.
+      It's okay if one values ends in `/` and the other doesn't. Otherwise, the values must match exactly.
    1. Optional. In **Internal URL (optional)**, enter an internal URL for the primary site.
-   1. Optional. Select which groups or storage shards should be replicated by the
-      secondary site. To replicate all, leave the field blank. See [selective synchronization](../replication/selective_synchronization.md).
+   1. Optional. Select which groups or storage shards should be replicated by the secondary site. To replicate all, leave the field blank. See [selective synchronization](../replication/selective_synchronization.md).
    1. Select **Save changes**.
 1. SSH into each Rails and Sidekiq node on your secondary site and restart the services:
 
@@ -360,20 +345,15 @@ secondary site is a read-only copy.
 
    If any of the checks fail, check the [troubleshooting documentation](../replication/troubleshooting/_index.md).
 
-After the secondary site is added to the Geo administration page and restarted,
-the site automatically starts to replicate missing data from the primary site
-in a process known as backfill.
+After the secondary site is added to the Geo administration page and restarted, the site automatically starts to replicate missing data from the primary site in a process known as backfill.
 
-Meanwhile, the primary site starts to notify each secondary site of any changes, so
-that the secondary site can act on the notifications immediately.
+Meanwhile, the primary site starts to notify each secondary site of any changes, so that the secondary site can act on the notifications immediately.
 
-Be sure the secondary site is running and accessible. You can sign in to the
-secondary site with the same credentials as were used with the primary site.
+Be sure the secondary site is running and accessible. You can sign in to the secondary site with the same credentials as were used with the primary site.
 
 #### Enable Git access over HTTP/HTTPS and SSH
 
-Geo synchronizes repositories over HTTP/HTTPS (enabled by default for new installations),
-and therefore requires this clone method to be enabled.
+Geo synchronizes repositories over HTTP/HTTPS (enabled by default for new installations), and therefore requires this clone method to be enabled.
 If you convert an existing site to Geo, you should check that the clone method is enabled.
 
 On the primary site:
@@ -388,19 +368,16 @@ On the primary site:
 
 #### Verify proper functioning of the secondary site
 
-You can sign in to the secondary site with the same credentials you used with
-the primary site.
+You can sign in to the secondary site with the same credentials you used with the primary site.
 
 After you sign in:
 
 1. In the upper-right corner, select **Admin**.
 1. Select **Geo** > **Sites**.
-1. Verify that the site is correctly identified as a secondary Geo site, and that
-   Geo is enabled.
+1. Verify that the site is correctly identified as a secondary Geo site, and that Geo is enabled.
 
 The initial replication might take some time.
-You can monitor the synchronization process on each Geo site from the primary
-site **Geo Sites** dashboard in your browser.
+You can monitor the synchronization process on each Geo site from the primary site **Geo Sites** dashboard in your browser.
 
 ![Geo admin dashboard showing the synchronization status of a secondary site.](img/geo_dashboard_v14_0.png)
 
@@ -409,32 +386,22 @@ site **Geo Sites** dashboard in your browser.
 > [!note]
 > This step is optional in case you also want to have your tracking database set up externally on another server.
 
-**Secondary** sites use a separate PostgreSQL installation as a tracking
-database to keep track of replication status and automatically recover from
-potential replication issues. The Linux package automatically configures a tracking database
-when `roles ['geo_secondary_role']` is set.
+**Secondary** sites use a separate PostgreSQL installation as a tracking database to keep track of replication status and automatically recover from potential replication issues. The Linux package automatically configures a tracking database when `roles ['geo_secondary_role']` is set.
 If you want to run this database external to your Linux package installation, use the following instructions.
 
 ### Cloud-managed database services
 
-If you are using a cloud-managed service for the tracking database, you may need
-to grant additional roles to your tracking database user (by default, this is
-`gitlab_geo`):
+If you are using a cloud-managed service for the tracking database, you may need to grant additional roles to your tracking database user (by default, this is `gitlab_geo`):
 
 - Amazon RDS requires the [`rds_superuser`](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Roles) role.
 - Azure Database for PostgreSQL requires the [`azure_pg_admin`](https://learn.microsoft.com/en-us/azure/postgresql/single-server/how-to-create-users#how-to-create-additional-admin-users-in-azure-database-for-postgresql) role.
 - Google Cloud SQL requires the [`cloudsqlsuperuser`](https://cloud.google.com/sql/docs/postgres/users#default-users) role.
 
-Additional roles are needed for the installation of extensions during installation and upgrades. As an alternative,
-[ensure the extensions are installed manually, and read about the problems that may arise during future GitLab upgrades](../../../install/postgresql_extensions.md).
+Additional roles are needed for the installation of extensions during installation and upgrades. As an alternative, [ensure the extensions are installed manually, and read about the problems that may arise during future GitLab upgrades](../../../install/postgresql_extensions.md).
 
 {{< alert type="note" >}}
 
-If you want to use Amazon RDS as a tracking database, make sure it has access to
-the secondary database. Unfortunately, just assigning the same security group is not enough as
-outbound rules do not apply to RDS PostgreSQL databases. Therefore, you need to explicitly add an inbound
-rule to the read-replica's security group allowing any TCP traffic from
-the tracking database on port 5432.
+If you want to use Amazon RDS as a tracking database, make sure it has access to the secondary database. Unfortunately, just assigning the same security group is not enough as outbound rules do not apply to RDS PostgreSQL databases. Therefore, you need to explicitly add an inbound rule to the read-replica's security group allowing any TCP traffic from the tracking database on port 5432.
 
 {{< /alert >}}
 
@@ -442,13 +409,10 @@ the tracking database on port 5432.
 
 Create and configure the tracking database in your PostgreSQL instance:
 
-1. Set up PostgreSQL according to the
-   [database requirements document](../../../install/requirements.md#postgresql).
+1. Set up PostgreSQL according to the [database requirements document](../../../install/requirements.md#postgresql).
 1. Set up a `gitlab_geo` user with a password of your choice, create the `gitlabhq_geo_production` database, and make the user an owner of the database.
    You can see an example of this setup in the [self-compiled installation documentation](../../../install/self_compiled/_index.md#7-database).
-1. If you are **not** using a cloud-managed PostgreSQL database, ensure that your secondary
-   site can communicate with your tracking database by manually changing the
-   `pg_hba.conf` that is associated with your tracking database.
+1. If you are **not** using a cloud-managed PostgreSQL database, ensure that your secondary site can communicate with your tracking database by manually changing the `pg_hba.conf` that is associated with your tracking database.
    Remember to restart PostgreSQL afterwards for the changes to take effect:
 
    ```plaintext
@@ -470,8 +434,7 @@ Configure GitLab to use this database. These steps are for Linux package and Doc
    sudo -i
    ```
 
-1. Edit `/etc/gitlab/gitlab.rb` with the connection parameters and credentials for
-   the machine with the PostgreSQL instance:
+1. Edit `/etc/gitlab/gitlab.rb` with the connection parameters and credentials for the machine with the PostgreSQL instance:
 
    ```ruby
    geo_secondary['db_username'] = 'gitlab_geo'
@@ -498,8 +461,7 @@ The reconfigure command in the [previously listed steps](#configure-gitlab) hand
    sudo gitlab-rake db:create:geo
    ```
 
-1. Applying Rails database migrations (schema and data updates) is also performed by reconfigure. If `geo_secondary['auto_migrate'] = false` is set, or
-   the schema was created manually, this step is required:
+1. Applying Rails database migrations (schema and data updates) is also performed by reconfigure. If `geo_secondary['auto_migrate'] = false` is set, or the schema was created manually, this step is required:
 
    ```shell
    sudo gitlab-rake db:migrate:geo
@@ -543,10 +505,10 @@ letsencrypt['enable'] = false
 ## Object Storage configuration (recommended for external services)
 gitlab_rails['object_store']['enabled'] = true
 gitlab_rails['object_store']['connection'] = {
-  'provider' => 'AWS',
-  'region' => 'us-east-1',
-  'aws_access_key_id' => 'your_access_key',
-  'aws_secret_access_key' => 'your_secret_key'
+ 'provider' => 'AWS',
+ 'region' => 'us-east-1',
+ 'aws_access_key_id' => 'your_access_key',
+ 'aws_secret_access_key' => 'your_secret_key'
 }
 
 ## Monitoring configuration
@@ -597,10 +559,10 @@ letsencrypt['enable'] = false
 ## Object Storage configuration (must match primary)
 gitlab_rails['object_store']['enabled'] = true
 gitlab_rails['object_store']['connection'] = {
-  'provider' => 'AWS',
-  'region' => 'us-east-1',
-  'aws_access_key_id' => 'your_access_key',
-  'aws_secret_access_key' => 'your_secret_key'
+ 'provider' => 'AWS',
+ 'region' => 'us-east-1',
+ 'aws_access_key_id' => 'your_access_key',
+ 'aws_secret_access_key' => 'your_secret_key'
 }
 
 ## Monitoring configuration

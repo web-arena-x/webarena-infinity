@@ -12,8 +12,7 @@ title: Using SSH keys with GitLab CI/CD
 
 {{< /details >}}
 
-GitLab does not have built-in support for managing SSH keys in a build
-environment (where the GitLab Runner runs).
+GitLab does not have built-in support for managing SSH keys in a build environment (where the GitLab Runner runs).
 
 Use SSH keys when you want to:
 
@@ -23,9 +22,7 @@ Use SSH keys when you want to:
 - Execute SSH commands from the build environment to a remote server.
 - Rsync files from the build environment to a remote server.
 
-The most widely supported method is to inject an SSH key into your build
-environment by extending your `.gitlab-ci.yml`, and it's a solution that works
-with any type of [executor](https://docs.gitlab.com/runner/executors/)
+The most widely supported method is to inject an SSH key into your build environment by extending your `.gitlab-ci.yml`, and it's a solution that works with any type of [executor](https://docs.gitlab.com/runner/executors/)
 (like Docker or shell, for example).
 
 ## Create and use an SSH key
@@ -34,16 +31,11 @@ To create and use an SSH key in GitLab CI/CD:
 
 1. [Generate a new SSH key pair](../../user/ssh.md#generate-an-ssh-key-pair).
 1. Add the private key as a [file type CI/CD variable](#add-an-ssh-key-as-a-file-type-variable) named `SSH_PRIVATE_KEY`.
-1. Run [`ssh-agent`](https://linux.die.net/man/1/ssh-agent) in the job, which loads
-   the private key.
+1. Run [`ssh-agent`](https://linux.die.net/man/1/ssh-agent) in the job, which loads the private key.
 1. Copy the public key to the servers you want to have access to (usually in `~/.ssh/authorized_keys`).
-   If you are accessing a private GitLab repository, you also need to add the public key as
-   a [deploy key](../../user/project/deploy_keys/_index.md).
+   If you are accessing a private GitLab repository, you also need to add the public key as a [deploy key](../../user/project/deploy_keys/_index.md).
 
-In the following example, the `ssh-add -` command does not display the value of
-`$SSH_PRIVATE_KEY` in the job log, though it could be exposed if you enable
-[debug logging](../variables/variables_troubleshooting.md#enable-debug-logging). You might also want to
-check the [visibility of your pipelines](../pipelines/settings.md#change-which-users-can-view-your-pipelines).
+In the following example, the `ssh-add -` command does not display the value of `$SSH_PRIVATE_KEY` in the job log, though it could be exposed if you enable [debug logging](../variables/variables_troubleshooting.md#enable-debug-logging). You might also want to check the [visibility of your pipelines](../pipelines/settings.md#change-which-users-can-view-your-pipelines).
 
 ### Add an SSH key as a file type variable
 
@@ -52,8 +44,7 @@ To add an SSH key to your project, add the key as a [file type CI/CD variable](.
 - Set **Visibility** to **Visible**. Any other setting prevents the variable from having multiple lines.
 - In the **Key** field, enter the name of the variable. For example, `SSH_PRIVATE_KEY`.
 - In the **Value** field, paste the content of the private key. The variable value must end in a newline (`LF` character).
-  To add a newline, press <kbd>Enter</kbd> or <kbd>Return</kbd> at the end of the last line of the SSH key
-  before saving it in the CI/CD settings.
+ To add a newline, press <kbd>Enter</kbd> or <kbd>Return</kbd> at the end of the last line of the SSH key before saving it in the CI/CD settings.
 
 ### Add an SSH key as a regular variable
 
@@ -62,15 +53,12 @@ This method uses a regular CI/CD variable instead of the recommended file type v
 
 ## SSH keys when using the Docker executor
 
-When your CI/CD jobs run inside Docker containers (meaning the environment is
-contained) and you want to deploy your code in a private server, you need a way
-to access it. In this case, you can use an SSH key pair.
+When your CI/CD jobs run inside Docker containers (meaning the environment is contained) and you want to deploy your code in a private server, you need a way to access it. In this case, you can use an SSH key pair.
 
 1. [Generate a new SSH key pair](../../user/ssh.md#generate-an-ssh-key-pair).
    Do not add a passphrase to the SSH key, or the `before_script` will prompt for it.
 1. Add the private key as a [file type CI/CD variable](#add-an-ssh-key-as-a-file-type-variable) named `SSH_PRIVATE_KEY`.
-1. Modify your `.gitlab-ci.yml` with a `before_script` action. In the following
-   example, a Debian based image is assumed. Edit to your needs:
+1. Modify your `.gitlab-ci.yml` with a `before_script` action. In the following example, a Debian based image is assumed. Edit to your needs:
 
    ```yaml
    before_script:
@@ -106,26 +94,19 @@ to access it. In this case, you can use an SSH key pair.
      # - git config --global user.name "User name"
    ```
 
-   The [`before_script`](../yaml/_index.md#before_script) can be set as a default
-   or per-job.
+   The [`before_script`](../yaml/_index.md#before_script) can be set as a default or per-job.
 
 1. Make sure the private server's [SSH host keys are verified](#verifying-the-ssh-host-keys).
 
-1. As a final step, add the public key from the one you created in the first
-   step to the services that you want to have an access to from inside the build
-   environment. If you are accessing a private GitLab repository you must add
-   it as a [deploy key](../../user/project/deploy_keys/_index.md).
+1. As a final step, add the public key from the one you created in the first step to the services that you want to have an access to from inside the build environment. If you are accessing a private GitLab repository you must add it as a [deploy key](../../user/project/deploy_keys/_index.md).
 
-That's it! You can now have access to private servers or repositories in your
-build environment.
+That's it! You can now have access to private servers or repositories in your build environment.
 
 ## SSH keys when using the Shell executor
 
-If you are using the Shell executor and not Docker, it is easier to set up an
-SSH key.
+If you are using the Shell executor and not Docker, it is easier to set up an SSH key.
 
-You can generate the SSH key from the machine that GitLab Runner is installed
-on, and use that key for all projects that are run on this machine.
+You can generate the SSH key from the machine that GitLab Runner is installed on, and use that key for all projects that are run on this machine.
 
 1. First, sign in to the server that runs your jobs.
 
@@ -136,16 +117,12 @@ on, and use that key for all projects that are run on this machine.
    ```
 
 1. [Generate a new SSH key pair](../../user/ssh.md#generate-an-ssh-key-pair).
-   Do not add a passphrase to the SSH key, or the `before_script` will
-   prompt for it.
+   Do not add a passphrase to the SSH key, or the `before_script` will prompt for it.
 
-1. As a final step, add the public key from the one you created earlier to the
-   services that you want to have an access to from inside the build environment.
-   If you are accessing a private GitLab repository you must add it as a
-   [deploy key](../../user/project/deploy_keys/_index.md).
+1. As a final step, add the public key from the one you created earlier to the services that you want to have an access to from inside the build environment.
+   If you are accessing a private GitLab repository you must add it as a [deploy key](../../user/project/deploy_keys/_index.md).
 
-After generating the key, try to sign in to the remote server to accept the
-fingerprint:
+After generating the key, try to sign in to the remote server to accept the fingerprint:
 
 ```shell
 ssh example.com
@@ -155,13 +132,9 @@ For accessing repositories on GitLab.com, you would use `git@gitlab.com`.
 
 ## Verifying the SSH host keys
 
-It is a good practice to check the private server's own public key to make sure
-you are not being targeted by a man-in-the-middle attack. If anything
-suspicious happens, you notice it because the job fails (the SSH
-connection fails when the public keys don't match).
+It is a good practice to check the private server's own public key to make sure you are not being targeted by a man-in-the-middle attack. If anything suspicious happens, you notice it because the job fails (the SSH connection fails when the public keys don't match).
 
-To find out the host keys of your server, run the `ssh-keyscan` command from a
-trusted network (ideally, from the private server itself):
+To find out the host keys of your server, run the `ssh-keyscan` command from a trusted network (ideally, from the private server itself):
 
 ```shell
 ## Use the domain name
@@ -176,32 +149,25 @@ Add the hosts to your project as a [file type CI/CD variable](#add-an-ssh-key-as
 - Use `SSH_KNOWN_HOSTS` as the **Key**.
 - Use the output of `ssh-keyscan` as the **Value**.
 
-If you must connect to multiple servers, all the server host keys
-must be collected in the **Value** of the variable, one key per line.
+If you must connect to multiple servers, all the server host keys must be collected in the **Value** of the variable, one key per line.
 
 {{< alert type="note" >}}
 
-By using a file type CI/CD variable instead of `ssh-keyscan` directly inside
-`.gitlab-ci.yml`, it has the benefit that you don't have to change `.gitlab-ci.yml`
-if the host domain name changes for some reason. Also, the values are predefined
-by you, meaning that if the host keys suddenly change, the CI/CD job doesn't fail,
-so there's something wrong with the server or the network.
+By using a file type CI/CD variable instead of `ssh-keyscan` directly inside `.gitlab-ci.yml`, it has the benefit that you don't have to change `.gitlab-ci.yml` if the host domain name changes for some reason. Also, the values are predefined by you, meaning that if the host keys suddenly change, the CI/CD job doesn't fail, so there's something wrong with the server or the network.
 
-Do not run `ssh-keyscan` directly in a CI/CD job, as it is a security risk vulnerable
-to machine-in-the-middle attacks.
+Do not run `ssh-keyscan` directly in a CI/CD job, as it is a security risk vulnerable to machine-in-the-middle attacks.
 
 {{< /alert >}}
 
-Now that the `SSH_KNOWN_HOSTS` variable is created, in addition to the
-[content of `.gitlab-ci.yml`](#ssh-keys-when-using-the-docker-executor), you must add:
+Now that the `SSH_KNOWN_HOSTS` variable is created, in addition to the [content of `.gitlab-ci.yml`](#ssh-keys-when-using-the-docker-executor), you must add:
 
 ```yaml
 before_script:
-  ##
-  ## Assuming you created the SSH_KNOWN_HOSTS file type CI/CD variable:
-  ##
-  - cp "$SSH_KNOWN_HOSTS" ~/.ssh/known_hosts
-  - chmod 644 ~/.ssh/known_hosts
+ ##
+ ## Assuming you created the SSH_KNOWN_HOSTS file type CI/CD variable:
+ ##
+ - cp "$SSH_KNOWN_HOSTS" ~/.ssh/known_hosts
+ - chmod 644 ~/.ssh/known_hosts
 ```
 
 ## Troubleshooting
@@ -210,7 +176,5 @@ before_script:
 
 This message can be returned if there is a formatting error with the SSH key.
 
-When saving the SSH key as a [file type CI/CD variable](../variables/_index.md#use-file-type-cicd-variables),
-the value must end with a newline (`LF` character). To add a newline, press <kbd>Enter</kbd> or <kbd>Return</kbd>
-at the end of the `-----END OPENSSH PRIVATE KEY-----` line of the SSH key before saving
-the variable.
+When saving the SSH key as a [file type CI/CD variable](../variables/_index.md#use-file-type-cicd-variables), the value must end with a newline (`LF` character). To add a newline, press <kbd>Enter</kbd> or <kbd>Return</kbd>
+at the end of the `-----END OPENSSH PRIVATE KEY-----` line of the SSH key before saving the variable.

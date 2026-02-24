@@ -34,8 +34,8 @@ The following tips can help accelerate the verification process:
 
 - If you're an independent or small business without a business email, include the email used to register your Handshake account on your website or social webpage, e.g., Facebook Business page.
 - For employers without an email address that matches their website domain, we recommend adding either the email used to sign up for Handshake or an email ending with the same domain as your company's website to your company website.
-  - **Example**: If your web domain is abccompany.com and your email is [johndoe@abccompany.us](mailto:johndoe@abccompany.us), and your company uses [info@abccompany.us](mailto:info@abccompany.us) for external inquiries, place your email or [info@abccompany.us](mailto:info@abccompany.us) on the company website to help facilitate the verification process.
-  - **Tip**: If you are unable to include the email address on your company website, but have social media business pages (e.g., LinkedIn, Instagram, or a Facebook business page), and the pages are linked on your company website, consider including the email on any of the social media pages you have set up for your business.
+ - **Example**: If your web domain is abccompany.com and your email is [johndoe@abccompany.us](mailto:johndoe@abccompany.us), and your company uses [info@abccompany.us](mailto:info@abccompany.us) for external inquiries, place your email or [info@abccompany.us](mailto:info@abccompany.us) on the company website to help facilitate the verification process.
+ - **Tip**: If you are unable to include the email address on your company website, but have social media business pages (e.g., LinkedIn, Instagram, or a Facebook business page), and the pages are linked on your company website, consider including the email on any of the social media pages you have set up for your business.
 
 Are you unable to sign up with a company-issued email, or does your company use a generic email domain? Check out [Registering for an Employer Account with a Generic Email Address](https://support.joinhandshake.com/hc/en-us/articles/360019584994-Registering-for-an-Employer-Account-with-a-Generic-Email-Address-).
 
@@ -65,11 +65,11 @@ Handshake requires that all employer users complete the following fields when cr
 - **Industry**
 - **Website**
 - **Description**
-  - Talk about who your company is and what it does. Short and sweet is best.
-  - **Example**: "The ABC Law Firm is a personal injury and workers' compensation firm based in Atlanta, Georgia. We represent victims of truck accidents, car accidents, slips & falls, workplace injuries and more."
-  - **Note**: We cannot accept incomplete company descriptions, e.g.,"law firm", "beauty parlor".
+ - Talk about who your company is and what it does. Short and sweet is best.
+ - **Example**: "The ABC Law Firm is a personal injury and workers' compensation firm based in Atlanta, Georgia. We represent victims of truck accidents, car accidents, slips & falls, workplace injuries and more."
+ - **Note**: We cannot accept incomplete company descriptions, e.g.,"law firm", "beauty parlor".
 - **Address**
-  - **Note**: Enter full address or city/state/country.
+ - **Note**: Enter full address or city/state/country.
 - **Company size**
 
 *Learn*[*How to Create a New Company Profile*](https://support.joinhandshake.com/hc/en-us/articles/219133057).
@@ -87,28 +87,28 @@ A valid website is an official company website that is functional, complete, and
 We also accept the following web pages:
 
 - **Facebook**
-  - [Facebook for Business](https://www.facebook.com/business/help/473994396650734?id=939256796236247)
+ - [Facebook for Business](https://www.facebook.com/business/help/473994396650734?id=939256796236247)
 - **Linkedin**
-  - [Linkedin for Business](https://www.linkedin.com/help/linkedin/answer/a543852?trk=registration-frontend_join-form-page-help-link)
+ - [Linkedin for Business](https://www.linkedin.com/help/linkedin/answer/a543852?trk=registration-frontend_join-form-page-help-link)
 - **Yelp**
-  - [Yelp for Business](https://business.yelp.com/)
+ - [Yelp for Business](https://business.yelp.com/)
 - **Instagram**
-  - [Getting Started on Instagram for Business](https://business.instagram.com/getting-started)
+ - [Getting Started on Instagram for Business](https://business.instagram.com/getting-started)
 - **Etsy**
-  - [Create your shop](https://www.etsy.com/sell)
+ - [Create your shop](https://www.etsy.com/sell)
 - **Depop**
-  - [Depop 101: Setting up Shop](https://blog.depop.com/articles/depop-101-setting-up-shop)
+ - [Depop 101: Setting up Shop](https://blog.depop.com/articles/depop-101-setting-up-shop)
 - **Youtube** *(bands, musicians, podcast)*
-  - [Youtube for Business](https://support.google.com/youtube/answer/1646861?hl=en)
+ - [Youtube for Business](https://support.google.com/youtube/answer/1646861?hl=en)
 - **Indeed**
-  - [Indeed for Business](https://indeed.force.com/employerSupport1/s/article/204747960?language=en_US&cgtk=d0ab1457-3439-4a6e-958e-e217f0b9b518&from=careeradvice-US)
+ - [Indeed for Business](https://indeed.force.com/employerSupport1/s/article/204747960?language=en_US&cgtk=d0ab1457-3439-4a6e-958e-e217f0b9b518&from=careeradvice-US)
 
 Employers who wish to post personal jobs on Handshake may use the following webpages:
 
 - **Facebook** *(personal page)*
-  - [Join Facebook](https://www.facebook.com/reg/)
+ - [Join Facebook](https://www.facebook.com/reg/)
 - **Linkedin** *(personal page)*
-  - [Join Linkedin](https://www.linkedin.com/signup)
+ - [Join Linkedin](https://www.linkedin.com/signup)
 
 *For additional information, refer to* [*Posting Personal, Babysitter, Household, or Caretaker Jobs*](https://support.joinhandshake.com/hc/en-us/articles/228044267).
 
@@ -147,14 +147,14 @@ You can edit the following sections of your Handshake profile to best reflect yo
 
 - **Logo**
 - **Banner**
-  - *Create a logo or banner for free with* [*Canva.com*](https://www.canva.com/)*if you don't already have one*.
+ - *Create a logo or banner for free with* [*Canva.com*](https://www.canva.com/)*if you don't already have one*.
 - **Details**
-  - **Company name** (*requires support ticket*)
-  - **Industry**
-  - **Location** (*requires support ticket*)
-  - **Company size**
-  - **Contact email**
-  - **Website URL**
+ - **Company name** (*requires support ticket*)
+ - **Industry**
+ - **Location** (*requires support ticket*)
+ - **Company size**
+ - **Contact email**
+ - **Website URL**
 - **About**
 - **Subpages** (*only available for Premium partners*)
 - **Work life**

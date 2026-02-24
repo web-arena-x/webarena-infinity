@@ -60,12 +60,11 @@ Supported attributes:
 |------------------|--------|----------|-----------------------------------------------------------------------------------------------------------------------------|
 | `model_name`     | string | Yes      | The pluralized name of the requested model. Must belong to the `:model_name` list above.                                    |
 | `checksum_state` | string | No       | Search by checksum status. Allowed values: pending, started, succeeded, failed, disabled.                                   |
-| `identifiers`    | array  | No       | Filter results with an array of unique identifiers of the requested model, which can be integers or base64 encoded strings. |
+| `identifiers`    | array | No       | Filter results with an array of unique identifiers of the requested model, which can be integers or base64 encoded strings. |
 
 This endpoint supports [keyset pagination](../rest/_index.md#keyset-based-pagination) on the model's primary key, with sorting in ascending or descending order. To use keyset pagination, add the `pagination=keyset` parameter to the request. By default, keyset pagination loads 20 records per page sorted in ascending order. You can modify the sorting order with the query parameter `sort`, and values `asc` or `desc`. To select a number of records per page, use the parameter `per_page`.
 
-If successful, returns [`200`](../rest/troubleshooting.md#status-codes) and information about the model. It includes the following
-response attributes:
+If successful, returns [`200`](../rest/troubleshooting.md#status-codes) and information about the model. It includes the following response attributes:
 
 | Attribute              | Type              | Description                                                                    |
 |------------------------|-------------------|--------------------------------------------------------------------------------|
@@ -83,7 +82,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "record_identifier": 1,
     "model_class": "Project",
     "created_at": "2025-02-05T11:27:10.173Z",
@@ -96,8 +95,8 @@ Example response:
       "checksum_retry_at": null,
       "checksum_failure": null
     }
-  },
-  {
+ },
+ {
     "record_identifier": 2,
     "model_class": "Project",
     "created_at": "2025-02-05T11:27:14.402Z",
@@ -110,7 +109,7 @@ Example response:
       "checksum_retry_at": null,
       "checksum_failure": null
     }
-  }
+ }
 ]
 ```
 
@@ -122,8 +121,8 @@ PUT /admin/data_management/:model_name/checksum
 
 | Attribute          | Type    | Required | Description                                                                                                                 |
 |--------------------|---------|----------|-----------------------------------------------------------------------------------------------------------------------------|
-| `model_name`       | string  | Yes      | The pluralized name of the requested model. Must belong to the `:model_name` list above.                                    |
-| `checksum_state`   | string  | No       | Filter by checksum status. Allowed values: pending, started, succeeded, failed, disabled.                                   |
+| `model_name`       | string | Yes      | The pluralized name of the requested model. Must belong to the `:model_name` list above.                                    |
+| `checksum_state`   | string | No       | Filter by checksum status. Allowed values: pending, started, succeeded, failed, disabled.                                   |
 | `identifiers`      | array   | No       | Filter records with an array of unique identifiers of the requested model, which can be integers or base64 encoded strings. |
 
 This endpoint marks all selected records from the model for checksum recalculation, filtered by `checksum_state` and `identifiers` parameters if provided. It enqueues a background job to do so. If successful, returns [`200`](../rest/troubleshooting.md#status-codes) and a JSON response containing the following information:
@@ -131,7 +130,7 @@ This endpoint marks all selected records from the model for checksum recalculati
 | Attribute | Type   | Description                                       |
 |-----------|--------|---------------------------------------------------|
 | `message` | string | A information message about the success or error. |
-| `status`  | string | Can be "success" or "error".                      |
+| `status` | string | Can be "success" or "error".                      |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" "https://primary.example.com/api/v4/admin/data_management/projects/checksum"
@@ -141,8 +140,8 @@ Example response:
 
 ```json
 {
-  "status": "success",
-  "message": "Batch update job has been successfully enqueued."
+ "status": "success",
+ "message": "Batch update job has been successfully enqueued."
 }
 ```
 
@@ -157,8 +156,7 @@ GET /admin/data_management/:model_name/:id
 | `model_name`        | string            | Yes      | The pluralized name of the requested model. Must belong to the `:model_name` list above.    |
 | `record_identifier` | string or integer | Yes      | The unique identifier of the requested model. Can be an integer or a base64 encoded string. |
 
-If successful, returns [`200`](../rest/troubleshooting.md#status-codes) and information about the specific model record. It includes the following
-response attributes:
+If successful, returns [`200`](../rest/troubleshooting.md#status-codes) and information about the specific model record. It includes the following response attributes:
 
 | Attribute              | Type              | Description                                                                    |
 |------------------------|-------------------|--------------------------------------------------------------------------------|
@@ -176,18 +174,18 @@ Example response:
 
 ```json
 {
-  "record_identifier": 1,
-  "model_class": "Project",
-  "created_at": "2025-02-05T11:27:10.173Z",
-  "file_size": null,
-  "checksum_information": {
+ "record_identifier": 1,
+ "model_class": "Project",
+ "created_at": "2025-02-05T11:27:10.173Z",
+ "file_size": null,
+ "checksum_information": {
     "checksum": "<object checksum>",
     "last_checksum": "2025-07-24T14:22:18.643Z",
     "checksum_state": "succeeded",
     "checksum_retry_count": 0,
     "checksum_retry_at": null,
     "checksum_failure": null
-  }
+ }
 }
 ```
 
@@ -212,17 +210,17 @@ Example response:
 
 ```json
 {
-  "record_identifier": 1,
-  "model_class": "Project",
-  "created_at": "2025-02-05T11:27:10.173Z",
-  "file_size": null,
-  "checksum_information": {
+ "record_identifier": 1,
+ "model_class": "Project",
+ "created_at": "2025-02-05T11:27:10.173Z",
+ "file_size": null,
+ "checksum_information": {
     "checksum": "<sha256 or md5 string>",
     "last_checksum": "2025-07-24T14:22:18.643Z",
     "checksum_state": "succeeded",
     "checksum_retry_count": 0,
     "checksum_retry_at": null,
     "checksum_failure": null
-  }
+ }
 }
 ```

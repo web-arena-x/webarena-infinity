@@ -38,7 +38,7 @@ A flow is the network of frames and connections in a single page. A prototype ca
 
 Figma creates a flow starting point when you add your first connection between two frames. There are a few other ways to add a flow starting point to your prototype:
 
-- With the starting frame selected, click  in the **Flow starting point** section of the right sidebar.
+- With the starting frame selected, click in the **Flow starting point** section of the right sidebar.
 - Right-click on the frame, then click **Add starting point**.
 - Duplicate a frame with an existing starting point.
 
@@ -51,13 +51,13 @@ Note: A top-level frame can be part of multiple flows, but can only have one sta
 ## Create connections
 
 1. Select the hotspot for the connection.
-2. Click  to create the connection.
+2. Click to create the connection.
 3. Drag it to the destination.
 4. If there are no existing connections, Figma will make the first frame a starting point.
 
 ![Anatomy of a connection between two frames](https://help.figma.com/hc/article_attachments/4404146549271)
 
-Tip! You can create connections from multiple objects to the same destination frame at the same time—saving you time and effort when building out your prototype flows. To do so, select multiple starting hotspots on your canvas, then click and drag the  icon to the destination.
+Tip! You can create connections from multiple objects to the same destination frame at the same time—saving you time and effort when building out your prototype flows. To do so, select multiple starting hotspots on your canvas, then click and drag the icon to the destination.
 
 **[Learn more about creating and editing connections in bulk →](https://help.figma.com/hc/en-us/articles/360040315773-Prototype-interactions-and-animations)**
 

@@ -110,7 +110,7 @@ There are a few ways to create a shape, from either the toolbar or an existing s
 
 ![Shape being added and adjusted on a FigJam board.](https://help.figma.com/hc/article_attachments/34792391869463)
 
-1. Click the  **Shape** tool to select a shape.
+1. Click the **Shape** tool to select a shape.
 2. Hover the shape preview over the board to pick a spot.
 3. Click again to drop the shape.
 
@@ -122,7 +122,7 @@ You can also drag and drop a shape from the toolbar onto the board.
 
 Use the shapes sidebar to view and access all shapes and line types, along with those recently used.
 
-To open the shapes sidebar, click  in the toolbar to open the shapes menu and select **More shapes**. The sidebar will remain open while you work. Click  to close the shapes sidebar.
+To open the shapes sidebar, click in the toolbar to open the shapes menu and select **More shapes**. The sidebar will remain open while you work. Click to close the shapes sidebar.
 
 ### Shortcut
 
@@ -174,7 +174,7 @@ In either case, the original shape is duplicated along with any text inside it.
 
 Add connectors between stickies to diagram flows or create paths for others to follow.
 
-1. Click  in the toolbar.
+1. Click in the toolbar.
 2. Select between an **elbow** or **straight** connector. You can also use the keyboard shortcuts `X` or `⇧ Shift` `L` to create an elbow connection, and `L` for a straight connection.
 3. Click and drag your cursor between the objects you want to connect.
 

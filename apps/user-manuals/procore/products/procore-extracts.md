@@ -52,7 +52,7 @@ The following table highlights which user permissions are required to perform th
 
 | Task | None | Read Only | Standard | Admin |
 | --- | --- | --- | --- | --- |
-| [Extract Project Data Using Procore Extracts](https://support.procore.com/products/procore-extracts/tutorials/extract-project-data-using-procore-extracts "Extract Project Data Using Procore Extracts") |  |  |  | icon-mindtouch-table-check.png1 |
+| [Extract Project Data Using Procore Extracts](https://support.procore.com/products/procore-extracts/tutorials/extract-project-data-using-procore-extracts "Extract Project Data Using Procore Extracts") | | | | icon-mindtouch-table-check.png1 |
 | [Install Procore Extracts](https://support.procore.com/products/procore-extracts/tutorials/install-procore-extracts "Install Procore Extracts") | icon-mindtouch-table-check.png1 | icon-mindtouch-table-check.png1 | icon-mindtouch-table-check.png1 | icon-mindtouch-table-check.png1 |
 
 1 *Users must have 'Admin' permissions on the tools they want to extract data from.*

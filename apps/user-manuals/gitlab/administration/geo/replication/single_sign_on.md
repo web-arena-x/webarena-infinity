@@ -38,8 +38,7 @@ If you have configured SAML on the primary site correctly, then it should work o
 
 {{< alert type="note" >}}
 
-When proxying is enabled, SAML can only be used to sign in the secondary site if your SAML Identity Provider (IdP) allows an
-application to have multiple callback URLs configured. Check with your IdP provider support team to confirm if this is the case.
+When proxying is enabled, SAML can only be used to sign in the secondary site if your SAML Identity Provider (IdP) allows an application to have multiple callback URLs configured. Check with your IdP provider support team to confirm if this is the case.
 
 {{< /alert >}}
 
@@ -58,7 +57,7 @@ You must not specify `assertion_consumer_service_url` in the SAML provider confi
 
 ```ruby
 gitlab_rails['omniauth_providers'] = [
-  {
+ {
     name: "saml",
     label: "Okta", # optional label for login button, defaults to "Saml"
     args: {
@@ -67,7 +66,7 @@ gitlab_rails['omniauth_providers'] = [
       issuer: "https://<gitlab-primary>",
       name_identifier_format: "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
     }
-  }
+ }
 ]
 ```
 
@@ -80,9 +79,9 @@ You can check this by visiting each site's `/users/auth/saml/metadata` path. For
 
 ```xml
 <md:EntityDescriptor ID="_b9e00d84-d34e-4e3d-95de-122e3c361617" entityID="https://gitlab-primary.example.com"
-  xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
-  xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">
-  <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+ xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+ xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">
+ <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
     <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://gitlab-primary.example.com/users/auth/saml/callback"    index="0" isDefault="true"/>
     <md:AttributeConsumingService index="1" isDefault="true">
@@ -92,7 +91,7 @@ You can check this by visiting each site's `/users/auth/saml/metadata` path. For
       <md:RequestedAttribute FriendlyName="Given name" Name="first_name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" isRequired="false"/>
       <md:RequestedAttribute FriendlyName="Family name" Name="last_name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" isRequired="false"/>
     </md:AttributeConsumingService>
-  </md:SPSSODescriptor>
+ </md:SPSSODescriptor>
 </md:EntityDescriptor>
 ```
 
@@ -100,9 +99,9 @@ Visiting `https://gitlab-secondary.example.com/users/auth/saml/metadata` may res
 
 ```xml
 <md:EntityDescriptor ID="_bf71eb57-7490-4024-bfe2-54cec716d4bf" entityID="https://gitlab-primary.example.com"
-  xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
-  xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">
-  <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+ xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
+ xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">
+ <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     <md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat>
     <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://gitlab-secondary.example.com/users/auth/saml/callback"    index="0" isDefault="true"/>
     <md:AttributeConsumingService index="1" isDefault="true">
@@ -112,7 +111,7 @@ Visiting `https://gitlab-secondary.example.com/users/auth/saml/metadata` may res
       <md:RequestedAttribute FriendlyName="Given name" Name="first_name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" isRequired="false"/>
       <md:RequestedAttribute FriendlyName="Family name" Name="last_name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" isRequired="false"/>
     </md:AttributeConsumingService>
-  </md:SPSSODescriptor>
+ </md:SPSSODescriptor>
 </md:EntityDescriptor>
 ```
 
@@ -126,8 +125,7 @@ If you have configured SAML on the primary site correctly, then it should work o
 
 ## OpenID Connect
 
-If you use an [OpenID Connect (OIDC)](../../auth/oidc.md) OmniAuth provider,
-in most cases, it should work without an issue:
+If you use an [OpenID Connect (OIDC)](../../auth/oidc.md) OmniAuth provider, in most cases, it should work without an issue:
 
 - **OIDC with Unified URL**: If you have configured OIDC on the primary site correctly, then it should work on the secondary site without additional configuration.
 - **OIDC with separate URL with proxying disabled**: If you have configured OIDC on the primary site correctly, then it should work on the secondary site without additional configuration.
@@ -135,20 +133,16 @@ in most cases, it should work without an issue:
 
 ## LDAP
 
-If you use LDAP on your **primary** site, the same LDAP configuration also applies to the **secondary** site because
-the **secondary** proxies requests related to authentication to the **primary**.
+If you use LDAP on your **primary** site, the same LDAP configuration also applies to the **secondary** site because the **secondary** proxies requests related to authentication to the **primary**.
 
 To prepare for disaster recovery scenarios, you should set up secondary LDAP servers on each **secondary** site.
 In this case, when you promote the **secondary**, users will be able to authenticate using the replica LDAP service.
-Otherwise, if the LDAP service connected to the **primary** site is not available to the promoted **secondary** site,
-users won't be able to perform Git operations over HTTP(s) on the **secondary** site using HTTP basic authentication.
-However, users can still use Git with SSH and personal access tokens, unless their account is locked
-from multiple failed login attempts when the LDAP service is unavailable.
+Otherwise, if the LDAP service connected to the **primary** site is not available to the promoted **secondary** site, users won't be able to perform Git operations over HTTP(s) on the **secondary** site using HTTP basic authentication.
+However, users can still use Git with SSH and personal access tokens, unless their account is locked from multiple failed login attempts when the LDAP service is unavailable.
 
 {{< alert type="note" >}}
 
-It is possible for all **secondary** sites to share an LDAP server, but additional latency can be an issue. Also, consider what LDAP server
-is available in a [disaster recovery](../disaster_recovery/_index.md) scenario if a **secondary** site is promoted to be a **primary** site.
+It is possible for all **secondary** sites to share an LDAP server, but additional latency can be an issue. Also, consider what LDAP server is available in a [disaster recovery](../disaster_recovery/_index.md) scenario if a **secondary** site is promoted to be a **primary** site.
 
 {{< /alert >}}
 

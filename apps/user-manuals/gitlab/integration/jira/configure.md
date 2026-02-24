@@ -39,18 +39,14 @@ Prerequisites:
 
 - Your GitLab installation must not use a [relative URL](https://docs.gitlab.com/omnibus/settings/configuration.html#configure-a-relative-url-for-gitlab).
 - **For Jira Cloud**:
-  - You must have a [Jira Cloud API token](#create-a-jira-cloud-api-token) and the email address you used to create the token.
-  - If you've enabled
-    [IP allowlists](https://support.atlassian.com/security-and-access-policies/docs/specify-ip-addresses-for-product-access/), add the
-    [GitLab.com IP range](../../user/gitlab_com/_index.md#ip-range) to the allowlist to [view Jira issues](#view-jira-issues) in GitLab.
+ - You must have a [Jira Cloud API token](#create-a-jira-cloud-api-token) and the email address you used to create the token.
+ - If you've enabled [IP allowlists](https://support.atlassian.com/security-and-access-policies/docs/specify-ip-addresses-for-product-access/), add the [GitLab.com IP range](../../user/gitlab_com/_index.md#ip-range) to the allowlist to [view Jira issues](#view-jira-issues) in GitLab.
 - **For Jira Data Center or Jira Server**, you must have one of the following:
-  - [Jira username and password](jira_server_configuration.md).
-  - Jira personal access token (GitLab 16.0 and later).
+ - [Jira username and password](jira_server_configuration.md).
+ - Jira personal access token (GitLab 16.0 and later).
 
 You can enable the Jira issues integration by configuring your project settings in GitLab.
-You can also configure the integration for a specific
-[group](../../user/project/integrations/_index.md#manage-group-default-settings-for-a-project-integration) or an entire
-[instance](../../administration/settings/project_integration_management.md#configure-default-settings-for-an-integration)
+You can also configure the integration for a specific [group](../../user/project/integrations/_index.md#manage-group-default-settings-for-a-project-integration) or an entire [instance](../../administration/settings/project_integration_management.md#configure-default-settings-for-an-integration)
 on GitLab Self-Managed.
 
 With this integration, your GitLab project can interact with all Jira projects on your instance.
@@ -61,8 +57,7 @@ To configure your project settings in GitLab:
 1. Select **Jira issues**.
 1. Under **Enable integration**, select the **Active** checkbox.
 1. Provide connection details:
-   - **Web URL**: Base URL for the Jira instance web interface you're linking
-     to this GitLab project (for example, `https://jira.example.com`).
+   - **Web URL**: Base URL for the Jira instance web interface you're linking to this GitLab project (for example, `https://jira.example.com`).
    - **Jira API URL**: Base URL for the Jira instance API (for example, `https://jira-api.example.com`).
      If this URL is not set, the **Web URL** value is used by default.
      For Jira Cloud, leave **Jira API URL** blank.
@@ -79,28 +74,23 @@ To configure your project settings in GitLab:
 1. Provide trigger settings:
    - Select **Commit**, **Merge request**, or both as triggers.
      When you mention a Jira issue ID in GitLab, GitLab links to that issue.
-   - To add a comment to the Jira issue that links back to GitLab,
-     select the **Enable comments** checkbox.
-   - To [transition Jira issues automatically](../../user/project/issues/managing_issues.md#closing-issues-automatically) in GitLab,
-     select the **Enable Jira transitions** checkbox.
+   - To add a comment to the Jira issue that links back to GitLab, select the **Enable comments** checkbox.
+   - To [transition Jira issues automatically](../../user/project/issues/managing_issues.md#closing-issues-automatically) in GitLab, select the **Enable Jira transitions** checkbox.
 1. In the **Jira issue matching** section:
    - For **Jira issue regex**, [enter a regex pattern](issues.md#define-a-regex-pattern).
    - For **Jira issue prefix**, [enter a prefix](issues.md#define-a-prefix).
-1. Optional. To [view Jira issues](#view-jira-issues) in GitLab,
-   in the **Jira issues** section:
+1. Optional. To [view Jira issues](#view-jira-issues) in GitLab, in the **Jira issues** section:
    1. Select the **View Jira issues** checkbox.
 
       {{< alert type="warning" >}}
 
-      When you enable this setting, all users with access to your GitLab project
-      can view all issues from the Jira projects you've specified.
+      When you enable this setting, all users with access to your GitLab project can view all issues from the Jira projects you've specified.
 
       {{< /alert >}}
 
    1. Enter one or more Jira project keys.
       Leave blank to include all available keys.
-1. Optional. To [create Jira issues for vulnerabilities](#create-a-jira-issue-for-a-vulnerability),
-   in the **Jira issues for vulnerabilities** section:
+1. Optional. To [create Jira issues for vulnerabilities](#create-a-jira-issue-for-a-vulnerability), in the **Jira issues for vulnerabilities** section:
    1. Select the **Create Jira issues for vulnerabilities** checkbox.
 
       {{< alert type="note" >}}
@@ -110,10 +100,8 @@ To configure your project settings in GitLab:
       {{< /alert >}}
 
    1. Enter a Jira project key.
-   1. Select **Fetch issue types for this project key** ({{< icon name="retry" >}}),
-      then select the type of Jira issues to create.
-   1. Optional. Select the **Customize Jira issues** checkbox to be able to review, modify, or add details
-      to a Jira issue when it's created for a vulnerability.
+   1. Select **Fetch issue types for this project key** ({{< icon name="retry" >}}), then select the type of Jira issues to create.
+   1. Optional. Select the **Customize Jira issues** checkbox to be able to review, modify, or add details to a Jira issue when it's created for a vulnerability.
 1. Optional. Select **Test settings**.
 1. Select **Save changes**.
 
@@ -136,7 +124,7 @@ To configure your project settings in GitLab:
 Prerequisites:
 
 - Ensure the Jira issues integration is [configured](#configure-the-integration)
-  and the **View Jira issues** checkbox is selected.
+ and the **View Jira issues** checkbox is selected.
 
 You can enable Jira issues for a specific group or project, but you can view the issues in GitLab projects only.
 To view issues from one or more Jira projects in a GitLab project:
@@ -148,8 +136,7 @@ By default, the issues are sorted by **Created date**.
 The most recently created issues appear at the top.
 You can [filter issues](#filter-jira-issues) and select an issue to view that issue in GitLab.
 
-Issues are grouped into the following tabs based on their
-[Jira status](https://confluence.atlassian.com/adminjiraserver070/defining-status-field-values-749382903.html):
+Issues are grouped into the following tabs based on their [Jira status](https://confluence.atlassian.com/adminjiraserver070/defining-status-field-values-749382903.html):
 
 - **Open**: issues with any Jira status other than **Done**.
 - **Closed**: issues with a **Done** Jira status.
@@ -173,23 +160,17 @@ Issues are grouped into the following tabs based on their
 Prerequisites:
 
 - Ensure the Jira issues integration is [configured](#configure-the-integration)
-  and the **View Jira issues** checkbox is selected.
+ and the **View Jira issues** checkbox is selected.
 
-When you [view Jira issues](#view-jira-issues) in GitLab,
-you can filter the issues by text in summaries and descriptions.
+When you [view Jira issues](#view-jira-issues) in GitLab, you can filter the issues by text in summaries and descriptions.
 You can also filter the issues by:
 
 - **Label**: specify one or more Jira issue labels in the `labels[]` parameter in the URL.
-  When you specify multiple labels, only the issues that have all the specified labels appear
-  (for example, `/-/integrations/jira/issues?labels[]=backend&labels[]=feature&labels[]=QA`).
-- **Status**: specify the Jira issue status in the `status` parameter in the URL
-  (for example, `/-/integrations/jira/issues?status=In Progress`).
-- **Reporter**: specify the Jira display name of the `author_username` parameter in the URL
-  (for example, `/-/integrations/jira/issues?author_username=John Smith`).
-- **Assignee**: specify the Jira display name of the `assignee_username` parameter in the URL
-  (for example, `/-/integrations/jira/issues?assignee_username=John Smith`).
-- **Project**: specify the Jira project key in the `project` parameter in the URL
-  (for example, `/-/integrations/jira/issues?project=GTL`).
+ When you specify multiple labels, only the issues that have all the specified labels appear (for example, `/-/integrations/jira/issues?labels[]=backend&labels[]=feature&labels[]=QA`).
+- **Status**: specify the Jira issue status in the `status` parameter in the URL (for example, `/-/integrations/jira/issues?status=In Progress`).
+- **Reporter**: specify the Jira display name of the `author_username` parameter in the URL (for example, `/-/integrations/jira/issues?author_username=John Smith`).
+- **Assignee**: specify the Jira display name of the `assignee_username` parameter in the URL (for example, `/-/integrations/jira/issues?assignee_username=John Smith`).
+- **Project**: specify the Jira project key in the `project` parameter in the URL (for example, `/-/integrations/jira/issues?project=GTL`).
 
 ## Jira verification
 
@@ -208,7 +189,7 @@ You can also filter the issues by:
 Prerequisites:
 
 - Ensure the Jira issues integration is [configured](#configure-the-integration)
-  and the **View Jira issues** checkbox is selected.
+ and the **View Jira issues** checkbox is selected.
 
 You can set up verification rules to ensure Jira issues referenced in commit messages meet specific criteria before allowing pushes. This feature helps maintain consistent workflows between GitLab and Jira.
 
@@ -234,21 +215,21 @@ When a user attempts to push changes that don't meet the verification criteria, 
 
 - If a referenced Jira issue doesn't exist (when **Check issue exists** is enabled):
 
-  ```plaintext
-  Jira issue PROJECT-123 does not exist.
-  ```
+ ```plaintext
+ Jira issue PROJECT-123 does not exist.
+ ```
 
 - If a referenced Jira issue isn't assigned to the committer (when **Check assignee** is enabled):
 
-  ```plaintext
-  Jira issue PROJECT-123 is not assigned to you. It is assigned to Jane Doe.
-  ```
+ ```plaintext
+ Jira issue PROJECT-123 is not assigned to you. It is assigned to Jane Doe.
+ ```
 
 - If a referenced Jira issue has a status that's not in the allowed list (when **Check issue status** is enabled):
 
-  ```plaintext
-  Jira issue PROJECT-123 has status 'Done', which is not in the list of allowed statuses: Ready, In Progress, Review.
-  ```
+ ```plaintext
+ Jira issue PROJECT-123 has status 'Done', which is not in the list of allowed statuses: Ready, In Progress, Review.
+ ```
 
 ### Use case for verification checks
 
@@ -277,7 +258,7 @@ This ensures your team follows the correct workflow by preventing code changes f
 Prerequisites:
 
 - Ensure the Jira issues integration is [configured](#configure-the-integration)
-  and the **Create Jira issues for vulnerabilities** checkbox is selected.
+ and the **Create Jira issues for vulnerabilities** checkbox is selected.
 - You must have a Jira user account with permission to create issues in the target project.
 
 You can create a Jira issue from GitLab to track any action taken to resolve or mitigate a vulnerability.
@@ -302,8 +283,7 @@ To create a Jira Cloud API token:
 1. Sign in to [Atlassian](https://id.atlassian.com/manage-profile/security/api-tokens)
    from an account with write access to Jira projects.
 
-   The link opens the **API tokens** page. Alternatively, from your Atlassian
-   profile, select **Account Settings** > **Security** > **Create and manage API tokens**.
+   The link opens the **API tokens** page. Alternatively, from your Atlassian profile, select **Account Settings** > **Security** > **Create and manage API tokens**.
 
 1. Select **Create API token**.
 1. On the dialog, enter a label for your token and select **Create**.
@@ -325,5 +305,4 @@ To migrate from one Jira site to another in GitLab and maintain your Jira issues
 
 In GitLab 18.6 and later, existing Jira issue references are automatically updated to use the new Jira site URL.
 
-In GitLab 18.5 and earlier, you must
-[invalidate the Markdown cache](../../administration/invalidate_markdown_cache.md#invalidate-the-cache) to update existing Jira issue references.
+In GitLab 18.5 and earlier, you must [invalidate the Markdown cache](../../administration/invalidate_markdown_cache.md#invalidate-the-cache) to update existing Jira issue references.

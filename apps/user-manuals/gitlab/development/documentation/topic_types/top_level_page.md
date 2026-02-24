@@ -36,8 +36,7 @@ The title must be an active verb that describes the workflow, like **Manage your
 
 ## Metadata
 
-The `description` metadata on the top-level page determines the text that appears on the
-GitLab documentation home page.
+The `description` metadata on the top-level page determines the text that appears on the GitLab documentation home page.
 
 Use the following metadata format:
 

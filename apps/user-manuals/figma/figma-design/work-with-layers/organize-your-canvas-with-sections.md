@@ -87,8 +87,8 @@ Once content inside a section is finalized, you can mark the section as ready fo
 To mark a section as ready for development:
 
 1. Select the section.
-2. Click  **Mark as ready for dev**.
-3. To unmark a section as ready for dev, click the  three dot menu in the **Ready for dev** label and select **Remove ready status**.
+2. Click **Mark as ready for dev**.
+3. To unmark a section as ready for dev, click the three dot menu in the **Ready for dev** label and select **Remove ready status**.
 
 Note: Marking a section as ready for development does not prevent changes from being made to content in that section.
 

@@ -32,15 +32,13 @@ Jobs must meet the standard Handshake posting criteria:
 
 Essentials and Talent Engagement Suite (TES) customers have additional tools to build connections with students in the Open Network.
 
-**Search and message**  
-Search for and message Open Network students directly to build new connections. Learn more in [A Guide to Talent List](https://support.joinhandshake.com/hc/en-us/articles/360047227294).
+**Search and message** Search for and message Open Network students directly to build new connections. Learn more in [A Guide to Talent List](https://support.joinhandshake.com/hc/en-us/articles/360047227294).
 
 ![Handshake open network.png](https://support.joinhandshake.com/hc/article_attachments/34728816300055)
 
 ### 
 
-**Events**  
-Invite Open Network students to virtual or off-campus events by sharing the public event link.
+**Events** Invite Open Network students to virtual or off-campus events by sharing the public event link.
 
 - Students with a Handshake account can sign in and register.
 - Students without an account can register as guests and choose to create a profile later.
@@ -51,8 +49,7 @@ Invite Open Network students to virtual or off-campus events by sharing the publ
 
 ### 
 
-**Segments and campaigns**  
-Include Open Network students in segments and use them in campaigns to promote jobs, events, or employer brand initiatives.
+**Segments and campaigns** Include Open Network students in segments and use them in campaigns to promote jobs, events, or employer brand initiatives.
 
 *Learn* [*How to Build a Segment*](https://support.joinhandshake.com/hc/en-us/articles/360024196474)*.*
 

@@ -6,7 +6,7 @@ Source: https://help.clio.com/hc/en-us/articles/9290560623771-Contact-Permission
 
 In Clio Manage, all users have access to all contacts. You can also specify a contact-specific (i.e., client-specific) rate for activities and billing that applies to individual firm users or groups of firm users.
 
-**Tip:**  You can also set permissions and visibility restrictions for [matters](https://help.clio.com/hc/en-us/articles/9286062516123) and [activities](https://help.clio.com/hc/en-us/articles/9289781023771).
+**Tip:** You can also set permissions and visibility restrictions for [matters](https://help.clio.com/hc/en-us/articles/9286062516123) and [activities](https://help.clio.com/hc/en-us/articles/9289781023771).
 
 **Note:** You cannot set contact permissions or rates in Clio Grow.
 

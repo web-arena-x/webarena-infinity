@@ -115,7 +115,7 @@ The **Paste over selection** option will place a copied object on top of a selec
    - **Mac:** `⌘ Command` `C`
    - **Windows:** `Control C`
 2. Select the frame you want to paste the copied object on top of.
-3. Click  to open the file menu > **Edit** > **Paste over selection**. You can also use the keyboard shortcut:
+3. Click to open the file menu > **Edit** > **Paste over selection**. You can also use the keyboard shortcut:
    - **Mac:** `⌘ Command` `⇧ Shift` `V`
    - **Windows:** `Control Shift V`
 
@@ -184,11 +184,11 @@ You can copy a selected object as a PNG image to your clipboard to paste inside 
 
 - Select an object.
 - Right-click the object and select **Copy as PNG**. You can also use the keyboard shortcut:
-  - **Mac:** `⌘ Command` `⇧Shift` `C`
-  - **Windows:** `Control Shift C`
+ - **Mac:** `⌘ Command` `⇧Shift` `C`
+ - **Windows:** `Control Shift C`
 - Paste the image using the keyboard shortcut:
-  - **Mac:** `⌘ Command` `⇧Shift` `V`
-  - **Windows:** `Control Shift V`
+ - **Mac:** `⌘ Command` `⇧Shift` `V`
+ - **Windows:** `Control Shift V`
 
 ## Copy as code
 

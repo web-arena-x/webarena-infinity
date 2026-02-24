@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408894189082-Best-practic
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
@@ -25,14 +25,14 @@ Figuring out the best way to set up triggers, automations, views, and tags to tr
 
 There are five tags that the autoreplies feature automatically adds to tickets to simplify setting up of new triggers and automation.
 
-|  |  |
+| | |
 | --- | --- |
 | **Ticket tag name** | **When is it added?** |
 | ar\_suggest\_false | Added when a suggestion is successfully triggered but failed to find any matching articles |
 | ar\_suggest\_true | Added when a there is a successful article suggestion |
 | ar\_marked\_unhelpful | Added when the end user indicated that the suggestion was unhelpful |
 | ar\_marked\_helpful | Added when the end user marks the suggestion as helpful |
-| ai\_agent\_automated\_resolution | Added when the ticket is automatically resolved by an AI agent using an [autoreply with articles](https://support.zendesk.com/hc/en-us/articles/5352026794010#topic_o2r_13x_4wb) or [article recommendations](https://support.zendesk.com/hc/en-us/articles/5352026794010#topic_p4p_zqr_y1c).  Note: This tag is not added to closed tickets. If you use automations to close tickets, make sure those automations are configured to act at least 72 hours after the last public reply. This helps make sure all applicable automated resolutions have this tag applied to the ticket. |
+| ai\_agent\_automated\_resolution | Added when the ticket is automatically resolved by an AI agent using an [autoreply with articles](https://support.zendesk.com/hc/en-us/articles/5352026794010#topic_o2r_13x_4wb) or [article recommendations](https://support.zendesk.com/hc/en-us/articles/5352026794010#topic_p4p_zqr_y1c). Note: This tag is not added to closed tickets. If you use automations to close tickets, make sure those automations are configured to act at least 72 hours after the last public reply. This helps make sure all applicable automated resolutions have this tag applied to the ticket. |
 
 Note that if you use the answer\_bot\_fired tag, your existing triggers will continue working as they do today. 
 
@@ -108,8 +108,7 @@ When you create a follow-up ticket, all of the closed ticket's information, incl
 Customer Satisfaction (CSAT) surveys were designed primarily for when human agents have been involved in solving the ticket. Many customers choose to disable satisfaction surveys for autoreply tickets. This assumes that you are tagging tickets solved by an autoreply suggestion with the answer\_bot\_solved tag.
 
 1. In [Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554#topic_hfg_dyz_1hb), click ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ac_objects_rules_icon.png) **Objects and rules** in the sidebar, then select **Business rules > Automations**.
-2. Open the automation that's been set up to send CSAT surveys  
-   By default it's called Request customer satisfaction rating (System Automation).
+2. Open the automation that's been set up to send CSAT surveys By default it's called Request customer satisfaction rating (System Automation).
 3. Add a new condition:
    - Tags | Contains none of the following | answer\_bot\_solved
 4. Save the automation.

@@ -25,12 +25,12 @@ Issues are added to your team’s Triage view, where they can be quickly reviewe
 
 ## Configure
 
-To set up the integration, navigate into your workspace-level _Settings_ > _Integrations_ and search for _Gong_. After enabling the Gong integration, navigate to your Gong settings, enable the recording intake and select the team that should receive Gong-generated issues:  
+To set up the integration, navigate into your workspace-level _Settings_ > _Integrations_ and search for _Gong_. After enabling the Gong integration, navigate to your Gong settings, enable the recording intake and select the team that should receive Gong-generated issues: 
 
 
 ![Recording intake settings section on, with a destination team chosen](https://webassets.linear.app/images/ornj730p/production/bc401ef7f3a78e59da4ba456851349d01d9834c4-1444x532.heif?q=95&auto=format&dpr=2)
 
-  
+ 
 Optionally, you can also provide additional guidance to help route issues to the correct teams or templates. This guidance can include examples, team mentions, or internal rules the Linear Agent should follow when interpreting feedback.
 
 ## Customer requests

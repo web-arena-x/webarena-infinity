@@ -42,10 +42,10 @@ Click **S****ave** to close the pop up box and continue to make edits to the Res
 The following options are available when adding or editing a resource:
 
 - **Add Title:** Click to add your own custom title for this resource.
-- **Select an Author:**The dropdown menu below the title allows you to select any active staff member as the author of the resource. You can also select your school as the author of the resource.  
-  **Note:**Any archived staff members will not be selectable as authors.
+- **Select an Author:**The dropdown menu below the title allows you to select any active staff member as the author of the resource. You can also select your school as the author of the resource. 
+ **Note:**Any archived staff members will not be selectable as authors.
 - **Formatting bar:** You can change the style of text by clicking dropdown bar titled "Normal Text". You can choose from the options of Normal Text, Heading 1, and Heading 2.
-  - Use the formatting bar to **bold**, *italicize*, and underline the text for your resource. You can also attach a hyperlink, create bullet point or number list, create a block of quoted text, and insert an image or media link.   
+ - Use the formatting bar to **bold**, *italicize*, and underline the text for your resource. You can also attach a hyperlink, create bullet point or number list, create a block of quoted text, and insert an image or media link.   
     **Note:** The media link option supports YouTube and Vimeo links only.
     - **Insert Image:** After uploading the image, you will have options to resize the image by dragging the boxes near the corners in or out, insert an image link using the button at the top, and enter a caption using the text at the bottom of the image.
     - ![Options to resize, add image caption, and add a link in an inserted image.png](https://support.joinhandshake.com/hc/article_attachments/25997596952599)

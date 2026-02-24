@@ -16,9 +16,9 @@ It serves as a discoverability tool that exposes students to various elements of
 
 - Career-related content posted by your institution
 - Career-related content posted by employers
-  - *Only by approved employers at your institution*
+ - *Only by approved employers at your institution*
 - Available jobs
-  - Jobs posted by premium partners or those that are upgraded with Handshake Plus, if they employer chooses to post them to the Handshake feed.
+ - Jobs posted by premium partners or those that are upgraded with Handshake Plus, if they employer chooses to post them to the Handshake feed.
 - Upcoming events and fairs
 - Appointment opportunities
 

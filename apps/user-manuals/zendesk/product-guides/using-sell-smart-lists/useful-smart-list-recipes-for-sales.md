@@ -24,7 +24,7 @@ Related articles:
 
 These recipes create helpful smart lists that are specific to leads and are useful for sales reps to gain specific overviews of their leads, in addition to their engagement and communication with them.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Smart list recipe** | **Reason for list** | **Smart list fields used** |
 | [Active leads](https://support.zendesk.com/hc/en-us/articles/4411093692698) | Sales reps can see their current leads and sales team managers can filter on all active leads in an account. | Lead (name), Company, Status (unqualified), All Active (statuses), Ownership, Days Since Last Communication, Next Task, Email Address, Phone Number, Added On (date), State (location) |
@@ -38,7 +38,7 @@ These recipes create helpful smart lists that are specific to leads and are usef
 
 These recipes create helpful smart lists that are specific to contacts and are useful for sales reps to manage engagement with prospects.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Smart list recipe** | **Reason for list** | **Smart list fields used** |
 | [My company accounts](https://support.zendesk.com/hc/en-us/articles/4411084695450) | Allows you to report on the status of your company accounts. | Contact > Company (accounts), Ownership, Next Task, Days Since Last Communication, Prospect Status, Customer Status, Industry, State (location), Country, Zip Code |
@@ -48,7 +48,7 @@ These recipes create helpful smart lists that are specific to contacts and are u
 
 These recipes create helpful smart lists that are specific to deals and are useful for sales reps and sales managers.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Smart list recipe** | **Reason for list** | **Smart list fields used** |
 | [Deals closing this month](https://support.zendesk.com/hc/en-us/articles/4411083653402) | Sales reps or sales teams can report on how likely they are able to hit their target for the month. | Deal Name, Value, Win Likelihood, Estimated Close Date > This Month or This Quarter, Pipeline Stage > Ownership or Deal Score > Higher, Contact, Company, Days Since Last Communication, Next Task |

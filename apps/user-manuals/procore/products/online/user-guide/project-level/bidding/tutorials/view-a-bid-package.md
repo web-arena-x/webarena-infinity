@@ -11,15 +11,15 @@ To view a bid package in the project's Bidding tool.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.  
+ - 'Admin' level permissions on the project's Bidding tool. 
     OR
-  - 'Read Only' or 'Standard' level permissions on the project's Bidding tool and added to the Bidding CC Group.  
+ - 'Read Only' or 'Standard' level permissions on the project's Bidding tool and added to the Bidding CC Group. 
     OR
-  - 'Read Only' or 'Standard' level permissions on the project's Bidding tool and added to the **Bid Submission Notification** field if your project is updated to the [Bid Management Enhanced Experience](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/about-bid-management-enhanced-experience "About Bid Management Enhanced Experience").
+ - 'Read Only' or 'Standard' level permissions on the project's Bidding tool and added to the **Bid Submission Notification** field if your project is updated to the [Bid Management Enhanced Experience](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/about-bid-management-enhanced-experience "About Bid Management Enhanced Experience").
 
 ## Video
 
-|  |
+| |
 | --- |
 | *Video content may not accurately reflect the current state of the system, and/or it may be out of date.* |
 
@@ -34,7 +34,7 @@ When you [create a bid package](https://support.procore.com/products/online/user
 - [Download Log](#anchor-download "View Bid Package")
 - [Change History](#anchor-change "View Bid Package")
 - [Emails](#anchor-emails "products/online/user-guide/project-level/bidding/tutorials/view-a-bid-package#anchor-emails")\*
-  - \*Only in the [Bid Management Enhanced Experience](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/about-bid-management-enhanced-experience "About Bid Management Enhanced Experience").
+ - \*Only in the [Bid Management Enhanced Experience](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/about-bid-management-enhanced-experience "About Bid Management Enhanced Experience").
 
 ### Overview
 
@@ -59,12 +59,12 @@ You can view information on the package's potential bidders from the Bidders ta
 - **Company Name**: The name of each company that can be invited to bid on this specific bid package.
 - **Recipient List**: The specific person from the bidding company to whom the invitation email was sent.
 - **Company Contact Information**:The phone number for each company that can be invited to bid on this specific bid package.
-- **Last Activity:** The most recent activity for the bidder is listed.  
-  *Note:* If you click into the Last Activity box, the full activity for the bidder may be viewed.
-- **Bid Invitation Last Sent**: Timestamp of when the bid invitation email was sent to the bidding company's contact.  
-  *Note:* 'n/a' will be shown if the bid invitation email has not been sent to the bidding company.
-- **Intent to Bid**: Denotes the bidding company's intention to bid on the project. Bidders can declare their intentions directly in the bid invitation email.  
-  *Note:* If a bidder declared an intention to bid, you may want to send them a reminder email to submit their bid leading up to the bid submission deadline.
+- **Last Activity:** The most recent activity for the bidder is listed. 
+ *Note:* If you click into the Last Activity box, the full activity for the bidder may be viewed.
+- **Bid Invitation Last Sent**: Timestamp of when the bid invitation email was sent to the bidding company's contact. 
+ *Note:* 'n/a' will be shown if the bid invitation email has not been sent to the bidding company.
+- **Intent to Bid**: Denotes the bidding company's intention to bid on the project. Bidders can declare their intentions directly in the bid invitation email. 
+ *Note:* If a bidder declared an intention to bid, you may want to send them a reminder email to submit their bid leading up to the bid submission deadline.
 - **Submission Status**: Denotes whether or not the bidder has successfully submitted a bid.
 - **Bid Amount**: The total amount of the bid. If you selected 'Blind Bidding' for the bid package configuration, the bid amounts will be hidden until the bid submission deadline has passed.
 - **Cost Codes:** The cost code(s) associated with each company.
@@ -75,11 +75,10 @@ You can view information on the package's potential bidders from the Bidders ta
 
 - Export the bid package's information, which also includes company information, to a PDF by clicking on the **PDF** icon.
 - Delete the company from the bid list only if the company hasn't been sent an invitation email. Click the **X** to delete the company from the bid list.
-- If you added bidders to your bid package that you haven't invited to bid, a blue banner will appear at the top of the bid list as a visual reminder of how many outstanding invitations have yet to be sent.  
-  *Note:* You can see which bidders haven't been invited yet by seeing which ones have the **Invite** button in their row as opposed to a **Reinvite** button. You may also individually invite and reinvite your bidders by clicking these buttons.
+- If you added bidders to your bid package that you haven't invited to bid, a blue banner will appear at the top of the bid list as a visual reminder of how many outstanding invitations have yet to be sent. 
+ *Note:* You can see which bidders haven't been invited yet by seeing which ones have the **Invite** button in their row as opposed to a **Reinvite** button. You may also individually invite and reinvite your bidders by clicking these buttons.
 - Search for bidders by clicking on the **Add Bidders**button. See [Search for and Filter Companies to Add to a Bid Form](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/search-for-and-filter-companies-to-add-to-a-bid-form "Search for and Filter Companies to Add to a Bid Form") for more information.
-- Resend bid invitations to all of your previously invited bidders by clicking **Resend Invitations**. See**[Resend Invitations to Bid](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/resend-invitations-to-bid "Resend Invitations to Bid").**  
-  *Note:* This button will not send an email to bidders who have not been invited yet.
+- Resend bid invitations to all of your previously invited bidders by clicking **Resend Invitations**. See**[Resend Invitations to Bid](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/resend-invitations-to-bid "Resend Invitations to Bid").** *Note:* This button will not send an email to bidders who have not been invited yet.
 - Delete the bid package by clicking on the **Delete Bid Package** button in the **vertical ellipsis (⋮)**. See [Delete a Bid Package](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/delete-a-bid-package "Delete a Bid Package") for more information.
 
 #### Filter, Search, and Group Options

@@ -12,15 +12,11 @@ title: Compliance frameworks
 
 {{< /details >}}
 
-You can create a compliance framework that is a label to identify that your project has certain compliance
-requirements or needs additional oversight.
+You can create a compliance framework that is a label to identify that your project has certain compliance requirements or needs additional oversight.
 
-In the Ultimate tier, the compliance framework can optionally enforce
-[compliance pipeline configuration](../compliance_pipelines.md) and
-[security policies](../../application_security/policies/enforcement/_index.md#scope) to the projects on which it is applied.
+In the Ultimate tier, the compliance framework can optionally enforce [compliance pipeline configuration](../compliance_pipelines.md) and [security policies](../../application_security/policies/enforcement/_index.md#scope) to the projects on which it is applied.
 
-Compliance frameworks are created on top-level groups. If a project is moved outside of its existing top-level group,
-its frameworks are removed.
+Compliance frameworks are created on top-level groups. If a project is moved outside of its existing top-level group, its frameworks are removed.
 
 You can apply up to 20 compliance frameworks to each project.
 
@@ -30,11 +26,9 @@ For a click-through demo, see [Custom Compliance frameworks](https://gitlab.nava
 ## Prerequisites
 
 - To create, edit, and delete compliance frameworks, users must have either:
-  - The Owner role for the top-level group.
-  - Be assigned a [custom role](../../custom_roles/_index.md) with the `admin_compliance_framework`
-    [custom permission](../../custom_roles/abilities.md#compliance-management).
-- To add or remove a compliance framework to or from a project, the group to which the project belongs must have a
-  compliance framework.
+ - The Owner role for the top-level group.
+ - Be assigned a [custom role](../../custom_roles/_index.md) with the `admin_compliance_framework` [custom permission](../../custom_roles/abilities.md#compliance-management).
+- To add or remove a compliance framework to or from a project, the group to which the project belongs must have a compliance framework.
 
 ## Create, edit, or delete a compliance framework
 
@@ -51,8 +45,7 @@ For more information on using a compliance projects report, see:
 - [Create a new compliance framework](../compliance_center/compliance_projects_report.md#create-a-new-compliance-framework).
 - [Edit a compliance framework](../compliance_center/compliance_projects_report.md#edit-a-compliance-framework).
 - [Delete a compliance framework](../compliance_center/compliance_projects_report.md#delete-a-compliance-framework).
-  Subgroups and projects have access to all compliance frameworks created on their top-level group. However, compliance frameworks cannot be created, edited,
-  or deleted by using subgroups or projects. Project owners can choose a framework to apply to their projects.
+ Subgroups and projects have access to all compliance frameworks created on their top-level group. However, compliance frameworks cannot be created, edited, or deleted by using subgroups or projects. Project owners can choose a framework to apply to their projects.
 
 ## Apply a compliance framework to a project
 
@@ -65,14 +58,11 @@ For more information on using a compliance projects report, see:
 
 You can apply multiple compliance frameworks to a project but cannot apply compliance frameworks to projects in personal namespaces.
 
-To apply a compliance framework to a project, apply the compliance framework through the
-[compliance projects report](../compliance_center/compliance_projects_report.md#apply-a-compliance-framework-to-projects-in-a-group).
+To apply a compliance framework to a project, apply the compliance framework through the [compliance projects report](../compliance_center/compliance_projects_report.md#apply-a-compliance-framework-to-projects-in-a-group).
 
-You can use the [GraphQL API](../../../api/graphql/reference/_index.md#mutationprojectupdatecomplianceframeworks) to apply one or many
-compliance frameworks to a project.
+You can use the [GraphQL API](../../../api/graphql/reference/_index.md#mutationprojectupdatecomplianceframeworks) to apply one or many compliance frameworks to a project.
 
-If you create compliance frameworks on subgroups with GraphQL, the framework is created on the root ancestor if the user
-has the correct permissions. The GitLab UI presents a read-only view to discourage this behavior.
+If you create compliance frameworks on subgroups with GraphQL, the framework is created on the root ancestor if the user has the correct permissions. The GitLab UI presents a read-only view to discourage this behavior.
 
 To apply a compliance framework to a project through a compliance framework:
 
@@ -92,9 +82,7 @@ To apply a compliance framework to a project through a compliance framework:
 
 {{< /history >}}
 
-Group owners can set a default compliance framework. The default framework is applied to all the new and imported
-projects that are created in that group. It does not affect the framework applied to the existing projects. The
-default framework cannot be deleted.
+Group owners can set a default compliance framework. The default framework is applied to all the new and imported projects that are created in that group. It does not affect the framework applied to the existing projects. The default framework cannot be deleted.
 
 A compliance framework that is set to default has a `default` label.
 
@@ -120,8 +108,7 @@ To set as default (or remove the default) from [compliance framework report](../
 
 ## Remove a compliance framework from a project
 
-To remove a compliance framework from one or multiple project in a group, remove the compliance framework through the
-[compliance projects report](../compliance_center/compliance_projects_report.md#remove-a-compliance-framework-from-projects-in-a-group).
+To remove a compliance framework from one or multiple project in a group, remove the compliance framework through the [compliance projects report](../compliance_center/compliance_projects_report.md#remove-a-compliance-framework-from-projects-in-a-group).
 
 ## Import and export compliance frameworks
 
@@ -133,8 +120,7 @@ To remove a compliance framework from one or multiple project in a group, remove
 
 Download existing compliance frameworks as JSON files and upload new frameworks from JSON templates.
 
-A library of JSON templates is available from the
-[Compliance Adherence Templates](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates) project.
+A library of JSON templates is available from the [Compliance Adherence Templates](https://gitlab.com/gitlab-org/software-supply-chain-security/compliance/engineering/compliance-adherence-templates) project.
 Use these templates to quickly adopt predefined compliance frameworks.
 
 ### Export a compliance framework as a JSON file
@@ -218,10 +204,10 @@ Here's a simplified example that shows the complete structure:
 
 ```json
 {
-  "name": "Example Compliance Framework",
-  "description": "Example framework demonstrating JSON structure",
-  "color": "#1f75cb",
-  "requirements": [
+ "name": "Example Compliance Framework",
+ "description": "Example framework demonstrating JSON structure",
+ "color": "#1f75cb",
+ "requirements": [
     {
       "name": "Security Scanning Requirement",
       "description": "Ensure security scanning is enabled for all projects",
@@ -246,7 +232,7 @@ Here's a simplified example that shows the complete structure:
         }
       ]
     }
-  ]
+ ]
 }
 ```
 
@@ -266,11 +252,9 @@ Here's a simplified example that shows the complete structure:
 
 {{< /history >}}
 
-In GitLab Ultimate, you can define specific **requirements** for a compliance framework. Requirements are made up of one
-or more controls, which are checks against the configuration or behavior of projects that are assigned the framework. Each requirement has a maximum of five controls.
+In GitLab Ultimate, you can define specific **requirements** for a compliance framework. Requirements are made up of one or more controls, which are checks against the configuration or behavior of projects that are assigned the framework. Each requirement has a maximum of five controls.
 
-Each control includes logic that GitLab uses during scheduled or triggered scans to evaluate a project's adherence. For
-more details on how adherence is tracked, see [Compliance status report](../compliance_center/compliance_status_report.md).
+Each control includes logic that GitLab uses during scheduled or triggered scans to evaluate a project's adherence. For more details on how adherence is tracked, see [Compliance status report](../compliance_center/compliance_status_report.md).
 
 You can use GitLab compliance controls or external controls for framework requirements.
 
@@ -282,11 +266,9 @@ You can use GitLab compliance controls or external controls for framework requir
 
 {{< /history >}}
 
-GitLab compliance controls can be used in GitLab compliance frameworks. Controls are checks against the configuration or
-behavior of projects that are assigned to a compliance framework.
+GitLab compliance controls can be used in GitLab compliance frameworks. Controls are checks against the configuration or behavior of projects that are assigned to a compliance framework.
 
-Combine GitLab compliance controls to help you meet
-[compliance standards](compliance_standards.md).
+Combine GitLab compliance controls to help you meet [compliance standards](compliance_standards.md).
 
 <!-- Updates to control names must be reflected also in compliance_standards.md -->
 
@@ -369,8 +351,7 @@ You can create a external control that sends data to third-party tools.
 
 When the [compliance scans](../compliance_center/compliance_status_report.md#scan-timing-and-triggers) are run, GitLab sends a notification. The users or automated workflows can then update the status of control from outside of GitLab.
 
-With this integration, you can integrate with third-party workflow tools, like ServiceNow, or the custom tool of your choice. The third-party tool
-responds with an associated status. This status is then displayed in the [Compliance status report](../compliance_center/compliance_status_report.md).
+With this integration, you can integrate with third-party workflow tools, like ServiceNow, or the custom tool of your choice. The third-party tool responds with an associated status. This status is then displayed in the [Compliance status report](../compliance_center/compliance_status_report.md).
 
 You can configure external controls for each individual project. External controls are not shared between projects.
 Status checks fail if an external control stays in the pending state for more than six hours.
@@ -400,8 +381,7 @@ To add an external control when creating or editing a framework:
 The **Ping enabled** setting controls whether GitLab requests external control status updates from external systems every 12 hours.
 
 - Enabled (default): GitLab automatically sends HTTP requests to the external service URL every 12 hours and updates the external control status based on the response.
-- Disabled: GitLab does not send notifications to the external service and the external control displays a **Disabled** badge in the compliance framework UI. To request
-  the status of an external control, you must manually use the [External Controls API](../../../api/external_controls.md).
+- Disabled: GitLab does not send notifications to the external service and the external control displays a **Disabled** badge in the compliance framework UI. To request the status of an external control, you must manually use the [External Controls API](../../../api/external_controls.md).
 
 #### External control lifecycle
 
@@ -418,16 +398,15 @@ sequenceDiagram
     Note over External service,GitLab: Response includes SHA at HEAD
 ```
 
-After the payload is received, the external service can run any required processes. The external service can then post
-its response back to the merge request by using the REST API.
+After the payload is received, the external service can run any required processes. The external service can then post its response back to the merge request by using the REST API.
 
 External controls can have one of three statuses.
 
 | Status    | Description |
 |:----------|:------------|
 | `pending` | Default status. No response received from the external service. |
-| `pass`  | Response received from the external service and the external control was approved by the external service. |
-| `fail`  | Response received from the external service and the external control was denied by the external service. |
+| `pass` | Response received from the external service and the external control was approved by the external service. |
+| `fail` | Response received from the external service and the external control was denied by the external service. |
 
 If something changes outside of GitLab, you can set the [status of an external control by using the API](../../../api/external_controls.md). You don't need to wait for a payload to be sent first.
 
@@ -437,23 +416,23 @@ When GitLab sends a notification to an external service during compliance scans,
 
 ```json
 {
-  "id": 123456,
-  "description": "Project for compliance testing and validation",
-  "name": "Compliance Test Project",
-  "name_with_namespace": "acme-corp / engineering / security / compliance-test-project",
-  "path": "compliance-test-project",
-  "path_with_namespace": "acme-corp/engineering/security/compliance-test-project",
-  "created_at": "2024-01-15T10:30:00.000Z",
-  "tag_list": ["compliance", "security"],
-  "topics": ["governance", "audit"],
-  "ssh_url_to_repo": "git@gitlab.com:acme-corp/engineering/security/compliance-test-project.git",
-  "http_url_to_repo": "https://gitlab.com/acme-corp/engineering/security/compliance-test-project.git",
-  "web_url": "https://gitlab.com/acme-corp/engineering/security/compliance-test-project",
-  "avatar_url": "https://gitlab.com/uploads/-/system/project/avatar/123456/avatar.png",
-  "star_count": 5,
-  "last_activity_at": "2024-11-20T14:25:30.000Z",
-  "visibility": "private",
-  "namespace": {
+ "id": 123456,
+ "description": "Project for compliance testing and validation",
+ "name": "Compliance Test Project",
+ "name_with_namespace": "acme-corp / engineering / security / compliance-test-project",
+ "path": "compliance-test-project",
+ "path_with_namespace": "acme-corp/engineering/security/compliance-test-project",
+ "created_at": "2024-01-15T10:30:00.000Z",
+ "tag_list": ["compliance", "security"],
+ "topics": ["governance", "audit"],
+ "ssh_url_to_repo": "git@gitlab.com:acme-corp/engineering/security/compliance-test-project.git",
+ "http_url_to_repo": "https://gitlab.com/acme-corp/engineering/security/compliance-test-project.git",
+ "web_url": "https://gitlab.com/acme-corp/engineering/security/compliance-test-project",
+ "avatar_url": "https://gitlab.com/uploads/-/system/project/avatar/123456/avatar.png",
+ "star_count": 5,
+ "last_activity_at": "2024-11-20T14:25:30.000Z",
+ "visibility": "private",
+ "namespace": {
     "id": 654321,
     "name": "Security Group",
     "path": "security",
@@ -462,9 +441,9 @@ When GitLab sends a notification to an external service during compliance scans,
     "parent_id": 654320,
     "avatar_url": "https://gitlab.com/uploads/-/system/group/avatar/654321/avatar.png",
     "web_url": "https://gitlab.com/groups/acme-corp/engineering/security"
-  },
-  "container_registry_image_prefix": "registry.gitlab.com/acme-corp/engineering/security/compliance-test-project",
-  "_links": {
+ },
+ "container_registry_image_prefix": "registry.gitlab.com/acme-corp/engineering/security/compliance-test-project",
+ "_links": {
     "self": "https://gitlab.com/api/v4/projects/123456",
     "issues": "https://gitlab.com/api/v4/projects/123456/issues",
     "merge_requests": "https://gitlab.com/api/v4/projects/123456/merge_requests",
@@ -473,14 +452,14 @@ When GitLab sends a notification to an external service during compliance scans,
     "events": "https://gitlab.com/api/v4/projects/123456/events",
     "members": "https://gitlab.com/api/v4/projects/123456/members",
     "cluster_agents": "https://gitlab.com/api/v4/projects/123456/cluster_agents"
-  },
-  "marked_for_deletion_at": null,
-  "marked_for_deletion_on": null,
-  "packages_enabled": true,
-  "empty_repo": false,
-  "archived": false,
-  "resolve_outdated_diff_discussions": false,
-  "container_expiration_policy": {
+ },
+ "marked_for_deletion_at": null,
+ "marked_for_deletion_on": null,
+ "packages_enabled": true,
+ "empty_repo": false,
+ "archived": false,
+ "resolve_outdated_diff_discussions": false,
+ "container_expiration_policy": {
     "cadence": "1d",
     "enabled": false,
     "keep_n": 10,
@@ -488,83 +467,83 @@ When GitLab sends a notification to an external service during compliance scans,
     "name_regex": ".*",
     "name_regex_keep": null,
     "next_run_at": "2024-01-16T10:30:00.000Z"
-  },
-  "repository_object_format": "sha1",
-  "issues_enabled": true,
-  "merge_requests_enabled": true,
-  "wiki_enabled": true,
-  "jobs_enabled": true,
-  "snippets_enabled": true,
-  "container_registry_enabled": true,
-  "service_desk_enabled": true,
-  "can_create_merge_request_in": false,
-  "issues_access_level": "enabled",
-  "repository_access_level": "enabled",
-  "merge_requests_access_level": "enabled",
-  "forking_access_level": "enabled",
-  "wiki_access_level": "enabled",
-  "builds_access_level": "enabled",
-  "snippets_access_level": "enabled",
-  "pages_access_level": "private",
-  "analytics_access_level": "enabled",
-  "container_registry_access_level": "enabled",
-  "security_and_compliance_access_level": "private",
-  "releases_access_level": "enabled",
-  "environments_access_level": "enabled",
-  "feature_flags_access_level": "enabled",
-  "infrastructure_access_level": "enabled",
-  "monitor_access_level": "enabled",
-  "model_experiments_access_level": "enabled",
-  "model_registry_access_level": "enabled",
-  "package_registry_access_level": "enabled",
-  "emails_disabled": false,
-  "emails_enabled": true,
-  "show_diff_preview_in_email": true,
-  "shared_runners_enabled": true,
-  "lfs_enabled": true,
-  "creator_id": 111222,
-  "import_status": "none",
-  "open_issues_count": 3,
-  "description_html": "<p>Project for compliance testing and validation</p>",
-  "updated_at": "2024-11-20T14:25:30.000Z",
-  "public_jobs": true,
-  "shared_with_groups": [],
-  "only_allow_merge_if_pipeline_succeeds": false,
-  "allow_merge_on_skipped_pipeline": null,
-  "request_access_enabled": true,
-  "only_allow_merge_if_all_discussions_are_resolved": false,
-  "remove_source_branch_after_merge": true,
-  "printing_merge_request_link_enabled": true,
-  "merge_method": "merge",
-  "merge_request_title_regex": null,
-  "merge_request_title_regex_description": null,
-  "squash_option": "default_off",
-  "enforce_auth_checks_on_uploads": true,
-  "suggestion_commit_message": null,
-  "merge_commit_template": null,
-  "squash_commit_template": null,
-  "issue_branch_template": null,
-  "warn_about_potentially_unwanted_characters": true,
-  "autoclose_referenced_issues": true,
-  "max_artifacts_size": null,
-  "approvals_before_merge": 0,
-  "mirror": false,
-  "external_authorization_classification_label": "",
-  "requirements_enabled": true,
-  "requirements_access_level": "enabled",
-  "security_and_compliance_enabled": false,
-  "compliance_frameworks": ["SOC 2 Compliance Framework"],
-  "merge_pipelines_enabled": false,
-  "merge_trains_enabled": false,
-  "merge_trains_skip_train_allowed": false,
-  "only_allow_merge_if_all_status_checks_passed": false,
-  "allow_pipeline_trigger_approve_deployment": false,
-  "prevent_merge_without_jira_issue": false,
-  "auto_duo_code_review_enabled": false,
-  "duo_remote_flows_enabled": true,
-  "duo_foundational_flows_enabled": true,
-  "spp_repository_pipeline_access": false,
-  "project_control_compliance_status": {
+ },
+ "repository_object_format": "sha1",
+ "issues_enabled": true,
+ "merge_requests_enabled": true,
+ "wiki_enabled": true,
+ "jobs_enabled": true,
+ "snippets_enabled": true,
+ "container_registry_enabled": true,
+ "service_desk_enabled": true,
+ "can_create_merge_request_in": false,
+ "issues_access_level": "enabled",
+ "repository_access_level": "enabled",
+ "merge_requests_access_level": "enabled",
+ "forking_access_level": "enabled",
+ "wiki_access_level": "enabled",
+ "builds_access_level": "enabled",
+ "snippets_access_level": "enabled",
+ "pages_access_level": "private",
+ "analytics_access_level": "enabled",
+ "container_registry_access_level": "enabled",
+ "security_and_compliance_access_level": "private",
+ "releases_access_level": "enabled",
+ "environments_access_level": "enabled",
+ "feature_flags_access_level": "enabled",
+ "infrastructure_access_level": "enabled",
+ "monitor_access_level": "enabled",
+ "model_experiments_access_level": "enabled",
+ "model_registry_access_level": "enabled",
+ "package_registry_access_level": "enabled",
+ "emails_disabled": false,
+ "emails_enabled": true,
+ "show_diff_preview_in_email": true,
+ "shared_runners_enabled": true,
+ "lfs_enabled": true,
+ "creator_id": 111222,
+ "import_status": "none",
+ "open_issues_count": 3,
+ "description_html": "<p>Project for compliance testing and validation</p>",
+ "updated_at": "2024-11-20T14:25:30.000Z",
+ "public_jobs": true,
+ "shared_with_groups": [],
+ "only_allow_merge_if_pipeline_succeeds": false,
+ "allow_merge_on_skipped_pipeline": null,
+ "request_access_enabled": true,
+ "only_allow_merge_if_all_discussions_are_resolved": false,
+ "remove_source_branch_after_merge": true,
+ "printing_merge_request_link_enabled": true,
+ "merge_method": "merge",
+ "merge_request_title_regex": null,
+ "merge_request_title_regex_description": null,
+ "squash_option": "default_off",
+ "enforce_auth_checks_on_uploads": true,
+ "suggestion_commit_message": null,
+ "merge_commit_template": null,
+ "squash_commit_template": null,
+ "issue_branch_template": null,
+ "warn_about_potentially_unwanted_characters": true,
+ "autoclose_referenced_issues": true,
+ "max_artifacts_size": null,
+ "approvals_before_merge": 0,
+ "mirror": false,
+ "external_authorization_classification_label": "",
+ "requirements_enabled": true,
+ "requirements_access_level": "enabled",
+ "security_and_compliance_enabled": false,
+ "compliance_frameworks": ["SOC 2 Compliance Framework"],
+ "merge_pipelines_enabled": false,
+ "merge_trains_enabled": false,
+ "merge_trains_skip_train_allowed": false,
+ "only_allow_merge_if_all_status_checks_passed": false,
+ "allow_pipeline_trigger_approve_deployment": false,
+ "prevent_merge_without_jira_issue": false,
+ "auto_duo_code_review_enabled": false,
+ "duo_remote_flows_enabled": true,
+ "duo_foundational_flows_enabled": true,
+ "spp_repository_pipeline_access": false,
+ "project_control_compliance_status": {
     "status": "pending",
     "compliance_requirements_control_id": 100001,
     "project_id": 123456,
@@ -574,7 +553,7 @@ When GitLab sends a notification to an external service during compliance scans,
     "created_at": "2024-11-26T10:00:00.000Z",
     "updated_at": "2024-11-26T10:00:00.000Z",
     "requirement_status_id": null
-  }
+ }
 }
 ```
 
@@ -615,5 +594,4 @@ When working with compliance frameworks, you might encounter the following issue
 
 ### Error: `Unable to determine the correct upload URL`
 
-You will encounter this error during a [compliance framework import](#import-a-compliance-framework-from-a-json-file) if a compliance framework already exists with the same name as
-the JSON template.
+You will encounter this error during a [compliance framework import](#import-a-compliance-framework-from-a-json-file) if a compliance framework already exists with the same name as the JSON template.

@@ -26,10 +26,10 @@ For *more information on your privacy options, refer to* [*Profile Privacy Optio
 
 ### Other areas to update private settings
 
-For your convenience, Handshake offers other areas on the platform to update your profile privacy settings.  This includes signing up for a virtual fair session or virtual event.  
-  
-If your profile is set to private, you'll receive a prompt This prompt includes the following message:  
-  
+For your convenience, Handshake offers other areas on the platform to update your profile privacy settings.  This includes signing up for a virtual fair session or virtual event. 
+ 
+If your profile is set to private, you'll receive a prompt This prompt includes the following message: 
+ 
 "In order to participate in a virtual [career fair/event] on Handshake, you will need to change your visibility."
 
 ![change_profile_visibility_to_participate.png](https://support.joinhandshake.com/hc/article_attachments/25997655570455)

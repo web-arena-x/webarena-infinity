@@ -17,14 +17,14 @@ This will load your employer registrations for the fair.
 By default, you'll see all registrations that are either Pending or Approved. You'll be able to use the following filters to narrow down the registrations that appear:
 
 - **Status**: this is the status of the registration, which can be:
-  - Pending
-  - Approved
-  - Declined
-  - Cancelled
+ - Pending
+ - Approved
+ - Declined
+ - Cancelled
 - **Payment Status**: this is the payment status of the registration, which can be:
-  - Paid
-  - Unpaid
-  - Invoiced
+ - Paid
+ - Unpaid
+ - Invoiced
 - **Registration Option**: this is the registration type the employer has selected
 - **Payment Method**: this is the preferred payment option the employer has chosen
 - **Career Fair Item**: these are extra items that the employer has selected on the registration
@@ -34,10 +34,10 @@ By default, you'll see all registrations that are either Pending or Approved. Y
 - **Not Labels**: this will exclude registrations with a particular label name on the career fair registration directly
 - **Employer Labels**: this filter allows you to identify registrations based on labels applied to the employer's company profile (NEW in 2020!)
 - **Other**: miscellaneous other filters include:
-  - Balance Due Only
-  - No Booths Assigned Only
-  - Include Declined Registrations
-  - Include Cancelled Registrations
+ - Balance Due Only
+ - No Booths Assigned Only
+ - Include Declined Registrations
+ - Include Cancelled Registrations
 
 ![registration_filters.png](https://support.joinhandshake.com/hc/article_attachments/25997430738711)
 

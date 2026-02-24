@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4409156141850-Explore-quic
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Explore Light, Professional, or Enterprise |
 
@@ -31,12 +31,12 @@ These instructions assume you're setting up Explore for the first time. Activati
 
 **To activate Explore**
 
-1. Click the **Zendesk Products** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/products_icon2.png)) in the top bar, then select **Analytics**.  
+1. Click the **Zendesk Products** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/products_icon2.png)) in the top bar, then select **Analytics**. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/prod-tray-explore.png)
-2. Click **Activate Explore**.  
-   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_activate_explore_first_time.png)  
-   Explore begins preparing your data. Depending on how many tickets you have, this process might take some time.   
-   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_activate_explore_notify_me.png)  
+2. Click **Activate Explore**. 
+   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_activate_explore_first_time.png) 
+   Explore begins preparing your data. Depending on how many tickets you have, this process might take some time.  
+   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_activate_explore_notify_me.png) 
    When the process is complete, Explore sends you a notification email. Explore is now ready to use.
 
 ---
@@ -52,16 +52,16 @@ On Enterprise plans, you already have access to Explore, but you need to give ot
 1. In [Admin Center](https://support.zendesk.com/hc/en-us/articles/217743418), click the **People** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ac_people_icon.png)) in the sidebar, then select **Team > Team members**.
 2. Search for and select your profile or another user's profile to open it.
 3. On the **Roles and access** tab, select the **Access** checkbox next to **Explore**.
-4. In the **Role** drop-down, select the appropriate role.  
+4. In the **Role** drop-down, select the appropriate role. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Explore_admincenter_1.png)
 5. Click **Save**.
 
 **To give users access (Enterprise)**
 
 1. In [Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554#topic_hfg_dyz_1hb), click ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ac_people_icon.png) **People** in the sidebar, then select **Team** > **Roles**.
-2. From the list of roles, select the one you want to configure Explore access for.  
+2. From the list of roles, select the one you want to configure Explore access for. 
    Alternatively, you might want to [create a new role](https://support.zendesk.com/hc/en-us/articles/4408882153882#topic_cxn_hig_bd).
-3. In the **Analytics** section, select the appropriate level of access in the **Explore permissions** setting.  
+3. In the **Analytics** section, select the appropriate level of access in the **Explore permissions** setting. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_analytics_explore_permissions_setting.png)
 4. Click **Save**.
 
@@ -76,7 +76,7 @@ Explore includes many prebuilt reports for common business scenarios. Here's how
 **To look at reports**
 
 1. Click the **Zendesk Products** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/products_icon2.png)) in the top bar, then select **Explore**. Explore opens in the Dashboards library, which shows the available dashboards for the Zendesk products you own.
-2. From the list of dashboards, select the one you want to view (like **Zendesk Support**).  
+2. From the list of dashboards, select the one you want to view (like **Zendesk Support**). 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Explore-support-dashboard.png)
 
 Tip: If you're using Professional or above, you can also [create](https://support.zendesk.com/hc/en-us/articles/4408821589530) and [customize](https://support.zendesk.com/hc/en-us/articles/4408839246618) your own reports and [share](https://support.zendesk.com/hc/en-us/articles/4408827282714) dashboards with other users.

@@ -22,7 +22,7 @@ You can combine all types of criteria for a more accurate applicant ranking expe
 
 ### Adding or editing candidate criteria
 
-You can add, edit, or delete up to 10 candidate criteria for each job.   
+You can add, edit, or delete up to 10 candidate criteria for each job.  
 **Note**: Each job must include at least 3 candidate criteria.
 
 1. From your job postings, select the one where you want to add or edit candidate criteria.
@@ -33,7 +33,7 @@ You can add, edit, or delete up to 10 candidate criteria for each job. 
 
 - **Star criteria**: Click the star icon to mark a criterion as most important. These receive higher weighting in rankings.
 
-  - **Note**: You must star at least one criterion to receive recommendations.
+ - **Note**: You must star at least one criterion to receive recommendations.
 - **Edit criteria**: Click the pencil icon to make changes to an existing criterion.
 - **Delete criteria**: Click the recycle bin icon to remove a criterion.
 - **Add criteria**: Click **+ Add criteria** to create a new criterion in plain language.

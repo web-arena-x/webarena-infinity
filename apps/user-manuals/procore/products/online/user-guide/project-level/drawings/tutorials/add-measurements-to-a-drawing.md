@@ -11,10 +11,10 @@ To add measurements to a drawing in the Drawings tool.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Read Only' or higher permissions on the project's Drawings tool.
+ - 'Read Only' or higher permissions on the project's Drawings tool.
 - **Additional Information:**
-  - Drawing calibrations, areas, and distances are approximate and only appear on your Personal layer. See [What is the difference between personal and published drawing markups?](https://support.procore.com/faq/what-is-the-difference-between-personal-and-published-drawing-markups "What is the difference between personal and published drawing markups?")
-  - You can view a report of measurements you have added to drawings on your project. See [View the Measurements Report for Drawings](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/view-the-measurements-report-for-drawings "View the Measurements Report for Drawings").
+ - Drawing calibrations, areas, and distances are approximate and only appear on your Personal layer. See [What is the difference between personal and published drawing markups?](https://support.procore.com/faq/what-is-the-difference-between-personal-and-published-drawing-markups "What is the difference between personal and published drawing markups?")
+ - You can view a report of measurements you have added to drawings on your project. See [View the Measurements Report for Drawings](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/view-the-measurements-report-for-drawings "View the Measurements Report for Drawings").
 
 ## Steps
 
@@ -32,32 +32,32 @@ To add measurements to a drawing in the Drawings tool.
 
 The first time you add measurements to a drawing, you will need to calibrate the drawing using the **Calibrate** [markup tool](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/mark-up-a-drawing "Mark Up a Drawing").
 
-1. Click **Distance** on the markup toolbar to reveal the measurement markup options.  
+1. Click **Distance** on the markup toolbar to reveal the measurement markup options. 
      
    ![drawings-toolbar-measurements.png](https://support.procore.com/@api/deki/files/69966/drawings-toolbar-measurements.png?revision=2&size=bestfit&width=243&height=50)
 2. Click **Calibrate**.
 3. Find a location on the drawing that you know the measurement of (i.e. the length of a wall).
 4. Click and drag the calibration from one end of the length to the other.
-5. Enter the length in feet and inches, or meters.  
+5. Enter the length in feet and inches, or meters. 
    *Note:* Only whole numbers can be entered in these fields.
-6. Click **Done**.  
+6. Click **Done**. 
    *Note*: If you ever delete this calibration, all measurement markups will remain. However, they will be re-calculated when you enter a new calibration.
 7. *Optional:* If you want to recalibrate the drawing:
    - Click the original calibration markup and click **Recalibrate.** Follow steps 5 and 6 above.
 
 #### Measure an Area
 
-1. On the markup toolbar, click **Area**.  
+1. On the markup toolbar, click **Area**. 
    *Note:* If you do not see Area on the toolbar, click Distance, Freehand, or Calibrate to reveal all measurement markup options.
-2. Click and drag the rectangle shape over the area you want to measure.  
+2. Click and drag the rectangle shape over the area you want to measure. 
    *Note:* The area is automatically calculated, and the measurement will remain listed in the shape.
 3. *Optional:* Click and drag a corner of the shape to resize it, or click and drag the center of the shape to reposition it.
 
 #### Measure a Distance
 
-1. On the markup toolbar, click **Distance**.  
+1. On the markup toolbar, click **Distance**. 
    *Note:* If you do not see Distance on the toolbar, click Area, Freehand, or Calibrate to reveal all measurement markup options.
-2. Click and drag the ruler from one end of a length to the other to measure the distance.   
+2. Click and drag the ruler from one end of a length to the other to measure the distance.  
    *Note*: The distance is automatically calculated, and the measurement will remain listed on the line.
 3. *Optional:* Click and drag a corner of the shape to resize it, or click and drag the center of the shape to reposition it.
 
@@ -65,7 +65,7 @@ The first time you add measurements to a drawing, you will need to calibrate t
 
 1. Click the **Freehand** tool.
 2. *Note:* If you do not see Freehand on the toolbar, click Distance, Area, or Calibrate to reveal all measurement markup options.
-3. Trace the shape you want to measure.  
+3. Trace the shape you want to measure. 
    *Note:* The distance is automatically calculated, and the measurement will remain listed on the shape or line.
 
 ## See Also

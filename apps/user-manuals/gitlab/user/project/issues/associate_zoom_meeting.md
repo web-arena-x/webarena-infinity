@@ -12,16 +12,12 @@ title: Associate a Zoom meeting with an issue
 
 {{< /details >}}
 
-To communicate synchronously for incidents management,
-you can associate a Zoom meeting with an issue.
-After you start a Zoom call for a fire-fight, you need a way to
-associate the conference call with an issue. This is so that your
-team members can join swiftly without requesting a link.
+To communicate synchronously for incidents management, you can associate a Zoom meeting with an issue.
+After you start a Zoom call for a fire-fight, you need a way to associate the conference call with an issue. This is so that your team members can join swiftly without requesting a link.
 
 ## Adding a Zoom meeting to an issue
 
-To associate a Zoom meeting with an issue, you can use the
-[`/zoom` quick action](../quick_actions.md#zoom).
+To associate a Zoom meeting with an issue, you can use the [`/zoom` quick action](../quick_actions.md#zoom).
 
 In an issue, leave a comment using the `/zoom` quick action followed by a valid Zoom link:
 
@@ -29,19 +25,14 @@ In an issue, leave a comment using the `/zoom` quick action followed by a valid 
 /zoom https://zoom.us/j/123456789
 ```
 
-If the Zoom meeting URL is valid and you have at least the Reporter role,
-a system alert notifies you of its successful addition.
-The issue's description is automatically edited to include the Zoom link, and a button
-appears right under the issue's title.
+If the Zoom meeting URL is valid and you have at least the Reporter role, a system alert notifies you of its successful addition.
+The issue's description is automatically edited to include the Zoom link, and a button appears right under the issue's title.
 
 ![GitLab issue view showing a Join Zoom meeting button](img/zoom_quickaction_button_v16_6.png)
 
-You are only allowed to attach a single Zoom meeting to an issue. If you attempt
-to add a second Zoom meeting using the `/zoom` quick action, it doesn't work. You
-need to [remove it](#removing-an-existing-zoom-meeting-from-an-issue) first.
+You are only allowed to attach a single Zoom meeting to an issue. If you attempt to add a second Zoom meeting using the `/zoom` quick action, it doesn't work. You need to [remove it](#removing-an-existing-zoom-meeting-from-an-issue) first.
 
-Users on GitLab Premium and Ultimate can also
-[add multiple Zoom links to incidents](../../../operations/incident_management/linked_resources.md#link-zoom-meetings-from-an-incident).
+Users on GitLab Premium and Ultimate can also [add multiple Zoom links to incidents](../../../operations/incident_management/linked_resources.md#link-zoom-meetings-from-an-incident).
 
 ## Removing an existing Zoom meeting from an issue
 
@@ -53,5 +44,4 @@ Similarly to adding a Zoom meeting, you can remove it with a quick action:
 
 You can also use the [`/remove_zoom` quick action](../quick_actions.md#remove_zoom).
 
-If you have at least the Reporter role,
-a system alert notifies you that the meeting URL was successfully removed.
+If you have at least the Reporter role, a system alert notifies you that the meeting URL was successfully removed.

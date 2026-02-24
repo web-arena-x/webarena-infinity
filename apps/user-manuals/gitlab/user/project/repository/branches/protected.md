@@ -19,8 +19,7 @@ The **Protected branches** settings for projects will be removed. Configure prot
 
 {{< /alert >}}
 
-Protected branches enforce specific permissions on branches in GitLab to ensure code stability
-and quality. Protected branches:
+Protected branches enforce specific permissions on branches in GitLab to ensure code stability and quality. Protected branches:
 
 - Control which users can merge and push code changes.
 - Prevent accidental deletion of critical branches.
@@ -36,8 +35,7 @@ For more information about default branch settings, see [default branch](default
 
 {{< /alert >}}
 
-For information about how protection rules behave when a branch matches multiple rules or has
-complex permission requirements, see [Protection rules](protection_rules.md).
+For information about how protection rules behave when a branch matches multiple rules or has complex permission requirements, see [Protection rules](protection_rules.md).
 
 ## Protect a branch
 
@@ -48,9 +46,8 @@ Configure protected branches for individual projects or for all projects in a gr
 Prerequisites:
 
 - You must have at least the Maintainer role.
-- When granting a group **Allowed to merge** or **Allowed to push and merge** permissions
-  on a protected branch, the project must be accessible and shared with the group.
-  For more information, see [Shared projects](../../members/sharing_projects_groups.md).
+- When granting a group **Allowed to merge** or **Allowed to push and merge** permissions on a protected branch, the project must be accessible and shared with the group.
+ For more information, see [Shared projects](../../members/sharing_projects_groups.md).
 
 To protect a branch:
 
@@ -71,8 +68,7 @@ To protect a branch:
 
 {{< alert type="note" >}}
 
-In GitLab Premium and Ultimate, you can also add groups or individual users
-to **Allowed to merge** and **Allowed to push and merge**.
+In GitLab Premium and Ultimate, you can also add groups or individual users to **Allowed to merge** and **Allowed to push and merge**.
 
 {{< /alert >}}
 
@@ -91,8 +87,7 @@ to **Allowed to merge** and **Allowed to push and merge**.
 
 {{< /history >}}
 
-Group owners can create protected branches for a group. These settings are inherited
-by all projects in the group and can't be overridden by project settings.
+Group owners can create protected branches for a group. These settings are inherited by all projects in the group and can't be overridden by project settings.
 
 Prerequisites:
 
@@ -109,14 +104,12 @@ To protect a branch for all the projects in a group:
    Branch names and wildcards are case-sensitive.
 1. From the **Allowed to merge** list, select a role that can merge into this branch.
 1. From the **Allowed to push and merge** list, select a role that can push to this branch.
-1. Choose your preferences for the **Allowed to force push** and **Require approval from code owners**
-   settings.
+1. Choose your preferences for the **Allowed to force push** and **Require approval from code owners** settings.
 1. Select **Protect**.
 
 ## Push and merge permissions
 
-The **Allowed to merge** and **Allowed to push and merge** settings control different
-aspects of branch protection:
+The **Allowed to merge** and **Allowed to push and merge** settings control different aspects of branch protection:
 
 | Setting                       | Purpose                                                                                                        | Default behavior (not configured) |
 |-------------------------------|----------------------------------------------------------------------------------------------------------------|-----------------------------------|
@@ -126,21 +119,17 @@ aspects of branch protection:
 {{< alert type="note" >}}
 
 **Allowed to push and merge** grants both push and merge capabilities.
-Users with this permission can merge through merge requests even without
-**Allowed to merge** permission.
+Users with this permission can merge through merge requests even without **Allowed to merge** permission.
 
 {{< /alert >}}
 
-When you select **No one** for either **Allowed to merge** or **Allowed to push and merge**, the UI
-clears other role selections.
+When you select **No one** for either **Allowed to merge** or **Allowed to push and merge**, the UI clears other role selections.
 This behavior differs from the API, where you can set multiple access levels simultaneously.
-For more information about API behavior, see the
-[Protected branches API](../../../../api/protected_branches.md).
+For more information about API behavior, see the [Protected branches API](../../../../api/protected_branches.md).
 
 ### Protection strategies by branch types
 
-Different branch types require different protection levels based on their purpose and
-security requirements.
+Different branch types require different protection levels based on their purpose and security requirements.
 
 For branches deployed to production environments:
 
@@ -156,31 +145,27 @@ For active development branches:
 - Set **Allowed to merge** to **Developers + Maintainers**.
 - Set **Allowed to push and merge** to **No one** (not empty).
 
-With this configuration, developers can merge approved merge requests while requiring
-all changes to go through code review.
+With this configuration, developers can merge approved merge requests while requiring all changes to go through code review.
 
 {{< alert type="note" >}}
 
-When **Allowed to push and merge** is not configured, it does not restrict
-push access. To prevent direct pushes, you must explicitly set **Allowed to push and merge**
-to **No one**.
+When **Allowed to push and merge** is not configured, it does not restrict push access. To prevent direct pushes, you must explicitly set **Allowed to push and merge** to **No one**.
 
 {{< /alert >}}
 
 ### Permission combinations for Developer role
 
-The following examples show what users with the Developer role can do with
-different protection configurations:
+The following examples show what users with the Developer role can do with different protection configurations:
 
 | Allowed to merge         | Allowed to push and merge | Direct push | Merge through MR |
 |--------------------------|---------------------------|-------------|------------------|
-| No one                   | Developers + Maintainers  | {{< yes >}} | {{< yes >}}      |
-| Not configured           | Developers + Maintainers  | {{< yes >}} | {{< yes >}}      |
-| Developers + Maintainers | Not configured            | {{< no >}}  | {{< yes >}}      |
-| Not configured           | Not configured            | {{< no >}}  | {{< no >}}       |
-| Maintainers              | Not configured            | {{< no >}}  | {{< no >}}       |
-| Maintainers              | Maintainers               | {{< no >}}  | {{< no >}}       |
-| Developers + Maintainers | Maintainers               | {{< no >}}  | {{< yes >}}      |
+| No one                   | Developers + Maintainers | {{< yes >}} | {{< yes >}}      |
+| Not configured           | Developers + Maintainers | {{< yes >}} | {{< yes >}}      |
+| Developers + Maintainers | Not configured            | {{< no >}} | {{< yes >}}      |
+| Not configured           | Not configured            | {{< no >}} | {{< no >}}       |
+| Maintainers              | Not configured            | {{< no >}} | {{< no >}}       |
+| Maintainers              | Maintainers               | {{< no >}} | {{< no >}}       |
+| Developers + Maintainers | Maintainers               | {{< no >}} | {{< yes >}}      |
 
 ## Default branch protection settings
 
@@ -190,9 +175,7 @@ in the **Admin** area.
 ## Use wildcard rules
 
 When using wildcards, multiple rules can apply to a single branch.
-If more than one rule applies to a branch, the most permissive rule controls
-how the branch behaves. For merge controls to work properly, set
-**Allowed to push and merge** to a broader set of users than **Allowed to merge**.
+If more than one rule applies to a branch, the most permissive rule controls how the branch behaves. For merge controls to work properly, set **Allowed to push and merge** to a broader set of users than **Allowed to merge**.
 
 Prerequisites:
 
@@ -230,8 +213,7 @@ You can set various protection options to secure your branches.
 
 ### Require merge requests
 
-You can force everyone to submit a merge request, rather than allowing them to
-check in directly to a protected branch:
+You can force everyone to submit a merge request, rather than allowing them to check in directly to a protected branch:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Settings** > **Repository**.
@@ -263,8 +245,7 @@ You can allow everyone with write access to push directly to the protected branc
 
 {{< /details >}}
 
-To set the members of a group or subgroup as **Allowed to merge** or **Allowed to push and merge**
-to a protected branch:
+To set the members of a group or subgroup as **Allowed to merge** or **Allowed to push and merge** to a protected branch:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Settings** > **Repository**.
@@ -315,8 +296,7 @@ The eligible groups for protected branch permissions are:
 
 #### Share projects with groups
 
-You can share the project with a group or subgroup so that their members are eligible for
-protected branch permissions.
+You can share the project with a group or subgroup so that their members are eligible for protected branch permissions.
 
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
@@ -331,9 +311,7 @@ graph LR
     F -.-> |Add Subgroup Y<br/> to protected branch settings| J[Settings will not<br/>take effect] -.-> B
 ```
 
-To grant access to Subgroup Y members for Project A, you must share the project with
-the subgroup. Adding the subgroup directly to the protected branch settings is not effective
-and isn't applicable to subgroup members.
+To grant access to Subgroup Y members for Project A, you must share the project with the subgroup. Adding the subgroup directly to the protected branch settings is not effective and isn't applicable to subgroup members.
 
 {{< alert type="note" >}}
 
@@ -348,8 +326,7 @@ You can push to a protected branch with a [deploy key](../../deploy_keys/_index.
 
 Prerequisites:
 
-- The deploy key must be enabled for your project. A project deploy key is enabled by default when
-  it is created. However, a public deploy key must be granted access to the project.
+- The deploy key must be enabled for your project. A project deploy key is enabled by default when it is created. However, a public deploy key must be granted access to the project.
 - The deploy key must have write access to your project repository.
 - The owner of the deploy key must have at least read access to the project.
 - The owner of the deploy key must also be a member of the project.
@@ -368,8 +345,7 @@ Deploy keys are not available in the **Allowed to merge** dropdown list.
 
 ### Allow force push
 
-You can allow [force pushes](../../../../topics/git/git_rebase.md#force-push-to-a-remote-branch) to
-protected branches.
+You can allow [force pushes](../../../../topics/git/git_rebase.md#force-push-to-a-remote-branch) to protected branches.
 
 To protect a branch and enable force push:
 
@@ -401,8 +377,7 @@ To enable force pushes on branches that are already protected:
 {{< /details >}}
 
 For a protected branch, you can require at least one approval by a [Code Owner](../../codeowners/_index.md).
-If a branch is protected by multiple rules, code owner approval is required if
-**Required approval from code owners** enabled.
+If a branch is protected by multiple rules, code owner approval is required if **Required approval from code owners** enabled.
 
 To protect a new branch and enable Code Owner's approval:
 
@@ -424,18 +399,13 @@ To enable Code Owner's approval on branches that are already protected:
 1. Next to your branch, select **View details**.
 1. Turn on the **Code owner approval** toggle.
 
-When enabled, all merge requests for these branches require approval
-by a Code Owner per matched rule before they can be merged.
+When enabled, all merge requests for these branches require approval by a Code Owner per matched rule before they can be merged.
 Additionally, direct pushes to the protected branch are denied if a rule is matched.
 
-Any user who is not specified in the `CODEOWNERS` file cannot push
-changes for the specified files or paths, unless they are specifically allowed to.
-You don't have to restrict developers from pushing directly to the
-protected branch. Instead, you can restrict pushing to certain files where a review by
-Code Owners is required.
+Any user who is not specified in the `CODEOWNERS` file cannot push changes for the specified files or paths, unless they are specifically allowed to.
+You don't have to restrict developers from pushing directly to the protected branch. Instead, you can restrict pushing to certain files where a review by Code Owners is required.
 
-Users and groups who are allowed to push to protected branches do not need a merge request to merge
-their feature branches. Thus, they can skip merge request approval rules, Code Owners included.
+Users and groups who are allowed to push to protected branches do not need a merge request to merge their feature branches. Thus, they can skip merge request approval rules, Code Owners included.
 
 ### Control who can unprotect branches
 
@@ -449,16 +419,13 @@ their feature branches. Thus, they can skip merge request approval rules, Code O
 When you protect a branch, you can also control who can unprotect it later.
 By default, users with at least the Maintainer role can unprotect protected branches.
 
-For organizations with regulatory or compliance requirements, you can restrict these permissions to
-specific users, groups, or access levels.
+For organizations with regulatory or compliance requirements, you can restrict these permissions to specific users, groups, or access levels.
 
 {{< alert type="note" >}}
 
-To avoid permanently locking protection settings for a branch, ensure at least one user or group
-retains unprotect permissions for the branch at all times.
+To avoid permanently locking protection settings for a branch, ensure at least one user or group retains unprotect permissions for the branch at all times.
 
-Users cannot create, modify, or delete protected branch settings unless they can unprotect the
-branch themselves. This safety mechanism is in place to prevent configuration errors.
+Users cannot create, modify, or delete protected branch settings unless they can unprotect the branch themselves. This safety mechanism is in place to prevent configuration errors.
 
 {{< /alert >}}
 
@@ -466,8 +433,7 @@ You can configure these permissions through the API only. Use this feature for:
 
 - Regulatory compliance: Ensure only authorized personnel can modify branch protections.
 - Large organizations: Prevent accidental removal of protections across multiple repositories.
-- Automated governance: Enable scripts to create admin-only protections that development teams
-  cannot override.
+- Automated governance: Enable scripts to create admin-only protections that development teams cannot override.
 
 #### Unprotect permissions
 
@@ -482,13 +448,11 @@ The following table shows who can unprotect a branch based on your configuration
 
 ## CI/CD on protected branches
 
-The permission to merge or push to protected branches defines
-whether or not a user can run CI/CD pipelines and execute actions on jobs.
+The permission to merge or push to protected branches defines whether or not a user can run CI/CD pipelines and execute actions on jobs.
 
 Merge request pipelines run on the source branch or a merge request reference based on the source branch. A pipeline isn't created if the user doesn't have permission to merge or push to the source branch.
 
-When a merge request is between protected branches, protected variables and runners are available to
-the pipeline if the user has permission to update both the source and target branches.
+When a merge request is between protected branches, protected variables and runners are available to the pipeline if the user has permission to update both the source and target branches.
 For more information, see [Control access to protected variables and runners](../../../../ci/pipelines/merge_request_pipelines.md#control-access-to-protected-variables-and-runners).
 
 ## Create protected branches
@@ -496,17 +460,14 @@ For more information, see [Control access to protected variables and runners](..
 Prerequisites:
 
 - You must have at least the Developer role.
-- To create a protected branch, branch protection must be configured to
-  [require everyone to submit merge requests for a protected branch](#require-merge-requests).
+- To create a protected branch, branch protection must be configured to [require everyone to submit merge requests for a protected branch](#require-merge-requests).
 
 To create a new branch with protections:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Code** > **Branches**.
 1. Select **New branch**.
-1. Fill in the branch name and select an existing branch, tag, or commit to
-   base the new branch on. If you require everyone to submit merge requests for a protected branch,
-   only existing protected branches and commits that are already in protected branches are accepted.
+1. Fill in the branch name and select an existing branch, tag, or commit to base the new branch on. If you require everyone to submit merge requests for a protected branch, only existing protected branches and commits that are already in protected branches are accepted.
 
 You can also use the Branches API to create a branch with protections.
 
@@ -514,8 +475,7 @@ If branch protection is configured to [allow everyone to push directly to a prot
 
 ## Delete protected branches
 
-Users with at least the Maintainer role can manually delete protected
-branches by using the GitLab web interface:
+Users with at least the Maintainer role can manually delete protected branches by using the GitLab web interface:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Code** > **Branches**.
@@ -544,6 +504,4 @@ For security and compliance, you may implement a [merge request approval policy]
 
 ### Branch names are case-sensitive
 
-Branch names in `git` are case-sensitive. When configuring your protected branch,
-or your [target branch workflow](_index.md#configure-workflows-for-target-branches),
-`dev` is not the same `DEV` or `Dev`.
+Branch names in `git` are case-sensitive. When configuring your protected branch, or your [target branch workflow](_index.md#configure-workflows-for-target-branches), `dev` is not the same `DEV` or `Dev`.

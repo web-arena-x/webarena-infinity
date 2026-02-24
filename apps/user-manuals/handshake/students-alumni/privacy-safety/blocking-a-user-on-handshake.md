@@ -13,14 +13,14 @@ Handshake is designed to be a professional and respectful community. If you’d 
 Blocking a user will:
 
 - Prevent them from messaging you
-  - *If the user is an employer, this also includes bulk messages and campaigns sent by that employer*
+ - *If the user is an employer, this also includes bulk messages and campaigns sent by that employer*
 - Hide your profile and activity from them
 - Remove any past messages between you
 - Hide them from your view in:
-  - People search
-  - Event attendee lists
-  - Job pages (e.g., “Alumni who worked at this job”)
-  - Your feed and other shared views
+ - People search
+ - Event attendee lists
+ - Job pages (e.g., “Alumni who worked at this job”)
+ - Your feed and other shared views
 
  **Important****:** Blocking a user is currently a permanent action. If you need to unblock someone, contact us.
 
@@ -33,8 +33,7 @@ Blocking a user will:
 
 3.In the pop-up the following message is displayed:
 
-**“Are you sure you want to block [NAME]? Blocking this user will prevent them from messaging you and will hide your profile and activity from them. You will no longer see their activity on Handshake, and they will no longer see yours.**  
-**If you wish to report this user for violating our terms of service, let us know [LINK].”**
+**“Are you sure you want to block [NAME]? Blocking this user will prevent them from messaging you and will hide your profile and activity from them. You will no longer see their activity on Handshake, and they will no longer see yours.** **If you wish to report this user for violating our terms of service, let us know [LINK].”**
 
 ![Confirm block.png](https://support.joinhandshake.com/hc/article_attachments/32409510671127)
 

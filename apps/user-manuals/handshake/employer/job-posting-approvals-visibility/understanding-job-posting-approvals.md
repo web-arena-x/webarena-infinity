@@ -36,7 +36,7 @@ You can make edits to a job at any time, although the outcomes may vary dependin
 
 - **Pending** or **In progress**: any changes made while the posting is pending will not impact the status or request date, and the posting will remain "Pending" or "In progress" until the school processes the request.
 - **Approved**: updating the job's application open and/or close dates will reset the posting to pending, and the posting will need to be approved again by each school requested.
-  - All other edits to the job outside the application open and close dates will not impact the posting's approval status, and saved changes will be reflected at all approved schools.
+ - All other edits to the job outside the application open and close dates will not impact the posting's approval status, and saved changes will be reflected at all approved schools.
 - **Closed**: renewing a closed job posting will resubmit the posting to the impacted school(s) for approval.
 
 ### Additional Resources

@@ -21,7 +21,7 @@ To begin, navigate to your inbox. *For guidance, refer to [How Do I Access My Me
 Your inbox contains the following folders, including your main folder:
 
 - **Sent**: contains all messages you've sent, excluding campaign messages, if you are a Premium partner.
-  - **Note**: student replies to campaigns can be accessed within your inbox.
+ - **Note**: student replies to campaigns can be accessed within your inbox.
 - **Archive**: contains messages that you've removed from your main folder.
 
 ### 
@@ -33,7 +33,7 @@ Your inbox contains the following folders, including your main folder:
 To search for unread or starred messages in any folder, you can apply the following labels:
 
 - **Unread**
-  - **Note**: unread messages can also be identified in bold text.
+ - **Note**: unread messages can also be identified in bold text.
 - **Starred**
 
 ### Apply the label Unread

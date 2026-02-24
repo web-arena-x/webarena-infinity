@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/6457209788442-Zendesk-Work
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Workforce Management (WFM) or Workforce Engagement Management (WEM) |
 

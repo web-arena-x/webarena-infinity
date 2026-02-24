@@ -10,7 +10,7 @@ Topics: 
 
 - [How to get to the Session Details](#h_01EKX8CY5WA2PTR2NT2B3K23RT)
 - [Sessions Page Columns](#h_01EKX8D4KRTWZ109ZM719V7ET8)
-  - [Reviewing session details and specific qualifications](#h_01EKX8DBANRVJDTJ0YS3RWQ03A)
+ - [Reviewing session details and specific qualifications](#h_01EKX8DBANRVJDTJ0YS3RWQ03A)
 - [Sessions Page Filters](#h_01EKX8DJN3JVA5KWCYSXW36B1G)
 - [Bulk download session information & resumes](#h_01EKX8DVRNT4C5WH6TGJ9WGSNH)
 - [FAQ](#h_01EKX8E46A4VW80W7BBGMS0S08)
@@ -20,7 +20,7 @@ Topics: 
 There are two ways to access the Session Details page: 
 
 - On the day of the fair, a banner is displayed across the top of your homepage dashboard, alerting you to the fair occurring today. Click **View Sessions** to access the Session Details page. 
-  - **Note**: If there are multiple fairs occurring on the same day, only the fair that starts first will be listed.: ![Banner_indicating_that_a_Career_Fair_has_begun.png](https://support.joinhandshake.com/hc/article_attachments/13745420299159)
+ - **Note**: If there are multiple fairs occurring on the same day, only the fair that starts first will be listed.: ![Banner_indicating_that_a_Career_Fair_has_begun.png](https://support.joinhandshake.com/hc/article_attachments/13745420299159)
 - At any time before, during, or after the fair, navigate to the career fair page, then locate the Session Details tile in the upper-right of the overview page. Click the button **View Session Details** in this tile.![view_session_details.png](https://support.joinhandshake.com/hc/article_attachments/25998585168151)
 
 The Session Details page default view provides a list of all group sessions and filled 1:1 sessions, listed in chronological order.
@@ -32,7 +32,7 @@ The Session Details page default view provides a list of all group sessions and 
 - **Time:** the time of the session
 - **Session Type:** 1:1 session or Group session
 - **Registration Count:** count of students registered for sessions, note: this will always be 1 for 1:1 sessions and we will show the number of student now shows next to the red caution icon
-  - If the session has an external meeting link attached to the group or 1:1 session, there will be a link icon listed next to the registration count.![session_details_-_external_link.png](https://support.joinhandshake.com/hc/article_attachments/25998585171223)
+ - If the session has an external meeting link attached to the group or 1:1 session, there will be a link icon listed next to the registration count.![session_details_-_external_link.png](https://support.joinhandshake.com/hc/article_attachments/25998585171223)
 - **Student Registration:** link to the students profile signed up for the 1:1 session, note: we will show the red caution icon if the student is a no show
 - **Employer:** link to the employers fair registration
 - **Employer Host**: link to the employer meeting hosts Handshake profile, note: this will only show the first host for group sessions and we will show the no show icon if no hosts show up for this group session
@@ -64,7 +64,7 @@ This section of the page details all group sessions this employer is hosting:
 The employer's 1:1 sessions are listed table style with the Representative's name, number of sessions Booked, Open, and Canceled. Click **show more** (per row) to display the qualifications selected by the employer.
 
 - **Note**: Qualifications logic uses "OR" within each field, and "AND" across fields.
-  - In the example below, the qualifications require students to meet the minimum GPA, be set to one of the selected School Years, have one of the Allowed Majors listed in their education, and meet the work authorization requirements.
+ - In the example below, the qualifications require students to meet the minimum GPA, be set to one of the selected School Years, have one of the Allowed Majors listed in their education, and meet the work authorization requirements.
 
 ![Individual_Sessions.png](https://support.joinhandshake.com/hc/article_attachments/13745413074711)
 
@@ -98,18 +98,18 @@ The file will be prepared, and if you remain on this page, it will download auto
 The downloaded CSV file will include the following details:
 
 - - Meeting ID
-  - Session Start Time
-  - Session End Time
-  - Employer Name
-  - Session Name
-  - Session Type
-  - Student Participant First Name
-  - Student Participant Last Name
-  - Student Participant Email Address
-  - Host Email List
-  - Host First Name List
-  - Host Last Name List
-  - External video link
+ - Session Start Time
+ - Session End Time
+ - Employer Name
+ - Session Name
+ - Session Type
+ - Student Participant First Name
+ - Student Participant Last Name
+ - Student Participant Email Address
+ - Host Email List
+ - Host First Name List
+ - Host Last Name List
+ - External video link
 
 ***COMING SOON!!!* Bulk action to download students public resumes:** this bulk download will include all public student resumes from the selected results
 
@@ -118,7 +118,7 @@ The downloaded CSV file will include the following details:
 ### FAQ
 
 - **Will students and employers be shown as no shows if they are late?**
-  - They will show as a no show until they launch the session, so refresh the page a few minutes after the start time of each session.
+ - They will show as a no show until they launch the session, so refresh the page a few minutes after the start time of each session.
 
 - **What does checked in mean?**
-  - Checked in means that the user clicked **Launch Session** from the schedule overview page
+ - Checked in means that the user clicked **Launch Session** from the schedule overview page

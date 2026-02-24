@@ -37,25 +37,25 @@ After you've selected the appropriate Appointment Types, you'll need to create a
 ![Appointment_Blocks_Image.png](https://support.joinhandshake.com/hc/article_attachments/26001301965335)
 
 - To add a new appointment, click **Add Appointment Block** in the upper-right corner of the page, then fill in the information on the page that loads:
-  - **Repeat weekly** - check this box if you'd like the block to repeat on a weekly basis, leave it unchecked if this is a one-time block
-  - **Mark unavailable** - check this box if you'd like the block to be unavailable for students to request
+ - **Repeat weekly** - check this box if you'd like the block to repeat on a weekly basis, leave it unchecked if this is a one-time block
+ - **Mark unavailable** - check this box if you'd like the block to be unavailable for students to request
     - *For example, you may want to create a 15 minute “unavailable” block in the middle of a four-hour Appointment Block as a way to ensure a break*
-  - **Reserve for Drop-in** - check this box if you want to accept drop-in appointments during this block
+ - **Reserve for Drop-in** - check this box if you want to accept drop-in appointments during this block
     - *If the block is marked as a drop-in, students will not be able to request appointments during this time.*
-  - **Start Time** - the time the block should begin, when students may choose to attend an appointment
-  - **End Time** - the time the block should end, which is the designated close time when students may schedule an appointment
+ - **Start Time** - the time the block should begin, when students may choose to attend an appointment
+ - **End Time** - the time the block should end, which is the designated close time when students may schedule an appointment
     - **Tip**: make sure your available blocks are sufficient length to support the appointment types you've added. For example, if you've added an appointment type that is 45 minutes, but your available block is only 40 minutes, students will not be able to schedule appointments with you during that time.
-  - **Timezone** - the timezone you are hosting appointments in
+ - **Timezone** - the timezone you are hosting appointments in
     - *If you are hosting appointments for students in other timezones, it's important that your block setting reflects 'your' timezone–Handshake will translate the timezone as needed based on the student's system settings.*
-  - **Start Date** - the date that this block becomes "active", when students may schedule appointments
-  - **End Date** - the date this block becomes inactive, when students will no longer be able to schedule appointments during this time
+ - **Start Date** - the date that this block becomes "active", when students may schedule appointments
+ - **End Date** - the date this block becomes inactive, when students will no longer be able to schedule appointments during this time
     - **Note**: End date must be no more than 9 months from the start date. If it is more than 9 months, an error will appear and the block will not save.
-  - **Repeat on** - select the day(s) of the week the block is for. You may choose more than one day.
-  - **Appointment Types** - all types you've added in your user settings will be listed by default. You may remove types from this field, or if you're editing an existing block, you may add new types.
+ - **Repeat on** - select the day(s) of the week the block is for. You may choose more than one day.
+ - **Appointment Types** - all types you've added in your user settings will be listed by default. You may remove types from this field, or if you're editing an existing block, you may add new types.
     - *In the example screenshot below, an appointment type that was archived has been unarchived, so to remove it, I'd click the X to the left of the word "ARCHIVED".*
-  - **Mediums** - to limit the available mediums for this block, select the desired medium(s) from the menu. If left blank, all appointment mediums for your institution will be available for students during the block.
+ - **Mediums** - to limit the available mediums for this block, select the desired medium(s) from the menu. If left blank, all appointment mediums for your institution will be available for students during the block.
     - *For example, if you would like to limit your Monday blocks to phone appointments, you can do that by defining the corresponding Appointment Medium in this field.*
-  - **Maximum appointments (optional)**- Sets a limit on the amount of appointments that can be booked for this block.
+ - **Maximum appointments (optional)**- Sets a limit on the amount of appointments that can be booked for this block.
     - *For example, if you set a maximum appointment limit of 3, only 3 appointments can be created for this block. You cannot, and your students cannot, schedule more appointments for this appointment block unless this number is increased to 4 or more.*
 
 ![New Appointment Block form.png](https://support.joinhandshake.com/hc/article_attachments/36395532222231)
@@ -82,7 +82,7 @@ After you've selected the appropriate Appointment Types, you'll need to create a
 - **Start & End dates / times** *(defaults based on the date at the top of the calendar and 'where' you clicked in the column - times displayed to the far left)*
 - **Appointment Medium**
 - **Appointment Types**
-  - **Note**: all appointment types that the selected user has added in their User Settings will be added by default.
+ - **Note**: all appointment types that the selected user has added in their User Settings will be added by default.
 - **Drop-in?**
 - **Repeating?**
 - **Maximum appointments (optional)**
@@ -98,8 +98,8 @@ After you've selected the appropriate Appointment Types, you'll need to create a
 ### Additional Considerations
 
 - If you have two available blocks scheduled at the same time, they will cancel each other out and make you appear unavailable.
-  - If you're not appearing as available when expected, check out [Appointment Availability Troubleshooting](https://support.joinhandshake.com/hc/en-us/articles/115009516467) for the most common resolutions.
+ - If you're not appearing as available when expected, check out [Appointment Availability Troubleshooting](https://support.joinhandshake.com/hc/en-us/articles/115009516467) for the most common resolutions.
 - We recommend ensuring you're setup to receive notifications for upcoming appointments via User Settings > Notification Preferences > Appointments and select Email and/or Notification for "Upcoming Appointments", as well as any other Appointment notification you'd like.
 - If you're using Handshake's two-way calendar sync, unavailable blocks *(events marked as 'busy')* from your work calendar are automatically populated as unavailable in Handshake.
-  - [Career Services User Settings: Two-Way Calendar Sync](https://support.joinhandshake.com/hc/en-us/articles/115011864208-Career-Services-User-Settings-Two-Way-Calendar-Sync-)
-  - [Two Way Sync FAQ & Troubleshooting Guide](two-way-sync-faq-troubleshooting-guide.md)
+ - [Career Services User Settings: Two-Way Calendar Sync](https://support.joinhandshake.com/hc/en-us/articles/115011864208-Career-Services-User-Settings-Two-Way-Calendar-Sync-)
+ - [Two Way Sync FAQ & Troubleshooting Guide](two-way-sync-faq-troubleshooting-guide.md)

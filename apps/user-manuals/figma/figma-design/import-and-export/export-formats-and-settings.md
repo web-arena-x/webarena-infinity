@@ -46,7 +46,7 @@ You can represent SVGs in scripts or code, making them a popular choice for digi
 Note: Keep in mind the following when exporting to SVG:
 
 - **Background blurs:** You will need to blur the layer directly
-- **Text:** Text is exported as glyphs by default. This means that you won’t be able to edit the text layer once exported. To preserve text editing, click  and uncheck **Outline text**
+- **Text:** Text is exported as glyphs by default. This means that you won’t be able to edit the text layer once exported. To preserve text editing, click and uncheck **Outline text**
 - **Strokes**: Figma exports strokes as fills
 
 The following export settings are available for SVG:
@@ -96,13 +96,13 @@ This is an optional setting. Anything you type in the Suffix field will be added
 
 ### Format-specific export settings
 
-Some formats support additional export settings. Click  in the Export section of the properties panel to view and adjust these settings.
+Some formats support additional export settings. Click in the Export section of the properties panel to view and adjust these settings.
 
 ![Export settings panel open in Figma, showing options for suffix, color profile, and image resampling with PNG format selected.](https://help.figma.com/hc/article_attachments/31470536541719)
 
 This table shows which settings are available for each format:
 
-|  |  |  |  |  |  |
+| | | | | | |
 | --- | --- | --- | --- | --- | --- |
 | **Format** | [**Ignore overlapping layers**](#h_01GWJAE8HRBT29P90CFQDFV2TW) | [**Include bounding box**](#h_01GWJAEH4NMRBT228TDDPGFF8F) | [**Include “id” attribute**](#h_01GWJAG9KT5TCGM9AT4D29KM5T) | [**Outline text**](#h_01GWJAGF56XPPPQ5VBNPG0TT66) | [**Simplify stroke**](#h_01GWJAGM9PRPTSRCGNP5FY7HV0) |
 | **PNG** | ✓ | ✓ | ✕ | ✕ | ✕ |
@@ -116,7 +116,7 @@ By default, Figma exports assets using the color profile of the file. For exampl
 
 However, you can choose a different color profile when exporting:
 
-1. Click  **Export settings.**
+1. Click **Export settings.**
 2. Open the color profile dropdown and choose a color profile.
    - Same as file (color profile)
    - sRGB
@@ -134,7 +134,7 @@ If **Ignore overlapping layers** is disabled, all content that is visually withi
 
 ### Image quality
 
-If you're exporting as a JPG (JPEG) or PDF, you have the option to select the quality and size of the image. By default, JPGs export at **High** quality, while PDFs export at **Medium** quality. This setting can be changed by clicking  in the **Export** section of the right sidebar.
+If you're exporting as a JPG (JPEG) or PDF, you have the option to select the quality and size of the image. By default, JPGs export at **High** quality, while PDFs export at **Medium** quality. This setting can be changed by clicking in the **Export** section of the right sidebar.
 
 ![](https://help.figma.com/hc/article_attachments/29881605889303)
 
@@ -148,16 +148,16 @@ In Figma, there are two image resampling options:
 
 - **Detailed (default)**: Best used when optimizing for detail in exports. For example: High-quality images, vector art, and assets with gradients or drop shadows.
 
-  Detailed uses an image resampling method known as “bicubic sampling”. This method looks at each pixel and uses a weighted average of at least four surrounding pixels from the original image to use for the export.
+ Detailed uses an image resampling method known as “bicubic sampling”. This method looks at each pixel and uses a weighted average of at least four surrounding pixels from the original image to use for the export.
 - **Basic**: Best used when optimizing for hard lines in assets or for assets that don’t need finer details. For example: Icons, logos, low-resolution images, and pixel art.
 
-  Basic uses an image resampling method known as “nearest neighbor sampling”. This method looks at pixels from the original image and finds the closest matching pixel to use for the export.
+ Basic uses an image resampling method known as “nearest neighbor sampling”. This method looks at pixels from the original image and finds the closest matching pixel to use for the export.
 
 ![](https://help.figma.com/hc/article_attachments/29881605890455)
 
 To choose an image resampling method on an export:
 
-1. Click  **Advanced export settings**.
+1. Click **Advanced export settings**.
 2. Choose an option from the **Image resampling** dropdown menu.
 
 ![An animation that shows opening the export modal and changing the image resampling setting.](https://help.figma.com/hc/article_attachments/29881566593047)

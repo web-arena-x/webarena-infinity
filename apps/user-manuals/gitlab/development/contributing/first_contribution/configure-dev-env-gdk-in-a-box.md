@@ -5,19 +5,15 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Configure GDK-in-a-box
 ---
 
-If you want to contribute to the GitLab codebase and want a development environment in which to test
-your changes, you can use
-[GDK-in-a-box](https://gitlab-org.gitlab.io/gitlab-development-kit/gdk_in_a_box/). GDK-in-a-box is available as a multi-platform container image, pre-configured with [the GitLab Development Kit (GDK)](https://gitlab.com/gitlab-org/gitlab-development-kit).
+If you want to contribute to the GitLab codebase and want a development environment in which to test your changes, you can use [GDK-in-a-box](https://gitlab-org.gitlab.io/gitlab-development-kit/gdk_in_a_box/). GDK-in-a-box is available as a multi-platform container image, pre-configured with [the GitLab Development Kit (GDK)](https://gitlab.com/gitlab-org/gitlab-development-kit).
 
 {{< alert type="warning" >}}
 
-GDK-in-a-box Virtual Machine (VM) images are no longer supported and
-were deprecated in favor of the container-based images.
+GDK-in-a-box Virtual Machine (VM) images are no longer supported and were deprecated in favor of the container-based images.
 
 {{< /alert >}}
 
-The GDK is a local development environment that includes an installation of GitLab Self-Managed,
-sample projects, and administrator access with which you can test functionality.
+The GDK is a local development environment that includes an installation of GitLab Self-Managed, sample projects, and administrator access with which you can test functionality.
 
 It requires 30 GB of disk space.
 
@@ -67,8 +63,7 @@ You might need to modify the system configuration of your container runtime (CPU
    curl "https://gitlab.com/gitlab-org/gitlab-development-kit/-/raw/main/support/gdk-in-a-box/setup-ssh-key" | bash
    ```
 
-   To learn more about the script, you can examine the
-   [`setup-ssh-key` code](https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/main/support/gdk-in-a-box/setup-ssh-key).
+   To learn more about the script, you can examine the [`setup-ssh-key` code](https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/main/support/gdk-in-a-box/setup-ssh-key).
 1. In the script, type `1` to select the Container installation.
 1. In VS Code, install the **Remote - SSH** extension:
    - [VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh)
@@ -88,8 +83,7 @@ You might need to modify the system configuration of your container runtime (CPU
    - Enter your name and email address when prompted.
    - Add the displayed [SSH key to your profile](https://gitlab.com/-/user_settings/ssh_keys).
 
-   To learn more about the script, you can examine the
-   [`first_time_setup` code](https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/main/support/gdk-in-a-box/first_time_setup).
+   To learn more about the script, you can examine the [`first_time_setup` code](https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/main/support/gdk-in-a-box/first_time_setup).
 
 1. In VS Code, select **File** > **Open folder**, and go to: `/home/gdk/gitlab-development-kit/gitlab/`.
 1. Open GitLab in your browser: `http://gdk.local:3000`.

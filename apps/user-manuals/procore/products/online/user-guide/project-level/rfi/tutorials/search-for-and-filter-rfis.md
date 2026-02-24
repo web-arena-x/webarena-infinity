@@ -11,10 +11,10 @@ To use the search, filter, and sort options to locate RFIs.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Read Only' level permissions or higher on the project's RFIs tool.
+ - 'Read Only' level permissions or higher on the project's RFIs tool.
 - **Additional Information:**
-  - Use the search tool to further narrow the displayed results. The search tool respects any selected filter parameters and will only search for items within the filtered results.
-  - The filters that you apply (by selecting items in the Add a Filter drop-down list) are persistent and will be retained for your next session, unless you click **Clear All**.
+ - Use the search tool to further narrow the displayed results. The search tool respects any selected filter parameters and will only search for items within the filtered results.
+ - The filters that you apply (by selecting items in the Add a Filter drop-down list) are persistent and will be retained for your next session, unless you click **Clear All**.
 
 ## Steps
 
@@ -31,7 +31,7 @@ To use the search, filter, and sort options to locate RFIs.
    The search feature supports the use of advanced search symbols. To learn more, see [What is an advanced search symbol in Procore?](https://support.procore.com/faq/what-is-an-advanced-search-symbol-in-procore "What is an advanced search symbol in Procore?")
 
      
-   ![search-rfis.png](https://support.procore.com/@api/deki/files/75073/search-rfis.png?revision=1)  
+   ![search-rfis.png](https://support.procore.com/@api/deki/files/75073/search-rfis.png?revision=1) 
      
    The following fields are searchable in the RFIs tool:
    - Number
@@ -60,7 +60,7 @@ When using the asterisk (\*) in a search query, it can only be used after a term
    - **Overdue**. Select *Overdue* and then mark the Yes checkbox to narrow you selection to overdue RFIs.
    - **Location**. Select *Location* from the drop-down list. Then, you have these options to narrow your selection to specific sub-locations:
      - If you want to include the project's sub-locations in your search, mark the ​**Include Sub-locations**checkbox. To ignore sub-locations, remove the checkmark. See [How do I filter by multi-tiered locations?](https://support.procore.com/faq/how-do-i-filter-items-by-multi-tiered-locations "How do I filter by multi-tiered locations?")
-     - If you want to include only a specific location (or locations) in your search, mark the corresponding checkboxes.   
+     - If you want to include only a specific location (or locations) in your search, mark the corresponding checkboxes.  
        *Note:* For the checkboxes above to appear as selections, at least one (1) submittal on your project must be associated with a sub-location.
    - **Cost Code**. Select a cost code to limit the log to only RFIs associated with the selected code.
    - **RFI Stage**. Select RFI Stage and mark one or more checkboxes from the list to narrow the list to your selections.
@@ -75,9 +75,8 @@ When using the asterisk (\*) in a search query, it can only be used after a term
      - A checkbox filter titled **Linked to External RFIs.**
 4. Press ESC on your keyboard to view the filtered list of RFIs.
 5. *Optional:*Repeat the steps above to add more filters.
-6. To clear one filter, click the X next to its name.  
-   OR  
-   To clear all filters, click **Clear All**.
+6. To clear one filter, click the X next to its name. 
+   OR To clear all filters, click **Clear All**.
 
 ### Sort the RFIs Log
 
@@ -99,8 +98,8 @@ When using the asterisk (\*) in a search query, it can only be used after a term
    - Location
    - Assignee
    - Ball-in-Court
-   - Custom Fields ('Number', 'Date', 'Checkbox', and 'Plain Text')  
-     *Note:* Columns for custom fields are hidden by default. See [Customize the Column Display in the RFIs Tool](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/customize-the-column-display-in-the-rfis-tools "Customize the Column Display in the RFIs Tool") for information about showing, hiding, and rearranging columns in the RFIs list.  
+   - Custom Fields ('Number', 'Date', 'Checkbox', and 'Plain Text') 
+     *Note:* Columns for custom fields are hidden by default. See [Customize the Column Display in the RFIs Tool](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/customize-the-column-display-in-the-rfis-tools "Customize the Column Display in the RFIs Tool") for information about showing, hiding, and rearranging columns in the RFIs list. 
        
      ![switch-column-order.png](https://support.procore.com/@api/deki/files/75075/switch-column-order.png?revision=1)
 4. *Optional:* Click the column name again to switch the results between ascending and descending order.

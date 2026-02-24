@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408835013018-Adding-and-c
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Social Messaging add-on |
 
@@ -18,7 +18,7 @@ Verified AI summary ◀▼
 
 Add your Instagram Direct channel to manage direct messages and story interactions as tickets. Configure settings to control message responses, including auto-responders and a "Message Us" button for easy customer access. Note that replies must be made within the platform to sync with Instagram, and adhere to Instagram's response windows to ensure message delivery.
 
-Location:  Admin Center > Channels > Messaging and social > Messaging
+Location: Admin Center > Channels > Messaging and social > Messaging
 
 Customers without Zendesk Suite must have Support and Chat with the Social Messaging add-on to use this feature.
 

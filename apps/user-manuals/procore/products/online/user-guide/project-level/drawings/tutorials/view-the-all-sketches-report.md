@@ -11,12 +11,12 @@ To view a report of all sketches in the project's Drawings tool.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Read Only' or higher permissions on the project's Drawings tool.
+ - 'Read Only' or higher permissions on the project's Drawings tool.
 
 ## Steps
 
 1. Navigate to the Project level **Drawings** tool.
-2. Click **Reports**and select **Sketches**.  
+2. Click **Reports**and select **Sketches**. 
      
    ![all sketches.png](https://support.procore.com/@api/deki/files/45170/all_sketches.png?revision=1&size=bestfit&width=700&height=214)
 
@@ -32,8 +32,8 @@ To view a report of all sketches in the project's Drawings tool.
 
 #### Export Sketch Report to a PDF or CSV
 
-- Click **Export** to export the sketch report to a PDF or CSV format.  
-  *Note:* The PDF or CSV will export only those sketches that are currently in the list. This means that it considers search and filter parameters.
+- Click **Export** to export the sketch report to a PDF or CSV format. 
+ *Note:* The PDF or CSV will export only those sketches that are currently in the list. This means that it considers search and filter parameters.
 
 ## See Also
 

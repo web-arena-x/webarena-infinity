@@ -44,8 +44,7 @@ By default, image files do not have the same restriction, and anyone can view th
 
 Authentication checks for images can cause display issues in the body of notification emails.
 Emails are frequently read from clients (such as Outlook, Apple Mail, or your mobile device)
-not authenticated with GitLab. Images in emails appear broken and unavailable if
-the client is not authorized to GitLab.
+not authenticated with GitLab. Images in emails appear broken and unavailable if the client is not authorized to GitLab.
 
 ## Enable authorization checks for all media files
 
@@ -85,14 +84,14 @@ For example:
 
 ```graphql
 mutation{
-  uploadDelete(input: { projectPath: "<path/to/project>", secret: "<32-character-id>" , filename: "<filename>" }) {
+ uploadDelete(input: { projectPath: "<path/to/project>", secret: "<32-character-id>" , filename: "<filename>" }) {
     upload {
       id
       size
       path
     }
     errors
-  }
+ }
 }
 ```
 

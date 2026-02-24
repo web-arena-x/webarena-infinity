@@ -33,7 +33,7 @@ GET /projects/:id/merge_requests/:merge_request_iid/draft_notes
 
 ```json
 [
-  {
+ {
     "id": 5,
     "author_id": 23,
     "merge_request_id": 11,
@@ -53,13 +53,13 @@ GET /projects/:id/merge_requests/:merge_request_iid/draft_notes
       "new_line": null,
       "line_range": null
     }
-  }
+ }
 ]
 ```
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/14/merge_requests/11/draft_notes"
+ --url "https://gitlab.example.com/api/v4/projects/14/merge_requests/11/draft_notes"
 ```
 
 ## Get a single draft note
@@ -78,7 +78,7 @@ GET /projects/:id/merge_requests/:merge_request_iid/draft_notes/:draft_note_id
 
 ```json
 [
-  {
+ {
     "id": 5,
     "author_id": 23,
     "merge_request_id": 11,
@@ -98,13 +98,13 @@ GET /projects/:id/merge_requests/:merge_request_iid/draft_notes/:draft_note_id
       "new_line": null,
       "line_range": null
     }
-  }
+ }
 ]
 ```
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/14/merge_requests/11/draft_notes/5"
+ --url "https://gitlab.example.com/api/v4/projects/14/merge_requests/11/draft_notes/5"
 ```
 
 ## Create a draft note
@@ -140,7 +140,7 @@ POST /projects/:id/merge_requests/:merge_request_iid/draft_notes
 
 ```shell
 curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/14/merge_requests/11/draft_notes?note=note"
+ --url "https://gitlab.example.com/api/v4/projects/14/merge_requests/11/draft_notes?note=note"
 ```
 
 ## Modify existing draft note
@@ -174,8 +174,8 @@ PUT /projects/:id/merge_requests/:merge_request_iid/draft_notes/:draft_note_id
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/14/merge_requests/11/draft_notes/5"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/14/merge_requests/11/draft_notes/5"
 ```
 
 ## Delete a draft note
@@ -194,8 +194,8 @@ DELETE /projects/:id/merge_requests/:merge_request_iid/draft_notes/:draft_note_i
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/14/merge_requests/11/draft_notes/5"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/14/merge_requests/11/draft_notes/5"
 ```
 
 ## Publish a draft note
@@ -214,8 +214,8 @@ PUT /projects/:id/merge_requests/:merge_request_iid/draft_notes/:draft_note_id/p
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/14/merge_requests/11/draft_notes/5/publish"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/14/merge_requests/11/draft_notes/5/publish"
 ```
 
 ## Publish all pending draft notes
@@ -233,6 +233,6 @@ POST /projects/:id/merge_requests/:merge_request_iid/draft_notes/bulk_publish
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/14/merge_requests/11/draft_notes/bulk_publish"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/14/merge_requests/11/draft_notes/bulk_publish"
 ```

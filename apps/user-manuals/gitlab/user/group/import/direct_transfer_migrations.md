@@ -40,50 +40,40 @@ Before migrating by using direct transfer, see the following prerequisites.
 
 - The network connection between instances or GitLab.com must support HTTPS.
 - Firewalls must not block the connection between the source and destination GitLab instances.
-- The source and destination GitLab instances must have enough free space in the `/tmp` directory
-  to create and extract archives of transferred projects and groups.
+- The source and destination GitLab instances must have enough free space in the `/tmp` directory to create and extract archives of transferred projects and groups.
 
 ### Versions
 
 To maximize the chance of a successful and performant migration:
 
 - Upgrade both the source and destination instances to GitLab 16.8 or later for bulk import and export of relations.
-  For more information, see [epic 9036](https://gitlab.com/groups/gitlab-org/-/epics/9036).
+ For more information, see [epic 9036](https://gitlab.com/groups/gitlab-org/-/epics/9036).
 - Migrate between versions that are as late as possible for bug fixes and other improvements.
 
-If the source and destination instances are not the same version,
-the source instance must not be more than two [minor](../../../policy/maintenance.md#versioning)
+If the source and destination instances are not the same version, the source instance must not be more than two [minor](../../../policy/maintenance.md#versioning)
 versions earlier than the destination instance.
 This requirement does not apply for migrations from GitLab.com to GitLab Dedicated.
 
 ### Configuration
 
 - Ensure [Sidekiq is properly configured](../../../administration/sidekiq/configuration_for_imports.md).
-- Both GitLab instances must have group migration by direct transfer
-  [enabled in application settings](../../../administration/settings/import_and_export_settings.md#enable-migration-of-groups-and-projects-by-direct-transfer)
-  by an instance administrator.
-- You must have a
-  [personal access token](../../profile/personal_access_tokens.md) for
-  the source GitLab instance:
-  - For GitLab 15.1 and later source instances, the personal access token must
-    have the `api` scope.
-  - For GitLab 15.0 and earlier source instances, the personal access token must
-    have both the `api` and `read_repository` scopes.
+- Both GitLab instances must have group migration by direct transfer [enabled in application settings](../../../administration/settings/import_and_export_settings.md#enable-migration-of-groups-and-projects-by-direct-transfer)
+ by an instance administrator.
+- You must have a [personal access token](../../profile/personal_access_tokens.md) for the source GitLab instance:
+ - For GitLab 15.1 and later source instances, the personal access token must have the `api` scope.
+ - For GitLab 15.0 and earlier source instances, the personal access token must have both the `api` and `read_repository` scopes.
 - You must have the required permissions on the source and destination instances. For:
-  - Most users, you need:
+ - Most users, you need:
     - The Owner role on the source group to migrate from.
     - A role in the destination namespace that allows you to [create a subgroup](../subgroups/_index.md#create-a-subgroup) in that namespace.
-  - Administrators of both instances without the required roles, you can instead start the import by using
-    [the API](../../../api/bulk_imports.md#start-a-new-group-or-project-migration).
-- To import project snippets, ensure snippets are
-  [enabled in the source project](../../snippets.md#change-default-visibility-of-snippets).
+ - Administrators of both instances without the required roles, you can instead start the import by using [the API](../../../api/bulk_imports.md#start-a-new-group-or-project-migration).
+- To import project snippets, ensure snippets are [enabled in the source project](../../snippets.md#change-default-visibility-of-snippets).
 - To import items stored in object storage, you must either:
-  - [Configure `proxy_download`](../../../administration/object_storage.md#configure-the-common-parameters).
-  - Ensure that the destination GitLab instance has access to the object storage of the source GitLab instance.
-- You cannot import groups with projects when the source instance or group has **Default minimum role required to create projects** set
-  to **No one**. If required, this setting can be changed:
-  - For [a whole instance](../../../administration/settings/visibility_and_access_controls.md#define-which-roles-can-create-projects).
-  - For [specific groups](../_index.md#specify-who-can-add-projects-to-a-group).
+ - [Configure `proxy_download`](../../../administration/object_storage.md#configure-the-common-parameters).
+ - Ensure that the destination GitLab instance has access to the object storage of the source GitLab instance.
+- You cannot import groups with projects when the source instance or group has **Default minimum role required to create projects** set to **No one**. If required, this setting can be changed:
+ - For [a whole instance](../../../administration/settings/visibility_and_access_controls.md#define-which-roles-can-create-projects).
+ - For [specific groups](../_index.md#specify-who-can-add-projects-to-a-group).
 
 ## User membership mapping
 
@@ -101,24 +91,16 @@ This requirement does not apply for migrations from GitLab.com to GitLab Dedicat
 
 Users are never created during a migration.
 Instead, user memberships on the source instance are mapped to users on the destination instance.
-The type of mapping for user memberships depends on the
-[membership type](../../project/members/_index.md#membership-types) on the source instance:
+The type of mapping for user memberships depends on the [membership type](../../project/members/_index.md#membership-types) on the source instance:
 
 - Imported memberships are initially mapped to [placeholder users](../../import/mapping.md#placeholder-users).
 - Direct memberships are mapped as direct memberships on the destination instance.
 - Inherited memberships are mapped as inherited memberships on the destination instance.
-- Shared memberships are mapped as direct memberships on the destination instance unless the user has an existing shared
-  membership. Full support for mapping shared memberships is proposed in
-  [issue 458345](https://gitlab.com/gitlab-org/gitlab/-/issues/458345).
+- Shared memberships are mapped as direct memberships on the destination instance unless the user has an existing shared membership. Full support for mapping shared memberships is proposed in [issue 458345](https://gitlab.com/gitlab-org/gitlab/-/issues/458345).
 
-[In GitLab 18.4 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/559224), when you create
-direct memberships while importing a project directly into an existing group, the
-[**Users cannot be added to projects in this group** setting](../access_and_permissions.md#prevent-members-from-being-added-to-projects-in-a-group) is respected.
+[In GitLab 18.4 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/559224), when you create direct memberships while importing a project directly into an existing group, the [**Users cannot be added to projects in this group** setting](../access_and_permissions.md#prevent-members-from-being-added-to-projects-in-a-group) is respected.
 
-When mapping [inherited and shared](../../project/members/_index.md#membership-types) memberships, if the user
-has an existing membership in the destination namespace with a [higher role](../../permissions.md#roles) than
-the one being mapped, the membership is mapped as a direct membership instead. This ensures the member does not get
-elevated permissions.
+When mapping [inherited and shared](../../project/members/_index.md#membership-types) memberships, if the user has an existing membership in the destination namespace with a [higher role](../../permissions.md#roles) than the one being mapped, the membership is mapped as a direct membership instead. This ensures the member does not get elevated permissions.
 
 > [!note]
 > There is a [known issue](_index.md#known-issues) affecting the mapping of shared memberships.
@@ -127,20 +109,13 @@ elevated permissions.
 
 To ensure GitLab maps users and their contributions correctly between the source and destination instances:
 
-1. Create the required users on the destination GitLab instance. You can create users with the API only on GitLab Self-Managed instances because it requires
-   administrator access. When migrating to GitLab.com or GitLab Self-Managed you can:
+1. Create the required users on the destination GitLab instance. You can create users with the API only on GitLab Self-Managed instances because it requires administrator access. When migrating to GitLab.com or GitLab Self-Managed you can:
    - Create users manually.
-   - Set up or use your existing [SAML SSO provider](../saml_sso/_index.md) and leverage user synchronization of SAML SSO groups supported through
-     [SCIM](../saml_sso/scim_setup.md). You can
-     [bypass the GitLab user account verification with verified email domains](../saml_sso/_index.md#bypass-user-email-confirmation-with-verified-domains).
-1. Ensure that users have a [public email](../../profile/_index.md#set-your-public-email) on the source GitLab instance that matches any confirmed email address on the destination GitLab instance. Most
-   users receive an email asking them to confirm their email address.
-1. If users already exist on the destination instance and you use [SAML SSO for GitLab.com groups](../saml_sso/_index.md), all users must
-   [link their SAML identity to their GitLab.com account](../saml_sso/_index.md#link-saml-to-your-existing-gitlabcom-account).
+   - Set up or use your existing [SAML SSO provider](../saml_sso/_index.md) and leverage user synchronization of SAML SSO groups supported through [SCIM](../saml_sso/scim_setup.md). You can [bypass the GitLab user account verification with verified email domains](../saml_sso/_index.md#bypass-user-email-confirmation-with-verified-domains).
+1. Ensure that users have a [public email](../../profile/_index.md#set-your-public-email) on the source GitLab instance that matches any confirmed email address on the destination GitLab instance. Most users receive an email asking them to confirm their email address.
+1. If users already exist on the destination instance and you use [SAML SSO for GitLab.com groups](../saml_sso/_index.md), all users must [link their SAML identity to their GitLab.com account](../saml_sso/_index.md#link-saml-to-your-existing-gitlabcom-account).
 
-There is no way in the GitLab UI or API to automatically set public email addresses for users. If you need to set
-a lot of user accounts to have public email addresses, see
-[issue 284495](https://gitlab.com/gitlab-org/gitlab/-/issues/284495#note_1910159855) for a potential workaround.
+There is no way in the GitLab UI or API to automatically set public email addresses for users. If you need to set a lot of user accounts to have public email addresses, see [issue 284495](https://gitlab.com/gitlab-org/gitlab/-/issues/284495#note_1910159855) for a potential workaround.
 
 ## Connect the source GitLab instance
 
@@ -224,8 +199,7 @@ If required, you can cancel a running migration by using either the REST API or 
 
 ### Cancel with the REST API
 
-For information on canceling a running migration with the REST API, see
-[Cancel a migration](../../../api/bulk_imports.md#cancel-a-migration).
+For information on canceling a running migration with the REST API, see [Cancel a migration](../../../api/bulk_imports.md#cancel-a-migration).
 
 ### Cancel with a Rails console
 
@@ -252,17 +226,14 @@ To cancel a running migration with a Rails console:
    bulk_import.fail_op!
    ```
 
-Canceling a `bulk_import` doesn't stop workers that are exporting the project on the source instance, but prevents the
-destination instance from:
+Canceling a `bulk_import` doesn't stop workers that are exporting the project on the source instance, but prevents the destination instance from:
 
 - Asking the source instance for more projects to be exported.
 - Making other API calls to the source instance for various checks and information.
 
 ## Retry failed or partially successful migrations
 
-If your migrations fail, or partially succeed but are missing items, you can retry the migration. To retry a migration
-of a:
+If your migrations fail, or partially succeed but are missing items, you can retry the migration. To retry a migration of a:
 
-- Top-level group and all of its subgroups and projects, use either the GitLab UI or the
-  [GitLab REST API](../../../api/bulk_imports.md).
+- Top-level group and all of its subgroups and projects, use either the GitLab UI or the [GitLab REST API](../../../api/bulk_imports.md).
 - Specific subgroups or projects, use the [GitLab REST API](../../../api/bulk_imports.md).

@@ -51,7 +51,7 @@ Learn how
 
 #### Reply options at a glance
 
-|  |  |
+| | |
 | --- | --- |
 | 1. | To reply to a single email or the last email in a thread, click Reply  . |
 | 2. | To reply to an email within a thread, click Reply all . |
@@ -61,7 +61,7 @@ Learn how
 | 6. | To forward an entire conversation, at the top, click More and then**Forward all**. |
 | 7. | To use a Smart Reply, at the bottom of the email, click a suggested reply. You can then edit the email before sending it. |
 
-  
+ 
 ![](//storage.googleapis.com/support-kms-prod/t3t6f12lpnisFvcuTi7MneXv2GqlChthKo6H)
 
 ---
@@ -79,10 +79,10 @@ Learn how
 
 1. Open [Gmail](https://mail.google.com/), and copy the part of the email you want to reply to.
 2. Click Reply ![](//storage.googleapis.com/support-kms-prod/FkQuYWGCcQkgHRqgRBhAoDMnPkk4fBTUqDDT).
-3. Click Formatting options ![](//storage.googleapis.com/support-kms-prod/BsFNMuJPlieUnDbvl25qpnmF5jEutv9D9yPc)![and then](//storage.googleapis.com/support-kms-prod/Th2Tx0uwPMOhsMPn7nRXMUo3vs6J0pto2DTn)Quotes ![](//storage.googleapis.com/support-kms-prod/uM58wIXVNRcuA9iVjI6wnrqjYlNL35baBZ7h).  
+3. Click Formatting options ![](//storage.googleapis.com/support-kms-prod/BsFNMuJPlieUnDbvl25qpnmF5jEutv9D9yPc)![and then](//storage.googleapis.com/support-kms-prod/Th2Tx0uwPMOhsMPn7nRXMUo3vs6J0pto2DTn)Quotes ![](//storage.googleapis.com/support-kms-prod/uM58wIXVNRcuA9iVjI6wnrqjYlNL35baBZ7h). 
    This adds a gray bar, marking where you quote the original message.
 4. Next to the gray bar, paste the original message text.
-5. Press **Enter** and enter your response below the original message.  
+5. Press **Enter** and enter your response below the original message. 
    Your response has no gray bar, so it stands out from the original text.
 6. Click **Send**.
 

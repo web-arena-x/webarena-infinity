@@ -19,14 +19,11 @@ title: Configure Grafana
 
 {{< /history >}}
 
-[Grafana](https://grafana.com/) is a tool that enables you to visualize time
-series metrics through graphs and dashboards. GitLab writes performance data to Prometheus,
-and Grafana allows you to query the data to display graphs.
+[Grafana](https://grafana.com/) is a tool that enables you to visualize time series metrics through graphs and dashboards. GitLab writes performance data to Prometheus, and Grafana allows you to query the data to display graphs.
 
 ## Integrate with GitLab UI
 
-After setting up Grafana, you can enable a link to access it from the
-GitLab sidebar:
+After setting up Grafana, you can enable a link to access it from the GitLab sidebar:
 
 1. In the upper-right corner, select **Admin**.
 1. Select **Settings** > **Metrics and profiling**.
@@ -39,18 +36,13 @@ GitLab displays your link in the **Admin** area under **Monitoring** > **Metrics
 
 ## Required Scopes
 
-When setting up Grafana through the previous process, no scope shows in the screen in
-the **Admin** area under **Applications** > **GitLab Grafana**. However, the `read_user` scope is
-required and is provided to the application automatically. Setting any scope other than
-`read_user` without also including `read_user` leads to this error when you try to sign in using
-GitLab as the OAuth provider:
+When setting up Grafana through the previous process, no scope shows in the screen in the **Admin** area under **Applications** > **GitLab Grafana**. However, the `read_user` scope is required and is provided to the application automatically. Setting any scope other than `read_user` without also including `read_user` leads to this error when you try to sign in using GitLab as the OAuth provider:
 
 ```plaintext
 The requested scope is invalid, unknown, or malformed.
 ```
 
-If you see this error, make sure that one of the following is true in the GitLab Grafana
-configuration screen:
+If you see this error, make sure that one of the following is true in the GitLab Grafana configuration screen:
 
 - No scopes appear.
 - The `read_user` scope is included.

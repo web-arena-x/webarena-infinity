@@ -24,8 +24,7 @@ The `username` is not valid.
 ## `Exception: undefined method 'full_path' for nil:NilClass`
 
 The `namespace_path` does not exist.
-For example, one of the groups or subgroups is mistyped or missing,
-or you've specified the project name in the path.
+For example, one of the groups or subgroups is mistyped or missing, or you've specified the project name in the path.
 
 The task only creates the project.
 If you want to import it to a new group or subgroup, create it first.
@@ -54,8 +53,7 @@ with '-', end in '.git', or end in '.atom'.
 
 The project name specified in `project_path` is not valid for one of the specified reasons.
 
-Only put the project name in `project_path`. For example, if you provide a path of subgroups
-it fails with this error as `/` is not a valid character in a project name.
+Only put the project name in `project_path`. For example, if you provide a path of subgroups it fails with this error as `/` is not a valid character in a project name.
 
 ## `Name has already been taken and Path has already been taken`
 
@@ -65,17 +63,12 @@ A project with that name already exists.
 
 The disk has insufficient space to complete the import.
 
-During import, the tarball is cached in your configured `shared_path` directory. Verify the
-disk has enough free space to accommodate both the cached tarball and the unpacked
-project files on disk.
+During import, the tarball is cached in your configured `shared_path` directory. Verify the disk has enough free space to accommodate both the cached tarball and the unpacked project files on disk.
 
 ## Import succeeds with `Total number of not imported relations: XX` message
 
-If you receive a `Total number of not imported relations: XX` message, and issues
-aren't created during the import, check [exceptions_json.log](../logs/_index.md#exceptions_jsonlog).
-You might see an error like `N is out of range for ActiveModel::Type::Integer with limit 4 bytes`,
-where `N` is the integer exceeding the 4-byte integer limit. If that's the case, you
-are likely hitting the issue with rebalancing of `relative_position` field of the issues.
+If you receive a `Total number of not imported relations: XX` message, and issues aren't created during the import, check [exceptions_json.log](../logs/_index.md#exceptions_jsonlog).
+You might see an error like `N is out of range for ActiveModel::Type::Integer with limit 4 bytes`, where `N` is the integer exceeding the 4-byte integer limit. If that's the case, you are likely hitting the issue with rebalancing of `relative_position` field of the issues.
 
 ```ruby
 # Check the current maximum value of relative_position

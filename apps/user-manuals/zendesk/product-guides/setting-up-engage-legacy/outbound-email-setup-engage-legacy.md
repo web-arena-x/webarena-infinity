@@ -38,7 +38,7 @@ Setting up the outbound email functionality follows the same basic configuration
 4. Select the "Outbound Email" utility type.
 5. Capture the relevant fields and click the “Create Utility” button. To ensure the Outbound Email Utility is save correctly, navigate to Utilities listing page and scroll for the Utility name you just created.
 6. To include multiple email boxes, input each individual email address separated by a comma (comma-separated) or by inserting a space and pressing the enter key.
-7. In order to create a outbound email default signature which can be linked to one or multiple FROM email addresses, users can define custom token fields for the "FROM address," enabling the email sender's address to be dynamically populated. The custom token field is {{Utility.FromEmail}}.  
+7. In order to create a outbound email default signature which can be linked to one or multiple FROM email addresses, users can define custom token fields for the "FROM address," enabling the email sender's address to be dynamically populated. The custom token field is {{Utility.FromEmail}}. 
    The outbound email default signature is set in the Utility and will overwrite the default workflow signature.
 8. Click on "Workflows" to add the new "Outbound Email" utility to the agent workflow.
 9. Click the “Edit workflow” button to add the new outbound email utility to the panel of your choosing.

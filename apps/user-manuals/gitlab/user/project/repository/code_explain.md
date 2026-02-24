@@ -29,14 +29,11 @@ title: Explain code in a file
 
 {{< /history >}}
 
-If you spend a lot of time trying to understand code that others have created, or
-you struggle to understand code written in a language you are not familiar with,
-you can ask GitLab Duo to explain the code to you.
+If you spend a lot of time trying to understand code that others have created, or you struggle to understand code written in a language you are not familiar with, you can ask GitLab Duo to explain the code to you.
 
 Prerequisites:
 
-- You must belong to at least one group with the
-  [experiment and beta features setting](../../gitlab_duo/turn_on_off.md#turn-on-beta-and-experimental-features) enabled.
+- You must belong to at least one group with the [experiment and beta features setting](../../gitlab_duo/turn_on_off.md#turn-on-beta-and-experimental-features) enabled.
 - You must have access to view the project.
 
 To explain the code in a file:

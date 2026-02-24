@@ -5,11 +5,9 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: Use the GitLab container registry metadata database with Geo
 description: Use the GitLab container registry metadata database with Geo
 ---
-Use the GitLab container registry with Geo to replicate container images. Each site's container registry metadata database is
-independent and does not use Postgres replication.
+Use the GitLab container registry with Geo to replicate container images. Each site's container registry metadata database is independent and does not use Postgres replication.
 
-Each secondary site should have its own
-separate PostgreSQL instance for the metadata database.
+Each secondary site should have its own separate PostgreSQL instance for the metadata database.
 
 ## Create a GitLab instance with the container registry and Geo
 
@@ -91,8 +89,7 @@ In this scenario, the metadata database must be moved to an external PostgreSQL 
 
 ## Migrate the container registry from legacy metadata
 
-In this scenario, you must migrate the container registry from legacy metadata
-to the external PostgreSQL metadata database on an existing Geo site.
+In this scenario, you must migrate the container registry from legacy metadata to the external PostgreSQL metadata database on an existing Geo site.
 
 Prerequisites:
 

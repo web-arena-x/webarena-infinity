@@ -29,8 +29,8 @@ Use project templates to quickly create new projects containing predefined issue
 
 ## Configure
 
-Open Settings > Templates to add a Workspace level project template, or the individual Team settings Templates page to add team-specific templates or edit existing ones.  
-  
+Open Settings > Templates to add a Workspace level project template, or the individual Team settings Templates page to add team-specific templates or edit existing ones. 
+ 
 
 
 ## Basics
@@ -38,7 +38,7 @@ Open Settings > Templates to add a Workspace level project template, or the indi
 ### Create templates
 
 Create new templates by navigating to either the workspace template settings or team template settings.   
-  
+ 
 When creating a project template, you have the option to add the following:
 
 * Project name 

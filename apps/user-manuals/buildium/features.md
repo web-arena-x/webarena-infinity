@@ -28,33 +28,27 @@ Meet the #1 most recommended platform for property managers that balances contro
 
 ![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==)
 
-**Unmatched Customer Support**  
-Receive expert guidance from specialists who know Buildium inside and out—earning a 95% satisfaction rating.
+**Unmatched Customer Support** Receive expert guidance from specialists who know Buildium inside and out—earning a 95% satisfaction rating.
 
 ![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==)
 
-**Scales With You**  
-Scale effortlessly with tools that adapt to your needs today and in the future–without relying on multiple platforms.
+**Scales With You** Scale effortlessly with tools that adapt to your needs today and in the future–without relying on multiple platforms.
 
 ![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==)
 
-**Smooth, Intuitive Design**  
-Experience intuitive design that makes property management software easy- to learn for any size team.
+**Smooth, Intuitive Design** Experience intuitive design that makes property management software easy- to learn for any size team.
 
 ![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==)
 
-**Shaped by What’s Next**  
-Lead the pack with innovations like agentic AI, enhanced workflow automation, and customization that deliver real ROI.
+**Shaped by What’s Next** Lead the pack with innovations like agentic AI, enhanced workflow automation, and customization that deliver real ROI.
 
 ![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==)
 
-**With You Every Step**  
-Grow confidently with support that ensures Buildium works for you from day one–and keeps working as you scale.
+**With You Every Step** Grow confidently with support that ensures Buildium works for you from day one–and keeps working as you scale.
 
 ![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==)
 
-**Education That Builds You Up**  
-Advance your expertise with resources—from Buildium Academy to industry insights—designed to make you better at what you do.
+**Education That Builds You Up** Advance your expertise with resources—from Buildium Academy to industry insights—designed to make you better at what you do.
 
 ![](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==)
 
@@ -236,14 +230,12 @@ Ashley Simonelli
 ||
 12,000+ Units
 
-Owner
-Royal Palm Property Management INC](javascript:void(0))
+Owner Royal Palm Property Management INC](javascript:void(0))
 [“Buildium‘s property and community management software helped us in an immeasurable amount of ways, like saving time with violations for HOAs and processing rent and automatic payments—not having to deposit checks or touch paper saves us...”
 
 Chris DiMarco
 
-Managing Director/Treasurer
-Common Cents Property Management](javascript:void(0))
+Managing Director/Treasurer Common Cents Property Management](javascript:void(0))
 [“Buildium is an extension of your team…It’s our engine. It’s what keeps us going. Buildium is doing so much work for us behind the scenes that we don’t have to have someone doing.
 ”
 
@@ -251,8 +243,7 @@ Jeannie Connors
 ||
 2,600+ Units
 
-VP of Operations & Law
-Realty Solutions](javascript:void(0))
+VP of Operations & Law Realty Solutions](javascript:void(0))
 
 ---
 

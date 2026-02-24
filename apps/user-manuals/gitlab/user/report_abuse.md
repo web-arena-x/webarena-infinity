@@ -67,8 +67,7 @@ To report abuse from a user's comment:
 
 {{< alert type="note" >}}
 
-A URL to the reported user's comment is pre-filled in the abuse report's
-**Message** field.
+A URL to the reported user's comment is pre-filled in the abuse report's **Message** field.
 
 {{< /alert >}}
 

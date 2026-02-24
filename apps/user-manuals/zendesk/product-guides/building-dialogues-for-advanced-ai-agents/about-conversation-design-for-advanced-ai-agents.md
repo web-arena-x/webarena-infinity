@@ -55,18 +55,15 @@ So how do we fight the preconceptions and structure a reply that is impactful?
 
 ### Conversation funnel
 
-As an overall flow, you want to work on a funnel approach: Start broad and get more granular based  
-on the information a customer provides. For example:
+As an overall flow, you want to work on a funnel approach: Start broad and get more granular based on the information a customer provides. For example:
 
 1. Confirm that the AI agent understood the intent correctly / does the customer need to rephrase
 2. Define all possible scenarios and include an escape route / false positive catch
 3. Share general information, FAQs, and self-guided instructions based on each scenario
-4. Validate whether this helped by doing a resolution check / providing a call to action where  
-   applicable
+4. Validate whether this helped by doing a resolution check / providing a call to action where applicable
 5. Perform a resolution check:
    - If it helped - ask whether they have further requests
-   - If it didn't help offer further assistance if available or escalate to a human  
-     agent.
+   - If it didn't help offer further assistance if available or escalate to a human agent.
 
 Here's an example of updating account details.
 

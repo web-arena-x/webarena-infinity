@@ -130,13 +130,13 @@ Use a visual builder in the Stripe Dashboard to automate tasks and create custom
 
 - ### [Developer resources](/development)
 
-  Sign up for the newsletter, follow Stripe on X, or chat with the community on the official Discord.
+ Sign up for the newsletter, follow Stripe on X, or chat with the community on the official Discord.
 - ### [Partner directory](https://stripe.partners/?f_help-me-with=implementation-and-development-services)
 
-  Get expert help from certified service partners or use prebuilt integrations from technology partners.
+ Get expert help from certified service partners or use prebuilt integrations from technology partners.
 - ### [Stripe Apps](https://marketplace.stripe.com/)
 
-  Connect your business tools, like customer management and accounting systems, to Stripe.
+ Connect your business tools, like customer management and accounting systems, to Stripe.
 - ### [Support site](https://support.stripe.com/)
 
-  Learn the answers to common account questions and get troubleshooting tips and tricks.
+ Learn the answers to common account questions and get troubleshooting tips and tricks.

@@ -23,18 +23,18 @@ The fields listed below should be formatted as shown and saved as a CSV. Column 
 | **Column header** | **Column value** |
 | --- | --- |
 | email\_address **\*Required** | This is the basic identifier for each user in Handshake. It must be unique for that user, meaning that the same email cannot be tied to two accounts. All duplicate emails in the file will fail. **\*Can't be blank** |
-| first\_name **\*Required** | Contact's first name. 50 character limit.  You cannot include numerical characters (0-9) in this field. If a student has a number in their name (i.e. John the 3rd), you can change the numbers to roman numerals (i.e. John III). **\*Can't be blank** |
-| last\_name **\*Required** | Contact's last name. 50 character limit.  You cannot include numerical characters (0-9) in this field. If a student has a number in their name (i.e. John the 3rd), you can change the numbers to roman numerals (i.e. John III). **\*Can't be blank** |
+| first\_name **\*Required** | Contact's first name. 50 character limit. You cannot include numerical characters (0-9) in this field. If a student has a number in their name (i.e. John the 3rd), you can change the numbers to roman numerals (i.e. John III). **\*Can't be blank** |
+| last\_name **\*Required** | Contact's last name. 50 character limit. You cannot include numerical characters (0-9) in this field. If a student has a number in their name (i.e. John the 3rd), you can change the numbers to roman numerals (i.e. John III). **\*Can't be blank** |
 | title | Contact's title/position. |
 | description | Description of the contact or employer. |
 | employer\_id | This is the ID of the employer in Handshake. Do not include this unless it is the correct ID, found in that employer's Handshake URL. This can be used to directly associate the contact with a company profile in Handshake (not commonly utilized, but can be used for reporting purposes). |
 | employer\_name | Name of the company. |
 | archived | Set to TRUE to archive the contact or set to FALSE to unarchive the contact. |
-| location\_attributes:name | Location of company or contact's office.  **Note**: We recommend using the full physical address. When using only the street address, our system will use geocoding to autofill for a full physical address. |
-| phone | Phone number for employer contact. This can include spaces and extensions.  **Note**: a warning message will generate that the phone number needs to be valid. This warning can be ignored and the row will process without issue. |
+| location\_attributes:name | Location of company or contact's office. **Note**: We recommend using the full physical address. When using only the street address, our system will use geocoding to autofill for a full physical address. |
+| phone | Phone number for employer contact. This can include spaces and extensions. **Note**: a warning message will generate that the phone number needs to be valid. This warning can be ignored and the row will process without issue. |
 | cell\_phone | Must be 10 or 11 digits (no special characters). |
 | fax | Must be 10 or 11 digits (no special characters). |
-| assigned\_to\_id | This is the user ID for the Career Services staff member who 'owns' this contact. To get the user ID for your Career Services staff:  Add them as a Career Services Staff member at your school. Open the Career Services Staff member profile. Grab the digits at the end of the URL when you are on their profile. That is their ID:     You should pull this file out of your old system with your Career Services Staff Names or "account managers".  Then, you can use Excel to Find and replace each name with their newly generated Handshake ID! |
+| assigned\_to\_id | This is the user ID for the Career Services staff member who 'owns' this contact. To get the user ID for your Career Services staff: Add them as a Career Services Staff member at your school. Open the Career Services Staff member profile. Grab the digits at the end of the URL when you are on their profile. That is their ID:     You should pull this file out of your old system with your Career Services Staff Names or "account managers".  Then, you can use Excel to Find and replace each name with their newly generated Handshake ID! |
 
 Example of how the optional headers in a contacts file may appear:
 

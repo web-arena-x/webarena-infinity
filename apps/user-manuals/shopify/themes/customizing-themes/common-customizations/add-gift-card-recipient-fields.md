@@ -78,7 +78,7 @@ Desktop
 6. In the dialog, click **Revert changes**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap  > **Settings**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap > **Settings**.
 2. In the **Store settings** section, tap **Notifications**.
 3. Tap **Customer notifications**.
 4. In the **Gift cards** section, tap **New gift card** or **Gift card receipt**.
@@ -104,7 +104,7 @@ Desktop
 6. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap  > **Settings**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap > **Settings**.
 2. In the **Store settings** section, tap **Notifications**.
 3. Tap **Customer notifications**.
 4. In the **Gift cards** section, tap **New gift card** or **Gift card receipt**.

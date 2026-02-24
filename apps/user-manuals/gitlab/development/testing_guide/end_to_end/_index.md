@@ -14,8 +14,7 @@ End-to-end (e2e) testing is a strategy used to check whether your application wo
 To test GitLab, we:
 
 1. Use [CNG](https://gitlab.com/gitlab-org/build/CNG) to build GitLab Cloud Native packages.
-1. Deploy these packages using the [orchestrator](https://gitlab.com/gitlab-org/gitlab/-/tree/master/qa/gems/gitlab-orchestrator?ref_type=heads) CLI tool to create
-   a running instance of GitLab to run E2E tests against.
+1. Deploy these packages using the [orchestrator](https://gitlab.com/gitlab-org/gitlab/-/tree/master/qa/gems/gitlab-orchestrator?ref_type=heads) CLI tool to create a running instance of GitLab to run E2E tests against.
 
 Additionally, we use the [GitLab Development Kit](https://gitlab.com/gitlab-org/gitlab-development-kit) (GDK) as a test environment that can be deployed quickly for faster test feedback.
 
@@ -60,8 +59,7 @@ C --> D["E2E tests"]
 ##### Running custom tests
 
 The [existing scenarios](https://gitlab.com/gitlab-org/gitlab-qa/blob/master/docs/what_tests_can_be_run.md)
-that run in the downstream `gitlab-qa-mirror` pipeline include many tests, but there are times when you might want to run a
-test or a group of tests that are different than the groups in any of the existing scenarios.
+that run in the downstream `gitlab-qa-mirror` pipeline include many tests, but there are times when you might want to run a test or a group of tests that are different than the groups in any of the existing scenarios.
 
 For example, when we [dequarantine](https://handbook.gitlab.com/handbook/engineering/infrastructure-platforms/developer-experience/pipeline-triage/#dequarantining-tests) a flaky test we first want to make sure that it's no longer flaky. We can do that by running `_ee:quarantine` manual job. When selecting the name (not the play icon) of manual job, you are prompted to enter variables. You can use any of [the variables that can be used with `gitlab-qa`](https://gitlab.com/gitlab-org/gitlab-qa/blob/master/docs/what_tests_can_be_run.md#supported-gitlab-environment-variables) as well as these:
 
@@ -71,11 +69,7 @@ For example, when we [dequarantine](https://handbook.gitlab.com/handbook/enginee
 | `QA_TESTS`      | The tests to run (no default, which means run all the tests in the scenario). Use file paths as you would when running tests by using RSpec, for example, `qa/specs/features/ee/browser_ui` would include all the `EE` UI tests. |
 | `QA_RSPEC_TAGS` | The RSpec tags to add (default `--tag quarantine`)                                                                                                                                                                          |
 
-For now,
-[manual jobs with custom variables don't use the same variable when retried](https://gitlab.com/gitlab-org/gitlab/-/issues/31367),
-so if you want to run the same tests multiple times,
-specify the same variables in each `custom-parallel` job (up to as
-many of the 10 available jobs that you want to run).
+For now, [manual jobs with custom variables don't use the same variable when retried](https://gitlab.com/gitlab-org/gitlab/-/issues/31367), so if you want to run the same tests multiple times, specify the same variables in each `custom-parallel` job (up to as many of the 10 available jobs that you want to run).
 
 #### Selective test execution
 
@@ -92,8 +86,7 @@ In order to limit amount of tests executed in a merge request, dynamic selection
 - Full consolidated mapping is uploaded to GCS in [code-path-mappings bucket](https://console.cloud.google.com/storage/browser/code-path-mappings)
 - This mapping is used for selecting tests in `backend` MRs.
 
-Mapping based selective test execution is currently in use for `test-on-gdk` pipeline. For more information, see
-[epic 47](https://gitlab.com/groups/gitlab-org/quality/quality-engineering/-/epics/47).
+Mapping based selective test execution is currently in use for `test-on-gdk` pipeline. For more information, see [epic 47](https://gitlab.com/groups/gitlab-org/quality/quality-engineering/-/epics/47).
 
 #### Overriding selective test execution
 
@@ -125,8 +118,7 @@ The [`generate_e2e_pipelines`](https://gitlab.com/gitlab-org/gitlab/-/blob/maste
 - Create the correct number of parallel jobs.
 - Skip particular jobs entirely if no tests would be executed.
 
-This functionality works in tandem with [selective test execution](#selective-test-execution) to optimize pipeline run time and costs as much as possible based on
-particular changes within merge request.
+This functionality works in tandem with [selective test execution](#selective-test-execution) to optimize pipeline run time and costs as much as possible based on particular changes within merge request.
 
 ##### Design outline
 
@@ -136,15 +128,11 @@ Dynamic job scaling relies on [Test Scenario](https://gitlab.com/gitlab-org/gitl
 - An optional spec file pattern that can limit the scenario to particular spec files.
 - A pipeline mapping which defines the pipeline types and jobs a particular scenario would run in merge request pipelines.
 
-The [PipelineCreator](https://gitlab.com/gitlab-org/gitlab/-/blob/master/qa/qa/tools/ci/pipeline_creator.rb?ref_type=heads) class generates pipeline YAML files with
-dynamically adjusted parallel job counts. Before pipeline YAML generation, `PipelineCreator` iterates over all defined `Test Scenario` classes and creates a mapping
-which contains a total of calculated test run time for each CI/CD job. Based on this information, the pipeline YAML file is generated with correctly adjusted parallel job count.
+The [PipelineCreator](https://gitlab.com/gitlab-org/gitlab/-/blob/master/qa/qa/tools/ci/pipeline_creator.rb?ref_type=heads) class generates pipeline YAML files with dynamically adjusted parallel job counts. Before pipeline YAML generation, `PipelineCreator` iterates over all defined `Test Scenario` classes and creates a mapping which contains a total of calculated test run time for each CI/CD job. Based on this information, the pipeline YAML file is generated with correctly adjusted parallel job count.
 
-`PipelineCreator` additionally takes input from [selective test execution](#selective-test-execution) to further reduce the total number of tests that
-would be executed.
+`PipelineCreator` additionally takes input from [selective test execution](#selective-test-execution) to further reduce the total number of tests that would be executed.
 
-For an example of how to create a new scenario that would run this scenario in merge request pipelines and scale parallel jobs dynamically, see
-[Adding new jobs to E2E test pipelines](test_pipelines.md#adding-new-jobs-to-e2e-test-pipelines).
+For an example of how to create a new scenario that would run this scenario in merge request pipelines and scale parallel jobs dynamically, see [Adding new jobs to E2E test pipelines](test_pipelines.md#adding-new-jobs-to-e2e-test-pipelines).
 
 ## Test pipeline tools and configuration
 
@@ -187,8 +175,8 @@ Use these environment variables to configure metrics export:
 
 | Variable                 | Required | Information                                                                                                                                                            |
 | ------------------------ | -------- |------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `QA_RUN_TYPE`            | `false`  | Arbitrary name for test execution, like `e2e:test-on-omnibus-ee`. Automatically inferred from the project name for live environment test executions. No default value. |
-| `QA_EXPORT_TEST_METRICS` | `false`  | Flag to enable or disable metrics export to GCS. Defaults to `false`.                                                                                             |
+| `QA_RUN_TYPE`            | `false` | Arbitrary name for test execution, like `e2e:test-on-omnibus-ee`. Automatically inferred from the project name for live environment test executions. No default value. |
+| `QA_EXPORT_TEST_METRICS` | `false` | Flag to enable or disable metrics export to GCS. Defaults to `false`.                                                                                             |
 
 ## How do you run the tests?
 
@@ -218,19 +206,19 @@ We should follow these best practices for end-to-end tests:
 ### Getting started with E2E testing
 
 - [Beginner's Guide](beginners_guide/_index.md): An introductory guide to help new contributors get started with E2E testing
-  - [Flows](beginners_guide/flows.md): Overview of `Flows` used to capture reusable sequences of actions in tests
-  - [Page objects](beginners_guide/page_objects.md): Explanation of page objects and their role in test design
-  - [Resources](beginners_guide/resources.md): Overview of `Resources` class that used for creating test data
+ - [Flows](beginners_guide/flows.md): Overview of `Flows` used to capture reusable sequences of actions in tests
+ - [Page objects](beginners_guide/page_objects.md): Explanation of page objects and their role in test design
+ - [Resources](beginners_guide/resources.md): Overview of `Resources` class that used for creating test data
 
 ### Best practices
 
 - [Best practices when writing end-to-end tests](best_practices/_index.md): Guidelines for efficient and reliable E2E testing
-  - [Dynamic element validation](best_practices/dynamic_element_validation.md): Techniques for handling dynamic elements in tests
-  - [Execution context selection](best_practices/execution_context_selection.md): Tips for choosing the right execution context for tests to run on
-  - [Testing with feature flags](best_practices/feature_flags.md): Managing feature flags during tests
-  - [RSpec metadata for end-to-end tests](best_practices/rspec_metadata_tests.md): Using metadata to organize and categorize tests
-  - [Test users](best_practices/users.md): Guidelines for creating and managing test users
-  - [Waits](best_practices/waits.md): Best practices for using waits to handle asynchronous elements
+ - [Dynamic element validation](best_practices/dynamic_element_validation.md): Techniques for handling dynamic elements in tests
+ - [Execution context selection](best_practices/execution_context_selection.md): Tips for choosing the right execution context for tests to run on
+ - [Testing with feature flags](best_practices/feature_flags.md): Managing feature flags during tests
+ - [RSpec metadata for end-to-end tests](best_practices/rspec_metadata_tests.md): Using metadata to organize and categorize tests
+ - [Test users](best_practices/users.md): Guidelines for creating and managing test users
+ - [Waits](best_practices/waits.md): Best practices for using waits to handle asynchronous elements
 - [Style guide for writing end-to-end tests](style_guide.md): Standards and conventions to ensure consistency in E2E tests
 
 ### Testing infrastructure
@@ -241,7 +229,7 @@ We should follow these best practices for end-to-end tests:
 ### Running and troubleshooting tests
 
 - [Running tests](running_tests/_index.md): Instructions for executing tests
-  - [Running tests that require special setup](running_tests/running_tests_that_require_special_setup.md): Specific setup requirements for certain tests
+ - [Running tests that require special setup](running_tests/running_tests_that_require_special_setup.md): Specific setup requirements for certain tests
 - [Troubleshooting](troubleshooting.md): Common issues encountered during E2E testing and solutions
 
 ### Miscellaneous

@@ -37,7 +37,7 @@ Menu link types and their descriptions
 | **Blogs** | A blog on your online store |
 | **Blog posts** | A specific blog post on your online store |
 | **Policies** | One of your [store policies](https://help.shopify.com/en/manual/checkout-settings/refund-privacy-tos) |
-| **Customer accounts** | A link to any of the following customer accounts pages:  - **Orders**: Your customer's order page  - **Profile**: Your customer's profile page  - **Settings**: Your customer's settings page  - **Apps**: App pages that are related to the customer experience, such as loyalty or subscription apps |
+| **Customer accounts** | A link to any of the following customer accounts pages: - **Orders**: Your customer's order page - **Profile**: Your customer's profile page - **Settings**: Your customer's settings page - **Apps**: App pages that are related to the customer experience, such as loyalty or subscription apps |
 | **External page** | A website address for an external website, which you can add in the **Search for a page or paste a URL** field. When adding a URL, wait for the dropdown to display the destination and select it. Pressing `Enter` or saving after pasting the URL without selecting from the dropdown won't add the link and can result in an invalid URL error. |
 | **Email link** | To create an email link, use the format `mailto:youremail@example.com` in the **Search for a page or paste a URL** field. |
 
@@ -57,9 +57,8 @@ Desktop
 10. Click **Save** or **Save menu**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Content** menu, tap the  icon, and then tap **Menus**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Content** menu, tap the icon, and then tap **Menus**.
 3. On the **Menus** page, tap the title of the menu that you want to edit.
 4. Tap **Add menu item**.
 5. Enter a name for the menu item. This name displays in the menu, and can include special characters or emojis.
@@ -89,9 +88,8 @@ Desktop
 6. Click **Save** or **Save menu**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Contents** menu, tap the  icon, and then tap **Menus**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Contents** menu, tap the icon, and then tap **Menus**.
 3. Tap the name of the menu that includes the item.
 4. In the **Menu items** section, tap **Edit** beside the name of the item.
 5. Make any changes:
@@ -114,9 +112,8 @@ Desktop
 4. Click **Save** or **Save menu**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Contents** menu, tap the  icon, and then tap **Menus**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Contents** menu, tap the icon, and then tap **Menus**.
 3. Tap the title of the menu that you want to reorder.
 4. Tap and hold the handle icon (⠿) beside the menu item, and then drag the menu item to another position.
 5. Tap **Save** or **✓**.
@@ -135,9 +132,8 @@ Desktop
 4. Click **Save** or **Save menu**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Contents** menu, tap the  icon, and then tap **Menus**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Contents** menu, tap the icon, and then tap **Menus**.
 3. Tap **Delete** beside the menu item that you want to remove.
 4. Tap **Remove** to confirm.
 5. Tap **Save** or **✓**.

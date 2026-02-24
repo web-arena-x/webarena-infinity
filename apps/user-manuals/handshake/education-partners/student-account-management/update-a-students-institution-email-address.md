@@ -14,7 +14,7 @@ For students that need their institution's email address changed, there's two wa
 
 - [Via Importer](#h_01FZG9V9BYWB387DHFTV6H91B2)
 - [Manually in Handshake](#h_01FZG9VJC989FTBFKVNDT9ECTF)
-  - [Example Emails](#h_01G5SPT6E16HP4DBNSDDG8P4GR)
+ - [Example Emails](#h_01G5SPT6E16HP4DBNSDDG8P4GR)
 
 ## Via Importer
 
@@ -32,8 +32,8 @@ For more information on updating graduating students' emails, refer to [Importer
 
 - Reviewing your student sync file
 - Locating the student's profile in Handshake via the **Account** tab  
-  - If a white button, **Change Institution Email** is displayed to the right of the email address, then the account is excluded from the importer sync.
-  - If the white button **Change Institution Email** isn't available, then the account is being synced via Importer.
+ - If a white button, **Change Institution Email** is displayed to the right of the email address, then the account is excluded from the importer sync.
+ - If the white button **Change Institution Email** isn't available, then the account is being synced via Importer.
 
 ![Instituion_Email_Address_Image.png](https://support.joinhandshake.com/hc/article_attachments/26001303046295)
 
@@ -41,7 +41,7 @@ For more information on updating graduating students' emails, refer to [Importer
 
 - If the student isn't included in your student sync, proceed to step 2.
 - If you'd like to exclude the student from future syncs so that you can manually update their institution email address, scroll down to the bottom of the page and select the box to the left of **Exclude from Automatic Syncs** to add a check. Click the green **Update User** button in the lower-right corner of the page to save your changes, then proceed to step 2. 
-  - **Note:** If you'd like to update this student's profile through the automatic student sync again, you can uncheck the **Exclude from Automatic Syncs** box and select the green **Update User** button to save these changes.
+ - **Note:** If you'd like to update this student's profile through the automatic student sync again, you can uncheck the **Exclude from Automatic Syncs** box and select the green **Update User** button to save these changes.
 
 ![exclude_from_automatic_sync.png](https://support.joinhandshake.com/hc/article_attachments/26001303032983)
 

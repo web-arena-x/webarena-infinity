@@ -16,8 +16,7 @@ title: Review apps
 Review apps are temporary testing environments that are created automatically for each branch or merge request.
 You can preview and validate changes without needing to set up a local development environment.
 
-Built on [dynamic environments](../environments/_index.md#create-a-dynamic-environment),
-review apps provide a unique environment for each branch or merge request.
+Built on [dynamic environments](../environments/_index.md#create-a-dynamic-environment), review apps provide a unique environment for each branch or merge request.
 
 ![Merged result pipeline status with link to the review app](img/review_apps_preview_in_mr_v16_0.png)
 
@@ -93,8 +92,7 @@ To configure review apps in your project:
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Build** > **Pipeline editor**.
 1. In your `.gitlab-ci.yml` file, add a job that creates a [dynamic environment](../environments/_index.md#create-a-dynamic-environment).
-   You can use a [predefined CI/CD variable](../variables/predefined_variables.md) to differentiate
-   each environment. For example, using the `CI_COMMIT_REF_SLUG` predefined variable:
+   You can use a [predefined CI/CD variable](../variables/predefined_variables.md) to differentiate each environment. For example, using the `CI_COMMIT_REF_SLUG` predefined variable:
 
    ```yaml
    review_app:
@@ -141,8 +139,7 @@ To use and customize this template:
 1. Customize the template based on your deployment needs:
 
    - Modify the deployment script and environment URL to work with your infrastructure.
-   - Adjust [the rules section](../jobs/job_rules.md) if you want to trigger review apps
-     for branches even without merge requests.
+   - Adjust [the rules section](../jobs/job_rules.md) if you want to trigger review apps for branches even without merge requests.
 
    For example, for a deployment to Heroku:
 
@@ -176,51 +173,48 @@ For more information about stopping environments for review apps, see [Stopping 
 
 #### Auto-stop review apps on merge
 
-To configure review apps to automatically stop when the associated merge request is merged
-or the branch is deleted:
+To configure review apps to automatically stop when the associated merge request is merged or the branch is deleted:
 
 1. Add the [`on_stop`](../yaml/_index.md#environmenton_stop) keyword to your deployment job.
 1. Create a stop job with the [`environment:action: stop`](../yaml/_index.md#environmentaction).
-1. Optional. Add [`when: manual`](../yaml/_index.md#when) to the stop job to make it possible to
-   manually stop the review app at any time.
+1. Optional. Add [`when: manual`](../yaml/_index.md#when) to the stop job to make it possible to manually stop the review app at any time.
 
 For example:
 
 ```yaml
 # In your .gitlab-ci.yml file
 deploy_review:
-  # Other configuration...
-  environment:
+ # Other configuration...
+ environment:
     name: review/${CI_COMMIT_REF_NAME}
     url: https://${CI_ENVIRONMENT_SLUG}.example.com
-    on_stop: stop_review_app  # References the stop_review_app job
+    on_stop: stop_review_app # References the stop_review_app job
 
 stop_review_app:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - echo "Stop review app"
     # Add your cleanup commands here
-  environment:
+ environment:
     name: review/${CI_COMMIT_REF_NAME}
     action: stop
-  when: manual  # Makes this job manually triggerable
-  rules:
+ when: manual # Makes this job manually triggerable
+ rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
 ```
 
 #### Time-based automatic stop
 
-To configure review apps to stop automatically after a period of time,
-add the [`auto_stop_in`](../yaml/_index.md#environmentauto_stop_in) keyword to your deployment job:
+To configure review apps to stop automatically after a period of time, add the [`auto_stop_in`](../yaml/_index.md#environmentauto_stop_in) keyword to your deployment job:
 
 ```yaml
 # In your .gitlab-ci.yml file
 review_app:
-  script: deploy-review-app
-  environment:
+ script: deploy-review-app
+ environment:
     name: review/$CI_COMMIT_REF_SLUG
-    auto_stop_in: 1 week  # Stops after one week of inactivity
-  rules:
+    auto_stop_in: 1 week # Stops after one week of inactivity
+ rules:
     - if: $CI_MERGE_REQUEST_ID
 ```
 
@@ -248,7 +242,7 @@ These projects demonstrate different review app implementations:
 Other examples of review apps:
 
 - <i class="fa-youtube-play" aria-hidden="true"></i>
-  [Cloud Native Development with GitLab](https://www.youtube.com/watch?v=jfIyQEwrocw).
+ [Cloud Native Development with GitLab](https://www.youtube.com/watch?v=jfIyQEwrocw).
 - [Review apps for Android](https://about.gitlab.com/blog/2020/05/06/how-to-create-review-apps-for-android-with-gitlab-fastlane-and-appetize-dot-io/).
 
 ## Route maps
@@ -256,8 +250,7 @@ Other examples of review apps:
 Route maps let you navigate directly from source files to their corresponding public pages in the review app environment.
 This feature makes it easier to preview specific changes in your merge requests.
 
-When configured, route maps add contextual links that let you view the review app version of files
-that match your mapping patterns. These links appear in:
+When configured, route maps add contextual links that let you view the review app version of files that match your mapping patterns. These links appear in:
 
 - The merge request widget.
 - Commit and file views.
@@ -274,8 +267,8 @@ The route map is a YAML array where each entry maps a `source` path to a `public
 Each mapping in the route map follows this format:
 
 ```yaml
-- source: 'path/to/source/file'  # Source file in repository
-  public: 'path/to/public/page'  # Public page on the website
+- source: 'path/to/source/file' # Source file in repository
+ public: 'path/to/public/page' # Public page on the website
 ```
 
 You can use two types of mapping:
@@ -298,27 +291,27 @@ The following example shows a route map for [Middleman](https://middlemanapp.com
 
 ```yaml
 # Team data
-- source: 'data/team.yml'  # data/team.yml
-  public: 'team/'  # team/
+- source: 'data/team.yml' # data/team.yml
+ public: 'team/' # team/
 
 # Blogposts
-- source: /source\/posts\/([0-9]{4})-([0-9]{2})-([0-9]{2})-(.+?)\..*/  # source/posts/2017-01-30-around-the-world-in-6-releases.html.md.erb
-  public: '\1/\2/\3/\4/'  # 2017/01/30/around-the-world-in-6-releases/
+- source: /source\/posts\/([0-9]{4})-([0-9]{2})-([0-9]{2})-(.+?)\..*/ # source/posts/2017-01-30-around-the-world-in-6-releases.html.md.erb
+ public: '\1/\2/\3/\4/' # 2017/01/30/around-the-world-in-6-releases/
 
 # HTML files
-- source: /source\/(.+?\.html).*/  # source/index.html.haml
-  public: '\1'  # index.html
+- source: /source\/(.+?\.html).*/ # source/index.html.haml
+ public: '\1' # index.html
 
 # Other files
-- source: /source\/(.*)/  # source/images/blogimages/around-the-world-in-6-releases-cover.png
-  public: '\1'  # images/blogimages/around-the-world-in-6-releases-cover.png
+- source: /source\/(.*)/ # source/images/blogimages/around-the-world-in-6-releases-cover.png
+ public: '\1' # images/blogimages/around-the-world-in-6-releases-cover.png
 ```
 
 In this example:
 
 - The mappings are evaluated in order.
 - The third mapping ensures that `source/index.html.haml` matches `/source\/(.+?\.html).*/` instead of the catch-all `/source\/(.*)/`.
-  This produces a public path of `index.html` instead of `index.html.haml`.
+ This produces a public path of `index.html` instead of `index.html.haml`.
 
 ### View mapped pages
 
@@ -356,7 +349,6 @@ To view mapped pages from a commit:
 {{< alert type="note" >}}
 
 Merged results pipelines create an internal commit that merges your branch with the target branch.
-To access review app links for these pipelines, use the commit from the **Pipelines** tab,
-not the **Commits** tab.
+To access review app links for these pipelines, use the commit from the **Pipelines** tab, not the **Commits** tab.
 
 {{< /alert >}}

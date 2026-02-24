@@ -13,7 +13,7 @@ Learn more about [How to Build a Segment](https://support.joinhandshake.com/hc/
 The candidate filter **Graduation and Class Standing** indicates a candidate's class year, as well as degree type.
 
 - When using segment filters, the candidates included are determined by reviewing all of the education details that candidates have made available on their Handshake profiles.
-  - For example, if you're seeking BA candidates who majored in Business, the results may display candidates who have completed a B.A degree in that specific degree, and are in pursuit of a higher degree, e.g., Masters.
+ - For example, if you're seeking BA candidates who majored in Business, the results may display candidates who have completed a B.A degree in that specific degree, and are in pursuit of a higher degree, e.g., Masters.
 
 ### Select preferences
 

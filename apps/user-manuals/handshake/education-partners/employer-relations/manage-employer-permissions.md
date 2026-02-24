@@ -20,6 +20,6 @@ The following options can be modified in the side sheet:
 - **Approval status:** Set the employer to **Declined** or **Approved**.
 - **Permission settings:** Select or de-select different settings including: **Post events**, **Post interview schedules**, **Post Work-Study jobs**.
 - **Auto approvals:** Choose if jobs or interview schedules will be approved based off your school’s settings.
-  - **Note:** You can modify job automatic approvals by using the steps in this article: [Job Automatic Approval Configuration](https://support.joinhandshake.com/hc/en-us/articles/7815751829015).
+ - **Note:** You can modify job automatic approvals by using the steps in this article: [Job Automatic Approval Configuration](https://support.joinhandshake.com/hc/en-us/articles/7815751829015).
 
 ![Manage account side sheet.png](https://support.joinhandshake.com/hc/article_attachments/25950477834903)

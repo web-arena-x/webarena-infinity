@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/8755349206554-About-the-le
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -34,29 +34,29 @@ The tickets screen is open by default on both iOS and Android devices, with the 
 
 | **iOS** | **Android** |
 | --- | --- |
-|  |  |
+| | |
 
 **To access the tickets screen from another screen**
 
 - **iOS users**: In the bottom toolbar, tap the **Tickets** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/mobile_tickets_icon.png)).
 
-  **Android users**: Tap the **back arrow** (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/mobile_android_back_icon.png)) until the Ticket screen appears.
+ **Android users**: Tap the **back arrow** (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/mobile_android_back_icon.png)) until the Ticket screen appears.
 
 On the screens in the examples above, you can see:
 
 - The name of the displayed view. iOS users also see the number of tickets in the view:
 
-  | **iOS** | **Android** |
-  | --- | --- |
-  |  |  |
+ | **iOS** | **Android** |
+ | --- | --- |
+ | | |
 - The sorting applied to the view:
 
-  | **iOS** | **Android** |
-  | --- | --- |
-  |  |  |
+ | **iOS** | **Android** |
+ | --- | --- |
+ | | |
 - Basic information about each ticket, including the avatar for the ticket requester, the ticket subject, and the submission date:
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/scarlett_tickets_info.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/scarlett_tickets_info.png)
 
 ## Working with tickets
 
@@ -74,7 +74,7 @@ If rich text or markdown formatting is enabled for your account, that formatting
 
    | **iOS** | **Android** |
    | --- | --- |
-   |  |  |
+   | | |
 2. The ticket is separated into three different sections: The top section, the Conversation tab, and the Properties tab.
    - The top section shows the requester information and the ticket subject.
    - The **Conversation tab** shows the latest messages/emails/internal notes from the conversation in the ticket.
@@ -85,13 +85,13 @@ If rich text or markdown formatting is enabled for your account, that formatting
 - **iOS users**: Tap the back icon in the upper-left of the screen (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/mobile_close_ticket.png)).
 - **Android users**: Tap the back arrow in the upper-left of the screen (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/mobile_android_back_arrow.png)).
 
-  Note: : The submit (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/mobile_android_submit_airplane.png)) icon inn the upper-right of the screen indicates the number of changes you've made to the ticket. Make sure you tap it to submit the changes before leaving the ticket. This indicator persists across both tabs.
+ Note: : The submit (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/mobile_android_submit_airplane.png)) icon inn the upper-right of the screen indicates the number of changes you've made to the ticket. Make sure you tap it to submit the changes before leaving the ticket. This indicator persists across both tabs.
 
 ### Viewing and updating ticket properties
 
 | **iOS** | **Android** |
 | --- | --- |
-|  |  |
+| | |
 
 Due to space constraints, only the most frequently used ticket properties are shown. However, you can open the full list of ticket properties if needed.
 
@@ -103,7 +103,7 @@ Note: Only customers on Support Professional and Enterprise plans can use servic
 
    | **iOS** | **Android** |
    | --- | --- |
-   |  |  |
+   | | |
 2. Tap the property you want to update.
 3. Tap the new value for the property. The property is updated, and you're returned to the previous screen.
 4. When you're done making your updates, tap the **Submit changes** icon in the bottom-right of the screen.
@@ -123,7 +123,7 @@ You can apply any of your macros to tickets on the mobile app.
 
    | **iOS** | **Android** |
    | --- | --- |
-   |  |  |
+   | | |
 3. Select the macro you want to apply to the ticket, using one of the following methods:
 
    - Tap the macro in the displayed list.
@@ -147,7 +147,7 @@ If you have permission to create tickets, you'll see the Create ticket icon on y
 
    | **iOS** | **Android** |
    | --- | --- |
-   |  |  |
+   | | |
 3. Tap **Subject** and enter a title for the ticket, then tap **Done**.
 4. Tap **Enter a description** and add a short explanation of the problem.
 5. Tap **Done**.
@@ -159,7 +159,7 @@ If you have permission to create tickets, you'll see the Create ticket icon on y
 
    | **iOS** | **Android** |
    | --- | --- |
-   |  |  |
+   | | |
 
 ### Using attachments in tickets
 
@@ -181,7 +181,7 @@ Both Android and iOS allow you to attach images from the camera and gallery to a
 
    | **iOS** | **Android** |
    | --- | --- |
-   |  |  |
+   | | |
 2. Tap the type of attachment you want to include.
    - Tap the **camera icon** to take a photo.
    - Tap the **image icon** to open the device's image gallery.
@@ -198,7 +198,7 @@ To play the recording or voice mail, tap the **Play button** on the audio stream
 
 | **iOS** | **Android** |
 | --- | --- |
-|  |  |
+| | |
 
 ### Viewing service level agreements
 
@@ -206,7 +206,7 @@ If you are on Support Professional or Enterprise, and you use the service level 
 
 | **iOS** | **Android** |
 | --- | --- |
-|  |  |
+| | |
 
 Android users will also see the current SLAs applied to tickets in a view:
 
@@ -216,7 +216,7 @@ Tap the SLA property to view the list of current and upcoming SLA deadlines:
 
 | **iOS** | **Android** |
 | --- | --- |
-|  |  |
+| | |
 
 For general information on service level agreements, see [Viewing and understanding SLA targets](https://support.zendesk.com/hc/en-us/articles/4408832852122).
 

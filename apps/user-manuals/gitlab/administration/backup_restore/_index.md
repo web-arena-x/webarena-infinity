@@ -31,35 +31,29 @@ While data security is ensured for GitLab.com, you can't use these methods to ex
 
 ## Back up GitLab
 
-The procedures to back up your GitLab instance vary based on your
-deployment's specific configuration and usage patterns.
-Factors such as data types, storage locations, and volume influence the backup method,
-storage options, and restoration process. For more information, see [Back up GitLab](backup_gitlab.md).
+The procedures to back up your GitLab instance vary based on your deployment's specific configuration and usage patterns.
+Factors such as data types, storage locations, and volume influence the backup method, storage options, and restoration process. For more information, see [Back up GitLab](backup_gitlab.md).
 
 ## Restore GitLab
 
-The procedures to back up your GitLab instance vary based on your
-deployment's specific configuration and usage patterns.
+The procedures to back up your GitLab instance vary based on your deployment's specific configuration and usage patterns.
 Factors such as data types, storage locations, and volume influence the restoration process.
 
 For more information, see [Restore GitLab](restore_gitlab.md).
 
 ## Migrate to a new server
 
-Use the GitLab backup and restore features to migrate your instance to a new server. For GitLab Geo deployments,
-consider [Geo disaster recovery for planned failover](../geo/disaster_recovery/planned_failover.md).
+Use the GitLab backup and restore features to migrate your instance to a new server. For GitLab Geo deployments, consider [Geo disaster recovery for planned failover](../geo/disaster_recovery/planned_failover.md).
 For more information, see [Migrate to a new server](migrate_to_new_server.md).
 
 ## Back up and restore large reference architectures
 
 It is important to back up and restore large reference architectures regularly.
-For information on how to configure and restore backups for object storage data,
-PostgreSQL data, and Git repositories, see [Back up and restore large reference architectures](backup_large_reference_architectures.md).
+For information on how to configure and restore backups for object storage data, PostgreSQL data, and Git repositories, see [Back up and restore large reference architectures](backup_large_reference_architectures.md).
 
 ## Backup archive process
 
-For data preservation and system integrity, GitLab creates a backup archive. For detailed information
-on how GitLab creates this archive, see [Backup archive process](backup_archive_process.md).
+For data preservation and system integrity, GitLab creates a backup archive. For detailed information on how GitLab creates this archive, see [Backup archive process](backup_archive_process.md).
 
 ## Related topics
 

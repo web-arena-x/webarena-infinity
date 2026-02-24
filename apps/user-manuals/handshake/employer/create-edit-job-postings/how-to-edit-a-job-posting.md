@@ -10,7 +10,7 @@ Your ability to edit a job posting also depends on your employer account type an
 
 - **Basic employers**: **Owners** and **Recruiters** can only edit jobs they have personally created. Jobs posted by other teammates will appear in your job list as **view-only** and cannot be edited.
 
-  - To edit jobs you did not create, you must upgrade to an eligible paid plan.
+ - To edit jobs you did not create, you must upgrade to an eligible paid plan.
 - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**, can edit both their own job postings and those created by teammates, provided they have the appropriate permissions.
 
 The **Job details** tab will not be editable if:
@@ -68,15 +68,15 @@ The **Job details** tab contains the job form where you can edit fields such as 
 - **Company division**
 - **Job owner**
 
-  - **Note**: Only on-campus employers and Premium partners can update the job owner.
+ - **Note**: Only on-campus employers and Premium partners can update the job owner.
 
 **Fields that cannot be edited include**:
 
 - **Screening questions**, if the job has already received applicants
 - **Application duration**
 
-  - Basic employers cannot edit the default application duration range
-  - On-campus employers and Premium Partners cannot edit:
+ - Basic employers cannot edit the default application duration range
+ - On-campus employers and Premium Partners cannot edit:
 
     - Application **open date**, if the date is in the past
     - Application **close date**, if the new date extends the posting beyond one year from the application open date.
@@ -98,7 +98,7 @@ The **Schools** section specifies the schools where a job posting is visible to 
 - **Manually posted jobs**: Employers may add a job to additional schools after it has been created. Learn How to Post a Job to Additional Schools.
 - **XML feed jobs:** Jobs posted via XML are sent only to schools where the employer is auto-approved. Employers cannot currently select or customize the list of schools.
 
-  - These jobs may also be subject to school-specific criteria and may require additional approval.
-  - For an overview of the Handshake XML job feed, refer to [A Guide to Handshake XML Job Feed](https://support.joinhandshake.com/hc/en-us/articles/32407031672215).
+ - These jobs may also be subject to school-specific criteria and may require additional approval.
+ - For an overview of the Handshake XML job feed, refer to [A Guide to Handshake XML Job Feed](https://support.joinhandshake.com/hc/en-us/articles/32407031672215).
 
 > Once a job has been created, schools cannot be removed from the posting, regardless of whether the job was posted manually or through an XML feed. *For additional details, refer to* *Can I Remove Schools from a Job Posting?**.*

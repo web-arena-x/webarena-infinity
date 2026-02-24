@@ -36,14 +36,7 @@ Form templates are more structured than standard issue templates and can be used
 
 ### Generic form fields
 
-Field | Function
---- | ---
-Text | Single-line text input
-Long text | Multi-line text input
-Dropdown | One value can be selected among options you provide
-Checkboxes | One or more values can be selected among options you provide
-Date | Date picker, not tied to any issue property
-Instructions | Static text that you can use to provide context for how to fill the form, or a particular field in it. Instructions text will be included in the description of the created issue.
+Field | Function --- | --- Text | Single-line text input Long text | Multi-line text input Dropdown | One value can be selected among options you provide Checkboxes | One or more values can be selected among options you provide Date | Date picker, not tied to any issue property Instructions | Static text that you can use to provide context for how to fill the form, or a particular field in it. Instructions text will be included in the description of the created issue.
 
 ### Property form fields
 
@@ -71,14 +64,7 @@ Default templates are templates that are automatically applied when creating a n
 
 Templates created in Linear can also be used in integrations to help save time and keep properties applied consistently where needed. 
 
-Integration | Use-case | Supports form templates
---- | --- | ---
-Intercom & Zendesk | Support agents can select a template for the type of issue being reported, speeding up filing and prefilling needed properties like status Triage and label Bug 
-Slack | When creating issues from a Slack message, select a template from the dropdown menu |  ✔
-Asks in Slack | Asks is designed to be primarily template driven; users outside your Linear workspace but in your Slack workspace create issues via template enabled in Asks, so their issues end up with the necessary data in Linear |  ✔ 
-Asks in Email | Internal request intake via email through Asks
-Zapier | Consider creating issues via template in the Create Issue step for Linear in Zapier for more complex, multi-application workflows
-Email | Templates can have unique email addresses; sending an email to that address will create an issue with the properties of the template
+Integration | Use-case | Supports form templates --- | --- | --- Intercom & Zendesk | Support agents can select a template for the type of issue being reported, speeding up filing and prefilling needed properties like status Triage and label Bug Slack | When creating issues from a Slack message, select a template from the dropdown menu | ✔ Asks in Slack | Asks is designed to be primarily template driven; users outside your Linear workspace but in your Slack workspace create issues via template enabled in Asks, so their issues end up with the necessary data in Linear | ✔ Asks in Email | Internal request intake via email through Asks Zapier | Consider creating issues via template in the Create Issue step for Linear in Zapier for more complex, multi-application workflows Email | Templates can have unique email addresses; sending an email to that address will create an issue with the properties of the template
 
 Add a template to a supported integration in that integration's settings page in Linear.
 

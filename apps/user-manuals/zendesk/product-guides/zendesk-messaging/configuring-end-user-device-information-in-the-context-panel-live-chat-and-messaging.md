@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/7041910642074-Configuring-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Team, Professional, or Enterprise |
 
@@ -31,7 +31,7 @@ Displayed device information includes:
 - **Location** (optional): City and country associated with the device IP address. Location information is hidden by default.
 - **IP address**(optional): The unique number assigned to the device currently being used. Note that this information may not reflect the end user’s originating IP address. IP address is hidden by default.
 
-  Note: You must select this option to display the [Ban IP button and the Banned flag](https://support.zendesk.com/hc/en-us/articles/9418700382618) in Device information.
+ Note: You must select this option to display the [Ban IP button and the Banned flag](https://support.zendesk.com/hc/en-us/articles/9418700382618) in Device information.
 - **Device type**: End user’s device type and model (if applicable)
 - **OS**: The operating system and version being used.
 - **Browser**: The browser and version being used.

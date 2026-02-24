@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408832117786-Advanced-Com
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
@@ -30,8 +30,8 @@ With Advanced Compliance, you have the ability to enter into a Business Associat
 
 Note: Zendesk is limited to the status of a business associate. Moreover, Zendesk is not a holder of the **Designated Record Set**. The HIPAA requirements for a business associate are met through Zendesk's SOC2 and ISO27001/ISO27018 certifications and internal HIPAA audits.
 
-With the purchase of Advanced Compliance, either directly or through the purchase of a plan that includes the Advanced Compliance add-on, Zendesk customers can sign Zendesk’s BAA. You can review and sign the BAA, via DocuSign, here: <https://www.zendesk.com/company/business-associate-agreement/>.  
-  
+With the purchase of Advanced Compliance, either directly or through the purchase of a plan that includes the Advanced Compliance add-on, Zendesk customers can sign Zendesk’s BAA. You can review and sign the BAA, via DocuSign, here: <https://www.zendesk.com/company/business-associate-agreement/>. 
+ 
 Advanced Compliance and the BAA only apply to features and functionality that are expressly stated to form part of the “Covered Services” in the BAA. Additionally, Advanced Compliance and the BAA do not apply to certain products, services, and features as further detailed in the BAA and on this page. For the current list of Covered Services, see [Zendesk Services eligible for coverage by the BAA](#h_3e91982c-47f1-45a8-a939-22d17a30b6f0), below.
 
 ## Zendesk services eligible for coverage by the BAA
@@ -40,14 +40,14 @@ For customers who have purchased the Support Advanced Compliance add-on, or are 
 
 Note: Early Access Programs (EAPs) and Built by Zendesk Applications from the Marketplace are not covered by the BAA and should not be used with PHI.
 
-|  |  |
+| | |
 | --- | --- |
 | **HIPAA Enabled Service Plans** | **BAA Covered Services** |
-| Zendesk Suite Professional or Enterprise | Support (Ticketing System Functionality)  Guide (Help Center Functionality)  Gather (Community Forum Functionality)  Chat (Live Chat Functionality) and Zendesk messaging  Explore (Analytics Functionality)  Talk (Voice Functionality), excluding Text  Sunshine Conversations within Zendesk Suite |
-| Zendesk Enterprise Support (current and legacy plans) | Enterprise Support (Ticketing System Functionality)  Guide (legacy) (Help Center Functionality)  Gather (legacy) (Community Forum Functionality)  Enterprise Chat (Live Chat Functionality) and Zendesk messaging  Explore (legacy) (Analytics Functionality) |
+| Zendesk Suite Professional or Enterprise | Support (Ticketing System Functionality) Guide (Help Center Functionality) Gather (Community Forum Functionality) Chat (Live Chat Functionality) and Zendesk messaging Explore (Analytics Functionality) Talk (Voice Functionality), excluding Text Sunshine Conversations within Zendesk Suite |
+| Zendesk Enterprise Support (current and legacy plans) | Enterprise Support (Ticketing System Functionality) Guide (legacy) (Help Center Functionality) Gather (legacy) (Community Forum Functionality) Enterprise Chat (Live Chat Functionality) and Zendesk messaging Explore (legacy) (Analytics Functionality) |
 | Zendesk Talk Enterprise, Professional, or Advanced (legacy plans) | Talk (Voice Functionality), excluding Text |
 
-|  |  |
+| | |
 | --- | --- |
 | **HIPAA Enabled Add-Ons** (current plans) | **HIPAA Enabled Add-Ons** (legacy plans) |
 | Advanced Data Privacy and Protection | Productivity Pack (legacy) |
@@ -58,11 +58,11 @@ Note: Early Access Programs (EAPs) and Built by Zendesk Applications from the Ma
 | More Storage | Enhanced Disaster Recovery (legacy) |
 | Answer Bot resolution | Advanced Compliance (legacy) |
 | High volume API | Data Center Location (legacy) |
-| Sunshine conversations MAU |  |
-| Sunshine conversations notifications |  |
-| Workforce Management (WFM) |  |
-| Zendesk Quality assurance (QA) |  |
-| AI Agents - Advanced |  |
+| Sunshine conversations MAU | |
+| Sunshine conversations notifications | |
+| Workforce Management (WFM) | |
+| Zendesk Quality assurance (QA) | |
+| AI Agents - Advanced | |
 
 Any identified limitations on the ability to use specific features or functionality found within the Covered Services and HIPAA-enabled Add-Ons in compliance with HIPAA will be published in the recommended security configurations described below.
 

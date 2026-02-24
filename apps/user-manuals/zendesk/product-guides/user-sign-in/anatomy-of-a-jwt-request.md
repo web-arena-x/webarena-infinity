@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408881965722-Anatomy-of-a
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -44,7 +44,7 @@ The big reveal about this (and the rest of the data) is that it is base64 encode
 This is what that string looks like decoded:
 
 ```
-{"typ":"JWT",  
+{"typ":"JWT", 
  "alg":"HS256"}
 ```
 
@@ -61,16 +61,16 @@ eyJpYXQiOjEzNzIxMTMzMDUsImp0aSI6ODg4MzM2MjUzMTE5Ni4zMjYsIm5hbWUiOiJUZXN0IFVzZXIi
 This contains a timestamp, a random value, a user name, email address, external ID, and some tags. There are even more options available. Again, just base64 decode it to make sense of the payload. I'll split the lines to make it easier to digest.
 
 ```
-{  
-"iat":1372113305,  
-"jti":8883362531196.326,  
-"name":"Test User",  
-"email":"tuser@example.org",  
-"external_id":"5678",  
-"organization":"Apple",  
-"tags":"vip_user",  
-"remote_photo_url":"http://mit.zenfs.com/206/2011/05/Barnaby_Matt_cropped.jpg",  
-"locale_id":"8"  
+{ 
+"iat":1372113305, 
+"jti":8883362531196.326, 
+"name":"Test User", 
+"email":"tuser@example.org", 
+"external_id":"5678", 
+"organization":"Apple", 
+"tags":"vip_user", 
+"remote_photo_url":"http://mit.zenfs.com/206/2011/05/Barnaby_Matt_cropped.jpg", 
+"locale_id":"8" 
 }
 ```
 
@@ -152,7 +152,7 @@ This is how you build it in pseudo-code:
 URLBase64Encode(   
     HMAC-SHA256(   
         URLBase64Encode( header_json ).URLBase64Encode( payload_json )   
-    )  
+    ) 
 )
 ```
 

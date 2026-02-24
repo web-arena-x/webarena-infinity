@@ -16,8 +16,7 @@ Create pipeline schedules to run pipelines at regular intervals based on cron pa
 Use pipeline schedules for tasks that need to run on a time-based schedule rather than triggered by code changes.
 
 Unlike pipelines triggered by commits or merge requests, scheduled pipelines run independently of code changes.
-This makes them suitable for tasks that need to happen regardless of development activity,
-such as keeping deployments current or running periodic maintenance.
+This makes them suitable for tasks that need to happen regardless of development activity, such as keeping deployments current or running periodic maintenance.
 
 Scheduled pipelines stop running when a project or group is marked for deletion.
 
@@ -36,8 +35,7 @@ and use the [CI/CD job token](../jobs/ci_job_token.md) based on your access leve
 Prerequisites:
 
 - You must have at least the Developer role for the project.
-- For schedules that target [protected branches](../../user/project/repository/branches/protected.md#protect-a-branch),
-  you must have merge permissions for the target branch.
+- For schedules that target [protected branches](../../user/project/repository/branches/protected.md#protect-a-branch), you must have merge permissions for the target branch.
 - Your `.gitlab-ci.yml` file must have valid syntax. You can [validate your configuration](../yaml/lint.md) before scheduling.
 
 To create a pipeline schedule:
@@ -46,20 +44,14 @@ To create a pipeline schedule:
 1. Select **Build** > **Pipeline schedules**.
 1. Select **New schedule**.
 1. Complete the fields.
-   - **Interval Pattern**: Select one of the preconfigured intervals, or enter a custom
-     interval in [cron notation](../../topics/cron/_index.md). You can use any cron value,
-     but scheduled pipelines cannot run more frequently than the instance's
-     [maximum scheduled pipeline frequency](../../administration/cicd/_index.md#change-maximum-scheduled-pipeline-frequency).
+   - **Interval Pattern**: Select one of the preconfigured intervals, or enter a custom interval in [cron notation](../../topics/cron/_index.md). You can use any cron value, but scheduled pipelines cannot run more frequently than the instance's [maximum scheduled pipeline frequency](../../administration/cicd/_index.md#change-maximum-scheduled-pipeline-frequency).
    - **Target branch or tag**: Select the branch or tag for the pipeline.
    - **Inputs**: Set values for any [inputs](../inputs/_index.md) defined in your pipeline's `spec:inputs` section.
      These input values are used every time the scheduled pipeline runs. A schedule can have a maximum of 20 inputs.
    - **Variables**: Add any number of [CI/CD variables](../variables/_index.md) to the schedule.
-     These variables are available only when the scheduled pipeline runs,
-     and not in any other pipeline run. Inputs are recommended for pipeline configuration instead of variables
-     because they offer improved security and flexibility.
+     These variables are available only when the scheduled pipeline runs, and not in any other pipeline run. Inputs are recommended for pipeline configuration instead of variables because they offer improved security and flexibility.
 
-If the project has reached the [maximum number of pipeline schedules](../../administration/instance_limits.md#number-of-pipeline-schedules),
-delete unused schedules before adding another.
+If the project has reached the [maximum number of pipeline schedules](../../administration/instance_limits.md#number-of-pipeline-schedules), delete unused schedules before adding another.
 
 ## Edit a pipeline schedule
 
@@ -67,10 +59,8 @@ Prerequisites:
 
 - You must be the schedule owner or take ownership of the schedule.
 - You must have at least the Developer role for the project.
-- For schedules that target [protected branches](../../user/project/repository/branches/protected.md#protect-a-branch),
-  you must have merge permissions for the target branch.
-- For schedules that run on [protected tags](../../user/project/protected_tags.md#configure-protected-tags),
-  you must be allowed to create protected tags.
+- For schedules that target [protected branches](../../user/project/repository/branches/protected.md#protect-a-branch), you must have merge permissions for the target branch.
+- For schedules that run on [protected tags](../../user/project/protected_tags.md#configure-protected-tags), you must be allowed to create protected tags.
 
 To edit a pipeline schedule:
 
@@ -134,15 +124,13 @@ When working with pipeline schedules, you might encounter the following issues.
 
 ### Scheduled pipeline becomes inactive
 
-If a scheduled pipeline status changes to `Inactive` unexpectedly,
-the schedule owner might have been blocked or removed from the project.
+If a scheduled pipeline status changes to `Inactive` unexpectedly, the schedule owner might have been blocked or removed from the project.
 
 Take ownership of the schedule to reactivate it.
 
 ### Distribute pipeline schedules to prevent system load
 
-To prevent excessive load from too many pipelines starting simultaneously,
-review and distribute your pipeline schedules:
+To prevent excessive load from too many pipelines starting simultaneously, review and distribute your pipeline schedules:
 
 1. Run this command to extract and format schedule data:
 
@@ -161,11 +149,10 @@ review and distribute your pipeline schedules:
     JOIN users    ON users.id    = ci_pipeline_schedules.owner_id
     WHERE ci_pipeline_schedules.active = 't'
     ) TO '$outfile' CSV HEADER DELIMITER E'\t' ;"
-   sort  "$outfile" | uniq -c | sort -n
+   sort "$outfile" | uniq -c | sort -n
    ```
 
 1. Review the output to identify popular `cron` patterns.
    For example, many schedules might run at the start of every hour (`0 * * * *`).
 1. Adjust the schedules to create a staggered [`cron` pattern](../../topics/cron/_index.md#cron-syntax), especially for large repositories.
-   For example, instead of multiple schedules running at the start of every hour,
-   distribute them throughout the hour (`5 * * * *`, `15 * * * *`, `25 * * * *`).
+   For example, instead of multiple schedules running at the start of every hour, distribute them throughout the hour (`5 * * * *`, `15 * * * *`, `25 * * * *`).

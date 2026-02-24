@@ -56,8 +56,7 @@ After you configure the plugin in your IDE, connect it to your GitLab account:
 1. Provide the **URL to GitLab instance**. For GitLab.com, use `https://gitlab.com`.
 1. Select an authentication method:
    - For GitLab.com, select **OAuth** and follow the prompts to authenticate.
-   - For GitLab Self-Managed and GitLab Dedicated, select **PAT** and paste your personal access
-     token. The token value is not displayed or accessible to others.
+   - For GitLab Self-Managed and GitLab Dedicated, select **PAT** and paste your personal access token. The token value is not displayed or accessible to others.
 1. Select **Verify setup**.
 1. Select **OK** or **Save**.
 
@@ -66,11 +65,9 @@ After you configure the plugin in your IDE, connect it to your GitLab account:
 Prerequisites:
 
 - You have the GitLab Duo add-on and a seat assigned.
-- You open a project that is linked to a remote repository on GitLab, or you set a
-  [default GitLab Duo namespace](../../user/gitlab_duo/model_selection.md#assign-a-default-gitlab-duo-namespace).
+- You open a project that is linked to a remote repository on GitLab, or you set a [default GitLab Duo namespace](../../user/gitlab_duo/model_selection.md#assign-a-default-gitlab-duo-namespace).
 
-To enable GitLab Duo Chat and GitLab Duo Code Suggestions, review the prerequisites and
-setup steps for each feature:
+To enable GitLab Duo Chat and GitLab Duo Code Suggestions, review the prerequisites and setup steps for each feature:
 
 - [GitLab Duo Chat (Agentic)](../../user/gitlab_duo_chat/agentic_chat.md#use-gitlab-duo-chat-in-jetbrains-ides)
 - [GitLab Duo Chat (Classic)](../../user/gitlab_duo_chat/_index.md#use-gitlab-duo-chat-in-jetbrains-ides)
@@ -78,8 +75,7 @@ setup steps for each feature:
 
 ## Set the default namespace
 
-The GitLab Duo Agent Platform uses the **Default Namespace** value when the plugin
-can't determine the current GitLab project. To configure this value:
+The GitLab Duo Agent Platform uses the **Default Namespace** value when the plugin can't determine the current GitLab project. To configure this value:
 
 1. In your IDE, on the top bar, select your IDE's name, then select **Settings**.
 1. On the left sidebar, expand **Tools**, then select **GitLab Duo**.
@@ -88,22 +84,18 @@ can't determine the current GitLab project. To configure this value:
 
 ## Install alpha versions of the plugin
 
-GitLab publishes pre-release (alpha) builds of the plugin to the
-[`Alpha` release channel](https://plugins.jetbrains.com/plugin/22325-gitlab-duo/edit/versions/alpha)
+GitLab publishes pre-release (alpha) builds of the plugin to the [`Alpha` release channel](https://plugins.jetbrains.com/plugin/22325-gitlab-duo/edit/versions/alpha)
 in the JetBrains Marketplace.
 
 To install a pre-release build, either:
 
-- Download the build from JetBrains Marketplace and
-  [install it from disk](https://www.jetbrains.com/help/idea/managing-plugins.html#install_plugin_from_disk).
+- Download the build from JetBrains Marketplace and [install it from disk](https://www.jetbrains.com/help/idea/managing-plugins.html#install_plugin_from_disk).
 - [Add the `alpha` plugin repository](https://www.jetbrains.com/help/idea/managing-plugins.html#add_plugin_repos)
-  to your IDE. For the repository URL, use `https://plugins.jetbrains.com/plugins/alpha/list`.
+ to your IDE. For the repository URL, use `https://plugins.jetbrains.com/plugins/alpha/list`.
 
-  {{< alert type="note" >}}
-  To see the alpha release after adding the `alpha` plugin repository, you might need to uninstall and reinstall the GitLab Duo plugin.
-  {{< /alert >}}
+ {{< alert type="note" >}} To see the alpha release after adding the `alpha` plugin repository, you might need to uninstall and reinstall the GitLab Duo plugin.
+ {{< /alert >}}
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
-For a video tutorial of this process, see
-[Install alpha releases of the GitLab Duo plugin for JetBrains](https://www.youtube.com/watch?v=Z9AuKybmeRU).
+For a video tutorial of this process, see [Install alpha releases of the GitLab Duo plugin for JetBrains](https://www.youtube.com/watch?v=Z9AuKybmeRU).
 <!-- Video published on 2024-04-04 -->

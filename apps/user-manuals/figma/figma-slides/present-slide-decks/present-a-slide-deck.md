@@ -41,10 +41,10 @@ To open a slide deck in presenter view:
 
 To avoid disruptions due to internet connection issues, you can preload slide decks to present while offline.
 
-1. Click  **Present** in the right sidebar to open the deck in presenter view.
-2. Click  the options menu in the top toolbar.
+1. Click **Present** in the right sidebar to open the deck in presenter view.
+2. Click the options menu in the top toolbar.
 3. Select **Make available offline**.
-4. Wait for  **Available to present while offline** to appear in the header. Once this icon appears, you’re ready to present offline.
+4. Wait for **Available to present while offline** to appear in the header. Once this icon appears, you’re ready to present offline.
 
 ![The options menu in presentation view is open, showing the option to Make available offline.](https://help.figma.com/hc/article_attachments/27448424026135)
 

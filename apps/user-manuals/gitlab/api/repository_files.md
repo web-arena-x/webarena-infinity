@@ -29,9 +29,7 @@ for this API.
 
 ## Get file from repository
 
-Allows you to receive information about file in repository like name, size, and
-content. File content is Base64 encoded. You can access this endpoint
-without authentication, if the repository is publicly accessible.
+Allows you to receive information about file in repository like name, size, and content. File content is Base64 encoded. You can access this endpoint without authentication, if the repository is publicly accessible.
 
 For blobs larger than 10 MB, this endpoint has a rate limit of 5 requests per minute.
 
@@ -47,51 +45,49 @@ Supported attributes:
 | `id`        | integer or string | Yes      | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the project. |
 | `ref`       | string            | Yes      | Name of branch, tag, or commit. Use `HEAD` to automatically use the default branch. |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute          | Type    | Description |
 |--------------------|---------|-------------|
-| `blob_id`          | string  | Blob SHA.   |
-| `commit_id`        | string  | Commit SHA for the file. |
-| `content`          | string  | Base64 encoded file content. |
-| `content_sha256`   | string  | SHA256 hash of the file content. |
-| `encoding`         | string  | Encoding used for the file content. |
+| `blob_id`          | string | Blob SHA.   |
+| `commit_id`        | string | Commit SHA for the file. |
+| `content`          | string | Base64 encoded file content. |
+| `content_sha256`   | string | SHA256 hash of the file content. |
+| `encoding`         | string | Encoding used for the file content. |
 | `execute_filemode` | boolean | If `true`, the execute flag is set on the file. |
-| `file_name`        | string  | Name of the file. |
-| `file_path`        | string  | Full path to the file. |
-| `last_commit_id`   | string  | SHA of the last commit that modified this file. |
-| `ref`              | string  | Name of the branch, tag, or commit used. |
+| `file_name`        | string | Name of the file. |
+| `file_path`        | string | Full path to the file. |
+| `last_commit_id`   | string | SHA of the last commit that modified this file. |
+| `ref`              | string | Name of the branch, tag, or commit used. |
 | `size`             | integer | Size of the file in bytes. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fmodels%2Fkey%2Erb?ref=main"
+ --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fmodels%2Fkey%2Erb?ref=main"
 ```
 
-If you don't know the branch name or want to use the default branch, you can use `HEAD` as the
-`ref` value. For example:
+If you don't know the branch name or want to use the default branch, you can use `HEAD` as the `ref` value. For example:
 
 ```shell
 curl --header "PRIVATE-TOKEN: " \
-  --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fmodels%2Fkey%2Erb?ref=HEAD"
+ --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fmodels%2Fkey%2Erb?ref=HEAD"
 ```
 
 Example response:
 
 ```json
 {
-  "file_name": "key.rb",
-  "file_path": "app/models/key.rb",
-  "size": 1476,
-  "encoding": "base64",
-  "content": "IyA9PSBTY2hlbWEgSW5mb3...",
-  "content_sha256": "4c294617b60715c1d218e61164a3abd4808a4284cbc30e6728a01ad9aada4481",
-  "ref": "main",
-  "blob_id": "79f7bbd25901e8334750839545a9bd021f0e4c83",
-  "commit_id": "d5a3ff139356ce33e37e73add446f16869741b50",
-  "last_commit_id": "570e7b2abdd848b95f2f578043fc23bd6f6fd24d",
-  "execute_filemode": false
+ "file_name": "key.rb",
+ "file_path": "app/models/key.rb",
+ "size": 1476,
+ "encoding": "base64",
+ "content": "IyA9PSBTY2hlbWEgSW5mb3...",
+ "content_sha256": "4c294617b60715c1d218e61164a3abd4808a4284cbc30e6728a01ad9aada4481",
+ "ref": "main",
+ "blob_id": "79f7bbd25901e8334750839545a9bd021f0e4c83",
+ "commit_id": "d5a3ff139356ce33e37e73add446f16869741b50",
+ "last_commit_id": "570e7b2abdd848b95f2f578043fc23bd6f6fd24d",
+ "execute_filemode": false
 }
 ```
 
@@ -105,7 +101,7 @@ HEAD /projects/:id/repository/files/:file_path
 
 ```shell
 curl --head --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fmodels%2Fkey%2Erb?ref=main"
+ --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fmodels%2Fkey%2Erb?ref=main"
 ```
 
 Example response:
@@ -145,24 +141,23 @@ Supported attributes:
 | `range[end]`   | integer           | No       | Last line of the range to blame. |
 | `range[start]` | integer           | No       | First line of the range to blame. |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute | Type   | Description |
 |-----------|--------|-------------|
-| `commit`  | object | Commit information for the blame range. |
-| `lines`   | array  | Array of lines for this blame range. |
+| `commit` | object | Commit information for the blame range. |
+| `lines`   | array | Array of lines for this blame range. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/path%2Fto%2Ffile.rb/blame?ref=main"
+ --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/path%2Fto%2Ffile.rb/blame?ref=main"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "commit": {
       "id": "d42409d56517157c48bf3bd97d3f75974dde19fb",
       "message": "Add feature\n\nalso fix bug\n",
@@ -181,7 +176,7 @@ Example response:
       "require 'open3'",
       ""
     ]
-  }
+ }
 ]
 ```
 
@@ -195,7 +190,7 @@ HEAD /projects/:id/repository/files/:file_path/blame
 
 ```shell
 curl --head --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/path%2Fto%2Ffile.rb/blame?ref=main"
+ --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/path%2Fto%2Ffile.rb/blame?ref=main"
 ```
 
 Example response:
@@ -218,19 +213,18 @@ X-Gitlab-Execute-Filemode: false
 
 ### Request a blame range
 
-To request a blame range, specify `range[start]` and `range[end]` parameters with
-the starting and ending line numbers of the file.
+To request a blame range, specify `range[start]` and `range[end]` parameters with the starting and ending line numbers of the file.
 
 ```shell
 curl --head --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/path%2Fto%2Ffile.rb/blame?ref=main&range[start]=1&range[end]=2"
+ --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/path%2Fto%2Ffile.rb/blame?ref=main&range[start]=1&range[end]=2"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "commit": {
       "id": "d42409d56517157c48bf3bd97d3f75974dde19fb",
       "message": "Add feature\n\nalso fix bug\n",
@@ -248,7 +242,7 @@ Example response:
       "require 'fileutils'",
       "require 'open3'"
     ]
-  }
+ }
 ]
 ```
 
@@ -269,7 +263,7 @@ Supported attributes:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fmodels%2Fkey%2Erb/raw?ref=main"
+ --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fmodels%2Fkey%2Erb/raw?ref=main"
 ```
 
 > [!note]
@@ -283,8 +277,7 @@ curl --header "PRIVATE-TOKEN: <your_access_token>" \
 
 {{< /history >}}
 
-Allows you to create a single file. For creating multiple files with a single request,
-see the [commits API](commits.md#create-a-commit).
+Allows you to create a single file. For creating multiple files with a single request, see the [commits API](commits.md#create-a-commit).
 
 ```plaintext
 POST /projects/:id/repository/files/:file_path
@@ -308,8 +301,7 @@ Supported attributes:
 | `execute_filemode` | boolean           | No       | If `true`, enables the `execute` flag on the file. If `false`, disables the `execute` flag on the file. |
 | `start_branch`     | string            | No       | Name of the base branch to create the branch from. |
 
-If successful, returns [`201 Created`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`201 Created`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute   | Type   | Description |
 |-------------|--------|-------------|
@@ -318,19 +310,19 @@ response attributes:
 
 ```shell
 curl --request POST \
-  --header 'PRIVATE-TOKEN: <your_access_token>' \
-  --header "Content-Type: application/json" \
-  --data '{"branch": "main", "author_email": "author@example.com", "author_name": "Firstname Lastname",
+ --header 'PRIVATE-TOKEN: <your_access_token>' \
+ --header "Content-Type: application/json" \
+ --data '{"branch": "main", "author_email": "author@example.com", "author_name": "Firstname Lastname",
             "content": "some content", "commit_message": "create a new file"}' \
-  --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fproject%2Erb"
+ --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fproject%2Erb"
 ```
 
 Example response:
 
 ```json
 {
-  "file_path": "app/project.rb",
-  "branch": "main"
+ "file_path": "app/project.rb",
+ "branch": "main"
 }
 ```
 
@@ -342,8 +334,7 @@ Example response:
 
 {{< /history >}}
 
-Allows you to update a single file. For updating multiple files with a single request,
-refer to the [commits API](commits.md#create-a-commit).
+Allows you to update a single file. For updating multiple files with a single request, refer to the [commits API](commits.md#create-a-commit).
 
 ```plaintext
 PUT /projects/:id/repository/files/:file_path
@@ -360,7 +351,7 @@ Supported attributes:
 | `commit_message` | string            | Yes      | Commit message. |
 | `content`        | string            | Yes      | File's content. |
 | `file_path`      | string            | Yes      | URL-encoded full path to the file. For example: `lib%2Fclass%2Erb`. |
-| `id`             | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths)  |
+| `id`             | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
 | `author_email`   | string            | No       | Commit author's email address. |
 | `author_name`    | string            | No       | Commit author's name. |
 | `encoding`       | string            | No       | Change encoding to `base64`. Default is `text`. |
@@ -368,8 +359,7 @@ Supported attributes:
 | `last_commit_id` | string            | No       | Last known file commit ID. |
 | `start_branch`   | string            | No       | Name of the base branch to create the branch from. |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute   | Type   | Description |
 |-------------|--------|-------------|
@@ -378,24 +368,23 @@ response attributes:
 
 ```shell
 curl --request PUT \
-  --header 'PRIVATE-TOKEN: <your_access_token>' \
-  --header "Content-Type: application/json" \
-  --data '{"branch": "main", "author_email": "author@example.com", "author_name": "Firstname Lastname",
+ --header 'PRIVATE-TOKEN: <your_access_token>' \
+ --header "Content-Type: application/json" \
+ --data '{"branch": "main", "author_email": "author@example.com", "author_name": "Firstname Lastname",
        "content": "some content", "commit_message": "update file"}' \
-  --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fproject%2Erb"
+ --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fproject%2Erb"
 ```
 
 Example response:
 
 ```json
 {
-  "file_path": "app/project.rb",
-  "branch": "main"
+ "file_path": "app/project.rb",
+ "branch": "main"
 }
 ```
 
-If the commit fails for any reason, the API returns a `400 Bad Request` error with a non-specific
-error message. Possible causes for a failed commit include:
+If the commit fails for any reason, the API returns a `400 Bad Request` error with a non-specific error message. Possible causes for a failed commit include:
 
 - The `file_path` contained `/../` (attempted directory traversal).
 - The commit was empty: new file contents were identical to the current file contents.
@@ -405,8 +394,7 @@ error message. Possible causes for a failed commit include:
 
 ## Delete existing file in repository
 
-Deletes a single file. To delete multiple files with a single request,
-see the [commits API](commits.md#create-a-commit).
+Deletes a single file. To delete multiple files with a single request, see the [commits API](commits.md#create-a-commit).
 
 ```plaintext
 DELETE /projects/:id/repository/files/:file_path
@@ -429,9 +417,9 @@ If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes).
 
 ```shell
 curl --request DELETE \
-  --header 'PRIVATE-TOKEN: <your_access_token>' \
-  --header "Content-Type: application/json" \
-  --data '{"branch": "main", "author_email": "author@example.com", "author_name": "Firstname Lastname",
+ --header 'PRIVATE-TOKEN: <your_access_token>' \
+ --header "Content-Type: application/json" \
+ --data '{"branch": "main", "author_email": "author@example.com", "author_name": "Firstname Lastname",
        "commit_message": "delete file"}' \
-  --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fproject%2Erb"
+ --url "https://gitlab.example.com/api/v4/projects/13083/repository/files/app%2Fproject%2Erb"
 ```

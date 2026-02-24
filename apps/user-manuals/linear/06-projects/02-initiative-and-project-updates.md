@@ -69,7 +69,7 @@ When viewing a list of Initiatives, you can also click on the health status to s
 
 Updates appear in chronological order, and anyone can react with emoji to express sentiment. You can also view updates in Slack if they have been configured to post there.
 
-To share an update, you can copy a link or copy it as Markdown using the `⌘/Ctrl`  `K` action menu.
+To share an update, you can copy a link or copy it as Markdown using the `⌘/Ctrl` `K` action menu.
 
 > [!NOTE]
 > **How we work**: The project lead adds weekly project updates. As well as viewing these in Linear, we have these set up to appear in a specific channel in our Slack workspace. We can then easily discuss each update in a Slack thread originating from the original posted message.   
@@ -164,7 +164,7 @@ To receive a project update reminder, the following applies:
 
 * You must be the project lead
 * The project must have "In Progress" as its status
-* You must not have posted an update in the last 24 hours  
+* You must not have posted an update in the last 24 hours 
 
 
 If the above conditions are true but you are still not receiving project update reminders, reach out to us for help.

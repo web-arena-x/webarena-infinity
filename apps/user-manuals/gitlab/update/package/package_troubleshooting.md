@@ -23,33 +23,26 @@ sudo gitlab-rake gitlab:check SANITIZE=true
 For more information on:
 
 - Using `gitlab-ctl` for maintenance, see [Maintenance commands](https://docs.gitlab.com/omnibus/maintenance/).
-- Using `gitlab-rake` for configuration checking, see
-  [Check GitLab configuration](../../administration/raketasks/maintenance.md#check-gitlab-configuration).
+- Using `gitlab-rake` for configuration checking, see [Check GitLab configuration](../../administration/raketasks/maintenance.md#check-gitlab-configuration).
 
 ## No new version found after upgrading operating system
 
-Operating system upgrades are sometimes required before upgrading GitLab. When upgrading an operating system, you
-might also need to update the GitLab package source URL in the package manager configuration of your operating system.
+Operating system upgrades are sometimes required before upgrading GitLab. When upgrading an operating system, you might also need to update the GitLab package source URL in the package manager configuration of your operating system.
 
-If your package manager finds no available upgrades but upgrades should be available, add the GitLab package repository
-again. For more information, see information about
-[installing GitLab by using the Linux package](../../install/package/_index.md).
+If your package manager finds no available upgrades but upgrades should be available, add the GitLab package repository again. For more information, see information about [installing GitLab by using the Linux package](../../install/package/_index.md).
 
 Future GitLab upgrades are fetched according to your upgraded operating system.
 
 ## 500 errors with `PG::UndefinedColumn: ERROR:..` message in logs
 
-After upgrading, if you start getting `500` errors in the logs that show messages similar to `PG::UndefinedColumn: ERROR:...`,
-these errors could be cause by either:
+After upgrading, if you start getting `500` errors in the logs that show messages similar to `PG::UndefinedColumn: ERROR:...`, these errors could be cause by either:
 
 - [Database migrations](../background_migrations.md) not being complete. Wait until migrations are completed.
-- Database migrations being complete, but GitLab needing to load the new schema. To load the new schema,
-  [restart GitLab](../../administration/restart_gitlab.md).
+- Database migrations being complete, but GitLab needing to load the new schema. To load the new schema, [restart GitLab](../../administration/restart_gitlab.md).
 
 ## Error: Failed to connect to the internal GitLab API
 
-If you receive the error `Failed to connect to the internal GitLab API` on a separate GitLab Pages server,
-see the [GitLab Pages administration troubleshooting](../../administration/pages/troubleshooting.md#failed-to-connect-to-the-internal-gitlab-api)
+If you receive the error `Failed to connect to the internal GitLab API` on a separate GitLab Pages server, see the [GitLab Pages administration troubleshooting](../../administration/pages/troubleshooting.md#failed-to-connect-to-the-internal-gitlab-api)
 
 ## An error occurred during the signature verification
 
@@ -73,8 +66,7 @@ apt-get update
 
 ## Error: `Command timed out after 3600s`
 
-If database schema and data changes (database migrations) must take more than one hour to run,
-upgrades fail with a `timed out` error:
+If database schema and data changes (database migrations) must take more than one hour to run, upgrades fail with a `timed out` error:
 
 ```plaintext
 FATAL: Mixlib::ShellOut::CommandTimeout: rails_migration[gitlab-rails] (gitlab::database_migrations line 51)
@@ -91,8 +83,7 @@ To fix this error:
    sudo gitlab-rake db:migrate
    ```
 
-   This command may take a very long time to complete. Use `screen` or some other mechanism to ensure
-   the program is not interrupted if your SSH session drops.
+   This command may take a very long time to complete. Use `screen` or some other mechanism to ensure the program is not interrupted if your SSH session drops.
 
 1. Complete the upgrade:
 
@@ -117,19 +108,15 @@ Following an upgrade, GitLab might not correctly serve up assets such as:
 
 GitLab might generate 500 errors, or the web UI might fail to render properly.
 
-In a scaled out GitLab environment, if one web server behind the load balancer is demonstrating
-this issue, the problem occurs intermittently.
+In a scaled out GitLab environment, if one web server behind the load balancer is demonstrating this issue, the problem occurs intermittently.
 
-The [Rake task to recompile](../../administration/raketasks/maintenance.md#precompile-the-assets) the
-assets doesn't apply to a Linux package installation which serves
-pre-compiled assets from `/opt/gitlab/embedded/service/gitlab-rails/public/assets`.
+The [Rake task to recompile](../../administration/raketasks/maintenance.md#precompile-the-assets) the assets doesn't apply to a Linux package installation which serves pre-compiled assets from `/opt/gitlab/embedded/service/gitlab-rails/public/assets`.
 
 The following sections outline possible causes and solutions.
 
 ### Old processes
 
-The most likely cause of old processes is that an old Puma process is running. And old Puma process can instruct clients
-to request asset files from a previous release of GitLab. Because the files no longer exist, HTTP 404 errors are returned.
+The most likely cause of old processes is that an old Puma process is running. And old Puma process can instruct clients to request asset files from a previous release of GitLab. Because the files no longer exist, HTTP 404 errors are returned.
 
 A reboot is the best way to ensure these old Puma processes are no longer running. Alternatively, you can:
 
@@ -155,8 +142,7 @@ A reboot is the best way to ensure these old Puma processes are no longer runnin
 
 ### Duplicate sprockets files
 
-The compiled asset files have unique filenames in each release. The sprockets files
-provide a mapping from the filenames in the application code to the unique filenames.
+The compiled asset files have unique filenames in each release. The sprockets files provide a mapping from the filenames in the application code to the unique filenames.
 
 ```plaintext
 /opt/gitlab/embedded/service/gitlab-rails/public/assets/.sprockets-manifest*.json
@@ -177,12 +163,11 @@ Options for resolving this include:
 
 - If you have the output from the package upgrade, remove the specified files. Then restart Puma:
 
-  ```shell
-  gitlab-ctl restart puma
-  ```
+ ```shell
+ gitlab-ctl restart puma
+ ```
 
-- If you don't have the message, perform a reinstall to generate it again. For more information, see
-  [Incomplete installation](#incomplete-installation).
+- If you don't have the message, perform a reinstall to generate it again. For more information, see [Incomplete installation](#incomplete-installation).
 - Remove all the sprockets files and then follow the instructions for an [incomplete installation](#incomplete-installation).
 
 ### Incomplete installation
@@ -193,16 +178,16 @@ Verify the package to determine if this is the problem:
 
 - For Debian distributions:
 
-  ```shell
-  apt-get install debsums
-  debsums -c gitlab-ee
-  ```
+ ```shell
+ apt-get install debsums
+ debsums -c gitlab-ee
+ ```
 
 - For Red Hat/SUSE (RPM) distributions:
 
-  ```shell
-  rpm -V gitlab-ee
-  ```
+ ```shell
+ rpm -V gitlab-ee
+ ```
 
 To reinstall the package to fix an incomplete installation:
 

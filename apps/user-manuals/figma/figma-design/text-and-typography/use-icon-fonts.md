@@ -48,7 +48,7 @@ Figma supports four different **Font Awesome** fonts. Browse each of the icon li
 7. Paste the icon into your text layer in Figma using the keyboard shortcut:
    - macOS: `Command` `V`
    - Windows: `Ctrl` `V`
-8. Some Font Awesome icons only support regular or solid versions, while others support both. Based on your icon choice, use the font style field to select Regular or Solid:  ![Image of the properties panel with the font style menu expanded](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5cc869632c7d3a026fd43038/file-AUVS6cDygE.png)
+8. Some Font Awesome icons only support regular or solid versions, while others support both. Based on your icon choice, use the font style field to select Regular or Solid: ![Image of the properties panel with the font style menu expanded](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5cc869632c7d3a026fd43038/file-AUVS6cDygE.png)
 9. Figma will display the icon in the canvas:![Image showing an ambulance icon from Font Awesome in the Figma canvas](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5c414ebf042863543ccbf566/file-MaAweyvuib.png)
 
 Font Awesome has both regular or solid versions of an icon. If an icon isn't showing up when you paste it, you may need to switch to the solid style to see the icon.

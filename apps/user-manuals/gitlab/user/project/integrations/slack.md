@@ -16,15 +16,12 @@ title: Slack notifications (deprecated)
 
 {{< alert type="warning" >}}
 
-This feature was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/435909) in GitLab 15.9
-and is planned for removal in 19.0. Use the [GitLab for Slack app](gitlab_slack_application.md) instead.
+This feature was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/435909) in GitLab 15.9 and is planned for removal in 19.0. Use the [GitLab for Slack app](gitlab_slack_application.md) instead.
 This change is a breaking change.
 
 {{< /alert >}}
 
-The Slack notifications integration enables your GitLab project to send events
-(such as issue creation) to your existing Slack team as notifications. Setting up
-Slack notifications requires configuration changes for both Slack and GitLab.
+The Slack notifications integration enables your GitLab project to send events (such as issue creation) to your existing Slack team as notifications. Setting up Slack notifications requires configuration changes for both Slack and GitLab.
 
 You can also use [Slack slash commands](slack_slash_commands.md)
 to control GitLab from Slack. Slash commands are configured separately.
@@ -48,26 +45,16 @@ to control GitLab from Slack. Slash commands are configured separately.
 1. Select **Settings** > **Integrations**.
 1. Select **Slack notifications**.
 1. Under **Enable integration**, select the **Active** checkbox.
-1. In the **Trigger** section, select the checkboxes for each type of GitLab
-   event to send to Slack as a notification. For a full list, see
-   [Triggers for Slack notifications](#triggers-for-slack-notifications).
-   By default, messages are sent to the channel you configured during
-   [Slack configuration](#configure-slack).
-1. Optional. To send messages to a different channel, multiple channels, or as
-   a direct message:
-   - *To send messages to channels,* enter the Slack channel names, separated by
-     commas.
+1. In the **Trigger** section, select the checkboxes for each type of GitLab event to send to Slack as a notification. For a full list, see [Triggers for Slack notifications](#triggers-for-slack-notifications).
+   By default, messages are sent to the channel you configured during [Slack configuration](#configure-slack).
+1. Optional. To send messages to a different channel, multiple channels, or as a direct message:
+   - *To send messages to channels,* enter the Slack channel names, separated by commas.
    - *To send direct messages,* use the Member ID found in the user's Slack profile.
-1. In **Webhook**, enter the webhook URL you copied in the
-   [Slack configuration](#configure-slack) step.
-1. Optional. In **Username**, enter the username of the Slack bot that sends
-   the notifications.
+1. In **Webhook**, enter the webhook URL you copied in the [Slack configuration](#configure-slack) step.
+1. Optional. In **Username**, enter the username of the Slack bot that sends the notifications.
 1. Select the **Notify only broken pipelines** checkbox to notify only on failures.
-1. In the **Branches for which notifications are to be sent** dropdown list, select which types of branches
-   to send notifications for.
-1. Leave the **Labels to be notified** field blank to get all notifications, or
-   add labels that the issue or merge request must have to trigger a
-   notification.
+1. In the **Branches for which notifications are to be sent** dropdown list, select which types of branches to send notifications for.
+1. Leave the **Labels to be notified** field blank to get all notifications, or add labels that the issue or merge request must have to trigger a notification.
 1. Optional. Select **Test settings**.
 1. Select **Save changes**.
 
@@ -109,20 +96,17 @@ To trigger a [notification event](#triggers-for-slack-notifications) for a group
 - Issue and merge request descriptions
 - Comments on issues, merge requests, and commits
 
-Notifications are triggered only if all direct group members have permission to view the resource
-(for example, merge request) where the mention is made. A notification will only be sent to at most 3 groups per event.
+Notifications are triggered only if all direct group members have permission to view the resource (for example, merge request) where the mention is made. A notification will only be sent to at most 3 groups per event.
 
 ## Troubleshooting
 
-If your Slack integration is not working, start troubleshooting by
-searching through the [Sidekiq logs](../../../administration/logs/_index.md#sidekiqlog)
+If your Slack integration is not working, start troubleshooting by searching through the [Sidekiq logs](../../../administration/logs/_index.md#sidekiqlog)
 for errors relating to your Slack service.
 
 ### Error: `Something went wrong on our end`
 
 You might get this generic error message in the GitLab UI.
-Review [the logs](../../../administration/logs/_index.md#productionlog) to find
-the error message and keep troubleshooting from there.
+Review [the logs](../../../administration/logs/_index.md#productionlog) to find the error message and keep troubleshooting from there.
 
 ### Error: `certificate verify failed`
 
@@ -132,8 +116,7 @@ You might see an entry like the following in your Sidekiq log:
 2019-01-10_13:22:08.42572 2019-01-10T13:22:08.425Z 6877 TID-abcdefg Integrations::ExecuteWorker JID-3bade5fb3dd47a85db6d78c5 ERROR: {:class=>"Integrations::ExecuteWorker :integration_class=>"SlackService", :message=>"SSL_connect returned=1 errno=0 state=error: certificate verify failed"}
 ```
 
-This issue occurs when there is a problem with GitLab communicating with Slack,
-or GitLab communicating with itself.
+This issue occurs when there is a problem with GitLab communicating with Slack, or GitLab communicating with itself.
 The former is less likely, as Slack security certificates should always be trusted.
 
 To view which of these problems is the cause of the issue:
@@ -157,19 +140,16 @@ To view which of these problems is the cause of the issue:
    result = Net::HTTP.get(URI('https://<GITLAB URL>'));0
    ```
 
-If GitLab does not trust HTTPS connections to itself,
-[add your certificate to the GitLab trusted certificates](https://docs.gitlab.com/omnibus/settings/ssl/#install-custom-public-certificates).
+If GitLab does not trust HTTPS connections to itself, [add your certificate to the GitLab trusted certificates](https://docs.gitlab.com/omnibus/settings/ssl/#install-custom-public-certificates).
 
-If GitLab does not trust connections to Slack,
-the GitLab OpenSSL trust store is incorrect. Typical causes are:
+If GitLab does not trust connections to Slack, the GitLab OpenSSL trust store is incorrect. Typical causes are:
 
 - Overriding the trust store with `gitlab_rails['env'] = {"SSL_CERT_FILE" => "/path/to/file.pem"}`.
 - Accidentally modifying the default CA bundle `/opt/gitlab/embedded/ssl/certs/cacert.pem`.
 
 ### Bulk update to disable the Slack Notification integration
 
-To disable notifications for all projects that have Slack integration enabled,
-[start a rails console session](../../../administration/operations/rails_console.md#starting-a-rails-console-session) and use a script similar to the following:
+To disable notifications for all projects that have Slack integration enabled, [start a rails console session](../../../administration/operations/rails_console.md#starting-a-rails-console-session) and use a script similar to the following:
 
 {{< alert type="warning" >}}
 
@@ -183,7 +163,7 @@ p = Project.find_by_sql("SELECT p.id FROM projects p LEFT JOIN integrations s ON
 
 # Disable the integration on each of the projects that were found.
 p.each do |project|
-  project.slack_integration.update!(:active, false)
+ project.slack_integration.update!(:active, false)
 end
 ```
 

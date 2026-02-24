@@ -31,9 +31,9 @@ Pages give you an extra layer of organization within your files. Here are some t
 
 ## View pages
 
-Access pages when you view a board in FigJam. You can view, create, and manage pages by clicking the  icon in the left sidebar.
+Access pages when you view a board in FigJam. You can view, create, and manage pages by clicking the icon in the left sidebar.
 
-1. To open the page list, click the current page name or  **Add pages**.
+1. To open the page list, click the current page name or **Add pages**.
 2. Select a page in the page list to view that page.
 
 ## Create pages
@@ -42,7 +42,7 @@ Access pages when you view a board in FigJam. You can view, create, and manage p
 
 To add a page:
 
-1. Click  in the left sidebar.
+1. Click in the left sidebar.
 2. Give the new page a name, then press `Return` / `Enter`.
 
 Tip:
@@ -96,7 +96,7 @@ Figma will move the objects to the same area of the board on the selected page.
 
 To share the link to a page:
 
-1. Click the page name or  icon in the left sidebar.
+1. Click the page name or icon in the left sidebar.
 2. Right-click the name of the page you want to share.
 3. Select **Copy link to page**.
 

@@ -1,4 +1,4 @@
-# Legacy View: Managing the Approval Process After an Experience  "Needs Review"
+# Legacy View: Managing the Approval Process After an Experience "Needs Review"
 
 Source: https://support.joinhandshake.com/hc/en-us/articles/115015762587-Legacy-View-Managing-the-Approval-Process-After-an-Experience-Needs-Review
 
@@ -50,8 +50,8 @@ The approver has the option to add a comment along with the status update. This 
 
 ![Screen_Shot_2017-12-20_at_4.57.35_PM.png](https://support.joinhandshake.com/hc/article_attachments/115026673247/Screen_Shot_2017-12-20_at_4.57.35_PM.png)
 
-5. Change the status to **Pending**  
-  
+5. Change the status to **Pending** 
+ 
 ![](/attachments/token/svKhPV4ujBYUgqdIsNcai5q70/?name=Screen+Shot+2017-12-14+at+12.16.40+PM.png)​​​​
 
 *Note*: Directly updating this status will not send out any emails
@@ -76,8 +76,7 @@ The approver has the option to add a comment along with the status update. This 
 
 ![Screen_Shot_2017-12-20_at_5.04.34_PM.png](https://support.joinhandshake.com/hc/article_attachments/115026710108/Screen_Shot_2017-12-20_at_5.04.34_PM.png)
 
-​  
-If you have any additional questions about the overall workflow, explore these resources:
+​ If you have any additional questions about the overall workflow, explore these resources:
 
 - [How to Kick Off the Approval Process for an Experience](https://support.joinhandshake.com/hc/en-us/articles/115015861708)
 - [How to Assist Approvers Who Are Not Receiving Experience Evaluation Requests](https://support.joinhandshake.com/hc/en-us/articles/115015811088)

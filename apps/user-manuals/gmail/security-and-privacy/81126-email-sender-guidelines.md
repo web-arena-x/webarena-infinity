@@ -24,8 +24,8 @@ Follow these guidelines to help ensure messages are delivered to Gmail accounts 
 
 Requirements for all senders
 
-Starting February 1, 2024, all email senders who send email to Gmail accounts must meet the requirements in this section.  
-  
+Starting February 1, 2024, all email senders who send email to Gmail accounts must meet the requirements in this section. 
+ 
 **Important:** If you send more than 5,000 messages per day to Gmail accounts, follow the [Requirements for sending 5,000 or more messages per day](#requirements-5k).
 
 - Set up SPF or DKIM email authentication for your sending domains.
@@ -147,11 +147,7 @@ To set up one-click unsubscribe for Gmail messages, include both of these header
 
 When a recipient unsubscribes using one-click, you receive this POST request:
 
-"POST /unsubscribe/example HTTP/1.1  
-Host: solarmora.com  
-Content-Type: application/x-www-form-urlencoded  
-Content-Length: 26  
-List-Unsubscribe=One-Click"
+"POST /unsubscribe/example HTTP/1.1 Host: solarmora.com Content-Type: application/x-www-form-urlencoded Content-Length: 26 List-Unsubscribe=One-Click"
 
 Learn more about List-Unsubscribe: headers in [RFC 2369](https://tools.ietf.org/html/rfc2369) and [RFC 8058](https://tools.ietf.org/html/rfc8058).
 
@@ -166,24 +162,24 @@ Follow these message formatting guidelines to help ensure messages are delivered
 
 - If your messages are in HTML, format them according to [HTML standards](https://html.spec.whatwg.org/multipage/).
 - Follow these message header guidelines:
-  - From: headers should include only one email address. For example:  
+ - From: headers should include only one email address. For example: 
     From: notifications@solarmora.com
-  - Avoid excessively large message headers. To learn more, visit [Gmail message header limits](/a/answer/14016360).
+ - Avoid excessively large message headers. To learn more, visit [Gmail message header limits](/a/answer/14016360).
 - Format messages according to the Internet Format Standard ([RFC 5322](https://tools.ietf.org/html/rfc5322)).
-  - Make sure every message includes a valid Message-ID.
-  - Make sure single-instance message headers are included only once in a message. Examples of single-instance headers include From:, To:, Subject:, and Date:.
+ - Make sure every message includes a valid Message-ID.
+ - Make sure single-instance message headers are included only once in a message. Examples of single-instance headers include From:, To:, Subject:, and Date:.
 - Message headers and message content should be accurate, and not misleading or deceptive.
-  - Email message subject, headers, display names, and other message elements should accurately represent the sender identity and message content, and shouldn’t be misleading. For example, don’t send messages with subject lines starting with Re: or Fwd: unless the messages are actual replies or forwards, and include only actual senders and recipients in From: and To: headers.
-  - Don't use emojis or other non-standard characters to imitate graphic elements in messages, with the intent to deceive or influence recipients. For example, don’t use emojis or images next to display names or brand names to imply the name has been verified in some way.
-  - Don’t use HTML and CSS to hide content in your messages. Hiding content might cause messages to be marked as spam.
-  - Web links in the message body should be visible and easy to understand. Recipients should know what to expect when they click a link.
-  - Sender information should be clear and visible.
+ - Email message subject, headers, display names, and other message elements should accurately represent the sender identity and message content, and shouldn’t be misleading. For example, don’t send messages with subject lines starting with Re: or Fwd: unless the messages are actual replies or forwards, and include only actual senders and recipients in From: and To: headers.
+ - Don't use emojis or other non-standard characters to imitate graphic elements in messages, with the intent to deceive or influence recipients. For example, don’t use emojis or images next to display names or brand names to imply the name has been verified in some way.
+ - Don’t use HTML and CSS to hide content in your messages. Hiding content might cause messages to be marked as spam.
+ - Web links in the message body should be visible and easy to understand. Recipients should know what to expect when they click a link.
+ - Sender information should be clear and visible.
 - Format the following international domains according to [Section 5.2 of Unicode Technical Standard #39](http://www.unicode.org/reports/tr39/#Restriction_Level_Detection). An international domain is also called an ;*internationalized domain name (IDN*), and is a URL that is specific to a region or country.
-  - Authenticating domain
-  - Envelope from domain
-  - Payload domain
-  - Reply-to domain
-  - Sender domain
+ - Authenticating domain
+ - Envelope from domain
+ - Payload domain
+ - Reply-to domain
+ - Sender domain
 
 ### Guidelines for email display names
 
@@ -202,19 +198,19 @@ Display names should never be used to attempt to deceive the recipient of the em
 Avoid misleading or deceptive display names by following these guidelines:
 
 - Identify the sender first and don’t include subject or message content in this display name. For example, don’t use display names like these:
-  - Important Update ---------- From [Company Name]
-  - TIME IS RUNNING OUT (SALE)
-  - [Product/News] Alert
-  - URGENT REQUEST
-  - Last Chance
+ - Important Update ---------- From [Company Name]
+ - TIME IS RUNNING OUT (SALE)
+ - [Product/News] Alert
+ - URGENT REQUEST
+ - Last Chance
 - The display name should not include the recipient’s name and should not imply a message reply or threaded conversation. For example, don’t use display names like these:
-  - [recipient’s first name] <info@organization.com>
-  - User (2)
+ - [recipient’s first name] <info@organization.com>
+ - User (2)
 - The display name should clearly identify the sender and shouldn't include emojis or other non-standard characters to imitate graphic elements. For example, don’t use display names like these:
-  - ![](//storage.googleapis.com/support-kms-prod/vkw133ZXkbLgmrgXGJnhjgOjcT18wm4L6LOa) LATEST UPDATE
-  - MAIL, ME ![](//storage.googleapis.com/support-kms-prod/2d2OWuojrmIaWtXUAcZw525P6w97ZTGzsG1S)
-  - ![](//storage.googleapis.com/support-kms-prod/zsu6j9LDhrDwKnH5i2CmXyVClaxer1NqV6nd)
-  - [1] New Message
+ - ![](//storage.googleapis.com/support-kms-prod/vkw133ZXkbLgmrgXGJnhjgOjcT18wm4L6LOa) LATEST UPDATE
+ - MAIL, ME ![](//storage.googleapis.com/support-kms-prod/2d2OWuojrmIaWtXUAcZw525P6w97ZTGzsG1S)
+ - ![](//storage.googleapis.com/support-kms-prod/zsu6j9LDhrDwKnH5i2CmXyVClaxer1NqV6nd)
+ - [1] New Message
 
 #### **Spoofing and display names**
 
@@ -234,9 +230,9 @@ To reduce the chances that messages from your domain are sent to spam or blocked
 - Ideally, send all messages from the same IP address. If you must send from multiple IP addresses, use a different IP address for each message type. For example, use one IP address for sending account notifications and a different IP address for sending promotional messages.
 - Messages of the same category should have the same From: email address. For example, messages from a domain called **example.com** might have From: addresses like:
 
-  - Sales receipt messages: **sales@example.com**
-  - Promotional messages: **deals@example.com**
-  - Account notification messages: **alert@example.com**
+ - Sales receipt messages: **sales@example.com**
+ - Promotional messages: **deals@example.com**
+ - Account notification messages: **alert@example.com**
 - Messages sent from an address in the recipient’s contacts are less likely to be marked as spam.
 
 #### Sending practices to avoid
@@ -268,9 +264,9 @@ If you send large amounts of email, we recommend you:
 - After making any significant changes to your sending infrastructure or email header structure, increase the modified segment of traffic separately.
 - If messages start bouncing or start being deferred, reduce the sending volume until the SMTP error rate decreases. Then, increase slowly again. If bounces and deferrals continue at a low volume, review individual messages to identify problems. For example, you can try sending a blank test message and see if it experiences issues.
 - Stay within the IP limits for sending:
-  - Be aware of email sending limits when sending from domains that have a Google.com MX host.
-  - Limit sending email from a single IP address based on the MX record domain, not the domain in the recipient email address.
-  - Monitor responses so you can change sending rates as needed to stay within these limits.
+ - Be aware of email sending limits when sending from domains that have a Google.com MX host.
+ - Limit sending email from a single IP address based on the MX record domain, not the domain in the recipient email address.
+ - Monitor responses so you can change sending rates as needed to stay within these limits.
 
 These factors affect how quickly you can increase sending volume:
 

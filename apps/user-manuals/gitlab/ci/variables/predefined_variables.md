@@ -14,24 +14,21 @@ title: Predefined CI/CD variables reference
 
 Predefined [CI/CD variables](_index.md) are available in every GitLab CI/CD pipeline.
 
-Avoid [overriding](_index.md#use-pipeline-variables) predefined variables,
-as it can cause the pipeline to behave unexpectedly.
+Avoid [overriding](_index.md#use-pipeline-variables) predefined variables, as it can cause the pipeline to behave unexpectedly.
 
 ## Variable availability
 
 Predefined variables become available at three different phases of pipeline execution:
 
 - Pre-pipeline: Pre-pipeline variables are available before the pipeline is created.
-  These variables are the only variables that can be used with [`include:rules`](../yaml/_index.md#includerules)
-  to control which configuration files to use when creating the pipeline.
+ These variables are the only variables that can be used with [`include:rules`](../yaml/_index.md#includerules)
+ to control which configuration files to use when creating the pipeline.
 - Pipeline: Pipeline variables become available when GitLab is creating the pipeline.
-  Along with pre-pipeline variables, pipeline variables can be used to configure
-  [`rules`](../yaml/_index.md#rules) defined in jobs, to determine which jobs to add to the pipeline.
-- Job-only: These variables are only made available to each job when a runner picks
-  up the job and runs it, and:
-  - Can be used in job scripts.
-  - Cannot be used with [trigger jobs](../pipelines/downstream_pipelines.md#trigger-a-downstream-pipeline-from-a-job-in-the-gitlab-ciyml-file).
-  - Cannot be used with [`workflow`](../yaml/_index.md#workflow), [`include`](../yaml/_index.md#include)
+ Along with pre-pipeline variables, pipeline variables can be used to configure [`rules`](../yaml/_index.md#rules) defined in jobs, to determine which jobs to add to the pipeline.
+- Job-only: These variables are only made available to each job when a runner picks up the job and runs it, and:
+ - Can be used in job scripts.
+ - Cannot be used with [trigger jobs](../pipelines/downstream_pipelines.md#trigger-a-downstream-pipeline-from-a-job-in-the-gitlab-ciyml-file).
+ - Cannot be used with [`workflow`](../yaml/_index.md#workflow), [`include`](../yaml/_index.md#include)
     or [`rules`](../yaml/_index.md#rules).
 
 ## Predefined variables
@@ -175,13 +172,10 @@ Predefined variables become available at three different phases of pipeline exec
 
 ## Predefined variables for merge request pipelines
 
-These variables are available before GitLab creates the pipeline
-(Pre-pipeline). These variables can be used with
-[`include:rules`](../yaml/includes.md#use-rules-with-include)
+These variables are available before GitLab creates the pipeline (Pre-pipeline). These variables can be used with [`include:rules`](../yaml/includes.md#use-rules-with-include)
 and as environment variables in jobs.
 
-The pipeline must be a [merge request pipeline](../pipelines/merge_request_pipelines.md),
-and the merge request must be open.
+The pipeline must be a [merge request pipeline](../pipelines/merge_request_pipelines.md), and the merge request must be open.
 
 | Variable                                    | Description |
 |---------------------------------------------|-------------|
@@ -201,14 +195,14 @@ and the merge request must be open.
 | `CI_MERGE_REQUEST_PROJECT_URL`              | The URL of the project of the merge request. For example, `http://192.168.10.15:3000/namespace/awesome-project`. |
 | `CI_MERGE_REQUEST_REF_PATH`                 | The ref path of the merge request. For example, `refs/merge-requests/1/head`. |
 | `CI_MERGE_REQUEST_SOURCE_BRANCH_NAME`       | The source branch name of the merge request. |
-| `CI_MERGE_REQUEST_SOURCE_BRANCH_PROTECTED`  | `true` when the source branch of the merge request is [protected](../../user/project/repository/branches/protected.md). Introduced in GitLab 16.4. |
+| `CI_MERGE_REQUEST_SOURCE_BRANCH_PROTECTED` | `true` when the source branch of the merge request is [protected](../../user/project/repository/branches/protected.md). Introduced in GitLab 16.4. |
 | `CI_MERGE_REQUEST_SOURCE_BRANCH_SHA`        | The HEAD SHA of the source branch of the merge request. The variable is empty in merge request pipelines. The SHA is present only in [merged results pipelines](../pipelines/merged_results_pipelines.md). |
 | `CI_MERGE_REQUEST_SOURCE_PROJECT_ID`        | The ID of the source project of the merge request. |
 | `CI_MERGE_REQUEST_SOURCE_PROJECT_PATH`      | The path of the source project of the merge request. |
 | `CI_MERGE_REQUEST_SOURCE_PROJECT_URL`       | The URL of the source project of the merge request. |
 | `CI_MERGE_REQUEST_SQUASH_ON_MERGE`          | `true` when the [squash on merge](../../user/project/merge_requests/squash_and_merge.md) option is set. Introduced in GitLab 16.4. |
 | `CI_MERGE_REQUEST_TARGET_BRANCH_NAME`       | The target branch name of the merge request. |
-| `CI_MERGE_REQUEST_TARGET_BRANCH_PROTECTED`  | `true` when the target branch of the merge request is [protected](../../user/project/repository/branches/protected.md). Introduced in GitLab 15.2. |
+| `CI_MERGE_REQUEST_TARGET_BRANCH_PROTECTED` | `true` when the target branch of the merge request is [protected](../../user/project/repository/branches/protected.md). Introduced in GitLab 15.2. |
 | `CI_MERGE_REQUEST_TARGET_BRANCH_SHA`        | The HEAD SHA of the target branch of the merge request. The variable is empty in merge request pipelines. The SHA is present only in [merged results pipelines](../pipelines/merged_results_pipelines.md). |
 | `CI_MERGE_REQUEST_TITLE`                    | The title of the merge request. |
 | `CI_MERGE_REQUEST_DRAFT`                    | `true` if the merge request is a draft. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/275981) in GitLab 17.10. |
@@ -223,18 +217,16 @@ These variables are only available when:
 | Variable                                      | Description |
 |-----------------------------------------------|-------------|
 | `CI_EXTERNAL_PULL_REQUEST_IID`                | Pull request ID from GitHub. |
-| `CI_EXTERNAL_PULL_REQUEST_SOURCE_REPOSITORY`  | The source repository name of the pull request. |
-| `CI_EXTERNAL_PULL_REQUEST_TARGET_REPOSITORY`  | The target repository name of the pull request. |
+| `CI_EXTERNAL_PULL_REQUEST_SOURCE_REPOSITORY` | The source repository name of the pull request. |
+| `CI_EXTERNAL_PULL_REQUEST_TARGET_REPOSITORY` | The target repository name of the pull request. |
 | `CI_EXTERNAL_PULL_REQUEST_SOURCE_BRANCH_NAME` | The source branch name of the pull request. |
-| `CI_EXTERNAL_PULL_REQUEST_SOURCE_BRANCH_SHA`  | The HEAD SHA of the source branch of the pull request. |
+| `CI_EXTERNAL_PULL_REQUEST_SOURCE_BRANCH_SHA` | The HEAD SHA of the source branch of the pull request. |
 | `CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_NAME` | The target branch name of the pull request. |
-| `CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA`  | The HEAD SHA of the target branch of the pull request. |
+| `CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA` | The HEAD SHA of the target branch of the pull request. |
 
 ## Deployment variables
 
-Integrations that are responsible for deployment configuration can define their own
-predefined variables that are set in the build environment. These variables are only defined
-for [deployment jobs](../environments/_index.md).
+Integrations that are responsible for deployment configuration can define their own predefined variables that are set in the build environment. These variables are only defined for [deployment jobs](../environments/_index.md).
 
 For example, the [Kubernetes integration](../../user/project/clusters/deploy_to_cluster.md#deployment-variables)
 defines deployment variables that you can use with the integration.
@@ -244,8 +236,7 @@ explains if the integration has any deployment variables available.
 
 ## Auto DevOps variables
 
-When [Auto DevOps](../../topics/autodevops/_index.md) is enabled, some additional
-[pre-pipeline](#variable-availability) variables are made available:
+When [Auto DevOps](../../topics/autodevops/_index.md) is enabled, some additional [pre-pipeline](#variable-availability) variables are made available:
 
 - `AUTO_DEVOPS_EXPLICITLY_ENABLED`: Has a value of `1` to indicate Auto DevOps is enabled.
 - `STAGING_ENABLED`: See [Auto DevOps deployment strategy](../../topics/autodevops/requirements.md#auto-devops-deployment-strategy).
@@ -254,28 +245,27 @@ When [Auto DevOps](../../topics/autodevops/_index.md) is enabled, some additiona
 
 ## Integration variables
 
-Some integrations make variables available in jobs. These variables are available
-as [job-only predefined variables](#variable-availability):
+Some integrations make variables available in jobs. These variables are available as [job-only predefined variables](#variable-availability):
 
 - [Harbor](../../user/project/integrations/harbor.md):
-  - `HARBOR_URL`
-  - `HARBOR_HOST`
-  - `HARBOR_OCI`
-  - `HARBOR_PROJECT`
-  - `HARBOR_USERNAME`
-  - `HARBOR_PASSWORD`
+ - `HARBOR_URL`
+ - `HARBOR_HOST`
+ - `HARBOR_OCI`
+ - `HARBOR_PROJECT`
+ - `HARBOR_USERNAME`
+ - `HARBOR_PASSWORD`
 - [Apple App Store Connect](../../user/project/integrations/apple_app_store.md):
-  - `APP_STORE_CONNECT_API_KEY_ISSUER_ID`
-  - `APP_STORE_CONNECT_API_KEY_KEY_ID`
-  - `APP_STORE_CONNECT_API_KEY_KEY`
-  - `APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64`
+ - `APP_STORE_CONNECT_API_KEY_ISSUER_ID`
+ - `APP_STORE_CONNECT_API_KEY_KEY_ID`
+ - `APP_STORE_CONNECT_API_KEY_KEY`
+ - `APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64`
 - [Google Play](../../user/project/integrations/google_play.md):
-  - `SUPPLY_PACKAGE_NAME`
-  - `SUPPLY_JSON_KEY_DATA`
+ - `SUPPLY_PACKAGE_NAME`
+ - `SUPPLY_JSON_KEY_DATA`
 - [Diffblue Cover](../../integration/diffblue_cover.md):
-  - `DIFFBLUE_LICENSE_KEY`
-  - `DIFFBLUE_ACCESS_TOKEN_NAME`
-  - `DIFFBLUE_ACCESS_TOKEN`
+ - `DIFFBLUE_LICENSE_KEY`
+ - `DIFFBLUE_ACCESS_TOKEN_NAME`
+ - `DIFFBLUE_ACCESS_TOKEN`
 
 ## Troubleshooting
 

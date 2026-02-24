@@ -32,7 +32,7 @@ The financial eligibility calculator allows you to collect financial information
 7. In the **Asset types** section, click **New asset** to add a new asset type to the form.
    - The asset types that you add here will appear in a dropdown list for a prospective client to select when they enter their household assets.
    - Once you add an asset type, you will be presented with the existing list where you can then use the **Edit** option to update or delete existing list items.
-8. Click **Preview form template** at the top of the page (next to **Form layout and content**) to preview what the form will look like for your prospective clients.   
+8. Click **Preview form template** at the top of the page (next to **Form layout and content**) to preview what the form will look like for your prospective clients.  
 
    **Note:** The poverty line percentage calculations will not be visible on any external forms. You can only view the calculations when completing the form internally.
 

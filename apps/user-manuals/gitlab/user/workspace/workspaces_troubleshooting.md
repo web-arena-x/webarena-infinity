@@ -36,8 +36,7 @@ This error happens when the [personal access token created for authentication](_
 to the newly created workspace has an expiry date that exceeds the instance setting for token expiry.
 
 To resolve this issue, disable the [access token expiry limit for the instance](../../administration/settings/account_and_limit_settings.md#limit-the-lifetime-of-access-tokens).
-[Issue 579331)](https://gitlab.com/gitlab-org/gitlab/-/work_items/579331) proposes
-a configurable limit for workspace-related tokens to address this limitation.
+[Issue 579331)](https://gitlab.com/gitlab-org/gitlab/-/work_items/579331) proposes a configurable limit for workspace-related tokens to address this limitation.
 
 ## Error: `No agents available to create workspaces`
 
@@ -65,13 +64,11 @@ Verify the `remote_development` module is enabled in your agent configuration:
      enabled: true
    ```
 
-If the `remote_development` module is disabled for the GitLab agent for Kubernetes,
-set [`enabled`](settings.md#enabled) to `true`.
+If the `remote_development` module is disabled for the GitLab agent for Kubernetes, set [`enabled`](settings.md#enabled) to `true`.
 
 ### Check agent name mismatch
 
-Ensure the agent name you created in the [Create a GitLab Agent for Kubernetes token](set_up_infrastructure.md#create-a-gitlab-agent-for-kubernetes-token) step matches the folder name in
-`.gitlab/agents/FOLDER_NAME/`.
+Ensure the agent name you created in the [Create a GitLab Agent for Kubernetes token](set_up_infrastructure.md#create-a-gitlab-agent-for-kubernetes-token) step matches the folder name in `.gitlab/agents/FOLDER_NAME/`.
 
 If the names are different, rename the folder to match the agent name exactly.
 
@@ -89,8 +86,7 @@ Verify the agent is connected to GitLab:
 
 ## Error: `unsupported scheme in GitLab Kubernetes Agent Server address`
 
-This error occurs when the Kubernetes Agent Server (KAS) address is missing the required protocol
-scheme.
+This error occurs when the Kubernetes Agent Server (KAS) address is missing the required protocol scheme.
 
 To resolve this issue:
 
@@ -110,16 +106,14 @@ In offline environments, the init container image is hardcoded and cannot be ove
 
 {{< alert type="warning" >}}
 
-The following workaround is unsupported and temporary. Use at your own risk until
-[issue 509983](https://gitlab.com/gitlab-org/gitlab/-/issues/509983) provides a supported solution.
+The following workaround is unsupported and temporary. Use at your own risk until [issue 509983](https://gitlab.com/gitlab-org/gitlab/-/issues/509983) provides a supported solution.
 
 {{< /alert >}}
 
 The workaround is:
 
 1. Deploy a [Kubernetes mutating webhook](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/) to modify init container image references.
-1. Ensure you have cluster administrator privileges to create, update, or delete
-   the `MutatingWebhookConfiguration`.
+1. Ensure you have cluster administrator privileges to create, update, or delete the `MutatingWebhookConfiguration`.
 
 For an example implementation, see [A Simple Kubernetes Admission Webhook](https://slack.engineering/simple-kubernetes-webhook/).
 
@@ -131,13 +125,13 @@ This error can occur for the following reasons:
 
 - OAuth application is not configured correctly. To resolve this issue:
 
-  1. Verify your OAuth application redirect URI in GitLab matches your domain.
-  1. Update the OAuth application redirect URI. For example: `https://YOUR_DOMAIN/auth/callback`.
+ 1. Verify your OAuth application redirect URI in GitLab matches your domain.
+ 1. Update the OAuth application redirect URI. For example: `https://YOUR_DOMAIN/auth/callback`.
 
 - Workspaces proxy is using outdated OAuth credentials. to resolve this issue:
 
-  1. Verify the proxy is using the latest OAuth credentials.
-  1. Restart the workspaces proxy:
+ 1. Verify the proxy is using the latest OAuth credentials.
+ 1. Restart the workspaces proxy:
 
       ```shell
       kubectl rollout restart deployment -n gitlab-workspaces gitlab-workspaces-proxy
@@ -153,9 +147,7 @@ Workspace does not exist
 Please select another workspace to open.
 ```
 
-This issue occurs when the workspace starts successfully, but the expected project directory is
-missing because the Git clone operation failed. Git clone operations fail due to network issues,
-infrastructure problems, or revoked repository permissions.
+This issue occurs when the workspace starts successfully, but the expected project directory is missing because the Git clone operation failed. Git clone operations fail due to network issues, infrastructure problems, or revoked repository permissions.
 
 To resolve this issue:
 
@@ -184,19 +176,14 @@ If the issue persists, create a new workspace with a working container image tha
 
 ## Debug `postStart` events
 
-When your custom `postStart` events fail or don't behave as expected, you can use the workspace
-logs directory to debug the issues.
+When your custom `postStart` events fail or don't behave as expected, you can use the workspace logs directory to debug the issues.
 
 Common `postStart` debugging scenarios and their resolutions:
 
-- `Command not found`: Check `poststart-stderr.log` for errors indicating
-  missing dependencies in your container image.
-- `Permission denied`: Check for permission errors in `poststart-stderr.log` that might
-  require adjusting file permissions or user configuration.
-- `Network issues`: Check for connection timeouts or DNS resolution failures when your
-  `postStart` events download dependencies or access external resources.
-- `Long-running commands`: If `postStart` events hang, check `poststart-stdout.log`
-  to see if commands are still running or if they completed successfully.
+- `Command not found`: Check `poststart-stderr.log` for errors indicating missing dependencies in your container image.
+- `Permission denied`: Check for permission errors in `poststart-stderr.log` that might require adjusting file permissions or user configuration.
+- `Network issues`: Check for connection timeouts or DNS resolution failures when your `postStart` events download dependencies or access external resources.
+- `Long-running commands`: If `postStart` events hang, check `poststart-stdout.log` to see if commands are still running or if they completed successfully.
 
 To check the `postStart` command execution logs:
 
@@ -232,8 +219,7 @@ To check the `postStart` command execution logs:
 
 1. Resolve the identified issues and restart your workspace.
 
-For more information, see [Workspace logs directory](_index.md#workspace-logs-directory) and
-[Available log files](_index.md#available-log-files).
+For more information, see [Workspace logs directory](_index.md#workspace-logs-directory) and [Available log files](_index.md#available-log-files).
 
 <!--- Other suggested topics:
 

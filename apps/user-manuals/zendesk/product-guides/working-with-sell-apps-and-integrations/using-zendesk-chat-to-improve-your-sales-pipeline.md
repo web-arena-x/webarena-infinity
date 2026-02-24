@@ -19,14 +19,14 @@ Note: All chats that match the email address of a Sell lead or contact will be d
 This article covers the following topics:
 
 - [Working with Chat in Sell](#topic_pgw_rnf_wkb)
-  - [Setting Chat status in Sell](#topic_pgw_rnf_wkb__section_tck_tlf_wkb)
-  - [Answering chats in Sell](#topic_pgw_rnf_wkb__section_hks_wjf_wkb)
-  - [Viewing Chat history in the Sell Activity Feed](#topic_pgw_rnf_wkb__section_wsh_sjf_wkb)
+ - [Setting Chat status in Sell](#topic_pgw_rnf_wkb__section_tck_tlf_wkb)
+ - [Answering chats in Sell](#topic_pgw_rnf_wkb__section_hks_wjf_wkb)
+ - [Viewing Chat history in the Sell Activity Feed](#topic_pgw_rnf_wkb__section_wsh_sjf_wkb)
 - [Working with Sell data in Chat](#topic_a2m_vnf_wkb)
-  - [Creating a new lead from a Chat conversation](#topic_a2m_vnf_wkb__section_s1j_tz2_wkb)
-  - [Adding a note for a Sell rep from a Chat conversation](#topic_a2m_vnf_wkb__section_plg_wkb_xkb)
-  - [Viewing Sell data in your active chat window](#topic_a2m_vnf_wkb__section_zcl_tjf_wkb)
-  - [Customizing the layout and display of Sell fields in your active chat window](#topic_a2m_vnf_wkb__section_xyr_5lw_jlb)
+ - [Creating a new lead from a Chat conversation](#topic_a2m_vnf_wkb__section_s1j_tz2_wkb)
+ - [Adding a note for a Sell rep from a Chat conversation](#topic_a2m_vnf_wkb__section_plg_wkb_xkb)
+ - [Viewing Sell data in your active chat window](#topic_a2m_vnf_wkb__section_zcl_tjf_wkb)
+ - [Customizing the layout and display of Sell fields in your active chat window](#topic_a2m_vnf_wkb__section_xyr_5lw_jlb)
 - [Viewing Chat history from the Sell mobile app](#topic_jvk_14f_wkb)
 
 Note: The Zendesk Sell-Zendesk Chat integration does not currently work with Zendesk messaging. Agents can, however, continue to [create Leads in Sell from the Support interface](https://support.zendesk.com/hc/en-us/articles/4408831980314#topic_vsd_qnm_wnb).
@@ -79,9 +79,9 @@ You'll see the following information about the chat:
 - The start of the Chat
 - A link to open the Chat transcript.
 
-  When you open the transcript you'll see the full conversation and start and end times of the chat. Click **Go to transcript in Chat** to view the conversation in Chat.
+ When you open the transcript you'll see the full conversation and start and end times of the chat. Click **Go to transcript in Chat** to view the conversation in Chat.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_chat_full_transcript.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_chat_full_transcript.png)
 
 You can filter in the Activity Feed by chats, as you would for any other activity type.
 

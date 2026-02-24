@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408888639258-A-complete-g
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > Channels > Talk and email > Email
+Location: Admin Center > Channels > Talk and email > Email
 
 Articles in the series
 
@@ -24,83 +24,40 @@ Articles in the series
 - [Part 3: Outgoing email notifications](https://support.zendesk.com/hc/en-us/articles/4408893474202)
 - [Part 4: Common email channel problems](https://support.zendesk.com/hc/en-us/articles/4408887479834)
 
-In part 1, we cover the essentials of how the email channel works, how email notifications
-are generated, and how to ensure that changes you make to the email channel workflow don’t
-cause interruptions in the communications you have with your customers.
+In part 1, we cover the essentials of how the email channel works, how email notifications are generated, and how to ensure that changes you make to the email channel workflow don’t cause interruptions in the communications you have with your customers.
 
 - [About the email channel](#topic_ubj_qry_cfb)
-- [Two types of email notifications: incoming
-  and outgoing](#topic_v3b_zfd_v3)
-- [How triggers and automations generate email
-  notifications](#topic_r1f_4gd_v3)
-- [Is it okay to modify or deactivate the
-  default email notification triggers?](#topic_uv2_331_53)
+- [Two types of email notifications: incoming and outgoing](#topic_v3b_zfd_v3)
+- [How triggers and automations generate email notifications](#topic_r1f_4gd_v3)
+- [Is it okay to modify or deactivate the default email notification triggers?](#topic_uv2_331_53)
 
 ## About the email channel
 
-Although there are many ways for customers to contact you for support using the Zendesk
-products (email, chat, messaging, phone, and so on), for both customers and agents email
-notifications and email-based conversations are at the core of the customer service
-interaction.
+Although there are many ways for customers to contact you for support using the Zendesk products (email, chat, messaging, phone, and so on), for both customers and agents email notifications and email-based conversations are at the core of the customer service interaction.
 
-Starting with one of the most common ways that customers reach out for support — using a
-support email address — here’s what happens when a customer contacts you with a support
-request and how Zendesk Support uses the email channel:
+Starting with one of the most common ways that customers reach out for support — using a support email address — here’s what happens when a customer contacts you with a support request and how Zendesk Support uses the email channel:
 
-1. When a customer sends an email to your support email address, a ticket is created in
-   Zendesk Support.
-2. The customer immediately receives an automated email notification to let them know
-   that their support request has been received. The email reply is sent from the support
-   address where the customer sent the email.
-3. The new support request creates a new ticket in Zendesk Support, is then added to the
-   ticket queue, and based on how your ticket routing business rules are set up, the ticket
-   is either assigned to an agent group, a specific agent, or it sits in the queue waiting
-   to be picked up by an agent.
-4. The new support request also automatically generates an email notification to the
-   support staff when a new ticket is created, when a group or agent has been assigned to
-   it, and then as various events occur during the course of the support conversation and
-   resolving the ticket (for example, a reply from the customer).
-5. For the customer, the back and forth between an agent comes in the form of email
-   replies in a threaded email conversation.
+1. When a customer sends an email to your support email address, a ticket is created in Zendesk Support.
+2. The customer immediately receives an automated email notification to let them know that their support request has been received. The email reply is sent from the support address where the customer sent the email.
+3. The new support request creates a new ticket in Zendesk Support, is then added to the ticket queue, and based on how your ticket routing business rules are set up, the ticket is either assigned to an agent group, a specific agent, or it sits in the queue waiting to be picked up by an agent.
+4. The new support request also automatically generates an email notification to the support staff when a new ticket is created, when a group or agent has been assigned to it, and then as various events occur during the course of the support conversation and resolving the ticket (for example, a reply from the customer).
+5. For the customer, the back and forth between an agent comes in the form of email replies in a threaded email conversation.
 
-   Note: If you set up a self-service Help Center
-   using Zendesk Guide, your users can also view their support requests and communicate
-   with agents there also in a similar threaded conversation format, bypassing their
-   email application. However, email notifications will still be generated by the usual
-   ticket events, such as adding a new comment to the ticket.
+   Note: If you set up a self-service Help Center using Zendesk Guide, your users can also view their support requests and communicate with agents there also in a similar threaded conversation format, bypassing their email application. However, email notifications will still be generated by the usual ticket events, such as adding a new comment to the ticket.
 
-Even when you’re using a different communication channel with your customers, such as
-Zendesk Talk, email is important there as well. This is because a phone conversation also
-creates a ticket in Zendesk Support, and follow-on steps in your conversation with the
-customer can happen in email (for example, taking the support request offline because you
-need time to gather additional information, or when the customer is asked to rate their
-support experience after their issue has been resolved).
+Even when you’re using a different communication channel with your customers, such as Zendesk Talk, email is important there as well. This is because a phone conversation also creates a ticket in Zendesk Support, and follow-on steps in your conversation with the customer can happen in email (for example, taking the support request offline because you need time to gather additional information, or when the customer is asked to rate their support experience after their issue has been resolved).
 
-The most common and useful customer interaction workflows, based on customer service best
-practices, are provided automatically for you in Zendesk Support. This means that you don’t
-have to sort out all this email notification and routing logic yourself, but you can
-customize these things to your specific needs, and this is where the role that email plays
-in Zendesk Support can sometimes cause confusion. What exactly is generating the email
-notifications that are being sent to customers and support staff? Can I turn them off or
-modify them? Can I control the look, wording, and timing of these email notifications?
+The most common and useful customer interaction workflows, based on customer service best practices, are provided automatically for you in Zendesk Support. This means that you don’t have to sort out all this email notification and routing logic yourself, but you can customize these things to your specific needs, and this is where the role that email plays in Zendesk Support can sometimes cause confusion. What exactly is generating the email notifications that are being sent to customers and support staff? Can I turn them off or modify them? Can I control the look, wording, and timing of these email notifications?
 
 ## Two types of email notifications: incoming and outgoing
 
-It’s helpful to begin understanding how email works in Zendesk Support by focusing on email
-notifications because they communicate the information and provoke the actions involved in a
-customer service interaction. They are essential for communicating with your customers and
-you therefore need to understand how they work and why you should not disable them in
-Zendesk Support.
+It’s helpful to begin understanding how email works in Zendesk Support by focusing on email notifications because they communicate the information and provoke the actions involved in a customer service interaction. They are essential for communicating with your customers and you therefore need to understand how they work and why you should not disable them in Zendesk Support.
 
-Think of email notifications in two groups: incoming email notifications (that your support
-staff see) and outgoing email notifications (that your customers see).
+Think of email notifications in two groups: incoming email notifications (that your support staff see) and outgoing email notifications (that your customers see).
 
-Zendesk Support is set up to handle the essential steps in a customer service interaction,
-meaning that you don’t need to necessarily set this up yourself — although you’re free to do
-all the workflow customization that you’d like.
+Zendesk Support is set up to handle the essential steps in a customer service interaction, meaning that you don’t need to necessarily set this up yourself — although you’re free to do all the workflow customization that you’d like.
 
-Here’s what happens with email notifications by default, without you having to set up
-anything yourself.
+Here’s what happens with email notifications by default, without you having to set up anything yourself.
 
 Default incoming email notifications (seen only by your support staff) include:
 
@@ -116,84 +73,38 @@ Default outgoing email notifications (seen by your customers) include:
 - An agent added a reply (a public comment) to the customer
 - The agent set the ticket status to solved
 
-Those email notifications are set up by default in Zendesk Support, but you can add many
-more email notifications — both incoming and outgoing. For example, if you enable Customer
-Satisfaction Ratings in Zendesk Support, your customers will receive an email notification
-after their ticket has been solved asking them to rate their support experience. Or, if the
-agent is waiting for more information from the customer, you can create an email
-notification to remind the customer.
+Those email notifications are set up by default in Zendesk Support, but you can add many more email notifications — both incoming and outgoing. For example, if you enable Customer Satisfaction Ratings in Zendesk Support, your customers will receive an email notification after their ticket has been solved asking them to rate their support experience. Or, if the agent is waiting for more information from the customer, you can create an email notification to remind the customer.
 
-Incoming email notifications can be set up and customized in many ways. For example,
-incoming support requests can be routed directly to a group or specific agent based on who
-the customer is, the company they work for, the category of customers you’ve included them
-in, the time of day the support request was received, and so on.
+Incoming email notifications can be set up and customized in many ways. For example, incoming support requests can be routed directly to a group or specific agent based on who the customer is, the company they work for, the category of customers you’ve included them in, the time of day the support request was received, and so on.
 
-Both incoming and outgoing email notifications are defined and generated by triggers,
-automations, and targets in Zendesk Support. These define the business rules, the support
-workflow, that automates and streamlines the support you provide to your customers.
+Both incoming and outgoing email notifications are defined and generated by triggers, automations, and targets in Zendesk Support. These define the business rules, the support workflow, that automates and streamlines the support you provide to your customers.
 
 ## How triggers and automations generate email notifications
 
-We’re assuming that you have a basic understanding of what triggers and automations are and
-what they do in Zendesk Support. If you don’t, take a few minutes and read these two
-articles: [About triggers and how they work](https://support.zendesk.com/hc/en-us/articles/4408822236058-About-triggers-and-how-they-work) and [About automations and how they work](../../product-guides/business-rules/about-automations-and-how-they-work.md). Come back when
-you’re done.
+We’re assuming that you have a basic understanding of what triggers and automations are and what they do in Zendesk Support. If you don’t, take a few minutes and read these two articles: [About triggers and how they work](https://support.zendesk.com/hc/en-us/articles/4408822236058-About-triggers-and-how-they-work) and [About automations and how they work](../../product-guides/business-rules/about-automations-and-how-they-work.md). Come back when you’re done.
 
-Having read those articles, you understand that both triggers and automations take actions
-based on conditions. Triggers define actions that happen when a ticket is created or
-updated, such as sending an email notification to the customer when a new support request
-generates a ticket. Automations take action based on time, notifying an agent, for example
-that a high-priority ticket remains unsolved after x numbers of hours.
+Having read those articles, you understand that both triggers and automations take actions based on conditions. Triggers define actions that happen when a ticket is created or updated, such as sending an email notification to the customer when a new support request generates a ticket. Automations take action based on time, notifying an agent, for example that a high-priority ticket remains unsolved after x numbers of hours.
 
-To take a look at the triggers that generate the default incoming and outgoing email
-notifications we listed above, sign in to Zendesk Support as an administrator and select
-**Triggers** from the **Business Rules** category. Open the trigger called **Notify
-requester of received request**. In the **Actions** section, you can see how email
-notifications are defined.
+To take a look at the triggers that generate the default incoming and outgoing email notifications we listed above, sign in to Zendesk Support as an administrator and select **Triggers** from the **Business Rules** category. Open the trigger called **Notify requester of received request**. In the **Actions** section, you can see how email notifications are defined.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/defaulttrig1.png)
 
-This is the first automated email notification that a customer receives when they send you
-a support request. As you’re defining the customer experience using Zendesk Support, the
-message contained in this trigger may be one of the first things you want to customize (much
-more detail about these default triggers can be found in [About the standard Support triggers](https://support.zendesk.com/hc/en-us/articles/4408828984346)).
+This is the first automated email notification that a customer receives when they send you a support request. As you’re defining the customer experience using Zendesk Support, the message contained in this trigger may be one of the first things you want to customize (much more detail about these default triggers can be found in [About the standard Support triggers](https://support.zendesk.com/hc/en-us/articles/4408828984346)).
 
-An important element in email notifications are placeholders. These are the elements in the
-graphic above that are contained within double curly brackets. They are references to ticket
-and user data that are inserted into email notifications when they are sent to customers
-(see [Using placeholders](../../product-guides/business-rules/using-placeholders.md)).
+An important element in email notifications are placeholders. These are the elements in the graphic above that are contained within double curly brackets. They are references to ticket and user data that are inserted into email notifications when they are sent to customers (see [Using placeholders](../../product-guides/business-rules/using-placeholders.md)).
 
-As you’ll see later in this guide, you have lots of control over the wording and the look
-of your overall customers’ email support experience. You also have control of the triggers
-and automations that generate email notifications, but modifying those should be done
-cautiously.
+As you’ll see later in this guide, you have lots of control over the wording and the look of your overall customers’ email support experience. You also have control of the triggers and automations that generate email notifications, but modifying those should be done cautiously.
 
 ## Is it okay to modify or deactivate the default email notification triggers?
 
-It’s possible to both modify and deactivate these default triggers, but you should first
-ask yourself why you’re thinking of doing either. What are you trying to achieve?
+It’s possible to both modify and deactivate these default triggers, but you should first ask yourself why you’re thinking of doing either. What are you trying to achieve?
 
-Deactivating these default triggers breaks the communication you have with your customers
-because email notifications will no longer be sent. The support conversation will end and
-this will confuse both your customers and you.
+Deactivating these default triggers breaks the communication you have with your customers because email notifications will no longer be sent. The support conversation will end and this will confuse both your customers and you.
 
-Modifying the messages contained within the default email notification triggers is easy to
-do, as long you’re aware of the placeholders that automatically populate the data needed to
-be expressed in those messages and not accidentally remove them. Modify those messages all
-you want. However, deactivating the default email notification triggers rarely makes
-sense.
+Modifying the messages contained within the default email notification triggers is easy to do, as long you’re aware of the placeholders that automatically populate the data needed to be expressed in those messages and not accidentally remove them. Modify those messages all you want. However, deactivating the default email notification triggers rarely makes sense.
 
-Unless you have a very small support team, we recommend deactivating the [Notify all agents of received request](https://support.zendesk.com/hc/en-us/articles/4408828984346#topic_k54_r3s_5t) trigger
-because not all of your agents need or want an email notification every time a new ticket is
-created. With that exception, *we recommend that you do not deactivate the standard email
-notification triggers*.
+Unless you have a very small support team, we recommend deactivating the [Notify all agents of received request](https://support.zendesk.com/hc/en-us/articles/4408828984346#topic_k54_r3s_5t) trigger because not all of your agents need or want an email notification every time a new ticket is created. With that exception, *we recommend that you do not deactivate the standard email notification triggers*.
 
-If you experience issues with customers or agents either not receiving email notifications,
-or receiving email notifications that they shouldn’t be receiving, the problem most likely
-lies elsewhere (see [Part 4: Understanding and troubleshooting common email
-channel problems](https://support.zendesk.com/hc/en-us/articles/4408887479834)).
+If you experience issues with customers or agents either not receiving email notifications, or receiving email notifications that they shouldn’t be receiving, the problem most likely lies elsewhere (see [Part 4: Understanding and troubleshooting common email channel problems](https://support.zendesk.com/hc/en-us/articles/4408887479834)).
 
-Having a very good understanding and working knowledge of triggers and automations usually
-prevents any mishaps with email notifications, so here’s another recommendation to read
-[About triggers and how they work](https://support.zendesk.com/hc/en-us/articles/4408822236058-About-triggers-and-how-they-work) and [About automations and how they work](../../product-guides/business-rules/about-automations-and-how-they-work.md) before you
-modify existing triggers and automations or create new ones.
+Having a very good understanding and working knowledge of triggers and automations usually prevents any mishaps with email notifications, so here’s another recommendation to read [About triggers and how they work](https://support.zendesk.com/hc/en-us/articles/4408822236058-About-triggers-and-how-they-work) and [About automations and how they work](../../product-guides/business-rules/about-automations-and-how-they-work.md) before you modify existing triggers and automations or create new ones.

@@ -6,8 +6,7 @@ description: Common commands and workflows.
 title: File management
 ---
 
-Git provides file management capabilities that help you to track changes,
-collaborate with others, and manage large files efficiently.
+Git provides file management capabilities that help you to track changes, collaborate with others, and manage large files efficiently.
 
 ## File history
 
@@ -18,8 +17,7 @@ The file history shows you:
 - The date and time of each modification.
 - The specific changes made in each commit.
 
-For example, to view `history` information about the `CONTRIBUTING.md` file in the root
-of the `gitlab` repository, run:
+For example, to view `history` information about the `CONTRIBUTING.md` file in the root of the `gitlab` repository, run:
 
 ```shell
 git log CONTRIBUTING.md
@@ -46,8 +44,7 @@ Date:   Fri Oct 20 17:53:25 2023 +0000
 ## Check previous changes to a file
 
 Use `git blame` to see who made the last change to a file and when.
-This helps to understand the context of a file's content,
-resolve conflicts, and identify the person responsible for a specific change.
+This helps to understand the context of a file's content, resolve conflicts, and identify the person responsible for a specific change.
 
 If you want to find `blame` information about a `README.md` file in the local directory:
 
@@ -62,14 +59,13 @@ If you want to find `blame` information about a `README.md` file in the local di
 1. To navigate the results page, press <kbd>Space</kbd>.
 1. To exit out of the results, press <kbd>Q</kbd>.
 
-This output displays the file content with annotations showing the commit SHA, author,
-and date for each line. For example:
+This output displays the file content with annotations showing the commit SHA, author, and date for each line. For example:
 
 ```shell
-58233c4f1054c (Dan Rhodes           2022-05-13 07:02:20 +0000  1) ## Contributor License Agreement
-b87768f435185 (Jamie Hurewitz       2017-10-31 18:09:23 +0000  2)
-8e4c7f26317ff (Brett Walker         2023-10-20 17:53:25 +0000  3) Contributions to this repository are subject to the
-58233c4f1054c (Dan Rhodes           2022-05-13 07:02:20 +0000  4)
+58233c4f1054c (Dan Rhodes           2022-05-13 07:02:20 +0000 1) ## Contributor License Agreement
+b87768f435185 (Jamie Hurewitz       2017-10-31 18:09:23 +0000 2)
+8e4c7f26317ff (Brett Walker         2023-10-20 17:53:25 +0000 3) Contributions to this repository are subject to the
+58233c4f1054c (Dan Rhodes           2022-05-13 07:02:20 +0000 4)
 ```
 
 ## Git LFS
@@ -93,8 +89,7 @@ To add a large file into your Git repository and track it with Git LFS:
    git lfs track "*.iso"
    ```
 
-   This command creates a `.gitattributes` file with instructions to handle all
-   ISO files with Git LFS. The following line is added to your `.gitattributes` file:
+   This command creates a `.gitattributes` file with instructions to handle all ISO files with Git LFS. The following line is added to your `.gitattributes` file:
 
    ```plaintext
    *.iso filter=lfs -text
@@ -139,15 +134,13 @@ To add a large file into your Git repository and track it with Git LFS:
 
 {{< alert type="note" >}}
 
-When you add a new file type to Git LFS tracking, existing files of this type
-are not converted to Git LFS. Only files of this type, added after you begin tracking, are added to Git LFS. Use `git lfs migrate` to convert existing files to use Git LFS.
+When you add a new file type to Git LFS tracking, existing files of this type are not converted to Git LFS. Only files of this type, added after you begin tracking, are added to Git LFS. Use `git lfs migrate` to convert existing files to use Git LFS.
 
 {{< /alert >}}
 
 ### Stop tracking a file
 
-When you stop tracking a file with Git LFS, the file remains on disk because it's still
-part of your repository's history.
+When you stop tracking a file with Git LFS, the file remains on disk because it's still part of your repository's history.
 
 To stop tracking a file with Git LFS:
 
@@ -175,8 +168,7 @@ To stop tracking a file with Git LFS:
 
 {{< alert type="note" >}}
 
-If you delete an object tracked by Git LFS, without tracking it with `git lfs untrack`,
-the object shows as `modified` in `git status`.
+If you delete an object tracked by Git LFS, without tracking it with `git lfs untrack`, the object shows as `modified` in `git status`.
 
 {{< /alert >}}
 
@@ -221,8 +213,7 @@ It's a good option for:
 - Binary files that can't be merged. For example, design files and videos.
 - Files that require exclusive access during editing.
 
-Exclusive file locks apply to all branches in a repository. If you need to lock files only on the
-default branch, use [default branch file and directory locks](../../user/project/file_lock.md#default-branch-file-and-directory-locks) instead.
+Exclusive file locks apply to all branches in a repository. If you need to lock files only on the default branch, use [default branch file and directory locks](../../user/project/file_lock.md#default-branch-file-and-directory-locks) instead.
 
 Prerequisites:
 

@@ -15,7 +15,7 @@ A user with 'Admin' level permissions to the Admin tool can create custom submit
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the Company level Admin tool.
+ - 'Admin' level permissions on the Company level Admin tool.
 
 ## Steps
 
@@ -24,7 +24,7 @@ A user with 'Admin' level permissions to the Admin tool can create custom submit
 3. Under **Custom Submittal Types**, do the following:
    - Click **Create Type**.
    - Enter the name of the submittal type.
-   - Click **Create**.  
+   - Click **Create**. 
      The system adds the new submittal type to the list.
 4. Click the toggle button on or off to make the submittal type available or unavailable on all of your projects.
 

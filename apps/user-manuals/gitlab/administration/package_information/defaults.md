@@ -12,8 +12,7 @@ title: Package defaults
 
 {{< /details >}}
 
-Unless configuration is specified in the `/etc/gitlab/gitlab.rb` file,
-the package assumes the defaults as noted below.
+Unless configuration is specified in the `/etc/gitlab/gitlab.rb` file, the package assumes the defaults as noted below.
 
 ## Ports
 
@@ -31,8 +30,8 @@ See the table below for the list of ports that the Linux package assigns by defa
 |      Prometheus      |      Yes      |       Port       |      X      |                    9090                    |
 |    Node exporter     |      Yes      |       Port       |      X      |                    9100                    |
 |    Redis exporter    |      Yes      |       Port       |      X      |                    9121                    |
-| PostgreSQL exporter  |      Yes      |       Port       |      X      |                    9187                    |
-|  PgBouncer exporter  |      No       |       Port       |      X      |                    9188                    |
+| PostgreSQL exporter |      Yes      |       Port       |      X      |                    9187                    |
+| PgBouncer exporter |      No       |       Port       |      X      |                    9188                    |
 |   GitLab Exporter    |      Yes      |       Port       |      X      |                    9168                    |
 |   Sidekiq exporter   |      Yes      |       Port       |      X      |                    8082                    |
 | Sidekiq health check |      Yes      |       Port       |      X      |                    8092[^Sidekiq-health]   |
@@ -59,7 +58,7 @@ See the table below for the list of ports that the Linux package assigns by defa
 |   Gitaly exporter    |      Yes      |       Port       |      X      |                    9236                    |
 |       Praefect       |      No       |       Port       |      X      |                2305 or 3305 (TLS)          |
 | GitLab Workhorse exporter |      Yes      |       Port       |      X      |                     9229                   |
-|  Registry exporter   |      No       |       Port       |      X      |                     5001                   |
+| Registry exporter   |      No       |       Port       |      X      |                     5001                   |
 
 Legend:
 
@@ -69,12 +68,9 @@ Legend:
 - `Alternative` - If it is possible to configure the component to use different type of communication. The type is listed with default port used in that case.
 - `Connection port` - Port on which the component communicates.
 
-GitLab also expects a file system to be ready for the storage of Git repositories
-and various other files.
+GitLab also expects a file system to be ready for the storage of Git repositories and various other files.
 
-If you are using NFS (Network File System), files are carried
-over a network which requires, based on implementation, ports `111` and
-`2049` to be open.
+If you are using NFS (Network File System), files are carried over a network which requires, based on implementation, ports `111` and `2049` to be open.
 
 > [!note]
 > In some cases, the GitLab Registry is automatically enabled by default. For more information, see [GitLab container registry administration](../packages/container_registry.md).

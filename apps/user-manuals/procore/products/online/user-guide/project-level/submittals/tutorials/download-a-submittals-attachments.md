@@ -11,9 +11,9 @@ To download all submittal attachments added in the submittal's **General Informa
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Read Only' level permissions or higher on the project's Submittals tool.
+ - 'Read Only' level permissions or higher on the project's Submittals tool.
 - **Additional Information:**
-  - Attachments that were originally included in a previous step of the submittal workflow (including the submittal's General Information section) and later attached in a response to the submittal cannot be downloaded from their original step.
+ - Attachments that were originally included in a previous step of the submittal workflow (including the submittal's General Information section) and later attached in a response to the submittal cannot be downloaded from their original step.
 
 ## Steps
 
@@ -32,7 +32,7 @@ To download all submittal attachments added in the submittal's **General Informa
 
      ##### Tip
 
-     Hover your cursor over **Download All** to highlight which attachments will be included in the zip file download.  
+     Hover your cursor over **Download All** to highlight which attachments will be included in the zip file download. 
        
      ![submittals-download-all-attachments-workflow-step.png](https://support.procore.com/@api/deki/files/263852/submittals-download-all-attachments-workflow-step.png?revision=2)
    - Click **Download All**.

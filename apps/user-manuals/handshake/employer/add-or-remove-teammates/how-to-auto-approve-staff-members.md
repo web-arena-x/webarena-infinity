@@ -18,8 +18,8 @@ Owners of **Basic** accounts cannot automatically approve staff members. To auto
 
 ### Auto-approval requirements
 
-- Your company must be the **sole account** on Handshake associated with its email domain.  
-  If multiple companies share the same email domain, auto-approval is not available.
+- Your company must be the **sole account** on Handshake associated with its email domain. 
+ If multiple companies share the same email domain, auto-approval is not available.
 - New company profiles created using an email domain not already associated with another company will have auto-approval enabled by default.
 - If your company's email domain changes and you want to retain auto-approval, contact our Support team so we can update your company group.
 

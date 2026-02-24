@@ -13,9 +13,7 @@ title: Merge conflicts
 
 {{< /details >}}
 
-Merge conflicts occur when two branches in a merge request, the source and target,
-have different changes to the same lines of code. In most cases, GitLab can merge changes together,
-but when conflicts arise, you must decide which changes to keep.
+Merge conflicts occur when two branches in a merge request, the source and target, have different changes to the same lines of code. In most cases, GitLab can merge changes together, but when conflicts arise, you must decide which changes to keep.
 
 ![A merge request blocked due to a merge conflict](img/conflicts_v16_7.png)
 
@@ -24,14 +22,11 @@ To resolve a merge request with conflicts, you must either:
 - Create a merge commit.
 - Resolve the conflict through a rebase.
 
-GitLab resolves conflicts by creating a merge commit in the source branch without merging it
-into the target branch. You can then review and test the merge commit to verify it contains
-no unintended changes and doesn't break your build.
+GitLab resolves conflicts by creating a merge commit in the source branch without merging it into the target branch. You can then review and test the merge commit to verify it contains no unintended changes and doesn't break your build.
 
 ## Understand conflict blocks
 
-When Git detects a conflict that requires a decision on your part, it marks the
-beginning and end of the conflict block with conflict markers:
+When Git detects a conflict that requires a decision on your part, it marks the beginning and end of the conflict block with conflict markers:
 
 - `<<<<<<< HEAD` marks the beginning of the conflict block.
 - Your changes are shown.
@@ -42,8 +37,7 @@ beginning and end of the conflict block with conflict markers:
 To resolve a conflict, delete:
 
 1. The version of the conflicted lines you don't want to keep.
-1. The three conflict markers: the beginning, the end, and the `=======` line between
-   the two versions.
+1. The three conflict markers: the beginning, the end, and the `=======` line between the two versions.
 
 ## Conflicts you can resolve in the user interface
 
@@ -76,19 +70,15 @@ To resolve merge conflicts with interactive mode:
 1. Select **Code** > **Merge requests** and find the merge request.
 1. Select **Overview**, and scroll to the merge request reports section.
 1. Find the merge conflicts message, and select **Resolve conflicts**.
-   GitLab shows a list of files with merge conflicts. The lines that conflict are
-   highlighted.
+   GitLab shows a list of files with merge conflicts. The lines that conflict are highlighted.
 
-1. For each conflict, select **Use ours** or **Use theirs** to mark the version
-   of the conflicted lines you want to keep. This decision is known as
-   "resolving the conflict."
+1. For each conflict, select **Use ours** or **Use theirs** to mark the version of the conflicted lines you want to keep. This decision is known as "resolving the conflict."
 1. When you've resolved all the conflicts, enter a **Commit message**.
 1. Select **Commit to source branch**.
 
 ### Inline editor
 
-Some merge conflicts are more complex, and you must manually edit lines to
-resolve them.
+Some merge conflicts are more complex, and you must manually edit lines to resolve them.
 
 The merge conflict resolution editor helps you resolve these conflicts in GitLab:
 
@@ -98,8 +88,7 @@ The merge conflict resolution editor helps you resolve these conflicts in GitLab
 1. Find the merge conflicts message, and select **Resolve conflicts**.
    GitLab shows a list of files with merge conflicts.
 1. Find the file to edit manually, and scroll to the conflict block.
-1. In the header for that file, select **Edit inline** to open the editor. In this
-   example, the conflict block begins at line 1350 and ends at line 1356:
+1. In the header for that file, select **Edit inline** to open the editor. In this example, the conflict block begins at line 1350 and ends at line 1356:
 
    ![Merge conflict editor](img/merge_conflict_editor_v16_7.png)
 
@@ -108,8 +97,7 @@ The merge conflict resolution editor helps you resolve these conflicts in GitLab
 
 ## Rebase
 
-If your merge request is stuck with a `Checking ability to merge automatically`
-message, you can:
+If your merge request is stuck with a `Checking ability to merge automatically` message, you can:
 
 - In a comment in the merge request, run the [`/rebase` quick action](../quick_actions.md#rebase).
 - In the merge widget, select **Rebase source branch**.
@@ -119,15 +107,13 @@ To troubleshoot CI/CD pipeline issues, see [Debugging CI/CD pipelines](../../../
 
 ### Rebase in the GitLab UI
 
-To trigger a rebase from the GitLab UI, use the [`/rebase` quick action](../quick_actions.md#rebase), or the
-rebase option in the merge request widget.
+To trigger a rebase from the GitLab UI, use the [`/rebase` quick action](../quick_actions.md#rebase), or the rebase option in the merge request widget.
 
 Prerequisites:
 
 - No merge conflicts exist.
 - You must have at least the [Developer role](../../permissions.md) for the source project.
-- If the merge request is in a fork, the fork must allow commits
-  [from members of the upstream project](allow_collaboration.md).
+- If the merge request is in a fork, the fork must allow commits [from members of the upstream project](allow_collaboration.md).
 
 To rebase a merge request's branch from the GitLab UI:
 
@@ -142,9 +128,7 @@ GitLab shows the completed rebase as a system note.
 
 {{< alert type="note" >}}
 
-If you have configured commit signing for commits made
-through the GitLab UI, web commits lose their commit signatures
-[when rebased through the UI](../repository/signed_commits/web_commits.md#web-commits-become-unsigned-after-rebase).
+If you have configured commit signing for commits made through the GitLab UI, web commits lose their commit signatures [when rebased through the UI](../repository/signed_commits/web_commits.md#web-commits-become-unsigned-after-rebase).
 
 {{< /alert >}}
 

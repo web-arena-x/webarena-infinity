@@ -12,12 +12,10 @@ title: Jira DVCS connector
 
 {{< /details >}}
 
-Use the Jira DVCS (distributed version control system) connector if you self-host your Jira instance
-with Jira Data Center or Jira Server and want to use the [Jira development panel](../development_panel.md).
+Use the Jira DVCS (distributed version control system) connector if you self-host your Jira instance with Jira Data Center or Jira Server and want to use the [Jira development panel](../development_panel.md).
 The Jira DVCS connector is developed and maintained by Atlassian.
 
-To configure the Jira DVCS connector, see
-[integrating with development tools using DVCS](https://confluence.atlassian.com/adminjiraserver/integrating-with-development-tools-using-dvcs-1047552689.html).
+To configure the Jira DVCS connector, see [integrating with development tools using DVCS](https://confluence.atlassian.com/adminjiraserver/integrating-with-development-tools-using-dvcs-1047552689.html).
 You can only use the Jira DVCS connector with Jira Data Center or Jira Server in Jira 8.14 and later.
 
 Jira creates a webhook in the GitLab project to provide real-time updates.
@@ -34,13 +32,10 @@ By default, Jira imports commits and branches for GitLab projects every 60 minut
 To refresh the data manually in Jira:
 
 1. Sign in to your Jira instance as the user you configured the integration with.
-1. On the top bar, in the upper-right corner,
-   select **Administration** ({{< icon name="settings" >}}) > **Applications**.
+1. On the top bar, in the upper-right corner, select **Administration** ({{< icon name="settings" >}}) > **Applications**.
 1. On the left sidebar, select **DVCS accounts**.
 1. To refresh one or more repositories in a DVCS account:
-   - **For all repositories**, next to the account,
-     select the ellipsis ({{< icon name="ellipsis_h" >}}) > **Refresh repositories**.
+   - **For all repositories**, next to the account, select the ellipsis ({{< icon name="ellipsis_h" >}}) > **Refresh repositories**.
    - **For a single repository**:
      1. Select the account.
-     1. Hover over the repository you want to refresh, and in the **Last activity** column,
-        select **Click to sync repository** ({{< icon name="retry" >}}).
+     1. Hover over the repository you want to refresh, and in the **Last activity** column, select **Click to sync repository** ({{< icon name="retry" >}}).

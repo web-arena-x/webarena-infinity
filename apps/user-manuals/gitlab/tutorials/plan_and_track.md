@@ -6,8 +6,7 @@ description: Planning, agile, issue boards.
 title: 'Tutorials: Plan and track your work'
 ---
 
-Create a project to host your code, and plan your work using
-issues, epics, and more.
+Create a project to host your code, and plan your work using issues, epics, and more.
 
 ## Learn the fundamentals
 

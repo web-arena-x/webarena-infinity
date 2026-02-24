@@ -65,7 +65,7 @@ There are three categories of events:
 | ------------- | ------------------ | -------- | --------------- | ------------------ |
 | `duid`          | `domain_userid`      | text     | Unique rotating identifier for a user, based on a first-party cookie. | `aeb1691c5a0ee5a6` |
 | `uid`           | `user_id`            | text     | `user_id`, which gets pseudonymized in the snowplow [pipeline](https://metrics.gitlab.com/identifiers/) | `1234567890` |
-| `vid`           | `domain_sessionidx`  | int      | Index of number of visits that this user has made to the application | `1` |
+| `vid`           | `domain_sessionidx` | int      | Index of number of visits that this user has made to the application | `1` |
 | `sid`           | `domain_sessionid`   | text     | Unique identifier (UUID) generated to track a user's activity during a single visit or session. This identifier resets between sessions. The identifier is not linked to personal information.   | `9c65e7f3-8e8e-470d-b243-910b5b300da0` |
 | `ip`            | `user_ipaddress`, we collect Geo information but do not store the IP address in the snowplow pipeline   | text     | IP address override | `37.157.33.178` |
 
@@ -76,10 +76,10 @@ There are three categories of events:
 | `url`           | `page_url`         | text     | Page URL. We pseudonymize sensitive data from the URL ([see examples](https://metrics.gitlab.com/identifiers/)).        | `https://gitlab.com/dashboard/projects` |
 | `ua`            | `useragent`        | text     | Useragent       | `Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:105.0) Gecko/20100101 Firefox/105.0` |
 | `page`          | `page_title`       | text     | This value will always be hardcoded to `GitLab`      | GitLab |
-| `refr`          | `page_referrer`    | text     | Referrer URL, similar to `page_url`. We pseudonymize referrer URL.  | `https://gitlab.com/group:123/project:356` |
-| `cookie`        | `br_cookies`       | boolean  | Does the browser permit cookies? | 1 |
+| `refr`          | `page_referrer`    | text     | Referrer URL, similar to `page_url`. We pseudonymize referrer URL. | `https://gitlab.com/group:123/project:356` |
+| `cookie`        | `br_cookies`       | boolean | Does the browser permit cookies? | 1 |
 | `lang`          | `br_lang`          | text     | Browser language | en-US |
-| `cd`            | `br_colordepth`    | integer  | Browser color depth | 24 |
+| `cd`            | `br_colordepth`    | integer | Browser color depth | 24 |
 | `cs`            | `doc_charset`      | text     | Web page's character encoding | UTF-8 |
 | `ds`            | `doc_width` and `doc_height` | text | Web page width and height | 1090x1152 |
 | `vp`            | `br_viewwidth` and `br_viewheight` | text | Browser viewport width and height | 1105x390 |
@@ -110,10 +110,10 @@ Page pings are identified by `e=pp` and include these additional fields:
 
 | **Parameter** | **Table Column** | **Type** | **Description** |
 | ------------- | ---------------- | -------- | --------------- |
-| `pp_mix`        | `pp_xoffset_min`   | integer  | Minimum page x offset seen in the last ping period |
-| `pp_max`        | `pp_xoffset_max`   | integer  | Maximum page x offset seen in the last ping period |
-| `pp_miy`        | `pp_yoffset_min`   | integer  | Minimum page y offset seen in the last ping period |
-| `pp_may`        | `pp_yoffset_max`   | integer  | Maximum page y offset seen in the last ping period |
+| `pp_mix`        | `pp_xoffset_min`   | integer | Minimum page x offset seen in the last ping period |
+| `pp_max`        | `pp_xoffset_max`   | integer | Maximum page x offset seen in the last ping period |
+| `pp_miy`        | `pp_yoffset_min`   | integer | Minimum page y offset seen in the last ping period |
+| `pp_may`        | `pp_yoffset_max`   | integer | Maximum page y offset seen in the last ping period |
 
 ### Structured Event Tracking
 
@@ -125,8 +125,8 @@ As well as setting `e=se`, there are five custom event specific parameters that 
 | `se_ac`         | `se_action`        | text     | The action or event name | `code_suggestion_accepted` |
 | `se_la`         | `se_label`         | text     | A label often used to refer to the 'object' the action is performed on | `${editor_name}` |
 | `se_pr`         | `se_property`      | text     | A property associated with either the action or the object | `${suggestion_type}` |
-| `se_va`         | `se_value`         | decimal  | A value associated with the user action | `${suggestion_shown_duration}` |
-| `cx`         | `contexts`         | JSON  | It passes base64 encoded context to the event | `JSON` |
+| `se_va`         | `se_value`         | decimal | A value associated with the user action | `${suggestion_shown_duration}` |
+| `cx`         | `contexts`         | JSON | It passes base64 encoded context to the event | `JSON` |
 
 Contexts has some of the predefined fields which will be sent with each event. All the predefined schemas are stored in the [`gitlab-org/iglu`](https://gitlab.com/gitlab-org/iglu) repository.
 
@@ -138,8 +138,8 @@ Most of the self-describing events have `gitlab_standard` context, which is a se
 
 ```json
 {
-  "schema": "iglu:com.snowplowanalytics.snowplow/payload_data/jsonschema/1-0-4",
-  "data": [
+ "schema": "iglu:com.snowplowanalytics.snowplow/payload_data/jsonschema/1-0-4",
+ "data": [
     {
       "e": "pv",
       "url": "https://gitlab.com/",
@@ -165,7 +165,7 @@ Most of the self-describing events have `gitlab_standard` context, which is a se
       "cx": "eyJzY2hlbWEiOiJpZ2x1OmNvbS5zbm93cGxvd2FuYWx5dGljcy5z...",
       "stm": "1742205227528"
     }
-  ]
+ ]
 }
 ```
 
@@ -173,8 +173,8 @@ cx field is base64 encoded and contains the following JSON:
 
 ```json
 {
-  "schema": "iglu:com.snowplowanalytics.snowplow/contexts/jsonschema/1-0-0",
-  "data": [
+ "schema": "iglu:com.snowplowanalytics.snowplow/contexts/jsonschema/1-0-0",
+ "data": [
     {
       "schema": "iglu:com.gitlab/gitlab_standard/jsonschema/1-1-1",
       "data": {
@@ -267,7 +267,7 @@ cx field is base64 encoded and contains the following JSON:
         ]
       }
     }
-  ]
+ ]
 }
 ```
 
@@ -275,8 +275,8 @@ cx field is base64 encoded and contains the following JSON:
 
 ```json
 {
-  "schema": "iglu:com.snowplowanalytics.snowplow/payload_data/jsonschema/1-0-4",
-  "data": [
+ "schema": "iglu:com.snowplowanalytics.snowplow/payload_data/jsonschema/1-0-4",
+ "data": [
     {
       "e": "pp",
       "url": "https://gitlab.com/",
@@ -302,7 +302,7 @@ cx field is base64 encoded and contains the following JSON:
       "cx": "eyJzY2hlbWEiOiJpZ2x1OmNvbS5zbm93cGxvd2FuYWx5dGljcy...",
       "stm": "1742205324501"
     }
-  ]
+ ]
 }
 ```
 
@@ -310,8 +310,8 @@ cx field is base64 encoded and contains the following JSON:
 
 ```json
 {
-  "schema": "iglu:com.snowplowanalytics.snowplow/payload_data/jsonschema/1-0-4",
-  "data": [
+ "schema": "iglu:com.snowplowanalytics.snowplow/payload_data/jsonschema/1-0-4",
+ "data": [
     {
       "e": "ue",
       "eid": "67ae8ec1-3ec0-46b7-89e0-fd944d90acc6",
@@ -337,7 +337,7 @@ cx field is base64 encoded and contains the following JSON:
       "cx": "eyJzY2hlbWEiOiJpZ2x1OmNvbS5zbm93cGxvd2FuYWx5dGljcy...",
       "stm": "1742205393774"
     }
-  ]
+ ]
 }
 ```
 
@@ -345,8 +345,8 @@ This is part of link click tracking. The `ue_px` field is base64 encoded and con
 
 ```json
 {
-  "schema": "iglu:com.snowplowanalytics.snowplow/unstruct_event/jsonschema/1-0-0",
-  "data": {
+ "schema": "iglu:com.snowplowanalytics.snowplow/unstruct_event/jsonschema/1-0-0",
+ "data": {
     "schema": "iglu:com.snowplowanalytics.snowplow/link_click/jsonschema/1-0-1",
     "data": {
       "targetUrl": "https://gitlab.com/",
@@ -356,7 +356,7 @@ This is part of link click tracking. The `ue_px` field is base64 encoded and con
       ],
       "elementTarget": ""
     }
-  }
+ }
 }
 ```
 
@@ -364,8 +364,8 @@ This is part of link click tracking. The `ue_px` field is base64 encoded and con
 
 ```json
 {
-  "schema": "iglu:com.snowplowanalytics.snowplow/payload_data/jsonschema/1-0-4",
-  "data": [
+ "schema": "iglu:com.snowplowanalytics.snowplow/payload_data/jsonschema/1-0-4",
+ "data": [
     {
       "e": "se",
       "se_ca": "root:index",
@@ -392,7 +392,7 @@ This is part of link click tracking. The `ue_px` field is base64 encoded and con
       "cx": "eyJzY2hlbWEiOiJpZ2x1OmNvbS5zbm93cGxvd2FuYWx5dGljcy...",
       "stm": "1742205395080"
     }
-  ]
+ ]
 }
 ```
 
@@ -419,8 +419,8 @@ This is part of link click tracking. The `ue_px` field is base64 encoded and con
 
 ```json
 {
-  "schema": "iglu:com.snowplowanalytics.snowplow/contexts/jsonschema/1-0-1",
-  "data": [
+ "schema": "iglu:com.snowplowanalytics.snowplow/contexts/jsonschema/1-0-1",
+ "data": [
     {
       "schema": "iglu:com.gitlab/gitlab_standard/jsonschema/1-1-1",
       "data": {
@@ -449,6 +449,6 @@ This is part of link click tracking. The `ue_px` field is base64 encoded and con
         "event_name": "unique_active_user"
       }
     }
-  ]
+ ]
 }
 ```

@@ -32,12 +32,10 @@ Click **Events** from the left navigation bar, then select the event you want to
 
 3. Share the link by:
 
-- **Messaging a student** in Handshake. *Learn* [*How to Send a Student a Message*](https://support.joinhandshake.com/hc/en-us/articles/218693318).  
-  **Note**: Messaging limits vary by package and role. *Learn more about your* [*Message Limits in Handshake*](https://support.joinhandshake.com/hc/en-us/articles/1500004973301).
-- **Sending an email**  
-  Compose an email in your email client and include the event link with a personalized message.
-- **Sharing with non-partner schools**  
-  Contact the school’s career services team and ask if they are willing to promote the event. If so, share the event link with them.
+- **Messaging a student** in Handshake. *Learn* [*How to Send a Student a Message*](https://support.joinhandshake.com/hc/en-us/articles/218693318). 
+ **Note**: Messaging limits vary by package and role. *Learn more about your* [*Message Limits in Handshake*](https://support.joinhandshake.com/hc/en-us/articles/1500004973301).
+- **Sending an email** Compose an email in your email client and include the event link with a personalized message.
+- **Sharing with non-partner schools** Contact the school’s career services team and ask if they are willing to promote the event. If so, share the event link with them.
 
 4. Students who receive the link will have the option to register for the event.
 

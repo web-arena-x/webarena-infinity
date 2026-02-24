@@ -5,8 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Metrics Dictionary Guide
 ---
 
-[Service Ping](../service_ping/_index.md) metrics are defined in individual YAML files definitions from which the
-[Metrics Dictionary](https://metrics.gitlab.com/) is built. Currently, the metrics dictionary is built automatically once an hour.
+[Service Ping](../service_ping/_index.md) metrics are defined in individual YAML files definitions from which the [Metrics Dictionary](https://metrics.gitlab.com/) is built. Currently, the metrics dictionary is built automatically once an hour.
 
 - When a change to a metric is made in a YAML file, you can see the change in the dictionary within 1 hour of the change getting deployed to production.
 - When a change to an event is made in a YAML file, you can see the change in the dictionary within 1 hour of the change getting merged to the master branch.
@@ -90,9 +89,8 @@ Metric definitions can have one of the following values for `value_type`:
 - `number`
 - `string`
 - `object`: A metric with `value_type: object` must have `value_json_schema` with a link to the JSON schema for the object.
-  In general, we avoid complex objects and prefer one of the `boolean`, `number`, or `string` value types.
-  An example of a metric that uses `value_type: object` is `topology` (`/config/metrics/settings/20210323120839_topology.yml`),
-  which has a related schema in `/config/metrics/objects_schemas/topology_schema.json`.
+ In general, we avoid complex objects and prefer one of the `boolean`, `number`, or `string` value types.
+ An example of a metric that uses `value_type: object` is `topology` (`/config/metrics/settings/20210323120839_topology.yml`), which has a related schema in `/config/metrics/objects_schemas/topology_schema.json`.
 
 ### Metric `time_frame`
 
@@ -120,8 +118,7 @@ We use the following categories to classify a metric:
 ### Example YAML metric definition
 
 The linked [`uuid`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/config/metrics/license/uuid.yml)
-YAML file includes an example metric definition, where the `uuid` metric is the GitLab
-instance unique identifier.
+YAML file includes an example metric definition, where the `uuid` metric is the GitLab instance unique identifier.
 
 ```yaml
 key_path: uuid

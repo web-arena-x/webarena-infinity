@@ -37,8 +37,7 @@ A user with the correct permissions can create a custom report within the Repor
 7. Under Daily Log, select the log type you want to search for pending entries.
 8. Once you have selected a log type, the right pane will populate with a list of columns you can to add to your report. Drag and drop the following columns into your report:
    - Status
-   - Date  
-     *Note:* These columns help identify pending entries, but other columns may be added to help identify items within the report.
+   - Date *Note:* These columns help identify pending entries, but other columns may be added to help identify items within the report.
 
      ##### Example
 
@@ -54,7 +53,7 @@ A user with the correct permissions can create a custom report within the Repor
      - Comments
 9. Click **Add Filter**.
 10. Select **Status**and choose the **Pending** status. This will cause the report to only show entries with a pending status.
-11. Click **Add Filter**again and choose **Date**. Choose a date or date range to search within the Daily Log.   
+11. Click **Add Filter**again and choose **Date**. Choose a date or date range to search within the Daily Log.  
     *Note:*You can choose to leave the date filter off the report and manually add a filter each time you view the report to get more specific results.
 12. Click **+ Add Tab**to create additional tabs on the report to be used for other log types.
 13. Click **Create Report**.

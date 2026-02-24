@@ -13,8 +13,8 @@ To post on the feed, your profile visibility must be set to **Community**. Learn
 Topics:
 
 - [How to post content](#h_01HZJ1R2NW17VPX9TTAXKG74KY)
-  - Desktop
-  - Mobile
+ - Desktop
+ - Mobile
 - [How to change your content audience](#h_01J2ASCTDYC0WER0486M4WABDQ)
 - [How to delete a post](#h_01J2C6QB2CNKXY2N8E31WD9AMT)
 

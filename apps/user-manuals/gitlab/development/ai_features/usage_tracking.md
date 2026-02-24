@@ -5,8 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: AI Usage Tracking
 ---
 
-GitLab stores AI usage data to provide usage analytics for our customers. AI usage tracking have been generalized to
-make it easy for developers to add new usage events and metrics.
+GitLab stores AI usage data to provide usage analytics for our customers. AI usage tracking have been generalized to make it easy for developers to add new usage events and metrics.
 
 ## Usage event record structure
 
@@ -20,15 +19,13 @@ Usage records have mandatory and optional fields as described below:
 | `namespace_id` (optional) | Reference to associated namespace. For project events it should correspond to the project namespace ID. |
 | `extras` (optional)       | Any additional metadata related to specific event type.                                               |
 
-Events are stored in the `ai_usage_events` table in Postgres and in the `ai_usage_events` table in ClickHouse, if it is available and
-enabled for analytics.
+Events are stored in the `ai_usage_events` table in Postgres and in the `ai_usage_events` table in ClickHouse, if it is available and enabled for analytics.
 
 ## Adding new event for tracking
 
 {{< alert type="note" >}}
 
-If you prefer to follow along an example, see [MR 197139](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/197139) which contains all the required steps to add a new
-event to the AI tracking system.
+If you prefer to follow along an example, see [MR 197139](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/197139) which contains all the required steps to add a new event to the AI tracking system.
 
 {{< /alert >}}
 
@@ -84,23 +81,18 @@ You can completely remove definition in `AiTracking` only if you are sure no dat
 
 ## GraphQL exposure
 
-All events declared for AI tracking can be automatically exposed
-in the [`AiUsageData.all`](../../api/graphql/reference/_index.md#aiusagedata) GraphQL field.
+All events declared for AI tracking can be automatically exposed in the [`AiUsageData.all`](../../api/graphql/reference/_index.md#aiusagedata) GraphQL field.
 To make this field support your new event type:
 
 1. Add your event type to `enum` of types in `ee/app/graphql/types/analytics/ai_usage/ai_usage_event_type_enum.rb`.
 1. Regenerate the GraphQL docs with `bundle exec rake gitlab:graphql:compile_docs`.
 
-You must perform this action manually to prevent occasional breaking changes to the API when
-editing or removing events.
-If you want to completely remove an event type from GraphQL, you should follow the
-[GraphQL field deprecation process](../../api/graphql/_index.md#deprecation-and-removal-process).
+You must perform this action manually to prevent occasional breaking changes to the API when editing or removing events.
+If you want to completely remove an event type from GraphQL, you should follow the [GraphQL field deprecation process](../../api/graphql/_index.md#deprecation-and-removal-process).
 
 ## External calls exposure
 
-All events declared for AI tracking are automatically exposed for external event tracking. That can be useful
-when tracking for events outside of Rails app. For example in IDE extension. External events can be tracked by calling
-`/api/v4/usage_data/track_event` endpoint with corresponding payload in `additional_properties` field. For example:
+All events declared for AI tracking are automatically exposed for external event tracking. That can be useful when tracking for events outside of Rails app. For example in IDE extension. External events can be tracked by calling `/api/v4/usage_data/track_event` endpoint with corresponding payload in `additional_properties` field. For example:
 
 ```shell
 curl "https://gitlab.com/api/v4/usage_data/track_event" --request POST --header "Authorization: Bearer glpat-XXX" --header 'Content-Type: application/json' --data '{"event": "code_suggestion_accepted_in_ide", "additional_properties": {"language": "javascript", "suggestion_size": 9, "timestamp": "2025-07-02 12:55:11 UTC", "branch_name": "my-new-feature"}, "project_id": 4}'

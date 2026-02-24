@@ -14,21 +14,21 @@ Our team uses the framework below to prioritize and resolve issues quickly and e
 
 - Any critical issue affecting all users.
 - The Handshake platform is inaccessible, or there are data integrity issues without any available workaround.
-  - **Example**: Career services staff, students, and employers cannot access Handshake; the kiosk is malfunctioning during an event; or all job postings and interview schedules have disappeared.
+ - **Example**: Career services staff, students, and employers cannot access Handshake; the kiosk is malfunctioning during an event; or all job postings and interview schedules have disappeared.
 
 **High**
 
 - Handshake issue is persistent and affecting major functionality for several users.
 - Major Handshake functionality is impacted or there are significant reliability issues.
 - There are no feasible workaround(s) available. 
-  - **Example**: Employers can’t register for an event or fair.
+ - **Example**: Employers can’t register for an event or fair.
 
 **Normal**
 
 - Handshake issue is affecting a small amount of users.
 - A short-term workaround is available, but cannot be scaled.
 - Inquiry about a routine technical issue or questions regarding Handshake features, usage, or configuration
-  - **Example**: How do I post a job or request an event?
+ - **Example**: How do I post a job or request an event?
 
 *Learn more about* [*How to Get Support Tickets Resolved ASAP*](https://support.joinhandshake.com/hc/en-us/articles/360000816588).
 

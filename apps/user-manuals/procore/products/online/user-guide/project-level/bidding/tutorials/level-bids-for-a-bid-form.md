@@ -15,22 +15,22 @@ You may receive bids from multiple vendors for your project. Bid leveling enable
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.
+ - 'Admin' level permissions on the project's Bidding tool.
 - **Additional Information**:
-  - Bids can only be leveled after a bid form has been created and bids have been received.
-  - This feature only works for newer bid packages that have response types configured (after October 2023). See [Create a Bid Form](create-a-bid-form.md#Add_Line_Items "Create a Bid Form").
-  - Leveled bids can be converted to a Subcontract or a Purchase Order. See [Award a Bid and Convert it to a Subcontract or Purchase Order](award-a-bid-and-convert-it-to-a-subcontract-or-purchase-order.md).
+ - Bids can only be leveled after a bid form has been created and bids have been received.
+ - This feature only works for newer bid packages that have response types configured (after October 2023). See [Create a Bid Form](create-a-bid-form.md#Add_Line_Items "Create a Bid Form").
+ - Leveled bids can be converted to a Subcontract or a Purchase Order. See [Award a Bid and Convert it to a Subcontract or Purchase Order](award-a-bid-and-convert-it-to-a-subcontract-or-purchase-order.md).
 
 ## Video
 
-|  |
+| |
 | --- |
-|  |
+| |
 
 ## Steps
 
 1. Navigate to the project's **Bidding** tool.
-2. Click **View** or the **name** of the relevant bid package.  
+2. Click **View** or the **name** of the relevant bid package. 
    *Note:* You can also click the name of the bid package.
 3. Click the**bid form name**.
 4. Click the **Bid Leveling** tab.
@@ -45,9 +45,9 @@ You may receive bids from multiple vendors for your project. Bid leveling enable
      1. Click the **table filter** ![icon-ag-grid-table-filter-menu.png](https://support.procore.com/@api/deki/files/233087/icon-ag-grid-table-filter-menu.png?revision=3&size=bestfit&width=18&height=18) icon.
      2. Move the **toggles** ![icon-toggle-on.png](https://support.procore.com/@api/deki/files/93011/icon-toggle-on.png?revision=1&size=bestfit&width=25&height=25) ON or ![icon-toggle-off.png](https://support.procore.com/@api/deki/files/93010/icon-toggle-off.png?revision=1&size=bestfit&width=25&height=25) OFF to show or hide a bid.
    - **Edit Line Items.**
-     1. Double click the **field** in the bid you want to edit.  
+     1. Double click the **field** in the bid you want to edit. 
         *Note*: Fields that have been edited will have a triangle in the cell.
-     2. If available, select **Include** or **Exclude**.  
+     2. If available, select **Include** or **Exclude**. 
         *Note:* This is based on the 'Response Field Type' in the bid form.
      3. Enter the new **amount**.
      4. *Optional:* Enter a **note**.
@@ -65,7 +65,7 @@ You may receive bids from multiple vendors for your project. Bid leveling enable
      8. Click **Save**.
      9. Click into any of the fields for your private line items to enter included or excluded quantities. See the 'Edit Line Items' section above for more information.
    - **Sort Bids**
-     1. Click **Sort** to re-sort bids from lowest to highest.  
+     1. Click **Sort** to re-sort bids from lowest to highest. 
         *Note:* Bids are automatically sorted from lowest to highest from left to right. Use this button to re-sort after editing a bid.
 7. *Optional:* [Export Bid Leveling Data](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/export-leveled-bids "Export Leveled Bids").
 

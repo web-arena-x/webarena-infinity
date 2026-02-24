@@ -2,7 +2,7 @@
 stage: AI-powered
 group: Agent Foundations
 info: To determine the technical writer assigned to the Stage/Group associated with this page, see
-  https://handbook.gitlab.com/handbook/product/ux/technical-writing/#assignments
+ https://handbook.gitlab.com/handbook/product/ux/technical-writing/#assignments
 title: Security threats in agentic systems
 ---
 
@@ -15,11 +15,9 @@ title: Security threats in agentic systems
 {{< /details >}}
 
 Common security threats can affect agentic systems.
-To improve your security posture, you should familiarize yourself with these threats and follow
-security best practices when deploying and using agents and flows.
+To improve your security posture, you should familiarize yourself with these threats and follow security best practices when deploying and using agents and flows.
 
-While no solution can eliminate risks entirely, GitLab invests significant effort in mitigating
-risks through built-in safeguards and security controls, including:
+While no solution can eliminate risks entirely, GitLab invests significant effort in mitigating risks through built-in safeguards and security controls, including:
 
 - [Composite identity](composite_identity.md#why-composite-identity-matters) to [limit GitLab Duo Agent Platform access](flows/foundational_flows/software_development.md#apis-that-the-flow-has-access-to), [improve the auditability of AI workflows](flows/foundational_flows/software_development.md#audit-log), and even [attribute resources created by long-lived remote workflows to dedicate the agent's service account](../../development/ai_features/composite_identity.md#attributing-actions-to-the-service-account).
 - [Remote execution environment sandbox](environment_sandbox.md).
@@ -30,12 +28,9 @@ risks through built-in safeguards and security controls, including:
 
 ## Prompt injection
 
-Prompt injection is an attack where malicious instructions are hidden
-within data that an AI processes. Instead of following its original instructions,
-the AI follows the hidden commands embedded in the data.
+Prompt injection is an attack where malicious instructions are hidden within data that an AI processes. Instead of following its original instructions, the AI follows the hidden commands embedded in the data.
 
-It's like slipping a fake note into a stack of real ones,
-and the fake note says, "ignore everything else and do this instead."
+It's like slipping a fake note into a stack of real ones, and the fake note says, "ignore everything else and do this instead."
 
 ### Common attack vectors
 
@@ -55,13 +50,9 @@ and the fake note says, "ignore everything else and do this instead."
 
 The most dangerous prompt injection attacks combine three elements (also known as [lethal trifecta](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/)):
 
-1. Access to sensitive systems: An agent can read private data
-   (GitLab projects, files, credentials), or modify external systems (local environment, remote systems, GitLab entities).
-1. Exposure to untrusted content: Malicious instructions can reach the agent
-   through user-controlled sources such as issue and merge request descriptions, code comments, or file contents.
-1. Autonomous action without approval: The agent can take actions without human review or approval,
-   including exfiltrating data through external communication or damaging the state
-   of external systems on the GitLab instance (deleting issues, merge requests, spamming comments).
+1. Access to sensitive systems: An agent can read private data (GitLab projects, files, credentials), or modify external systems (local environment, remote systems, GitLab entities).
+1. Exposure to untrusted content: Malicious instructions can reach the agent through user-controlled sources such as issue and merge request descriptions, code comments, or file contents.
+1. Autonomous action without approval: The agent can take actions without human review or approval, including exfiltrating data through external communication or damaging the state of external systems on the GitLab instance (deleting issues, merge requests, spamming comments).
 
 #### Risk factors and impact
 
@@ -71,7 +62,7 @@ A table below provide concise overview of strengths and risks factors for each o
 |---|---|---|---|
 | Access to Private Data | Within a scope of a top-level group the same access as the user who started a flow session | The same access to GitLab resources as the user who started a flow session, including public resources from groups or project that uses might not be a member of | The same access as Chat Agents on GitLab Web, with extended access to a local working directory from which a flow session has been started |
 | External Communication | [Sandboxed](environment_sandbox.md) (`srt`) blocking external communication. Write GitLab API scoped to top-level group | Write to GitLab API only (public and private projects) | Unrestricted network access. Write GitLab API (public and private projects) |
-| Exposure to Untrusted Data | On multi-tenant GitLab instances: access to public resources outside of a top-level group hierarchy | On multi-tenant GitLab instances: access to public resources outside of a top-level group hierarchy  | Unrestricted network access. On multi-tenant GitLab instances: access to public resources outside of a top-level group hierarchy. |
+| Exposure to Untrusted Data | On multi-tenant GitLab instances: access to public resources outside of a top-level group hierarchy | On multi-tenant GitLab instances: access to public resources outside of a top-level group hierarchy | Unrestricted network access. On multi-tenant GitLab instances: access to public resources outside of a top-level group hierarchy. |
 | Risk profile | Sandboxing combined with scope and tools restrictions offers mitigation strategies to break lethal trifecta | Unless strict tools restrictions are applied full trifecta is present, security relies primarily on human approval | Unless strict tools restrictions are applied full trifecta is present, security relies primarily on human approval |
 
 In-depth documentation of lethal trifecta mitigation strategies is presented within dedicated paragraphs of this document.
@@ -255,7 +246,7 @@ version: "v1"
 environment: ambient
 name: "Code Review - Vulnerable (Generalist Agent)"
 components:
-  - name: "generalist_code_reviewer"
+ - name: "generalist_code_reviewer"
     type: AgentComponent
     prompt_id: "vulnerable_code_review"
     inputs:
@@ -275,7 +266,7 @@ components:
       - "on_tool_execution_failed"
 
 prompts:
-  - prompt_id: "vulnerable_code_review"
+ - prompt_id: "vulnerable_code_review"
     name: "Vulnerable Code Review Agent"
     model:
       params:
@@ -296,12 +287,12 @@ prompts:
       timeout: 300
 
 routers:
-  - from: "generalist_code_reviewer"
+ - from: "generalist_code_reviewer"
     to: "end"
 
 flow:
-  entry_point: "generalist_code_reviewer"
-  inputs:
+ entry_point: "generalist_code_reviewer"
+ inputs:
     - category: merge_request_info
       input_schema:
         url:
@@ -317,7 +308,7 @@ version: "v1"
 environment: ambient
 name: "Code Review - Secure (Layered Agents)"
 components:
-  - name: "reader_agent"
+ - name: "reader_agent"
     type: AgentComponent
     prompt_id: "secure_code_review_reader"
     inputs:
@@ -337,7 +328,7 @@ components:
       - "on_tool_execution_success"
       - "on_tool_execution_failed"
 
-  - name: "writer_agent"
+ - name: "writer_agent"
     type: OneOffComponent
     prompt_id: "secure_code_review_writer"
     inputs:
@@ -353,7 +344,7 @@ components:
       - "on_tool_execution_failed"
 
 prompts:
-  - prompt_id: "secure_code_review_reader"
+ - prompt_id: "secure_code_review_reader"
     name: "Secure Code Review Reader Agent"
     model:
       params:
@@ -393,7 +384,7 @@ prompts:
     params:
       timeout: 300
 
-  - prompt_id: "secure_code_review_writer"
+ - prompt_id: "secure_code_review_writer"
     name: "Secure Code Review Writer Agent"
     model:
       params:
@@ -426,14 +417,14 @@ prompts:
       timeout: 120
 
 routers:
-  - from: "reader_agent"
+ - from: "reader_agent"
     to: "writer_agent"
-  - from: "writer_agent"
+ - from: "writer_agent"
     to: "end"
 
 flow:
-  entry_point: "reader_agent"
-  inputs:
+ entry_point: "reader_agent"
+ inputs:
     - category: merge_request_info
       input_schema:
         url:

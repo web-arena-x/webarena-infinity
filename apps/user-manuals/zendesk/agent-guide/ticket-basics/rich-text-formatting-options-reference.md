@@ -12,25 +12,25 @@ Tip: You can add tables to your comments from within the rich text editor by i
 
 | Toolbar button | Formatting | Keyboard shortcuts | Notes |
 | --- | --- | --- | --- |
-|  | Increase/decrease heading style | N/A | Not available in [Slack side conversations](https://support.zendesk.com/hc/en-us/articles/4408844202778). |
-|  | Bold | **Ctrl** + **B**  **⌘** + **B** (Mac) |  |
-|  | Italicize | **Ctrl** + **I**  **⌘** + **I** (Mac) |  |
-|  | Underline | **Ctrl + U** **Cmd + U** (Mac) |  |
-|  | Change the text color | N/A | [Agent Workspace](https://support.zendesk.com/hc/en-us/articles/4408821259930) only. Not available in the Macros editor or [Slack side conversations](https://support.zendesk.com/hc/en-us/articles/4408844202778). |
+| | Increase/decrease heading style | N/A | Not available in [Slack side conversations](https://support.zendesk.com/hc/en-us/articles/4408844202778). |
+| | Bold | **Ctrl** + **B** **⌘** + **B** (Mac) | |
+| | Italicize | **Ctrl** + **I** **⌘** + **I** (Mac) | |
+| | Underline | **Ctrl + U** **Cmd + U** (Mac) | |
+| | Change the text color | N/A | [Agent Workspace](https://support.zendesk.com/hc/en-us/articles/4408821259930) only. Not available in the Macros editor or [Slack side conversations](https://support.zendesk.com/hc/en-us/articles/4408844202778). |
 | Change the background color | N/A | [Agent Workspace](https://support.zendesk.com/hc/en-us/articles/4408821259930) only. Not available for web and mobile messaging, the Macros editor, or [Slack side conversations](https://support.zendesk.com/hc/en-us/articles/4408844202778). |
-|  | Bulleted list | **Ctrl** **Shift** + **8**  **⌘** + **Shift** + **8**(Mac) |  |
-|  | Numbered list | **Ctrl** + **Shift** + **7**  **⌘** + **Shift** + **7** (Mac) |  |
-|  | Nested list | N/A |  |
-|  | Decrease paragraph indentation | **Ctrl** + **[**  **⌘** + **[** (Mac) | Not available for web and mobile messaging or in [Slack side conversations](https://support.zendesk.com/hc/en-us/articles/4408844202778). |
-|  | Increase paragraph indentation | **Ctrl** + **]**  **⌘** + **]** (Mac) | Not available for web and mobile messaging or in [Slack side conversations](https://support.zendesk.com/hc/en-us/articles/4408844202778). |
-| N/A | Paragraph | **Return** |  |
-| N/A | Soft break | **Shift+Return** |  |
-|  | Block quote | **Ctrl** + **Shift** + **9**  **⌘** + **Shift** + **9** (Mac) | Not available for web and mobile messaging. |
-|  | Code block | **Ctrl** + **Shift** + **6**  **⌘** + **Shift** + **6** (Mac) | Not available for web and mobile messaging. |
-|  | Code span | **Ctrl** + **Shift** + **5**  **⌘** + **Shift** + **5** (Mac) | Not available for web and mobile messaging. |
-|  | Hyperlink | **Ctrl** + **K**  **⌘** + **K** (Mac) | Not available in [Slack side conversations](https://support.zendesk.com/hc/en-us/articles/4408844202778). |
-|  | Horizontal line | **Ctrl** + **Shift** + **L**  **⌘** + **Shift** + **L** (Mac) | Not available for web and mobile messaging. |
-| - | Inline image | **Ctrl****+ M**  **⌘****+ M**(Mac) | Not available for web and mobile messaging. |
-|  | Attachment | N/A |  |
-| Secure attachment | N/A |  |
-| Attachment disabled | N/A |  |
+| | Bulleted list | **Ctrl** **Shift** + **8** **⌘** + **Shift** + **8**(Mac) | |
+| | Numbered list | **Ctrl** + **Shift** + **7** **⌘** + **Shift** + **7** (Mac) | |
+| | Nested list | N/A | |
+| | Decrease paragraph indentation | **Ctrl** + **[** **⌘** + **[** (Mac) | Not available for web and mobile messaging or in [Slack side conversations](https://support.zendesk.com/hc/en-us/articles/4408844202778). |
+| | Increase paragraph indentation | **Ctrl** + **]** **⌘** + **]** (Mac) | Not available for web and mobile messaging or in [Slack side conversations](https://support.zendesk.com/hc/en-us/articles/4408844202778). |
+| N/A | Paragraph | **Return** | |
+| N/A | Soft break | **Shift+Return** | |
+| | Block quote | **Ctrl** + **Shift** + **9** **⌘** + **Shift** + **9** (Mac) | Not available for web and mobile messaging. |
+| | Code block | **Ctrl** + **Shift** + **6** **⌘** + **Shift** + **6** (Mac) | Not available for web and mobile messaging. |
+| | Code span | **Ctrl** + **Shift** + **5** **⌘** + **Shift** + **5** (Mac) | Not available for web and mobile messaging. |
+| | Hyperlink | **Ctrl** + **K** **⌘** + **K** (Mac) | Not available in [Slack side conversations](https://support.zendesk.com/hc/en-us/articles/4408844202778). |
+| | Horizontal line | **Ctrl** + **Shift** + **L** **⌘** + **Shift** + **L** (Mac) | Not available for web and mobile messaging. |
+| - | Inline image | **Ctrl****+ M** **⌘****+ M**(Mac) | Not available for web and mobile messaging. |
+| | Attachment | N/A | |
+| Secure attachment | N/A | |
+| Attachment disabled | N/A | |

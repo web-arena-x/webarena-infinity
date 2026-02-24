@@ -10,8 +10,8 @@ Your ability to message applicants depends on your employer account type, whethe
 
 - **Basic employers**: **Owners** and **Recruiters** can message applicants only for jobs they have personally created. Jobs posted by other teammates will appear on your list, but are **view-only**.
 
-  - After a job you personally created closes, you can continue messaging applicants for **30 days**. Messaging beyond this period requires an eligible paid plan.
-  - To message applicants for jobs you did not create, you must upgrade to an eligible paid plan.
+ - After a job you personally created closes, you can continue messaging applicants for **30 days**. Messaging beyond this period requires an eligible paid plan.
+ - To message applicants for jobs you did not create, you must upgrade to an eligible paid plan.
 - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**, can access and message applicants for both their own jobs and those posted by teammates indefinitely, provided they have the appropriate permissions.
 
 ### 
@@ -21,8 +21,8 @@ Your ability to message applicants depends on your employer account type, whethe
 - [Access job or interview](#01H7X99KPMGGKZ8Q8A64A8GQN0)
 - [Filter applicants](#h_01JZDJ6K7AFTR42EGPG0KNSF3M)
 - [Message applicants in Handshake](#01H7XDDG4GPSE378QRWDY7HNRJ)
-  - [Jobs](#h_01JZDJZBNAA239ZFS5MZZ92XPS)
-  - [On-campus interviews](#h_01J5VP8Q8A7CVPRC6KYY1EF4NB)
+ - [Jobs](#h_01JZDJZBNAA239ZFS5MZZ92XPS)
+ - [On-campus interviews](#h_01J5VP8Q8A7CVPRC6KYY1EF4NB)
 - [Message applicants outside of Handshake](#01H7X99KPMYRFMKN779BTPRPFR)
 
 ### Access job or interview
@@ -40,26 +40,26 @@ The filters available vary based on both the type of page you’re viewing (job 
 **All employers**
 
 - **Application status**
-  - Applied
-  - Interviewing
-  - Rejected
-  - Hired
+ - Applied
+ - Interviewing
+ - Rejected
+ - Hired
 - **Matching qualifications**
-  - Latest graduation date
-  - Minimum GPA
-  - Majors
-  - Work authorization
+ - Latest graduation date
+ - Minimum GPA
+ - Majors
+ - Work authorization
     - **Note**: When applied, candidates who meet your criteria or choose not to disclose their status will appear.
 - **Application date range**
 - **Engagement**
-  - Employer invited candidate to apply
+ - Employer invited candidate to apply
 - **Education**
-  - Skills
-  - Majors
-  - Schools
+ - Skills
+ - Majors
+ - Schools
 - **Profile Attributes**
-  - Labels
-  - Not labels
+ - Labels
+ - Not labels
 
 **\*Plus employers**
 

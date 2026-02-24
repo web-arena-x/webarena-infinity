@@ -19,8 +19,7 @@ description: Designate an individual who can take ownership of your GitLab accou
 
 {{< /history >}}
 
-You can grant individuals permission to access your GitLab account if you are unable to manage it
-yourself. This ensures continuity of your work and projects.
+You can grant individuals permission to access your GitLab account if you are unable to manage it yourself. This ensures continuity of your work and projects.
 
 {{< alert type="note" >}}
 
@@ -31,10 +30,7 @@ This feature is not available for enterprise users.
 ## Account manager
 
 A designated account manager can temporarily manage your GitLab account if you are unable to do so.
-Account managers are commonly used in situations where you are legally or medically incapacitated,
-or on a work sabbatical. The account manager can temporarily obtain full access to your account. All
-activity performed during this time is associated with your username and user ID, and any commits or
-comments display your username.
+Account managers are commonly used in situations where you are legally or medically incapacitated, or on a work sabbatical. The account manager can temporarily obtain full access to your account. All activity performed during this time is associated with your username and user ID, and any commits or comments display your username.
 
 ### Add an account manager
 
@@ -70,11 +66,7 @@ To delete an account manager:
 
 ## Account successor
 
-A designated account successor can assume permanent ownership of your GitLab account in the event
-of your death. The account successor can permanently obtain full access to your account. All
-activity performed after they take ownership is associated with your username and user ID, and
-any commits or comments display your username. When you specify an account successor, you must
-also specify their relationship to you.
+A designated account successor can assume permanent ownership of your GitLab account in the event of your death. The account successor can permanently obtain full access to your account. All activity performed after they take ownership is associated with your username and user ID, and any commits or comments display your username. When you specify an account successor, you must also specify their relationship to you.
 
 ### Add an account successor
 
@@ -110,5 +102,4 @@ To delete an account successor:
 
 ## Request access to a GitLab account
 
-If you are currently an account manager or account successor for a GitLab account,
-you can request access to that account by [contacting GitLab Support](https://about.gitlab.com/support/).
+If you are currently an account manager or account successor for a GitLab account, you can request access to that account by [contacting GitLab Support](https://about.gitlab.com/support/).

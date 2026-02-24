@@ -114,7 +114,7 @@ Jumping
 | Go to Sent messages | **g** + **t** |
 | Go to Drafts | **g** + **d** |
 | Go to All mail | **g** + **a** |
-| Switch between the Calendar/Keep/Tasks sidebar and your inbox. | **⌘**/**Ctrl** + **Alt** + **,**  and  **⌘/Ctrl** + **Alt** + **.** |
+| Switch between the Calendar/Keep/Tasks sidebar and your inbox. | **⌘**/**Ctrl** + **Alt** + **,** and **⌘/Ctrl** + **Alt** + **.** |
 | Go to Tasks | **g** + **k** |
 | Go to label | **g** + **l** |
 

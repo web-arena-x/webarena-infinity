@@ -10,13 +10,11 @@ Learn how to add new components and services to the GitLab application.
 
 ## Support all package methods
 
-Additions must support both Omnibus GitLab and Cloud Native GitLab. Changes
-to one must be made to the other to retain feature parity.
+Additions must support both Omnibus GitLab and Cloud Native GitLab. Changes to one must be made to the other to retain feature parity.
 
 ## Contributing
 
-The primary projects handled by Distribution are listed below. For more
-information, visit the [Distribution team engineering handbook page](https://handbook.gitlab.com/handbook/engineering/infrastructure-platforms/gitlab-delivery/distribution/)
+The primary projects handled by Distribution are listed below. For more information, visit the [Distribution team engineering handbook page](https://handbook.gitlab.com/handbook/engineering/infrastructure-platforms/gitlab-delivery/distribution/)
 or select one of the subsections in the navigation bar.
 
 ### GitLab application

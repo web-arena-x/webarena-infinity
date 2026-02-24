@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/5546506893210-Cloning-a-re
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Explore Professional or Enterprise |
 

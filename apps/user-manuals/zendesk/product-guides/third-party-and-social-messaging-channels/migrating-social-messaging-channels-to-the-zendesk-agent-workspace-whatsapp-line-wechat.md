@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408824569114-Migrating-so
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-Location:  Admin Center > Channels > Messaging and social > Messaging
+Location: Admin Center > Channels > Messaging and social > Messaging
 
 This article describes how you can use self-service to migrate your social messaging channels to the improved social messaging experience in the Zendesk Agent Workspace. When you migrate your channels, you’ll get the full unified conversation experience provided by the agent workspace.
 
@@ -72,10 +72,10 @@ After you’ve migrated your channels, make sure your agents are aware of the fo
 - The social messaging [Notifier](https://support.zendesk.com/hc/en-us/articles/4408839412634#topic_kny_kf3_n3b) will not be available. Instead agents can use [ticket tabs](https://support.zendesk.com/hc/en-us/articles/4408844108826) and [notifications lists](https://support.zendesk.com/hc/en-us/articles/4408829025690) in Agent Workspace to monitor end-user activity.
 - Social messages are marked by **Via** types in the [conversation header](https://support.zendesk.com/hc/en-us/articles/4408823962906#topic_n4m_fyc_zlb). To give you better granularity, types are listed per channel. For example, WhatsApp.
 - For channels that were configured in **Support > Channel integrations**:
-  - The **Social Messaging Channel Info** [ticket field](https://support.zendesk.com/hc/en-us/articles/4408839412634#topic_u3s_pnx_lkb) is not available for new social messaging tickets.
-  - The **Social Messaging User Info** field in end-user [profiles](https://support.zendesk.com/hc/en-us/articles/4408839412634#topic_yx5_3f3_n3b) is not available for new social messaging tickets.
-  - Tickets from social messaging channels do not have **whatsapp\_support** and **line\_support** [tags](https://support.zendesk.com/hc/en-us/articles/4408839412634#topic_u3s_pnx_lkb) added by default.
-  - The **Integration account** [condition](https://support.zendesk.com/hc/en-us/articles/4408838090266#topic_k2p_5b3_n3b) is not supported in triggers and automations.
+ - The **Social Messaging Channel Info** [ticket field](https://support.zendesk.com/hc/en-us/articles/4408839412634#topic_u3s_pnx_lkb) is not available for new social messaging tickets.
+ - The **Social Messaging User Info** field in end-user [profiles](https://support.zendesk.com/hc/en-us/articles/4408839412634#topic_yx5_3f3_n3b) is not available for new social messaging tickets.
+ - Tickets from social messaging channels do not have **whatsapp\_support** and **line\_support** [tags](https://support.zendesk.com/hc/en-us/articles/4408839412634#topic_u3s_pnx_lkb) added by default.
+ - The **Integration account** [condition](https://support.zendesk.com/hc/en-us/articles/4408838090266#topic_k2p_5b3_n3b) is not supported in triggers and automations.
 - New tickets are created when your end users start a conversation over social messaging channels. A new end-user profile is created when an end user sends a message for the first time after migrating your social messaging channels to the Zendesk Agent Workspace.
 
 ## Who can't migrate?
@@ -85,6 +85,6 @@ This section describes which accounts are not eligible for self-service migratio
 - If you already enabled the Zendesk Agent Workspace before self-serve migration was available, you have to manually migrate your social messaging channels. Zendesk will contact you regarding help with this process.
 - If you want to include Facebook and X (formerly Twitter) DM channels in the Agent Workspace, see these articles:
 
-  - [Adding Facebook DM channels for the Zendesk Agent Workspace](https://support.zendesk.com/hc/en-us/articles/4408835753370)
-  - [Adding X (formerly Twitter) DM channels for the Zendesk Agent Workspace](https://support.zendesk.com/hc/en-us/articles/4408832388250)
-  - [Migrating Facebook Messenger and X (formerly Twitter) DM channels to the Zendesk Agent Workspace](https://support.zendesk.com/hc/en-us/articles/4408832576410)
+ - [Adding Facebook DM channels for the Zendesk Agent Workspace](https://support.zendesk.com/hc/en-us/articles/4408835753370)
+ - [Adding X (formerly Twitter) DM channels for the Zendesk Agent Workspace](https://support.zendesk.com/hc/en-us/articles/4408832388250)
+ - [Migrating Facebook Messenger and X (formerly Twitter) DM channels to the Zendesk Agent Workspace](https://support.zendesk.com/hc/en-us/articles/4408832576410)

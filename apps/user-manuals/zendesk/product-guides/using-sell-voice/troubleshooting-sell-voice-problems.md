@@ -8,8 +8,8 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408824413722-Troubleshoot
 
 ![Available on all Sell plans](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/plan_available_sell_all.png)
 
-All calls from Zendesk Sell are VOIP (Voice over IP) calls. Call quality can be dependent on internet connection, your microphone or headset, and general service load.  
-   
+All calls from Zendesk Sell are VOIP (Voice over IP) calls. Call quality can be dependent on internet connection, your microphone or headset, and general service load. 
+  
 To ensure the highest level calls, here are some actions you can take:
 
 - Use a wired internet connection whenever possible.
@@ -25,17 +25,17 @@ This article covers the following topics:
 
 - [Setting up the network for best results](#h_01F6JBM1PFSTRC9MP3TM9F0NQK)
 - [Troubleshooting suggestions](#h_01F6JBMCHV1RSST2N0B2FB2QZE)
-  - [Browser cannot establish a call](#h_01F8T1YQH6CMKEAK095WFQEN91)
-  - [One-way audio](#h_01F8T1Z5B734EA03JDP3T3M4RR)
-  - [Call audio is garbled](#h_01F8T1ZG2TECVCXNART14QPGJF)
-  - [Audio drops out](#h_01F8T1ZT6SFZNEXG89YPBZKK1K)
-  - [Calls not saving](#h_01F8T203EHHQMDSDR6SXMXD6VJ)
+ - [Browser cannot establish a call](#h_01F8T1YQH6CMKEAK095WFQEN91)
+ - [One-way audio](#h_01F8T1Z5B734EA03JDP3T3M4RR)
+ - [Call audio is garbled](#h_01F8T1ZG2TECVCXNART14QPGJF)
+ - [Audio drops out](#h_01F8T1ZT6SFZNEXG89YPBZKK1K)
+ - [Calls not saving](#h_01F8T203EHHQMDSDR6SXMXD6VJ)
 
 ## Setting up the network for best results
 
 Voice uses Twilio to provide our VOIP services. In order to provide Voice, your browser establishes a connection to Twilio on these addresses and ports:
 
-|  |  |  |  |  |
+| | | | | |
 | --- | --- | --- | --- | --- |
 | **Component** | **Address** | **Client-side port used** | **Server-side port used** | **Protocol** |
 | Signaling | chunderw-gll.twilio.com | Any | 443 | TCP |

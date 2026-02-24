@@ -11,10 +11,10 @@ To quickly find emails and attachments, use search chips, advanced search, and o
 ## Learn what happens when you search in Gmail
 
 - To help you search faster, Gmail suggests search terms as you enter words. These search terms are based on information from your Gmail account, like:
-  - Contacts
-  - Labels
-  - Messages
-  - Past searches
+ - Contacts
+ - Labels
+ - Messages
+ - Past searches
 - To improve your search experience, searches you make in Gmail that return no results show related results instead.
 - You can sort search results by relevancy or by chronological order. To sort your results, select **Most relevant** or **Most recent**.
 
@@ -108,7 +108,7 @@ For a full list of search operators, [learn how to refine searches in Gmail](/ma
 **Tips:**
 
 - If you search for a person’s email address, the results show emails that include their alias.
-  - To limit the search to only the original email, enclose the search in quotes. For example, "from:john.doe@example.com."
+ - To limit the search to only the original email, enclose the search in quotes. For example, "from:john.doe@example.com."
 - If you search "from:email," the results show Drive files shared by that email address.
 
 Ask Gemini in Gmail

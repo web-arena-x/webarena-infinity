@@ -29,23 +29,22 @@ This error occurs when:
 - You have not enabled 2FA and attempted to authenticate with an incorrect username or password.
 - You have not enabled 2FA and the [enforce 2FA for all users](../../../security/two_factor_authentication.md#enforce-2fa-for-all-users) setting is active.
 - You have not enabled 2FA and the [password authentication enabled for Git over HTTP(S)](../../../administration/settings/sign_in_restrictions.md#password-authentication-enabled)
-  setting is not active.
+ setting is not active.
 
 To resolve this error:
 
 - Use a [personal access token](../personal_access_tokens.md) with the correct scopes:
-  - For Git requests over HTTP(S): `read_repository` or `write_repository`
-  - For [GitLab container registry](../../packages/container_registry/authenticate_with_container_registry.md)
-  requests: `read_registry` or `write_registry`
-  - For [dependency proxy](../../packages/dependency_proxy/_index.md#authenticate-with-the-dependency-proxy-for-container-images)
-  requests: `read_registry` and `write_registry`
+ - For Git requests over HTTP(S): `read_repository` or `write_repository`
+ - For [GitLab container registry](../../packages/container_registry/authenticate_with_container_registry.md)
+ requests: `read_registry` or `write_registry`
+ - For [dependency proxy](../../packages/dependency_proxy/_index.md#authenticate-with-the-dependency-proxy-for-container-images)
+ requests: `read_registry` and `write_registry`
 - If you configured LDAP, use an [LDAP password](../../../administration/auth/ldap/_index.md).
 - Use an [OAuth credential helper](two_factor_authentication.md#oauth-credential-helpers).
 
 ## Error: `invalid pin code`
 
-An `invalid pin code` error can indicate that there is a time sync issue between the authentication
-application and the GitLab instance itself.
+An `invalid pin code` error can indicate that there is a time sync issue between the authentication application and the GitLab instance itself.
 
 To resolve this issue, turn on time synchronization for the device that generates your 2FA codes.
 
@@ -71,8 +70,7 @@ To resolve this issue, turn on time synchronization for the device that generate
 
 You might get an error that states `Permission denied (publickey)`.
 
-This issue occurs if you are using a non-default SSH key pair file path and attempt to
-[generate recovery codes using SSH](two_factor_authentication_troubleshooting.md#regenerate-recovery-codes-with-ssh).
+This issue occurs if you are using a non-default SSH key pair file path and attempt to [generate recovery codes using SSH](two_factor_authentication_troubleshooting.md#regenerate-recovery-codes-with-ssh).
 
 To resolve this, [configure SSH to point to a different directory](../../ssh_advanced.md#use-ssh-keys-in-another-directory) using `ssh-agent`.
 
@@ -80,26 +78,21 @@ To resolve this, [configure SSH to point to a different directory](../../ssh_adv
 
 ### Didn't receive email verification code or code has expired
 
-Check your spam folder. On GitLab.com, emails are sent from `gitlab@mg.gitlab.com`
-and can be [verified as genuine](https://handbook.gitlab.com/handbook/security/corporate/systems/google/mail/verification/#verify-an-email-from-gitlabcom-is-genuine).
+Check your spam folder. On GitLab.com, emails are sent from `gitlab@mg.gitlab.com` and can be [verified as genuine](https://handbook.gitlab.com/handbook/security/corporate/systems/google/mail/verification/#verify-an-email-from-gitlabcom-is-genuine).
 
 If your code expires, you can request a new code. From the sign-in page, select **Resend code**.
 
 ### Unable to access your email address
 
-If you cannot access your primary email address, try a verified secondary email address associated
-to your account. From the sign-in page, select **Send a code to another address associated with
-this account**.
+If you cannot access your primary email address, try a verified secondary email address associated to your account. From the sign-in page, select **Send a code to another address associated with this account**.
 
-On GitLab Self-Managed, if you are unable to access your primary or secondary email addresses,
-contact your GitLab administrator.
+On GitLab Self-Managed, if you are unable to access your primary or secondary email addresses, contact your GitLab administrator.
 
 ## Recovery options and 2FA reset
 
 ### Use a recovery code
 
-When you enabled a one-time password (OTP) authenticator, GitLab provided you with a series of
-[recovery codes](two_factor_authentication.md#recovery-codes).
+When you enabled a one-time password (OTP) authenticator, GitLab provided you with a series of [recovery codes](two_factor_authentication.md#recovery-codes).
 You can use these codes to sign in to your account.
 
 To use a recovery code:
@@ -157,17 +150,13 @@ After signing in, immediately set up 2FA with a new device.
 
 ### Restore 2FA codes from authenticator backup
 
-In addition to the GitLab recovery codes, many authenticator apps offer their own backup and
-recovery methods. If you lose your device, you may be able to restore your 2FA codes by
-logging into your authenticator app on a new device, provided you enabled backup features
-beforehand.
+In addition to the GitLab recovery codes, many authenticator apps offer their own backup and recovery methods. If you lose your device, you may be able to restore your 2FA codes by logging into your authenticator app on a new device, provided you enabled backup features beforehand.
 
 {{< alert type="note" >}}
 
 - You must enable your authenticator backup features before you lose access to your device.
 - GitLab Support cannot assist with recovery issues related to third-party authenticator apps.
-- GitLab recommends using recovery codes as your primary recovery method. Make sure you save
-  your recovery codes when you enable 2FA.
+- GitLab recommends using recovery codes as your primary recovery method. Make sure you save your recovery codes when you enable 2FA.
 
 {{< /alert >}}
 
@@ -188,12 +177,9 @@ Documentation for common authenticators is available through the following locat
 
 {{< /details >}}
 
-If the previous recovery options do not work, you can create a support request to disable 2FA for
-your account. This service is only available for accounts with a GitLab.com subscription.
+If the previous recovery options do not work, you can create a support request to disable 2FA for your account. This service is only available for accounts with a GitLab.com subscription.
 
-GitLab Support cannot reset 2FA for Free accounts. If you cannot recover your 2FA method, you will
-be permanently locked out of your account and must create a new one. For more information, see the
-[blog announcement](https://about.gitlab.com/blog/2020/08/04/gitlab-support-no-longer-processing-mfa-resets-for-free-users/).
+GitLab Support cannot reset 2FA for Free accounts. If you cannot recover your 2FA method, you will be permanently locked out of your account and must create a new one. For more information, see the [blog announcement](https://about.gitlab.com/blog/2020/08/04/gitlab-support-no-longer-processing-mfa-resets-for-free-users/).
 
 To create a support request:
 

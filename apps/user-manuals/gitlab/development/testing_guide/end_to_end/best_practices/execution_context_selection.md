@@ -12,7 +12,7 @@ Some tests are designed to be run against specific environments, or in specific 
 | Switch       | Function                         | Type                |
 | ------------ | -------------------------------- | ------------------- |
 | `tld`        | Set the top-level domain matcher | `String`            |
-| `subdomain`  | Set the subdomain matcher        | `Array` or `String` |
+| `subdomain` | Set the subdomain matcher        | `Array` or `String` |
 | `domain`     | Set the domain matcher           | `String`            |
 | `production` | Match the production environment | `Static`            |
 | `pipeline`   | Match a pipeline                 | `Array` or `Static` |
@@ -21,8 +21,7 @@ Some tests are designed to be run against specific environments, or in specific 
 {{< alert type="warning" >}}
 
 You cannot specify `:production` and `{ <switch>: 'value' }` simultaneously.
-These options are mutually exclusive. If you want to specify production, you
-can control the `tld` and `domain` independently.
+These options are mutually exclusive. If you want to specify production, you can control the `tld` and `domain` independently.
 
 {{< /alert >}}
 
@@ -55,20 +54,20 @@ Matches use:
 
 ```ruby
 RSpec.describe 'Area' do
-  it 'runs in any environment or pipeline' do; end
-  it 'runs only in production environment', only: :production do; end
+ it 'runs in any environment or pipeline' do; end
+ it 'runs only in production environment', only: :production do; end
 
-  it 'runs only in staging environment', only: { subdomain: :staging } do; end
+ it 'runs only in staging environment', only: { subdomain: :staging } do; end
 
-  it 'runs in dev environment', only: { tld: '.org', domain: 'gitlab', subdomain: 'dev' } do; end
+ it 'runs in dev environment', only: { tld: '.org', domain: 'gitlab', subdomain: 'dev' } do; end
 
-  it 'runs in prod and staging environments', only: { subdomain: /(staging.)?/, domain: 'gitlab' } {}
+ it 'runs in prod and staging environments', only: { subdomain: /(staging.)?/, domain: 'gitlab' } {}
 
-  it 'runs only in nightly pipeline', only: { pipeline: :nightly } do; end
+ it 'runs only in nightly pipeline', only: { pipeline: :nightly } do; end
 
-  it 'runs in nightly and canary pipelines', only: { pipeline: [:nightly, :canary] } do; end
+ it 'runs in nightly and canary pipelines', only: { pipeline: [:nightly, :canary] } do; end
 
-  it 'runs in specific environment matching condition', only: { condition: -> { ENV['TEST_ENV'] == 'true' } } do; end
+ it 'runs in specific environment matching condition', only: { condition: -> { ENV['TEST_ENV'] == 'true' } } do; end
 end
 ```
 
@@ -98,15 +97,15 @@ Matches use:
 
 ```ruby
 RSpec.describe 'Area' do
-  it 'runs in any execution context except the production environment', except: :production do; end
+ it 'runs in any execution context except the production environment', except: :production do; end
 
-  it 'runs in any execution context except the staging environment', except: { subdomain: :staging } do; end
+ it 'runs in any execution context except the staging environment', except: { subdomain: :staging } do; end
 
-  it 'runs in any execution context except the nightly pipeline', except: { pipeline: :nightly } do; end
+ it 'runs in any execution context except the nightly pipeline', except: { pipeline: :nightly } do; end
 
-  it 'runs in any execution context except the ee:instance job', except: { job: 'ee:instance' } do; end
+ it 'runs in any execution context except the ee:instance job', except: { job: 'ee:instance' } do; end
 
-  it 'runs in specific environment not matching condition', except: { condition: -> { ENV['TEST_ENV'] == 'true' } } do; end
+ it 'runs in specific environment not matching condition', except: { condition: -> { ENV['TEST_ENV'] == 'true' } } do; end
 end
 ```
 
@@ -127,9 +126,7 @@ To run a test tagged with `except` locally, you can either:
 
 ## Quarantine a test for a specific environment
 
-Similarly to specifying that a test should only run against a specific environment, it's also possible to quarantine a
-test only when it runs against a specific environment. The syntax is exactly the same, except that the `only: { ... }`
-hash is nested in the [`quarantine: { ... }`](https://handbook.gitlab.com/handbook/engineering/testing/pipeline-triage/#quarantining-tests) hash.
+Similarly to specifying that a test should only run against a specific environment, it's also possible to quarantine a test only when it runs against a specific environment. The syntax is exactly the same, except that the `only: { ... }` hash is nested in the [`quarantine: { ... }`](https://handbook.gitlab.com/handbook/engineering/testing/pipeline-triage/#quarantining-tests) hash.
 For example, `quarantine: { only: { subdomain: :staging } }` only quarantines the test when run against `staging`.
 
 The quarantine feature can be explicitly disabled with the `DISABLE_QUARANTINE` environment variable. This can be useful when running tests locally.

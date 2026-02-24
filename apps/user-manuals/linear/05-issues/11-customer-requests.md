@@ -68,8 +68,8 @@ When made from an integration, the customer request will quote the original mess
 
 #### Manually
 
-Requests can be created manually in Linear using the `+` icon underneath an issue description, from the button on a customer page, or by using the keyboard shortcut `Ctrl` `R` (macOS)/ `Ctrl` `Alt` `R` (Windows). This is useful when a request comes in through a channel not necessarily associated with an integration, like if you have Linear open during an in-person meeting.  
-  
+Requests can be created manually in Linear using the `+` icon underneath an issue description, from the button on a customer page, or by using the keyboard shortcut `Ctrl` `R` (macOS)/ `Ctrl` `Alt` `R` (Windows). This is useful when a request comes in through a channel not necessarily associated with an integration, like if you have Linear open during an in-person meeting. 
+ 
 From the project page, you can add customer requests using CTRL+R, or the + Customer Request button. Once your first Customer Request is added to a project, a dedicated tab for Customers will appear next to the Overview tab.
 
 Remember to configure a default team in [settings](https://linear.app/settings/customers) for customer requests, so that issues are created in that team when requests are created from individual customer pages.
@@ -96,7 +96,7 @@ Whenever an Ask is created, a customer request will be associated with the issue
 
 
 
-If you have a Linear account and are creating an Ask in Slack, you can also select a customer manually. We do not expose your customer list to other users in your Slack workspace without Linear accounts, but if they create an Ask from the overflow menu on an existing message the customer association will be automatic.  
+If you have a Linear account and are creating an Ask in Slack, you can also select a customer manually. We do not expose your customer list to other users in your Slack workspace without Linear accounts, but if they create an Ask from the overflow menu on an existing message the customer association will be automatic. 
 
 
 To ensure proper customer attribution despite varying Slack privacy settings in shared channels, we recommend directly linking any shared Slack channels to the customer page (select the three-dot menu, then _link to Slack channel.)_ This way, all Asks created in that channel will automatically be associated with the customer.
@@ -105,7 +105,7 @@ To ensure proper customer attribution despite varying Slack privacy settings in 
 
 When creating an issue from the Slack integration, optionally select "Customer" to associate a customer request with the issue you are creating. This value will prefill if Linear is able to determine the domain of the user who sent the message.
 
-  
+ 
 To default a customer being selected in a Slack channel, open the customer page in Linear (`O then Q`) and from the … menu choose the "Link to Slack channel" option.
 
 ![Customer field highlighted when creating an issue from the Slack integration](https://webassets.linear.app/images/ornj730p/production/2478ff38cf845db4e8f9377daf4885f3b8b4d68c-522x636.png?q=95&auto=format&dpr=2)
@@ -122,18 +122,18 @@ Requests can be flagged as important to specific customers. For instance, an iss
 
 ### Synced Attributes
 
-From _Settings > Customer Requests > Customer attributes data source,_ you can choose a data source for Linear customer attributes such as Intercom, Zendesk or Front and create mappings between source tool attributes and attributes on Linear Customers. You can also choose _None_ as a data source to allow more control via the API or directly in the interface. Once an external source is configured the company name and domain are automatically synced.  
+From _Settings > Customer Requests > Customer attributes data source,_ you can choose a data source for Linear customer attributes such as Intercom, Zendesk or Front and create mappings between source tool attributes and attributes on Linear Customers. You can also choose _None_ as a data source to allow more control via the API or directly in the interface. Once an external source is configured the company name and domain are automatically synced. 
 
 
-_Owner, Revenue, Size, Status_ & _Tier_ can be remapped to pull from data in your source tool. These values  are regularly kept up to date as they will be [synced with your source](https://linear.app/docs/customer-requests#collapsible-7589124828b2).  
-  
+_Owner, Revenue, Size, Status_ & _Tier_ can be remapped to pull from data in your source tool. These values are regularly kept up to date as they will be [synced with your source](https://linear.app/docs/customer-requests#collapsible-7589124828b2). 
+ 
 You can also choose to enable manual edits for any attributes that are unmapped. Attributes will always be editable via the Linear API regardless of this UI-specific setting. 
 
 ![attribute mapping for Intercom example](https://webassets.linear.app/images/ornj730p/production/b0a320e654622fc204fdb55d9f5f74a939287da4-1012x1208.png?q=95&auto=format&dpr=2)
 
 ## Build customer views
 
-All customer data brought into Linear can be used to create [custom views](https://linear.app/docs/custom-views) for both issues and projects to surface the impact of your work on your customers. For example, create a view of issues with requests from Enterprise customers ("Tier" property from Intercom), where each issue has at least 20 requests. Ordering this view by customer count surfaces the most highly requested issues to the top. Triangle icons indicating requests marked important surface urgent needs.  Consider consulting this view when planning upcoming cycles to ensure what you ship aligns with the needs of the users. 
+All customer data brought into Linear can be used to create [custom views](https://linear.app/docs/custom-views) for both issues and projects to surface the impact of your work on your customers. For example, create a view of issues with requests from Enterprise customers ("Tier" property from Intercom), where each issue has at least 20 requests. Ordering this view by customer count surfaces the most highly requested issues to the top. Triangle icons indicating requests marked important surface urgent needs. Consider consulting this view when planning upcoming cycles to ensure what you ship aligns with the needs of the users. 
 
 ![Filtering for Enterprise tier](https://webassets.linear.app/images/ornj730p/production/ef27b0868982ed5d230e89228b6890eacc39ecdf-793x322.png?q=95&auto=format&dpr=2)
 
@@ -148,7 +148,7 @@ You can also open a specific customer page (`O ,_then_, Q`) and under the bell i
 
 ### Export Customer Requests
 
-Should you need to export your customer requests from a particular customer, issue, or project, an option exists in the `Cmd`/`Ctrl` + `K` menu. Search the command menu and select  _Export customer requests as CSV_ to take that action.
+Should you need to export your customer requests from a particular customer, issue, or project, an option exists in the `Cmd`/`Ctrl` + `K` menu. Search the command menu and select _Export customer requests as CSV_ to take that action.
 
 ## FAQ
 
@@ -156,13 +156,7 @@ Should you need to export your customer requests from a particular customer, iss
 <summary>Which plans support Customer Requests?</summary>
 Customer Requests is available on all currently offered plans: (Free, Basic, Business, and Enterprise.) You'll only be able to create requests from integrations available on your plan.
 
-Create requests | Free | Business | Enterprise
---- | --- | --- | ---
-Manually | ✔ | ✔ | ✔
-From Slack | ✔ | ✔ | ✔
-From Asks |  | ✔ | ✔
-From Intercom, Zendesk, and Front |  | ✔ | ✔
-From Salesforce Service Cloud |  |  | Coming soon
+Create requests | Free | Business | Enterprise --- | --- | --- | --- Manually | ✔ | ✔ | ✔ From Slack | ✔ | ✔ | ✔ From Asks | | ✔ | ✔ From Intercom, Zendesk, and Front | | ✔ | ✔ From Salesforce Service Cloud | | | Coming soon
 </details>
 
 <details>
@@ -186,7 +180,7 @@ Linear will prevent duplicate customers from being created in most cases. If you
 <summary>How do I block domains from creating customers?</summary>
 In [Settings > Customer requests](https://linear.app/settings/customers), exclude specific email addresses or domains to prevent them from creating a customer.
 
-For example, add a domain to _Excluded domains and emails_ to prevent your own company from creating a customer. Internally, we've excluded `linear.app`  here to prevent `Linear` from displaying as a customer when we create issues via integrations.
+For example, add a domain to _Excluded domains and emails_ to prevent your own company from creating a customer. Internally, we've excluded `linear.app` here to prevent `Linear` from displaying as a customer when we create issues via integrations.
 </details>
 
 <details>
@@ -197,71 +191,69 @@ Common providers like Gmail, Outlook etc. are automatically excluded. The full l
 
 <details>
 <summary>List of domains</summary>
-•	[10mail.org](http://10mail.org/)  
-•	[10mail.xyz](http://10mail.xyz/)  
-•	[163.com](http://163.com/)  
-•	[alice.it](http://alice.it/)  
-•	[aol.com](http://aol.com/)  
-•	[appleid.com](http://appleid.com/)  
-•	[att.net](http://att.net/)  
-•	[bigpond.com](http://bigpond.com/)  
-•	[comcast.net](http://comcast.net/)  
-•	[cox.net](http://cox.net/)  
-•	[dropmail.me](http://dropmail.me/)  
-•	[duck.com](http://duck.com/)  
-•	[emlhub.com](http://emlhub.com/)  
-•	[emlpro.com](http://emlpro.com/)  
-•	[emltmp.com](http://emltmp.com/)  
-•	[facebook.com](http://facebook.com/)  
-•	[fastmail.com](http://fastmail.com/)  
-•	[flymail.tk](http://flymail.tk/)  
-•	[free.fr](http://free.fr/)  
-•	[freeml.net](http://freeml.net/)  
-•	[gmail.com](http://gmail.com/)  
-•	[gmx.de](http://gmx.de/)  
-•	[googlemail.com](http://googlemail.com/)  
-•	[hey.com](http://hey.com/)  
-•	[hotmail.co.uk](http://hotmail.co.uk/)  
-•	[hotmail.com](http://hotmail.com/)  
-•	[hotmail.fr](http://hotmail.fr/)  
-•	[hotmail.it](http://hotmail.it/)  
-•	[icloud.com](http://icloud.com/)  
-•	[ig.com.br](http://ig.com.br/)  
-•	[laposte.net](http://laposte.net/)  
-•	laste.ml  
-•	[libero.it](http://libero.it/)  
-•	[live.co.uk](http://live.co.uk/)  
-•	[live.com](http://live.com/)  
-•	[live.fr](http://live.fr/)  
-•	[live.nl](http://live.nl/)  
-•	[mac.com](http://mac.com/)  
-•	[mail.ru](http://mail.ru/)  
-•	[me.com](http://me.com/)  
-•	[minimail.gq](http://minimail.gq/)  
-•	[msn.com](http://msn.com/)  
-•	[neut.fr](http://neut.fr/)  
-•	[outlook.com](http://outlook.com/)  
-•	[outlook.de](http://outlook.de/)  
-•	[pm.me](http://pm.me/)  
-•	[privaterelay.appleid.com](http://privaterelay.appleid.com/)  
-•	[proton.me](http://proton.me/)  
-•	[protonmail.com](http://protonmail.com/)  
-•	[qq.com](http://qq.com/)  
-•	[rocketmail.com](http://rocketmail.com/)  
-•	[sbcglobal.net](http://sbcglobal.net/)  
-•	[sfr.fr](http://sfr.fr/)  
-•	[simplelogin.com](http://simplelogin.com/)  
-•	spymail.one  
-•	[terra.com.br](http://terra.com.br/)  
-•	[verizon.net](http://verizon.net/)  
-•	[web.de](http://web.de/)  
-•	[yahoo.com](http://yahoo.com/)  
-•	[yahoo.de](http://yahoo.de/)  
-•	[yahoo.es](http://yahoo.es/)  
-•	[yahoo.it](http://yahoo.it/)  
-•	[yandex.ru](http://yandex.ru/)  
-•	[ymail.com](http://ymail.com/)  
-•	[yomail.info](http://yomail.info/)  
+•	[10mail.org](http://10mail.org/) 
+•	[10mail.xyz](http://10mail.xyz/) 
+•	[163.com](http://163.com/) 
+•	[alice.it](http://alice.it/) 
+•	[aol.com](http://aol.com/) 
+•	[appleid.com](http://appleid.com/) 
+•	[att.net](http://att.net/) 
+•	[bigpond.com](http://bigpond.com/) 
+•	[comcast.net](http://comcast.net/) 
+•	[cox.net](http://cox.net/) 
+•	[dropmail.me](http://dropmail.me/) 
+•	[duck.com](http://duck.com/) 
+•	[emlhub.com](http://emlhub.com/) 
+•	[emlpro.com](http://emlpro.com/) 
+•	[emltmp.com](http://emltmp.com/) 
+•	[facebook.com](http://facebook.com/) 
+•	[fastmail.com](http://fastmail.com/) 
+•	[flymail.tk](http://flymail.tk/) 
+•	[free.fr](http://free.fr/) 
+•	[freeml.net](http://freeml.net/) 
+•	[gmail.com](http://gmail.com/) 
+•	[gmx.de](http://gmx.de/) 
+•	[googlemail.com](http://googlemail.com/) 
+•	[hey.com](http://hey.com/) 
+•	[hotmail.co.uk](http://hotmail.co.uk/) 
+•	[hotmail.com](http://hotmail.com/) 
+•	[hotmail.fr](http://hotmail.fr/) 
+•	[hotmail.it](http://hotmail.it/) 
+•	[icloud.com](http://icloud.com/) 
+•	[ig.com.br](http://ig.com.br/) 
+•	[laposte.net](http://laposte.net/) 
+•	laste.ml •	[libero.it](http://libero.it/)
+•	[live.co.uk](http://live.co.uk/) 
+•	[live.com](http://live.com/) 
+•	[live.fr](http://live.fr/) 
+•	[live.nl](http://live.nl/) 
+•	[mac.com](http://mac.com/) 
+•	[mail.ru](http://mail.ru/) 
+•	[me.com](http://me.com/) 
+•	[minimail.gq](http://minimail.gq/) 
+•	[msn.com](http://msn.com/) 
+•	[neut.fr](http://neut.fr/) 
+•	[outlook.com](http://outlook.com/) 
+•	[outlook.de](http://outlook.de/) 
+•	[pm.me](http://pm.me/) 
+•	[privaterelay.appleid.com](http://privaterelay.appleid.com/) 
+•	[proton.me](http://proton.me/) 
+•	[protonmail.com](http://protonmail.com/) 
+•	[qq.com](http://qq.com/) 
+•	[rocketmail.com](http://rocketmail.com/) 
+•	[sbcglobal.net](http://sbcglobal.net/) 
+•	[sfr.fr](http://sfr.fr/) 
+•	[simplelogin.com](http://simplelogin.com/) 
+•	spymail.one •	[terra.com.br](http://terra.com.br/)
+•	[verizon.net](http://verizon.net/) 
+•	[web.de](http://web.de/) 
+•	[yahoo.com](http://yahoo.com/) 
+•	[yahoo.de](http://yahoo.de/) 
+•	[yahoo.es](http://yahoo.es/) 
+•	[yahoo.it](http://yahoo.it/) 
+•	[yandex.ru](http://yandex.ru/) 
+•	[ymail.com](http://ymail.com/) 
+•	[yomail.info](http://yomail.info/) 
 •	[yopmail.com](http://yopmail.com/)
 </details>
 </details>
@@ -276,9 +268,9 @@ Users in your Slack workspace without Linear accounts will not see your customer
 </details>
 
 <details>
-<summary>Can I stop Intercom, Zendesk,  Front from creating new customers or customer requests? </summary>
-In the integration settings for your support tool, you can toggle the setting off.  
-  
+<summary>Can I stop Intercom, Zendesk, Front from creating new customers or customer requests? </summary>
+In the integration settings for your support tool, you can toggle the setting off. 
+ 
 
 
 ![Setting toggle to auto-create customers or requests](https://webassets.linear.app/images/ornj730p/production/6a25ef0886b83c279e351ae1332547d9a7fe9d95-1356x228.png?q=95&auto=format&dpr=2)

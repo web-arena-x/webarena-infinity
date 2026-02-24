@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357749663130-Languages-su
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -31,7 +31,7 @@ Related articles:
 
 Use cases, generative replies, and agentic AI fully support any of the languages in the list below.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | - Albanian - Amharic - Arabic - Armenian - Bengali - Bosnian - Bulgarian - Burmese - Catalan - Chinese - Croatian - Cushitic - Czech - Danish - Dutch - English - Estonian - Ewe - Finnish - French - Georgian - German - Greek - Gujarati - Haitian - Hausa - Hebrew | - Hindi - Hmong - Hungarian - Icelandic - Igbo - Indonesian - Italian - Japanese - Kannada - Kazakh - Kinyarwanda - Korean - Latvian - Lingala - Lithuanian - Luganda - Macedonian - Malay - Malayalam - Marathi - Mongolian - Norwegian - Odia - Oromo - Persian - Polish | - Portuguese - Punjabi - Romanian - Russian - Serbian - Shona - Slovak - Slovenian - Somali - Sotho - Spanish - Swahili - Swedish - Tagalog - Tamil - Te Reo Maori - Telugu - Thai - Turkish - Twi - Ukrainian - Urdu - Vietnamese - Wolof - Xhosa - Yoruba - Zulu |
 
@@ -41,6 +41,6 @@ Additional languages outside of this list may also be supported, but we cannot 
 
 Expression-based AI agents work with any of the languages in the list below.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | - Afrikaans - Albanian - Amharic - Arabic - Armenian - Assamese - Azerbaijani - Basque - Belarusian - Bengali - Bosnian - Bulgarian - Burmese - Cantonese - Catalan - Cebuano - Corsican - Croatian - Czech - Danish - Dutch - English - Esperanto - Estonian - Finnish - French - Frisian - Galician - Georgian - German - Greek - Gujarati - Haitian Creole - Hausa - Hawaiian - Hebrew | - Hindi - Hmong - Hungarian - Icelandic - Igbo - Indonesian - Irish - Italian - Japanese - Javanese - Kannada - Kazakh - Khmer - Kinyarwanda - Korean - Kurdish - Kyrgyz - Laothian - Latin - Latvian - Lithuanian - Luxembourgish - Macedonian - Malagasy - Malay - Malayalam - Maltese - Mandarin - Maori - Marathi - Mongolian - Nepali - Norwegian - Nyanja - Oriya - Persian | - Polish - Portuguese - Punjabi - Romanian - Russian - Samoan - Scottish Gaelic - Serbian - Sesotho - Shona - Sinhalese - Slovak - Slovenian - Somali - Spanish - Sundanese - Swahili - Swedish - Tagalog - Tajik - Tamil - Tatar - Telugu - Thai - Tibetan - Turkish - Turkmen - Uighur - Ukrainian - Urdu - Uzbek - Vietnamese - Welsh - Wolof - Xhosa - Yiddish - Yoruba - Zulu |

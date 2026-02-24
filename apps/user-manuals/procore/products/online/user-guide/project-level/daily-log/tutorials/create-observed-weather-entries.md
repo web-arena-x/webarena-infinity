@@ -15,7 +15,7 @@ The Weather section can be used to track many things. For example, you might wan
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Daily Log tool.
+ - 'Admin' level permissions on the project's Daily Log tool.
 
 ## Steps
 
@@ -29,7 +29,7 @@ The Weather section can be used to track many things. For example, you might wan
        - If the user answers the call, a robotic voice alerts the user of the weather delay and identifies the project by name.
        - If the user declines the call, the system alerts the user of the weather delay by leaving a voice mail message.
        - If the user misses the call, the system alerts the user of the weather delay by leaving a voice mail message.
-     - For weather delay alerts by email, the system sends an email message to the address on the user's record.  
+     - For weather delay alerts by email, the system sends an email message to the address on the user's record. 
        Note: The system does NOT send an alert when a user selects 'No' to remove or cancel a weather delay.
    - **Sky**: Select from the drop-down menu observations made of the sky that day.
    - **Temperature**: Select from the drop-down menu the approximate temperature on site that day.

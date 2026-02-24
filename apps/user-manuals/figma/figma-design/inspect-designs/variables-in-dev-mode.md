@@ -38,7 +38,7 @@ For variables that appear in a code snippet, such as design tokens in CSS, click
 
 ![](https://help.figma.com/hc/article_attachments/27884524074135)
 
-For other variables, such as those that appear in the **Selection colors** section, click  **Variable details** in the **Inspect** panel to open the **Variable details** modal.
+For other variables, such as those that appear in the **Selection colors** section, click **Variable details** in the **Inspect** panel to open the **Variable details** modal.
 
 ![](https://help.figma.com/hc/article_attachments/27884533282839)
 
@@ -98,5 +98,4 @@ In the second scenario, if the string variable matches a valid font weight for a
 
 **Variable names**
 
-To maintain valid CSS, Dev Mode normalizes variable names in code. For example, suppose you have a variable named `🔵 Blue
-0000FF`. When you're viewing code in Dev Mode, the property name is rendered as `--blue-0000FF`.
+To maintain valid CSS, Dev Mode normalizes variable names in code. For example, suppose you have a variable named `🔵 Blue 0000FF`. When you're viewing code in Dev Mode, the property name is rendered as `--blue-0000FF`.

@@ -11,23 +11,23 @@ To close an existing RFI.
 ## Things to Consider
 
 - **Required User Permission:**
-  - 'Admin' level permission on the project's RFIs tool.  
+ - 'Admin' level permission on the project's RFIs tool. 
     OR
-  - 'Read Only' or 'Standard' level permissions on the project's RFIs tool with the ['Act as RFI Manager' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on your permissions template AND be the RFI's creator ('Standard' only) or RFI Manager.
+ - 'Read Only' or 'Standard' level permissions on the project's RFIs tool with the ['Act as RFI Manager' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on your permissions template AND be the RFI's creator ('Standard' only) or RFI Manager.
 - **Additional Information:**
-  - RFIs can be closed without responses.
-  - After you close an RFI, you are NOT permitted to add questions or responses.
-  - If you want to reopen a closed RFI, see [Reopen an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/reopen-an-rfi "Reopen an RFI").
-  - If you close a 'Draft' RFI it is automatically assigned a 'Closed-Draft' status.
+ - RFIs can be closed without responses.
+ - After you close an RFI, you are NOT permitted to add questions or responses.
+ - If you want to reopen a closed RFI, see [Reopen an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/reopen-an-rfi "Reopen an RFI").
+ - If you close a 'Draft' RFI it is automatically assigned a 'Closed-Draft' status.
 
 ##### Note
 
-When projects are connected via the  [Connection Manager](https://support.procore.com/products/online/user-guide/project-level/connection-manager "support.procore.com/products/online/user-guide/project-level/connection-manager") tool, any RFIs closed in the upstream project will automatically copy to the downstream project. See [User Guide: Procore Connect for RFIs](https://support.procore.com/products/online/user-guide/project-level/connection-manager/tutorials/user-guide-procore-connect-for-RFIs "User Guide: Procore Connect for RFIs").
+When projects are connected via the [Connection Manager](https://support.procore.com/products/online/user-guide/project-level/connection-manager "support.procore.com/products/online/user-guide/project-level/connection-manager") tool, any RFIs closed in the upstream project will automatically copy to the downstream project. See [User Guide: Procore Connect for RFIs](https://support.procore.com/products/online/user-guide/project-level/connection-manager/tutorials/user-guide-procore-connect-for-RFIs "User Guide: Procore Connect for RFIs").
 
 ## Steps
 
 1. Navigate to the project's **RFIs** tool.
-2. Click the **Items** tab.  
+2. Click the **Items** tab. 
    This lists all project's RFIs in the **Draft** and **Open** statuses. You can close an RFI in either status.
 3. Click **View** next to the RFI you want to close.
 

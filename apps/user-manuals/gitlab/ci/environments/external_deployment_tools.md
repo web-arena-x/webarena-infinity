@@ -24,8 +24,7 @@ For example, the following features are available by setting up tracking:
 
 {{< alert type="note" >}}
 
-Some of the features are not available because GitLab can't authorize and leverage those external deployments, including
-[Protected Environments](protected_environments.md), [Deployment Approvals](deployment_approvals.md), [Deployment safety](deployment_safety.md), and [Deployment rollback](deployments.md#deployment-rollback).
+Some of the features are not available because GitLab can't authorize and leverage those external deployments, including [Protected Environments](protected_environments.md), [Deployment Approvals](deployment_approvals.md), [Deployment safety](deployment_safety.md), and [Deployment rollback](deployments.md#deployment-rollback).
 
 {{< /alert >}}
 
@@ -91,7 +90,6 @@ Here is an example setup that creates a `success` deployment record in GitLab wh
 {{< alert type="note" >}}
 
 If a deployment wasn't created as expected, you can troubleshoot with [`argocd-notifications` tool](https://argo-cd.readthedocs.io/en/stable/operator-manual/notifications/troubleshooting/).
-For example, `argocd-notifications template notify gitlab-deployment-status <your-app-name> --recipient gitlab:argocd-notifications`
-triggers API request immediately and renders an error message from GitLab API server if any.
+For example, `argocd-notifications template notify gitlab-deployment-status <your-app-name> --recipient gitlab:argocd-notifications` triggers API request immediately and renders an error message from GitLab API server if any.
 
 {{< /alert >}}

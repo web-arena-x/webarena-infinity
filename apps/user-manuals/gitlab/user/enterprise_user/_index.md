@@ -14,8 +14,7 @@ description: Manage organization users through domain verification and centraliz
 {{< /details >}}
 
 Enterprise users are similar to standard GitLab users, but are administered by an organization.
-Each enterprise user is claimed and managed by a specific top-level group. To claim enterprise
-users, you must verify a group domain and have an active [subscription](../../subscriptions/_index.md).
+Each enterprise user is claimed and managed by a specific top-level group. To claim enterprise users, you must verify a group domain and have an active [subscription](../../subscriptions/_index.md).
 
 If the subscription expires or is canceled:
 
@@ -27,22 +26,13 @@ If the subscription expires or is canceled:
 ## Manage group domains
 
 To claim GitLab.com users as enterprise users, you must add and verify ownership of a domain.
-Group domains are added to the top-level group and apply to all subgroups and projects
-in the group.
+Group domains are added to the top-level group and apply to all subgroups and projects in the group.
 
-While each group can have multiple domains, you can associate each domain with only one group
-at a time. If you move your domain to another paid group, all enterprise users are automatically
-claimed by the new group.
+While each group can have multiple domains, you can associate each domain with only one group at a time. If you move your domain to another paid group, all enterprise users are automatically claimed by the new group.
 
-Group domains are linked to a project in your top-level group. The linked project needs
-to have [GitLab Pages](../project/pages/_index.md) enabled to verify the domain, but does not need
-to create or deploy a GitLab Pages website. On GitLab.com, GitLab Pages is enabled by default
-for all projects, so no configuration is required.
+Group domains are linked to a project in your top-level group. The linked project needs to have [GitLab Pages](../project/pages/_index.md) enabled to verify the domain, but does not need to create or deploy a GitLab Pages website. On GitLab.com, GitLab Pages is enabled by default for all projects, so no configuration is required.
 
-Even though the domain is linked to a project, it is available to the entire group hierarchy
-including all nested subgroups and projects. Members in the linked project with
-[at least the Maintainer role](../permissions.md#project-permissions) can modify or remove
-the domain. If this project is deleted, your associated domains are also removed.
+Even though the domain is linked to a project, it is available to the entire group hierarchy including all nested subgroups and projects. Members in the linked project with [at least the Maintainer role](../permissions.md#project-permissions) can modify or remove the domain. If this project is deleted, your associated domains are also removed.
 
 For more information on group domains, see [epic 5299](https://gitlab.com/groups/gitlab-org/-/epics/5299).
 
@@ -53,8 +43,7 @@ Prerequisites:
 - You must have the Owner role for a top-level group.
 - You must control a custom domain `example.com` or subdomain `subdomain.example.com` that matches the email domain you want to verify.
 - You must be able to create DNS `TXT` records for your domain to prove ownership.
-- You must have a dedicated project in the top-level group that uses
-  [GitLab Pages](../project/pages/_index.md).
+- You must have a dedicated project in the top-level group that uses [GitLab Pages](../project/pages/_index.md).
 
 To add a custom domain for a group:
 
@@ -65,15 +54,12 @@ To add a custom domain for a group:
    - **Domain**: Enter the domain name.
    - **Project**: Link to an existing project in the group.
    - **Certificate**: Select a certificate option:
-     - If you do not have or do not want to use an SSL/TLS certificate, select
-       **Automatic certificate management using Let's Encrypt**.
-     - If you want to provide your own SSL/TLS certificate, select
-       **Manually enter certificate information**. You can also add a certificate and key later.
+     - If you do not have or do not want to use an SSL/TLS certificate, select **Automatic certificate management using Let's Encrypt**.
+     - If you want to provide your own SSL/TLS certificate, select **Manually enter certificate information**. You can also add a certificate and key later.
 
        {{< alert type="note" >}}
 
-       A valid certificate is not required for domain verification. You can ignore self-signed certificate warnings
-       if you are not using GitLab Pages.
+       A valid certificate is not required for domain verification. You can ignore self-signed certificate warnings if you are not using GitLab Pages.
 
        {{< /alert >}}
 
@@ -95,8 +81,7 @@ Until it completes, the domain remains unverified in GitLab.
 
 If the domain is still unverified after seven days, GitLab automatically removes the domain.
 
-After verification, GitLab periodically reverifies the domain. To avoid potential issues,
-maintain the `TXT` record on your domain provider.
+After verification, GitLab periodically reverifies the domain. To avoid potential issues, maintain the `TXT` record on your domain provider.
 
 {{< /alert >}}
 
@@ -140,8 +125,7 @@ To delete a custom domain for a group:
 
 ## Manage enterprise users
 
-In addition to the standard [group member permissions](../permissions.md#group-permissions),
-Owners of a top-level group can also manage enterprise users in their group.
+In addition to the standard [group member permissions](../permissions.md#group-permissions), Owners of a top-level group can also manage enterprise users in their group.
 
 You can also [use the API](../../api/group_enterprise_users.md) to interact with enterprise users.
 
@@ -151,18 +135,14 @@ Prerequisites:
 
 - The top-level group must [add and verify a group domain](#add-group-domains).
 - The user account must meet at least one of the following conditions:
-  - The user account was created on or after February 1, 2021.
-  - The user account has a SAML or SCIM identity tied to the organization's group.
-  - The user account has a `provisioned_by_group_id` attribute that matches the group ID.
-  - The user account is already a member of the group subscription purchased or renewed on or after February 1, 2021.
+ - The user account was created on or after February 1, 2021.
+ - The user account has a SAML or SCIM identity tied to the organization's group.
+ - The user account has a `provisioned_by_group_id` attribute that matches the group ID.
+ - The user account is already a member of the group subscription purchased or renewed on or after February 1, 2021.
 
-After a group verifies ownership of a domain, users with an email address from a domain are
-automatically claimed by the group as enterprise users. No direct action is needed from
-group Owners.
+After a group verifies ownership of a domain, users with an email address from a domain are automatically claimed by the group as enterprise users. No direct action is needed from group Owners.
 
-Any existing group members with an email address from a different domain retain their existing
-access, but can not be managed by group Owners. To claim these users, they must update their
-primary email address to match your group domain.
+Any existing group members with an email address from a different domain retain their existing access, but can not be managed by group Owners. To claim these users, they must update their primary email address to match your group domain.
 
 The claim process can take up to four days to trigger. You can immediately run this process by manually [re-verifying the group domain](#edit-group-domains).
 
@@ -186,8 +166,7 @@ From this list, non-enterprise users have one of the following:
 
 ### Restrict authentication methods
 
-You can restrict the specific authentication methods available to enterprise users, which can help
-reduce the security footprint of your users.
+You can restrict the specific authentication methods available to enterprise users, which can help reduce the security footprint of your users.
 
 - [Disable password authentication](../group/saml_sso/_index.md#disable-password-authentication-for-enterprise-users).
 - [Disable personal access tokens](../../user/profile/personal_access_tokens.md#disable-personal-access-tokens-for-enterprise-users).
@@ -196,9 +175,7 @@ reduce the security footprint of your users.
 
 ### Restrict personal snippets
 
-You can prevent enterprise users from creating [personal snippets](../snippets.md) in their
-personal namespace. For more information, see
-[Restrict personal snippets for enterprise users](../group/manage.md#restrict-personal-snippets-for-enterprise-users).
+You can prevent enterprise users from creating [personal snippets](../snippets.md) in their personal namespace. For more information, see [Restrict personal snippets for enterprise users](../group/manage.md#restrict-personal-snippets-for-enterprise-users).
 
 ### Restrict group and project creation
 
@@ -207,14 +184,11 @@ You can restrict group and project creation for enterprise users, which helps yo
 - If enterprise users can create top-level groups.
 - The maximum number of personal projects each enterprise user can create.
 
-These restrictions are defined in the SAML response. For more information, see
-[configure enterprise user settings from the SAML response](../group/saml_sso/_index.md#configure-enterprise-user-settings-from-saml-response).
+These restrictions are defined in the SAML response. For more information, see [configure enterprise user settings from the SAML response](../group/saml_sso/_index.md#configure-enterprise-user-settings-from-saml-response).
 
 ### Bypass email confirmation for provisioned users
 
-By default, users provisioned with SAML or SCIM are sent a verification email to verify their
-identity. Instead, you can configure GitLab with a custom domain and GitLab automatically
-confirms user accounts. Users still receive an enterprise user welcome email.
+By default, users provisioned with SAML or SCIM are sent a verification email to verify their identity. Instead, you can configure GitLab with a custom domain and GitLab automatically confirms user accounts. Users still receive an enterprise user welcome email.
 
 For more information, see [bypass user email confirmation with verified domains](../group/saml_sso/_index.md#bypass-user-email-confirmation-with-verified-domains).
 
@@ -231,21 +205,16 @@ To view an enterprise user's email address:
 1. Hover over the enterprise user's name.
 
 You can also use the [group and project members API](../../api/members.md)
-to access users' information. For enterprise users of the group, this information
-includes users' email addresses.
+to access users' information. For enterprise users of the group, this information includes users' email addresses.
 
 ### Change the email addresses for an enterprise user
 
-Enterprise users can follow the same process as other GitLab users to
-[change their primary email address](../../user/profile/_index.md#change-your-primary-email).
-The new email address must be from a verified domain. If your organization has no verified
-domains, your enterprise users cannot change their primary email address.
+Enterprise users can follow the same process as other GitLab users to [change their primary email address](../../user/profile/_index.md#change-your-primary-email).
+The new email address must be from a verified domain. If your organization has no verified domains, your enterprise users cannot change their primary email address.
 
-Group Owners can modify the email address for enterprise users in their group with the
-[group enterprise users API](../../api/group_enterprise_users.md#modify-an-enterprise-user).
+Group Owners can modify the email address for enterprise users in their group with the [group enterprise users API](../../api/group_enterprise_users.md#modify-an-enterprise-user).
 
-Only GitLab support can change the primary email address to an email address from a
-non-verified domain. This action [releases the enterprise user](#release-an-enterprise-user).
+Only GitLab support can change the primary email address to an email address from a non-verified domain. This action [releases the enterprise user](#release-an-enterprise-user).
 
 ### Delete an enterprise user
 
@@ -254,30 +223,21 @@ Prerequisites:
 - You must have the Owner role for the top-level group.
 
 You can use the [group enterprise users API](../../api/group_enterprise_users.md#delete-an-enterprise-user)
-to delete an enterprise user and permanently remove the account from GitLab. This action is different from
-releasing the user which only removes the enterprise management features from the user. When you delete
-the user, you can choose to either:
+to delete an enterprise user and permanently remove the account from GitLab. This action is different from releasing the user which only removes the enterprise management features from the user. When you delete the user, you can choose to either:
 
-- Permanently delete the user and their
-  [contributions](../../user/profile/account/delete_account.md#associated-records).
+- Permanently delete the user and their [contributions](../../user/profile/account/delete_account.md#associated-records).
 - Keep their contributions and transfer them to a system-wide ghost user account.
 
 ### Release an enterprise user
 
-You can remove enterprise management features from a user account. You might need to
-do this if, for example, a user wants to keep their GitLab account after leaving their
-company. When you release a user, their account roles and permissions remain the same,
-but the group Owner loses management options for that user. For example, the released
-user can access authentication methods that the group Owner previously disabled.
+You can remove enterprise management features from a user account. You might need to do this if, for example, a user wants to keep their GitLab account after leaving their company. When you release a user, their account roles and permissions remain the same, but the group Owner loses management options for that user. For example, the released user can access authentication methods that the group Owner previously disabled.
 
 If you need to permanently remove the account, [delete the user](#delete-an-enterprise-user)
 instead.
 
-To release the user, GitLab support must update the user's primary email address to an
-email address from a non-verified domain. This action automatically releases the account.
+To release the user, GitLab support must update the user's primary email address to an email address from a non-verified domain. This action automatically releases the account.
 
-Allowing group Owners to change primary emails is proposed in
-[issue 412966](https://gitlab.com/gitlab-org/gitlab/-/issues/412966).
+Allowing group Owners to change primary emails is proposed in [issue 412966](https://gitlab.com/gitlab-org/gitlab/-/issues/412966).
 
 ### Enable the Extension Marketplace for enterprise users
 
@@ -293,9 +253,7 @@ Allowing group Owners to change primary emails is proposed in
 
 {{< /history >}}
 
-The VS Code Extension Marketplace provides access to extensions that enhance the functionality of the
-Web IDE and Workspaces. Top-level group Owners can control access to the marketplace for enterprise
-users in their group.
+The VS Code Extension Marketplace provides access to extensions that enhance the functionality of the Web IDE and Workspaces. Top-level group Owners can control access to the marketplace for enterprise users in their group.
 
 Prerequisites:
 
@@ -313,9 +271,7 @@ To enable the Extension Marketplace for enterprise users:
 
 ### Cannot disable two-factor authentication for an enterprise user
 
-If a user does not have an **Enterprise** badge, a group Owner cannot disable or reset 2FA for their
-account. Instead, the Owner should tell the enterprise user to consider available
-[recovery options](../profile/account/two_factor_authentication_troubleshooting.md#recovery-options-and-2fa-reset).
+If a user does not have an **Enterprise** badge, a group Owner cannot disable or reset 2FA for their account. Instead, the Owner should tell the enterprise user to consider available [recovery options](../profile/account/two_factor_authentication_troubleshooting.md#recovery-options-and-2fa-reset).
 
 ## Related topics
 

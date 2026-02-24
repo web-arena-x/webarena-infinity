@@ -15,7 +15,7 @@ You can resize the columns in the RFIs tool so it displays data in a way that is
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Read Only' level permissions or higher on the project's RFIs tool.
+ - 'Read Only' level permissions or higher on the project's RFIs tool.
 
 ## Demo
 
@@ -23,15 +23,15 @@ You can resize the columns in the RFIs tool so it displays data in a way that is
 
 ## Steps
 
-1. Navigate to the project's **RFIs** tool.  
+1. Navigate to the project's **RFIs** tool. 
    This reveals the RFIs list.
 2. Click the **Items** or **Recycle Bin** tab.
 3. Select a column to resize.
-4. Hover near the right edge of the column.  
+4. Hover near the right edge of the column. 
    A blue highlighted space with an expand icon appears.
 5. Click and hold the mouse to place the column in adjustable mode.
 6. Drag the mouse as follows:
-   - Drag right to expand the column.  
+   - Drag right to expand the column. 
      OR
    - Drag left to minimize the column.
 

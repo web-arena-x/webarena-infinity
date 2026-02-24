@@ -17,12 +17,12 @@ For instructions, check out [School Settings: Targeted Email Configuration](scho
 The Targeted Email tool empowers you with the following options for content:
 
 - Duplicate a sent email or email draft
-  - easily reuse a favorite layout or format
-- Use a pre-configured Handshake Template  
-  - check out our gallery in [Handshake Templates](https://support.joinhandshake.com/hc/en-us/articles/360012289653-Targeted-Email-Handshake-Templates)
+ - easily reuse a favorite layout or format
+- Use a pre-configured Handshake Template 
+ - check out our gallery in [Handshake Templates](https://support.joinhandshake.com/hc/en-us/articles/360012289653-Targeted-Email-Handshake-Templates)
 - Customize a new email with:
-  - Basic Content (building blocks): Text, Heading, Image, Button *(call to action - customizable text on button and hyperlink)*, Spacer/Divider
-  - Handshake Content: Career Fair, Event, Job Role, Job
+ - Basic Content (building blocks): Text, Heading, Image, Button *(call to action - customizable text on button and hyperlink)*, Spacer/Divider
+ - Handshake Content: Career Fair, Event, Job Role, Job
 
 Learn more about: [Creating and Sending Targeted Emails](https://support.joinhandshake.com/hc/en-us/articles/360008403834), [how to edit a scheduled email](https://support.joinhandshake.com/hc/en-us/articles/1500006741242-How-can-I-edit-a-scheduled-email-), and [Targeted Email Statuses](targeted-email-statuses.md).
 

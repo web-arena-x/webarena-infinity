@@ -19,18 +19,16 @@ It can differ slightly from one instance to another due to compression, housekee
 For more information about repository size, see:
 
 - [Repository size](../../user/project/repository/repository_size.md)
-  - [How repository size is calculated](../../user/project/repository/repository_size.md#size-calculation)
-  - [Size and storage limits](../../user/project/repository/repository_size.md#size-and-storage-limits)
-  - [GitLab UI methods to reduce repository size](../../user/project/repository/repository_size.md#methods-to-reduce-repository-size)
+ - [How repository size is calculated](../../user/project/repository/repository_size.md#size-calculation)
+ - [Size and storage limits](../../user/project/repository/repository_size.md#size-and-storage-limits)
+ - [GitLab UI methods to reduce repository size](../../user/project/repository/repository_size.md#methods-to-reduce-repository-size)
 
 ## Purge files from repository history
 
 Use this method to remove large files from the entire Git history.
 
 It is not suitable for removing sensitive data like passwords or keys from your repository.
-Information about commits, including file content, is cached in the database, and remain visible
-even after they have been removed from the repository. To remove sensitive data, use the method
-described in [Remove blobs](../../user/project/repository/repository_size.md#remove-blobs).
+Information about commits, including file content, is cached in the database, and remain visible even after they have been removed from the repository. To remove sensitive data, use the method described in [Remove blobs](../../user/project/repository/repository_size.md#remove-blobs).
 
 Prerequisites:
 
@@ -42,8 +40,7 @@ Prerequisites:
 
 To purge files from a GitLab repository:
 
-1. [Export the project](../../user/project/settings/import_export.md#export-a-project-and-its-data) that contains
-   a copy of your repository, and download it.
+1. [Export the project](../../user/project/settings/import_export.md#export-a-project-and-its-data) that contains a copy of your repository, and download it.
 
    - For large projects, you can use the [Project relations export API](../../api/project_relations_export.md).
 
@@ -100,8 +97,7 @@ To purge files from a GitLab repository:
      git filter-repo --strip-blobs-bigger-than 10M
      ```
 
-   For more examples, see the
-   [`git filter-repo` documentation](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html#EXAMPLES).
+   For more examples, see the [`git filter-repo` documentation](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html#EXAMPLES).
 
 1. Back up the `commit-map`:
 
@@ -123,13 +119,11 @@ To purge files from a GitLab repository:
    git push origin --force 'refs/replace/*'
    ```
 
-   For more information about references, see
-   Git references used by Gitaly.
+   For more information about references, see Git references used by Gitaly.
 
    {{< alert type="note" >}}
 
-   This step fails for [protected branches](../../user/project/repository/branches/protected.md) and
-   [protected tags](../../user/project/protected_tags.md). To proceed, temporarily remove protections.
+   This step fails for [protected branches](../../user/project/repository/branches/protected.md) and [protected tags](../../user/project/protected_tags.md). To proceed, temporarily remove protections.
 
    {{< /alert >}}
 

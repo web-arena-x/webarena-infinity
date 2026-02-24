@@ -52,9 +52,9 @@ When the task player is active you'll see a progress bar, task information, and 
 
 - Click **Skip** to move the task you have skipped to the end of your task queue.
 
-  The task player plays the skipped task again only after the last task on the list has been managed.
+ The task player plays the skipped task again only after the last task on the list has been managed.
 
-  If you have skipped multiple tasks, then you can continue to skip them indefinitely, but if only one skipped task remains, then skipping it will close the task player.
+ If you have skipped multiple tasks, then you can continue to skip them indefinitely, but if only one skipped task remains, then skipping it will close the task player.
 
 **To reschedule a task**
 

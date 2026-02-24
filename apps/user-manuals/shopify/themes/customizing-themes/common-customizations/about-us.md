@@ -55,7 +55,7 @@ Desktop
 6. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Pages**.
 4. Tap **Add page**.

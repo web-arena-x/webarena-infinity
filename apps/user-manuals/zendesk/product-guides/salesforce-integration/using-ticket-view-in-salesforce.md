@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408828317082-Using-ticket
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -43,7 +43,7 @@ The ticket view feature in Salesforce shows Zendesk Support tickets. To use the 
 
 - **Ticket list view**: The ticket list view shows a lists all tickets for the Account, Contact, Opportunity, or Lead page.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Salesforce_ticket_view.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Salesforce_ticket_view.png)
 - **Detailed ticket view**: When you select a ticket, the detailed ticket view shows all the fields and comment history of the selected ticket. To edit a ticket, see [Creating and editing tickets in Salesforce](#topic_xkm_r1r_pjb).
 
 ## Filtering and sorting tickets in ticket view
@@ -96,7 +96,7 @@ Tickets can be created and edited in ticket view within your Salesforce Accounts
      ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Salesforce_new_ticket_form.png)
 4. Click **Submit as**. The ticket appears in your ticket view in Salesforce and in your ticket editor in Zendesk Support.
 
-   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Salesforce_ticket_view_edit.png)  
+   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Salesforce_ticket_view_edit.png) 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Salesforce_zendesk_tickets.png)
 
 Note: It can take up to a few minutes for created or updated tickets to be indexed and appear in your ticket view.

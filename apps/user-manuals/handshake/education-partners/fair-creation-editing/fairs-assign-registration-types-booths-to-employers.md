@@ -30,7 +30,7 @@ From the specific career fair's overview page:
 4. In the pop-up that appears, fill in the following information:
 
 - **Employer**: the employer you would like to assign the booth to
-  - **Note**: only employers that have registered for the selected booth option and have not yet been assigned a booth can be selected.
+ - **Note**: only employers that have registered for the selected booth option and have not yet been assigned a booth can be selected.
 - **Number**: the booth identification number you are assigning
 - **Room**: where the fair will be located (if applicable)
 

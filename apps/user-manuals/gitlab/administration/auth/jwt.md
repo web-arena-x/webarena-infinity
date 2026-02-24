@@ -31,8 +31,7 @@ JWT provides you with a secret key for you to use.
    ```
 
 1. Configure the [common settings](../../integration/omniauth.md#configure-common-settings)
-   to add `jwt` as a single sign-on provider. This enables Just-In-Time
-   account provisioning for users who do not have an existing GitLab account.
+   to add `jwt` as a single sign-on provider. This enables Just-In-Time account provisioning for users who do not have an existing GitLab account.
 1. Add the provider configuration.
 
    For Linux package installations:
@@ -73,8 +72,7 @@ JWT provides you with a secret key for you to use.
 
    {{< alert type="note" >}}
 
-   For more information on each configuration option refer to
-   the [OmniAuth JWT usage documentation](https://github.com/mbleigh/omniauth-jwt#usage).
+   For more information on each configuration option refer to the [OmniAuth JWT usage documentation](https://github.com/mbleigh/omniauth-jwt#usage).
 
    {{< /alert >}}
 
@@ -91,6 +89,4 @@ JWT provides you with a secret key for you to use.
    - Self-compiled your GitLab installation, [restart GitLab](../restart_gitlab.md#self-compiled-installations).
 
 On the sign in page there should now be a JWT icon below the regular sign in form.
-Select the icon to begin the authentication process. JWT asks the user to
-sign in and authorize the GitLab application. If everything goes well, the user
-is redirected to GitLab and signed in.
+Select the icon to begin the authentication process. JWT asks the user to sign in and authorize the GitLab application. If everything goes well, the user is redirected to GitLab and signed in.

@@ -22,12 +22,12 @@ Data retention is a critical aspect of feature development at GitLab. As we buil
 When designing new features, consider data retention requirements during the initial planning phase:
 
 - Document the types of data being persisted. Is this user-facing data?
-  Is it generated internally to make processing more efficient?
-  Is it derived/cache data?
+ Is it generated internally to make processing more efficient?
+ Is it derived/cache data?
 - Identify the business purpose and required retention period for each data type.
 - Define the product justification and customer usage pattern of older data.
-  How do people interact with older data as opposed to newer data?
-  How does the value change over time?
+ How do people interact with older data as opposed to newer data?
+ How does the value change over time?
 - Consider regulatory requirements that might affect data retention (such as Personally Identifiable Information).
 - Plan for data removal or archival mechanisms.
 
@@ -39,15 +39,14 @@ Features should be designed with the understanding that data is not permanent:
 - Implement graceful handling of missing or archived data.
 - Design user interfaces to clearly communicate data availability periods.
 - Design data structures for longer-term storage that is optimized to be viewed in a longer-term context.
-- Consider implementing "time to live" (TTL) mechanisms where appropriate, especially for derived/cache data
-  that can be gracefully reproduced on-demand.
+- Consider implementing "time to live" (TTL) mechanisms where appropriate, especially for derived/cache data that can be gracefully reproduced on-demand.
 
 ### 3. Documentation recommendations
 
 Each feature implementation must include:
 
 - Clear documentation of data retention periods (on GitLab.com and default values, if any)
-  and business reasoning/justification
+ and business reasoning/justification
 - Description of data removal/archival mechanisms.
 - Impact analysis of data removal on dependent features.
 

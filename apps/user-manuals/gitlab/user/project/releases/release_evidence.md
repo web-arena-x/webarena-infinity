@@ -13,17 +13,11 @@ title: Release evidence
 {{< /details >}}
 
 Each time a release is created, GitLab takes a snapshot of data that's related to it.
-This data is saved in a JSON file and called *release evidence*. The feature
-includes test artifacts and linked milestones to facilitate
-internal processes, like external audits.
+This data is saved in a JSON file and called *release evidence*. The feature includes test artifacts and linked milestones to facilitate internal processes, like external audits.
 
-To access the release evidence, on the Releases page, select the link to the JSON file that's listed
-under the **Evidence collection** heading.
+To access the release evidence, on the Releases page, select the link to the JSON file that's listed under the **Evidence collection** heading.
 
-You can also [use the API](../../../api/releases/_index.md#collect-release-evidence) to
-generate release evidence for an existing release. Because of this, each release
-can have multiple release evidence snapshots. You can view the release evidence and
-its details on the Releases page.
+You can also [use the API](../../../api/releases/_index.md#collect-release-evidence) to generate release evidence for an existing release. Because of this, each release can have multiple release evidence snapshots. You can view the release evidence and its details on the Releases page.
 
 When the issue tracker is disabled, release evidence [can't be downloaded](https://gitlab.com/gitlab-org/gitlab/-/issues/208397).
 
@@ -31,7 +25,7 @@ Here is an example of a release evidence object:
 
 ```json
 {
-  "release": {
+ "release": {
     "id": 5,
     "tag_name": "v4.0",
     "name": "New release",
@@ -66,7 +60,7 @@ Here is an example of a release evidence object:
         "url":"https://gitlab.example.com/root/project-name/-/jobs/111/artifacts/download"
       }
     ]
-  }
+ }
 }
 ```
 
@@ -103,33 +97,26 @@ To enable job artifact collection you must specify both:
 
 ```yaml
 ruby:
-  script:
+ script:
     - gem install bundler
     - bundle install
     - bundle exec rspec --format progress --format RspecJunitFormatter --out rspec.xml
-  artifacts:
+ artifacts:
     paths:
       - rspec.xml
     reports:
       junit: rspec.xml
 ```
 
-If the pipeline ran successfully, when you create your release, the `rspec.xml` file is saved as
-release evidence.
+If the pipeline ran successfully, when you create your release, the `rspec.xml` file is saved as release evidence.
 
-If you [schedule release evidence collection](#schedule-release-evidence-collection),
-some artifacts may already be expired by the time of evidence collection. To avoid this you can use
-the [`artifacts:expire_in`](../../../ci/yaml/_index.md#artifactsexpire_in)
+If you [schedule release evidence collection](#schedule-release-evidence-collection), some artifacts may already be expired by the time of evidence collection. To avoid this you can use the [`artifacts:expire_in`](../../../ci/yaml/_index.md#artifactsexpire_in)
 keyword. For more information, see [issue 222351](https://gitlab.com/gitlab-org/gitlab/-/issues/222351).
 
 ## Schedule release evidence collection
 
 In the API:
 
-- If you specify a future `released_at` date, the release becomes an **Upcoming release**
-  and the evidence is collected on the date of the release. You cannot collect
-  release evidence before then.
-- If you specify a past `released_at` date, the release becomes an **Historical
-  release** and no evidence is collected.
-- If you do not specify a `released_at` date, release evidence is collected on the
-  date the release is created.
+- If you specify a future `released_at` date, the release becomes an **Upcoming release** and the evidence is collected on the date of the release. You cannot collect release evidence before then.
+- If you specify a past `released_at` date, the release becomes an **Historical release** and no evidence is collected.
+- If you do not specify a `released_at` date, release evidence is collected on the date the release is created.

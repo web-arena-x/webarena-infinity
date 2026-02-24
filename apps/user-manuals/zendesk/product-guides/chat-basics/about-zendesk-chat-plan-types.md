@@ -44,26 +44,26 @@ The following table shows the Chat plans that were available prior to February 1
 
 The following table shows feature availability for Chat Lite plans as of January 31, 2021. Refer to the Lite column below for a list of features that were available on that legacy plan. 
 
-|  |  |
+| | |
 | --- | --- |
-| **Zendesk Chat pricing** |  |
+| **Zendesk Chat pricing** | |
 | Annual subscription term (per agent per month) | $0 |
 | Monthly subscription term (per agent per month) | $0 |
 | Total Agents | 1 |
-| **Support from the Zendesk team** |  |
+| **Support from the Zendesk team** | |
 | Self-service Help Center & Community | Y |
 | Email support | N |
 | Live chat support (English only) | N |
-| **Chat experience** |  |
+| **Chat experience** | |
 | Concurrent chats | 1 |
 | Chat rating | Y |
 | Shortcuts (convert a few characters into complete sentences using preset commands) | Y |
 | Automatic chat translation | Y |
 | Android and iOS Apps | Y |
-| Pre-Chat form  Ask visitors for their personal information before starting a chat | Y |
+| Pre-Chat form Ask visitors for their personal information before starting a chat | Y |
 | Offline chat | Always on |
 | File transfers | N |
-| **Management** |  |
+| **Management** | |
 | Chat history | 14 days |
 | Visitor information list | Y |
 | Chat tags | Y |
@@ -75,20 +75,20 @@ The following table shows feature availability for Chat Lite plans as of January
 | Skills-based routing | N |
 | Roles and permissions | N |
 | High-load Dashboard | N |
-| **Customization** |  |
+| **Customization** | |
 | Chat widget customization | Y |
 | Advanced widget customization | N |
 | Chat Badge | Always on |
 | Hide widget when offline | N |
 | Widget unbranding | N |
-| **Analytics and reporting** |  |
+| **Analytics and reporting** | |
 | Chat and agent reports | N |
 | Email reports | N |
 | Agent leaderboard | N |
 | Conversion tracking | N |
 | Chat reporting in Explore | N |
 | Real-time monitor | N |
-| **Platform** |  |
+| **Platform** | |
 | Mobile Chat SDK | Y |
 | Zendesk Support integration | Y |
 | Third-party integrations | 1 |
@@ -100,7 +100,7 @@ The following table shows feature availability for Chat Lite plans as of January
 | Chatbots (Powered by the Conversations API) | N |
 | Real-Time API | N |
 | Web SDK | N |
-| **Security** |  |
+| **Security** | |
 | SSL Encryption | Y |
 | Two-Factor Authentication | Y |
 | Single sign-on (SSO) for web and mobile\* | N |
@@ -118,9 +118,9 @@ $ Feature availability depends on Chat account type + requires Support
 
 The following table shows the legacy Chat plans, available prior to August 2, 2017 and their corresponding plans August 2, 2017 - January 31, 2021.
 
-|  |  |
+| | |
 | --- | --- |
-| **Legacy plan  before August 2, 2017** | **Plans  August 2, 2017 - January 31, 2021** |
+| **Legacy plan before August 2, 2017** | **Plans August 2, 2017 - January 31, 2021** |
 | Lite | Lite |
 | Basic | Team |
 | Advanced | Professional |

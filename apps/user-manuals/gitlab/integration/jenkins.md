@@ -18,30 +18,22 @@ title: Jenkins
 
 {{< /history >}}
 
-[Jenkins](https://www.jenkins.io/) is an open source automation server that supports
-building, deploying and automating projects.
+[Jenkins](https://www.jenkins.io/) is an open source automation server that supports building, deploying and automating projects.
 
 You should use a Jenkins integration with GitLab when:
 
 - You plan to migrate your CI from Jenkins to [GitLab CI/CD](../ci/_index.md)
-  in the future, but need an interim solution.
-- You're invested in [Jenkins plugins](https://plugins.jenkins.io/) and choose
-  to keep using Jenkins to build your apps.
+ in the future, but need an interim solution.
+- You're invested in [Jenkins plugins](https://plugins.jenkins.io/) and choose to keep using Jenkins to build your apps.
 
 This integration can trigger a Jenkins build when a change is pushed to GitLab.
 
-You cannot use this integration to trigger GitLab CI/CD pipelines from Jenkins. Instead,
-use the [pipeline triggers API endpoint](../api/pipeline_triggers.md) in a Jenkins job,
-authenticated with a [pipeline trigger token](../ci/triggers/_index.md#create-a-pipeline-trigger-token).
+You cannot use this integration to trigger GitLab CI/CD pipelines from Jenkins. Instead, use the [pipeline triggers API endpoint](../api/pipeline_triggers.md) in a Jenkins job, authenticated with a [pipeline trigger token](../ci/triggers/_index.md#create-a-pipeline-trigger-token).
 
-After you have configured a Jenkins integration, you trigger a build in Jenkins
-when you push code to your repository or create a merge request in GitLab. The
-Jenkins pipeline status displays on merge request widgets and the GitLab
-project's home page.
+After you have configured a Jenkins integration, you trigger a build in Jenkins when you push code to your repository or create a merge request in GitLab. The Jenkins pipeline status displays on merge request widgets and the GitLab project's home page.
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
-For an overview of the Jenkins integration for GitLab, see
-[GitLab workflow with Jira issues and Jenkins pipelines](https://youtu.be/Jn-_fyra7xQ).
+For an overview of the Jenkins integration for GitLab, see [GitLab workflow with Jira issues and Jenkins pipelines](https://youtu.be/Jn-_fyra7xQ).
 
 To configure a Jenkins integration with GitLab:
 
@@ -57,8 +49,7 @@ To configure a Jenkins integration with GitLab:
    - [Create a personal access token](../user/profile/personal_access_tokens.md#create-a-personal-access-token)
      to use the token for all Jenkins integrations of that user.
    - [Create a project access token](../user/project/settings/project_access_tokens.md#create-a-project-access-token)
-     to use the token at the project level only. For instance, you can revoke
-     the token in a project without affecting Jenkins integrations in other projects.
+     to use the token at the project level only. For instance, you can revoke the token in a project without affecting Jenkins integrations in other projects.
    - [Create a group access token](../user/group/settings/group_access_tokens.md#create-a-group-access-token)
      to use the token for all Jenkins integrations in all projects of that group.
 
@@ -82,8 +73,7 @@ Install and configure the Jenkins plugin to authorize the connection to GitLab.
 1. Enter the GitLab server's URL in **GitLab host URL**.
 1. To test the connection, select **Test Connection**.
 
-For more information, see
-[Jenkins-to-GitLab authentication](https://github.com/jenkinsci/gitlab-plugin#jenkins-to-gitlab-authentication).
+For more information, see [Jenkins-to-GitLab authentication](https://github.com/jenkinsci/gitlab-plugin#jenkins-to-gitlab-authentication).
 
 ## Configure the Jenkins project
 
@@ -92,18 +82,15 @@ Set up the Jenkins project you intend to run your build on.
 1. On your Jenkins instance, select **New Item**.
 1. Enter the project's name.
 1. Select **Freestyle** or **Pipeline** and select **OK**.
-   You should select a freestyle project, because the Jenkins plugin updates the build status on
-   GitLab. In a pipeline project, you must configure a script to update the status on GitLab.
+   You should select a freestyle project, because the Jenkins plugin updates the build status on GitLab. In a pipeline project, you must configure a script to update the status on GitLab.
 1. Choose your GitLab connection from the dropdown list.
 1. Select **Build when a change is pushed to GitLab**.
 1. Select the following checkboxes:
    - **Accepted Merge Request Events**
    - **Closed Merge Request Events**
 1. Specify how the build status is reported to GitLab:
-   - If you created a freestyle project, in the **Post-build Actions** section,
-     choose **Publish build status to GitLab**.
-   - If you created a pipeline project, you must use a Jenkins Pipeline script to
-     update the status on GitLab.
+   - If you created a freestyle project, in the **Post-build Actions** section, choose **Publish build status to GitLab**.
+   - If you created a pipeline project, you must use a Jenkins Pipeline script to update the status on GitLab.
 
      Example Jenkins Pipeline script:
 
@@ -123,8 +110,7 @@ Set up the Jenkins project you intend to run your build on.
       }
       ```
 
-      For more Jenkins Pipeline script examples, see the
-      [Jenkins GitLab plugin repository on GitHub](https://github.com/jenkinsci/gitlab-plugin#scripted-pipeline-jobs).
+      For more Jenkins Pipeline script examples, see the [Jenkins GitLab plugin repository on GitHub](https://github.com/jenkinsci/gitlab-plugin#scripted-pipeline-jobs).
 
 ## Configure the GitLab project
 
@@ -132,8 +118,7 @@ Configure the GitLab integration with Jenkins in one of the following ways.
 
 ### With a Jenkins server URL
 
-You should use this approach for Jenkins integrations if you can provide GitLab
-with your Jenkins server URL and authentication information.
+You should use this approach for Jenkins integrations if you can provide GitLab with your Jenkins server URL and authentication information.
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Settings** > **Integrations**.
@@ -146,9 +131,7 @@ with your Jenkins server URL and authentication information.
 1. Enter the **Jenkins server URL**.
 1. Optional. Clear the **Enable SSL verification** checkbox to disable [SSL verification](../user/project/integrations/_index.md#ssl-verification).
 1. Enter the **Project name**.
-   The project name should be URL-friendly, where spaces are replaced with underscores. To ensure
-   the project name is valid, copy it from your browser's address bar while viewing the Jenkins
-   project.
+   The project name should be URL-friendly, where spaces are replaced with underscores. To ensure the project name is valid, copy it from your browser's address bar while viewing the Jenkins project.
 1. If your Jenkins server requires authentication, enter the **Username** and **Password**.
 1. Optional. Select **Test settings**.
 1. Select **Save changes**.
@@ -180,55 +163,48 @@ When you configure GitLab, you might get an error that states `Connection failed
 
 This issue has multiple possible causes and solutions:
 
-| Cause                                                            | Workaround  |
+| Cause                                                            | Workaround |
 |------------------------------------------------------------------|-------------|
-| GitLab is unable to reach your Jenkins instance at the address.  | For GitLab Self-Managed, ping the Jenkins instance at the domain provided on the GitLab instance. |
+| GitLab is unable to reach your Jenkins instance at the address. | For GitLab Self-Managed, ping the Jenkins instance at the domain provided on the GitLab instance. |
 | The Jenkins instance is at a local address and is not included in the [GitLab installation's allowlist](../security/webhooks.md#allow-outbound-requests-to-certain-ip-addresses-and-domains). | Add the instance to the GitLab installation's allowlist. |
 | The credentials for the Jenkins instance do not have sufficient access or are invalid. | Grant the credentials sufficient access or create valid credentials. |
 | The **Enable authentication for `/project` end-point** checkbox is not selected in your [Jenkins plugin configuration](#configure-the-jenkins-server) | Select the checkbox. |
 
 ### Error: `Could not connect to the CI server`
 
-You might get an error that states `Could not connect to the CI server` in a merge
-request if GitLab did not receive a build status update from Jenkins through the
-[Commit Status API](../api/commits.md#commit-status).
+You might get an error that states `Could not connect to the CI server` in a merge request if GitLab did not receive a build status update from Jenkins through the [Commit Status API](../api/commits.md#commit-status).
 
-This issue occurs when Jenkins is not properly configured or there is an error
-reporting the status through the API.
+This issue occurs when Jenkins is not properly configured or there is an error reporting the status through the API.
 
 To fix this issue:
 
 1. [Configure the Jenkins server](#configure-the-jenkins-server) for GitLab API access.
-1. [Configure the Jenkins project](#configure-the-jenkins-project), and make sure
-   that, if you create a freestyle project, you choose the "Publish build status to GitLab"
-   post-build action.
+1. [Configure the Jenkins project](#configure-the-jenkins-project), and make sure that, if you create a freestyle project, you choose the "Publish build status to GitLab" post-build action.
 
 ### Merge request event does not trigger a Jenkins pipeline
 
-This issue might occur when the request exceeds the [webhook timeout limit](../user/gitlab_com/_index.md#webhooks),
-which is set to 10 seconds by default.
+This issue might occur when the request exceeds the [webhook timeout limit](../user/gitlab_com/_index.md#webhooks), which is set to 10 seconds by default.
 
 For this issue, check:
 
 - The integration webhook logs for request failures.
 - `/var/log/gitlab/gitlab-rails/production.log` for messages like:
 
-  ```plaintext
-  WebHook Error => Net::ReadTimeout
-  ```
+ ```plaintext
+ WebHook Error => Net::ReadTimeout
+ ```
 
-  or
+ or
 
-  ```plaintext
-  WebHook Error => execution expired
-  ```
+ ```plaintext
+ WebHook Error => execution expired
+ ```
 
 On GitLab Self-Managed, you can fix this issue by [increasing the webhook timeout value](../administration/instance_limits.md#webhook-timeout).
 
 ### Enable job logs in Jenkins
 
-To troubleshoot an integration issue, you can enable job logs in Jenkins to get
-more details about your builds.
+To troubleshoot an integration issue, you can enable job logs in Jenkins to get more details about your builds.
 
 To enable job logs in Jenkins:
 

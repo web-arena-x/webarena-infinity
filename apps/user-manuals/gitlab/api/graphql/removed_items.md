@@ -72,7 +72,7 @@ Fields removed in GitLab 15.0.
 
 [Removed](https://gitlab.com/gitlab-org/gitlab/-/issues/342882) in GitLab 15.0:
 
-| Argument name | Field name  | Deprecated in | Use instead |
+| Argument name | Field name | Deprecated in | Use instead |
 |---------------|-------------|---------------|-------------|
 | -             | `pipelines` | 14.5          | None        |
 

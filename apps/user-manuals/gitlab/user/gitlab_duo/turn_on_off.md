@@ -31,8 +31,7 @@ You can turn GitLab Duo on or off:
 
 You can also turn GitLab Duo Core (a subset of GitLab Duo features) on or off.
 
-If you turn GitLab Duo on or off, you turn on or off
-GitLab Duo features (like GitLab Duo Chat) as well.
+If you turn GitLab Duo on or off, you turn on or off GitLab Duo features (like GitLab Duo Chat) as well.
 
 ## Turn GitLab Duo Core on or off
 
@@ -49,8 +48,7 @@ GitLab Duo features (like GitLab Duo Chat) as well.
 - If you are an existing customer from GitLab 17.11 or earlier, you must turn on features for GitLab Duo Core.
 - If you are a new customer in GitLab 18.0 or later, GitLab Duo Core is automatically turned on and no further action is needed.
 
-If you were an existing customer with a Premium or Ultimate subscription before May 15, 2025,
-when you upgrade to GitLab 18.0 or later, to use GitLab Duo Core, you must turn it on.
+If you were an existing customer with a Premium or Ultimate subscription before May 15, 2025, when you upgrade to GitLab 18.0 or later, to use GitLab Duo Core, you must turn it on.
 
 ### On GitLab.com
 
@@ -67,8 +65,7 @@ To change GitLab Duo Core availability:
 1. Select **Change configuration**.
 1. Under **GitLab Duo availability**, select an option.
 1. Under **GitLab Duo Core**, select or clear the **Turn on features for GitLab Duo Core** checkbox.
-   If you selected **Always off** for GitLab Duo availability, you cannot access
-   this setting.
+   If you selected **Always off** for GitLab Duo availability, you cannot access this setting.
 1. Select **Save changes**.
 
 It might take up to 10 minutes for the change to take effect.
@@ -88,8 +85,7 @@ To change GitLab Duo Core availability:
 1. Select **Change configuration**.
 1. Under **GitLab Duo availability**, select an option.
 1. Under **GitLab Duo Core**, select or clear the **Turn on features for GitLab Duo Core** checkbox.
-   If you selected **Always off** for GitLab Duo availability, you cannot access
-   this setting.
+   If you selected **Always off** for GitLab Duo availability, you cannot access this setting.
 1. Select **Save changes**.
 
 ## Turn GitLab Duo Agent Platform on or off
@@ -125,8 +121,7 @@ To change GitLab Duo Agent Platform availability:
 
 GitLab Duo Agent Platform availability changes for all subgroups and projects.
 
-When GitLab Duo Agent Platform is turned off, related settings for flows and
-[foundational agents](../duo_agent_platform/agents/foundational_agents/_index.md#turn-foundational-agents-on-or-off) are hidden.
+When GitLab Duo Agent Platform is turned off, related settings for flows and [foundational agents](../duo_agent_platform/agents/foundational_agents/_index.md#turn-foundational-agents-on-or-off) are hidden.
 
 ### On GitLab Self-Managed
 
@@ -144,8 +139,7 @@ To change GitLab Duo Agent Platform availability:
 1. Under **GitLab Duo Agent Platform**, select or clear the **Turn on GitLab Duo Chat (Agentic), agents, and flows** checkbox.
 1. Select **Save changes**.
 
-When GitLab Duo Agent Platform is turned off, related settings for flows and
-[foundational agents](../duo_agent_platform/agents/foundational_agents/_index.md#turn-foundational-agents-on-or-off) are hidden.
+When GitLab Duo Agent Platform is turned off, related settings for flows and [foundational agents](../duo_agent_platform/agents/foundational_agents/_index.md#turn-foundational-agents-on-or-off) are hidden.
 
 ## Turn GitLab Duo on or off
 
@@ -154,8 +148,7 @@ You can choose to change its availability for different groups and projects.
 
 ### On GitLab.com
 
-On GitLab.com, you can control GitLab Duo availability for the top-level group,
-other groups, subgroups, and projects.
+On GitLab.com, you can control GitLab Duo availability for the top-level group, other groups, subgroups, and projects.
 
 #### For a top-level group
 
@@ -171,11 +164,7 @@ To change GitLab Duo availability for the top-level group:
 1. Under **GitLab Duo availability**, select an option.
 1. Use the **Allow flow execution** toggle to control whether agents can run in the GitLab UI.
    When turned on, agents execute in CI/CD pipelines and consume compute minutes.
-1. To use [foundational flows](../duo_agent_platform/flows/foundational_flows/_index.md),
-   turn on the **Allow foundational flows** toggle. Individual foundational flows
-   must also be turned on for the top-level group. Review the documentation for the
-   specific flow to confirm any additional prerequisites. It can take a few minutes 
-   for these settings to propagate across groups before the feature is available.
+1. To use [foundational flows](../duo_agent_platform/flows/foundational_flows/_index.md), turn on the **Allow foundational flows** toggle. Individual foundational flows must also be turned on for the top-level group. Review the documentation for the specific flow to confirm any additional prerequisites. It can take a few minutes for these settings to propagate across groups before the feature is available.
 1. Select **Save changes**.
 
 GitLab Duo availability changes for all subgroups and projects.
@@ -192,10 +181,7 @@ To change GitLab Duo availability for a group or subgroup:
 1. Select **Settings** > **General**.
 1. Expand **GitLab Duo features**.
 1. Under **GitLab Duo availability**, select an option.
-1. To use [foundational flows](../duo_agent_platform/flows/foundational_flows/_index.md),
-   turn on the **Allow foundational flows** toggle. Individual foundational flows are
-   only available if the corresponding flows are turned on at the top-level group and 
-   any additional prerequisites from the flow documentation are met.
+1. To use [foundational flows](../duo_agent_platform/flows/foundational_flows/_index.md), turn on the **Allow foundational flows** toggle. Individual foundational flows are only available if the corresponding flows are turned on at the top-level group and any additional prerequisites from the flow documentation are met.
 1. Use the **Allow flow execution** toggle to control whether agents can run in the GitLab UI.
    When turned on, agents execute in CI/CD pipelines and consume compute minutes.
 1. Select **Save changes**.
@@ -214,18 +200,14 @@ To change GitLab Duo availability for a project:
 1. Select **Settings** > **General**.
 1. Expand **GitLab Duo**.
 1. Turn the **Use AI-native features in this project** toggle on or off.
-1. To use [foundational flows](../duo_agent_platform/flows/foundational_flows/_index.md),
-   turn on the **Allow foundational flows** toggle. Individual foundational flows are
-   only available if the corresponding flows are turned on at the top-level group and 
-   any additional prerequisites from the flow documentation are met.
+1. To use [foundational flows](../duo_agent_platform/flows/foundational_flows/_index.md), turn on the **Allow foundational flows** toggle. Individual foundational flows are only available if the corresponding flows are turned on at the top-level group and any additional prerequisites from the flow documentation are met.
 1. Use the **Allow flow execution** toggle to control whether agents can run in the GitLab UI.
    When turned on, agents execute in CI/CD pipelines and consume compute minutes.
 1. Select **Save changes**.
 
 ### On GitLab Self-Managed
 
-On GitLab Self-Managed, you can control GitLab Duo availability for the instance,
-groups, subgroups, or projects.
+On GitLab Self-Managed, you can control GitLab Duo availability for the instance, groups, subgroups, or projects.
 
 #### For an instance
 
@@ -283,8 +265,7 @@ GitLab Duo availability changes for the project.
 
 ### For earlier GitLab versions
 
-For information on how to turn GitLab Duo on of off in earlier GitLab versions,
-see [Control GitLab Duo availability for earlier GitLab versions](turn_on_off_earlier.md).
+For information on how to turn GitLab Duo on of off in earlier GitLab versions, see [Control GitLab Duo availability for earlier GitLab versions](turn_on_off_earlier.md).
 
 ## Turn on beta and experimental features
 
@@ -314,8 +295,7 @@ that belong to the group.
 
 {{< tab title="In 17.4 and later" >}}
 
-In GitLab 17.4 and later, follow these instructions to turn on GitLab Duo
-experiment and beta features for your GitLab Self-Managed instance.
+In GitLab 17.4 and later, follow these instructions to turn on GitLab Duo experiment and beta features for your GitLab Self-Managed instance.
 
 {{< alert type="note" >}}
 
@@ -353,11 +333,9 @@ To turn on GitLab Duo experiment and beta features for an instance:
 1. Expand **Change configuration**.
 1. Under **Feature preview**, select **Use experiment and beta GitLab Duo features**.
 1. Select **Save changes**.
-1. For GitLab Duo Chat to work immediately,
-   [manually synchronize your subscription](../../subscriptions/manage_subscription.md#manually-synchronize-subscription-data).
+1. For GitLab Duo Chat to work immediately, [manually synchronize your subscription](../../subscriptions/manage_subscription.md#manually-synchronize-subscription-data).
 
-   If you do not manually synchronize your subscription, it might take up to 24
-   hours to activate GitLab Duo Chat on your instance.
+   If you do not manually synchronize your subscription, it might take up to 24 hours to activate GitLab Duo Chat on your instance.
 
 {{< /tab >}}
 

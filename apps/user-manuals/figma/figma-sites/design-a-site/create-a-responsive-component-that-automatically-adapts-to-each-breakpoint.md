@@ -32,14 +32,14 @@ It works by matching the names of your breakpoints with your variant property va
 
 The following steps assume you’re starting with a single design and are creating variants for a webpage with two breakpoints: **Desktop** and **Mobile**.
 
-1. Select a design and click  **Create component** in the right sidebar to create a component.
-2. In the right sidebar, click  **Create property** from underneath the object header and select **Variant property**.
+1. Select a design and click **Create component** in the right sidebar to create a component.
+2. In the right sidebar, click **Create property** from underneath the object header and select **Variant property**.
 3. For this example, click the property name and change it to **Size.**
-4. Click  **Edit property** and change the value from **Default** to **Desktop**.
-5. With the new component selected, click  **Add variant**.
+4. Click **Edit property** and change the value from **Default** to **Desktop**.
+5. With the new component selected, click **Add variant**.
 6. Change the property value to **Mobile**.
 7. For this example, change the height or width of the variant.
-8. Click  **Insert** in the left navigation bar and switch to the **Libraries** tab.
+8. Click **Insert** in the left navigation bar and switch to the **Libraries** tab.
 9. Click **Created in this file** at the top of the list.
 10. Drag an instance of your component into a webpage with multiple breakpoints.
 11. The **Desktop** variant should appear in the **Desktop** breakpoint and the **Mobile** variant should appear in the **Mobile** breakpoint.
@@ -50,4 +50,4 @@ The following steps assume you’re starting with a single design and are creati
 
 1. Add instances of the component for each breakpoint to the canvas.
 2. Place each instance in an empty frame and rename the frame to match the breakpoint’s name.
-3. Select each frame, click the  **dropdown arrow** next to  **Create component** at the top of the right sidebar, then select  **Create component set**.
+3. Select each frame, click the **dropdown arrow** next to **Create component** at the top of the right sidebar, then select **Create component set**.

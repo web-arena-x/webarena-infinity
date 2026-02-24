@@ -26,8 +26,7 @@ Follow the corresponding steps to [create your groups](../../user/group/_index.m
 
 If your team is working across multiple repositories, create a project for each repository in your group.
 
-Issues will canonically be in their respective projects, but your kanban board will be in your
-group so you can maintain visibility across all of your projects.
+Issues will canonically be in their respective projects, but your kanban board will be in your group so you can maintain visibility across all of your projects.
 If you are working in a single repository, you can skip this step.
 
 ## Create labels
@@ -36,7 +35,7 @@ Next, let's create some labels to represent each step in your Kanban lifecycle:
 
 - If you are working in a single project, create the labels in that project.
 - If you are working across multiple projects, create the labels in your group.
-  This lets you use a single set of labels across all of your projects.
+ This lets you use a single set of labels across all of your projects.
 
 In both scenarios, the process for creating labels is the same. [Create](../../user/project/labels.md#create-a-label) [scoped labels](../../user/project/labels.md#scoped-labels) for **status::to do**, **status::doing**, and **status::done**.
 
@@ -86,9 +85,7 @@ To visualize flow:
 1. Repeat this same process to create stages for **status::in progress** and **status::done**.
 1. When all three stages have been added, select **New value stream**.
 
-With your custom VSA report that matches the same workflow as your Kanban board, GitLab
-automatically calculates the time each issue spends in each stage and aggregates the data
-across all stages.
+With your custom VSA report that matches the same workflow as your Kanban board, GitLab automatically calculates the time each issue spends in each stage and aggregates the data across all stages.
 As a result, you get the lead time and cycle time.
 You can dig into each stage to see the specific timings for individual issues.
 

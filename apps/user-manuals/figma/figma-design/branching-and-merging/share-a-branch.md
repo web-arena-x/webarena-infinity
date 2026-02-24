@@ -26,37 +26,37 @@ There are a few ways to share branches.
 
 - A 
 
-  ### Main file
+ ### Main file
 
-  Anyone with **can view** access to the main file can view any branches on that file.
+ Anyone with **can view** access to the main file can view any branches on that file.
 
-  1. Click the  next to the main file name in the top left.
-  2. Select **See all branches** to open the branches modal.
-  3. Click the  next to the branch name, then select **Copy link**.  
+ 1. Click the next to the main file name in the top left.
+ 2. Select **See all branches** to open the branches modal.
+ 3. Click the next to the branch name, then select **Copy link**. 
 
      **Tip:** You can tell if a file link is for a main file or a branch as all branches will include a `/branch/` variable in the URL followed by a unique ID string for that branch.
 - B 
 
-  ### Share link
+ ### Share link
 
-  Share a branch link and control access to the branch using link sharing.
+ Share a branch link and control access to the branch using link sharing.
 
-  1. Open the branch.
-  2. Click the **Share** button in the top right.
-  3. Click **Copy link** to add the branch link to your clipboard.
+ 1. Open the branch.
+ 2. Click the **Share** button in the top right.
+ 3. Click **Copy link** to add the branch link to your clipboard.
 
-  **Caution**: The  [Allow viewers to copy, share, or export from the file](https://help.figma.com/hc/en-us/articles/360040045574) [setting](https://help.figma.com/hc/en-us/articles/360040045574) must be enabled for viewers to create branches. If this is disabled, viewers won't see the option to create or edit branches.
+ **Caution**: The [Allow viewers to copy, share, or export from the file](https://help.figma.com/hc/en-us/articles/360040045574) [setting](https://help.figma.com/hc/en-us/articles/360040045574) must be enabled for viewers to create branches. If this is disabled, viewers won't see the option to create or edit branches.
 - C 
 
-  ### Invite to branch
+ ### Invite to branch
 
-  Invite a collaborator to the branch with specific permissions.
+ Invite a collaborator to the branch with specific permissions.
 
-  1. Click the **Share** button in the top-right corner.
-  2. Enter the collaborator's email in the email field.
-  3. Click  to adjust their permissions.
+ 1. Click the **Share** button in the top-right corner.
+ 2. Enter the collaborator's email in the email field.
+ 3. Click to adjust their permissions.
      - Select **can view** to give them view-only access to files in that project.
      - Select **can edit** to give them edit access to any files in that project.
-  4. Click **Invite** to send an email invitation to their address. If they're already using Figma, they'll get an in-app notification as well.
+ 4. Click **Invite** to send an email invitation to their address. If they're already using Figma, they'll get an in-app notification as well.
 
 Tip: You can also copy a link to a branch from the branches modal. [View and manage branches →](https://help.figma.com/hc/en-us/articles/5668839659415)

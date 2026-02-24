@@ -22,12 +22,11 @@ You can use a group access token to authenticate:
 - With the GitLab API.
 - Authenticate with Git over HTTPS. Use:
 
-  - Any non-blank value as a username.
-  - The group access token as the password.
+ - Any non-blank value as a username.
+ - The group access token as the password.
 
 Group access tokens are similar to [project access tokens](../../project/settings/project_access_tokens.md)
-and [personal access tokens](../../profile/personal_access_tokens.md), except they are
-associated with a group rather than a project or user.
+and [personal access tokens](../../profile/personal_access_tokens.md), except they are associated with a group rather than a project or user.
 
 You cannot use group access tokens to create other group, project, or personal access tokens.
 
@@ -36,13 +35,12 @@ configured for personal access tokens.
 
 ## Availability
 
-- On GitLab.com, you can use group access tokens if you have the Premium or Ultimate license tier,
-  but not with a trial license.
+- On GitLab.com, you can use group access tokens if you have the Premium or Ultimate license tier, but not with a trial license.
 - On GitLab Dedicated and GitLab Self-Managed instances:
-  - You can use group access tokens with any license tier. If you have the Free tier:
+ - You can use group access tokens with any license tier. If you have the Free tier:
     - Review your security and compliance policies around user self-enrollment.
     - Consider restricting the creation of group access tokens to limit the risk of abuse.
-  - Group access tokens are subject to the same [maximum lifetime limits](../../../administration/settings/account_and_limit_settings.md#limit-the-lifetime-of-access-tokens)
+ - Group access tokens are subject to the same [maximum lifetime limits](../../../administration/settings/account_and_limit_settings.md#limit-the-lifetime-of-access-tokens)
     as personal access tokens if the limit is set.
 
 ## Create a group access token
@@ -90,8 +88,7 @@ A group access token is displayed. Save the group access token somewhere safe. A
 {{< alert type="warning" >}}
 
 Group access tokens are treated as internal users.
-If an internal user creates a group access token, that token is able to access
-all projects that have visibility level set to Internal.
+If an internal user creates a group access token, that token is able to access all projects that have visibility level set to Internal.
 
 {{< /alert >}}
 
@@ -146,8 +143,7 @@ If you are an administrator, you can create group access tokens in the Rails con
 
 {{< /history >}}
 
-In GitLab 17.9 and later, you can view both active and inactive group
-access tokens on the access tokens page.
+In GitLab 17.9 and later, you can view both active and inactive group access tokens on the access tokens page.
 
 The inactive group access tokens table displays revoked and expired tokens until they are [automatically deleted](../../project/settings/project_access_tokens.md#inactive-token-retention).
 
@@ -176,9 +172,9 @@ The scope determines the actions you can perform when you authenticate with a gr
 | `read_api`         | Grants read access to the scoped group and related project API, including the [package registry](../../packages/package_registry/_index.md).                                                                                                                                                                |
 | `read_registry`    | Grants read access (pull) to the [container registry](../../packages/container_registry/_index.md) images if any project within a group is private and authorization is required.                                                                                                                           |
 | `write_registry`   | Grants write access (push) to the [container registry](../../packages/container_registry/_index.md). You need both read and write access to push images.                                                                                                                                                |
-| `read_virtual_registry`  | If a project is private and authorization is required, grants read-only (pull) access to container images through the [dependency proxy](../../packages/dependency_proxy/_index.md). Available only when the dependency proxy is enabled. |
+| `read_virtual_registry` | If a project is private and authorization is required, grants read-only (pull) access to container images through the [dependency proxy](../../packages/dependency_proxy/_index.md). Available only when the dependency proxy is enabled. |
 | `write_virtual_registry` | If a project is private and authorization is required, grants read (pull), write (push), and delete access to container images through the [dependency proxy](../../packages/dependency_proxy/_index.md). Available only when the dependency proxy is enabled. |
-| `read_repository`  | Grants read access (pull) to all repositories within a group.                                                                                                                                                                                                                                              |
+| `read_repository` | Grants read access (pull) to all repositories within a group.                                                                                                                                                                                                                                              |
 | `write_repository` | Grants read and write access (pull and push) to all repositories within a group.                                                                                                                                                                                                                           |
 | `create_runner`    | Grants permission to create runners in a group.                                                                                                                                                                                                                                                            |
 | `manage_runner`    | Grants permission to manage runners in a group.                                                                                                                                                                                                                                                            |
@@ -201,21 +197,15 @@ To restrict the creation of group access tokens:
 
 ## Access token expiration
 
-Whether your existing group access tokens have expiry dates automatically applied
-depends on what GitLab offering you have, and when you upgraded to GitLab 16.0 or later:
+Whether your existing group access tokens have expiry dates automatically applied depends on what GitLab offering you have, and when you upgraded to GitLab 16.0 or later:
 
-- On GitLab.com, during the 16.0 milestone, existing group access tokens without
-  an expiry date were automatically given an expiry date of 365 days later than the current date.
+- On GitLab.com, during the 16.0 milestone, existing group access tokens without an expiry date were automatically given an expiry date of 365 days later than the current date.
 - On GitLab Self-Managed, if you upgraded from GitLab 15.11 or earlier to GitLab 16.0 or later:
-  - On or before July 23, 2024, existing group access tokens without an expiry
-    date were automatically given an expiry date of 365 days later than the current date.
+ - On or before July 23, 2024, existing group access tokens without an expiry date were automatically given an expiry date of 365 days later than the current date.
     This change is a breaking change.
-  - On or after July 24, 2024, existing group access tokens without an expiry
-    date did not have an expiry date set.
+ - On or after July 24, 2024, existing group access tokens without an expiry date did not have an expiry date set.
 
-On GitLab Self-Managed, if you do a new install of one of the following GitLab
-versions, your existing group access tokens do not have expiry dates
-automatically applied:
+On GitLab Self-Managed, if you do a new install of one of the following GitLab versions, your existing group access tokens do not have expiry dates automatically applied:
 
 - 16.0.9
 - 16.1.7
@@ -250,8 +240,8 @@ GitLab runs a check every day at 1:00 AM UTC to identify group access tokens tha
 - In GitLab 17.6 and later, group Owners are notified by email when the check identifies their group access tokens as expiring in the next 60 days. An additional email is sent when the check identifies their group access tokens as expiring in the next 30 days.
 - Group Owners are notified by email when the check identifies their group access tokens as expiring in the next seven days.
 - In GitLab 17.7 and later, members with the inherited role of Owner in the group can also receive notification emails. You can configure this by changing:
-  - The [group setting](../manage.md#expiry-emails-for-group-and-project-access-tokens) for the group or any parent group.
-  - On GitLab Self-Managed, the [instance setting](../../../administration/settings/email.md#group-and-project-access-token-expiry-emails-to-inherited-members).
+ - The [group setting](../manage.md#expiry-emails-for-group-and-project-access-tokens) for the group or any parent group.
+ - On GitLab Self-Managed, the [instance setting](../../../administration/settings/email.md#group-and-project-access-token-expiry-emails-to-inherited-members).
 
 Your expired access tokens are listed in the [inactive group access tokens table](#revoke-or-rotate-a-group-access-token) until they are [automatically deleted](../../project/settings/project_access_tokens.md#inactive-token-retention).
 
@@ -259,13 +249,10 @@ Your expired access tokens are listed in the [inactive group access tokens table
 
 Bot users for groups are [GitLab-created non-billable users](../../../subscriptions/manage_users_and_seats.md#criteria-for-non-billable-users).
 Each time you create a group access token, a bot user is created and added to the group.
-These bot users are similar to
-[bot users for projects](../../project/settings/project_access_tokens.md#bot-users-for-projects), except they are added
-to groups instead of projects. Bot users for groups:
+These bot users are similar to [bot users for projects](../../project/settings/project_access_tokens.md#bot-users-for-projects), except they are added to groups instead of projects. Bot users for groups:
 
 - Is not a billable user, so it does not count toward the license limit.
-- Can have a maximum role of Owner for a group. For more information, see
-  [Create a group access token](../../../api/group_access_tokens.md#create-a-group-access-token).
+- Can have a maximum role of Owner for a group. For more information, see [Create a group access token](../../../api/group_access_tokens.md#create-a-group-access-token).
 - Have a username set to `group_{group_id}_bot_{random_string}`. For example, `group_123_bot_4ffca233d8298ea1`.
 - Have an email set to `group_{group_id}_bot_{random_string}@noreply.{Gitlab.config.gitlab.host}`. For example, `group_123_bot_4ffca233d8298ea1@noreply.example.com`.
 

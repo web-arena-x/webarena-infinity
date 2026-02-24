@@ -76,9 +76,9 @@ To enable Shibboleth:
    gitlab_rails['omniauth_block_auto_created_users'] = false
    gitlab_rails['omniauth_providers'] = [
      {
-       "name"  => "shibboleth",
+       "name" => "shibboleth",
        "label" => "Text for Login Button",
-       "args"  => {
+       "args" => {
            "shib_session_id_field"     => "HTTP_SHIB_SESSION_ID",
            "shib_application_id_field" => "HTTP_SHIB_APPLICATION_ID",
            "uid_field"                 => 'HTTP_EPPN',

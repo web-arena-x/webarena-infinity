@@ -35,10 +35,7 @@ In order to send a reply to a synced thread, you'll need to link your Atlassian 
 
 <details>
 <summary>Individual permissions requested in OAuth consent screen</summary>
-Permission | What we use it for
---- | ---
-User → View → me | We use this to capture the Jira Account ID of each user. This allows us to properly map users between Linear and Jira
-User → View → me | This allows us to create issues and comments on behalf of the user. This does not grant access to read issues or comments not created by this user.
+Permission | What we use it for --- | --- User → View → me | We use this to capture the Jira Account ID of each user. This allows us to properly map users between Linear and Jira User → View → me | This allows us to create issues and comments on behalf of the user. This does not grant access to read issues or comments not created by this user.
 
 Jira Server users will be presented with a simple form to input their own personal access token.
 
@@ -58,7 +55,7 @@ For best performance, users should link their individual Jira accounts in Settin
 ### Select Jira Spaces
 
 We've set up the integration so that Jira spaces map to teams in Linear.   
-  
+ 
 You can link each Jira space to only a single team in Linear, so the same space cannot create issues in multiple Linear teams. Multiple Jira spaces can be linked to the same Linear team though and issues will be created in Linear from any connected Jira space. 
 
 ### Relationship to Jira Imports
@@ -73,27 +70,11 @@ Jira epics automatically sync as Linear projects, maintaining parent-child relat
 
 #### Issues:
 
-Name in Linear | Name in Jira
---- | ---
-Title | Title
-Description | Description
-Assignee*  | Assignee* 
-Creator*  | Creator/Reporter* 
-Priority | Priority
-Status** | Status**
-Labels*** | Labels***
-Due date | Due date
+Name in Linear | Name in Jira --- | --- Title | Title Description | Description Assignee* | Assignee* Creator* | Creator/Reporter* Priority | Priority Status** | Status** Labels*** | Labels*** Due date | Due date
 
 ### Epics/Projects:
 
-Name in Linear | Name in Jira
---- | ---
-Project title | Epic title
-Project status | Epic status
-Project labels*** | Epic labels***
-Project priority | Epic priority
-Project description | Epic description
-Project lead* | Epic assignee*
+Name in Linear | Name in Jira --- | --- Project title | Epic title Project status | Epic status Project labels*** | Epic labels*** Project priority | Epic priority Project description | Epic description Project lead* | Epic assignee*
 
 <details>
 <summary>Special cases</summary>
@@ -235,7 +216,7 @@ Then, the same person can fill this section:
 
 ![Picture of the form asking for API token, Jira account email address and jira hostname](https://webassets.linear.app/images/ornj730p/production/b10ac5161fcb397d860c4e6fa15238ed3f0d6c75-487x414.png?q=95&auto=format&dpr=2)
 
-On submission, they'll be presented with this form. They can then share the webhook URL and these instructions with the Jira ADMINISTER holder, who can setup the webhook in Jira directly:  
+On submission, they'll be presented with this form. They can then share the webhook URL and these instructions with the Jira ADMINISTER holder, who can setup the webhook in Jira directly: 
 
 
 ![jira webhook form in Linear](https://webassets.linear.app/images/ornj730p/production/b2c81982922bb2ccefd750b2fcf17adda6acc7c3-485x584.png?q=95&auto=format&dpr=2)

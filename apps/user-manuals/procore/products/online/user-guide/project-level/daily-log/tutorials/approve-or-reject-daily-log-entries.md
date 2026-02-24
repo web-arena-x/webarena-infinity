@@ -17,10 +17,10 @@ If there are collaborators who are submitting log entries for approval, a user
 - [Required User Permissions](https://support.procore.com/products/online/user-guide/project-level/daily-log/permissions "Daily Log - User Permissions")
 - If you reject a collaborator entry, they will see a 'Resubmit' button next to their entry in the Daily Log.
 - Users with the ['Collaborator Entry Only' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#Daily_Log "Grant Granular Permissions in a Permission Template") enabled on their permission template are limited to the following conditions:
-  - Collaborators can only see the logs that have been configured for Collaborator Entry in the Daily Log tool's configure settings (such as the Manpower, Daily Construction Report, Notes, and Deliveries logs). See [Configure Advanced Settings: Daily Log](configure-advanced-settings-daily-log.md#Collaborator_Entry "Configure Advanced Settings: Daily Log").  
+ - Collaborators can only see the logs that have been configured for Collaborator Entry in the Daily Log tool's configure settings (such as the Manpower, Daily Construction Report, Notes, and Deliveries logs). See [Configure Advanced Settings: Daily Log](configure-advanced-settings-daily-log.md#Collaborator_Entry "Configure Advanced Settings: Daily Log"). 
     *Note*: By default, the Daily Construction Report log is not enabled on projects. See [Allow Collaborators to Create Delivery or Daily Construction Logs](configure-advanced-settings-daily-log.md#Collaborator_Entry "Configure Advanced Settings: Daily Log").
-  - Collaborators can only select their own company or users from their company in related drop-down menus.
-  - Collaborators can only see the entries that they have submitted and can edit or delete their own entries until the entries have been approved.
+ - Collaborators can only select their own company or users from their company in related drop-down menus.
+ - Collaborators can only see the entries that they have submitted and can edit or delete their own entries until the entries have been approved.
 
 ## Prerequisites
 
@@ -39,9 +39,9 @@ You can approve or reject entries from different areas of the Daily Log tool. Cl
 ##### Approve or Reject Entries from the Calendar View
 
 1. Navigate to the **Daily Log** tool.
-2. Click **Calendar**.  
+2. Click **Calendar**. 
    *Note*: If you have pending log entries for the day to approve, you will see a yellow banner in the sidebar.
-3. Click **Review Pending**.   
+3. Click **Review Pending**.  
    *Note*: Pending entries are marked in yellow.
 4. After reviewing a pending entry, choose whether you want to approve it so that it appears on the log to all users, or reject it and have the collaborator resubmit the entry.
    - **To approve an entry**:

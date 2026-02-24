@@ -24,7 +24,7 @@ If you are unable to access your account after following the steps above, you ca
 - Access to a device with a camera
 - A piece of government-issued photo ID
 
-  **Note:** The name on your ID must match or be a close variant of your username in your Clio account.
+ **Note:** The name on your ID must match or be a close variant of your username in your Clio account.
 
 **Click [this recovery link](http://account.clio.com/mfa_recovery/new) to start the process.**
 

@@ -13,8 +13,7 @@ description: Configure an external Sidekiq instance.
 
 {{< /details >}}
 
-You can configure an external Sidekiq instance by using the Sidekiq that's bundled in the GitLab package. Sidekiq requires connection to the Redis,
-PostgreSQL, and Gitaly instances.
+You can configure an external Sidekiq instance by using the Sidekiq that's bundled in the GitLab package. Sidekiq requires connection to the Redis, PostgreSQL, and Gitaly instances.
 
 ## Configure TCP access for PostgreSQL, Gitaly, and Redis on the GitLab instance
 
@@ -62,10 +61,7 @@ Find [your reference architecture](../reference_architectures/_index.md#availabl
 
 ## Configure multiple Sidekiq nodes with shared storage
 
-If you run multiple Sidekiq nodes with a shared file storage, such as NFS, you must
-specify the UIDs and GIDs to ensure they match between servers. Specifying the UIDs
-and GIDs prevents permissions issues in the file system. This advice is similar to the
-[advice for Geo setups](../geo/replication/multiple_servers.md#step-4-configure-the-frontend-application-nodes-on-the-geo-secondary-site).
+If you run multiple Sidekiq nodes with a shared file storage, such as NFS, you must specify the UIDs and GIDs to ensure they match between servers. Specifying the UIDs and GIDs prevents permissions issues in the file system. This advice is similar to the [advice for Geo setups](../geo/replication/multiple_servers.md#step-4-configure-the-frontend-application-nodes-on-the-geo-secondary-site).
 
 To set up multiple Sidekiq nodes:
 
@@ -88,8 +84,7 @@ To set up multiple Sidekiq nodes:
 
 ## Configure the container registry when using an external Sidekiq
 
-If you're using the container registry and it's running on a different
-node than Sidekiq, follow the steps below.
+If you're using the container registry and it's running on a different node than Sidekiq, follow the steps below.
 
 1. Edit `/etc/gitlab/gitlab.rb`, and configure the registry URL:
 
@@ -103,8 +98,7 @@ node than Sidekiq, follow the steps below.
    sudo gitlab-ctl reconfigure
    ```
 
-1. In the instance where container registry is hosted, copy the `registry.key`
-   file to the Sidekiq node.
+1. In the instance where container registry is hosted, copy the `registry.key` file to the Sidekiq node.
 
 ## Configure the Sidekiq metrics server
 
@@ -177,9 +171,7 @@ For more information about health checks, see the [Sidekiq health check page](si
 
 ## Configure LDAP and user or group synchronization
 
-If you use LDAP for user and group management, you must add the LDAP configuration to your Sidekiq node as well as the LDAP
-synchronization worker. If the LDAP configuration and LDAP synchronization worker are not applied to your Sidekiq node,
-users and groups are not automatically synchronized.
+If you use LDAP for user and group management, you must add the LDAP configuration to your Sidekiq node as well as the LDAP synchronization worker. If the LDAP configuration and LDAP synchronization worker are not applied to your Sidekiq node, users and groups are not automatically synchronized.
 
 For more information about configuring LDAP for GitLab, see:
 

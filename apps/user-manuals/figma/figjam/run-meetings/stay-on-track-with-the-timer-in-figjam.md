@@ -28,7 +28,7 @@ You currently cannot assign timer controls to a single facilitator.
 
 ## Use the timer
 
-To access the timer, click **Timer, voting, and music** in the upper right corner of your FigJam file. Once the timer is started, you can click  to hide the timer and keep it running in the toolbar. To reopen the timer, click the countdown in the toolbar.
+To access the timer, click **Timer, voting, and music** in the upper right corner of your FigJam file. Once the timer is started, you can click to hide the timer and keep it running in the toolbar. To reopen the timer, click the countdown in the toolbar.
 
 When time is up, everyone in the file will see the timer shake and announce `00:00`, even if they have closed the panel.
 
@@ -42,7 +42,7 @@ To add time to the clock:
 
 You can also adjust the **seconds** field by 1 or 5 seconds using these shortcuts.
 
-Once you're ready, press `Return`/`Enter` or click  to start the countdown.
+Once you're ready, press `Return`/`Enter` or click to start the countdown.
 
 ### Add time
 
@@ -50,11 +50,11 @@ If you or your team need to add more time, you can press `+1 min` in the timer t
 
 ### Pause timer
 
-Click  to pause the timer for everyone in the file. Once paused, the clock will flash in the timer and the toolbar. To resume the timer, click .
+Click to pause the timer for everyone in the file. Once paused, the clock will flash in the timer and the toolbar. To resume the timer, click .
 
 ### Stop timer
 
-Click  to stop the timer for you and everyone in the file. Once stopped, the timer resets and you're able to start a new timer or click  to close the panel.
+Click to stop the timer for you and everyone in the file. Once stopped, the timer resets and you're able to start a new timer or click to close the panel.
 
 ## Play music
 
@@ -66,7 +66,7 @@ Note: Anyone in the file can set or change a music track.
 
 ## Music volume
 
-Hover over  to mute and control the music's volume for yourself. This won't change the music's volume for anyone else in the file.
+Hover over to mute and control the music's volume for yourself. This won't change the music's volume for anyone else in the file.
 
 Tip
 

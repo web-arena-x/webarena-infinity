@@ -12,7 +12,7 @@ If you receive an error and are unsure how to proceed, capturing the SAML IdP re
 
 # 2. Enable developer tools
 
-You can reference the below guide if you are unsure!  
+You can reference the below guide if you are unsure! 
 <https://developer.chrome.com/devtools>
 
 You can also change the location of the panel by clicking the 3 dots on the far upper-right corner and then selecting the bottom layout

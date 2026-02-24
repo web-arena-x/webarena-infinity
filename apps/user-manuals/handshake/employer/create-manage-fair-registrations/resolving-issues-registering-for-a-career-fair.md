@@ -31,7 +31,7 @@ If a colleague shares an employer registration link and you open it while logged
 - Log out and log back in using your employer account
 - If you do not yet have an employer account, create one using your work email.
 
-  - Learn how to [Create an Employer User Account, Join a Company, and Connect with Schools](https://support.joinhandshake.com/hc/en-us/articles/219133047).
+ - Learn how to [Create an Employer User Account, Join a Company, and Connect with Schools](https://support.joinhandshake.com/hc/en-us/articles/219133047).
 
 ### Eligible roles and permissions
 

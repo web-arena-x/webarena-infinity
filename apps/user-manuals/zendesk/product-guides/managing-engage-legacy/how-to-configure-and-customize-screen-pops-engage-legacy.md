@@ -4,7 +4,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/9731466408346-How-to-Confi
 
 ---
 
-Screen pop is a valuable feature within Salesforce CTI as it instantly displays relevant customer profile information from Engage on an agent's screen during a call, enabling quicker issue resolution, personalised interactions, reduced call handling time, and an enhanced customer experience.  
+Screen pop is a valuable feature within Salesforce CTI as it instantly displays relevant customer profile information from Engage on an agent's screen during a call, enabling quicker issue resolution, personalised interactions, reduced call handling time, and an enhanced customer experience. 
 EngageCTI will support screen pop to any Salesforce Record such as Contacts, Cases, Accounts and Leads.
 
 ## Default Behaviour

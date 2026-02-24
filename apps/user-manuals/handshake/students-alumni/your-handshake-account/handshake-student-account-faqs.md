@@ -33,9 +33,9 @@ We recommend filling out your profile in its entirety! This will ensure you're m
 Employers may vary in their expectations, but in the majority of cases, they are interested in your:
 
 - **Job interests** - this provides the employer with information on what sort of position you are seeking. Your job interests consist of: the job type, the preferred location, and the job role you are interested in.
-  - *Job type*: on-campus job, internship, part-time job, or full-time job
-  - *Preferred location*: cities you'd like to work in
-  - *Job role*: positions you'd like to explore. Example: "marketing associate" or "data analyst
+ - *Job type*: on-campus job, internship, part-time job, or full-time job
+ - *Preferred location*: cities you'd like to work in
+ - *Job role*: positions you'd like to explore. Example: "marketing associate" or "data analyst
     - **Tip**: you can update your job interests at anytime! Refer to [Update Your Career Interests](https://support.joinhandshake.com/hc/en-us/articles/360019769733) for more information.
 - **Work experience** - this lets the employer know of any past part-time employment, internships, work study, research positions, or volunteer work you've done. Employers like to acknowledge that you have accepted responsibility and have grown professionally through these experiences.
 - **Skills and qualifications** - this lets the employer know what you have to offer. Add technical skills like SQL along with soft skills like communication. The more skills you list, the better your chances are of showing up in an employer search.

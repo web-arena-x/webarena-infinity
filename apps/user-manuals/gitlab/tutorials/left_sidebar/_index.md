@@ -26,17 +26,14 @@ Follow this tutorial to learn how to use the different interface elements to nav
 
 ## Layout of the interface
 
-In the upper-right corner, there are several shortcuts. Use these shortcuts to create new items, and to view your
-profile, your list of issues, merge requests, and to-do items.
+In the upper-right corner, there are several shortcuts. Use these shortcuts to create new items, and to view your profile, your list of issues, merge requests, and to-do items.
 
 ![Shortcuts in new navigation.](img/top_nav_v18_6.png)
 
-The left sidebar changes based on the information you're viewing. For example,
-you might be viewing a project, exploring projects or groups, or viewing your profile.
+The left sidebar changes based on the information you're viewing. For example, you might be viewing a project, exploring projects or groups, or viewing your profile.
 To switch to other areas of the left sidebar, use **Search or go to** in the top bar.
 
-The rest of the left sidebar is populated based on the option you choose. For example,
-if you're in a project, the sidebar is project-specific.
+The rest of the left sidebar is populated based on the option you choose. For example, if you're in a project, the sidebar is project-specific.
 
 On the right, the GitLab Duo sidebar has buttons to access GitLab Duo Chat, sessions, and suggestions.
 
@@ -49,8 +46,7 @@ Now let's go over a few common tasks you'll use the left sidebar for.
 To start, we will find the project we want to work on.
 
 1. To explore all available projects, on the top bar, select **Search or go to**.
-1. Choose from the list of frequently visited projects, or
-   type a colon `:` followed by the project name:
+1. Choose from the list of frequently visited projects, or type a colon `:` followed by the project name:
 
    ![Search bar to find your projects and frequently visited projects.](img/search_projects_v18_3.png)
 

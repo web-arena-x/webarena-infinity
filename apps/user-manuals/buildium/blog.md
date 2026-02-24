@@ -23,27 +23,9 @@ Source: https://www.buildium.com/blog
 
 Ryan Shipley | 15 min. read
 
-- Filter by Topic
-  Accounting & Reporting
-  AI and Automation
-  Growth
-  Industry Research
-  Leasing
-  Maintenance
-  Software
-- Filter by Type
-  Blog Posts
-  Checklists
-  Events
-  Guides
-  Reports
-  Videos
-  Webinars
-- Filter by Portfolio
-  Associations
-  Mixed Portfolio
-  Multifamily
-  Single-family
+- Filter by Topic Accounting & Reporting AI and Automation Growth Industry Research Leasing Maintenance Software
+- Filter by Type Blog Posts Checklists Events Guides Reports Videos Webinars
+- Filter by Portfolio Associations Mixed Portfolio Multifamily Single-family
 - [Clear Filters](#)
 
 [![residential moving services hero](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==)](https://www.buildium.com/blog/residential-moving-services-to-generate-revenue/) 
@@ -157,13 +139,11 @@ Pennsylvania Rental Market Trends in 2026 True to its nickname, “The Keystone 
 [Blog Posts](/content-type/blog-posts/)
 [Industry Research](/blog/category/industry-research/)
 
-1
-[2](blog.md)
+1 [2](blog.md)
 [3](blog.md)
 [4](blog.md)
 [5](blog.md)
-…
-[196](blog.md)
+… [196](blog.md)
 [Next](blog.md)
 
 ### Be a more productive property manager

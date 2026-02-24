@@ -23,8 +23,7 @@ To set up a merge request approval policy:
 
 ## Before you begin
 
-- The namespace you use for this tutorial must contain a minimum of three users, including your own. If you don't have two other
-  users, you must first create them. For details, see [Creating users](../../user/profile/account/create_accounts.md).
+- The namespace you use for this tutorial must contain a minimum of three users, including your own. If you don't have two other users, you must first create them. For details, see [Creating users](../../user/profile/account/create_accounts.md).
 - You need permission to create new projects in an existing group.
 
 ## Create a test project
@@ -103,7 +102,7 @@ Nice work, you've created a merge request approval policy. To test it, create so
    template.escapeMarkup = false;
 
    // Detects HTML injections - tsr-detect-html-injection
-   var element: Element =  document.getElementById("mydiv");
+   var element: Element = document.getElementById("mydiv");
    var content: String = "mycontent"
    Element.innerHTML = content;
 
@@ -123,8 +122,6 @@ Nice work, you've created a merge request approval policy. To test it, create so
 
    Wait for the pipeline to complete. This could be a few minutes.
 
-The merge request security widget confirms that security scanning detected one potential
-vulnerability. As defined in the merge request approval policy, the merge request is blocked and waiting for
-approval.
+The merge request security widget confirms that security scanning detected one potential vulnerability. As defined in the merge request approval policy, the merge request is blocked and waiting for approval.
 
 You now know how to set up and use merge request approval policies to catch vulnerabilities!

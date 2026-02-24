@@ -34,6 +34,6 @@ Only the current owner can initiate an ownership transfer. To transfer ownership
 
 - The selected teammate will automatically become the owner.
 - Your role will default to **Recruiter (Standard)** and your permissions will change.
-  - *Learn more about your new role in* [*Employer Role Types: Recruiter (Standard)*](https://support.joinhandshake.com/hc/en-us/articles/360053413854).
+ - *Learn more about your new role in* [*Employer Role Types: Recruiter (Standard)*](https://support.joinhandshake.com/hc/en-us/articles/360053413854).
 
 ![Select teammate.png](https://support.joinhandshake.com/hc/article_attachments/26001215844759)

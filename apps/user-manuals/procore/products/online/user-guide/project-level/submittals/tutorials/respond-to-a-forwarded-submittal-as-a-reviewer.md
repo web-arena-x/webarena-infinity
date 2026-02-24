@@ -17,9 +17,9 @@ If a user forwards a submittal to you for review, you are automatically added to
 ## Things to Consider
 
 - **Required User Permissions:**
-  - *To be forwarded a submittal for review*, 'Standard' level permissions or higher to the project's Submittals tool.
+ - *To be forwarded a submittal for review*, 'Standard' level permissions or higher to the project's Submittals tool.
 - **Additional Information:**
-  - The submittal's status must be 'Open'.
+ - The submittal's status must be 'Open'.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ If a user forwards a submittal to you for review, you are automatically added to
 ## Steps
 
 1. Choose one of these options:
-   - Navigate to the project's **Submittals** tool, locate the submittal that was forwarded to you, and click **View**.   
+   - Navigate to the project's **Submittals** tool, locate the submittal that was forwarded to you, and click **View**.  
      OR
    - Navigate to the project's Home page, locate the submittal in the **My Open Items** area, and then click the submittal to view it.
 2. Review the submittal's information and any included attachments.
@@ -36,12 +36,12 @@ If a user forwards a submittal to you for review, you are automatically added to
    ##### Note
 
    Any PDF attachments that you added markups to in Procore will be included with your response automatically. See [Review Submittal PDF Attachments](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/review-submittal-pdf-attachments "Review Submittal PDF Attachments").
-3. Click **Respond** next to your name in the 'Submittal Workflow' table.  
+3. Click **Respond** next to your name in the 'Submittal Workflow' table. 
      
    ![submittals-submittal-workflow-respond-as-reviewer.png](https://support.procore.com/@api/deki/files/283700/submittals-submittal-workflow-respond-as-reviewer.png?revision=1)
-4. *Optional:* Attach any additional files to include with your response.  
+4. *Optional:* Attach any additional files to include with your response. 
      
-   ![submittals-respond-as-reviewer-select-attachments.png](https://support.procore.com/@api/deki/files/283718/submittals-respond-as-reviewer-select-attachments.png?revision=1)  
+   ![submittals-respond-as-reviewer-select-attachments.png](https://support.procore.com/@api/deki/files/283718/submittals-respond-as-reviewer-select-attachments.png?revision=1) 
    - Click **Attach File(s)**to add files from other Procore tools or from your computer.
      - Locate and select (or upload) the files you want to include using the **My Computer**, **Photos**, **Documents**, or **Forms** options. The options you see may vary based on your user permissions on the project.
      - Click **Attach**.
@@ -50,7 +50,7 @@ If a user forwards a submittal to you for review, you are automatically added to
 5. Click **Next**.
 6. Add the following information:
    - **Response**. Select the appropriate response from the dropdown menu.
-   - **Comments**. *Optional.*Enter any comments to include with the response.  
+   - **Comments**. *Optional.*Enter any comments to include with the response. 
        
      ![submittals-respond-as-reviewer-respond-window.png](https://support.procore.com/@api/deki/files/283703/submittals-respond-as-reviewer-respond-window.png?revision=1)
 7. Click **Preview**.
@@ -62,7 +62,7 @@ If a user forwards a submittal to you for review, you are automatically added to
 9. Click one of the following options:
    - Click **Respond**to save your information and respond to the submittal.
    - Click **Back** if you need to change any information you added.
-   - Click **Cancel** to close the window and return to the submittal's page. *Note:* Any information you added before closing the window won't be saved.  
+   - Click **Cancel** to close the window and return to the submittal's page. *Note:* Any information you added before closing the window won't be saved. 
        
      ![submittals-respond-as-reviewer-preview-and-respond.png](https://support.procore.com/@api/deki/files/283704/submittals-respond-as-reviewer-preview-and-respond.png?revision=1)
 

@@ -14,33 +14,28 @@ title: Pausing and resuming replication
 
 {{< alert type="warning" >}}
 
-Pausing and resuming of replication is only supported for Geo installations using a
-Linux package-managed database. External databases are not supported.
+Pausing and resuming of replication is only supported for Geo installations using a Linux package-managed database. External databases are not supported.
 
 **Do not pause replication** if the primary site has failed catastrophically and cannot be recovered. This can create unreachable recovery targets that prevent successful promotion of the secondary site.
 
 {{< /alert >}}
 
-In some circumstances, like during [upgrades](upgrading_the_geo_sites.md) or a
-[planned failover](../disaster_recovery/planned_failover.md), it is desirable to pause replication between the primary and secondary.
+In some circumstances, like during [upgrades](upgrading_the_geo_sites.md) or a [planned failover](../disaster_recovery/planned_failover.md), it is desirable to pause replication between the primary and secondary.
 
-If you plan to allow user activity on your secondary sites during the upgrade,
-do not pause replication for a [zero-downtime upgrade](../../../update/zero_downtime.md). While paused, the secondary site gets more and more out-of-date.
+If you plan to allow user activity on your secondary sites during the upgrade, do not pause replication for a [zero-downtime upgrade](../../../update/zero_downtime.md). While paused, the secondary site gets more and more out-of-date.
 One known effect is that more and more Git fetches get redirected or proxied to the primary site. There may be additional unknown effects.
 
 For example, pausing a secondary site with a separate URL may break sign-in at the secondary site's URL. You land on the primary site's root URL, without a new session on the secondary site's URL.
 
 ## Pause and resume
 
-Pausing and resuming replication is done through a command-line tool from a specific node in the secondary site. Depending on your database architecture,
-this targets either the `postgresql` or `patroni` service:
+Pausing and resuming replication is done through a command-line tool from a specific node in the secondary site. Depending on your database architecture, this targets either the `postgresql` or `patroni` service:
 
 - If you are using a single node for all services on your secondary site, you must run the commands on this single node.
 - If you have a standalone PostgreSQL node on your secondary site, you must run the commands on this standalone PostgreSQL node.
 - If your secondary site is using a Patroni cluster, you must run these commands on the secondary Patroni standby leader node.
 
-If you aren't using a single node for all services on your secondary site, ensure that the `/etc/gitlab/gitlab.rb` on your PostgreSQL or Patroni nodes
-contains the configuration line `gitlab_rails['geo_node_name'] = 'node_name'`, where `node_name` is the same as the `geo_node_name` on the application node.
+If you aren't using a single node for all services on your secondary site, ensure that the `/etc/gitlab/gitlab.rb` on your PostgreSQL or Patroni nodes contains the configuration line `gitlab_rails['geo_node_name'] = 'node_name'`, where `node_name` is the same as the `geo_node_name` on the application node.
 
 **To Pause: (from secondary site)**
 

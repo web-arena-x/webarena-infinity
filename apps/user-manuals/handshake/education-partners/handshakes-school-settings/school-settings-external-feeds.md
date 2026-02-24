@@ -30,8 +30,8 @@ To setup an external feed:
 
 - Our "v1" feeds include minimal detail in the title and description fields for each feed item and are supported for legacy clients.
 - Our "v2" feeds include additional information:
-  - For career fairs and events: the title includes the date, the description includes the date and location.
-  - For jobs: the title has the employer name, the description includes expiration date and the employer name for each feed item and should be preferred.
+ - For career fairs and events: the title includes the date, the description includes the date and location.
+ - For jobs: the title has the employer name, the description includes expiration date and the employer name for each feed item and should be preferred.
 
 **Note:** You can select **Delete feed**in the bottom-left corner in any step to delete the feed
 

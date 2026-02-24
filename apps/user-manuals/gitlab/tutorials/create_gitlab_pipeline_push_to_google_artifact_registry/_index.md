@@ -46,23 +46,17 @@ Learn how to connect GitLab to Google Cloud and create a GitLab pipeline using r
    gcloud services enable compute.googleapis.com artifactregistry.googleapis.com
    ```
 
-1. Set up the GitLab on Google Cloud integration by following the
-   instructions in [Google Cloud Workload Identity Federation and IAM policies](../../integration/google_cloud_iam.md).
+1. Set up the GitLab on Google Cloud integration by following the instructions in [Google Cloud Workload Identity Federation and IAM policies](../../integration/google_cloud_iam.md).
 
 1. [Create a standard mode Docker format Artifact Registry repository](https://cloud.google.com/artifact-registry/docs/repositories/create-repos#create).
 
-1. Connect your Artifact Registry repository to your GitLab project by following the
-   instructions in [Set up the Google Artifact Registry in a GitLab project](../../user/project/integrations/google_artifact_management.md).
+1. Connect your Artifact Registry repository to your GitLab project by following the instructions in [Set up the Google Artifact Registry in a GitLab project](../../user/project/integrations/google_artifact_management.md).
 
 ## Clone your GitLab repository
 
-1. To clone your GitLab repository to your working environment using SSH or
-   HTTPS, follow the instructions in
-   [Clone a Git repository to your local computer](../../topics/git/clone.md).
+1. To clone your GitLab repository to your working environment using SSH or HTTPS, follow the instructions in [Clone a Git repository to your local computer](../../topics/git/clone.md).
 
-1. If you are working in your local shell,
-   [install Terraform](https://developer.hashicorp.com/terraform/install?product_intent=terraform). Terraform is already installed in
-   Cloud Shell.
+1. If you are working in your local shell, [install Terraform](https://developer.hashicorp.com/terraform/install?product_intent=terraform). Terraform is already installed in Cloud Shell.
 
 ## Create a Dockerfile
 
@@ -83,49 +77,32 @@ Learn how to connect GitLab to Google Cloud and create a GitLab pipeline using r
    git push
    ```
 
-   You are prompted to enter your username and
-   [personal access token](../../user/profile/personal_access_tokens.md).
+   You are prompted to enter your username and [personal access token](../../user/profile/personal_access_tokens.md).
 
-The Dockerfile generates a new random image for every build, and is only for
-test purposes.
+The Dockerfile generates a new random image for every build, and is only for test purposes.
 
 ## Enable continuous integration (CI) runners on Google Compute Engine
 
-[GitLab Runner](https://docs.gitlab.com/runner/) is an application that works with GitLab CI/CD to
-run jobs in a pipeline. The GitLab on Google Cloud integration assists you in setting up an
-autoscaling fleet of runners on Compute Engine, with a runner manager that
-creates temporary runners to execute multiple jobs simultaneously.
+[GitLab Runner](https://docs.gitlab.com/runner/) is an application that works with GitLab CI/CD to run jobs in a pipeline. The GitLab on Google Cloud integration assists you in setting up an autoscaling fleet of runners on Compute Engine, with a runner manager that creates temporary runners to execute multiple jobs simultaneously.
 
-To set up your autoscaling fleet of runners, follow the instructions in
-[Set up GitLab Runner to execute your CI/CD jobs on Google Cloud](../set_up_gitlab_google_integration/_index.md#set-up-gitlab-runner-to-execute-your-cicd-jobs-on-google-cloud).
-Select Google Cloud as the environment where you want your runners to execute
-your CI/CD jobs, and fill out the rest of the configuration details.
+To set up your autoscaling fleet of runners, follow the instructions in [Set up GitLab Runner to execute your CI/CD jobs on Google Cloud](../set_up_gitlab_google_integration/_index.md#set-up-gitlab-runner-to-execute-your-cicd-jobs-on-google-cloud).
+Select Google Cloud as the environment where you want your runners to execute your CI/CD jobs, and fill out the rest of the configuration details.
 
-After you have entered the details for your runners, you can follow the setup
-instructions to configure your Google Cloud project, install and register
-GitLab Runner, and apply the provided terraform in your working
-environment to apply the configuration.
+After you have entered the details for your runners, you can follow the setup instructions to configure your Google Cloud project, install and register GitLab Runner, and apply the provided terraform in your working environment to apply the configuration.
 
 ## Create a pipeline
 
-Create a pipeline that builds your Docker image, pushes it to the GitLab container
-registry, and copies the image to Google Artifact Registry.
+Create a pipeline that builds your Docker image, pushes it to the GitLab container registry, and copies the image to Google Artifact Registry.
 
-1. In your GitLab project, create a
-   [`.gitlab-ci.yml` file](../../ci/quick_start/_index.md#create-a-gitlab-ciyml-file).
+1. In your GitLab project, create a [`.gitlab-ci.yml` file](../../ci/quick_start/_index.md#create-a-gitlab-ciyml-file).
 
-1. To create a pipeline that builds your image, pushes it to the GitLab container
-   registry, and copies it to Google Artifact Registry, modify the contents of your
-   `.gitlab-ci.yml` file to resemble the following.
+1. To create a pipeline that builds your image, pushes it to the GitLab container registry, and copies it to Google Artifact Registry, modify the contents of your `.gitlab-ci.yml` file to resemble the following.
 
    In the example, replace the following:
 
-   - `LOCATION`: the
-     Google Cloud region where you created your Google Artifact Registry repository.
-   - `PROJECT`: your
-     Google Cloud project ID.
-   - `REPOSITORY`: the
-     repository ID of your Google Artifact Registry repository.
+   - `LOCATION`: the Google Cloud region where you created your Google Artifact Registry repository.
+   - `PROJECT`: your Google Cloud project ID.
+   - `REPOSITORY`: the repository ID of your Google Artifact Registry repository.
 
    ```yaml
    stages:
@@ -154,18 +131,14 @@ registry, and copies the image to Google Artifact Registry.
          target: LOCATION-docker.pkg.dev/PROJECT/REPOSITORY/image:v1.0.0
    ```
 
-The pipeline uses Docker in Docker to build the image `docker:24.0.5`, stores it
-in the GitLab container registry, and then uses the
-[Google Artifact Registry GitLab component](https://gitlab.com/explore/catalog/google-gitlab-components/artifact-registry)
-to push it to your Google Artifact Registry
-repository with the version `v1.0.0`.
+The pipeline uses Docker in Docker to build the image `docker:24.0.5`, stores it in the GitLab container registry, and then uses the [Google Artifact Registry GitLab component](https://gitlab.com/explore/catalog/google-gitlab-components/artifact-registry)
+to push it to your Google Artifact Registry repository with the version `v1.0.0`.
 
 ## View your artifacts
 
 To view your artifact in GitLab:
 
-1. In your GitLab project, on the left sidebar, select
-   **Build** > **Artifacts**.
+1. In your GitLab project, on the left sidebar, select **Build** > **Artifacts**.
 1. Select the name of the artifact to view the details of the build.
 
 To view your artifact in Google Artifact Registry:
@@ -173,17 +146,13 @@ To view your artifact in Google Artifact Registry:
 1. [Open the **Repositories** page in the Google Cloud console](https://console.cloud.google.com/artifacts).
 1. Select the name of your linked repository.
 1. Select the name of the image to view the version name and tags.
-1. Select the name of the image version to view the version's build, pull, and
-   manifest information.
+1. Select the name of the image version to view the version's build, pull, and manifest information.
 
 ## Clean up
 
-To avoid incurring charges to your Google Cloud account for the resources used
-on this page, you can delete your Google Cloud project. If you want to keep your
-project, you can delete your Google Artifact Registry repository.
+To avoid incurring charges to your Google Cloud account for the resources used on this page, you can delete your Google Cloud project. If you want to keep your project, you can delete your Google Artifact Registry repository.
 
-For information on GitLab and Google Artifact Registry pricing and project management, see the following
-resources:
+For information on GitLab and Google Artifact Registry pricing and project management, see the following resources:
 
 - [GitLab pricing](https://about.gitlab.com/free-trial/devsecops)
 - [Delete a GitLab project](../../user/project/working_with_projects.md#delete-a-project)
@@ -191,13 +160,9 @@ resources:
 
 ### Delete your Google Artifact Registry repository
 
-If you want to keep your Google Cloud project and only delete the Google Artifact Registry
-repository resource, follow the steps in this section. If you want to delete
-your entire Google Cloud project, follow the steps in
-[Delete your project](#delete-your-google-cloud-project).
+If you want to keep your Google Cloud project and only delete the Google Artifact Registry repository resource, follow the steps in this section. If you want to delete your entire Google Cloud project, follow the steps in [Delete your project](#delete-your-google-cloud-project).
 
-Before you remove the repository, ensure that any images you want to keep
-are available in another location.
+Before you remove the repository, ensure that any images you want to keep are available in another location.
 
 To delete your repository, run the following command:
 
@@ -215,14 +180,10 @@ Replace the following:
 
 **Caution**: Deleting a project has the following effects:
 
-- **Everything in the project is deleted**. If you used an existing project for the tasks in this document, when
-  you delete it, you also delete any other work you've done in the project.
-- **Custom project IDs are lost**. When you created this project, you might have created a custom project ID that
-  you want to use in the future. To preserve the URLs that use the project ID, such as an appspot.com URL, delete selected
-  resources inside the project instead of deleting the whole project.
+- **Everything in the project is deleted**. If you used an existing project for the tasks in this document, when you delete it, you also delete any other work you've done in the project.
+- **Custom project IDs are lost**. When you created this project, you might have created a custom project ID that you want to use in the future. To preserve the URLs that use the project ID, such as an appspot.com URL, delete selected resources inside the project instead of deleting the whole project.
 
-If you plan to explore multiple architectures, tutorials, or quick start tutorials on Google Cloud, reusing projects can help you
-avoid exceeding project quota limits.
+If you plan to explore multiple architectures, tutorials, or quick start tutorials on Google Cloud, reusing projects can help you avoid exceeding project quota limits.
 
 1. In the Google Cloud console, go to the [**Manage resources** page](https://console.cloud.google.com/iam-admin/projects).
 1. In the project list, select the project that you want to delete, and then select **Delete**.
@@ -231,5 +192,4 @@ avoid exceeding project quota limits.
 ## Related topics
 
 - Learn how to [Optimize GitLab CI/CD configuration files](../../ci/yaml/yaml_optimization.md).
-- Read about how the GitLab on Google Cloud integration uses IAM with
-  workload identity federation to control access to Google Cloud in [Access control with IAM](https://cloud.google.com/docs/gitlab).
+- Read about how the GitLab on Google Cloud integration uses IAM with workload identity federation to control access to Google Cloud in [Access control with IAM](https://cloud.google.com/docs/gitlab).

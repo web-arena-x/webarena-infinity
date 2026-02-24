@@ -14,8 +14,7 @@ title: Place GitLab into a read-only state
 
 {{< alert type="note" >}}
 
-The recommended method to place GitLab in a read-only state is to enable
-[maintenance mode](maintenance_mode/_index.md).
+The recommended method to place GitLab in a read-only state is to enable [maintenance mode](maintenance_mode/_index.md).
 
 {{< /alert >}}
 
@@ -24,53 +23,50 @@ The configuration for doing so depends on your desired outcome.
 
 ## Make the repositories read-only
 
-The first thing you want to accomplish is to ensure that no changes can be
-made to your repositories. There's two ways you can accomplish that:
+The first thing you want to accomplish is to ensure that no changes can be made to your repositories. There's two ways you can accomplish that:
 
 - Either stop Puma to make the internal API unreachable:
 
-  ```shell
-  sudo gitlab-ctl stop puma
-  ```
+ ```shell
+ sudo gitlab-ctl stop puma
+ ```
 
 - Or, open up a Rails console:
 
-  ```shell
-  sudo gitlab-rails console
-  ```
+ ```shell
+ sudo gitlab-rails console
+ ```
 
-  And set the repositories for all projects read-only:
+ And set the repositories for all projects read-only:
 
-  ```ruby
-  Project.all.find_each { |project| project.update!(repository_read_only: true) }
-  ```
+ ```ruby
+ Project.all.find_each { |project| project.update!(repository_read_only: true) }
+ ```
 
-  To set only a subset of repositories to read-only, run the following:
+ To set only a subset of repositories to read-only, run the following:
 
-  ```ruby
-  # List of project IDs of projects to set to read-only.
-  projects = [1,2,3]
+ ```ruby
+ # List of project IDs of projects to set to read-only.
+ projects = [1,2,3]
 
-  projects.each do |p|
-   project =  Project.find p
+ projects.each do |p|
+   project = Project.find p
    project.update!(repository_read_only: true)
    rescue ActiveRecord::RecordNotFound
    puts "Project ID #{p} not found"
 
-  end
-  ```
+ end
+ ```
 
-  When you're ready to revert this, change `repository_read_only` to `false` on the projects. For example, run the following:
+ When you're ready to revert this, change `repository_read_only` to `false` on the projects. For example, run the following:
 
-  ```ruby
-  Project.all.find_each { |project| project.update!(repository_read_only: false) }
-  ```
+ ```ruby
+ Project.all.find_each { |project| project.update!(repository_read_only: false) }
+ ```
 
 ## Shut down the GitLab UI
 
-If you don't mind shutting down the GitLab UI, then the easiest approach is to
-stop `sidekiq` and `puma`, and you effectively ensure that no
-changes can be made to GitLab:
+If you don't mind shutting down the GitLab UI, then the easiest approach is to stop `sidekiq` and `puma`, and you effectively ensure that no changes can be made to GitLab:
 
 ```shell
 sudo gitlab-ctl stop sidekiq
@@ -86,8 +82,7 @@ sudo gitlab-ctl start puma
 
 ## Make the database read-only
 
-If you want to allow users to use the GitLab UI, ensure that
-the database is read-only:
+If you want to allow users to use the GitLab UI, ensure that the database is read-only:
 
 1. Take a [GitLab backup](backup_restore/_index.md)
    in case things don't go as expected.
@@ -99,8 +94,7 @@ the database is read-only:
        -h /var/opt/gitlab/postgresql gitlabhq_production
    ```
 
-1. Create the `gitlab_read_only` user. The password is set to `mypassword`,
-   change that to your liking:
+1. Create the `gitlab_read_only` user. The password is set to `mypassword`, change that to your liking:
 
    ```sql
    -- NOTE: Use the password defined earlier
@@ -136,13 +130,11 @@ the database is read-only:
    sudo gitlab-ctl restart postgresql
    ```
 
-When you're ready to revert the read-only state, remove the added
-lines in `/etc/gitlab/gitlab.rb`, and reconfigure GitLab and restart PostgreSQL:
+When you're ready to revert the read-only state, remove the added lines in `/etc/gitlab/gitlab.rb`, and reconfigure GitLab and restart PostgreSQL:
 
 ```shell
 sudo gitlab-ctl reconfigure
 sudo gitlab-ctl restart postgresql
 ```
 
-After you verify all works as expected, remove the `gitlab_read_only`
-user from the database.
+After you verify all works as expected, remove the `gitlab_read_only` user from the database.

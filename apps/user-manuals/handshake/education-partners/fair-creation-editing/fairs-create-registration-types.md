@@ -24,19 +24,19 @@ For employers to register for a fair in Handshake, you must have at least one re
 
 - **Name**\*
 - **Career Fair Session**\*
-  - *Select an option from the dropdown*
+ - *Select an option from the dropdown*
     - **Note**: the drop-down menu displays information from the *Dates & Times* section on the Career Fairs Details page. When a specific **Focus Area** is included, it will appear as one of the available choices. *To edit this information, refer to* [Career Fairs: Creation](career-fairs-creation.md).
 - **Hidden** (check this box to hide this registration type from employers)
 - **Description**
 - **Price**\*
-  - **Tip**: using company size is a good option for virtual pricing
-  - You can also create registration types with sponsorship options.
+ - **Tip**: using company size is a good option for virtual pricing
+ - You can also create registration types with sponsorship options.
     - Ideas we have heard for sponsorship opportunities for a virtual fair include email marketing campaigns, panel discussions before the fair, educational videos attached to the main career fair page, and lunch sponsorship options (gift cards to students to order lunch).
 - **Count**\* (The number of booths that are available with this booth option. We will automatically create the booths for you based on the number entered here.)
 - **Representatives**: *Please note that these fields are only able to be edited for in-person fairs. Virtual fairs will not allow representative configurations.*
-  - **Included representatives count** (How many representatives are included with this booth option at no additional cost? Entering 0 will allow employers to enter any number in the number of representatives)
-  - **Maximum additional representatives count** (How many possible additional representatives can a company bring? You will not be able to edit this field until you have filled out Included representatives count.)
-  - **Additional representative cost** (Is there a cost associated with each additional representative? You will not be able to edit this field until you have filled out Maximum additional representatives count.)
+ - **Included representatives count** (How many representatives are included with this booth option at no additional cost? Entering 0 will allow employers to enter any number in the number of representatives)
+ - **Maximum additional representatives count** (How many possible additional representatives can a company bring? You will not be able to edit this field until you have filled out Included representatives count.)
+ - **Additional representative cost** (Is there a cost associated with each additional representative? You will not be able to edit this field until you have filled out Maximum additional representatives count.)
 
 ![New_Registration_Type_form.png](https://support.joinhandshake.com/hc/article_attachments/26001384957463)
 

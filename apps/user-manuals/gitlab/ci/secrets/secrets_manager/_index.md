@@ -24,13 +24,11 @@ ignore_in_report: true
 
 {{< alert type="warning" >}}
 
-This feature is an [experiment](../../../policy/development_stages_support.md#experiment) and subject to change without
-notice. This feature is not ready for public testing or production use.
+This feature is an [experiment](../../../policy/development_stages_support.md#experiment) and subject to change without notice. This feature is not ready for public testing or production use.
 
 {{< /alert >}}
 
-Secrets represent sensitive information your CI/CD jobs need to function. Secrets could be access tokens,
-database credentials, private keys, or similar.
+Secrets represent sensitive information your CI/CD jobs need to function. Secrets could be access tokens, database credentials, private keys, or similar.
 
 Unlike CI/CD variables, which are always available to jobs by default, secrets must be explicitly requested by a job.
 
@@ -59,8 +57,7 @@ Secrets defined for a project can only be accessed by pipelines from the same pr
 
 ## Define a secret
 
-You can add secrets to the secrets manager so that it can be used for secure CI/CD pipelines
-and workflows.
+You can add secrets to the secrets manager so that it can be used for secure CI/CD pipelines and workflows.
 
 1. On the top bar, select **Search or go to** and find your project
 1. Select **Secure** > **Secrets manager**.
@@ -91,11 +88,11 @@ To access secrets defined with the secret manager, use the [`secrets`](../../yam
 
 ```yaml
 job:
-  secrets:
+ secrets:
     TEST_SECRET:
       gitlab_secrets_manager:
         name: foo
-  script:
+ script:
    - cat $TEST_SECRET
 ```
 

@@ -73,18 +73,13 @@ If a service is accessible through cloud-connector, it must adhere to [GitLab St
 
 ###### Create versions that match GitLab release
 
-When supporting self-hosted deployment, it's important to have a version tag that matches GitLab versions, making it easier
-for users to configure the different components of their environment. Add a pipeline to GitLab the GitLab release process
-that tags the service repo with the same tag, which will then trigger a pipeline to create an image with the defined tag.
+When supporting self-hosted deployment, it's important to have a version tag that matches GitLab versions, making it easier for users to configure the different components of their environment. Add a pipeline to GitLab the GitLab release process that tags the service repo with the same tag, which will then trigger a pipeline to create an image with the defined tag.
 
-Example: [a pipeline on GitLab](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab/ci/aigw-tagging.gitlab-ci.yml) creates a tag on AI Gateway
-that [releases a new image](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/-/blob/main/.gitlab/ci/build.gitlab-ci.yml?ref_type=heads#L24).
+Example: [a pipeline on GitLab](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.gitlab/ci/aigw-tagging.gitlab-ci.yml) creates a tag on AI Gateway that [releases a new image](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/-/blob/main/.gitlab/ci/build.gitlab-ci.yml?ref_type=heads#L24).
 
 ###### Multiple release deployments
 
-Supporting 3 major versions can lead to a confusing codebase due to too many code paths. An alternative to keep support while
-allowing code clean ups is to provide deployments for multiple versions of the service. For example, suppose GitLab is on
-version `19.5`, this would need three deployments of the service:
+Supporting 3 major versions can lead to a confusing codebase due to too many code paths. An alternative to keep support while allowing code clean ups is to provide deployments for multiple versions of the service. For example, suppose GitLab is on version `19.5`, this would need three deployments of the service:
 
 - One for service version `17.11`, which provides support for all GitLab `17.x` versions
 - One for service version `18.11`, which provides support for all GitLab `18.x` versions

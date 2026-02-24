@@ -14,10 +14,8 @@ description: "List of GitLab webhook events and payloads. Includes JSON examples
 {{< /details >}}
 
 Connect GitLab to your external applications and automate your workflow with webhooks.
-When specific events occur in GitLab, webhooks send HTTP POST requests with detailed
-information to your configured endpoints.
-Build automated processes that react to code changes, deployments, comments,
-and other activities without manual intervention.
+When specific events occur in GitLab, webhooks send HTTP POST requests with detailed information to your configured endpoints.
+Build automated processes that react to code changes, deployments, comments, and other activities without manual intervention.
 
 This page lists the events that are triggered for [project webhooks](webhooks.md) and [group webhooks](webhooks.md#group-webhooks).
 
@@ -57,9 +55,7 @@ Footnotes:
 
 {{< alert type="note" >}}
 
-If an author has no public email listed in their
-[GitLab profile](https://gitlab.com/-/user_settings/profile), the `email` attribute in the
-webhook payload displays a value of `[REDACTED]`.
+If an author has no public email listed in their [GitLab profile](https://gitlab.com/-/user_settings/profile), the `email` attribute in the webhook payload displays a value of `[REDACTED]`.
 
 {{< /alert >}}
 
@@ -68,16 +64,13 @@ webhook payload displays a value of `[REDACTED]`.
 Push events are triggered when you push to the repository, except when:
 
 - You push tags.
-- A single push includes changes for more than three branches by default
-  (depending on the [`push_event_hooks_limit` setting](../../../api/settings.md#available-settings)).
+- A single push includes changes for more than three branches by default (depending on the [`push_event_hooks_limit` setting](../../../api/settings.md#available-settings)).
 
-If you push more than 20 commits at once, the `commits`
-attribute in the payload contains information about the newest 20 commits only.
+If you push more than 20 commits at once, the `commits` attribute in the payload contains information about the newest 20 commits only.
 Loading detailed commit data is expensive, so this restriction exists for performance reasons.
 The `total_commits_count` attribute contains the actual number of commits.
 
-If you create and push a branch without any new commits, the
-`commits` attribute in the payload is empty.
+If you create and push a branch without any new commits, the `commits` attribute in the payload is empty.
 
 Request header:
 
@@ -89,21 +82,21 @@ Payload example:
 
 ```json
 {
-  "object_kind": "push",
-  "event_name": "push",
-  "before": "95790bf891e76fee5e1747ab589903a6a1f80f22",
-  "after": "da1560886d4f094c3e6c9ef40349f7d38b5d27d7",
-  "ref": "refs/heads/master",
-  "ref_protected": true,
-  "checkout_sha": "da1560886d4f094c3e6c9ef40349f7d38b5d27d7",
-  "message": "Hello World",
-  "user_id": 4,
-  "user_name": "John Smith",
-  "user_username": "jsmith",
-  "user_email": "john@example.com",
-  "user_avatar": "https://s.gravatar.com/avatar/d4c74594d841139328695756648b6bd6?s=8://s.gravatar.com/avatar/d4c74594d841139328695756648b6bd6?s=80",
-  "project_id": 15,
-  "project": {
+ "object_kind": "push",
+ "event_name": "push",
+ "before": "95790bf891e76fee5e1747ab589903a6a1f80f22",
+ "after": "da1560886d4f094c3e6c9ef40349f7d38b5d27d7",
+ "ref": "refs/heads/master",
+ "ref_protected": true,
+ "checkout_sha": "da1560886d4f094c3e6c9ef40349f7d38b5d27d7",
+ "message": "Hello World",
+ "user_id": 4,
+ "user_name": "John Smith",
+ "user_username": "jsmith",
+ "user_email": "john@example.com",
+ "user_avatar": "https://s.gravatar.com/avatar/d4c74594d841139328695756648b6bd6?s=8://s.gravatar.com/avatar/d4c74594d841139328695756648b6bd6?s=80",
+ "project_id": 15,
+ "project": {
     "id": 15,
     "name": "Diaspora",
     "description": "",
@@ -120,8 +113,8 @@ Payload example:
     "url": "git@example.com:mike/diaspora.git",
     "ssh_url": "git@example.com:mike/diaspora.git",
     "http_url": "http://example.com/mike/diaspora.git"
-  },
-  "commits": [
+ },
+ "commits": [
     {
       "id": "b6568db1bc1dcd7f8b4d5a946b0b91f9dacd7327",
       "message": "Update Catalan translation to e38cb41.\n\nSee https://gitlab.com/gitlab-org/gitlab for more information",
@@ -150,10 +143,10 @@ Payload example:
       "modified": ["app/controller/application.rb"],
       "removed": []
     }
-  ],
-  "total_commits_count": 4,
-  "push_options": {},
-  "repository": {
+ ],
+ "total_commits_count": 4,
+ "push_options": {},
+ "repository": {
     "name": "Diaspora",
     "url": "git@example.com:mike/diaspora.git",
     "description": "",
@@ -161,7 +154,7 @@ Payload example:
     "git_http_url": "http://example.com/mike/diaspora.git",
     "git_ssh_url": "git@example.com:mike/diaspora.git",
     "visibility_level": 0
-  }
+ }
 }
 ```
 
@@ -169,13 +162,9 @@ Payload example:
 
 Tag events are triggered when you create or delete tags in the repository.
 
-This hook is not executed if a single push includes changes for more than three
-tags by default. This limit is controlled by the `push_event_hooks_limit` setting
-(default: `3`), which applies to both tags and branches. When exceeded,no webhooks
-are triggered at all for that push event.
+This hook is not executed if a single push includes changes for more than three tags by default. This limit is controlled by the `push_event_hooks_limit` setting (default: `3`), which applies to both tags and branches. When exceeded,no webhooks are triggered at all for that push event.
 
-For GitLab Self-Managed instances, administrators can modify this limit using the
-[Application Settings API](../../../api/settings.md#available-settings).
+For GitLab Self-Managed instances, administrators can modify this limit using the [Application Settings API](../../../api/settings.md#available-settings).
 
 Request header:
 
@@ -187,21 +176,21 @@ Payload example:
 
 ```json
 {
-  "object_kind": "tag_push",
-  "event_name": "tag_push",
-  "before": "0000000000000000000000000000000000000000",
-  "after": "82b3d5ae55f7080f1e6022629cdb57bfae7cccc7",
-  "ref": "refs/tags/v1.0.0",
-  "ref_protected": true,
-  "checkout_sha": "82b3d5ae55f7080f1e6022629cdb57bfae7cccc7",
-  "message": "Tag message",
-  "user_id": 1,
-  "user_name": "John Smith",
-  "user_username": "jsmith",
-  "user_email": "john@example.com",
-  "user_avatar": "https://s.gravatar.com/avatar/d4c74594d841139328695756648b6bd6?s=8://s.gravatar.com/avatar/d4c74594d841139328695756648b6bd6?s=80",
-  "project_id": 1,
-  "project": {
+ "object_kind": "tag_push",
+ "event_name": "tag_push",
+ "before": "0000000000000000000000000000000000000000",
+ "after": "82b3d5ae55f7080f1e6022629cdb57bfae7cccc7",
+ "ref": "refs/tags/v1.0.0",
+ "ref_protected": true,
+ "checkout_sha": "82b3d5ae55f7080f1e6022629cdb57bfae7cccc7",
+ "message": "Tag message",
+ "user_id": 1,
+ "user_name": "John Smith",
+ "user_username": "jsmith",
+ "user_email": "john@example.com",
+ "user_avatar": "https://s.gravatar.com/avatar/d4c74594d841139328695756648b6bd6?s=8://s.gravatar.com/avatar/d4c74594d841139328695756648b6bd6?s=80",
+ "project_id": 1,
+ "project": {
     "id": 1,
     "name": "Example",
     "description": "",
@@ -218,11 +207,11 @@ Payload example:
     "url": "git@example.com:jsmith/example.git",
     "ssh_url": "git@example.com:jsmith/example.git",
     "http_url": "http://example.com/jsmith/example.git"
-  },
-  "commits": [],
-  "total_commits_count": 0,
-  "push_options": {},
-  "repository": {
+ },
+ "commits": [],
+ "total_commits_count": 0,
+ "push_options": {},
+ "repository": {
     "name": "Example",
     "url": "ssh://git@example.com/jsmith/example.git",
     "description": "",
@@ -230,7 +219,7 @@ Payload example:
     "git_http_url": "http://example.com/jsmith/example.git",
     "git_ssh_url": "git@example.com:jsmith/example.git",
     "visibility_level": 0
-  }
+ }
 }
 ```
 
@@ -267,12 +256,9 @@ The available values for `object_attributes.action` in the payload are:
 - `reopen`
 - `update`
 
-The `assignee` and `assignee_id` keys are deprecated
-and contain the first assignee only.
+The `assignee` and `assignee_id` keys are deprecated and contain the first assignee only.
 
-The `escalation_status` and `escalation_policy` fields are
-only available for issue types which [support escalations](../../../operations/incident_management/paging.md#paging),
-such as incidents.
+The `escalation_status` and `escalation_policy` fields are only available for issue types which [support escalations](../../../operations/incident_management/paging.md#paging), such as incidents.
 
 Request header:
 
@@ -284,16 +270,16 @@ Payload example:
 
 ```json
 {
-  "object_kind": "issue",
-  "event_type": "issue",
-  "user": {
+ "object_kind": "issue",
+ "event_type": "issue",
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=40\u0026d=identicon",
     "email": "admin@example.com"
-  },
-  "project": {
+ },
+ "project": {
     "id": 1,
     "name":"Gitlab Test",
     "description":"Aut reprehenderit ut est.",
@@ -310,8 +296,8 @@ Payload example:
     "url":"http://example.com/gitlabhq/gitlab-test.git",
     "ssh_url":"git@example.com:gitlabhq/gitlab-test.git",
     "http_url":"http://example.com/gitlabhq/gitlab-test.git"
-  },
-  "object_attributes": {
+ },
+ "object_attributes": {
     "id": 301,
     "title": "New API: create/update/delete file",
     "assignee_ids": [51],
@@ -363,24 +349,24 @@ Payload example:
         "type": "ProjectLabel",
         "group_id": 41
       }]
-  },
-  "repository": {
+ },
+ "repository": {
     "name": "Gitlab Test",
     "url": "http://example.com/gitlabhq/gitlab-test.git",
     "description": "Aut reprehenderit ut est.",
     "homepage": "http://example.com/gitlabhq/gitlab-test"
-  },
-  "assignees": [{
+ },
+ "assignees": [{
     "name": "User1",
     "username": "user1",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=40\u0026d=identicon"
-  }],
-  "assignee": {
+ }],
+ "assignee": {
     "name": "User1",
     "username": "user1",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=40\u0026d=identicon"
-  },
-  "labels": [{
+ },
+ "labels": [{
     "id": 206,
     "title": "API",
     "color": "#ffffff",
@@ -391,8 +377,8 @@ Payload example:
     "description": "API related issues",
     "type": "ProjectLabel",
     "group_id": 41
-  }],
-  "changes": {
+ }],
+ "changes": {
     "updated_by_id": {
       "previous": null,
       "current": 1
@@ -427,7 +413,7 @@ Payload example:
         "group_id": 41
       }]
     }
-  }
+ }
 }
 ```
 
@@ -439,12 +425,10 @@ Payload example:
 
 {{< /history >}}
 
-Comment events are triggered when a new comment is made or edited on commits,
-merge requests, issues, and code snippets.
+Comment events are triggered when a new comment is made or edited on commits, merge requests, issues, and code snippets.
 
 The note data is stored in `object_attributes` (for example, `note` or `noteable_type`).
-The payload includes information about the target of the comment. For example,
-a comment on an issue includes specific issue information under the `issue` key.
+The payload includes information about the target of the comment. For example, a comment on an issue includes specific issue information under the `issue` key.
 
 The available target types are:
 
@@ -470,17 +454,17 @@ Payload example:
 
 ```json
 {
-  "object_kind": "note",
-  "event_type": "note",
-  "user": {
+ "object_kind": "note",
+ "event_type": "note",
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=40\u0026d=identicon",
     "email": "admin@example.com"
-  },
-  "project_id": 5,
-  "project":{
+ },
+ "project_id": 5,
+ "project":{
     "id": 5,
     "name":"Gitlab Test",
     "description":"Aut reprehenderit ut est.",
@@ -496,14 +480,14 @@ Payload example:
     "url":"http://example.com/gitlabhq/gitlab-test.git",
     "ssh_url":"git@example.com:gitlabhq/gitlab-test.git",
     "http_url":"http://example.com/gitlabhq/gitlab-test.git"
-  },
-  "repository":{
+ },
+ "repository":{
     "name": "Gitlab Test",
     "url": "http://example.com/gitlab-org/gitlab-test.git",
     "description": "Aut reprehenderit ut est.",
     "homepage": "http://example.com/gitlab-org/gitlab-test"
-  },
-  "object_attributes": {
+ },
+ "object_attributes": {
     "id": 1243,
     "internal": false,
     "note": "This is a commit comment. How does this work?",
@@ -529,8 +513,8 @@ Payload example:
     },
     "action": "create",
     "url": "http://example.com/gitlab-org/gitlab-test/commit/cfe32cf61b73a0d5e9f13e774abde7ff789b1660#note_1243"
-  },
-  "commit": {
+ },
+ "commit": {
     "id": "cfe32cf61b73a0d5e9f13e774abde7ff789b1660",
     "message": "Add submodule\n\nSigned-off-by: Example User \u003cuser@example.com.com\u003e\n",
     "timestamp": "2014-02-27T10:06:20+02:00",
@@ -539,7 +523,7 @@ Payload example:
       "name": "Example User",
       "email": "user@example.com"
     }
-  }
+ }
 }
 ```
 
@@ -555,17 +539,17 @@ Payload example:
 
 ```json
 {
-  "object_kind": "note",
-  "event_type": "note",
-  "user": {
+ "object_kind": "note",
+ "event_type": "note",
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=40\u0026d=identicon",
     "email": "admin@example.com"
-  },
-  "project_id": 5,
-  "project":{
+ },
+ "project_id": 5,
+ "project":{
     "id": 5,
     "name":"Gitlab Test",
     "description":"Aut reprehenderit ut est.",
@@ -581,14 +565,14 @@ Payload example:
     "url":"http://example.com/gitlab-org/gitlab-test.git",
     "ssh_url":"git@example.com:gitlab-org/gitlab-test.git",
     "http_url":"http://example.com/gitlab-org/gitlab-test.git"
-  },
-  "repository":{
+ },
+ "repository":{
     "name": "Gitlab Test",
     "url": "http://localhost/gitlab-org/gitlab-test.git",
     "description": "Aut reprehenderit ut est.",
     "homepage": "http://example.com/gitlab-org/gitlab-test"
-  },
-  "object_attributes": {
+ },
+ "object_attributes": {
     "id": 1244,
     "internal": false,
     "note": "This MR needs work.",
@@ -605,8 +589,8 @@ Payload example:
     "st_diff": null,
     "action": "create",
     "url": "http://example.com/gitlab-org/gitlab-test/merge_requests/1#note_1244"
-  },
-  "merge_request": {
+ },
+ "merge_request": {
     "id": 7,
     "target_branch": "markdown",
     "source_branch": "master",
@@ -699,7 +683,7 @@ Payload example:
       "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=40\u0026d=identicon"
     },
     "detailed_merge_status": "checking"
-  }
+ }
 }
 ```
 
@@ -718,17 +702,17 @@ Payload example:
 
 ```json
 {
-  "object_kind": "note",
-  "event_type": "note",
-  "user": {
+ "object_kind": "note",
+ "event_type": "note",
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=40\u0026d=identicon",
     "email": "admin@example.com"
-  },
-  "project_id": 5,
-  "project":{
+ },
+ "project_id": 5,
+ "project":{
     "id": 5,
     "name":"Gitlab Test",
     "description":"Aut reprehenderit ut est.",
@@ -744,14 +728,14 @@ Payload example:
     "url":"http://example.com/gitlab-org/gitlab-test.git",
     "ssh_url":"git@example.com:gitlab-org/gitlab-test.git",
     "http_url":"http://example.com/gitlab-org/gitlab-test.git"
-  },
-  "repository":{
+ },
+ "repository":{
     "name":"diaspora",
     "url":"git@example.com:mike/diaspora.git",
     "description":"",
     "homepage":"http://example.com/mike/diaspora"
-  },
-  "object_attributes": {
+ },
+ "object_attributes": {
     "id": 1241,
     "internal": false,
     "note": "Hello world",
@@ -768,8 +752,8 @@ Payload example:
     "st_diff": null,
     "action": "create",
     "url": "http://example.com/gitlab-org/gitlab-test/issues/17#note_1241"
-  },
-  "issue": {
+ },
+ "issue": {
     "id": 92,
     "title": "test",
     "assignee_ids": [],
@@ -810,7 +794,7 @@ Payload example:
         "group_id": null
       }
     ]
-  }
+ }
 }
 ```
 
@@ -826,17 +810,17 @@ Payload example:
 
 ```json
 {
-  "object_kind": "note",
-  "event_type": "note",
-  "user": {
+ "object_kind": "note",
+ "event_type": "note",
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=40\u0026d=identicon",
     "email": "admin@example.com"
-  },
-  "project_id": 5,
-  "project":{
+ },
+ "project_id": 5,
+ "project":{
     "id": 5,
     "name":"Gitlab Test",
     "description":"Aut reprehenderit ut est.",
@@ -852,14 +836,14 @@ Payload example:
     "url":"http://example.com/gitlab-org/gitlab-test.git",
     "ssh_url":"git@example.com:gitlab-org/gitlab-test.git",
     "http_url":"http://example.com/gitlab-org/gitlab-test.git"
-  },
-  "repository":{
+ },
+ "repository":{
     "name":"Gitlab Test",
     "url":"http://example.com/gitlab-org/gitlab-test.git",
     "description":"Aut reprehenderit ut est.",
     "homepage":"http://example.com/gitlab-org/gitlab-test"
-  },
-  "object_attributes": {
+ },
+ "object_attributes": {
     "id": 1245,
     "internal": false,
     "note": "Is this snippet doing what it's supposed to be doing?",
@@ -876,8 +860,8 @@ Payload example:
     "st_diff": null,
     "action": "create",
     "url": "http://example.com/gitlab-org/gitlab-test/-/snippets/53#note_1245"
-  },
-  "snippet": {
+ },
+ "snippet": {
     "id": 53,
     "title": "test",
     "description": "A snippet description.",
@@ -890,7 +874,7 @@ Payload example:
     "type": "ProjectSnippet",
     "visibility_level": 0,
     "url": "http://example.com/gitlab-org/gitlab-test/-/snippets/53"
-  }
+ }
 }
 ```
 
@@ -906,8 +890,7 @@ Merge request events are triggered when:
 - All threads are resolved on the merge request.
 
 Merge request events can be triggered even if the `changes` field is empty.
-Webhook receivers should always inspect the content of the `changes` field for the
-actual changes in a merge request.
+Webhook receivers should always inspect the content of the `changes` field for the actual changes in a merge request.
 
 The available values for `object_attributes.action` in the payload are:
 
@@ -928,18 +911,13 @@ The field `object_attributes.oldrev` is only available when there are actual cod
 
 ### System-initiated merge request events
 
-Some merge request events are triggered automatically by the system, such as when approvals are reset
-due to new commit pushes. These system-initiated webhook events are only triggered by push events,
-and include more fields in the payload:
+Some merge request events are triggered automatically by the system, such as when approvals are reset due to new commit pushes. These system-initiated webhook events are only triggered by push events, and include more fields in the payload:
 
-- `system`: A boolean field. If `true`, the event was triggered by the system. If `false`, a user action
-  triggered the event.
-- `system_action`: A string field, present only when `system` is `true`. Provides more context about
-  the system action. Available values are:
+- `system`: A boolean field. If `true`, the event was triggered by the system. If `false`, a user action triggered the event.
+- `system_action`: A string field, present only when `system` is `true`. Provides more context about the system action. Available values are:
 
-  - `approvals_reset_on_push`: The project has enabled **Reset approvals on push**, and new commits were pushed.
-  - `code_owner_approvals_reset_on_push`: The project has enabled **Selective code owner removals**,
-    and Code Owner approvals were reset due to changes in files matching CODEOWNERS rules.
+ - `approvals_reset_on_push`: The project has enabled **Reset approvals on push**, and new commits were pushed.
+ - `code_owner_approvals_reset_on_push`: The project has enabled **Selective code owner removals**, and Code Owner approvals were reset due to changes in files matching CODEOWNERS rules.
 
 Other approval reset scenarios do not trigger webhooks.
 
@@ -958,7 +936,7 @@ The `reviewers` array in merge request webhook payloads includes a `state` field
 
 ```json
 {
-  "reviewers": [
+ "reviewers": [
     {
       "id": 6,
       "name": "User1",
@@ -967,7 +945,7 @@ The `reviewers` array in merge request webhook payloads includes a `state` field
       "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
       "email": "user1@example.com"
     }
-  ]
+ ]
 }
 ```
 
@@ -983,12 +961,12 @@ When a reviewer is re-requested for a merge request, a webhook is triggered with
 
 ```json
 {
-  "object_kind": "merge_request",
-  "event_type": "merge_request",
-  "object_attributes": {
+ "object_kind": "merge_request",
+ "event_type": "merge_request",
+ "object_attributes": {
     "action": "update"
-  },
-  "changes": {
+ },
+ "changes": {
     "reviewers": [
       [
         {
@@ -1013,7 +991,7 @@ When a reviewer is re-requested for a merge request, a webhook is triggered with
         }
       ]
     ]
-  }
+ }
 }
 ```
 
@@ -1029,16 +1007,16 @@ Complete merge request webhook payload:
 
 ```json
 {
-  "object_kind": "merge_request",
-  "event_type": "merge_request",
-  "user": {
+ "object_kind": "merge_request",
+ "event_type": "merge_request",
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=40\u0026d=identicon",
     "email": "admin@example.com"
-  },
-  "project": {
+ },
+ "project": {
     "id": 1,
     "name":"Gitlab Test",
     "description":"Aut reprehenderit ut est.",
@@ -1055,14 +1033,14 @@ Complete merge request webhook payload:
     "url":"http://example.com/gitlabhq/gitlab-test.git",
     "ssh_url":"git@example.com:gitlabhq/gitlab-test.git",
     "http_url":"http://example.com/gitlabhq/gitlab-test.git"
-  },
-  "repository": {
+ },
+ "repository": {
     "name": "Gitlab Test",
     "url": "http://example.com/gitlabhq/gitlab-test.git",
     "description": "Aut reprehenderit ut est.",
     "homepage": "http://example.com/gitlabhq/gitlab-test"
-  },
-  "object_attributes": {
+ },
+ "object_attributes": {
     "id": 99,
     "iid": 1,
     "target_branch": "master",
@@ -1151,8 +1129,8 @@ Complete merge request webhook payload:
     }],
     "action": "open",
     "detailed_merge_status": "mergeable"
-  },
-  "labels": [{
+ },
+ "labels": [{
     "id": 206,
     "title": "API",
     "color": "#ffffff",
@@ -1163,8 +1141,8 @@ Complete merge request webhook payload:
     "description": "API related issues",
     "type": "ProjectLabel",
     "group_id": 41
-  }],
-  "changes": {
+ }],
+ "changes": {
     "updated_by_id": {
       "previous": null,
       "current": 1
@@ -1211,16 +1189,16 @@ Complete merge request webhook payload:
       "previous": null,
       "current": 3278533
     }
-  },
-  "assignees": [
+ },
+ "assignees": [
     {
       "id": 6,
       "name": "User1",
       "username": "user1",
       "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=40\u0026d=identicon"
     }
-  ],
-  "reviewers": [
+ ],
+ "reviewers": [
     {
       "id": 6,
       "name": "User1",
@@ -1228,7 +1206,7 @@ Complete merge request webhook payload:
       "state": "unreviewed",
       "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=40\u0026d=identicon"
     }
-  ]
+ ]
 }
 ```
 
@@ -1252,15 +1230,15 @@ Payload example:
 
 ```json
 {
-  "object_kind": "wiki_page",
-  "user": {
+ "object_kind": "wiki_page",
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80\u0026d=identicon",
     "email": "admin@example.com"
-  },
-  "project": {
+ },
+ "project": {
     "id": 1,
     "name": "awesome-project",
     "description": "This is awesome",
@@ -1276,15 +1254,15 @@ Payload example:
     "url": "git@example.com:root/awesome-project.git",
     "ssh_url": "git@example.com:root/awesome-project.git",
     "http_url": "http://example.com/root/awesome-project.git"
-  },
-  "wiki": {
+ },
+ "wiki": {
     "web_url": "http://example.com/root/awesome-project/-/wikis/home",
     "git_ssh_url": "git@example.com:root/awesome-project.wiki.git",
     "git_http_url": "http://example.com/root/awesome-project.wiki.git",
     "path_with_namespace": "root/awesome-project.wiki",
     "default_branch": "master"
-  },
-  "object_attributes": {
+ },
+ "object_attributes": {
     "title": "Awesome",
     "content": "awesome content goes here",
     "format": "markdown",
@@ -1294,7 +1272,7 @@ Payload example:
     "action": "create",
     "diff_url": "http://example.com/root/awesome-project/-/wikis/home/diff?version_id=78ee4a6705abfbff4f4132c6646dbaae9c8fb6ec",
     "version_id": "3ad67c972065298d226dd80b2b03e0fc2421e731"
-  }
+ }
 }
 ```
 
@@ -1318,8 +1296,8 @@ Payload example:
 
 ```json
 {
-  "object_kind": "pipeline",
-  "object_attributes": {
+ "object_kind": "pipeline",
+ "object_attributes": {
     "id": 31,
     "iid": 3,
     "name": "Pipeline for branch: master",
@@ -1346,8 +1324,8 @@ Payload example:
       }
     ],
     "url": "http://example.com/gitlab-org/gitlab-test/-/pipelines/31"
-  },
-  "merge_request": {
+ },
+ "merge_request": {
     "id": 1,
     "iid": 1,
     "title": "Test",
@@ -1359,15 +1337,15 @@ Payload example:
     "merge_status": "can_be_merged",
     "detailed_merge_status": "mergeable",
     "url": "http://192.168.64.1:3005/gitlab-org/gitlab-test/merge_requests/1"
-  },
-  "user": {
+ },
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
     "avatar_url": "http://www.gravatar.com/avatar/e32bd13e2add097461cb96824b7a829c?s=80\u0026d=identicon",
     "email": "user_email@gitlab.com"
-  },
-  "project": {
+ },
+ "project": {
     "id": 1,
     "name": "Gitlab Test",
     "description": "Atque in sunt eos similique dolores voluptatem.",
@@ -1380,8 +1358,8 @@ Payload example:
     "path_with_namespace": "gitlab-org/gitlab-test",
     "default_branch": "master",
     "ci_config_path": null
-  },
-  "commit": {
+ },
+ "commit": {
     "id": "bcbb5ec396a2c0f828686f14fac9b80b780504f2",
     "message": "test\n",
     "title": "test",
@@ -1391,8 +1369,8 @@ Payload example:
       "name": "User",
       "email": "user@gitlab.com"
     }
-  },
-  "builds": [
+ },
+ "builds": [
     {
       "id": 380,
       "stage": "deploy",
@@ -1572,8 +1550,8 @@ Payload example:
         "deployment_tier": "staging"
       }
     }
-  ],
-  "source_pipeline": {
+ ],
+ "source_pipeline": {
     "project": {
       "id": 41,
       "web_url": "https://gitlab.example.com/gitlab-org/upstream-project",
@@ -1581,7 +1559,7 @@ Payload example:
     },
     "pipeline_id": 30,
     "job_id": 3401
-  }
+ }
 }
 ```
 
@@ -1604,28 +1582,28 @@ Payload example:
 
 ```json
 {
-  "object_kind": "build",
-  "ref": "gitlab-script-trigger",
-  "tag": false,
-  "before_sha": "2293ada6b400935a1378653304eaf6221e0fdb8f",
-  "sha": "2293ada6b400935a1378653304eaf6221e0fdb8f",
-  "retries_count": 2,
-  "build_id": 1977,
-  "build_name": "test",
-  "build_stage": "test",
-  "build_status": "created",
-  "build_created_at": "2021-02-23T02:41:37.886Z",
-  "build_started_at": null,
-  "build_finished_at": null,
-  "build_created_at_iso": "2021-02-23T02:41:37Z",
-  "build_started_at_iso": null,
-  "build_finished_at_iso": null,
-  "build_duration": null,
-  "build_queued_duration": 1095.588715,
-  "build_allow_failure": false,
-  "build_failure_reason": "unknown_failure",
-  "pipeline_id": 2366,
-  "runner": {
+ "object_kind": "build",
+ "ref": "gitlab-script-trigger",
+ "tag": false,
+ "before_sha": "2293ada6b400935a1378653304eaf6221e0fdb8f",
+ "sha": "2293ada6b400935a1378653304eaf6221e0fdb8f",
+ "retries_count": 2,
+ "build_id": 1977,
+ "build_name": "test",
+ "build_stage": "test",
+ "build_status": "created",
+ "build_created_at": "2021-02-23T02:41:37.886Z",
+ "build_started_at": null,
+ "build_finished_at": null,
+ "build_created_at_iso": "2021-02-23T02:41:37Z",
+ "build_started_at_iso": null,
+ "build_finished_at_iso": null,
+ "build_duration": null,
+ "build_queued_duration": 1095.588715,
+ "build_allow_failure": false,
+ "build_failure_reason": "unknown_failure",
+ "pipeline_id": 2366,
+ "runner": {
     "id": 380987,
     "description": "shared-runners-manager-6.gitlab.com",
     "runner_type": "project_type",
@@ -1635,17 +1613,17 @@ Payload example:
       "linux",
       "docker"
     ]
-  },
-  "project_id": 380,
-  "project_name": "gitlab-org/gitlab-test",
-  "user": {
+ },
+ "project_id": 380,
+ "project_name": "gitlab-org/gitlab-test",
+ "user": {
     "id": 3,
     "name": "User",
     "username": "user",
     "avatar_url": "http://www.gravatar.com/avatar/e32bd13e2add097461cb96824b7a829c?s=80\u0026d=identicon",
     "email": "user@gitlab.com"
-  },
-  "commit": {
+ },
+ "commit": {
     "id": 2366,
     "name": "Build pipeline",
     "sha": "2293ada6b400935a1378653304eaf6221e0fdb8f",
@@ -1659,8 +1637,8 @@ Payload example:
     "finished_at": null,
     "started_at_iso": null,
     "finished_at_iso": null
-  },
-  "repository": {
+ },
+ "repository": {
     "name": "gitlab_test",
     "url": "http://192.168.64.1:3005/gitlab-org/gitlab-test",
     "description": "Atque in sunt eos similique dolores voluptatem.",
@@ -1668,8 +1646,8 @@ Payload example:
     "git_ssh_url": "git@192.168.64.1:gitlab-org/gitlab-test.git",
     "git_http_url": "http://192.168.64.1:3005/gitlab-org/gitlab-test.git",
     "visibility_level": 20
-  },
-  "project": {
+ },
+ "project": {
     "id": 380,
     "name": "Gitlab Test",
     "description": "Atque in sunt eos similique dolores voluptatem.",
@@ -1682,9 +1660,9 @@ Payload example:
     "path_with_namespace": "gitlab-org/gitlab-test",
     "default_branch": "master",
     "ci_config_path": null
-  },
-  "environment": null,
-  "source_pipeline": {
+ },
+ "environment": null,
+ "source_pipeline": {
     "project": {
       "id": 41,
       "web_url": "https://gitlab.example.com/gitlab-org/upstream-project",
@@ -1692,7 +1670,7 @@ Payload example:
     },
     "pipeline_id": 30,
     "job_id": 3401
-  }
+ }
 }
 ```
 
@@ -1705,8 +1683,7 @@ Payload example:
 
 {{< /history >}}
 
-`retries_count` is an integer that indicates if the job is a retry. `0` means that the job
-has not been retried. `1` means that it's the first retry.
+`retries_count` is an integer that indicates if the job is a retry. `0` means that the job has not been retried. `1` means that it's the first retry.
 
 ### Pipeline name
 
@@ -1741,17 +1718,17 @@ Payload example:
 
 ```json
 {
-  "object_kind": "deployment",
-  "status": "success",
-  "status_changed_at":"2021-04-28 21:50:00 +0200",
-  "deployment_id": 15,
-  "deployable_id": 796,
-  "deployable_url": "http://10.126.0.2:3000/root/test-deployment-webhooks/-/jobs/796",
-  "environment": "staging",
-  "environment_tier": "staging",
-  "environment_slug": "staging",
-  "environment_external_url": "https://staging.example.com",
-  "project": {
+ "object_kind": "deployment",
+ "status": "success",
+ "status_changed_at":"2021-04-28 21:50:00 +0200",
+ "deployment_id": 15,
+ "deployable_id": 796,
+ "deployable_url": "http://10.126.0.2:3000/root/test-deployment-webhooks/-/jobs/796",
+ "environment": "staging",
+ "environment_tier": "staging",
+ "environment_slug": "staging",
+ "environment_external_url": "https://staging.example.com",
+ "project": {
     "id": 30,
     "name": "test-deployment-webhooks",
     "description": "",
@@ -1768,18 +1745,18 @@ Payload example:
     "url": "ssh://vlad@10.126.0.2:2222/root/test-deployment-webhooks.git",
     "ssh_url": "ssh://vlad@10.126.0.2:2222/root/test-deployment-webhooks.git",
     "http_url": "http://10.126.0.2:3000/root/test-deployment-webhooks.git"
-  },
-  "short_sha": "279484c0",
-  "user": {
+ },
+ "short_sha": "279484c0",
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
     "avatar_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "email": "admin@example.com"
-  },
-  "user_url": "http://10.126.0.2:3000/root",
-  "commit_url": "http://10.126.0.2:3000/root/test-deployment-webhooks/-/commit/279484c09fbe69ededfced8c1bb6e6d24616b468",
-  "commit_title": "Add new file"
+ },
+ "user_url": "http://10.126.0.2:3000/root",
+ "commit_url": "http://10.126.0.2:3000/root/test-deployment-webhooks/-/commit/279484c09fbe69ededfced8c1bb6e6d24616b468",
+ "commit_title": "Add new file"
 }
 ```
 
@@ -1820,19 +1797,19 @@ Payload example:
 
 ```json
 {
-  "created_at": "2020-12-11T04:57:22Z",
-  "updated_at": "2020-12-11T04:57:22Z",
-  "group_name": "webhook-test",
-  "group_path": "webhook-test",
-  "group_id": 100,
-  "user_username": "test_user",
-  "user_name": "Test User",
-  "user_email": "testuser@webhooktest.com",
-  "user_id": 64,
-  "group_access": "Guest",
-  "group_plan": null,
-  "expires_at": "2020-12-14T00:00:00Z",
-  "event_name": "user_add_to_group"
+ "created_at": "2020-12-11T04:57:22Z",
+ "updated_at": "2020-12-11T04:57:22Z",
+ "group_name": "webhook-test",
+ "group_path": "webhook-test",
+ "group_id": 100,
+ "user_username": "test_user",
+ "user_name": "Test User",
+ "user_email": "testuser@webhooktest.com",
+ "user_id": 64,
+ "group_access": "Guest",
+ "group_plan": null,
+ "expires_at": "2020-12-14T00:00:00Z",
+ "event_name": "user_add_to_group"
 }
 ```
 
@@ -1848,19 +1825,19 @@ Payload example:
 
 ```json
 {
-  "created_at": "2020-12-11T04:57:22Z",
-  "updated_at": "2020-12-12T08:48:19Z",
-  "group_name": "webhook-test",
-  "group_path": "webhook-test",
-  "group_id": 100,
-  "user_username": "test_user",
-  "user_name": "Test User",
-  "user_email": "testuser@webhooktest.com",
-  "user_id": 64,
-  "group_access": "Developer",
-  "group_plan": null,
-  "expires_at": "2020-12-20T00:00:00Z",
-  "event_name": "user_update_for_group"
+ "created_at": "2020-12-11T04:57:22Z",
+ "updated_at": "2020-12-12T08:48:19Z",
+ "group_name": "webhook-test",
+ "group_path": "webhook-test",
+ "group_id": 100,
+ "user_username": "test_user",
+ "user_name": "Test User",
+ "user_email": "testuser@webhooktest.com",
+ "user_id": 64,
+ "group_access": "Developer",
+ "group_plan": null,
+ "expires_at": "2020-12-20T00:00:00Z",
+ "event_name": "user_update_for_group"
 }
 ```
 
@@ -1876,19 +1853,19 @@ Payload example:
 
 ```json
 {
-  "created_at": "2020-12-11T04:57:22Z",
-  "updated_at": "2020-12-12T08:52:34Z",
-  "group_name": "webhook-test",
-  "group_path": "webhook-test",
-  "group_id": 100,
-  "user_username": "test_user",
-  "user_name": "Test User",
-  "user_email": "testuser@webhooktest.com",
-  "user_id": 64,
-  "group_access": "Guest",
-  "group_plan": null,
-  "expires_at": "2020-12-14T00:00:00Z",
-  "event_name": "user_remove_from_group"
+ "created_at": "2020-12-11T04:57:22Z",
+ "updated_at": "2020-12-12T08:52:34Z",
+ "group_name": "webhook-test",
+ "group_path": "webhook-test",
+ "group_id": 100,
+ "user_username": "test_user",
+ "user_name": "Test User",
+ "user_email": "testuser@webhooktest.com",
+ "user_id": 64,
+ "group_access": "Guest",
+ "group_plan": null,
+ "expires_at": "2020-12-14T00:00:00Z",
+ "event_name": "user_remove_from_group"
 }
 ```
 
@@ -1911,19 +1888,19 @@ Payload example:
 
 ```json
 {
-  "created_at": "2020-12-11T04:57:22Z",
-  "updated_at": "2020-12-12T08:52:34Z",
-  "group_name": "webhook-test",
-  "group_path": "webhook-test",
-  "group_id": 100,
-  "user_username": "test_user",
-  "user_name": "Test User",
-  "user_email": "testuser@webhooktest.com",
-  "user_id": 64,
-  "group_access": "Guest",
-  "group_plan": null,
-  "expires_at": "2020-12-14T00:00:00Z",
-  "event_name": "user_access_request_to_group"
+ "created_at": "2020-12-11T04:57:22Z",
+ "updated_at": "2020-12-12T08:52:34Z",
+ "group_name": "webhook-test",
+ "group_path": "webhook-test",
+ "group_id": 100,
+ "user_username": "test_user",
+ "user_name": "Test User",
+ "user_email": "testuser@webhooktest.com",
+ "user_id": 64,
+ "group_access": "Guest",
+ "group_plan": null,
+ "expires_at": "2020-12-14T00:00:00Z",
+ "event_name": "user_access_request_to_group"
 }
 ```
 
@@ -1946,19 +1923,19 @@ Payload example:
 
 ```json
 {
-  "created_at": "2020-12-11T04:57:22Z",
-  "updated_at": "2020-12-12T08:52:34Z",
-  "group_name": "webhook-test",
-  "group_path": "webhook-test",
-  "group_id": 100,
-  "user_username": "test_user",
-  "user_name": "Test User",
-  "user_email": "testuser@webhooktest.com",
-  "user_id": 64,
-  "group_access": "Guest",
-  "group_plan": null,
-  "expires_at": "2020-12-14T00:00:00Z",
-  "event_name": "user_access_request_denied_for_group"
+ "created_at": "2020-12-11T04:57:22Z",
+ "updated_at": "2020-12-12T08:52:34Z",
+ "group_name": "webhook-test",
+ "group_path": "webhook-test",
+ "group_id": 100,
+ "user_username": "test_user",
+ "user_name": "Test User",
+ "user_email": "testuser@webhooktest.com",
+ "user_id": 64,
+ "group_access": "Guest",
+ "group_plan": null,
+ "expires_at": "2020-12-14T00:00:00Z",
+ "event_name": "user_access_request_denied_for_group"
 }
 ```
 
@@ -1995,19 +1972,19 @@ Payload example:
 
 ```json
 {
-  "event_name": "project_create",
-  "created_at": "2024-10-07T10:43:48Z",
-  "updated_at": "2024-10-07T10:43:48Z",
-  "name": "project1",
-  "path": "project1",
-  "path_with_namespace": "group1/project1",
-  "project_id": 22,
-  "project_namespace_id": 32,
-  "owners": [{
+ "event_name": "project_create",
+ "created_at": "2024-10-07T10:43:48Z",
+ "updated_at": "2024-10-07T10:43:48Z",
+ "name": "project1",
+ "path": "project1",
+ "path_with_namespace": "group1/project1",
+ "project_id": 22,
+ "project_namespace_id": 32,
+ "owners": [{
     "name": "John",
     "email": "user1@example.com"
-  }],
-  "project_visibility": "private"
+ }],
+ "project_visibility": "private"
 }
 ```
 
@@ -2023,19 +2000,19 @@ Payload example:
 
 ```json
 {
-  "event_name": "project_destroy",
-  "created_at": "2024-10-07T10:43:48Z",
-  "updated_at": "2024-10-07T10:43:48Z",
-  "name": "project1",
-  "path": "project1",
-  "path_with_namespace": "group1/project1",
-  "project_id": 22,
-  "project_namespace_id": 32,
-  "owners": [{
+ "event_name": "project_destroy",
+ "created_at": "2024-10-07T10:43:48Z",
+ "updated_at": "2024-10-07T10:43:48Z",
+ "name": "project1",
+ "path": "project1",
+ "path_with_namespace": "group1/project1",
+ "project_id": 22,
+ "project_namespace_id": 32,
+ "owners": [{
     "name": "John",
     "email": "user1@example.com"
-  }],
-  "project_visibility": "private"
+ }],
+ "project_visibility": "private"
 }
 ```
 
@@ -2067,17 +2044,17 @@ Payload example:
 ```json
 {
 
-  "created_at": "2021-01-20T09:40:12Z",
-  "updated_at": "2021-01-20T09:40:12Z",
-  "event_name": "subgroup_create",
-  "name": "subgroup1",
-  "path": "subgroup1",
-  "full_path": "group1/subgroup1",
-  "group_id": 10,
-  "parent_group_id": 7,
-  "parent_name": "group1",
-  "parent_path": "group1",
-  "parent_full_path": "group1"
+ "created_at": "2021-01-20T09:40:12Z",
+ "updated_at": "2021-01-20T09:40:12Z",
+ "event_name": "subgroup_create",
+ "name": "subgroup1",
+ "path": "subgroup1",
+ "full_path": "group1/subgroup1",
+ "group_id": 10,
+ "parent_group_id": 7,
+ "parent_name": "group1",
+ "parent_path": "group1",
+ "parent_full_path": "group1"
 
 }
 ```
@@ -2097,17 +2074,17 @@ Payload example:
 ```json
 {
 
-  "created_at": "2021-01-20T09:40:12Z",
-  "updated_at": "2021-01-20T09:40:12Z",
-  "event_name": "subgroup_destroy",
-  "name": "subgroup1",
-  "path": "subgroup1",
-  "full_path": "group1/subgroup1",
-  "group_id": 10,
-  "parent_group_id": 7,
-  "parent_name": "group1",
-  "parent_path": "group1",
-  "parent_full_path": "group1"
+ "created_at": "2021-01-20T09:40:12Z",
+ "updated_at": "2021-01-20T09:40:12Z",
+ "event_name": "subgroup_destroy",
+ "name": "subgroup1",
+ "path": "subgroup1",
+ "full_path": "group1/subgroup1",
+ "group_id": 10,
+ "parent_group_id": 7,
+ "parent_name": "group1",
+ "parent_path": "group1",
+ "parent_full_path": "group1"
 
 }
 ```
@@ -2126,8 +2103,8 @@ Payload example:
 
 ```json
 {
-  "object_kind": "feature_flag",
-  "project": {
+ "object_kind": "feature_flag",
+ "project": {
     "id": 1,
     "name":"Gitlab Test",
     "description":"Aut reprehenderit ut est.",
@@ -2144,21 +2121,21 @@ Payload example:
     "url":"http://example.com/gitlabhq/gitlab-test.git",
     "ssh_url":"git@example.com:gitlabhq/gitlab-test.git",
     "http_url":"http://example.com/gitlabhq/gitlab-test.git"
-  },
-  "user": {
+ },
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
     "avatar_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "email": "admin@example.com"
-  },
-  "user_url": "http://example.com/root",
-  "object_attributes": {
+ },
+ "user_url": "http://example.com/root",
+ "object_attributes": {
     "id": 6,
     "name": "test-feature-flag",
     "description": "test-feature-flag-description",
     "active": true
-  }
+ }
 }
 ```
 
@@ -2188,14 +2165,14 @@ Payload example:
 
 ```json
 {
-  "id": 1,
-  "created_at": "2020-11-02 12:55:12 UTC",
-  "description": "v1.1 has been released",
-  "name": "v1.1",
-  "released_at": "2020-11-02 12:55:12 UTC",
-  "tag": "v1.1",
-  "object_kind": "release",
-  "project": {
+ "id": 1,
+ "created_at": "2020-11-02 12:55:12 UTC",
+ "description": "v1.1 has been released",
+ "name": "v1.1",
+ "released_at": "2020-11-02 12:55:12 UTC",
+ "tag": "v1.1",
+ "object_kind": "release",
+ "project": {
     "id": 2,
     "name": "release-webhook-example",
     "description": "",
@@ -2212,10 +2189,10 @@ Payload example:
     "url": "ssh://git@example.com/gitlab-org/release-webhook-example.git",
     "ssh_url": "ssh://git@example.com/gitlab-org/release-webhook-example.git",
     "http_url": "https://example.com/gitlab-org/release-webhook-example.git"
-  },
-  "url": "https://example.com/gitlab-org/release-webhook-example/-/releases/v1.1",
-  "action": "create",
-  "assets": {
+ },
+ "url": "https://example.com/gitlab-org/release-webhook-example/-/releases/v1.1",
+ "action": "create",
+ "assets": {
     "count": 5,
     "links": [
       {
@@ -2243,8 +2220,8 @@ Payload example:
         "url": "https://example.com/gitlab-org/release-webhook-example/-/archive/v1.1/release-webhook-example-v1.1.tar"
       }
     ]
-  },
-  "commit": {
+ },
+ "commit": {
     "id": "ee0a3fb31ac16e11b9dbb596ad16d4af654d08f8",
     "message": "Release v1.1",
     "title": "Release v1.1",
@@ -2254,7 +2231,7 @@ Payload example:
       "name": "Example User",
       "email": "user@example.com"
     }
-  }
+ }
 }
 ```
 
@@ -2284,9 +2261,9 @@ Payload example:
 
 ```json
 {
-  "object_kind": "milestone",
-  "event_type": "milestone",
-  "project": {
+ "object_kind": "milestone",
+ "event_type": "milestone",
+ "project": {
     "id": 1,
     "name": "Gitlab Test",
     "description": "Aut reprehenderit ut est.",
@@ -2303,8 +2280,8 @@ Payload example:
     "url": "http://example.com/gitlabhq/gitlab-test.git",
     "ssh_url": "git@example.com:gitlabhq/gitlab-test.git",
     "http_url": "http://example.com/gitlabhq/gitlab-test.git"
-  },
-  "object_attributes": {
+ },
+ "object_attributes": {
     "id": 61,
     "iid": 10,
     "title": "v1.0",
@@ -2316,8 +2293,8 @@ Payload example:
     "start_date": "2025-06-16",
     "group_id": null,
     "project_id": 1
-  },
-  "action": "create"
+ },
+ "action": "create"
 }
 ```
 
@@ -2338,10 +2315,10 @@ An emoji event is triggered when an [emoji reaction](../../emoji_reactions.md) i
 - Merge requests
 - Project snippets
 - Comments on:
-  - Issues
-  - Merge requests
-  - Project snippets
-  - Commits
+ - Issues
+ - Merge requests
+ - Project snippets
+ - Commits
 
 The available values for `object_attributes.action` in the payload are:
 
@@ -2358,17 +2335,17 @@ Payload example:
 
 ```json
 {
-  "object_kind": "emoji",
-  "event_type": "award",
-  "user": {
+ "object_kind": "emoji",
+ "event_type": "award",
+ "user": {
     "id": 1,
     "name": "Blake Bergstrom",
     "username": "root",
     "avatar_url": "http://example.com/uploads/-/system/user/avatar/1/avatar.png",
     "email": "[REDACTED]"
-  },
-  "project_id": 6,
-  "project": {
+ },
+ "project_id": 6,
+ "project": {
     "id": 6,
     "name": "Flight",
     "description": "Velit fugit aperiam illum deleniti odio sequi.",
@@ -2385,8 +2362,8 @@ Payload example:
     "url": "ssh://git@example.com/flightjs/Flight.git",
     "ssh_url": "ssh://git@example.com/flightjs/Flight.git",
     "http_url": "http://example.com/flightjs/Flight.git"
-  },
-  "object_attributes": {
+ },
+ "object_attributes": {
     "user_id": 1,
     "created_at": "2023-07-04 20:44:11 UTC",
     "id": 1,
@@ -2396,8 +2373,8 @@ Payload example:
     "updated_at": "2023-07-04 20:44:11 UTC",
     "action": "award",
     "awarded_on_url": "http://example.com/flightjs/Flight/-/issues/42#note_363"
-  },
-  "note": {
+ },
+ "note": {
     "attachment": null,
     "author_id": 1,
     "change_position": null,
@@ -2422,8 +2399,8 @@ Payload example:
     "updated_by_id": null,
     "description": "Testing 123",
     "url": "http://example.com/flightjs/Flight/-/issues/42#note_363"
-  },
-  "issue": {
+ },
+ "issue": {
     "author_id": 1,
     "closed_at": null,
     "confidential": false,
@@ -2462,7 +2439,7 @@ Payload example:
     ],
     "state": "opened",
     "severity": "unknown"
-  }
+ }
 }
 ```
 
@@ -2500,8 +2477,8 @@ Payload example for project:
 
 ```json
 {
-  "object_kind": "access_token",
-  "project": {
+ "object_kind": "access_token",
+ "project": {
     "id": 7,
     "name": "Flight",
     "description": "Eum dolore maxime atque reprehenderit voluptatem.",
@@ -2518,15 +2495,15 @@ Payload example for project:
     "url": "ssh://git@example.com/flightjs/Flight.git",
     "ssh_url": "ssh://git@example.com/flightjs/Flight.git",
     "http_url": "https://example.com/flightjs/Flight.git"
-  },
-  "object_attributes": {
+ },
+ "object_attributes": {
     "user_id": 90,
     "created_at": "2024-01-24 16:27:40 UTC",
     "id": 25,
     "name": "acd",
     "expires_at": "2024-01-26"
-  },
-  "event_name": "expiring_access_token"
+ },
+ "event_name": "expiring_access_token"
 }
 ```
 
@@ -2534,21 +2511,21 @@ Payload example for group:
 
 ```json
 {
-  "object_kind": "access_token",
-  "group": {
+ "object_kind": "access_token",
+ "group": {
     "group_name": "Twitter",
     "group_path": "twitter",
     "group_id": 35,
     "full_path": "twitter"
-  },
-  "object_attributes": {
+ },
+ "object_attributes": {
     "user_id": 90,
     "created_at": "2024-01-24 16:27:40 UTC",
     "id": 25,
     "name": "acd",
     "expires_at": "2024-01-26"
-  },
-  "event_name": "expiring_access_token"
+ },
+ "event_name": "expiring_access_token"
 }
 ```
 
@@ -2578,8 +2555,8 @@ Payload example:
 
 ```json
 {
-  "object_kind": "vulnerability",
-  "object_attributes": {
+ "object_kind": "vulnerability",
+ "object_attributes": {
     "url": "https://example.com/flightjs/Flight/-/security/vulnerabilities/1",
     "title": "REXML DoS vulnerability",
     "state": "confirmed",
@@ -2636,6 +2613,6 @@ Payload example:
     "resolved_on_default_branch": false,
     "created_at": "2025-01-08T00:46:14.413Z",
     "updated_at": "2025-01-08T00:46:14.413Z"
-  }
+ }
 }
 ```

@@ -15,15 +15,14 @@ In the Procore web application, there is a Project level Instructions tool dev
 ## Things to Consider
 
 - ****Required User Permissions:****
-  - 'Standard' level permissions or higher on the project's Instructions tool  
-    AND
-  - 'Read Only' level permissions or higher on the project's RFIs tool with access to the RFI.
+ - 'Standard' level permissions or higher on the project's Instructions tool AND
+ - 'Read Only' level permissions or higher on the project's RFIs tool with access to the RFI.
 - **Prerequisites:**
-  - Your company's [Procore Administrator](https://support.procore.com/procore-learning-paths/general-contractor/procore-administrator "Procore Administrator") must request to enable the Instructions tool in Procore.
-  - The Instructions tool must also be added to the project's toolbox. See [Add the Instructions Tool to a Project](https://support.procore.com/products/online/user-guide/project-level/instructions/tutorials/add-the-instructions-tool-to-a-project "Add the Instructions Tool to a Project").
+ - Your company's [Procore Administrator](https://support.procore.com/procore-learning-paths/general-contractor/procore-administrator "Procore Administrator") must request to enable the Instructions tool in Procore.
+ - The Instructions tool must also be added to the project's toolbox. See [Add the Instructions Tool to a Project](https://support.procore.com/products/online/user-guide/project-level/instructions/tutorials/add-the-instructions-tool-to-a-project "Add the Instructions Tool to a Project").
 - **Additional Information****:**
-  - The Instructions tool has been developed specifically for Procore clients in Australia, New Zealand, and Canada.
-  - The ****Create Instruction**** button is only visible and available for use when viewing an RFI. It is NOT available when an RFI is in edit mode.
+ - The Instructions tool has been developed specifically for Procore clients in Australia, New Zealand, and Canada.
+ - The ****Create Instruction**** button is only visible and available for use when viewing an RFI. It is NOT available when an RFI is in edit mode.
 
 ## Steps
 

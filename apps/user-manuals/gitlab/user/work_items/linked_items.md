@@ -74,22 +74,13 @@ This coordination helps break down silos and ensures all aspects of the initiati
 
 GitLab supports linking various types of work items:
 
-- [Issues](../project/issues/related_issues.md) help you track tasks, bugs, and features and can be
-  linked to show dependencies between discrete pieces of work.
-- [Epics](../group/epics/linked_epics.md) let you manage cross-functional initiatives, show
-  dependencies, and connect strategic planning to execution across multiple teams or projects.
-  Available in the Ultimate tier.
-- [Tasks](../tasks.md#linked-items-in-tasks) provide lightweight tracking for smaller units of work
-  and can be linked to other items to show relationships or dependencies in a project.
-- [Objectives and key results](../okrs.md#linked-items-in-okrs) help connect strategic goals with
-  execution details, ensuring that day-to-day work remains aligned with higher-level organizational
-  priorities.
-- [Incidents](../../operations/incident_management/incidents.md) represent service disruptions or
-  outages that need urgent restoration and can be linked to related work items for better tracking
-  of operational issues and their impact on planned work.
-- [Test cases](../../ci/test_cases/_index.md) integrate test planning directly into your GitLab
-  workflows, letting teams document testing scenarios and track requirements in the same platform
-  where they manage code. Available in the Ultimate tier.
+- [Issues](../project/issues/related_issues.md) help you track tasks, bugs, and features and can be linked to show dependencies between discrete pieces of work.
+- [Epics](../group/epics/linked_epics.md) let you manage cross-functional initiatives, show dependencies, and connect strategic planning to execution across multiple teams or projects.
+ Available in the Ultimate tier.
+- [Tasks](../tasks.md#linked-items-in-tasks) provide lightweight tracking for smaller units of work and can be linked to other items to show relationships or dependencies in a project.
+- [Objectives and key results](../okrs.md#linked-items-in-okrs) help connect strategic goals with execution details, ensuring that day-to-day work remains aligned with higher-level organizational priorities.
+- [Incidents](../../operations/incident_management/incidents.md) represent service disruptions or outages that need urgent restoration and can be linked to related work items for better tracking of operational issues and their impact on planned work.
+- [Test cases](../../ci/test_cases/_index.md) integrate test planning directly into your GitLab workflows, letting teams document testing scenarios and track requirements in the same platform where they manage code. Available in the Ultimate tier.
 
 ## Relationship types
 

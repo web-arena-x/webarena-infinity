@@ -6,8 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408820305562-Optimizing-C
 
 Note: This article is provided for instructional purposes only. Zendesk does not support or guarantee the code. Please post any issues you have in the comments section or try searching for a solution online.
 
-You can use the [`connectOnPageLoad JavaScript
-API`](https://developer.zendesk.com/embeddables/docs/widget/settings#connectonpageload) to defer the Chat connection until your visitor interacts with the Web Widget.
+You can use the [`connectOnPageLoad JavaScript API`](https://developer.zendesk.com/embeddables/docs/widget/settings#connectonpageload) to defer the Chat connection until your visitor interacts with the Web Widget.
 
 Using this setting, you can fine-tune your website for performance, while still leveraging all features on specific pages.
 

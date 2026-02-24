@@ -15,8 +15,7 @@ title: Compute usage for GitLab-hosted runners on GitLab Dedicated
 
 A GitLab Dedicated instance can have both GitLab Self-Managed instance runners and GitLab-hosted instance runners.
 
-As an administrator of a GitLab Dedicated instance, you can track and monitor compute minutes used by
-namespaces running jobs on either type of instance runners.
+As an administrator of a GitLab Dedicated instance, you can track and monitor compute minutes used by namespaces running jobs on either type of instance runners.
 
 For GitLab-hosted runners:
 

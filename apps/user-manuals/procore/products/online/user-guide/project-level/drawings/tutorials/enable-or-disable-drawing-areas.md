@@ -11,9 +11,9 @@ To enable Drawing Areas for a project so users can add and create different dra
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' on the Drawings tool.
+ - 'Admin' on the Drawings tool.
 - **Additional Information:**
-  - You cannot disable drawing areas if there is more than one drawing area in the Drawings tool. To disable drawing areas, first [delete all drawing areas](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/delete-a-drawing-area "Delete a Drawing Area") until you have only one, and then disable the setting by following the steps in the [Disable Drawing Areas](#Disable_Drawing_Areas "Enable or Disable Drawing Areas") section.
+ - You cannot disable drawing areas if there is more than one drawing area in the Drawings tool. To disable drawing areas, first [delete all drawing areas](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/delete-a-drawing-area "Delete a Drawing Area") until you have only one, and then disable the setting by following the steps in the [Disable Drawing Areas](#Disable_Drawing_Areas "Enable or Disable Drawing Areas") section.
 
 ## Steps
 

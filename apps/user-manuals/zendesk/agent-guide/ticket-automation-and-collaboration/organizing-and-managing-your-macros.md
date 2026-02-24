@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408884166554-Organizing-a
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -42,7 +42,7 @@ All of your available macros can be managed through the Macros page.
 
 - In [Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554#topic_hfg_dyz_1hb), click ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ac_workspaces_icon.png) **Workspaces** in the sidebar, then select **Agent tools > Macros**.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/macros_consolidated_settings.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/macros_consolidated_settings.png)
 
 On the **Macros** tab, you can browse, categorize, sort, reorder, and filter your macros. Read on for more information.
 

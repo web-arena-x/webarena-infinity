@@ -27,13 +27,13 @@ Hi <STUDENT FIRST NAME> 
 This email confirms your application to <JOB NAME> was submitted on <DATE WITH TIME ZONE>. This job is also associated with an on campus interview and an application for the interview has also been submitted to <EMPLOYER NAME> through Handshake. Here are the next steps:
 
 - - Watch your email for updates via Handshake
-  - The employer will choose which students it wants to interview by <DATE WITH TIME ZONE>.
+ - The employer will choose which students it wants to interview by <DATE WITH TIME ZONE>.
 
 If you have any questions please feel free to reach out to your career center or the Handshake support team here.
 
 Good Luck! 
 
-Handshake Team  
+Handshake Team 
 
 ### **Slots open to primary candidates**
 

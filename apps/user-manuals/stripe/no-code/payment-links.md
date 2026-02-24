@@ -199,19 +199,19 @@ No results
 
 ```
 curl https://api.stripe.com/v1/payment_links \
-  -u "
+ -u "
 
 sk_test_BQokikJOvBiI2HlWgH4olfQ2
 
 :" \
-  -d "line_items[0][price]"=
+ -d "line_items[0][price]"=
 
 "{{PRICE_ID}}"
 
  \
-  -d "line_items[0][quantity]"=1 \
-  -d "payment_method_types[0]"=card \
-  -d "payment_method_types[1]"=klarna
+ -d "line_items[0][quantity]"=1 \
+ -d "payment_method_types[0]"=card \
+ -d "payment_method_types[1]"=klarna
 ```
 
 Some payment methods, such as bank debits or vouchers, might take between 2 and 14 days to confirm the payment. [Set up webhooks](/checkout/fulfillment#create-payment-event-handler) to send you notifications when the payment clears, so you can begin fulfillment.

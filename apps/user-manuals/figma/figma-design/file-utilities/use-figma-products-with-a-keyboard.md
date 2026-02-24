@@ -56,7 +56,7 @@ You can use the accessibility settings to adapt content on the canvas for screen
 
 To enable this setting, do one of the following:
 
-- Open the  **Main menu**, then navigate to **Preferences** > **Accessibility settings** > **Adapt content for screen readers**
+- Open the **Main menu**, then navigate to **Preferences** > **Accessibility settings** > **Adapt content for screen readers**
 - Type `Screen reader` in the [actions menu](use-the-actions-menu-in-figma-design.md) and press `Return` / `Enter`
 
 ## Use keyboard shortcuts
@@ -69,12 +69,12 @@ Open the keyboard shortcuts panel to view a selection of shortcuts. Shortcuts yo
 
 There are a few ways to open the shortcuts panel:
 
-- Click  **Help and resources** in the bottom-right and select **Keyboard shortcuts**
+- Click **Help and resources** in the bottom-right and select **Keyboard shortcuts**
 - Type `Keyboard shortcuts` in the [actions menu](use-the-actions-menu-in-figma-design.md)
 - Use the keyboard shortcut:
-  - **Mac:** `Control` `Shift` `?`
-  - **Windows:** `Ctrl` `Shift` `?`
+ - **Mac:** `Control` `Shift` `?`
+ - **Windows:** `Ctrl` `Shift` `?`
 
-The shortcuts panel opens along the bottom of your screen. Use the tabs to explore shortcuts by category, or select the **Layout** tab to manage your [keyboard layout preferences](https://help.figma.com/hc/en-us/articles/5665442977431-Select-keyboard-layout). You can continue working while the keyboard shortcuts panel is visible. Try out a new shortcut and watch the panel update. Click the  to close the panel.
+The shortcuts panel opens along the bottom of your screen. Use the tabs to explore shortcuts by category, or select the **Layout** tab to manage your [keyboard layout preferences](https://help.figma.com/hc/en-us/articles/5665442977431-Select-keyboard-layout). You can continue working while the keyboard shortcuts panel is visible. Try out a new shortcut and watch the panel update. Click the to close the panel.
 
 ![Toolbar with keyboard shortcuts for tools, actions, and resizing options in Figma to enhance workflow efficiency.](https://help.figma.com/hc/article_attachments/33846811650455)

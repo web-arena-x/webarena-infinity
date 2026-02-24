@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408822136346-Sharing-chat
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 

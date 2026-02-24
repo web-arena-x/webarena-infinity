@@ -14,7 +14,7 @@ By following these tips, you can onboard quickly, streamline your daily tasks, a
 
 Splits let you organize your inbox into separate views, so you can focus on what matters, cut through noise and stay on top of priorities. This makes it easier to work faster, stay organized, and never miss what’s important.
 
-|  |  |
+| | |
 | --- | --- |
 | **Split Examples** | **Benefit** |
 | ATS notifications | Ensures no deal is dropped, saves time with already written draft that captures your voice and tone |
@@ -30,7 +30,7 @@ Go [here](../../features/features/custom-split-inbox.md) to learn more about how
 
 Snippets save time by letting you insert pre-written responses with just a few keystrokes. They ensure consistency, reduce repetitive typing, and help you reply to emails faster. This makes communication more efficient while keeping your messages polished and professional.
 
-|  |  |
+| | |
 | --- | --- |
 | **Use Case Examples** | **Benefit** |
 | Templates for moving candidates to next stages/rejection | Quickly compose and respond with language already written. |
@@ -45,7 +45,7 @@ Learn how to use Snippets [here](../../features/features/snippets.md). You can a
 
 Recent Opens lets you see when prospects have opened your emails. This insight helps you follow up at the right time, gauge interest, and prioritize hot leads. It makes outreach more strategic and increases your chances of closing deals.
 
-|  |  |
+| | |
 | --- | --- |
 | **Use Case Examples** | **Benefit** |
 | See when candidates have opened your email | Help recruiters gauge candidate interest and help decide whether to push, wait, or close out a candidate. |
@@ -56,7 +56,7 @@ Learn more [here](../../features/features/read-statuses-and-recent-opens-feed.md
 
 Comments and shared drafts let teams collaborate directly within Mail. You can leave feedback, suggest edits, and co-write emails in real time—all without switching tools. This keeps communication aligned, speeds up approvals, and ensures messages go out polished and consistent.
 
-|  |  |
+| | |
 | --- | --- |
 | **Use Case Examples** | **Benefit** |
 | Share information with hiring managers | Quickly loop in stakeholders. |
@@ -67,7 +67,7 @@ Learn how to collaborate in the inbox [here](https://help.superhuman.com/hc/en-u
 
 The Write with AI feature in Mail helps you craft high-quality emails faster by generating context-aware, professional content directly in the compose window. It streamlines communication by suggesting polished phrasing, improving clarity, and reducing the time it takes to write, respond, and proofread —ultimately saving hours in your inbox each week while maintaining your unique voice.
 
-|  |  |
+| | |
 | --- | --- |
 | **Use Case Examples** | **Benefit** |
 | Use AI to start your email responses | Save time by allowing AI to help you get started with an email response - ensuring fast and thoughtful responses that lead to a positive candidate experience |

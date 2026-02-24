@@ -12,25 +12,19 @@ title: Apps for a testing environment
 
 {{< /details >}}
 
-This is the GitLab Support Team's collection of information regarding testing environments,
-for use while troubleshooting. It is listed here for transparency, and it may be useful
-for users with experience with these tools. If you are currently having an issue with
-GitLab, you may want to check your [support options](https://about.gitlab.com/support/)
+This is the GitLab Support Team's collection of information regarding testing environments, for use while troubleshooting. It is listed here for transparency, and it may be useful for users with experience with these tools. If you are currently having an issue with GitLab, you may want to check your [support options](https://about.gitlab.com/support/)
 first, before attempting to use this information.
 
 {{< alert type="note" >}}
 
-This page was initially written for Support Engineers, so some of the links
-are only available internally at GitLab.
+This page was initially written for Support Engineers, so some of the links are only available internally at GitLab.
 
 {{< /alert >}}
 
 ## Docker
 
-The following were tested on Docker containers running in the cloud. Support Engineers,
-see [these docs](https://gitlab.com/gitlab-com/dev-resources/tree/master/dev-resources#running-docker-containers)
-on how to run Docker containers on `dev-resources`. Other setups haven't been tested,
-but contributions are welcome.
+The following were tested on Docker containers running in the cloud. Support Engineers, see [these docs](https://gitlab.com/gitlab-com/dev-resources/tree/master/dev-resources#running-docker-containers)
+on how to run Docker containers on `dev-resources`. Other setups haven't been tested, but contributions are welcome.
 
 ### GitLab
 
@@ -67,7 +61,7 @@ gitlab_rails['omniauth_block_auto_created_users'] = false
 gitlab_rails['omniauth_auto_link_ldap_user'] = false
 gitlab_rails['omniauth_auto_link_saml_user'] = true
 gitlab_rails['omniauth_providers'] = [
-  {
+ {
     "name" => "saml",
     "label" => "SAML",
     "args" => {
@@ -77,7 +71,7 @@ gitlab_rails['omniauth_providers'] = [
       issuer: '<GITLAB_IP_OR_DOMAIN>',
       name_identifier_format: 'urn:oasis:names:tc:SAML:2.0:nameid-format:persistent'
     }
-  }
+ }
 ]
 ```
 
@@ -113,8 +107,7 @@ on running PlantUML in Docker.
 docker run -d -p 8081:8080 cptactionhank/atlassian-jira:latest
 ```
 
-Then go to `<IP_ADDRESS>:8081` in the browser to set it up. This requires a
-Jira license.
+Then go to `<IP_ADDRESS>:8081` in the browser to set it up. This requires a Jira license.
 
 ### Grafana
 

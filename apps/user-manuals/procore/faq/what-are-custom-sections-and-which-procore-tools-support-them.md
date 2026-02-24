@@ -10,14 +10,14 @@ Source: https://support.procore.com/faq/what-are-custom-sections-and-which-proco
 
 | **Tool** | **Fieldsets Available to Configure with Custom Sections** |
 | --- | --- |
-| **Admin (Project Level)** | *Project  Note:* Only one 'Project' fieldset can be created and the fieldset will apply to all new and existing projects. See [Create a Project Fieldset](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/create-a-default-project-fieldset "Create a Default Project Fieldset"). |
-| **Action Plans** | *Action Plan Type*  *Note:* Each of your company's custom action plan types has its own fieldset. |
+| **Admin (Project Level)** | *Project Note:* Only one 'Project' fieldset can be created and the fieldset will apply to all new and existing projects. See [Create a Project Fieldset](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/create-a-default-project-fieldset "Create a Default Project Fieldset"). |
+| **Action Plans** | *Action Plan Type* *Note:* Each of your company's custom action plan types has its own fieldset. |
 | **Change Events (Change Management)** | *Change Events* |
 | **Client Contracts** 1 | *Client Contracts* |
 | **Commitments (Contracts)** | *Purchase Orders* and *Subcontracts* |
-| **Correspondence** | *Correspondence Type*  *Note:*Each of your company's custom correspondence types has its own fieldset. |
+| **Correspondence** | *Correspondence Type* *Note:*Each of your company's custom correspondence types has its own fieldset. |
 | **Funding**2 | *Fundings* |
-| **Inspections** | Inspection Type  *Note:* Each of your company's custom inspection types has its own fieldset. |
+| **Inspections** | Inspection Type *Note:* Each of your company's custom inspection types has its own fieldset. |
 | **RFIs** | *RFI* |
 | **Submittals** | *Submittal Log* |
 | **Prime Contracts** | *Prime Contracts* |

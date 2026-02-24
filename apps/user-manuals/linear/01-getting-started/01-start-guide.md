@@ -7,7 +7,7 @@ Linear helps teams plan, track, and deliver work without a lot of overhead. This
 Start here if you want to understand the layout and core workflows before setting anything up.
 
 * [**Intro to Linear**](https://www.youtube.com/watch?v=9Q5BoiIFBiY&list=PLP9v0Y4zla9vG7k8e279bSz5hUl0oXlMH&index=1) Watch a high-level walkthrough of the Linear environment.
-* [**Demo Linear**](https://linear.app/demo) Explore our demo workspace to see how issues, projects, and workflows fit together.  
+* [**Demo Linear**](https://linear.app/demo) Explore our demo workspace to see how issues, projects, and workflows fit together. 
 _Note: Changes are local to your browser and reset on refresh. The demo does not include settings, and it does not show or support SLAs._
 * [**Live onboarding session**](https://luma.com/linear?utm_source=docs) Join a guided session to learn the essentials and see common workflows in action
 * [**Learning Library**](https://www.youtube.com/playlist?list=PLP9v0Y4zla9vG7k8e279bSz5hUl0oXlMH) Visit this playlist of onboarding videos covering the most common day-to-day workflows.

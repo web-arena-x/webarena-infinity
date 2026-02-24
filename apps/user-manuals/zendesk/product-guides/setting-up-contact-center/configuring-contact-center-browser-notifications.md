@@ -8,7 +8,7 @@ Contact Center supports desktop notifications to keep agents informed of incomin
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Zendesk for Contact Center |
 
@@ -69,18 +69,15 @@ For example, for Chrome add these domains in `chrome://settings/cookies`, for Ed
 
 In your browser settings, ensure that tab discarding and notification suppression doesn't apply to Zendesk apps.
 
-Chrome: Disable Memory Saver
-:   1. Open Settings > Performance or enter `chrome://settings/performance` in the address bar.
+Chrome: Disable Memory Saver :   1. Open Settings > Performance or enter `chrome://settings/performance` in the address bar.
     2. Under "Always keep these sites active", then click Add.
     3. Enter `[*.]zendesk.com` and click Add to save.
 
-Edge: Stop Sleeping Tabs
-:   1. Enter `edge://settings/system` in the address bar.
+Edge: Stop Sleeping Tabs :   1. Enter `edge://settings/system` in the address bar.
     2. Locate the **"Never put these sites to sleep"** section.
     3. Click **Add** and enter `[*.]zendesk.com`.
 
-Firefox: Prevent Tab Discarding
-:   1. Type `about:config` in your address bar and press **Enter**.
+Firefox: Prevent Tab Discarding :   1. Type `about:config` in your address bar and press **Enter**.
     2. Click **"Accept the Risk and Continue."**
     3. Search for `browser.tabs.unloadOnLowMemory` and double-click it to set it to **false**.
 
@@ -92,7 +89,7 @@ In addition to configuring browser notifications in Contact Center and your brow
 
 - In System Settings > Notifications on your macOS, check that your browser has the Allow notifications option selected.
 
-  Note: If there are 2 entries for your browser, then allow notifications for both.
+ Note: If there are 2 entries for your browser, then allow notifications for both.
 
 **To activate notification on Windows**
 
@@ -108,9 +105,9 @@ Click the notification to open Contact Center. If available, click the **Accept*
 
 Examples of call and chat notifications on macOS:
 
-|  |  |
+| | |
 | --- | --- |
-|  |  |
+| | |
 
 Example of a chat notification on Windows 10:
 

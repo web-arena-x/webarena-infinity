@@ -15,8 +15,7 @@ title: Conan v1 API
 > [!note]
 > For Conan v2 operations, see [Conan v2 API](conan_v2.md).
 
-Use this API to interact with the [Conan v1 package manager](../../user/packages/conan_1_repository/_index.md). These endpoints work for both
-projects and instances.
+Use this API to interact with the [Conan v1 package manager](../../user/packages/conan_1_repository/_index.md). These endpoints work for both projects and instances.
 
 Generally, these endpoints are used by the [Conan 1 package manager client](https://docs.conan.io/en/latest/)
 and are not meant for manual consumption.
@@ -24,10 +23,10 @@ and are not meant for manual consumption.
 {{< alert type="note" >}}
 
 - These endpoints do not adhere to the standard API authentication methods.
-  See each route for details on how credentials are expected to be passed. Undocumented authentication methods might be removed in the future.
+ See each route for details on how credentials are expected to be passed. Undocumented authentication methods might be removed in the future.
 
 - The Conan registry is not FIPS compliant and is disabled when FIPS mode is enabled.
-  These endpoints all return `404 Not Found`.
+ These endpoints all return `404 Not Found`.
 
 {{< /alert >}}
 
@@ -105,7 +104,7 @@ Example response:
 
 ```json
 {
-  "results": [
+ "results": [
     "Hello/0.1@foo+conan_test_prod/beta",
     "Hello/0.1@foo+conan_test_prod/stable",
     "Hello/0.2@foo+conan_test_prod/beta",
@@ -113,7 +112,7 @@ Example response:
     "Hello/0.1@foo+conan-reference-test/stable",
     "HelloWorld/0.1@baz+conan-reference-test/beta"
     "hello-world/0.4@buz+conan-test/alpha"
-  ]
+ ]
 }
 ```
 
@@ -143,8 +142,7 @@ ok
 
 ## Get a recipe snapshot
 
-Gets a snapshot of the files for a specified Conan recipe. The snapshot is a list of filenames
-with their associated MD5 hash.
+Gets a snapshot of the files for a specified Conan recipe. The snapshot is a list of filenames with their associated MD5 hash.
 
 ```plaintext
 GET /packages/conan/v1/conans/:package_name/:package_version/:package_username/:package_channel
@@ -156,7 +154,7 @@ GET /projects/:id/packages/conan/v1/conans/:package_version/:package_username/:p
 | `id`                | string | Conditionally | The project ID or full project path. Required only for the project endpoint. |
 | `package_name`      | string | yes | Name of a package. |
 | `package_version`   | string | yes | Version of a package. |
-| `package_username`  | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
+| `package_username` | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
 | `package_channel`   | string | yes | Channel of a package. |
 
 ```shell
@@ -168,16 +166,15 @@ Example response:
 
 ```json
 {
-  "conan_sources.tgz": "eadf19b33f4c3c7e113faabf26e76277",
-  "conanfile.py": "25e55b96a28f81a14ba8e8a8c99eeace",
-  "conanmanifest.txt": "5b6fd77a2ba14303ce4cdb08c87e82ab"
+ "conan_sources.tgz": "eadf19b33f4c3c7e113faabf26e76277",
+ "conanfile.py": "25e55b96a28f81a14ba8e8a8c99eeace",
+ "conanmanifest.txt": "5b6fd77a2ba14303ce4cdb08c87e82ab"
 }
 ```
 
 ## Get a package snapshot
 
-Gets a snapshot of the files for a specified Conan package and reference. The snapshot is a list of filenames
-with their associated MD5 hash.
+Gets a snapshot of the files for a specified Conan package and reference. The snapshot is a list of filenames with their associated MD5 hash.
 
 ```plaintext
 GET /packages/conan/v1/conans/:package_name/:package_version/:package_username/:package_channel/packages/:conan_package_reference
@@ -189,7 +186,7 @@ GET /projects/:id/packages/conan/v1/conans/:package_name/:package_version/:packa
 | `id`                | string | Conditionally | The project ID or full project path. Required only for the project endpoint. |
 | `package_name`      | string | yes | Name of a package. |
 | `package_version`   | string | yes | Version of a package. |
-| `package_username`  | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
+| `package_username` | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
 | `package_channel`   | string | yes | Channel of a package. |
 | `conan_package_reference` | string | yes | Reference hash of a Conan package. Conan generates this value. |
 
@@ -202,9 +199,9 @@ Example response:
 
 ```json
 {
-  "conan_package.tgz": "749b29bdf72587081ca03ec033ee59dc",
-  "conaninfo.txt": "32859d737fe84e6a7ccfa4d64dc0d1f2",
-  "conanmanifest.txt": "a86b398e813bd9aa111485a9054a2301"
+ "conan_package.tgz": "749b29bdf72587081ca03ec033ee59dc",
+ "conaninfo.txt": "32859d737fe84e6a7ccfa4d64dc0d1f2",
+ "conanmanifest.txt": "a86b398e813bd9aa111485a9054a2301"
 }
 ```
 
@@ -222,7 +219,7 @@ GET /projects/:id/packages/conan/v1/conans/:package_name/:package_version/:packa
 | `id`                | string | Conditionally | The project ID or full project path. Required only for the project endpoint. |
 | `package_name`      | string | yes | Name of a package. |
 | `package_version`   | string | yes | Version of a package. |
-| `package_username`  | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
+| `package_username` | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
 | `package_channel`   | string | yes | Channel of a package. |
 
 ```shell
@@ -234,9 +231,9 @@ Example response:
 
 ```json
 {
-  "conan_sources.tgz": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/export/conan_sources.tgz",
-  "conanfile.py": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/export/conanfile.py",
-  "conanmanifest.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/export/conanmanifest.txt"
+ "conan_sources.tgz": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/export/conan_sources.tgz",
+ "conanfile.py": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/export/conanfile.py",
+ "conanmanifest.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/export/conanmanifest.txt"
 }
 ```
 
@@ -254,7 +251,7 @@ GET /projects/:id/packages/conan/v1/conans/:package_name/:package_version/:packa
 | `id`                | string | Conditionally | The project ID or full project path. Required only for the project endpoint. |
 | `package_name`      | string | yes | Name of a package. |
 | `package_version`   | string | yes | Version of a package. |
-| `package_username`  | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
+| `package_username` | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
 | `package_channel`   | string | yes | Channel of a package. |
 | `conan_package_reference` | string | yes | Reference hash of a Conan package. Conan generates this value. |
 
@@ -267,9 +264,9 @@ Example response:
 
 ```json
 {
-  "conan_package.tgz": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/packages/103f6067a947f366ef91fc1b7da351c588d1827f/0/conan_package.tgz",
-  "conaninfo.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/packages/103f6067a947f366ef91fc1b7da351c588d1827f/0/conaninfo.txt",
-  "conanmanifest.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/packages/103f6067a947f366ef91fc1b7da351c588d1827f/0/conanmanifest.txt"
+ "conan_package.tgz": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/packages/103f6067a947f366ef91fc1b7da351c588d1827f/0/conan_package.tgz",
+ "conaninfo.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/packages/103f6067a947f366ef91fc1b7da351c588d1827f/0/conaninfo.txt",
+ "conanmanifest.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/packages/103f6067a947f366ef91fc1b7da351c588d1827f/0/conanmanifest.txt"
 }
 ```
 
@@ -288,7 +285,7 @@ GET /projects/:id/packages/conan/v1/conans/:package_name/:package_version/:packa
 | `id`                | string | Conditionally | The project ID or full project path. Required only for the project endpoint. |
 | `package_name`      | string | yes | Name of a package. |
 | `package_version`   | string | yes | Version of a package. |
-| `package_username`  | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
+| `package_username` | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
 | `package_channel`   | string | yes | Channel of a package. |
 
 ```shell
@@ -300,9 +297,9 @@ Example response:
 
 ```json
 {
-  "conan_sources.tgz": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/export/conan_sources.tgz",
-  "conanfile.py": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/export/conanfile.py",
-  "conanmanifest.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/export/conanmanifest.txt"
+ "conan_sources.tgz": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/export/conan_sources.tgz",
+ "conanfile.py": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/export/conanfile.py",
+ "conanmanifest.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/export/conanmanifest.txt"
 }
 ```
 
@@ -321,7 +318,7 @@ GET /projects/:id/packages/conan/v1/conans/:package_name/:package_version/:packa
 | `id`                | string | Conditionally | The project ID or full project path. Required only for the project endpoint. |
 | `package_name`      | string | yes | Name of a package. |
 | `package_version`   | string | yes | Version of a package. |
-| `package_username`  | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
+| `package_username` | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
 | `package_channel`   | string | yes | Channel of a package. |
 | `conan_package_reference` | string | yes | Reference hash of a Conan package. Conan generates this value. |
 
@@ -334,16 +331,15 @@ Example response:
 
 ```json
 {
-  "conan_package.tgz": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/packages/103f6067a947f366ef91fc1b7da351c588d1827f/0/conan_package.tgz",
-  "conaninfo.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/packages/103f6067a947f366ef91fc1b7da351c588d1827f/0/conaninfo.txt",
-  "conanmanifest.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/packages/103f6067a947f366ef91fc1b7da351c588d1827f/0/conanmanifest.txt"
+ "conan_package.tgz": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/packages/103f6067a947f366ef91fc1b7da351c588d1827f/0/conan_package.tgz",
+ "conaninfo.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/packages/103f6067a947f366ef91fc1b7da351c588d1827f/0/conaninfo.txt",
+ "conanmanifest.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/packages/103f6067a947f366ef91fc1b7da351c588d1827f/0/conanmanifest.txt"
 }
 ```
 
 ## List all recipe upload URLs
 
-Lists the upload URLs for a specified collection of recipe files. The request must include a JSON object
-with the name and size of the individual files.
+Lists the upload URLs for a specified collection of recipe files. The request must include a JSON object with the name and size of the individual files.
 
 ```plaintext
 POST /packages/conan/v1/conans/:package_name/:package_version/:package_username/:package_channel/upload_urls
@@ -355,7 +351,7 @@ POST /projects/:id/packages/conan/v1/conans/:package_name/:package_version/:pack
 | `id`                | string | Conditionally | The project ID or full project path. Required only for the project endpoint. |
 | `package_name`      | string | yes | Name of a package. |
 | `package_version`   | string | yes | Version of a package. |
-| `package_username`  | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
+| `package_username` | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
 | `package_channel`   | string | yes | Channel of a package. |
 
 Example request JSON payload:
@@ -364,8 +360,8 @@ The payload must include both the name and size of the file.
 
 ```json
 {
-  "conanfile.py": 410,
-  "conanmanifest.txt": 130
+ "conanfile.py": 410,
+ "conanmanifest.txt": 130
 }
 ```
 
@@ -381,15 +377,14 @@ Example response:
 
 ```json
 {
-  "conanfile.py": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/export/conanfile.py",
-  "conanmanifest.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/export/conanmanifest.txt"
+ "conanfile.py": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/export/conanfile.py",
+ "conanmanifest.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/export/conanmanifest.txt"
 }
 ```
 
 ## List all package upload URLs
 
-Lists the upload URLs for a specified collection of package files. The request must include a JSON object
-with the name and size of the individual files.
+Lists the upload URLs for a specified collection of package files. The request must include a JSON object with the name and size of the individual files.
 
 ```plaintext
 POST /packages/conan/v1/conans/:package_name/:package_version/:package_username/:package_channel/packages/:conan_package_reference/upload_urls
@@ -401,7 +396,7 @@ POST /projects/:id/packages/conan/v1/conans/:package_name/:package_version/:pack
 | `id`                | string | Conditionally | The project ID or full project path. Required only for the project endpoint. |
 | `package_name`      | string | yes | Name of a package. |
 | `package_version`   | string | yes | Version of a package. |
-| `package_username`  | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
+| `package_username` | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
 | `package_channel`   | string | yes | Channel of a package. |
 | `conan_package_reference` | string | yes | Reference hash of a Conan package. Conan generates this value. |
 
@@ -411,9 +406,9 @@ The payload must include both the name and size of the file.
 
 ```json
 {
-  "conan_package.tgz": 5412,
-  "conanmanifest.txt": 130,
-  "conaninfo.txt": 210
+ "conan_package.tgz": 5412,
+ "conanmanifest.txt": 130,
+ "conaninfo.txt": 210
 }
 ```
 
@@ -429,16 +424,15 @@ Example response:
 
 ```json
 {
-  "conan_package.tgz": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/package/103f6067a947f366ef91fc1b7da351c588d1827f/0/conan_package.tgz",
-  "conanmanifest.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/package/103f6067a947f366ef91fc1b7da351c588d1827f/0/conanmanifest.txt",
-  "conaninfo.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/package/103f6067a947f366ef91fc1b7da351c588d1827f/0/conaninfo.txt"
+ "conan_package.tgz": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/package/103f6067a947f366ef91fc1b7da351c588d1827f/0/conan_package.tgz",
+ "conanmanifest.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/package/103f6067a947f366ef91fc1b7da351c588d1827f/0/conanmanifest.txt",
+ "conaninfo.txt": "https://gitlab.example.com/api/v4/packages/conan/v1/files/my-package/1.0/my-group+my-project/stable/0/package/103f6067a947f366ef91fc1b7da351c588d1827f/0/conaninfo.txt"
 }
 ```
 
 ## Get a recipe file
 
-Gets a recipe file from the package registry. You must use the download URL returned from the
-[recipe download URLs](#list-all-recipe-download-urls) endpoint.
+Gets a recipe file from the package registry. You must use the download URL returned from the [recipe download URLs](#list-all-recipe-download-urls) endpoint.
 
 ```plaintext
 GET /packages/conan/v1/files/:package_name/:package_version/:package_username/:package_channel/:recipe_revision/export/:file_name
@@ -450,7 +444,7 @@ GET /projects/:id/packages/conan/v1/files/:package_name/:package_version/:packag
 | `id`                | string | Conditionally | The project ID or full project path. Required only for the project endpoint. |
 | `package_name`      | string | yes | Name of a package. |
 | `package_version`   | string | yes | Version of a package. |
-| `package_username`  | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
+| `package_username` | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
 | `package_channel`   | string | yes | Channel of a package. |
 | `recipe_revision`   | string | yes | Revision of the recipe. GitLab does not yet support Conan revisions, so the default value of `0` is always used. |
 | `file_name`         | string | yes | The name and file extension of the requested file. |
@@ -472,8 +466,7 @@ This example writes to `conanfile.py` in the current directory.
 
 ## Upload a recipe file
 
-Uploads a specified recipe file in the package registry. You must use the upload URL returned from the
-[recipe upload URLs](#list-all-recipe-upload-urls) endpoint.
+Uploads a specified recipe file in the package registry. You must use the upload URL returned from the [recipe upload URLs](#list-all-recipe-upload-urls) endpoint.
 
 ```plaintext
 PUT /packages/conan/v1/files/:package_name/:package_version/:package_username/:package_channel/:recipe_revision/export/:file_name
@@ -485,7 +478,7 @@ PUT /projects/:id/packages/conan/v1/files/:package_name/:package_version/:packag
 | `id`                | string | Conditionally | The project ID or full project path. Required only for the project endpoint. |
 | `package_name`      | string | yes | Name of a package. |
 | `package_version`   | string | yes | Version of a package. |
-| `package_username`  | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
+| `package_username` | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
 | `package_channel`   | string | yes | Channel of a package. |
 | `recipe_revision`   | string | yes | Revision of the recipe. GitLab does not yet support Conan revisions, so the default value of `0` is always used. |
 | `file_name`         | string | yes | The name and file extension of the requested file. |
@@ -501,8 +494,7 @@ curl --request PUT \
 
 ## Get a package file
 
-Gets a package file from the package registry. You must use the download URL returned from the
-[package download URLs](#list-all-package-download-urls) endpoint.
+Gets a package file from the package registry. You must use the download URL returned from the [package download URLs](#list-all-package-download-urls) endpoint.
 
 ```plaintext
 GET /packages/conan/v1/files/:package_name/:package_version/:package_username/:package_channel/:recipe_revision/package/:conan_package_reference/:package_revision/:file_name
@@ -514,11 +506,11 @@ GET /projects/:id/packages/conan/v1/files/:package_name/:package_version/:packag
 | `id`                | string | Conditionally | The project ID or full project path. Required only for the project endpoint. |
 | `package_name`      | string | yes | Name of a package. |
 | `package_version`   | string | yes | Version of a package. |
-| `package_username`  | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
+| `package_username` | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
 | `package_channel`   | string | yes | Channel of a package. |
 | `recipe_revision`   | string | yes | Revision of the recipe. GitLab does not yet support Conan revisions, so the default value of `0` is always used. |
 | `conan_package_reference` | string | yes | Reference hash of a Conan package. Conan generates this value. |
-| `package_revision`  | string | yes | Revision of the package. GitLab does not yet support Conan revisions, so the default value of `0` is always used. |
+| `package_revision` | string | yes | Revision of the package. GitLab does not yet support Conan revisions, so the default value of `0` is always used. |
 | `file_name`         | string | yes | The name and file extension of the requested file. |
 
 ```shell
@@ -538,8 +530,7 @@ This example writes to `conaninfo.txt` in the current directory.
 
 ## Upload a package file
 
-Uploads a specified package file in the package registry. You must use the upload URL returned from the
-[package upload URLs](#list-all-package-upload-urls) endpoint.
+Uploads a specified package file in the package registry. You must use the upload URL returned from the [package upload URLs](#list-all-package-upload-urls) endpoint.
 
 ```plaintext
 PUT /packages/conan/v1/files/:package_name/:package_version/:package_username/:package_channel/:recipe_revision/package/:conan_package_reference/:package_revision/:file_name
@@ -551,11 +542,11 @@ PUT /projects/:id/packages/conan/v1/files/:package_name/:package_version/:packag
 | `id`                | string | Conditionally | The project ID or full project path. Required only for the project endpoint. |
 | `package_name`      | string | yes | Name of a package. |
 | `package_version`   | string | yes | Version of a package. |
-| `package_username`  | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
+| `package_username` | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
 | `package_channel`   | string | yes | Channel of a package. |
 | `recipe_revision`   | string | yes | Revision of the recipe. GitLab does not yet support Conan revisions, so the default value of `0` is always used. |
 | `conan_package_reference` | string | yes | Reference hash of a Conan package. Conan generates this value. |
-| `package_revision`  | string | yes | Revision of the package. GitLab does not yet support Conan revisions, so the default value of `0` is always used. |
+| `package_revision` | string | yes | Revision of the package. GitLab does not yet support Conan revisions, so the default value of `0` is always used. |
 | `file_name`         | string | yes | The name and file extension of the requested file. |
 
 Provide the file context in the request body:
@@ -581,7 +572,7 @@ DELETE /projects/:id/packages/conan/v1/conans/:package_name/:package_version/:pa
 | `id`                | string | Conditionally | The project ID or full project path. Required only for the project endpoint. |
 | `package_name`      | string | yes | Name of a package. |
 | `package_version`   | string | yes | Version of a package. |
-| `package_username`  | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
+| `package_username` | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
 | `package_channel`   | string | yes | Channel of a package. |
 
 ```shell
@@ -594,15 +585,15 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "project_id": 123,
-  "created_at": "2020-08-19T13:17:28.655Z",
-  "updated_at": "2020-08-19T13:17:28.655Z",
-  "name": "my-package",
-  "version": "1.0",
-  "package_type": "conan",
-  "creator_id": null,
-  "status": "default"
+ "id": 1,
+ "project_id": 123,
+ "created_at": "2020-08-19T13:17:28.655Z",
+ "updated_at": "2020-08-19T13:17:28.655Z",
+ "name": "my-package",
+ "version": "1.0",
+ "package_type": "conan",
+ "creator_id": null,
+ "status": "default"
 }
 ```
 
@@ -620,7 +611,7 @@ GET /projects/:id/packages/conan/v1/conans/:package_name/:package_version/:packa
 | `id`                | string | Conditionally | The project ID or full project path. Required only for the project endpoint. |
 | `package_name`      | string | yes | Name of a package. |
 | `package_version`   | string | yes | Version of a package. |
-| `package_username`  | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
+| `package_username` | string | yes | Conan username of a package. This attribute is the `+`-separated full path of your project. |
 | `package_channel`   | string | yes | Channel of a package. |
 
 ```shell
@@ -632,7 +623,7 @@ Example response:
 
 ```json
 {
-  "103f6067a947f366ef91fc1b7da351c588d1827f": {
+ "103f6067a947f366ef91fc1b7da351c588d1827f": {
     "settings": {
       "arch": "x86_64",
       "build_type": "Release",
@@ -648,7 +639,7 @@ Example response:
       "zlib/1.2.11": null
     },
     "recipe_hash": "75151329520e7685dcf5da49ded2fec0"
-  }
+ }
 }
 ```
 

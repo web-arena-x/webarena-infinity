@@ -62,7 +62,7 @@ Before you swap, make sure:
 To swap between libraries:
 
 1. Select the **Assets** tab in the left sidebar.
-2. Click the  **Library** icon to open the **Libraries** modal.  The icon’s tooltip may read **Review library updates** if there are updates to libraries you are using in the file, or **Review unpublished changes** if you have unpublished updates in your file.
+2. Click the **Library** icon to open the **Libraries** modal.  The icon’s tooltip may read **Review library updates** if there are updates to libraries you are using in the file, or **Review unpublished changes** if you have unpublished updates in your file.
 3. Select **This file** and locate the library you want to replace.
 4. Select the library and click **Swap library** at the bottom of the modal.![](https://help.figma.com/hc/article_attachments/27999055994135)
 5. From the **Choose library** dropdown, find a select a replacement library.
@@ -94,13 +94,13 @@ Before you swap to replace a missing library, make sure:
 - Any assets you wish to swap have matching names.
 
 1. Select the **Assets** tab in the left sidebar.
-2. Click the  **Library** icon to open the **Libraries** modal.  The icon’s tooltip may read **Review library updates** if there are updates to libraries you are using in the file, or **Review unpublished changes** if you have unpublished updates in your file.
+2. Click the **Library** icon to open the **Libraries** modal.  The icon’s tooltip may read **Review library updates** if there are updates to libraries you are using in the file, or **Review unpublished changes** if you have unpublished updates in your file.
 3. From **This file**, scroll down and click **View missing libraries** at the bottom of the modal. ![](https://help.figma.com/hc/article_attachments/27999040350231)
 4. If there is more than one missing library, styles and components are grouped by their origin library along with details of the number of missing assets. Select a library to view the affected styles and components.![](https://help.figma.com/hc/article_attachments/27999056004375)
 5. Use the **Choose library** dropdown to find and select a replacement library.
    - View libraries available to the entire organization
    - Explore published libraries by team![](https://help.figma.com/hc/article_attachments/27999040356887)
-6. Figma looks for any styles and components with a matching name. Use the checkboxes on the left to choose which assets to swap.   
+6. Figma looks for any styles and components with a matching name. Use the checkboxes on the left to choose which assets to swap.  
    - If a matching style or component is found, the box next to the asset is checked and you'll see a preview in the selected library.
    - If no matching styles or components are found, the box is unchecked and you'll see a **None found** message.
    - If there are incorrect or undesired matches, use the checkbox to remove the asset from the swap.

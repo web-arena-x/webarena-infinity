@@ -43,11 +43,7 @@ For known issues, see [proxying-related items in the Geo documentation](../_inde
 
 ## Set up a unified URL for Geo sites
 
-Secondary sites can transparently serve read-write traffic. Therefore, you can
-use a single external URL so that requests can hit either the primary Geo site
-or any secondary Geo sites. This delivers a consistent, seamless, and
-comprehensive experience whichever site the user lands on. Users don't need to
-juggle multiple URLs or even be aware of the idea of multiple sites.
+Secondary sites can transparently serve read-write traffic. Therefore, you can use a single external URL so that requests can hit either the primary Geo site or any secondary Geo sites. This delivers a consistent, seamless, and comprehensive experience whichever site the user lands on. Users don't need to juggle multiple URLs or even be aware of the idea of multiple sites.
 
 You can route traffic to Geo sites with:
 
@@ -61,8 +57,7 @@ Follow this example to route traffic to the closest Geo site, whether primary or
 
 #### Prerequisites
 
-This example creates a `gitlab.example.com` subdomain that automatically directs
-requests:
+This example creates a `gitlab.example.com` subdomain that automatically directs requests:
 
 - From Europe to a **secondary** site.
 - From all other locations to the **primary** site.
@@ -70,21 +65,16 @@ requests:
 For this example, you need:
 
 - A working Geo **primary** site and **secondary** site, see the [Geo setup instructions](../setup/_index.md).
-- A DNS zone managing your domain. Although the following instructions use
-  [AWS Route53](https://aws.amazon.com/route53/)
-  and [GCP cloud DNS](https://cloud.google.com/dns/), other services such as
-  [Cloudflare](https://www.cloudflare.com/) can be used as well.
+- A DNS zone managing your domain. Although the following instructions use [AWS Route53](https://aws.amazon.com/route53/)
+ and [GCP cloud DNS](https://cloud.google.com/dns/), other services such as [Cloudflare](https://www.cloudflare.com/) can be used as well.
 
 #### AWS Route53
 
 In this example, you use a Route53 Hosted Zone managing your domain for the Route53 setup.
 
-In a Route53 Hosted Zone, traffic policies can be used to set up a variety of
-routing configurations. To create a traffic policy:
+In a Route53 Hosted Zone, traffic policies can be used to set up a variety of routing configurations. To create a traffic policy:
 
-1. Go to the
-   [Route53 dashboard](https://console.aws.amazon.com/route53/home) and select
-   **Traffic policies**.
+1. Go to the [Route53 dashboard](https://console.aws.amazon.com/route53/home) and select **Traffic policies**.
 1. Select **Create traffic policy**.
 1. Fill in the **Policy Name** field with `Single Git Host` and select **Next**.
 1. Leave **DNS type** as `A: IP Address in IPv4 format`.
@@ -107,8 +97,7 @@ routing configurations. To create a traffic policy:
 
 1. Select **Create policy records**.
 
-You have successfully set up a single host, like `gitlab.example.com`, which
-distributes traffic to your Geo sites by geolocation.
+You have successfully set up a single host, like `gitlab.example.com`, which distributes traffic to your Geo sites by geolocation.
 
 #### GCP
 
@@ -131,13 +120,11 @@ When creating Geo-Based record sets, GCP applies a nearest match for the source 
    1. Select **Done**.
 1. Select **Create**.
 
-You have successfully set up a single host, like `gitlab.example.com`, which
-distributes traffic to your Geo sites using a location-aware URL.
+You have successfully set up a single host, like `gitlab.example.com`, which distributes traffic to your Geo sites using a location-aware URL.
 
 ### Configure each site to use the same external URL
 
-After you have set up routing from a single URL to all of your Geo sites, follow
-the following steps if your sites use different URLs:
+After you have set up routing from a single URL to all of your Geo sites, follow the following steps if your sites use different URLs:
 
 1. On each GitLab site, SSH into **each** node running Rails (Puma, Sidekiq, Log-Cursor)
    and set the `external_url` to that of the single URL:
@@ -152,11 +139,9 @@ the following steps if your sites use different URLs:
    sudo gitlab-ctl reconfigure
    ```
 
-1. To match the new external URL set on the secondary Geo sites, the primary database
-   needs to reflect this change.
+1. To match the new external URL set on the secondary Geo sites, the primary database needs to reflect this change.
 
-   In the Geo administration page of the **primary** site, edit each Geo secondary that
-   is using the secondary proxying and set the `URL` field to the single URL.
+   In the Geo administration page of the **primary** site, edit each Geo secondary that is using the secondary proxying and set the `URL` field to the single URL.
    Make sure the primary site is also using this URL.
 
    To allow the sites to talk to each other, [make sure the `Internal URL` field is unique for each site](../../geo_sites.md#set-up-the-internal-urls).
@@ -172,8 +157,7 @@ You can use different external URLs per site. You can use this to offer a specif
 
 ### Configure a secondary Geo site to a different external URL than the primary site
 
-If your secondary site uses the same external URL as the primary site,
-but you want to change it to use a different URL:
+If your secondary site uses the same external URL as the primary site, but you want to change it to use a different URL:
 
 1. On the secondary site, SSH into **each** node running Rails (Puma, Sidekiq, Log-Cursor)
    and set the `external_url` to the desired URL for the secondary site:
@@ -188,8 +172,7 @@ but you want to change it to use a different URL:
    sudo gitlab-ctl reconfigure
    ```
 
-1. To match the new external URL set on the secondary Geo site, the primary database
-   needs to reflect this change.
+1. To match the new external URL set on the secondary Geo site, the primary database needs to reflect this change.
 
    In the Geo administration page of the **primary** site, edit the target secondary site and set the `URL` field to the desired URL.
 
@@ -197,21 +180,16 @@ but you want to change it to use a different URL:
 
 ## Behavior of secondary sites when the primary Geo site is down
 
-Considering that web traffic is proxied to the primary, the behavior of the secondary sites differs when the primary
-site is inaccessible:
+Considering that web traffic is proxied to the primary, the behavior of the secondary sites differs when the primary site is inaccessible:
 
 - UI and API traffic return the same errors as the primary (or fail if the primary is not accessible at all) because they are proxied.
-- For repositories that are fully up-to-date on the specific secondary site being accessed, Git read operations still work as expected,
-  including authentication through HTTP(s) or SSH. However, Git reads performed by GitLab Runners will fail.
-- Git operations for repositories that are not replicated to the secondary site return the same errors
-  as the primary site because they are proxied.
+- For repositories that are fully up-to-date on the specific secondary site being accessed, Git read operations still work as expected, including authentication through HTTP(s) or SSH. However, Git reads performed by GitLab Runners will fail.
+- Git operations for repositories that are not replicated to the secondary site return the same errors as the primary site because they are proxied.
 - All Git write operations return the same errors as the primary site because they are proxied.
 
 ## Features accelerated by secondary Geo sites
 
-Most HTTP traffic sent to a secondary Geo site is proxied to the primary Geo site. With this architecture,
-secondary Geo sites are able to support write requests, and avoid read-after-write problems. Certain
-**read** requests are handled locally by secondary sites for improved latency and bandwidth nearby.
+Most HTTP traffic sent to a secondary Geo site is proxied to the primary Geo site. With this architecture, secondary Geo sites are able to support write requests, and avoid read-after-write problems. Certain **read** requests are handled locally by secondary sites for improved latency and bandwidth nearby.
 
 The following table details the components tested through the Geo secondary site Workhorse proxy.
 It does not cover all data types.
@@ -371,8 +349,7 @@ If there are multiple secondary sites, you can disable HTTP proxying on each sec
 
 {{< tab title="Linux package (Omnibus)" >}}
 
-1. SSH into each application node (serving user traffic directly) on your secondary Geo site
-   and add the following environment variable:
+1. SSH into each application node (serving user traffic directly) on your secondary Geo site and add the following environment variable:
 
    ```shell
    sudo -e /etc/gitlab/gitlab.rb
@@ -394,12 +371,11 @@ If there are multiple secondary sites, you can disable HTTP proxying on each sec
 
 {{< tab title="Helm chart (Kubernetes)" >}}
 
-You can use `--set gitlab.webservice.extraEnv.GEO_SECONDARY_PROXY="0"`,
-or specify the following in your values file:
+You can use `--set gitlab.webservice.extraEnv.GEO_SECONDARY_PROXY="0"`, or specify the following in your values file:
 
 ```yaml
 gitlab:
-  webservice:
+ webservice:
     extraEnv:
       GEO_SECONDARY_PROXY: "0"
 ```

@@ -13,20 +13,17 @@ title: GitLab Admin area
 
 {{< /details >}}
 
-The **Admin** area provides a web UI to manage and configure features of a
-GitLab Self-Managed instance. If you are an administrator, to access the **Admin** area:
+The **Admin** area provides a web UI to manage and configure features of a GitLab Self-Managed instance. If you are an administrator, to access the **Admin** area:
 
 - In GitLab 18.5 and later:
-  - In the upper-right corner, select **Admin**.
-  - On the top bar, select **Search or go to**, then select **Admin area**.
+ - In the upper-right corner, select **Admin**.
+ - On the top bar, select **Search or go to**, then select **Admin area**.
 - In GitLab 17.3 and later: on the left sidebar, at the bottom, select **Admin**.
 - In GitLab 16.7 and later: on the left sidebar, at the bottom, select **Admin area**.
 - In GitLab 16.1 and later: on the left sidebar, select **Search or go to**, then select **Admin**.
 - In GitLab 16.0 and earlier: on the top bar, select **Main menu** > **Admin**.
 
-If the GitLab instance uses Admin Mode, you must
-[enable Admin Mode for your session](settings/sign_in_restrictions.md#turn-on-admin-mode-for-your-session) before
-**Admin** is visible.
+If the GitLab instance uses Admin Mode, you must [enable Admin Mode for your session](settings/sign_in_restrictions.md#turn-on-admin-mode-for-your-session) before **Admin** is visible.
 
 {{< alert type="note" >}}
 
@@ -135,8 +132,7 @@ To administer all users from the **Admin** area's Users page:
    - User **state**.
    - Whether the user **type** is [placeholder](../user/import/mapping.md#placeholder-users).
 
-1. Optional. In the user search field, enter text, then press <kbd>Enter</kbd>. This case-insensitive
-   text search applies partial matching to name, username, and email.
+1. Optional. In the user search field, enter text, then press <kbd>Enter</kbd>. This case-insensitive text search applies partial matching to name, username, and email.
 
 To edit a user, find the user's row and select **Edit**.
 
@@ -146,8 +142,7 @@ To delete the user, or delete the user and their contributions, from the **Admin
 
 1. In the upper-right corner, select **Admin**.
 1. Select **Overview** > **Users**.
-1. Find the user you want to delete. In the row, select **User administration**
-   ({{< icon name="ellipsis_v" >}}), then select the desired option.
+1. Find the user you want to delete. In the row, select **User administration** ({{< icon name="ellipsis_v" >}}), then select the desired option.
 
 ### User impersonation
 
@@ -157,16 +152,15 @@ This enables you to see what the user sees in GitLab, and take actions on behalf
 To impersonate a user:
 
 - Through the UI:
-  1. In the upper-right corner, select **Admin**.
-  1. On the left sidebar, select **Overview** > **Users**.
-  1. From the list of users, select a user.
-  1. In the upper right, select **Impersonate**.
-  1. To stop impersonating, on the left sidebar at the top, select **Stop impersonating** ({{< icon name="incognito" >}}).
+ 1. In the upper-right corner, select **Admin**.
+ 1. On the left sidebar, select **Overview** > **Users**.
+ 1. From the list of users, select a user.
+ 1. In the upper right, select **Impersonate**.
+ 1. To stop impersonating, on the left sidebar at the top, select **Stop impersonating** ({{< icon name="incognito" >}}).
 - With the API, using [impersonation tokens](../api/rest/authentication.md#impersonation-tokens).
 
 All impersonation activities are [captured with audit events](compliance/audit_event_reports.md#user-impersonation).
-By default, impersonation is enabled. GitLab can be configured to
-[disable impersonation](../api/rest/authentication.md#disable-impersonation).
+By default, impersonation is enabled. GitLab can be configured to [disable impersonation](../api/rest/authentication.md#disable-impersonation).
 
 ### User identities
 
@@ -182,9 +176,7 @@ By default, impersonation is enabled. GitLab can be configured to
 
 {{< /history >}}
 
-When using authentication providers, administrators can see the identities for a user. This page
-shows the user's identities, including SCIM identities. Use this information to troubleshoot
-SCIM-related issues and confirm the identities being used for an account.
+When using authentication providers, administrators can see the identities for a user. This page shows the user's identities, including SCIM identities. Use this information to troubleshoot SCIM-related issues and confirm the identities being used for an account.
 
 To do this:
 
@@ -202,17 +194,14 @@ To do this:
 
 {{< /details >}}
 
-When you export user permissions, the exported information shows the direct membership users have
-in groups and projects. It includes this data, and is limited to the first 100,000 users:
+When you export user permissions, the exported information shows the direct membership users have in groups and projects. It includes this data, and is limited to the first 100,000 users:
 
 - Username
 - Email
 - Type
 - Path
-- Access level ([Project](../user/permissions.md#project-permissions) and
-  [Group](../user/permissions.md#group-permissions))
-- Date of last activity. For a list of activities that populate this column, see the
-  [Users API documentation](../api/users.md#list-a-users-activity).
+- Access level ([Project](../user/permissions.md#project-permissions) and [Group](../user/permissions.md#group-permissions))
+- Date of last activity. For a list of activities that populate this column, see the [Users API documentation](../api/users.md#list-a-users-activity).
 
 To export user permissions for all active users in your GitLab instance:
 
@@ -222,8 +211,7 @@ To export user permissions for all active users in your GitLab instance:
 
 ### Users statistics
 
-The **Users statistics** page provides an overview of user accounts by role. These statistics are
-calculated daily. User changes made after the last update are not reflected. These totals are also included:
+The **Users statistics** page provides an overview of user accounts by role. These statistics are calculated daily. User changes made after the last update are not reflected. These totals are also included:
 
 - Billable users
 - Blocked users
@@ -239,8 +227,7 @@ To add email addresses to user accounts manually:
 1. Select **Overview** > **Users**.
 1. Locate the user and select them.
 1. Select **Edit**.
-1. In **Email**, enter the new email address. This adds the new email address to the
-   user and sets the previous email address to be a secondary.
+1. In **Email**, enter the new email address. This adds the new email address to the user and sets the previous email address to be a secondary.
 1. Select **Save changes**.
 
 ## User cohorts
@@ -249,8 +236,7 @@ The [Cohorts](user_cohorts.md) tab displays the monthly cohorts of new users and
 
 ## Prevent a user from creating top-level groups
 
-Administrators can prevent specific users from creating top-level groups. These users can still
-create subgroups and collaborate in existing organizational structures.
+Administrators can prevent specific users from creating top-level groups. These users can still create subgroups and collaborate in existing organizational structures.
 
 To prevent a user from creating top-level groups:
 
@@ -264,9 +250,8 @@ To prevent a user from creating top-level groups:
 After you turn off this setting:
 
 - The user cannot create top-level groups.
-- The user can create subgroups in groups where they have at least the Maintainer role,
-  depending on the [subgroup creation permissions](../user/group/subgroups/_index.md#change-who-can-create-subgroups)
-  for the group.
+- The user can create subgroups in groups where they have at least the Maintainer role, depending on the [subgroup creation permissions](../user/group/subgroups/_index.md#change-who-can-create-subgroups)
+ for the group.
 
 ## Administering groups
 
@@ -374,8 +359,7 @@ To create a topic:
 
 The created topics are displayed on the **Explore topics** page.
 
-The assigned topics are visible only to everyone with access to the project,
-but everyone can see which topics exist on the GitLab instance.
+The assigned topics are visible only to everyone with access to the project, but everyone can see which topics exist on the GitLab instance.
 Do not include sensitive information in the name of a topic.
 
 ### Edit a topic
@@ -415,8 +399,7 @@ To merge topics:
 
 ## Administering Gitaly servers
 
-You can list all Gitaly servers in the GitLab instance from the **Admin** area's **Gitaly servers**
-page. For more details, see [Gitaly](gitaly/_index.md).
+You can list all Gitaly servers in the GitLab instance from the **Admin** area's **Gitaly servers** page. For more details, see [Gitaly](gitaly/_index.md).
 
 To access the **Gitaly servers** page:
 
@@ -443,15 +426,13 @@ The page includes this information about each Gitaly server:
 
 {{< alert type="flag" >}}
 
-On GitLab Self-Managed, by default this feature is not available. To make it available, an administrator
-can [enable the feature flag](feature_flags/_index.md) named `ui_for_organizations`.
+On GitLab Self-Managed, by default this feature is not available. To make it available, an administrator can [enable the feature flag](feature_flags/_index.md) named `ui_for_organizations`.
 On GitLab.com and GitLab Dedicated, this feature is not available.
 This feature is not ready for production use.
 
 {{< /alert >}}
 
-The Organizations page in the **Admin** area lists all projects by default, in reverse order of when
-they were last updated. Each project shows:
+The Organizations page in the **Admin** area lists all projects by default, in reverse order of when they were last updated. Each project shows:
 
 - Name
 - Namespace
@@ -497,8 +478,7 @@ For more information, see [GitLab Runner](https://docs.gitlab.com/runner/).
 
 To search runners' descriptions:
 
-1. In the **Search or filter results** text box, enter the description of the runner you want to
-   find.
+1. In the **Search or filter results** text box, enter the description of the runner you want to find.
 1. Press <kbd>Enter</kbd>.
 
 To filter runners by status, type, and tag:
@@ -523,8 +503,7 @@ To delete multiple runners at the same time:
 1. In the upper-right corner, select **Admin**.
 1. Select **Overview** > **Runners**.
 1. To the left of the runner you want to delete, select the checkbox.
-   To select all runners on the page, select the checkbox above
-   the list.
+   To select all runners on the page, select the checkbox above the list.
 1. Select **Delete selected**.
 
 ### Administering jobs
@@ -539,8 +518,7 @@ To administer all jobs in the GitLab instance:
 
 1. In the upper-right corner, select **Admin**.
 1. Select **CI/CD** > **Jobs**. All jobs are listed, in descending order of job ID.
-1. Select the **All** tab to list all jobs. Select the **Pending**, **Running**, or **Finished**
-   tab to list only jobs of that status.
+1. Select the **All** tab to list all jobs. Select the **Pending**, **Running**, or **Finished** tab to list only jobs of that status.
 
 For each job, the following details are listed:
 
@@ -549,7 +527,7 @@ For each job, the following details are listed:
 | Status   | Job status. One of **passed**, **skipped**, or **failed**.              |
 | Job      | Includes links to the job, branch, and the commit that started the job. |
 | Pipeline | Includes a link to the specific pipeline.                               |
-| Project  | Name of the project, and organization, to which the job belongs.        |
+| Project | Name of the project, and organization, to which the job belongs.        |
 | Runner   | Name of the CI runner assigned to execute the job.                      |
 | Stage    | Stage that the job is declared in a `.gitlab-ci.yml` file.              |
 | Name     | Name of the job specified in a `.gitlab-ci.yml` file.                   |
@@ -577,13 +555,11 @@ The **System information** page provides the following statistics:
 | Disk Usage     | Disk space in use, and total disk space available |
 | System started | When the system hosting GitLab was started. In GitLab 15.1 and earlier, this was an uptime statistic. |
 
-These statistics are updated only when you go to the **System information** page, or you refresh the
-page in your browser.
+These statistics are updated only when you go to the **System information** page, or you refresh the page in your browser.
 
 ### Background jobs
 
-The **Background jobs** page displays the Sidekiq dashboard. Sidekiq is used by GitLab to
-perform background processes.
+The **Background jobs** page displays the Sidekiq dashboard. Sidekiq is used by GitLab to perform background processes.
 
 The Sidekiq dashboard contains:
 
@@ -592,11 +568,11 @@ The Sidekiq dashboard contains:
 - A live graph of **Processed** and **Failed** jobs, with a selectable polling interval.
 - An historical graph of **Processed** and **Failed** jobs, with a selectable time span.
 - Redis statistics, including:
-  - Version number
-  - Uptime, measured in days
-  - Number of connections
-  - Current memory usage, measured in MB
-  - Peak memory usage, measured in MB
+ - Version number
+ - Uptime, measured in days
+ - Number of connections
+ - Current memory usage, measured in MB
+ - Peak memory usage, measured in MB
 
 ### Data management
 
@@ -606,18 +582,14 @@ The Sidekiq dashboard contains:
 
 {{< /history >}}
 
-The **Data management** page provides a comprehensive interface to view and manage verification status
-across all components on a Geo primary site.
+The **Data management** page provides a comprehensive interface to view and manage verification status across all components on a Geo primary site.
 The components include [all data types](geo/replication/datatypes.md) supported by Geo.
 
 Use this page to:
 
-- Identify orphaned files or database records that lead to
-  verification failures without requiring Rails console access.
-- View detailed error information and take corrective actions directly
-  from the UI.
-- Track verification status across all components and identify
-  patterns in failures.
+- Identify orphaned files or database records that lead to verification failures without requiring Rails console access.
+- View detailed error information and take corrective actions directly from the UI.
+- Track verification status across all components and identify patterns in failures.
 - Trigger checksum calculation for all objects at once.
 
 The list view displays verification status for a selected component.
@@ -630,8 +602,7 @@ The list view displays verification status for a selected component.
    - View last checksum time, last failed time, and failure reasons for each object.
    - Trigger checksum calculation for individual objects.
 
-1. Select an individual model from the list view to see comprehensive
-   information about a specific object's verification status, like:
+1. Select an individual model from the list view to see comprehensive information about a specific object's verification status, like:
 
    - Details about the verified object.
    - Current checksum status and history.
@@ -648,25 +619,18 @@ The list view displays verification status for a selected component.
 
 {{< /history >}}
 
-The database diagnostics page consists of a number of checks that
-attempt to flag common problems with the database:
+The database diagnostics page consists of a number of checks that attempt to flag common problems with the database:
 
 - Index corruption caused by [change in PostgreSQL collations](https://gitlab.com/groups/gitlab-org/-/epics/8573)
 - [Schema discrepancies](https://gitlab.com/groups/gitlab-org/-/epics/3928)
 
-To run each check, select the run button for the check. Selecting the run button
-schedules a background job that will report information from the check to the page.
+To run each check, select the run button for the check. Selecting the run button schedules a background job that will report information from the check to the page.
 
 #### Collation health check
 
-The collation health check attempts to detect PostgreSQL issues that
-result in corrupted indexes. This commonly happens if the previous
-operating system running PostgreSQL used a version of `glibc` earlier than
-version 2.28. For more information, see the documentation about
-[upgrading operating systems for PostgreSQL](postgresql/upgrading_os.md).
+The collation health check attempts to detect PostgreSQL issues that result in corrupted indexes. This commonly happens if the previous operating system running PostgreSQL used a version of `glibc` earlier than version 2.28. For more information, see the documentation about [upgrading operating systems for PostgreSQL](postgresql/upgrading_os.md).
 
-Any issues are listed in a **Corrupted Indexes** section. If you have issues, you can
-[repair corrupted indexes](raketasks/maintenance.md#repair-corrupted-database-indexes).
+Any issues are listed in a **Corrupted Indexes** section. If you have issues, you can [repair corrupted indexes](raketasks/maintenance.md#repair-corrupted-database-indexes).
 
 The collation health check also attempts to flag duplicates on commonly-affected tables:
 
@@ -680,26 +644,21 @@ The collation health check also attempts to flag duplicates on commonly-affected
 
 For more information, see [issue 505982](https://gitlab.com/gitlab-org/gitlab/-/issues/505982).
 
-The dashboard lists the identical information shown in the
-[`gitlab:db:collation_checker` Rake task](raketasks/maintenance.md#detect-postgresql-collation-version-mismatches).
+The dashboard lists the identical information shown in the [`gitlab:db:collation_checker` Rake task](raketasks/maintenance.md#detect-postgresql-collation-version-mismatches).
 
 #### Schema health check
 
-The schema health check compares the state of the database against the target schema and lists detected
-discrepancies. No automated schema repair tool is available.
+The schema health check compares the state of the database against the target schema and lists detected discrepancies. No automated schema repair tool is available.
 
-If you notice any false positives or have any questions about the results of the check, see the
-[feedback issue](https://gitlab.com/gitlab-org/gitlab/-/issues/567561).
+If you notice any false positives or have any questions about the results of the check, see the [feedback issue](https://gitlab.com/gitlab-org/gitlab/-/issues/567561).
 
 ### Logs
 
-The contents of these log files can help troubleshoot a problem. The content of each log file is
-listed in chronological order. To minimize performance issues, a maximum 2000 lines of each log file
-are shown.
+The contents of these log files can help troubleshoot a problem. The content of each log file is listed in chronological order. To minimize performance issues, a maximum 2000 lines of each log file are shown.
 
 | Log file                | Contents |
 |:------------------------|:---------|
-| `application_json.log`  | GitLab user activity |
+| `application_json.log` | GitLab user activity |
 | `git_json.log`          | Failed GitLab interaction with Git repositories |
 | `production.log`        | Requests received from Puma, and the actions taken to serve those requests |
 | `sidekiq.log`           | Background jobs |
@@ -709,9 +668,7 @@ are shown.
 
 For details of these log files and their contents, see [Log system](logs/_index.md).
 
-The **Log** view has been removed from the **Admin** area dashboard to prevent confusion for administrators
-of multi-node systems. This view presents partial information for multi-node setups. For multi-node
-systems, ingest the logs into services like Elasticsearch and Splunk.
+The **Log** view has been removed from the **Admin** area dashboard to prevent confusion for administrators of multi-node systems. This view presents partial information for multi-node setups. For multi-node systems, ingest the logs into services like Elasticsearch and Splunk.
 
 ### Audit events
 
@@ -722,17 +679,12 @@ systems, ingest the logs into services like Elasticsearch and Splunk.
 
 {{< /details >}}
 
-The **Audit events** page lists changes made to the GitLab server. Use this information to
-control, analyze, and track every change.
+The **Audit events** page lists changes made to the GitLab server. Use this information to control, analyze, and track every change.
 
 ### Statistics
 
 The **Instance overview** section of the Dashboard lists the current statistics of the GitLab instance.
-Retrieve this information with the
-[Application statistics API](../api/statistics.md#get-details-on-current-application-statistics).
+Retrieve this information with the [Application statistics API](../api/statistics.md#get-details-on-current-application-statistics).
 
-These statistics show exact counts for values less than 10,000. For values of 10,000 and higher,
-these statistics show approximate data
-when [`TablesampleCountStrategy`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/database/count/tablesample_count_strategy.rb?ref_type=heads#L16) and
-[`ReltuplesCountStrategy`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/database/count/reltuples_count_strategy.rb?ref_type=heads)
+These statistics show exact counts for values less than 10,000. For values of 10,000 and higher, these statistics show approximate data when [`TablesampleCountStrategy`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/database/count/tablesample_count_strategy.rb?ref_type=heads#L16) and [`ReltuplesCountStrategy`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/database/count/reltuples_count_strategy.rb?ref_type=heads)
 strategies are used for calculations.

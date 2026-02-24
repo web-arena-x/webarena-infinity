@@ -11,21 +11,21 @@ Grouping allows you to combine FigJam objects and treat them as a single object.
 Once you have two or more objects selected, you can group objects a few different ways:
 
 - Use keyboard shortcut:
-  - Mac: `⌘ Command` `G`
-  - Windows: `Control` `G`
+ - Mac: `⌘ Command` `G`
+ - Windows: `Control` `G`
 
 - Right-click and select **Group selection**
 - Use the **Group selection** quick action:
-  1. Use `⌘ Command` `/` or `Control` `/` to access the quick actions menu.
-  2. Search for **Group selection.**
+ 1. Use `⌘ Command` `/` or `Control` `/` to access the quick actions menu.
+ 2. Search for **Group selection.**
 
 ## Ungroup objects
 
 You can ungroup objects a few different ways:
 
 - Use the keyboard shortcut:
-  - Mac: `⌘ Command` `Shift` `G` or `⌘ Command` `Delete`
-  - Windows: `Control` `Shift` `G` or `Control` `Backspace`
+ - Mac: `⌘ Command` `Shift` `G` or `⌘ Command` `Delete`
+ - Windows: `Control` `Shift` `G` or `Control` `Backspace`
 - Right-click and select **Ungroup**
 
 ## Duplicate objects in a group

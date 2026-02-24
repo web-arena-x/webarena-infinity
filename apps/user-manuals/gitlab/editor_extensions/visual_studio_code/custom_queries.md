@@ -32,22 +32,18 @@ To see search results from your project:
 1. Below the query title, select the search result you want to see.
 1. If your search result is a merge request, select what you want to view in VS Code:
    - **Overview**: the description, status, and any comments on this merge request.
-   - The filenames of all files changed in this merge request. Select a file to view a diff
-     of its changes.
+   - The filenames of all files changed in this merge request. Select a file to view a diff of its changes.
 1. If your search result is an issue, select it to view its description, history, and comments in VS Code.
 
 ## Create a custom query
 
-Any custom queries you define override the default queries shown in the
-[VS Code sidebar](_index.md#view-issues-and-merge-requests),
-under **Issues and Merge requests**.
+Any custom queries you define override the default queries shown in the [VS Code sidebar](_index.md#view-issues-and-merge-requests), under **Issues and Merge requests**.
 
 To override the extension's default queries and replace them with your own:
 
 1. In VS Code, on the top bar, go to **Code** > **Preferences** > **Settings**.
 1. In the upper-right corner, select **Open Settings (JSON)** to edit your `settings.json` file.
-1. In the file, define `gitlab.customQueries`, like in this example. Each query should be an entry
-   in the `gitlab.customQueries` JSON array:
+1. In the file, define `gitlab.customQueries`, like in this example. Each query should be an entry in the `gitlab.customQueries` JSON array:
 
    ```json
    {
@@ -64,8 +60,7 @@ To override the extension's default queries and replace them with your own:
    ```
 
 1. Optional. When you customize `gitlab.customQueries`, your definition overrides all default queries.
-   To restore any of the default queries, copy them from the `default` array in the extension's
-   [`desktop.package.json` file](https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/blob/8e4350232154fe5bf0ef8a6c0765b2eac0496dc7/desktop.package.json#L955-998).
+   To restore any of the default queries, copy them from the `default` array in the extension's [`desktop.package.json` file](https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/blob/8e4350232154fe5bf0ef8a6c0765b2eac0496dc7/desktop.package.json#L955-998).
 1. Save your changes.
 
 ### Supported parameters for all queries
@@ -75,8 +70,8 @@ Not all item types support all parameters. These parameters apply to all query t
 | Parameter    | Required    | Default           | Definition |
 |--------------|-------------|-------------------|------------|
 | `name`       | {{< yes >}} | not applicable    | The label to show in the GitLab panel. |
-| `noItemText` | {{< no >}}  | `No items found.` | The text to show if the query returns no items. |
-| `type`       | {{< no >}}  | `merge_requests`  | Which item types to return. Possible values: `issues`, `merge_requests`, `epics`, `snippets`, `vulnerabilities`. Snippets [don't support](../../api/project_snippets.md) any other filters. Epics are available only on GitLab Premium and Ultimate. |
+| `noItemText` | {{< no >}} | `No items found.` | The text to show if the query returns no items. |
+| `type`       | {{< no >}} | `merge_requests` | Which item types to return. Possible values: `issues`, `merge_requests`, `epics`, `snippets`, `vulnerabilities`. Snippets [don't support](../../api/project_snippets.md) any other filters. Epics are available only on GitLab Premium and Ultimate. |
 
 ### Supported parameters for issue, epic, and merge request queries
 
@@ -90,7 +85,7 @@ All of these parameters are optional.
 | `createdAfter`     | not applicable | Return items created after the given date. |
 | `createdBefore`    | not applicable | Return items created before the given date. |
 | `draft`            | `no`           | Filter merge requests against their draft status: `yes` returns only merge requests in [draft status](../../user/project/merge_requests/drafts.md), `no` returns only merge requests not in draft status. Available only for merge requests. |
-| `excludeAssignee`  | not applicable | Return items not assigned to the given username. Available only for issues. For the current user, set to `<current_user>`. |
+| `excludeAssignee` | not applicable | Return items not assigned to the given username. Available only for issues. For the current user, set to `<current_user>`. |
 | `excludeAuthor`    | not applicable | Return items not created by the given username. Available only for issues. For the current user, set to `<current_user>`. |
 | `excludeLabels`    | `[]`           | Array of label names. Available only for issues. Items returned have none of the labels in the array. Predefined names are case-insensitive. |
 | `excludeMilestone` | not applicable | The milestone title to exclude. Available only for issues. |
@@ -110,10 +105,8 @@ All of these parameters are optional.
 
 ### Supported parameters for vulnerability report queries
 
-Vulnerability reports don't share
-[any common query parameters](../../api/vulnerability_findings.md)
-with other entry types. Each parameter listed in this table works with
-vulnerability reports only, and all parameters are optional:
+Vulnerability reports don't share [any common query parameters](../../api/vulnerability_findings.md)
+with other entry types. Each parameter listed in this table works with vulnerability reports only, and all parameters are optional:
 
 | Parameter          | Default        | Definition |
 |--------------------|----------------|------------|

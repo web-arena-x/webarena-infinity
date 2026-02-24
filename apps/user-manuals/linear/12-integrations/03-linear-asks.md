@@ -26,9 +26,7 @@ By providing familiar and low-friction channels, Asks allows teams to quickly ma
 
 Linear Asks supports multiple intake channels to meet teams where they already work:
 
-Asks with Slack | Asks with email
---- | ---
-Users can submit Asks directly from Slack, using a simple flow that turns messages into issues without leaving the conversation.
+Asks with Slack | Asks with email --- | --- Users can submit Asks directly from Slack, using a simple flow that turns messages into issues without leaving the conversation.
 
 When Asks are submitted to a Linear team, they will always arrive in the team's Triage where they can be reviewed, prioritized, and assigned.
 
@@ -50,17 +48,7 @@ Feature | Business
 (Linear Asks) | Enterprise
 
 (Advanced Linear Asks)
---- | --- | ---
-Email intake & replies | ✔ | ✔
-Custom email domains | ✔ | ✔
-Private Asks (DMs & Linear Asks bot) | ✔ | ✔
-Asks fields | ✔ | ✔
-Auto-create on :ticket: emoji reaction | ✔ | ✔
-Form templates support | ✔ | ✔
-Asks in private Slack channels |  | ✔
-Per-channel configurations |  | ✔
-Auto-create on new message |  | ✔
-Multiple Slack workspaces |  | ✔
+--- | --- | --- Email intake & replies | ✔ | ✔ Custom email domains | ✔ | ✔ Private Asks (DMs & Linear Asks bot) | ✔ | ✔ Asks fields | ✔ | ✔ Auto-create on :ticket: emoji reaction | ✔ | ✔ Form templates support | ✔ | ✔ Asks in private Slack channels | | ✔ Per-channel configurations | | ✔ Auto-create on new message | | ✔ Multiple Slack workspaces | | ✔
 
 ---
 
@@ -113,7 +101,7 @@ Select a default template by hovering over the template you wish to use, and cli
 
 ##### On 🎫 emoji
 
-By default, users can turn a message in Slack into an Ask by reacting to it with the 🎫  (:ticket:) emoji. This can be turned off in Asks settings as shown below. Starting a Slack message with 🎫 will also trigger this behavior. 
+By default, users can turn a message in Slack into an Ask by reacting to it with the 🎫 (:ticket:) emoji. This can be turned off in Asks settings as shown below. Starting a Slack message with 🎫 will also trigger this behavior. 
 
 ![channel specific settings for auto-creation](https://webassets.linear.app/images/ornj730p/production/97a93b1802e88163e116b2cc7aa7c1fc071a5a91-1400x510.png?q=95&auto=format&dpr=2)
 
@@ -140,7 +128,7 @@ If desired, Slack users can also create an ask by mentioning `@Linear Asks` in t
 
 ##### On bot-posted messages
 
-Bot-posted messages can create an Ask automatically if the bot's message begins with 🎫. Use this behavior when auto-create Asks "on 🎫  reaction" or "On new message" is enabled. On Business plans, you can still use this functionality to allow bot messages to create Asks, provided the bot message is sent in a public channel.
+Bot-posted messages can create an Ask automatically if the bot's message begins with 🎫. Use this behavior when auto-create Asks "on 🎫 reaction" or "On new message" is enabled. On Business plans, you can still use this functionality to allow bot messages to create Asks, provided the bot message is sent in a public channel.
 
 <details>
 <summary>View in settings</summary>
@@ -174,14 +162,7 @@ There are a variety of formatting tools you can use to customize the behavior of
 
 From any connected Slack channel, use the following actions to create an Ask:
 
-Creation method | Location
---- | ---
-Create from an existing Slack message | Overflow menu on a Slack message
-Create from a slash command | Use the /asks slash command in Slack and hit Enter
-Create Private Asks | In your DM with Asks in Slack (Apps > Asks from the sidebar), select the option to Create Private Ask
-Auto-create with emoji | Apply the 🎫  (:ticket:) emoji to a message in Slack 
-Auto-create on new public channel messages | Configure in Asks settings per-channel
-Auto-create on @Linear Asks | Configure in Asks settings per-channel
+Creation method | Location --- | --- Create from an existing Slack message | Overflow menu on a Slack message Create from a slash command | Use the /asks slash command in Slack and hit Enter Create Private Asks | In your DM with Asks in Slack (Apps > Asks from the sidebar), select the option to Create Private Ask Auto-create with emoji | Apply the 🎫 (:ticket:) emoji to a message in Slack Auto-create on new public channel messages | Configure in Asks settings per-channel Auto-create on @Linear Asks | Configure in Asks settings per-channel
 
 Once created, Asks will create a threaded reply with a link to the Ask and connected Linear issue. The Slack thread and Linear issue share a synced comment thread, so comments and files can be shared across both applications.
 
@@ -246,8 +227,8 @@ Refer to Google’s help documents in [Forward email to a third-party CRM](https
 <summary>Configure email forwarding in Microsoft 365</summary>
 1. Log into your [Microsoft 365 Admin Center](https://admin.microsoft.com/)
 2. Select the mailbox that you wish to configure forwarding for:
-  1. **Shared mailbox:** On the admin center homepage, go to the _Teams & groups > Shared mailboxes_ page. Select the mailbox, then select **Edit** in the "Email forwarding" section.
-  2. **User:** On the admin center homepage, go to the _Users > Active users_ page. Select the user, then the mail tab and select **Manage email forwarding** in the "Email forwarding" section.
+ 1. **Shared mailbox:** On the admin center homepage, go to the _Teams & groups > Shared mailboxes_ page. Select the mailbox, then select **Edit** in the "Email forwarding" section.
+ 2. **User:** On the admin center homepage, go to the _Users > Active users_ page. Select the user, then the mail tab and select **Manage email forwarding** in the "Email forwarding" section.
 3. On the "Shared mailbox" email forwarding side panel, select the "Forward all email sent to this mailbox" checkbox.
 4. Enter your Linear intake email address copied from Linear Email Asks Settings
 5. Select **Save**

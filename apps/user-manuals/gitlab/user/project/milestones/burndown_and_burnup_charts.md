@@ -25,16 +25,13 @@ Burndown and burnup charts share some general features.
 Both burndown and burnup charts:
 
 - Show the total number of issues for each day of the current milestone.
-- Have a [toggle](#switch-between-number-of-issues-and-issue-weight) between the total number of
-  issues or the total [weight](../issues/issue_weight.md) of issues for each day of the milestone.
+- Have a [toggle](#switch-between-number-of-issues-and-issue-weight) between the total number of issues or the total [weight](../issues/issue_weight.md) of issues for each day of the milestone.
 
 Differences between burndown and burnup charts are:
 
 - Burnup charts contain a separate line representing completed issues over a milestone.
-- Burnup charts reflect the difference between an issue being moved to another milestone
-  (**Total** issues line goes down) and an issue being closed (**Total** issues line remains unchanged).
-- Burndown charts measure "total issues minus closed issues" for each day while burnup charts measure
-  the total issues (open and closed) separately from the issues resolved for each day.
+- Burnup charts reflect the difference between an issue being moved to another milestone (**Total** issues line goes down) and an issue being closed (**Total** issues line remains unchanged).
+- Burndown charts measure "total issues minus closed issues" for each day while burnup charts measure the total issues (open and closed) separately from the issues resolved for each day.
 
 ## Switch between number of issues and issue weight
 
@@ -56,8 +53,7 @@ These charts help teams:
 
 Use burndown charts to focus on remaining work.
 Use burnup charts to track both completed work and scope changes over time.
-Burnup charts are particularly useful for monitoring scope creep (uncontrolled additions to a
-project's scope) by showing spikes in the chart's total issues.
+Burnup charts are particularly useful for monitoring scope creep (uncontrolled additions to a project's scope) by showing spikes in the chart's total issues.
 
 ## Burndown charts
 
@@ -66,8 +62,7 @@ Burndown charts show the number of issues over the course of a milestone.
 ![Burndown chart, showing declining trend of remaining issues over milestone duration.](img/burndown_chart_v15_3.png)
 
 At a glance, you see the current state for the completion a given milestone.
-Without them, you would have to organize the data from the milestone and plot it
-yourself to have the same sense of progress.
+Without them, you would have to organize the data from the milestone and plot it yourself to have the same sense of progress.
 
 GitLab plots it for you and presents it in a clear and beautiful chart.
 
@@ -98,32 +93,23 @@ You're able to [promote project](_index.md#promote-a-project-milestone-to-a-grou
 
 The chart indicates the project's progress throughout that milestone (for issues assigned to it).
 
-In particular, it shows how many issues were or are still open for a given day in the
-milestone's corresponding period.
+In particular, it shows how many issues were or are still open for a given day in the milestone's corresponding period.
 
-You can also toggle the burndown chart to display the
-[cumulative open issue weight](#switch-between-number-of-issues-and-issue-weight) for a given day.
+You can also toggle the burndown chart to display the [cumulative open issue weight](#switch-between-number-of-issues-and-issue-weight) for a given day.
 
 ### Fixed burndown charts
 
-For milestones created before GitLab 13.6, burndown charts have an additional toggle to
-switch between Legacy and Fixed views.
+For milestones created before GitLab 13.6, burndown charts have an additional toggle to switch between Legacy and Fixed views.
 
 | Legacy | Fixed |
 | ----- | ----- |
 | ![Legacy burndown chart, showing downward trending line representing remaining issues decreasing.](img/burndown_chart_legacy_v13_6.png) | ![Fixed burndown chart, showing a jump when a lot of issues were added to the milestone.](img/burndown_chart_fixed_v13_6.png) |
 
-**Fixed burndown** charts track the full history of milestone activity, from its creation until the
-milestone expires. After the milestone due date passes, issues removed from the milestone no longer
-affect the chart.
+**Fixed burndown** charts track the full history of milestone activity, from its creation until the milestone expires. After the milestone due date passes, issues removed from the milestone no longer affect the chart.
 
-**Legacy burndown** charts track when issues were created and when they were last closed, not their
-full history. For each day, a legacy burndown chart takes the number of open issues and the issues
-created that day, and subtracts the number of issues closed that day.
-Issues that were created and assigned a milestone before its start date (and remain open as of the
-start date) are considered as having been opened on the start date.
-Therefore, when the milestone start date is changed, the number of opened issues on each day may
-change.
+**Legacy burndown** charts track when issues were created and when they were last closed, not their full history. For each day, a legacy burndown chart takes the number of open issues and the issues created that day, and subtracts the number of issues closed that day.
+Issues that were created and assigned a milestone before its start date (and remain open as of the start date) are considered as having been opened on the start date.
+Therefore, when the milestone start date is changed, the number of opened issues on each day may change.
 Reopened issues are considered as having been opened on the day after they were last closed.
 
 ## Burnup charts
@@ -151,8 +137,7 @@ Burnup charts have separate lines for total work and completed work:
 - The **Total** line reflects changes to the scope of a milestone by measuring the number of issues assigned to that milestone.
 - The **Completed** line measures that milestone's number of closed issues.
 
-When an open issue is moved to another milestone, the **Total** line goes down but the **Completed**
-line stays the same.
+When an open issue is moved to another milestone, the **Total** line goes down but the **Completed** line stays the same.
 The **Completed** line remains unchanged because it only tracks issues that are closed.
 
 When an issue is closed, the **Total** line remains the same and the **Completed** line goes up.
@@ -179,17 +164,14 @@ This feature is available for testing, but not ready for production use.
 {{< /alert >}}
 
 With [tasks](../../tasks.md), a more granular planning is possible.
-If this feature is enabled, the weight of issues that have tasks is derived from the tasks in the
-same milestone.
+If this feature is enabled, the weight of issues that have tasks is derived from the tasks in the same milestone.
 Issues with tasks are not counted separately in burndown or burnup charts.
 
 How issue weight is counted in charts:
 
 - If an issue's tasks do not have weights assigned, the issue's weight is used instead.
-- If an issue has multiple tasks, and some tasks are completed in a prior iteration, only tasks in
-  this iteration are shown and counted.
-- If a task is directly assigned to an iteration, without its parent, it's the top level item and
-  contributes its own weight. The parent issue is not shown.
+- If an issue has multiple tasks, and some tasks are completed in a prior iteration, only tasks in this iteration are shown and counted.
+- If a task is directly assigned to an iteration, without its parent, it's the top level item and contributes its own weight. The parent issue is not shown.
 
 ### Weight rollup examples
 

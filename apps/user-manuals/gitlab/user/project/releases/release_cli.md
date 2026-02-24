@@ -9,8 +9,7 @@ title: GitLab Release CLI tool (deprecated)
 
 {{< alert type="warning" >}}
 
-This feature was [deprecated](https://gitlab.com/gitlab-org/cli/-/issues/7859) in GitLab 18.0
-and is planned for removal in 20.0. Use the [GitLab CLI](../../../editor_extensions/gitlab_cli/_index.md) instead.
+This feature was [deprecated](https://gitlab.com/gitlab-org/cli/-/issues/7859) in GitLab 18.0 and is planned for removal in 20.0. Use the [GitLab CLI](../../../editor_extensions/gitlab_cli/_index.md) instead.
 
 This change is a breaking change.
 
@@ -18,18 +17,17 @@ This change is a breaking change.
 
 ## Migrate from `release-cli` to `glab` CLI
 
-To migrate from `release-cli` to `glab` CLI,
-update your CI/CD job with the `release` keyword to use the `cli:latest` image:
+To migrate from `release-cli` to `glab` CLI, update your CI/CD job with the `release` keyword to use the `cli:latest` image:
 
 ```yaml
 release_job:
-  stage: release
-  image: registry.gitlab.com/gitlab-org/cli:latest
-  rules:
+ stage: release
+ image: registry.gitlab.com/gitlab-org/cli:latest
+ rules:
     - if: $CI_COMMIT_TAG
-  script:
+ script:
     - echo "Running the release job."
-  release:
+ release:
     tag_name: $CI_COMMIT_TAG
     name: 'Release $CI_COMMIT_TAG'
     description: 'Release created using the CLI.'
@@ -46,10 +44,7 @@ For more information, see [`release`](../../../ci/yaml/_index.md#release).
 
 {{< /history >}}
 
-CI/CD jobs that use the `release` keyword use a script that falls back to using `release-cli`
-if the required `glab` version is not available on the runner. The fallback logic
-is a safe-guard to ensure that projects that have not yet migrated to use `glab` CLI
-can continue working.
+CI/CD jobs that use the `release` keyword use a script that falls back to using `release-cli` if the required `glab` version is not available on the runner. The fallback logic is a safe-guard to ensure that projects that have not yet migrated to use `glab` CLI can continue working.
 
 This fallback is [scheduled to be removed](https://gitlab.com/gitlab-org/gitlab/-/issues/537919)
 in GitLab 20.0 with the removal of `release-cli`.

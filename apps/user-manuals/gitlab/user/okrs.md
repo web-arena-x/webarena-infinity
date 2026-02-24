@@ -28,18 +28,14 @@ This feature is available for testing, but not ready for production use.
 
 {{< /alert >}}
 
-[Objectives and key results](https://en.wikipedia.org/wiki/OKR) (OKRs) are a framework for setting
-and tracking goals that are aligned with your organization's overall strategy and vision.
+[Objectives and key results](https://en.wikipedia.org/wiki/OKR) (OKRs) are a framework for setting and tracking goals that are aligned with your organization's overall strategy and vision.
 
-The objective and the key result in GitLab share many features. In the documentation, the term
-**OKRs** refers to both objectives and key results.
+The objective and the key result in GitLab share many features. In the documentation, the term **OKRs** refers to both objectives and key results.
 
 OKRs are a type of work item, a step towards [default issue types](https://gitlab.com/gitlab-org/gitlab/-/issues/323404)
 in GitLab.
 For the roadmap of migrating [issues](project/issues/_index.md) and [epics](group/epics/_index.md)
-to work items and adding custom work item types, see
-[epic 6033](https://gitlab.com/groups/gitlab-org/-/epics/6033) or the
-[Plan direction page](https://about.gitlab.com/direction/plan/).
+to work items and adding custom work item types, see [epic 6033](https://gitlab.com/groups/gitlab-org/-/epics/6033) or the [Plan direction page](https://about.gitlab.com/direction/plan/).
 
 ## Designing effective OKRs
 
@@ -48,11 +44,9 @@ Set a big goal with an objective and use [child objectives and key results](#chi
 to measure the big goal's completion.
 
 **Objectives** are aspirational goals to be achieved and define **what you're aiming to do**.
-They show how an individual's, team's, or department's work impacts overall direction of the
-organization by connecting their work to overall company strategy.
+They show how an individual's, team's, or department's work impacts overall direction of the organization by connecting their work to overall company strategy.
 
-**Key results** are measures of progress against aligned objectives. They express
-**how you know if you have reached your goal** (objective).
+**Key results** are measures of progress against aligned objectives. They express **how you know if you have reached your goal** (objective).
 By achieving a specific outcome (key result), you create progress for the linked objective.
 
 To know if your OKR makes sense, you can use this sentence:
@@ -61,8 +55,7 @@ To know if your OKR makes sense, you can use this sentence:
 > I/we will accomplish (objective) by (date) through attaining and achieving the following metrics (key results).
 <!-- vale gitlab_base.FutureTense = YES -->
 
-To learn how to create better OKRs and how we use them at GitLab, see the
-[Objectives and Key Results handbook page](https://handbook.gitlab.com/handbook/company/okrs/).
+To learn how to create better OKRs and how we use them at GitLab, see the [Objectives and Key Results handbook page](https://handbook.gitlab.com/handbook/company/okrs/).
 
 ## Create an objective
 
@@ -97,8 +90,7 @@ To view a key result:
    for `Type = key_result`.
 1. Select the title of a key result from the list.
 
-Alternatively, you can access a key result from the **Child items** section in
-its parent's objective.
+Alternatively, you can access a key result from the **Child items** section in its parent's objective.
 
 ## Edit title and description
 
@@ -115,10 +107,8 @@ Prerequisites:
 To edit an OKR:
 
 1. [Open the objective](okrs.md#view-an-objective) or [key result](#view-a-key-result) that you want to edit.
-1. Optional. To edit the title, select it, make your changes, and select any area outside the title
-   text box.
-1. Optional. To edit the description, select the edit icon ({{< icon name="pencil" >}}), make your changes, and
-   select **Save**.
+1. Optional. To edit the title, select it, make your changes, and select any area outside the title text box.
+1. Optional. To edit the description, select the edit icon ({{< icon name="pencil" >}}), make your changes, and select **Save**.
 
 ## Prevent truncating descriptions with **Read more**
 
@@ -265,10 +255,8 @@ Show how much of the work needed to achieve an objective is finished.
 
 You can set progress manually on objectives and key results.
 
-When you enter progress for a child item, progress of all parent items in the hierarchy is updated
-to the average of the child items' progress.
-You can override progress at any level and enter a value manually, but when a child item's progress
-value is updated, the automation updates all parents again to show the average.
+When you enter progress for a child item, progress of all parent items in the hierarchy is updated to the average of the child items' progress.
+You can override progress at any level and enter a value manually, but when a child item's progress value is updated, the automation updates all parents again to show the average.
 
 Prerequisites:
 
@@ -294,8 +282,7 @@ To set progress of an objective or key result:
 
 To better track the risk in meeting your goals, you can assign a [health status](project/issues/managing_issues.md#health-status)
 to each objective and key result.
-You can use health status to signal to others in your organization whether OKRs are progressing
-as planned or need attention to stay on schedule.
+You can use health status to signal to others in your organization whether OKRs are progressing as planned or need attention to stay on schedule.
 
 Prerequisites:
 
@@ -364,8 +351,7 @@ To convert an OKR into another item type:
 1. Select the desired item type.
 1. If all conditions are met, select **Change type**.
 
-Alternatively, you can use the [`/type` quick action](project/quick_actions.md#type), followed
-by `issue`, `task`, `objective` or `key result` in a comment.
+Alternatively, you can use the [`/type` quick action](project/quick_actions.md#type), followed by `issue`, `task`, `objective` or `key result` in a comment.
 
 ## Copy objective or key result reference
 
@@ -375,8 +361,7 @@ by `issue`, `task`, `objective` or `key result` in a comment.
 
 {{< /history >}}
 
-To refer to an objective or key result elsewhere in GitLab, you can use its full URL or a short reference, which looks like
-`namespace/project-name#123`, where `namespace` is either a group or a username.
+To refer to an objective or key result elsewhere in GitLab, you can use its full URL or a short reference, which looks like `namespace/project-name#123`, where `namespace` is either a group or a username.
 
 To copy the objective or key result reference to your clipboard:
 
@@ -399,8 +384,7 @@ Read more about objective or key result references in [GitLab-Flavored Markdown]
 You can create a comment in an objective or key result by sending an email.
 Sending an email to this address creates a comment that contains the email body.
 
-For more information about creating comments by sending an email and the necessary configuration, see
-[Reply to a comment by sending email](discussions/_index.md#reply-to-a-comment-by-sending-email).
+For more information about creating comments by sending an email and the necessary configuration, see [Reply to a comment by sending email](discussions/_index.md#reply-to-a-comment-by-sending-email).
 
 To copy the objective's or key result's email address:
 
@@ -438,8 +422,7 @@ In your workflow, use key results to measure the goal described in the objective
 You can add child objectives to a total of 9 levels. An objective can have up to 100 child OKRs.
 Key results are children of objectives and cannot have children items themselves.
 
-Child objectives and key results are available in the **Child items** section
-below an objective's description.
+Child objectives and key results are available in the **Child items** section below an objective's description.
 
 ### Add a child objective
 
@@ -455,18 +438,15 @@ Prerequisites:
 
 To add a new objective to an objective:
 
-1. In an objective, in the **Child items** section, select **Add** and then
-   select **New objective**.
+1. In an objective, in the **Child items** section, select **Add** and then select **New objective**.
 1. Enter a title for the new objective.
 1. Select a [project](project/organize_work_with_projects.md) to create the new objective in.
 1. Select **Create objective**.
 
 To add an existing objective to an objective:
 
-1. In an objective, in the **Child items** section, select **Add** and then
-   select **Existing objective**.
-1. Search for the desired objective by entering part of its title, then selecting the
-   desired match.
+1. In an objective, in the **Child items** section, select **Add** and then select **Existing objective**.
+1. Search for the desired objective by entering part of its title, then selecting the desired match.
 
    To add multiple objectives, repeat this step.
 1. Select **Add objective**.
@@ -485,18 +465,15 @@ Prerequisites:
 
 To add a new key result to an objective:
 
-1. In an objective, in the **Child items** section, select **Add** and then
-   select **New key result**.
+1. In an objective, in the **Child items** section, select **Add** and then select **New key result**.
 1. Enter a title for the new key result.
 1. Select a [project](project/organize_work_with_projects.md) to create the new key result in.
 1. Select **Create key result**.
 
 To add an existing key result to an objective:
 
-1. In an objective, in the **Child items** section, select **Add** and then
-   select **Existing key result**.
-1. Search for the desired OKR by entering part of its title, then selecting the
-   desired match.
+1. In an objective, in the **Child items** section, select **Add** and then select **Existing key result**.
+1. Search for the desired OKR by entering part of its title, then selecting the desired match.
 
    To add multiple objectives, repeat this step.
 1. Select **Add key result**.
@@ -534,10 +511,8 @@ This feature is available for testing, but not ready for production use.
 
 {{< /alert >}}
 
-Schedule check-in reminders to remind your team to provide status updates on the key results you care
-about.
-Reminders are sent to all assignees of descendant objects and key results as email notifications
-and to-do items.
+Schedule check-in reminders to remind your team to provide status updates on the key results you care about.
+Reminders are sent to all assignees of descendant objects and key results as email notifications and to-do items.
 Users can't unsubscribe from the email notifications, but check-in reminders can be turned off.
 Reminders are sent on Tuesdays.
 
@@ -546,11 +521,10 @@ Prerequisites:
 - You must have at least the Planner role for the project.
 - There must be at least one objective with at least one key result in the project.
 - You can schedule reminders only for top-level objectives.
-  Scheduling a check-in reminder for child objectives has no effect.
-  The setting from the top-level objective is inherited to all child objectives.
+ Scheduling a check-in reminder for child objectives has no effect.
+ The setting from the top-level objective is inherited to all child objectives.
 
-To schedule a recurring reminder for an objective, in a new comment use the
-[`/checkin_reminder` quick action](project/quick_actions.md#checkin_reminder).
+To schedule a recurring reminder for an objective, in a new comment use the [`/checkin_reminder` quick action](project/quick_actions.md#checkin_reminder).
 
 ## Set an objective as a parent
 
@@ -572,8 +546,7 @@ To set an objective as a parent of an OKR:
 1. Next to **Parent**, from the dropdown list, select the parent to add.
 1. Select any area outside the dropdown list.
 
-To remove the parent of the objective or key result,
-next to **Parent**, select the dropdown list and then select **Unassign**.
+To remove the parent of the objective or key result, next to **Parent**, select the dropdown list and then select **Unassign**.
 
 ## Confidential OKRs
 
@@ -583,10 +556,8 @@ next to **Parent**, select the dropdown list and then select **Unassign**.
 
 {{< /history >}}
 
-Confidential OKRs are OKRs visible only to members of a project with
-[sufficient permissions](#who-can-see-confidential-okrs).
-You can use confidential OKRs to keep security vulnerabilities private or prevent surprises from
-leaking out.
+Confidential OKRs are OKRs visible only to members of a project with [sufficient permissions](#who-can-see-confidential-okrs).
+You can use confidential OKRs to keep security vulnerabilities private or prevent surprises from leaking out.
 
 ### Make an OKR confidential
 
@@ -601,8 +572,7 @@ You can make an OKR confidential when you create or edit it.
 
 #### In a new OKR
 
-When you create a new objective, a checkbox right below the text area is available to mark the
-OKR as confidential.
+When you create a new objective, a checkbox right below the text area is available to mark the OKR as confidential.
 
 Select that checkbox and then select **Create objective** or **Create key result** to create the OKR.
 
@@ -611,14 +581,10 @@ Select that checkbox and then select **Create objective** or **Create key result
 Prerequisites:
 
 - You must have at least the Planner role for the project.
-- A **confidential objective** can have only confidential
-  [child objectives or key results](#child-objectives-and-key-results):
-  - To make an objective confidential: If it has any child objectives or key results, you must first
-    make all of them confidential or remove them.
-  - To make an objective non-confidential: If it has any child objectives or key results, you must
-    first make all of them non-confidential or remove them.
-  - To add child objectives or key results to a confidential objective, you must first make them
-    confidential.
+- A **confidential objective** can have only confidential [child objectives or key results](#child-objectives-and-key-results):
+ - To make an objective confidential: If it has any child objectives or key results, you must first make all of them confidential or remove them.
+ - To make an objective non-confidential: If it has any child objectives or key results, you must first make all of them non-confidential or remove them.
+ - To add child objectives or key results to a confidential objective, you must first make them confidential.
 
 To change the confidentiality of an existing OKR:
 
@@ -634,13 +600,10 @@ To change the confidentiality of an existing OKR:
 
 {{< /history >}}
 
-When an OKR is made confidential, only users with at least the Planner role for the project have
-access to the OKR.
-Users with Guest or [Minimal](permissions.md#users-with-minimal-access) roles can't access
-the OKR even if they were actively participating before the change.
+When an OKR is made confidential, only users with at least the Planner role for the project have access to the OKR.
+Users with Guest or [Minimal](permissions.md#users-with-minimal-access) roles can't access the OKR even if they were actively participating before the change.
 
-However, a user with the **Guest role** can create confidential OKRs, but can only view the ones
-that they created themselves.
+However, a user with the **Guest role** can create confidential OKRs, but can only view the ones that they created themselves.
 
 Users with the Guest role or non-members can read the confidential OKR if they are assigned to the OKR.
 When a Guest user or non-member is unassigned from a confidential OKR, they can no longer view it.
@@ -650,17 +613,13 @@ Confidential OKRs are hidden in search results for users without the necessary p
 ### Confidential OKR indicators
 
 Confidential OKRs are visually different from regular OKRs in a few ways.
-Wherever OKRs are listed, you can see the confidential ({{< icon name="eye-slash" >}}) icon
-next to the OKRs that are marked as confidential.
+Wherever OKRs are listed, you can see the confidential ({{< icon name="eye-slash" >}}) icon next to the OKRs that are marked as confidential.
 
-If you don't have [enough permissions](#who-can-see-confidential-okrs),
-you cannot see confidential OKRs at all.
+If you don't have [enough permissions](#who-can-see-confidential-okrs), you cannot see confidential OKRs at all.
 
-Likewise, while inside the OKR, you can see the confidential ({{< icon name="eye-slash" >}}) icon right next to
-the breadcrumbs.
+Likewise, while inside the OKR, you can see the confidential ({{< icon name="eye-slash" >}}) icon right next to the breadcrumbs.
 
-Every change from regular to confidential and vice versa, is indicated by a
-system note in the OKR's comments, for example:
+Every change from regular to confidential and vice versa, is indicated by a system note in the OKR's comments, for example:
 
 - {{< icon name="eye-slash" >}} Jo Garcia made the issue confidential 5 minutes ago
 - {{< icon name="eye" >}} Jo Garcia made the issue visible to everyone just now
@@ -710,8 +669,7 @@ If an OKR is closed with a locked discussion, then you cannot reopen it until th
 
 {{< /history >}}
 
-Linked items are a bi-directional relationship and appear in a block below
-the Child objectives and key results. You can link an objective, key result, or a task in the same project with each other.
+Linked items are a bi-directional relationship and appear in a block below the Child objectives and key results. You can link an objective, key result, or a task in the same project with each other.
 
 The relationship only shows up in the UI if the user can see both items.
 
@@ -723,8 +681,7 @@ Prerequisites:
 
 To link an item to an objective or key result:
 
-1. In the **Linked items** section of an objective or key result,
-   select **Add**.
+1. In the **Linked items** section of an objective or key result, select **Add**.
 1. Select the relationship between the two items. Either:
    - **Relates to**
    - **Blocks**
@@ -732,8 +689,7 @@ To link an item to an objective or key result:
 1. Enter the search text of the item, URL, or its reference ID.
 1. When you have added all the items to be linked, select **Add** below the search box.
 
-When you have finished adding all linked items, you can see
-them categorized so their relationships can be better understood visually.
+When you have finished adding all linked items, you can see them categorized so their relationships can be better understood visually.
 
 ![Linked work items categorized as blocking, blocked by, or related to, with status indicators to visualize progress, and dependencies.](img/linked_items_list_v16_5.png)
 
@@ -743,7 +699,6 @@ Prerequisites:
 
 - You must have at least the Guest role for the project.
 
-In the **Linked items** section of an objective or key result,
-next to each item, select the vertical ellipsis ({{< icon name="ellipsis_v" >}}) and then select **Remove**.
+In the **Linked items** section of an objective or key result, next to each item, select the vertical ellipsis ({{< icon name="ellipsis_v" >}}) and then select **Remove**.
 
 Due to the bi-directional relationship, the relationship no longer appears in either item.

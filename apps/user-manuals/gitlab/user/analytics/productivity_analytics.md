@@ -27,9 +27,9 @@ To view merge request data for projects, use [merge request analytics](merge_req
 Productivity analytics display the following charts:
 
 - Bar charts that illustrate the:
-  - Number of merge requests by number of days to merge.
-  - Time between commits, comments, and merge dates.
-  - Number of commits, lines of code, and files changed.
+ - Number of merge requests by number of days to merge.
+ - Time between commits, comments, and merge dates.
+ - Number of commits, lines of code, and files changed.
 - A scatterplot that illustrates the number of merge request metrics (such as number of commits per merge request) per day (merged date).
 - A table that lists merge request titles, time to merge, and duration between commits, comments, and merge dates.
 
@@ -48,5 +48,5 @@ Prerequisites:
 - To view analytics for a specific project, from the **Projects** dropdown list, select a project.
 - To filter results by author, milestone, or label, select **Filter results** and enter a value.
 - To adjust the date range:
-  - In the **From** field, select a start date.
-  - In the **To** field, select an end date.
+ - In the **From** field, select a start date.
+ - In the **To** field, select an end date.

@@ -19,8 +19,7 @@ description: Kubernetes integration, GitOps, CI/CD, agent deployment, and cluste
 
 {{< /history >}}
 
-You can connect your Kubernetes cluster with GitLab to deploy, manage,
-and monitor your cloud-native solutions.
+You can connect your Kubernetes cluster with GitLab to deploy, manage, and monitor your cloud-native solutions.
 
 To connect a Kubernetes cluster to GitLab, you must first [install an agent in your cluster](install/_index.md).
 
@@ -38,38 +37,31 @@ The agent was designed with strong multi-tenancy support. To simplify maintenanc
 
 An agent is always registered in a GitLab project.
 After an agent is registered and installed, the agent connection to the cluster can be shared with other projects, groups, and users.
-This approach means you can manage and configure your agent instances from GitLab itself,
-and you can scale a single installation to multiple tenants.
+This approach means you can manage and configure your agent instances from GitLab itself, and you can scale a single installation to multiple tenants.
 
 ## Supported Kubernetes versions for GitLab features
 
-GitLab supports the following Kubernetes versions. If you want to run
-GitLab in a Kubernetes cluster, you might need a different version of Kubernetes:
+GitLab supports the following Kubernetes versions. If you want to run GitLab in a Kubernetes cluster, you might need a different version of Kubernetes:
 
 - For the [Helm Chart](https://docs.gitlab.com/charts/installation/cloud/).
 - For [GitLab Operator](https://docs.gitlab.com/operator/installation.html).
 
-You can upgrade your
-Kubernetes version to a supported version at any time:
+You can upgrade your Kubernetes version to a supported version at any time:
 
 - 1.34 (support ends when GitLab version 19.7 is released or when 1.37 becomes supported)
 - 1.33 (support ends when GitLab version 19.2 is released or when 1.36 becomes supported)
 - 1.32 (support ends when GitLab version 18.10 is released or when 1.35 becomes supported)
 
-GitLab aims to support a new minor Kubernetes version three months after its initial release. GitLab supports at least three production-ready Kubernetes minor
-versions at any given time.
+GitLab aims to support a new minor Kubernetes version three months after its initial release. GitLab supports at least three production-ready Kubernetes minor versions at any given time.
 
 When a new version of Kubernetes is released:
 
-- This page updates with the results of early smoke tests within approximately
-  four weeks.
-- If the release of a new version support is delayed, this page updates
-  with the expected GitLab support version within approximately eight weeks.
+- This page updates with the results of early smoke tests within approximately four weeks.
+- If the release of a new version support is delayed, this page updates with the expected GitLab support version within approximately eight weeks.
 
 When installing the agent, use a Helm version compatible with your Kubernetes version. Other versions of Helm might not work. For a list of compatible versions, see the [Helm version support policy](https://helm.sh/docs/topics/version_skew/).
 
-Support for deprecated APIs can be removed from the GitLab codebase when GitLab no
-longer supports the Kubernetes version that only supports the deprecated API.
+Support for deprecated APIs can be removed from the GitLab codebase when GitLab no longer supports the Kubernetes version that only supports the deprecated API.
 
 Some GitLab features might work on versions not listed here. [This epic](https://gitlab.com/groups/gitlab-org/-/epics/4827) tracks support for Kubernetes versions.
 
@@ -85,8 +77,7 @@ GitLab recommends using [Flux for GitOps](gitops.md). To get started, see [Tutor
 
 In a [**CI/CD** workflow](ci_cd_workflow.md), you configure GitLab CI/CD to use the Kubernetes API to query and update your cluster.
 
-This workflow is considered **push-based**, because GitLab pushes requests
-from GitLab CI/CD to your cluster.
+This workflow is considered **push-based**, because GitLab pushes requests from GitLab CI/CD to your cluster.
 
 Use this workflow:
 
@@ -103,7 +94,7 @@ This channel is used for all communication between the agent and KAS:
 - Each agent can maintain up to 500 logical gRPC streams, including active and idle streams.
 - The number of TCP connections used by the gRPC streams is determined by gRPC itself.
 - Each connection has a maximum lifetime of two hours, with a one-hour grace period.
-  - A proxy in front of KAS might influence the maximum lifetime of connections. On GitLab.com, this is [two hours](https://gitlab.com/gitlab-cookbooks/gitlab-haproxy/-/blob/68df3484087f0af368d074215e17056d8ab69f1c/attributes/default.rb#L217). The grace period is 50% of the maximum lifetime.
+ - A proxy in front of KAS might influence the maximum lifetime of connections. On GitLab.com, this is [two hours](https://gitlab.com/gitlab-cookbooks/gitlab-haproxy/-/blob/68df3484087f0af368d074215e17056d8ab69f1c/attributes/default.rb#L217). The grace period is 50% of the maximum lifetime.
 
 For detailed information about channel routing, see [Routing KAS requests in the agent](https://gitlab.com/gitlab-org/cluster-integration/gitlab-agent/-/blob/master/doc/kas_request_routing.md).
 
@@ -122,8 +113,7 @@ For detailed information about channel routing, see [Routing KAS requests in the
 
 {{< /history >}}
 
-Receptive agents allow GitLab to integrate with Kubernetes clusters that cannot establish a network connection
-to the GitLab instance, but can be connected to by GitLab. For example, this can occur when:
+Receptive agents allow GitLab to integrate with Kubernetes clusters that cannot establish a network connection to the GitLab instance, but can be connected to by GitLab. For example, this can occur when:
 
 1. GitLab runs in a private network or behind a firewall, and is only accessible through VPN.
 1. The Kubernetes cluster is hosted by a cloud provider, but is exposed to the internet or is reachable from the private network.

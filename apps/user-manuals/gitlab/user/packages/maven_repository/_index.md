@@ -15,8 +15,7 @@ title: Maven packages in the package registry
 Publish [Maven](https://maven.apache.org) artifacts in your project's package registry.
 Then, install the packages whenever you need to use them as a dependency.
 
-For documentation of the specific API endpoints that the Maven package manager
-client uses, see the [Maven API documentation](../../../api/packages/maven.md).
+For documentation of the specific API endpoints that the Maven package manager client uses, see the [Maven API documentation](../../../api/packages/maven.md).
 
 Supported clients:
 
@@ -40,8 +39,7 @@ Update your configuration to authenticate to the Maven repository with HTTP.
 
 ##### Custom HTTP header
 
-You must add the authentication details to the configuration file
-for your client.
+You must add the authentication details to the configuration file for your client.
 
 {{< tabs >}}
 
@@ -50,18 +48,17 @@ for your client.
 | Token type            | Name must be    | Token                                                                  |
 | --------------------- | --------------- | ---------------------------------------------------------------------- |
 | Personal access token | `Private-Token` | Paste token as-is, or define an environment variable to hold the token |
-| Deploy token          | `Deploy-Token`  | Paste token as-is, or define an environment variable to hold the token |
+| Deploy token          | `Deploy-Token` | Paste token as-is, or define an environment variable to hold the token |
 | CI Job token          | `Job-Token`     | `${CI_JOB_TOKEN}`                                                      |
 
 > [!note]
 > The `<name>` field must be named to match the token you chose.
 
-Add the following section to your
-[`settings.xml`](https://maven.apache.org/settings.html) file.
+Add the following section to your [`settings.xml`](https://maven.apache.org/settings.html) file.
 
 ```xml
 <settings>
-  <servers>
+ <servers>
     <server>
       <id>gitlab-maven</id>
       <configuration>
@@ -73,7 +70,7 @@ Add the following section to your
         </httpHeaders>
       </configuration>
     </server>
-  </servers>
+ </servers>
 </settings>
 ```
 
@@ -84,27 +81,25 @@ Add the following section to your
 | Token type            | Name must be    | Token                                                                  |
 | --------------------- | --------------- | ---------------------------------------------------------------------- |
 | Personal access token | `Private-Token` | Paste token as-is, or define an environment variable to hold the token |
-| Deploy token          | `Deploy-Token`  | Paste token as-is, or define an environment variable to hold the token |
+| Deploy token          | `Deploy-Token` | Paste token as-is, or define an environment variable to hold the token |
 | CI Job token          | `Job-Token`     | `System.getenv("CI_JOB_TOKEN")`                                        |
 
 > [!note]
 > The `<name>` field must be named to match the token you chose.
 
-In [your `GRADLE_USER_HOME` directory](https://docs.gradle.org/current/userguide/directory_layout.html#dir:gradle_user_home),
-create a file `gradle.properties` with the following content:
+In [your `GRADLE_USER_HOME` directory](https://docs.gradle.org/current/userguide/directory_layout.html#dir:gradle_user_home), create a file `gradle.properties` with the following content:
 
 ```properties
 gitLabPrivateToken=REPLACE_WITH_YOUR_TOKEN
 ```
 
-Add a `repositories` section to your
-[`build.gradle`](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html)
+Add a `repositories` section to your [`build.gradle`](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html)
 file:
 
 - In Groovy DSL:
 
-  ```groovy
-  repositories {
+ ```groovy
+ repositories {
       maven {
           url "https://gitlab.example.com/api/v4/groups/<group>/-/packages/maven"
           name "GitLab"
@@ -116,13 +111,13 @@ file:
               header(HttpHeaderAuthentication)
           }
       }
-  }
-  ```
+ }
+ ```
 
 - In Kotlin DSL:
 
-  ```kotlin
-  repositories {
+ ```kotlin
+ repositories {
       maven {
           url = uri("https://gitlab.example.com/api/v4/groups/<group>/-/packages/maven")
           name = "GitLab"
@@ -134,8 +129,8 @@ file:
               create("header", HttpHeaderAuthentication::class)
           }
       }
-  }
-  ```
+ }
+ ```
 
 {{< /tab >}}
 
@@ -155,12 +150,11 @@ You can also use basic HTTP authentication to authenticate to the Maven package 
 | Deploy token          | The username of deploy token | Paste token as-is, or define an environment variable to hold the token |
 | CI Job token          | `gitlab-ci-token`            | `${CI_JOB_TOKEN}`                                                      |
 
-Add the following section to your
-[`settings.xml`](https://maven.apache.org/settings.html) file.
+Add the following section to your [`settings.xml`](https://maven.apache.org/settings.html) file.
 
 ```xml
 <settings>
-  <servers>
+ <servers>
     <server>
       <id>gitlab-maven</id>
       <username>REPLACE_WITH_NAME</username>
@@ -172,7 +166,7 @@ Add the following section to your
         </authenticationInfo>
       </configuration>
     </server>
-  </servers>
+ </servers>
 </settings>
 ```
 
@@ -186,20 +180,18 @@ Add the following section to your
 | Deploy token          | The username of deploy token | Paste token as-is, or define an environment variable to hold the token |
 | CI Job token          | `gitlab-ci-token`            | `System.getenv("CI_JOB_TOKEN")`                                        |
 
-In [your `GRADLE_USER_HOME` directory](https://docs.gradle.org/current/userguide/directory_layout.html#dir:gradle_user_home),
-create a file `gradle.properties` with the following content:
+In [your `GRADLE_USER_HOME` directory](https://docs.gradle.org/current/userguide/directory_layout.html#dir:gradle_user_home), create a file `gradle.properties` with the following content:
 
 ```properties
 gitLabPrivateToken=REPLACE_WITH_YOUR_TOKEN
 ```
 
-Add a `repositories` section to your
-[`build.gradle`](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html).
+Add a `repositories` section to your [`build.gradle`](https://docs.gradle.org/current/userguide/tutorial_using_tasks.html).
 
 - In Groovy DSL:
 
-  ```groovy
-  repositories {
+ ```groovy
+ repositories {
       maven {
           url "https://gitlab.example.com/api/v4/groups/<group>/-/packages/maven"
           name "GitLab"
@@ -211,13 +203,13 @@ Add a `repositories` section to your
               basic(BasicAuthentication)
           }
       }
-  }
-  ```
+ }
+ ```
 
 - In Kotlin DSL:
 
-  ```kotlin
-  repositories {
+ ```kotlin
+ repositories {
       maven {
           url = uri("https://gitlab.example.com/api/v4/groups/<group>/-/packages/maven")
           name = "GitLab"
@@ -229,8 +221,8 @@ Add a `repositories` section to your
               create("basic", BasicAuthentication::class)
           }
       }
-  }
-  ```
+ }
+ ```
 
 {{< /tab >}}
 
@@ -242,19 +234,15 @@ Add a `repositories` section to your
 | Deploy token          | The username of deploy token | Paste token as-is, or define an environment variable to hold the token |
 | CI Job token          | `gitlab-ci-token`            | `sys.env.get("CI_JOB_TOKEN").get`                                      |
 
-Authentication for [SBT](https://www.scala-sbt.org/index.html) is based on
-[basic HTTP Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication).
+Authentication for [SBT](https://www.scala-sbt.org/index.html) is based on [basic HTTP Authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication).
 You must to provide a name and a password.
 
 > [!note]
 > The name field must be named to match the token you chose.
 
-To install a package from the Maven GitLab package registry by using `sbt`, you must configure
-a [Maven resolver](https://www.scala-sbt.org/1.x/docs/Resolvers.html#Maven+resolvers).
-If you're accessing a private or an internal project or group, you need to set up
-[credentials](https://www.scala-sbt.org/1.x/docs/Publishing.html#Credentials).
-After configuring the resolver and authentication, you can install a package
-from a project, group, or namespace.
+To install a package from the Maven GitLab package registry by using `sbt`, you must configure a [Maven resolver](https://www.scala-sbt.org/1.x/docs/Resolvers.html#Maven+resolvers).
+If you're accessing a private or an internal project or group, you need to set up [credentials](https://www.scala-sbt.org/1.x/docs/Publishing.html#Credentials).
+After configuring the resolver and authentication, you can install a package from a project, group, or namespace.
 
 In your [`build.sbt`](https://www.scala-sbt.org/1.x/docs/Directories.html#sbt+build+definition+files), add the following lines:
 
@@ -267,9 +255,8 @@ credentials += Credentials("GitLab Packages Registry", "<host>", "<name>", "<tok
 In this example:
 
 - `<endpoint url>` is the [endpoint URL](#endpoint-urls).
-  Example: `https://gitlab.example.com/api/v4/projects/<project_id>/packages/maven`.
-- `<host>` is the host present in the `<endpoint url>` without the protocol
-  scheme or the port. Example: `gitlab.example.com`.
+ Example: `https://gitlab.example.com/api/v4/projects/<project_id>/packages/maven`.
+- `<host>` is the host present in the `<endpoint url>` without the protocol scheme or the port. Example: `gitlab.example.com`.
 - `<name>` and `<token>` are explained in the previous table.
 
 {{< /tab >}}
@@ -289,8 +276,8 @@ The three endpoints are:
 For the instance-level endpoint, ensure the relevant section of your `pom.xml` in Maven looks like this:
 
 ```xml
-  <groupId>group-slug.subgroup-slug</groupId>
-  <artifactId>project-slug</artifactId>
+ <groupId>group-slug.subgroup-slug</groupId>
+ <artifactId>project-slug</artifactId>
 ```
 
 Only packages that have the same path as the project are exposed by the instance-level endpoint.
@@ -305,7 +292,7 @@ Only packages that have the same path as the project are exposed by the instance
 
 | Endpoint | Endpoint URL for `pom.xml`                                               | Additional information |
 |----------|--------------------------------------------------------------------------|------------------------|
-| Project  | `https://gitlab.example.com/api/v4/projects/<project_id>/packages/maven` | Replace `gitlab.example.com` with your domain name. Replace `<project_id>` with your project ID, found on your [project overview page](../../project/working_with_projects.md#find-the-project-id). |
+| Project | `https://gitlab.example.com/api/v4/projects/<project_id>/packages/maven` | Replace `gitlab.example.com` with your domain name. Replace `<project_id>` with your project ID, found on your [project overview page](../../project/working_with_projects.md#find-the-project-id). |
 | Group    | `https://gitlab.example.com/api/v4/groups/<group_id>/-/packages/maven`   | Replace `gitlab.example.com` with your domain name. Replace `<group_id>` with your group ID, found on your group's homepage. |
 | Instance | `https://gitlab.example.com/api/v4/packages/maven`                       | Replace `gitlab.example.com` with your domain name. |
 
@@ -326,20 +313,20 @@ The relevant `repository` section of your `pom.xml` in Maven should look like th
 
 ```xml
 <repositories>
-  <repository>
+ <repository>
     <id>gitlab-maven</id>
     <url><your_endpoint_url></url>
-  </repository>
+ </repository>
 </repositories>
 <distributionManagement>
-  <repository>
+ <repository>
     <id>gitlab-maven</id>
     <url>https://gitlab.example.com/api/v4/projects/<project_id>/packages/maven</url>
-  </repository>
-  <snapshotRepository>
+ </repository>
+ <snapshotRepository>
     <id>gitlab-maven</id>
     <url>https://gitlab.example.com/api/v4/projects/<project_id>/packages/maven</url>
-  </snapshotRepository>
+ </snapshotRepository>
 </distributionManagement>
 ```
 
@@ -432,14 +419,12 @@ To publish a package by using Gradle:
 
 {{< alert type="warning" >}}
 
-Using the `DeployAtEnd` option can cause an upload to be rejected with `400 bad request {"message":"Validation failed: Name has already been taken"}`. For more details,
-see [issue 424238](https://gitlab.com/gitlab-org/gitlab/-/issues/424238).
+Using the `DeployAtEnd` option can cause an upload to be rejected with `400 bad request {"message":"Validation failed: Name has already been taken"}`. For more details, see [issue 424238](https://gitlab.com/gitlab-org/gitlab/-/issues/424238).
 
 {{< /alert >}}
 
 After you have set up the [authentication](#authenticate-to-the-package-registry)
-and [chosen an endpoint for publishing](#naming-convention),
-publish a Maven package to your project.
+and [chosen an endpoint for publishing](#naming-convention), publish a Maven package to your project.
 
 {{< tabs >}}
 
@@ -501,11 +486,10 @@ If the deploy is successful, the build success message is displayed:
 [success] Total time: 1 s, completed Jan 28, 2020 12:08:57 PM
 ```
 
-Check the success message to ensure the package was published to the
-correct location:
+Check the success message to ensure the package was published to the correct location:
 
 ```shell
-[info]  published my-project_2.12 to https://gitlab.example.com/api/v4/projects/PROJECT_ID/packages/maven/com/mycompany/my-project_2.12/0.1.1-SNAPSHOT/my-project_2.12-0.1.1-SNAPSHOT.pom
+[info] published my-project_2.12 to https://gitlab.example.com/api/v4/projects/PROJECT_ID/packages/maven/com/mycompany/my-project_2.12/0.1.1-SNAPSHOT/my-project_2.12-0.1.1-SNAPSHOT.pom
 ```
 
 {{< /tab >}}
@@ -522,13 +506,10 @@ For more information about package protection rules, see [how to protect a packa
 
 ## Install a package
 
-To install a package from the GitLab package registry, you must configure
-the [remote and authenticate](#authenticate-to-the-package-registry).
-When this is completed, you can install a package from a project,
-group, or namespace.
+To install a package from the GitLab package registry, you must configure the [remote and authenticate](#authenticate-to-the-package-registry).
+When this is completed, you can install a package from a project, group, or namespace.
 
-If multiple packages have the same name and version, when you install
-a package, the most recently-published package is retrieved.
+If multiple packages have the same name and version, when you install a package, the most recently-published package is retrieved.
 
 {{< tabs >}}
 
@@ -564,7 +545,7 @@ You can also install packages by using the Maven [`dependency:get` command](http
 1. In your project directory, run:
 
    ```shell
-   mvn dependency:get -Dartifact=com.nickkipling.app:nick-test-app:1.1-SNAPSHOT -DremoteRepositories=gitlab-maven::::<gitlab endpoint url>  -s <path to settings.xml>
+   mvn dependency:get -Dartifact=com.nickkipling.app:nick-test-app:1.1-SNAPSHOT -DremoteRepositories=gitlab-maven::::<gitlab endpoint url> -s <path to settings.xml>
    ```
 
    - `<gitlab endpoint url>` is the URL of the GitLab [endpoint](#endpoint-urls).
@@ -675,36 +656,36 @@ This example configures a pipeline that builds and publishes a Maven package:
 
 ```yaml
 default:
-  image: maven:3.8.5-openjdk-17
-  cache:
+ image: maven:3.8.5-openjdk-17
+ cache:
     paths:
       - .m2/repository/
       - target/
 
 variables:
-  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
-  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+ MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
+ MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
 
 stages:
-  - build
-  - test
-  - publish
+ - build
+ - test
+ - publish
 
 build:
-  stage: build
-  script:
+ stage: build
+ script:
     - mvn $MAVEN_CLI_OPTS compile
 
 test:
-  stage: test
-  script:
+ stage: test
+ script:
     - mvn $MAVEN_CLI_OPTS test
 
 publish:
-  stage: publish
-  script:
+ stage: publish
+ script:
     - mvn $MAVEN_CLI_OPTS deploy
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == "main"
 ```
 
@@ -714,39 +695,39 @@ For larger projects with multiple modules, you can use parallel jobs to speed up
 
 ```yaml
 default:
-  image: maven:3.8.5-openjdk-17
-  cache:
+ image: maven:3.8.5-openjdk-17
+ cache:
     paths:
       - .m2/repository/
       - target/
 
 variables:
-  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
-  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+ MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
+ MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
 
 stages:
-  - build
-  - test
-  - publish
+ - build
+ - test
+ - publish
 
 build:
-  stage: build
-  script:
+ stage: build
+ script:
     - mvn $MAVEN_CLI_OPTS compile
 
 test:
-  stage: test
-  parallel:
+ stage: test
+ parallel:
     matrix:
       - MODULE: [module1, module2, module3]
-  script:
+ script:
     - mvn $MAVEN_CLI_OPTS test -pl $MODULE
 
 publish:
-  stage: publish
-  script:
+ stage: publish
+ script:
     - mvn $MAVEN_CLI_OPTS deploy
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == "main"
 ```
 
@@ -756,45 +737,45 @@ This example creates versioned releases when a tag is pushed:
 
 ```yaml
 default:
-  image: maven:3.8.5-openjdk-17
-  cache:
+ image: maven:3.8.5-openjdk-17
+ cache:
     paths:
       - .m2/repository/
       - target/
 
 variables:
-  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
-  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+ MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
+ MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
 
 stages:
-  - build
-  - test
-  - publish
-  - release
+ - build
+ - test
+ - publish
+ - release
 
 build:
-  stage: build
-  script:
+ stage: build
+ script:
     - mvn $MAVEN_CLI_OPTS compile
 
 test:
-  stage: test
-  script:
+ stage: test
+ script:
     - mvn $MAVEN_CLI_OPTS test
 
 publish:
-  stage: publish
-  script:
+ stage: publish
+ script:
     - mvn $MAVEN_CLI_OPTS deploy
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
 release:
-  stage: release
-  script:
+ stage: release
+ script:
     - mvn versions:set -DnewVersion=${CI_COMMIT_TAG}
     - mvn $MAVEN_CLI_OPTS deploy
-  rules:
+ rules:
     - if: $CI_COMMIT_TAG
 ```
 
@@ -804,36 +785,36 @@ This example publishes packages only when certain files are changed:
 
 ```yaml
 default:
-  image: maven:3.8.5-openjdk-17
-  cache:
+ image: maven:3.8.5-openjdk-17
+ cache:
     paths:
       - .m2/repository/
       - target/
 
 variables:
-  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
-  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+ MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
+ MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
 
 stages:
-  - build
-  - test
-  - publish
+ - build
+ - test
+ - publish
 
 build:
-  stage: build
-  script:
+ stage: build
+ script:
     - mvn $MAVEN_CLI_OPTS compile
 
 test:
-  stage: test
-  script:
+ stage: test
+ script:
     - mvn $MAVEN_CLI_OPTS test
 
 publish:
-  stage: publish
-  script:
+ stage: publish
+ script:
     - mvn $MAVEN_CLI_OPTS deploy
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       changes:
         - pom.xml
@@ -846,47 +827,47 @@ This example integrates code quality checks and security scans into the pipeline
 
 ```yaml
 default:
-  image: maven:3.8.5-openjdk-17
-  cache:
+ image: maven:3.8.5-openjdk-17
+ cache:
     paths:
       - .m2/repository/
       - target/
 
 variables:
-  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
-  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+ MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
+ MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
 
 include:
-  - template: Security/SAST.gitlab-ci.yml
-  - template: Code-Quality.gitlab-ci.yml
+ - template: Security/SAST.gitlab-ci.yml
+ - template: Code-Quality.gitlab-ci.yml
 
 stages:
-  - build
-  - test
-  - quality
-  - publish
+ - build
+ - test
+ - quality
+ - publish
 
 build:
-  stage: build
-  script:
+ stage: build
+ script:
     - mvn $MAVEN_CLI_OPTS compile
 
 test:
-  stage: test
-  script:
+ stage: test
+ script:
     - mvn $MAVEN_CLI_OPTS test
 
 code_quality:
-  stage: quality
+ stage: quality
 
 sast:
-  stage: quality
+ stage: quality
 
 publish:
-  stage: publish
-  script:
+ stage: publish
+ script:
     - mvn $MAVEN_CLI_OPTS deploy
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == "main"
 ```
 
@@ -894,9 +875,7 @@ publish:
 
 ### Publishing a package with the same name or version
 
-When you publish a package with the same name and version as an existing package, the new package
-files are added to the existing package. You can still use the UI or API to access and view the
-existing package's older assets.
+When you publish a package with the same name and version as an existing package, the new package files are added to the existing package. You can still use the UI or API to access and view the existing package's older assets.
 
 To delete older package versions, consider using the Packages API or the UI.
 
@@ -939,33 +918,22 @@ For more information, see the history.
 
 {{< /alert >}}
 
-When a Maven package is not found in the package registry, the request is forwarded
-to [Maven Central](https://search.maven.org/).
+When a Maven package is not found in the package registry, the request is forwarded to [Maven Central](https://search.maven.org/).
 
-When the feature flag is enabled, administrators can disable this behavior in the
-[Continuous Integration settings](../../../administration/settings/continuous_integration.md).
+When the feature flag is enabled, administrators can disable this behavior in the [Continuous Integration settings](../../../administration/settings/continuous_integration.md).
 
-Maven forwarding is restricted to only the project level and
-group level [endpoints](#naming-convention). The instance level endpoint
-has naming restrictions that prevent it from being used for packages that don't follow that convention and also
-introduces too much security risk for supply-chain style attacks.
+Maven forwarding is restricted to only the project level and group level [endpoints](#naming-convention). The instance level endpoint has naming restrictions that prevent it from being used for packages that don't follow that convention and also introduces too much security risk for supply-chain style attacks.
 
 #### Additional configuration for `mvn`
 
-When using `mvn`, there are many ways to configure your Maven project so that it requests packages
-in Maven Central from GitLab. Maven repositories are queried in a
-[specific order](https://maven.apache.org/guides/mini/guide-multiple-repositories.html#repository-order).
-By default, Maven Central is usually checked first through the
-[Super POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html#Super_POM), so
-GitLab needs to be configured to be queried before maven-central.
+When using `mvn`, there are many ways to configure your Maven project so that it requests packages in Maven Central from GitLab. Maven repositories are queried in a [specific order](https://maven.apache.org/guides/mini/guide-multiple-repositories.html#repository-order).
+By default, Maven Central is usually checked first through the [Super POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html#Super_POM), so GitLab needs to be configured to be queried before maven-central.
 
-To ensure all package requests are sent to GitLab instead of Maven Central,
-you can override Maven Central as the central repository by adding a `<mirror>`
-section to your `settings.xml`:
+To ensure all package requests are sent to GitLab instead of Maven Central, you can override Maven Central as the central repository by adding a `<mirror>` section to your `settings.xml`:
 
 ```xml
 <settings>
-  <servers>
+ <servers>
     <server>
       <id>central-proxy</id>
       <configuration>
@@ -977,22 +945,21 @@ section to your `settings.xml`:
         </httpHeaders>
       </configuration>
     </server>
-  </servers>
-  <mirrors>
+ </servers>
+ <mirrors>
     <mirror>
       <id>central-proxy</id>
       <name>GitLab proxy of central repo</name>
       <url>https://gitlab.example.com/api/v4/projects/<project_id>/packages/maven</url>
       <mirrorOf>central</mirrorOf>
     </mirror>
-  </mirrors>
+ </mirrors>
 </settings>
 ```
 
 ### Create Maven packages with GitLab CI/CD
 
-After you have configured your repository to use the Package Repository for Maven,
-you can configure GitLab CI/CD to build new packages automatically.
+After you have configured your repository to use the Package Repository for Maven, you can configure GitLab CI/CD to build new packages automatically.
 
 {{< tabs >}}
 
@@ -1025,8 +992,7 @@ You can create a new package each time the default branch is updated.
    ```
 
 1. Make sure your `pom.xml` file includes the following.
-   You can either let Maven use the [predefined CI/CD variables](../../../ci/variables/predefined_variables.md), as shown in this example,
-   or you can hard code your server's hostname and project's ID.
+   You can either let Maven use the [predefined CI/CD variables](../../../ci/variables/predefined_variables.md), as shown in this example, or you can hard code your server's hostname and project's ID.
 
    ```xml
    <repositories>
@@ -1060,8 +1026,7 @@ You can create a new package each time the default branch is updated.
 
 1. Push those files to your repository.
 
-The next time the `deploy` job runs, it copies `ci_settings.xml` to the
-user's home location. In this example:
+The next time the `deploy` job runs, it copies `ci_settings.xml` to the user's home location. In this example:
 
 - The user is `root`, because the job runs in a Docker container.
 - Maven uses the configured CI/CD variables.
@@ -1070,8 +1035,7 @@ user's home location. In this example:
 
 {{< tab title="`gradle`" >}}
 
-You can create a package each time the default branch
-is updated.
+You can create a package each time the default branch is updated.
 
 1. Authenticate with [a CI job token in Gradle](#edit-the-client-configuration).
 
@@ -1116,27 +1080,24 @@ There are some [Maven command-line options](https://maven.apache.org/ref/current
 that you can use when performing tasks with GitLab CI/CD.
 
 - File transfer progress can make the CI logs hard to read.
-  Option `-ntp,--no-transfer-progress` was added in
-  [3.6.1](https://maven.apache.org/docs/3.6.1/release-notes.html#User_visible_Changes).
-  Alternatively, look at `-B,--batch-mode`
-  [or lower level logging changes.](https://stackoverflow.com/questions/21638697/disable-maven-download-progress-indication)
+ Option `-ntp,--no-transfer-progress` was added in [3.6.1](https://maven.apache.org/docs/3.6.1/release-notes.html#User_visible_Changes).
+ Alternatively, look at `-B,--batch-mode` [or lower level logging changes.](https://stackoverflow.com/questions/21638697/disable-maven-download-progress-indication)
 
 - Specify where to find the `pom.xml` file (`-f,--file`):
 
-  ```yaml
-  package:
+ ```yaml
+ package:
     script:
       - 'mvn --no-transfer-progress -f helloworld/pom.xml package'
-  ```
+ ```
 
-- Specify where to find the user settings (`-s,--settings`) instead of
-  [the default location](https://maven.apache.org/settings.html). There's also a `-gs,--global-settings` option:
+- Specify where to find the user settings (`-s,--settings`) instead of [the default location](https://maven.apache.org/settings.html). There's also a `-gs,--global-settings` option:
 
-  ```yaml
-  package:
+ ```yaml
+ package:
     script:
       - 'mvn -s settings/ci.xml package'
-  ```
+ ```
 
 ### Supported CLI commands
 
@@ -1175,8 +1136,7 @@ To resolve many common issues, try these steps:
 
 ### Clear the cache
 
-To improve performance, clients cache files related to a package. If you encounter issues, clear
-the cache with these commands:
+To improve performance, clients cache files related to a package. If you encounter issues, clear the cache with these commands:
 
 {{< tabs >}}
 
@@ -1216,19 +1176,17 @@ mvn deploy \
 
 ### Verify your Maven settings
 
-If you encounter issues within CI/CD that relate to the `settings.xml` file, try adding
-an additional script task or job to [verify the effective settings](https://maven.apache.org/plugins/maven-help-plugin/effective-settings-mojo.html).
+If you encounter issues within CI/CD that relate to the `settings.xml` file, try adding an additional script task or job to [verify the effective settings](https://maven.apache.org/plugins/maven-help-plugin/effective-settings-mojo.html).
 
-The help plugin can also provide
-[system properties](https://maven.apache.org/plugins/maven-help-plugin/system-mojo.html), including environment variables:
+The help plugin can also provide [system properties](https://maven.apache.org/plugins/maven-help-plugin/system-mojo.html), including environment variables:
 
 ```yaml
 mvn-settings:
-  script:
+ script:
     - 'mvn help:effective-settings'
 
 package:
-  script:
+ script:
     - 'mvn help:system'
     - 'mvn package'
 ```

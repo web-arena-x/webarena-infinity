@@ -22,12 +22,12 @@ There are two different types of accelerated checkout buttons:
 
 * **Unbranded** - These buttons display **Buy it now** text. When a customer clicks an unbranded button, they skip the cart and go to the Shopify Checkout.
 * **Branded** - These buttons include the logo for a third-party accelerated checkout method. When a customer clicks a branded button, they complete their payment with that accelerated checkout method. The following third-party accelerated checkout methods are available:
-  + [Amazon Pay](https://help.shopify.com/en/manual/payments/accelerated-checkouts/amazonpay/amazon-pay)
-  + [Apple Pay](https://help.shopify.com/en/manual/payments/accelerated-checkouts/apple-pay)
-  + [Google Pay](https://help.shopify.com/en/manual/payments/accelerated-checkouts/google-pay)
-  + [PayPal](https://help.shopify.com/en/manual/payments/paypal)
-  + [Shop Pay](https://help.shopify.com/en/manual/payments/shop-pay/shop-pay)
-  + [Venmo](https://help.shopify.com/en/manual/payments/paypal/supported-providers)
+ + [Amazon Pay](https://help.shopify.com/en/manual/payments/accelerated-checkouts/amazonpay/amazon-pay)
+ + [Apple Pay](https://help.shopify.com/en/manual/payments/accelerated-checkouts/apple-pay)
+ + [Google Pay](https://help.shopify.com/en/manual/payments/accelerated-checkouts/google-pay)
+ + [PayPal](https://help.shopify.com/en/manual/payments/paypal)
+ + [Shop Pay](https://help.shopify.com/en/manual/payments/shop-pay/shop-pay)
+ + [Venmo](https://help.shopify.com/en/manual/payments/paypal/supported-providers)
 
 When you [add accelerated checkout buttons to your online store](dynamic-checkout/add-buttons.md), your options are to display or hide the accelerated checkout buttons, but you can't customize whether branded or unbranded accelerated checkout buttons display. The branded buttons display depending on payment methods that you've activated in your [payment settings](https://admin.shopify.com/settings/payments). If you don't have a third-party accelerated checkout method activated, then only the unbranded button is displayed. You can [customize the color and fonts of your unbranded accelerated checkout buttons](dynamic-checkout/customize-button.md), but you can't customize the branded versions of the buttons.
 

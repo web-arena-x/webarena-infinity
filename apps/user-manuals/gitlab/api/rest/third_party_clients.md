@@ -13,14 +13,11 @@ title: REST API third-party clients
 
 {{< /details >}}
 
-You can integrate third-party API client libraries with GitLab. The following libraries are
-maintained by community members and not officially supported by GitLab. Report bugs and feature
-proposals to the respective projects.
+You can integrate third-party API client libraries with GitLab. The following libraries are maintained by community members and not officially supported by GitLab. Report bugs and feature proposals to the respective projects.
 
 For questions about these integrations, use the [GitLab community forum](https://forum.gitlab.com/).
 
-Administrators can monitor usage of these API clients by
-[parsing logs](../../administration/logs/log_parsing.md#print-top-api-user-agents).
+Administrators can monitor usage of these API clients by [parsing logs](../../administration/logs/log_parsing.md#print-top-api-user-agents).
 
 ## `C#`
 
@@ -57,7 +54,7 @@ Administrators can monitor usage of these API clients by
 ## Python
 
 - [`python-gitlab`](https://github.com/python-gitlab/python-gitlab)
-  - Blog post: [Efficient DevSecOps workflows: Hands-on `python-gitlab` API automation](https://about.gitlab.com/blog/2023/02/01/efficient-devsecops-workflows-hands-on-python-gitlab-api-automation/)
+ - Blog post: [Efficient DevSecOps workflows: Hands-on `python-gitlab` API automation](https://about.gitlab.com/blog/2023/02/01/efficient-devsecops-workflows-hands-on-python-gitlab-api-automation/)
 - [`libsaas_gitlab`](https://gitlab.com/bor-sh-infrastructure/libsaas_gitlab)
 
 ## Ruby

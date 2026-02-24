@@ -12,8 +12,8 @@ As a reminder, within Analytics, there are two values available in reporting:
 
 **Measures -** What do I want to do with my data? Measures are the math on top of your data.
 
-Within both Dimensions and Measures are specific fields, which you can use to either filter your results or include in the report as a column.   
-  
+Within both Dimensions and Measures are specific fields, which you can use to either filter your results or include in the report as a column.  
+ 
 Next to each field name, hover your mouse pointer over the "i" to the right of the name to see the definition.
 
 Here's an example:

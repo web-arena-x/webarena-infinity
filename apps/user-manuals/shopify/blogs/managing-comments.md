@@ -31,10 +31,9 @@ Desktop
 4. In the **Comments** section, select the option that you want, and then click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Content** menu, tap the  icon, and then tap **Blog posts**.
-3. Tap  or  > **Manage blogs**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Content** menu, tap the icon, and then tap **Blog posts**.
+3. Tap or > **Manage blogs**.
 4. Tap the name of the blog that you want to edit.
 5. In the **Comments** section, select the option that you want, and then tap **Save** or **✓**..
 

@@ -26,28 +26,27 @@ Fields marked with an asterisk (\*) are required.
 
  The fields listed below can be edited by employers:
 
-- **Aliases**   
-  Other names your company may be known by.
+- **Aliases** Other names your company may be known by.
 - **Industry\***
-  - *For a full list of industries in Handshake, refer to* [*Employer Industry Name List*](https://support.joinhandshake.com/hc/en-us/articles/360036981454).
+ - *For a full list of industries in Handshake, refer to* [*Employer Industry Name List*](https://support.joinhandshake.com/hc/en-us/articles/360036981454).
 - **Website\***
-  - Website URL must include http:// or https://.
+ - Website URL must include http:// or https://.
 - **Description\***
-  - A short summary or mission statement for your company.
+ - A short summary or mission statement for your company.
 - **Primary location**
-  - Your company’s main office or headquarters.
-  - The address must include a full street address with a street number.
+ - Your company’s main office or headquarters.
+ - The address must include a full street address with a street number.
 - **Locations**
-  - Additional offices or sites where your company operates.
-  - The address can be a full street address or a city and state.
+ - Additional offices or sites where your company operates.
+ - The address can be a full street address or a city and state.
 - **Employer size**
 - **Employer type\***
 - **On-campus employer**
-  - Check this box if you are an on-campus employer.
+ - Check this box if you are an on-campus employer.
     - *To confirm your eligibility and set yourself up as an on-campus employer, refer to* [*Identifying as an On-Campus Employer on Handshake*](https://support.joinhandshake.com/hc/en-us/articles/24818729019159).
 - **Auto-approve Staff**
-  - Automatically approves new staff members who join your company using an email address from your company’s domain.
-  - This option will appear *only* if there is one company profile tied to your email domain in Handshake.
+ - Automatically approves new staff members who join your company using an email address from your company’s domain.
+ - This option will appear *only* if there is one company profile tied to your email domain in Handshake.
 - **Public email** (*only visible to Handshake partner schools*)
 - **Public phone number** (*visible on the company's profile*)
 - **Private phone number**
@@ -60,10 +59,10 @@ Fields marked with an asterisk (\*) are required.
 - **Tiktok profile URL**
 - **X (formerly Twitter) profile URL**
 - **Logo**
-  - Must be at least 150 x 150 pixels.
+ - Must be at least 150 x 150 pixels.
 - **Banner**
-  - At least 1400 x 400 pixels. Decorative only. Avoid including text.
-  - **Tip**: After uploading your logo and banner, wait 30 seconds before clicking the **Update employer** button.
+ - At least 1400 x 400 pixels. Decorative only. Avoid including text.
+ - **Tip**: After uploading your logo and banner, wait 30 seconds before clicking the **Update employer** button.
 
 **Fields that require Support assistance**
 

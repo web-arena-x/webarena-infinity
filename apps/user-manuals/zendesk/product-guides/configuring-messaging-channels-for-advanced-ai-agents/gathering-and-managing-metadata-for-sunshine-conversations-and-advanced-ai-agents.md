@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357757971866-Gathering-an
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -18,8 +18,8 @@ The AI agent needs access to certain user-specific information for successful en
 - [Sunshine Conversation Requirements](#h_01GDAKXSTS6QAS5D83C2J2X0V9)
 - [AI agents - Advanced Requirements](#h_01GDAKYEV2FT7TFTDVXHRDRWYP)
 - [Update Zendesk Custom Fields](#h_01GDAMT02ZKV2GAS238Y267V2D)
-  - [Option 1: Get tag values](#Get-the-tag-values)
-  - [Option 2: Field Value ID](#h_01GDATMHFQH5QMH806MV9541VX)
+ - [Option 1: Get tag values](#Get-the-tag-values)
+ - [Option 2: Field Value ID](#h_01GDATMHFQH5QMH806MV9541VX)
 
 ### Gathering Metadata
 
@@ -46,20 +46,20 @@ In order to retrieve this Metadata, the SunCo chat widget needs to be updated. A
 Below you can find an example, however, please do refer to [Sunshine Conversations](https://docs.smooch.io/guide/using-metadata/) for the most up-to-date information on this,
 
 ```
-Smooch.updateUser({  
-  
-   email: 'example@email.com',  
-  
-   metadata: {  
-  
-       latestOrderNumber: 'order number',  
-  
-       loggedIn: 'true',  
-  
-  customerType: 'customer type'  
-  
-   }  
-  
+Smooch.updateUser({ 
+ 
+   email: 'example@email.com', 
+ 
+   metadata: { 
+ 
+       latestOrderNumber: 'order number', 
+ 
+       loggedIn: 'true', 
+ 
+  customerType: 'customer type' 
+ 
+   } 
+ 
 })
 ```
 
@@ -75,9 +75,9 @@ You do this with [actions](https://support.zendesk.com/hc/en-us/articles/8357756
 
 The above action saves the user metadata information to the conversation session. This means, the AI agent doesn’t need to ask for this information from the user again but can update them to Zendesk through pass control (screenshot below). This way, your Support Agents won’t need to update these ticket fields manually. 
 
-![Screenshot_2022-09-19_at_12.23.39.png](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/bots_Screenshot_2022-09-19_at_12.23.39.png)  
-  
-  
+![Screenshot_2022-09-19_at_12.23.39.png](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/bots_Screenshot_2022-09-19_at_12.23.39.png) 
+ 
+ 
 When you want to update the metadata field after saving it to the session, you will need to use the Field ID from Zendesk - which you can find by going to Zendesk Admin Center > People > User Fields
 
 A recommendation from our side is to use [conditional blocks](https://support.zendesk.com/hc/en-us/articles/8357733406234) to check whether the above information exists in the session, and if not, use the AI agent to ask for this information from the user
@@ -88,8 +88,8 @@ A recommendation from our side is to use [conditional blocks](https://support.ze
 
 Something to bear in mind is that SunCo doesn’t have an integration with Zendesk - this means AI agents - Advanced can’t access custom field information directly through metadata or other SunCo action. 
 
-Custom Fields, however, can be updated via pass control i.e. when the AI agent escalates to Zendesk Agent Workspace or a ticket is created.  
-  
+Custom Fields, however, can be updated via pass control i.e. when the AI agent escalates to Zendesk Agent Workspace or a ticket is created. 
+ 
 The SunCo action `Update User` can be used to update custom fields in Zendesk, both free text and drop-down fields. 
 
 Each Zendesk drop-down field value has an associated tag. This is what you would typically use in ZD Chat integrations to select drop-down items.

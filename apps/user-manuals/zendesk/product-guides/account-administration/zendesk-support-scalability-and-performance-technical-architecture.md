@@ -6,75 +6,36 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408832509338-Zendesk-Supp
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-At Zendesk, our goal is to help bring companies and their customers closer together with
-software that’s easy to use, easy to customize, and easy to scale. It starts with ensuring
-Zendesk Support runs smoothly while providing you with a service that scales to meet your
-ever-changing needs.
+At Zendesk, our goal is to help bring companies and their customers closer together with software that’s easy to use, easy to customize, and easy to scale. It starts with ensuring Zendesk Support runs smoothly while providing you with a service that scales to meet your ever-changing needs.
 
-As our customers grow and their needs change, the technology has to scale to meet the demand
-for performance and reliability. Zendesk Support is built on an enterprise-level operations and
-technology architecture that exceeds industry standards and future-proofs your business. The
-following diagram gives an overview of the technical architecture. See the rest of the article
-for explanations of the parts.
+As our customers grow and their needs change, the technology has to scale to meet the demand for performance and reliability. Zendesk Support is built on an enterprise-level operations and technology architecture that exceeds industry standards and future-proofs your business. The following diagram gives an overview of the technical architecture. See the rest of the article for explanations of the parts.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/data_centers2.png)
 
 ## A redundant and distributed environment
 
-Zendesk Support uses a fully redundant, distributed, and automated environment consisting of
-geographically separate data centers running multiple, self-sustaining instances of the
-application.
+Zendesk Support uses a fully redundant, distributed, and automated environment consisting of geographically separate data centers running multiple, self-sustaining instances of the application.
 
-To ensure high performance for customers globally, Zendesk Support runs on multiple data centers
-around the world. Each data center increases capacity and reduces
-latency for customers. With the
-[Data Center
-Location](https://support.zendesk.com/hc/en-us/articles/4408838409754) feature,
-customers
-can
-select
-their preferred data center location.
+To ensure high performance for customers globally, Zendesk Support runs on multiple data centers around the world. Each data center increases capacity and reduces latency for customers. With the [Data Center Location](https://support.zendesk.com/hc/en-us/articles/4408838409754) feature, customers can select their preferred data center location.
 
 ## A pod architecture design
 
-Each data center consists of one or more pods. This pod architecture presents maximum flexibility
-with the benefits of faster provisioning, user customization, and
-improved scalability. A new Zendesk Support customer is assigned to
-a specific pod in one of the data centers. Each pod has all the
-resources necessary to run Zendesk Support independently of the
-other pods. The resources include application servers, web servers,
-and database servers, as well as resources to handle other work such
-as email processing and reporting.
+Each data center consists of one or more pods. This pod architecture presents maximum flexibility with the benefits of faster provisioning, user customization, and improved scalability. A new Zendesk Support customer is assigned to a specific pod in one of the data centers. Each pod has all the resources necessary to run Zendesk Support independently of the other pods. The resources include application servers, web servers, and database servers, as well as resources to handle other work such as email processing and reporting.
 
-Each pod contains several database clusters, each consisting of a primary database server and two
-secondary database servers that continuously mirror the primary. If
-the primary unexpectedly encounters a problem, one of the spares
-immediately takes its place. This automated system of backup servers
-significantly reduces the possibility of downtime.
+Each pod contains several database clusters, each consisting of a primary database server and two secondary database servers that continuously mirror the primary. If the primary unexpectedly encounters a problem, one of the spares immediately takes its place. This automated system of backup servers significantly reduces the possibility of downtime.
 
 ## Pod moves
 
-As a standard part of network management, pod moves can happen
-periodically. This can impact your IP address [allowlists](https://support.zendesk.com/hc/en-us/articles/4408886840986) and
-firewall configurations. You can use the Zendesk API to get the
-most-recent list of public IP addresses for Zendesk products. See
-[Configuring your firewall for
-use with Zendesk products](https://support.zendesk.com/hc/en-us/articles/4408842860186) for more
-information.
+As a standard part of network management, pod moves can happen periodically. This can impact your IP address [allowlists](https://support.zendesk.com/hc/en-us/articles/4408886840986) and firewall configurations. You can use the Zendesk API to get the most-recent list of public IP addresses for Zendesk products. See [Configuring your firewall for use with Zendesk products](https://support.zendesk.com/hc/en-us/articles/4408842860186) for more information.
 
 ## A sharded database design
 
-The building blocks of each database cluster are shards, which are smaller, logical
-databases. A sharded architecture allows Zendesk Support to rebalance load across physical database
-clusters and pods. Zendesk Support has hundreds of shards distributed across database clusters
-worldwide. Each shard supports a certain number of customers. The number varies depending on
-the data volumes generated by customers. If a customer demands more capacity, Zendesk Support can
-fully dedicate a single shard or database cluster to the customer.
+The building blocks of each database cluster are shards, which are smaller, logical databases. A sharded architecture allows Zendesk Support to rebalance load across physical database clusters and pods. Zendesk Support has hundreds of shards distributed across database clusters worldwide. Each shard supports a certain number of customers. The number varies depending on the data volumes generated by customers. If a customer demands more capacity, Zendesk Support can fully dedicate a single shard or database cluster to the customer.

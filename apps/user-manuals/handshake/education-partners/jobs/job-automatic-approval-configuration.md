@@ -48,25 +48,25 @@ Automatic approval exceptions:
 - Job is located at a residential address
 - Employer tag
 - Compensation
-  - Job is unpaid
-  - Job does not include exact amount (e.g. $50K/yr)
-  - Job does not include range (e.g. $40-$60K/yr)
+ - Job is unpaid
+ - Job does not include exact amount (e.g. $50K/yr)
+ - Job does not include range (e.g. $40-$60K/yr)
 - On-campus, Work-Study, and co-op jobs
-  - Job type
-  - Job duration
-  - Employer industry
-  - Employment type
-  - Employer label
-  - Work Authorization
+ - Job type
+ - Job duration
+ - Employer industry
+ - Employment type
+ - Employer label
+ - Work Authorization
     - Work authorization requirements undisclosed
     - Work authorization not required
-  - School year
-  - Degree level
-  - Location type
-  - States - *Any state added here will have jobs located in that state automatically approved. Jobs located in states not listed here will need to be manually approved by your school*
+ - School year
+ - Degree level
+ - Location type
+ - States - *Any state added here will have jobs located in that state automatically approved. Jobs located in states not listed here will need to be manually approved by your school*
     - Jobs outside of the United States
     - Employer outside of the United States
-  - Job role
+ - Job role
 
 After you have selected the criteria, you can click the button **Apply Settings** to proceed. These criteria will apply to any future jobs that are posted to your school, until you change the criteria again. Any jobs that are currently pending will need to be manually approved or declined.
 

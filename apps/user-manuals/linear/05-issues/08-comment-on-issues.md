@@ -12,8 +12,8 @@ All users with access to an issue can post comments and threaded replies. React 
 
 ## Post a comment
 
-Comment on an issue by clicking into the "Leave a comment…" text box at the bottom of an issue. While issue description text is saved automatically, you will need to click the _Comment_ button or `⌘/Ctrl + Enter` to post the comment to the issue. Unsent comments are visible on the issue, and in _Drafts_ in your sidebar.  
-  
+Comment on an issue by clicking into the "Leave a comment…" text box at the bottom of an issue. While issue description text is saved automatically, you will need to click the _Comment_ button or `⌘/Ctrl + Enter` to post the comment to the issue. Unsent comments are visible on the issue, and in _Drafts_ in your sidebar. 
+ 
 Attach files to a comment using the paperclip icon, `⌘/Ctrl` `Shift` `A`, or drag and drop.
 
 ## Edit or manage a comment

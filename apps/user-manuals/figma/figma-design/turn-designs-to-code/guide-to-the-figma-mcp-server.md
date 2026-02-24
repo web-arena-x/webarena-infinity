@@ -30,28 +30,28 @@ With the server enabled, you can:
 
 - **Send live UI to Figma Design files with Claude Code to Figma**
 
-  Turn live UI from your browser (production, staging, or localhost) into editable Figma frames. Send screens or whole flows as design layers to Figma for exploration, alignment, and refinement.
+ Turn live UI from your browser (production, staging, or localhost) into editable Figma frames. Send screens or whole flows as design layers to Figma for exploration, alignment, and refinement.
 
-  This feature is continuously being improved. If you encounter issues, you can report the issues using [Fig, our support chatbot](https://help.figma.com/hc/en-us/articles/360041057214-Explore-Figma-s-help-and-support-resources#h_01KBJZP4HEVHZSHXBV6PFQBPH0), or by [emailing support (paid plans)](https://help.figma.com/hc/en-us/articles/360041057214-Explore-Figma-s-help-and-support-resources#h_01KBJZP4JHXDEZM922NWPF3P9D).
+ This feature is continuously being improved. If you encounter issues, you can report the issues using [Fig, our support chatbot](https://help.figma.com/hc/en-us/articles/360041057214-Explore-Figma-s-help-and-support-resources#h_01KBJZP4HEVHZSHXBV6PFQBPH0), or by [emailing support (paid plans)](https://help.figma.com/hc/en-us/articles/360041057214-Explore-Figma-s-help-and-support-resources#h_01KBJZP4JHXDEZM922NWPF3P9D).
 
-  [Learn more about Claude Code to Figma](https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/#generate_figma_design)
+ [Learn more about Claude Code to Figma](https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/#generate_figma_design)
 - **Generate code from selected frames**
 
-  Select a Figma frame and turn it into code. Great for product teams building new flows or iterating on app features.
+ Select a Figma frame and turn it into code. Great for product teams building new flows or iterating on app features.
 - **Extract design context**
 
-  Pull in variables, components, and layout data directly into your IDE. This is especially useful for design systems and component-based workflows.
+ Pull in variables, components, and layout data directly into your IDE. This is especially useful for design systems and component-based workflows.
 - **Retrieve FigJam resources**
 
-  Access content from your FigJam diagrams and use it in your code generation workflow. Incorporate early-stage ideas, flows, or architecture maps directly into development.
+ Access content from your FigJam diagrams and use it in your code generation workflow. Incorporate early-stage ideas, flows, or architecture maps directly into development.
 - **Retrieve Make resources**
 
-  [Gather code resources from Make files](https://developers.figma.com/docs/figma-mcp-server/bringing-make-context-to-your-agent/) and provide them to the LLM as context. This can help as you move from prototype to production application.
+ [Gather code resources from Make files](https://developers.figma.com/docs/figma-mcp-server/bringing-make-context-to-your-agent/) and provide them to the LLM as context. This can help as you move from prototype to production application.
 - **Keep your design system components consistent with Code Connect**
 
-  Boost output quality by reusing your actual components. Code Connect keeps your generated code consistent with your codebase.
+ Boost output quality by reusing your actual components. Code Connect keeps your generated code consistent with your codebase.
 
-  [Learn more about Code Connect](code-connect.md)
+ [Learn more about Code Connect](code-connect.md)
 
 ## Set up the MCP server
 
@@ -75,20 +75,20 @@ The server runs locally at `http://127.0.0.1:3845/mcp`. Keep this address handy 
 
 Follow instructions for your specific editor to connect to the Figma MCP server, either locally or remotely. Some clients also support [Skills](#h_01KG5HNM2M3Y6RGBRK84FH1Z1E), which add agent-level instructions that help AI tools work more effectively with Figma designs:
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | **Client** | **Desktop server support** | **Remote server support** | **Skills support** |
-| [Amazon Q](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/qdev-mcp.html) | ✓ |  |  |
-| [Android Studio](https://developer.android.com/studio/gemini/add-mcp-server) | ✓ | ✓ |  |
+| [Amazon Q](https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/qdev-mcp.html) | ✓ | | |
+| [Android Studio](https://developer.android.com/studio/gemini/add-mcp-server) | ✓ | ✓ | |
 | [Claude Code](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/#claude-code) | ✓ | ✓ | [Claude Skills](https://claude.com/connectors/figma) |
 | [Codex by OpenAI](https://developers.openai.com/codex/mcp#connect-codex-to-a-mcp-server) | ✓ | ✓ | [Codex Skills](https://github.com/openai/skills/blob/main/skills/.curated/figma-implement-design/SKILL.md) |
-| [Cursor](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/#cursor) | ✓ | ✓ |  |
-| [Gemini CLI](https://github.com/figma/figma-gemini-cli-extension) | ✓ | ✓ |  |
+| [Cursor](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/#cursor) | ✓ | ✓ | |
+| [Gemini CLI](https://github.com/figma/figma-gemini-cli-extension) | ✓ | ✓ | |
 | [Kiro](https://kiro.dev/docs/mcp/servers/#remote-mcp-servers) | ✓ | ✓ | [Kiro Powers](https://kiro.dev/powers/) |
-| [Openhands](https://docs.all-hands.dev/usage/mcp) | ✓ |  |  |
-| [Replit](https://blog.replit.com/everything-you-need-to-know-about-mcp) |  | ✓ |  |
-| [VS Code](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/#vs-code) | ✓ | ✓ |  |
-| [Warp](https://docs.warp.dev/knowledge-and-collaboration/mcp#adding-an-mcp-server) | ✓ | ✓ |  |
+| [Openhands](https://docs.all-hands.dev/usage/mcp) | ✓ | | |
+| [Replit](https://blog.replit.com/everything-you-need-to-know-about-mcp) | | ✓ | |
+| [VS Code](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/#vs-code) | ✓ | ✓ | |
+| [Warp](https://docs.warp.dev/knowledge-and-collaboration/mcp#adding-an-mcp-server) | ✓ | ✓ | |
 
 ### About Skills
 

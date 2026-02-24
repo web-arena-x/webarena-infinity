@@ -6,7 +6,7 @@ Source: https://help.figma.com/hc/en-us/articles/15145852043927-Create-and-manag
 
 **The entry point to the variables modal is moving!** Currently, the variables modal is not discoverable if you have a layer selected. We're slowly rolling out a new left navigation bar to users in Figma Design, which will include the entry point to the variables modal so you can access your variable collections anytime.
 
-![navigation-bar-variables-entry-point.png](https://help.figma.com/hc/article_attachments/37506151444759)  
+![navigation-bar-variables-entry-point.png](https://help.figma.com/hc/article_attachments/37506151444759) 
 
 The variables modal will also be edge-to-edge in your window by default, called **variables view**, so that you can see more of your variables and modes at once. You can still minimize to a modal view like before.
 
@@ -37,14 +37,14 @@ To access the **Variables** modal:
 
 1. Deselect everything on the canvas by pressing `esc` or clicking the canvas.
 2. From the right sidebar, find the **Local variables** section.
-3. Click  **Open variables.**
+3. Click **Open variables.**
 
-You can click  **Toggle sidebar** to see additional options in the variables modal.
+You can click **Toggle sidebar** to see additional options in the variables modal.
 
 **Tip**: Expand the size of the variable modal to see more variables and modes at once. You can do this in one of two ways:
 
 - Click and drag the corner or sides of the modal
-- Click  **Expand** to resize the modal to expand to the full size of your window
+- Click **Expand** to resize the modal to expand to the full size of your window
 
 ## Create a variable
 
@@ -78,7 +78,7 @@ To create an alias for a variable:
 2. Right-click a variable’s value and select **Create alias**.
 3. From the **Libraries** tab, choose a variable to set an alias. You can use the search bar to find a variable by name or browse through available libraries.
 
-To detach an alias, hover over the value field and click  **Detach alias.**
+To detach an alias, hover over the value field and click **Detach alias.**
 
 **Want to learn more about how aliasing works?** Check out the [Tokens, variables, and styles](https://help.figma.com/hc/en-us/articles/18490793776023) lesson of Figma's Intro to Design Systems course.
 
@@ -95,7 +95,7 @@ You can copy and paste variables to any collection, including collections in a d
 
 ## Edit a variable
 
-Hover over a variable’s row and click the  **Edit variable** icon to open its editing modal.
+Hover over a variable’s row and click the **Edit variable** icon to open its editing modal.
 
 ![Edit variable modal showing fields for name, description, mobile and desktop values, code syntax, and publishing options. Annotations A to F on the side.](https://help.figma.com/hc/article_attachments/26964398869143)
 
@@ -119,16 +119,16 @@ Scoping is available for number, color, and string variables.
 For number variables, you can scope:
 
 - Auto layout
-  - Gap between
-  - Padding
+ - Gap between
+ - Padding
 - Corner radius
 - Font properties
-  - Font weight
-  - Font size
-  - Line height
-  - Letter spacing
-  - Paragraph spacing
-  - Paragraph indent
+ - Font weight
+ - Font size
+ - Line height
+ - Letter spacing
+ - Paragraph spacing
+ - Paragraph indent
 - Layer opacity
 - Effects
 - Stroke
@@ -151,7 +151,7 @@ For string variables, you can scope:
 
 To scope a variable:
 
-1. Right-click on a variable, or multiple variables, and select **Edit variable**. You can also click  **Edit variable**, located to the right of any single variable.
+1. Right-click on a variable, or multiple variables, and select **Edit variable**. You can also click **Edit variable**, located to the right of any single variable.
 2. Open the **Scope** tab.
 3. Use the checkboxes to toggle the variable’s availability in that property. Check **Show in all** to make the variable available for all [supported properties](https://help.figma.com/hc/en-us/articles/14506821864087#Types_of_variables).
 
@@ -167,7 +167,7 @@ You can create one name per platform, including Web, Android, and iOS. This allo
 
 To add code syntax to a variable:
 
-1. From the **Code syntax** section of the the **Edit variable** modal, click  **Add code syntax**.
+1. From the **Code syntax** section of the the **Edit variable** modal, click **Add code syntax**.
 2. From the dropdown, choose Web, Android, or iOS.
 3. Use the input box to enter a variable name. A preview shows how the variable name appears in code snippets.
 
@@ -190,7 +190,7 @@ To edit multiple variables at once:
 
 Use the search bar in the variable modal to search for a specific variable or group in the collection you’re viewing. You can search by variable name, variable value, or group name.
 
-You can also click  to filter the list of variables by variable type.
+You can also click to filter the list of variables by variable type.
 
 ![](https://help.figma.com/hc/article_attachments/33638145403159)
 
@@ -200,7 +200,7 @@ A collection is a set of variables and modes. Collections can be used to organiz
 
 ### Create a variable collection
 
-To create a variable collection, go to the sidebar of the variables modal and click  **More options** > **Create collection.**
+To create a variable collection, go to the sidebar of the variables modal and click **More options** > **Create collection.**
 
 ![](https://help.figma.com/hc/article_attachments/31448329844887)
 
@@ -213,7 +213,7 @@ If a variable has not been created in a file, you will need to create a variable
 To rename a variable collection:
 
 1. In the sidebar of the variables modal, open the collections dropdown and choose the collection you want to manage.
-2. Click  **More options** and select **Rename collection**.
+2. Click **More options** and select **Rename collection**.
 
 ### Delete a variable collection
 
@@ -222,7 +222,7 @@ Deleting a variable collection also deletes all of its containing variables. Any
 To delete a variable collection:
 
 1. In the sidebar of the variables modal, open the collections dropdown and choose the collection you want to manage.
-2. Click  **More options** and select **Delete collection.**
+2. Click **More options** and select **Delete collection.**
 
 ### Reorder variable collections in a file
 
@@ -230,7 +230,7 @@ Reorder your variable collections to organize and find variables faster when app
 
 To reorder variable collections in a file:
 
-1. In the sidebar of the variables modal, click  **More options** and select **Reorder collections**.
+1. In the sidebar of the variables modal, click **More options** and select **Reorder collections**.
 2. From the **Collections** popup, you can:
    - Click and drag to reorder the collections
    - Or click **Sort A to Z** to order collections in alphanumerical order

@@ -13,8 +13,8 @@ As described in the Employer Account Guidelines section of our [Terms of Service
 - [Processing Employer Approval Requests](https://support.joinhandshake.com/hc/en-us/articles/360024477333-Processing-Employer-Approval-Requests)
 - [Safety: Fraudulent Employers](safety-fraudulent-employers.md)
 - For additional information on our flagging process: 
-  - For Career Services: [Handshake's Flagging System](https://support.joinhandshake.com/hc/en-us/articles/218692798)
-  - For Students: [Safety: Flagging an Employer in Handshake](https://support.joinhandshake.com/hc/en-us/articles/360015696494).
+ - For Career Services: [Handshake's Flagging System](https://support.joinhandshake.com/hc/en-us/articles/218692798)
+ - For Students: [Safety: Flagging an Employer in Handshake](https://support.joinhandshake.com/hc/en-us/articles/360015696494).
 
  
 

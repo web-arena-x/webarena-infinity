@@ -26,9 +26,9 @@ The **Teammates** page includes the following details for each person connected 
 - **Role**
 - **Status**
 
-  - **Registered**
-  - **Not confirmed** (the teammate has not confirmed their email address)
-  - **Deactivated**
+ - **Registered**
+ - **Not confirmed** (the teammate has not confirmed their email address)
+ - **Deactivated**
 
 Teammates with a **pending** connection will not appear until their request is approved.
 

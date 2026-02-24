@@ -35,7 +35,7 @@ The properties panel has different capabilities depending on your level of acces
 
 There are two tabs available in the properties panel when you have edit access to a file: **Design** and **Prototype**.
 
-**Tip**: You can add labels to the properties panel to make it clearer what each property does. To turn on labels, click the  dropdown menu next to the 100% zoom percentage in the properties panel and select **Property labels**.
+**Tip**: You can add labels to the properties panel to make it clearer what each property does. To turn on labels, click the dropdown menu next to the 100% zoom percentage in the properties panel and select **Property labels**.
 
 ### **Design**
 

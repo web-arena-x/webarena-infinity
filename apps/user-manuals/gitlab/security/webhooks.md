@@ -16,30 +16,23 @@ To protect against the risk of data loss and exposure, GitLab administrators can
 
 ## Secure webhooks and integrations
 
-Users with at least the Maintainer role can set up [webhooks](../user/project/integrations/webhooks.md) that are
-triggered when specific changes occur in a project or group. When triggered, a `POST` HTTP request is sent to a URL. A webhook is
-usually configured to send data to a specific external web service, which processes the data in an appropriate way.
+Users with at least the Maintainer role can set up [webhooks](../user/project/integrations/webhooks.md) that are triggered when specific changes occur in a project or group. When triggered, a `POST` HTTP request is sent to a URL. A webhook is usually configured to send data to a specific external web service, which processes the data in an appropriate way.
 
 However, a webhook can be configured with a URL for an internal web service instead of an external web service.
-When the webhook is triggered, non-GitLab web services running on your GitLab server or in its local network could be
-exploited.
+When the webhook is triggered, non-GitLab web services running on your GitLab server or in its local network could be exploited.
 
-Webhook requests are made by the GitLab server itself and use a single optional secret token per hook for authorization
-instead of:
+Webhook requests are made by the GitLab server itself and use a single optional secret token per hook for authorization instead of:
 
 - A user token.
 - A repository-specific token.
 
-As a result, these requests can have broader access than intended, including access to everything running on the server
-that hosts the webhook including:
+As a result, these requests can have broader access than intended, including access to everything running on the server that hosts the webhook including:
 
 - The GitLab server.
 - The API itself.
-- For some webhooks, network access to other servers in that webhook server's local network, even if these services
-  are otherwise protected and inaccessible from the outside world.
+- For some webhooks, network access to other servers in that webhook server's local network, even if these services are otherwise protected and inaccessible from the outside world.
 
-Webhooks can be used to trigger destructive commands using web services that don't require authentication. These webhooks
-can get the GitLab server to make `POST` HTTP requests to endpoints that delete resources.
+Webhooks can be used to trigger destructive commands using web services that don't require authentication. These webhooks can get the GitLab server to make `POST` HTTP requests to endpoints that delete resources.
 
 ### Allow requests to the local network from webhooks and integrations
 
@@ -50,8 +43,7 @@ Prerequisites:
 To prevent exploitation of insecure internal web services, all webhook and integration requests to the following local network addresses are not allowed:
 
 - The current GitLab instance server address.
-- Private network addresses, including `127.0.0.1`, `::1`, `0.0.0.0`, `10.0.0.0/8`, `172.16.0.0/12`,
-  `192.168.0.0/16`, and IPv6 site-local (`ffc0::/10`) addresses.
+- Private network addresses, including `127.0.0.1`, `::1`, `0.0.0.0`, `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`, and IPv6 site-local (`ffc0::/10`) addresses.
 
 To allow access to these addresses:
 
@@ -111,16 +103,12 @@ When this checkbox is selected, requests to the following are still not blocked:
 - Object storage.
 - IP addresses and domains in the [allowlist](#allow-outbound-requests-to-certain-ip-addresses-and-domains).
 
-When this setting is enabled, GitLab may perform DNS resolution on URLs included in other objects,
-such as Release Links.
+When this setting is enabled, GitLab may perform DNS resolution on URLs included in other objects, such as Release Links.
 If DNS resolution fails, the request fails.
-To resolve this issue, add the hostname to the
-[allowlist](#allow-outbound-requests-to-certain-ip-addresses-and-domains),
-even if GitLab never needs to make an outbound connection to that host.
+To resolve this issue, add the hostname to the [allowlist](#allow-outbound-requests-to-certain-ip-addresses-and-domains), even if GitLab never needs to make an outbound connection to that host.
 
 This setting is respected by the main GitLab application only, so other services like Gitaly can still make requests that break the rule.
-Additionally, [some areas of GitLab](https://gitlab.com/groups/gitlab-org/-/epics/8029) do not respect outbound filtering
-rules.
+Additionally, [some areas of GitLab](https://gitlab.com/groups/gitlab-org/-/epics/8029) do not respect outbound filtering rules.
 
 Due to an [existing bug (#544821)](https://gitlab.com/gitlab-org/gitlab/-/issues/544821), Geo region URLs must be added to the outbound allowlist.
 
@@ -140,12 +128,9 @@ To allow outbound requests to certain IP addresses and domains:
 The entries can:
 
 - Be separated by semicolons, commas, or whitespaces (including newlines).
-- Be in different formats like hostnames, IP addresses, IP address ranges. IPv6 is supported. Hostnames that contain
-  Unicode characters should use [Internationalized Domain Names in Applications](https://www.icann.org/en/icann-acronyms-and-terms/internationalized-domain-names-in-applications-en)
-  (IDNA) encoding.
-- Include ports. For example, `127.0.0.1:8080` only allows connections to port 8080 on `127.0.0.1`. If no port is specified,
-  all ports on that IP address or domain are allowed. An IP address range allows all ports on all IP addresses in that
-  range.
+- Be in different formats like hostnames, IP addresses, IP address ranges. IPv6 is supported. Hostnames that contain Unicode characters should use [Internationalized Domain Names in Applications](https://www.icann.org/en/icann-acronyms-and-terms/internationalized-domain-names-in-applications-en)
+ (IDNA) encoding.
+- Include ports. For example, `127.0.0.1:8080` only allows connections to port 8080 on `127.0.0.1`. If no port is specified, all ports on that IP address or domain are allowed. An IP address range allows all ports on all IP addresses in that range.
 - Number no more than 1000 entries of no more than 255 characters for each entry.
 - Not contain wildcards (for example, `*.example.com`).
 
@@ -176,9 +161,7 @@ If you can't enable this setting, do one of the following:
 
 ### Public runner releases URL is blocked
 
-Most GitLab instances have their `public_runner_releases_url` set to
-`https://gitlab.com/api/v4/projects/gitlab-org%2Fgitlab-runner/releases`,
-which can prevent you from [filtering requests](#filter-requests).
+Most GitLab instances have their `public_runner_releases_url` set to `https://gitlab.com/api/v4/projects/gitlab-org%2Fgitlab-runner/releases`, which can prevent you from [filtering requests](#filter-requests).
 
 To resolve this issue, [configure GitLab to no longer fetch runner release version data from GitLab.com](../administration/settings/continuous_integration.md#control-runner-version-management).
 
@@ -187,8 +170,7 @@ To resolve this issue, [configure GitLab to no longer fetch runner release versi
 When you [filter requests](#filter-requests), [GitLab subscription management](../subscriptions/manage_subscription.md)
 is blocked.
 
-To work around this problem, add `customers.gitlab.com:443` to the
-[allowlist](#allow-outbound-requests-to-certain-ip-addresses-and-domains).
+To work around this problem, add `customers.gitlab.com:443` to the [allowlist](#allow-outbound-requests-to-certain-ip-addresses-and-domains).
 
 ### GitLab documentation is blocked
 

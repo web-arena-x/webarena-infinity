@@ -154,7 +154,7 @@ By default, objects in an auto layout frame have their canvas stacking setting s
 To reverse the order so that layers stack from top-to-bottom:
 
 1. Select the auto layout frame.
-2. From the **Auto layout** section of the right sidebar, select  **Auto layout** **settings**.
+2. From the **Auto layout** section of the right sidebar, select **Auto layout** **settings**.
 3. From the **Canvas stacking** dropdown menu, select **First on top**.
 
 Learn more about [auto layout →](https://help.figma.com/hc/en-us/sections/13165750874519-Use-auto-layout)

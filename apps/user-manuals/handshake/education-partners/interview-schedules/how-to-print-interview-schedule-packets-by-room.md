@@ -9,8 +9,8 @@ To print an interview packet by room, by employer, or both for a certain date, f
 1. Click **Interviews** from the left navigation bar and apply filters as needed to display the desired results.
 
 - Filters include: 
-  - Schedule Status: **Requested**, **Approved**
-  - Timeline Status: **Pre App**, **In App**, **Pre Sign Up**, **Sign Up**, **Finalized**, **Completed**
+ - Schedule Status: **Requested**, **Approved**
+ - Timeline Status: **Pre App**, **In App**, **Pre Sign Up**, **Sign Up**, **Finalized**, **Completed**
 
 2. Put a check next to the relevant interview schedules, then click **Print Packets** from the bulk options, located in place of the column headers. 
 
@@ -19,11 +19,11 @@ To print an interview packet by room, by employer, or both for a certain date, f
 3. In the pop-up that appears, select the desired packet options: 
 
 - **Date** *(enter text in the format YYYY-MM-DD or use the calendar pop-out)* Enter the date of the interview schedule(s) you need. If there are multiple interviews on this day, the packets will appear on separate pages. 
-  - **Note**: if there aren't any interview schedules with active slots on the Schedule Details, the download will not generate.
+ - **Note**: if there aren't any interview schedules with active slots on the Schedule Details, the download will not generate.
 - Group by: *(select one)* 
-  - **Room**: One packet for each room that has interviews scheduled. Each packet will include information about all interviews for all employers scheduled in that room.
-  - **Employer**: One packet for each employer that has interviews scheduled. Each packet will include information about all of that employer's interviews in all rooms.
-  - **Employer and Room**: Packets for each employer, separated out by room. Each packet will include information about that employer's interviews in that room only
+ - **Room**: One packet for each room that has interviews scheduled. Each packet will include information about all interviews for all employers scheduled in that room.
+ - **Employer**: One packet for each employer that has interviews scheduled. Each packet will include information about all of that employer's interviews in all rooms.
+ - **Employer and Room**: Packets for each employer, separated out by room. Each packet will include information about that employer's interviews in that room only
 - Include: *(select one or many)* **Schedule Details**, **Contact Details**, **Required Documents** (**Resume**, **Cover Letter**, **Transcript**, **Other Document**), **Applicant Profiles**
 
 ![print_packets_popup.png](https://support.joinhandshake.com/hc/article_attachments/25996988517399)

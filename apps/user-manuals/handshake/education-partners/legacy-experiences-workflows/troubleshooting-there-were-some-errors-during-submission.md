@@ -25,9 +25,9 @@ A few questions to consider as you look:
 - Are multiple approvers on the template actually the same person? (or could they end up being the same person?)
 - Did you add any major edits to the attached surveys, such as changing a question type?
 - Does everything look correct on this Template in terms of:
-  - approvers
-  - offset dates
-  - custom surveys
+ - approvers
+ - offset dates
+ - custom surveys
 
 Based on what you find, use the examples below as a guide:
 

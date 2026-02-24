@@ -25,9 +25,8 @@ Administrators can prevent users from creating top-level groups.
 These users:
 
 - Cannot create top-level groups.
-- Can create subgroups in groups where they have at least the Maintainer role,
-  depending on the [subgroup creation permissions](../user/group/subgroups/_index.md#change-who-can-create-subgroups)
-  for the group.
+- Can create subgroups in groups where they have at least the Maintainer role, depending on the [subgroup creation permissions](../user/group/subgroups/_index.md#change-who-can-create-subgroups)
+ for the group.
 
 This ability can be removed from all new users or only for specific existing users:
 
@@ -38,8 +37,8 @@ You can prevent all new users added to the instance from creating new top-level 
 To prevent new users from creating top-level groups:
 
 - In GitLab 15.5 and later, use either:
-  - The [GitLab UI](settings/account_and_limit_settings.md#prevent-new-users-from-creating-top-level-groups).
-  - The [Application settings API](../api/settings.md#update-application-settings).
+ - The [GitLab UI](settings/account_and_limit_settings.md#prevent-new-users-from-creating-top-level-groups).
+ - The [Application settings API](../api/settings.md#update-application-settings).
 - In GitLab 15.4 and earlier, modify a configuration file:
 
 {{< tabs >}}
@@ -61,7 +60,7 @@ To prevent new users from creating top-level groups:
 1. Edit `config/gitlab.yml` and uncomment the following line:
 
    ```yaml
-   # default_can_create_group: false  # default: true
+   # default_can_create_group: false # default: true
    ```
 
 1. [Restart GitLab](restart_gitlab.md#self-compiled-installations).
@@ -111,13 +110,8 @@ By default, users can change their usernames. To prevent users from changing the
 
 ## Prevent Guest users from promoting to a higher role
 
-On GitLab Ultimate, Guest users do not count toward paid seats. However, when a Guest user creates
-projects and namespaces, they are automatically promoted to a higher role than Guest and occupy
-a paid seat.
+On GitLab Ultimate, Guest users do not count toward paid seats. However, when a Guest user creates projects and namespaces, they are automatically promoted to a higher role than Guest and occupy a paid seat.
 
-To prevent Guest users from being promoted to a higher role and occupying a paid seat,
-set the user as [external](external_users.md).
+To prevent Guest users from being promoted to a higher role and occupying a paid seat, set the user as [external](external_users.md).
 
-External users cannot create personal projects or namespaces. If a user with the Guest role is promoted into a higher role by another user,
-the external user setting must be removed before they can create personal projects or namespaces. For a complete list of restrictions for external
-users, see [External users](external_users.md).
+External users cannot create personal projects or namespaces. If a user with the Guest role is promoted into a higher role by another user, the external user setting must be removed before they can create personal projects or namespaces. For a complete list of restrictions for external users, see [External users](external_users.md).

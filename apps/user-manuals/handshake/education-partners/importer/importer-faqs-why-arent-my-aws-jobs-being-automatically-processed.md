@@ -22,9 +22,9 @@ We will never process a job (manual or AWS) that contains 'test' or 'sample' in 
 
 **4) Any yellow warnings or red error messages BESIDES the following checks:**
 
-Analyzers::Users::DiffCheck:: (unless more than 50% emails updated, see #2)  
-Analyzers::TypeCheck::  
-Analyzers::DuplicateAnalysis::  
-Analyzers::Users::HandshakeCheck::  
-Analyzers::RecommendedHeadersPresent::  
+Analyzers::Users::DiffCheck:: (unless more than 50% emails updated, see #2) 
+Analyzers::TypeCheck:: 
+Analyzers::DuplicateAnalysis:: 
+Analyzers::Users::HandshakeCheck:: 
+Analyzers::RecommendedHeadersPresent:: 
 Analyzers::InvalidHeadersPresent::

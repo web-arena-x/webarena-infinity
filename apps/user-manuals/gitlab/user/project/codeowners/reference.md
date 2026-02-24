@@ -19,7 +19,7 @@ The key elements are:
 - File paths: Specific files, directories, or wildcards.
 - Code Owners: Use `@mentions` for users, groups, or roles.
 - Comments: Lines starting with `#` are ignored. Inline comments are unsupported.
-  Any Code Owners listed in a comment are parsed.
+ Any Code Owners listed in a comment are parsed.
 - Sections: Optional groupings of rules, defined using `[Section name]`.
 
 {{< alert type="note" >}}
@@ -49,7 +49,7 @@ README @group @group/with-nested/subgroup
 # Specify a Code Owner to a directory and all its contents:
 /docs/ @all-docs
 /docs/* @root-docs
-/docs/**/*.md @markdown-docs  # Match specific file types in any subdirectory
+/docs/**/*.md @markdown-docs # Match specific file types in any subdirectory
 /db/**/index.md @index-docs   # Match a specific file name in any subdirectory
 
 # Use a section to group related rules:
@@ -63,13 +63,10 @@ docs       @docs
 
 ## Sections
 
-In a `CODEOWNERS` file, sections are named areas that are analyzed separately,
-and always enforced. Until you define a section, GitLab treats your entire `CODEOWNERS` file
-as a single section.
+In a `CODEOWNERS` file, sections are named areas that are analyzed separately, and always enforced. Until you define a section, GitLab treats your entire `CODEOWNERS` file as a single section.
 Adding more sections changes how GitLab evaluates the file:
 
-- GitLab treats [entries without sections](advanced.md#regular-entries-and-sections), including rules defined
-  before the first section header, as if they were another, unnamed section.
+- GitLab treats [entries without sections](advanced.md#regular-entries-and-sections), including rules defined before the first section header, as if they were another, unnamed section.
 - Each section enforces its rules separately.
 - When a file path matches multiple entries in a section, only the last matching entry in that section is used.
 - When a file path matches entries in multiple sections, the last matching entry in each section is used.
@@ -88,17 +85,15 @@ README.md @user3
 ```
 
 - The Code Owners for the `README.md` in the root directory are:
-  - `@admin`, from the unnamed section.
-  - `@user1` and `@user2`, from `[README Owners]`.
-  - `@user3`, from `[README other owners]`.
+ - `@admin`, from the unnamed section.
+ - `@user1` and `@user2`, from `[README Owners]`.
+ - `@user3`, from `[README other owners]`.
 - The Code Owners for `internal/README.md` are:
-  - `@admin`, from the unnamed section.
-  - `@user4`, from `[README Owners]`. Both `README.md` and `internal/README.md` entries in this
-    section match the file, but only the last matching entry in the section is used.
-  - `@user3` from `[README other owners]`.
+ - `@admin`, from the unnamed section.
+ - `@user4`, from `[README Owners]`. Both `README.md` and `internal/README.md` entries in this section match the file, but only the last matching entry in the section is used.
+ - `@user3` from `[README other owners]`.
 
-To add a section to the `CODEOWNERS` file, enter a section name in square brackets,
-followed by the files or directories, and users, groups, or subgroups:
+To add a section to the `CODEOWNERS` file, enter a section name in square brackets, followed by the files or directories, and users, groups, or subgroups:
 
 ```plaintext
 [README Owners]
@@ -149,10 +144,8 @@ Examples:
 
 ### Set default Code Owner for a section
 
-If multiple file paths inside a section share the same ownership, define default
-Code Owners for the section.
-All paths in that section inherit this default, unless you override the section
-default on a specific line.
+If multiple file paths inside a section share the same ownership, define default Code Owners for the section.
+All paths in that section inherit this default, unless you override the section default on a specific line.
 
 Default owners are applied when specific owners are not specified for file paths.
 Specific owners defined beside the file path override default owners.
@@ -172,19 +165,14 @@ config/db/database-setup.md @docs-team
 In this example:
 
 - `@docs-team` owns all items in the `Documentation` section.
-- `@database-team` and `@agarcia` own all items in the `Database` section except
-  `config/db/database-setup.md`, which has an override assigning it to `@docs-team`.
+- `@database-team` and `@agarcia` own all items in the `Database` section except `config/db/database-setup.md`, which has an override assigning it to `@docs-team`.
 
-Compare this behavior to when you use [regular entries and sections together](advanced.md#regular-entries-and-sections),
-when entries in sections don't override entries without sections.
+Compare this behavior to when you use [regular entries and sections together](advanced.md#regular-entries-and-sections), when entries in sections don't override entries without sections.
 
 ### Optional sections
 
 You can designate optional sections in your Code Owners file.
-Optional sections enable you to designate responsible parties for various parts
-of your codebase, but not require approval from them. This approach provides
-a more relaxed policy for parts of your project that are frequently updated,
-but don't require stringent reviews.
+Optional sections enable you to designate responsible parties for various parts of your codebase, but not require approval from them. This approach provides a more relaxed policy for parts of your project that are frequently updated, but don't require stringent reviews.
 
 To treat the entire section as optional, prepend the section name with the caret `^` character.
 
@@ -207,43 +195,37 @@ The optional Code Owners section displays in merge requests under the descriptio
 
 If a section is duplicated in the file, and one of them is marked as optional and the other isn't, the section is required.
 
-Optional sections in the `CODEOWNERS` file are treated as optional only
-when changes are submitted by using merge requests. If a change is submitted directly
-to the protected branch, approval from Code Owners is still required, even if the
-section is marked as optional.
+Optional sections in the `CODEOWNERS` file are treated as optional only when changes are submitted by using merge requests. If a change is submitted directly to the protected branch, approval from Code Owners is still required, even if the section is marked as optional.
 
 ## Eligible code owners
 
-Eligibility rules determine who can be a valid code owner. Specific rules apply depending on the
-reference method in the `CODEOWNERS` file: username, group, or role.
+Eligibility rules determine who can be a valid code owner. Specific rules apply depending on the reference method in the `CODEOWNERS` file: username, group, or role.
 
 ### User eligibility
 
-To be eligible as code owners, users referenced by their username (`@username`) must be authorized
-for the project. The following rules apply:
+To be eligible as code owners, users referenced by their username (`@username`) must be authorized for the project. The following rules apply:
 
 - Project and group visibility settings do not affect eligibility.
 - Users [banned from a group](../../group/moderate_users.md) cannot be Code Owners.
 - Eligible users include those with:
-  - Direct membership in the project with at least the Developer role.
-  - Membership in the project's group (direct or inherited).
-  - Membership in any of the project's group's ancestors.
-  - Direct or inherited membership in a group that has been invited to the project.
-  - Direct membership (but not inherited) in a group that has been invited to the project's group.
-  - Direct membership (but not inherited) in a group that has been invited to the project's group's ancestor.
+ - Direct membership in the project with at least the Developer role.
+ - Membership in the project's group (direct or inherited).
+ - Membership in any of the project's group's ancestors.
+ - Direct or inherited membership in a group that has been invited to the project.
+ - Direct membership (but not inherited) in a group that has been invited to the project's group.
+ - Direct membership (but not inherited) in a group that has been invited to the project's group's ancestor.
 
 ### Group eligibility
 
-When referencing a group with group name (`@group_name`) or nested group name (`@nested/group/names`),
-the following rules apply:
+When referencing a group with group name (`@group_name`) or nested group name (`@nested/group/names`), the following rules apply:
 
 - Group visibility settings do not affect eligibility.
 - Only direct members of the referenced group are eligible. Inherited members are not included.
 - Eligible groups include:
-  - The project's group.
-  - The project's group's ancestors.
-  - Groups invited directly to the project with at least the Developer role.
-  - Groups shared with the project's group or its ancestors.
+ - The project's group.
+ - The project's group's ancestors.
+ - Groups invited directly to the project with at least the Developer role.
+ - Groups shared with the project's group or its ancestors.
     The shared group must have at least the Developer role in the parent group.
     For more information, see [groups shared with parent groups](advanced.md#groups-shared-with-parent-groups).
 
@@ -253,11 +235,9 @@ When referencing a role (`@@role`), the following rules apply:
 
 - Only Developer, Maintainer, and Owner roles can be used as Code Owners.
 - Only direct project members with the specified role are eligible.
-- Roles are not inclusive of higher roles. For example, specifying `@@developer` does not include
-  users with Maintainer or Owner roles.
+- Roles are not inclusive of higher roles. For example, specifying `@@developer` does not include users with Maintainer or Owner roles.
 
-For more complex scenarios involving group inheritance and eligibility,
-see [Group inheritance and eligibility](advanced.md#group-inheritance-and-eligibility).
+For more complex scenarios involving group inheritance and eligibility, see [Group inheritance and eligibility](advanced.md#group-inheritance-and-eligibility).
 
 ## Add a role as a Code Owner
 
@@ -273,13 +253,11 @@ You can add or set a role for direct project members as Code Owners:
 
 - Use the `@@` prefix to set a role.
 - Only Developer, Maintainer, and Owner roles are available.
-- Roles are not inclusive of higher roles. For example, specifying `@@developer`
-  does not include users with Maintainer or Owner roles.
+- Roles are not inclusive of higher roles. For example, specifying `@@developer` does not include users with Maintainer or Owner roles.
 - Only direct project members with the specified roles are eligible Code Owners.
 - It is possible to specify plural roles. For example, `@@developers` is accepted.
 
-The following example sets all direct project members with the Developer or Maintainer
-role as Code Owners for `file.md`:
+The following example sets all direct project members with the Developer or Maintainer role as Code Owners for `file.md`:
 
 1. Open the `CODEOWNERS` file.
 1. Add a line using the following pattern:
@@ -331,11 +309,11 @@ In this example:
 - The group `group-name` is listed under the `[Maintainers]` section.
 - The `group-name` contains the following direct members:
 
-  ![List of group members.](img/direct_group_members_v17_9.png)
+ ![List of group members.](img/direct_group_members_v17_9.png)
 
 - In the merge request approval widget, the same direct members are listed as `Maintainers`:
 
-  ![Merge request maintainers.](img/merge_request_maintainers_v17_9.png)
+ ![Merge request maintainers.](img/merge_request_maintainers_v17_9.png)
 
 {{< alert type="note" >}}
 
@@ -347,8 +325,7 @@ If you encounter issues, refer to [User not shown as possible approver](troubles
 
 ## Path matching
 
-Paths can be absolute, relative, directory, wildcard, or globstar,
-and are matched against the repository root.
+Paths can be absolute, relative, directory, wildcard, or globstar, and are matched against the repository root.
 
 ### Absolute paths
 
@@ -377,8 +354,7 @@ internal/README.md
 {{< alert type="note" >}}
 
 When using globstar paths, be cautious of unintended matches.
-For example, `README.md` without a leading `/` matches any `README.md`
-file in any directory or subdirectory of the repository.
+For example, `README.md` without a leading `/` matches any `README.md` file in any directory or subdirectory of the repository.
 
 {{< /alert >}}
 
@@ -421,8 +397,7 @@ Use `**` to match files or patterns across multiple directory levels:
 /docs/**/index.md
 ```
 
-To match all files in a directory,
-use [directory paths](#directory-paths) with a trailing slash (`/`).
+To match all files in a directory, use [directory paths](#directory-paths) with a trailing slash (`/`).
 
 ### Exclusion patterns
 
@@ -459,49 +434,48 @@ The following guidelines explain how exclusion patterns behave:
 
 - Exclusions are evaluated in order in their section. For example:
 
-  ```plaintext
-  * @default-owner
-  !*.rb                      # Excludes all Ruby files.
-  /special/*.rb @ruby-owner  # This won't take effect as *.rb is already excluded.
-  ```
+ ```plaintext
+ * @default-owner
+ !*.rb                      # Excludes all Ruby files.
+ /special/*.rb @ruby-owner # This won't take effect as *.rb is already excluded.
+ ```
 
 - After a pattern is excluded, it cannot be included again in the same section:
 
-  ```plaintext
-  [Ruby]
-  *.rb @ruby-team           # All Ruby files need Ruby team approval.
-  !/config/**/*.rb          # Ruby files in config don't need Ruby team approval.
-  /config/routes.rb @ops    # This won't take effect as config Ruby files are excluded.
-  ```
+ ```plaintext
+ [Ruby]
+ *.rb @ruby-team           # All Ruby files need Ruby team approval.
+ !/config/**/*.rb          # Ruby files in config don't need Ruby team approval.
+ /config/routes.rb @ops    # This won't take effect as config Ruby files are excluded.
+ ```
 
 - Files matching an exclusion pattern do not require code owner approval for that section.
-  If you need different exclusions for different owners, use multiple sections:
+ If you need different exclusions for different owners, use multiple sections:
 
-  ```plaintext
-  [Ruby]
-  *.rb @ruby-team
-  !/config/**/*.rb        # Config Ruby files don't need Ruby team approval.
+ ```plaintext
+ [Ruby]
+ *.rb @ruby-team
+ !/config/**/*.rb        # Config Ruby files don't need Ruby team approval.
 
-  [Config]
-  /config/ @ops-team      # Config files still require ops-team approval.
-  ```
+ [Config]
+ /config/ @ops-team      # Config files still require ops-team approval.
+ ```
 
 - Use exclusions for files that are automatically updated:
 
-  ```plaintext
-  * @default-owner
+ ```plaintext
+ * @default-owner
 
-  # Files updated by automation don't need approval.
-  !package-lock.json
-  !yarn.lock
-  !**/generated/          # Any files in generated directories.
-  !.gitlab-ci.yml
-  ```
+ # Files updated by automation don't need approval.
+ !package-lock.json
+ !yarn.lock
+ !**/generated/          # Any files in generated directories.
+ !.gitlab-ci.yml
+ ```
 
 ## Entry owners
 
-Entries must have one or more owners These can be groups, subgroups,
-and users.
+Entries must have one or more owners These can be groups, subgroups, and users.
 
 ```plaintext
 /path/to/entry.rb @group

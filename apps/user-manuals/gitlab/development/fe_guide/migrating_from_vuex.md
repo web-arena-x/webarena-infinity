@@ -11,11 +11,9 @@ title: Migrating from Vuex
 
 We have defined the [GraphQL API](../../api/graphql/_index.md) as the primary choice for all user-facing features.
 We can safely assume that whenever GraphQL is present, so will the Apollo Client.
-We [do not want to use Vuex with Apollo](graphql.md#using-with-vuex), so the VueX stores count
-will naturally decline over time as we move from the REST API to GraphQL.
+We [do not want to use Vuex with Apollo](graphql.md#using-with-vuex), so the VueX stores count will naturally decline over time as we move from the REST API to GraphQL.
 
-This section gives guidelines and methods to translate an existing VueX store to
-pure Vue and Apollo, or how to rely less on VueX.
+This section gives guidelines and methods to translate an existing VueX store to pure Vue and Apollo, or how to rely less on VueX.
 
 ## How?
 
@@ -47,18 +45,18 @@ Let's go through an example. In each section we refer to this state and slowly g
 ```javascript
 // state.js AKA our store
 export default ({ blobPath = '', summaryEndpoint = '', suiteEndpoint = '' }) => ({
-  blobPath,
-  summaryEndpoint,
-  suiteEndpoint,
-  testReports: {},
-  selectedSuiteIndex: null,
-  isLoading: false,
-  errorMessage: null,
-  limit : 10,
-  pageInfo: {
+ blobPath,
+ summaryEndpoint,
+ suiteEndpoint,
+ testReports: {},
+ selectedSuiteIndex: null,
+ isLoading: false,
+ errorMessage: null,
+ limit : 10,
+ pageInfo: {
     page: 1,
     perPage: 20,
-  },
+ },
 });
 ```
 
@@ -66,30 +64,27 @@ export default ({ blobPath = '', summaryEndpoint = '', suiteEndpoint = '' }) => 
 
 The easiest type of values to migrate are static values, either:
 
-- Client-side constants: If the static value is a client-side constant, it may have been implemented
-  in the store for easy access by other state properties or methods. However, it is generally
-  a better practice to add such values to a `constants.js` file and import it when needed.
+- Client-side constants: If the static value is a client-side constant, it may have been implemented in the store for easy access by other state properties or methods. However, it is generally a better practice to add such values to a `constants.js` file and import it when needed.
 - Rails-injected dataset: These are values that we may need to provide to our Vue apps.
-  They are static, so adding them to the VueX store is not necessary and it could instead
-  be done easily through the `provide/inject` Vue API, which would be equivalent but without the VueX overhead. This should **only** be injected inside the top-most JS file that mounts our component.
+ They are static, so adding them to the VueX store is not necessary and it could instead be done easily through the `provide/inject` Vue API, which would be equivalent but without the VueX overhead. This should **only** be injected inside the top-most JS file that mounts our component.
 
 If we take a look at our example above, we can already see that two properties contain `Endpoint` in their name, which probably means that these come from our Rails dataset. To confirm this, we would search the codebase for these properties and see where they are defined, which is the case in our example. Additionally, `blobPath` is also a static property, and a little less obvious here is that `pageInfo` is actually a constant! It is never modified and is only used as a default value that we use inside our getter:
 
 ```javascript
 // state.js AKA our store
 export default ({ blobPath = '', summaryEndpoint = '', suiteEndpoint = '' }) => ({
-  limit
-  blobPath, // Static - Dataset
-  summaryEndpoint, // Static - Dataset
-  suiteEndpoint, // Static - Dataset
-  testReports: {},
-  selectedSuiteIndex: null,
-  isLoading: false,
-  errorMessage: null,
-  pageInfo: { // Static - Constant
+ limit
+ blobPath, // Static - Dataset
+ summaryEndpoint, // Static - Dataset
+ suiteEndpoint, // Static - Dataset
+ testReports: {},
+ selectedSuiteIndex: null,
+ isLoading: false,
+ errorMessage: null,
+ pageInfo: { // Static - Constant
     page: 1, // Static - Constant
     perPage: 20, // Static - Constant
-  },
+ },
 });
 ```
 
@@ -117,10 +112,10 @@ import typeDefs from './graphql/typedefs.graphql';
 
 ...
 const apolloProvider = new VueApollo({
-  defaultClient: createDefaultClient({
+ defaultClient: createDefaultClient({
     resolvers, // To be written soon
     { typeDefs }, // We are going to create this in a sec
-  }),
+ }),
 });
 ```
 
@@ -129,16 +124,16 @@ For our example, let's call our field `app.status`, and we need is to define que
 ```javascript
 // get_app_status.query.graphql
 query getAppStatus {
-  app @client {
+ app @client {
     status
-  }
+ }
 }
 ```
 
 ```javascript
 // update_app_status.mutation.graphql
 mutation updateAppStatus($appStatus: String) {
-  updateAppStatus(appStatus: $appStatus) @client
+ updateAppStatus(appStatus: $appStatus) @client
 }
 ```
 
@@ -148,11 +143,11 @@ For fields that **do not exist in our schema**, we need to set up `typeDefs`. Fo
 // typedefs.graphql
 
 type TestReportApp {
-  status: String!
+ status: String!
 }
 
 extend type Query {
-  app: TestReportApp
+ app: TestReportApp
 }
 ```
 
@@ -161,7 +156,7 @@ Now we can write our resolvers so that we can update the field with our mutation
 ```javascript
 // settings.js
 export const resolvers = {
-  Mutation: {
+ Mutation: {
     // appStatus is the argument to our mutation
     updateAppStatus: (_, { appStatus }, { cache }) => {
       cache.writeQuery({
@@ -174,7 +169,7 @@ export const resolvers = {
         },
       });
     },
-  }
+ }
 }
 ```
 
@@ -189,17 +184,17 @@ There are values like `isLoading` and `errorMessage` which are tied to the netwo
 ```javascript
 // state.js AKA our store
 export default ({ blobPath = '', summaryEndpoint = '', suiteEndpoint = '' }) => ({
-  blobPath, // Static - Dataset
-  summaryEndpoint, // Static - Dataset
-  suiteEndpoint, // Static - Dataset
-  testReports: {},
-  selectedSuiteIndex: null, // Mutable -> data property
-  isLoading: false, // Mutable -> tied to network
-  errorMessage: null, // Mutable -> tied to network
-  pageInfo: { // Static - Constant
+ blobPath, // Static - Dataset
+ summaryEndpoint, // Static - Dataset
+ suiteEndpoint, // Static - Dataset
+ testReports: {},
+ selectedSuiteIndex: null, // Mutable -> data property
+ isLoading: false, // Mutable -> tied to network
+ errorMessage: null, // Mutable -> tied to network
+ pageInfo: { // Static - Constant
     page: 1, // Static - Constant
     perPage: 20, // Static - Constant
-  },
+ },
 });
 ```
 
@@ -210,7 +205,7 @@ Getters have to be reviewed case-by-case, but a general guideline is that it is 
 ```javascript
 // getters.js
 export const getSelectedSuite = (state) =>
-  state.testReports?.test_suites?.[state.selectedSuiteIndex] || {};
+ state.testReports?.test_suites?.[state.selectedSuiteIndex] || {};
 ```
 
 All that we do here is reference two state values, which can both become arguments to a function:
@@ -218,7 +213,7 @@ All that we do here is reference two state values, which can both become argumen
 ```javascript
 //new_utils.js
 export const getSelectedSuite = (testReports, selectedSuiteIndex) =>
-  testReports?.test_suites?.[selectedSuiteIndex] || {};
+ testReports?.test_suites?.[selectedSuiteIndex] || {};
 ```
 
 This new util can then be imported and used as it previously was, but directly inside the component. Also, most of the specs for the getters can be ported to the utils quite easily because the logic is preserved.
@@ -230,9 +225,9 @@ Our last property is called `testReports` and it is fetched via an `axios` call 
 ```javascript
 // actions.js
 export const fetchSummary = ({ state, commit, dispatch }) => {
-  dispatch('toggleLoading');
+ dispatch('toggleLoading');
 
-  return axios
+ return axios
     .get(state.summaryEndpoint)
     .then(({ data }) => {
       commit(types.SET_SUMMARY, data);
@@ -256,7 +251,7 @@ We can use a local GraphQL query (with an `@client` directive) to structure how 
 
 ```graphql
 query getTestReportSummary($fullPath: ID!, $iid: ID!, endpoint: String!) {
-  project(fullPath: $fullPath){
+ project(fullPath: $fullPath){
     id,
     pipeline(iid: $iid){
       id,
@@ -270,7 +265,7 @@ query getTestReportSummary($fullPath: ID!, $iid: ID!, endpoint: String!) {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -283,12 +278,12 @@ Now we need to write a client-side resolver. When we mark a field with an `@clie
 ```javascript
 // graphql_config.js
 export const resolvers = {
-  Query: {
+ Query: {
     testReportSummary(_, { summaryEndpoint }): {
     return axios.get(summaryEndpoint).then(({ data }) => {
       return data // we could format/massage our data here instead of using a getter
     }
-  }
+ }
 }
 ```
 

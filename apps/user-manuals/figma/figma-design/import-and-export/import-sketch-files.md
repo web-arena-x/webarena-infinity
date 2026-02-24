@@ -77,6 +77,6 @@ Note: You can also drag and drop files from your computer to import them to the 
 
 ### Import a Sketch file from a Figma Design file
 
-1. Click  **Main menu**.
+1. Click **Main menu**.
 2. Select **File** > **New from Sketch file**.
 3. Select a .sketch file and click **Open**.

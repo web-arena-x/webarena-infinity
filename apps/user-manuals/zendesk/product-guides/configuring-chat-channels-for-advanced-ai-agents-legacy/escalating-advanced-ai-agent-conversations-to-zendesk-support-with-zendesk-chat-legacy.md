@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357765400986-Escalating-a
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -24,29 +24,24 @@ There are simple three steps to achieve this.
 
 ## Step 1: Turn automatic ticket creation on in Zendesk Chat
 
-By turning this on, every chat will be converted into a ticket and becomes
-easily manageable in Zendesk Support.
+By turning this on, every chat will be converted into a ticket and becomes easily manageable in Zendesk Support.
 [Learn more](https://support.zendesk.com/hc/en-us/articles/4408820938138-Setting-up-Zendesk-Chat-in-Zendesk-Support#topic_rll_qgq_sgb).
 
 1. Go to **Zendesk Chat** >
    **Settings** > **Account**
    >
    **Zendesk Support (tab)**
-2. Under **Ticket creation - chats**,
-   configure the settings as the example below:![zendesk_chat_ticket_creation_setting.png](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/bots_zendesk_chat_ticket_creation_setting.png)
+2. Under **Ticket creation - chats**, configure the settings as the example below:![zendesk_chat_ticket_creation_setting.png](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/bots_zendesk_chat_ticket_creation_setting.png)
 
 ## Step 2: Set escalation block to Custom Escalation in Dialogue Builder
 
 ![custom_escalation_block.png](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/bots_custom_escalation_block.png)
 
-Since every chat is converted to a ticket automatically, it is crucial to
-add tags automatically for easy management in Zendesk Support.
+Since every chat is converted to a ticket automatically, it is crucial to add tags automatically for easy management in Zendesk Support.
 
 To do so:
 
-1. In the
-   AI agents - Advanced
-   Dashboard, locate the dialogue path for ticket escalation
+1. In the AI agents - Advanced Dashboard, locate the dialogue path for ticket escalation
 2. Add an escalation block
 3. Set the method to **Custom Escalation**
 
@@ -55,14 +50,11 @@ To do so:
 Add two actions to the escalation block:
 
 - - Add tag - this adds a tag to the ticket in Zendesk Support
-  - Add label - this adds the tag in Conversation Logs in the
-    AI agents - Advanced
-    Dashboard
+ - Add label - this adds the tag in Conversation Logs in the AI agents - Advanced Dashboard
 
 ![custom_escalation_block_actions.png](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/bots_custom_escalation_block_actions.png)
 
-We suggest to add a generic tag, “ticket\_escalation” to view all escalated
-tickets, and an intent/topic specific one like “payment\_refund”.
+We suggest to add a generic tag, “ticket\_escalation” to view all escalated tickets, and an intent/topic specific one like “payment\_refund”.
 
 ## Step 3: Test
 
@@ -72,8 +64,7 @@ Finally, after all is set up. Test it and see if everything matches the workflow
 
 ✅  Success - Start managing tickets in Zendesk Support!
 
-Tags is a powerful tool to manage tickets in Zendesk Support. To lear more,
-have a look at:
+Tags is a powerful tool to manage tickets in Zendesk Support. To lear more, have a look at:
 
 - [About Tags](https://support.zendesk.com/hc/en-us/articles/4408888664474-About-tags "https://support.zendesk.com/hc/en-us/articles/4408888664474-About-tags")
 - [Working with ticket tags](https://support.zendesk.com/hc/en-us/articles/4408835059482-Working-with-ticket-tags "https://support.zendesk.com/hc/en-us/articles/4408835059482-Working-with-ticket-tags")

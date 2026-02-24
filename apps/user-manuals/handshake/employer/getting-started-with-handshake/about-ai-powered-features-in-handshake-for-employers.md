@@ -13,7 +13,7 @@ Our use of AI is governed by a commitment to transparency, fairness, and respons
 - **We never make hiring decisions on behalf of the employer.** We keep a "human in the loop" and do not use AI for automated decision making.
 - **We do not share data with third parties for AI training purposes.** We do not export employer data to third party AI vendors for training purposes, nor do we ingest employer data from ATS or other systems for training purposes.
 - **Governance and control:** We maintain oversight of all AI models through internal governance frameworks and ensure compliance with applicable privacy and regulatory requirements.  We use observability tools and follow a quality assurance process tomonitor performance. Where appropriate, we also conduct independent AI bias audits.
-  - The latest summary of results conducted by independent auditor Holistic AI can be found [here](https://trust.holisticai.com/nyc-bias-audit/eyJjbGllbnRJZCI6ImhhbmRzaGFrZS1xam9lZiIsImVudGl0eUlkIjoiYzFiMDhhNjEtZDQyOC00ZTRmLTgyZjEtZDljODgyMGQzZWRjIiwic3lzdGVtSWQiOiJjMWIwOGE2MS1kNDI4LTRlNGYtODJmMS1kOWM4ODIwZDNlZGMifQ..).
+ - The latest summary of results conducted by independent auditor Holistic AI can be found [here](https://trust.holisticai.com/nyc-bias-audit/eyJjbGllbnRJZCI6ImhhbmRzaGFrZS1xam9lZiIsImVudGl0eUlkIjoiYzFiMDhhNjEtZDQyOC00ZTRmLTgyZjEtZDljODgyMGQzZWRjIiwic3lzdGVtSWQiOiJjMWIwOGE2MS1kNDI4LTRlNGYtODJmMS1kOWM4ODIwZDNlZGMifQ..).
 
 ### 
 

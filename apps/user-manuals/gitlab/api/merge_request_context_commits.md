@@ -13,8 +13,7 @@ title: Merge request context commits API
 
 {{< /details >}}
 
-If your merge request builds upon a previous merge request, you might
-need to [include previously-merged commits for context](../user/project/merge_requests/commits.md#show-commits-from-previous-merge-requests)
+If your merge request builds upon a previous merge request, you might need to [include previously-merged commits for context](../user/project/merge_requests/commits.md#show-commits-from-previous-merge-requests)
 in your merge request. Use this API to add commits to a merge request for more context.
 
 ## List MR context commits
@@ -63,7 +62,7 @@ Parameters:
 
 | Attribute           | Type    | Required | Description |
 |---------------------|---------|----------|-------------|
-| `id`                | integer | Yes | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths)  |
+| `id`                | integer | Yes | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
 | `merge_request_iid` | integer | Yes | The internal ID of the merge request. |
 | `commits`           | string array | Yes | The context commits' SHAs. |
 
@@ -71,9 +70,9 @@ Example request:
 
 ```shell
 curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header 'Content-Type: application/json' \
-  --data '{"commits": ["51856a574ac3302a95f82483d6c7396b1e0783cb"]}' \
-  --url "https://gitlab.example.com/api/v4/projects/15/merge_requests/12/context_commits"
+ --header 'Content-Type: application/json' \
+ --data '{"commits": ["51856a574ac3302a95f82483d6c7396b1e0783cb"]}' \
+ --url "https://gitlab.example.com/api/v4/projects/15/merge_requests/12/context_commits"
 ```
 
 Example response:
@@ -111,7 +110,7 @@ DELETE /projects/:id/merge_requests/:merge_request_iid/context_commits
 
 Parameters:
 
-| Attribute           | Type         | Required | Description  |
+| Attribute           | Type         | Required | Description |
 |---------------------|--------------|----------|--------------|
 | `commits`           | string array | Yes | The context commits' SHA. |
 | `id`                | integer      | Yes | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |

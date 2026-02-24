@@ -13,14 +13,11 @@ description: Request a free instance review.
 
 {{< /details >}}
 
-If you run a GitLab Self-Managed instance with 50 or more users on the Free tier
-([either Community Edition or unlicensed Enterprise Edition](https://about.gitlab.com/install/ce-or-ee/)),
-you can request a free instance review.
+If you run a GitLab Self-Managed instance with 50 or more users on the Free tier ([either Community Edition or unlicensed Enterprise Edition](https://about.gitlab.com/install/ce-or-ee/)), you can request a free instance review.
 
 <!-- vale gitlab_base.FutureTense = NO -->
 
-After you submit the request, a GitLab team member will review your instance
-details and contact you with suggestions to improve your use of GitLab.
+After you submit the request, a GitLab team member will review your instance details and contact you with suggestions to improve your use of GitLab.
 
 <!-- vale gitlab_base.FutureTense = YES -->
 

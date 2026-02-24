@@ -9,18 +9,18 @@ Table of Contents
 **Table of Contents**
 
 - Welcome 
-  - [Overview](https://support.procore.com/#)
-  - [Considerations](https://support.procore.com/#)
-  - [Permissions](https://support.procore.com/#)
+ - [Overview](https://support.procore.com/#)
+ - [Considerations](https://support.procore.com/#)
+ - [Permissions](https://support.procore.com/#)
 - Upstream Account 
-  - [Set Connection Approval Preferences](https://support.procore.com/#)
-  - [Approve or Reject Connections (if review is required)](https://support.procore.com/#)
-  - [Close an RFI](https://support.procore.com/#)
+ - [Set Connection Approval Preferences](https://support.procore.com/#)
+ - [Approve or Reject Connections (if review is required)](https://support.procore.com/#)
+ - [Close an RFI](https://support.procore.com/#)
 - Downstream Account 
-  - [Initiate a Project Connection](https://support.procore.com/#)
-  - [View External RFIs on a Downstream Project](https://support.procore.com/#)
-  - [Linking Internal and External RFIs](https://support.procore.com/#)
-  - [Create an External RFI 360 Report](https://support.procore.com/#)
+ - [Initiate a Project Connection](https://support.procore.com/#)
+ - [View External RFIs on a Downstream Project](https://support.procore.com/#)
+ - [Linking Internal and External RFIs](https://support.procore.com/#)
+ - [Create an External RFI 360 Report](https://support.procore.com/#)
 - [Frequently Asked Questions](https://support.procore.com/#)
 - [Conclusion](https://support.procore.com/#)
 
@@ -58,9 +58,9 @@ Procore Connect for RFIs enables Procore customers to connect their projects so 
 - No change to RFI creation process.
 - No new custom notifications for External RFIs.
 - Not currently supported:
-  - Private RFIs
-  - Mobile access to External  RFIs
-  - Procore Document Management (PDM) attachments (not to be confused with legacy Documents tool. [Learn more](https://en-gb.support.procore.com/faq/what-is-the-difference-between-the-documents-and-document-management-tools-in-procore))
+ - Private RFIs
+ - Mobile access to External  RFIs
+ - Procore Document Management (PDM) attachments (not to be confused with legacy Documents tool. [Learn more](https://en-gb.support.procore.com/faq/what-is-the-difference-between-the-documents-and-document-management-tools-in-procore))
 - A downstream project in a connection cannot act as an upstream project in a different connection.
 - Project connections can only be initiated by the downstream project.
 - Connections can only be made with ‘active’ projects. Inactive projects are not supported.
@@ -86,20 +86,19 @@ Some actions that impact the Connection Manager tool are performed in other Proc
 
 | Action | None | Read Only | Standard | Admin | Notes |
 | --- | --- | --- | --- | --- | --- |
-| Approve or Reject Project Connection Request  [Web](#s214828 "Approve or Reject Project Connection Request") |  |  |  | check-green2.png |  |
-| Configure Advanced Settings  [Web](https://support.procore.com/products/online/user-guide/project-level/connection-manager/tutorials/configure-advanced-settings-connection-manager "Configure Advanced Settings: Connection Manager") |  |  |  | check-green2.png |  |
-| Disconnect a Connected Project  [Web](https://support.procore.com/products/online/user-guide/project-level/connection-manager/tutorials/disconnect-a-connected-project "Disconnect a Connected Project") |  |  |  | check-green2.png |  |
-| Initiate a Request to Connect Projects  [Web](#s214831 "Initiate a Project Connection") |  |  |  | icon-mindtouch-table-check.png | Users must also have ‘Read only’ level permissions or higher to the RFI tool in both the upstream and downstream projects. |
-| View Project Connections  [Web](https://support.procore.com/products/online/user-guide/project-level/connection-manager/tutorials/view-project-connections "View Project Connections") |  | check-green2.png | check-green2.png | check-green2.png |  |
-| View External RFIs on a Downstream Project  [Web](#s258036 "View External RFIs on a Downstream Project") |  | check-green2.png  + View External Items | check-green2.png  + View External Items | check-green2.png | Users with Read Only or Standard permissions to the RFI tool must also have the ‘View External Items’ granular permission for RFIs to view connected RFIs. |
+| Approve or Reject Project Connection Request [Web](#s214828 "Approve or Reject Project Connection Request") | | | | check-green2.png | |
+| Configure Advanced Settings [Web](https://support.procore.com/products/online/user-guide/project-level/connection-manager/tutorials/configure-advanced-settings-connection-manager "Configure Advanced Settings: Connection Manager") | | | | check-green2.png | |
+| Disconnect a Connected Project [Web](https://support.procore.com/products/online/user-guide/project-level/connection-manager/tutorials/disconnect-a-connected-project "Disconnect a Connected Project") | | | | check-green2.png | |
+| Initiate a Request to Connect Projects [Web](#s214831 "Initiate a Project Connection") | | | | icon-mindtouch-table-check.png | Users must also have ‘Read only’ level permissions or higher to the RFI tool in both the upstream and downstream projects. |
+| View Project Connections [Web](https://support.procore.com/products/online/user-guide/project-level/connection-manager/tutorials/view-project-connections "View Project Connections") | | check-green2.png | check-green2.png | check-green2.png | |
+| View External RFIs on a Downstream Project [Web](#s258036 "View External RFIs on a Downstream Project") | | check-green2.png + View External Items | check-green2.png + View External Items | check-green2.png | Users with Read Only or Standard permissions to the RFI tool must also have the ‘View External Items’ granular permission for RFIs to view connected RFIs. |
 
 ## Set Connection Approval Preferences
 
 1. Navigate to the Company level **Admin** tool.
 2. Under 'Tool Settings,' click **Connection Manager**.
-3. To automatically approve connections, mark the checkbox to 'Allow users with existing access to the Drawings tool to connect their project without Admin approval. (Recommended)'.  
-   OR  
-   Clear the checkmark to require a connection request be sent for review before manually accepting or rejecting a project's request to connect.
+3. To automatically approve connections, mark the checkbox to 'Allow users with existing access to the Drawings tool to connect their project without Admin approval. (Recommended)'. 
+   OR Clear the checkmark to require a connection request be sent for review before manually accepting or rejecting a project's request to connect.
 4. Click **Save**.
 
 ## Approve or Reject Connections (if review is required)
@@ -126,9 +125,8 @@ Upstream company accounts can choose to automatically approve connections, or r
 
 1. Navigate to the project's **Connection Manager** tool.
 2. Under 'Downstream Projects' click **Review Request**.
-3. Click **Approve** to approve the connection.  
-   OR  
-   Click **Reject** to decline the connection.
+3. Click **Approve** to approve the connection. 
+   OR Click **Reject** to decline the connection.
 
 ## See Also
 
@@ -137,7 +135,7 @@ Upstream company accounts can choose to automatically approve connections, or r
 ## Close an RFI
 
 1. Navigate to the project's **RFIs** tool.
-2. Click the **Items** tab.  
+2. Click the **Items** tab. 
    This lists all project's RFIs in the **Draft** and **Open** statuses. You can close an RFI in either status.
 3. Click **View** next to the RFI you want to close.
 
@@ -172,7 +170,7 @@ Only the users at the downstream company account can initiate a connection. Upst
 
 1. Navigate to the project's **Connection Manager** tool.
 2. Click **Connect**.
-3. Select the upstream company and project.  
+3. Select the upstream company and project. 
    *Note:* If you are connecting to a project within the *same* company, look for the 'Current Company' section in the 'Upstream Company' dropdown to select your company's name.
 4. Click **Next**.
 5. Select at least one feature for this connection, then click **Next**.
@@ -198,13 +196,13 @@ Procore's External RFI feature streamlines collaboration for users working on th
 ## Things to Consider
 
 - **Required User Permissions**:
-  - 'Admin' permissions to the RFI tool.  
+ - 'Admin' permissions to the RFI tool. 
     OR
-  - 'Read Only' or 'Standard' permissions with the 'View External Items' granular permission to the RFI tool.
+ - 'Read Only' or 'Standard' permissions with the 'View External Items' granular permission to the RFI tool.
 - **Additional Information**:
-  - External RFIs are read-only and cannot be edited in Downstream projects.
-  - If the upstream project severs the connection, previously copied RFIs remain in your project permanently.
-  - Not currently supported:
+ - External RFIs are read-only and cannot be edited in Downstream projects.
+ - If the upstream project severs the connection, previously copied RFIs remain in your project permanently.
+ - Not currently supported:
     - Private RFIs
     - Mobile access to Connected RFIs
     - Procore Document Management (PDM) attachments (not to be confused with legacy Documents tool. [Learn more](https://en-gb.support.procore.com/faq/what-is-the-difference-between-the-documents-and-document-management-tools-in-procore))
@@ -214,7 +212,7 @@ Procore's External RFI feature streamlines collaboration for users working on th
 ### View External RFIs
 
 1. Navigate to the project's **RFIs** tool.
-2. Click the **External Items** tab.  
+2. Click the **External Items** tab. 
    *Note:* The External Items tab appears only with an active Connection Manager connection.
 3. Click **View** next to the RFI you want to view.
 
@@ -234,9 +232,8 @@ Procore's External RFI feature streamlines collaboration for users working on th
    - **Due Date.**Select a time frame to search between or a single time to search from to filter by the date an RFI was due.
    - ****RFI Manager****. Filters the list by the [RFI Manager](../../../../../../references/construction-management/glossary-of-terms.md#RFI_Manager_(Coming_Soon) "Glossary of Terms").
    - **Connection Status.**Filters the list by Connected OR Disconnected RFIs.
-3. To clear one filter, click the '**x**' next to its name.  
-   OR  
-   To clear all filters, click ****Clear All****.
+3. To clear one filter, click the '**x**' next to its name. 
+   OR To clear all filters, click ****Clear All****.
 
 ## Linking Internal and External RFIs
 
@@ -251,17 +248,17 @@ After connecting your project, link Internal and External RFIs to comprehensivel
 ## Things to Consider
 
 - **Required User Permissions**:
-  - 'Admin' permissions to the RFI tool.  
+ - 'Admin' permissions to the RFI tool. 
     OR
-  - 'Read Only' or 'Standard' permissions with the 'View External Items' granular permission to the RFI tool.
+ - 'Read Only' or 'Standard' permissions with the 'View External Items' granular permission to the RFI tool.
     - To see the "**Copy to My Response**" option on a linked external RFI, you must have the required permissions to respond. See [Respond to an RFI](../../rfi/tutorials/respond-to-an-rfi.md).
     - External RFIs can only be linked to Internal RFIs the user is authorized to access.
     - A link established to a private Internal RFI will not be visible to users who lack the required permissions for that private RFI.
 - **Additional Information**:
-  - RFIs can be linked to each other regardless of their current status: Draft, Open, Closed, Closed - Draft, Closed - Revised.
-  - RFIs located in the Recycle Bin cannot be linked.
-  - Disconnecting the project does **not** remove the External RFI from the list.
-  - RFI links created in the downstream project **do not** sync to the upstream project.
+ - RFIs can be linked to each other regardless of their current status: Draft, Open, Closed, Closed - Draft, Closed - Revised.
+ - RFIs located in the Recycle Bin cannot be linked.
+ - Disconnecting the project does **not** remove the External RFI from the list.
+ - RFI links created in the downstream project **do not** sync to the upstream project.
 
 ## Prerequisites
 
@@ -273,7 +270,7 @@ Ensure your project is actively connected via Connection Manager or [Initiate a 
 
 1. Navigate to the project’s **RFIs** tool.
 2. In the **Items** tab, click **View** next to the desired RFI.
-3. Click the **Link to External RFI** button.  
+3. Click the **Link to External RFI** button. 
    *Note:* This button will appear as **Manage Links** if items have already been linked to the RFI.
 4. In thewindow that appears, select one or more External RFIs to link from the dropdown menu. To remove an RFI from your selection, click the ‘**x**’ next to its name.
 5. Click **Save.**
@@ -286,7 +283,7 @@ Ensure your project is actively connected via Connection Manager or [Initiate a 
 1. Navigate to the project’s **RFIs** tool.
 2. Click the **External Items** tab.
 3. Click **View** next to the desired **External RFI**.
-4. Click the **Link to Your Project RFI** button.  
+4. Click the **Link to Your Project RFI** button. 
    *Note:* This button will appear as **Manage Links** if items have already been linked to the RFI.
 5. In thewindow that appears, select one or more Internal RFIs to link from the dropdown menu. To remove an RFI from your selection, click the ‘**x**’ next to its name.
 6. Click **Save**.
@@ -301,10 +298,10 @@ The 360 Reporting tool empowers you to generate comprehensive reports combining 
 ## Things to Consider
 
 - **Required User Permissions**:
-  - 'Admin' permissions to the RFI tool.
-  - 'Read Only' and 'Standard' permissions with the 'View External Items' granular permission to the RFI tool.
+ - 'Admin' permissions to the RFI tool.
+ - 'Read Only' and 'Standard' permissions with the 'View External Items' granular permission to the RFI tool.
 - **Additional Information**:
-  - External RFI 360 reports are only available in downstream projects.
+ - External RFI 360 reports are only available in downstream projects.
 
 ## Steps
 

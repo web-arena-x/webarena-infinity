@@ -12,22 +12,16 @@ title: Linux cheat sheet
 
 {{< /details >}}
 
-This is the GitLab Support Team's collection of information regarding Linux, that they
-sometimes use while troubleshooting. It is listed here for transparency,
-and for users with experience with Linux. If you are currently
-having an issue with GitLab, you may want to check your [support options](https://about.gitlab.com/support/)
+This is the GitLab Support Team's collection of information regarding Linux, that they sometimes use while troubleshooting. It is listed here for transparency, and for users with experience with Linux. If you are currently having an issue with GitLab, you may want to check your [support options](https://about.gitlab.com/support/)
 first, before attempting to use this information.
 
 {{< alert type="warning" >}}
 
-It is [beyond the scope of GitLab Support to assist in systems administration](https://about.gitlab.com/support/statement-of-support/#training). GitLab administrators are expected to know these commands for their distribution
-of choice. If you are a GitLab Support Engineer, consider this a cross-reference to
-translate `yum` -> `apt-get` and the like.
+It is [beyond the scope of GitLab Support to assist in systems administration](https://about.gitlab.com/support/statement-of-support/#training). GitLab administrators are expected to know these commands for their distribution of choice. If you are a GitLab Support Engineer, consider this a cross-reference to translate `yum` -> `apt-get` and the like.
 
 {{< /alert >}}
 
-Most of the commands below have not been labeled as to which distribution they work
-on. Contributions are welcome to help add them.
+Most of the commands below have not been labeled as to which distribution they work on. Contributions are welcome to help add them.
 
 ## System Commands
 
@@ -203,19 +197,14 @@ Be aware that strace can have major impacts to system performance when it is run
 
 ### The Strace Parser tool
 
-Our [strace-parser tool](https://gitlab.com/wchandler/strace-parser) can be used to
-provide a high level summary of the `strace` output. It is similar to `strace -C`,
-but provides much more detailed statistics.
+Our [strace-parser tool](https://gitlab.com/wchandler/strace-parser) can be used to provide a high level summary of the `strace` output. It is similar to `strace -C`, but provides much more detailed statistics.
 
-MacOS and Linux binaries [are available](https://gitlab.com/gitlab-com/support/toolbox/strace-parser/-/tags),
-or you can build it from source if you have the Rust compiler.
+MacOS and Linux binaries [are available](https://gitlab.com/gitlab-com/support/toolbox/strace-parser/-/tags), or you can build it from source if you have the Rust compiler.
 
 #### How to use the tool
 
 First run the tool with `summary` flag to get a summary of the top processes sorted by time spent actively performing tasks.
-You can also sort based on total time, # of system calls made, PID #, and # of child processes
-using the `-s` or `--sort` flag. The number of results defaults to 25 processes, but
-can be changed using the `-c`/`--count` option. See `--help` for full details.
+You can also sort based on total time, # of system calls made, PID #, and # of child processes using the `-s` or `--sort` flag. The number of results defaults to 25 processes, but can be changed using the `-c`/`--count` option. See `--help` for full details.
 
 ```shell
 $ ./strace-parser sidekiq_trace.txt summary -c15 -s=pid
@@ -223,23 +212,23 @@ $ ./strace-parser sidekiq_trace.txt summary -c15 -s=pid
 Top 15 PIDs by PID #
 -----------
 
-  pid         actv (ms)     wait (ms)     user (ms)    total (ms)    % of actv     syscalls     children
-  -------    ----------    ----------    ----------    ----------    ---------    ---------    ---------
-  16706           0.000         0.000         0.000         0.000        0.00%            0            0
-  16708           0.000         0.000         0.000         0.000        0.00%            0            0
-  16716           0.000         0.000         0.000         0.000        0.00%            0            0
-  16717           0.000         0.000         0.000         0.000        0.00%            0            0
-  16718           0.000         0.000         0.000         0.000        0.00%            0            0
-  16719           0.000         0.000         0.000         0.000        0.00%            0            0
-  16720           0.389      9796.434         1.090      9797.912        0.02%           16            0
-  16721           0.000         0.000         0.000         0.000        0.00%            0            0
-  16722           0.000         0.000         0.000         0.000        0.00%            0            0
-  16723           0.000         0.000         0.000         0.000        0.00%            0            0
-  16804           0.218     11099.535         1.881     11101.634        0.01%           36            0
-  16813           0.000         0.000         0.000         0.000        0.00%            0            0
-  16814           1.740     11825.640         4.616     11831.996        0.10%           57            0
-  16815           2.364     12039.993         7.669     12050.026        0.14%           80            0
-  16816           0.000         0.000         0.000         0.000        0.00%            0            0
+ pid         actv (ms)     wait (ms)     user (ms)    total (ms)    % of actv     syscalls     children
+ -------    ----------    ----------    ----------    ----------    ---------    ---------    ---------
+ 16706           0.000         0.000         0.000         0.000        0.00%            0            0
+ 16708           0.000         0.000         0.000         0.000        0.00%            0            0
+ 16716           0.000         0.000         0.000         0.000        0.00%            0            0
+ 16717           0.000         0.000         0.000         0.000        0.00%            0            0
+ 16718           0.000         0.000         0.000         0.000        0.00%            0            0
+ 16719           0.000         0.000         0.000         0.000        0.00%            0            0
+ 16720           0.389      9796.434         1.090      9797.912        0.02%           16            0
+ 16721           0.000         0.000         0.000         0.000        0.00%            0            0
+ 16722           0.000         0.000         0.000         0.000        0.00%            0            0
+ 16723           0.000         0.000         0.000         0.000        0.00%            0            0
+ 16804           0.218     11099.535         1.881     11101.634        0.01%           36            0
+ 16813           0.000         0.000         0.000         0.000        0.00%            0            0
+ 16814           1.740     11825.640         4.616     11831.996        0.10%           57            0
+ 16815           2.364     12039.993         7.669     12050.026        0.14%           80            0
+ 16816           0.000         0.000         0.000         0.000        0.00%            0            0
 
 PIDs   93
 real   0m12.287s
@@ -247,37 +236,35 @@ user   0m1.474s
 sys    0m1.686s
 ```
 
-Based on the summary, you can then view the details of system calls made by one or more
-processes using the `-p`/`--pid` for a specific process, or `-s`/`--stats` flags for
-a sorted list. `--stats` takes the same sorting and count options as summary.
+Based on the summary, you can then view the details of system calls made by one or more processes using the `-p`/`--pid` for a specific process, or `-s`/`--stats` flags for a sorted list. `--stats` takes the same sorting and count options as summary.
 
 ```shell
 ./strace-parser sidekiq_trace.txt p 16815
 
 PID 16815
 
-  80 syscalls, active time: 2.364ms, user time: 7.669ms, total time: 12050.026ms
-  start time: 22:46:14.830267    end time: 22:46:26.880293
+ 80 syscalls, active time: 2.364ms, user time: 7.669ms, total time: 12050.026ms
+ start time: 22:46:14.830267    end time: 22:46:26.880293
 
-  syscall                 count    total (ms)      max (ms)      avg (ms)      min (ms)    errors
-  -----------------    --------    ----------    ----------    ----------    ----------    --------
-  futex                       5     10100.229      5400.106      2020.046         0.022    ETIMEDOUT: 2
-  restart_syscall             1      1939.764      1939.764      1939.764      1939.764    ETIMEDOUT: 1
-  getpid                     33         1.020         0.046         0.031         0.018
-  clock_gettime              14         0.420         0.038         0.030         0.021
-  stat                        6         0.277         0.072         0.046         0.031
-  read                        6         0.170         0.036         0.028         0.020
-  openat                      3         0.126         0.045         0.042         0.038
-  close                       3         0.099         0.034         0.033         0.031
-  lseek                       3         0.089         0.035         0.030         0.021
-  ioctl                       3         0.082         0.033         0.027         0.023    ENOTTY: 3
-  fstat                       3         0.081         0.034         0.027         0.022
-  ---------------
+ syscall                 count    total (ms)      max (ms)      avg (ms)      min (ms)    errors
+ -----------------    --------    ----------    ----------    ----------    ----------    --------
+ futex                       5     10100.229      5400.106      2020.046         0.022    ETIMEDOUT: 2
+ restart_syscall             1      1939.764      1939.764      1939.764      1939.764    ETIMEDOUT: 1
+ getpid                     33         1.020         0.046         0.031         0.018
+ clock_gettime              14         0.420         0.038         0.030         0.021
+ stat                        6         0.277         0.072         0.046         0.031
+ read                        6         0.170         0.036         0.028         0.020
+ openat                      3         0.126         0.045         0.042         0.038
+ close                       3         0.099         0.034         0.033         0.031
+ lseek                       3         0.089         0.035         0.030         0.021
+ ioctl                       3         0.082         0.033         0.027         0.023    ENOTTY: 3
+ fstat                       3         0.081         0.034         0.027         0.022
+ ---------------
 
-  Slowest file open times for PID 16815:
+ Slowest file open times for PID 16815:
 
     dur (ms)       timestamp            error         filename
-  ----------    ---------------    ---------------    ---------
+ ----------    ---------------    ---------------    ---------
        0.045    22:46:16.771318           -           /opt/gitlab/embedded/service/gitlab-rails/config/database.yml
        0.043    22:46:26.877954           -           /opt/gitlab/embedded/service/gitlab-rails/config/database.yml
        0.038    22:46:22.174610           -           /opt/gitlab/embedded/service/gitlab-rails/config/database.yml
@@ -285,9 +272,7 @@ PID 16815
 
 In the previous example, we can see which files took longer to open for `PID 16815`.
 
-When nothing stands out in the results, a good way to get more context is to run `strace`
-on your own GitLab instance while performing the action performed by the customer,
-then compare summaries of both results and dive into the differences.
+When nothing stands out in the results, a good way to get more context is to run `strace` on your own GitLab instance while performing the action performed by the customer, then compare summaries of both results and dive into the differences.
 
 #### Stats for the open syscall
 
@@ -297,10 +282,9 @@ Slow storage can cause the dreaded `DeadlineExceeded` error in Gitaly.
 Also [see this entry](../operations/filesystem_benchmarking.md)
 in the handbook for quick tests customers can perform to check their file system performance.
 
-Keep in mind that timing information from `strace` is often somewhat inaccurate, so
-small differences should not be considered significant.
+Keep in mind that timing information from `strace` is often somewhat inaccurate, so small differences should not be considered significant.
 
-|Setup          | access times  |
+|Setup          | access times |
 |:--------------|:--------------|
 | EFS           | 10 - 30 ms     |
 | Local Storage | 0.01 - 1 ms    |

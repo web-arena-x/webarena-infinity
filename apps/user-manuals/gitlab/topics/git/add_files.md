@@ -7,8 +7,7 @@ title: Add files to your branch
 ---
 
 Use Git to add files to a branch in your local repository.
-This action creates a snapshot of the file for your
-next commit and starts version control monitoring.
+This action creates a snapshot of the file for your next commit and starts version control monitoring.
 When you add files with Git, you:
 
 - Prepare content for version control tracking.
@@ -56,8 +55,7 @@ To add a new file from the command line:
    git status
    ```
 
-   The filename should be green. The file is staged (tracked locally) by Git, but
-   has not been [committed and pushed](commit.md).
+   The filename should be green. The file is staged (tracked locally) by Git, but has not been [committed and pushed](commit.md).
 
 ## Add a file to the last commit
 

@@ -12,8 +12,7 @@ title: Using MySQL
 
 {{< /details >}}
 
-Many applications depend on MySQL as their database, and you may
-need it for your tests to run.
+Many applications depend on MySQL as their database, and you may need it for your tests to run.
 
 ## Use MySQL with the Docker executor
 
@@ -37,8 +36,7 @@ For more information, see [GitLab CI/CD variables](../variables/_index.md).
 
    - You can use any Docker image available on [Docker Hub](https://hub.docker.com/_/mysql/).
      For example, to use MySQL 5.5, use `mysql:5.5`.
-   - The `mysql` image can accept environment variables. For more information, view
-     the [Docker Hub documentation](https://hub.docker.com/_/mysql/).
+   - The `mysql` image can accept environment variables. For more information, view the [Docker Hub documentation](https://hub.docker.com/_/mysql/).
 
 1. To include the database name and password, add the following to your `.gitlab-ci.yml` file:
 
@@ -50,8 +48,7 @@ For more information, see [GitLab CI/CD variables](../variables/_index.md).
    ```
 
    The MySQL container uses `MYSQL_DATABASE` and `MYSQL_ROOT_PASSWORD` to connect to the database.
-   Pass these values by using [GitLab CI/CD variables](../variables/_index.md) (`$MYSQL_DB` and `$MYSQL_PASS` in the example above),
-   [rather than calling them directly](https://gitlab.com/gitlab-org/gitlab/-/issues/30178).
+   Pass these values by using [GitLab CI/CD variables](../variables/_index.md) (`$MYSQL_DB` and `$MYSQL_PASS` in the example above), [rather than calling them directly](https://gitlab.com/gitlab-org/gitlab/-/issues/30178).
 
 1. Configure your application to use the database, for example:
 
@@ -62,13 +59,11 @@ For more information, see [GitLab CI/CD variables](../variables/_index.md).
    Database: <your_mysql_database>
    ```
 
-   In this example, the user is `runner`. You should use a user that has permission to
-   access your database.
+   In this example, the user is `runner`. You should use a user that has permission to access your database.
 
 ## Use MySQL with the Shell executor
 
-You can also use MySQL on manually-configured servers that use
-GitLab Runner with the Shell executor.
+You can also use MySQL on manually-configured servers that use GitLab Runner with the Shell executor.
 
 1. Install the MySQL server:
 
@@ -80,9 +75,7 @@ GitLab Runner with the Shell executor.
 
    {{< alert type="note" >}}
 
-   As a security measure, you can run `mysql_secure_installation` to
-   remove anonymous users, drop the test database, and disable remote logins by
-   the root user.
+   As a security measure, you can run `mysql_secure_installation` to remove anonymous users, drop the test database, and disable remote logins by the root user.
 
    {{< /alert >}}
 
@@ -92,8 +85,7 @@ GitLab Runner with the Shell executor.
    mysql -u root -p
    ```
 
-1. Create a user (in this case, `runner`) that is used by your
-   application. Change `$password` in the command to a strong password.
+1. Create a user (in this case, `runner`) that is used by your application. Change `$password` in the command to a strong password.
 
    At the `mysql>` prompt, type:
 
@@ -120,8 +112,7 @@ GitLab Runner with the Shell executor.
    \q
    ```
 
-1. Connect to the newly-created database to check that everything is
-   in place:
+1. Connect to the newly-created database to check that everything is in place:
 
    ```shell
    mysql -u runner -p -D <your_mysql_database>

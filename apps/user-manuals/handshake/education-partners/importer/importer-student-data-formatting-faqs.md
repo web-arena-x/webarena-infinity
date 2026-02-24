@@ -67,11 +67,11 @@ Outline your functionality requirements **(in addition to the core student data 
 
  
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Fields to consider:** | **Example content:** | **Why:** |
 | **primary\_education:education\_level\_name** | “Certificate” | Employers use education level, major groups, and school year as qualification fields on job postings. Standardizing this helps ensure your students are qualified for relevant positions |
-| **school\_year\_name** | Leave this field blank OR  select a standard year such as “Junior” or “Senior” |
+| **school\_year\_name** | Leave this field blank OR select a standard year such as “Junior” or “Senior” |
 | **primary\_education:primary\_major\_name** | “Certificate Program Name” | This field will **not** show up on a student's profile, and is primarily used for FDS.  This is the student's primary major. Only 1 major can be supported in this field. The major name *must already be added* to the **primary\_education:major\_names**field in order for the primary major to be backfilled into Handshake. |
 | **system\_label\_names:** | “certificate-program-name” | This will not display externally, but can be help for tracking, filtering, and reporting by the Career Services team |
 

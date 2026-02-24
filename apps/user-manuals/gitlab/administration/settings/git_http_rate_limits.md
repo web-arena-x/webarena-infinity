@@ -20,8 +20,7 @@ title: Rate limits on Git HTTP
 {{< /history >}}
 
 If you use Git HTTP in your repository, common Git operations can generate many Git HTTP requests.
-GitLab can enforce rate limits on both authenticated and unauthenticated Git HTTP requests to improve
-the security and durability of your web application.
+GitLab can enforce rate limits on both authenticated and unauthenticated Git HTTP requests to improve the security and durability of your web application.
 
 {{< alert type="note" >}}
 
@@ -33,8 +32,7 @@ the security and durability of your web application.
 
 GitLab disables rate limits on unauthenticated Git HTTP requests by default.
 
-To apply rate limits to Git HTTP requests that do not contain authentication
-parameters, enable and configure these limits:
+To apply rate limits to Git HTTP requests that do not contain authentication parameters, enable and configure these limits:
 
 1. In the upper-right corner, select **Admin**.
 1. Select **Settings** > **Network**.
@@ -56,8 +54,7 @@ parameters, enable and configure these limits:
 
 GitLab disables rate limits on authenticated Git HTTP requests by default.
 
-To apply rate limits to Git HTTP requests that contain authentication
-parameters, enable and configure these limits:
+To apply rate limits to Git HTTP requests that contain authentication parameters, enable and configure these limits:
 
 1. In the upper-right corner, select **Admin**.
 1. Select **Settings** > **Network**.
@@ -67,8 +64,7 @@ parameters, enable and configure these limits:
 1. Enter a value for **Authenticated Git HTTP rate limit period in seconds**.
 1. Select **Save changes**.
 
-If required, you can
-[allow specific users to bypass authenticated request rate limiting](user_and_ip_rate_limits.md#allow-specific-users-to-bypass-authenticated-request-rate-limiting).
+If required, you can [allow specific users to bypass authenticated request rate limiting](user_and_ip_rate_limits.md#allow-specific-users-to-bypass-authenticated-request-rate-limiting).
 
 ## Related topics
 

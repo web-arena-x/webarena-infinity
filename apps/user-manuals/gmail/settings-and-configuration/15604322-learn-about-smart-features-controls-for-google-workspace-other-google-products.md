@@ -26,12 +26,12 @@ In Calendar, Chat, Drive, Gmail, and Meet, you can manage smart feature settings
 
 Each Workspace smart feature setting works independently from one another and provides different experiences. For example, you can turn on smart features for Google Workspace, and turn off smart features for other Google products. To understand how each smart feature setting works, use the table below.
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | **Smart feature setting** | **Where to find the setting** | **Description** | **Experience example** |
-| [**Smart features in Gmail, Chat, and Meet**](15604322#gcm) | Gmail | Controls use of your Gmail, Chat, and Meet data to provide smart features for these products. | Smart Compose in Gmail  Summary cards |
-| [**Smart features in Google Workspace**](15604322#gw) | Gmail  Calendar\*  Chat\*  Drive\*  Meet\* | Controls use of your Workspace data to provide smart features across Workspace products.  This setting does not affect smart features that personalize your experience in Gmail, Chat, and Meet, which are subject to the control described above. | Show events from Gmail in Calendar, such as flight itineraries and invitations  Google Workspace with Gemini |
-| [**Smart features in other Google products**](15604322#ogp) | Gmail  Calendar\*  Chat\*  Drive\*  Meet\* | Controls use of your Workspace data to provide smart features in other Google products.  Data sharing and personalization in certain Google products may be subject to additional controls, such as [Web and App Activity](/websearch/answer/54068?hl=en&co=GENIE.Platform%3DAndroid) and [DMA linked services](/accounts/answer/14202510) (in the EU). | Restaurant reservations and to-go orders in Maps  Suggested tickets, passes and loyalty cards in Wallet |
+| [**Smart features in Gmail, Chat, and Meet**](15604322#gcm) | Gmail | Controls use of your Gmail, Chat, and Meet data to provide smart features for these products. | Smart Compose in Gmail Summary cards |
+| [**Smart features in Google Workspace**](15604322#gw) | Gmail Calendar\* Chat\* Drive\* Meet\* | Controls use of your Workspace data to provide smart features across Workspace products. This setting does not affect smart features that personalize your experience in Gmail, Chat, and Meet, which are subject to the control described above. | Show events from Gmail in Calendar, such as flight itineraries and invitations Google Workspace with Gemini |
+| [**Smart features in other Google products**](15604322#ogp) | Gmail Calendar\* Chat\* Drive\* Meet\* | Controls use of your Workspace data to provide smart features in other Google products. Data sharing and personalization in certain Google products may be subject to additional controls, such as [Web and App Activity](/websearch/answer/54068?hl=en&co=GENIE.Platform%3DAndroid) and [DMA linked services](/accounts/answer/14202510) (in the EU). | Restaurant reservations and to-go orders in Maps Suggested tickets, passes and loyalty cards in Wallet |
 
 \* You can only turn on this setting from a web browser.
 
@@ -183,13 +183,13 @@ When we refer to “your Workspace Content & Activity” below, we mean content 
 Google’s legal bases are:
 
 - **Your consent**. We rely on your consent for Google to use your Workspace Content & Activity, when you turn on any of the smart features settings for Google Workspace, for the following purposes:
-  - **To provide smart features that personalize your experience in Gmail, Chat and Meet**. For example, when you turn the smart features in Gmail, Chat and Meet setting on, you can get experiences that include Gmail Smart Compose (suggested text in email).
-  - **To provide smart features that personalize your experience across Google Workspace**. For example, when you turn the smart features in Google Workspace setting on, you can get experiences that include personalized search (such as keyword suggestions, file suggestions, and more relevant results). This setting does not affect your control over the smart features setting that personalizes your experience in Gmail, Chat, and Meet.
-  - **To provide smart features that personalize your experience in other Google products outside of Workspace**. For example, when you turn the smart features in other Google products setting on, you can get experiences that include restaurant reservations and to-go orders in Maps. Data sharing and personalization in certain products may be subject to additional controls such Web and App Activity and DMA linked services (in the EU).
+ - **To provide smart features that personalize your experience in Gmail, Chat and Meet**. For example, when you turn the smart features in Gmail, Chat and Meet setting on, you can get experiences that include Gmail Smart Compose (suggested text in email).
+ - **To provide smart features that personalize your experience across Google Workspace**. For example, when you turn the smart features in Google Workspace setting on, you can get experiences that include personalized search (such as keyword suggestions, file suggestions, and more relevant results). This setting does not affect your control over the smart features setting that personalizes your experience in Gmail, Chat, and Meet.
+ - **To provide smart features that personalize your experience in other Google products outside of Workspace**. For example, when you turn the smart features in other Google products setting on, you can get experiences that include restaurant reservations and to-go orders in Maps. Data sharing and personalization in certain products may be subject to additional controls such Web and App Activity and DMA linked services (in the EU).
 
-  You can revoke your consent to any of these purposes at any time by turning off the relevant setting as described in the “Change smart feature settings” section above.
+ You can revoke your consent to any of these purposes at any time by turning off the relevant setting as described in the “Change smart feature settings” section above.
 - **Google and** **third parties' legitimate interests** **with appropriate safeguards to protect your privacy.**
-  - **To improve our services**. If you have turned on any of the smart features settings, we may also process your Workspace Content & Activity to improve these features.
+ - **To improve our services**. If you have turned on any of the smart features settings, we may also process your Workspace Content & Activity to improve these features.
 
     Processing information for this purpose is necessary for the legitimate interests of Google and our users in:
 

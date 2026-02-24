@@ -15,67 +15,47 @@ description: "Create custom file hooks to integrate your GitLab Self-Managed ins
 
 Use custom file hooks to introduce custom integrations without modifying the GitLab source code.
 
-A file hook runs on each event. You can filter events or projects
-in a file hook's code, and create many file hooks as you need. Each file hook is
-triggered by GitLab asynchronously in case of an event. For a list of events,
-see the [system hooks](system_hooks.md) and [webhooks](../user/project/integrations/webhook_events.md) documentation.
+A file hook runs on each event. You can filter events or projects in a file hook's code, and create many file hooks as you need. Each file hook is triggered by GitLab asynchronously in case of an event. For a list of events, see the [system hooks](system_hooks.md) and [webhooks](../user/project/integrations/webhook_events.md) documentation.
 
 {{< alert type="note" >}}
 
-File hooks must be configured on the file system of the GitLab server. Only GitLab
-server administrators can complete these tasks. Explore
-[system hooks](system_hooks.md) or [webhooks](../user/project/integrations/webhooks.md)
+File hooks must be configured on the file system of the GitLab server. Only GitLab server administrators can complete these tasks. Explore [system hooks](system_hooks.md) or [webhooks](../user/project/integrations/webhooks.md)
 as an option if you do not have file system access.
 
 {{< /alert >}}
 
-Instead of writing and supporting your own file hook, you can also make changes
-directly to the GitLab source code and contribute back upstream. In this way, we can
-ensure functionality is preserved across versions and covered by tests.
+Instead of writing and supporting your own file hook, you can also make changes directly to the GitLab source code and contribute back upstream. In this way, we can ensure functionality is preserved across versions and covered by tests.
 
 ## Set up a custom file hook
 
 File hooks must be in the `file_hooks` directory. Subdirectories are ignored.
-Find examples in the
-[`example` directory under `file_hooks`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/file_hooks/examples).
+Find examples in the [`example` directory under `file_hooks`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/file_hooks/examples).
 
 To set up a custom hook:
 
-1. On the GitLab server running the Sidekiq component, locate the plugin directory. For self-compiled installations, the path is usually
-   `/home/git/gitlab/file_hooks/`. For Linux package installations, the path is usually
-   `/opt/gitlab/embedded/service/gitlab-rails/file_hooks`.
+1. On the GitLab server running the Sidekiq component, locate the plugin directory. For self-compiled installations, the path is usually `/home/git/gitlab/file_hooks/`. For Linux package installations, the path is usually `/opt/gitlab/embedded/service/gitlab-rails/file_hooks`.
 
    For [configurations with multiple servers](reference_architectures/_index.md), your hook file must exist on each GitLab application (Rails) and Sidekiq server.
 
-1. Inside the `file_hooks` directory, create a file with a name of your choice,
-   without spaces or special characters.
+1. Inside the `file_hooks` directory, create a file with a name of your choice, without spaces or special characters.
 1. Make the hook file executable and make sure it's owned by the Git user.
-1. Write the code to make the file hook function as expected. That can be
-   in any language, and ensure the 'shebang' at the top properly reflects the
-   language type. For example, if the script is in Ruby the shebang will
-   probably be `#!/usr/bin/env ruby`.
-1. The data to the file hook is provided as JSON on `STDIN`. It is exactly the
-   same as for [system hooks](system_hooks.md).
+1. Write the code to make the file hook function as expected. That can be in any language, and ensure the 'shebang' at the top properly reflects the language type. For example, if the script is in Ruby the shebang will probably be `#!/usr/bin/env ruby`.
+1. The data to the file hook is provided as JSON on `STDIN`. It is exactly the same as for [system hooks](system_hooks.md).
 
-Assuming the file hook code is properly implemented, the hook fires
-as appropriate. The file hooks file list is updated for each event. There is no
-need to restart GitLab to apply a new file hook.
+Assuming the file hook code is properly implemented, the hook fires as appropriate. The file hooks file list is updated for each event. There is no need to restart GitLab to apply a new file hook.
 
-If a file hook executes with non-zero exit code or fails to execute, a
-message is logged to:
+If a file hook executes with non-zero exit code or fails to execute, a message is logged to:
 
 - `log/file_hook.log` for self-compiled installations.
 - `gitlab-rails/file_hook.log` for Linux package installations.
 
 This file is only created if the file hook exits non-zero.
-When the file hook executes, an entry is added to the Sidekiq log `gitlab/sidekiq/current`
-for each `FileHookWorker` started.
+When the file hook executes, an entry is added to the Sidekiq log `gitlab/sidekiq/current` for each `FileHookWorker` started.
 This entry contains details of the event and the script that was executed.
 
 ## File hook example
 
-This example responds only on the event `project_create`, and
-the GitLab instance informs the administrators that a new project has been created.
+This example responds only on the event `project_create`, and the GitLab instance informs the administrators that a new project has been created.
 
 ```ruby
 #!/opt/gitlab/embedded/bin/ruby
@@ -92,21 +72,17 @@ return unless ARGS['event_name'] == 'project_create'
 
 # We will inform our admins of our gitlab instance that a new project is created
 Mail.deliver do
-  from    'info@gitlab_instance.com'
-  to      'admin@gitlab_instance.com'
-  subject "new project " + ARGS['name']
-  body    ARGS['owner_name'] + 'created project ' + ARGS['name']
+ from    'info@gitlab_instance.com'
+ to      'admin@gitlab_instance.com'
+ subject "new project " + ARGS['name']
+ body    ARGS['owner_name'] + 'created project ' + ARGS['name']
 end
 ```
 
 ## Validation example
 
-Writing your own file hook can be tricky and it's easier if you can check it
-without altering the system. A Rake task is provided so that you can use it
-in a staging environment to test your file hook before using it in production.
-The Rake task uses a sample data and execute each of file hook. The output
-should be enough to determine if the system sees your file hook and if it was
-executed without errors.
+Writing your own file hook can be tricky and it's easier if you can check it without altering the system. A Rake task is provided so that you can use it in a staging environment to test your file hook before using it in production.
+The Rake task uses a sample data and execute each of file hook. The output should be enough to determine if the system sees your file hook and if it was executed without errors.
 
 ```shell
 # Omnibus installations

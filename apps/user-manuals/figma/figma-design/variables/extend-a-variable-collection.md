@@ -6,7 +6,7 @@ Source: https://help.figma.com/hc/en-us/articles/36346281624471-Extend-a-variabl
 
 **The entry point to the variables modal is moving!** Currently, the variables modal is not discoverable if you have a layer selected. We're slowly rolling out a new left navigation bar to users in Figma Design, which will include the entry point to the variables modal so you can access your variable collections anytime.
 
-![navigation-bar-variables-entry-point.png](https://help.figma.com/hc/article_attachments/37506155851415)  
+![navigation-bar-variables-entry-point.png](https://help.figma.com/hc/article_attachments/37506155851415) 
 
 The variables modal will also be edge-to-edge in your window by default, called **variables view**, so that you can see more of your variables and modes at once. You can still minimize to a modal view like before.
 
@@ -39,7 +39,7 @@ If you organize your brand themes in a single collection, you can use the follow
 
 ### Step 1: Export and delete brand-specific modes
 
-1. Open the  Variables modal, then select the collection you want to extend.
+1. Open the Variables modal, then select the collection you want to extend.
 2. Select a brand mode from your list of modes, then right-click on it and choose **Export mode**. The variables will be exported to a JSON file.
 3. Once exported, right-click on the mode again and select **Delete mode**.
 4. Repeat this process for each brand mode until just the parent collection’s modes remain.
@@ -61,7 +61,7 @@ If you organize your brand themes in a single collection, you can use the follow
 
 ![](https://help.figma.com/hc/article_attachments/36458226608023)
 
-Any values that differ from the parent collection are highlighted in blue. Click on a variable to modify its value, or click  **Reset change** to revert the override back to the parent collection’s values.
+Any values that differ from the parent collection are highlighted in blue. Click on a variable to modify its value, or click **Reset change** to revert the override back to the parent collection’s values.
 
 **Note:** An extended collection’s mode and variable names, settings, and order are inherited from the parent collection. You cannot add additional variables or modes, or change a variable’s description or scope from an extended collection. Open the parent collection to modify these settings.
 
@@ -102,7 +102,7 @@ If your brand themes are organized in individual collections, you can use the fo
 
 ![](https://help.figma.com/hc/article_attachments/36458226617495)
 
-Any values that differ from the parent collection are highlighted in blue. Click on a variable to modify its value, or click  **Reset change** to revert the override back to the parent collection’s values.
+Any values that differ from the parent collection are highlighted in blue. Click on a variable to modify its value, or click **Reset change** to revert the override back to the parent collection’s values.
 
 **Note:** An extended collection’s mode and variable names, settings, and order are inherited from the parent collection. You cannot add additional variables or modes, or change a variable’s description or scope from an extended collection. Open the parent collection to modify these settings.
 

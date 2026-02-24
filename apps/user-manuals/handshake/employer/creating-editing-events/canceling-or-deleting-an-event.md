@@ -48,8 +48,6 @@ If students have already registered for your event, the date and time cannot be 
 
 ### Deleting an event
 
-**Off-campus and virtual events**  
-Employers and host schools cannot delete off-campus or virtual events. To request deletion, contact our Support team.
+**Off-campus and virtual events** Employers and host schools cannot delete off-campus or virtual events. To request deletion, contact our Support team.
 
-**On-campus events**  
-To delete an on-campus event, contact the host school directly. *For assistance, refer to* [*How to Contact a School*](https://support.joinhandshake.com/hc/en-us/articles/19588411132695).
+**On-campus events** To delete an on-campus event, contact the host school directly. *For assistance, refer to* [*How to Contact a School*](https://support.joinhandshake.com/hc/en-us/articles/19588411132695).

@@ -47,20 +47,19 @@ Desktop
    1. Click **Add menu item**.
    2. In the **Name** field, enter a name for your menu item.
    3. In the **Search or paste a link** field, enter or select a destination for your menu item.
-5. Click **Add**, and then click  and drag the menu item to nest it below the header menu item.
+5. Click **Add**, and then click and drag the menu item to nest it below the header menu item.
 6. Click **Save menu**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Contents** menu, tap the  icon, and then tap **Menus**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Contents** menu, tap the icon, and then tap **Menus**.
 3. Tap the name of your main menu.
 4. Choose one of the main menu items to be the header for your drop-down menu, or [add a new menu item](editing-menus.md#add-menu-item) to be the header. If you don't want the header to link to anything, enter `#` in the **Search or paste a link** field for the header menu item.
 5. To add a menu item to include in the drop-down menu, complete the following tasks:
    1. Tap **Add menu item**.
    2. In the **Name** field, enter a name for your menu item.
    3. In the **Search or paste a link** field, enter or select a destination for your menu item.
-6. Tap **Add**, and then tap  and drag the menu item to nest it below the header menu item.
+6. Tap **Add**, and then tap and drag the menu item to nest it below the header menu item.
 7. Tap **Save** or **✓**.
 
 ## Footer menu integration
@@ -70,7 +69,7 @@ Drop-down menus can also be implemented in footer menus.
 #### Steps:
 
 1. From your Shopify admin, go to **Content** > [**Menus**](https://admin.shopify.com/content/menus).
-2. Optional: Follow the same [nesting principles used for main menus](drop-down-menus.md#nesting-menu-items-to-build-drop-down-menus), such as dragging menu items under a header item to create a drop-down structure by clicking  and dragging the items into place.
+2. Optional: Follow the same [nesting principles used for main menus](drop-down-menus.md#nesting-menu-items-to-build-drop-down-menus), such as dragging menu items under a header item to create a drop-down structure by clicking and dragging the items into place.
 3. Enter `#` in the **Link** field for header items that shouldn't link to a page (for example, "Support" or "Explore" headers).
 
 ## Theme compatibility considerations

@@ -6,11 +6,9 @@ title: Workhorse handlers
 ---
 
 Long HTTP requests are hard to handle efficiently in Rails.
-The requests are either memory-inefficient (file uploads) or impossible at all due to shorter timeouts
-(for example, Puma server has 60-second timeout).
+The requests are either memory-inefficient (file uploads) or impossible at all due to shorter timeouts (for example, Puma server has 60-second timeout).
 Workhorse can efficiently handle a large number of long HTTP requests.
-Workhorse acts as a proxy that intercepts all HTTP requests and either propagates them without
-changing or handles them itself by performing additional logic.
+Workhorse acts as a proxy that intercepts all HTTP requests and either propagates them without changing or handles them itself by performing additional logic.
 
 ## Injectors
 

@@ -8,18 +8,14 @@ title: 'Tutorial: Use GitLab Duo to create a shop application in Python'
 
 <!-- vale gitlab_base.FutureTense = NO -->
 
-You have been hired as a developer at an online bookstore. The current system for
-managing inventory is a mix of spreadsheets and manual processes, leading to inventory
-errors and delayed updates. Your team needs to create a web application that can:
+You have been hired as a developer at an online bookstore. The current system for managing inventory is a mix of spreadsheets and manual processes, leading to inventory errors and delayed updates. Your team needs to create a web application that can:
 
 - Track book inventory in real time.
 - Enable staff to add new books as they arrive.
 - Prevent common data entry errors, like negative prices or quantities.
 - Provide a foundation for future customer-facing features.
 
-This tutorial is part one in a series, and guides you through creating and debugging
-a [Python](https://www.python.org/) web application with a database backend
-that meets these requirements.
+This tutorial is part one in a series, and guides you through creating and debugging a [Python](https://www.python.org/) web application with a database backend that meets these requirements.
 
 You'll use [GitLab Duo Chat (Agentic)](../../gitlab_duo_chat/agentic_chat.md)
 and [GitLab Duo Code Suggestions](../../project/repository/code_suggestions/_index.md)
@@ -27,34 +23,28 @@ to help you:
 
 - Set up an organized Python project with standard directories and essential files.
 - Configure the Python virtual environment.
-- Install the [Flask](https://flask.palletsprojects.com/en/stable/) framework as the foundation
-  for the web application.
+- Install the [Flask](https://flask.palletsprojects.com/en/stable/) framework as the foundation for the web application.
 - Install required dependencies, and prepare the project for development.
-- Set up the Python configuration file and environment variables for Flask application
-  development.
-- Implement core features, including article models, database operations,
-  API routes, and inventory management features.
+- Set up the Python configuration file and environment variables for Flask application development.
+- Implement core features, including article models, database operations, API routes, and inventory management features.
 - Test that the application works as intended, comparing your code with example code files.
 
 ## Before you begin
 
 - [Install the latest version of Python](https://www.python.org/downloads/) on your system.
-  You can ask Chat how to do that for your operating system.
+ You can ask Chat how to do that for your operating system.
 - Confirm with an administrator, group owner, or project owner that you have access to GitLab Duo.
 - Install an extension in your preferred IDE:
-  - [Web IDE](../../project/web_ide/_index.md): Access through your GitLab instance
-  - [VS Code](../../../editor_extensions/visual_studio_code/setup.md)
-  - [Visual Studio](../../../editor_extensions/visual_studio/setup.md)
-  - [JetBrains IDE](../../../editor_extensions/jetbrains_ide/_index.md)
-  - [Neovim](../../../editor_extensions/neovim/setup.md)
-- Authenticate with GitLab from the IDE, using either
-  [OAuth](../../../integration/google.md) or a
-  [personal access token with the `api` scope](../../profile/personal_access_tokens.md#create-a-personal-access-token).
+ - [Web IDE](../../project/web_ide/_index.md): Access through your GitLab instance
+ - [VS Code](../../../editor_extensions/visual_studio_code/setup.md)
+ - [Visual Studio](../../../editor_extensions/visual_studio/setup.md)
+ - [JetBrains IDE](../../../editor_extensions/jetbrains_ide/_index.md)
+ - [Neovim](../../../editor_extensions/neovim/setup.md)
+- Authenticate with GitLab from the IDE, using either [OAuth](../../../integration/google.md) or a [personal access token with the `api` scope](../../profile/personal_access_tokens.md#create-a-personal-access-token).
 
 ## Use GitLab Duo Chat and Code Suggestions
 
-In this tutorial, you will use Chat and Code Suggestions to create the Python
-web application. Multiple ways exist to use these features.
+In this tutorial, you will use Chat and Code Suggestions to create the Python web application. Multiple ways exist to use these features.
 
 ### Use GitLab Duo Chat
 
@@ -93,16 +83,14 @@ How you use Chat in your IDE differs depending on which IDE you use.
 1. In VS Code, open a file. The file does not need to be a file in a Git repository.
 1. On the left sidebar, select **GitLab Duo Chat** ({{< icon name="duo-chat" >}}).
 1. In the message box, enter your question. Press **Enter**, or select **Send**.
-1. In the chat pane, in the upper-right corner, select **Show Status** to show information
-   in the Command Palette.
+1. In the chat pane, in the upper-right corner, select **Show Status** to show information in the Command Palette.
 
 You can also interact with GitLab Duo Chat while you're working with a subset of code.
 
 1. In VS Code, open a file. The file does not need to be a file in a Git repository.
 1. In the file, select some code.
 1. Right-click and select **GitLab Duo Chat**.
-1. Select an option, or **Open Quick Chat** and ask a question, like
-   `Can you simplify this code?` and press <kbd>Enter</kbd>.
+1. Select an option, or **Open Quick Chat** and ask a question, like `Can you simplify this code?` and press <kbd>Enter</kbd>.
 
 For more information, see [Use GitLab Duo Chat in VS Code](../../gitlab_duo_chat/agentic_chat.md#use-gitlab-duo-chat-in-vs-code).
 
@@ -110,8 +98,7 @@ For more information, see [Use GitLab Duo Chat in VS Code](../../gitlab_duo_chat
 
 {{< tab title="JetBrains IDEs" >}}
 
-1. Open a project in a JetBrains IDE that supports Python, such as
-   [PyCharm](https://www.jetbrains.com/pycharm/), or [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+1. Open a project in a JetBrains IDE that supports Python, such as [PyCharm](https://www.jetbrains.com/pycharm/), or [IntelliJ IDEA](https://www.jetbrains.com/idea/).
 1. [Use GitLab Duo Chat](../../gitlab_duo_chat/agentic_chat.md#use-gitlab-duo-chat-in-jetbrains-ides).
 
 {{< /tab >}}
@@ -122,14 +109,11 @@ For more information, see [Use GitLab Duo Chat in VS Code](../../gitlab_duo_chat
 
 To use Code Suggestions:
 
-1. Open your Git project in a
-   [supported IDE](../../project/repository/code_suggestions/supported_extensions.md#supported-editor-extensions).
-1. Add the project as a remote of your local repository using
-   [`git remote add`](../../../topics/git/commands.md#git-remote-add).
+1. Open your Git project in a [supported IDE](../../project/repository/code_suggestions/supported_extensions.md#supported-editor-extensions).
+1. Add the project as a remote of your local repository using [`git remote add`](../../../topics/git/commands.md#git-remote-add).
 1. Add your project directory, including the hidden `.git/` folder, to your IDE workspace or project.
 1. Author your code.
-   As you type, suggestions are displayed. Code Suggestions provides code snippets
-   or completes the current line, depending on the cursor position.
+   As you type, suggestions are displayed. Code Suggestions provides code snippets or completes the current line, depending on the cursor position.
 
 1. Describe the requirements in natural language.
    Code Suggestions generates functions and code snippets based on the context provided.
@@ -143,18 +127,13 @@ To use Code Suggestions:
 
 For more information, see the [Code Suggestions documentation](../../project/repository/code_suggestions/_index.md).
 
-Now that you know how to use Chat and Code Suggestions, let's start building the
-web application. First, you will create an organized Python project structure.
+Now that you know how to use Chat and Code Suggestions, let's start building the web application. First, you will create an organized Python project structure.
 
 ## Create the project structure
 
-To start with, you need a well-organized project structure that follows
-Python best practices. A proper structure makes your code more maintainable, testable,
-and easier for other developers to understand.
+To start with, you need a well-organized project structure that follows Python best practices. A proper structure makes your code more maintainable, testable, and easier for other developers to understand.
 
-You can use Chat to help you understand Python project organization conventions
-and generate the appropriate files. This saves you time researching best practices, and
-ensures you do not miss critical components.
+You can use Chat to help you understand Python project organization conventions and generate the appropriate files. This saves you time researching best practices, and ensures you do not miss critical components.
 
 1. Open Chat in your IDE and enter:
 
@@ -165,8 +144,7 @@ ensures you do not miss critical components.
 
    This prompt helps you understand Python project organization before creating files.
 
-1. Create a new folder for the Python project and create a directory and file structure
-   based on Chat's response. It will probably be similar to the following:
+1. Create a new folder for the Python project and create a directory and file structure based on Chat's response. It will probably be similar to the following:
 
    ```plaintext
    python-shop-app/
@@ -206,18 +184,14 @@ ensures you do not miss critical components.
    inventory. Make sure that it includes all sections for requirements, setup, and usage.
    ```
 
-You have now created a properly-structured Python project that follows industry
-best practices. This organization makes your code easier to maintain and test.
+You have now created a properly-structured Python project that follows industry best practices. This organization makes your code easier to maintain and test.
 Next, you'll set up your development environment to start writing code.
 
 ## Set up the development environment
 
-A properly isolated development environment prevents dependency conflicts and makes
-your application deployable.
+A properly isolated development environment prevents dependency conflicts and makes your application deployable.
 
-You will use Chat to help you set up a Python virtual environment and create a
-`requirements.txt` file with the right dependencies. This ensures you have a stable
-foundation for development.
+You will use Chat to help you set up a Python virtual environment and create a `requirements.txt` file with the right dependencies. This ensures you have a stable foundation for development.
 
 ```plaintext
    python-shop-app/
@@ -241,8 +215,7 @@ foundation for development.
        └── test_shop.py
 ```
 
-1. Optional. Ask Chat about how Python and Flask work together to produce
-   web applications.
+1. Optional. Ask Chat about how Python and Flask work together to produce web applications.
 
 1. Use Chat to understand the best practices for setting up a Python environment:
 
@@ -257,8 +230,7 @@ foundation for development.
    What does the requirements.txt do in a Python web app?
    ```
 
-1. Based on the response, first create and activate a virtual environment
-   (for example, on MacOS using Homebrew's `python3` package):
+1. Based on the response, first create and activate a virtual environment (for example, on MacOS using Homebrew's `python3` package):
 
    ```plaintext
    python3 -m venv myenv
@@ -280,21 +252,16 @@ foundation for development.
    pip install -r requirements.txt
    ```
 
-Your development environment is now configured with all necessary dependencies
-isolated in a virtual environment to prevent conflicts. Next, you'll configure
-the project's package and environment settings.
+Your development environment is now configured with all necessary dependencies isolated in a virtual environment to prevent conflicts. Next, you'll configure the project's package and environment settings.
 
 ## Configure the project
 
-Proper configuration, including environment variables, enables your application
-to run consistently across different environments.
+Proper configuration, including environment variables, enables your application to run consistently across different environments.
 
 You'll use Code Suggestions to help generate and refine the configuration.
-Then, you'll ask Chat to explain the purpose of each setting, so you understand
-what you're configuring and why.
+Then, you'll ask Chat to explain the purpose of each setting, so you understand what you're configuring and why.
 
-1. You have already created a Python configuration file called `setup.py` in your
-   project folder:
+1. You have already created a Python configuration file called `setup.py` in your project folder:
 
    ```plaintext
       python-shop-app/
@@ -328,8 +295,7 @@ what you're configuring and why.
 
    Code Suggestions generates the configuration for you.
 
-1. Optional. Select the generated configuration code and use the following
-   [slash commands](../../gitlab_duo_chat/examples.md#gitlab-duo-chat-slash-commands):
+1. Optional. Select the generated configuration code and use the following [slash commands](../../gitlab_duo_chat/examples.md#gitlab-duo-chat-slash-commands):
 
    - Use [`/explain`](../../gitlab_duo_chat/examples.md#explain-selected-code)
      to understand what each configuration setting does.
@@ -340,10 +306,7 @@ what you're configuring and why.
 
    If you are not sure what you can adjust in the configuration file, ask Chat.
 
-   If you want to ask Chat what to adjust, do so in the IDE in the `setup.py`
-   file, instead of in the GitLab UI. This provides Chat with
-   [the context you're working in](../../gitlab_duo/context.md#gitlab-duo-chat),
-   including the `setup.py` file you just created.
+   If you want to ask Chat what to adjust, do so in the IDE in the `setup.py` file, instead of in the GitLab UI. This provides Chat with [the context you're working in](../../gitlab_duo/context.md#gitlab-duo-chat), including the `setup.py` file you just created.
 
    ```plaintext
    You have used Code Suggestions to generate a Python configuration file, `setup.py`,
@@ -388,8 +351,7 @@ Next, you're going to use both Chat and Code Suggestions to set the environment 
           └── test_shop.py
    ```
 
-   Open this file, and enter the following comment at the top of the file, including
-   the environment variables that Chat recommended:
+   Open this file, and enter the following comment at the top of the file, including the environment variables that Chat recommended:
 
    ```plaintext
    # Populate this .env file to store environment variables
@@ -400,9 +362,7 @@ Next, you're going to use both Chat and Code Suggestions to set the environment 
 
 1. Review and adjust the generated code as needed, and save the file.
 
-You have configured your project and set the environment variables. This ensures
-your application can be deployed consistently across different environments. Next,
-you'll create the application code for the inventory system.
+You have configured your project and set the environment variables. This ensures your application can be deployed consistently across different environments. Next, you'll create the application code for the inventory system.
 
 ## Create the application code
 
@@ -412,8 +372,7 @@ The Flask web framework has three core components:
 - Views: Handles HTTP requests and responses. Specified in the `shop.py` file.
 - Controller: Manages data storage and retrieval. Specified in the `database.py` file.
 
-You will use Chat and Code Suggestions to help you define each of these three components
-in three files in your Python project structure:
+You will use Chat and Code Suggestions to help you define each of these three components in three files in your Python project structure:
 
 - `article.py` defines the models component, specifically the database model.
 - `shop.py` defines the views component, specifically the API routes.
@@ -423,11 +382,9 @@ in three files in your Python project structure:
 
 Your bookstore needs database models and operations to manage inventory effectively.
 
-To create the application code for the bookstore inventory system, you will
-use an article file to define the database model for articles.
+To create the application code for the bookstore inventory system, you will use an article file to define the database model for articles.
 
-You will use Code Suggestions to help generate the code, and Chat to
-implement best practices for data modeling and database management.
+You will use Code Suggestions to help generate the code, and Chat to implement best practices for data modeling and database management.
 
 1. You have already created an `article.py` file:
 
@@ -453,8 +410,7 @@ implement best practices for data modeling and database management.
           └── test_shop.py
    ```
 
-   In this file, use Code Suggestions
-   and enter the following:
+   In this file, use Code Suggestions and enter the following:
 
    ```plaintext
    # Create an Article class for a bookstore inventory system
@@ -476,8 +432,7 @@ Next you will define the API routes.
 
 ### Create the shop file to define the API routes
 
-Now that you have created the article file to define the database model, you will
-create the API routes.
+Now that you have created the article file to define the database model, you will create the API routes.
 
 API routes are crucial for a web application because they:
 
@@ -495,11 +450,9 @@ For your bookstore inventory system, these routes will allow staff to:
 - Remove books that are no longer needed.
 
 In Flask, routes are functions that handle requests to specific URL endpoints.
-For example, a route for `GET /books` would return a list of all books, while
-`POST /books` would add a new book to the inventory.
+For example, a route for `GET /books` would return a list of all books, while `POST /books` would add a new book to the inventory.
 
-You will use Chat and Code Suggestions to create these routes in the `shop.py`
-file that you've already set up in your project structure:
+You will use Chat and Code Suggestions to create these routes in the `shop.py` file that you've already set up in your project structure:
 
 ```plaintext
 python-shop-app/
@@ -525,8 +478,7 @@ python-shop-app/
 
 #### Create the Flask application and routes
 
-1. Open the `shop.py` file. To use Code Suggestions, enter this comment
-   at the top of the file:
+1. Open the `shop.py` file. To use Code Suggestions, enter this comment at the top of the file:
 
    ```plaintext
    # Create Flask routes for a bookstore inventory system
@@ -554,8 +506,7 @@ python-shop-app/
    - Use [`/refactor`](../../gitlab_duo_chat/examples.md#refactor-code-in-the-ide)
      to identify potential improvements.
 
-1. If the generated code doesn't fully meet your needs, or you want to understand
-   how to improve it, you can ask Chat from within the `shop.py` file:
+1. If the generated code doesn't fully meet your needs, or you want to understand how to improve it, you can ask Chat from within the `shop.py` file:
 
    ```plaintext
    Can you suggest improvements for my Flask routes in this shop.py file?
@@ -566,9 +517,7 @@ python-shop-app/
    4. The code follows Flask best practices
    ```
 
-1. You also need to create the Flask application instance in the `__init__.py`
-   file inside the `app` directory. Open this file and use Code Suggestions to
-   generate the appropriate code:
+1. You also need to create the Flask application instance in the `__init__.py` file inside the `app` directory. Open this file and use Code Suggestions to generate the appropriate code:
 
    ```plaintext
    # Create a Flask application factory
@@ -581,8 +530,7 @@ python-shop-app/
 
 ### Create the database file to manage data storage and retrieval
 
-Finally, you will create the database operations code. You have already created
-a `database.py` file:
+Finally, you will create the database operations code. You have already created a `database.py` file:
 
 ```plaintext
    python-shop-app/
@@ -619,16 +567,13 @@ a `database.py` file:
 
 1. Review and adjust the generated code as needed, and save the file.
 
-You have successfully created the foundational code for your inventory
-management system and defined the core components
-of a Python web application built using the Flask framework.
+You have successfully created the foundational code for your inventory management system and defined the core components of a Python web application built using the Flask framework.
 
 Next you'll check your created code against example code files.
 
 ## Check your code against example code files
 
-The following examples show complete, working code that should be similar to the
-code you end up with after following the tutorial.
+The following examples show complete, working code that should be similar to the code you end up with after following the tutorial.
 
 {{< tabs >}}
 
@@ -712,22 +657,17 @@ A Python web application for managing bookstore inventory, built with Flask and 
 
 1. Clone the repository:
 
-   ```shell
-   git clone https://gitlab.com/your-username/python-shop-app.git
-   cd python-shop-app
+   ```shell git clone https://gitlab.com/your-username/python-shop-app.git cd python-shop-app
    ```
 
 2. Create and activate a virtual environment:
 
-   ```shell
-   python -m venv myenv
-   source myenv/bin/activate  # On Windows: myenv\Scripts\activate
+   ```shell python -m venv myenv source myenv/bin/activate # On Windows: myenv\Scripts\activate
    ```
 
 3. Install dependencies:
 
-   ```shell
-   pip install -r requirements.txt
+   ```shell pip install -r requirements.txt
    ```
 
 4. Set up environment variables:
@@ -738,8 +678,7 @@ A Python web application for managing bookstore inventory, built with Flask and 
 
 1. Start the Flask application:
 
-   ```shell
-   flask run
+   ```shell flask run
    ```
 
 2. The API will be available at `http://localhost:5000/`
@@ -884,7 +823,7 @@ class Article:
         if not name or not isinstance(name, str):
             raise ValueError("Book title cannot be empty and must be a string")
 
-        if len(name) > 100:  # Max length validation
+        if len(name) > 100: # Max length validation
             raise ValueError("Book title cannot exceed 100 characters")
 
         self.name = name.strip()
@@ -907,7 +846,7 @@ class Article:
         if price_float < 0:
             raise ValueError("Price cannot be negative")
 
-        if price_float > 1000:  # Max price validation
+        if price_float > 1000: # Max price validation
             raise ValueError("Price cannot exceed 1000")
 
         # Ensure price has at most 2 decimal places
@@ -931,7 +870,7 @@ class Article:
         if quantity_int < 0:
             raise ValueError("Quantity cannot be negative")
 
-        if quantity_int > 1000:  # Max quantity validation
+        if quantity_int > 1000: # Max quantity validation
             raise ValueError("Quantity cannot exceed 1000")
 
         self.quantity = quantity_int
@@ -1387,12 +1326,9 @@ def create_app(test_config=None):
 
 1. Follow the instructions, and check if your application is working.
 
-If your application is working, congratulations! You have successfully used
-GitLab Duo Chat and Code Suggestions to build working online shop application.
+If your application is working, congratulations! You have successfully used GitLab Duo Chat and Code Suggestions to build working online shop application.
 
-If it is not working, then you need to find out why. Chat and Code Suggestions
-can help you create tests to ensure your application works as expected and
-identify any issues that need to be fixed.
+If it is not working, then you need to find out why. Chat and Code Suggestions can help you create tests to ensure your application works as expected and identify any issues that need to be fixed.
 
 <!-- markdownlint-disable -->
 <i class="fa-youtube-play" aria-hidden="true"></i>
@@ -1405,13 +1341,13 @@ For more information, see [Using GitLab Duo /fix](https://youtu.be/agTqx__j6Ko?s
 - [Get started with GitLab Duo](../../get_started/getting_started_gitlab_duo.md).
 - Blog post: [Streamline DevSecOps engineering workflows with GitLab Duo](https://about.gitlab.com/blog/2024/12/05/streamline-devsecops-engineering-workflows-with-gitlab-duo/)
 - <i class="fa-youtube-play" aria-hidden="true"></i>
-  [GitLab Duo Chat (Agentic)](https://youtu.be/uG9-QLAJrrg?si=c25SR7DoRAep7jvQ)
-  <!-- Video published on 2025-06-02 -->
+ [GitLab Duo Chat (Agentic)](https://youtu.be/uG9-QLAJrrg?si=c25SR7DoRAep7jvQ)
+ <!-- Video published on 2025-06-02 -->
 - <i class="fa-youtube-play" aria-hidden="true"></i>
-  [GitLab Duo Chat (Classic)](https://youtu.be/ZQBAuf-CTAY?si=0o9-xJ_ATTsL1oew)
-  <!-- Video published on 2024-04-18 -->
+ [GitLab Duo Chat (Classic)](https://youtu.be/ZQBAuf-CTAY?si=0o9-xJ_ATTsL1oew)
+ <!-- Video published on 2024-04-18 -->
 - <i class="fa-youtube-play" aria-hidden="true"></i>
-  [GitLab Duo Code Suggestions](https://youtu.be/ds7SG1wgcVM?si=MfbzPIDpikGhoPh7)
-  <!-- Video published on 2025-03-18 -->
+ [GitLab Duo Code Suggestions](https://youtu.be/ds7SG1wgcVM?si=MfbzPIDpikGhoPh7)
+ <!-- Video published on 2025-03-18 -->
 - <i class="fa-youtube-play" aria-hidden="true"></i>
-  [Application modernization with GitLab Duo (C++ to Java)](https://youtu.be/FjoAmt5eeXA?si=SLv9Mv8eSUAVwW5Z)
+ [Application modernization with GitLab Duo (C++ to Java)](https://youtu.be/FjoAmt5eeXA?si=SLv9Mv8eSUAVwW5Z)

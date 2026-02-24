@@ -18,11 +18,11 @@ You can add additional encryption to emails with these Google Workspace editions
 If you have Assured Controls, you can also send end-to-end encrypted emails to anyone without setting up S/MIME. [Learn more about Assured Controls](/a/answer/13880647).
 
 - **If you have Assured Controls:** You can send encrypted messages to both internal and external recipients, just like normal email.
-  - Your admin can control how external recipients access encrypted messages. They can either:
+ - Your admin can control how external recipients access encrypted messages. They can either:
     - Allow recipients to use an existing Google account (@gmail.com or Google Workspace account).
     - Force all external recipients to create a guest account.
 - **If you don't have Assured Controls and you use S/MIME:** You need to exchange certificates.
-  - External recipients can read messages in their own email app.
+ - External recipients can read messages in their own email app.
 
 If you can't find CSE, [contact your administrator](/a/answer/6208960).
 

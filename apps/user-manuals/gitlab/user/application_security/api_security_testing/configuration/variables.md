@@ -65,16 +65,12 @@ title: Available CI/CD variables and configuration files
 
 ## Configuration files
 
-To get you started quickly, GitLab provides the configuration file
-[`gitlab-dast-api-config.yml`](https://gitlab.com/gitlab-org/security-products/analyzers/dast/-/blob/master/config/gitlab-dast-api-config.yml).
-This file has several testing profiles that perform various numbers of tests. The run time of each
-profile increases as the test numbers go up. To use a configuration file, add it to your
-repository's root as `.gitlab/gitlab-dast-api-config.yml`.
+To get you started quickly, GitLab provides the configuration file [`gitlab-dast-api-config.yml`](https://gitlab.com/gitlab-org/security-products/analyzers/dast/-/blob/master/config/gitlab-dast-api-config.yml).
+This file has several testing profiles that perform various numbers of tests. The run time of each profile increases as the test numbers go up. To use a configuration file, add it to your repository's root as `.gitlab/gitlab-dast-api-config.yml`.
 
 ### Profiles
 
-The following profiles are pre-defined in the default configuration file. Profiles
-can be added, removed, and modified by creating a custom configuration.
+The following profiles are pre-defined in the default configuration file. Profiles can be added, removed, and modified by creating a custom configuration.
 
 #### Passive
 

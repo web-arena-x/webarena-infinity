@@ -13,12 +13,8 @@ title: Resource group
 
 {{< /details >}}
 
-By default, pipelines in GitLab CI/CD run concurrently. Concurrency is an important factor to improve
-the feedback loop in merge requests, however, there are some situations that
-you may want to limit the concurrency on deployment
-jobs to run them one by one.
-Use resource groups to strategically control
-the concurrency of the jobs for optimizing your continuous deployments workflow with safety.
+By default, pipelines in GitLab CI/CD run concurrently. Concurrency is an important factor to improve the feedback loop in merge requests, however, there are some situations that you may want to limit the concurrency on deployment jobs to run them one by one.
+Use resource groups to strategically control the concurrency of the jobs for optimizing your continuous deployments workflow with safety.
 
 ## Add a resource group
 
@@ -28,37 +24,31 @@ Provided that you have the following pipeline configuration (`.gitlab-ci.yml` fi
 
 ```yaml
 build:
-  stage: build
-  script: echo "Your build script"
+ stage: build
+ script: echo "Your build script"
 
 deploy:
-  stage: deploy
-  script: echo "Your deployment script"
-  environment: production
+ stage: deploy
+ script: echo "Your deployment script"
+ environment: production
 ```
 
-Every time you push a new commit to a branch, it runs a new pipeline that has
-two jobs `build` and `deploy`. But if you push multiple commits in a short interval, multiple
-pipelines start running simultaneously, for example:
+Every time you push a new commit to a branch, it runs a new pipeline that has two jobs `build` and `deploy`. But if you push multiple commits in a short interval, multiple pipelines start running simultaneously, for example:
 
 - The first pipeline runs the jobs `build` -> `deploy`
 - The second pipeline runs the jobs `build` -> `deploy`
 
-In this case, the `deploy` jobs across different pipelines could run concurrently
-to the `production` environment. Running multiple deployment scripts to the same
-infrastructure could harm/confuse the instance and leave it in a corrupted state in the worst case.
+In this case, the `deploy` jobs across different pipelines could run concurrently to the `production` environment. Running multiple deployment scripts to the same infrastructure could harm/confuse the instance and leave it in a corrupted state in the worst case.
 
-To ensure that a `deploy` job runs once at a time, you can specify
-[`resource_group` keyword](../yaml/_index.md#resource_group) to the concurrency sensitive job:
+To ensure that a `deploy` job runs once at a time, you can specify [`resource_group` keyword](../yaml/_index.md#resource_group) to the concurrency sensitive job:
 
 ```yaml
 deploy:
-  # ...
-  resource_group: production
+ # ...
+ resource_group: production
 ```
 
-With this configuration, the safety on the deployments is assured while you
-can still run `build` jobs concurrently for maximizing the pipeline efficiency.
+With this configuration, the safety on the deployments is assured while you can still run `build` jobs concurrently for maximizing the pipeline efficiency.
 
 ## Prerequisites
 
@@ -71,7 +61,7 @@ can still run `build` jobs concurrently for maximizing the pipeline efficiency.
 You can select a process mode to control the job concurrency for your deployment preferences.
 The following modes are supported:
 
-| Process mode | Description | When to use  |
+| Process mode | Description | When to use |
 |---------------|-------------|-------------|
 | `unordered` | The default process mode. Processes jobs whenever a job is ready to run. | The execution order of jobs is not important. The easiest option to use. |
 | `oldest_first` | When a resource is free, picks the first job from the list of upcoming jobs sorted by pipeline ID in ascending order. | You want to execute jobs from the oldest pipeline first. Less efficient than `unordered` mode, but safer for continuous deployments. |
@@ -80,8 +70,7 @@ The following modes are supported:
 
 ### Change the process mode
 
-To change the process mode of a resource group, you must use the API and
-send a request to [edit an existing resource group](../../api/resource_groups.md#edit-an-existing-resource-group)
+To change the process mode of a resource group, you must use the API and send a request to [edit an existing resource group](../../api/resource_groups.md#edit-an-existing-resource-group)
 by specifying the `process_mode`:
 
 - `unordered`
@@ -92,23 +81,21 @@ by specifying the `process_mode`:
 ### An example of difference between the process modes
 
 Consider the following `.gitlab-ci.yml`, which has a `build` job and a `deploy` job.
-Each job runs in its own stage, and the `deploy` job has a resource group set to
-`production`:
+Each job runs in its own stage, and the `deploy` job has a resource group set to `production`:
 
 ```yaml
 build:
-  stage: build
-  script: echo "Your build script"
+ stage: build
+ script: echo "Your build script"
 
 deploy:
-  stage: deploy
-  script: echo "Your deployment script"
-  environment: production
-  resource_group: production
+ stage: deploy
+ script: echo "Your deployment script"
+ environment: production
+ resource_group: production
 ```
 
-If three commits are pushed to the project in a short interval, that means that three
-pipelines run almost at the same time:
+If three commits are pushed to the project in a short interval, that means that three pipelines run almost at the same time:
 
 - The first pipeline runs the jobs `build` -> `deploy`. Let's call this deployment job `deploy-1`.
 - The second pipeline runs the jobs `build` -> `deploy`. Let's call this deployment job `deploy-2`.
@@ -117,66 +104,58 @@ pipelines run almost at the same time:
 Depending on the process mode of the resource group:
 
 - If the process mode is set to `unordered`:
-  - `deploy-1`, `deploy-2`, and `deploy-3` do not run concurrently.
-  - There is no guarantee on the job execution order, for example, `deploy-1` could run before or after `deploy-3` runs.
+ - `deploy-1`, `deploy-2`, and `deploy-3` do not run concurrently.
+ - There is no guarantee on the job execution order, for example, `deploy-1` could run before or after `deploy-3` runs.
 - If the process mode is `oldest_first`:
-  - `deploy-1`, `deploy-2`, and `deploy-3` do not run concurrently.
-  - `deploy-1` runs first, `deploy-2` runs second, and `deploy-3` runs last.
+ - `deploy-1`, `deploy-2`, and `deploy-3` do not run concurrently.
+ - `deploy-1` runs first, `deploy-2` runs second, and `deploy-3` runs last.
 - If the process mode is `newest_first`:
-  - `deploy-1`, `deploy-2`, and `deploy-3` do not run concurrently.
-  - `deploy-3` runs first, `deploy-2` runs second and `deploy-1` runs last.
+ - `deploy-1`, `deploy-2`, and `deploy-3` do not run concurrently.
+ - `deploy-3` runs first, `deploy-2` runs second and `deploy-1` runs last.
 
 ## Pipeline-level concurrency control with cross-project/parent-child pipelines
 
-You can define `resource_group` for downstream pipelines that are sensitive to concurrent
-executions. The [`trigger` keyword](../yaml/_index.md#trigger) can trigger downstream pipelines and the
-[`resource_group` keyword](../yaml/_index.md#resource_group) can co-exist with it. `resource_group` is efficient to control the
-concurrency of deployment pipelines, while other jobs can continue to run concurrently.
+You can define `resource_group` for downstream pipelines that are sensitive to concurrent executions. The [`trigger` keyword](../yaml/_index.md#trigger) can trigger downstream pipelines and the [`resource_group` keyword](../yaml/_index.md#resource_group) can co-exist with it. `resource_group` is efficient to control the concurrency of deployment pipelines, while other jobs can continue to run concurrently.
 
-The following example has two pipeline configurations in a project. When a pipeline starts running,
-non-sensitive jobs are executed first and aren't affected by concurrent executions in other
-pipelines. However, GitLab ensures that there are no other deployment pipelines running before
-triggering a deployment (child) pipeline. If other deployment pipelines are running, GitLab waits
-until those pipelines finish before running another one.
+The following example has two pipeline configurations in a project. When a pipeline starts running, non-sensitive jobs are executed first and aren't affected by concurrent executions in other pipelines. However, GitLab ensures that there are no other deployment pipelines running before triggering a deployment (child) pipeline. If other deployment pipelines are running, GitLab waits until those pipelines finish before running another one.
 
 ```yaml
 # .gitlab-ci.yml (parent pipeline)
 
 build:
-  stage: build
-  script: echo "Building..."
+ stage: build
+ script: echo "Building..."
 
 test:
-  stage: test
-  script: echo "Testing..."
+ stage: test
+ script: echo "Testing..."
 
 deploy:
-  stage: deploy
-  trigger:
+ stage: deploy
+ trigger:
     include: deploy.gitlab-ci.yml
     strategy: mirror
-  resource_group: AWS-production
+ resource_group: AWS-production
 ```
 
 ```yaml
 # deploy.gitlab-ci.yml (child pipeline)
 
 stages:
-  - provision
-  - deploy
+ - provision
+ - deploy
 
 provision:
-  stage: provision
-  script: echo "Provisioning..."
+ stage: provision
+ script: echo "Provisioning..."
 
 deployment:
-  stage: deploy
-  script: echo "Deploying..."
-  environment: production
+ stage: deploy
+ script: echo "Deploying..."
+ environment: production
 ```
 
-You must define [`trigger:strategy`](../yaml/_index.md#triggerstrategy) to ensure
-the lock isn't released until the downstream pipeline finishes.
+You must define [`trigger:strategy`](../yaml/_index.md#triggerstrategy) to ensure the lock isn't released until the downstream pipeline finishes.
 
 ## Related topics
 
@@ -188,59 +167,54 @@ the lock isn't released until the downstream pipeline finishes.
 
 ### Avoid dead locks in pipeline configurations
 
-Because [`oldest_first` process mode](#process-modes) enforces the jobs to be executed in a pipeline order,
-there is a case that it doesn't work well with the other CI features.
+Because [`oldest_first` process mode](#process-modes) enforces the jobs to be executed in a pipeline order, there is a case that it doesn't work well with the other CI features.
 
 For example, when you run [a child pipeline](../pipelines/downstream_pipelines.md#parent-child-pipelines)
-that requires the same resource group with the parent pipeline,
-a dead lock could happen. Here is an example of a bad setup:
+that requires the same resource group with the parent pipeline, a dead lock could happen. Here is an example of a bad setup:
 
 ```yaml
 # BAD
 test:
-  stage: test
-  trigger:
+ stage: test
+ trigger:
     include: child-pipeline-requires-production-resource-group.yml
     strategy: mirror
 
 deploy:
-  stage: deploy
-  script: echo
-  resource_group: production
-  environment: production
+ stage: deploy
+ script: echo
+ resource_group: production
+ environment: production
 ```
 
-In a parent pipeline, it runs the `test` job that subsequently runs a child pipeline,
-and the [`strategy: mirror` option](../yaml/_index.md#triggerstrategy) makes the `test` job wait until the child pipeline has finished.
+In a parent pipeline, it runs the `test` job that subsequently runs a child pipeline, and the [`strategy: mirror` option](../yaml/_index.md#triggerstrategy) makes the `test` job wait until the child pipeline has finished.
 The parent pipeline runs the `deploy` job in the next stage, that requires a resource from the `production` resource group.
 If the process mode is `oldest_first`, it executes the jobs from the oldest pipelines, meaning the `deploy` job is executed next.
 
 However, a child pipeline also requires a resource from the `production` resource group.
-Because the child pipeline is newer than the parent pipeline, the child pipeline
-waits until the `deploy` job is finished, something that never happens.
+Because the child pipeline is newer than the parent pipeline, the child pipeline waits until the `deploy` job is finished, something that never happens.
 
 In this case, you should specify the `resource_group` keyword in the parent pipeline configuration instead:
 
 ```yaml
 # GOOD
 test:
-  stage: test
-  trigger:
+ stage: test
+ trigger:
     include: child-pipeline.yml
     strategy: mirror
-  resource_group: production # Specify the resource group in the parent pipeline
+ resource_group: production # Specify the resource group in the parent pipeline
 
 deploy:
-  stage: deploy
-  script: echo
-  resource_group: production
-  environment: production
+ stage: deploy
+ script: echo
+ resource_group: production
+ environment: production
 ```
 
 ### Jobs get stuck in `Waiting for resource`
 
-Sometimes, a job hangs with the message `Waiting for resource: <resource_group>`. To resolve,
-first check that the resource group is working correctly:
+Sometimes, a job hangs with the message `Waiting for resource: <resource_group>`. To resolve, first check that the resource group is working correctly:
 
 1. Go to the job details page.
 1. If the resource is assigned to a job, select **View job currently using resource** and check the job status.
@@ -268,17 +242,15 @@ For example, you might encounter the race condition if you have:
 - A single project with multiple pipelines running simultaneously.
 
 If you think you are running into this problem, [report the issue to GitLab](#report-an-issue) and leave a comment on [issue 436988](https://gitlab.com/gitlab-org/gitlab/-/issues/436988) with a link to your new issue.
-To confirm the problem, GitLab might ask for additional details such
-as your full pipeline configuration.
+To confirm the problem, GitLab might ask for additional details such as your full pipeline configuration.
 
 As a temporary workaround, you can:
 
 - Start a new pipeline.
 - Re-run a finished job that has the same resource group as the stuck job.
 
-  For example, if you have a `setup_job` and a `deploy_job` with the same resource group,
-  the `setup_job` might finish while the `deploy_job` is stuck `waiting for resource`.
-  Re-run the `setup_job` to restart the whole process and allow `deploy_job` to finish.
+ For example, if you have a `setup_job` and a `deploy_job` with the same resource group, the `setup_job` might finish while the `deploy_job` is stuck `waiting for resource`.
+ Re-run the `setup_job` to restart the whole process and allow `deploy_job` to finish.
 
 #### Get job details through GraphQL
 
@@ -337,4 +309,4 @@ To get job information from the GraphQL API:
 - How often the problem occurs.
 - Steps to reproduce the problem.
 
-  You can also [contact support](https://about.gitlab.com/support/#contact-support) for further assistance, or to get in touch with the development team.
+ You can also [contact support](https://about.gitlab.com/support/#contact-support) for further assistance, or to get in touch with the development team.

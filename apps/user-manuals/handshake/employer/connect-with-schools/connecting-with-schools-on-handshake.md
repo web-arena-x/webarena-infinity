@@ -12,10 +12,8 @@ This article explains how employers can request connections with schools.
 
 You can connect with schools in two ways:
 
-1. **Post a job**  
-   When you post a job and select schools to share it with, a connection request is automatically sent to those schools. Learn [How to Post a Job](https://support.joinhandshake.com/hc/en-us/articles/218693198).
-2. **Request to join a school’s network**  
-   If you don’t have a job to post yet, you can send a connection request directly to schools you’re interested in recruiting from. Learn more about [How to Request Approval from Schools](https://support.joinhandshake.com/hc/en-us/articles/36980302470423).
+1. **Post a job** When you post a job and select schools to share it with, a connection request is automatically sent to those schools. Learn [How to Post a Job](https://support.joinhandshake.com/hc/en-us/articles/218693198).
+2. **Request to join a school’s network** If you don’t have a job to post yet, you can send a connection request directly to schools you’re interested in recruiting from. Learn more about [How to Request Approval from Schools](https://support.joinhandshake.com/hc/en-us/articles/36980302470423).
 
 **Note****:** You can search for and register for career fairs without being connected to a school or posting a job.
 

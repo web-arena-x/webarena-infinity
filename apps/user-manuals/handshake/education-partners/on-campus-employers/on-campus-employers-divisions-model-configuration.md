@@ -23,17 +23,17 @@ This article outlines how to setup the **division model** for managing on-campus
 ## **How to Configure:**
 
 - **Identify the main POC(s)** who will manage the company profile.
-  - This is typically one or two individuals (usually an on campus employment or work study coordinator in the Career Services office) who will manage staff requests and assist in posting on behalf of departments.
-  - This POC should be looped into your core implementation team to understand the core philosophy and trainings of Handshake
+ - This is typically one or two individuals (usually an on campus employment or work study coordinator in the Career Services office) who will manage staff requests and assist in posting on behalf of departments.
+ - This POC should be looped into your core implementation team to understand the core philosophy and trainings of Handshake
 
 - **This POC should** [**create an Employer account** connected to their Career Services profile](https://support.joinhandshake.com/hc/en-us/articles/115011549548)
-  - Having both a Career Services profile and an Employer account can be beneficial to understand the view (and troubleshoot) from both perspectives.
+ - Having both a Career Services profile and an Employer account can be beneficial to understand the view (and troubleshoot) from both perspectives.
 - **This** **POC should review the core Employer Relations trainings**, including the following:
-  - Find all [training recommendations by role](https://support.joinhandshake.com/hc/en-us/articles/115010311488) in this article
+ - Find all [training recommendations by role](https://support.joinhandshake.com/hc/en-us/articles/115010311488) in this article
 
-- **POC should then** [**create a company profile.**](https://support.joinhandshake.com/hc/en-us/articles/219133057)  
-  - Include a descriptive title so staff members who request know exactly which profile they are connecting to when they connect
-  - EX: University Name: On Campus Employment
+- **POC should then** [**create a company profile.**](https://support.joinhandshake.com/hc/en-us/articles/219133057) 
+ - Include a descriptive title so staff members who request know exactly which profile they are connecting to when they connect
+ - EX: University Name: On Campus Employment
 
 *PLEASE NOTE: In some cases, a company account might have already been created for your "school" by another department (Admissions office, Grad office, etc) if they used Handshake in the past to register for a fair at a different university. If so, it might prevent you from connecting to or creating a profile.*
 
@@ -49,15 +49,15 @@ If you notice this is the case:
 - **Share the company profile URL and the main POC’s email address** with your Handshake Relationship Manager to ensure the POC is marked as the owner on the account (and the only one enabled to approve staff requests).
 
 - **POC should setup** [**divisions** for the company](https://support.joinhandshake.com/hc/en-us/articles/219133107) profile 
-  - It's best to provision at least one division for each department/office that you anticipate will connect to the profile - this will ensure that staff can automatically filter by that division for job postings and fair registrations
+ - It's best to provision at least one division for each department/office that you anticipate will connect to the profile - this will ensure that staff can automatically filter by that division for job postings and fair registrations
 
 - **Identify a list of the** **key stakeholder(s) for each division** to connect to the company profile
-  - Start with a list of key individuals (usually just one or two main contacts per department) at first.
+ - Start with a list of key individuals (usually just one or two main contacts per department) at first.
 
 - **Determine if your on-campus employment model will also include work study**
-  - Will work study be a separate profile? Or will it be integrated within this umbrella account?
-  - Explore t[his article on work study](https://support.joinhandshake.com/hc/en-us/articles/360003935494) to configure
-  - Let your Handshake Relationship Manager know you'll be managing work study in Handshake
+ - Will work study be a separate profile? Or will it be integrated within this umbrella account?
+ - Explore t[his article on work study](https://support.joinhandshake.com/hc/en-us/articles/360003935494) to configure
+ - Let your Handshake Relationship Manager know you'll be managing work study in Handshake
 
 ## **Email example to communicate to department POCs:**
 

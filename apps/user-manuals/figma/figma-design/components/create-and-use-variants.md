@@ -55,11 +55,7 @@ You can also use this naming system to convert your existing components to varia
 
 A button component with the name `Button/Primary/Large/Default/False` will have the following properties and values:
 
-Component set name: **Button**  
-Variant: **Primary**  
-Property 2: **Large**  
-Property 3: **Default**  
-Property 4: **False**
+Component set name: **Button** Variant: **Primary** Property 2: **Large** Property 3: **Default** Property 4: **False**
 
 In the image below, we can see how the rest of our component names (on the left) are converted to variant values (on the right). ![An example showing a button component variants organized by properties: type, size, state, and icon, with corresponding values displayed.](https://help.figma.com/hc/article_attachments/360098128293)
 
@@ -110,10 +106,10 @@ Note: Figma places variants in a single container called a [component set](https
 
 There are a few ways to create a new variant. Select a main component and:
 
-- Click  from the right sidebar, or
+- Click from the right sidebar, or
 - Right-click the main component > **Main component** > **Add variant**, or
-- Click  next to **Add property** from the right sidebar, then select **Variant** from the dropdown. This [creates a new variant property](https://help.figma.com/hc/en-us/articles/5579474826519) and turns the main component into a component set.  
-  From there, click  below the component set to add a variant.
+- Click next to **Add property** from the right sidebar, then select **Variant** from the dropdown. This [creates a new variant property](https://help.figma.com/hc/en-us/articles/5579474826519) and turns the main component into a component set. 
+ From there, click below the component set to add a variant.
 
 ![](https://help.figma.com/hc/article_attachments/26976307163415)
 
@@ -143,11 +139,11 @@ To resolve this issue, you'll need to add or update the values of the affected v
 
 Continue to add variants to your component set using any of the following methods:
 
-- Select a component set and click  in the right sidebar.
-- Select a component set and click  just below the component set.
+- Select a component set and click in the right sidebar.
+- Select a component set and click just below the component set.
 - Duplicate existing variant using the keyboard shortcut:
-  - **Mac**: `⌘ Command``D`
-  - **Windows**: `Ctrl``D`
+ - **Mac**: `⌘ Command``D`
+ - **Windows**: `Ctrl``D`
 - Drag other components into the component set to add them as variants.
 
 **Tip**: Dragging in other components won't reflow existing variants. You can use smart selection to adjust the layout of your variants. [Learn more about smart selection](https://help.figma.com/hc/en-us/articles/360040450233-Arrange-objects-with-Smart-Selection).
@@ -166,7 +162,7 @@ You can override Figma's default behavior and arrange variants in any way you ch
 
 - Select a variant and move it to new co-ordinates within the component set. Figma will allow you to place variants anywhere within the component set, including over the top of other variants.
 - Adjust the dimensions of the component set in the right sidebar, or resize it in the canvas like you would a regular frame.
-- With all variants selected: Use the fields in the right sidebar to adjust the  horizontal and  vertical space between variants.
+- With all variants selected: Use the fields in the right sidebar to adjust the horizontal and vertical space between variants.
 
 **Note**: Figma will use the variant in the top-left corner as the default variant. This variant will represent the entire component set in the **Assets** tab of the left sidebar.
 

@@ -42,12 +42,8 @@ A flow is a combination of one or more agents working together to solve a comple
 
 GitLab provides two types of flows:
 
-- [Foundational flows](foundational_flows/_index.md) are pre-built,
-  production-ready workflows created by GitLab for common development
-  tasks.
-- [Custom flows](custom.md) are workflows you create to automate your
-  team's specific processes. You define the workflow steps and agents, and define triggers to control when the
-  flow runs.
+- [Foundational flows](foundational_flows/_index.md) are pre-built, production-ready workflows created by GitLab for common development tasks.
+- [Custom flows](custom.md) are workflows you create to automate your team's specific processes. You define the workflow steps and agents, and define triggers to control when the flow runs.
 
 Flows are available in IDEs and the GitLab UI.
 
@@ -66,10 +62,8 @@ To use flows:
 To execute flows in the GitLab UI:
 
 - You must turn on flows with [the GitLab Duo settings](../../gitlab_duo/turn_on_off.md).
-- Before you add or execute a flow for the first time, you must
-  [allow members to be added to the group your project is in](../troubleshooting.md#allow-members-to-be-added-to-projects).
-- To use flows that create code, you must
-  [configure push rules to allow a service account](../troubleshooting.md#configure-push-rules-to-allow-a-service-account).
+- Before you add or execute a flow for the first time, you must [allow members to be added to the group your project is in](../troubleshooting.md#allow-members-to-be-added-to-projects).
+- To use flows that create code, you must [configure push rules to allow a service account](../troubleshooting.md#configure-push-rules-to-allow-a-service-account).
 
 ## Monitor running flows in the GitLab UI
 
@@ -86,16 +80,14 @@ To view a history of flows you've run in your project:
 
 ## Customize flows with `AGENTS.md`
 
-Use `AGENTS.md` files to provide context and instructions for GitLab Duo to follow while executing
-foundational and custom flows.
+Use `AGENTS.md` files to provide context and instructions for GitLab Duo to follow while executing foundational and custom flows.
 
 For more information, see [`AGENTS.md` customization files](../../gitlab_duo/customize_duo/agents_md.md).
 
 ## Give feedback
 
 Flows are part of GitLab AI-powered development platform. Your feedback helps us improve these workflows.
-To report issues or suggest improvements for flows,
-[complete this survey](https://gitlab.fra1.qualtrics.com/jfe/form/SV_9GmCPTV7oH9KNuu).
+To report issues or suggest improvements for flows, [complete this survey](https://gitlab.fra1.qualtrics.com/jfe/form/SV_9GmCPTV7oH9KNuu).
 
 ## Related topics
 

@@ -31,7 +31,7 @@ To use voicemail in Sell, you need to specify what Sell should do when you are n
 4. For the **Greeting** setting, click **Default greeting**.
 
    You can listen to the greeting by clicking the play button below the greeting.
-5. If you want to upload your own custom greeting, [contact Zendesk Customer Support](https://support.zendesk.com/hc/en-us/articles/4408843597850).  
+5. If you want to upload your own custom greeting, [contact Zendesk Customer Support](https://support.zendesk.com/hc/en-us/articles/4408843597850). 
    Each greeting must be in \*.MP3 format (not M4A) and no larger than 5MB. Zendesk Customer Support can process and upload your audio file. When the upload is complete, each user can select the desired voicemail recording from the dropdown menu.
 
 ## Receiving voicemail alerts

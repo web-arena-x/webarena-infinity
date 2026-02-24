@@ -13,9 +13,7 @@ title: Git file blame
 
 {{< /details >}}
 
-[Git blame](https://git-scm.com/docs/git-blame) provides more information
-about every line in a file, including the last modified time, author, and
-commit hash.
+[Git blame](https://git-scm.com/docs/git-blame) provides more information about every line in a file, including the last modified time, author, and commit hash.
 
 ## View blame for a file
 
@@ -27,9 +25,7 @@ commit hash.
 
 Prerequisites:
 
-- The file must contain readable text content. The GitLab UI displays `git blame` results for text
-  files like `.rb`, `.js`, `.md`, `.txt`, `.yml`, and similar formats. Binary files, such as images
-  and PDFs, are not supported.
+- The file must contain readable text content. The GitLab UI displays `git blame` results for text files like `.rb`, `.js`, `.md`, `.txt`, `.yml`, and similar formats. Binary files, such as images and PDFs, are not supported.
 
 To view the blame for a file:
 
@@ -45,10 +41,7 @@ When you select **Blame**, this information is displayed:
 
 ![Git blame output](img/file_blame_output_v16_6.png "Blame button output")
 
-To see the precise date and time of the commit, hover over the date. The vertical bar
-to the left of the user avatar shows the general age of the commit. The newest
-commits have a dark blue bar. As the age of the commit increases, the bar color
-changes to light gray.
+To see the precise date and time of the commit, hover over the date. The vertical bar to the left of the user avatar shows the general age of the commit. The newest commits have a dark blue bar. As the age of the commit increases, the bar color changes to light gray.
 
 ### Blame previous commit
 
@@ -85,8 +78,7 @@ To configure Git blame to ignore specific revisions:
 1. Select the **Blame preferences** dropdown list.
 1. Select **Ignore specific revisions**.
 
-The blame view refreshes and skips the revisions specified in the `.git-blame-ignore-revs` file,
-showing the previous meaningful changes instead.
+The blame view refreshes and skips the revisions specified in the `.git-blame-ignore-revs` file, showing the previous meaningful changes instead.
 
 ## Related topics
 

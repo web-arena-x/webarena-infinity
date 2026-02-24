@@ -97,10 +97,10 @@ You can add new color or text styles to existing template styles.
 To add a new color or text style:
 
 1. Open the **Template style** dropdown in the right sidebar.
-2. Click  **Edit template style** next to the template you want to update.
+2. Click **Edit template style** next to the template you want to update.
 3. Do one of the following:
-   - **To add a text style:**Click the  plus next to Text styles and use the **Edit text style** modal to configure the style's properties
-   - **To add a color style:**Click the  plus next to Colors and use the color picker to select a new color
+   - **To add a text style:**Click the plus next to Text styles and use the **Edit text style** modal to configure the style's properties
+   - **To add a color style:**Click the plus next to Colors and use the color picker to select a new color
 
 ![](https://help.figma.com/hc/article_attachments/27122188066967)
 
@@ -111,7 +111,7 @@ You can edit existing template color and text styles. When you update a style, t
 To edit a template’s color or text styles:
 
 1. Open the **Template style** dropdown in the right sidebar.
-2. Click  **Edit template style** next to the template you want to update.
+2. Click **Edit template style** next to the template you want to update.
 3. Do one of the following:
    - **To update a text style:** Select the text style and use the **Edit text style** modal to modify its name or properties.
    - **To update a color style:** Hover over the color style and click **Edit**. Use the color picker to select a new color or choose an option from a [connected library](../create-slide-decks/add-figma-design-libraries-to-your-slide-deck.md).
@@ -125,8 +125,8 @@ Note: Renaming a template style will only impact your current deck. It will not 
 To rename a template style:
 
 1. Open the **Template style** dropdown in the right sidebar.
-2. Click  **Edit template style** next to the template you want to update.
-3. Click  **More options**.
+2. Click **Edit template style** next to the template you want to update.
+3. Click **More options**.
 4. Enter a new name in the **Name** field and press `Enter`.
 
 ### Delete a template style
@@ -136,8 +136,8 @@ If you no longer want to use a template in your deck, you can remove it from the
 To delete a template style:
 
 1. Open the **Template style** dropdown in the right sidebar.
-2. Click  **Edit template style** next to the template you want to update.
-3. Click  **More options**.
+2. Click **Edit template style** next to the template you want to update.
+3. Click **More options**.
 4. Click **Remove style from deck**.
 
 Note: Template styles can only be removed if they aren’t being used on an existing slide.

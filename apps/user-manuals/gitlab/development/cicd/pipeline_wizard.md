@@ -5,20 +5,11 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Pipeline Wizard
 ---
 
-The Pipeline Wizard is a Vue frontend component that helps users create a
-pipeline by using input fields. The type of input fields and the form of the final
-pipeline is configured by a YAML template.
+The Pipeline Wizard is a Vue frontend component that helps users create a pipeline by using input fields. The type of input fields and the form of the final pipeline is configured by a YAML template.
 
-The Pipeline Wizard expects a single template file that configures the user
-flow. The wizard is agnostic with regards to the contents of the file,
-so you can use the wizard to display a range of different flows. For example, there
-could be one template file for static sites,
-one for Docker images, one for mobile apps, and so on. As a first iteration,
-these templates are part of the GitLab source code.
+The Pipeline Wizard expects a single template file that configures the user flow. The wizard is agnostic with regards to the contents of the file, so you can use the wizard to display a range of different flows. For example, there could be one template file for static sites, one for Docker images, one for mobile apps, and so on. As a first iteration, these templates are part of the GitLab source code.
 
-The template file defines multiple steps. The last step shown to the user is always
-the commit, and is not part of the template definition. An ideal user experience
-consists of 2-3 steps, for a total of 3-4 steps visible to the user.
+The template file defines multiple steps. The last step shown to the user is always the commit, and is not part of the template definition. An ideal user experience consists of 2-3 steps, for a total of 3-4 steps visible to the user.
 
 ## Usage Example
 
@@ -28,10 +19,10 @@ consists of 2-3 steps, for a total of 3-4 steps visible to the user.
 <!-- ~/my_feature/my_component.vue -->
 
 <script>
-  import PipelineWizard from '~/pipeline_wizard/pipeline_wizard.vue'
-  import template from '~/pipeline_wizard/templates/my_template.yml';
+ import PipelineWizard from '~/pipeline_wizard/pipeline_wizard.vue'
+ import template from '~/pipeline_wizard/templates/my_template.yml';
 
-  export default {
+ export default {
     name: "MyComponent",
     components: { PipelineWizard },
     data() {
@@ -42,11 +33,11 @@ consists of 2-3 steps, for a total of 3-4 steps visible to the user.
         // redirect
       }
      }
-  }
+ }
 </script>
 
 <template>
-  <pipeline-wizard :template="template"
+ <pipeline-wizard :template="template"
                    project-path="foo/bar"
                    default-branch="main"
                    @done="onDone" />
@@ -61,8 +52,8 @@ id: gitlab/my-template
 title: Set up my specific tech pipeline
 description: Here's two or three introductory sentences that help the user understand what this wizard is going to set up.
 steps:
-  # Step 1
-  - inputs:
+ # Step 1
+ - inputs:
       # First input widget
       - label: Select your build image
         description: A Docker image that we can use to build your image
@@ -94,8 +85,8 @@ steps:
           paths:
             - foo
 
-  # Step 2
-  - inputs:
+ # Step 2
+ - inputs:
       # This is the only input widget for this step
       - label: Installation Steps
         description: "Enter the steps that need to run to set up a local build
@@ -117,36 +108,28 @@ steps:
 
 ### The commit step
 
-The last step of the wizard is always the commit step. Users can commit the
-newly created file to the repository defined by the [wizard's props](#props).
-The user has the option to change the branch to commit to. A future iteration
-is planned to add the ability to create a MR from here.
+The last step of the wizard is always the commit step. Users can commit the newly created file to the repository defined by the [wizard's props](#props).
+The user has the option to change the branch to commit to. A future iteration is planned to add the ability to create a MR from here.
 
 ## Component API Reference
 
 ### Props
 
-- `template` (required): The template content as an un-parsed string. See
-  [Template file location](#template-file-location) for more information.
-- `project-path` (required): The full path of the project the final file
-  should be committed to
-- `default-branch` (required): The branch that will be pre-selected during
-  the commit step. This can be changed by the user.
+- `template` (required): The template content as an un-parsed string. See [Template file location](#template-file-location) for more information.
+- `project-path` (required): The full path of the project the final file should be committed to
+- `default-branch` (required): The branch that will be pre-selected during the commit step. This can be changed by the user.
 - `default-filename` (optional, default: `.gitlab-ci.yml`): The filename to be used for the file. This can be overridden in the template file.
 
 ### Events
 
-- `done` - Emitted after the file has been committed. Use this to redirect the
-  user to the pipeline, for example.
+- `done` - Emitted after the file has been committed. Use this to redirect the user to the pipeline, for example.
 
 ### Template file location
 
 Template files are usually stored as YAML files in `~/pipeline_wizard/templates/`.
 
-The `PipelineWizard` component expects the `template` property as an un-parsed `String`,
-and Webpack is configured to load `.yml` files from the above folder as strings.
-If you must load the file from a different place, make sure
-Webpack does not parse it as an Object.
+The `PipelineWizard` component expects the `template` property as an un-parsed `String`, and Webpack is configured to load `.yml` files from the above folder as strings.
+If you must load the file from a different place, make sure Webpack does not parse it as an Object.
 
 ## Template Reference
 
@@ -164,34 +147,28 @@ In the root element of the template file, you can define the following propertie
 
 ### `step` Reference
 
-A step makes up one page in a multi-step (or page) process. It consists of one or more
-related input fields that build a part of the final `.gitlab-ci.yml`.
+A step makes up one page in a multi-step (or page) process. It consists of one or more related input fields that build a part of the final `.gitlab-ci.yml`.
 
 Steps include two properties:
 
 | Name       | Required                             | Type | Description |
 |------------|--------------------------------------|------|-------------|
-| `template` | {{< icon name="check-circle" >}} Yes | map  | The raw YAML to deep-merge into the final `.gitlab-ci.yml`. This template section can contain variables denoted by a `$` sign that is replaced with the values from the input fields. |
+| `template` | {{< icon name="check-circle" >}} Yes | map | The raw YAML to deep-merge into the final `.gitlab-ci.yml`. This template section can contain variables denoted by a `$` sign that is replaced with the values from the input fields. |
 | `inputs`   | {{< icon name="check-circle" >}} Yes | list | A list of [input definitions](#input-reference). |
 
 ### `input` Reference
 
-Each step can contain one or more `inputs`. For an ideal user experience, it should not
-contain more than three.
+Each step can contain one or more `inputs`. For an ideal user experience, it should not contain more than three.
 
 The look and feel of the input, as well as the YAML type it produces (string, list, and so on)
-depends on the [`widget`](#widgets) used. [`widget: text`](#text) displays a
-text input
-and inserts the user's input as a string into the template. [`widget: list`](#list)
+depends on the [`widget`](#widgets) used. [`widget: text`](#text) displays a text input and inserts the user's input as a string into the template. [`widget: list`](#list)
 displays one or more input fields and inserts a list.
 
-All `inputs` must have a `label`, `widget`, and optionally `target`, but
-most properties
-are dependent on the widget being used:
+All `inputs` must have a `label`, `widget`, and optionally `target`, but most properties are dependent on the widget being used:
 
 | Name     | Required                             | Type   | Description |
 |----------|--------------------------------------|--------|-------------|
-| `label`  | {{< icon name="check-circle" >}} Yes | string | The label for the input field. |
+| `label` | {{< icon name="check-circle" >}} Yes | string | The label for the input field. |
 | `widget` | {{< icon name="check-circle" >}} Yes | string | The [widget](#widgets) type to use for this input. |
 | `target` | {{< icon name="dotted-circle" >}} No | string | The variable name inside the step's template that should be replaced with the value of the input field, for example `$FOO`. |
 
@@ -203,14 +180,14 @@ Use as `widget: text`. This inserts a `string` in the YAML file.
 
 | Name              | Required                             | Type    | Description |
 |-------------------|--------------------------------------|---------|-------------|
-| `label`           | {{< icon name="check-circle" >}} Yes | string  | The label for the input field. |
-| `description`     | {{< icon name="dotted-circle" >}} No | string  | Help text related to the input field. |
+| `label`           | {{< icon name="check-circle" >}} Yes | string | The label for the input field. |
+| `description`     | {{< icon name="dotted-circle" >}} No | string | Help text related to the input field. |
 | `required`        | {{< icon name="dotted-circle" >}} No | boolean | Whether or not the user must provide a value before proceeding to the next step. `false` if not defined. |
-| `placeholder`     | {{< icon name="dotted-circle" >}} No | string  | A placeholder for the input field. |
-| `pattern`         | {{< icon name="dotted-circle" >}} No | string  | A regular expression that the user's input must match before they can proceed to the next step. |
-| `invalidFeedback` | {{< icon name="dotted-circle" >}} No | string  | Help text displayed when the pattern validation fails. |
-| `default`         | {{< icon name="dotted-circle" >}} No | string  | The default value for the field. |
-| `id`              | {{< icon name="dotted-circle" >}} No | string  | The input field ID is usually autogenerated but can be overridden by providing this property. |
+| `placeholder`     | {{< icon name="dotted-circle" >}} No | string | A placeholder for the input field. |
+| `pattern`         | {{< icon name="dotted-circle" >}} No | string | A regular expression that the user's input must match before they can proceed to the next step. |
+| `invalidFeedback` | {{< icon name="dotted-circle" >}} No | string | Help text displayed when the pattern validation fails. |
+| `default`         | {{< icon name="dotted-circle" >}} No | string | The default value for the field. |
+| `id`              | {{< icon name="dotted-circle" >}} No | string | The input field ID is usually autogenerated but can be overridden by providing this property. |
 | `monospace`       | {{< icon name="dotted-circle" >}} No | boolean | Sets the font of the input to monospace. Useful when users are entering code snippets or shell commands. |
 
 #### List
@@ -219,19 +196,18 @@ Use as `widget: list`. This inserts a `list` in the YAML file.
 
 | Name              | Required                             | Type    | Description |
 |-------------------|--------------------------------------|---------|-------------|
-| `label`           | {{< icon name="check-circle" >}} Yes | string  | The label for the input field. |
-| `description`     | {{< icon name="dotted-circle" >}} No | string  | Help text related to the input field. |
+| `label`           | {{< icon name="check-circle" >}} Yes | string | The label for the input field. |
+| `description`     | {{< icon name="dotted-circle" >}} No | string | Help text related to the input field. |
 | `required`        | {{< icon name="dotted-circle" >}} No | boolean | Whether or not the user must provide a value before proceeding to the next step. `false` if not defined. |
-| `placeholder`     | {{< icon name="dotted-circle" >}} No | string  | A placeholder for the input field. |
-| `pattern`         | {{< icon name="dotted-circle" >}} No | string  | A regular expression that the user's input must match before they can proceed to the next step. |
-| `invalidFeedback` | {{< icon name="dotted-circle" >}} No | string  | Help text displayed when the pattern validation fails. |
+| `placeholder`     | {{< icon name="dotted-circle" >}} No | string | A placeholder for the input field. |
+| `pattern`         | {{< icon name="dotted-circle" >}} No | string | A regular expression that the user's input must match before they can proceed to the next step. |
+| `invalidFeedback` | {{< icon name="dotted-circle" >}} No | string | Help text displayed when the pattern validation fails. |
 | `default`         | {{< icon name="dotted-circle" >}} No | list    | The default value for the list |
-| `id`              | {{< icon name="dotted-circle" >}} No | string  | The input field ID is usually autogenerated but can be overridden by providing this property. |
+| `id`              | {{< icon name="dotted-circle" >}} No | string | The input field ID is usually autogenerated but can be overridden by providing this property. |
 
 #### Checklist
 
-Use as `widget: checklist`. This inserts a list of checkboxes that need to
-be checked before proceeding to the next step.
+Use as `widget: checklist`. This inserts a list of checkboxes that need to be checked before proceeding to the next step.
 
 | Name    | Required                             | Type   | Description |
 |---------|--------------------------------------|--------|-------------|

@@ -27,7 +27,7 @@ All plans include these fundamental features:
 
 The current Zendesk Suite plans are:
 
-|  |  |
+| | |
 | --- | --- |
 | **Plan** | **Description** |
 | **Team** | Our least-expensive Suite plan. It includes the basic features you need to deliver omnichannel support wherever your customers need it. Team includes the fundamental features plus a single help center, up to 50 AI-powered automated answers, pre-built reports, support from the Zendesk team, and more. |
@@ -53,34 +53,34 @@ The following table shows feature availability for Support Suite plans as of Jan
 
 For information about pricing, see the [Suite pricing page](https://www.zendesk.com/pricing/#everyone).
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Agent workspace** | *Unified agent workspace* | |
 | **Support** | *Customer service ticketing* | |
 | Email | Y | Y |
 | Public social channels (Facebook and X Corp) | Y | Y |
-| Social Messaging add-on  (WhatsApp\*\*\*, WeChat, LINE, Facebook Messenger, and X Corp Direct Messages) | Y | Y |
+| Social Messaging add-on (WhatsApp\*\*\*, WeChat, LINE, Facebook Messenger, and X Corp Direct Messages) | Y | Y |
 | Web Widget & Mobile SDK | Y | Y |
 | [Reporting and dashboards, powered by](https://www.zendesk.com/explore/pricing/#pricing) [Zendesk Explore](https://www.zendesk.com/explore/pricing/#pricing) | Y | Y |
 | [Customizable reports and dashboards, powered by](https://www.zendesk.com/explore/pricing/#pricing) [Zendesk Explore](https://www.zendesk.com/explore/pricing/#pricing) | $ | $ |
 | Private custom apps and integrations | Y | Y |
 | Multiple ticket forms | $ | Y |
-| Business rules analysis |  | Y |
-| Custom roles and permissions |  | Y |
-| Multibrand |  | Y |
-| Guided mode |  | Y |
-| Satisfaction prediction |  | Y |
-| [See more](https://www.zendesk.com/support/compare/#compare) |  |  |
+| Business rules analysis | | Y |
+| Custom roles and permissions | | Y |
+| Multibrand | | Y |
+| Guided mode | | Y |
+| Satisfaction prediction | | Y |
+| [See more](https://www.zendesk.com/support/compare/#compare) | | |
 | **Guide** | *Knowledge base and self-service* | |
 | AI-powered suggestions with Answer Bot | $ | $ |
 | Agent-only knowledge base | Y | Y |
 | Flag and create knowledge with Knowledge Capture App | Y | Y |
 | [Reporting and dashboards, powered by](https://www.zendesk.com/explore/pricing/#pricing) [Zendesk Explore](https://www.zendesk.com/explore/pricing/#pricing) | Y | Y |
 | Multilingual content | Y | Y |
-| Article lifecycle management with Team Publishing |  | Y |
-| Identify knowledge gaps with Content Cues |  | Y |
-| Multiple help centers |  | Y |
-| [See more](https://www.zendesk.com/guide/compare/#compare) |  |  |
+| Article lifecycle management with Team Publishing | | Y |
+| Identify knowledge gaps with Content Cues | | Y |
+| Multiple help centers | | Y |
+| [See more](https://www.zendesk.com/guide/compare/#compare) | | |
 | **Chat** | *Real-time chat* | |
 | Unlimited chats, triggers & departments | Y | Y |
 | Widget customization | Y | Y |
@@ -88,12 +88,12 @@ For information about pricing, see the [Suite pricing page](https://www.zendesk.
 | Operating hours | Y | Y |
 | [Reporting and dashboards, powered by](https://www.zendesk.com/explore/pricing/#pricing) [Zendesk Explore](https://www.zendesk.com/explore/pricing/#pricing) | Y | Y |
 | Conversion Tracking | Y | Y |
-| Widget unbranding |  | Y |
-| Real-time dashboards |  | Y |
-| Web Widget |  | Y |
-| Roles and permissions |  | Y |
-| Skills-based routing |  | Y |
-| [See more](https://www.zendesk.com/chat/compare/#compare) |  |  |
+| Widget unbranding | | Y |
+| Real-time dashboards | | Y |
+| Web Widget | | Y |
+| Roles and permissions | | Y |
+| Skills-based routing | | Y |
+| [See more](https://www.zendesk.com/chat/compare/#compare) | | |
 | **Talk** | *Call center software* | |
 | Automatic ticket creation | Y | Y |
 | Call recording & voicemail transcription | Y | Y |
@@ -102,10 +102,10 @@ For information about pricing, see the [Suite pricing page](https://www.zendesk.
 | Callback from queue | Y | Y |
 | [Reporting and dashboards, powered by](https://www.zendesk.com/explore/pricing/#pricing) [Zendesk Explore](https://www.zendesk.com/explore/pricing/#pricing) | Y | Y |
 | Talk Partner Edition | Y | Y |
-| Monthly Diagnostics |  | Y |
-| Talk Usage 99.95% SLA |  | Y |
-| Failover on demand |  | Y |
-| [See more](https://www.zendesk.com/talk/compare/#compare) |  |  |
+| Monthly Diagnostics | | Y |
+| Talk Usage 99.95% SLA | | Y |
+| Failover on demand | | Y |
+| [See more](https://www.zendesk.com/talk/compare/#compare) | | |
 
 *\*\*\*Additional costs apply for What's App phone numbers*
 

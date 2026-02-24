@@ -17,8 +17,7 @@ title: 'Tutorial: Set up issue boards for team hand-off'
 This tutorial shows you how to set up [issue boards](../../user/project/issue_board.md) and [scoped labels](../../user/project/labels.md#scoped-labels) for two teams that work on issues in sequence.
 
 In this example, you'll create two issue boards for the UX and Frontend teams.
-Using the following steps, you can create issue boards and workflows for more sub-teams, like Backend
-or Quality Assurance.
+Using the following steps, you can create issue boards and workflows for more sub-teams, like Backend or Quality Assurance.
 
 To set up issue boards for multiple teams:
 
@@ -77,13 +76,11 @@ You've created an empty group. Next, you'll create a project that will store you
 ## Create a project
 
 The main code development work happens in projects and their repositories.
-A project contains your code and pipelines, but also the issues that are used for planning your
-upcoming code changes.
+A project contains your code and pipelines, but also the issues that are used for planning your upcoming code changes.
 
 To create a blank project:
 
-1. In your group, in the upper-right corner, select **Create new** ({{< icon name="plus" >}}) and then select
-   **In this group** > **New project/repository**.
+1. In your group, in the upper-right corner, select **Create new** ({{< icon name="plus" >}}) and then select **In this group** > **New project/repository**.
 1. Select **Create blank project**.
 1. Enter the project details:
    - In the **Project name** field, name your project `Paperclip Assistant`.
@@ -93,9 +90,7 @@ To create a blank project:
 
 You need a team label and a set of workflow labels to show where in the development cycle an issue is.
 
-You could create these labels in your `Paperclip Assistant` project, but it's better to create them
-in the `Paperclip Software Factory` group. This way, these labels will also be available in all the other
-projects you create later.
+You could create these labels in your `Paperclip Assistant` project, but it's better to create them in the `Paperclip Software Factory` group. This way, these labels will also be available in all the other projects you create later.
 
 To create each label:
 
@@ -103,8 +98,7 @@ To create each label:
 1. Select **Manage** > **Labels**.
 1. Select **New label**.
 1. In the **Title** field, enter the name of the label. Start with `Frontend`.
-1. Optional. Select a color by selecting from the available colors, or enter a hex color value for
-   a specific color in the **Background color** field.
+1. Optional. Select a color by selecting from the available colors, or enter a hex color value for a specific color in the **Background color** field.
 1. Select **Create label**.
 
 Repeat these steps to create all the labels you'll need:
@@ -118,9 +112,7 @@ Repeat these steps to create all the labels you'll need:
 
 ## Create team issue boards
 
-Like with labels, you could create your issue boards in the **Paperclip Assistant** project,
-but it can be better to have them in the **Paperclip Software Factory** group. This way, you'll be able
-to manage issues from all the projects that you might create later in this group.
+Like with labels, you could create your issue boards in the **Paperclip Assistant** project, but it can be better to have them in the **Paperclip Software Factory** group. This way, you'll be able to manage issues from all the projects that you might create later in this group.
 
 To create a new group issue board:
 
@@ -175,23 +167,19 @@ To create an issue from your board:
 1. Complete the fields:
    1. Under **Title**, enter `Redesign user profile page`.
    1. Under **Projects**, select **Paperclip Software Factory / Paperclip Assistant**.
-1. Select **Create issue**. Because you created the new issue in the label list, it gets created
-   with this label.
+1. Select **Create issue**. Because you created the new issue in the label list, it gets created with this label.
 1. Add the `Frontend` label, because only issues with this label appear on the Frontend team's board:
    1. Select the issue card (not its title), and a sidebar appears on the right.
    1. In the **Labels** section of the sidebar, select **Edit**.
-   1. From the **Assign labels** dropdown list, select the `Workflow::Ready for design` and
-      `Frontend` labels. The selected labels are marked with a checkmark.
-   1. To apply your changes to labels, select **X** next to **Assign labels** or select any area
-      outside the label section.
+   1. From the **Assign labels** dropdown list, select the `Workflow::Ready for design` and `Frontend` labels. The selected labels are marked with a checkmark.
+   1. To apply your changes to labels, select **X** next to **Assign labels** or select any area outside the label section.
 
 Repeat these steps to create a few more issues with the same labels.
 
 You should now see at least one issue there, ready for your product designers to start working on!
 
 Congratulations! Now your teams can start collaborating on amazing software.
-As a next step, you can try out [the goal workflow](#the-goal-workflow) for yourself using these boards,
-simulating the two teams interacting.
+As a next step, you can try out [the goal workflow](#the-goal-workflow) for yourself using these boards, simulating the two teams interacting.
 
 ## Learn more about project management in GitLab
 

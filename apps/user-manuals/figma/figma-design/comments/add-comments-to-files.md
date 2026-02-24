@@ -8,11 +8,9 @@ Before you Start
 
 Who can use this feature
 
-Supported on
-[any team or plan](https://help.figma.com/hc/en-us/articles/360040328273-Plans-and-teams-in-Figma).
+Supported on [any team or plan](https://help.figma.com/hc/en-us/articles/360040328273-Plans-and-teams-in-Figma).
 
-Anyone with at least can view access to a file
-can add and view comments
+Anyone with at least can view access to a file can add and view comments
 
 Comments take collaboration to the next level. You can use comments to respond to feedback, tweak your designs, and iterate faster—all from the original design file or prototype.
 
@@ -26,12 +24,12 @@ Add a comment to a pinned location or region on the canvas. Figma will attach yo
 
 ![An animation showing a user clicking on the comment tool in the toolbar, then clicking on the canvas to add a comment.](https://help.figma.com/hc/article_attachments/30719599483159)
 
-1. Click  in the toolbar, or press `C` to enter comment mode. Your cursor will turn into a .
+1. Click in the toolbar, or press `C` to enter comment mode. Your cursor will turn into a .
 2. Select a location to comment on:
    - Click the location on the canvas where you'd like the comment to be pinned.
    - Or, click and drag your cursor to select a region to comment on.
-3. Type your message in the field. Click the emoji icon to [add emoji](#emoji), press `@` to [mention a colleague or collaborator](#mention), or click  to [add an image or GIF](#media).
-4. Click  to send your message.
+3. Type your message in the field. Click the emoji icon to [add emoji](#emoji), press `@` to [mention a colleague or collaborator](#mention), or click to [add an image or GIF](#media).
+4. Click to send your message.
 
 You can also [add comments to files using the Figma mobile app](https://help.figma.com/hc/en-us/articles/1500007537281). Long-press the location on the canvas where you want your comment and start typing.
 
@@ -54,18 +52,18 @@ Can mention:
 **Starter, education or professional team**
 
 - Members can mention:
-  - All team members
-  - Users who have permissions on the file or who have previously commented on the file
-  - Non-members who have permissions on any team resources
+ - All team members
+ - Users who have permissions on the file or who have previously commented on the file
+ - Non-members who have permissions on any team resources
 - Non-members can mention users who are in the last 250 users you’ve interacted with in Figma that are either a member of the team or who have permissions on a team resource
 
 **Organization or enterprise**
 
 - Members can mention all members and guests
 - Guests can mention:
-  - Users who share the same permission level as you on folders or teams in the organization
-  - The last 100 organization members you’ve interacted with in Figma
-  - Users who have permissions on the file or who have previously commented on the file
+ - Users who share the same permission level as you on folders or teams in the organization
+ - The last 100 organization members you’ve interacted with in Figma
+ - Users who have permissions on the file or who have previously commented on the file
 
 ### Mention a user group
 
@@ -96,9 +94,9 @@ You can attach up to 5 images or GIFs when adding or replying to comments. Comme
 
 To add media to a comment, either-drag and-drop the file into the comment field, copy and paste the file from your clipboard, or do the following:
 
-1. In the comment field, begin typing your message then click the  image icon.
+1. In the comment field, begin typing your message then click the image icon.
 2. Select an image or GIF from your computer.
-3. After the media has been uploaded, click  to add your comment to the file or prototype.
+3. After the media has been uploaded, click to add your comment to the file or prototype.
 
 To remove attached media, click the **X** in the upper-right corner of the attachment.
 
@@ -112,18 +110,18 @@ Add emoji when adding or replying to comments. Figma uses the Apple emoji collec
 2. Choose from your **Frequently used** emoji or browse through the catalogue of emoji.
 3. Or, use the **Search** bar to find the exact emoji you're after.
 4. Click on the emoji to add it to your message.
-5. Click  to add your comment to the file or prototype.
+5. Click to add your comment to the file or prototype.
 
 **Note:**You can add up to 100 comments per hour. This includes new comments and replies and applies across all your files and prototypes.
 
 # Add text styling to comments
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Styling** | **Keyboard shortcut** | **Markdown syntax** |
-| Bold | Mac: `Command` `B`  Windows: `Control` `B` | \*\*bold\*\* |
-| Italics | Mac: `Command` `I`  Windows: `Control` `I` | \*italicized\* |
-| Strikethrough | Mac:`Command` `Shift` `X`  Windows: `Control` `Shift` `X` | ~strikethrough~ |
-| Add URL | Mac: `Command` `K`  Windows: `Control` `K` |  |
-| Numbered list | Mac: `Command` `Shift` `7`  Windows: `Control` `Shift` `7` | 1. First item 2. Second item 3. Third item  Hit `Shift` + `Enter` to add multiple items to a numbered list. |
-| Bulleted list | Mac: `Command` `Shift` `8`  Windows: `Control` `Shift` `8` | - First item - Second item - Third item  Hit `Shift` + `Enter` to add multiple items to a numbered list. |
+| Bold | Mac: `Command` `B` Windows: `Control` `B` | \*\*bold\*\* |
+| Italics | Mac: `Command` `I` Windows: `Control` `I` | \*italicized\* |
+| Strikethrough | Mac:`Command` `Shift` `X` Windows: `Control` `Shift` `X` | ~strikethrough~ |
+| Add URL | Mac: `Command` `K` Windows: `Control` `K` | |
+| Numbered list | Mac: `Command` `Shift` `7` Windows: `Control` `Shift` `7` | 1. First item 2. Second item 3. Third item Hit `Shift` + `Enter` to add multiple items to a numbered list. |
+| Bulleted list | Mac: `Command` `Shift` `8` Windows: `Control` `Shift` `8` | - First item - Second item - Third item Hit `Shift` + `Enter` to add multiple items to a numbered list. |

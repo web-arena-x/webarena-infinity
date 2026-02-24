@@ -18,7 +18,7 @@ The preview inspector is available for all [free themes from Shopify](https://th
 
 ## Activate or deactivate the preview inspector
 
-You can click the  button to turn the preview inspector on or off during your editing session.
+You can click the button to turn the preview inspector on or off during your editing session.
 
 When the preview inspector is activated, you can click any outlined element to open the corresponding setting. On a mobile device, when the preview inspector is activated, you can click any element to select the corresponding setting. You can open the bottom sheet to make edits through this selected setting.
 
@@ -33,7 +33,7 @@ Descriptions of the Add sections and Add blocks buttons in the preview inspector
 | Tool | Description |
 | --- | --- |
 | **Add section** | The **Add section** button displays at the top and bottom of the selected section. Click the **Add section** button to insert a new section either above or below the selected section. |
-| **Add block** | The **Add block** button displays when you hover over an existing block. To add a block, move your cursor over the  button. A pop up menu displays with the theme and app blocks that can be added to the selected section. Click the block that you want to add. The settings window for the new block loads in the right sidebar. |
+| **Add block** | The **Add block** button displays when you hover over an existing block. To add a block, move your cursor over the button. A pop up menu displays with the theme and app blocks that can be added to the selected section. Click the block that you want to add. The settings window for the new block loads in the right sidebar. |
 
 ## Preview inspector tools
 
@@ -43,8 +43,8 @@ List of the available preview inspector tools, including moving, duplicating, hi
 
 | Tool | Action | Description |
 | --- | --- | --- |
-|  | **Move to previous position** | Click this button to move a section or block to the next position or the previous position using the arrow icons in the preview inspector. If the selected section is at the top of your page, then the  button will be greyed out. Likewise, if your section is at the bottom of your page then you can't use the  button. |
-|  | **Move to next position** |
-|  | **Duplicate section or block** | Click this button to duplicate a section or block and its contents. |
-|  | **Hide section or block** | Click this button to hide a section or block. When a section or block is hidden, you won't be able to unhide it from the preview inspector. You can either click the  button in the menu bar, or click the  button in the sidebar menu next to the section or block to unhide it. |
-|  | **Delete section or block** | This button deletes the selected section or block in the preview inspector. |
+| | **Move to previous position** | Click this button to move a section or block to the next position or the previous position using the arrow icons in the preview inspector. If the selected section is at the top of your page, then the button will be greyed out. Likewise, if your section is at the bottom of your page then you can't use the button. |
+| | **Move to next position** |
+| | **Duplicate section or block** | Click this button to duplicate a section or block and its contents. |
+| | **Hide section or block** | Click this button to hide a section or block. When a section or block is hidden, you won't be able to unhide it from the preview inspector. You can either click the button in the menu bar, or click the button in the sidebar menu next to the section or block to unhide it. |
+| | **Delete section or block** | This button deletes the selected section or block in the preview inspector. |

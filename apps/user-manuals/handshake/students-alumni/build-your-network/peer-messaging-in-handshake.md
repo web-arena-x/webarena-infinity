@@ -66,10 +66,10 @@ You can use the filters at the top of the page to search for specific students o
 - **Employer**
 - **Job role**
 - **Additional Filters**
-  - Degree
-  - Grad year
-  - Skill
-  - Organization
+ - Degree
+ - Grad year
+ - Skill
+ - Organization
 
 To send a message, click on a peer's name to view their profile and send a message. Alternatively, click the **Follow** button to follow them.
 
@@ -79,7 +79,7 @@ When a student or alumni sends you a message, you'll be notified the following w
 
 - A red notification bubble with a number will appear next to your **Inbox** in the left navigation menu.
 - An email will be sent to your Handshake email address.
-  - Click **View Request and Accept/Decline**to access the message in Handshake.
+ - Click **View Request and Accept/Decline**to access the message in Handshake.
 
 Once you open a message in your inbox, you’ll have the option to either **Allow** or **Decline** the message. Click the arrow icon on the far right side of the message request to expand it.
 
@@ -90,7 +90,7 @@ To respond to the message request, click one of the following buttons:
 - **Allow** (black button): This will enable you to respond to the message.
 - **Decline** (white button): You’ll be prompted to provide a reason for declining.
 
-  - **Note**: the sender won't receive a notification that their message was declined.
+ - **Note**: the sender won't receive a notification that their message was declined.
 
 ![Allow:Decline options.png](https://support.joinhandshake.com/hc/article_attachments/31051469721623)
 

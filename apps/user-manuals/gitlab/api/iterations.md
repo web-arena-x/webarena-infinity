@@ -22,9 +22,7 @@ We no longer have project-level iterations, but you can use this endpoint to fet
 
 Returns a list of project iterations.
 
-Iterations created by **Enable automatic scheduling** in
-[Iteration cadences](../user/group/iterations/_index.md#iteration-cadences) return `null` for
-the `title` and `description` fields.
+Iterations created by **Enable automatic scheduling** in [Iteration cadences](../user/group/iterations/_index.md#iteration-cadences) return `null` for the `title` and `description` fields.
 
 ```plaintext
 GET /projects/:id/iterations
@@ -42,8 +40,8 @@ GET /projects/:id/iterations?updated_after=2013-10-02T09%3A24%3A18Z
 | `state`               | string   | no       | 'Return `opened`, `upcoming`, `current`, `closed`, or `all` iterations.'                       |
 | `search`              | string   | no       | Return only iterations with a title matching the provided string.                              |
 | `in`                  | array of strings | no | Fields in which fuzzy search should be performed with the query given in the argument `search`. The available options are `title` and `cadence_title`. Default is `[title]`. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/350991) in GitLab 16.2. |
-| `include_ancestors`   | boolean  | no       | Include iterations for parent group and its ancestors. Defaults to `true`.                    |
-| `include_descendants` | boolean  | no       | Include iterations for parent group and its descendants. Defaults to `false`. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/135764) in GitLab 16.7. |
+| `include_ancestors`   | boolean | no       | Include iterations for parent group and its ancestors. Defaults to `true`.                    |
+| `include_descendants` | boolean | no       | Include iterations for parent group and its descendants. Defaults to `false`. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/135764) in GitLab 16.7. |
 | `updated_before`      | datetime | no       | Return only iterations updated before the given datetime. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/378662) in GitLab 15.10. |
 | `updated_after`       | datetime | no       | Return only iterations updated after the given datetime. Expected in ISO 8601 format (`2019-03-15T08:00:00Z`). [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/378662) in GitLab 15.10. |
 
@@ -51,15 +49,15 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/iterations"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/iterations"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 53,
     "iid": 13,
     "group_id": 5,
@@ -71,6 +69,6 @@ Example response:
     "due_date": "2020-02-01",
     "start_date": "2020-02-14",
     "web_url": "http://gitlab.example.com/groups/my-group/-/iterations/13"
-  }
+ }
 ]
 ```

@@ -16,23 +16,20 @@ Code Quality identifies maintainability issues before they become technical debt
 The automated feedback that occurs during code reviews can help your team write better code.
 The findings appear directly in merge requests, making problems visible when they're most cost-effective to fix.
 
-Code Quality works with multiple programming languages and integrates with common linters, style
-checkers, and complexity analyzers. Your existing tools can feed into the Code Quality workflow,
-preserving your team's preferences while standardizing how results are displayed.
+Code Quality works with multiple programming languages and integrates with common linters, style checkers, and complexity analyzers. Your existing tools can feed into the Code Quality workflow, preserving your team's preferences while standardizing how results are displayed.
 
 ## Features per tier
 
-Different features are available in different [GitLab tiers](https://about.gitlab.com/pricing/),
-as shown in the following table:
+Different features are available in different [GitLab tiers](https://about.gitlab.com/pricing/), as shown in the following table:
 
-| Feature                                                                                     | In Free     | In Premium  | In Ultimate |
+| Feature                                                                                     | In Free     | In Premium | In Ultimate |
 |:--------------------------------------------------------------------------------------------|:------------|:------------|:------------|
 | [Import Code Quality results from CI/CD jobs](#import-code-quality-results-from-a-cicd-job) | {{< yes >}} | {{< yes >}} | {{< yes >}} |
 | [Use CodeClimate-based scanning](#use-the-built-in-code-quality-cicd-template-deprecated)   | {{< yes >}} | {{< yes >}} | {{< yes >}} |
 | [See findings in a merge request widget](#merge-request-widget)                             | {{< yes >}} | {{< yes >}} | {{< yes >}} |
-| [See findings in a pipeline report](#pipeline-details-view)                                 | {{< no >}}  | {{< yes >}} | {{< yes >}} |
-| [See findings in the merge request changes view](#merge-request-changes-view)               | {{< no >}}  | {{< no >}}  | {{< yes >}} |
-| [Analyze overall health in a project quality summary view](#project-quality-view)           | {{< no >}}  | {{< no >}}  | {{< yes >}} |
+| [See findings in a pipeline report](#pipeline-details-view)                                 | {{< no >}} | {{< yes >}} | {{< yes >}} |
+| [See findings in the merge request changes view](#merge-request-changes-view)               | {{< no >}} | {{< no >}} | {{< yes >}} |
+| [Analyze overall health in a project quality summary view](#project-quality-view)           | {{< no >}} | {{< no >}} | {{< yes >}} |
 
 ## Scan code for quality violations
 
@@ -91,7 +88,7 @@ The following integrations are available to replace the built-in plugins:
 
 | Plugin       | On by default                    | Replacement |
 |--------------|----------------------------------|-------------|
-| Duplication  | {{< yes >}}                      | [Integrate PMD Copy/Paste Detector](#pmd-copypaste-detector). |
+| Duplication | {{< yes >}}                      | [Integrate PMD Copy/Paste Detector](#pmd-copypaste-detector). |
 | ESLint       | {{< yes >}}                      | [Integrate ESLint](#eslint). |
 | gofmt        | {{< no >}}                       | [Integrate golangci-lint](#golangci-lint) and enable the [gofmt linter](https://golangci-lint.run/usage/linters#gofmt). |
 | golint       | {{< no >}}                       | [Integrate golangci-lint](#golangci-lint) and enable one of the included linters that replaces golint. golint is [deprecated and frozen](https://github.com/golang/go/issues/38968). |
@@ -99,7 +96,7 @@ The following integrations are available to replace the built-in plugins:
 | markdownlint | {{< no >}} (community-supported) | [Integrate markdownlint-cli2](#markdownlint-cli2). |
 | pep8         | {{< no >}}                       | Integrate an alternative Python linter like [Flake8](#flake8), [Pylint](#pylint), or [Ruff](#ruff). |
 | RuboCop      | {{< yes >}}                      | [Integrate RuboCop](#rubocop). |
-| SonarPython  | {{< no >}}                       | Integrate an alternative Python linter like [Flake8](#flake8), [Pylint](#pylint), or [Ruff](#ruff). |
+| SonarPython | {{< no >}}                       | Integrate an alternative Python linter like [Flake8](#flake8), [Pylint](#pylint), or [Ruff](#ruff). |
 | Stylelint    | {{< no >}} (community-supported) | [Integrate Stylelint](#stylelint). |
 | SwiftLint    | {{< no >}}                       | [Integrate SwiftLint](#swiftlint). |
 
@@ -114,11 +111,7 @@ Code Quality results are shown in the:
 
 ### Merge request widget
 
-Code Quality analysis results display in the merge request widget area if a report from the target
-branch is available for comparison. The merge request widget displays Code Quality findings and resolutions that
-were introduced by the changes made in the merge request. Multiple Code Quality findings with identical
-fingerprints display as a single entry in the merge request widget. Each individual finding is available in the
-full report available in the **Pipeline** details view.
+Code Quality analysis results display in the merge request widget area if a report from the target branch is available for comparison. The merge request widget displays Code Quality findings and resolutions that were introduced by the changes made in the merge request. Multiple Code Quality findings with identical fingerprints display as a single entry in the merge request widget. Each individual finding is available in the full report available in the **Pipeline** details view.
 
 ![List of code quality issues in the merge request, ordered by decreasing severity](img/code_quality_merge_request_widget_v18_2.png)
 
@@ -131,8 +124,7 @@ full report available in the **Pipeline** details view.
 
 {{< /details >}}
 
-Code Quality results display in the merge request **Changes** view. Lines containing Code Quality
-issues are marked by a symbol beside the gutter. Select the symbol to see the list of issues, then select an issue to see its details.
+Code Quality results display in the merge request **Changes** view. Lines containing Code Quality issues are marked by a symbol beside the gutter. Select the symbol to see the list of issues, then select an issue to see its details.
 
 ![Lines in a merge request's changes tab marked with a symbol to indicate code quality issues](img/code_quality_changes_view_v18_2.png)
 
@@ -145,9 +137,7 @@ issues are marked by a symbol beside the gutter. Select the symbol to see the li
 
 {{< /details >}}
 
-The full list of Code Quality violations generated by a pipeline is shown in the **Code Quality**
-tab of the pipeline's details page. The pipeline details view displays all Code Quality findings
-that were found on the branch it was run on.
+The full list of Code Quality violations generated by a pipeline is shown in the **Code Quality** tab of the pipeline's details page. The pipeline details view displays all Code Quality findings that were found on the branch it was run on.
 
 ![List of all issues in the branch, ordered by decreasing severity](img/code_quality_pipeline_details_view_v18_2.png)
 
@@ -181,12 +171,12 @@ Each object in that array must have at least the following properties:
 
 | Name                                                      | Type    | Description |
 |-----------------------------------------------------------|---------|-------------|
-| `description`                                             | String  | A human-readable description of the code quality violation. |
-| `check_name`                                              | String  | A unique name representing the check, or rule, associated with this violation. |
-| `fingerprint`                                             | String  | A unique fingerprint to identify this specific code quality violation, such as a hash of its contents. |
-| `location.path`                                           | String  | The file containing the code quality violation, expressed as a relative path in the repository. Do not prefix with `./`. |
+| `description`                                             | String | A human-readable description of the code quality violation. |
+| `check_name`                                              | String | A unique name representing the check, or rule, associated with this violation. |
+| `fingerprint`                                             | String | A unique fingerprint to identify this specific code quality violation, such as a hash of its contents. |
+| `location.path`                                           | String | The file containing the code quality violation, expressed as a relative path in the repository. Do not prefix with `./`. |
 | `location.lines.begin` or `location.positions.begin.line` | Integer | The line on which the code quality violation occurred. |
-| `severity`                                                | String  | The severity of the violation, can be one of `info`, `minor`, `major`, `critical`, or `blocker`. |
+| `severity`                                                | String | The severity of the violation, can be one of `info`, `minor`, `major`, `critical`, or `blocker`. |
 
 The format is different from the [CodeClimate report format](https://github.com/codeclimate/platform/blob/master/spec/analyzers/SPEC.md#data-types) in the following ways:
 
@@ -197,7 +187,7 @@ For example, this is a compliant report:
 
 ```json
 [
-  {
+ {
     "description": "'unused' is assigned a value but never used.",
     "check_name": "no-unused-vars",
     "fingerprint": "7815696ecbf1c96e6894b779456d330e",
@@ -208,7 +198,7 @@ For example, this is a compliant report:
         "begin": 42
       }
     }
-  }
+ }
 ]
 ```
 
@@ -263,7 +253,7 @@ To integrate its output:
 1. Add a step to your job `script` to reprocess the file into the required format by using `mypy-gitlab-code-quality`. For example:
 
    ```yaml
-   - mypy $(find -type f -name "*.py" ! -path "**/.venv/**") --no-error-summary > mypy-out.txt || true  # "|| true" is used for preventing job failure when mypy find errors
+   - mypy $(find -type f -name "*.py" ! -path "**/.venv/**") --no-error-summary > mypy-out.txt || true # "|| true" is used for preventing job failure when mypy find errors
    - mypy-gitlab-code-quality < mypy-out.txt > gl-code-quality-report.json
    ```
 

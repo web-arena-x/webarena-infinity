@@ -20,8 +20,8 @@ Candidates for the beta use both the Estimating and Enhanced Bidding tools.
 
 - Create bid packages directly from an Estimate, without re-entering information.
 - Import price amounts from awarded bids back into your estimate.
-- Tool tips show both the initial estimate and the awarded bid amounts.  
-  ![](https://lh7-us.googleusercontent.com/cNhHmKOrXd_ixNIIyPgOAyjVrL-7q708FqwgPppg-JlZQA4BIFkTmD2v8GmMW5ONxPHNyIM_VvyoeifV5aZ_E-by2EgvWH5_V3PK_BSiqDLowhwiRRraT3dRJfTa5q_2xIb84T1Yg2J4q5uQ_7rgjg)
+- Tool tips show both the initial estimate and the awarded bid amounts. 
+ ![](https://lh7-us.googleusercontent.com/cNhHmKOrXd_ixNIIyPgOAyjVrL-7q708FqwgPppg-JlZQA4BIFkTmD2v8GmMW5ONxPHNyIM_VvyoeifV5aZ_E-by2EgvWH5_V3PK_BSiqDLowhwiRRraT3dRJfTa5q_2xIb84T1Yg2J4q5uQ_7rgjg)
 
 ### Beta Considerations
 
@@ -31,8 +31,8 @@ Candidates for the beta use both the Estimating and Enhanced Bidding tools.
 - Cost codes are not currently pulled into a bid form.
 - You can edit a bid form to add sections, however this may mean the data would be mismatched and Unit/Qty items would be rolled up into a total amount when importing back into Estimating.
 - Line items in a bid form default to 'Amount' for the 'Response Field Type'.
-  - If you are using a unit based quantity estimate in the estimating tool, you can can edit line items on the bid form to unit quantity. When you import bids back to your estimate, they will sync correctly because the units match in the estimating tool.
-  - If you are NOT using unit based quantity but update the bid forms to unit based quantity, you must either have the bidder resubmit with 'Amounts' or alter the bid in the Bidding tool before importing. Otherwise, the units will not match and you will see an error.
+ - If you are using a unit based quantity estimate in the estimating tool, you can can edit line items on the bid form to unit quantity. When you import bids back to your estimate, they will sync correctly because the units match in the estimating tool.
+ - If you are NOT using unit based quantity but update the bid forms to unit based quantity, you must either have the bidder resubmit with 'Amounts' or alter the bid in the Bidding tool before importing. Otherwise, the units will not match and you will see an error.
 - Bids must be awarded to be imported into the Estimating tool.
 
 ### Beta Expectations

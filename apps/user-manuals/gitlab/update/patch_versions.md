@@ -153,8 +153,7 @@ sudo -u git -H make
 
 {{< /details >}}
 
-To install or update `gitlab-elasticsearch-indexer`, follow the
-[installation instruction](../integration/advanced_search/elasticsearch.md#install-an-elasticsearch-or-aws-opensearch-cluster).
+To install or update `gitlab-elasticsearch-indexer`, follow the [installation instruction](../integration/advanced_search/elasticsearch.md#install-an-elasticsearch-or-aws-opensearch-cluster).
 
 ### Start GitLab
 

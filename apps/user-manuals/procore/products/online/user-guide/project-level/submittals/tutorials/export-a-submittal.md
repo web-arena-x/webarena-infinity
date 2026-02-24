@@ -15,9 +15,9 @@ To export a submittal as a PDF.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Read Only' level permissions or higher on the project's Submittals tool.
+ - 'Read Only' level permissions or higher on the project's Submittals tool.
 - **Additional Information:**
-  - The maximum number of file attachments that you can select to export in a single PDF is forty (40) attachments.
+ - The maximum number of file attachments that you can select to export in a single PDF is forty (40) attachments.
 
 ## Steps
 
@@ -27,7 +27,7 @@ To export a submittal as a PDF.
 4. Choose one of the following options:
    - **PDF**. Select this option to generate a PDF summary of the submittal. The PDF will open in a separate tab in your web browser.
    - **Zip**. Select this option to export a PDF that combines one or more attachments from the submittal.
-     - Mark the checkboxes next to the files you want to combine together or check the box next to **Attachments**to select all.  
+     - Mark the checkboxes next to the files you want to combine together or check the box next to **Attachments**to select all. 
        *Note*: You can only add up to 40 attachments.
      - Rearrange the files by clicking the vertical grip (⋮⋮) icons and using a drag-and-drop operation.
      - Click **Single PDF** or **.zip**.

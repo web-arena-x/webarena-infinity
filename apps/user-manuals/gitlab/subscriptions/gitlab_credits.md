@@ -20,8 +20,7 @@ title: GitLab Credits
 {{< /history >}}
 
 GitLab Credits are the standardized consumption currency for usage-based billing.
-Credits are used for [GitLab Duo Agent Platform](../user/duo_agent_platform/_index.md),
-where each usage action consumes a number of credits.
+Credits are used for [GitLab Duo Agent Platform](../user/duo_agent_platform/_index.md), where each usage action consumes a number of credits.
 Credits are calculated based on the features and models you use, as listed in the credit multiplier tables.
 
 GitLab provides three ways to obtain credits:
@@ -64,21 +63,17 @@ Unused credits do not roll over to the next month.
 
 ## On-Demand Credits
 
-On-Demand credits cover usage incurred after you have used all included credits
-and the credits in the Monthly Committed Pool.
+On-Demand credits cover usage incurred after you have used all included credits and the credits in the Monthly Committed Pool.
 On-Demand credits are billed monthly.
 
 On-Demand credits can be used after you have accepted usage billing terms.
-You can accept these terms when you purchase your monthly commitment,
-or directly in the GitLab Credits dashboard.
+You can accept these terms when you purchase your monthly commitment, or directly in the GitLab Credits dashboard.
 
 If you haven’t accepted usage billing terms, you can’t use GitLab Duo Agent Platform and consume On-Demand credits.
-You can regain access to GitLab Duo Agent Platform by either purchasing
-a monthly commitment or accepting the usage billing terms.
+You can regain access to GitLab Duo Agent Platform by either purchasing a monthly commitment or accepting the usage billing terms.
 
 For example, a subscription has a monthly commitment of 50 credits per month.
-If 75 credits are used in that month, the first 50 credits are part of the monthly commitment pool,
-and the additional 25 are billed as on-demand usage.
+If 75 credits are used in that month, the first 50 credits are part of the monthly commitment pool, and the additional 25 are billed as on-demand usage.
 
 ## Usage order
 
@@ -86,8 +81,7 @@ GitLab Credits are consumed in the following order:
 
 1. Included credits are used by each user first.
 1. Monthly Commitment Pool of credits are used after all included credits have been consumed.
-1. On-Demand credits are used after all other available credits
-   (included credits and Monthly Commitment Pool, if applicable) are depleted and usage billing terms are signed.
+1. On-Demand credits are used after all other available credits (included credits and Monthly Commitment Pool, if applicable) are depleted and usage billing terms are signed.
 
 ## Buy GitLab Credits
 
@@ -163,11 +157,9 @@ The GitLab Credits dashboard displays information about your usage of GitLab Cre
 Use the dashboard to monitor credit consumption, track trends, and identify usage patterns.
 
 On the dashboard, used credits represent deductions from available credits.
-For overages (On-Demand credits), used credits represent on-demand usage that will be paid later,
-if you have agreed to the usage billing terms.
+For overages (On-Demand credits), used credits represent on-demand usage that will be paid later, if you have agreed to the usage billing terms.
 
-To help you manage credit consumption, GitLab emails the following information to 
-administrators and subscription owners:
+To help you manage credit consumption, GitLab emails the following information to administrators and subscription owners:
 
 - Monthly credit usage summaries
 - Notifications when credit usage thresholds are at 50%, 80%, and 100% 
@@ -193,8 +185,7 @@ The dashboard displays summary cards of key metrics:
 - Committed credits: Credits from your Monthly Committed Pool (if applicable)
 - Monthly waivers: Remaining credits from waivers (if applicable)
 - On-Demand usage: Credits consumed beyond your included and committed amounts.
-  If you have enough waiver credits to offset all On-Demand credits, the GitLab Credits Dashboard hides
-  the **On-Demand** card and displays the **Monthly Waiver** card instead.
+ If you have enough waiver credits to offset all On-Demand credits, the GitLab Credits Dashboard hides the **On-Demand** card and displays the **Monthly Waiver** card instead.
 
 ### In GitLab
 

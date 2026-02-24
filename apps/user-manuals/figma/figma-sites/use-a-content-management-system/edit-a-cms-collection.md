@@ -24,14 +24,14 @@ You can seamlessly add, edit, and delete fields and items in your collections:
 
 ## Add a field to a collection
 
-1. Click  **CMS** in the left navigation bar, then select the collection you want to edit.
-2. Click  **Edit fields** at the top of the screen.
+1. Click **CMS** in the left navigation bar, then select the collection you want to edit.
+2. Click **Edit fields** at the top of the screen.
 3. Click **Add field,** then select the field type to add it to the collection.
 
 ## Edit a field in a collection
 
-1. Click  **CMS** in the left navigation bar, then select the collection you want to edit.
-2. Select  **Edit fields** at the top right of the screen.
+1. Click **CMS** in the left navigation bar, then select the collection you want to edit.
+2. Select **Edit fields** at the top right of the screen.
 3. Do one of the following:
 
 Rename a field Duplicate a field Delete a field
@@ -50,8 +50,8 @@ When you delete a field, any layers connected it will display their last known s
 
 ## Create a new item in a collection
 
-1. Click  **CMS** in the left navigation bar, then select a collection.
-2. Click  **New item** at the top right of the screen.
+1. Click **CMS** in the left navigation bar, then select a collection.
+2. Click **New item** at the top right of the screen.
 
 ## Edit an item in a collection
 
@@ -61,7 +61,7 @@ You edit an item’s content in two ways:
 
 Editing in the table view is handy when you want to jump between items and quickly make edits.
 
-1. Click  **CMS** in the left navigation bar, then select the **Edit** tab in the left sidebar.
+1. Click **CMS** in the left navigation bar, then select the **Edit** tab in the left sidebar.
 2. Select a collection in the left sidebar, then click an item’s row in the table.
 3. Edit the content in the relevant fields.
 
@@ -69,7 +69,7 @@ Editing in the table view is handy when you want to jump between items and quick
 
 Editing in connect view is helpful when you’ve already connected content to layers on the canvas and want to make updates and immediately preview the results in the page.
 
-1. Click  **CMS** in the left navigation bar, then select the **Connect** tab in the left sidebar.
+1. Click **CMS** in the left navigation bar, then select the **Connect** tab in the left sidebar.
 2. On the canvas, double click a layer connected to a CMS field.
 3. Edit the current item’s content in the right sidebar.
 
@@ -86,17 +86,17 @@ Editing in connect view is helpful when you’ve already connected content to la
 
 ## Delete an item in a collection
 
-1. Click  **CMS** in the left navigation bar, then select the collection that contains the item.
+1. Click **CMS** in the left navigation bar, then select the collection that contains the item.
 2. Right-click the item in the table and click **Delete**.
 
 ## Rename a collection
 
-1. In a Figma Sites file, click  **CMS** in the left navigation bar.
+1. In a Figma Sites file, click **CMS** in the left navigation bar.
 2. Double click the collection name in the left sidebar to rename it.
 
 ## Delete a collection
 
-1. In a Figma Sites file, click  **CMS** in the left navigation bar.
+1. In a Figma Sites file, click **CMS** in the left navigation bar.
 2. Right click the collection name in the left sidebar and select **Delete**.
 
 **Caution**: Deleting a collection is a permanent action. It’s not possible to recover a deleted CMS collection from the file’s version history.

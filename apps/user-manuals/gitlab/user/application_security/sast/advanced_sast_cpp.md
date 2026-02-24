@@ -25,23 +25,23 @@ To run the analyzer in your pipeline, include the SAST template and enable GitLa
 
 ```yaml
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 variables:
-  GITLAB_ADVANCED_SAST_CPP_ENABLED: "true"
-  SAST_COMPILATION_DATABASE: "compile_commands.json"
+ GITLAB_ADVANCED_SAST_CPP_ENABLED: "true"
+ SAST_COMPILATION_DATABASE: "compile_commands.json"
 ```
 
 Alternatively, with the [SAST component](https://gitlab.com/components/sast/-/blob/main/templates/sast.yml):
 
 ```yaml
 include:
-  - component: gitlab.com/components/sast/sast@main
+ - component: gitlab.com/components/sast/sast@main
     inputs:
       run_advanced_sast_cpp: "true"
 
 variables:
-  SAST_COMPILATION_DATABASE: "compile_commands.json"
+ SAST_COMPILATION_DATABASE: "compile_commands.json"
 ```
 
 This minimal configuration assumes that your project can generate a compilation database (CDB).
@@ -81,14 +81,14 @@ in the following build job example:
 
 ```yaml
 <YOUR-BUILD-JOB-NAME>:
-  image: ubuntu:24.04
-  before_script:
+ image: ubuntu:24.04
+ before_script:
     - apt update -qq && apt install -y -qq cmake build-essential
-  script:
+ script:
     - mkdir -p build
     - cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
     - make -j$(nproc)
-  artifacts:
+ artifacts:
     paths:
       - build/compile_commands.json # Pass the CDB file to the gitlab-advanced-sast-cpp job
 ```
@@ -111,28 +111,26 @@ Tell the GitLab Advanced SAST CPP analyzer where to find the CDB with the `SAST_
 
 ```yaml
 variables:
-  SAST_COMPILATION_DATABASE: YOUR_COMPILATION_DATABASE.json
+ SAST_COMPILATION_DATABASE: YOUR_COMPILATION_DATABASE.json
 ```
 
 If `SAST_COMPILATION_DATABASE` is not specified, the GitLab Advanced SAST CPP analyzer defaults to using a file named `compile_commands.json` located in the project root directory.
 
-The build job which generates the `compile_commands.json` file must export
-it as [job artifact](../../../ci/jobs/job_artifacts.md) for the `gitlab-advanced-sast-cpp`
-job to consume:
+The build job which generates the `compile_commands.json` file must export it as [job artifact](../../../ci/jobs/job_artifacts.md) for the `gitlab-advanced-sast-cpp` job to consume:
 
 ```yaml
 variables:
-  SAST_COMPILATION_DATABASE: build/compile_commands.json
+ SAST_COMPILATION_DATABASE: build/compile_commands.json
 
 <YOUR-BUILD-JOB-NAME>:
-  image: ubuntu:24.04
-  before_script:
+ image: ubuntu:24.04
+ before_script:
     - apt update -qq && apt install -y -qq cmake build-essential
-  script:
+ script:
     - mkdir -p build
     - cmake -S . -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
     - make -j$(nproc)
-  artifacts:
+ artifacts:
     paths:
       - build/compile_commands.json # Pass the CDB file to the gitlab-advanced-sast-cpp job
 ```
@@ -165,8 +163,7 @@ The [`GitLab Advanced SAST CPP` repository](https://gitlab.com/gitlab-org/securi
          - ${BUILD_DIR} # Pass the split CDB files to the parallelized gitlab-advanced-sast-cpp jobs
    ```
 
-   {{< alert type="note" >}}
-   `split_cdb` is hardcoded to read `${BUILD_DIR}/compile_commands.json`.
+   {{< alert type="note" >}} `split_cdb` is hardcoded to read `${BUILD_DIR}/compile_commands.json`.
    Make sure your build generates the CDB at this exact location before calling `split_cdb`.
    {{< /alert >}}
 
@@ -210,14 +207,14 @@ For example, given the following `.gitlab/sastconfig.toml`:
 
     [[gitlab-advanced-sast-cpp.passthrough]]
         # replace the GitLab default configuration with my own
-        mode  = "overwrite"
-        type  = "url"
+        mode = "overwrite"
+        type = "url"
         value = "https://example.com/gitlab-advanced-sast-cpp.yaml"
 
     [[gitlab-advanced-sast-cpp.passthrough]]
         # append flags from a file in the current repository
-        mode  = "append"
-        type  = "file"
+        mode = "append"
+        type = "file"
         value = "gitlab-advanced-sast-cpp.yml"
 ```
 
@@ -225,24 +222,24 @@ with the following content at `https://example.com/gitlab-advanced-sast-cpp.yaml
 
 ```yaml
 analyzer:
-  - --disable-all
-  - --enable=core.DivideZero
+ - --disable-all
+ - --enable=core.DivideZero
 ```
 
 and `gitlab-advanced-sast-cpp.yml` containing:
 
 ```yaml
 analyzer:
-  - --enable=core.CallAndMessage
+ - --enable=core.CallAndMessage
 ```
 
 the effective resulting configuration will be:
 
 ```yaml
 analyzer:
-  - --disable-all
-  - --enable=core.DivideZero
-  - --enable=core.CallAndMessage
+ - --disable-all
+ - --enable=core.DivideZero
+ - --enable=core.CallAndMessage
 ```
 
 ## Troubleshooting
@@ -268,8 +265,7 @@ cdb-rebase compile_commands.json /host/path /container/path > rebased_compile_co
 ### Fixing the CDB
 
 If the build environment differs from the scan environment, the generated CDB might require adjustments.
-You can modify it with [jq](https://jqlang.org),
-or use `cdb_append`, a shell function from the [predefined helper script](https://gitlab.com/gitlab-org/security-products/demos/sast/gitlab-advanced-sast-cpp-templates/-/blob/main/templates/scripts.yml).
+You can modify it with [jq](https://jqlang.org), or use `cdb_append`, a shell function from the [predefined helper script](https://gitlab.com/gitlab-org/security-products/demos/sast/gitlab-advanced-sast-cpp-templates/-/blob/main/templates/scripts.yml).
 
 `cdb_append` appends compiler options to an existing CDB.
 It accepts:
@@ -281,11 +277,11 @@ Example in CI/CD:
 
 ```yaml
 include:
-  - project: "gitlab-org/security-products/demos/sast/gitlab-advanced-sast-cpp-templates"
+ - project: "gitlab-org/security-products/demos/sast/gitlab-advanced-sast-cpp-templates"
     file: "templates/scripts.yml"
 
 <YOUR-BUILD-JOB-NAME>:
-  script:
+ script:
     - !reference [.gitlab-advanced-sast-cpp-scripts]
     - <your-script to generate the CDB>
     - cdb_append "${BUILD_DIR}" "-I'$PWD/include-cache'" "-Wno-error=register"
@@ -297,7 +293,7 @@ To accelerate the compilation and analysis process, the CDB can be [cached](../.
 
 ```yaml
 .cdb_cache:
-  cache: &cdb_cache
+ cache: &cdb_cache
     key:
       files:
         - Makefile
@@ -306,14 +302,14 @@ To accelerate the compilation and analysis process, the CDB can be [cached](../.
       - compile_commands.json
 
 <YOUR-BUILD-JOB-NAME>:
-  script:
+ script:
     - <your-script to generate the CDB>
-  cache:
+ cache:
     <<: *cdb_cache
     policy: pull-push
 
 gitlab-advanced-sast-cpp:
-  cache:
+ cache:
     <<: *cdb_cache
     policy: pull
 ```
@@ -333,7 +329,7 @@ Example:
 
 ```yaml
 gitlab-advanced-sast-cpp:
-  before-script:
+ before-script:
     # Rebase the original CDB to be relative to the current directory.
     #
     # ORIGINAL_CDB_PATH     - Path to the CDB artifact from a previous job (e.g., artifacts/compile_commands.json)

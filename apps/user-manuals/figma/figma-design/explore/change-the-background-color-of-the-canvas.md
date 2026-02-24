@@ -29,6 +29,6 @@ To change the background color:
 2. From the **Page** section of the properties panel on the right side of the screen, click the color fill to select a new color. You can also enter a specific hex value if you prefer.
 3. If needed, set the opacity on the background by clicking **100%** and entering a new value.
 
-**Tip**: You can toggle the visibility of the background color by clicking the  **Hide** icon.
+**Tip**: You can toggle the visibility of the background color by clicking the **Hide** icon.
 
 **Note**: The canvas background color cannot be changed while in Dev Mode.

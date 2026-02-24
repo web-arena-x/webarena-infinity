@@ -21,7 +21,7 @@ Qualification logic is 'AND' across qualification types, and 'OR' within a parti
 3. Select the desired qualifications for fair attendees:
 
 - **School years**: Select school years to limit registrations to only students with these school years. You may select as many as you like.
-  - **Note**: Students that do not have a school year on their profile will not be able to register.
+ - **Note**: Students that do not have a school year on their profile will not be able to register.
 - **Cumulative GPA Required**: Check this box if you'd like registrations limited to students with a minimum gpa. Use the Cumulative GPA text box to enter the minimum gpa.
 - **Major Groups**: Select specific majors groups to limit registrations to students with a qualifying major.
 - **Colleges**: Enter the name(s) of colleges that students must be linked to in order to register for the fair.

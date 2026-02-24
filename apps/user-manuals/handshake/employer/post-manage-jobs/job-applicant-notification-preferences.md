@@ -14,10 +14,10 @@ These notifications keep you updated about candidate applications, including a s
 
 - **Basic employers**
 
-  - Can manage notification preferences **only** for jobs they have personally created.
+ - Can manage notification preferences **only** for jobs they have personally created.
 - **On-campus employers and Premium partners**
 
-  - Can manage notification preferences for jobs they created **and** jobs created by teammates.
+ - Can manage notification preferences for jobs they created **and** jobs created by teammates.
 
 ### Manage job-level notifications
 

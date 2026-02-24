@@ -30,12 +30,7 @@ With Triage enabled, there is no special process to follow when filing issues to
 
 Seamless[ integrations](https://linear.app/integrations) let your frontline team create issues from the tools that they use most.
 
-Team | Sent to Triage from
---- | ---
-Customer Support | Intercom, Zendesk, Front
-Sales & Operations | Slack
-DevOps | Sentry, Bugsnag
-Anyone | Custom tooling with API, Zapier
+Team | Sent to Triage from --- | --- Customer Support | Intercom, Zendesk, Front Sales & Operations | Slack DevOps | Sentry, Bugsnag Anyone | Custom tooling with API, Zapier
 
 ![Video](https://webassets.linear.app/files/ornj730p/production/d11fec2ba120061ac3b457c6d1c814e1559e87b4.mp4)
 
@@ -56,7 +51,7 @@ The Triage captain can monitor the team's inbox by looking at the count of issue
 ![Video](https://webassets.linear.app/files/ornj730p/production/5223b45ee9c53d9f2e212ccee46afe1145a157c9.mp4)
 
 > [!NOTE]
-> **How we work at Linear**  
+> **How we work at Linear** 
 > We send all customer issues, internal work requests, and Sentry alerts to a single team in Linear which is managed by a rotating Triage captain. Every engineer on the team participates. The rotation is managed in PagerDuty and captains often enable Triage notifications temporarily during their tour of duty.
 
 ### 4. Review issues regularly
@@ -90,11 +85,7 @@ Get more out of Triage by using these additional features:
 
 Enable SLAs in your workspace so that they are automatically applied to issues when they match certain parameters. This can help signal important issues in the Triage queue and ensure that time-sensitive issues are prioritized. [Learn more](https://linear.app/docs/sla)
 
-Example SLAs | 
---- | ---
-When priority is urgent | Apply 24 hour SLA
-When priority is high and the label includes bug | Apply 1 week SLA
-When priority is low and the label includes bug | Apply 2 week SLA
+Example SLAs | --- | --- When priority is urgent | Apply 24 hour SLA When priority is high and the label includes bug | Apply 1 week SLA When priority is low and the label includes bug | Apply 2 week SLA
 
 ![Video](https://webassets.linear.app/files/ornj730p/production/4d7b0c21f90ef17991a7e096f77edaab71954080.mp4)
 

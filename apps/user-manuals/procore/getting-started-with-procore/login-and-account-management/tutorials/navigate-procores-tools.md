@@ -32,13 +32,13 @@ Source: https://support.procore.com/getting-started-with-procore/login-and-accou
 
 ##### Navigating Procore
 
-|  |
+| |
 
 |
 
 ##### Navigating Procore
 
-|  |
+| |
 
 ### OUTDATED VIDEOS - Removed from Support Site and Certifications
 
@@ -50,7 +50,7 @@ Source: https://support.procore.com/getting-started-with-procore/login-and-accou
 
 ##### Navigating Procore
 
-|  |
+| |
 
 ### Mobile
 
@@ -58,13 +58,13 @@ Source: https://support.procore.com/getting-started-with-procore/login-and-accou
 
 ##### Navigating Procore (Mobile)
 
-|  |
+| |
 
 |
 
 ##### Navigating Procore
 
-|  |
+| |
 
 ### OUTDATED VIDEOS - Removed from Support Site and Certifications
 
@@ -76,7 +76,7 @@ Source: https://support.procore.com/getting-started-with-procore/login-and-accou
 
 ##### Navigating Procore
 
-|  |
+| |
 
 ### OUTDATED VIDEOS - Removed from Support Site and Certifications
 
@@ -88,7 +88,7 @@ Source: https://support.procore.com/getting-started-with-procore/login-and-accou
 
 ##### Navigating Procore
 
-|  |
+| |
 
 ### OUTDATED VIDEOS - Removed from Support Site and Certifications
 
@@ -100,7 +100,7 @@ Source: https://support.procore.com/getting-started-with-procore/login-and-accou
 
 ##### Navigating Procore
 
-|  |
+| |
 
 ### OUTDATED VIDEOS - Removed from Support Site and Certifications
 
@@ -114,7 +114,7 @@ Source: https://support.procore.com/getting-started-with-procore/login-and-accou
 
 ##### Navigating Procore
 
-|  |
+| |
 
 ### Mobile
 
@@ -122,7 +122,7 @@ Source: https://support.procore.com/getting-started-with-procore/login-and-accou
 
 ##### Navigating Procore (Mobile)
 
-|  |
+| |
 
 ### Web
 
@@ -240,7 +240,7 @@ This is an example of a project log page in Procore (i.e. the page you will see
 
 ## 14
 
-- If the table view is too big for your screen size, use the scroll bar to view the rest of the columns in the table.  
-  *Note*: If you are using a track pad, you can also scroll sideways across the table view to view the rest of the columns.
+- If the table view is too big for your screen size, use the scroll bar to view the rest of the columns in the table. 
+ *Note*: If you are using a track pad, you can also scroll sideways across the table view to view the rest of the columns.
 
 [back to top](#top_of_page "/faq/navigating-procore-tools#top_of_page")

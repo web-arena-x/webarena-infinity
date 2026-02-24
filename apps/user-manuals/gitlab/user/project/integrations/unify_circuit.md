@@ -17,8 +17,7 @@ The Unify Circuit integration sends notifications from GitLab to a Circuit conve
 
 ## Set up Unify Circuit
 
-In Unify Circuit, [add a webhook](https://www.circuit.com/unifyportalfaqdetail?articleId=164448) and
-copy its URL.
+In Unify Circuit, [add a webhook](https://www.circuit.com/unifyportalfaqdetail?articleId=164448) and copy its URL.
 
 In GitLab:
 

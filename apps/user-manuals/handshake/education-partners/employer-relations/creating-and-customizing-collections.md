@@ -11,14 +11,14 @@ For more information about collections, please refer to [EDU: Collections Overvi
 Topics:
 
 - [Creating a collection](#h_01J51JW4BZ59CAHNV72RMAV19P)
-  - [Choose a category](#h_01J51JWGA90NEKEC20E3D3TEVN)
-  - [Describe this collection](#h_01J51JWWT2EQWACPC56QKGR4SB)
-  - [Set up collection](#h_01J51JX61N03P73PVF4HXKW78V)
-  - [Review collection](#h_01J51JXJACZQK3BN7P1236NV7Z)
+ - [Choose a category](#h_01J51JWGA90NEKEC20E3D3TEVN)
+ - [Describe this collection](#h_01J51JWWT2EQWACPC56QKGR4SB)
+ - [Set up collection](#h_01J51JX61N03P73PVF4HXKW78V)
+ - [Review collection](#h_01J51JXJACZQK3BN7P1236NV7Z)
 - [Making changes to a collection](#h_01J51JXVVSKT0W1N5NTJ9HM53B)
-  - [Collections page](#h_01J51JY5F12HK209EHGY96YE9Z)
-  - [Add employers](#h_01J8MST6JQ72XTBKY3QX3ZJW68)
-  - [Editing a collection](#h_01J51JYGHSBK4TR943J2XF0T1N)
+ - [Collections page](#h_01J51JY5F12HK209EHGY96YE9Z)
+ - [Add employers](#h_01J8MST6JQ72XTBKY3QX3ZJW68)
+ - [Editing a collection](#h_01J51JYGHSBK4TR943J2XF0T1N)
 - [Additional Resources](#h_01J8T4C37YRJS6K0C19G7Z35P1)
 
 ## Creating a collection
@@ -57,11 +57,11 @@ Let’s get into filling out specific information about this collection! On this
 - **Title:** Limit 65 characters
 - **Description:** Limit 200 characters
 - **Collection targeting:** Choose whether this collection is available to  all students, students of a specific major group, or students attending a specific college.
-  - If you choose to target major groups or colleges, an additional box appears where you can search for the major group/college to target.
+ - If you choose to target major groups or colleges, an additional box appears where you can search for the major group/college to target.
 
     **Note:** If you select the collection targeting option, a message will appear: *Students in this targeted college/major group will automatically follow this collection.* To learn more about auto-following, refer to the **Student feature: Follow Collection** section in [EDU: Collections Overview](https://support.joinhandshake.com/hc/en-us/articles/4774141819799).
-- **Make this collection private:** Select this to prevent students from accessing this collection.  
-  **Note:** Some of the Handshake generated collections will be set to private by default. You can switch these back to public by unchecking this box.
+- **Make this collection private:** Select this to prevent students from accessing this collection. 
+ **Note:** Some of the Handshake generated collections will be set to private by default. You can switch these back to public by unchecking this box.
 
 ![Describe this collection fields.png](https://support.joinhandshake.com/hc/article_attachments/32128526904983)
 
@@ -72,9 +72,9 @@ Select **Continue** to proceed.
 You can use this page to get started on adding employers to your collection, and setting which jobs will be added to the collection. You can make changes to these at any time after creating your collection as well. Please refer to [Making changes to a collection](#h_01J51JXVVSKT0W1N5NTJ9HM53B) for more information.
 
 - **Add employers (optional):** Search for employers that you would like to add to this collection.
-  - **Note:** You can add employers through the **Approved** tab on the **Employers** page. Learn more under the *How to add employers to collections* section in [EDU: Collections Overview](https://support.joinhandshake.com/hc/en-us/articles/4774141819799).
+ - **Note:** You can add employers through the **Approved** tab on the **Employers** page. Learn more under the *How to add employers to collections* section in [EDU: Collections Overview](https://support.joinhandshake.com/hc/en-us/articles/4774141819799).
 - **Auto-include employers via labels:** Select this to expand a new option to search employer labels.
-  - **Search employer labels:** Type to search for labels you wish to add. Any employers with these labels will be added to this collection automatically, even if the label is applied to the employer at a later date.  
+ - **Search employer labels:** Type to search for labels you wish to add. Any employers with these labels will be added to this collection automatically, even if the label is applied to the employer at a later date. 
     ![Auto-include employers with these labels.png](https://support.joinhandshake.com/hc/article_attachments/26620329583895)
     - **Job settings:** Choose from the following options which jobs should be automatically added to this collection.
       - **Include all active jobs from employers in the collection:** All active jobs from these employers, posted to your school, will be added to this collection
@@ -83,36 +83,36 @@ You can use this page to get started on adding employers to your collection, and
 Job inclusion rules
 
 - **Job type**
-  - **Eligible for work study**
+ - **Eligible for work study**
 - **Posted by alumni**
 - **Compensation**
 - **Employment type**
-  - **Full time**
-  - **Part time**
+ - **Full time**
+ - **Part time**
 - **Location type**
-  - **On-site**
-  - **Remote**
-  - **Hybrid**
+ - **On-site**
+ - **Remote**
+ - **Hybrid**
 - **Location**
 - **Job duration**
-  - **Permanent**
-  - **Temporary or seasonal**
+ - **Permanent**
+ - **Temporary or seasonal**
 - **Job role**
 - **Job label**
 - **Work Authorization**
-  - **Job requires US work authorization**
-  - **Job does not require US Work authorization**
-  - **Work authorization requirements undisclosed**
-  - **Job is eligible for US visa sponsorship**
-  - **Job is open to candidates with Curricular Practical Training (CPT)**
-  - **Job is open to candidates with Optional Practical Training (OPT)**
+ - **Job requires US work authorization**
+ - **Job does not require US Work authorization**
+ - **Work authorization requirements undisclosed**
+ - **Job is eligible for US visa sponsorship**
+ - **Job is open to candidates with Curricular Practical Training (CPT)**
+ - **Job is open to candidates with Optional Practical Training (OPT)**
 - **Major groups qualification**
 - **School year qualification**
 
 **Event Settings**
 
 - **Add events by name:** Search for the event name(s) that you'd like to add to this collection
-  - **Auto-include events by labels:** Select this to expand a new option to search event labels.
+ - **Auto-include events by labels:** Select this to expand a new option to search event labels.
     - **Search event labels:** Type to search for event labels. Any events associated with these labels will be added to the collection, even if the label is added to the event at a later date. Employers *do not* need to be added to a collection in order for their event to be added to a collection.
 
 ![Auto-include events with these labels.png](https://support.joinhandshake.com/hc/article_attachments/29038630571927)

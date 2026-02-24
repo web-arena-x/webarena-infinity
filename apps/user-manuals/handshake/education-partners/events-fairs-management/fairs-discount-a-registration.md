@@ -23,7 +23,7 @@ If you'd like to offer discounts on job fair registration fees for employers, y
 - **Name**: We recommend giving your discount a Name that describes how the discount should be used and its amount (for example “Not-For-Profit $100 off”).
 - **Description**: Provide a description for the discount.
 - **Amount**: Enter a positive number for the discount amount, without a dollar sign.
-  - For example, if the discount you’re creating is for $100 off the normal registration fee, you’d enter 100 (not -$100)
+ - For example, if the discount you’re creating is for $100 off the normal registration fee, you’d enter 100 (not -$100)
 
 ![New_Discount_Form.png](https://support.joinhandshake.com/hc/article_attachments/26001456147095)
 

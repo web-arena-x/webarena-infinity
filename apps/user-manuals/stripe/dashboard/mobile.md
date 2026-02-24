@@ -183,8 +183,8 @@ To add widgets to your iOS lock screen:
 
 | Widget type | iOS | Android |
 | --- | --- | --- |
-| Home |  | 4 metric widgets, such as:  - Daily gross volume - Daily new payments - Daily new customers - Daily net volume |
-| Lock screen | 17 metric widgets, such as:  - Monthly recurring revenue - Net volume from new sales - High risk payments - Dispute activity |  |
+| Home | | 4 metric widgets, such as: - Daily gross volume - Daily new payments - Daily new customers - Daily net volume |
+| Lock screen | 17 metric widgets, such as: - Monthly recurring revenue - Net volume from new sales - High risk payments - Dispute activity | |
 
 ## Accept payments on mobile
 
@@ -192,11 +192,11 @@ You can accept and manage in-person or online payments from the Stripe Dashboard
 
 | Payment capability | Description | iOS | Android |
 | --- | --- | --- | --- |
-| [Tap to pay](/no-code/in-person) | Accept in-person payments through a contactless card without needing a hardware reader |  |  |
-| [Manual card entry](https://support.stripe.com/questions/b7bd8ea6-d20c-40f8-a273-4d6c4902957a) | A transaction where you enter a customer’s card details and process it in the Stripe Dashboard |  |  |
-| [Invoices](/no-code/invoices) | Use invoices to collect one-time or recurring payments from a specific customer. |  |  |
-| [Payment links](/no-code/payment-links) (including QR codes) | Reusable links that take your customers to a prebuilt checkout page |  |  |
-| [Subscriptions](/no-code/subscriptions) | Recurring payments for your products or services |  |  |
+| [Tap to pay](/no-code/in-person) | Accept in-person payments through a contactless card without needing a hardware reader | | |
+| [Manual card entry](https://support.stripe.com/questions/b7bd8ea6-d20c-40f8-a273-4d6c4902957a) | A transaction where you enter a customer’s card details and process it in the Stripe Dashboard | | |
+| [Invoices](/no-code/invoices) | Use invoices to collect one-time or recurring payments from a specific customer. | | |
+| [Payment links](/no-code/payment-links) (including QR codes) | Reusable links that take your customers to a prebuilt checkout page | | |
+| [Subscriptions](/no-code/subscriptions) | Recurring payments for your products or services | | |
 
 To accept payments on mobile:
 

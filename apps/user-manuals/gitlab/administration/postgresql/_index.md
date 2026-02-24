@@ -13,8 +13,7 @@ description: Configure PostgreSQL for scaling.
 
 {{< /details >}}
 
-In this section, you are guided through configuring a PostgreSQL database to
-be used with GitLab in one of our [reference architectures](../reference_architectures/_index.md).
+In this section, you are guided through configuring a PostgreSQL database to be used with GitLab in one of our [reference architectures](../reference_architectures/_index.md).
 
 ## Configuration options
 
@@ -22,18 +21,13 @@ Choose one of the following PostgreSQL configuration options:
 
 ### Standalone PostgreSQL for Linux package installations
 
-This setup is for when you have installed GitLab by using the
-[Linux package](https://about.gitlab.com/install/) (CE or EE),
-to use the bundled PostgreSQL having only its service enabled.
+This setup is for when you have installed GitLab by using the [Linux package](https://about.gitlab.com/install/) (CE or EE), to use the bundled PostgreSQL having only its service enabled.
 
 Read how to [set up a standalone PostgreSQL instance](standalone.md) for Linux package installations.
 
 ### Provide your own PostgreSQL instance
 
-This setup is for when you have installed GitLab using the
-[Linux package](https://about.gitlab.com/install/) (CE or EE),
-or [self-compiled](../../install/self_compiled/_index.md) your installation, but you want to use
-your own external PostgreSQL server.
+This setup is for when you have installed GitLab using the [Linux package](https://about.gitlab.com/install/) (CE or EE), or [self-compiled](../../install/self_compiled/_index.md) your installation, but you want to use your own external PostgreSQL server.
 
 Read how to [set up an external PostgreSQL instance](external.md).
 
@@ -50,11 +44,9 @@ Read more about [monitoring and logging setup for external Databases](external_m
 
 {{< /details >}}
 
-This setup is for when you have installed GitLab using the
-[Linux **Enterprise Edition** (EE) package](https://about.gitlab.com/install/?version=ee).
+This setup is for when you have installed GitLab using the [Linux **Enterprise Edition** (EE) package](https://about.gitlab.com/install/?version=ee).
 
-All the tools that are needed like PostgreSQL, PgBouncer, and Patroni are bundled in
-the package, so you can use it to set up the whole PostgreSQL infrastructure (primary, replica).
+All the tools that are needed like PostgreSQL, PgBouncer, and Patroni are bundled in the package, so you can use it to set up the whole PostgreSQL infrastructure (primary, replica).
 
 Read how to [set up PostgreSQL replication and failover](replication_and_failover.md) for Linux package installations.
 

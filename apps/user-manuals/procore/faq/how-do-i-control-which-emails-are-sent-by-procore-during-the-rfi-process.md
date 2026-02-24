@@ -8,7 +8,7 @@ Source: https://support.procore.com/faq/how-do-i-control-which-emails-are-sent-b
 
 The project's RFIs tool sends out various automatic email notifications when certain tasks are completed for an RFI. These tasks are referred to as **Email Events** in the **RFI Emails** table in the **RFI Settings** page. The table below shows the default email notification settings, but users with the appropriate permissions can modify these settings. See [Configure Advanced Settings: RFIs](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/configure-advanced-settings-rfis "Configure Advanced Settings: RFIs").
 
-| **Email Event** | **Enable Email** | **Creator** | **RFI Manager** | **Assignees** | **Distribution  Group** |
+| **Email Event** | **Enable Email** | **Creator** | **RFI Manager** | **Assignees** | **Distribution Group** |
 | --- | --- | --- | --- | --- | --- |
 | Ball In Court Shift 1 | icon-green-checkmark.png | icon-x-red.png | icon-x-red.png | icon-x-red.png | icon-x-red.png |
 | Closed | icon-green-checkmark.png | icon-green-checkmark.png | icon-green-checkmark.png | icon-green-checkmark.png | icon-green-checkmark.png |

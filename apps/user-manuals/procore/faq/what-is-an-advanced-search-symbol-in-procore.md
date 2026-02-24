@@ -23,7 +23,7 @@ The following tools support advanced search symbols in search queries.
 
 | Procore Tool | Tutorial |
 | --- | --- |
-| **Directory** | [Search and Filter the Project Directory](https://support.procore.com/products/online/user-guide/project-level/directory/tutorials/search-and-filter-the-project-directory "Search and Filter the Project Directory")  [Search and Filter the Company Directory](https://support.procore.com/products/online/user-guide/company-level/directory/tutorials/search-and-filter-the-company-directory "Search and Filter the Company Directory") |
+| **Directory** | [Search and Filter the Project Directory](https://support.procore.com/products/online/user-guide/project-level/directory/tutorials/search-and-filter-the-project-directory "Search and Filter the Project Directory") [Search and Filter the Company Directory](https://support.procore.com/products/online/user-guide/company-level/directory/tutorials/search-and-filter-the-company-directory "Search and Filter the Company Directory") |
 | **Coordination Issues** | [Search and Filter for Coordination Issues](https://support.procore.com/products/online/user-guide/project-level/coordination-issues/tutorials/search-for-and-filter-coordination-issues "Search and Filter for Coordination Issues") |
 | **Correspondence** | [Search, Sort, and Filter Correspondences](https://support.procore.com/products/online/user-guide/project-level/correspondence/tutorials/search-sort-and-filter-correspondences "Search, Sort, and Filter Correspondences") |
 | **Emails** | [Search the Emails Tool for Messages](https://support.procore.com/products/online/user-guide/project-level/emails/tutorials/search-emails-in-the-emails-tool "Search the Emails Tool for Messages") |

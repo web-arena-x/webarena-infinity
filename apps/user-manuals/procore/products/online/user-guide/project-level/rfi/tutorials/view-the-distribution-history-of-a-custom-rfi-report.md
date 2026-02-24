@@ -11,9 +11,9 @@ To view the distribution history of a custom RFI report listed in the RFIs tool.
 ## Things to Consider
 
 - **Required User Permission**:
-  - 'Admin' level permission on the Project level RFIs tool.  
+ - 'Admin' level permission on the Project level RFIs tool. 
     AND
-  - 'Admin' level permission or higher on the Project level Reports tool.
+ - 'Admin' level permission or higher on the Project level Reports tool.
 
 ## Demo
 
@@ -21,11 +21,11 @@ To view the distribution history of a custom RFI report listed in the RFIs tool.
 
 ## Steps
 
-1. Navigate to your project's **RFIs** tool.  
+1. Navigate to your project's **RFIs** tool. 
    This reveals the RFIs page.
-2. In the right pane, click the desired report.  
+2. In the right pane, click the desired report. 
    This launches the Project level Reports tool and opens the selected report.
-3. Under **General Report Links**, click **Distribution History**.   
+3. Under **General Report Links**, click **Distribution History**.  
    This reveals a list of individuals to whom the report has been distributed.
 
 ## See Also

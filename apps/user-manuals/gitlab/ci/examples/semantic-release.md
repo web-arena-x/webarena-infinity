@@ -55,34 +55,34 @@ Create a `.gitlab-ci.yml` with the following content:
 
 ```yaml
 default:
-  image: node:latest
-  before_script:
+ image: node:latest
+ before_script:
     - npm ci --cache .npm --prefer-offline
     - |
       {
         echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
         echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=\${CI_JOB_TOKEN}"
       } | tee -a .npmrc
-  cache:
+ cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
       - .npm/
 
 workflow:
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH
 
 variables:
-  NPM_TOKEN: ${CI_JOB_TOKEN}
+ NPM_TOKEN: ${CI_JOB_TOKEN}
 
 stages:
-  - release
+ - release
 
 publish:
-  stage: release
-  script:
+ stage: release
+ script:
     - npm run semantic-release
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 ```
 
@@ -118,8 +118,8 @@ semantic-release pulls its configuration information from a `.releaserc.json` fi
 
 ```json
 {
-  "branches": ["main"],
-  "plugins": [
+ "branches": ["main"],
+ "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     "@semantic-release/gitlab",
@@ -131,7 +131,7 @@ semantic-release pulls its configuration information from a `.releaserc.json` fi
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ]
-  ]
+ ]
 }
 ```
 
@@ -181,13 +181,10 @@ npm install --save @gitlab-examples/semantic-release-npm
 
 ### Deleted Git tags reappear
 
-A [Git tag](../../user/project/repository/tags/_index.md) deleted from the repository
-can sometimes be recreated by `semantic-release` when GitLab runners use a cached
-version of the repository. If the job runs on a runner with a cached repository that
-still has the tag, `semantic-release` recreates the tag in the main repository.
+A [Git tag](../../user/project/repository/tags/_index.md) deleted from the repository can sometimes be recreated by `semantic-release` when GitLab runners use a cached version of the repository. If the job runs on a runner with a cached repository that still has the tag, `semantic-release` recreates the tag in the main repository.
 
 To avoid this behavior, you can either:
 
 - Configure the runner with [`GIT_STRATEGY: clone`](../runners/configure_runners.md#git-strategy).
 - Include the [`git fetch --prune-tags` command](https://git-scm.com/docs/git-fetch#Documentation/git-fetch.txt---prune-tags)
-  in your CI/CD script.
+ in your CI/CD script.

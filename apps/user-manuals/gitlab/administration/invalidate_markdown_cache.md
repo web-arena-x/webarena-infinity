@@ -19,8 +19,7 @@ For performance reasons, GitLab caches the HTML version of Markdown text in fiel
 - Issue descriptions.
 - Merge request descriptions.
 
-These cached versions can become outdated, such as when the `external_url` configuration option is changed. Links
-in the cached text would still refer to the old URL.
+These cached versions can become outdated, such as when the `external_url` configuration option is changed. Links in the cached text would still refer to the old URL.
 
 ## Invalidate the cache
 

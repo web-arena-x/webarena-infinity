@@ -34,7 +34,7 @@ From the dropdown menu, select your school. Schools are listed alphabetically.
 Once your school is selected, you’ll receive the following options:
 
 - **School’s Single Sign-On (SSO):** Log in with your school credentials.
-  - **Tip:** If you don’t remember your school login details, try using the same username and password you use for other school systems, like your student portal.
+ - **Tip:** If you don’t remember your school login details, try using the same username and password you use for other school systems, like your student portal.
 - **.edu Email Address:** Set a unique password for Handshake.
 
 If your school hasn’t created an account for you yet, you’ll be prompted to set up and verify your own. To begin, select **“I'm a Student or Alumni”** to start the account creation process.
@@ -62,7 +62,7 @@ Go to go to the [Handshake login page](https://app.joinhandshake.com/student_acc
 You can sign up using one of the following methods:
 
 - **Continue with Email:** Create a password to log in with your email.
-  - **Note**: Password must be between 8 and 50 characters and contain at least 2 of the following categories: letters, numbers, and special characters.
+ - **Note**: Password must be between 8 and 50 characters and contain at least 2 of the following categories: letters, numbers, and special characters.
 - **Sign in with Google or Apple:** Skip the email/password setup by logging in with your Google or Apple account. Click the **Sign in with Google** or **Sign in with Apple** button on the registration page, follow the prompts, and your account will be automatically created.
 
 ![Sign up for Handshake.png](https://support.joinhandshake.com/hc/article_attachments/34467581720599)
@@ -86,7 +86,7 @@ Once your account is set up, you can log in at: <https://app.joinhandshake.com/l
 You’ll have the option to log in using one of the following methods:
 
 - **If you registered with your school**: You can log in using your your school’s Single Sign-On (SSO), your Handshake credentials, your Apple/Google login, or a one-time password sent to your email.
-  - **Note**: Your school's SSO is different from Handshake credentials. If you've been logging in via SSO or no longer have access to it, you can create a Handshake-specific password. *For instructions, refer to* [How to Set Up Handshake Login Credentials (if you're unable to use Single Sign On)](../your-handshake-account/how-to-set-up-handshake-login-credentials-if-youre-unable-to-use-single-sign-on.md)
+ - **Note**: Your school's SSO is different from Handshake credentials. If you've been logging in via SSO or no longer have access to it, you can create a Handshake-specific password. *For instructions, refer to* [How to Set Up Handshake Login Credentials (if you're unable to use Single Sign On)](../your-handshake-account/how-to-set-up-handshake-login-credentials-if-youre-unable-to-use-single-sign-on.md)
 - **If you registered without your school**: You can log in using your Handshake credentials, Apple/Google login, or a one-time password sent to your email.
 
 **Handshake Password**: If you’ve created a password and need to reset it, click **Forgot your password?** on the login page and follow the prompts. For more details, refer to [Reset the Password for a Student Account in Handshake.](../your-handshake-account/reset-the-password-for-a-student-account-in-handshake.md)

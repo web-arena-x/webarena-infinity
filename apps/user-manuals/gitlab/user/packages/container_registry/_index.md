@@ -15,14 +15,11 @@ description: Use the GitLab Container Registry to store container images for you
 
 You can use the integrated container registry to store container images for each GitLab project.
 
-An administrator must enable the container registry for your GitLab instance. For more information,
-see [GitLab container registry administration](../../../administration/packages/container_registry.md).
+An administrator must enable the container registry for your GitLab instance. For more information, see [GitLab container registry administration](../../../administration/packages/container_registry.md).
 
 {{< alert type="note" >}}
 
-If you pull container images from Docker Hub, you can use the
-[GitLab Dependency Proxy](../dependency_proxy/_index.md#use-the-dependency-proxy-for-docker-images) to avoid
-rate limits and speed up your pipelines.
+If you pull container images from Docker Hub, you can use the [GitLab Dependency Proxy](../dependency_proxy/_index.md#use-the-dependency-proxy-for-docker-images) to avoid rate limits and speed up your pipelines.
 
 {{< /alert >}}
 
@@ -44,8 +41,7 @@ You can use the container registry **Tag Details** page to view a list of tags a
 1. Select **Deploy** > **Container Registry**.
 1. Select your container image.
 
-You can view details about each tag, such as when it was published, how much storage it consumes,
-and the manifest and configuration digests.
+You can view details about each tag, such as when it was published, how much storage it consumes, and the manifest and configuration digests.
 
 You can search, sort (by tag name), and delete tags on this page.
 You can share a filtered view by copying the URL from your browser.
@@ -72,8 +68,7 @@ To download and run a container image hosted in the container registry:
 
 {{< alert type="note" >}}
 
-You must authenticate with the container registry to download
-container images from a private repository.
+You must authenticate with the container registry to download container images from a private repository.
 For more information, see [authenticate with the container registry](authenticate_with_container_registry.md).
 
 {{< /alert >}}
@@ -86,8 +81,7 @@ Your container images must follow this naming convention:
 <registry server>/<namespace>/<project>[/<optional path>]
 ```
 
-For example, if your project is `gitlab.example.com/mynamespace/myproject`,
-then your container image must be named `gitlab.example.com/mynamespace/myproject`.
+For example, if your project is `gitlab.example.com/mynamespace/myproject`, then your container image must be named `gitlab.example.com/mynamespace/myproject`.
 
 You can append additional names to the end of a container image name, up to two levels deep.
 
@@ -112,19 +106,16 @@ registry.example.com/mynamespace/myproject/my/image:rc1
 - [Enabled on GitLab.com](https://gitlab.com/gitlab-org/gitlab/-/issues/429734) in GitLab 16.7.
 
 {{< /history >}}
-The path of a container repository always matches the related project's repository path,
-so renaming or moving only the container registry is not possible. Instead, you can either:
+The path of a container repository always matches the related project's repository path, so renaming or moving only the container registry is not possible. Instead, you can either:
 
 - [Rename the project's repository](../../project/working_with_projects.md#rename-a-repository).
 - [Transfer the project](../../project/working_with_projects.md#transfer-a-project).
 
 For performance reasons, renaming projects with populated container repositories is limited to projects with up to 1,000 container repositories.
 
-On a GitLab Self-Managed instance, you can delete all container images before moving or renaming
-a group or project. Alternatively, [issue 18383](https://gitlab.com/gitlab-org/gitlab/-/issues/18383#possible-workaround)
+On a GitLab Self-Managed instance, you can delete all container images before moving or renaming a group or project. Alternatively, [issue 18383](https://gitlab.com/gitlab-org/gitlab/-/issues/18383#possible-workaround)
 contains community suggestions to work around this limitation. [Epic 9459](https://gitlab.com/groups/gitlab-org/-/epics/9459)
-proposes adding support for moving projects and groups with container repositories
-to GitLab Self-Managed.
+proposes adding support for moving projects and groups with container repositories to GitLab Self-Managed.
 
 ## Disable the container registry for a project
 
@@ -134,8 +125,7 @@ You can, however, remove the container registry for a project:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Settings** > **General**.
-1. Expand the **Visibility, project features, permissions** section
-   and disable **Container registry**.
+1. Expand the **Visibility, project features, permissions** section and disable **Container registry**.
 1. Select **Save changes**.
 
 The **Deploy** > **Container Registry** entry is removed from the project's sidebar.
@@ -145,33 +135,24 @@ The **Deploy** > **Container Registry** entry is removed from the project's side
 By default, the container registry is visible to everyone with access to the project.
 You can, however, change the visibility of the container registry for a project.
 
-For more information about the permissions that this setting grants to users,
-see [Container registry visibility permissions](#container-registry-visibility-permissions).
+For more information about the permissions that this setting grants to users, see [Container registry visibility permissions](#container-registry-visibility-permissions).
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Settings** > **General**.
 1. Expand the section **Visibility, project features, permissions**.
 1. Under **Container registry**, select an option from the dropdown list:
 
-   - **Everyone With Access** (Default): The container registry is visible to everyone with access
-     to the project. If the project is public, the container registry is also public. If the project
-     is internal or private, the container registry is also internal or private.
+   - **Everyone With Access** (Default): The container registry is visible to everyone with access to the project. If the project is public, the container registry is also public. If the project is internal or private, the container registry is also internal or private.
 
-   - **Only Project Members**: The container registry is visible only to project members with
-     at least the Reporter role. This visibility is similar to the behavior of a private project with Container
-     Registry visibility set to **Everyone With Access**.
+   - **Only Project Members**: The container registry is visible only to project members with at least the Reporter role. This visibility is similar to the behavior of a private project with Container Registry visibility set to **Everyone With Access**.
 
 1. Select **Save changes**.
 
 ## Container registry visibility permissions
 
-The ability to view the container registry and pull container images is controlled by the container registry's
-visibility permissions. You can change the visibility through the visibility setting on the UI
-or the [API](../../../api/container_registry.md#change-the-visibility-of-the-container-registry).
+The ability to view the container registry and pull container images is controlled by the container registry's visibility permissions. You can change the visibility through the visibility setting on the UI or the [API](../../../api/container_registry.md#change-the-visibility-of-the-container-registry).
 
-Other permissions, such as updating the container registry and pushing or deleting container images, are not affected by
-this setting. However, disabling the container registry disables all container registry operations. For more information,
-see [Roles and permissions](../../permissions.md).
+Other permissions, such as updating the container registry and pushing or deleting container images, are not affected by this setting. However, disabling the container registry disables all container registry operations. For more information, see [Roles and permissions](../../permissions.md).
 
 |                                                                                                                   |                                               | Anonymous<br/>(Everyone on internet) | Guest | Reporter, Developer, Maintainer, Owner |
 |-------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|--------------------------------------|-------|----------------------------------------|
@@ -179,8 +160,8 @@ see [Roles and permissions](../../permissions.md).
 | Public project with container registry visibility <br/> set to **Only Project Members** (UI) or `private` (API)   | View container registry <br/> and pull images | No                                   | No    | Yes                                    |
 | Internal project with container registry visibility <br/> set to **Everyone With Access** (UI) or `enabled` (API) | View container registry <br/> and pull images | No                                   | Yes   | Yes                                    |
 | Internal project with container registry visibility <br/> set to **Only Project Members** (UI) or `private` (API) | View container registry <br/> and pull images | No                                   | No    | Yes                                    |
-| Private project with container registry visibility <br/> set to **Everyone With Access** (UI) or `enabled` (API)  | View container registry <br/> and pull images | No                                   | No    | Yes                                    |
-| Private project with container registry visibility <br/> set to **Only Project Members** (UI) or `private` (API)  | View container registry <br/> and pull images | No                                   | No    | Yes                                    |
+| Private project with container registry visibility <br/> set to **Everyone With Access** (UI) or `enabled` (API) | View container registry <br/> and pull images | No                                   | No    | Yes                                    |
+| Private project with container registry visibility <br/> set to **Only Project Members** (UI) or `private` (API) | View container registry <br/> and pull images | No                                   | No    | Yes                                    |
 | Any project with container registry `disabled`                                                                    | All operations on container registry          | No                                   | No    | No                                     |
 
 ## Supported image types
@@ -207,17 +188,14 @@ OCI support means that you can host OCI-based image formats in the registry, suc
 
 In the GitLab container registry, you can use the [OCI 1.1 manifest `subject` field](https://github.com/opencontainers/image-spec/blob/v1.1.0/manifest.md)
 to associate container images with [Cosign signatures](../../../ci/yaml/signing_examples.md).
-You can then view signature information alongside its associated container image without having to
-search for that signature's tag.
+You can then view signature information alongside its associated container image without having to search for that signature's tag.
 
-When viewing a container image's tags, you see an icon displayed
-next to each tag that has an associated signature. To see the details of the signature, select the icon.
+When viewing a container image's tags, you see an icon displayed next to each tag that has an associated signature. To see the details of the signature, select the icon.
 
 Prerequisites:
 
 - To sign container images, Cosign v2.0 or later.
-- For GitLab Self-Managed, you need a GitLab container registry configured with a metadata database
-  to display signatures. For more information, see [container registry metadata database](../../../administration/packages/container_registry_metadata_database.md).
+- For GitLab Self-Managed, you need a GitLab container registry configured with a metadata database to display signatures. For more information, see [container registry metadata database](../../../administration/packages/container_registry_metadata_database.md).
 
 ### Sign container images with OCI referrer data
 
@@ -234,7 +212,6 @@ COSIGN_EXPERIMENTAL=1 cosign sign --registry-referrers-mode oci-1-1 <container i
 
 {{< alert type="note" >}}
 
-While the GitLab container registry supports the OCI 1.1 manifest `subject` field, it does not fully
-implement the [OCI 1.1 Referrers API](https://github.com/opencontainers/distribution-spec/blob/v1.1.0/spec.md#listing-referrers).
+While the GitLab container registry supports the OCI 1.1 manifest `subject` field, it does not fully implement the [OCI 1.1 Referrers API](https://github.com/opencontainers/distribution-spec/blob/v1.1.0/spec.md#listing-referrers).
 
 {{< /alert >}}

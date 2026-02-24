@@ -33,6 +33,6 @@ Note: You cannot edit live interactions in bulk.
 You can update the content of multiple text layers at the same time. This is useful for quickly updating text that repeats throughout your presentation, such as text within the header or footer.
 
 1. Select more than one text layer.
-2. Click  **Multi-edit text** at the top of the right sidebar and begin typing. All selected text layers will update to match.
+2. Click **Multi-edit text** at the top of the right sidebar and begin typing. All selected text layers will update to match.
 
 ![](https://help.figma.com/hc/article_attachments/27337007212439)

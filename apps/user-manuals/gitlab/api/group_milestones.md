@@ -63,7 +63,7 @@ Example Response:
 
 ```json
 [
-  {
+ {
     "id": 12,
     "iid": 3,
     "group_id": 16,
@@ -76,7 +76,7 @@ Example Response:
     "created_at": "2013-10-02T09:24:18Z",
     "expired": false,
     "web_url": "https://gitlab.com/groups/gitlab-org/-/milestones/42"
-  }
+ }
 ]
 ```
 
@@ -164,9 +164,7 @@ Parameters:
 | `milestone_id` | integer | yes | The ID of a group milestone |
 
 Currently, this API endpoint doesn't return issues from any subgroups.
-If you want to get all the milestones' issues, you can instead use the
-[List issues API](issues.md#list-issues) and filter for a
-particular milestone (for example, `GET /issues?milestone=1.0.0&state=opened`).
+If you want to get all the milestones' issues, you can instead use the [List issues API](issues.md#list-issues) and filter for a particular milestone (for example, `GET /issues?milestone=1.0.0&state=opened`).
 
 ## Get all merge requests assigned to a single milestone
 

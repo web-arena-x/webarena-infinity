@@ -14,11 +14,11 @@ Project statuses are updated manually—we do not do this automatically, even if
 
 ## Create a custom project status
 
-Project statuses can have customized name, description, and color, which is configured in **Settings -> Projects -> Statuses**.  You can have multiple statuses within the available project status categories: _Backlog, Planned, In Progress, Completed, and Canceled._
+Project statuses can have customized name, description, and color, which is configured in **Settings -> Projects -> Statuses**. You can have multiple statuses within the available project status categories: _Backlog, Planned, In Progress, Completed, and Canceled._
 
 ## Archive projects
 
-Projects are archived based on the team's auto-archive setting as long as all issues within the project are closed, and the project is also marked as closed.  
+Projects are archived based on the team's auto-archive setting as long as all issues within the project are closed, and the project is also marked as closed. 
 
 
 We archive issues the same time as their project—even if they have been closed for longer than the auto-archive setting—in order to not affect project statistics. Therefore, _closed issues do not archive unless the project is closed._

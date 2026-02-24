@@ -17,12 +17,12 @@ We've put together a [Virtual Engagement Kit](https://joinhandshake.com/career-c
 Watch the recordings here:
 
 - Career Services:
-  - [Virtual Fair Launch Webinar – August 2020](https://learn.joinhandshake.com/career-centers/virtual-fair-launch-webinar-august-2020/)
-  - [Back-to-School Virtual Engagement – August 2020](https://learn.joinhandshake.com/career-centers/back-to-school-virtual-engagement-august-2020/)
+ - [Virtual Fair Launch Webinar – August 2020](https://learn.joinhandshake.com/career-centers/virtual-fair-launch-webinar-august-2020/)
+ - [Back-to-School Virtual Engagement – August 2020](https://learn.joinhandshake.com/career-centers/back-to-school-virtual-engagement-august-2020/)
 - Employers:
-  - [Virtual Fair Training for Employers - August 2020](https://go.joinhandshake.com/Career-Fair-Training-On-Demand.html?utm_medium=email&utm_source=emp_events&utm_campaign=FY20Q2-EMP-AMER-VE-WEBINT-08-19-2020-Career-Fair-Training-Core&utm_content=career_fair_training_webinar)
+ - [Virtual Fair Training for Employers - August 2020](https://go.joinhandshake.com/Career-Fair-Training-On-Demand.html?utm_medium=email&utm_source=emp_events&utm_campaign=FY20Q2-EMP-AMER-VE-WEBINT-08-19-2020-Career-Fair-Training-Core&utm_content=career_fair_training_webinar)
 - Students:
-  - [Student Virtual Fair Training Webinar - September 2020](https://learn.joinhandshake.com/students/virtual-fairs-training-session-recording/)
+ - [Student Virtual Fair Training Webinar - September 2020](https://learn.joinhandshake.com/students/virtual-fairs-training-session-recording/)
 
 We are also hosting weekly office hours for Career Services users on Thursdays at 11am PT/2pm ET: [sign up here](https://hs.joinhandshake.com/career-center-webinars/clkg/https/learn.joinhandshake.com/career-centers/virtual-fair-weekly-office-hours/). Join us for weekly office hours to ask questions about how to host a virtual career fair in Handshake and learn virtual fair strategies from your peers.
 
@@ -43,8 +43,8 @@ We’re available to help with:
 Behind the scenes, we’ll also be working to make sure your fair goes smoothly and safely:
 
 - We’ve put together resources to help you prepare and test your fair to ensure it’s successful for all.
-  - [Handshake Video Test](https://support.joinhandshake.com/hc/en-us/articles/360055116693) and employers will have access to test their video/audio directly from the fair page.
-  - [Virtual Fairs: Supporting Employers](https://support.joinhandshake.com/hc/en-us/articles/360049480714) for common questions and [Handshake Video Requirements & Troubleshooting (Employers)](https://support.joinhandshake.com/hc/en-us/articles/360051802973) for ensuring employer video & audio are working as expected.
+ - [Handshake Video Test](https://support.joinhandshake.com/hc/en-us/articles/360055116693) and employers will have access to test their video/audio directly from the fair page.
+ - [Virtual Fairs: Supporting Employers](https://support.joinhandshake.com/hc/en-us/articles/360049480714) for common questions and [Handshake Video Requirements & Troubleshooting (Employers)](https://support.joinhandshake.com/hc/en-us/articles/360051802973) for ensuring employer video & audio are working as expected.
 - We developed a way to report virtual fair technical or trust and safety issues to us directly from the product.
 - We have a direct channel with our video provider, as well as processes in place to work with them as needed.
 - We work with your Relationship Manager to provide proactive consultation, and adjust our coverage to respond to anticipated volume accordingly.

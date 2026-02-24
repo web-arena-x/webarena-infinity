@@ -27,22 +27,22 @@ Use the inline preview to view your site directly on the canvas alongside your d
 
 ![](https://help.figma.com/hc/article_attachments/32048553831959)
 
-To open the inline preview, click the  **down arrow** next to the  **Preview** button at the top of the right sidebar, then select **Inline preview**. You can also use the keyboard shortcut: `Shift` `Space`.
+To open the inline preview, click the **down arrow** next to the **Preview** button at the top of the right sidebar, then select **Inline preview**. You can also use the keyboard shortcut: `Shift` `Space`.
 
 ![The Earthling website opened in the inline preview with the Figma Sites canvas behind it](https://help.figma.com/hc/article_attachments/31945237491479)
 
 Here are a few ways you can control your previewing experience:
 
-- **Navigation controls:** Click the  **Back** and  **Forward** buttons to mimic the corresponding browser buttons.
-- **Automatically resize:** Snap the preview to  desktop,  tablet, or  mobile breakpoints.
+- **Navigation controls:** Click the **Back** and **Forward** buttons to mimic the corresponding browser buttons.
+- **Automatically resize:** Snap the preview to desktop, tablet, or mobile breakpoints.
 - **Manually resize:** Click and drag the edge of the window. Hold `Shift` to scale it proportionally. You can also enter specific width and height values.
 - **Change the scale:** Enter a scale percentage to increase or decrease the size of the window. This is a good option when you want to keep the preview window open while freeing up more space to work on the canvas.
-- **Reload:** Click  **Reload** to see the most recent changes.
-- **Open in full-screen:** Click  **Open full preview** to switch to a full-size preview window.
+- **Reload:** Click **Reload** to see the most recent changes.
+- **Open in full-screen:** Click **Open full preview** to switch to a full-size preview window.
 
 ## Access the full-screen preview
 
-Use the full-screen preview to take over the window and maximize the space you have for testing your site. To open the full-screen preview, click  **Preview** on any webpage, or next to the **Share** button at the top of the right sidebar. You can also use the following keyboard shortcuts:
+Use the full-screen preview to take over the window and maximize the space you have for testing your site. To open the full-screen preview, click **Preview** on any webpage, or next to the **Share** button at the top of the right sidebar. You can also use the following keyboard shortcuts:
 
 - Mac: `⌘ Command` `⌥ Option` `Return`
 - Windows: `Control` `Alt` `Enter`
@@ -51,14 +51,14 @@ Here are a few ways to control the preview:
 
 ![](https://help.figma.com/hc/article_attachments/31889241423895)
 
-- **Close the preview**: Click  **Close** to exit the full-screen preview.
+- **Close the preview**: Click **Close** to exit the full-screen preview.
 - **Switch pages**: Click the webpage slug to jump between pages.
-- **Automatically resize**: Snap the preview to  desktop,  tablet, or  mobile breakpoints.
+- **Automatically resize**: Snap the preview to desktop, tablet, or mobile breakpoints.
 - **Manually resize:** Enter specific width and height values, or drag the handles at the edge of the preview window. Hold `Shift` while dragging to resize the window proportionally.
 - **Scale:** Enter a scale percentage to increase or decrease the relative size of the preview.
-- **Reload:** Click  **Reload preview** to see the most recent changes.
-- **Navigation controls:** Click the  **Back** and  **Forward** buttons to mimic the corresponding browser buttons.
-- **Restart preview:** Click  **Restart preview** to return the preview to it’s original state. This is helpful if you’re testing links on a particular page and want to return to the place where you started when you first opened the preview window. **Restart preview** won’t work if you navigate between webpages by clicking the webpage slug.
+- **Reload:** Click **Reload preview** to see the most recent changes.
+- **Navigation controls:** Click the **Back** and **Forward** buttons to mimic the corresponding browser buttons.
+- **Restart preview:** Click **Restart preview** to return the preview to it’s original state. This is helpful if you’re testing links on a particular page and want to return to the place where you started when you first opened the preview window. **Restart preview** won’t work if you navigate between webpages by clicking the webpage slug.
 
 ## Troubleshoot issues when previewing
 
@@ -79,11 +79,11 @@ Here are some examples which of where you might find inconsistencies between the
 - Shadows on rotated layers may appear differently than designed.
 - Rotations that include groups or objects that change in size can’t use smart animate.
 
-**Tip**: You can check if there are any issues preventing your site from rendering correctly by clicking  **Review issues** at the bottom left corner of the file.
+**Tip**: You can check if there are any issues preventing your site from rendering correctly by clicking **Review issues** at the bottom left corner of the file.
 
 ### An interaction or animation isn’t working as expected
 
-- **Review interaction settings**: Check the interaction settings in the **Interaction** panel in the right sidebar. Verify that the settings for your interaction or animation are correctly configured. Make sure triggers and targets are properly assigned, and the values on each interaction property are correct. If an interaction has the  icon, it is not supported in Figma Sites.
+- **Review interaction settings**: Check the interaction settings in the **Interaction** panel in the right sidebar. Verify that the settings for your interaction or animation are correctly configured. Make sure triggers and targets are properly assigned, and the values on each interaction property are correct. If an interaction has the icon, it is not supported in Figma Sites.
 - **Check for overlapping elements:** Check the canvas and the **Layers** panel in the left sidebar to see if there are elements on top of your interactive element that are preventing it from working as expected.
 
 ### The font size looks too big or too small in the preview window

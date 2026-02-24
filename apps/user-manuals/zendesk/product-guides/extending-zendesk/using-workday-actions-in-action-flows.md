@@ -6,21 +6,17 @@ Source: https://support.zendesk.com/hc/en-us/articles/10050789681050-Using-Workd
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-By connecting the [action builder](https://support.zendesk.com/hc/en-us/articles/8855513857306) to external systems, such as Workday, admins
-can integrate Zendesk with external systems in automated workflows, improving
-collaboration and maintaining a seamless experience across multiple platforms.
+By connecting the [action builder](https://support.zendesk.com/hc/en-us/articles/8855513857306) to external systems, such as Workday, admins can integrate Zendesk with external systems in automated workflows, improving collaboration and maintaining a seamless experience across multiple platforms.
 
-Note: The
-steps associated with external systems in action flows are referred to collectively
-as *external actions*.
+Note: The steps associated with external systems in action flows are referred to collectively as *external actions*.
 
 This article contains the following topics:
 
@@ -30,37 +26,25 @@ This article contains the following topics:
 
 ## Connecting Workday to action builder
 
-Before you can include external actions in your action flows, you must connect the
-action builder to the external system.
+Before you can include external actions in your action flows, you must connect the action builder to the external system.
 
 When connecting to external systems for use in action flows, the following best practices are recommended:
 
-- All external actions performed by an action flow are attributed to the user who connected the
-  external system. Therefore, it's a best practice to use a dedicated service
-  account rather than personal credentials when connecting to each external
-  system.
+- All external actions performed by an action flow are attributed to the user who connected the external system. Therefore, it's a best practice to use a dedicated service account rather than personal credentials when connecting to each external system.
 - All integrations request access to necessary scopes. However, it's important that you review and validate the scopes before authorizing the connection to the external system.
 - When managing credentials for API key-based tools, such as OpenAI, it's best to store keys in a secure vault or credential manager.
 
 **To connect Workday to the action builder**
 
-1. [Create an OAuth client in
-   Workday](#topic_c5j_ktm_phc).
-2. [Use the OAuth client to
-   connect Workday to the action builder](#topic_vp5_qtm_phc).
+1. [Create an OAuth client in Workday](#topic_c5j_ktm_phc).
+2. [Use the OAuth client to connect Workday to the action builder](#topic_vp5_qtm_phc).
 
-   After you've connected
-   to the system, you'll see an indicator that it's connected and details
-   about the instance you're connected to, as well as the actions available
-   for Workday.
-3. (Optional) Configure Workday to allow contact information to be updated
-   through REST API requests.
+   After you've connected to the system, you'll see an indicator that it's connected and details about the instance you're connected to, as well as the actions available for Workday.
+3. (Optional) Configure Workday to allow contact information to be updated through REST API requests.
 
 ### Creating an OAuth client in Workday
 
-Workday uses OAuth 2.0 for authorization. A Workday administrator must
-set up an OAuth 2.0 client in Workday to provide Zendesk secure access to your
-data in Workday.
+Workday uses OAuth 2.0 for authorization. A Workday administrator must set up an OAuth 2.0 client in Workday to provide Zendesk secure access to your data in Workday.
 
 **To set up an OAuth 2.0 client in Workday**
 
@@ -69,8 +53,7 @@ data in Workday.
 3. Scroll down to the OAuth 2.0 Settings section and turn on the **OAuth 2.0** configuration.
 4. Configure the API client:
    - **Search**: Select **Register API Client**.
-   - **Client Name**: Enter a meaningful name for your client, such as *Zendesk
-     connection*.
+   - **Client Name**: Enter a meaningful name for your client, such as *Zendesk connection*.
    - **Client Grant Type**: Choose **Authorization Code**. See [OAuth 2.0 Security Best Current Practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics) for more information about grant types.
    - **Client Redirect URL**: Enter
 
@@ -148,7 +131,7 @@ information using the Workday REST API.
 The following requirements must be met to configure this:
 
 - Admin-level access to Workday security and business process
-  policies
+ policies
 - A security group exists or is created for the service account
 - All changes are tested in a sandbox environment first
 
@@ -190,13 +173,13 @@ The following Workday actions are available:
 - [Look up worker](#topic_gqx_j1g_phc)
 - [Request time off](#topic_wns_k1g_phc)
 - [Manage primary home
-  email](#topic_tq1_fmf_d3c)
+ email](#topic_tq1_fmf_d3c)
 - [Manage primary home
-  phone](#topic_dgg_bqf_d3c)
+ phone](#topic_dgg_bqf_d3c)
 - [Manage primary work
-  email](#topic_njm_fqf_d3c)
+ email](#topic_njm_fqf_d3c)
 - [Manage primary work
-  phone](#topic_mjn_hqf_d3c)
+ phone](#topic_mjn_hqf_d3c)
 
 ### Looking up an employee
 
@@ -205,7 +188,7 @@ for an individual employee.
 
 This action has the following inputs and outputs:
 
-|  | Variables |
+| | Variables |
 | --- | --- |
 | Inputs | `Worker ID` or `Work email address` |
 | Output | The employee's personnel data |
@@ -217,9 +200,9 @@ behalf of employees.
 
 This action has the following inputs and outputs:
 
-|  | Variables |
+| | Variables |
 | --- | --- |
-| Inputs | `Worker ID`, `Request date`, `Time off type`, `Daily quantity` Note: Dates must be formatted as YYYY-MM-DD or YYYY-MM-DDhh:mm and in the Workday account's timezone.  (Optional) `Start date`, `End date`, `Comment` |
+| Inputs | `Worker ID`, `Request date`, `Time off type`, `Daily quantity` Note: Dates must be formatted as YYYY-MM-DD or YYYY-MM-DDhh:mm and in the Workday account's timezone. (Optional) `Start date`, `End date`, `Comment` |
 | Output | `Request ID` |
 
 ### Managing a user's primary home email address
@@ -229,7 +212,7 @@ email address.
 
 This action has the following inputs and outputs:
 
-|  | Variables |
+| | Variables |
 | --- | --- |
 | Inputs | `Worker ID`, `Home email` (Optional) `Comment`, `Public visibility` |
 | Output | `Request status`, `Updated primary home email` |
@@ -241,7 +224,7 @@ phone number.
 
 This action has the following inputs and outputs:
 
-|  | Variables |
+| | Variables |
 | --- | --- |
 | Inputs | `Worker ID`, `Home phone number`, `Country`, `Device type` (Optional) `Public visibility` |
 | Output | `Request status`, `Updated primary home phone number` |
@@ -253,7 +236,7 @@ email address.
 
 This action has the following inputs and outputs:
 
-|  | Variables |
+| | Variables |
 | --- | --- |
 | Inputs | `Worker ID`, `Work email` (Optional) `Comment`, `Public visibility` |
 | Output | `Request status`, `Updated primary work email` |
@@ -265,7 +248,7 @@ phone number.
 
 This action has the following inputs and outputs:
 
-|  | Variables |
+| | Variables |
 | --- | --- |
 | Inputs | `Worker ID`, `Work phone number`, `Country`, `Device type` (Optional) `Public visibility` |
 | Output | `Request status`, `Updated primary work phone number` |
@@ -338,9 +321,7 @@ employee's request for hardware is approved**
       italicized:
 
       ```
-      Hi Look up worker > Supervisor Name,
-      Your team member, Look up user > Name (employee ID: Look up worker > ID), will be issued a 
-      (Ticket tags changed > Laptop make) laptop in the next five days.
+      Hi Look up worker > Supervisor Name, Your team member, Look up user > Name (employee ID: Look up worker > ID), will be issued a (Ticket tags changed > Laptop make) laptop in the next five days.
       ```
 
       Note: To

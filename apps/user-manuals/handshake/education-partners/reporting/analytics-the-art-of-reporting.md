@@ -26,12 +26,12 @@ On the left of the page is the Field Picker. This is where you choose what to di
 Within each dimension and measure, there are "results", “filters”, and “pivots”:
 
 - **Results**- What story do I want to tell? Results are the fields chosen to display in the data table. 
-  - Click directly on the name of a dimension or measure to add that item as a result to your data table.
+ - Click directly on the name of a dimension or measure to add that item as a result to your data table.
 - **Filters** - How do I get the right data? Choosing the data that you are interested in.
-  - Hover your mouse pointer over the dimension or measure, then slide it to the right and click Filter to add that item as a filter.
+ - Hover your mouse pointer over the dimension or measure, then slide it to the right and click Filter to add that item as a filter.
 - **Pivots** - What if I have 2 questions? Pivoting enables dimensions to be displayed horizontally with counts. 
-  - Hover your mouse pointer over the dimension, then slide it to the right and click Pivot to add the pivot to your data table.
-  - **Note**: you can only pivot on dimensions by including a measure (count) in your data table.
+ - Hover your mouse pointer over the dimension, then slide it to the right and click Pivot to add the pivot to your data table.
+ - **Note**: you can only pivot on dimensions by including a measure (count) in your data table.
 
 In the upper-right corner of the page is the **Run** button to process your report. To the right of Run is a gear icon –– to download a report, click the gear icon, then click **Download**., select from the options that appear (including file format, name, etc.), then click the **Download** button in the lower-right corner.
 
@@ -58,7 +58,7 @@ Click on the word Data at the top of the data table to expand or collapse the ta
 - **Results**: displays selected data in formatted columns
 - **Calculations**: allows you to manually configure calculations for results. For more information, refer to [Looker: Using Table Calculations](https://looker.com/docs/exploring-data/using-table-calculations).
 - **Row Limit**: The default row limit is 50, and the maximum possible to display in Handshake is 5,000. For results beyond 5,000, you'll need to download the report and select **Download All Results** in the download confirmation. 
-  - *If this option isn't available to you, you can request access to all rows by contacting our Support Team.*
+ - *If this option isn't available to you, you can request access to all rows by contacting our Support Team.*
 - **Column Limit**: We do not have a limit on columns that you can add to a report, however, the more columns you add, the larger the report will be, which can potentially cause issues with the report running or data scoping properly.
 - **Totals**: Check the Totals box to display column totals at the bottom of the data table. If you've already run the report, you'll need to click **Run** again after checking the totals box.
 - **Row Totals**: Check the Row Totals box to display totals per row to the far right of the data table. If you've already run the report, you'll need to click **Run** again after checking the totals box.
@@ -71,11 +71,11 @@ Click on the word Data at the top of the data table to expand or collapse the ta
 
 - **Sort results**: Within the data table, you can sort results alphabetically or numerically by clicking the column header name once or twice (to switch between descending/ascending).
 - **Results with "0" values**: If your report has “0” values, you’re most likely not using the correct template, so it depends on what you are trying to report on. If you encounter this issue, try looking at another template that is based on the 'root' of the data.  
-  - For example, if you are trying to run a list of employers that have never posted a job, you will want to use the Employer template instead of the Jobs template. Since the Jobs template is pulling from Jobs first, if that employer hasn't posted a job at your school, they would not be included. However, if you go to the Employers template, you can filter to employers who have a posting\_count (measure) less than 1.
+ - For example, if you are trying to run a list of employers that have never posted a job, you will want to use the Employer template instead of the Jobs template. Since the Jobs template is pulling from Jobs first, if that employer hasn't posted a job at your school, they would not be included. However, if you go to the Employers template, you can filter to employers who have a posting\_count (measure) less than 1.
 - **Results with Null values:** Depending on the report, null values can appear for different reasons. 
-  - **Education records:** If you're creating a report for a student's education records and did not filter for primary education only, the report may bring up their secondary education records. If the student has a high school listed as their secondary education, that will populate as a null value in the report.
-  - **Employer approval date:** If the employer wasn't approved through traditional means (i.e. sent an Employer Approval URL), the value will appear as null. The system cannot recognize the date that the URL was sent, so it cannot make a correct "assumption" about the date, thus claims it to be null.
-  - **Document Reviewer ID:** The system may not provide an ID for specific reviewers, so it is recommended to use **Document Review Staff** fields instead.
+ - **Education records:** If you're creating a report for a student's education records and did not filter for primary education only, the report may bring up their secondary education records. If the student has a high school listed as their secondary education, that will populate as a null value in the report.
+ - **Employer approval date:** If the employer wasn't approved through traditional means (i.e. sent an Employer Approval URL), the value will appear as null. The system cannot recognize the date that the URL was sent, so it cannot make a correct "assumption" about the date, thus claims it to be null.
+ - **Document Reviewer ID:** The system may not provide an ID for specific reviewers, so it is recommended to use **Document Review Staff** fields instead.
 - **Combine results from different databases**: In general, data in Handshake is saved under the particular feature area where it was created –– for example, job types are saved in the Jobs template, so if you wanted to report on job types per on-campus interviews, you'd have to run two reports (one in Jobs and one in Interview Schedules), then merge the two reports using a vlookup in Excel. In this example, you would need to include the job\_id in both reports and then you can use a vlookup to merge the two data sets.
 
 ### Dimensions
@@ -93,20 +93,20 @@ Click on the word Data at the top of the data table to expand or collapse the ta
 - **Filter options**: when filtering using "is equal to" or "is not equal to", click once in the text field to populate a dropdown list of all available options.
 - **Filtering using labels**: if your school uses labels, you can use the dimension insititution\_labels\_name, then select "is equal to" or "is not equal to" to include or exclude the label name(s).
 - **Filter logic**: 
-  - Within a single filter: the logic is "OR" –– for example: 
+ - Within a single filter: the logic is "OR" –– for example: 
     - Major Name is equal to Business Administration OR Business Analytics OR Economics
     - School Year Name is equal to Sophomore OR Junior
-  - Across 2 or more filters: the logic is "AND" –– for example: 
+ - Across 2 or more filters: the logic is "AND" –– for example: 
     - in order to be included in the results, the student must have one of the selected Major Names AND selected School Years
-  - This is the default setting for reporting, however, the ability to select AND vs OR is possible via a custom filter. The following link provides more information on this process: [Looker Expressions: Functions and Operators](https://docs.looker.com/exploring-data/creating-looker-expressions/looker-functions-and-operators?version=5.10)
+ - This is the default setting for reporting, however, the ability to select AND vs OR is possible via a custom filter. The following link provides more information on this process: [Looker Expressions: Functions and Operators](https://docs.looker.com/exploring-data/creating-looker-expressions/looker-functions-and-operators?version=5.10)
     - **Note**: when writing a custom filter, you are still limited to the dimensions and measures within the selected template's field picker. To bring in data from another template, you'd have to download the reports and combine the data in Excel.
     - The custom filter does work on customizable institution labels. It treats the values the same way as a major.
-  - Filtering using "NOT" logic: if you are looking at a field for which there can be no more than one entry for a student (School Year Name, for example, assuming you have filtered on Educations), you can use the "does not equal to" filter as you would expect.   
-    - If you are filtering on a field where a student may have more than one entry attached to their profile (Institution Label Name, Majors Name, etc.), you need to filter results differently -- for example:   
+ - Filtering using "NOT" logic: if you are looking at a field for which there can be no more than one entry for a student (School Year Name, for example, assuming you have filtered on Educations), you can use the "does not equal to" filter as you would expect.  
+    - If you are filtering on a field where a student may have more than one entry attached to their profile (Institution Label Name, Majors Name, etc.), you need to filter results differently -- for example:  
       - With labels, a student has a unique entry in our database for every label attached to their profile. If you use the "does not equal" filter for a specific label, it'll only filter out that one entry for the student. If the student has another label attached to their profile, they'll show up in your results.
       - To get around this, we want to add all of the labels attached to the student profile into one line within our data set by adding the "Label Name List" field. Then, you'd use the "doesn't contain" filter and enter the text for the label you'd like to exclude — This will filter out the entries as desired.
 - **Filter value limits**: if you choose to copy results from one report and paste it into a filter on another report, there is no limit to how many results can be pasted at a time, however, the more values you paste, the longer the page will take to load. 
-  - If you are pasting in hundreds of values, your browser may ask you if you want to close the page or wait (you may have to click "wait" a few times with a large number of values). In this case, we recommend breaking up the original report into smaller subsets to paste less filter values at a time.
+ - If you are pasting in hundreds of values, your browser may ask you if you want to close the page or wait (you may have to click "wait" a few times with a large number of values). In this case, we recommend breaking up the original report into smaller subsets to paste less filter values at a time.
 
 **Tip**: once you've selected your filters, we recommend collapsing the **Filters** section to review the data and results more easily! Click the upside-down triangle symbol to the left of F**ilters** to collapse.
 
@@ -129,7 +129,7 @@ Click on the word Data at the top of the data table to expand or collapse the ta
 ![Screenshot__7_.png](https://support.joinhandshake.com/hc/article_attachments/25995122539671)
 
 - Once the calculation is saved, a new column will load to the far right (with a green header) with percentages.
-  - Here's an example of a report with the calculation: <https://app.joinhandshake.com/analytics/explore_embed?insights_page=ZXhwbG9yZS9nZW5lcmF0ZWRfaGFuZHNoYWtlX3Byb2R1Y3Rpb24vaW50ZXJ2aWV3X3NjaGVkdWxlcz9xaWQ9eUdXQ3k1TnNVdVlMZEREOUd1VjMwNSZlbWJlZF9kb21haW49aHR0cHM6JTJGJTJGYXBwLmpvaW5oYW5kc2hha2UuY29tJnRvZ2dsZT1maWw=>
+ - Here's an example of a report with the calculation: <https://app.joinhandshake.com/analytics/explore_embed?insights_page=ZXhwbG9yZS9nZW5lcmF0ZWRfaGFuZHNoYWtlX3Byb2R1Y3Rpb24vaW50ZXJ2aWV3X3NjaGVkdWxlcz9xaWQ9eUdXQ3k1TnNVdVlMZEREOUd1VjMwNSZlbWJlZF9kb21haW49aHR0cHM6JTJGJTJGYXBwLmpvaW5oYW5kc2hha2UuY29tJnRvZ2dsZT1maWw=>
 
 **Best Practices and Reminders**
 
@@ -137,8 +137,8 @@ Analytics data is updated on a nightly basis –– this means any changes you'v
 
 - Run only one report at a time for the most efficiency
 - Start small and simple and work your way up to more complicated explores
-- The best explores are those that return within a few seconds, if it takes longer than that you should try removing fields and starting simpler  
-  - Also, more filters = less data
+- The best explores are those that return within a few seconds, if it takes longer than that you should try removing fields and starting simpler 
+ - Also, more filters = less data
 - All data can be downloaded to excel –– if you can’t do something in Analytics, you can always download the results and transform there
 - Location searches - Filter on Lat\_long and use syntax of: "100 miles from 41.8781136, -87.6297982"
 - Institution Labels are the labels created/applied to that item by your school.
@@ -146,12 +146,12 @@ Analytics data is updated on a nightly basis –– this means any changes you'v
 ### Additional Resources
 
 - **Saved and Pre-Built Reports**
-  - [Analytics: Using Saved Reports](analytics-using-saved-reports.md)
-  - Pre-built reports are available in Handshake on the Analytics overview page. For more information, refer to the articles that start with "Pre-built Reports", in the Reporting section of our Help Center: [The Reporting Section](https://support.joinhandshake.com/hc/en-us/sections/204202028-Reporting).
+ - [Analytics: Using Saved Reports](analytics-using-saved-reports.md)
+ - Pre-built reports are available in Handshake on the Analytics overview page. For more information, refer to the articles that start with "Pre-built Reports", in the Reporting section of our Help Center: [The Reporting Section](https://support.joinhandshake.com/hc/en-us/sections/204202028-Reporting).
 - **Recorded Webinars**
-  - For recorded webinars on Reporting, check out <https://learn.joinhandshake.com/hub/career-centers/webinars/>.
+ - For recorded webinars on Reporting, check out <https://learn.joinhandshake.com/hub/career-centers/webinars/>.
 - **Support Options**
-  - If you are having trouble pulling a report, you can always reach out [here](https://support.joinhandshake.com/hc/en-us/requests/new) with the link to the report and our Support Team can assist you!
+ - If you are having trouble pulling a report, you can always reach out [here](https://support.joinhandshake.com/hc/en-us/requests/new) with the link to the report and our Support Team can assist you!
 - **External Resources**
-  - [Looker Documentation](https://docs.looker.com/)
-  - [Looker Help Center](https://help.looker.com/hc/en-us)
+ - [Looker Documentation](https://docs.looker.com/)
+ - [Looker Help Center](https://help.looker.com/hc/en-us)

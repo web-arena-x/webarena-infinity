@@ -43,7 +43,7 @@ Desktop
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Find the theme that you want to edit, and then click **Edit theme**.
-3. Click the **Theme settings**  icon.
+3. Click the **Theme settings** icon.
 4. Click **Logo**.
 5. In the **Logo** area, add your image or use a free image:
 
@@ -60,7 +60,7 @@ Desktop
 8. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -97,7 +97,7 @@ Desktop
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Find the theme that you want to add a favicon for, and then click **Edit theme**.
-3. Click the **Theme settings**  icon.
+3. Click the **Theme settings** icon.
 4. Depending on your theme version, click **Logo** or **Favicon**.
 5. In the **Favicon image** section, click **Select image**, and then add a new or existing image:
 
@@ -112,7 +112,7 @@ Desktop
 8. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to add a favicon for, and then tap **Edit theme**.
@@ -167,7 +167,7 @@ Your store's color scheme and color options are set within your theme settings. 
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Click **Edit theme** next to the theme that you want to customize.
-3. Click the  icon, and then click **Colors**.
+3. Click the icon, and then click **Colors**.
 4. In the **Schemes** section, click an existing scheme or click **Add scheme** to add a new color scheme.
 5. Click the color swatch for the content type color that you want to change.
 6. To set your color, enter a hex color code or choose the color from the color picker. To set the color to transparent, delete the hex code from the text field.
@@ -187,7 +187,7 @@ The gradient picker allows you to select the colors, gradient style, angle, posi
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Click **Edit theme** next to the theme that you want to customize.
-3. Click the  icon, and then click **Colors**.
+3. Click the icon, and then click **Colors**.
 4. In the **Schemes** section, click an existing scheme that you want to edit.
 5. Click the gradient color swatch option, such as **Background gradient**.
 6. If you haven't previously set up a gradient, then some preset options are displayed for you to choose from. Select any preset gradient to open the options panel.
@@ -209,7 +209,7 @@ Most CSS `background` property values can be used to set a background color. You
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Click **Edit theme** next to the theme that you want to customize.
-3. Click the  icon, and then click **Colors**.
+3. Click the icon, and then click **Colors**.
 4. In the **Schemes** section, click an existing scheme that you want to edit.
 5. Click the gradient that you want to edit.
 6. Click the arrow next to **Gradient**, and then select **CSS**.
@@ -220,7 +220,7 @@ Most CSS `background` property values can be used to set a background color. You
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Click **Edit theme** next to the theme that you want to customize.
-3. Click the  icon, and then click **Colors**.
+3. Click the icon, and then click **Colors**.
 4. In the **Schemes** section, click an existing scheme that you want to edit.
 5. Click the gradient that you want to remove.
 6. Click **Remove gradient**.
@@ -242,14 +242,14 @@ Desktop
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Find the theme that you want to edit, and then click **Edit theme**.
-3. Click the **Theme settings**  icon.
+3. Click the **Theme settings** icon.
 4. Click **Typography**.
 5. To change a font type for your store's headings or body text, click **Change** in the **Headings** or **Body** section.
 6. Click the name of the font that you want to use, and then click **Select**.
 7. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -271,14 +271,14 @@ Desktop
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Find the theme that you want to edit, and then click **Edit theme**.
-3. Click the **Theme settings**  icon.
+3. Click the **Theme settings** icon.
 4. Click **Typography**.
 5. To change the default font size for **Headings** text, use the **Font size scale** range slider to select the default font size.
 6. To change the default font size for **Body** text, use the **Font size scale** range slider to select the default font size.
 7. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -298,7 +298,7 @@ Desktop
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Find the theme that you want to edit, and then click **Edit theme**.
-3. Click the **Theme settings**  icon.
+3. Click the **Theme settings** icon.
 4. Click **Layout**.
 5. Use the **Page width** range slider to choose a page width between 1000 px and 1600 px. The default setting is 1600 px.
 6. Optional: Use the range slider to add vertical **Space between template sections** on your pages. You can add up to a maximum of 100 px between sections.
@@ -306,7 +306,7 @@ Desktop
 8. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -327,7 +327,7 @@ Desktop
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Find the theme that you want to edit, and then click **Edit theme**.
-3. Click the **Theme settings**  icon.
+3. Click the **Theme settings** icon.
 4. Click **Animations**.
 5. Optional: To activate an animation that reveals your online store's sections on scroll, select **Reveal sections on scroll**.
 6. Optional: To add a hover effect animation to your cards and buttons, select one of the following options from the **Hover effect** setting:
@@ -337,7 +337,7 @@ Desktop
 7. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -360,9 +360,9 @@ You can adjust settings for the following elements of your theme:
 * **Variant pills**: Variant pills allow you to display the variants of a product on a product page or a featured product section. Customers can select the desired variant to add the product to their cart without needing to change product pages. You can customize how your variant pills display on your online store.
 * **Inputs**: Inputs are interactive areas that require customer input, for example, a quantity selector, an email signup form, or cart notes. You can adjust the appearance of your online store inputs.
 * The settings for product cards, collection cards, and blog cards allow you to customize the style of each type of card when they're displayed in page sections.
-  + **Product cards**: Product cards display information about your products in areas of your theme that list multiple products, such as collection templates, collection sections, and search results.
-  + **Collection cards**: Collection cards display information about your collections in areas of your theme that list collections, such as a collection list template or section.
-  + **Blog cards**: Blog cards display information about your blog posts in areas of your theme that list multiple products, such as blog templates, blog sections, and search results.
+ + **Product cards**: Product cards display information about your products in areas of your theme that list multiple products, such as collection templates, collection sections, and search results.
+ + **Collection cards**: Collection cards display information about your collections in areas of your theme that list collections, such as a collection list template or section.
+ + **Blog cards**: Blog cards display information about your blog posts in areas of your theme that list multiple products, such as blog templates, blog sections, and search results.
 * **Content containers**: Containers are used for the text element of content sections, for example, the text box on a slideshow, on an image banner, or in the columns of multicolumn sections. You can customize the appearance of content containers for your online store.
 * **Media**: Media is the visual component of sections, for example, product media or an image in the Image with text section. You can add borders and shadows to your media.
 * **Dropdowns and pop-ups**: You can adjust the appearance of drop-down menus, pop-up modals, and cart pop-ups on your online store.
@@ -376,16 +376,16 @@ Desktop
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Click **Edit theme** next to the theme that you want to edit.
-3. Click the  icon.
+3. Click the icon.
 4. Click an element to open the settings.
 5. Adjust any of the available settings. You can review the changes by navigating to different areas of your theme in [the preview window](features-overview.md).
 6. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Edit theme** next to the theme that you want to edit.
-4. Tap the  icon.
+4. Tap the icon.
 5. Tap an element to open the settings.
 6. Adjust any of the available settings. You can review the changes by navigating to different areas of your theme in [the preview window](features-overview.md).
 7. Tap **Save** or **✓**.
@@ -400,13 +400,13 @@ Desktop
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Find the theme that you want to edit, and then click **Edit theme**.
-3. Click the **Theme settings**  icon.
+3. Click the **Theme settings** icon.
 4. Click **Social media**.
 5. To add links to your social media accounts, enter the website addresses for your accounts in the relevant **Social accounts** fields. You need to enter full links, such as `https://instagram.com/shopify` or `https://tiktok.com/@shopify`.
 6. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -429,7 +429,7 @@ Desktop
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Find the theme that you want to edit, and then click **Edit theme**.
-3. Click the **Theme settings**  icon.
+3. Click the **Theme settings** icon.
 4. Click **Search behavior**.
 5. To activate or deactivate search suggestions, select or deselect **Enable search suggestions**.
 6. Optional: To display or hide the product vendor in search suggestions, select or deselect **Show product vendor**.
@@ -437,7 +437,7 @@ Desktop
 8. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -458,13 +458,13 @@ Desktop
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Find the theme that you want to edit, and then click **Edit theme**.
-3. Click the **Theme settings**  icon.
+3. Click the **Theme settings** icon.
 4. Click **Currency format**.
 5. To display currency codes, select **Show currency codes**.
 6. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -483,7 +483,7 @@ Desktop
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Find the theme that you want to edit, and then click **Edit theme**.
-3. Click the **Theme settings**  icon.
+3. Click the **Theme settings** icon.
 4. Click **Cart**.
 5. Use the **Cart type** drop-down menu to select the **Drawer**, **Page**, or **Popup notification** cart style.
 6. Optional: To display the vendors of the items in a customer's cart, select **Show vendor**.
@@ -499,7 +499,7 @@ Desktop
 10. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -538,13 +538,13 @@ Desktop
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Find the theme that you want to edit, and then click **Edit theme**.
-3. Click the **Theme settings**  icon.
+3. Click the **Theme settings** icon.
 4. Click **Theme style**.
 5. Select the theme style that you want to use, and then click **Change style**.
 6. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.

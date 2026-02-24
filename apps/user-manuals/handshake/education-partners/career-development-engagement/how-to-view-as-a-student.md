@@ -37,7 +37,7 @@ When viewing as a particular student, you'll have access to most Handshake conte
 - Editing the "get to know me" section
 - Accessing their inbox
 - Editing a student's institution email address
-  - If the student’s account is connected to a career services or employer account, contact Support to change the institution email address.
+ - If the student’s account is connected to a career services or employer account, contact Support to change the institution email address.
 
 Once you are finished, click the **Normal View** button, located in the upper-right corner of the screen to return to your account.
 

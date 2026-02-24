@@ -12,11 +12,9 @@ title: Project repository storage moves API
 
 {{< /details >}}
 
-Project repositories including wiki and design repositories can be moved between storages. This API can help you when
-[migrating to Gitaly Cluster (Praefect)](../administration/gitaly/praefect/_index.md#migrate-to-gitaly-cluster-praefect), for example.
+Project repositories including wiki and design repositories can be moved between storages. This API can help you when [migrating to Gitaly Cluster (Praefect)](../administration/gitaly/praefect/_index.md#migrate-to-gitaly-cluster-praefect), for example.
 
-As project repository storage moves are processed, they transition through different states. Values
-of `state` are:
+As project repository storage moves are processed, they transition through different states. Values of `state` are:
 
 - `initial`: The record has been created but the background job has not yet been scheduled.
 - `scheduled`: The background job has been scheduled.
@@ -26,9 +24,7 @@ of `state` are:
 - `finished`: The project has been moved and the repositories on the source storage have been deleted.
 - `cleanup failed`: The project has been moved but the repositories on the source storage could not be deleted.
 
-To ensure data integrity, projects are put in a temporary read-only state for the
-duration of the move. During this time, users receive a `The repository is temporarily read-only. Please try again later.`
-message if they try to push new commits.
+To ensure data integrity, projects are put in a temporary read-only state for the duration of the move. During this time, users receive a `The repository is temporarily read-only. Please try again later.` message if they try to push new commits.
 
 This API requires you to [authenticate yourself](rest/authentication.md) as an administrator.
 
@@ -43,21 +39,20 @@ For other repository types see:
 GET /project_repository_storage_moves
 ```
 
-By default, `GET` requests return 20 results at a time because the API results
-are [paginated](rest/_index.md#pagination).
+By default, `GET` requests return 20 results at a time because the API results are [paginated](rest/_index.md#pagination).
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/project_repository_storage_moves"
+ --url "https://gitlab.example.com/api/v4/project_repository_storage_moves"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "created_at": "2020-05-07T04:27:17.234Z",
     "state": "scheduled",
@@ -72,7 +67,7 @@ Example response:
       "path_with_namespace": "namespace1/project1",
       "created_at": "2020-05-07T04:27:17.016Z"
     }
-  }
+ }
 ]
 ```
 
@@ -82,8 +77,7 @@ Example response:
 GET /projects/:project_id/repository_storage_moves
 ```
 
-By default, `GET` requests return 20 results at a time because the API results
-are [paginated](rest/_index.md#pagination).
+By default, `GET` requests return 20 results at a time because the API results are [paginated](rest/_index.md#pagination).
 
 Parameters:
 
@@ -95,14 +89,14 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/repository_storage_moves"
+ --url "https://gitlab.example.com/api/v4/projects/1/repository_storage_moves"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "created_at": "2020-05-07T04:27:17.234Z",
     "state": "scheduled",
@@ -117,7 +111,7 @@ Example response:
       "path_with_namespace": "namespace1/project1",
       "created_at": "2020-05-07T04:27:17.016Z"
     }
-  }
+ }
 ]
 ```
 
@@ -137,19 +131,19 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/project_repository_storage_moves/1"
+ --url "https://gitlab.example.com/api/v4/project_repository_storage_moves/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "created_at": "2020-05-07T04:27:17.234Z",
-  "state": "scheduled",
-  "source_storage_name": "default",
-  "destination_storage_name": "storage2",
-  "project": {
+ "id": 1,
+ "created_at": "2020-05-07T04:27:17.234Z",
+ "state": "scheduled",
+ "source_storage_name": "default",
+ "destination_storage_name": "storage2",
+ "project": {
     "id": 1,
     "description": null,
     "name": "project1",
@@ -157,7 +151,7 @@ Example response:
     "path": "project1",
     "path_with_namespace": "namespace1/project1",
     "created_at": "2020-05-07T04:27:17.016Z"
-  }
+ }
 }
 ```
 
@@ -178,19 +172,19 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/repository_storage_moves/1"
+ --url "https://gitlab.example.com/api/v4/projects/1/repository_storage_moves/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "created_at": "2020-05-07T04:27:17.234Z",
-  "state": "scheduled",
-  "source_storage_name": "default",
-  "destination_storage_name": "storage2",
-  "project": {
+ "id": 1,
+ "created_at": "2020-05-07T04:27:17.234Z",
+ "state": "scheduled",
+ "source_storage_name": "default",
+ "destination_storage_name": "storage2",
+ "project": {
     "id": 1,
     "description": null,
     "name": "project1",
@@ -198,7 +192,7 @@ Example response:
     "path": "project1",
     "path_with_namespace": "namespace1/project1",
     "created_at": "2020-05-07T04:27:17.016Z"
-  }
+ }
 }
 ```
 
@@ -219,22 +213,22 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --data '{"destination_storage_name":"storage2"}' \
-  --url "https://gitlab.example.com/api/v4/projects/1/repository_storage_moves"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --data '{"destination_storage_name":"storage2"}' \
+ --url "https://gitlab.example.com/api/v4/projects/1/repository_storage_moves"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "created_at": "2020-05-07T04:27:17.234Z",
-  "state": "scheduled",
-  "source_storage_name": "default",
-  "destination_storage_name": "storage2",
-  "project": {
+ "id": 1,
+ "created_at": "2020-05-07T04:27:17.234Z",
+ "state": "scheduled",
+ "source_storage_name": "default",
+ "destination_storage_name": "storage2",
+ "project": {
     "id": 1,
     "description": null,
     "name": "project1",
@@ -242,7 +236,7 @@ Example response:
     "path": "project1",
     "path_with_namespace": "namespace1/project1",
     "created_at": "2020-05-07T04:27:17.016Z"
-  }
+ }
 }
 ```
 
@@ -266,17 +260,17 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --data '{"source_storage_name":"default"}' \
-  --url "https://gitlab.example.com/api/v4/project_repository_storage_moves"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --data '{"source_storage_name":"default"}' \
+ --url "https://gitlab.example.com/api/v4/project_repository_storage_moves"
 ```
 
 Example response:
 
 ```json
 {
-  "message": "202 Accepted"
+ "message": "202 Accepted"
 }
 ```
 

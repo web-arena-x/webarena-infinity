@@ -13,8 +13,7 @@ description: Configure Postfix for incoming email.
 
 {{< /details >}}
 
-This document takes you through the steps of setting up a basic Postfix mail
-server with IMAP authentication on Ubuntu, to be used with [incoming email](incoming_email.md).
+This document takes you through the steps of setting up a basic Postfix mail server with IMAP authentication on Ubuntu, to be used with [incoming email](incoming_email.md).
 
 The instructions make the assumption that you are using the email address `incoming@gitlab.example.com`, that is, username `incoming` on host `gitlab.example.com`. Don't forget to change it to your actual host when executing the example code snippets.
 
@@ -104,10 +103,7 @@ The instructions make the assumption that you are using the email address `incom
 
    {{< /alert >}}
 
-   If you receive an error after entering `rcpt to: incoming@localhost`
-   then your Postfix `my_network` configuration is not correct. The error will
-   say 'Temporary lookup failure'. See
-   [Configure Postfix to receive email from the Internet](#configure-postfix-to-receive-email-from-the-internet).
+   If you receive an error after entering `rcpt to: incoming@localhost` then your Postfix `my_network` configuration is not correct. The error will say 'Temporary lookup failure'. See [Configure Postfix to receive email from the Internet](#configure-postfix-to-receive-email-from-the-internet).
 
 1. Check if the `incoming` user received the email:
 
@@ -120,7 +116,7 @@ The instructions make the assumption that you are using the email address `incom
 
    ```plaintext
    "/var/mail/incoming": 1 message 1 unread
-   >U   1 root@localhost                           59/2842  Re: Some issue
+   >U   1 root@localhost                           59/2842 Re: Some issue
    ```
 
    Quit the mail app:
@@ -166,7 +162,7 @@ Courier, which we install later to add IMAP authentication, requires mailboxes t
 
       ```plaintext
       "/home/incoming/Maildir": 1 message 1 unread
-      >U   1 root@localhost                           59/2842  Re: Some issue
+      >U   1 root@localhost                           59/2842 Re: Some issue
       ```
 
       Quit the mail app:
@@ -175,11 +171,7 @@ Courier, which we install later to add IMAP authentication, requires mailboxes t
       q
       ```
 
-   If `mail` returns an error `Maildir: Is a directory` then your
-   version of `mail` doesn't support Maildir style mailboxes. Install
-   `heirloom-mailx` by running `sudo apt-get install heirloom-mailx`. Then,
-   try the previous steps again, substituting `heirloom-mailx` for the `mail`
-   command.
+   If `mail` returns an error `Maildir: Is a directory` then your version of `mail` doesn't support Maildir style mailboxes. Install `heirloom-mailx` by running `sudo apt-get install heirloom-mailx`. Then, try the previous steps again, substituting `heirloom-mailx` for the `mail` command.
 
 1. Sign out of the `incoming` account, and go back to being `root`:
 
@@ -300,7 +292,7 @@ Courier, which we install later to add IMAP authentication, requires mailboxes t
 
       ```plaintext
       "/home/incoming/Maildir": 1 message 1 unread
-      >U   1 root@gitlab.example.com                           59/2842  Re: Some issue
+      >U   1 root@gitlab.example.com                           59/2842 Re: Some issue
       ```
 
       Quit the mail app:
@@ -329,7 +321,7 @@ Courier, which we install later to add IMAP authentication, requires mailboxes t
       Trying 123.123.123.123...
       Connected to mail.gitlab.example.com.
       Escape character is '^]'.
-      - OK [CAPABILITY IMAP4rev1 UIDPLUS CHILDREN NAMESPACE THREAD=ORDEREDSUBJECT THREAD=REFERENCES SORT QUOTA IDLE ACL ACL2=UNION] Courier-IMAP ready. Copyright 1998-2011 Double Precision, Inc.  See COPYING for distribution information.
+      - OK [CAPABILITY IMAP4rev1 UIDPLUS CHILDREN NAMESPACE THREAD=ORDEREDSUBJECT THREAD=REFERENCES SORT QUOTA IDLE ACL ACL2=UNION] Courier-IMAP ready. Copyright 1998-2011 Double Precision, Inc. See COPYING for distribution information.
       ```
 
    1. Sign in as the `incoming` user to test IMAP, by entering the following into the IMAP prompt:

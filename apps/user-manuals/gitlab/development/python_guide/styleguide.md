@@ -28,9 +28,7 @@ Before writing tests, understand the different testing levels and determine the 
 
 #### Name test files the same as the files they are testing
 
-For unit tests, naming the test file with `test_{file_being_tested}.py` and placing it in the same directory structure
-helps with later discoverability of tests. This also avoids confusion between files that have the same name, but
-different modules.
+For unit tests, naming the test file with `test_{file_being_tested}.py` and placing it in the same directory structure helps with later discoverability of tests. This also avoids confusion between files that have the same name, but different modules.
 
 ```shell
 File: /foo/bar/cool_feature.py
@@ -46,9 +44,7 @@ Test file: /tests/foo/bar/test_cool_feature.py
 
 #### Using NamedTuples to define parametrized test cases
 
-[Pytest parametrized tests](https://docs.pytest.org/en/stable/how-to/parametrize.html) effectively reduce code
-repetition, but they rely on tuples for test case definition, unlike Ruby's more readable syntax. As your parameters or
-test cases increase, these tuple-based tests become harder to understand and maintain.
+[Pytest parametrized tests](https://docs.pytest.org/en/stable/how-to/parametrize.html) effectively reduce code repetition, but they rely on tuples for test case definition, unlike Ruby's more readable syntax. As your parameters or test cases increase, these tuple-based tests become harder to understand and maintain.
 
 By using Python [NamedTuples](https://docs.python.org/3/library/typing.html#typing.NamedTuple) instead, you can:
 
@@ -107,27 +103,27 @@ def test_my_function(argument1, argument2, argument3, expected_response):
 from typing import NamedTuple
 
 class TestMyFunction:
-  class Case(NamedTuple):
+ class Case(NamedTuple):
       argument1: str
       argument2: int = 3
       argument3: dict
       expected_response: int
 
-  TEST_CASE_1 = Case(
+ TEST_CASE_1 = Case(
       argument1="my argument",
       argument3={
           "key": "value"
       },
       expected_response=2
-  )
+ )
 
-  TEST_CASE_2 = Case(
+ TEST_CASE_2 = Case(
       ...
-  )
-  @pytest.mark.parametrize(
+ )
+ @pytest.mark.parametrize(
       "test_case", [TEST_CASE_1, TEST_CASE_2]
-  )
-  def test_my_function(test_case):
+ )
+ def test_my_function(test_case):
       assert my_function(case.argument1, case.argument2, case.argument3) == case.expected_response
 ```
 

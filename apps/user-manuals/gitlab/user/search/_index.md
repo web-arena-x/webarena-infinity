@@ -15,16 +15,14 @@ description: Basic, advanced, exact, search scope, and commit SHA search.
 
 Find what you need in a growing codebase or expanding organization.
 Save time by looking up specific code, issues, merge requests, and other content across your projects.
-Choose from three types of search to match your needs: **basic search**,
-[**advanced search**](advanced_search.md), and [**exact code search**](exact_code_search.md).
+Choose from three types of search to match your needs: **basic search**, [**advanced search**](advanced_search.md), and [**exact code search**](exact_code_search.md).
 
 For code search, GitLab uses these types in this order:
 
 - **Exact code search**: where you can use exact match and regular expression modes.
 - **Advanced search**: when exact code search is not available.
-- **Basic search**: when exact code search and advanced search are not available
-  or when you search against a non-default branch.
-  This type does not support group or global search.
+- **Basic search**: when exact code search and advanced search are not available or when you search against a non-default branch.
+ This type does not support group or global search.
 
 ## Available scopes
 
@@ -33,16 +31,16 @@ The following scopes are available for basic search:
 
 | Scope          | Global <sup>1</sup> |    Group    | Project |
 |----------------|:-------------------:|:-----------:|:-------:|
-| Code           |     {{< no >}}      | {{< no >}}  | {{< yes >}} |
-| Comments       |     {{< no >}}      | {{< no >}}  | {{< yes >}} |
-| Commits        |     {{< no >}}      | {{< no >}}  | {{< yes >}} |
+| Code           |     {{< no >}}      | {{< no >}} | {{< yes >}} |
+| Comments       |     {{< no >}}      | {{< no >}} | {{< yes >}} |
+| Commits        |     {{< no >}}      | {{< no >}} | {{< yes >}} |
 | Epics          |     {{< no >}}      | {{< yes >}} | {{< no >}} |
 | Issues         |     {{< yes >}}     | {{< yes >}} | {{< yes >}} |
 | Merge requests |     {{< yes >}}     | {{< yes >}} | {{< yes >}} |
 | Milestones     |     {{< yes >}}     | {{< yes >}} | {{< yes >}} |
 | Projects       |     {{< yes >}}     | {{< yes >}} | {{< no >}} |
 | Users          |     {{< yes >}}     | {{< yes >}} | {{< yes >}} |
-| Wikis          |     {{< no >}}      | {{< no >}}  | {{< yes >}} |
+| Wikis          |     {{< no >}}      | {{< no >}} | {{< yes >}} |
 
 **Footnotes**:
 
@@ -91,14 +89,14 @@ By default, requests to `/search` and global search are available for unauthenti
 To restrict `/search` to authenticated users only, do one of the following:
 
 - [Restrict visibility levels](../../administration/settings/visibility_and_access_controls.md#restrict-visibility-levels)
-  for the project or group.
+ for the project or group.
 - Restrict access in the **Admin** area:
 
-  1. In the upper-right corner, select **Admin**.
-  1. Select **Settings** > **Search**.
-  1. Expand **Advanced search**.
-  1. Clear the **Allow unauthenticated users to use search** checkbox.
-  1. Select **Save changes**.
+ 1. In the upper-right corner, select **Admin**.
+ 1. Select **Settings** > **Search**.
+ 1. Expand **Advanced search**.
+ 1. Clear the **Allow unauthenticated users to use search** checkbox.
+ 1. Select **Save changes**.
 
 To restrict global search to authenticated users only:
 
@@ -126,8 +124,7 @@ Prerequisites:
 
 - You must have administrator access to the instance.
 
-To improve the performance of your instance's global search,
-you can disable one or more search scopes.
+To improve the performance of your instance's global search, you can disable one or more search scopes.
 All global search scopes are enabled by default on GitLab Self-Managed instances.
 
 To disable one or more global search scopes:
@@ -150,8 +147,7 @@ Prerequisites:
 
 - You must have administrator access to the instance.
 
-By default, when users do not select a search scope,
-a scope is selected automatically based on context and availability.
+By default, when users do not select a search scope, a scope is selected automatically based on context and availability.
 To configure a default search scope instead:
 
 1. In the upper-right corner, select **Admin**.
@@ -162,8 +158,7 @@ To configure a default search scope instead:
 1. Select **Save changes**.
 
 Users can override the default scope by selecting another scope.
-If the default scope is not available (for example, code in global search),
-a scope is selected automatically.
+If the default scope is not available (for example, code in global search), a scope is selected automatically.
 
 ## Global search validation
 
@@ -273,8 +268,7 @@ To search for code in all GitLab, ask your administrator to enable [advanced sea
 
 {{< /history >}}
 
-After you find search results, you can view who made the last change to the line
-where the results were found.
+After you find search results, you can view who made the last change to the line where the results were found.
 
 1. From the code search result, hover over the line number.
 1. On the left, select **View blame**.
@@ -300,8 +294,7 @@ To search for a commit SHA:
 1. Select **Search or go to** again and type the commit SHA you want to search for.
 1. Press <kbd>Enter</kbd> to search, or select from the list.
 
-If a single result is returned, GitLab redirects to the commit result
-and gives you the option to return to the search results page.
+If a single result is returned, GitLab redirects to the commit result and gives you the option to return to the search results page.
 
 ## Syntax
 
@@ -309,7 +302,7 @@ Basic search uses exact substring matching with the following options:
 
 | Syntax       | Description                                     | Example |
 |--------------|-------------------------------------------------|---------|
-| `filename:`  | Filename                                        | `filename:*spec.rb` |
+| `filename:` | Filename                                        | `filename:*spec.rb` |
 | `path:`      | Repository location (full or partial matches)   | `path:spec/workers/` |
 | `extension:` | File extension without `.` (exact matches only) | `extension:js` |
 

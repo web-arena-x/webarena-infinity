@@ -23,16 +23,16 @@ On the **My Jobs** page, a list of all the jobs you've applied to will be displa
 **🚀Tip**: At the top of the page, you can use filters to sort and refine your view.
 
 - - **Keyword search**
-  - **Application Type**
+ - **Application Type**
     - Job applications
     - Applications to interview *(Applications tied to on-campus interview schedules)*
-  - **Status**
+ - **Status**
     - Applied
     - Hired
     - Declined
     - Primary (for on-campus interviews)
     - Alternate (for on-campus interviews)
-  - **All Filters**
+ - **All Filters**
     - Application Type
     - Status
     - Application date(Filter by date range using the calendar (Applied after / before)

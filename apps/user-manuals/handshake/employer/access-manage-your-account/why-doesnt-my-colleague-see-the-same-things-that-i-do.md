@@ -18,7 +18,7 @@ In some cases, users may be unable to view certain pages or page contents due to
 
 - Temporary errors or bugs in the platform that can restrict access to specific features or data.
 - Outdated browsers or versions may cause pages to load incorrectly.
-  - *Learn more about* [*Handshake Supported Browsers (for Employers)*](https://support.joinhandshake.com/hc/en-us/articles/360042850913).
+ - *Learn more about* [*Handshake Supported Browsers (for Employers)*](https://support.joinhandshake.com/hc/en-us/articles/360042850913).
 - Intermittent connectivity or network restrictions may block access to content.
 - Stored data in the browser can sometimes prevent page content from loading properly.
 

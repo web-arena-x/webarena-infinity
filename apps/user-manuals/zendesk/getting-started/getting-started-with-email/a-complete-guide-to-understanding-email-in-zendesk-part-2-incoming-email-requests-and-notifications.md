@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408887388058-A-complete-g
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -117,8 +117,8 @@ Email notifications include ticket references in the following places:
 
 - A reply back from a customer contains ticket references in the email header using *In-Reply-To* and *References*. You can [view the header and source of any email that you receive](https://support.zendesk.com/hc/en-us/articles/4408832876442).
 - The email body includes a hidden reference to the ticket.
-- If you're using an address in your Zendesk domain, the *Reply To* email address includes an encoded reference to the ticket ID. For example:   
-  MondoCam Support <support+id1G7EOR-0Q2J@mondocam.zendesk.com>
+- If you're using an address in your Zendesk domain, the *Reply To* email address includes an encoded reference to the ticket ID. For example:  
+ MondoCam Support <support+id1G7EOR-0Q2J@mondocam.zendesk.com>
 - Note: If you're using an external domain for email, the encoded ticket ID is not included in the Reply To email address.
 
 After an email conversation has been started and ticket references have been embedded into the thread, any replies back and forth are tied to that ticket. If, for some reason, you wanted to create a new ticket from that email thread, you’d need to copy the content of the email message and create a new email message. Forwarding the email thread to one of your other support email addresses won't create a new ticket because the embedded ticket references will tie it back to the original ticket.

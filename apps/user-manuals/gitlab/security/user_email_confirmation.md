@@ -12,9 +12,7 @@ title: Make new users confirm email
 
 {{< /details >}}
 
-GitLab can be configured to require confirmation of a user's email address when
-the user signs up. When this setting is enabled, the user is unable to sign in until
-they confirm their email address.
+GitLab can be configured to require confirmation of a user's email address when the user signs up. When this setting is enabled, the user is unable to sign in until they confirm their email address.
 
 Prerequisites:
 
@@ -38,5 +36,4 @@ After 24 hours, the confirmation token becomes invalid.
 
 {{< /details >}}
 
-When email confirmation is turned on, administrators can enable the setting to
-[automatically delete unconfirmed users](../administration/moderate_users.md#automatically-delete-unconfirmed-users).
+When email confirmation is turned on, administrators can enable the setting to [automatically delete unconfirmed users](../administration/moderate_users.md#automatically-delete-unconfirmed-users).

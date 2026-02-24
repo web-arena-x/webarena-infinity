@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408886900506-Updating-tic
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -32,7 +32,7 @@ You may want to change the user designated as the ticket requester if someone se
 **To change the ticket requester**
 
 1. Open the ticket where you want to change the requester.
-2. Click directly into the **Requester** field in the ticket properties panel to change the requester.  
+2. Click directly into the **Requester** field in the ticket properties panel to change the requester. 
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/requester-field.png)
 3. Begin entering a user's name, email domain, or organization name and the relevant results appear. Select the user. If the user does not yet have an account, add them by clicking **+Add user** at the bottom of the search results.
@@ -61,10 +61,10 @@ Here's what happens to tickets when the requester is removed from an organizatio
 
 - In the ticket, click the current **Organization**, then select one of the requester's other organizations.
 
-  If the requester does not belong to multiple organizations you will not see the Organization field on the ticket. You can only choose an organization that the requester belongs to.
+ If the requester does not belong to multiple organizations you will not see the Organization field on the ticket. You can only choose an organization that the requester belongs to.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ticket_change_org.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ticket_change_org.png)
 
-  The organization for the ticket appears in the ticket and at the top of the ticket.
+ The organization for the ticket appears in the ticket and at the top of the ticket.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ticket_org_name_at_top.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ticket_org_name_at_top.png)

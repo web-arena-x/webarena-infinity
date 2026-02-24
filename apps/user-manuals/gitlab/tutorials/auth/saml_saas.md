@@ -5,9 +5,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: 'Tutorial: Set up SAML SSO for GitLab.com groups'
 ---
 
-This tutorial walks you through setting up SAML single sign-on (SSO) for a GitLab.com group using
-an Identity Provider (IdP) such as Okta or Microsoft Entra ID. When you finish, members of your group
-can sign in to GitLab through the IdP.
+This tutorial walks you through setting up SAML single sign-on (SSO) for a GitLab.com group using an Identity Provider (IdP) such as Okta or Microsoft Entra ID. When you finish, members of your group can sign in to GitLab through the IdP.
 
 In this tutorial, you:
 
@@ -29,8 +27,7 @@ Time to complete: 20-30 minutes
 
 ## Step 1: Gather GitLab information
 
-Before you can set up anything in your IdP, you must get some connection details from GitLab
-that tell your IdP how to communicate with your GitLab group.
+Before you can set up anything in your IdP, you must get some connection details from GitLab that tell your IdP how to communicate with your GitLab group.
 
 To gather the GitLab information:
 
@@ -44,8 +41,7 @@ To gather the GitLab information:
 ## Step 2: Create an IdP application
 
 Now that you have your GitLab details ready, create an application in your IdP.
-This application maps the GitLab information to the IdP and configures how user
-information flows between the two systems.
+This application maps the GitLab information to the IdP and configures how user information flows between the two systems.
 
 To create an IdP application:
 
@@ -80,8 +76,7 @@ The SAML application is created in Okta.
 
 {{< alert type="note" >}}
 
-For more information about SAML attributes and advanced configuration options,
-see the [SAML SSO documentation](../../user/group/saml_sso/_index.md#okta).
+For more information about SAML attributes and advanced configuration options, see the [SAML SSO documentation](../../user/group/saml_sso/_index.md#okta).
 
 {{< /alert >}}
 
@@ -121,8 +116,7 @@ The enterprise application is created in Microsoft Entra ID.
 
 {{< alert type="note" >}}
 
-For more information about SAML attributes and advanced configuration options,
-see the [SAML SSO documentation](../../user/group/saml_sso/_index.md#azure).
+For more information about SAML attributes and advanced configuration options, see the [SAML SSO documentation](../../user/group/saml_sso/_index.md#azure).
 
 {{< /alert >}}
 
@@ -173,8 +167,7 @@ To gather the connection details:
 
 ## Step 4: Configure SAML SSO in GitLab
 
-You have everything you need to complete the connection. Return to GitLab and enter
-the connection details to turn on SAML authentication for your group.
+You have everything you need to complete the connection. Return to GitLab and enter the connection details to turn on SAML authentication for your group.
 
 To configure SAML:
 
@@ -191,8 +184,7 @@ The basic SAML connection is now configured.
 
 {{< alert type="note" >}}
 
-You can set the default membership role to any role. All new users are assigned this role when
-they first sign in through SAML. Setting the default to [**Minimal Access**](../../user/permissions.md#users-with-minimal-access)
+You can set the default membership role to any role. All new users are assigned this role when they first sign in through SAML. Setting the default to [**Minimal Access**](../../user/permissions.md#users-with-minimal-access)
 and promoting users later reduces the risk of users having too much access.
 
 {{< /alert >}}
@@ -212,9 +204,7 @@ If you see errors, see the [troubleshooting guide](../../user/group/saml_sso/tro
 
 ## Step 6: Link a user account to test the full flow
 
-The configuration looks good. Now test the experience from a user's perspective
-by linking a test account like your team members do when they first connect
-to GitLab through the IdP.
+The configuration looks good. Now test the experience from a user's perspective by linking a test account like your team members do when they first connect to GitLab through the IdP.
 
 To test user account linking:
 
@@ -229,9 +219,7 @@ Congratulations! You have successfully linked a SAML identity to a GitLab accoun
 
 ## Step 7: Optional: Turn on SSO enforcement
 
-You have a working SAML setup. As an optional final step, you can turn on
-SSO enforcement. SSO enforcement requires all group members to authenticate through the IdP,
-which strengthens security. However, it prevents access through other authentication methods.
+You have a working SAML setup. As an optional final step, you can turn on SSO enforcement. SSO enforcement requires all group members to authenticate through the IdP, which strengthens security. However, it prevents access through other authentication methods.
 
 To turn on SSO enforcement:
 

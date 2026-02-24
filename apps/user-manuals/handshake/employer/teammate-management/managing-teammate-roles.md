@@ -24,9 +24,9 @@ The available filters include:
 - **Role**: Filter by assigned teammate roles (e.g., Owner, Recruiter). This filter only appears if at least one teammate has been assigned a role.
 - **Status (account status)**:
 
-  - **Registered**: Teammate has created and confirmed their account
-  - **Not Confirmed**:Invitation sent, but account not yet confirmed
-  - **Deactivated**: Account has been deactivated
+ - **Registered**: Teammate has created and confirmed their account
+ - **Not Confirmed**:Invitation sent, but account not yet confirmed
+ - **Deactivated**: Account has been deactivated
 
 #### 
 

@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/7043662243226-Setting-up-n
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Quality Assurance (QA) or Workforce Engagement Management (WEM) |
 
@@ -55,7 +55,7 @@ Once the webhook is set up, you can configure triggers in Zendesk to send notifi
 
 ```
 {
-  "text": "You received some feedback on a ticket. "
+ "text": "You received some feedback on a ticket. "
 }
 ```
 

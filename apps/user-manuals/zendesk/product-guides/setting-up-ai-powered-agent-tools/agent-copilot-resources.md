@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/7909179243418-Agent-copilo
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Copilot |
 

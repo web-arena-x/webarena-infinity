@@ -42,13 +42,13 @@ A typical dashboard structure looks like this:
 ```plaintext
 dashboard
 ├── panelA
-│  └── visualizationX
+│ └── visualizationX
 │      └── datasource1
 ├── panelB
-│  └── visualizationY
+│ └── visualizationY
 │      └── datasource2
 ├── panelC
-│  └── visualizationY
+│ └── visualizationY
 │      └── datasource1
 ```
 
@@ -151,14 +151,9 @@ To create a built-in analytics dashboard:
    status: experiment
    ```
 
-1. Optional. Create visualization templates by creating a folder for your templates (for example `visualizations/`) in your dashboard directory and
-   add configuration files for each template.
+1. Optional. Create visualization templates by creating a folder for your templates (for example `visualizations/`) in your dashboard directory and add configuration files for each template.
 
-   Visualization templates might be used when a visualization will be used by multiple dashboards. Use a template to
-   prevent duplicating the same YAML block multiple times. For built-in dashboards, the dashboard
-   will automatically update when the visualization template is changed. For user-defined dashboards, the visualization
-   template is copied rather than referenced. Visualization templates copied to dashboards are not updated when the
-   visualization template is updated.
+   Visualization templates might be used when a visualization will be used by multiple dashboards. Use a template to prevent duplicating the same YAML block multiple times. For built-in dashboards, the dashboard will automatically update when the visualization template is changed. For user-defined dashboards, the visualization template is copied rather than referenced. Visualization templates copied to dashboards are not updated when the visualization template is updated.
 
    Each file must conform to the JSON schema defined in [`ee/app/validators/json_schemas/analytics_visualization.json`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/app/validators/json_schemas/analytics_visualization.json).
    Example:
@@ -215,7 +210,7 @@ To create a built-in analytics dashboard:
      ```yaml
      # cool_dashboard/dashboard.yaml
      ---
-     title:  My dashboard
+     title: My dashboard
      description: My cool dashboard
 
      panels:
@@ -261,16 +256,13 @@ To add a new visualization render type:
 
 1. Create a new Vue component that accepts `data` and `options` properties.
    See [`line_chart.vue`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/app/assets/javascripts/analytics/analytics_dashboards/components/visualizations/line_chart.vue) as an example.
-1. Add relevant storybook stories for the different states of the visualization
-   See [`line_chart.stories.js`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/app/assets/javascripts/analytics/analytics_dashboards/components/visualizations/line_chart.stories.js) as an example.
+1. Add relevant storybook stories for the different states of the visualization See [`line_chart.stories.js`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/app/assets/javascripts/analytics/analytics_dashboards/components/visualizations/line_chart.stories.js) as an example.
 1. Add your component to the list of conditional components imports in [`analytics_dashboard_panel.vue`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/app/assets/javascripts/analytics/analytics_dashboards/components/analytics_dashboard_panel.vue).
 1. Add your component to the schema's list of `AnalyticsVisualization` enum type in [`analytics_visualization.json`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/app/validators/json_schemas/analytics_visualization.json).
 
 #### Migrating existing components to visualizations
 
-You can migrate existing components to dashboard visualizations. To do this,
-wrap your existing component in a new visualization that provides the component with the
-required context and data. See [`dora_performers_score.vue`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/app/assets/javascripts/analytics/analytics_dashboards/components/visualizations/dora_performers_score.vue) as an example.
+You can migrate existing components to dashboard visualizations. To do this, wrap your existing component in a new visualization that provides the component with the required context and data. See [`dora_performers_score.vue`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/app/assets/javascripts/analytics/analytics_dashboards/components/visualizations/dora_performers_score.vue) as an example.
 
 As an upgrade path, your component may fetch its own data internally.
 But you should ensure to plan how to migrate your visualization to use the shared analytics data sources method.
@@ -286,15 +278,15 @@ For example, here we have added the `enable_usage_overview_visualization` featur
 
 ```ruby
 panel_yaml.filter_map do |panel|
-  # Skip processing the usage_overview panel if the feature flag is disabled
-  next if panel['visualization'] == 'usage_overview' && Feature.disabled?(:enable_usage_overview_visualization)
+ # Skip processing the usage_overview panel if the feature flag is disabled
+ next if panel['visualization'] == 'usage_overview' && Feature.disabled?(:enable_usage_overview_visualization)
 
-  new(
+ new(
     title: panel['title'],
     project: project,
     grid_attributes: panel['gridAttributes'],
     query_overrides: panel['queryOverrides'],
     visualization: panel['visualization']
-  )
+ )
 end
 ```

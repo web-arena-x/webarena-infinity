@@ -54,9 +54,8 @@ Desktop
 12. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Content** menu, tap the  icon, and then tap **Blog posts**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Content** menu, tap the icon, and then tap **Blog posts**.
 3. Tap **Add blog post**.
 4. Enter a title for your blog post. You need to have a title to save the post.
 5. Enter the blog post content.
@@ -91,9 +90,8 @@ Desktop
 4. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Content** menu, tap the  icon, and then tap **Blog posts**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Content** menu, tap the icon, and then tap **Blog posts**.
 3. Tap the title of the post that you want to edit.
 4. Make the changes to your blog post content and settings.
 5. Tap **Save** or **✓**.
@@ -108,9 +106,8 @@ Desktop
 4. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Content** menu, tap the  icon, and then tap **Blog posts**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Content** menu, tap the icon, and then tap **Blog posts**.
 3. Tap the blog post that you want to hide.
 4. In the **Visibility** section, select **Hidden**.
 5. Tap **Save** or **✓**.
@@ -125,9 +122,8 @@ Desktop
 4. In the confirmation dialog, click **Delete**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Content** menu, tap the  icon, and then tap **Blog posts**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Content** menu, tap the icon, and then tap **Blog posts**.
 3. Tap the blog post that you want to delete.
 4. Tap **Delete blog post**.
 5. In the confirmation dialog, tap **Delete**.
@@ -148,9 +144,8 @@ Desktop
 5. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Content** menu, tap the  icon, and then tap **Blog posts**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Content** menu, tap the icon, and then tap **Blog posts**.
 3. [Create a new blog post](working-with-blog-posts.md#add-a-post-to-your-blog), or tap an existing blog post.
 4. In the **Content** area, tap the image icon:
 5. Add an image to your blog post:
@@ -173,9 +168,8 @@ Desktop
 5. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Content** menu, tap the  icon, and then tap **Blog posts**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Content** menu, tap the icon, and then tap **Blog posts**.
 3. Tap the blog post that you want to add an excerpt to.
 4. In the **Excerpt** section, tap **Add Excerpt**.
 5. In the **Excerpt** rich text editor, add the content that you want to display on your blog's landing page as an excerpt.
@@ -199,9 +193,8 @@ Desktop
 4. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
-2. In the **Content** menu, tap the  icon, and then tap **Blog posts**.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
+2. In the **Content** menu, tap the icon, and then tap **Blog posts**.
 3. Tap the name of the blog post that you want to edit.
 4. In the **Tags** section, you can do the following actions:
    * To create a new tag, tap the text field, enter the name of a tag, and then tap **Add**.

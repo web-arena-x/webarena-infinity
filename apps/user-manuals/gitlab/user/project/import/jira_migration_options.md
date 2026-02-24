@@ -12,10 +12,7 @@ title: Jira migration options
 
 {{< /details >}}
 
-You have several options to migrate your Jira projects to GitLab. Before you decide on a migration strategy,
-first decide if you even need to move your Jira issues to GitLab. In many cases, the Jira issue data is no longer
-relevant or actionable. By starting fresh in GitLab, you can focus on setting up your processes and workflows to
-maximize the advantages of using GitLab.
+You have several options to migrate your Jira projects to GitLab. Before you decide on a migration strategy, first decide if you even need to move your Jira issues to GitLab. In many cases, the Jira issue data is no longer relevant or actionable. By starting fresh in GitLab, you can focus on setting up your processes and workflows to maximize the advantages of using GitLab.
 
 If you opt to migrate your Jira issues, you can choose from several migration options:
 
@@ -97,9 +94,7 @@ As stated in the `Jira2Lab` README:
 
 ## Write your own script
 
-For full control over the migration process, you can write your own custom script that migrates
-your Jira issues to GitLab in a way that suits your needs exactly. GitLab provides APIs to help
-automate your migration:
+For full control over the migration process, you can write your own custom script that migrates your Jira issues to GitLab in a way that suits your needs exactly. GitLab provides APIs to help automate your migration:
 
 - [REST API](../../../api/rest/_index.md)
 - [GraphQL API](../../../api/graphql/_index.md)
@@ -118,18 +113,13 @@ When writing your script, you need to map the Jira issue fields to their corresp
 - **Status**: Create a [scoped label](../labels.md#scoped-labels) with the status set as the scoped label key and the status values as the scoped label set values (for example, `status::in progress`).
 - **Priority**: Create a [scoped label](../labels.md#scoped-labels) with the priority set as the scoped label key and the priority values as the scoped label set values (for example, `priority::1`).
 - **Story Point**: Map this value to the GitLab issue's **weight** value.
-- **Sprint**: Map this value to the GitLab issue's **iteration** value. This value is meaningful
-  only for issues that have not been completed or are scheduled for a future sprint. Before importing
-  the data, create the required [iterations](../../group/iterations/_index.md#iteration-cadences) in the
-  parent group of your project.
+- **Sprint**: Map this value to the GitLab issue's **iteration** value. This value is meaningful only for issues that have not been completed or are scheduled for a future sprint. Before importing the data, create the required [iterations](../../group/iterations/_index.md#iteration-cadences) in the parent group of your project.
 
 You might also need to handle parsing the Atlassian Document Format and mapping it to GitLab Flavored Markdown.
-You can approach this in many different ways. For inspiration,
-[review an example commit](https://gitlab.com/gitlab-org/gitlab/-/commit/4292a286d3f4ab26466f8e89125a4dbd194a9f3e).
+You can approach this in many different ways. For inspiration, [review an example commit](https://gitlab.com/gitlab-org/gitlab/-/commit/4292a286d3f4ab26466f8e89125a4dbd194a9f3e).
 This commit added a method to parse the Atlassian Document Format to GitLab Flavored Markdown for the GitLab Jira importer.
 
-If you run GitLab locally, you can also convert Atlassian Document Format to GitLab Flavored Markdown
-manually in the Rails console. To do so, execute:
+If you run GitLab locally, you can also convert Atlassian Document Format to GitLab Flavored Markdown manually in the Rails console. To do so, execute:
 
 ```ruby
 text = <document in Atlassian Document Format>

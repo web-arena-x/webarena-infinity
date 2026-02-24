@@ -29,7 +29,7 @@ The pencil tool stays active until you select another tool or press `Esc`.
 You can change a pencil sketch's colors, add a color style, end point style, and stroke weight at any time.
 
 1. Select the sketch on the canvas.
-2. Edit the color fill, stroke weight, and end point style from the **Stroke** section of the right sidebar. You can also click  to change the line style to dashes, or created a custom style.
+2. Edit the color fill, stroke weight, and end point style from the **Stroke** section of the right sidebar. You can also click to change the line style to dashes, or created a custom style.
 
 [Learn more about applying paints with the color picker.](https://help.figma.com/hc/en-us/articles/360041003774-Apply-paints-with-the-color-picker)
 

@@ -17,15 +17,15 @@ Adding links to your site lets users quickly navigate to the most relevant infor
 - **Page link:** Links to another page on your site or to an external site.
 - **Back link:** Works like a browser back button, returning visitors to the previous page.
 - **Anchor link:** Links to a specific section of the same page. With anchor links, you can set:
-  - **Destination**: The section you want the link to scroll to.
-  - **Offset**: An optional vertical adjustment in pixels to fine-tune where the scroll lands.
+ - **Destination**: The section you want the link to scroll to.
+ - **Offset**: An optional vertical adjustment in pixels to fine-tune where the scroll lands.
 
 ## Add a link to an element
 
 To add a link:
 
 1. Select a layer or object to link. If your webpage has multiple breakpoints, select the object in the [primary breakpoint](https://help.figma.com/hc/en-us/articles/31242788601879) to automatically select the matching object in the other breakpoints.
-2. Click  **Create link** in the **Link** section of the right sidebar.
+2. Click **Create link** in the **Link** section of the right sidebar.
 3. Open the dropdown menu and select a link type, or enter a URL to link to an external site.
 
 **Tip**: External sites open in a new tab by default. Uncheck **Open in a new tab** to keep users in the same tab. You can add URL parameters like UTMs on URLs to external sites.
@@ -47,4 +47,4 @@ From the canvas From the right sidebar
 3. Click and drag to select one or more link connection arrows, then press the **Delete** key.
 
 1. Select one or more layers with a link you’d like to remove. For webpages with multiple breakpoints, select the object in the primary breakpoint to automatically select the corresponding objects in the other breakpoints.
-2. In the the right sidebar, click the  **minus** icon in the **Link** section.
+2. In the the right sidebar, click the **minus** icon in the **Link** section.

@@ -26,7 +26,7 @@ If you're unable to edit the room availability:
 
 - ensure you've selected that Career Center only.
 - check your User Settings > Personal Information and confirm the relevant Career Center is listed.
-  - For more information, refer to [Career Services User Settings: Personal Information (Profile)](https://support.joinhandshake.com/hc/en-us/articles/360009190413).
+ - For more information, refer to [Career Services User Settings: Personal Information (Profile)](https://support.joinhandshake.com/hc/en-us/articles/360009190413).
 
 #### Interview Request
 

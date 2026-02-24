@@ -14,15 +14,11 @@ title: Geo glossary
 
 {{< alert type="note" >}}
 
-We are updating the Geo documentation, user interface and commands to reflect these changes. Not all pages comply with
-these definitions yet.
+We are updating the Geo documentation, user interface and commands to reflect these changes. Not all pages comply with these definitions yet.
 
 {{< /alert >}}
 
-These are the defined terms to describe all aspects of Geo. Using a set of clearly
-defined terms helps us to communicate efficiently and avoids confusion. The language
-on this page aims to be ubiquitous
-and as simple as possible.
+These are the defined terms to describe all aspects of Geo. Using a set of clearly defined terms helps us to communicate efficiently and avoids confusion. The language on this page aims to be ubiquitous and as simple as possible.
 
 ## Main terms
 
@@ -50,16 +46,11 @@ We provide [example diagrams and statements](#examples) to demonstrate correct u
 
 ## Replicator terms
 
-Geo uses replicators to replicate data of individual GitLab components
-between primary and secondary sites. They define how the individual [data types](replication/datatypes.md#data-types)
-of these components have to be processed and verified. For example, data of the
-GitLab container registry has to be handled differently than CI job artifacts.
-Some components may have more than one replicator which are potentially also
-named differently. As such, the following table describes the replicator names
-and to which GitLab component they belong.
+Geo uses replicators to replicate data of individual GitLab components between primary and secondary sites. They define how the individual [data types](replication/datatypes.md#data-types)
+of these components have to be processed and verified. For example, data of the GitLab container registry has to be handled differently than CI job artifacts.
+Some components may have more than one replicator which are potentially also named differently. As such, the following table describes the replicator names and to which GitLab component they belong.
 
-The same replicator names are also visible in the Geo section of the Admin area
-or when using Geo-related console commands.
+The same replicator names are also visible in the Geo section of the Admin area or when using Geo-related console commands.
 
 | Geo replicator name            | GitLab component name                  |
 |--------------------------------|----------------------------------------|

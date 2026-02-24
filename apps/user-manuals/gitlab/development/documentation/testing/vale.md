@@ -6,14 +6,10 @@ description: Learn how to contribute to GitLab Documentation.
 title: Vale documentation tests
 ---
 
-[Vale](https://vale.sh/) is a grammar, style, and word usage linter for the
-English language. Vale's configuration is stored in the [`.vale.ini`](https://vale.sh/docs/topics/config/) file located
-in the root directory of projects. For example, the [`.vale.ini`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.vale.ini)
+[Vale](https://vale.sh/) is a grammar, style, and word usage linter for the English language. Vale's configuration is stored in the [`.vale.ini`](https://vale.sh/docs/topics/config/) file located in the root directory of projects. For example, the [`.vale.ini`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.vale.ini)
 of the `gitlab` project.
 
-Vale supports creating [custom rules](https://vale.sh/docs/topics/styles/) that extend any of
-several types of checks, which we store in the documentation directory of projects. For example,
-the [`doc/.vale` directory](https://gitlab.com/gitlab-org/gitlab/-/tree/master/doc/.vale) of the `gitlab` project.
+Vale supports creating [custom rules](https://vale.sh/docs/topics/styles/) that extend any of several types of checks, which we store in the documentation directory of projects. For example, the [`doc/.vale` directory](https://gitlab.com/gitlab-org/gitlab/-/tree/master/doc/.vale) of the `gitlab` project.
 
 This configuration is also used in build pipelines, where [error-level rules](#result-types) are enforced.
 
@@ -21,58 +17,50 @@ You can use Vale:
 
 - [On the command line](https://vale.sh/docs/vale-cli/structure/).
 - [In a code editor](#configure-vale-in-your-editor).
-- [In a Git hook](_index.md#configure-pre-push-hooks). Vale only reports errors in the Git hook (the same
-  configuration as the CI/CD pipelines), and does not report suggestions or warnings.
+- [In a Git hook](_index.md#configure-pre-push-hooks). Vale only reports errors in the Git hook (the same configuration as the CI/CD pipelines), and does not report suggestions or warnings.
 
 ## Install Vale
 
 Install [`vale`](https://github.com/errata-ai/vale/releases) using either:
 
-- If using [`asdf`](https://asdf-vm.com), the [`asdf-vale` plugin](https://github.com/pdemagny/asdf-vale). In a checkout
-  of a GitLab project with a `.tool-versions` file ([example](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.tool-versions)),
-  run:
+- If using [`asdf`](https://asdf-vm.com), the [`asdf-vale` plugin](https://github.com/pdemagny/asdf-vale). In a checkout of a GitLab project with a `.tool-versions` file ([example](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.tool-versions)), run:
 
-  ```shell
-  asdf plugin add vale && asdf install vale
-  ```
+ ```shell
+ asdf plugin add vale && asdf install vale
+ ```
 
 - A package manager:
-  - macOS using `brew`, run: `brew install vale`.
-  - Linux, use your distribution's package manager or a [released binary](https://github.com/errata-ai/vale/releases).
+ - macOS using `brew`, run: `brew install vale`.
+ - Linux, use your distribution's package manager or a [released binary](https://github.com/errata-ai/vale/releases).
 
 ## Configure Vale in your editor
 
-Using linters in your editor is more convenient than having to run the commands from the
-command line.
+Using linters in your editor is more convenient than having to run the commands from the command line.
 
 To configure Vale in your editor, install one of the following as appropriate:
 
 - Visual Studio Code [`ChrisChinchilla.vale-vscode` extension](https://marketplace.visualstudio.com/items?itemName=ChrisChinchilla.vale-vscode).
-  You can configure the plugin to [display only a subset of alerts](#limit-which-tests-are-run).
-- Sublime Text [`SublimeLinter-vale` package](https://packagecontrol.io/packages/SublimeLinter-vale). To have Vale
-  suggestions appears as blue instead of red (which is how errors appear), add `vale` configuration to your
-  [SublimeLinter](https://www.sublimelinter.com/en/master/) configuration:
+ You can configure the plugin to [display only a subset of alerts](#limit-which-tests-are-run).
+- Sublime Text [`SublimeLinter-vale` package](https://packagecontrol.io/packages/SublimeLinter-vale). To have Vale suggestions appears as blue instead of red (which is how errors appear), add `vale` configuration to your [SublimeLinter](https://www.sublimelinter.com/en/master/) configuration:
 
-  ```json
-  "vale": {
+ ```json
+ "vale": {
     "styles": [{
       "mark_style": "outline",
       "scope": "region.bluish",
       "types": ["suggestion"]
     }]
-  }
-  ```
+ }
+ ```
 
 - [LSP for Sublime Text](https://lsp.sublimetext.io) package [`LSP-vale-ls`](https://packagecontrol.io/packages/LSP-vale-ls).
 - Vim [ALE plugin](https://github.com/dense-analysis/ale).
-- JetBrains IDEs - No plugin exists, but
-  [this issue comment](https://github.com/errata-ai/vale-server/issues/39#issuecomment-751714451)
-  contains tips for configuring an external tool.
-- Emacs [Flycheck extension](https://github.com/flycheck/flycheck). A minimal configuration
-  for Flycheck to work with Vale could look like:
+- JetBrains IDEs - No plugin exists, but [this issue comment](https://github.com/errata-ai/vale-server/issues/39#issuecomment-751714451)
+ contains tips for configuring an external tool.
+- Emacs [Flycheck extension](https://github.com/flycheck/flycheck). A minimal configuration for Flycheck to work with Vale could look like:
 
-  ```lisp
-  (flycheck-define-checker vale
+ ```lisp
+ (flycheck-define-checker vale
     "A checker for prose"
     :command ("vale" "--output" "line" "--no-wrap"
               source)
@@ -81,26 +69,25 @@ To configure Vale in your editor, install one of the following as appropriate:
       ((error line-start (file-name) ":" line ":" column ":" (id (one-or-more (not (any ":")))) ":" (message)   line-end))
     :modes (markdown-mode org-mode text-mode)
     :next-checkers ((t . markdown-markdownlint-cli))
-  )
+ )
 
-  (add-to-list 'flycheck-checkers 'vale)
-  ```
+ (add-to-list 'flycheck-checkers 'vale)
+ ```
 
-  In this setup the `markdownlint` checker is set as a "next" checker from the defined `vale` checker.
-  Enabling this custom Vale checker provides error linting from both Vale and markdownlint.
+ In this setup the `markdownlint` checker is set as a "next" checker from the defined `vale` checker.
+ Enabling this custom Vale checker provides error linting from both Vale and markdownlint.
 
 ## Result types
 
 Vale returns three types of results:
 
-- **Error** - For branding guidelines, trademark guidelines, and anything that causes content on
-  the documentation site to render incorrectly.
+- **Error** - For branding guidelines, trademark guidelines, and anything that causes content on the documentation site to render incorrectly.
 - **Warning** - For general style guide rules, tenets, and best practices.
 - **Suggestion** - For technical writing style preferences that may require refactoring of documentation or updates to an exceptions list.
 
 The result types have these attributes:
 
-| Result type  | Displays in CI/CD job output | Displays in MR diff | Causes CI/CD jobs to fail | Vale rule link |
+| Result type | Displays in CI/CD job output | Displays in MR diff | Causes CI/CD jobs to fail | Vale rule link |
 |--------------|------------------------------|---------------------|---------------------------|----------------|
 | `error`      | {{< icon name="check-circle" >}} Yes       | {{< icon name="check-circle" >}} Yes | {{< icon name="check-circle" >}} Yes | [Error-level Vale rules](https://gitlab.com/search?group_id=9970&project_id=278964&repository_ref=master&scope=blobs&search=level%3A+error+file%3A%5Edoc&snippets=false&utf8=✓) |
 | `warning`    | {{< icon name="dotted-circle" >}} No       | {{< icon name="check-circle" >}} Yes | {{< icon name="dotted-circle" >}} No | [Warning-level Vale rules](https://gitlab.com/search?group_id=9970&project_id=278964&repository_ref=master&scope=blobs&search=level%3A+warning+file%3A%5Edoc&snippets=false&utf8=✓) |
@@ -108,36 +95,28 @@ The result types have these attributes:
 
 ## When to add a new Vale rule
 
-It's tempting to add a Vale rule for every style guide rule. However, we should be
-mindful of the effort to create and enforce a Vale rule, and the noise it creates.
+It's tempting to add a Vale rule for every style guide rule. However, we should be mindful of the effort to create and enforce a Vale rule, and the noise it creates.
 
 In general, follow these guidelines:
 
-- If you add an [error-level Vale rule](#result-types), you must fix
-  the existing occurrences of the issue in the documentation before you can add the rule.
+- If you add an [error-level Vale rule](#result-types), you must fix the existing occurrences of the issue in the documentation before you can add the rule.
 
-  If there are too many issues to fix in a single merge request, add the rule at a
-  `warning` level. Then, fix the existing issues in follow-up merge requests.
-  When the issues are fixed, promote the rule to an `error`.
+ If there are too many issues to fix in a single merge request, add the rule at a `warning` level. Then, fix the existing issues in follow-up merge requests.
+ When the issues are fixed, promote the rule to an `error`.
 
 - If you add a warning-level or suggestion-level rule, consider:
 
-  - How many more warnings or suggestions it creates in the Vale output. If the
-    number of additional warnings is significant, the rule might be too broad.
+ - How many more warnings or suggestions it creates in the Vale output. If the number of additional warnings is significant, the rule might be too broad.
 
-  - How often an author might ignore it because it's acceptable in the context.
-    If the rule is too subjective, it cannot be adequately enforced and creates
-    unnecessary additional warnings.
+ - How often an author might ignore it because it's acceptable in the context.
+    If the rule is too subjective, it cannot be adequately enforced and creates unnecessary additional warnings.
 
-  - Whether it's appropriate to display in the merge request diff in the GitLab UI.
-    If the rule is difficult to implement directly in the merge request (for example,
-    it requires page refactoring), set it to suggestion-level so it displays in local editors only.
+ - Whether it's appropriate to display in the merge request diff in the GitLab UI.
+    If the rule is difficult to implement directly in the merge request (for example, it requires page refactoring), set it to suggestion-level so it displays in local editors only.
 
 ## Where to add a new Vale rule
 
-New Vale rules belong in one of two categories (known in Vale as [styles](https://vale.sh/docs/topics/styles/)). These
-rules are stored separately in specific styles directories specified in a project's `.vale.ini` file. For example,
-[`.vale.ini` for the `gitlab` project](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.vale.ini).
+New Vale rules belong in one of two categories (known in Vale as [styles](https://vale.sh/docs/topics/styles/)). These rules are stored separately in specific styles directories specified in a project's `.vale.ini` file. For example, [`.vale.ini` for the `gitlab` project](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.vale.ini).
 
 Where to add your new rules depends on the type of rule you're proposing:
 
@@ -153,9 +132,7 @@ You can set Visual Studio Code to display only a subset of Vale alerts when view
 1. Go to **Preferences** > **Settings** > **Extensions** > **Vale**.
 1. In **Vale CLI: Min Alert Level**, select the minimum alert level you want displayed in files.
 
-To display only a subset of Vale alerts when running Vale from the command line, use
-the `--minAlertLevel` flag, which accepts `error`, `warning`, or `suggestion`. Combine it with `--config`
-to point to the configuration file in the project, if needed:
+To display only a subset of Vale alerts when running Vale from the command line, use the `--minAlertLevel` flag, which accepts `error`, `warning`, or `suggestion`. Combine it with `--config` to point to the configuration file in the project, if needed:
 
 ```shell
 vale --config .vale.ini --minAlertLevel error doc/**/*.md
@@ -165,8 +142,7 @@ Omit the flag to display all alerts, including `suggestion` level alerts.
 
 ### Test one rule at a time
 
-To test only a single rule when running Vale from the command line, modify this
-command, replacing `OutdatedVersions` with the name of the rule:
+To test only a single rule when running Vale from the command line, modify this command, replacing `OutdatedVersions` with the name of the rule:
 
 ```shell
 vale --no-wrap --filter='.Name=="gitlab_base.OutdatedVersions"' doc/**/*.md
@@ -174,30 +150,21 @@ vale --no-wrap --filter='.Name=="gitlab_base.OutdatedVersions"' doc/**/*.md
 
 ## Disable Vale tests
 
-You can disable a specific Vale linting rule or all Vale linting rules for any portion of a
-document:
+You can disable a specific Vale linting rule or all Vale linting rules for any portion of a document:
 
-- To disable a specific rule, add a `<!-- vale gitlab_<type>.rulename = NO -->` tag before the text, and a
-  `<!-- vale gitlab_<type>.rulename = YES -->` tag after the text, replacing `rulename` with the filename of a test in the
-  directory of one of the [GitLab styles](https://gitlab.com/gitlab-org/gitlab/-/tree/master/doc/.vale).
-- To disable all Vale linting rules, add a `<!-- vale off -->` tag before the text, and a
-  `<!-- vale on -->` tag after the text.
+- To disable a specific rule, add a `<!-- vale gitlab_<type>.rulename = NO -->` tag before the text, and a `<!-- vale gitlab_<type>.rulename = YES -->` tag after the text, replacing `rulename` with the filename of a test in the directory of one of the [GitLab styles](https://gitlab.com/gitlab-org/gitlab/-/tree/master/doc/.vale).
+- To disable all Vale linting rules, add a `<!-- vale off -->` tag before the text, and a `<!-- vale on -->` tag after the text.
 
 Whenever possible, exclude only the problematic rule and lines.
 
-For more information on Vale scoping rules, see
-[Vale's documentation](https://vale.sh/docs/topics/scoping/).
+For more information on Vale scoping rules, see [Vale's documentation](https://vale.sh/docs/topics/scoping/).
 
 ### Workaround to disable Vale rules that use the `raw` scope
 
-In general, you cannot disable Vale rules with the
-[`raw` scope](https://gitlab.com/search?search=scope%3A+raw+file%3A%5Edoc%2F.vale&nav_source=navbar&project_id=278964&group_id=9970&search_code=true&repository_ref=master).
+In general, you cannot disable Vale rules with the [`raw` scope](https://gitlab.com/search?search=scope%3A+raw+file%3A%5Edoc%2F.vale&nav_source=navbar&project_id=278964&group_id=9970&search_code=true&repository_ref=master).
 
-However, if a change causes Vale to fail because of a false positive, you can sometimes
-circumvent the by tweaking the formatting around the change. For example, sometimes
-you can add some extra spaces to the start of the line with the false positive.
-Be sure to test that the page continues to render fine, and add an HTML comment describing
-the reason for the special formatting.
+However, if a change causes Vale to fail because of a false positive, you can sometimes circumvent the by tweaking the formatting around the change. For example, sometimes you can add some extra spaces to the start of the line with the false positive.
+Be sure to test that the page continues to render fine, and add an HTML comment describing the reason for the special formatting.
 
 For instance (taken from a real [example](https://gitlab.com/gitlab-org/gitlab/-/blob/3d5398e9b2c9693d5a6c032c3352e7155541ea66/doc/user/markdown.md#L692-707)):
 
@@ -207,17 +174,16 @@ The following codeblock uses extra spaces to avoid the Vale ReferenceLinks test.
 Do not remove the two-space nesting.
 -->
 
-  - [Use a reference-style link that's normally prohibited][1]
+ - [Use a reference-style link that's normally prohibited][1]
 
-  [1]: https://example.com/
+ [1]: https://example.com/
 ```
 
 For more information, see this [Vale issue](https://github.com/errata-ai/vale/issues/194).
 
 ## Show Vale warnings on commit or push
 
-By default, the Vale check in Lefthook only shows error-level issues. The default branches
-have no Vale errors, so any errors listed here are introduced by the commit to the branch.
+By default, the Vale check in Lefthook only shows error-level issues. The default branches have no Vale errors, so any errors listed here are introduced by the commit to the branch.
 
 To also see the Vale warnings, set a local environment variable: `VALE_WARNINGS=true`.
 
@@ -237,9 +203,9 @@ To enable Vale warnings with Lefthook:
 - Automatically, add `VALE_WARNINGS=true` to your shell configuration.
 - Manually, prepend `VALE_WARNINGS=true` to invocations of `lefthook`. For example:
 
-  ```shell
-  VALE_WARNINGS=true bundle exec lefthook run pre-commit
-  ```
+ ```shell
+ VALE_WARNINGS=true bundle exec lefthook run pre-commit
+ ```
 
 You can also [configure your editor](#configure-vale-in-your-editor) to show Vale warnings.
 
@@ -247,8 +213,7 @@ You can also [configure your editor](#configure-vale-in-your-editor) to show Val
 
 ### Spelling test
 
-When Vale flags a valid word as a spelling mistake, you can fix it following these
-guidelines:
+When Vale flags a valid word as a spelling mistake, you can fix it following these guidelines:
 
 | Flagged word                                         | Guideline |
 |------------------------------------------------------|-----------|
@@ -262,8 +227,7 @@ guidelines:
 #### Uppercase (acronym) test
 
 The [`Uppercase.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/.vale/gitlab_base/Uppercase.yml)
-test checks for incorrect usage of words in all capitals. For example, avoid usage
-like `This is NOT important`.
+test checks for incorrect usage of words in all capitals. For example, avoid usage like `This is NOT important`.
 
 If the word must be in all capitals, follow these guidelines:
 
@@ -277,17 +241,13 @@ If the word must be in all capitals, follow these guidelines:
 
 ### Readability score
 
-In [`ReadingLevel.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/.vale/gitlab_base/ReadingLevel.yml),
-we have implemented
-[the Flesch-Kincaid grade level test](https://readable.com/readability/flesch-reading-ease-flesch-kincaid-grade-level/)
+In [`ReadingLevel.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/doc/.vale/gitlab_base/ReadingLevel.yml), we have implemented [the Flesch-Kincaid grade level test](https://readable.com/readability/flesch-reading-ease-flesch-kincaid-grade-level/)
 to determine the readability of our documentation.
 
 As a general guideline, the lower the score, the more readable the documentation.
-For example, a page that scores `12` before a set of changes, and `9` after, indicates an iterative improvement to readability. The score is not an exact science, but is meant to help indicate the
-general complexity level of the page.
+For example, a page that scores `12` before a set of changes, and `9` after, indicates an iterative improvement to readability. The score is not an exact science, but is meant to help indicate the general complexity level of the page.
 
-The readability score is calculated based on the number of words per sentence, and the number
-of syllables per word. For more information, see [the Vale documentation](https://vale.sh/docs/topics/styles/#metric).
+The readability score is calculated based on the number of words per sentence, and the number of syllables per word. For more information, see [the Vale documentation](https://vale.sh/docs/topics/styles/#metric).
 
 ## Export Vale results to a file
 
@@ -308,8 +268,7 @@ These results can be used to generate [documentation-related issues for Hackatho
 
 ## Enable custom rules locally
 
-Vale 3.0 and later supports using two locations for rules. This change enables you
-to create and use your own custom rules alongside the rules included in a project.
+Vale 3.0 and later supports using two locations for rules. This change enables you to create and use your own custom rules alongside the rules included in a project.
 
 To create and use custom rules locally on macOS:
 
@@ -326,8 +285,7 @@ To create and use custom rules locally on macOS:
    BasedOnStyles = local
    ```
 
-1. If the folder `~/Library/Application Support/vale/styles/local` does not exist,
-   create it:
+1. If the folder `~/Library/Application Support/vale/styles/local` does not exist, create it:
 
    ```shell
    mkdir ~/Library/Application\ Support/vale/styles/local
@@ -335,15 +293,14 @@ To create and use custom rules locally on macOS:
 
 1. Add your desired rules to `~/Library/Application Support/vale/styles/local`.
 
-Rules in your `local` style directory are prefixed with `local` instead of `gitlab`
-in Vale results, like this:
+Rules in your `local` style directory are prefixed with `local` instead of `gitlab` in Vale results, like this:
 
 ```shell
 $ vale --minAlertLevel warning doc/ci/yaml/index.md
 
  doc/ci/yaml/index.md
     ...[snip]...
- 3876:17   warning  Instead of future tense 'will   gitlab.FutureTense
+ 3876:17   warning Instead of future tense 'will   gitlab.FutureTense
                     be', use present tense.
  3897:26   error    Remove 'documentation'          local.new-rule
 

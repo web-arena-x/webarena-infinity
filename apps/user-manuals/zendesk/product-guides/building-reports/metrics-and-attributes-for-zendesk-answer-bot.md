@@ -6,61 +6,46 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408824748698-Metrics-and-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Guide Professional or Enterprise |
 
-Zendesk has renamed our bot capabilities. Answer Bot is now *AI
-agents*, Flow Builder is *bot builder*, and Article Recommendations are
-*[autoreplies with articles](https://support.zendesk.com/hc/en-us/articles/4408820349850)*. The Explore dashboard
-described in this article uses legacy names.
+Zendesk has renamed our bot capabilities. Answer Bot is now *AI agents*, Flow Builder is *bot builder*, and Article Recommendations are *[autoreplies with articles](https://support.zendesk.com/hc/en-us/articles/4408820349850)*. The Explore dashboard described in this article uses legacy names.
 
-Use this article to discover the metrics and attributes you can use to build Explore
-reports based on your usage of Zendesk bots. These datasets are also used for the Answer
-Bot prebuilt dashboards (see
-[Overview of the Answer Bot dashboard](https://support.zendesk.com/hc/en-us/articles/4408838386842)
+Use this article to discover the metrics and attributes you can use to build Explore reports based on your usage of Zendesk bots. These datasets are also used for the Answer Bot prebuilt dashboards (see [Overview of the Answer Bot dashboard](https://support.zendesk.com/hc/en-us/articles/4408838386842)
 ).
 
-For more information about how to create reports with Explore, see
-[Creating reports](https://support.zendesk.com/hc/en-us/articles/4408821589530).
+For more information about how to create reports with Explore, see [Creating reports](https://support.zendesk.com/hc/en-us/articles/4408821589530).
 
 This article contains the following topics:
 
-- [Article Recommendations
-  dataset](#topic_u23_1rs_crb)
+- [Article Recommendations dataset](#topic_u23_1rs_crb)
 - [Flow Builder dataset](#topic_mxt_wqs_crb)
 
 ## Article Recommendations dataset
 
 This section contains the following topics:
 
-- [Article Recommendations
-  dataset schema](#topic_e22_3rs_crb)
-- [Article Recommendations
-  metrics](#topic_m5k_grs_crb)
-- [Article Recommendations
-  attributes](#topic_b4y_2rs_crb)
+- [Article Recommendations dataset schema](#topic_e22_3rs_crb)
+- [Article Recommendations metrics](#topic_m5k_grs_crb)
+- [Article Recommendations attributes](#topic_b4y_2rs_crb)
 
 ### Article Recommendations schema
 
-Use this diagram to help you understand the elements of the Article
-Recommendations dataset and their relationships.
+Use this diagram to help you understand the elements of the Article Recommendations dataset and their relationships.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Answer_Bot.jpg)
 
 ### Article Recommendations metrics
 
-This section lists and defines all metrics available in the Article
-Recommendations dataset.
+This section lists and defines all metrics available in the Article Recommendations dataset.
 
 Note:
-Article Recommendations metrics aren’t fully
-supported for the messaging channel. Supported metrics include answers and
-attempts, but not clicks and resolutions.
+Article Recommendations metrics aren’t fully supported for the messaging channel. Supported metrics include answers and attempts, but not clicks and resolutions.
 
 Table 1. Article Recommendations metrics
 
@@ -101,9 +86,7 @@ Table 1. Article Recommendations metrics
 
 ### Article Recommendations attributes
 
-This section lists and defines all attributes available in the Article
-Recommendations dataset. You can use this diagram to help you understand the
-meaning of some of the attributes in the list:
+This section lists and defines all attributes available in the Article Recommendations dataset. You can use this diagram to help you understand the meaning of some of the attributes in the list:
 
 ![Common Answer Bot attributes](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Explore_Answer_Bot_attributes.png)
 
@@ -112,7 +95,7 @@ Table 2. Article Recommendations attributes
 | Attribute | Definition |
 | --- | --- |
 | Answer status | The status of a suggestion provided. The status is set depending on the end user's response. Values include **Unoffered**, **Offered**, **Clicked** or **Resolved**. |
-| Answer channel | The channel on which a suggestion was offered to an end user or agent. Values include:  - **Agents**   (when an agent uses the Knowledge Capture   app or the knowledge section of the context panel from   within a ticket) - **Conversation Bots**   (on messaging channels   including Web Widget, mobile SDKs, and social messaging   apps) - **API** - **Email** - **SDK**   (Classic mobile SDKs only) - **Slack** - **Web form** - **Web Widget**   (Classic only) |
+| Answer channel | The channel on which a suggestion was offered to an end user or agent. Values include: - **Agents**   (when an agent uses the Knowledge Capture   app or the knowledge section of the context panel from   within a ticket) - **Conversation Bots**   (on messaging channels   including Web Widget, mobile SDKs, and social messaging   apps) - **API** - **Email** - **SDK**   (Classic mobile SDKs only) - **Slack** - **Web form** - **Web Widget**   (Classic only) |
 | Answer brand | The brand of ticket corresponding to the brand of the knowledge base where a suggestion for an answer was generated. |
 | Answer enquiry | The end user’s question for which suggestions were offered. The attribute values are limited to the first 255 characters. This attribute does not include the Generate a reply and Don't answer based on articles bot response options. To report on these, use the Content text attribute in the [Flow Builder dataset](#topic_jtk_crs_crb). |
 | Answer ID | The ID of the notification with suggestions sent. |
@@ -180,15 +163,12 @@ Table 2. Article Recommendations attributes
 
 This section contains the following topics:
 
-- [Flow Builder
-  metrics](#topic_dzk_drs_crb)
-- [Flow Builder
-  attributes](#topic_jtk_crs_crb)
+- [Flow Builder metrics](#topic_dzk_drs_crb)
+- [Flow Builder attributes](#topic_jtk_crs_crb)
 
 ### Flow Builder metrics
 
-This section lists and defines all metrics available in the Flow Builder
-dataset.
+This section lists and defines all metrics available in the Flow Builder dataset.
 
 Table 3. Flow Builder metrics
 
@@ -200,25 +180,24 @@ Table 3. Flow Builder metrics
 | % total users who engaged with bot | The percentage of total users who have sent a message to the bot or responded to a prompt. | D\_COUNT(Engaged with bot) / D\_COUNT(Total users) |
 | % engaged users transferred to agent | The percentage of engaged users who have successfully completed the transfer step from the bot to an agent. | D\_COUNT(Transferred to agent) / D\_COUNT(Engaged with bot) |
 | User input count | The total number of user inputs (messages of any type) received by the bot. | [Content text] |
-| Total users in previous 30 days | The total number of users in the period from 62 days to 32 days before today. |  |
-| Total users in last 30 days | The total number of users in the period from 31 days ago to yesterday. |  |
-| Engaged users in previous 30 days | Users who engaged with the bot in the period from 62 days to 32 days before today. |  |
-| Engaged users in last 30 days | Users who engaged with the bot in the period from 31 days ago to yesterday. |  |
-| Transferred users in previous 30 days | Users who were transferred from the bot to an agent in the period from 62 days to 32 days before today. |  |
-| Transferred users in last 30 days | Users who were transferred from the bot to an agent in the period from 31 days ago to yesterday. |  |
-| Containment rate | The proportion of engaged users whose conversation was *not* transferred from the bot to an agent. The inverse of **% transferred to agent**. |  |
-| Resolution feedback prompts | The number of times the bot asked for feedback via an “Ask if question resolved” step.  **Note:** This metric and the following metrics are counted based on each instance of the event and not aggregated per user. So if a user went through the same flow and replied to a feedback prompt more than once, this metric counts each instance of a prompt being sent or a feedback reply interaction. |  |
-| Resolution feedback replies | The number of feedback prompt replies received by the bot. |  |
-| % resolution feedback replies | The proportion of times the bot received a reply after sending a feedback prompt. This is the count of replies of any type divided by the count of prompts sent. |  |
-| Resolved feedback replies | The number of *resolved* feedback prompt replies received by the bot (for example, “Yes, problem solved”). |  |
-| % resolved | The proportion of total replies that were *resolved* replies. This is the count of resolved replies divided by the count of total replies. |  |
-| Unresolved feedback replies | The number of *unresolved* feedback prompt replies received by the bot (for example, “No, I still need help”). |  |
-| % unresolved | The proportion of total replies that were *unresolved* replies. This is the count of unresolved replies divided by the count of total replies. |  |
+| Total users in previous 30 days | The total number of users in the period from 62 days to 32 days before today. | |
+| Total users in last 30 days | The total number of users in the period from 31 days ago to yesterday. | |
+| Engaged users in previous 30 days | Users who engaged with the bot in the period from 62 days to 32 days before today. | |
+| Engaged users in last 30 days | Users who engaged with the bot in the period from 31 days ago to yesterday. | |
+| Transferred users in previous 30 days | Users who were transferred from the bot to an agent in the period from 62 days to 32 days before today. | |
+| Transferred users in last 30 days | Users who were transferred from the bot to an agent in the period from 31 days ago to yesterday. | |
+| Containment rate | The proportion of engaged users whose conversation was *not* transferred from the bot to an agent. The inverse of **% transferred to agent**. | |
+| Resolution feedback prompts | The number of times the bot asked for feedback via an “Ask if question resolved” step. **Note:** This metric and the following metrics are counted based on each instance of the event and not aggregated per user. So if a user went through the same flow and replied to a feedback prompt more than once, this metric counts each instance of a prompt being sent or a feedback reply interaction. | |
+| Resolution feedback replies | The number of feedback prompt replies received by the bot. | |
+| % resolution feedback replies | The proportion of times the bot received a reply after sending a feedback prompt. This is the count of replies of any type divided by the count of prompts sent. | |
+| Resolved feedback replies | The number of *resolved* feedback prompt replies received by the bot (for example, “Yes, problem solved”). | |
+| % resolved | The proportion of total replies that were *resolved* replies. This is the count of resolved replies divided by the count of total replies. | |
+| Unresolved feedback replies | The number of *unresolved* feedback prompt replies received by the bot (for example, “No, I still need help”). | |
+| % unresolved | The proportion of total replies that were *unresolved* replies. This is the count of unresolved replies divided by the count of total replies. | |
 
 ### Flow Builder attributes
 
-This section lists and defines all attributes available in the Flow Builder
-dataset.
+This section lists and defines all attributes available in the Flow Builder dataset.
 
 Table 4. Flow Builder attributes
 

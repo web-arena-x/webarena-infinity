@@ -13,13 +13,11 @@ title: GitLab Dedicated encryption
 
 {{< /details >}}
 
-GitLab Dedicated provides secure encryption capabilities to protect your data through robust security
-infrastructure provided by AWS. Data is encrypted both at rest and in transit.
+GitLab Dedicated provides secure encryption capabilities to protect your data through robust security infrastructure provided by AWS. Data is encrypted both at rest and in transit.
 
 ## Encrypted data at rest
 
-GitLab Dedicated encrypts all stored data using AWS AES-256 (Advanced Encryption Standard with 256-bit
-keys). This encryption applies to all AWS storage services used by GitLab Dedicated.
+GitLab Dedicated encrypts all stored data using AWS AES-256 (Advanced Encryption Standard with 256-bit keys). This encryption applies to all AWS storage services used by GitLab Dedicated.
 
 | Service | How it's encrypted |
 |-------------|-------------------|
@@ -36,9 +34,7 @@ All services use AES-256 encryption standard. In this envelope encryption system
 1. AWS KMS keys remain in the AWS Key Management Service and are never exposed in unencrypted form.
 1. All encryption keys are protected by Hardware Security Modules (HSMs).
 
-This envelope encryption process works by having AWS KMS derive the DEKs specifically for each
-encryption operation. The DEK directly encrypts your data, while the DEK itself is encrypted by the
-AWS KMS key, creating a secure envelope around your data.
+This envelope encryption process works by having AWS KMS derive the DEKs specifically for each encryption operation. The DEK directly encrypts your data, while the DEK itself is encrypted by the AWS KMS key, creating a secure envelope around your data.
 
 ### Encryption key sources
 
@@ -47,8 +43,7 @@ Your AWS KMS encryption key can come from one of the following sources:
 - [AWS-managed keys](#aws-managed-keys) (default): GitLab and AWS handle all aspects of key generation and management.
 - [Bring your own key (BYOK)](#bring-your-own-key-byok): You provide and control your own AWS KMS keys.
 
-All key generation takes place in AWS KMS using dedicated hardware, ensuring high security
-standards for encryption across all storage services.
+All key generation takes place in AWS KMS using dedicated hardware, ensuring high security standards for encryption across all storage services.
 
 The following table summarizes the functional differences between these options:
 
@@ -61,40 +56,29 @@ The following table summarizes the functional differences between these options:
 
 ### AWS-managed keys
 
-When you don't bring your own key, AWS uses AWS-managed KMS keys for encryption by
-default. These keys are automatically created and maintained by AWS for each service.
+When you don't bring your own key, AWS uses AWS-managed KMS keys for encryption by default. These keys are automatically created and maintained by AWS for each service.
 
-AWS KMS manages access to AWS-managed keys using AWS Identity and Access
-Management (IAM). This architecture ensures that even AWS personnel cannot access your encryption
-keys or decrypt your data directly, as all key operations are managed through the HSM-based security
-controls.
+AWS KMS manages access to AWS-managed keys using AWS Identity and Access Management (IAM). This architecture ensures that even AWS personnel cannot access your encryption keys or decrypt your data directly, as all key operations are managed through the HSM-based security controls.
 
-You do not have direct access to AWS-managed KMS keys. Only the specific AWS services you use with
-your instance can request encryption or decryption operations for resources they manage on your
-behalf.
+You do not have direct access to AWS-managed KMS keys. Only the specific AWS services you use with your instance can request encryption or decryption operations for resources they manage on your behalf.
 
-Only AWS services that need access to the key (S3, EBS, RDS) can use them. AWS personnel do not have
-direct access to key material, as AWS KMS keys are protected by an internal HSM-based mechanism.
+Only AWS services that need access to the key (S3, EBS, RDS) can use them. AWS personnel do not have direct access to key material, as AWS KMS keys are protected by an internal HSM-based mechanism.
 
 To learn more, see the Amazon documentation on [AWS managed keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
 
 ### Bring your own key (BYOK)
 
-With BYOK, you can encrypt your GitLab Dedicated data at rest using your own AWS KMS keys. This way,
-you retain control over your own AWS KMS encryption keys. You manage access policies through your AWS
-account.
+With BYOK, you can encrypt your GitLab Dedicated data at rest using your own AWS KMS keys. This way, you retain control over your own AWS KMS encryption keys. You manage access policies through your AWS account.
 
 {{< alert type="note" >}}
 
 BYOK must be enabled during instance onboarding. Once enabled, it cannot be disabled.
 
-If you did not enable BYOK during onboarding, your data is still encrypted at rest with AWS-managed
-keys, but you cannot use your own keys.
+If you did not enable BYOK during onboarding, your data is still encrypted at rest with AWS-managed keys, but you cannot use your own keys.
 
 {{< /alert >}}
 
-Due to key rotation requirements, GitLab Dedicated only supports keys with AWS-managed key material
-(the [AWS_KMS](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-origin)
+Due to key rotation requirements, GitLab Dedicated only supports keys with AWS-managed key material (the [AWS_KMS](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-origin)
 origin type).
 
 In GitLab Dedicated, you can use KMS keys in several ways:
@@ -102,8 +86,8 @@ In GitLab Dedicated, you can use KMS keys in several ways:
 - One KMS key for all services across all regions: Use a single multi-region key with replicas in each region where you have Geo instances.
 - One KMS key for all services within each region: Use separate keys for each region where you have Geo instances.
 - Per-service KMS keys per region: Use different keys for different services (backup, EBS, RDS, S3, advanced search) within each region.
-  - Keys do not need to be unique to each service.
-  - Selective enablement is not supported.
+ - Keys do not need to be unique to each service.
+ - Selective enablement is not supported.
 
 #### Create AWS KMS keys for BYOK
 
@@ -129,8 +113,7 @@ To create AWS KMS keys for BYOK:
 1. Select key administrators.
 1. Optional. Allow or prevent key administrators from deleting the key.
 1. On the **Define key usage permissions** page, under **Other AWS accounts**, add the GitLab AWS account.
-1. Review the KMS key policy. It should look similar to the example below, populated with your
-   account IDs and usernames.
+1. Review the KMS key policy. It should look similar to the example below, populated with your account IDs and usernames.
 
 ```json
 {
@@ -226,8 +209,7 @@ To create replica keys:
 1. Select the IAM users and roles that can administer the replica key.
 1. Optional. Select or clear the **Allow key administrators to delete this key** checkbox.
 1. Select **Next**.
-1. On the **Define key usage permissions** page, verify that the GitLab AWS account
-   is listed under **Other AWS accounts**.
+1. On the **Define key usage permissions** page, verify that the GitLab AWS account is listed under **Other AWS accounts**.
 1. Select **Next** and review the policy.
 1. Select **Next**, review your settings, and select **Finish**.
 
@@ -239,14 +221,11 @@ To enable BYOK:
 
 1. Collect the ARNs for all keys you created, including any replica keys in their respective regions.
 1. Before your GitLab Dedicated tenant is provisioned, ensure these ARNs have been entered into in Switchboard during [onboarding](create_instance/_index.md).
-1. Make sure the AWS KMS keys are replicated to your desired primary, secondary, and backup regions
-   specified in Switchboard during [onboarding](create_instance/_index.md).
+1. Make sure the AWS KMS keys are replicated to your desired primary, secondary, and backup regions specified in Switchboard during [onboarding](create_instance/_index.md).
 
 ## Encrypted data in transit
 
-GitLab Dedicated encrypts all data moving over networks using TLS (Transport Layer Security) with
-strong cipher suites. This encryption applies to all network communications used by GitLab Dedicated
-services.
+GitLab Dedicated encrypts all data moving over networks using TLS (Transport Layer Security) with strong cipher suites. This encryption applies to all network communications used by GitLab Dedicated services.
 
 | Service | How it's encrypted |
 |---------|-------------------|
@@ -258,15 +237,12 @@ services.
 
 {{< alert type="note" >}}
 
-Encryption for data in transit is performed with TLS using keys generated and managed by GitLab
-Dedicated components, and is not covered by BYOK.
+Encryption for data in transit is performed with TLS using keys generated and managed by GitLab Dedicated components, and is not covered by BYOK.
 
 {{< /alert >}}
 
 ### Custom TLS certificates
 
-You can configure custom TLS certificates to use your organization's certificates for encrypted
-communications.
+You can configure custom TLS certificates to use your organization's certificates for encrypted communications.
 
-For more information on configuring custom certificates, see
-[custom certificates](configure_instance/network_security.md#custom-certificate-authorities-for-external-services).
+For more information on configuring custom certificates, see [custom certificates](configure_instance/network_security.md#custom-certificate-authorities-for-external-services).

@@ -8,19 +8,19 @@ All employer related individuals with information in Handshake fall into one of 
 
 As it relates to employers, all employer users are considered staff members, so these terms are used interchangeably. 
 
-*Please note: A Company Profile may or may not have staff members connected. A school can create a Company Profile, so there may be no staff members. Likewise, an employer may leave a Company Profile, leaving the profile without any staff members.*  
-  
+*Please note: A Company Profile may or may not have staff members connected. A school can create a Company Profile, so there may be no staff members. Likewise, an employer may leave a Company Profile, leaving the profile without any staff members.* 
+ 
 **Contacts**
 
 - Contacts are added to Handshake via one of three methods: 
-  - a [bulk upload](https://support.joinhandshake.com/hc/en-us/articles/115002887467-Creating-an-Employer-Contact-file-for-Upload-into-Handshake)
-  - manually added by a Career Services Staff Member
-  - automatically added through user account interaction with your school on Handshake (attending a career fair, posting a job, connecting with your school)
+ - a [bulk upload](https://support.joinhandshake.com/hc/en-us/articles/115002887467-Creating-an-Employer-Contact-file-for-Upload-into-Handshake)
+ - manually added by a Career Services Staff Member
+ - automatically added through user account interaction with your school on Handshake (attending a career fair, posting a job, connecting with your school)
 - Contacts can be thought of as a virtual address book. They may be employers, community partners, career service, etc.
 - Contacts are accessed using the Left Hand Navigation Bar (Relationships → Contacts).
 - Each contact must have (at least) a first name, last name, and email address. A wide variety of other information, including notes and labels, can also be added to a contact.
 - A contact (unless they are also a user) does not have the ability to log on to, use, or have direct interaction with the Handshake platform.  Although the contact does not use the platform directly, content from Handshake can be sent to contacts via email.  
-  - For example, an employer contact (who does not have his own Handshake user account) can be listed on a job and then receive applications to that job via email.
+ - For example, an employer contact (who does not have his own Handshake user account) can be listed on a job and then receive applications to that job via email.
 - Contacts can be archived by your school.
 - A contact can also be a user.  The two profiles will be linked in Handshake as long as the same email address is used for both their contact record and their user account.
 - The contact source identifies the initial creation or interaction the contact had with your school. For more information on the contact source, please refer to [FAQs About Contacts](https://support.joinhandshake.com/hc/en-us/articles/115001197847).

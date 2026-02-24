@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/5455225532954-Working-with
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Explore Professional or Enterprise |
 
@@ -54,7 +54,7 @@ You can create a report with the beta report builder from the Reports library. I
 **To create a report**
 
 1. In Explore, click the Reports icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Explore_query_icon.png)) to open the Reports library.
-2. In the banner titled **Report Builder beta is available**, select **Try beta**.  
+2. In the banner titled **Report Builder beta is available**, select **Try beta**. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_banner.png)
 3. On the **Select a dataset** page, choose the dataset that contains the information you want to report on. For help choosing a dataset, see [Understanding the available default datasets](https://support.zendesk.com/hc/en-us/articles/4408839218842#topic_hr1_tfk_jkb).
 
@@ -66,7 +66,7 @@ The beta report builder opens a new report using the dataset you chose.
 **To create a new report from within the beta report builder**
 
 1. From within the beta report builder, click the options menu (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_menu_vertical.png)) in the top-right.
-2. Select **Create new report**.  
+2. Select **Create new report**. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_create_new_quick_action.png)
 
 A new browser window opens with a fresh instance of the beta report builder.
@@ -83,14 +83,14 @@ Metrics are quantifiable values, such as the number of tickets or customer wait 
 **To add a metric to a report**
 
 1. Make sure the **Metrics** tab is selected in the leftmost column.
-2. Find the metric you want to add. The beta report builder gives you several options for finding the right metric:  
+2. Find the metric you want to add. The beta report builder gives you several options for finding the right metric: 
    - Search for a specific metric using the search bar.
    - Sort the available metrics by clicking **Popular** or **Recently used**.
    - Filter your search results by clicking the filter icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_filter.png)) and selecting the category the metric belongs to. This category is analogous to the metric folders in the classic report builder.
-3. Click and drag the metric you want to use into the **Metrics** panel. Alternatively, you can click the plus sign (+) to the right of the metric name to add it.  
-   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_adding_metric.png)  
+3. Click and drag the metric you want to use into the **Metrics** panel. Alternatively, you can click the plus sign (+) to the right of the metric name to add it. 
+   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_adding_metric.png) 
    Explore automatically uses the most suitable aggregator for the metric.
-4. (Optional) If you want to change the metric aggregator, click the options menu (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_menu_vertical.png)) next to the metric and select a different aggregator.  
+4. (Optional) If you want to change the metric aggregator, click the options menu (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_menu_vertical.png)) next to the metric and select a different aggregator. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_changing_aggregator.png)
 
 ## Adding attributes to a report
@@ -105,7 +105,7 @@ Attributes can be added in the **Rows** or **Columns** panels. Which panel you a
 
 Note that the labels for the **Rows** and **Columns** panels change depending on which visualization you select.
 
-|  |  |  |  |  |
+| | | | | |
 | --- | --- | --- | --- | --- |
 | **Chart type** | **Primary attributes** | | **Secondary attributes** | |
 | **Panel label** | **What it does** | **Panel label** | **What it does** |
@@ -122,7 +122,7 @@ Note that the labels for the **Rows** and **Columns** panels change depending on
 **To add an attribute to a report**
 
 1. Select the **Attributes** tab in the leftmost column.
-2. Find the attribute you want to add. The beta report builder gives you several options for finding the right attribute:  
+2. Find the attribute you want to add. The beta report builder gives you several options for finding the right attribute: 
    - Search for a specific attribute using the search bar.
    - Sort the available attributes by clicking **Popular** or **Recently** used.
    - Filter your search results by clicking the filter icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_filter.png)) and selecting the category the attribute belongs to. This category is analogous to the attribute folders in the classic report builder.
@@ -138,11 +138,11 @@ When you add a time-based attribute in the beta report builder, the **Date** tim
 **To change the unit of a time-based attribute**
 
 1. Click the three dots to the right of a time-based attribute that you’ve [added to your report](#h_01GXRAJ90JSPQTVAJBGW5V6MK1).
-2. Under **Time**, select the time unit you want. Options include:  
+2. Under **Time**, select the time unit you want. Options include: 
    - Date (default)
    - Month
    - Year
-   - Other  
+   - Other 
      - Half year
      - Quarter
      - Week of year
@@ -152,7 +152,7 @@ When you add a time-based attribute in the beta report builder, the **Date** tim
      - Hour
      - Minute
      - Second
-     - Timestamp  
+     - Timestamp 
        ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_time_unit.png)
 
 [Copying a time unit to the Filters panel](#h_01GXRAJ90JSPQTVAJBGW5V6MK1:~:text=To%20copy%20an%20attribute%20to%20the%20Filters%20panel) strips the time unit and lets you [filter by a time range](#h_01GXRAJMXXPE8ZKFDATR07VKV1) instead.
@@ -163,9 +163,9 @@ If you add a metric or attribute to your report that you no longer want, you can
 
 **To remove a metric or attribute from a report**
 
-1. Click the options menu (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_menu_vertical.png)) next to the metric or attribute you want to remove and select **Remove**.  
-   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_removing_metric.png)  
-   Alternatively, you can click and drag any metric or attribute to the **Drop here to remove** panel at the bottom of the screen.  
+1. Click the options menu (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_menu_vertical.png)) next to the metric or attribute you want to remove and select **Remove**. 
+   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_removing_metric.png) 
+   Alternatively, you can click and drag any metric or attribute to the **Drop here to remove** panel at the bottom of the screen. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_drop_here_to_remove.png)
 
 Tip: If you add or remove any metrics or filters and your report doesn’t refresh as expected, you can manually refresh the report by clicking the **Reload** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_reload_icon.png)) in the upper right.
@@ -177,22 +177,22 @@ You can filter a report by adding an attribute in the **Filters** panel to contr
 **To filter a report**
 
 1. Select the **Attributes** tab in the leftmost column.
-2. Find the attribute you want to add. The beta report builder gives you several options for finding the right attribute:  
+2. Find the attribute you want to add. The beta report builder gives you several options for finding the right attribute: 
    - Search for a specific attribute using the search bar.
    - Sort the available attributes by clicking **Popular** or **Recently** used.
    - Filter your search results by clicking the filter icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_filter.png)) and selecting the category the attribute belongs to. This category is analogous to the attribute folders in the classic report builder.
 3. Click and drag the attribute you want to use into the **Filters** panel. Alternatively, you can click the plus icon (+) to the right of the attribute name and select **Filters** to add it.
-4. In the **Filters** panel, the attribute you just added. Alternatively, click the options menu (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_menu_vertical.png)) next to the attribute you just added and select **Edit**.  
+4. In the **Filters** panel, the attribute you just added. Alternatively, click the options menu (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_menu_vertical.png)) next to the attribute you just added and select **Edit**. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_edit_filter.png)
-5. Select the values you want to filter your report by. Or, if you want to exclude certain values, click **Select all** and then deselect the values you don’t want to be included in your report.  
+5. Select the values you want to filter your report by. Or, if you want to exclude certain values, click **Select all** and then deselect the values you don’t want to be included in your report. 
 
    If you’re filtering by a time attribute, you also have the option to filter by fixed or rolling time ranges:
 
-   - **Fixed range**: Select the static period of time you want to see report results for (for example, November 1 to 30).  
+   - **Fixed range**: Select the static period of time you want to see report results for (for example, November 1 to 30). 
      ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_fixed_range.png)
-   - **Rolling range**: Select the dynamic period of time you want to see report results for (for example, the past 30 days). You can set a rolling range based on hours, days, weeks, months, quarters, semesters, or years.  
+   - **Rolling range**: Select the dynamic period of time you want to see report results for (for example, the past 30 days). You can set a rolling range based on hours, days, weeks, months, quarters, semesters, or years. 
      ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_rolling_range.png)
-6. Click **Apply**.  
+6. Click **Apply**. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_filter_values.png)
 
 The report returns only results where the attribute values you selected are present.
@@ -200,8 +200,8 @@ The report returns only results where the attribute values you selected are pres
 **To copy an attribute to the Filters panel**
 
 1. In the **Rows** or **Columns** panel, click an attribute you’ve added.
-2. Click **Copy to Filters**.  
-   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_copy_to_filters.png)  
+2. Click **Copy to Filters**. 
+   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_copy_to_filters.png) 
    The attribute is added to the **Filters** panel. If you want the attribute to act as a filter but not appear in the report, you can [remove it from the Rows or Columns panel](#h_01GXRAJE7JAKV827KAPASY3DKV).
 3. Click the attribute you just added to the **Filters** panel, select the values to include in the report, and click **Apply**.
 
@@ -211,18 +211,18 @@ By default, Explore renders your report results using the **Table** visualizatio
 
 **To apply a suggested report visualization**
 
-1. In your report, hover your mouse over the **Suggested** bar to the right of the visualization button.  
+1. In your report, hover your mouse over the **Suggested** bar to the right of the visualization button. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_suggested_visualizations.png)
 2. Select one of the suggested visualizations to quickly apply it to your report. When you do, the name of the visualization button changes to reflect your currently applied visualization.
 
 **To manually select a report visualization**
 
-1. Click the visualization button above the report results. The name of this button reflects the currently applied visualization.  
+1. Click the visualization button above the report results. The name of this button reflects the currently applied visualization. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_visualization_selector.png)
 2. Select the visualization you want to apply to your report. The option at the top always shows the default visualization, Table. The other available options are sorted into the following categories:
    - **Change over time**: Includes Column, Line, Area, Sparkline, and Waterfall.
    - **Comparison of parts**: Includes Bar, Pie, Funnel, Sunburst, Treemap, Word cloud, Bubble pack, and Bubble plot.
-   - **Infographics**: Includes KPI, Gauge, Bullet, and Picto.  
+   - **Infographics**: Includes KPI, Gauge, Bullet, and Picto. 
        
      For help choosing a visualization, see [Choosing the right chart type for your data](https://support.zendesk.com/hc/en-us/articles/4408827297946#topic_ih2_vxd_zsb).
 
@@ -248,7 +248,7 @@ Multiple users can access and edit the same report at the same time. Any updates
 **To edit a report**
 
 1. In the Reports library, open the report you want to edit.
-2. Click **Switch to builder beta** at the bottom of the screen.  
+2. Click **Switch to builder beta** at the bottom of the screen. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_switch_to_builder_beta.png)
 
 The beta report builder opens the report for editing.
@@ -265,7 +265,7 @@ You can add tags to a report to make them easier to find in the Reports library.
 
 **To add tags to your report**
 
-1. In your report, click the **Manage tags** icon.  
+1. In your report, click the **Manage tags** icon. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_manage_tags.png)
 2. In the **Manage tags** window:
    1. (Optional) Add a new report tag by clicking **New tag**, entering a tag name, and clicking **Save**.
@@ -279,14 +279,14 @@ For more information about managing report tags, see [Organizing your reports wi
 You can choose how often your report reloads as you’re building it. Your options are:
 
 - **Automatic**: The report reloads every time you add a metric, attribute, filter, or other configuration option.
-- **Manual**: (Default) The report reloads only when you click the **Run report** button or **Reload** icon.  
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_reload_run_report.png)
+- **Manual**: (Default) The report reloads only when you click the **Run report** button or **Reload** icon. 
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_reload_run_report.png)
 
 **To configure the report reloading behavior**
 
 1. From within the beta report builder, click the options menu (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_menu_vertical.png)) in the top-right.
 2. Select **Reloading mode**.
-3. Select either **Automatic** or **Manual**.  
+3. Select either **Automatic** or **Manual**. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_reloading_mode.png)
 
 Your current selection is remembered whenever you open the report builder.
@@ -312,7 +312,7 @@ When you export a report as CSV, only the data from the report is exported. Any 
 
 **To export a report**
 
-1. In your report, click the **Export report** icon in the top-right.  
+1. In your report, click the **Export report** icon in the top-right. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_export.png)
 2. In the **Export report** window, select an export format of **CSV**, **Excel (formatted)**, **PNG**, or **PDF**. See [Choosing an export format](https://support.zendesk.com/hc/en-us/articles/4483481898266#topic_jds_34c_zsb) for more details about each option.
 3. Click **Export report**.
@@ -336,5 +336,5 @@ You can set the beta report builder as your default report building experience i
 **To set the beta report builder as default**
 
 1. [Open the beta report builder.](#h_01GXRAHWYRSKBEH6ZAW6ANT7K7)
-2. In the bottom-right, select **Use beta for all reports**. Explore remembers your selection the next time you create or edit a report. To use the classic builder by default, deselect the checkbox.  
+2. In the bottom-right, select **Use beta for all reports**. Explore remembers your selection the next time you create or edit a report. To use the classic builder by default, deselect the checkbox. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_beta_report_builder_use_beta_default.png)

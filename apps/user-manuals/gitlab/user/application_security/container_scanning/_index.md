@@ -14,34 +14,23 @@ description: Image vulnerability scanning, configuration, customization, and rep
 {{< /details >}}
 
 Security vulnerabilities in container images create risk throughout your application lifecycle.
-Container scanning detects these risks early, before they reach production environments. When
-vulnerabilities appear in your base images or operating system's packages, container scanning
-identifies them and provides a remediation path for those that it can.
+Container scanning detects these risks early, before they reach production environments. When vulnerabilities appear in your base images or operating system's packages, container scanning identifies them and provides a remediation path for those that it can.
 
 - <i class="fa-youtube-play" aria-hidden="true"></i>
-  For an overview, see [Container scanning - Advanced Security Testing](https://www.youtube.com/watch?v=C0jn2eN5MAs).
+ For an overview, see [Container scanning - Advanced Security Testing](https://www.youtube.com/watch?v=C0jn2eN5MAs).
 - <i class="fa-youtube-play" aria-hidden="true"></i> For a video walkthrough, see [How to set up container scanning using GitLab](https://youtu.be/h__mcXpil_4?si=w_BVG68qnkL9x4l1).
 - For an introductory tutorial, see [Scan a Docker container for vulnerabilities](../../../tutorials/container_scanning/_index.md).
 
-Container scanning is often considered part of Software Composition Analysis (SCA). SCA can contain
-aspects of inspecting the items your code uses. These items typically include application and system
-dependencies that are almost always imported from external sources, rather than sourced from items
-you wrote yourself.
+Container scanning is often considered part of Software Composition Analysis (SCA). SCA can contain aspects of inspecting the items your code uses. These items typically include application and system dependencies that are almost always imported from external sources, rather than sourced from items you wrote yourself.
 
-GitLab offers both container scanning and dependency scanning
-to ensure coverage for all these dependency types. To cover as much of your risk area as
-possible, use all the security scanners. For a comparison of these features, see
-[Dependency scanning compared to container scanning](../comparison_dependency_and_container_scanning.md).
+GitLab offers both container scanning and dependency scanning to ensure coverage for all these dependency types. To cover as much of your risk area as possible, use all the security scanners. For a comparison of these features, see [Dependency scanning compared to container scanning](../comparison_dependency_and_container_scanning.md).
 
 GitLab integrates with the [Trivy](https://github.com/aquasecurity/trivy) security scanner to perform vulnerability static analysis in containers.
 
 {{< alert type="warning" >}}
 
-The Grype analyzer is no longer maintained, except for limited fixes as explained in the GitLab
-[statement of support](https://about.gitlab.com/support/statement-of-support/#version-support).
-The existing current major version for the Grype analyzer image will continue to be updated with the
-latest advisory database, and operating system packages until GitLab 19.0, at which point the analyzer
-will stop working.
+The Grype analyzer is no longer maintained, except for limited fixes as explained in the GitLab [statement of support](https://about.gitlab.com/support/statement-of-support/#version-support).
+The existing current major version for the Grype analyzer image will continue to be updated with the latest advisory database, and operating system packages until GitLab 19.0, at which point the analyzer will stop working.
 
 {{< /alert >}}
 
@@ -64,22 +53,15 @@ will stop working.
 
 ## Getting started
 
-Enable the container scanning analyzer in your CI/CD pipeline. When a pipeline runs, the images your
-application depends on are scanned for vulnerabilities. You can customize container scanning by
-using CI/CD variables.
+Enable the container scanning analyzer in your CI/CD pipeline. When a pipeline runs, the images your application depends on are scanned for vulnerabilities. You can customize container scanning by using CI/CD variables.
 
 Prerequisites:
 
 - The test stage is required in the `.gitlab-ci.yml` file.
-- With self-managed runners you need a runner with the `docker` or `kubernetes` executor on
-  Linux/amd64. If you're using the instance runners on GitLab.com, this is enabled by default.
+- With self-managed runners you need a runner with the `docker` or `kubernetes` executor on Linux/amd64. If you're using the instance runners on GitLab.com, this is enabled by default.
 - An image matching the [supported distributions](#supported-distributions).
-- [Build and push](../../packages/container_registry/build_and_push_images.md#use-gitlab-cicd) the
-  Docker image to your project's container registry.
-- If you're using a third-party container registry, you might need to provide authentication
-  credentials by using the CI/CD variables `CS_REGISTRY_USER` and `CS_REGISTRY_PASSWORD`. For more
-  details on how to use these variables, see
-  [authenticate to a private external registry](#authenticate-to-private-external-registry).
+- [Build and push](../../packages/container_registry/build_and_push_images.md#use-gitlab-cicd) the Docker image to your project's container registry.
+- If you're using a third-party container registry, you might need to provide authentication credentials by using the CI/CD variables `CS_REGISTRY_USER` and `CS_REGISTRY_PASSWORD`. For more details on how to use these variables, see [authenticate to a private external registry](#authenticate-to-private-external-registry).
 
 Please see details below for [user and project-specific requirements](#prerequisites).
 
@@ -87,20 +69,17 @@ To enable the analyzer, either:
 
 - Enable Auto DevOps, which includes dependency scanning.
 - Use a preconfigured merge request.
-- Create a [scan execution policy](../policies/scan_execution_policies.md) that enforces container
-  scanning.
+- Create a [scan execution policy](../policies/scan_execution_policies.md) that enforces container scanning.
 - Edit the `.gitlab-ci.yml` file manually.
 
 ### Use a preconfigured merge request
 
-This method automatically prepares a merge request that includes the container scanning template
-in the `.gitlab-ci.yml` file. You then merge the merge request to enable container scanning.
+This method automatically prepares a merge request that includes the container scanning template in the `.gitlab-ci.yml` file. You then merge the merge request to enable container scanning.
 
 {{< alert type="note" >}}
 
 This method works best with no existing `.gitlab-ci.yml` file, or with a minimal configuration file.
-If you have a complex GitLab configuration file it might not be parsed successfully, and an error
-might occur. In that case, use the manual method instead.
+If you have a complex GitLab configuration file it might not be parsed successfully, and an error might occur. In that case, use the manual method instead.
 
 {{< /alert >}}
 
@@ -116,17 +95,14 @@ Pipelines now include a container scanning job.
 
 ### Edit the `.gitlab-ci.yml` file manually
 
-This method requires you to manually edit the existing `.gitlab-ci.yml` file. Use this method if
-you have a complex GitLab configuration file or you need to use non-default options.
+This method requires you to manually edit the existing `.gitlab-ci.yml` file. Use this method if you have a complex GitLab configuration file or you need to use non-default options.
 
 To enable container scanning:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Build** > **Pipeline editor**.
-1. If no `.gitlab-ci.yml` file exists, select **Configure pipeline**, then delete the example
-   content.
-1. Copy and paste the following to the bottom of the `.gitlab-ci.yml` file. If an `include` line
-   already exists, add only the `template` line below it.
+1. If no `.gitlab-ci.yml` file exists, select **Configure pipeline**, then delete the example content.
+1. Copy and paste the following to the bottom of the `.gitlab-ci.yml` file. If an `include` line already exists, add only the `template` line below it.
 
    ```yaml
    include:
@@ -138,11 +114,9 @@ To enable container scanning:
    The message **Simulation completed successfully** confirms the file is valid.
 1. Select the **Edit** tab.
 1. Complete the fields. Do not use the default branch for the **Branch** field.
-1. Select the **Start a new merge request with these changes** checkbox, then select
-   **Commit changes**.
+1. Select the **Start a new merge request with these changes** checkbox, then select **Commit changes**.
 1. Complete the fields according to your standard workflow, then select **Create merge request**.
-1. Review and edit the merge request according to your standard workflow, wait until the pipeline
-   passes, then select **Merge**.
+1. Review and edit the merge request according to your standard workflow, wait until the pipeline passes, then select **Merge**.
 
 Pipelines now include a container scanning job.
 
@@ -212,16 +186,12 @@ The following Linux distributions are supported:
 ### FIPS-enabled images
 
 GitLab also offers [FIPS-enabled Red Hat UBI](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image)
-versions of the container-scanning images. You can therefore replace standard images with FIPS-enabled
-images. To configure the images, set the `CS_IMAGE_SUFFIX` to `-fips` or modify the `CS_ANALYZER_IMAGE` variable to the
-standard tag plus the `-fips` extension.
+versions of the container-scanning images. You can therefore replace standard images with FIPS-enabled images. To configure the images, set the `CS_IMAGE_SUFFIX` to `-fips` or modify the `CS_ANALYZER_IMAGE` variable to the standard tag plus the `-fips` extension.
 
 > [!note]
 > The `-fips` flag is automatically added to `CS_ANALYZER_IMAGE` when FIPS mode is enabled in the GitLab instance.
 
-Container scanning of images in authenticated registries is not supported when FIPS mode
-is enabled. When `CI_GITLAB_FIPS_MODE` is `"true"`, and `CS_REGISTRY_USER` or `CS_REGISTRY_PASSWORD` is set,
-the analyzer exits with an error and does not perform the scan.
+Container scanning of images in authenticated registries is not supported when FIPS mode is enabled. When `CI_GITLAB_FIPS_MODE` is `"true"`, and `CS_REGISTRY_USER` or `CS_REGISTRY_PASSWORD` is set, the analyzer exits with an error and does not perform the scan.
 
 ## Configuration
 
@@ -231,14 +201,13 @@ To customize container scanning, use [CI/CD variables](#available-cicd-variables
 
 #### Enable verbose output
 
-Enable verbose output when you need to see in detail what the dependency scanning job does, for
-example when troubleshooting.
+Enable verbose output when you need to see in detail what the dependency scanning job does, for example when troubleshooting.
 
 In the following example, the container scanning template is included and verbose output is enabled.
 
 ```yaml
 include:
-  - template: Jobs/Container-Scanning.gitlab-ci.yml
+ - template: Jobs/Container-Scanning.gitlab-ci.yml
 
 variables:
     SECURE_LOG_LEVEL: 'debug'
@@ -246,27 +215,21 @@ variables:
 
 #### Report language-specific findings
 
-The `CS_DISABLE_LANGUAGE_VULNERABILITY_SCAN` CI/CD variable controls whether the scan reports
-findings related to programming languages. For more information about the supported languages, see [Language-specific Packages](https://aquasecurity.github.io/trivy/latest/docs/coverage/language/#supported-languages) in the Trivy documentation.
+The `CS_DISABLE_LANGUAGE_VULNERABILITY_SCAN` CI/CD variable controls whether the scan reports findings related to programming languages. For more information about the supported languages, see [Language-specific Packages](https://aquasecurity.github.io/trivy/latest/docs/coverage/language/#supported-languages) in the Trivy documentation.
 
-By default, the report only includes packages managed by the Operating System (OS) package manager
-(for example, `yum`, `apt`, `apk`, `tdnf`). To report security findings in non-OS packages, set
-`CS_DISABLE_LANGUAGE_VULNERABILITY_SCAN` to `"false"`:
+By default, the report only includes packages managed by the Operating System (OS) package manager (for example, `yum`, `apt`, `apk`, `tdnf`). To report security findings in non-OS packages, set `CS_DISABLE_LANGUAGE_VULNERABILITY_SCAN` to `"false"`:
 
 ```yaml
 include:
-  - template: Jobs/Container-Scanning.gitlab-ci.yml
+ - template: Jobs/Container-Scanning.gitlab-ci.yml
 
 container_scanning:
-  variables:
+ variables:
     CS_DISABLE_LANGUAGE_VULNERABILITY_SCAN: "false"
 ```
 
 When you enable this feature, you might see [duplicate findings](../terminology/_index.md#duplicate-finding)
-in the vulnerability report if dependency scanning is enabled for your project. This happens because
-GitLab can't automatically deduplicate findings across different types of scanning tools. To
-understand which types of dependencies are likely to be duplicated, see
-[Dependency scanning compared to container scanning](../comparison_dependency_and_container_scanning.md).
+in the vulnerability report if dependency scanning is enabled for your project. This happens because GitLab can't automatically deduplicate findings across different types of scanning tools. To understand which types of dependencies are likely to be duplicated, see [Dependency scanning compared to container scanning](../comparison_dependency_and_container_scanning.md).
 
 #### Running jobs in merge request pipelines
 
@@ -274,14 +237,11 @@ See [Use security scanning tools with merge request pipelines](../detect/securit
 
 #### Available CI/CD variables
 
-To customize container scanning, use CI/CD variables. The following table lists CI/CD variables
-specific to container scanning. You can also use any of the [predefined CI/CD variables](../../../ci/variables/predefined_variables.md).
+To customize container scanning, use CI/CD variables. The following table lists CI/CD variables specific to container scanning. You can also use any of the [predefined CI/CD variables](../../../ci/variables/predefined_variables.md).
 
 {{< alert type="warning" >}}
 
-Test customization of GitLab analyzers in a merge request before merging these changes to the
-default branch. Failure to do so can give unexpected results, including a large number of false
-positives.
+Test customization of GitLab analyzers in a merge request before merging these changes to the default branch. Failure to do so can give unexpected results, including a large number of false positives.
 
 {{< /alert >}}
 
@@ -316,64 +276,52 @@ positives.
 
 **Footnotes**:
 
-1. Fix status information is highly dependent on accurate fix availability data from the software
-   vendor and container image operating system package metadata. It is also subject to
-   interpretation by individual container scanners. In cases where a container scanner misreports
-   the availability of a fixed package for a vulnerability, using `CS_IGNORE_STATUSES` can lead to
-   false positive or false negative filtering of findings when this setting is enabled.
+1. Fix status information is highly dependent on accurate fix availability data from the software vendor and container image operating system package metadata. It is also subject to interpretation by individual container scanners. In cases where a container scanner misreports the availability of a fixed package for a vulnerability, using `CS_IGNORE_STATUSES` can lead to false positive or false negative filtering of findings when this setting is enabled.
 
 ### Overriding the container scanning template
 
-If you want to override the job definition (for example, to change properties like `variables`), you
-must declare and override a job after the template inclusion, and then
-specify any additional keys.
+If you want to override the job definition (for example, to change properties like `variables`), you must declare and override a job after the template inclusion, and then specify any additional keys.
 
 This example sets `GIT_STRATEGY` to `fetch`:
 
 ```yaml
 include:
-  - template: Jobs/Container-Scanning.gitlab-ci.yml
+ - template: Jobs/Container-Scanning.gitlab-ci.yml
 
 container_scanning:
-  variables:
+ variables:
     GIT_STRATEGY: fetch
 ```
 
 ### Scan image in external registry
 
-By default, container scanning scans images in the GitLab container registry. You can also scan
-images in external registries.
+By default, container scanning scans images in the GitLab container registry. You can also scan images in external registries.
 
-To scan an image in an external registry, configure the `CS_IMAGE` variable with the full path to
-the image.
+To scan an image in an external registry, configure the `CS_IMAGE` variable with the full path to the image.
 
 ```yaml
 include:
-  - template: Jobs/Container-Scanning.gitlab-ci.yml
+ - template: Jobs/Container-Scanning.gitlab-ci.yml
 
 container_scanning:
-  variables:
+ variables:
     CS_IMAGE: <example.com>/<user>/<image>:<tag>
 ```
 
 #### Authenticate to private external registry
 
-If the external registry requires authentication, provide credentials using the `CS_REGISTRY_USER`
-and `CS_REGISTRY_PASSWORD` CI/CD variables.
+If the external registry requires authentication, provide credentials using the `CS_REGISTRY_USER` and `CS_REGISTRY_PASSWORD` CI/CD variables.
 
 > [!note]
 > Scanning images in an external private registry is not supported when FIPS mode is enabled.
 
 For example, to scan an image in Google Container Registry:
 
-1. Add a CI/CD variable for `GCP_CREDENTIALS` containing the JSON key, as described in the
-   [Google Cloud Platform Container Registry documentation](https://cloud.google.com/container-registry/docs/advanced-authentication#json-key).
+1. Add a CI/CD variable for `GCP_CREDENTIALS` containing the JSON key, as described in the [Google Cloud Platform Container Registry documentation](https://cloud.google.com/container-registry/docs/advanced-authentication#json-key).
 
-   - The value of the variable might not fit the masking requirements for the mask variable option,
-     so the value could be exposed in the job logs.
+   - The value of the variable might not fit the masking requirements for the mask variable option, so the value could be exposed in the job logs.
    - Scans might not run in unprotected feature branches if you select the protect variable option.
-   - Consider creating credentials with read-only permissions and rotating them regularly if you
-     don't select these options.
+   - Consider creating credentials with read-only permissions and rotating them regularly if you don't select these options.
 
 1. Add the following to the `.gitlab-ci.yml` file.
 
@@ -392,91 +340,74 @@ For example, to scan an image in AWS Elastic Container Registry:
 
 - Add the following to the `.gitlab-ci.yml` file:
 
-  ```yaml
-  container_scanning:
+ ```yaml
+ container_scanning:
     before_script:
       - ruby -r open-uri -e "IO.copy_stream(URI.open('https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip'), 'awscliv2.zip')"
       - unzip awscliv2.zip
       - sudo ./aws/install
       - export AWS_ECR_PASSWORD=$(aws ecr get-login-password --region region)
 
-  include:
+ include:
     - template: Jobs/Container-Scanning.gitlab-ci.yml
 
-  variables:
+ variables:
       CS_IMAGE: <aws_account_id>.dkr.ecr.<region>.amazonaws.com/<image>:<tag>
       CS_REGISTRY_USER: AWS
       CS_REGISTRY_PASSWORD: "$AWS_ECR_PASSWORD"
       AWS_DEFAULT_REGION: <region>
-  ```
+ ```
 
 ### Use a Trivy Java database mirror
 
-When the `trivy` scanner is used and a `jar` file is encountered in a container image being scanned,
-`trivy` downloads an additional `trivy-java-db` vulnerability database. By default, the
-`trivy-java-db` database is hosted as an [OCI artifact](https://oras.land/docs/quickstart/) at
-`ghcr.io/aquasecurity/trivy-java-db:1`. If this registry is
-[not accessible](#offline-environment) or responds with
-`TOOMANYREQUESTS`, one solution is to mirror the `trivy-java-db` to a more accessible container
-registry:
+When the `trivy` scanner is used and a `jar` file is encountered in a container image being scanned, `trivy` downloads an additional `trivy-java-db` vulnerability database. By default, the `trivy-java-db` database is hosted as an [OCI artifact](https://oras.land/docs/quickstart/) at `ghcr.io/aquasecurity/trivy-java-db:1`. If this registry is [not accessible](#offline-environment) or responds with `TOOMANYREQUESTS`, one solution is to mirror the `trivy-java-db` to a more accessible container registry:
 
 ```yaml
 mirror trivy java db:
-  image:
+ image:
     name: ghcr.io/oras-project/oras:v1.1.0
     entrypoint: [""]
-  script:
+ script:
     - oras login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - oras pull ghcr.io/aquasecurity/trivy-java-db:1
     - oras push $CI_REGISTRY_IMAGE:1 --config /dev/null:application/vnd.aquasec.trivy.config.v1+json javadb.tar.gz:application/vnd.aquasec.trivy.javadb.layer.v1.tar+gzip
 ```
 
-The vulnerability database is not a regular Docker image, so you cannot pull it by using
-`docker pull`. The image shows an error if you view it in the GitLab UI.
+The vulnerability database is not a regular Docker image, so you cannot pull it by using `docker pull`. The image shows an error if you view it in the GitLab UI.
 
-If the container registry is `gitlab.example.com/trivy-java-db-mirror`, then the container scanning
-job should be configured in the following way. Do not add the tag `:1` at the end, it is added by
-`trivy`:
+If the container registry is `gitlab.example.com/trivy-java-db-mirror`, then the container scanning job should be configured in the following way. Do not add the tag `:1` at the end, it is added by `trivy`:
 
 ```yaml
 include:
-  - template: Jobs/Container-Scanning.gitlab-ci.yml
+ - template: Jobs/Container-Scanning.gitlab-ci.yml
 
 container_scanning:
-  variables:
+ variables:
     CS_TRIVY_JAVA_DB: gitlab.example.com/trivy-java-db-mirror
 ```
 
 ### Setting the default branch image
 
-By default, container scanning assumes that the image naming convention stores any branch-specific
-identifiers in the image tag rather than the image name. When the image name differs between the
-default branch and the non-default branch, previously-detected vulnerabilities show up as newly
-detected in merge requests.
+By default, container scanning assumes that the image naming convention stores any branch-specific identifiers in the image tag rather than the image name. When the image name differs between the default branch and the non-default branch, previously-detected vulnerabilities show up as newly detected in merge requests.
 
-When the same image has different names on the default branch and a non-default branch, you can use
-the `CS_DEFAULT_BRANCH_IMAGE` variable to indicate what that image's name is on the default branch.
-GitLab then correctly determines if a vulnerability already exists when running scans on non-default
-branches.
+When the same image has different names on the default branch and a non-default branch, you can use the `CS_DEFAULT_BRANCH_IMAGE` variable to indicate what that image's name is on the default branch.
+GitLab then correctly determines if a vulnerability already exists when running scans on non-default branches.
 
 As an example, suppose the following:
 
-- Non-default branches publish images with the naming convention
-  `$CI_REGISTRY_IMAGE/$CI_COMMIT_BRANCH:$CI_COMMIT_SHA`.
-- The default branch publishes images with the naming convention
-  `$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA`.
+- Non-default branches publish images with the naming convention `$CI_REGISTRY_IMAGE/$CI_COMMIT_BRANCH:$CI_COMMIT_SHA`.
+- The default branch publishes images with the naming convention `$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA`.
 
-In this example, you can use the following CI/CD configuration to ensure that vulnerabilities aren't
-duplicated:
+In this example, you can use the following CI/CD configuration to ensure that vulnerabilities aren't duplicated:
 
 ```yaml
 include:
-  - template: Jobs/Container-Scanning.gitlab-ci.yml
+ - template: Jobs/Container-Scanning.gitlab-ci.yml
 
 container_scanning:
-  variables:
+ variables:
     CS_DEFAULT_BRANCH_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
-  before_script:
+ before_script:
     - export CS_IMAGE="$CI_REGISTRY_IMAGE/$CI_COMMIT_BRANCH:$CI_COMMIT_SHA"
     - |
       if [ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]; then
@@ -484,11 +415,9 @@ container_scanning:
       fi
 ```
 
-`CS_DEFAULT_BRANCH_IMAGE` should remain the same for a given `CS_IMAGE`. If it changes, then a
-duplicate set of vulnerabilities are created, which must be manually dismissed.
+`CS_DEFAULT_BRANCH_IMAGE` should remain the same for a given `CS_IMAGE`. If it changes, then a duplicate set of vulnerabilities are created, which must be manually dismissed.
 
-When using Auto DevOps, `CS_DEFAULT_BRANCH_IMAGE` is
-automatically set to `$CI_REGISTRY_IMAGE/$CI_DEFAULT_BRANCH:$CI_APPLICATION_TAG`.
+When using Auto DevOps, `CS_DEFAULT_BRANCH_IMAGE` is automatically set to `$CI_REGISTRY_IMAGE/$CI_DEFAULT_BRANCH:$CI_APPLICATION_TAG`.
 
 ### Using a custom SSL CA certificate authority
 
@@ -496,7 +425,7 @@ You can use the `ADDITIONAL_CA_CERT_BUNDLE` CI/CD variable to configure a custom
 
 ```yaml
 container_scanning:
-  variables:
+ variables:
     ADDITIONAL_CA_CERT_BUNDLE: |
         -----BEGIN CERTIFICATE-----
         MIIGqTCCBJGgAwIBAgIQI7AVxxVwg2kch4d56XNdDjANBgkqhkiG9w0BAQsFADCB
@@ -505,21 +434,17 @@ container_scanning:
         -----END CERTIFICATE-----
 ```
 
-The `ADDITIONAL_CA_CERT_BUNDLE` value can also be configured as a custom variable in the UI, either
-as a `file`, which requires the path to the certificate, or as a variable, which requires the text
-representation of the certificate.
+The `ADDITIONAL_CA_CERT_BUNDLE` value can also be configured as a custom variable in the UI, either as a `file`, which requires the path to the certificate, or as a variable, which requires the text representation of the certificate.
 
 ### Scanning a multi-arch image
 
-You can use the `TRIVY_PLATFORM` CI/CD variable to configure the container scan to run against a specific
-operating system and architecture. For example, to configure this value in the `.gitlab-ci.yml` file, use
-the following:
+You can use the `TRIVY_PLATFORM` CI/CD variable to configure the container scan to run against a specific operating system and architecture. For example, to configure this value in the `.gitlab-ci.yml` file, use the following:
 
 ```yaml
 container_scanning:
-  # Use an arm64 SaaS runner to scan this natively
-  tags: ["saas-linux-small-arm64"]
-  variables:
+ # Use an arm64 SaaS runner to scan this natively
+ tags: ["saas-linux-small-arm64"]
+ variables:
     TRIVY_PLATFORM: "linux/arm64"
 ```
 
@@ -534,10 +459,8 @@ container_scanning:
 
 To allowlist specific vulnerabilities, follow these steps:
 
-1. Set `GIT_STRATEGY: fetch` in your `.gitlab-ci.yml` file by following the instructions in
-   [overriding the container scanning template](#overriding-the-container-scanning-template).
-1. Define the allowlisted vulnerabilities in a YAML file named `vulnerability-allowlist.yml`. This must use
-   the format described in [`vulnerability-allowlist.yml` data format](#vulnerability-allowlistyml-data-format).
+1. Set `GIT_STRATEGY: fetch` in your `.gitlab-ci.yml` file by following the instructions in [overriding the container scanning template](#overriding-the-container-scanning-template).
+1. Define the allowlisted vulnerabilities in a YAML file named `vulnerability-allowlist.yml`. This must use the format described in [`vulnerability-allowlist.yml` data format](#vulnerability-allowlistyml-data-format).
 1. Add the `vulnerability-allowlist.yml` file to the root folder of your project's Git repository.
 
 #### `vulnerability-allowlist.yml` data format
@@ -553,13 +476,13 @@ Example `vulnerability-allowlist.yml` file:
 
 ```yaml
 generalallowlist:
-  CVE-2019-8696:
-  CVE-2014-8166: cups
-  CVE-2017-18248:
+ CVE-2019-8696:
+ CVE-2014-8166: cups
+ CVE-2017-18248:
 images:
-  registry.gitlab.com/gitlab-org/security-products/dast/webgoat-8.0@sha256:
+ registry.gitlab.com/gitlab-org/security-products/dast/webgoat-8.0@sha256:
     CVE-2018-4180:
-  your.private.registry:5000/centos:
+ your.private.registry:5000/centos:
     CVE-2015-1419: libxml2
     CVE-2015-1447:
 ```
@@ -576,19 +499,18 @@ This example excludes from `gl-container-scanning-report.json`:
 
 - `images` block allows you to specify CVE IDs for each container image independently. All vulnerabilities from the given image with matching CVE IDs are excluded from the scan report. The image name is retrieved from one of the environment variables used to specify the Docker image to be scanned, such as `$CI_APPLICATION_REPOSITORY:$CI_APPLICATION_TAG` or `CS_IMAGE`. The image provided in this block **must** match this value and **must not** include the tag value. For example, if you specify the image to be scanned using `CS_IMAGE=alpine:3.7`, then you would use `alpine` in the `images` block, but you cannot use `alpine:3.7`.
 
-  You can specify container image in multiple ways:
+ You can specify container image in multiple ways:
 
-  - as image name only (such as `centos`).
-  - as full image name with registry hostname (such as `your.private.registry:5000/centos`).
-  - as full image name with registry hostname and sha256 label (such as `registry.gitlab.com/gitlab-org/security-products/dast/webgoat-8.0@sha256`).
+ - as image name only (such as `centos`).
+ - as full image name with registry hostname (such as `your.private.registry:5000/centos`).
+ - as full image name with registry hostname and sha256 label (such as `registry.gitlab.com/gitlab-org/security-products/dast/webgoat-8.0@sha256`).
 
 > [!note]
 > The string after CVE ID (`cups` and `libxml2` in the previous example) is an optional comment format. It has **no impact** on the handling of vulnerabilities. You can include comments to describe the vulnerability.
 
 ##### Container scanning job log format
 
-You can verify the results of your scan and the correctness of your `vulnerability-allowlist.yml` file by looking
-at the logs that are produced by the container scanning analyzer in `container_scanning` job details.
+You can verify the results of your scan and the correctness of your `vulnerability-allowlist.yml` file by looking at the logs that are produced by the container scanning analyzer in `container_scanning` job details.
 
 The log contains a list of found vulnerabilities as a table, for example:
 
@@ -596,20 +518,20 @@ The log contains a list of found vulnerabilities as a table, for example:
 +------------+-------------------------+------------------------+-----------------------+------------------------------------------------------------------------+
 |   STATUS   |      CVE SEVERITY       |      PACKAGE NAME      |    PACKAGE VERSION    |                            CVE DESCRIPTION                             |
 +------------+-------------------------+------------------------+-----------------------+------------------------------------------------------------------------+
-|  Approved  |   High CVE-2019-3462    |          apt           |         1.4.8         | Incorrect sanitation of the 302 redirect field in HTTP transport metho |
+| Approved |   High CVE-2019-3462    |          apt           |         1.4.8         | Incorrect sanitation of the 302 redirect field in HTTP transport metho |
 |            |                         |                        |                       | d of apt versions 1.4.8 and earlier can lead to content injection by a |
-|            |                         |                        |                       |  MITM attacker, potentially leading to remote code execution on the ta |
+|            |                         |                        |                       | MITM attacker, potentially leading to remote code execution on the ta |
 |            |                         |                        |                       |                             rget machine.                              |
 +------------+-------------------------+------------------------+-----------------------+------------------------------------------------------------------------+
-| Unapproved |  Medium CVE-2020-27350  |          apt           |         1.4.8         | APT had several integer overflows and underflows while parsing .deb pa |
+| Unapproved | Medium CVE-2020-27350 |          apt           |         1.4.8         | APT had several integer overflows and underflows while parsing .deb pa |
 |            |                         |                        |                       | ckages, aka GHSL-2020-168 GHSL-2020-169, in files apt-pkg/contrib/extr |
 |            |                         |                        |                       | acttar.cc, apt-pkg/deb/debfile.cc, and apt-pkg/contrib/arfile.cc. This |
-|            |                         |                        |                       |  issue affects: apt 1.2.32ubuntu0 versions prior to 1.2.32ubuntu0.2; 1 |
-|            |                         |                        |                       | .6.12ubuntu0 versions prior to 1.6.12ubuntu0.2; 2.0.2ubuntu0 versions  |
+|            |                         |                        |                       | issue affects: apt 1.2.32ubuntu0 versions prior to 1.2.32ubuntu0.2; 1 |
+|            |                         |                        |                       | .6.12ubuntu0 versions prior to 1.6.12ubuntu0.2; 2.0.2ubuntu0 versions |
 |            |                         |                        |                       | prior to 2.0.2ubuntu0.2; 2.1.10ubuntu0 versions prior to 2.1.10ubuntu0 |
 |            |                         |                        |                       |                                  .1;                                   |
 +------------+-------------------------+------------------------+-----------------------+------------------------------------------------------------------------+
-| Unapproved |  Medium CVE-2020-3810   |          apt           |         1.4.8         | Missing input validation in the ar/tar implementations of APT before v |
+| Unapproved | Medium CVE-2020-3810   |          apt           |         1.4.8         | Missing input validation in the ar/tar implementations of APT before v |
 |            |                         |                        |                       | ersion 2.1.2 could result in denial of service when processing special |
 |            |                         |                        |                       |                         ly crafted deb files.                          |
 +------------+-------------------------+------------------------+-----------------------+------------------------------------------------------------------------+
@@ -626,19 +548,17 @@ Vulnerabilities in the log are marked as `Approved` when the corresponding CVE I
 
 {{< /details >}}
 
-To run container scanning in an [offline environment](../offline_deployments/_index.md), you must
-do an initial setup and perform ongoing maintenance.
+To run container scanning in an [offline environment](../offline_deployments/_index.md), you must do an initial setup and perform ongoing maintenance.
 
 Initial setup:
 
 - Configure runner (ensure the `docker` or `kubernetes` executor is available).
-- Set up a local container registry. For details, see
-  [GitLab container registry](../../packages/container_registry/_index.md).
+- Set up a local container registry. For details, see [GitLab container registry](../../packages/container_registry/_index.md).
 - Copy the image to your local container registry.
 - Configure CI/CD for each project using container scanning.
 - Depending on your requirements, you can optionally configure the following:
-  - [Scan an image in an external registry](#scan-image-in-external-registry).
-  - [Use a Trivy Java database mirror](#use-a-trivy-java-database-mirror).
+ - [Scan an image in an external registry](#scan-image-in-external-registry).
+ - [Use a Trivy Java database mirror](#use-a-trivy-java-database-mirror).
 
 Ongoing maintenance:
 
@@ -646,42 +566,31 @@ Ongoing maintenance:
 
 #### Configure runner
 
-Configure runner (ensure the `docker` or `kubernetes` executor is available). For details,
-see [getting started](#getting-started).
+Configure runner (ensure the `docker` or `kubernetes` executor is available). For details, see [getting started](#getting-started).
 
-By default the runner pulls container images from the GitLab container registry even if a local
-copy is available. If you prefer to use only local container images, you can change the
-[`pull_policy` can be set to `if-not-present`](https://docs.gitlab.com/runner/executors/docker.html#using-the-if-not-present-pull-policy).
-However, you should keep the `pull_policy` setting to the default unless you have good reason to
-change it.
+By default the runner pulls container images from the GitLab container registry even if a local copy is available. If you prefer to use only local container images, you can change the [`pull_policy` can be set to `if-not-present`](https://docs.gitlab.com/runner/executors/docker.html#using-the-if-not-present-pull-policy).
+However, you should keep the `pull_policy` setting to the default unless you have good reason to change it.
 
 #### Copy container image
 
-Import the following image from the GitLab.com container registry into your local container
-registry. This image must be accessible from your offline GitLab instance.
+Import the following image from the GitLab.com container registry into your local container registry. This image must be accessible from your offline GitLab instance.
 
 ```plaintext
 registry.gitlab.com/security-products/container-scanning:8
 ```
 
-The process for importing images into a local container registry depends on your network security
-policy. Consult your IT staff to find an accepted and approved process by which you can import or
-temporarily access external resources.
+The process for importing images into a local container registry depends on your network security policy. Consult your IT staff to find an accepted and approved process by which you can import or temporarily access external resources.
 
 #### Configure CI/CD for each project
 
 {{< alert type="note" >}}
 
-These configuration changes do not apply to container scanning for registry because it does not
-reference the `.gitlab-ci.yml` file. To configure automatic container scanning for registry in an
-offline environment,
-[define the `CS_ANALYZER_IMAGE` variable in the GitLab UI](#use-with-offline-or-air-gapped-environments)
+These configuration changes do not apply to container scanning for registry because it does not reference the `.gitlab-ci.yml` file. To configure automatic container scanning for registry in an offline environment, [define the `CS_ANALYZER_IMAGE` variable in the GitLab UI](#use-with-offline-or-air-gapped-environments)
 instead.
 
 {{< /alert >}}
 
-For all projects using container scanning, edit the CI/CD configuration in all locations where it's
-applied. This might include:
+For all projects using container scanning, edit the CI/CD configuration in all locations where it's applied. This might include:
 
 - Individual project `.gitlab-ci.yml` files
 - Pipeline execution policy
@@ -691,10 +600,8 @@ Update your container scanning configuration with the following variables:
 
 1. Optional. If the container scanning template is not already included, add it.
 1. Set `CS_ANALYZER_IMAGE` to the container scanning image in your local container registry.
-1. Optional. If using a non-GitLab container registry, set `CS_REGISTRY_USER` and
-   `CS_REGISTRY_PASSWORD` to match your registry credentials.
-1. Optional. If using a self-signed certificate for your local container registry, set
-   `CS_DOCKER_INSECURE: "true"`.
+1. Optional. If using a non-GitLab container registry, set `CS_REGISTRY_USER` and `CS_REGISTRY_PASSWORD` to match your registry credentials.
+1. Optional. If using a self-signed certificate for your local container registry, set `CS_DOCKER_INSECURE: "true"`.
 
 Example `.gitlab-ci.yml` configuration for an offline environment:
 
@@ -713,39 +620,28 @@ Example `.gitlab-ci.yml` configuration for an offline environment:
 
 #### Update local container image
 
-The container scanning image is
-[periodically updated](../detect/vulnerability_scanner_maintenance.md) and pushed to the GitLab.com
-registry. In an offline environment, you must update the container scanning image in your local
-container registry, either automatically (recommended) or manually.
+The container scanning image is [periodically updated](../detect/vulnerability_scanner_maintenance.md) and pushed to the GitLab.com registry. In an offline environment, you must update the container scanning image in your local container registry, either automatically (recommended) or manually.
 
-- Manual method: Update the container scanning image manually in your local registry if it cannot
-  access the GitLab.com registry over the network. Use the same method you used when you
-  [copied the image for the initial setup](#copy-container-image).
-- Automatic method: If your offline GitLab instance has read access to GitLab.com, set up a
-  scheduled pipeline to automatically update the image on a preset schedule.
+- Manual method: Update the container scanning image manually in your local registry if it cannot access the GitLab.com registry over the network. Use the same method you used when you [copied the image for the initial setup](#copy-container-image).
+- Automatic method: If your offline GitLab instance has read access to GitLab.com, set up a scheduled pipeline to automatically update the image on a preset schedule.
 
 ##### Automatic image update method
 
-The following `.gitlab-ci.yml` extract demonstrates how to automatically update the container
-scanning image in a local registry. This method defines variables for the source image and target
-image, then uses the Docker CLI to pull the image from the GitLab.com registry and push it to your
-local registry.
+The following `.gitlab-ci.yml` extract demonstrates how to automatically update the container scanning image in a local registry. This method defines variables for the source image and target image, then uses the Docker CLI to pull the image from the GitLab.com registry and push it to your local registry.
 
-If you're using a non-GitLab registry, update the `CI_REGISTRY` value and configure authentication
-by setting `CI_REGISTRY_USER` and `CI_REGISTRY_PASSWORD` variables to match your local registry
-credentials.
+If you're using a non-GitLab registry, update the `CI_REGISTRY` value and configure authentication by setting `CI_REGISTRY_USER` and `CI_REGISTRY_PASSWORD` variables to match your local registry credentials.
 
 ```yaml
 variables:
-  SOURCE_IMAGE: registry.gitlab.com/security-products/container-scanning:8
-  TARGET_IMAGE: $CI_REGISTRY/namespace/container-scanning
+ SOURCE_IMAGE: registry.gitlab.com/security-products/container-scanning:8
+ TARGET_IMAGE: $CI_REGISTRY/namespace/container-scanning
 
 image: docker:cli
 
 update-scanner-image:
-  services:
+ services:
     - docker:dind
-  script:
+ script:
     - docker pull $SOURCE_IMAGE
     - docker tag $SOURCE_IMAGE $TARGET_IMAGE
     - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password-stdin
@@ -797,14 +693,13 @@ podman save -o image-latest.tar image:latest
 ### Image name
 
 Container scanning determines the image name by first evaluating the archive's `manifest.json` and using the first item in `RepoTags`.
-If this is not found, `index.json` is used to fetch the `io.containerd.image.name` annotation. If this is not found, the archive filename
-is used instead.
+If this is not found, `index.json` is used to fetch the `io.containerd.image.name` annotation. If this is not found, the archive filename is used instead.
 
 - `manifest.json` is defined in [Docker Image Specification v1.1.0](https://github.com/moby/docker-image-spec/blob/v1.1.0/v1.1.md#combined-image-json--filesystem-changeset-format)
-  and created by using the command `docker save`.
+ and created by using the command `docker save`.
 - `index.json` format is defined in the [OCI image specification v1.1.1](https://github.com/opencontainers/image-spec/blob/v1.1.1/spec.md).
-  `io.containerd.image.name` is [available in containerd v1.3.0 and later](https://github.com/containerd/containerd/blob/v1.3.0/images/annotations.go)
-  when using `ctr image export`.
+ `io.containerd.image.name` is [available in containerd v1.3.0 and later](https://github.com/containerd/containerd/blob/v1.3.0/images/annotations.go)
+ when using `ctr image export`.
 
 ### Scanning archives built in a previous job
 
@@ -813,17 +708,17 @@ Use the [`artifacts:paths`](../../../ci/yaml/_index.md#artifactspaths) and [`dep
 
 ```yaml
 build_job:
-  script:
+ script:
     - docker build . -t image:latest
     - docker save image:latest -o image-latest.tar
-  artifacts:
+ artifacts:
     paths:
       - "image-latest.tar"
 
 container_scanning:
-  variables:
+ variables:
     CS_IMAGE: "archive://image-latest.tar"
-  dependencies:
+ dependencies:
     - build_job
 ```
 
@@ -834,20 +729,18 @@ Set the `GIT_STRATEGY` keyword to either `clone` or `fetch` in the `container_sc
 
 ```yaml
 container_scanning:
-  variables:
+ variables:
     GIT_STRATEGY: fetch
 ```
 
 ## Running the standalone container scanning tool
 
 It's possible to run the [GitLab container scanning tool](https://gitlab.com/gitlab-org/security-products/analyzers/container-scanning)
-against a Docker container without needing to run it within the context of a CI job. To scan an
-image directly, follow these steps:
+against a Docker container without needing to run it within the context of a CI job. To scan an image directly, follow these steps:
 
 1. Run Docker Desktop or Docker Machine.
 
-1. Run the analyzer's Docker image, passing the image and tag you want to analyze in the
-   `CI_APPLICATION_REPOSITORY` and `CI_APPLICATION_TAG` variables:
+1. Run the analyzer's Docker image, passing the image and tag you want to analyze in the `CI_APPLICATION_REPOSITORY` and `CI_APPLICATION_TAG` variables:
 
    ```shell
    docker run \
@@ -863,23 +756,17 @@ The results are stored in `gl-container-scanning-report.json`.
 
 ## Reports JSON format
 
-The container scanning tool emits JSON reports which the GitLab Runner recognizes through the
-`artifacts:reports` keyword in the CI/CD configuration file.
+The container scanning tool emits JSON reports which the GitLab Runner recognizes through the `artifacts:reports` keyword in the CI/CD configuration file.
 
-After the CI/CD job finishes, the runner uploads these reports to GitLab, which are then available in
-the CI/CD job artifacts. In GitLab Ultimate, these reports can be viewed in the corresponding
-pipeline and the vulnerability report.
+After the CI/CD job finishes, the runner uploads these reports to GitLab, which are then available in the CI/CD job artifacts. In GitLab Ultimate, these reports can be viewed in the corresponding pipeline and the vulnerability report.
 
-These reports must comply with the
-[container scanning report schema](https://gitlab.com/gitlab-org/security-products/security-report-schemas/-/blob/master/dist/container-scanning-report-format.json).
+These reports must comply with the [container scanning report schema](https://gitlab.com/gitlab-org/security-products/security-report-schemas/-/blob/master/dist/container-scanning-report-format.json).
 
 [Example container scanning report](https://gitlab.com/gitlab-examples/security/security-reports/-/blob/master/samples/container-scanning.json).
 
 ### CycloneDX Software Bill of Materials
 
-In addition to the JSON report file, the container scanning tool outputs a
-[CycloneDX](https://cyclonedx.org/) Software Bill of Materials (SBOM) for the scanned image. This
-CycloneDX SBOM is named `gl-sbom-report.cdx.json` and is saved in the same directory as the `JSON report file`. This feature is only supported when the Trivy analyzer is used.
+In addition to the JSON report file, the container scanning tool outputs a [CycloneDX](https://cyclonedx.org/) Software Bill of Materials (SBOM) for the scanned image. This CycloneDX SBOM is named `gl-sbom-report.cdx.json` and is saved in the same directory as the `JSON report file`. This feature is only supported when the Trivy analyzer is used.
 
 This report can be viewed in the [dependency list](../dependency_list/_index.md).
 
@@ -901,7 +788,7 @@ To enable license scanning in your container scanning results:
 
 ```yaml
 container_scanning:
-  variables:
+ variables:
     CS_INCLUDE_LICENSES: "true"
 ```
 
@@ -947,10 +834,7 @@ When security findings are identified, GitLab populates the vulnerability report
 
 {{< alert type="warning" >}}
 
-Vulnerabilities detected by container scanning for registry cannot be automatically marked as
-resolved when you update or remove vulnerable components. These vulnerabilities remain visible
-indefinitely because this feature only generates SBOMs, not the security reports required for
-vulnerability resolution.
+Vulnerabilities detected by container scanning for registry cannot be automatically marked as resolved when you update or remove vulnerable components. These vulnerabilities remain visible indefinitely because this feature only generates SBOMs, not the security reports required for vulnerability resolution.
 
 {{< /alert >}}
 
@@ -974,9 +858,7 @@ To enable Container Scanning for the GitLab Container Registry:
 
 To use container scanning for registry in an offline or air-gapped environment, you must use a local copy of the container scanning analyzer image. Because this feature is managed by the GitLab Security Policy Bot, the analyzer image cannot be configured by editing the `.gitlab-ci.yml` file.
 
-Instead, you must override the default scanner image by setting the `CS_ANALYZER_IMAGE` CI/CD
-variable in the GitLab UI. The dynamically-created scanning job inherits variables defined in the
-UI. You can use a project, group, or instance CI/CD variable.
+Instead, you must override the default scanner image by setting the `CS_ANALYZER_IMAGE` CI/CD variable in the GitLab UI. The dynamically-created scanning job inherits variables defined in the UI. You can use a project, group, or instance CI/CD variable.
 
 To configure a custom scanner image:
 
@@ -1018,13 +900,10 @@ In addition to the sources provided by these scanners, GitLab maintains the foll
 - The proprietary [GitLab advisory database](https://gitlab.com/gitlab-org/security-products/gemnasium-db).
 - The open source [GitLab advisory database (Open Source Edition)](https://gitlab.com/gitlab-org/advisories-community).
 
-In the GitLab Ultimate tier, the data from the GitLab advisory database is merged in to augment the
-data from the external sources. In the GitLab Premium and Free tiers, the data from the GitLab
-Advisory Database (Open Source Edition) is merged in to augment the data from the external sources.
+In the GitLab Ultimate tier, the data from the GitLab advisory database is merged in to augment the data from the external sources. In the GitLab Premium and Free tiers, the data from the GitLab Advisory Database (Open Source Edition) is merged in to augment the data from the external sources.
 This augmentation only applies to the analyzer images for the Trivy scanner.
 
-Database update information for other analyzers is available in the
-[maintenance table](../detect/vulnerability_scanner_maintenance.md).
+Database update information for other analyzers is available in the [maintenance table](../detect/vulnerability_scanner_maintenance.md).
 
 ## Solutions for vulnerabilities (auto-remediation)
 
@@ -1035,14 +914,8 @@ Database update information for other analyzers is available in the
 
 {{< /details >}}
 
-Some vulnerabilities can be fixed by applying the solution that GitLab
-automatically generates.
+Some vulnerabilities can be fixed by applying the solution that GitLab automatically generates.
 
-To enable remediation support, the scanning tool must have access to the `Dockerfile` specified by
-the CI/CD variable`CS_DOCKERFILE_PATH`. To ensure that the scanning tool
-has access to this
-file, it's necessary to set [`GIT_STRATEGY: fetch`](../../../ci/runners/configure_runners.md#git-strategy) in
-your `.gitlab-ci.yml` file by following the instructions described in this document's
-[overriding the container scanning template](#overriding-the-container-scanning-template) section.
+To enable remediation support, the scanning tool must have access to the `Dockerfile` specified by the CI/CD variable`CS_DOCKERFILE_PATH`. To ensure that the scanning tool has access to this file, it's necessary to set [`GIT_STRATEGY: fetch`](../../../ci/runners/configure_runners.md#git-strategy) in your `.gitlab-ci.yml` file by following the instructions described in this document's [overriding the container scanning template](#overriding-the-container-scanning-template) section.
 
 Read more about the [solutions for vulnerabilities](../vulnerabilities/_index.md#resolve-a-vulnerability).

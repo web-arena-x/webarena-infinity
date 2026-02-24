@@ -21,8 +21,7 @@ title: Custom rules
 
 {{< /history >}}
 
-Use custom rules to specify instructions for GitLab Duo Chat to follow for every conversation in
-your IDE. You can only use custom rules with GitLab Duo Chat.
+Use custom rules to specify instructions for GitLab Duo Chat to follow for every conversation in your IDE. You can only use custom rules with GitLab Duo Chat.
 
 ## Create custom rules
 
@@ -88,8 +87,7 @@ For more information, see the [Custom rules in GitLab Duo Agentic Chat blog](htt
 
 ## Update custom rules
 
-To update your custom rules, edit and save the custom rules file. Then, start a new GitLab Duo
-conversation to apply the updated rules.
+To update your custom rules, edit and save the custom rules file. Then, start a new GitLab Duo conversation to apply the updated rules.
 
 You cannot use Chat to edit your custom rules file directly.
 

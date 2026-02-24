@@ -18,8 +18,7 @@ title: Package registry
 
 {{< /history >}}
 
-With the GitLab package registry, you can use GitLab as a private or public registry for a variety
-of [supported package managers](supported_functionality.md).
+With the GitLab package registry, you can use GitLab as a private or public registry for a variety of [supported package managers](supported_functionality.md).
 You can publish and share packages, which can be consumed as a dependency in downstream projects.
 
 ## Package workflows
@@ -27,7 +26,7 @@ You can publish and share packages, which can be consumed as a dependency in dow
 Learn how to use the GitLab package registry to build your own custom package workflow:
 
 - [Use a project as a package registry](../workflows/project_registry.md)
-  to publish all of your packages to one project.
+ to publish all of your packages to one project.
 
 - Publish multiple different packages from one [monorepo project](../workflows/working_with_monorepos.md).
 
@@ -38,8 +37,7 @@ You can view packages for your project or group:
 1. Go to the project or group.
 1. Go to **Deploy** > **Package registry**.
 
-You can search, sort, and filter packages on this page. You can share your search results by copying
-and pasting the URL from your browser.
+You can search, sort, and filter packages on this page. You can share your search results by copying and pasting the URL from your browser.
 
 You can also find helpful code snippets for configuring your package manager or installing a given package.
 
@@ -53,8 +51,7 @@ To learn how to create and upload a package, follow the instructions for your [p
 
 ## Use GitLab CI/CD
 
-You can use [GitLab CI/CD](../../../ci/_index.md) to build or import packages into
-a package registry.
+You can use [GitLab CI/CD](../../../ci/_index.md) to build or import packages into a package registry.
 
 ### To build packages
 
@@ -71,8 +68,7 @@ For more information about using the GitLab package registry with CI/CD, see:
 - [PyPI](../pypi_repository/_index.md#authenticate-with-the-gitlab-package-registry)
 - [Terraform](../terraform_module_registry/_index.md#authenticate-to-the-terraform-module-registry)
 
-If you use CI/CD to build a package, extended activity information is displayed
-when you view the package details:
+If you use CI/CD to build a package, extended activity information is displayed when you view the package details:
 
 ![Package CI/CD activity](img/package_activity_v12_10.png)
 
@@ -80,30 +76,25 @@ You can view which pipeline published the package, and the commit and user who t
 
 ### To import packages
 
-If you already have packages built in a different registry, you can import them
-into your GitLab package registry with the [package importer](https://gitlab.com/gitlab-org/ci-cd/package-stage/pkgs_importer).
+If you already have packages built in a different registry, you can import them into your GitLab package registry with the [package importer](https://gitlab.com/gitlab-org/ci-cd/package-stage/pkgs_importer).
 
 For a list of supported packages, see [Importing packages from other repositories](supported_functionality.md#importing-packages-from-other-repositories).
 
 ## Reduce storage usage
 
-For information on reducing your storage use for the package registry, see
-[Reduce package registry storage use](reduce_package_registry_storage.md).
+For information on reducing your storage use for the package registry, see [Reduce package registry storage use](reduce_package_registry_storage.md).
 
 ## Turn off the package registry
 
 The package registry is automatically turned on.
 
-On a GitLab Self-Managed instance, your administrator can remove
-the **Packages and registries** menu item from the GitLab sidebar.
-For more information,
-see [GitLab package registry administration](../../../administration/packages/_index.md).
+On a GitLab Self-Managed instance, your administrator can remove the **Packages and registries** menu item from the GitLab sidebar.
+For more information, see [GitLab package registry administration](../../../administration/packages/_index.md).
 
 You can also remove the package registry for your project specifically:
 
 1. In your project, go to **Settings** > **General**.
-1. Expand the **Visibility, project features, permissions** section and disable the
-   **Packages** feature.
+1. Expand the **Visibility, project features, permissions** section and disable the **Packages** feature.
 1. Select **Save changes**.
 
 The **Deploy** > **Package registry** entry is removed from the sidebar.
@@ -113,10 +104,7 @@ The **Deploy** > **Package registry** entry is removed from the sidebar.
 [Project permissions](../../permissions.md)
 determine which members and users can download, push, or delete packages.
 
-The visibility of the package registry is independent of the repository and can be controlled from
-your project's settings. For example, if you have a public project and set the repository visibility
-to **Only Project Members**, the package registry is then public. Turning off the
-**Package registry** toggle turns off all package registry operations.
+The visibility of the package registry is independent of the repository and can be controlled from your project's settings. For example, if you have a public project and set the repository visibility to **Only Project Members**, the package registry is then public. Turning off the **Package registry** toggle turns off all package registry operations.
 
 | Project visibility | Action                | Minimum [role](../../permissions.md#roles) required     |
 |--------------------|-----------------------|---------------------------------------------------------|

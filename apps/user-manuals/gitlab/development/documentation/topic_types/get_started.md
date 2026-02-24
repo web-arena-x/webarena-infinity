@@ -6,18 +6,15 @@ title: Get started page type
 ---
 
 A **Get started** page introduces high-level concepts for a broad feature area.
-While a specific feature might be defined in the feature documentation,
-a **Get started** page gives an introduction to a set of concepts.
-The content should help the user understand how multiple features fit together
-as part of the larger GitLab workflow.
+While a specific feature might be defined in the feature documentation, a **Get started** page gives an introduction to a set of concepts.
+The content should help the user understand how multiple features fit together as part of the larger GitLab workflow.
 
 ## When to use a Get started page
 
 For now, a **Get started** page should be used only at the highest level of the left navigation.
 For example, you might have a **Get started** page under **Manage your organization** or **Extend GitLab**.
 
-A **Get started** page is different from a tutorial. A **Get started** page focuses on high-level
-concepts that are part of a workflow, while a tutorial helps the user achieve a task.
+A **Get started** page is different from a tutorial. A **Get started** page focuses on high-level concepts that are part of a workflow, while a tutorial helps the user achieve a task.
 A **Get started** page should point to tutorials, however, because tutorials are a great way for a user to get started.
 
 ## Format
@@ -83,5 +80,4 @@ The diagram files are [in this Google Slides doc](https://docs.google.com/presen
 
 ## Example
 
-For an example of the Get started page type,
-see [Get started learning Git](../../../topics/git/get_started.md).
+For an example of the Get started page type, see [Get started learning Git](../../../topics/git/get_started.md).

@@ -25,10 +25,7 @@ GitLab administrators can configure project and account limits on their instance
 
 ## Default projects limit
 
-You can configure the default maximum number of projects new users can create in their
-personal namespace. This limit affects only new user accounts created after you change
-the setting. This setting is not retroactive for existing users, but you can separately edit
-the [project limits for existing users](#projects-limit-for-a-user).
+You can configure the default maximum number of projects new users can create in their personal namespace. This limit affects only new user accounts created after you change the setting. This setting is not retroactive for existing users, but you can separately edit the [project limits for existing users](#projects-limit-for-a-user).
 
 To configure the maximum number of projects in personal namespaces for new users:
 
@@ -37,13 +34,11 @@ To configure the maximum number of projects in personal namespaces for new users
 1. Expand **Account and limit**.
 1. Increase or decrease that **Default projects limit** value.
 
-If you set **Default projects limit** to 0, users are not allowed to create projects
-in their user's personal namespace. However, projects can still be created in a group.
+If you set **Default projects limit** to 0, users are not allowed to create projects in their user's personal namespace. However, projects can still be created in a group.
 
 ### Projects limit for a user
 
-You can edit a specific user, and change the maximum number of projects this user
-can create in their personal namespace:
+You can edit a specific user, and change the maximum number of projects this user can create in their personal namespace:
 
 1. In the upper-right corner, select **Admin**.
 1. Select **Overview** > **Users**.
@@ -61,8 +56,7 @@ To change the maximum attachment size:
 1. Expand **Account and limit**.
 1. Increase or decrease by changing the value in **Maximum attachment size (MiB)**.
 
-If you choose a size larger than the configured value for the web server,
-you may receive errors. For more information, see the [troubleshooting section](#troubleshooting).
+If you choose a size larger than the configured value for the web server, you may receive errors. For more information, see the [troubleshooting section](#troubleshooting).
 
 For GitLab.com repository size limits, see [accounts and limit settings](../../user/gitlab_com/_index.md#account-and-limit-settings).
 
@@ -80,9 +74,7 @@ For GitLab.com push size limits, see [accounts and limit settings](../../user/gi
 {{< alert type="note" >}}
 
 When you [add files to a repository](../../user/project/repository/web_editor.md#create-a-file)
-through the web UI, the maximum attachment size is the limiting factor. This happens
-because the web server
-must receive the file before GitLab can generate the commit.
+through the web UI, the maximum attachment size is the limiting factor. This happens because the web server must receive the file before GitLab can generate the commit.
 Use [Git LFS](../../topics/git/lfs/_index.md) to add large files to a repository.
 This setting does not apply when pushing Git LFS objects.
 
@@ -97,11 +89,9 @@ This setting does not apply when pushing Git LFS objects.
 
 {{< /details >}}
 
-Repositories in your GitLab instance can grow quickly, especially if you are
-using LFS. Their size can grow exponentially, rapidly consuming available storage.
+Repositories in your GitLab instance can grow quickly, especially if you are using LFS. Their size can grow exponentially, rapidly consuming available storage.
 To prevent this from happening, you can set a hard limit for your repositories' size.
-This limit can be set globally, per group, or per project, with per project limits
-taking the highest priority.
+This limit can be set globally, per group, or per project, with per project limits taking the highest priority.
 
 The repository size limit applies to both private and public projects. It includes repository files and Git LFS objects (even when stored in external object storage), but does not include:
 
@@ -115,53 +105,44 @@ The repository size limit applies to both private and public projects. It includ
 Numerous use cases exist where you might set up a limit for repository size.
 For instance, consider the following workflow:
 
-1. Your team develops apps which require large files to be stored in
-   the application repository.
+1. Your team develops apps which require large files to be stored in the application repository.
 1. Although you have enabled [Git LFS](../../topics/git/lfs/_index.md)
    to your project, your storage has grown significantly.
-1. Before you exceed available storage, you set up a limit of 10 GB
-   per repository.
+1. Before you exceed available storage, you set up a limit of 10 GB per repository.
 
-On GitLab Self-Managed and GitLab Dedicated, only a GitLab administrator can set those limits. Setting the limit to `0` means
-there are no restrictions. For GitLab.com repository size limits, see
-[accounts and limit settings](../../user/gitlab_com/_index.md#account-and-limit-settings).
+On GitLab Self-Managed and GitLab Dedicated, only a GitLab administrator can set those limits. Setting the limit to `0` means there are no restrictions. For GitLab.com repository size limits, see [accounts and limit settings](../../user/gitlab_com/_index.md#account-and-limit-settings).
 
 These settings can be found in:
 
 - Each project's settings:
-  1. From the Project's homepage, go to **Settings** > **General**.
-  1. Fill in the **Repository size limit (MiB)** field in the **Naming, topics, avatar** section.
-  1. Select **Save changes**.
+ 1. From the Project's homepage, go to **Settings** > **General**.
+ 1. Fill in the **Repository size limit (MiB)** field in the **Naming, topics, avatar** section.
+ 1. Select **Save changes**.
 - Each group's settings:
-  1. From the Group's homepage, go to **Settings** > **General**.
-  1. Fill in the **Repository size limit (MiB)** field in the **Naming, visibility** section.
-  1. Select **Save changes**.
+ 1. From the Group's homepage, go to **Settings** > **General**.
+ 1. Fill in the **Repository size limit (MiB)** field in the **Naming, visibility** section.
+ 1. Select **Save changes**.
 - GitLab global settings:
-  1. In the upper-right corner, select **Admin**.
-  1. Select **Settings** > **General**.
-  1. Expand the **Account and limit** section.
-  1. Fill in the **Size limit per repository (MiB)** field.
-  1. Select **Save changes**.
+ 1. In the upper-right corner, select **Admin**.
+ 1. Select **Settings** > **General**.
+ 1. Expand the **Account and limit** section.
+ 1. Fill in the **Size limit per repository (MiB)** field.
+ 1. Select **Save changes**.
 
 The first push of a new project, including LFS objects, is checked for size.
-If the sum of their sizes exceeds the maximum allowed repository size, the push
-is rejected.
+If the sum of their sizes exceeds the maximum allowed repository size, the push is rejected.
 
 ### Check repository size
 
 To determine if a project is nearing its configured repository size limit:
 
 1. [View your storage usage](../../user/storage_usage_quotas.md#view-storage).
-   The **Repository** size includes both Git repository files and
-   [Git LFS](../../topics/git/lfs/_index.md) objects.
-1. Compare the current usage to your configured repository size limit to estimate
-   remaining capacity.
+   The **Repository** size includes both Git repository files and [Git LFS](../../topics/git/lfs/_index.md) objects.
+1. Compare the current usage to your configured repository size limit to estimate remaining capacity.
 
-You can also use the [Projects API](../../api/projects.md) to retrieve repository
-statistics.
+You can also use the [Projects API](../../api/projects.md) to retrieve repository statistics.
 
-To reduce repository size, see
-[methods to reduce repository size](../../user/project/repository/repository_size.md#methods-to-reduce-repository-size).
+To reduce repository size, see [methods to reduce repository size](../../user/project/repository/repository_size.md#methods-to-reduce-repository-size).
 
 ## Session duration
 
@@ -222,10 +203,7 @@ After a session ends, a window prompts the user to sign in again.
 
 {{< /history >}}
 
-Users can select the **Remember me** checkbox on sign-in. Their session remains active for an indefinite
-period of time when accessed from that specific browser. Turn off this setting to expire sessions for
-security or compliance purposes. Turning off this setting ensures users' sessions expire after the
-number of minutes of inactivity set when you [customize your session duration](#customize-the-default-session-duration).
+Users can select the **Remember me** checkbox on sign-in. Their session remains active for an indefinite period of time when accessed from that specific browser. Turn off this setting to expire sessions for security or compliance purposes. Turning off this setting ensures users' sessions expire after the number of minutes of inactivity set when you [customize your session duration](#customize-the-default-session-duration).
 
 1. In the upper-right corner, select **Admin**.
 1. Select **Settings** > **General**.
@@ -256,8 +234,7 @@ For more information, see the history. This feature is not ready for production 
 
 {{< /alert >}}
 
-GitLab administrators can choose to customize the session duration (in minutes) for Git operations
-when 2FA is enabled. The default is 15 and this can be set to a value between 1 and 10080.
+GitLab administrators can choose to customize the session duration (in minutes) for Git operations when 2FA is enabled. The default is 15 and this can be set to a value between 1 and 10080.
 
 To set a limit on how long these sessions are valid:
 
@@ -283,8 +260,7 @@ To set a limit on how long these sessions are valid:
 
 {{< /history >}}
 
-By default, only administrators can create service accounts. You can configure GitLab to also
-allow top-level group Owners to create service accounts.
+By default, only administrators can create service accounts. You can configure GitLab to also allow top-level group Owners to create service accounts.
 
 Prerequisites:
 
@@ -324,8 +300,7 @@ This setting is turned on by default and applies to:
 - Group access tokens.
 - Project access tokens.
 
-For personal access tokens for service accounts, use the `service_access_tokens_expiration_enforced`
-setting in the [Application Settings API](../../api/settings.md).
+For personal access tokens for service accounts, use the `service_access_tokens_expiration_enforced` setting in the [Application Settings API](../../api/settings.md).
 
 To require expiration dates for new access tokens:
 
@@ -349,15 +324,12 @@ You can specify a prefix for personal access tokens. Benefits of using a custom 
 - Reduces the risk of token confusion between different instances.
 
 The default prefix for personal access tokens is `glpat-` but administrators can change it.
-[Project access tokens](../../user/project/settings/project_access_tokens.md) and
-[group access tokens](../../user/group/settings/group_access_tokens.md) also inherit this prefix.
+[Project access tokens](../../user/project/settings/project_access_tokens.md) and [group access tokens](../../user/group/settings/group_access_tokens.md) also inherit this prefix.
 
 {{< alert type="warning" >}}
 
-By default, client-side secret detection, secret push protection, and pipeline secret detection do
-not detect tokens that have a custom prefix. This might result in an increase in false negatives.
-However, you can
-[customize pipeline secret detection](../../user/application_security/secret_detection/pipeline/configure.md#customize-analyzer-rulesets)
+By default, client-side secret detection, secret push protection, and pipeline secret detection do not detect tokens that have a custom prefix. This might result in an increase in false negatives.
+However, you can [customize pipeline secret detection](../../user/application_security/secret_detection/pipeline/configure.md#customize-analyzer-rulesets)
 to detect these tokens.
 
 {{< /alert >}}
@@ -372,8 +344,7 @@ To change the default global prefix:
 1. Fill in the **Personal access token prefix** field.
 1. Select **Save changes**.
 
-You can also configure the prefix by using the
-[settings API](../../api/settings.md).
+You can also configure the prefix by using the [settings API](../../api/settings.md).
 
 ## Instance token prefix
 
@@ -391,8 +362,7 @@ This feature is available for testing, but not ready for production use.
 
 {{< /alert >}}
 
-You can set a custom prefix that is prepended to all tokens generated on your instance. Benefits of
-using a custom prefix include:
+You can set a custom prefix that is prepended to all tokens generated on your instance. Benefits of using a custom prefix include:
 
 - Tokens are distinct and identifiable.
 - Leaked tokens are more easily identifiable during security scans.
@@ -400,10 +370,8 @@ using a custom prefix include:
 
 {{< alert type="warning" >}}
 
-By default, client-side secret detection, secret push protection, and pipeline secret detection do
-not detect tokens that have a custom prefix. This might result in an increase in false negatives.
-However, you can
-[customize pipeline secret detection](../../user/application_security/secret_detection/pipeline/configure.md#customize-analyzer-rulesets)
+By default, client-side secret detection, secret push protection, and pipeline secret detection do not detect tokens that have a custom prefix. This might result in an increase in false negatives.
+However, you can [customize pipeline secret detection](../../user/application_security/secret_detection/pipeline/configure.md#customize-analyzer-rulesets)
 to detect these tokens.
 
 {{< /alert >}}
@@ -458,29 +426,25 @@ The feature flag is not available on GitLab Dedicated.
 
 {{< /alert >}}
 
-Users can optionally specify a maximum lifetime in days for
-access tokens, this includes [personal](../../user/profile/personal_access_tokens.md),
-[group](../../user/group/settings/group_access_tokens.md), and [project](../../user/project/settings/project_access_tokens.md) access tokens.
+Users can optionally specify a maximum lifetime in days for access tokens, this includes [personal](../../user/profile/personal_access_tokens.md), [group](../../user/group/settings/group_access_tokens.md), and [project](../../user/project/settings/project_access_tokens.md) access tokens.
 This lifetime is not a requirement, and can be set to any value greater than 0 and less than or equal to:
 
 - 365 days by default.
 - 400 days, if you enable the `buffered_token_expiration_limit` feature flag.
-  This extended limit is not available on GitLab Dedicated.
+ This extended limit is not available on GitLab Dedicated.
 
 If this setting is left blank, the default allowable lifetime of access tokens is:
 
 - 365 days by default.
 - 400 days, if you enable the `buffered_token_expiration_limit` feature flag.
-  This extended limit is not available on GitLab Dedicated.
+ This extended limit is not available on GitLab Dedicated.
 
 Access tokens are the only tokens needed for programmatic access to GitLab.
-However, organizations with security requirements may want to enforce more protection by
-requiring the regular rotation of these tokens.
+However, organizations with security requirements may want to enforce more protection by requiring the regular rotation of these tokens.
 
 ### Set a lifetime
 
-Only a GitLab administrator can set a lifetime. Leaving it empty means
-there are no restrictions.
+Only a GitLab administrator can set a lifetime. Leaving it empty means there are no restrictions.
 
 To set a lifetime on how long access tokens are valid:
 
@@ -492,11 +456,8 @@ To set a lifetime on how long access tokens are valid:
 
 After a lifetime for access tokens is set, GitLab:
 
-- Applies the lifetime for new personal access tokens, and require users to set an expiration date
-  and a date no later than the allowed lifetime.
-- After three hours, revoke old tokens with no expiration date or with a lifetime longer than the
-  allowed lifetime. Three hours is given to allow administrators to change the allowed lifetime,
-  or remove it, before revocation takes place.
+- Applies the lifetime for new personal access tokens, and require users to set an expiration date and a date no later than the allowed lifetime.
+- After three hours, revoke old tokens with no expiration date or with a lifetime longer than the allowed lifetime. Three hours is given to allow administrators to change the allowed lifetime, or remove it, before revocation takes place.
 
 ## Limit the lifetime of SSH keys
 
@@ -521,18 +482,15 @@ The feature flag is not available on GitLab Dedicated.
 
 {{< /alert >}}
 
-Users can optionally specify a lifetime for
-[SSH keys](../../user/ssh.md).
+Users can optionally specify a lifetime for [SSH keys](../../user/ssh.md).
 This lifetime is not a requirement, and can be set to any arbitrary number of days.
 
 SSH keys are user credentials to access GitLab.
-However, organizations with security requirements may want to enforce more protection by
-requiring the regular rotation of these keys.
+However, organizations with security requirements may want to enforce more protection by requiring the regular rotation of these keys.
 
 ### Set a lifetime
 
-Only a GitLab administrator can set a lifetime. Leaving it empty means
-there are no restrictions.
+Only a GitLab administrator can set a lifetime. Leaving it empty means there are no restrictions.
 
 To set a lifetime on how long SSH keys are valid:
 
@@ -545,11 +503,10 @@ To set a lifetime on how long SSH keys are valid:
 After a lifetime for SSH keys is set, GitLab:
 
 - Requires users to set an expiration date that is no later than the allowed lifetime on new SSH keys. The maximum allowed lifetime is:
-  - 365 days by default.
-  - 400 days, if you enable the `buffered_token_expiration_limit` feature flag.
+ - 365 days by default.
+ - 400 days, if you enable the `buffered_token_expiration_limit` feature flag.
     This extended limit is not available on GitLab Dedicated.
-- Applies the lifetime restriction to existing SSH keys. Keys with no expiry or a lifetime
-  greater than the maximum immediately become invalid.
+- Applies the lifetime restriction to existing SSH keys. Keys with no expiry or a lifetime greater than the maximum immediately become invalid.
 
 {{< alert type="note" >}}
 
@@ -570,9 +527,7 @@ Prerequisites:
 
 - You must be an administrator.
 
-The **User OAuth applications** setting controls whether users can register applications to use GitLab
-as an OAuth provider. This setting affects OAuth applications owned by users, but does not affect OAuth
-applications owned by groups.
+The **User OAuth applications** setting controls whether users can register applications to use GitLab as an OAuth provider. This setting affects OAuth applications owned by users, but does not affect OAuth applications owned by groups.
 
 To turn the **User OAuth applications** setting on or off:
 
@@ -601,8 +556,7 @@ Prerequisites:
 
 - You must be an administrator.
 
-The **OAuth authorizations** setting controls whether users can use the OAuth resource owner password
-credentials flow to authorize themselves without client credentials.
+The **OAuth authorizations** setting controls whether users can use the OAuth resource owner password credentials flow to authorize themselves without client credentials.
 
 To turn this setting on or off:
 
@@ -621,8 +575,7 @@ To turn this setting on or off:
 
 {{< /details >}}
 
-To maintain integrity of user details in [audit events](../compliance/audit_event_reports.md),
-GitLab administrators can prevent users from changing their profile name.
+To maintain integrity of user details in [audit events](../compliance/audit_event_reports.md), GitLab administrators can prevent users from changing their profile name.
 
 To do this:
 
@@ -631,9 +584,7 @@ To do this:
 1. Expand **Account and limit**.
 1. Select **Prevent users from changing their profile name**.
 
-When selected, GitLab administrators can still update usernames in the
-[**Admin** area](../admin_area.md#administering-users) or the
-[API](../../api/users.md#modify-a-user).
+When selected, GitLab administrators can still update usernames in the [**Admin** area](../admin_area.md#administering-users) or the [API](../../api/users.md#modify-a-user).
 
 ## Prevent users from creating organizations
 
@@ -651,9 +602,7 @@ When selected, GitLab administrators can still update usernames in the
 
 {{< alert type="flag" >}}
 
-On GitLab Self-Managed, by default this feature is not available. To make it available, an administrator
-can [enable the feature flag](../feature_flags/_index.md) named `ui_for_organizations`. On GitLab.com and GitLab Dedicated,
-this feature is not available. This feature is not ready for production use.
+On GitLab Self-Managed, by default this feature is not available. To make it available, an administrator can [enable the feature flag](../feature_flags/_index.md) named `ui_for_organizations`. On GitLab.com and GitLab Dedicated, this feature is not available. This feature is not ready for production use.
 
 {{< /alert >}}
 
@@ -678,8 +627,7 @@ By default, new users can create top-level groups. GitLab administrators can pre
 
 {{< alert type="note" >}}
 
-This setting applies only to users added after you turn off the setting. Existing users
-can still create top-level groups.
+This setting applies only to users added after you turn off the setting. Existing users can still create top-level groups.
 
 {{< /alert >}}
 
@@ -732,10 +680,9 @@ When you turn off this setting:
 
 - All private user profiles become public.
 - The option to [set profiles of new users to private by default](#set-profiles-of-new-users-to-private-by-default)
-  is also turned off.
+ is also turned off.
 
-When you re-enable this setting, the user's
-[previously set profile visibility](../../user/profile/_index.md#make-your-user-profile-page-private) is selected.
+When you re-enable this setting, the user's [previously set profile visibility](../../user/profile/_index.md#make-your-user-profile-page-private) is selected.
 
 ## Set profiles of new users to private by default
 
@@ -768,8 +715,7 @@ If [**Allow users to make their profiles private**](#prevent-users-from-making-t
 
 {{< /history >}}
 
-By default, users can delete their own accounts. GitLab administrators can prevent
-users from deleting their own accounts:
+By default, users can delete their own accounts. GitLab administrators can prevent users from deleting their own accounts:
 
 1. In the upper-right corner, select **Admin**.
 1. Select **Settings** > **General**.
@@ -789,8 +735,7 @@ users from deleting their own accounts:
 When attaching a file to a comment or reply in GitLab, the [max attachment size](#max-attachment-size)
 is probably larger than the web server's allowed value.
 
-To increase the max attachment size to 200 MB in a
-[Linux package](https://docs.gitlab.com/omnibus/) install:
+To increase the max attachment size to 200 MB in a [Linux package](https://docs.gitlab.com/omnibus/) install:
 
 1. Add this line to `/etc/gitlab/gitlab.rb`:
 

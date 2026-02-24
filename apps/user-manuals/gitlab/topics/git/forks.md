@@ -13,18 +13,14 @@ title: Update a fork
 
 {{< /details >}}
 
-A fork is a personal copy of the repository and all its branches, which you create
-in a namespace of your choice. You can use forks to propose changes to another project
-that you don't have access to. For more information,
-see [Forking workflows](../../user/project/repository/forking_workflow.md).
+A fork is a personal copy of the repository and all its branches, which you create in a namespace of your choice. You can use forks to propose changes to another project that you don't have access to. For more information, see [Forking workflows](../../user/project/repository/forking_workflow.md).
 
 You can also update a fork with the [GitLab UI](../../user/project/repository/forking_workflow.md#from-the-ui).
 
 Prerequisites:
 
 - You must [download and install the Git client](how_to_install_git/_index.md) on your local machine.
-- You must [create a fork](../../user/project/repository/forking_workflow.md#create-a-fork) of the
-  repository you want to update.
+- You must [create a fork](../../user/project/repository/forking_workflow.md#create-a-fork) of the repository you want to update.
 
 To update your fork from the command line:
 
@@ -37,8 +33,7 @@ To update your fork from the command line:
       git remote -v
       ```
 
-   1. If your fork doesn't have a remote pointing to the original repository, use one of these examples
-      to configure a remote called upstream:
+   1. If your fork doesn't have a remote pointing to the original repository, use one of these examples to configure a remote called upstream:
 
        ```shell
        # Set any repository as your upstream after editing <upstream_url>
@@ -87,8 +82,8 @@ GitLab enables collaboration between the upstream project maintainers and the fo
 For more information, see:
 
 - [Collaborate on merge requests across forks](../../user/project/merge_requests/allow_collaboration.md)
-  - [Allow commits from upstream members](../../user/project/merge_requests/allow_collaboration.md#allow-commits-from-upstream-members)
-  - [Prevent commits from upstream members](../../user/project/merge_requests/allow_collaboration.md#prevent-commits-from-upstream-members)
+ - [Allow commits from upstream members](../../user/project/merge_requests/allow_collaboration.md#allow-commits-from-upstream-members)
+ - [Prevent commits from upstream members](../../user/project/merge_requests/allow_collaboration.md#prevent-commits-from-upstream-members)
 
 ### Push to a fork as an upstream member
 
@@ -118,9 +113,7 @@ To change or add a commit to the contributor's merge request:
    These commands fetch the branch from the forked project and create a local branch for you to work on.
 
 1. Make your changes to the local copy of the branch, and then commit them.
-1. Push your local changes to the forked project. The following command pushes the
-   local branch `contributor/fork-branch` to the `fork-branch` branch of
-   the `git@gitlab.com:contributor/forked-project.git` repository:
+1. Push your local changes to the forked project. The following command pushes the local branch `contributor/fork-branch` to the `fork-branch` branch of the `git@gitlab.com:contributor/forked-project.git` repository:
 
    ```shell
    git push git@gitlab.com:contributor/forked-project.git contributor/fork-branch:fork-branch
@@ -141,7 +134,7 @@ To change or add a commit to the contributor's merge request:
 ## Related topics
 
 - [Forking workflows](../../user/project/repository/forking_workflow.md)
-  - [Create a fork](../../user/project/repository/forking_workflow.md#create-a-fork)
-  - [Unlink a fork](../../user/project/repository/forking_workflow.md#unlink-a-fork)
+ - [Create a fork](../../user/project/repository/forking_workflow.md#create-a-fork)
+ - [Unlink a fork](../../user/project/repository/forking_workflow.md#unlink-a-fork)
 - [Collaborate on merge requests across forks](../../user/project/merge_requests/allow_collaboration.md)
 - [Merge requests](../../user/project/merge_requests/_index.md)

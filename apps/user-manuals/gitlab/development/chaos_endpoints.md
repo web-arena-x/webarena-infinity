@@ -48,9 +48,7 @@ Replace `secret` with your own secret token.
 
 After you have enabled the chaos endpoints and restarted the application, you can start testing using the endpoints.
 
-By default, when invoking a chaos endpoint, the web worker process which receives the request handles it. This means, for example, that if the Kill
-operation is invoked, the Puma worker process handling the request is killed. To test these operations in Sidekiq, the `async` parameter on
-each endpoint can be set to `true`. This runs the chaos process in a Sidekiq worker.
+By default, when invoking a chaos endpoint, the web worker process which receives the request handles it. This means, for example, that if the Kill operation is invoked, the Puma worker process handling the request is killed. To test these operations in Sidekiq, the `async` parameter on each endpoint can be set to `true`. This runs the chaos process in a Sidekiq worker.
 
 ## Memory leaks
 
@@ -67,7 +65,7 @@ GET /-/chaos/leakmem?memory_mb=1024&duration_s=50&async=true
 
 | Attribute    | Type    | Required | Description                                                                          |
 | ------------ | ------- | -------- | ------------------------------------------------------------------------------------ |
-| `memory_mb`  | integer | no       | How much memory, in MB, should be leaked. Defaults to 100 MB.                         |
+| `memory_mb` | integer | no       | How much memory, in MB, should be leaked. Defaults to 100 MB.                         |
 | `duration_s` | integer | no       | Minimum duration_s, in seconds, that the memory should be retained. Defaults to 30 s. |
 | `async`      | boolean | no       | Set to true to leak memory in a Sidekiq background worker process                    |
 
@@ -152,8 +150,7 @@ curl "http://localhost:3000/-/chaos/sleep?duration_s=60&token=secret"
 
 This endpoint simulates the unexpected death of a worker process using the `KILL` signal.
 
-Because this endpoint uses the `KILL` signal, the process isn't given an
-opportunity to clean up or shut down.
+Because this endpoint uses the `KILL` signal, the process isn't given an opportunity to clean up or shut down.
 
 ```plaintext
 GET /-/chaos/kill
@@ -191,9 +188,7 @@ curl "http://localhost:3000/-/chaos/quit?token=secret"
 
 ## Run garbage collector
 
-This endpoint triggers a GC run on the worker handling the request and returns its worker ID
-plus GC stats as JSON. This is mostly useful when running Puma in standalone mode, since
-otherwise the worker handling the request cannot be known upfront.
+This endpoint triggers a GC run on the worker handling the request and returns its worker ID plus GC stats as JSON. This is mostly useful when running Puma in standalone mode, since otherwise the worker handling the request cannot be known upfront.
 
 Endpoint:
 
@@ -213,8 +208,8 @@ Example response:
 
 ```json
 {
-  "worker_id": "puma_1",
-  "gc_stat": {
+ "worker_id": "puma_1",
+ "gc_stat": {
     "count": 94,
     "heap_allocated_pages": 9077,
     "heap_sorted_length": 9077,
@@ -241,6 +236,6 @@ Example response:
     "old_objects_limit": 5235612,
     "oldmalloc_increase_bytes": 8192,
     "oldmalloc_increase_bytes_limit": 122713697
-  }
+ }
 }
 ```

@@ -27,9 +27,7 @@ This feature enables you to:
 - Configure scanning targets in a single configuration file.
 - Integrate with existing container scanning workflows.
 
-Multi-container scanning uses
-[dynamic child pipelines](../../../ci/pipelines/downstream_pipelines.md#dynamic-child-pipelines) to
-run scans concurrently, reducing overall pipeline execution time.
+Multi-container scanning uses [dynamic child pipelines](../../../ci/pipelines/downstream_pipelines.md#dynamic-child-pipelines) to run scans concurrently, reducing overall pipeline execution time.
 
 ## Supported images
 
@@ -76,9 +74,9 @@ Configure multi-container scanning by editing the `.gitlab-multi-image.yml` file
 
 ```yaml
 scanTargets:
-  - name: alpine
+ - name: alpine
     tag: "3.19"
-  - name: ubuntu
+ - name: ubuntu
     tag: "22.04"
 ```
 
@@ -90,7 +88,7 @@ includeLicenses: true
 
 # Configure registry authentication
 auths:
-  registry.example.com:
+ registry.example.com:
     username: ${REGISTRY_USER}
     password: ${REGISTRY_PASSWORD}
 
@@ -99,15 +97,15 @@ allowInsecure: false
 
 # Additional CA certificates for custom registries
 additionalCaCertificateBundle: |
-  -----BEGIN CERTIFICATE-----
-  ...
-  -----END CERTIFICATE-----
+ -----BEGIN CERTIFICATE-----
+ ...
+ -----END CERTIFICATE-----
 
 # Images to scan
 scanTargets:
-  - name: registry.example.com/myapp
+ - name: registry.example.com/myapp
     tag: "v1.2.3"
-  - name: postgres
+ - name: postgres
     tag: "15-alpine"
 ```
 
@@ -132,11 +130,11 @@ The following sections describe some example scenarios that you can adapt to sui
 
 ```yaml
 scanTargets:
-  - name: docker.io/library/nginx
+ - name: docker.io/library/nginx
     tag: "1.25"
-  - name: registry.gitlab.com/mygroup/myapp
+ - name: registry.gitlab.com/mygroup/myapp
     tag: "main"
-  - name: gcr.io/myproject/service
+ - name: gcr.io/myproject/service
     tag: "prod"
 ```
 
@@ -144,15 +142,15 @@ scanTargets:
 
 ```yaml
 auths:
-  registry.gitlab.com:
+ registry.gitlab.com:
     username: ${CI_REGISTRY_USER}
     password: ${CI_REGISTRY_PASSWORD}
-  docker.io:
+ docker.io:
     username: ${DOCKERHUB_USER}
     password: ${DOCKERHUB_TOKEN}
 
 scanTargets:
-  - name: registry.gitlab.com/private/image
+ - name: registry.gitlab.com/private/image
     tag: latest
 ```
 
@@ -160,11 +158,11 @@ scanTargets:
 
 ```yaml
 scanTargets:
-  - name: postgres
+ - name: postgres
     tag: "14.10"
-  - name: redis
+ - name: redis
     tag: "7.2.3"
-  - name: nginx
+ - name: nginx
     tag: "1.25.3"
 ```
 
@@ -184,14 +182,14 @@ To disable scanning temporarily:
 
 ```yaml
 variables:
-  CONTAINER_SCANNING_DISABLED: "true"
+ CONTAINER_SCANNING_DISABLED: "true"
 ```
 
 ### Disable MR pipeline scanning
 
 ```yaml
 variables:
-  AST_ENABLE_MR_PIPELINES: "false"
+ AST_ENABLE_MR_PIPELINES: "false"
 ```
 
 ## View scan results
@@ -261,5 +259,4 @@ Consider:
 
 Cause: Missing `strategy: mirror` in trigger configuration.
 
-Solution: This is configured by default in the template. If you've customized
-the template, ensure the trigger job includes `strategy: mirror`.
+Solution: This is configured by default in the template. If you've customized the template, ensure the trigger job includes `strategy: mirror`.

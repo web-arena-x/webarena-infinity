@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408836487450-Help-center-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Guide Professional or Enterprise |
 
@@ -72,7 +72,7 @@ Add the following jQuery function in the script.js file:
 
 ```
 $(document).ready(function() {
-  if (window.location.href.indexOf('/requests') > -1) {
+ if (window.location.href.indexOf('/requests') > -1) {
     setTimeout(function() {
       $('dt:contains("Member rewards")').hide().next('dd').hide(); 
       // add more selectors as necessary
@@ -102,12 +102,12 @@ The following jQuery example prepopulates the Subject field with "Product regist
 ```
 var ticketForm = location.search.split('ticket_form_id=')[1];
 if(ticketForm == 18570) {
-  $('section.main-column h1').html('Product Registration');
-  $('#request_subject').val('Product Registration');
-  $('#request_description').val('There is a new product registration.');
-  $('#request_subject').parent('.request_subject').hide(); // Hide subject
-  $('#request_description').parent('.request_description').hide(); 
-  $("<p>Please upload your product receipt here.<p>").insertAfter('label:contains("Attachments")'); // Adds text below "Attachments"
+ $('section.main-column h1').html('Product Registration');
+ $('#request_subject').val('Product Registration');
+ $('#request_description').val('There is a new product registration.');
+ $('#request_subject').parent('.request_subject').hide(); // Hide subject
+ $('#request_description').parent('.request_description').hide(); 
+ $("<p>Please upload your product receipt here.<p>").insertAfter('label:contains("Attachments")'); // Adds text below "Attachments"
 }
 ```
 
@@ -161,6 +161,6 @@ Add the following jQuery statement to the `$(document).ready(function()` functio
 
 ```
 if (document.location.pathname.match( (/hc\/de/) || (/hc\/es/) )) {
-  $('.community').hide();
+ $('.community').hide();
 }
 ```

@@ -49,8 +49,7 @@ Prerequisites:
 To do this:
 
 1. In a project, go to **Code** > **Merge requests**.
-1. Select **Bulk edit**. A sidebar on the right-hand side of your screen appears with
-   editable fields.
+1. Select **Bulk edit**. A sidebar on the right-hand side of your screen appears with editable fields.
 1. Select the checkboxes next to each merge request you want to edit.
 1. Select the appropriate fields and their values from the sidebar.
 1. Select **Update selected**.
@@ -76,8 +75,7 @@ Prerequisites:
 To update multiple group merge requests at the same time:
 
 1. In a group, go to **Code** > **Merge requests**.
-1. Select **Bulk edit**. A sidebar on the right-hand side of your screen appears with
-   editable fields.
+1. Select **Bulk edit**. A sidebar on the right-hand side of your screen appears with editable fields.
 1. Select the checkboxes next to each merge request you want to edit.
 1. Select the appropriate fields and their values from the sidebar.
 1. Select **Update selected**.

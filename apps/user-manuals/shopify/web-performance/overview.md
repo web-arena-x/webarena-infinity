@@ -72,11 +72,11 @@ When you consider adding a feature to your store, you should weigh the benefits 
 Ask yourself the following questions when considering features for your store:
 
 * **What will help customers make the decision to purchase from the store?**
-  + For example, consider whether your customers would prefer a simple homepage with links to detailed product pages, or a more powerful home page where they can quickly view and buy products.
+ + For example, consider whether your customers would prefer a simple homepage with links to detailed product pages, or a more powerful home page where they can quickly view and buy products.
 * **What functionality should exist at the top of the page to drive conversion?**
-  + For example, branding elements, featured images, and a checkout cart are all features that can impact performance but increase conversion.
+ + For example, branding elements, featured images, and a checkout cart are all features that can impact performance but increase conversion.
 * **What functionality can load later as customers scroll down the page?**
-  + For example, analytics and product reviews don't need to be loaded immediately when a customer visits your store. You might need to consult your theme or app developers to understand if a feature is loading right away.
+ + For example, analytics and product reviews don't need to be loaded immediately when a customer visits your store. You might need to consult your theme or app developers to understand if a feature is loading right away.
 
 ## Explore your web performance metric summary and reports
 

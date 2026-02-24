@@ -6,21 +6,13 @@ description: Common commands and workflows.
 title: Stage, commit, and push changes
 ---
 
-When you make changes to files in a repository, Git tracks the changes
-against the most recent version of the checked out branch. You can use
-Git commands to review and commit your changes to the branch, and push
-your work to GitLab.
+When you make changes to files in a repository, Git tracks the changes against the most recent version of the checked out branch. You can use Git commands to review and commit your changes to the branch, and push your work to GitLab.
 
 ## Add and commit local changes
 
-When you're ready to write your changes to the branch, you can commit
-them. A commit includes a comment that records information about the
-changes, and usually becomes the new tip of the branch.
+When you're ready to write your changes to the branch, you can commit them. A commit includes a comment that records information about the changes, and usually becomes the new tip of the branch.
 
-Git doesn't automatically include any files you move, change, or
-delete in a commit. This prevents you from accidentally including a
-change or file, like a temporary directory. To include changes in a
-commit, stage them with `git add`.
+Git doesn't automatically include any files you move, change, or delete in a commit. This prevents you from accidentally including a change or file, like a temporary directory. To include changes in a commit, stage them with `git add`.
 
 To stage and commit your changes:
 
@@ -55,10 +47,8 @@ help you write a good commit message:
 - The commit subject must not end with a period.
 - The commit body must not contain more than 72 characters per line.
 - The commit subject or body must not contain emoji.
-- Commits that change 30 or more lines across at least 3 files should
-  describe these changes in the commit body.
-- Use the full URLs for issues, milestones, and merge requests instead of short references,
-  as they are displayed as plain text outside of GitLab.
+- Commits that change 30 or more lines across at least 3 files should describe these changes in the commit body.
+- Use the full URLs for issues, milestones, and merge requests instead of short references, as they are displayed as plain text outside of GitLab.
 - The merge request should not contain more than 10 commit messages.
 - The commit subject should contain at least 3 words.
 
@@ -70,9 +60,7 @@ You can stage all your changes and commit them with one command:
 git commit -a -m "<comment that describes the changes>"
 ```
 
-Be careful your commit doesn't include files you don't want to record
-to the remote repository. As a rule, always check the status of your
-local repository before you commit changes.
+Be careful your commit doesn't include files you don't want to record to the remote repository. As a rule, always check the status of your local repository before you commit changes.
 
 ## Send changes to GitLab
 
@@ -88,8 +76,7 @@ For example, to push your local commits to the `main` branch of the `origin` rem
 git push origin main
 ```
 
-Sometimes Git does not allow you to push to a repository. Instead,
-you must [force an update](git_rebase.md#force-push-to-a-remote-branch).
+Sometimes Git does not allow you to push to a repository. Instead, you must [force an update](git_rebase.md#force-push-to-a-remote-branch).
 
 ## Push options
 
@@ -100,8 +87,7 @@ you must [force an update](git_rebase.md#force-push-to-a-remote-branch).
 
 {{< /details >}}
 
-When you push changes to a branch, you can use client-side
-[Git push options](https://git-scm.com/docs/git-push#Documentation/git-push.txt--oltoptiongt).
+When you push changes to a branch, you can use client-side [Git push options](https://git-scm.com/docs/git-push#Documentation/git-push.txt--oltoptiongt).
 In Git 2.10 and later, use Git push options to:
 
 - [Skip CI jobs](#push-options-for-gitlab-cicd)
@@ -119,8 +105,7 @@ In Git 2.10 to 2.17, you must use the long format:
 git push --push-option=<push_option>
 ```
 
-For server-side controls and enforcement of best practices, see
-[push rules](../../user/project/repository/push_rules.md) and [server hooks](../../administration/server_hooks.md).
+For server-side controls and enforcement of best practices, see [push rules](../../user/project/repository/push_rules.md) and [server hooks](../../administration/server_hooks.md).
 
 ### Push options for GitLab CI/CD
 
@@ -128,8 +113,7 @@ You can use push options to skip a CI/CD pipeline, or pass CI/CD variables.
 
 {{< alert type="note" >}}
 
-Push options are not available for merge request pipelines. For more information,
-see [issue 373212](https://gitlab.com/gitlab-org/gitlab/-/issues/373212).
+Push options are not available for merge request pipelines. For more information, see [issue 373212](https://gitlab.com/gitlab-org/gitlab/-/issues/373212).
 
 {{< /alert >}}
 
@@ -161,7 +145,7 @@ Git push options can perform actions for merge requests while pushing changes:
 | `merge_request.remove_source_branch`         | Set the merge request to remove the source branch when it's merged. |
 | `merge_request.squash`                       | Set the merge request to squash all commits into a single commit on merge. Introduced in [GitLab 17.2](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/158778). |
 | `merge_request.title="<title>"`              | Set the title of the merge request. For example: `git push -o merge_request.title="The title I want"`. |
-| `merge_request.description="<description>"`  | Set the description of the merge request. For example: `git push -o merge_request.description="The description I want"`. |
+| `merge_request.description="<description>"` | Set the description of the merge request. For example: `git push -o merge_request.description="The description I want"`. |
 | `merge_request.draft`                        | Mark the merge request as a draft. For example: `git push -o merge_request.draft`. |
 | `merge_request.milestone="<milestone>"`      | Set the milestone of the merge request. For example: `git push -o merge_request.milestone="3.0"`. |
 | `merge_request.label="<label>"`              | Add labels to the merge request. If the label does not exist, it is created. For example, for two labels: `git push -o merge_request.label="label1" -o merge_request.label="label2"`. |
@@ -196,17 +180,14 @@ You can use the same [push option for Secret push protection](#push-options-for-
 
 ### Formats for push options
 
-If your push option requires text containing spaces, enclose the text in
-double quotes (`"`). You can omit the quotes if there are no spaces. Some examples:
+If your push option requires text containing spaces, enclose the text in double quotes (`"`). You can omit the quotes if there are no spaces. Some examples:
 
 ```shell
 git push -o merge_request.label="Label with spaces"
 git push -o merge_request.label=Label-with-no-spaces
 ```
 
-To combine push options to accomplish multiple tasks at once, use
-multiple `-o` (or `--push-option`) flags. This command creates a
-new merge request, targets a branch (`my-target-branch`), and sets auto-merge:
+To combine push options to accomplish multiple tasks at once, use multiple `-o` (or `--push-option`) flags. This command creates a new merge request, targets a branch (`my-target-branch`), and sets auto-merge:
 
 ```shell
 git push -o merge_request.create -o merge_request.target=my-target-branch -o merge_request.auto_merge
@@ -220,12 +201,10 @@ git push -o merge_request.create -o merge_request.target=feature-branch
 
 ### Create Git aliases for pushing
 
-Adding push options to Git commands can create very long commands. If
-you use the same push options frequently, create Git aliases for them.
+Adding push options to Git commands can create very long commands. If you use the same push options frequently, create Git aliases for them.
 Git aliases are command-line shortcuts for longer Git commands.
 
-To create and use a Git alias for the
-[auto merge Git push option](#push-options-for-merge-requests):
+To create and use a Git alias for the [auto merge Git push option](#push-options-for-merge-requests):
 
 1. In your terminal window, run this command:
 

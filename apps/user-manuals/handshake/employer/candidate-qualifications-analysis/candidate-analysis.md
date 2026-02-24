@@ -42,7 +42,7 @@ Create a spreadsheet in a CSV format with the following headers: 
 - **Last Name**
 - **Email Address**
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | First Name | Last Name | Email Address |
 
@@ -51,8 +51,8 @@ Create a spreadsheet in a CSV format with the following headers: 
 **Tips**:
 
 - Before preparing your list, discuss with your Customer Success Manager which categories of candidate data to analyze:
-  - Interns, Full-Time Early Talent Roles
-  - Stage in the recruitment funnel:
+ - Interns, Full-Time Early Talent Roles
+ - Stage in the recruitment funnel:
     - Candidate leads
     - Applicants
     - Qualified applicants
@@ -83,21 +83,21 @@ Create a spreadsheet in a CSV format with the following headers: 
 After selecting your file, complete the following fields:
 
 - **Candidate status**
-  - Hired
-  - Offered
-  - Applied
-  - Interviewed
-  - Other
+ - Hired
+ - Offered
+ - Applied
+ - Interviewed
+ - Other
 - **Starting and ending dates**
 - **Role type**
-  - Full-time
-  - Internship
-  - Part-time
-  - Co-op
-  - Management trainee
-  - Other
+ - Full-time
+ - Internship
+ - Part-time
+ - Co-op
+ - Management trainee
+ - Other
 - **Information about candidates** (*optional*)
-  - e.g., Accounting candidates, candidates within our e-commerce division only, etc.
+ - e.g., Accounting candidates, candidates within our e-commerce division only, etc.
 
 Once all fields are completed, click the black button **Continue** in the lower-right corner.
 
@@ -116,7 +116,7 @@ Once all fields are completed, click the black button **Continue** in the lower-
 7. Handshake will begin to search for candidates with matching hashed values.
 
 - - First, Handshake will search using the hashed candidate email against its own database of hashed user emails.
-  - Next, all remaining records not found by email are searched using hashed names.
+ - Next, all remaining records not found by email are searched using hashed names.
 
 8. Handshake will retrieve details on your historical interactions in the last 24 months with these matched candidates. Results will be shared with you through your Customer Success Manager. 
 

@@ -16,10 +16,7 @@ To automate runner creation and registration:
 
 {{< alert type="note" >}}
 
-The instructions in this tutorial describe runner creation and registration
-with runner authentication tokens, which have replaced the deprecated registration
-method that uses registration tokens. For more information, see
-[The new runner registration workflow](../../ci/runners/new_creation_workflow.md#the-new-runner-registration-workflow).
+The instructions in this tutorial describe runner creation and registration with runner authentication tokens, which have replaced the deprecated registration method that uses registration tokens. For more information, see [The new runner registration workflow](../../ci/runners/new_creation_workflow.md#the-new-runner-registration-workflow).
 
 {{< /alert >}}
 
@@ -39,9 +36,7 @@ You can create:
 - A personal access token to use with shared, group, and project runners.
 - A group or project access token to use with group and project runners.
 
-The access token is only visible once in the GitLab UI. After you leave the page,
-you no longer have access to the token. You should use a secrets management solution
-to store the token, like HashiCorp Vault or the Keeper Secrets Manager Terraform plugin.
+The access token is only visible once in the GitLab UI. After you leave the page, you no longer have access to the token. You should use a secrets management solution to store the token, like HashiCorp Vault or the Keeper Secrets Manager Terraform plugin.
 
 ### Create a personal access token
 
@@ -87,8 +82,7 @@ For more information, see the history.
 {{< alert type="warning" >}}
 
 Project access tokens are treated as [internal users](../../administration/internal_users.md).
-If an internal user creates a project access token, that token is able to access
-all projects that have visibility level set to [Internal](../../user/public_access.md).
+If an internal user creates a project access token, that token is able to access all projects that have visibility level set to [Internal](../../user/public_access.md).
 
 {{< /alert >}}
 
@@ -97,12 +91,10 @@ To create a project access token:
 1. On the top bar, select **Search or go to** and find your project or group.
 1. Select **Settings** > **Access tokens**.
 1. Select **Add new token**
-1. Enter a name. The token name is visible to any user with permissions to view
-   the group or project.
+1. Enter a name. The token name is visible to any user with permissions to view the group or project.
 1. Enter an expiry date for the token.
    - The token expires on that date at midnight UTC. A token with the expiration date of 2024-01-01 expires at 00:00:00 UTC on 2024-01-01.
-   - If you do not enter an expiry date, the expiry date is automatically set
-     to 365 days later than the current date.
+   - If you do not enter an expiry date, the expiry date is automatically set to 365 days later than the current date.
    - By default, this date can be a maximum of 365 days later than the current date. In GitLab 17.6 or later, you can [extend this limit to 400 days](https://gitlab.com/gitlab-org/gitlab/-/issues/461901).
 
    - An instance-wide [maximum lifetime](../../administration/settings/account_and_limit_settings.md#limit-the-lifetime-of-access-tokens)
@@ -117,10 +109,7 @@ To create a project access token:
 
 A runner configuration is where you configure runners to your requirements.
 
-After you create a runner configuration, you receive a runner authentication
-to register the runner. One or many runners can be linked to the
-same configuration when these runners are registered with the same runner authentication
-token. The runner configuration is stored in the `config.toml` file.
+After you create a runner configuration, you receive a runner authentication to register the runner. One or many runners can be linked to the same configuration when these runners are registered with the same runner authentication token. The runner configuration is stored in the `config.toml` file.
 
 To create a runner configuration, you can use:
 
@@ -131,12 +120,8 @@ To create a runner configuration, you can use:
 
 Before you begin, you need:
 
-- The URL for your GitLab instance. For example, if your project is hosted on
-  `gitlab.example.com/yourname/yourproject`, your GitLab instance URL is
-  `https://gitlab.example.com`.
-- For group or project runners, the ID number of the group or project. The ID number
-  is displayed in the project or group overview page, under the project or group
-  name.
+- The URL for your GitLab instance. For example, if your project is hosted on `gitlab.example.com/yourname/yourproject`, your GitLab instance URL is `https://gitlab.example.com`.
+- For group or project runners, the ID number of the group or project. The ID number is displayed in the project or group overview page, under the project or group name.
 
 Use the access token in the [`POST /user/runners`](../../api/users.md#create-a-runner-linked-to-a-user)
 REST endpoint to create a runner:
@@ -185,48 +170,36 @@ REST endpoint to create a runner:
 
    {{< /tabs >}}
 
-1. Save the returned `token` value in a secure location or your secrets management
-   solution. The `token` value is returned only once in the API response.
+1. Save the returned `token` value in a secure location or your secrets management solution. The `token` value is returned only once in the API response.
 
 ### With the `gitlab_user_runner` Terraform resource
 
-To create the runner configuration with Terraform, use the
-[`gitlab_user_runner` Terraform resource](https://gitlab.com/gitlab-org/terraform-provider-gitlab/-/blob/main/docs/resources/user_runner.md?ref_type=heads)
+To create the runner configuration with Terraform, use the [`gitlab_user_runner` Terraform resource](https://gitlab.com/gitlab-org/terraform-provider-gitlab/-/blob/main/docs/resources/user_runner.md?ref_type=heads)
 from the [GitLab Terraform provider](https://gitlab.com/gitlab-org/terraform-provider-gitlab).
 
 Here's an example configuration block:
 
 ```terraform
 resource "gitlab_user_runner" "example_runner" {
-  runner_type = "instance_type"
-  description = "my-runner"
-  tag_list = ["shell", "docker"]
+ runner_type = "instance_type"
+ description = "my-runner"
+ tag_list = ["shell", "docker"]
 }
 ```
 
 ## Automate runner installation and registration
 
-If you host the runner on a virtual machine instance in a public cloud, you can automate
-runner installation and registration.
+If you host the runner on a virtual machine instance in a public cloud, you can automate runner installation and registration.
 
-After you create a runner and its configuration, you can use the same runner
-authentication token to register multiple runners with the same configuration.
-For example, you can deploy multiple instance runners with the same executor type
-and job tags to the target compute host. Each runner registered with the same runner
-authentication token has a unique `system_id`, which GitLab Runner
-generates randomly and stores in your local file system.
+After you create a runner and its configuration, you can use the same runner authentication token to register multiple runners with the same configuration.
+For example, you can deploy multiple instance runners with the same executor type and job tags to the target compute host. Each runner registered with the same runner authentication token has a unique `system_id`, which GitLab Runner generates randomly and stores in your local file system.
 
-Here's an example of an automation workflow you can use to register and deploy your
-runners to Google Compute Engine:
+Here's an example of an automation workflow you can use to register and deploy your runners to Google Compute Engine:
 
 1. Use [Terraform infrastructure as code](../../user/infrastructure/iac/_index.md)
-   to install the runner application to a virtual machine hosted on Google Cloud
-   Platform (GCP).
-1. In the [GCP Terraform provider](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance),
-   use the `metadata` key to add the runner authentication token to the runner
-   configuration file on the GCP virtual machine.
-1. To register the runner with the target GitLab instance, use a `cloud-init` script
-   populated from the GCP Terraform provider. Here's an example:
+   to install the runner application to a virtual machine hosted on Google Cloud Platform (GCP).
+1. In the [GCP Terraform provider](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/compute_instance), use the `metadata` key to add the runner authentication token to the runner configuration file on the GCP virtual machine.
+1. To register the runner with the target GitLab instance, use a `cloud-init` script populated from the GCP Terraform provider. Here's an example:
 
    ```shell
    #!/bin/bash
@@ -247,11 +220,9 @@ runners to Google Compute Engine:
 
 ## View runners with the same configuration
 
-Now that you've automated your runner creation and registration, you can view
-the runners that use the same configuration in the GitLab UI.
+Now that you've automated your runner creation and registration, you can view the runners that use the same configuration in the GitLab UI.
 
 1. In the upper-right corner, select **Admin**.
 1. Select **CI/CD** > **Runners**.
 1. In the search box, enter the runner description or search the list of runners.
-1. To view the runners that use the same configuration, in the **Details** tab,
-   next to **Runners**, select **Show details**.
+1. To view the runners that use the same configuration, in the **Details** tab, next to **Runners**, select **Show details**.

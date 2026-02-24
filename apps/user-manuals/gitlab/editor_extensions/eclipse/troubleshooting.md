@@ -22,8 +22,7 @@ title: Troubleshooting Eclipse
 
 {{< alert type="disclaimer" />}}
 
-If the steps on this page don't solve your problem, check the
-[list of open issues](https://gitlab.com/gitlab-org/editor-extensions/gitlab-eclipse-plugin/-/issues/?sort=created_date&state=opened&first_page_size=100)
+If the steps on this page don't solve your problem, check the [list of open issues](https://gitlab.com/gitlab-org/editor-extensions/gitlab-eclipse-plugin/-/issues/?sort=created_date&state=opened&first_page_size=100)
 in the Eclipse plugin's project. If an issue matches your problem, update the issue.
 If no issues match your problem, [create a new issue](https://gitlab.com/gitlab-org/editor-extensions/gitlab-eclipse-plugin/-/issues/new) with the [required information for support](#required-information-for-support).
 
@@ -80,10 +79,7 @@ When creating a support request, provide the following information:
 
 ## Certificate errors
 
-If your machine connects to your GitLab instance through a proxy, you might encounter
-SSL certificate errors in Eclipse. GitLab Duo attempts to detect certificates in your system store;
-however, Language Server cannot do this. If you see errors from the Language Server
-about certificates, try enabling the option to pass a Certificate Authority (CA) certificate:
+If your machine connects to your GitLab instance through a proxy, you might encounter SSL certificate errors in Eclipse. GitLab Duo attempts to detect certificates in your system store; however, Language Server cannot do this. If you see errors from the Language Server about certificates, try enabling the option to pass a Certificate Authority (CA) certificate:
 
 To do this:
 
@@ -98,9 +94,7 @@ To do this:
 
 ### Ignore certificate errors
 
-If GitLab Duo still fails to connect, you might need to
-ignore certificate errors. You might see errors in the GitLab Language Server logs after enabling
-debug mode:
+If GitLab Duo still fails to connect, you might need to ignore certificate errors. You might see errors in the GitLab Language Server logs after enabling debug mode:
 
 ```plaintext
 2024-10-31T10:32:54:165 [error]: fetch: request to https://gitlab.com/api/v4/personal_access_tokens/self failed with:
@@ -109,13 +103,11 @@ FetchError: request to https://gitlab.com/api/v4/personal_access_tokens/self fai
 ```
 
 By design, this setting represents a security risk:
-these errors alert you to potential security breaches. You should enable this
-setting only if you are absolutely certain the proxy causes the problem.
+these errors alert you to potential security breaches. You should enable this setting only if you are absolutely certain the proxy causes the problem.
 
 Prerequisites:
 
-- You verified the certificate chain in your system browser or your machine's administrator
-  confirmed that this error is safe to ignore.
+- You verified the certificate chain in your system browser or your machine's administrator confirmed that this error is safe to ignore.
 
 To do this:
 

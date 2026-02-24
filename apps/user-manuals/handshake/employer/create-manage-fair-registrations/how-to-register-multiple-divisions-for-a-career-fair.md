@@ -10,7 +10,7 @@ Handshake allows you to submit separate registrations so each division has its o
 
 ### Register another division
 
-1. Click **Fairs** from the left navigation bar, then select the fair you want to register additional divisions for.  
+1. Click **Fairs** from the left navigation bar, then select the fair you want to register additional divisions for. 
 **Tip****:** Use the **Show Registered Only** filter to quickly view fairs your company has already registered for.
 
 ![Show registered only .png](https://support.joinhandshake.com/hc/article_attachments/34465656718487)

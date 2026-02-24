@@ -3,10 +3,10 @@
 ## Overview
 
 If you have received a warning about the amount of issues in one of the teams on your workspace, you may have exceeded or neared the issue quota permitted per team.   
-  
-In order to deliver the best performance and speed that Linear is known for, individual teams on workspaces are limited to **25,000 issues.**  
-  
-Issues created through integrations or the API will be prevented from creating more issues on the affected team if it exceeds this limit.  
+ 
+In order to deliver the best performance and speed that Linear is known for, individual teams on workspaces are limited to **25,000 issues.** 
+ 
+Issues created through integrations or the API will be prevented from creating more issues on the affected team if it exceeds this limit. 
 
 
 ### Recommended next steps

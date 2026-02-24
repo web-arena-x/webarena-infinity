@@ -33,10 +33,10 @@ Triggering an event and thereby updating a metric is slightly different on backe
 ### Backend tracking
 
 <div class="video-fallback">
-  Watch the video about <a href="https://www.youtube.com/watch?v=Teid7o_2Mmg">Backend instrumentation using Internal Events</a>
+ Watch the video about <a href="https://www.youtube.com/watch?v=Teid7o_2Mmg">Backend instrumentation using Internal Events</a>
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/Teid7o_2Mmg" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/Teid7o_2Mmg" frameborder="0" allowfullscreen> </iframe>
 </figure>
 
 To trigger an event, call the `track_internal_event` method from the `Gitlab::InternalEventsTracking` module with the desired arguments:
@@ -45,10 +45,10 @@ To trigger an event, call the `track_internal_event` method from the `Gitlab::In
 include Gitlab::InternalEventsTracking
 
 track_internal_event(
-  "create_ci_build",
-  user: user,
-  namespace: namespace,
-  project: project
+ "create_ci_build",
+ user: user,
+ namespace: namespace,
+ project: project
 )
 ```
 
@@ -63,13 +63,12 @@ If a `project` but no `namespace` is provided, the `project.namespace` is used a
 
 In some cases you might want to specify the `category` manually or provide none at all. To do that, you can call the `InternalEvents.track_event` method directly instead of using the module.
 
-In case when a feature is enabled through multiple namespaces and its required to track why the feature is enabled, it is
-possible to pass an optional `feature_enabled_by_namespace_ids` parameter with an array of namespace ids.
+In case when a feature is enabled through multiple namespaces and its required to track why the feature is enabled, it is possible to pass an optional `feature_enabled_by_namespace_ids` parameter with an array of namespace ids.
 
 ```ruby
 track_internal_event(
-  ...
-  feature_enabled_by_namespace_ids: [namespace_one.id, namespace_two.id]
+ ...
+ feature_enabled_by_namespace_ids: [namespace_one.id, namespace_two.id]
 )
 ```
 
@@ -87,11 +86,11 @@ If the built-in properties are not suitable or descriptive, properties of any na
 
 ```yaml
 additional_properties:
-  label:
+ label:
     description: The source of the pipeline, e.g. a push, a schedule or similar.
-  property:
+ property:
     description: The source of the config, e.g. the repository, auto_devops or similar.
-  agent:
+ agent:
     description: Type of the execution agent.
 ```
 
@@ -99,13 +98,13 @@ Additional properties are passed by including the `additional_properties` hash i
 
 ```ruby
 track_internal_event(
-  "create_ci_build",
-  user: user,
-  additional_properties: {
+ "create_ci_build",
+ user: user,
+ additional_properties: {
     label: source, # The label is tracking the source of the pipeline
     property: config_source, # The property is tracking the source of the configuration
     agent: agent
-  }
+ }
 )
 ```
 
@@ -121,55 +120,54 @@ There is a helper module `ProductAnalyticsTracking` for controllers you can use 
 
 ```ruby
 class Projects::PipelinesController < Projects::ApplicationController
-  include ProductAnalyticsTracking
+ include ProductAnalyticsTracking
 
-  track_internal_event :charts, name: 'visit_charts_on_ci_cd_pipelines', conditions: -> { should_track_ci_cd_pipelines? }
+ track_internal_event :charts, name: 'visit_charts_on_ci_cd_pipelines', conditions: -> { should_track_ci_cd_pipelines? }
 
-  def charts
+ def charts
     ...
-  end
+ end
 
-  private
+ private
 
-  def should_track_ci_cd_pipelines?
+ def should_track_ci_cd_pipelines?
     params[:chart].blank? || params[:chart] == 'pipelines'
-  end
+ end
 end
 ```
 
 You need to add these two methods to the controller body, so that the helper can get the current project and namespace for the event:
 
 ```ruby
-  private
+ private
 
-  def tracking_namespace_source
+ def tracking_namespace_source
     project.namespace
-  end
+ end
 
-  def tracking_project_source
+ def tracking_project_source
     project
-  end
+ end
 ```
 
 Also, there is an API helper:
 
 ```ruby
 track_event(
-  event_name,
-  user: current_user,
-  namespace_id: namespace_id,
-  project_id: project_id
+ event_name,
+ user: current_user,
+ namespace_id: namespace_id,
+ project_id: project_id
 )
 ```
 
 #### Batching
 
-When multiple events are emitted at once, use `with_batched_redis_writes` to batch all of them
-in a single Redis call.
+When multiple events are emitted at once, use `with_batched_redis_writes` to batch all of them in a single Redis call.
 
 ```ruby
 Gitlab::InternalEvents.with_batched_redis_writes do
-  incr.times { Gitlab::InternalEvents.track_event(event) }
+ incr.times { Gitlab::InternalEvents.track_event(event) }
 end
 ```
 
@@ -181,9 +179,9 @@ When testing code that triggers internal events or increments metrics, you can u
 
 ```ruby
  expect { subject }
-  .to trigger_internal_events('web_ide_viewed')
-  .with(user: user, project: project, namespace: namespace)
-  .and increment_usage_metrics('counts.web_views')
+ .to trigger_internal_events('web_ide_viewed')
+ .with(user: user, project: project, namespace: namespace)
+ .and increment_usage_metrics('counts.web_views')
 ```
 
 The `trigger_internal_events` matcher accepts the same chain methods as the [`receive`](https://rubydoc.info/github/rspec/rspec-mocks/RSpec/Mocks/ExampleMethods#receive-instance_method) matcher (`#once`, `#at_most`, etc). By default, it expects the provided events to be triggered only once.
@@ -200,26 +198,25 @@ The `increment_usage_metrics` matcher accepts the same chain methods as the [`ch
 
 ```ruby
 expect { subject }
-  .to trigger_internal_events('web_ide_viewed')
-  .with(user: user, project: project, namespace: namespace)
-  .exactly(3).times
+ .to trigger_internal_events('web_ide_viewed')
+ .with(user: user, project: project, namespace: namespace)
+ .exactly(3).times
 ```
 
 Both matchers are composable with other matchers that act on a block (like `change` matcher).
 
 ```ruby
 expect { subject }
-  .to trigger_internal_events('mr_created')
+ .to trigger_internal_events('mr_created')
     .with(user: user, project: project, category: category, additional_properties: { label: label } )
-  .and increment_usage_metrics('counts.deployments')
+ .and increment_usage_metrics('counts.deployments')
     .at_least(:once)
-  .and change { mr.notes.count }.by(1)
+ .and change { mr.notes.count }.by(1)
 ```
 
 {{< alert type="note" >}}
 
-Debugging tip: If your new tests are failing due to metrics not being incremented when you expect them to be,
-you may need to apply the `:clean_gitlab_redis_shared_state` trait to clear the Redis cache between examples.
+Debugging tip: If your new tests are failing due to metrics not being incremented when you expect them to be, you may need to apply the `:clean_gitlab_redis_shared_state` trait to clear the Redis cache between examples.
 
 {{< /alert >}}
 
@@ -228,8 +225,8 @@ To test that an event was not triggered, you can use the `not_trigger_internal_e
 ```ruby
 expect { subject }.to trigger_internal_events('mr_created')
     .with(user: user, project: project, namespace: namespace)
-  .and increment_usage_metrics('counts.deployments')
-  .and not_trigger_internal_events('pipeline_started')
+ .and increment_usage_metrics('counts.deployments')
+ .and not_trigger_internal_events('pipeline_started')
 ```
 
 Or you can use the `not_to` syntax:
@@ -306,17 +303,17 @@ InternalEvents.trackEvent('click_previous_blame_on_blob_page');
 This attribute ensures that if we want to track GitLab internal events for a button, we do not need to write JavaScript code on Click handler. Instead, we can just add a data-event-tracking attribute with event value and it should work. This can also be used with HAML views.
 
 ```html
-  <gl-button
+ <gl-button
     data-event-tracking="click_previous_blame_on_blob_page"
-  >
+ >
    Click Me
-  </gl-button>
+ </gl-button>
 ```
 
 #### Haml
 
 ```ruby
-= render Pajamas::ButtonComponent.new(button_options: { class: 'js-settings-toggle',  data: { event_tracking: 'click_previous_blame_on_blob_page' }}) do
+= render Pajamas::ButtonComponent.new(button_options: { class: 'js-settings-toggle', data: { event_tracking: 'click_previous_blame_on_blob_page' }}) do
 ```
 
 #### Internal events on render
@@ -362,20 +359,20 @@ For raw JavaScript:
 For data-event attributes:
 
 ```javascript
-  <gl-button
+ <gl-button
     data-event-tracking="click_view_runners_button"
     data-event-label="group_runner_form"
     :data-event-property=dynamicPropertyVar
     data-event-additional='{"key1": "value1", "key2": "value2"}'
-  >
+ >
    Click Me
-  </gl-button>
+ </gl-button>
 ```
 
 For Haml:
 
 ```ruby
-= render Pajamas::ButtonComponent.new(button_options: { class: 'js-settings-toggle',  data: { event_tracking: 'action', event_label: 'group_runner_form', event_property: dynamic_property_var, event_value: 2, event_additional: '{"key1": "value1", "key2": "value2"}' }}) do
+= render Pajamas::ButtonComponent.new(button_options: { class: 'js-settings-toggle', data: { event_tracking: 'action', event_label: 'group_runner_form', event_property: dynamic_property_var, event_value: 2, event_additional: '{"key1": "value1", "key2": "value2"}' }}) do
 ```
 
 #### Frontend testing
@@ -393,11 +390,11 @@ import { InternalEvents } from '~/tracking';
 import { __ } from '~/locale';
 
 export default {
-  components: {
+ components: {
     GlButton,
-  },
-  mixins: [InternalEvents.mixin()],
-  methods: {
+ },
+ mixins: [InternalEvents.mixin()],
+ methods: {
     handleButtonClick() {
       // some application logic
       // when some event happens fire tracking call
@@ -407,18 +404,18 @@ export default {
         value: 3,
       });
     },
-  },
-  i18n: {
+ },
+ i18n: {
     button1: __('Sample Button'),
-  },
+ },
 };
 </script>
 <template>
-  <div style="display: flex; height: 90vh; align-items: center; justify-content: center">
+ <div style="display: flex; height: 90vh; align-items: center; justify-content: center">
     <gl-button class="sample-button" @click="handleButtonClick">
       {{ $options.i18n.button1 }}
     </gl-button>
-  </div>
+ </div>
 </template>
 ```
 
@@ -430,18 +427,18 @@ import DeleteApplication from '~/admin/applications/components/delete_applicatio
 import { useMockInternalEventsTracking } from 'helpers/tracking_internal_events_helper';
 
 describe('DeleteApplication', () => {
-  /** @type {import('helpers/vue_test_utils_helper').ExtendedWrapper} */
-  let wrapper;
+ /** @type {import('helpers/vue_test_utils_helper').ExtendedWrapper} */
+ let wrapper;
 
-  const createComponent = () => {
+ const createComponent = () => {
     wrapper = shallowMountExtended(DeleteApplication);
-  };
+ };
 
-  beforeEach(() => {
+ beforeEach(() => {
     createComponent();
-  });
+ });
 
-  describe('sample button 1', () => {
+ describe('sample button 1', () => {
     const { bindInternalEventDocument } = useMockInternalEventsTracking();
     it('should call trackEvent method when clicked on sample button', async () => {
       const { trackEventSpy } = bindInternalEventDocument(wrapper.element);
@@ -458,7 +455,7 @@ describe('DeleteApplication', () => {
         undefined,
       );
     });
-  });
+ });
 });
 ```
 
@@ -471,17 +468,17 @@ import { InternalEvents } from '~/tracking';
 import { __ } from '~/locale';
 
 export default {
-  components: {
+ components: {
     GlButton,
-  },
-  mixins: [InternalEvents.mixin()],
-  i18n: {
+ },
+ mixins: [InternalEvents.mixin()],
+ i18n: {
     button1: __('Sample Button'),
-  },
+ },
 };
 </script>
 <template>
-  <div style="display: flex; height: 90vh; align-items: center; justify-content: center">
+ <div style="display: flex; height: 90vh; align-items: center; justify-content: center">
     <gl-button
       class="sample-button"
       data-event-tracking="click_view_runners_button"
@@ -489,7 +486,7 @@ export default {
     >
       {{ $options.i18n.button1 }}
     </gl-button>
-  </div>
+ </div>
 </template>
 ```
 
@@ -501,18 +498,18 @@ import DeleteApplication from '~/admin/applications/components/delete_applicatio
 import { useMockInternalEventsTracking } from 'helpers/tracking_internal_events_helper';
 
 describe('DeleteApplication', () => {
-  /** @type {import('helpers/vue_test_utils_helper').ExtendedWrapper} */
-  let wrapper;
+ /** @type {import('helpers/vue_test_utils_helper').ExtendedWrapper} */
+ let wrapper;
 
-  const createComponent = () => {
+ const createComponent = () => {
     wrapper = shallowMountExtended(DeleteApplication);
-  };
+ };
 
-  beforeEach(() => {
+ beforeEach(() => {
     createComponent();
-  });
+ });
 
-  describe('sample button', () => {
+ describe('sample button', () => {
     const { bindInternalEventDocument } = useMockInternalEventsTracking();
     it('should call trackEvent method when clicked on sample button', () => {
       const { triggerEvent, trackEventSpy } = bindInternalEventDocument(wrapper.element);
@@ -521,14 +518,13 @@ describe('DeleteApplication', () => {
         label: 'group_runner_form',
       });
     });
-  });
+ });
 });
 ```
 
 #### Haml with data attributes
 
-If you are using [data attributes](#data-event-attribute) to track internal events at the Haml layer,
-you can use the [`trigger_internal_events` matcher](#backend-testing) to assert that the expected properties are present.
+If you are using [data attributes](#data-event-attribute) to track internal events at the Haml layer, you can use the [`trigger_internal_events` matcher](#backend-testing) to assert that the expected properties are present.
 
 For example, if you need to test the below Haml,
 
@@ -544,44 +540,44 @@ Below would be the test case for above haml.
 - rendered HTML is a `String` ([RSpec views](https://rspec.info/features/6-0/rspec-rails/view-specs/view-spec/))
 
 ```ruby
-  it 'assigns the tracking items' do
+ it 'assigns the tracking items' do
     render
 
     expect(rendered).to trigger_internal_events('some_event').on_click
       .with(additional_properties: { label: 'some_label' })
-  end
+ end
 ```
 
 - rendered HTML is a `Capybara::Node::Simple` ([ViewComponent](https://viewcomponent.org/))
 
 ```ruby
-  it 'assigns the tracking items' do
+ it 'assigns the tracking items' do
     render_inline(component)
 
     expect(page.find_by_testid('_testid_'))
       .to trigger_internal_events('some_event').on_click
       .with(additional_properties: { label: 'some_label' })
-  end
+ end
 ```
 
 - rendered HTML is a `Nokogiri::HTML4::DocumentFragment` ([ViewComponent](https://viewcomponent.org/))
 
 ```ruby
-  it 'assigns the tracking items' do
+ it 'assigns the tracking items' do
     expect(render_inline(component))
       .to trigger_internal_events('some_event').on_click
       .with(additional_properties: { label: 'some_label' })
-  end
+ end
 ```
 
 Or you can use the `not_to` syntax:
 
 ```ruby
-  it 'assigns the tracking items' do
+ it 'assigns the tracking items' do
     render_inline(component)
 
     expect(page).not_to trigger_internal_events
-  end
+ end
 ```
 
 When negated, the matcher accepts no additional chain methods or arguments.

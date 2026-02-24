@@ -15,11 +15,11 @@ After you send an RFI to the Recycle Bin, you can retrieve it at a later time us
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's RFIs tool.
+ - 'Admin' level permissions on the project's RFIs tool.
 - **Prerequisites:**
-  - The RFI that you want to retrieve must be in the Recycle Bin. See [Delete an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/delete-an-rfi "Delete an RFI").
+ - The RFI that you want to retrieve must be in the Recycle Bin. See [Delete an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/delete-an-rfi "Delete an RFI").
 - **Limitations:**
-  - To give project teams the ability to restore any deleted item, the Recycle Bin cannot be emptied.
+ - To give project teams the ability to restore any deleted item, the Recycle Bin cannot be emptied.
 
 ## Steps
 

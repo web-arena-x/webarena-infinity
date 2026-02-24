@@ -11,9 +11,9 @@ To view an RFI using the project's RFI tool.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - *To view RFIs not marked as 'Private':*
+ - *To view RFIs not marked as 'Private':*
     - 'Read Only' level permissions or higher on the project's RFIs tool
-  - *To view all RFIs:*
+ - *To view all RFIs:*
     - 'Admin' level permissions on the project's RFIs tool
 
 ##### Tip
@@ -41,20 +41,19 @@ In the table below, the ![icon-mindtouch-table-check.png](https://support.procor
 3 Assignees, Distribution List Members, and users without a role on the RFI can only view a closed RFI marked 'Private' if the RFI was previously open OR if they have the ['View Private RFIs Associated to Users within Same Company' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on their permissions template and another user in their company (including them) is the RFI's creator or is designated as the RFI Manager, an Assignee, or a Distribution List member.
 
 - **Additional Information:**
-  - The 'Only Show Official Responses to Standard and Read-Only Users' configuration setting must be turned OFF in order for a user with 'Standard' level permissions on the project's RFIs tool to view all responses to an RFI that they created. See [Configure Advanced Settings: RFIs](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/configure-advanced-settings-rfis "Configure Advanced Settings: RFIs").
-  - Users with the ['Act as RFI Manager' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on their permissions templates can view all responses to RFIs that they create ('Standard' only) or that they are designated as RFI Manager for even if the 'Only Show Official Responses to Standard and Read-Only Users' configuration setting is turned ON.
-  - Some image attachments may include the option to view them in a map view based on the files' GPS coordinates. See [Which Procore tools let me view digital image attachments in a map view?](https://support.procore.com/faq/which-procore-tools-let-me-view-a-digital-image-attachment-in-a-map-view "Which Procore tools let me view a digital image attachments in a map view?")
+ - The 'Only Show Official Responses to Standard and Read-Only Users' configuration setting must be turned OFF in order for a user with 'Standard' level permissions on the project's RFIs tool to view all responses to an RFI that they created. See [Configure Advanced Settings: RFIs](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/configure-advanced-settings-rfis "Configure Advanced Settings: RFIs").
+ - Users with the ['Act as RFI Manager' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on their permissions templates can view all responses to RFIs that they create ('Standard' only) or that they are designated as RFI Manager for even if the 'Only Show Official Responses to Standard and Read-Only Users' configuration setting is turned ON.
+ - Some image attachments may include the option to view them in a map view based on the files' GPS coordinates. See [Which Procore tools let me view digital image attachments in a map view?](https://support.procore.com/faq/which-procore-tools-let-me-view-a-digital-image-attachment-in-a-map-view "Which Procore tools let me view a digital image attachments in a map view?")
 
 ## Steps
 
 1. Navigate to the project's **RFIs** tool.
 2. Click the **Items** tab.
-3. Click **View** next to the RFI you want to view.  
+3. Click **View** next to the RFI you want to view. 
      
-   ![view-rfi.png](https://support.procore.com/@api/deki/files/73646/view-rfi.png?revision=2)  
+   ![view-rfi.png](https://support.procore.com/@api/deki/files/73646/view-rfi.png?revision=2) 
      
-   OR  
-   Click the link in the 'Subject' column for the RFI you want to view.
+   OR Click the link in the 'Subject' column for the RFI you want to view.
 
 The RFIs page contains the following tabs:
 

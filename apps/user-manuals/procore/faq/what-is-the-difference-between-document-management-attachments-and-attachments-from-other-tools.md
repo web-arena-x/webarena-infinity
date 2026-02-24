@@ -25,7 +25,7 @@ When choosing which document to attach from the Document Management tool, you'll
 - Filter by keyword or attributes, sort, and reorder the table of documents to find what you're looking for.
 - Toggle between viewing only the latest revisions or all revision of documents if you want to attach a previous revision. See more about [the revision toggle](https://support.procore.com/products/online/user-guide/project-level/document-management/tutorials/search-for-and-filter-documents-in-the-document-management-tool#Filter_Documents "Search for and Filter Documents in the Document Management Tool").
 - Select documents across multiple pages of the table.
-  - The total number of selected files shows at the bottom of the window, and just like other tools allow, you can select files from multiple tools at the same time.
+ - The total number of selected files shows at the bottom of the window, and just like other tools allow, you can select files from multiple tools at the same time.
 - Attach only specific versions of documents you have access to in the Document Management tool.
 - After clicking 'Attach' or 'Cancel', your selections do not persist if you open the 'Attach Files' window again.
 

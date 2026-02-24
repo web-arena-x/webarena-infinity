@@ -23,11 +23,11 @@ Within the Event Preferences one can:
 3. Click **Event Preferences** from the left menu. Here, you'll be able to edit the following information per a Career Center (if applicable):
 
 - **Legal Disclaimer:**This message will be viewable by students on events that are hosted by employers, through your school's approval. Students can see this message at the bottom of the page for an employer-hosted event.
-  - The *Add a legal disclaimer for all events an employer is hosting or attending* box must be toggled on before you can add a Legal Disclaimer message.
+ - The *Add a legal disclaimer for all events an employer is hosting or attending* box must be toggled on before you can add a Legal Disclaimer message.
 - **Event Approved Instructions:** These are the instructions shown to the employer in the notification that the event is approved.
 - **Event Invoice Message:** This message will be included in the invoice that you send to employers. We recommend including payment instructions and your refund policy in this field.
 - **Event Request Survey:** Survey for employers to fill out when requesting an event. For additional information about creating a survey, refer to [How to Create a Survey](https://support.joinhandshake.com/hc/en-us/articles/218693548).
-  - to attach a survey, click the dropdown and then click the survey of your choice or type the name within the search bar to locate it.
+ - to attach a survey, click the dropdown and then click the survey of your choice or type the name within the search bar to locate it.
 
 ![Event_Preferences_Settings.png](https://support.joinhandshake.com/hc/article_attachments/25995122476695)
 

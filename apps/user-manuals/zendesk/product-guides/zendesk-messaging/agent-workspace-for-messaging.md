@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408821905434-Agent-Worksp
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
@@ -62,22 +62,22 @@ While you’re working with Web Widget messages in the Agent Workspace:
 
 - Customer information captured by a bot is visible in [customer context](https://support.zendesk.com/hc/en-us/articles/4408829170458) and other information captured from the customer is available in custom ticket fields.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/uc_native_message_context3.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/uc_native_message_context3.png)
 - Similar to [social messaging](https://support.zendesk.com/hc/en-us/articles/4408843683226), Web Widget conversations with your customers are enhanced by leveraging all the features available in the agent workspace. This includes:
 
-  - Targeted, channel-based business rules and ticket tags to help admins route tickets quickly to the right agent at the right time.
+ - Targeted, channel-based business rules and ticket tags to help admins route tickets quickly to the right agent at the right time.
 
     ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/uc_native_message_trigger2.png)
-  - Views and macros to help you manage your tickets and reply quickly.
+ - Views and macros to help you manage your tickets and reply quickly.
 
     ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/uc_native_message_views.png)
-  - [Ticket tabs](https://support.zendesk.com/hc/en-us/articles/4408844108826) and a [notifications list](https://support.zendesk.com/hc/en-us/articles/4408829025690) to show you which conversations are active. Also, typing, sent, and received indicators to keep you up-to-date.
+ - [Ticket tabs](https://support.zendesk.com/hc/en-us/articles/4408844108826) and a [notifications list](https://support.zendesk.com/hc/en-us/articles/4408829025690) to show you which conversations are active. Also, typing, sent, and received indicators to keep you up-to-date.
 
-    |  |  |
+    | | |
     | --- | --- |
-    |  |  |
-  - Ticket assignments and changes to ticket assignments work the same as with [social messaging](https://support.zendesk.com/hc/en-us/articles/4408843683226#topic_cfx_gjk_2mb).
-  - When the ticket is Closed, control is handed back to the bot which means that the customer will be greeted by that bot when they send a message.
+    | | |
+ - Ticket assignments and changes to ticket assignments work the same as with [social messaging](https://support.zendesk.com/hc/en-us/articles/4408843683226#topic_cfx_gjk_2mb).
+ - When the ticket is Closed, control is handed back to the bot which means that the customer will be greeted by that bot when they send a message.
 
 ## Working with attachments
 

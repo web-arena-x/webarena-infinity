@@ -32,7 +32,7 @@ Within the branch, you can safely explore changes and iterations, without disrup
 
 **Caution:** The [**Allow viewers to copy, share, or export from the file** setting](https://help.figma.com/hc/en-us/articles/360040045574) must be enabled for viewers to create branches. If this is disabled, viewers will not see the option to create or edit branches.
 
-1. From the main file, click the  next to the file name in left sidebar.
+1. From the main file, click the next to the file name in left sidebar.
 2. Select **Create branch...** from the options.
 3. Give the branch a name. Figma will use this to identify the branch in the editor, including in the main file's version history.
 4. Figma will create a new branch that is an exact replica of the main file in its current state. In the left sidebar, you will see the `File name``Branch name`.
@@ -136,7 +136,7 @@ You can only publish to a library from the main file. If you've made changes in 
 
 You can only publish to the Community from the main file. If you want to publish the branch, you can duplicate it to create a new file that's separate from the main file.
 
-1. In the left sidebar, click the  next to the file name.
+1. In the left sidebar, click the next to the file name.
 2. Select **Duplicate as new file** from the options.
 3. Figma will duplicate the branch and add it as a file to the existing location. The name of the file be `Main file name : branch name (Copy)`.
 

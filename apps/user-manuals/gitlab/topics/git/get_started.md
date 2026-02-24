@@ -7,11 +7,9 @@ title: Get started with Git
 ---
 
 Git is a version control system you use to track changes to your code and collaborate with others.
-GitLab is a web-based Git repository manager that provides CI/CD and other features to help you
-manage your software development lifecycle.
+GitLab is a web-based Git repository manager that provides CI/CD and other features to help you manage your software development lifecycle.
 
-You can use the GitLab web interface for many Git operations,
-but understanding Git commands provides you with additional flexibility and control.
+You can use the GitLab web interface for many Git operations, but understanding Git commands provides you with additional flexibility and control.
 
 Learning Git is part of a larger workflow:
 
@@ -25,16 +23,12 @@ Choose your learning path:
 
 ## Repositories
 
-A Git repository is a directory that contains all the files, folders, and version
-history of your project.
+A Git repository is a directory that contains all the files, folders, and version history of your project.
 It serves as a central hub where Git manages and tracks changes to your code.
 
-When you initialize a Git repository or clone an existing one, Git creates a hidden directory,
-`.git`, inside the project directory.
-The directory contains all the essential metadata and objects Git uses to manage your repository,
-including the complete history of all changes made to the files.
-Git tracks changes at the file level, so you can view the modifications made to individual
-files over time.
+When you initialize a Git repository or clone an existing one, Git creates a hidden directory, `.git`, inside the project directory.
+The directory contains all the essential metadata and objects Git uses to manage your repository, including the complete history of all changes made to the files.
+Git tracks changes at the file level, so you can view the modifications made to individual files over time.
 
 For more information, see [Repositories](../../user/project/repository/_index.md).
 
@@ -53,21 +47,17 @@ For more information, see [Common Git commands](commands.md).
 
 ## Branches
 
-In Git, you can use branches to work on different features, bug fixes, or experiments
-simultaneously without interfering with each other's work.
-Branching enables you to create an isolated environment where you can make and test
-changes without affecting the default branch.
+In Git, you can use branches to work on different features, bug fixes, or experiments simultaneously without interfering with each other's work.
+Branching enables you to create an isolated environment where you can make and test changes without affecting the default branch.
 In GitLab, the default branch is usually called `main`.
 
 ### Merge a branch
 
 After a feature is complete or a bug is fixed, you can merge your branch into the default branch.
 You can do this in a [Merge request](../../user/project/merge_requests/_index.md).
-Merging is a safe way to bring changes from one branch into another while preserving the
-history of the changes.
+Merging is a safe way to bring changes from one branch into another while preserving the history of the changes.
 
-If there are conflicts between the branches, for example, if you modify the same lines of code
-in both branches, GitLab flags these as [merge conflicts](../../user/project/merge_requests/conflicts.md).
+If there are conflicts between the branches, for example, if you modify the same lines of code in both branches, GitLab flags these as [merge conflicts](../../user/project/merge_requests/conflicts.md).
 These must be resolved manually by reviewing and editing the code.
 
 ### Delete a branch
@@ -77,8 +67,7 @@ Deleting unnecessary branches helps keep your repository organized and manageabl
 
 {{< alert type="note" >}}
 
-To ensure no work is lost, verify all changes are incorporated into the default branch
-before you delete the branch after the final merge.
+To ensure no work is lost, verify all changes are incorporated into the default branch before you delete the branch after the final merge.
 
 {{< /alert >}}
 
@@ -86,15 +75,13 @@ For more information, see [Branches](../../user/project/repository/branches/_ind
 
 ## Understand the Git workflow
 
-You can manage your code, collaborate with others, and keep your project organized
-with a Git workflow.
+You can manage your code, collaborate with others, and keep your project organized with a Git workflow.
 A standard Git workflow includes the following steps:
 
 1. Clone a repository: Create a local copy of the repository by cloning it to your machine.
    You can work on the project without affecting the original repository.
 1. Create a new branch: Before you make any changes, it's recommended to create a new branch.
-   This ensures that your changes are isolated and don't interfere with the work of others on the
-   default branch.
+   This ensures that your changes are isolated and don't interfere with the work of others on the default branch.
 1. Make changes: Make changes to files in your working directory.
    You can add new features, fix bugs, or make other modifications.
 1. Stage changes: After you make changes to your files, stage the changes you want to commit.
@@ -103,22 +90,18 @@ A standard Git workflow includes the following steps:
    A commit saves a snapshot of your work and creates a history of the changes to your files.
 1. Push changes: To share your changes with others, push them to the remote repository.
    This makes your changes available to other collaborators.
-1. Merge your branch: After your changes are reviewed and approved, merge your branch into the
-   default branch. For example, `main`. This step incorporates your changes into the project.
+1. Merge your branch: After your changes are reviewed and approved, merge your branch into the default branch. For example, `main`. This step incorporates your changes into the project.
 
 ## Forks
 
-Some organizations, particularly those working with open-source projects, may use
-different workflows. For example, [Forks](../../user/project/repository/forking_workflow.md).
+Some organizations, particularly those working with open-source projects, may use different workflows. For example, [Forks](../../user/project/repository/forking_workflow.md).
 
 A fork is a personal copy of the repository that exists in your own namespace.
-Use this workflow when contributing to open-source projects or when your team uses a
-centralized repository.
+Use this workflow when contributing to open-source projects or when your team uses a centralized repository.
 
 ## Install Git
 
-To use Git commands and contribute to GitLab projects, you should download and install
-the Git client on your computer.
+To use Git commands and contribute to GitLab projects, you should download and install the Git client on your computer.
 
 The installation process varies depending on your operating system.
 For example, Windows, MacOS, or Linux.
@@ -136,8 +119,7 @@ To interact with Git from the command line, you can use Git commands:
 - `git push`: Push local commits to the remote repository.
 - `git pull`: Fetch changes from the remote repository and merge them into your local branch.
 
-For more comprehensive information and detailed explanations,
-see [Command Git commands](commands.md) guide.
+For more comprehensive information and detailed explanations, see [Command Git commands](commands.md) guide.
 
 <!--- Use this section when the [Generate an SSH key pair](../user/ssh.md) page is added to the navigation
 
@@ -146,11 +128,9 @@ see [Command Git commands](commands.md) guide.
 When you work with remote repositories, you should use SSH for secure communication.
 
 GitLab uses the SSH protocol to securely communicate with Git.
-When you use SSH keys to authenticate to the GitLab remote server,
-you don't need to supply your username and password each time.
+When you use SSH keys to authenticate to the GitLab remote server, you don't need to supply your username and password each time.
 
-To learn how to generate and add SSH keys to your GitLab account,
-see [Generate an SSH key pair](../user/ssh.md).
+To learn how to generate and add SSH keys to your GitLab account, see [Generate an SSH key pair](../user/ssh.md).
 -->
 
 ## Related topics

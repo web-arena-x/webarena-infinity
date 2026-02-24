@@ -21,29 +21,29 @@ Requires can edit access to a file
 By default, groups take on the combined dimensions of their children.
 
 - To make a group, select some layers and choose “Group”, or use:
-  - Mac: `Command` `G`
-  - Windows: `Control` `G`
+ - Mac: `Command` `G`
+ - Windows: `Control` `G`
 - The first time you click on a layer in this group, the entire group will be selected.
 - To select a single layer within this group, double-click the item, or choose it from the layers panel.
 - As the layers within a group are moved around, the bounds of the group will adjust to fit the layers within.
 - You can move things into and out of this group by dragging layers within the layers panel.
 - You are allowed to nest groups inside other groups.
 - To un-group, select the group and choose “Ungroup”, or use:
-  - Mac: `Shift` `Command` `G` or `Command` `Delete`
-  - Windows: `Shift` `Control` `G` or `Control` `Backspace`
+ - Mac: `Shift` `Command` `G` or `Command` `Delete`
+ - Windows: `Shift` `Control` `G` or `Control` `Backspace`
 
 # Frames
 
 Sometimes, it is useful to have a layer whose size is explicitly set by you. These are called Frames.
 
 - To make a frame, choose the Frame Tool `F` and drag out an area of the screen, or use:
-  - Mac: `Command` `Option` `G`
-  - Windows: `Control` `Alt` `G`
+ - Mac: `Command` `Option` `G`
+ - Windows: `Control` `Alt` `G`
 - To add layers to this group, just drag them in.
 - To remove layers from this group, just drag them out.
 - Selecting and moving items within a Frame works exactly the same way as groups.
 - To un-group, select the group and choose “Ungroup”, or use:
-  - Mac: `Shift` `Command` `G` or `Command` `Delete`
-  - Windows: `Shift` `Control` `G` or `Control` `Backspace`
+ - Mac: `Shift` `Command` `G` or `Command` `Delete`
+ - Windows: `Shift` `Control` `G` or `Control` `Backspace`
 
 Frames are drawn directly on the canvas and we draw them in a special way to make them easier to see and work with.

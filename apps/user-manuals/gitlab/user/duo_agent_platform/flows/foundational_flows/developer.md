@@ -61,8 +61,7 @@ To convert your issue to a merge request:
 1. Select the issue you want to create a merge request for.
 1. Below the issue header, select **Generate MR with GitLab Duo**.
 1. Monitor progress by selecting **Automate** > **Sessions**.
-1. When the pipeline has successfully executed, a link to the merge request
-   is displayed in the issue's activity section.
+1. When the pipeline has successfully executed, a link to the merge request is displayed in the issue's activity section.
 1. Review the merge request and make changes as needed.
 
 ## Best practices

@@ -13,11 +13,9 @@ description: "Configure the Google Chat integration to receive notifications fro
 
 {{< /details >}}
 
-You can configure your project in GitLab to send notifications to a
-space of your choice in [Google Chat](https://chat.google.com/).
+You can configure your project in GitLab to send notifications to a space of your choice in [Google Chat](https://chat.google.com/).
 
-In GitLab 16.10 and later, threaded notifications are enabled by default
-in Google Chat for the same GitLab object (for example, an issue or merge request).
+In GitLab 16.10 and later, threaded notifications are enabled by default in Google Chat for the same GitLab object (for example, an issue or merge request).
 For more information, see [issue 438452](https://gitlab.com/gitlab-org/gitlab/-/issues/438452).
 
 ## Configure the integration
@@ -35,8 +33,7 @@ To configure the integration in Google Chat:
 1. Select **Save**.
 1. Next to the webhook URL, select the vertical ellipsis ({{< icon name="ellipsis_v" >}}) > **Copy link**.
 
-For more information about webhooks, see the
-[Google Chat documentation](https://developers.google.com/workspace/chat/quickstart/webhooks).
+For more information about webhooks, see the [Google Chat documentation](https://developers.google.com/workspace/chat/quickstart/webhooks).
 
 ### In GitLab
 
@@ -47,12 +44,9 @@ To configure the integration in GitLab:
 1. Select **Google Chat**.
 1. Under **Enable integration**, select the **Active** checkbox.
 1. In **Webhook**, [paste the URL you copied from Google Chat](#in-google-chat).
-1. In the **Trigger** section, select the checkbox for each GitLab event
-   you want to receive notifications for in your Google Chat space.
+1. In the **Trigger** section, select the checkbox for each GitLab event you want to receive notifications for in your Google Chat space.
 1. Optional. In the **Notification settings** section:
-   - Select the **Notify only broken pipelines** checkbox
-     to receive notifications for failed pipelines only.
-   - From the **Branches for which notifications are to be sent** dropdown list,
-     select the branches you want to receive notifications for.
+   - Select the **Notify only broken pipelines** checkbox to receive notifications for failed pipelines only.
+   - From the **Branches for which notifications are to be sent** dropdown list, select the branches you want to receive notifications for.
 1. Optional. Select **Test settings**.
 1. Select **Save changes**.

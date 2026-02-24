@@ -17,9 +17,8 @@ Manage compliance frameworks for top-level groups by using a GraphQL API.
 ## Prerequisites
 
 - To create, edit, and delete compliance frameworks, users either:
-  - Have the Owner role for the top-level group.
-  - Be assigned a [custom role](../../user/custom_roles/_index.md) with the `admin_compliance_framework`
-    [custom permission](../../user/custom_roles/abilities.md#compliance-management).
+ - Have the Owner role for the top-level group.
+ - Be assigned a [custom role](../../user/custom_roles/_index.md) with the `admin_compliance_framework` [custom permission](../../user/custom_roles/abilities.md#compliance-management).
 
 ## Create a compliance framework
 
@@ -29,7 +28,7 @@ To create a compliance framework, use the `createComplianceFramework` mutation:
 
 ```graphql
 mutation {
-  createComplianceFramework(input: {
+ createComplianceFramework(input: {
     namespacePath: "my-group",
     params: {
       name: "SOX Compliance",
@@ -37,7 +36,7 @@ mutation {
       color: "#1f75cb",
       default: false
     }
-  }) {
+ }) {
     errors
     framework {
       id
@@ -49,7 +48,7 @@ mutation {
         name
       }
     }
-  }
+ }
 }
 ```
 
@@ -70,7 +69,7 @@ You can create frameworks with specific requirements and controls:
 
 ```graphql
 mutation {
-  createComplianceFramework(input: {
+ createComplianceFramework(input: {
     namespacePath: "my-group",
     params: {
       name: "Security Framework",
@@ -78,7 +77,7 @@ mutation {
       color: "#e24329",
       default: false
     }
-  }) {
+ }) {
     errors
     framework {
       id
@@ -90,7 +89,7 @@ mutation {
         name
       }
     }
-  }
+ }
 }
 ```
 
@@ -104,7 +103,7 @@ You can view a list of compliance frameworks for a top-level group by using the 
 
 ```graphql
 query {
-  group(fullPath: "my-group") {
+ group(fullPath: "my-group") {
     id
     complianceFrameworks {
       nodes {
@@ -116,7 +115,7 @@ query {
         pipelineConfigurationFullPath
       }
     }
-  }
+ }
 }
 ```
 
@@ -126,12 +125,11 @@ If the resulting list is empty, then no compliance frameworks exist for that gro
 
 Update an existing compliance framework for a top-level group.
 
-To update a compliance framework, use the `updateComplianceFramework` mutation. You can retrieve the framework ID
-by [listing all compliance frameworks](#list-compliance-frameworks) for the group.
+To update a compliance framework, use the `updateComplianceFramework` mutation. You can retrieve the framework ID by [listing all compliance frameworks](#list-compliance-frameworks) for the group.
 
 ```graphql
 mutation {
-  updateComplianceFramework(input: {
+ updateComplianceFramework(input: {
     id: "gid://gitlab/ComplianceManagement::Framework/1",
     params: {
       name: "Updated SOX Compliance",
@@ -139,7 +137,7 @@ mutation {
       color: "#6b4fbb",
       default: true
     }
-  }) {
+ }) {
     errors
     framework {
       id
@@ -151,7 +149,7 @@ mutation {
         name
       }
     }
-  }
+ }
 }
 ```
 
@@ -164,16 +162,15 @@ The framework is updated if:
 
 Delete a compliance framework from a top-level group.
 
-To delete a compliance framework, use the `destroyComplianceFramework` mutation. You can retrieve the framework ID
-by [listing all compliance frameworks](#list-compliance-frameworks) for the group.
+To delete a compliance framework, use the `destroyComplianceFramework` mutation. You can retrieve the framework ID by [listing all compliance frameworks](#list-compliance-frameworks) for the group.
 
 ```graphql
 mutation {
-  destroyComplianceFramework(input: {
+ destroyComplianceFramework(input: {
     id: "gid://gitlab/ComplianceManagement::Framework/1"
-  }) {
+ }) {
     errors
-  }
+ }
 }
 ```
 
@@ -195,13 +192,13 @@ To apply compliance frameworks to a project, use the `projectUpdateComplianceFra
 
 ```graphql
 mutation {
-  projectUpdateComplianceFrameworks(input: {
+ projectUpdateComplianceFrameworks(input: {
     projectId: "gid://gitlab/Project/1",
     complianceFrameworkIds: [
       "gid://gitlab/ComplianceManagement::Framework/1",
       "gid://gitlab/ComplianceManagement::Framework/2"
     ]
-  }) {
+ }) {
     errors
     project {
       id
@@ -213,7 +210,7 @@ mutation {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -228,10 +225,10 @@ To remove all compliance frameworks from a project, pass an empty array:
 
 ```graphql
 mutation {
-  projectUpdateComplianceFrameworks(input: {
+ projectUpdateComplianceFrameworks(input: {
     projectId: "gid://gitlab/Project/1",
     complianceFrameworkIds: []
-  }) {
+ }) {
     errors
     project {
       id
@@ -242,7 +239,7 @@ mutation {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -262,7 +259,7 @@ To view requirements and controls for a compliance framework:
 
 ```graphql
 query {
-  group(fullPath: "my-group") {
+ group(fullPath: "my-group") {
     complianceFrameworks {
       nodes {
         id
@@ -284,7 +281,7 @@ query {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -300,7 +297,7 @@ To add a requirement with GitLab compliance controls to an existing framework:
 
 ```graphql
 mutation {
-  complianceFrameworkRequirementCreate(input: {
+ complianceFrameworkRequirementCreate(input: {
     frameworkId: "gid://gitlab/ComplianceManagement::Framework/1",
     name: "Security Scanning Requirement",
     description: "Ensure security scanning is enabled for all projects",
@@ -309,7 +306,7 @@ mutation {
       "scanner_dep_scanning_running",
       "scanner_secret_detection_running"
     ]
-  }) {
+ }) {
     errors
     requirement {
       id
@@ -323,7 +320,7 @@ mutation {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -339,7 +336,7 @@ To add a requirement with external controls:
 
 ```graphql
 mutation {
-  complianceFrameworkRequirementCreate(input: {
+ complianceFrameworkRequirementCreate(input: {
     frameworkId: "gid://gitlab/ComplianceManagement::Framework/1",
     name: "External Approval Requirement",
     description: "Require external system approval for deployments",
@@ -348,7 +345,7 @@ mutation {
       externalUrl: "https://mycompany.service-now.com/api/approval",
       hmacSharedSecret: "my-secret-key"
     }]
-  }) {
+ }) {
     errors
     requirement {
       id
@@ -363,7 +360,7 @@ mutation {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -379,7 +376,7 @@ To update an existing requirement:
 
 ```graphql
 mutation {
-  complianceFrameworkRequirementUpdate(input: {
+ complianceFrameworkRequirementUpdate(input: {
     id: "gid://gitlab/ComplianceManagement::Requirement/1",
     name: "Updated Security Requirement",
     description: "Updated security scanning requirement with additional controls",
@@ -389,7 +386,7 @@ mutation {
       "scanner_secret_detection_running",
       "scanner_container_scanning_running"
     ]
-  }) {
+ }) {
     errors
     requirement {
       id
@@ -403,7 +400,7 @@ mutation {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -419,11 +416,11 @@ To delete a requirement from a framework:
 
 ```graphql
 mutation {
-  complianceFrameworkRequirementDestroy(input: {
+ complianceFrameworkRequirementDestroy(input: {
     id: "gid://gitlab/ComplianceManagement::Requirement/1"
-  }) {
+ }) {
     errors
-  }
+ }
 }
 ```
 

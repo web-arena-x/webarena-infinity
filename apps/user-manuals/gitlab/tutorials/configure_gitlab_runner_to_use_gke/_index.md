@@ -72,8 +72,7 @@ Now that you have a cluster, you're ready to install and configure the Kubernete
    kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.7.1/cert-manager.yaml
    ```
 
-1. Install the Operator Lifecycle Manager (OLM), a tool that manages the Kubernetes Operators that
-   run on the cluster:
+1. Install the Operator Lifecycle Manager (OLM), a tool that manages the Kubernetes Operators that run on the cluster:
 
    ```shell
    curl --silent --location "https://github.com/operator-framework/operator-lifecycle-manager/releases/download/v0.24.0/install.sh" \
@@ -122,8 +121,7 @@ Now that you have a cluster, you're ready to install and configure the Kubernete
 
    - To use the `cert-manager`:
 
-     1. Use the `certificate-issuer-install.yaml` to install a `Certificate` and `Issuer` in the default namespace, in addition
-        to the operator installation:
+     1. Use the `certificate-issuer-install.yaml` to install a `Certificate` and `Issuer` in the default namespace, in addition to the operator installation:
 
         ```shell
         cat > certificate-issuer-install.yaml << EOF
@@ -166,8 +164,7 @@ Now that you have a cluster, you're ready to install and configure the Kubernete
         kubectl create -f certificate-issuer-install.yaml
         ```
 
-1. Create a secret that contains the `runner-registration-token` from your
-   GitLab project:
+1. Create a secret that contains the `runner-registration-token` from your GitLab project:
 
    ```shell
     cat > gitlab-runner-secret.yml << EOF
@@ -217,19 +214,18 @@ To check if runners are running in the GKE cluster, you can either:
 
 - Use the following command:
 
-  ```shell
-  kubectl get pods
-  ```
+ ```shell
+ kubectl get pods
+ ```
 
-  You should see the following output. This shows that your runners
-  are running in the GKE cluster:
+ You should see the following output. This shows that your runners are running in the GKE cluster:
 
-  ```plaintext
-  NAME                             READY   STATUS    RESTARTS   AGE
-  gitlab-runner-hash-short_hash    1/1     Running   0          5m
-  ```
+ ```plaintext
+ NAME                             READY   STATUS    RESTARTS   AGE
+ gitlab-runner-hash-short_hash    1/1     Running   0          5m
+ ```
 
 - Check the job log in GitLab:
-  1. On the top bar, select **Search or go to** and find your project.
-  1. Select **Build** > **Jobs** and find the job.
-  1. To view the job log, select the job status.
+ 1. On the top bar, select **Search or go to** and find your project.
+ 1. Select **Build** > **Jobs** and find the job.
+ 1. To view the job log, select the job status.

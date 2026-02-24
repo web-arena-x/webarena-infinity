@@ -29,10 +29,10 @@ Note: Prototypes cannot be played offline on [mobile devices](view-prototypes-on
 
 ![](https://help.figma.com/hc/article_attachments/26571732685591)
 
-1. While online, click  **Present** to open the prototype in presentation view.
-2. Open the  options menu.
+1. While online, click **Present** to open the prototype in presentation view.
+2. Open the options menu.
 3. Toggle on **Advanced settings > Make available offline**.
-4. Wait for  **Available to present while offline** to appear in the prototype header. Once this icon appears, you’re ready to present offline.
+4. Wait for **Available to present while offline** to appear in the prototype header. Once this icon appears, you’re ready to present offline.
 
 ![A download success icon on the top navigation bar of the prototype indicates via a tooltip that the prototype is available to present offline.](https://help.figma.com/hc/article_attachments/26571704117271)
 

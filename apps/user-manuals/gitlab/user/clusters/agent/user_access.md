@@ -24,8 +24,7 @@ title: Grant users Kubernetes access
 
 {{< /history >}}
 
-As an administrator of Kubernetes clusters in an organization, you can grant Kubernetes access to members
-of a specific project or group.
+As an administrator of Kubernetes clusters in an organization, you can grant Kubernetes access to members of a specific project or group.
 
 Granting access also activates [the Dashboard for Kubernetes](../../../ci/environments/kubernetes_dashboard.md) for a project or group.
 
@@ -36,8 +35,7 @@ For GitLab Self-Managed instances, make sure you either:
 
 ## Configure Kubernetes access
 
-Configure access when you want to grant users access
-to a Kubernetes cluster.
+Configure access when you want to grant users access to a Kubernetes cluster.
 
 Prerequisites:
 
@@ -48,27 +46,25 @@ To configure access:
 
 - In the agent configuration file, define a `user_access` keyword with the following parameters:
 
-  - `projects`: A list of projects whose members should have access. You can authorize up to 500 projects.
-  - `groups`: A list of groups whose members should have access. You can authorize up to 500 groups. It grants access to the group and all its descendants.
-  - `access_as`: For access with agent identity, the value is `{ agent: {...} }`.
+ - `projects`: A list of projects whose members should have access. You can authorize up to 500 projects.
+ - `groups`: A list of groups whose members should have access. You can authorize up to 500 groups. It grants access to the group and all its descendants.
+ - `access_as`: For access with agent identity, the value is `{ agent: {...} }`.
 
-Authorized projects and groups must have the same top-level group or user namespace as the agent's configuration project, unless the
-[instance level authorization](ci_cd_workflow.md#authorize-all-projects-in-your-gitlab-instance-to-access-the-agent) application setting is enabled.
+Authorized projects and groups must have the same top-level group or user namespace as the agent's configuration project, unless the [instance level authorization](ci_cd_workflow.md#authorize-all-projects-in-your-gitlab-instance-to-access-the-agent) application setting is enabled.
 
-After you configure access, requests are forwarded to the API server using
-the agent service account.
+After you configure access, requests are forwarded to the API server using the agent service account.
 For example:
 
 ```yaml
 # .gitlab/agents/my-agent/config.yaml
 
 user_access:
-  access_as:
+ access_as:
     agent: {}
-  projects:
+ projects:
     - id: group-1/project-1
     - id: group-2/project-2
-  groups:
+ groups:
     - id: group-2
     - id: group-3/subgroup
 ```
@@ -82,8 +78,7 @@ user_access:
 
 {{< /details >}}
 
-You can grant access to a Kubernetes cluster and transform
-requests into impersonation requests for authenticated users.
+You can grant access to a Kubernetes cluster and transform requests into impersonation requests for authenticated users.
 
 Prerequisites:
 
@@ -94,12 +89,11 @@ To configure access with user impersonation:
 
 - In the agent configuration file, define a `user_access` keyword with the following parameters:
 
-  - `projects`: A list of projects whose members should have access.
-  - `groups`: A list of groups whose members should have access.
-  - `access_as`: For user impersonation, the value is `{ user: {...} }`.
+ - `projects`: A list of projects whose members should have access.
+ - `groups`: A list of groups whose members should have access.
+ - `access_as`: For user impersonation, the value is `{ user: {...} }`.
 
-After you configure access, requests are transformed into impersonation requests for
-authenticated users.
+After you configure access, requests are transformed into impersonation requests for authenticated users.
 
 ### User impersonation workflow
 
@@ -107,60 +101,56 @@ The installed `agentk` impersonates the given users as follows:
 
 - `UserName` is `gitlab:user:<username>`
 - `Groups` is:
-  - `gitlab:user`: Common to all requests coming from GitLab users.
-  - `gitlab:project_role:<project_id>:<role>` for each role in each authorized project.
-  - `gitlab:group_role:<group_id>:<role>` for each role in each authorized group.
+ - `gitlab:user`: Common to all requests coming from GitLab users.
+ - `gitlab:project_role:<project_id>:<role>` for each role in each authorized project.
+ - `gitlab:group_role:<group_id>:<role>` for each role in each authorized group.
 - `Extra` carries additional information about the request:
-  - `agent.gitlab.com/id`: The agent ID.
-  - `agent.gitlab.com/username`: The username of the GitLab user.
-  - `agent.gitlab.com/config_project_id`: The agent configuration project ID.
-  - `agent.gitlab.com/access_type`: One of `personal_access_token` or `session_cookie`. Ultimate only.
+ - `agent.gitlab.com/id`: The agent ID.
+ - `agent.gitlab.com/username`: The username of the GitLab user.
+ - `agent.gitlab.com/config_project_id`: The agent configuration project ID.
+ - `agent.gitlab.com/access_type`: One of `personal_access_token` or `session_cookie`. Ultimate only.
 
-Only projects and groups directly listed in the under `user_access` in the configuration
-file are impersonated. For example:
+Only projects and groups directly listed in the under `user_access` in the configuration file are impersonated. For example:
 
 ```yaml
 # .gitlab/agents/my-agent/config.yaml
 
 user_access:
-  access_as:
+ access_as:
     user: {}
-  projects:
+ projects:
     - id: group-1/project-1 # group_id=1, project_id=1
     - id: group-2/project-2 # group_id=2, project_id=2
-  groups:
+ groups:
     - id: group-2 # group_id=2
     - id: group-3/subgroup # group_id=3, group_id=4
 ```
 
 In this configuration:
 
-- If a user is a member of only `group-1`, they receive
-  only the Kubernetes RBAC groups `gitlab:project_role:1:<role>`.
+- If a user is a member of only `group-1`, they receive only the Kubernetes RBAC groups `gitlab:project_role:1:<role>`.
 - If a user is a member of `group-2`, they receive both Kubernetes RBAC groups:
-  - `gitlab:project_role:2:<role>`,
-  - `gitlab:group_role:2:<role>`.
+ - `gitlab:project_role:2:<role>`,
+ - `gitlab:group_role:2:<role>`.
 
 ### RBAC authorization
 
-Impersonated requests require `ClusterRoleBinding` or `RoleBinding` to identify the resource permissions
-inside Kubernetes. See [RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+Impersonated requests require `ClusterRoleBinding` or `RoleBinding` to identify the resource permissions inside Kubernetes. See [RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
 for the appropriate configuration.
 
-For example, if you allow maintainers in `awesome-org/deployment` project (ID: 123) to read the Kubernetes workloads,
-you must add a `ClusterRoleBinding` resource to your Kubernetes configuration:
+For example, if you allow maintainers in `awesome-org/deployment` project (ID: 123) to read the Kubernetes workloads, you must add a `ClusterRoleBinding` resource to your Kubernetes configuration:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: my-cluster-role-binding
+ name: my-cluster-role-binding
 roleRef:
-  name: view
-  kind: ClusterRole
-  apiGroup: rbac.authorization.k8s.io
+ name: view
+ kind: ClusterRole
+ apiGroup: rbac.authorization.k8s.io
 subjects:
-  - name: gitlab:project_role:123:maintainer
+ - name: gitlab:project_role:123:maintainer
     kind: Group
 ```
 
@@ -180,8 +170,7 @@ Prerequisites:
 
 ### Configure local access with the GitLab CLI (recommended)
 
-You can use the [GitLab CLI `glab`](../../../editor_extensions/gitlab_cli/_index.md) to create or update
-a Kubernetes configuration file to access the agent Kubernetes API.
+You can use the [GitLab CLI `glab`](../../../editor_extensions/gitlab_cli/_index.md) to create or update a Kubernetes configuration file to access the agent Kubernetes API.
 
 Use `glab cluster agent` commands to manage cluster connections:
 
@@ -206,10 +195,8 @@ glab cluster agent update-kubeconfig --repo '<group>/<project>' --agent '<agent-
 kubectl get nodes
 ```
 
-The `update-kubeconfig` command sets `glab cluster agent get-token` as a
-[credential plugin](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins)
-for Kubernetes tools to retrieve a token. The `get-token` command creates and
-returns a personal access token that is valid until the end of the current day.
+The `update-kubeconfig` command sets `glab cluster agent get-token` as a [credential plugin](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#client-go-credential-plugins)
+for Kubernetes tools to retrieve a token. The `get-token` command creates and returns a personal access token that is valid until the end of the current day.
 Kubernetes tools cache the token until it expires, the API returns an authorization error, or the process exits. Expect all subsequent calls to your Kubernetes tooling to create a new token.
 
 The `glab cluster agent update-kubeconfig` command supports a number of command line flags. You can view all supported flags with `glab cluster agent update-kubeconfig --help`.

@@ -14,16 +14,14 @@ title: Migrating to the new runner registration workflow
 
 {{< alert type="disclaimer" />}}
 
-GitLab 16.0 introduced a new runner creation workflow that uses runner authentication tokens to register
-runners. The legacy workflow that uses registration tokens is not recommended.
+GitLab 16.0 introduced a new runner creation workflow that uses runner authentication tokens to register runners. The legacy workflow that uses registration tokens is not recommended.
 Use the [runner creation workflow](https://docs.gitlab.com/runner/register/#register-with-a-runner-authentication-token) instead.
 
 For information about the current development status of the new workflow, see [epic 7663](https://gitlab.com/groups/gitlab-org/-/epics/7663).
 
 For information about the technical design and reasons for the new architecture, see [next GitLab Runner Token architecture](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/runner_tokens/).
 
-If you experience problems or have concerns about the new runner registration workflow,
-or need more information, let us know in the [feedback issue](https://gitlab.com/gitlab-org/gitlab/-/issues/387993).
+If you experience problems or have concerns about the new runner registration workflow, or need more information, let us know in the [feedback issue](https://gitlab.com/gitlab-org/gitlab/-/issues/387993).
 
 ## The new runner registration workflow
 
@@ -31,15 +29,12 @@ For the new runner registration workflow, you:
 
 1. [Create a runner](runners_scope.md) directly in the GitLab UI or [programmatically](#creating-runners-programmatically).
 1. Receive a runner authentication token.
-1. Use the runner authentication token instead of the registration token when you register
-   a runner with this configuration. Runner managers registered in multiple hosts appear
-   under the same runner in the GitLab UI, but with an identifying system ID.
+1. Use the runner authentication token instead of the registration token when you register a runner with this configuration. Runner managers registered in multiple hosts appear under the same runner in the GitLab UI, but with an identifying system ID.
 
 The new runner registration workflow has the following benefits:
 
 - Preserved ownership records for runners, and minimized impact on users.
-- The addition of a unique system ID ensures that you can reuse the same authentication token across
-  multiple runners. For more information, see [Reusing a GitLab Runner configuration](https://docs.gitlab.com/runner/fleet_scaling/#reusing-a-gitlab-runner-configuration).
+- The addition of a unique system ID ensures that you can reuse the same authentication token across multiple runners. For more information, see [Reusing a GitLab Runner configuration](https://docs.gitlab.com/runner/fleet_scaling/#reusing-a-gitlab-runner-configuration).
 
 ## Estimated time frame for planned changes
 
@@ -56,17 +51,16 @@ If you register a runner without migrating to the new workflow, the runner regis
 To avoid a broken workflow, you must:
 
 1. [Create a runner](runners_scope.md) and obtain the authentication token.
-1. Replace the registration token in your runner registration workflow with the
-   authentication token.
+1. Replace the registration token in your runner registration workflow with the authentication token.
 
 ## Using registration tokens after GitLab 17.0
 
 To continue using registration tokens after GitLab 17.0:
 
 - On GitLab.com, you can manually [enable the legacy runner registration process](runners_scope.md#enable-use-of-runner-registration-tokens-in-projects-and-groups)
-  in the top-level group settings.
+ in the top-level group settings.
 - On GitLab Self-Managed, you can manually [enable the legacy runner registration process](../../administration/settings/continuous_integration.md#control-runner-registration)
-  in the **Admin** area settings.
+ in the **Admin** area settings.
 
 ## Impact on existing runners
 
@@ -81,8 +75,7 @@ The `gitlab-runner register` command accepts runner authentication tokens instea
 You can generate tokens from the **Runners** page in the **Admin** area.
 The runner authentication tokens are recognizable by their `glrt-` prefix.
 
-When you create a runner in the GitLab UI, you specify configuration values that were previously command-line options
-prompted by the `gitlab-runner register` command.
+When you create a runner in the GitLab UI, you specify configuration values that were previously command-line options prompted by the `gitlab-runner register` command.
 
 If you specify a runner authentication token with:
 
@@ -96,8 +89,7 @@ If you specify a runner authentication token with:
 
 Authentication tokens have the prefix, `glrt-`.
 
-To ensure minimal disruption to your automation workflow,
-[legacy-compatible registration processing](https://docs.gitlab.com/runner/register/#legacy-compatible-registration-process)
+To ensure minimal disruption to your automation workflow, [legacy-compatible registration processing](https://docs.gitlab.com/runner/register/#legacy-compatible-registration-process)
 triggers if a runner authentication token is specified in the legacy parameter `--registration-token`.
 
 Example command for GitLab 15.9:
@@ -114,8 +106,7 @@ gitlab-runner register \
     --registration-token "REDACTED"
 ```
 
-In GitLab 15.10 and later, you can create the runner and set attributes in the UI, like
-tag list, locked status, and access level.
+In GitLab 15.10 and later, you can create the runner and set attributes in the UI, like tag list, locked status, and access level.
 In GitLab 15.11 and later, these attributes are no longer accepted as arguments to `register` when a runner authentication token with the `glrt-` prefix is specified.
 
 The following example shows the new command:
@@ -130,22 +121,16 @@ gitlab-runner register \
 
 ## Impact on autoscaling
 
-In autoscaling scenarios such as GitLab Runner Operator or GitLab Runner Helm Chart, the
-runner authentication token generated from the UI replaces the registration token.
-This means that the same runner configuration is reused across jobs, instead of creating a runner
-for each job.
-The specific runner can be identified by the unique system ID that is generated when the runner
-process is started.
+In autoscaling scenarios such as GitLab Runner Operator or GitLab Runner Helm Chart, the runner authentication token generated from the UI replaces the registration token.
+This means that the same runner configuration is reused across jobs, instead of creating a runner for each job.
+The specific runner can be identified by the unique system ID that is generated when the runner process is started.
 
 ## Creating runners programmatically
 
 In GitLab 15.11 and later, you can use the [POST /user/runners REST API](../../api/users.md#create-a-runner-linked-to-a-user)
-to create a runner as an authenticated user. This should only be used if the runner configuration is dynamic
-or not reusable. If the runner configuration is static, you should reuse the runner authentication token of
-an existing runner.
+to create a runner as an authenticated user. This should only be used if the runner configuration is dynamic or not reusable. If the runner configuration is static, you should reuse the runner authentication token of an existing runner.
 
-For instructions about how to automate runner creation and registration, see the tutorial,
-[Automate runner creation and registration](../../tutorials/automate_runner_creation/_index.md).
+For instructions about how to automate runner creation and registration, see the tutorial, [Automate runner creation and registration](../../tutorials/automate_runner_creation/_index.md).
 
 ## Installing GitLab Runner with Helm chart
 
@@ -178,11 +163,11 @@ In the legacy runner registration workflow, fields were specified with:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: gitlab-runner-secret
+ name: gitlab-runner-secret
 type: Opaque
 data:
-  runner-registration-token: "REDACTED" # DEPRECATED, set to ""
-  runner-token: ""
+ runner-registration-token: "REDACTED" # DEPRECATED, set to ""
+ runner-token: ""
 ```
 
 In the new runner registration workflow, you must use `runner-token` instead:
@@ -191,17 +176,16 @@ In the new runner registration workflow, you must use `runner-token` instead:
 apiVersion: v1
 kind: Secret
 metadata:
-  name: gitlab-runner-secret
+ name: gitlab-runner-secret
 type: Opaque
 data:
-  runner-registration-token: "" # need to leave as an empty string for compatibility reasons
-  runner-token: "REDACTED"
+ runner-registration-token: "" # need to leave as an empty string for compatibility reasons
+ runner-token: "REDACTED"
 ```
 
 {{< alert type="note" >}}
 
-If your secret management solution doesn't allow you to set an empty string for `runner-registration-token`,
-you can set it to any string. This value is ignored when `runner-token` is present.
+If your secret management solution doesn't allow you to set an empty string for `runner-registration-token`, you can set it to any string. This value is ignored when `runner-token` is present.
 
 {{< /alert >}}
 
@@ -209,30 +193,24 @@ you can set it to any string. This value is ignored when `runner-token` is prese
 
 ### Pod name is not visible in runner details page
 
-When you use the new registration workflow to register your runners with Helm chart, the pod name doesn't appear
-on the runner details page.
+When you use the new registration workflow to register your runners with Helm chart, the pod name doesn't appear on the runner details page.
 For more information, see [issue 423523](https://gitlab.com/gitlab-org/gitlab/-/issues/423523).
 
 ### Runner authentication token does not update when rotated
 
 #### Token rotation with the same runner registered in multiple runner managers
 
-When you register runners on multiple host machines through the new workflow with
-automatic token rotation, only the first runner manager receives the new token.
+When you register runners on multiple host machines through the new workflow with automatic token rotation, only the first runner manager receives the new token.
 The remaining runner managers continue to use the invalid token and become disconnected.
 You must update these managers manually to use the new token.
 
 #### Token rotation in GitLab Operator
 
-During runner registration with GitLab Operator through the new workflow,
-the runner authentication token in the Custom Resource Definition doesn't update
-during token rotation.
+During runner registration with GitLab Operator through the new workflow, the runner authentication token in the Custom Resource Definition doesn't update during token rotation.
 This occurs when:
 
-- You're using a runner authentication token (prefixed with `glrt-`) in a secret
-  [referenced by a Custom Resource Definition](https://docs.gitlab.com/runner/install/operator.html#install-gitlab-runner).
+- You're using a runner authentication token (prefixed with `glrt-`) in a secret [referenced by a Custom Resource Definition](https://docs.gitlab.com/runner/install/operator.html#install-gitlab-runner).
 - The runner authentication token is due to expire.
-  For more information about runner authentication token expiration,
-  see [Authentication token security](configure_runners.md#authentication-token-security).
+ For more information about runner authentication token expiration, see [Authentication token security](configure_runners.md#authentication-token-security).
 
 For more information, see [issue 186](https://gitlab.com/gitlab-org/gl-openshift/gitlab-runner-operator/-/issues/186).

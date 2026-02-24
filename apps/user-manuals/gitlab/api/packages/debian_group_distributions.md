@@ -18,19 +18,16 @@ title: Debian group distributions API
 
 {{< /history >}}
 
-Use this API to manage [Debian group distributions](../../user/packages/debian_repository/_index.md). This API is behind a
-feature flag that is disabled by default. To use this API, you must [enable it](#enable-the-debian-group-api).
+Use this API to manage [Debian group distributions](../../user/packages/debian_repository/_index.md). This API is behind a feature flag that is disabled by default. To use this API, you must [enable it](#enable-the-debian-group-api).
 
 > [!warning]
 > This API is under development and is not meant for production use.
 
 ## Enable the Debian group API
 
-Debian group repository support is still a work in progress. It's gated behind a feature flag that's
-disabled by default.
+Debian group repository support is still a work in progress. It's gated behind a feature flag that's disabled by default.
 [GitLab administrators with access to the GitLab Rails console](../../administration/feature_flags/_index.md)
-can opt to enable it. To enable it, follow the instructions in
-[Enable the Debian group API](../../user/packages/debian_repository/_index.md#enable-the-debian-group-api).
+can opt to enable it. To enable it, follow the instructions in [Enable the Debian group API](../../user/packages/debian_repository/_index.md#enable-the-debian-group-api).
 
 ## Authenticate to the Debian distributions APIs
 
@@ -44,22 +41,22 @@ Lists Debian distributions in the given group.
 GET /groups/:id/-/debian_distributions
 ```
 
-| Attribute  | Type            | Required | Description |
+| Attribute | Type            | Required | Description |
 | ---------- | --------------- | -------- | ----------- |
-| `id`       | integer or string  | yes      | The ID or [URL-encoded path of the group](../rest/_index.md#namespaced-paths). |
+| `id`       | integer or string | yes      | The ID or [URL-encoded path of the group](../rest/_index.md#namespaced-paths). |
 | `codename` | string          | no       | Filter with specific `codename`. |
 | `suite`    | string          | no       | Filter with specific `suite`. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/-/debian_distributions"
+ --url "https://gitlab.example.com/api/v4/groups/5/-/debian_distributions"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "codename": "sid",
     "suite": null,
@@ -75,7 +72,7 @@ Example response:
       "all",
       "amd64"
     ]
-  }
+ }
 ]
 ```
 
@@ -87,35 +84,35 @@ Gets a single Debian group distribution.
 GET /groups/:id/-/debian_distributions/:codename
 ```
 
-| Attribute  | Type           | Required | Description |
+| Attribute | Type           | Required | Description |
 | ---------- | -------------- | -------- | ----------- |
 | `id`       | integer or string | yes      | The ID or [URL-encoded path of the group](../rest/_index.md#namespaced-paths). |
 | `codename` | string         | yes      | The `codename` of a distribution. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/-/debian_distributions/unstable"
+ --url "https://gitlab.example.com/api/v4/groups/5/-/debian_distributions/unstable"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "codename": "sid",
-  "suite": null,
-  "origin": null,
-  "label": null,
-  "version": null,
-  "description": null,
-  "valid_time_duration_seconds": null,
-  "components": [
+ "id": 1,
+ "codename": "sid",
+ "suite": null,
+ "origin": null,
+ "label": null,
+ "version": null,
+ "description": null,
+ "valid_time_duration_seconds": null,
+ "components": [
     "main"
-  ],
-  "architectures": [
+ ],
+ "architectures": [
     "all",
     "amd64"
-  ]
+ ]
 }
 ```
 
@@ -127,14 +124,14 @@ Gets a single Debian group distribution key.
 GET /groups/:id/-/debian_distributions/:codename/key.asc
 ```
 
-| Attribute  | Type           | Required | Description |
+| Attribute | Type           | Required | Description |
 | ---------- | -------------- | -------- | ----------- |
 | `id`       | integer or string | yes      | The ID or [URL-encoded path of the group](../rest/_index.md#namespaced-paths). |
 | `codename` | string         | yes      | The `codename` of a distribution. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/-/debian_distributions/unstable/key.asc"
+ --url "https://gitlab.example.com/api/v4/groups/5/-/debian_distributions/unstable/key.asc"
 ```
 
 Example response:
@@ -180,29 +177,29 @@ POST /groups/:id/-/debian_distributions
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/-/debian_distributions?codename=sid"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/5/-/debian_distributions?codename=sid"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "codename": "sid",
-  "suite": null,
-  "origin": null,
-  "label": null,
-  "version": null,
-  "description": null,
-  "valid_time_duration_seconds": null,
-  "components": [
+ "id": 1,
+ "codename": "sid",
+ "suite": null,
+ "origin": null,
+ "label": null,
+ "version": null,
+ "description": null,
+ "valid_time_duration_seconds": null,
+ "components": [
     "main"
-  ],
-  "architectures": [
+ ],
+ "architectures": [
     "all",
     "amd64"
-  ]
+ ]
 }
 ```
 
@@ -217,7 +214,7 @@ PUT /groups/:id/-/debian_distributions/:codename
 | Attribute                     | Type           | Required | Description |
 | ----------------------------- | -------------- | -------- | ----------- |
 | `id`                          | integer or string | yes      | The ID or [URL-encoded path of the group](../rest/_index.md#namespaced-paths). |
-| `codename`                    | string         | yes      | The Debian distribution's new codename.  |
+| `codename`                    | string         | yes      | The Debian distribution's new codename. |
 | `suite`                       | string         | no       | The Debian distribution's new suite. |
 | `origin`                      | string         | no       | The Debian distribution's new origin. |
 | `label`                       | string         | no       | The Debian distribution's new label. |
@@ -229,29 +226,29 @@ PUT /groups/:id/-/debian_distributions/:codename
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/-/debian_distributions/unstable?suite=new-suite&valid_time_duration_seconds=604800"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/5/-/debian_distributions/unstable?suite=new-suite&valid_time_duration_seconds=604800"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "codename": "sid",
-  "suite": "new-suite",
-  "origin": null,
-  "label": null,
-  "version": null,
-  "description": null,
-  "valid_time_duration_seconds": 604800,
-  "components": [
+ "id": 1,
+ "codename": "sid",
+ "suite": "new-suite",
+ "origin": null,
+ "label": null,
+ "version": null,
+ "description": null,
+ "valid_time_duration_seconds": 604800,
+ "components": [
     "main"
-  ],
-  "architectures": [
+ ],
+ "architectures": [
     "all",
     "amd64"
-  ]
+ ]
 }
 ```
 
@@ -263,13 +260,13 @@ Deletes a Debian group distribution.
 DELETE /groups/:id/-/debian_distributions/:codename
 ```
 
-| Attribute  | Type           | Required | Description |
+| Attribute | Type           | Required | Description |
 | ---------- | -------------- | -------- | ----------- |
 | `id`       | integer or string | yes      | The ID or [URL-encoded path of the group](../rest/_index.md#namespaced-paths). |
 | `codename` | string         | yes      | The codename of the Debian distribution. |
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/5/-/debian_distributions/unstable"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/5/-/debian_distributions/unstable"
 ```

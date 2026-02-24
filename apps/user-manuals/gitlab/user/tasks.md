@@ -30,21 +30,16 @@ For more information, see the history.
 {{< /alert >}}
 
 A task in GitLab is a planning item that can be created in an issue.
-Use tasks to break down user stories captured in [issues](project/issues/_index.md) into
-smaller, trackable items.
+Use tasks to break down user stories captured in [issues](project/issues/_index.md) into smaller, trackable items.
 
-When planning an issue, you need a way to capture and break down technical
-requirements or steps necessary to complete it. An issue with related tasks is better defined,
-and so you can provide a more accurate issue weight and completion criteria.
+When planning an issue, you need a way to capture and break down technical requirements or steps necessary to complete it. An issue with related tasks is better defined, and so you can provide a more accurate issue weight and completion criteria.
 
 For the latest updates, check the [Tasks roadmap](https://gitlab.com/groups/gitlab-org/-/epics/7103).
 
 Tasks are a type of work item, a step towards [default issue types](https://gitlab.com/gitlab-org/gitlab/-/issues/323404)
 in GitLab.
 For the roadmap of migrating issues and [epics](group/epics/_index.md)
-to work items and adding custom work item types, see
-[epic 6033](https://gitlab.com/groups/gitlab-org/-/epics/6033) or the
-[Plan direction page](https://about.gitlab.com/direction/plan/).
+to work items and adding custom work item types, see [epic 6033](https://gitlab.com/groups/gitlab-org/-/epics/6033) or the [Plan direction page](https://about.gitlab.com/direction/plan/).
 
 ## View tasks
 
@@ -54,8 +49,7 @@ You can also [filter the list of issues](project/issues/managing_issues.md#filte
 for `Type = task`.
 
 If you select a task from an issue, it opens in a dialog window.
-If you select a task to open in a new browser tab, or select it from the issue list,
-the task opens in a full-page view.
+If you select a task to open in a new browser tab, or select it from the issue list, the task opens in a full-page view.
 
 ## Create a task
 
@@ -140,8 +134,7 @@ To edit a task:
 1. In the issue description, in the **Child items** section, select the task you want to edit.
    The task window opens.
 1. Optional. To edit the title, select it and make your changes.
-1. Optional. To edit the description, select the edit icon ({{< icon name="pencil" >}}), make your changes, and
-   select **Save**.
+1. Optional. To edit the description, select the edit icon ({{< icon name="pencil" >}}), make your changes, and select **Save**.
 1. Select the close icon ({{< icon name="close" >}}).
 
 ### Using the rich text editor
@@ -190,8 +183,7 @@ To promote a task to an issue:
 1. Select **Plan** > **Issues**, then select your issue to view it.
 1. In the issue description, in the **Child items** section, select the task you want to edit.
    The task window opens.
-1. Unlink the parent issue and promote the task: In the task window, use these two
-   [quick actions](project/quick_actions.md) in separate comments:
+1. Unlink the parent issue and promote the task: In the task window, use these two [quick actions](project/quick_actions.md) in separate comments:
 
    ```plaintext
    /remove_parent
@@ -240,8 +232,7 @@ To convert a task into another item type:
 1. Select the desired item type.
 1. If all conditions are met, select **Change type**.
 
-Alternatively, you can use the [`/type` quick action](project/quick_actions.md#type), followed
-by `issue`, `objective` or `key result` in a comment.
+Alternatively, you can use the [`/type` quick action](project/quick_actions.md#type), followed by `issue`, `objective` or `key result` in a comment.
 
 ## Remove a task from an issue
 
@@ -277,8 +268,8 @@ To remove a task from an issue:
 Prerequisites:
 
 - You must either:
-  - Be the author of the task and have at least the Guest role for the project.
-  - Have the Planner or Owner role for the project.
+ - Be the author of the task and have at least the Guest role for the project.
+ - Have the Planner or Owner role for the project.
 
 To delete a task:
 
@@ -443,8 +434,7 @@ To set a start date:
 
 You can add a task to a [milestone](project/milestones/_index.md).
 You can see the milestone title when you view a task.
-If you create a task for an issue that already belongs to a milestone,
-the new task inherits the milestone.
+If you create a task for an issue that already belongs to a milestone, the new task inherits the milestone.
 
 Prerequisites:
 
@@ -503,15 +493,13 @@ To set issue weight of a task:
 
 {{< /history >}}
 
-The number of descendant tasks and their total weight is displayed in the issue
-description, in the **Child items** section header.
+The number of descendant tasks and their total weight is displayed in the issue description, in the **Child items** section header.
 
 To see the number of open and closed tasks:
 
 - In the section header, hover over the total counts.
 
-The numbers reflect all child tasks associated with the issue, including those you might
-not have permission to view.
+The numbers reflect all child tasks associated with the issue, including those you might not have permission to view.
 
 ### View progress of the parent issue
 
@@ -529,8 +517,7 @@ To see the completed and total weight of child tasks:
 
 - In the section header, hover over the percentage.
 
-The weights and progress reflect all tasks associated with the issue, including those you might
-not have permission to view.
+The weights and progress reflect all tasks associated with the issue, including those you might not have permission to view.
 
 ## Add a task to an iteration
 
@@ -643,8 +630,7 @@ You can add [comments](discussions/_index.md) and reply to threads in tasks.
 
 {{< /history >}}
 
-To refer to a task elsewhere in GitLab, you can use its full URL or a short reference, which looks like
-`namespace/project-name#123`, where `namespace` is either a group or a username.
+To refer to a task elsewhere in GitLab, you can use its full URL or a short reference, which looks like `namespace/project-name#123`, where `namespace` is either a group or a username.
 
 To copy the task reference to your clipboard:
 
@@ -668,8 +654,7 @@ For more information about task references, see [GitLab-Flavored Markdown](markd
 You can create a comment in a task by sending an email.
 Sending an email to this address creates a comment that contains the email body.
 
-For more information about creating comments by sending an email and the necessary configuration, see
-[Reply to a comment by sending email](discussions/_index.md#reply-to-a-comment-by-sending-email).
+For more information about creating comments by sending an email and the necessary configuration, see [Reply to a comment by sending email](discussions/_index.md#reply-to-a-comment-by-sending-email).
 
 To copy the task's email address:
 
@@ -699,8 +684,7 @@ To set an issue as a parent of a task:
 1. Next to **Parent**, from the dropdown list, select the parent to add.
 1. Select any area outside the dropdown list.
 
-To remove the parent item of the task,
-next to **Parent**, select the dropdown list and then select **Unassign**.
+To remove the parent item of the task, next to **Parent**, select the dropdown list and then select **Unassign**.
 
 ## Participants
 
@@ -715,10 +699,8 @@ For information about viewing participants, see [participants](participants.md).
 
 {{< /history >}}
 
-Confidential tasks are tasks visible only to members of a project with
-[sufficient permissions](#who-can-see-confidential-tasks).
-You can use confidential tasks to keep security vulnerabilities private or prevent surprises from
-leaking out.
+Confidential tasks are tasks visible only to members of a project with [sufficient permissions](#who-can-see-confidential-tasks).
+You can use confidential tasks to keep security vulnerabilities private or prevent surprises from leaking out.
 
 ### Make a task confidential
 
@@ -728,14 +710,12 @@ You can make a task confidential when you create or edit it.
 Prerequisites:
 
 - You must have at least the Reporter role for the project.
-- If the task has a parent issue which is non-confidential, and you want to make the issue confidential,
-  you must first make all the child tasks confidential.
-  A [confidential issue](project/issues/confidential_issues.md) can have only confidential children.
+- If the task has a parent issue which is non-confidential, and you want to make the issue confidential, you must first make all the child tasks confidential.
+ A [confidential issue](project/issues/confidential_issues.md) can have only confidential children.
 
 #### In a new task
 
-When you create a new task, a checkbox right below the text area is available to mark the
-task as confidential.
+When you create a new task, a checkbox right below the text area is available to mark the task as confidential.
 
 Check that box and select **Create task**.
 
@@ -749,13 +729,10 @@ To change the confidentiality of an existing task:
 
 ### Who can see confidential tasks
 
-When a task is made confidential, only users with at least the Reporter role for the project have
-access to the task.
-Users with Guest or [Minimal](permissions.md#users-with-minimal-access) roles can't access
-the task even if they were actively participating before the change.
+When a task is made confidential, only users with at least the Reporter role for the project have access to the task.
+Users with Guest or [Minimal](permissions.md#users-with-minimal-access) roles can't access the task even if they were actively participating before the change.
 
-However, a user with the **Guest role** can create confidential tasks, but can only view the ones
-that they created themselves.
+However, a user with the **Guest role** can create confidential tasks, but can only view the ones that they created themselves.
 
 Users with the Guest role or non-members can read the confidential task if they are assigned to the task.
 When a Guest user or non-member is unassigned from a confidential task, they can no longer view it.
@@ -765,17 +742,13 @@ Confidential tasks are hidden in search results for users without the necessary 
 ### Confidential task indicators
 
 Confidential tasks are visually different from regular tasks in a few ways.
-Wherever tasks are listed, you can see the confidential ({{< icon name="eye-slash" >}}) icon
-next to the tasks that are marked as confidential.
+Wherever tasks are listed, you can see the confidential ({{< icon name="eye-slash" >}}) icon next to the tasks that are marked as confidential.
 
-If you don't have [enough permissions](#who-can-see-confidential-tasks),
-you cannot see confidential tasks at all.
+If you don't have [enough permissions](#who-can-see-confidential-tasks), you cannot see confidential tasks at all.
 
-Likewise, while inside the task, you can see the confidential ({{< icon name="eye-slash" >}}) icon right next to
-the breadcrumbs.
+Likewise, while inside the task, you can see the confidential ({{< icon name="eye-slash" >}}) icon right next to the breadcrumbs.
 
-Every change from regular to confidential and vice versa, is indicated by a
-system note in the task's comments, for example:
+Every change from regular to confidential and vice versa, is indicated by a system note in the task's comments, for example:
 
 - {{< icon name="eye-slash" >}} Jo Garcia made the issue confidential 5 minutes ago
 - {{< icon name="eye" >}} Jo Garcia made the issue visible to everyone just now
@@ -825,8 +798,7 @@ If a task is closed with a locked discussion, then you cannot reopen it until th
 
 {{< /history >}}
 
-Linked items are a bi-directional relationship and appear in a block below
-the emoji reactions section. You can link an objective, key result, or a task in the same project with each other.
+Linked items are a bi-directional relationship and appear in a block below the emoji reactions section. You can link an objective, key result, or a task in the same project with each other.
 
 The relationship only shows up in the UI if the user can see both items.
 
@@ -841,8 +813,7 @@ To link an item to a task:
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Plan** > **Issues**, then select your issue to view it.
 1. In the issue description, in the **Child items** section, select your task.
-1. In the **Linked items** section of a task,
-   select **Add**.
+1. In the **Linked items** section of a task, select **Add**.
 1. Select the relationship between the two items. Either:
    - **relates to**
    - **blocks**
@@ -850,8 +821,7 @@ To link an item to a task:
 1. Enter the search text of the item, URL, or its reference ID.
 1. When you have added all the items to be linked, select **Add** below the search box.
 
-When you have finished adding all linked items, you can see
-them categorized so their relationships can be better understood visually.
+When you have finished adding all linked items, you can see them categorized so their relationships can be better understood visually.
 
 ![Linked items block](img/linked_items_list_v16_5.png)
 
@@ -864,8 +834,7 @@ Prerequisites:
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Plan** > **Issues**, then select your issue to view it.
 1. In the issue description, in the **Child items** section, select your task.
-1. In the **Linked items** section of a task, next to each item, select the vertical
-   ellipsis ({{< icon name="ellipsis_v" >}}) and then select **Remove**.
+1. In the **Linked items** section of a task, next to each item, select the vertical ellipsis ({{< icon name="ellipsis_v" >}}) and then select **Remove**.
 
 Due to the bi-directional relationship, the relationship no longer appears in either item.
 
@@ -888,8 +857,7 @@ Prerequisites:
 1. In the **Description** box, find and add the task.
    - Use the [closing pattern](project/issues/managing_issues.md#closing-issues-automatically) that you would for adding a merge request to an issue.
    - If your task is in the same project as your merge request, you can search for your task by typing <kbd>#</kbd> followed by the task's ID or title.
-   - If your task is in a different project, with a task open, copy the URL from the browser or
-     copy the task's reference by selecting the vertical ellipsis ({{< icon name="ellipsis_v" >}}) in the upper-right corner, then **Copy Reference**.
+   - If your task is in a different project, with a task open, copy the URL from the browser or copy the task's reference by selecting the vertical ellipsis ({{< icon name="ellipsis_v" >}}) in the upper-right corner, then **Copy Reference**.
 
 The merge requests are now visible in the main body, in the **Development** section.
 

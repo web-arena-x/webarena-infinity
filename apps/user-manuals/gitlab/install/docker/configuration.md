@@ -13,13 +13,11 @@ title: Configure GitLab running in a Docker container
 
 {{< /details >}}
 
-This container uses the official Linux package, so you can use
-the unique configuration file `/etc/gitlab/gitlab.rb` to configure the instance.
+This container uses the official Linux package, so you can use the unique configuration file `/etc/gitlab/gitlab.rb` to configure the instance.
 
 ## Edit the configuration file
 
-To access the GitLab configuration file, you can start a shell session in the
-context of a running container.
+To access the GitLab configuration file, you can start a shell session in the context of a running container.
 
 1. Start the session:
 
@@ -35,12 +33,9 @@ context of a running container.
 
 1. In your preferred text editor, open `/etc/gitlab/gitlab.rb` and update the following fields:
 
-   1. Set the `external_url` field to
-      a valid URL for your GitLab instance.
+   1. Set the `external_url` field to a valid URL for your GitLab instance.
 
-   1. To receive emails from GitLab, configure the
-      [SMTP settings](https://docs.gitlab.com/omnibus/settings/smtp.html). The GitLab Docker image
-      doesn't have an SMTP server pre-installed.
+   1. To receive emails from GitLab, configure the [SMTP settings](https://docs.gitlab.com/omnibus/settings/smtp.html). The GitLab Docker image doesn't have an SMTP server pre-installed.
 
    1. If desired [enable HTTPS](https://docs.gitlab.com/omnibus/settings/ssl/).
 
@@ -51,63 +46,51 @@ context of a running container.
    ```
 
 GitLab reconfigures itself each time the container starts.
-For more configuration options in GitLab, see the
-[configuration documentation](https://docs.gitlab.com/omnibus/settings/configuration.html).
+For more configuration options in GitLab, see the [configuration documentation](https://docs.gitlab.com/omnibus/settings/configuration.html).
 
 ## Pre-configure Docker container
 
-You can pre-configure the GitLab Docker image by adding the environment variable
-`GITLAB_OMNIBUS_CONFIG` to the Docker run command. This variable can contain any
-`gitlab.rb` setting and is evaluated before the loading of the container's
-`gitlab.rb` file. This behavior allows you to configure the external GitLab URL,
-and make database configuration or any other option from the
-[Linux package template](https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/files/gitlab-config-template/gitlab.rb.template).
-The settings contained in `GITLAB_OMNIBUS_CONFIG` aren't written to the
-`gitlab.rb` configuration file, and are evaluated on load. To provide multiple
-settings, separate them with a colon (`;`).
+You can pre-configure the GitLab Docker image by adding the environment variable `GITLAB_OMNIBUS_CONFIG` to the Docker run command. This variable can contain any `gitlab.rb` setting and is evaluated before the loading of the container's `gitlab.rb` file. This behavior allows you to configure the external GitLab URL, and make database configuration or any other option from the [Linux package template](https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/files/gitlab-config-template/gitlab.rb.template).
+The settings contained in `GITLAB_OMNIBUS_CONFIG` aren't written to the `gitlab.rb` configuration file, and are evaluated on load. To provide multiple settings, separate them with a colon (`;`).
 
-The following example sets the external URL, enables LFS, and starts
-the container with a [minimal shm size required for Prometheus](troubleshooting.md#devshm-mount-not-having-enough-space-in-docker-container):
+The following example sets the external URL, enables LFS, and starts the container with a [minimal shm size required for Prometheus](troubleshooting.md#devshm-mount-not-having-enough-space-in-docker-container):
 
 ```shell
 sudo docker run --detach \
-  --hostname gitlab.example.com \
-  --env GITLAB_OMNIBUS_CONFIG="external_url 'http://gitlab.example.com'; gitlab_rails['lfs_enabled'] = true;" \
-  --publish 443:443 --publish 80:80 --publish 22:22 \
-  --name gitlab \
-  --restart always \
-  --volume $GITLAB_HOME/config:/etc/gitlab \
-  --volume $GITLAB_HOME/logs:/var/log/gitlab \
-  --volume $GITLAB_HOME/data:/var/opt/gitlab \
-  --shm-size 256m \
-  gitlab/gitlab-ee:<version>-ee.0
+ --hostname gitlab.example.com \
+ --env GITLAB_OMNIBUS_CONFIG="external_url 'http://gitlab.example.com'; gitlab_rails['lfs_enabled'] = true;" \
+ --publish 443:443 --publish 80:80 --publish 22:22 \
+ --name gitlab \
+ --restart always \
+ --volume $GITLAB_HOME/config:/etc/gitlab \
+ --volume $GITLAB_HOME/logs:/var/log/gitlab \
+ --volume $GITLAB_HOME/data:/var/opt/gitlab \
+ --shm-size 256m \
+ gitlab/gitlab-ee:<version>-ee.0
 ```
 
-Every time you execute a `docker run` command, you need to provide
-the `GITLAB_OMNIBUS_CONFIG` option. The content of `GITLAB_OMNIBUS_CONFIG` is
-_not_ preserved between subsequent runs.
+Every time you execute a `docker run` command, you need to provide the `GITLAB_OMNIBUS_CONFIG` option. The content of `GITLAB_OMNIBUS_CONFIG` is _not_ preserved between subsequent runs.
 
 ### Run GitLab on a public IP address
 
-You can make Docker to use your IP address and forward all traffic to the
-GitLab container by modifying the `--publish` flag.
+You can make Docker to use your IP address and forward all traffic to the GitLab container by modifying the `--publish` flag.
 
 To expose GitLab on IP `198.51.100.1`:
 
 ```shell
 sudo docker run --detach \
-  --hostname gitlab.example.com \
-  --env GITLAB_OMNIBUS_CONFIG="external_url 'http://gitlab.example.com'" \
-  --publish 198.51.100.1:443:443 \
-  --publish 198.51.100.1:80:80 \
-  --publish 198.51.100.1:22:22 \
-  --name gitlab \
-  --restart always \
-  --volume $GITLAB_HOME/config:/etc/gitlab \
-  --volume $GITLAB_HOME/logs:/var/log/gitlab \
-  --volume $GITLAB_HOME/data:/var/opt/gitlab \
-  --shm-size 256m \
-  gitlab/gitlab-ee:<version>-ee.0
+ --hostname gitlab.example.com \
+ --env GITLAB_OMNIBUS_CONFIG="external_url 'http://gitlab.example.com'" \
+ --publish 198.51.100.1:443:443 \
+ --publish 198.51.100.1:80:80 \
+ --publish 198.51.100.1:22:22 \
+ --name gitlab \
+ --restart always \
+ --volume $GITLAB_HOME/config:/etc/gitlab \
+ --volume $GITLAB_HOME/logs:/var/log/gitlab \
+ --volume $GITLAB_HOME/data:/var/opt/gitlab \
+ --shm-size 256m \
+ gitlab/gitlab-ee:<version>-ee.0
 ```
 
 You can then access your GitLab instance at `http://198.51.100.1/` and `https://198.51.100.1/`.
@@ -117,11 +100,9 @@ You can then access your GitLab instance at `http://198.51.100.1/` and `https://
 GitLab occupies [specific ports](../../administration/package_information/defaults.md)
 inside the container.
 
-If you want to use different host ports from the default ports `80` (HTTP), `443` (HTTPS), or `22` (SSH),
-you need to add a separate `--publish` directive to the `docker run` command.
+If you want to use different host ports from the default ports `80` (HTTP), `443` (HTTPS), or `22` (SSH), you need to add a separate `--publish` directive to the `docker run` command.
 
-For example, to expose the web interface on the host's port `8929`, and the SSH service on
-port `2424`:
+For example, to expose the web interface on the host's port `8929`, and the SSH service on port `2424`:
 
 1. Use the following `docker run` command:
 
@@ -141,9 +122,7 @@ port `2424`:
 
    {{< alert type="note" >}}
 
-   The format to publish ports is `hostPort:containerPort`. Read more in the
-   Docker documentation about
-   [exposing incoming ports](https://docs.docker.com/network/#published-ports).
+   The format to publish ports is `hostPort:containerPort`. Read more in the Docker documentation about [exposing incoming ports](https://docs.docker.com/network/#published-ports).
 
    {{< /alert >}}
 
@@ -166,8 +145,7 @@ port `2424`:
    ```
 
    The port specified in this URL must match the port published to the host by Docker.
-   Additionally, if the NGINX listen port is not explicitly set in
-   `nginx['listen_port']`, the `external_url` is used instead.
+   Additionally, if the NGINX listen port is not explicitly set in `nginx['listen_port']`, the `external_url` is used instead.
    For more information, see the [NGINX documentation](https://docs.gitlab.com/omnibus/settings/nginx.html).
 
 1. Set the SSH port:
@@ -182,16 +160,13 @@ port `2424`:
    gitlab-ctl reconfigure
    ```
 
-Following the previous example, your web browser can reach your GitLab instance
-at `<hostIP>:8929` and push over SSH on port `2424`.
+Following the previous example, your web browser can reach your GitLab instance at `<hostIP>:8929` and push over SSH on port `2424`.
 
-You can see a `docker-compose.yml` example that uses different ports in the
-[Docker compose](installation.md#install-gitlab-by-using-docker-compose) section.
+You can see a `docker-compose.yml` example that uses different ports in the [Docker compose](installation.md#install-gitlab-by-using-docker-compose) section.
 
 ## Configure multiple database connections
 
-Starting in [GitLab 16.0](https://gitlab.com/gitlab-org/omnibus-gitlab/-/merge_requests/6850),
-GitLab defaults to using two database connections that point to the same PostgreSQL database.
+Starting in [GitLab 16.0](https://gitlab.com/gitlab-org/omnibus-gitlab/-/merge_requests/6850), GitLab defaults to using two database connections that point to the same PostgreSQL database.
 
 If, for any reason, you wish to switch back to single database connection:
 
@@ -215,6 +190,4 @@ If, for any reason, you wish to switch back to single database connection:
 
 ## Next steps
 
-After you configure your installation, consider taking the
-[recommended next steps](../next_steps.md), including authentication options
-and sign-up restrictions.
+After you configure your installation, consider taking the [recommended next steps](../next_steps.md), including authentication options and sign-up restrictions.

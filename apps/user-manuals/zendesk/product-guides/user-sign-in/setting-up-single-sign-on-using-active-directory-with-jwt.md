@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408832064922-Setting-up-s
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -52,7 +52,7 @@ Once your roles and services are installed properly, you have to configure the a
 
 ## Step 2. Configuring Zendesk
 
-For instructions, see  [Enabling JWT single sign-on in your Zendesk](https://support.zendesk.com/hc/en-us/articles/4408845838874)  in the article,  [Setting up single sign-on with JWT (JSON Web Token).](https://support.zendesk.com/hc/en-us/articles/4408845838874) For the  **Remote Login URL**  value, specify the location where you'll place the ASP authentication script described in the next section.
+For instructions, see [Enabling JWT single sign-on in your Zendesk](https://support.zendesk.com/hc/en-us/articles/4408845838874) in the article, [Setting up single sign-on with JWT (JSON Web Token).](https://support.zendesk.com/hc/en-us/articles/4408845838874) For the **Remote Login URL** value, specify the location where you'll place the ASP authentication script described in the next section.
 
 ## Step 3. Downloading and configuring the authentication script
 
@@ -81,15 +81,15 @@ Enter your username and password of a user that has access to LDAP.
 Next, you need to enter the Shared Secret Token that you got during the JWT Zendesk configuration (labeled sKey in the script) as well as enter your Zendesk subdomain:
 
 ```
-' Set your shared secret and Zendesk subdomain  
- sKey = ""  
+' Set your shared secret and Zendesk subdomain 
+ sKey = "" 
  sSubdomain = ""
 ```
 
 Here's the part of the script that does the LDAP lookup of your user account:
 
 ```
-sQuery = "<LDAP://" & sDomainContainer & ">;(sAMAccountName=" & sUsername & "); adspath," & sFields & ";subtree"  
+sQuery = "<LDAP://" & sDomainContainer & ">;(sAMAccountName=" & sUsername & "); adspath," & sFields & ";subtree" 
  Set userRS = oConn.Execute(sQuery)
 ```
 
@@ -154,7 +154,7 @@ To successfully pass through tags, the attribute must have them listed as such:
 
 If you do not include the “,” between the tags, it will fail.
 
-For more information on the different fields we accept, take a look at this  [post.](https://support.zendesk.com/hc/en-us/articles/4408845838874#topic_otw_jfh_3fb)
+For more information on the different fields we accept, take a look at this [post.](https://support.zendesk.com/hc/en-us/articles/4408845838874#topic_otw_jfh_3fb)
 
 After you have made your changes in the script, save it. Go to your Zendesk site and click Login. This should redirect you to the script where you will put in your Windows credentials and be sent back to Zendesk logged in!
 
@@ -163,12 +163,12 @@ After you have made your changes in the script, save it. Go to your Zendesk site
 So you clicked login and it failed? As part of the script we have included a debugging option. If you turn the Debug flag to 'True' in the script, Debug information will be printed when accessing your script.  It will look something like:
 
 ```
-[DEBUG] ZENDESK\test - should be of the form DOMAIN\username - if blank, your IIS probably allows anonymous access to this file.  
-[DEBUG] DomainContainer: DC=zendesk,DC=internal  
-[DEBUG] Attribute name: Test User  
-[DEBUG] Attribute email: test@zendesk.com  
-[DEBUG] Attribute jti: 2968942290171.981  
-[DEBUG] Attribute iat: 1380123848  
+[DEBUG] ZENDESK\test - should be of the form DOMAIN\username - if blank, your IIS probably allows anonymous access to this file. 
+[DEBUG] DomainContainer: DC=zendesk,DC=internal 
+[DEBUG] Attribute name: Test User 
+[DEBUG] Attribute email: test@zendesk.com 
+[DEBUG] Attribute jti: 2968942290171.981 
+[DEBUG] Attribute iat: 1380123848 
 [DEBUG] Redirecting to https://subdomain.zendesk.com/access/jwt?jwt=eyJ0eXAiOiJKV1QiLA0KICJhbGciOiJIUzI1NiJ9.eyJpYXQiOjEzODAxMjM4NDgsImp0aSI6Mjk2ODk0MjI5MDE3MS45ODEsIm5hbWUiOiJUZXN0IFVzZXIiLCJlbWFpbCI6InRlc3RAemVuZGVzay5jb20ifQ.QuRC6Ig7x_nK86Wc38u2viIVjshtTDohcgXTYpmU6VY
 ```
 

@@ -5,41 +5,28 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Feature Categorization
 ---
 
-Each Sidekiq worker, Batched Background migrations, controller action, [test example](../testing_guide/best_practices.md#feature-category-metadata) or API endpoint
-must declare a `feature_category` attribute. This attribute maps each
-of these to a [feature category](https://handbook.gitlab.com/handbook/product/categories/). This
-is done for error budgeting, alert routing, and team attribution.
+Each Sidekiq worker, Batched Background migrations, controller action, [test example](../testing_guide/best_practices.md#feature-category-metadata) or API endpoint must declare a `feature_category` attribute. This attribute maps each of these to a [feature category](https://handbook.gitlab.com/handbook/product/categories/). This is done for error budgeting, alert routing, and team attribution.
 
 The list of feature categories can be found in the file `config/feature_categories.yml`.
-This file is generated from the
-[`stages.yml`](https://gitlab.com/gitlab-com/www-gitlab-com/blob/master/data/stages.yml)
+This file is generated from the [`stages.yml`](https://gitlab.com/gitlab-com/www-gitlab-com/blob/master/data/stages.yml)
 data file used in the GitLab Handbook and other GitLab resources.
 
 ## Updating `config/feature_categories.yml`
 
-Occasionally new features will be added to GitLab stages, groups, and
-product categories. When this occurs, you can automatically update
-`config/feature_categories.yml` by running
-`scripts/update-feature-categories`. This script will fetch and parse
-[`stages.yml`](https://gitlab.com/gitlab-com/www-gitlab-com/blob/master/data/stages.yml)
-and generate a new version of the file, which needs to be committed to
-the repository.
+Occasionally new features will be added to GitLab stages, groups, and product categories. When this occurs, you can automatically update `config/feature_categories.yml` by running `scripts/update-feature-categories`. This script will fetch and parse [`stages.yml`](https://gitlab.com/gitlab-com/www-gitlab-com/blob/master/data/stages.yml)
+and generate a new version of the file, which needs to be committed to the repository.
 
 The [Scalability team](https://handbook.gitlab.com/handbook/engineering/infrastructure/team/scalability/)
-currently maintains the `feature_categories.yml` file. They will automatically be
-notified on Slack when the file becomes outdated.
+currently maintains the `feature_categories.yml` file. They will automatically be notified on Slack when the file becomes outdated.
 
 ## Gemfile
 
-For each Ruby gem dependency we should specify which feature category requires
-this dependency. This should clarify ownership and we can delegate upgrading
-to the respective group owning the feature.
+For each Ruby gem dependency we should specify which feature category requires this dependency. This should clarify ownership and we can delegate upgrading to the respective group owning the feature.
 
 ### Tooling feature category
 
 For Developer Experience internal tooling we use `feature_category: :tooling`.
-For example, `knapsack` and `gitlab-crystalball` are both used to run RSpec test
-suites in CI and they don't belong to any product groups.
+For example, `knapsack` and `gitlab-crystalball` are both used to run RSpec test suites in CI and they don't belong to any product groups.
 
 ### Test platform feature category
 
@@ -54,10 +41,8 @@ The `:shared` feature category is **no longer supported** for gems.
 
 {{< /alert >}}
 
-As part of efforts to provide good maintenance of gems, all gems must
-use a specific feature category.
-If you are uncertain about the ownership of a gem, please reach out to the
-[`#backend_maintainers`](https://app.slack.com/client/E03N1RJJX7C/CJHPLRTRD) channel for help.
+As part of efforts to provide good maintenance of gems, all gems must use a specific feature category.
+If you are uncertain about the ownership of a gem, please reach out to the [`#backend_maintainers`](https://app.slack.com/client/E03N1RJJX7C/CJHPLRTRD) channel for help.
 
 ## Sidekiq workers
 
@@ -65,43 +50,35 @@ The declaration uses the `feature_category` class method, as shown below.
 
 ```ruby
 class SomeScheduledTaskWorker
-  include ApplicationWorker
+ include ApplicationWorker
 
-  # Declares that this worker is part of the
-  # `continuous_integration` feature category
-  feature_category :continuous_integration
+ # Declares that this worker is part of the
+ # `continuous_integration` feature category
+ feature_category :continuous_integration
 
-  # ...
+ # ...
 end
 ```
 
-The feature categories specified using `feature_category` should be
-defined in
-[`config/feature_categories.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/config/feature_categories.yml). If
-not, the specs will fail.
+The feature categories specified using `feature_category` should be defined in [`config/feature_categories.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/config/feature_categories.yml). If not, the specs will fail.
 
 ### Excluding Sidekiq workers from feature categorization
 
-A few Sidekiq workers, that are used across all features, cannot be mapped to a
-single category. These should be declared as such using the
-`feature_category :not_owned`
-declaration, as shown below:
+A few Sidekiq workers, that are used across all features, cannot be mapped to a single category. These should be declared as such using the `feature_category :not_owned` declaration, as shown below:
 
 ```ruby
 class SomeCrossCuttingConcernWorker
-  include ApplicationWorker
+ include ApplicationWorker
 
-  # Declares that this worker does not map to a feature category
-  feature_category :not_owned # rubocop:disable Gitlab/AvoidFeatureCategoryNotOwned
+ # Declares that this worker does not map to a feature category
+ feature_category :not_owned # rubocop:disable Gitlab/AvoidFeatureCategoryNotOwned
 
-  # ...
+ # ...
 end
 ```
 
-When possible, workers marked as "not owned" use their caller's
-category (worker or HTTP endpoint) in metrics and logs.
-For instance, `ReactiveCachingWorker` can have multiple feature
-categories in metrics and logs.
+When possible, workers marked as "not owned" use their caller's category (worker or HTTP endpoint) in metrics and logs.
+For instance, `ReactiveCachingWorker` can have multiple feature categories in metrics and logs.
 
 ## Batched background migrations
 
@@ -113,9 +90,9 @@ They should define a `feature_category`, like this:
 # Filename: lib/gitlab/background_migration/my_background_migration_job.rb
 
 class MyBackgroundMigrationJob < BatchedMigrationJob
-  feature_category :gitaly
+ feature_category :gitaly
 
-  #...
+ #...
 end
 ```
 
@@ -127,77 +104,64 @@ end
 
 ## Rails controllers
 
-Specifying feature categories on controller actions can be done using
-the `feature_category` class method.
+Specifying feature categories on controller actions can be done using the `feature_category` class method.
 
-A feature category can be specified on an entire controller
-using:
+A feature category can be specified on an entire controller using:
 
 ```ruby
 class Boards::ListsController < ApplicationController
-  feature_category :kanban_boards
+ feature_category :kanban_boards
 end
 ```
 
-The feature category can be limited to a list of actions using the
-second argument:
+The feature category can be limited to a list of actions using the second argument:
 
 ```ruby
 class DashboardController < ApplicationController
-  feature_category :team_planning, [:issues, :issues_calendar]
-  feature_category :code_review_workflow, [:merge_requests]
+ feature_category :team_planning, [:issues, :issues_calendar]
+ feature_category :code_review_workflow, [:merge_requests]
 end
 ```
 
-These forms cannot be mixed: if a controller has more than one category,
-every single action must be listed.
+These forms cannot be mixed: if a controller has more than one category, every single action must be listed.
 
 ### Excluding controller actions from feature categorization
 
-In the rare case an action cannot be tied to a feature category this
-can be done using the `not_owned` feature category.
+In the rare case an action cannot be tied to a feature category this can be done using the `not_owned` feature category.
 
 ```ruby
 class Admin::LogsController < ApplicationController
-  feature_category :not_owned
+ feature_category :not_owned
 end
 ```
 
 ### Ensuring feature categories are valid
 
-The `spec/controllers/every_controller_spec.rb` will iterate over all
-defined routes, and check the controller to see if a category is
-assigned to all actions.
+The `spec/controllers/every_controller_spec.rb` will iterate over all defined routes, and check the controller to see if a category is assigned to all actions.
 
-The spec also validates if the used feature categories are known. And if
-the actions used in configuration still exist as routes.
+The spec also validates if the used feature categories are known. And if the actions used in configuration still exist as routes.
 
 ## API endpoints
 
-The [GraphQL API](../../api/graphql/_index.md) is currently categorized
-as `not_owned`. For now, no extra specification is needed. For more
-information, see
-[`gitlab-com/gl-infra/scalability#583`](https://gitlab.com/gitlab-com/gl-infra/scalability/-/issues/583/).
+The [GraphQL API](../../api/graphql/_index.md) is currently categorized as `not_owned`. For now, no extra specification is needed. For more information, see [`gitlab-com/gl-infra/scalability#583`](https://gitlab.com/gitlab-com/gl-infra/scalability/-/issues/583/).
 
-Grape API endpoints can use the `feature_category` class method, like
-[Rails controllers](#rails-controllers) do:
+Grape API endpoints can use the `feature_category` class method, like [Rails controllers](#rails-controllers) do:
 
 ```ruby
 module API
-  class Issues < ::API::Base
+ class Issues < ::API::Base
     feature_category :team_planning
-  end
+ end
 end
 ```
 
-The second argument can be used to specify feature categories for
-specific routes:
+The second argument can be used to specify feature categories for specific routes:
 
 ```ruby
 module API
-  class Users < ::API::Base
+ class Users < ::API::Base
     feature_category :user_profile, ['/users/:id/custom_attributes', '/users/:id/custom_attributes/:key']
-  end
+ end
 end
 ```
 
@@ -205,21 +169,18 @@ Or the feature category can be specified in the action itself:
 
 ```ruby
 module API
-  class Users < ::API::Base
+ class Users < ::API::Base
     get ':id', feature_category: :user_profile do
     end
-  end
+ end
 end
 ```
 
-As with Rails controllers, an API class must specify the category for
-every single action unless the same category is used for every action
-within that class.
+As with Rails controllers, an API class must specify the category for every single action unless the same category is used for every action within that class.
 
 ## RSpec Examples
 
-You must set feature category metadata for each RSpec example. This information is used for flaky test
-issues to identify the group that owns the feature.
+You must set feature category metadata for each RSpec example. This information is used for flaky test issues to identify the group that owns the feature.
 
 The `feature_category` should be a value from [`config/feature_categories.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/config/feature_categories.yml).
 
@@ -264,5 +225,4 @@ As part of efforts to [streamline automating flaky and quarantined tests](https:
 
 ### Admin section
 
-Adding feature categories is equally important when adding new parts to the Admin section. Historically, Admin sections were often marked as `not_owned` in the code. Now
-you must ensure each new addition to the Admin section is properly annotated using `feature_category` notation.
+Adding feature categories is equally important when adding new parts to the Admin section. Historically, Admin sections were often marked as `not_owned` in the code. Now you must ensure each new addition to the Admin section is properly annotated using `feature_category` notation.

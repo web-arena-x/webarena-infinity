@@ -25,15 +25,15 @@ An indicator appears next to the employer name if the employer's company profile
 There are new columns on this page that highlight the following:
 
 - **Schedule Representatives** *(the number of representatives added on the employer's schedule)*
-  - Note: the maximum number of representatives per employer is 100.
+ - Note: the maximum number of representatives per employer is 100.
 - **Group Sessions** *(the number of group sessions this employer has created)*
-  - Note: the only limits for group sessions are that they may not be concurrent for the same employer, and are limited to back-to-back for the duration of the fair. For a 6 hour fair, this would equal 12 group sessions per employer.
+ - Note: the only limits for group sessions are that they may not be concurrent for the same employer, and are limited to back-to-back for the duration of the fair. For a 6 hour fair, this would equal 12 group sessions per employer.
 - **Group Registrations** *(the number of students that have signed up for this employer's group session)*
-  - Students may sign up for as many group sessions as they like, as long as the times do not overlap
+ - Students may sign up for as many group sessions as they like, as long as the times do not overlap
 - **1:1 Sessions Filled** *(the number of students that have signed up for this employer's 1:1 sessions)*
-  - To help support company divisions, students may sign up for a single 1:1 session per recruiter, but as many 1:1s across the company as desired (as long as their schedule allows).
+ - To help support company divisions, students may sign up for a single 1:1 session per recruiter, but as many 1:1s across the company as desired (as long as their schedule allows).
 - **Required Preferences** *(yes or no)*
-  - If yes, this indicates that the Schedule Owner has set qualifications on 1:1 sessions. Click the registration, then scroll partway down that page to review the selected requirements.
+ - If yes, this indicates that the Schedule Owner has set qualifications on 1:1 sessions. Click the registration, then scroll partway down that page to review the selected requirements.
 
 ![image__2_.png](https://support.joinhandshake.com/hc/article_attachments/25997308907031)
 
@@ -54,7 +54,7 @@ This section of the page details all group sessions this employer is hosting:
 The employer's 1:1 sessions are listed table style with the Representative's name, number of sessions Booked, Open, and Canceled. Click **show more** (per row) to display the qualifications selected by the employer.
 
 - **Note**: Qualifications logic uses "OR" within each field, and "AND" across fields.
-  - In the example below, the qualifications require students to meet the minimum GPA, be set to one of the selected School Years, have one of the Allowed Majors listed as their major, and meet the work authorization requirements.
+ - In the example below, the qualifications require students to meet the minimum GPA, be set to one of the selected School Years, have one of the Allowed Majors listed as their major, and meet the work authorization requirements.
 
 ![Individual_Sessions.png](https://support.joinhandshake.com/hc/article_attachments/25997308910999)
 

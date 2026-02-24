@@ -21,10 +21,10 @@ Users with the Guest role:
 - Can view project plans, blockers, and progress indicators.
 - Can create and link new project work items.
 - Can view high-level project information such as:
-  - Analytics
-  - Incident reports
-  - Issues and epics
-  - Licenses
+ - Analytics
+ - Incident reports
+ - Issues and epics
+ - Licenses
 - Cannot create projects, groups, and snippets in their personal namespaces.
 - Cannot modify existing data they didn't create.
 - Cannot view code in projects.
@@ -56,8 +56,7 @@ To assign the Guest role to a current group or project member:
 1. In the **Role details** drawer, change the Role to **Guest**.
 1. Select **Update role**.
 
-If the user you want to assign the Guest role to is not yet a
-member of the group or project:
+If the user you want to assign the Guest role to is not yet a member of the group or project:
 
 1. On the top bar, select **Search or go to** and find your group or project.
 1. Select **Manage** > **Members**.

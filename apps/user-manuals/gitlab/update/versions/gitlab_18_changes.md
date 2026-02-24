@@ -18,13 +18,11 @@ Ensure you review these instructions for:
 - Your installation type.
 - All versions between your current version and your target version.
 
-For additional information for Helm chart installations, see
-[the Helm chart 9.0 upgrade notes](https://docs.gitlab.com/charts/releases/9_0.html).
+For additional information for Helm chart installations, see [the Helm chart 9.0 upgrade notes](https://docs.gitlab.com/charts/releases/9_0.html).
 
 ## Required upgrade stops
 
-To provide a predictable upgrade schedule for instance administrators,
-required upgrade stops occur at versions:
+To provide a predictable upgrade schedule for instance administrators, required upgrade stops occur at versions:
 
 - `18.2`
 - `18.5`
@@ -34,73 +32,60 @@ required upgrade stops occur at versions:
 ## Issues to be aware of when upgrading from 17.11
 
 - [PostgreSQL 14 is not supported starting from GitLab 18](../deprecations.md#postgresql-14-and-15-no-longer-supported).
-  Upgrade PostgreSQL to at least version 16.5 before upgrading to GitLab 18.0 or later. For more information, see
-  [installation requirements](../../install/requirements.md#postgresql).
+ Upgrade PostgreSQL to at least version 16.5 before upgrading to GitLab 18.0 or later. For more information, see [installation requirements](../../install/requirements.md#postgresql).
 
-  {{< alert type="warning" >}}
+ {{< alert type="warning" >}}
 
-  Automatic database version upgrades only apply to single node instances when using the Linux package.
-  In all other cases, like Geo instances, PostgreSQL with high availability using the
-  Linux package, or using an external PostgreSQL database (like Amazon RDS), you must upgrade PostgreSQL manually. See [upgrading a Geo instance](https://docs.gitlab.com/omnibus/settings/database.html#upgrading-a-geo-instance) for detailed steps.
+ Automatic database version upgrades only apply to single node instances when using the Linux package.
+ In all other cases, like Geo instances, PostgreSQL with high availability using the Linux package, or using an external PostgreSQL database (like Amazon RDS), you must upgrade PostgreSQL manually. See [upgrading a Geo instance](https://docs.gitlab.com/omnibus/settings/database.html#upgrading-a-geo-instance) for detailed steps.
 
-  {{< /alert >}}
+ {{< /alert >}}
 
-- From September 29th, 2025 Bitnami will stop providing tagged PostgreSQL and Redis images. If you deploy GitLab 17.11 or earlier using the
-  GitLab chart with bundled Redis or Postgres, you must manually update your values to use the legacy repository to prevent unexpected
-  downtime. For more information, see [issue 6089](https://gitlab.com/gitlab-org/charts/gitlab/-/issues/6089).
+- From September 29th, 2025 Bitnami will stop providing tagged PostgreSQL and Redis images. If you deploy GitLab 17.11 or earlier using the GitLab chart with bundled Redis or Postgres, you must manually update your values to use the legacy repository to prevent unexpected downtime. For more information, see [issue 6089](https://gitlab.com/gitlab-org/charts/gitlab/-/issues/6089).
 
 - **Known issue:** The feature flag `ci_only_one_persistent_ref_creation` causes pipeline failures during zero-downtime upgrades when Rails is upgraded but Sidekiq remains on version 17.11 (see details in [issue 558808](https://gitlab.com/gitlab-org/gitlab/-/issues/558808)).
 
-  **Prevention:** Open the Rails console and enable the feature flag before upgrading:
+ **Prevention:** Open the Rails console and enable the feature flag before upgrading:
 
-  ```shell
-  $ sudo gitlab-rails console
-  Feature.enable(:ci_only_one_persistent_ref_creation)
-  ```
+ ```shell
+ $ sudo gitlab-rails console
+ Feature.enable(:ci_only_one_persistent_ref_creation)
+ ```
 
-  **If already affected:** Run this command and retry the failed pipelines:
+ **If already affected:** Run this command and retry the failed pipelines:
 
-  ```shell
-  $ sudo gitlab-rails console
-  Rails.cache.delete_matched("pipeline:*:create_persistent_ref_service")
-  ```
+ ```shell
+ $ sudo gitlab-rails console
+ Rails.cache.delete_matched("pipeline:*:create_persistent_ref_service")
+ ```
 
 ## 18.8.0
 
 ### Batched background migration for merge request merge data
 
-A [batched background migration](../background_migrations.md) copies merge request merge-related
-data from the `merge_requests` table to a new dedicated `merge_requests_merge_data` table.
+A [batched background migration](../background_migrations.md) copies merge request merge-related data from the `merge_requests` table to a new dedicated `merge_requests_merge_data` table.
 
-This migration is part of a database schema optimization initiative to normalize merge-specific
-attributes into a separate table, improving query performance and maintainability.
+This migration is part of a database schema optimization initiative to normalize merge-specific attributes into a separate table, improving query performance and maintainability.
 
-For more details about what data is migrated and how to estimate migration duration, see
-[Merge request merge data migration details](#merge-request-merge-data-migration-details).
+For more details about what data is migrated and how to estimate migration duration, see [Merge request merge data migration details](#merge-request-merge-data-migration-details).
 
 ### ClickHouse dictionary creation error
 
-GitLab Self-Managed customers with [ClickHouse integration](../../integration/clickhouse.md) enabled might
-encounter a ClickHouse database migration error during the upgrade process due to a missing
-permission (`DB::Exception: gitlab: Not enough privileges`). To resolve this error, see the
-[database dictionary read support troubleshooting documentation](../../integration/clickhouse.md#database-dictionary-read-support).
+GitLab Self-Managed customers with [ClickHouse integration](../../integration/clickhouse.md) enabled might encounter a ClickHouse database migration error during the upgrade process due to a missing permission (`DB::Exception: gitlab: Not enough privileges`). To resolve this error, see the [database dictionary read support troubleshooting documentation](../../integration/clickhouse.md#database-dictionary-read-support).
 
 ## 18.7.0
 
 - A [post deployment migration](../../development/database/post_deployment_migrations.md)
-  schedules batched [background migrations](../background_migrations.md) to copy CI builds metadata
-  to new optimized tables (`p_ci_job_definitions`). This migration is part of an initiative to
-  ultimately reduce CI database size (see [epic 13886](https://gitlab.com/groups/gitlab-org/-/epics/13886)).
-  If you have an instance with millions of jobs and want to speed up the migration,
-  you can [select what data is migrated](#ci-builds-metadata-migration-details).
+ schedules batched [background migrations](../background_migrations.md) to copy CI builds metadata to new optimized tables (`p_ci_job_definitions`). This migration is part of an initiative to ultimately reduce CI database size (see [epic 13886](https://gitlab.com/groups/gitlab-org/-/epics/13886)).
+ If you have an instance with millions of jobs and want to speed up the migration, you can [select what data is migrated](#ci-builds-metadata-migration-details).
 
 ### Geo installations 18.7.0
 
 - Added a new `action_cable_allowed_origins` setting to configure allowed origins for ActionCable websocket requests.
-  Specify the allowed URLs when configuring the primary site to ensure proper cross-site WebSocket connectivity:
+ Specify the allowed URLs when configuring the primary site to ensure proper cross-site WebSocket connectivity:
 
-  - [Geo documentation for the Linux package](../../administration/geo/replication/configuration.md#add-primary-and-secondary-urls-as-allowed-actioncable-origins)
-  - [Geo documentation for the Helm chart](https://docs.gitlab.com/charts/advanced/geo/#configure-primary-database)
+ - [Geo documentation for the Linux package](../../administration/geo/replication/configuration.md#add-primary-and-secondary-urls-as-allowed-actioncable-origins)
+ - [Geo documentation for the Helm chart](https://docs.gitlab.com/charts/advanced/geo/#configure-primary-database)
 
 ## 18.6.2
 
@@ -115,7 +100,7 @@ GitLab responds to requests that exceed the size limit with a `413 Entity Too la
 ### Duo Agent Platform
 
 - Some [runner restrictions](../../user/duo_agent_platform/flows/execution.md#configure-runners)
-  have been introduced relating to which runners can be used with Duo Agent Platform.
+ have been introduced relating to which runners can be used with Duo Agent Platform.
 
 ## Geo installations 18.5.2
 
@@ -124,27 +109,23 @@ GitLab responds to requests that exceed the size limit with a `413 Entity Too la
 ## 18.5.0
 
 - A [post deployment migration](../../development/database/post_deployment_migrations.md)
-  `20250922202128_finalize_correct_design_management_designs_backfill` finalizes a
-  batched [background migration](../background_migrations.md) that was scheduled in 18.4.
-  If you skipped 18.4 in the upgrade path, the migration is fully executed when
-  post deployment migrations are run.
-  Execution time is directly related to the size of your `design_management_designs` table.
-  For most instances the migration should not take longer than 2 minutes, but for some larger instances,
-  it could take up to 10 minutes.
-  Please be patient and don't interrupt the migration process.
+ `20250922202128_finalize_correct_design_management_designs_backfill` finalizes a batched [background migration](../background_migrations.md) that was scheduled in 18.4.
+ If you skipped 18.4 in the upgrade path, the migration is fully executed when post deployment migrations are run.
+ Execution time is directly related to the size of your `design_management_designs` table.
+ For most instances the migration should not take longer than 2 minutes, but for some larger instances, it could take up to 10 minutes.
+ Please be patient and don't interrupt the migration process.
 
 - NGINX routing changes introduced in GitLab 18.5.0 can cause services to become inaccessible when using non-matching hostnames such as `localhost` or alternative domain names.
-  This issue causes:
+ This issue causes:
 
-  - Health check endpoints such as `/-/health` to return `404` errors instead of proper responses.
-  - GitLab web interface showing `404` error pages when accessed with hostnames other than the configured FQDN.
-  - GitLab Pages potentially receiving traffic intended for other services.
-  - Problems with any requests using alternative hostnames that previously worked.
+ - Health check endpoints such as `/-/health` to return `404` errors instead of proper responses.
+ - GitLab web interface showing `404` error pages when accessed with hostnames other than the configured FQDN.
+ - GitLab Pages potentially receiving traffic intended for other services.
+ - Problems with any requests using alternative hostnames that previously worked.
 
-  This issue is resolved in the Linux package by [merge request 8805](https://gitlab.com/gitlab-org/omnibus-gitlab/-/merge_requests/8805), and the fix will be
-  available in GitLab 18.5.2 and 18.6.0.
+ This issue is resolved in the Linux package by [merge request 8805](https://gitlab.com/gitlab-org/omnibus-gitlab/-/merge_requests/8805), and the fix will be available in GitLab 18.5.2 and 18.6.0.
 
-  Git operations such clone, push, and pull are unaffected by this issue.
+ Git operations such clone, push, and pull are unaffected by this issue.
 
 ## Geo installations 18.4.4
 
@@ -153,15 +134,14 @@ GitLab responds to requests that exceed the size limit with a `413 Entity Too la
 ## 18.4.2
 
 - Upgrades to `18.4.2` or `18.4.3` might fail with a `no implicit conversion of nil into String` error for these batched background migrations:
-  - `FixIncompleteInstanceExternalAuditDestinations`
-  - `FinalizeAuditEventDestinationMigrations`
+ - `FixIncompleteInstanceExternalAuditDestinations`
+ - `FinalizeAuditEventDestinationMigrations`
 
-  To resolve this issue, upgrade to the latest patch release or use the [workaround in issue 578938](https://gitlab.com/gitlab-org/gitlab/-/issues/578938#workaround).
+ To resolve this issue, upgrade to the latest patch release or use the [workaround in issue 578938](https://gitlab.com/gitlab-org/gitlab/-/issues/578938#workaround).
 
 ### Geo installations 18.4.2
 
-- The Geo [bug](https://gitlab.com/gitlab-org/gitlab/-/issues/571455) that causes replication events to fail with the error message `no implicit conversion of String into
-  Array (TypeError)` is fixed.
+- The Geo [bug](https://gitlab.com/gitlab-org/gitlab/-/issues/571455) that causes replication events to fail with the error message `no implicit conversion of String into Array (TypeError)` is fixed.
 
 ## 18.4.1
 
@@ -177,9 +157,7 @@ For more information, see [HTTP request limits](../../administration/instance_li
 
 ### GitLab Duo
 
-- A new worker `LdapAddOnSeatSyncWorker` was introduced, which could unintentionally remove all users from
-  GitLab Duo seats nightly when LDAP is enabled. This was fixed in GitLab 18.4.0 and 18.3.2. See
-  [issue 565064](https://gitlab.com/gitlab-org/gitlab/-/issues/565064) for details.
+- A new worker `LdapAddOnSeatSyncWorker` was introduced, which could unintentionally remove all users from GitLab Duo seats nightly when LDAP is enabled. This was fixed in GitLab 18.4.0 and 18.3.2. See [issue 565064](https://gitlab.com/gitlab-org/gitlab/-/issues/565064) for details.
 
 ### Geo installations 18.3.0
 
@@ -190,9 +168,7 @@ For more information, see [HTTP request limits](../../administration/instance_li
 
 ### Zero-downtime upgrades
 
-- Upgrades between 18.1.x and 18.2.x are affected by [known issue 567543](https://gitlab.com/gitlab-org/gitlab/-/issues/567543),
-  which causes errors with pushing code to existing projects during an upgrade. To ensure no downtime during the
-  upgrade between versions 18.1.x and 18.2.x, upgrade directly to version 18.2.6, which includes a fix.
+- Upgrades between 18.1.x and 18.2.x are affected by [known issue 567543](https://gitlab.com/gitlab-org/gitlab/-/issues/567543), which causes errors with pushing code to existing projects during an upgrade. To ensure no downtime during the upgrade between versions 18.1.x and 18.2.x, upgrade directly to version 18.2.6, which includes a fix.
 
 ### Geo installations 18.2.0
 
@@ -202,8 +178,8 @@ For more information, see [HTTP request limits](../../administration/instance_li
 ## 18.1.0
 
 - Elasticsearch indexing might fail with `strict_dynamic_mapping_exception` errors for Elasticsearch version 7. To resolve, see the "Possible fixes" section in [issue 566413](https://gitlab.com/gitlab-org/gitlab/-/issues/566413).
-- GitLab versions 18.1.0 and 18.1.1 show errors in PostgreSQL logs such as `ERROR:  relation "ci_job_artifacts" does not exist at ...`.
-  These errors in the logs can be safely ignored but could trigger monitoring alerts, including on Geo sites. To resolve this issue, update to GitLab 18.1.2 or later.
+- GitLab versions 18.1.0 and 18.1.1 show errors in PostgreSQL logs such as `ERROR: relation "ci_job_artifacts" does not exist at ...`.
+ These errors in the logs can be safely ignored but could trigger monitoring alerts, including on Geo sites. To resolve this issue, update to GitLab 18.1.2 or later.
 
 ### Geo installations 18.1.0
 
@@ -217,40 +193,34 @@ For more information, see [HTTP request limits](../../administration/instance_li
 
 In GitLab 18.0 and later, you can no longer use the `git_data_dirs` setting to configure Gitaly storage locations.
 
-If you are still using `git_data_dirs`, you must
-[migrate your Gitaly configuration](https://docs.gitlab.com/omnibus/settings/configuration/#migrating-from-git_data_dirs) before upgrading to GitLab 18.0.
+If you are still using `git_data_dirs`, you must [migrate your Gitaly configuration](https://docs.gitlab.com/omnibus/settings/configuration/#migrating-from-git_data_dirs) before upgrading to GitLab 18.0.
 
 ### Geo installations 18.0.0
 
-- If you deployed GitLab Enterprise Edition and then reverted to GitLab Community Edition,
-  your database schema may deviate from the schema that the GitLab application expects,
-  leading to migration errors. Four particular errors can be encountered on upgrade to 18.0.0
-  because a migration was added in that version which changes the defaults of those columns.
+- If you deployed GitLab Enterprise Edition and then reverted to GitLab Community Edition, your database schema may deviate from the schema that the GitLab application expects, leading to migration errors. Four particular errors can be encountered on upgrade to 18.0.0 because a migration was added in that version which changes the defaults of those columns.
 
-  The errors are:
+ The errors are:
 
-  - `No such column: geo_nodes.verification_max_capacity`
-  - `No such column: geo_nodes.minimum_reverification_interval`
-  - `No such column: geo_nodes.repos_max_capacity`
-  - `No such column: geo_nodes.container_repositories_max_capacity`
+ - `No such column: geo_nodes.verification_max_capacity`
+ - `No such column: geo_nodes.minimum_reverification_interval`
+ - `No such column: geo_nodes.repos_max_capacity`
+ - `No such column: geo_nodes.container_repositories_max_capacity`
 
-  This migration was patched in GitLab 18.0.2 to add those columns if they are missing.
-  See [issue #543146](https://gitlab.com/gitlab-org/gitlab/-/issues/543146).
+ This migration was patched in GitLab 18.0.2 to add those columns if they are missing.
+ See [issue #543146](https://gitlab.com/gitlab-org/gitlab/-/issues/543146).
 
-  **Affected releases**:
+ **Affected releases**:
 
-  | Affected minor releases | Affected patch releases | Fixed in |
-  | ----------------------- | ----------------------- | -------- |
-  | 18.0                    |  18.0.0 - 18.0.1        | 18.0.2   |
+ | Affected minor releases | Affected patch releases | Fixed in |
+ | ----------------------- | ----------------------- | -------- |
+ | 18.0                    | 18.0.0 - 18.0.1        | 18.0.2   |
 
 - GitLab versions 18.0 through 18.0.2 have a known issue where Git operations that are proxied from a secondary Geo site fail with HTTP 500 errors. To resolve, upgrade to GitLab 18.0.3 or later.
 - This version has a known issue that happens when `VerificationStateBackfillService` runs due to changes in the primary key of `ci_job_artifact_states`. To resolve, upgrade to GitLab 18.0.6.
 
 ### PRNG is not seeded error on Docker installations
 
-If you run GitLab on a Docker installation with a FIPS-enabled host, you
-may see that SSH key generation or the OpenSSH server (`sshd`) fails to
-start with the error message:
+If you run GitLab on a Docker installation with a FIPS-enabled host, you may see that SSH key generation or the OpenSSH server (`sshd`) fails to start with the error message:
 
 ```plaintext
 PRNG is not seeded
@@ -263,11 +233,10 @@ To fix this issue, you have a few options:
 
 - Disable FIPS on the host system.
 - Disable the auto-detection of a FIPS-based kernel in the GitLab Docker container.
-  This can be done by setting the `OPENSSL_FORCE_FIPS_MODE=0` environment variable with GitLab 18.0.2 or higher.
+ This can be done by setting the `OPENSSL_FORCE_FIPS_MODE=0` environment variable with GitLab 18.0.2 or higher.
 - Instead of using the GitLab Docker image, install a [native FIPS package](https://packages.gitlab.com/gitlab/gitlab-fips) on the host.
 
-The last option is the recommended one to meet FIPS requirements. For
-legacy installations, the first two options can be used as a stopgap.
+The last option is the recommended one to meet FIPS requirements. For legacy installations, the first two options can be used as a stopgap.
 
 ## CI builds metadata migration details
 
@@ -282,20 +251,16 @@ Data not migrated will be removed in a future release (see [epic 18271](https://
 The migration duration is directly proportional to the total number of CI jobs in your instance.
 Jobs are processed from newest to oldest partitions to prioritize recent data.
 
-You can reduce the number of jobs to migrate by enabling
-[automatic pipeline cleanup](../../ci/pipelines/settings.md#automatic-pipeline-cleanup)
+You can reduce the number of jobs to migrate by enabling [automatic pipeline cleanup](../../ci/pipelines/settings.md#automatic-pipeline-cleanup)
 on larger projects to delete old pipelines before upgrading.
 
 The migration copies two types of data:
 
 - **Jobs processing data**: Job execution configuration from `.gitlab-ci.yml` (such as `script`, `variables`)
-  needed only for runners when executing jobs, not for the UI or API.
-- **Job data visible to users**: of all the job data, this migration only impacts job timeout value,
-  job exit code values, [exposed artifacts](../../ci/jobs/job_artifacts.md#link-to-job-artifacts-in-the-merge-request-ui),
-  and [environment associations](../../ci/yaml/_index.md#environment).
+ needed only for runners when executing jobs, not for the UI or API.
+- **Job data visible to users**: of all the job data, this migration only impacts job timeout value, job exit code values, [exposed artifacts](../../ci/jobs/job_artifacts.md#link-to-job-artifacts-in-the-merge-request-ui), and [environment associations](../../ci/yaml/_index.md#environment).
 
-For GitLab Self-Managed and GitLab Dedicated instances with large CI datasets, you can speed up the migration by
-reducing the scope of data to migrate. To control the scope use the settings defined below.
+For GitLab Self-Managed and GitLab Dedicated instances with large CI datasets, you can speed up the migration by reducing the scope of data to migrate. To control the scope use the settings defined below.
 
 ### Controlling the scope for jobs processing data
 
@@ -303,10 +268,7 @@ By default, the migration copies processing data for all existing jobs.
 You can cut down the scope by using one of the settings described below.
 
 The value of the setting controls how much of jobs processing data you want to retain.
-For example, set it to `6mo` if you only expect jobs created in the last 6 months to be executed
-(through [retries](../../ci/jobs/_index.md#retry-jobs),
-[execution of manual jobs](../../ci/jobs/job_control.md#create-a-job-that-must-be-run-manually),
-[environment auto-stop](../../ci/environments/_index.md#stopping-an-environment)).
+For example, set it to `6mo` if you only expect jobs created in the last 6 months to be executed (through [retries](../../ci/jobs/_index.md#retry-jobs), [execution of manual jobs](../../ci/jobs/job_control.md#create-a-job-that-must-be-run-manually), [environment auto-stop](../../ci/environments/_index.md#stopping-an-environment)).
 
 GitLab looks for the setting in order of precedence:
 
@@ -318,21 +280,16 @@ GitLab looks for the setting in order of precedence:
    > If the pipeline archival range is later extended,
    > jobs without processing data will remain unexecutable.
 
-1. `GITLAB_DB_CI_JOBS_PROCESSING_DATA_CUTOFF` [environment variable](../../administration/environment_variables.md),
-   if pipeline archival is not configured or needs to be overridden for this migration. It accepts duration strings
-   like `1y` (1 year), `6mo` (6 months), `90d` (90 days).
-1. `GITLAB_DB_CI_JOBS_MIGRATION_CUTOFF` environment variable, if neither of the above is set. It accepts duration
-   strings like `1y` (1 year), `6mo` (6 months), `90d` (90 days).
+1. `GITLAB_DB_CI_JOBS_PROCESSING_DATA_CUTOFF` [environment variable](../../administration/environment_variables.md), if pipeline archival is not configured or needs to be overridden for this migration. It accepts duration strings like `1y` (1 year), `6mo` (6 months), `90d` (90 days).
+1. `GITLAB_DB_CI_JOBS_MIGRATION_CUTOFF` environment variable, if neither of the above is set. It accepts duration strings like `1y` (1 year), `6mo` (6 months), `90d` (90 days).
    See [Controlling the scope for job data visible to users](#controlling-the-scope-for-job-data-visible-to-users).
 1. All data is copied if no configuration is found.
 
 ### Controlling the scope for job data visible to users
 
-The environment variable `GITLAB_DB_CI_JOBS_MIGRATION_CUTOFF` controls which jobs will have
-their visible data migrated.
+The environment variable `GITLAB_DB_CI_JOBS_MIGRATION_CUTOFF` controls which jobs will have their visible data migrated.
 
-For example, `GITLAB_DB_CI_JOBS_MIGRATION_CUTOFF=1y` copies affected visible data
-(timeout value, environment, exit codes, and metadata for exposed artifacts)
+For example, `GITLAB_DB_CI_JOBS_MIGRATION_CUTOFF=1y` copies affected visible data (timeout value, environment, exit codes, and metadata for exposed artifacts)
 for jobs from the most recent year.
 
 By default, there is no cutoff date and data for all jobs is migrated.
@@ -341,8 +298,7 @@ By default, there is no cutoff date and data for all jobs is migrated.
 
 For reference, for GitLab.com we expect to migrate 400 million rows in about 2 months.
 
-To estimate the migration impact on your instance, you can run the following queries
-in the [PostgreSQL console](../../administration/troubleshooting/postgresql.md#start-a-database-console):
+To estimate the migration impact on your instance, you can run the following queries in the [PostgreSQL console](../../administration/troubleshooting/postgresql.md#start-a-database-console):
 
 {{< tabs >}}
 
@@ -390,7 +346,7 @@ to batch over the data:
 ```ruby
 counts = []
 CommitStatus.each_batch(of: 25000) do |batch|
-  counts << batch.where(created_at: 1.year.ago...).count
+ counts << batch.where(created_at: 1.year.ago...).count
 end
 counts.sum
 ```
@@ -418,17 +374,14 @@ The migration copies the following columns from `merge_requests` to `merge_reque
 - `merge_error`
 - `merge_jid`
 
-The migration processes the `merge_requests` table, copying data only for merge requests that don't
-already have corresponding entries in `merge_requests_merge_data`.
+The migration processes the `merge_requests` table, copying data only for merge requests that don't already have corresponding entries in `merge_requests_merge_data`.
 
-Since GitLab 18.7, new merge requests write data to both tables through dual-write
-mechanisms at the application level (see [issue](https://gitlab.com/gitlab-org/gitlab/-/issues/560933)).
+Since GitLab 18.7, new merge requests write data to both tables through dual-write mechanisms at the application level (see [issue](https://gitlab.com/gitlab-org/gitlab/-/issues/560933)).
 This migration only copies existing data that has not been created or touched after the dual-write was implemented.
 
 No data is deleted from the `merge_requests` table during this migration.
 
-The migration is planned to be finalized in GitLab 18.9. For more information, see 
-[issue](https://gitlab.com/gitlab-org/gitlab/-/issues/584459).
+The migration is planned to be finalized in GitLab 18.9. For more information, see [issue](https://gitlab.com/gitlab-org/gitlab/-/issues/584459).
 
 ### Estimating migration duration
 
@@ -454,8 +407,8 @@ MergeRequest.count
 
 # Count remaining merge requests to migrate
 MergeRequest.left_joins(:merge_data)
-  .where(merge_requests_merge_data: { merge_request_id: nil })
-  .count
+ .where(merge_requests_merge_data: { merge_request_id: nil })
+ .count
 ```
 
 The migration processes merge requests in batches and should complete within hours to days for most instances.

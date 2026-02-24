@@ -43,26 +43,25 @@ GET group/:id/-/packages/composer/packages
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/group/1/-/packages/composer/packages"
+ --url "https://gitlab.example.com/api/v4/group/1/-/packages/composer/packages"
 ```
 
 Example response:
 
 ```json
 {
-  "packages": [],
-  "metadata-url": "/api/v4/group/1/-/packages/composer/p2/%package%.json",
-  "provider-includes": {
+ "packages": [],
+ "metadata-url": "/api/v4/group/1/-/packages/composer/p2/%package%.json",
+ "provider-includes": {
     "p/%hash%.json": {
       "sha256": "082df4a5035f8725a12a4a3d2da5e6aaa966d06843d0a5c6d499313810427bd6"
     }
-  },
-  "providers-url": "/api/v4/group/1/-/packages/composer/%package%$%hash%.json"
+ },
+ "providers-url": "/api/v4/group/1/-/packages/composer/%package%$%hash%.json"
 }
 ```
 
-This endpoint is used by Composer V1 and V2. To see the V2-specific response, include the Composer
-`User-Agent` header. Using Composer V2 is recommended over V1.
+This endpoint is used by Composer V1 and V2. To see the V2-specific response, include the Composer `User-Agent` header. Using Composer V2 is recommended over V1.
 
 ```shell
 curl --user <username>:<personal_access_token> \
@@ -74,15 +73,14 @@ Example response:
 
 ```json
 {
-  "packages": [],
-  "metadata-url": "/api/v4/group/1/-/packages/composer/p2/%package%.json"
+ "packages": [],
+ "metadata-url": "/api/v4/group/1/-/packages/composer/p2/%package%.json"
 }
 ```
 
 ## V1 packages list
 
-Given the V1 provider SHA, returns a list of packages in the repository. Using Composer V2 is
-recommended over V1.
+Given the V1 provider SHA, returns a list of packages in the repository. Using Composer V2 is recommended over V1.
 
 ```plaintext
 GET group/:id/-/packages/composer/p/:sha
@@ -95,33 +93,30 @@ GET group/:id/-/packages/composer/p/:sha
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/group/1/-/packages/composer/p/082df4a5035f8725a12a4a3d2da5e6aaa966d06843d0a5c6d499313810427bd6"
+ --url "https://gitlab.example.com/api/v4/group/1/-/packages/composer/p/082df4a5035f8725a12a4a3d2da5e6aaa966d06843d0a5c6d499313810427bd6"
 ```
 
 Example response:
 
 ```json
 {
-  "providers": {
+ "providers": {
     "my-org/my-composer-package": {
       "sha256": "5c873497cdaa82eda35af5de24b789be92dfb6510baf117c42f03899c166b6e7"
     }
-  }
+ }
 }
 ```
 
 ## V1 Package Metadata
 
-Returns the list of versions and metadata for a given package. Using Composer V2 is recommended over
-V1.
+Returns the list of versions and metadata for a given package. Using Composer V2 is recommended over V1.
 
 ```plaintext
 GET group/:id/-/packages/composer/:package_name$:sha
 ```
 
-Note the `$` symbol in the URL. When making requests, you may need the
-URL-encoded version of the symbol `%24`. Refer to the example after
-the table:
+Note the `$` symbol in the URL. When making requests, you may need the URL-encoded version of the symbol `%24`. Refer to the example after the table:
 
 | Attribute      | Type   | Required | Description                                                                           |
 |----------------|--------|----------|---------------------------------------------------------------------------------------|
@@ -131,14 +126,14 @@ the table:
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/group/1/-/packages/composer/my-org/my-composer-package%245c873497cdaa82eda35af5de24b789be92dfb6510baf117c42f03899c166b6e7"
+ --url "https://gitlab.example.com/api/v4/group/1/-/packages/composer/my-org/my-composer-package%245c873497cdaa82eda35af5de24b789be92dfb6510baf117c42f03899c166b6e7"
 ```
 
 Example response:
 
 ```json
 {
-  "packages": {
+ "packages": {
     "my-org/my-composer-package": {
       "1.0.0": {
         "name": "my-org/my-composer-package",
@@ -177,7 +172,7 @@ Example response:
         "uid": 1234567
       }
     }
-  }
+ }
 }
 ```
 
@@ -196,14 +191,14 @@ GET group/:id/-/packages/composer/p2/:package_name
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/group/1/-/packages/composer/p2/my-org/my-composer-package"
+ --url "https://gitlab.example.com/api/v4/group/1/-/packages/composer/p2/my-org/my-composer-package"
 ```
 
 Example response:
 
 ```json
 {
-  "packages": {
+ "packages": {
     "my-org/my-composer-package": {
       "1.0.0": {
         "name": "my-org/my-composer-package",
@@ -242,7 +237,7 @@ Example response:
         "uid": 1234567
       }
     }
-  }
+ }
 }
 ```
 
@@ -258,7 +253,7 @@ POST projects/:id/packages/composer
 | --------- | ------ | -------- | ----------- |
 | `id`      | string | yes      | The ID or full path of the group. |
 | `tag`     | string | no       | The name of the tag to target for the package. |
-| `branch`  | string | no       | The name of the branch to target for the package. |
+| `branch` | string | no       | The name of the branch to target for the package. |
 
 ```shell
 curl --request POST --user <username>:<personal_access_token> \
@@ -270,7 +265,7 @@ Example response:
 
 ```json
 {
-  "message": "201 Created"
+ "message": "201 Created"
 }
 ```
 
@@ -292,14 +287,14 @@ GET projects/:id/packages/composer/archives/:package_name
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/composer/archives/my-org/my-composer-package.zip?sha=673594f85a55fe3c0eb45df7bd2fa9d95a1601ab"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/composer/archives/my-org/my-composer-package.zip?sha=673594f85a55fe3c0eb45df7bd2fa9d95a1601ab"
 ```
 
 Write the output to file:
 
 ```shell
 curl --user <username>:<personal_access_token> \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/composer/archives/my-org/my-composer-package.zip?sha=673594f85a55fe3c0eb45df7bd2fa9d95a1601ab" >> package.zip
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/composer/archives/my-org/my-composer-package.zip?sha=673594f85a55fe3c0eb45df7bd2fa9d95a1601ab" >> package.zip
 ```
 
 This writes the downloaded file to `package.zip` in the current directory.

@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/9642557697306-Responding-t
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Quality Assurance (QA) or Workforce Engagement Management (WEM) |
 
@@ -14,22 +14,13 @@ Verified AI summary ◀▼
 
 When a team member disputes a review, you can respond by accepting, partially accepting, or rejecting it, while adding comments for clarity. This process promotes transparency and trust. Admins, account managers, workspace managers, and leads can address any dispute, while reviewers handle those assigned to them. Remember, once rejected, scores can't be changed unless a new dispute is initiated.
 
-After a team member [disputes](https://support.zendesk.com/hc/en-us/articles/7043760048922) a review to register their disagreement with it, the
-dispute recipient has the opportunity to respond. They can explain the review or reconsider
-it. Responding to disputes supports transparency and builds trust.
+After a team member [disputes](https://support.zendesk.com/hc/en-us/articles/7043760048922) a review to register their disagreement with it, the dispute recipient has the opportunity to respond. They can explain the review or reconsider it. Responding to disputes supports transparency and builds trust.
 
-The recipient can
-respond to the dispute by rejecting or accepting it and providing comments. If they accept a
-dispute, they also have the option to change only some of the suggested scores. In that
-case, the dispute is marked as partially accepted. Only open disputes (not already rejected
-or accepted) can be responded to.
+The recipient can respond to the dispute by rejecting or accepting it and providing comments. If they accept a dispute, they also have the option to change only some of the suggested scores. In that case, the dispute is marked as partially accepted. Only open disputes (not already rejected or accepted) can be responded to.
 
-Reviewers can respond to disputes assigned to them. Admins, account managers, workspace
-managers, and leads can respond to any dispute.
+Reviewers can respond to disputes assigned to them. Admins, account managers, workspace managers, and leads can respond to any dispute.
 
-Note: Scores cannot be changed after a dispute is rejected. If you need to change the scores
-after resolution, [initiate
-a new dispute](https://support.zendesk.com/hc/en-us/articles/7043760048922) for the same review.
+Note: Scores cannot be changed after a dispute is rejected. If you need to change the scores after resolution, [initiate a new dispute](https://support.zendesk.com/hc/en-us/articles/7043760048922) for the same review.
 
 **To respond to a dispute**
 
@@ -48,7 +39,6 @@ a new dispute](https://support.zendesk.com/hc/en-us/articles/7043760048922) for 
 6. Enter a comment to explain your response.
 7. Click **Submit**.
 
-   Both you and the dispute creator receive
-   notifications.
+   Both you and the dispute creator receive notifications.
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zqa_dispute_accept.png)

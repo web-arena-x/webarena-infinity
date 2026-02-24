@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408830863130-Rendering-UR
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > Objects and rules > Tickets > Settings
+Location: Admin Center > Objects and rules > Tickets > Settings
 
 Administrators can make certain uniform resource identifiers (URIs) in agent comments render as links automatically. The URI must be specified in your admin settings in order for this to happen, and the comment must come from an agent, not an end user. It doesn’t matter whether the comment is private or public, or was added by replying to an email notification or from the Support interface.
 

@@ -13,9 +13,7 @@ title: Commits
 
 {{< /details >}}
 
-The **Commits** list displays the commit history for your repository. Use it to browse
-code changes, view commit details, and verify commit signatures. You can filter the commit list by
-Git revision to see the changes for a specific revision.
+The **Commits** list displays the commit history for your repository. Use it to browse code changes, view commit details, and verify commit signatures. You can filter the commit list by Git revision to see the changes for a specific revision.
 
 The list shows:
 
@@ -61,8 +59,7 @@ The commit's details page shows:
 
 ## Browse repository files by Git revision
 
-To view all repository files and folders at a specific Git revision, such as a commit SHA,
-branch name, or tag:
+To view all repository files and folders at a specific Git revision, such as a commit SHA, branch name, or tag:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Code** > **Commits**.
@@ -131,8 +128,7 @@ To cherry-pick a commit:
    - Select **Cherry-pick**.
 
 GitLab creates a new commit on the target branch with the cherry-picked changes.
-If the branch is [protected](../branches/protected.md) or you don't have the correct permissions,
-GitLab prompts you to [create a new merge request](../../merge_requests/_index.md#create-a-merge-request).
+If the branch is [protected](../branches/protected.md) or you don't have the correct permissions, GitLab prompts you to [create a new merge request](../../merge_requests/_index.md#create-a-merge-request).
 
 ## Revert a commit
 
@@ -154,8 +150,7 @@ To revert a commit:
    - Select **Revert**.
 
 GitLab creates a new commit that reverses the changes from the selected commit.
-If the branch is [protected](../branches/protected.md) or you don't have the correct permissions,
-GitLab prompts you to [create a new merge request](../../merge_requests/_index.md#create-a-merge-request).
+If the branch is [protected](../branches/protected.md) or you don't have the correct permissions, GitLab prompts you to [create a new merge request](../../merge_requests/_index.md#create-a-merge-request).
 
 ## Download commit contents
 

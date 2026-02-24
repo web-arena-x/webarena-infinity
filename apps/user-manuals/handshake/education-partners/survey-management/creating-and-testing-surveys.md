@@ -31,11 +31,11 @@ On the setup page, enter the survey setup details:
 - **Title** - enter the title, which will be displayed to survey recipients
 - **Description** - provide a description as desired
 - **Required for Students?** - check this box if this survey is required for students. If marked, this will display a message under the student's survey section in Handshake. Please refer to [How to Take a Survey in Handshake](https://support.joinhandshake.com/hc/en-us/articles/10100411918359) for the student's perspective of this message.
-  - **Tip**: don't check this box if this is a survey you plan to attach to a form or appointment
+ - **Tip**: don't check this box if this is a survey you plan to attach to a form or appointment
 - **Available to employers?** - check this box if you'd like employers to find and take this survey
 - **Completion Label** - if selected, the label will be applied to any users who complete this survey
-  - **Tip**: if you plan to use a completion label, but the desired label has not been created, open your School Settings in a new tab or window (via right click, open in new tab/window), and create the label. When you come back to the survey creation, the new label should be listed in the dropdown.
-  - For more details, refer to [About Survey Completion Labels](https://support.joinhandshake.com/hc/en-us/articles/115010679687).
+ - **Tip**: if you plan to use a completion label, but the desired label has not been created, open your School Settings in a new tab or window (via right click, open in new tab/window), and create the label. When you come back to the survey creation, the new label should be listed in the dropdown.
+ - For more details, refer to [About Survey Completion Labels](https://support.joinhandshake.com/hc/en-us/articles/115010679687).
 
 When you're ready to proceed, click the **Next** button in the bottom-middle of the screen.
 
@@ -53,7 +53,7 @@ You can:
 
 - Edit the **Name** and **Description** as desired
 - Designate a specific subset of students as the **Audience** *(this setting eliminates the need for more complex skip logic!)*
-  - **Note**: dropdown menu items are based on majors mapped to major groups in your school settings, and colleges created in your school settings. If you aren't seeing a particular major group appear as expected, double-check that you have at least one major mapped to that group in your school settings!
+ - **Note**: dropdown menu items are based on majors mapped to major groups in your school settings, and colleges created in your school settings. If you aren't seeing a particular major group appear as expected, double-check that you have at least one major mapped to that group in your school settings!
     - Students must have a corresponding major and/or college reflected on their profile to view the page.
 
 Click the **Save** button to save page changes.
@@ -89,8 +89,8 @@ In the Questions section, click **Add Question** to set up the question:
 **Choose One**: a multiple choice question where the participant has to select a single (radio button) answer option
 
 - **Note:** if you select Choose Many or Choose One, you’ll:
-  - need to add at least two answer options (called “Options”) for the participant to choose from.![Choose one or many question format.png](https://support.joinhandshake.com/hc/article_attachments/25992975527191)
-  - be able to set up skip logic for the question. To the right of each option, click the dropdown menu to the right that reads **Skip to**, then select the page you'd like the responder to be directed to when choosing that answer. If you leave the Skip To box empty, the participant will automatically be taken to the next survey question.
+ - need to add at least two answer options (called “Options”) for the participant to choose from.![Choose one or many question format.png](https://support.joinhandshake.com/hc/article_attachments/25992975527191)
+ - be able to set up skip logic for the question. To the right of each option, click the dropdown menu to the right that reads **Skip to**, then select the page you'd like the responder to be directed to when choosing that answer. If you leave the Skip To box empty, the participant will automatically be taken to the next survey question.
     - **Note**:  If you use skip logic on a question that allows multiple answers, the participant will be taken to the closest page the survey directs to based on their selected answers.
     - For example, on a Page 1 skip logic question, if a participant chose one answer that would skip him to Page 2 and one answer that would skip him to Page 3, he would be taken to Page 2 upon submitting his answers.
     - In a different example, like a “choose all that apply question”, it will take the participant to the page from the FIRST option selected, based on the order of the answers selected, not on the order of the pages.

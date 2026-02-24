@@ -14,8 +14,7 @@ title: Advanced `CODEOWNERS` configuration
 {{< /details >}}
 
 The `CODEOWNERS` file helps you define who is responsible for specific files and directories.
-You can use pattern matching, sections, and inheritance rules to assign reviewers to merge requests
-and require their approval before merging.
+You can use pattern matching, sections, and inheritance rules to assign reviewers to merge requests and require their approval before merging.
 
 ## Pattern matching
 
@@ -25,8 +24,7 @@ GitLab uses `File::fnmatch` with the `File::FNM_DOTMATCH` and `File::FNM_PATHNAM
 - The patterns follow a subset of shell filename globbing rules, and are not regular expressions.
 - The `File::FNM_DOTMATCH` flag allows `*` to match dotfiles like `.gitignore`.
 - The `File::FNM_PATHNAME` flag prevents `*` from matching the `/` path separator.
-- `**` matches directories recursively. For example, `**/*.rb` matches `config/database.rb`
-  and `app/controllers/users/stars_controller.rb`.
+- `**` matches directories recursively. For example, `**/*.rb` matches `config/database.rb` and `app/controllers/users/stars_controller.rb`.
 
 ## Default Code Owners and optional sections
 
@@ -67,13 +65,10 @@ In this example:
 
 - `@general-approvers` owns all items everywhere, without overrides.
 - `@docs-team` owns all items in the `Documentation` section.
-- `@database-team` owns all items in the `Database` section except
-  `config/db/database-setup.md`, which has an override assigning it to `@docs-team`.
-- A merge request that modifies `model/db/CHANGELOG.txt` would require three approvals: one from each
-  of the `@general-approvers`,`@docs-team`, and `@database-team` groups.
+- `@database-team` owns all items in the `Database` section except `config/db/database-setup.md`, which has an override assigning it to `@docs-team`.
+- A merge request that modifies `model/db/CHANGELOG.txt` would require three approvals: one from each of the `@general-approvers`,`@docs-team`, and `@database-team` groups.
 
-Compare this behavior to when you use only [default owners for sections](reference.md#set-default-code-owner-for-a-section),
-when specific entries in a section override the section default.
+Compare this behavior to when you use only [default owners for sections](reference.md#set-default-code-owner-for-a-section), when specific entries in a section override the section default.
 
 ## Sections with duplicate names
 
@@ -86,23 +81,18 @@ ee/docs/    @docs
 docs/       @docs
 
 [Database]
-README.md  @database
+README.md @database
 model/db/   @database
 
 [DOCUMENTATION]
-README.md  @docs
+README.md @docs
 ```
 
-This code results in three entries under the `Documentation` section header, and two
-entries under `Database`. The entries defined under the sections `Documentation` and
-`DOCUMENTATION` are combined, using the case of the first section.
+This code results in three entries under the `Documentation` section header, and two entries under `Database`. The entries defined under the sections `Documentation` and `DOCUMENTATION` are combined, using the case of the first section.
 
 ## Define Code Owners for specific files or directories
 
-When a file or directory matches multiple entries in the `CODEOWNERS` file,
-the users from last pattern matching the file or directory are used. This enables you
-to define more specific owners for more specifically defined files or directories, when
-you order the entries in a sensible way.
+When a file or directory matches multiple entries in the `CODEOWNERS` file, the users from last pattern matching the file or directory are used. This enables you to define more specific owners for more specifically defined files or directories, when you order the entries in a sensible way.
 
 For example, in the following `CODEOWNERS` file:
 
@@ -125,9 +115,7 @@ Valid entries for `n` are integers `≥ 1`. `[1]` is optional because it is the 
 
 {{< alert type="warning" >}}
 
-[Issue 384881](https://gitlab.com/gitlab-org/gitlab/-/issues/385881) proposes changes
-to the behavior of this setting. Do not intentionally set invalid values. They may
-become valid in the future and cause unexpected behavior.
+[Issue 384881](https://gitlab.com/gitlab-org/gitlab/-/issues/385881) proposes changes to the behavior of this setting. Do not intentionally set invalid values. They may become valid in the future and cause unexpected behavior.
 
 {{< /alert >}}
 
@@ -188,11 +176,8 @@ The eligible Code Owners are:
 
 {{< /history >}}
 
-To make members of a group eligible as Code Owners for projects they don't
-directly belong to, you can
-[invite the group](../../project/members/sharing_projects_groups.md#invite-a-group-to-a-group)
-to a parent group of the project. When you invite a group, its direct members
-become eligible as Code Owners for all projects in the parent group's hierarchy.
+To make members of a group eligible as Code Owners for projects they don't directly belong to, you can [invite the group](../../project/members/sharing_projects_groups.md#invite-a-group-to-a-group)
+to a parent group of the project. When you invite a group, its direct members become eligible as Code Owners for all projects in the parent group's hierarchy.
 
 Prerequisites:
 
@@ -208,8 +193,7 @@ group-x
     └── project-a
 ```
 
-If you invite `engineering-group` to `product-group`, members of
-`engineering-group` become eligible as Code Owners for `project-a`.
+If you invite `engineering-group` to `product-group`, members of `engineering-group` become eligible as Code Owners for `project-a`.
 You don't need to directly invite `engineering-group` to `project-a`.
 
 Only direct members of the invited group are eligible as Code Owners.
@@ -253,9 +237,9 @@ docs/ @docs_group
 GitLab recognizes the heading `[Section name` as an entry. The default section includes 3 rules:
 
 - Default section
-  - `*` owned by `@group`
-  - `[Section` owned by `name`
-  - `docs/` owned by `@docs_group`
+ - `*` owned by `@group`
+ - `[Section` owned by `name`
+ - `docs/` owned by `@docs_group`
 
 #### After a named section
 
@@ -296,18 +280,14 @@ If only `@group`, `@username`, and `example@gitlab.com` are accessible, GitLab i
 ### Zero owners
 
 If an entry includes no owners, or zero [accessible owners](#inaccessible-or-incorrect-owners)
-exist, the entry is invalid. Because this rule can never be satisfied, GitLab
-auto-approves it in merge requests.
+exist, the entry is invalid. Because this rule can never be satisfied, GitLab auto-approves it in merge requests.
 
 {{< alert type="note" >}}
 
-When a protected branch has `Require code owner approval` enabled, rules with
-zero owners are still honored.
+When a protected branch has `Require code owner approval` enabled, rules with zero owners are still honored.
 
 {{< /alert >}}
 
 ### Minimum approvals
 
-When [defining the number of approvals](advanced.md#require-multiple-approvals-from-code-owners) for a section,
-the minimum number of approvals is `1`. Setting the number of approvals to
-`0` results in GitLab requiring one approval.
+When [defining the number of approvals](advanced.md#require-multiple-approvals-from-code-owners) for a section, the minimum number of approvals is `1`. Setting the number of approvals to `0` results in GitLab requiring one approval.

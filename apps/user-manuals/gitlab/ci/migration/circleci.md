@@ -12,8 +12,7 @@ title: Migrate from CircleCI
 
 {{< /details >}}
 
-If you are currently using CircleCI, you can migrate your CI/CD pipelines to [GitLab CI/CD](../_index.md),
-and start making use of all its powerful features.
+If you are currently using CircleCI, you can migrate your CI/CD pipelines to [GitLab CI/CD](../_index.md), and start making use of all its powerful features.
 
 We have collected several resources that you may find useful before starting to migrate.
 
@@ -35,7 +34,7 @@ CircleCI example job definition:
 
 ```yaml
 jobs:
-  job1:
+ job1:
     steps:
       - checkout
       - run: "execute-script-for-job1"
@@ -45,7 +44,7 @@ Example of the same job definition in GitLab CI/CD:
 
 ```yaml
 job1:
-  script: "execute-script-for-job1"
+ script: "execute-script-for-job1"
 ```
 
 ### Docker image definition
@@ -56,7 +55,7 @@ CircleCI example image definition:
 
 ```yaml
 jobs:
-  job1:
+ job1:
     docker:
       - image: ruby:2.6
 ```
@@ -65,7 +64,7 @@ Example of the same image definition in GitLab CI/CD:
 
 ```yaml
 job1:
-  image: ruby:2.6
+ image: ruby:2.6
 ```
 
 ### Workflows
@@ -87,23 +86,23 @@ CircleCI example with `workflows`:
 ```yaml
 version: 2
 jobs:
-  job1:
+ job1:
     steps:
       - checkout
       - run: make build dependencies
-  job2:
+ job2:
     steps:
       - run: make build artifacts
-  job3:
+ job3:
     steps:
       - run: make test
-  job4:
+ job4:
     steps:
       - run: make deploy
 
 workflows:
-  version: 2
-  jobs:
+ version: 2
+ jobs:
     - job1
     - job2
     - job3:
@@ -119,26 +118,26 @@ Example of the same workflow as `stages` in GitLab CI/CD:
 
 ```yaml
 stages:
-  - build
-  - test
-  - deploy
+ - build
+ - test
+ - deploy
 
 job1:
-  stage: build
-  script: make build dependencies
+ stage: build
+ script: make build dependencies
 
 job2:
-  stage: build
-  script: make build artifacts
+ stage: build
+ script: make build artifacts
 
 job3:
-  stage: test
-  script: make test
+ stage: test
+ script: make test
 
 job4:
-  stage: deploy
-  script: make deploy
-  environment: production
+ stage: deploy
+ script: make deploy
+ environment: production
 ```
 
 #### Scheduled run
@@ -149,16 +148,16 @@ CircleCI example of a scheduled workflow:
 
 ```yaml
 commit-workflow:
-  jobs:
+ jobs:
     - build
 scheduled-workflow:
-  triggers:
+ triggers:
     - schedule:
         cron: "0 1 * * *"
         filters:
           branches:
             only: try-schedule-workflow
-  jobs:
+ jobs:
     - build
 ```
 
@@ -166,9 +165,9 @@ Example of the same scheduled pipeline using [`rules`](../yaml/_index.md#rules) 
 
 ```yaml
 job1:
-  script:
+ script:
     - make build
-  rules:
+ rules:
     - if: $CI_PIPELINE_SOURCE == "schedule" && $CI_COMMIT_REF_NAME == "try-schedule-workflow"
 ```
 
@@ -180,7 +179,7 @@ CircleCI example of a manual workflow:
 
 ```yaml
 release-branch-workflow:
-  jobs:
+ jobs:
     - build
     - testing:
         requires:
@@ -195,11 +194,11 @@ Example of the same workflow using [`when: manual`](../jobs/job_control.md#creat
 
 ```yaml
 deploy_prod:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - echo "Deploy to production server"
-  when: manual
-  environment: production
+ when: manual
+ environment: production
 ```
 
 ### Filter job by branch
@@ -210,7 +209,7 @@ CircleCI example of a job filtered by branch:
 
 ```yaml
 jobs:
-  deploy:
+ deploy:
     branches:
       only:
         - main
@@ -221,12 +220,12 @@ Example of the same workflow using `rules` in GitLab CI/CD:
 
 ```yaml
 deploy:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - echo "Deploy job"
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == "main" || $CI_COMMIT_BRANCH =~ /^rc-/
-  environment: production
+ environment: production
 ```
 
 ### Caching
@@ -237,7 +236,7 @@ CircleCI example of a job using a cache:
 
 ```yaml
 jobs:
-  job1:
+ job1:
     steps:
       - restore_cache:
           key: source-v1-< .Revision >
@@ -253,14 +252,14 @@ Example of the same pipeline using `cache` in GitLab CI/CD:
 
 ```yaml
 test_async:
-  image: node:latest
-  cache:  # Cache modules in between jobs
+ image: node:latest
+ cache: # Cache modules in between jobs
     key: $CI_COMMIT_REF_SLUG
     paths:
       - .npm/
-  before_script:
+ before_script:
     - npm ci --cache .npm --prefer-offline
-  script:
+ script:
     - node ./specs/start.js ./specs/async.spec.js
 ```
 
@@ -301,13 +300,13 @@ CircleCI example of a job running on a specific environment:
 
 ```yaml
 jobs:
-  ubuntuJob:
+ ubuntuJob:
     machine:
       image: ubuntu-1604:201903-01
     steps:
       - checkout
       - run: echo "Hello, $USER!"
-  osxJob:
+ osxJob:
     macos:
       xcode: 11.3.0
     steps:
@@ -319,16 +318,16 @@ Example of the same job using `tags` in GitLab CI/CD:
 
 ```yaml
 windows job:
-  stage: build
-  tags:
+ stage: build
+ tags:
     - windows
-  script:
+ script:
     - echo Hello, %USERNAME%!
 
 osx job:
-  stage: build
-  tags:
+ stage: build
+ tags:
     - osx
-  script:
+ script:
     - echo "Hello, $USER!"
 ```

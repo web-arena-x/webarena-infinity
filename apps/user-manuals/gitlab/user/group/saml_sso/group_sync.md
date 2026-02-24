@@ -19,13 +19,10 @@ description: Automate group membership with role assignment and synchronized acc
 
 {{< /history >}}
 
-Use SAML group sync to assign users with specific roles to existing GitLab groups,
-based on the users' group assignment in the SAML identity provider (IdP).
+Use SAML group sync to assign users with specific roles to existing GitLab groups, based on the users' group assignment in the SAML identity provider (IdP).
 With SAML group sync you can create a many-to-many mapping between SAML IdP groups and GitLab groups.
 
-For example, if the user `@amelia` is assigned to the `security` group in the SAML IdP,
-you can use SAML group sync to assign `@amelia` to the `security-gitlab` group with Maintainer role,
-and to the `vulnerability` group with Reporter role.
+For example, if the user `@amelia` is assigned to the `security` group in the SAML IdP, you can use SAML group sync to assign `@amelia` to the `security-gitlab` group with Maintainer role, and to the `vulnerability` group with Reporter role.
 
 SAML group sync does not create groups.
 You have to first [create a group](../_index.md#create-a-group), then create the mapping.
@@ -90,15 +87,12 @@ If through group sync the user was assigned:
 ## Automatic member removal
 
 After a group sync, users who are not members of a mapped SAML group are removed from the group.
-On GitLab.com, users in the top-level group are assigned the
-default membership role instead of being removed.
+On GitLab.com, users in the top-level group are assigned the default membership role instead of being removed.
 
 For example, in the following diagram:
 
-- Alex Garcia signs into GitLab and is removed from GitLab Group C because they don't belong
-  to SAML Group C.
-- Sidney Jones belongs to SAML Group C, but is not added to GitLab Group C because they have
-  not yet signed in.
+- Alex Garcia signs into GitLab and is removed from GitLab Group C because they don't belong to SAML Group C.
+- Sidney Jones belongs to SAML Group C, but is not added to GitLab Group C because they have not yet signed in.
 
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
@@ -185,15 +179,13 @@ accDescr: How membership of Alex Garcia works once she has signed into a group t
 
 ## Configure SAML Group Sync
 
-Adding or changing a group sync configuration may remove users from the mapped GitLab group,
-if the group names don't match the listed `groups` in the SAML response.
+Adding or changing a group sync configuration may remove users from the mapped GitLab group, if the group names don't match the listed `groups` in the SAML response.
 To avoid users being removed, before configuring group sync, ensure either:
 
 - The SAML response includes the `groups` attribute and the `AttributeValue` value matches the **SAML Group Name** in GitLab.
 - All groups are removed from GitLab to disable Group Sync.
 
-If you use SAML Group Sync and have multiple GitLab nodes, for example in a distributed or highly available architecture,
-you must include the SAML configuration block on all Sidekiq nodes in addition to Rails application nodes.
+If you use SAML Group Sync and have multiple GitLab nodes, for example in a distributed or highly available architecture, you must include the SAML configuration block on all Sidekiq nodes in addition to Rails application nodes.
 
 {{< tabs >}}
 
@@ -239,19 +231,16 @@ For example, Azure AD sends the Azure Group Object ID instead of the name. Use t
 
 ```xml
 <saml:AttributeStatement>
-  <saml:Attribute Name="Groups">
+ <saml:Attribute Name="Groups">
     <saml:AttributeValue xsi:type="xs:string">Developers</saml:AttributeValue>
     <saml:AttributeValue xsi:type="xs:string">Product Managers</saml:AttributeValue>
-  </saml:Attribute>
+ </saml:Attribute>
 </saml:AttributeStatement>
 ```
 
-Other attribute names such as `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`
-are not accepted as a source of groups.
+Other attribute names such as `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` are not accepted as a source of groups.
 
-For more information on configuring the
-required group attribute name in the SAML identity provider's settings, see
-example configurations for [Azure AD](example_saml_config.md#group-sync) and [Okta](example_saml_config.md#group-sync-1).
+For more information on configuring the required group attribute name in the SAML identity provider's settings, see example configurations for [Azure AD](example_saml_config.md#group-sync) and [Okta](example_saml_config.md#group-sync-1).
 
 ## Configure SAML group links
 
@@ -261,18 +250,15 @@ Prerequisites:
 
 - Your GitLab Self-Managed instance must have configured SAML Group Sync.
 
-When SAML is enabled, users with the Owner role see a new menu
-item in group **Settings** > **SAML Group Links**.
+When SAML is enabled, users with the Owner role see a new menu item in group **Settings** > **SAML Group Links**.
 
 - You can configure one or more **SAML Group Links** to map a SAML IdP group name to a GitLab role.
-- Members of the SAML IdP group are added as members of the GitLab
-  group on their next SAML sign-in.
+- Members of the SAML IdP group are added as members of the GitLab group on their next SAML sign-in.
 - Group membership is evaluated each time a user signs in using SAML.
 - SAML Group Links can be configured for a top-level group or any subgroup.
 - If a SAML group link is created then removed, and there are:
-  - Other SAML group links configured, users that were in the removed group
-    link are automatically removed from the group during sync.
-  - No other SAML group links configured, users remain in the group during sync.
+ - Other SAML group links configured, users that were in the removed group link are automatically removed from the group during sync.
+ - No other SAML group links configured, users remain in the group during sync.
     Those users must be manually removed from the group.
 
 To link the SAML groups:
@@ -361,20 +347,16 @@ To configure Self-Managed:
 For a demo of group sync using Microsoft Azure, see [Demo: SAML Group Sync](https://youtu.be/Iqvo2tJfXjg).
 
 Azure AD sends up to 150 groups in the `groups` claim.
-When using Azure AD with SAML Group Sync, if a user in your organization is a member of more than 150 groups,
-Azure AD sends a `groups` claim attribute in the SAML response for [group overages](https://learn.microsoft.com/en-us/security/zero-trust/develop/configure-tokens-group-claims-app-roles#group-overages),
-and the user may be automatically removed from groups.
+When using Azure AD with SAML Group Sync, if a user in your organization is a member of more than 150 groups, Azure AD sends a `groups` claim attribute in the SAML response for [group overages](https://learn.microsoft.com/en-us/security/zero-trust/develop/configure-tokens-group-claims-app-roles#group-overages), and the user may be automatically removed from groups.
 
 To avoid this issue, you can use the Azure AD integration, which:
 
 - Is not limited to 150 groups.
 - Uses the Microsoft Graph API to obtain all user memberships.
-  The [Graph API endpoint](https://learn.microsoft.com/en-us/graph/api/user-list-transitivememberof?view=graph-rest-1.0&tabs=http#http-request) accepts only a
-  [user object ID](https://learn.microsoft.com/en-us/partner-center/find-ids-and-domain-names#find-the-user-object-id) or
-  [userPrincipalName](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/plan-connect-userprincipalname#what-is-userprincipalname)
-  as the [Azure-configured](_index.md#azure) Unique User Identifier (Name identifier) attribute.
+ The [Graph API endpoint](https://learn.microsoft.com/en-us/graph/api/user-list-transitivememberof?view=graph-rest-1.0&tabs=http#http-request) accepts only a [user object ID](https://learn.microsoft.com/en-us/partner-center/find-ids-and-domain-names#find-the-user-object-id) or [userPrincipalName](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/plan-connect-userprincipalname#what-is-userprincipalname)
+ as the [Azure-configured](_index.md#azure) Unique User Identifier (Name identifier) attribute.
 - Supports only Group Links configured with group unique identifiers (like `12345678-9abc-def0-1234-56789abcde`)
-  when it processes Group Sync.
+ when it processes Group Sync.
 
 Alternatively, you can change the [group claims](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-fed-group-claims) to use the **Groups assigned to the application** option.
 
@@ -406,8 +388,7 @@ To configure Azure AD:
 
 After you configure Azure AD, you must configure GitLab to communicate with Azure AD.
 
-With this configuration, if a user signs in with SAML and Azure sends a `group` claim in the response,
-GitLab initiates a Group Sync job to call the Microsoft Graph API and retrieve the user's group membership.
+With this configuration, if a user signs in with SAML and Azure sends a `group` claim in the response, GitLab initiates a Group Sync job to call the Microsoft Graph API and retrieve the user's group membership.
 Then the GitLab group membership is updated according to SAML Group Links.
 
 The following table lists the GitLab settings and the corresponding Azure AD fields for the configuration:
@@ -416,7 +397,7 @@ The following table lists the GitLab settings and the corresponding Azure AD fie
 | -------------- | ------------------------------------------ |
 | Tenant ID      | Directory (tenant) ID                      |
 | Client ID      | Application (client) ID                    |
-| Client Secret  | Value (on **Certificates & secrets** page) |
+| Client Secret | Value (on **Certificates & secrets** page) |
 
 {{< tabs >}}
 
@@ -475,12 +456,12 @@ You can enforce a global lock on SAML group memberships. This lock limits who ca
 When global group memberships lock is enabled:
 
 - You cannot set a group or subgroup as a [Code Owner](../../project/codeowners/_index.md).
-  For more information, see [Incompatibility with Global group memberships locks](../../project/codeowners/troubleshooting.md#incompatibility-with-global-group-memberships-locks).
+ For more information, see [Incompatibility with Global group memberships locks](../../project/codeowners/troubleshooting.md#incompatibility-with-global-group-memberships-locks).
 - Only administrators can manage group members and change their access levels.
 - Group members cannot:
-  - Share a project with other groups.
-  - Invite members to a project created in a group.
-  - Modify the membership of a top-level group configured for SAML Group Links synchronization.
+ - Share a project with other groups.
+ - Invite members to a project created in a group.
+ - Modify the membership of a top-level group configured for SAML Group Links synchronization.
 
 ### Lock group memberships
 

@@ -16,8 +16,7 @@ You can deploy using either Cloud Native GitLab (CNG) with Helm charts or Linux 
 
 ## Test workspace changes with CNG
 
-Use this method to test workspace changes with a cloud-native GitLab deployment. The instructions
-are AWS-focused.
+Use this method to test workspace changes with a cloud-native GitLab deployment. The instructions are AWS-focused.
 
 ### Set up cloud infrastructure
 
@@ -66,12 +65,10 @@ are AWS-focused.
     kubectl get ingress -n <gitlab-helm-chart-namespace>
    ```
 
-1. In the AWS hosted zones dashboard, create an `ALIAS` record of type `A` with your subdomain pointing
-   to the extracted address.
+1. In the AWS hosted zones dashboard, create an `ALIAS` record of type `A` with your subdomain pointing to the extracted address.
 1. Access your GitLab deployment.
 
-For other GitLab-specific configuration and setup, see the
-[CNG repository](https://gitlab.com/gitLab-org/charts/gitlab/-/blob/master/).
+For other GitLab-specific configuration and setup, see the [CNG repository](https://gitlab.com/gitLab-org/charts/gitlab/-/blob/master/).
 
 ### Verify the Helm deployment
 
@@ -80,9 +77,9 @@ After installation, verify that:
 - You can access the GitLab deployment.
 - KAS pod logs show messages relevant to your changes:
 
-  ```shell
-  kubectl logs -f deployment/gitlab-kas -n <gitlab-helm-chart-namespace>
-  ```
+ ```shell
+ kubectl logs -f deployment/gitlab-kas -n <gitlab-helm-chart-namespace>
+ ```
 
 ### Clean up cloud resources
 
@@ -97,16 +94,14 @@ When you finish testing:
 
 ## Test workspace changes with Linux packages
 
-Use this method to test workspace changes with a Linux package GitLab installation. The instructions
-are AWS-focused.
+Use this method to test workspace changes with a Linux package GitLab installation. The instructions are AWS-focused.
 
 ### Set up E2C infrastructure
 
 1. Access the [GitLab cloud sandbox](https://gitlabsandbox.cloud/cloud) and sign in to an AWS account.
 1. Provision an E2C instance that meets the Linux package requirements.
 1. Save the key pair for SSH access.
-1. Optional. Acquire a subdomain and map the E2C instance's public IP to it to expose GitLab over a
-   public domain name.
+1. Optional. Acquire a subdomain and map the E2C instance's public IP to it to expose GitLab over a public domain name.
 
 ### Install GitLab with Linux package
 
@@ -139,15 +134,15 @@ After installation, verify that:
 - You can access the GitLab deployment.
 - All services are running:
 
-  ```shell
-  sudo gitlab-ctl status
-  ```
+ ```shell
+ sudo gitlab-ctl status
+ ```
 
 - KAS logs show expected behavior:
 
-  ```shell
-  sudo gitlab-ctl tail gitlab-kas
-  ```
+ ```shell
+ sudo gitlab-ctl tail gitlab-kas
+ ```
 
 ### Clean up E2C resources
 
@@ -162,15 +157,15 @@ When you finish testing:
 
 - CNG deployments: If KAS attempts to call agent endpoints but errors out, restart the KAS deployment:
 
-  ```shell
-  kubectl rollout restart deployment/gitlab-kas -n <gitlab-helm-chart-namespace>
-  ```
+ ```shell
+ kubectl rollout restart deployment/gitlab-kas -n <gitlab-helm-chart-namespace>
+ ```
 
 - Linux package deployments: If KAS attempts to call agent endpoints but errors out because the GitLab web service cannot be reached, restart the KAS service:
 
-  ```shell
-  sudo gitlab-ctl restart gitlab-kas
-  ```
+ ```shell
+ sudo gitlab-ctl restart gitlab-kas
+ ```
 
 ### Domain reuse issues
 
@@ -178,5 +173,4 @@ If you reuse a domain name and encounter a `422` error on your GitLab deployment
 
 ### Testing dependent services
 
-If you're testing against other services, like GitLab Rails, with an unmerged merge request, inspect
-the merge request's pipeline for the CNG image build and update your CNG chart to use that image.
+If you're testing against other services, like GitLab Rails, with an unmerged merge request, inspect the merge request's pipeline for the CNG image build and update your CNG chart to use that image.

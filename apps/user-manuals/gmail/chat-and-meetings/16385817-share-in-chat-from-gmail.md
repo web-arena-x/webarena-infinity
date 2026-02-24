@@ -33,7 +33,7 @@ You can’t share an email in Chat if:
 - The admin for your work account turned off Chat.
 - You haven’t turned on [Chat within Gmail on your computer](/chat/answer/9341104).
 - You’re on a mobile device.
-  - **Note:** Some users may have access on mobile.
+ - **Note:** Some users may have access on mobile.
 - The email is spam, phishing, scheduled, in trash, in drafts, or in confidential mode.
 - You open the email in another email app, like Apple Mail or Microsoft Outlook.
 - The email is encrypted with Client-side encryption. [Learn about Gmail Client-side encryption](/mail/answer/13317990).

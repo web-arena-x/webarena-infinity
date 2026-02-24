@@ -28,9 +28,7 @@ The logo in the header of some emails can be customized, see the [logo customiza
 
 {{< /details >}}
 
-By default, GitLab overrides the email address in notification emails with the email address
-of the issue, merge request, or comment author. Enable this setting to include the author's email
-address in the body of the email instead.
+By default, GitLab overrides the email address in notification emails with the email address of the issue, merge request, or comment author. Enable this setting to include the author's email address in the body of the email instead.
 
 To include the author's email address in the email body:
 
@@ -81,9 +79,7 @@ To change the hostname used in private commit emails:
 
 {{< alert type="note" >}}
 
-After the hostname is configured, every private commit email using the previous hostname is not
-recognized by GitLab. This can directly conflict with certain [Push rules](../../user/project/repository/push_rules.md) such as
-`Check whether author is a GitLab user` and `Check whether committer is the current authenticated user`.
+After the hostname is configured, every private commit email using the previous hostname is not recognized by GitLab. This can directly conflict with certain [Push rules](../../user/project/repository/push_rules.md) such as `Check whether author is a GitLab user` and `Check whether committer is the current authenticated user`.
 
 {{< /alert >}}
 
@@ -96,8 +92,7 @@ recognized by GitLab. This can directly conflict with certain [Push rules](../..
 
 {{< /details >}}
 
-You can add additional text at the bottom of any email that GitLab sends. This additional text
-can be used for legal, auditing, or compliance reasons, for example.
+You can add additional text at the bottom of any email that GitLab sends. This additional text can be used for legal, auditing, or compliance reasons, for example.
 
 To add additional text to emails:
 
@@ -129,8 +124,7 @@ To disable these notifications:
 
 {{< /history >}}
 
-You can add additional text at the bottom of the email that GitLab sends to users when their account
-is deactivated. This email text is separate from the [custom additional text](#custom-additional-text)
+You can add additional text at the bottom of the email that GitLab sends to users when their account is deactivated. This email text is separate from the [custom additional text](#custom-additional-text)
 setting.
 
 To add additional text to deactivation emails:

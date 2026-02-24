@@ -30,7 +30,7 @@ Pay attention not only to the job description but also to how the employer inter
 
 - **Untraceable Contact Information:** The employer calls you from a blocked number or one that can’t be returned.
 - **Suspicious Email Offers:** The employer contacts you directly by email offering a job you didn’t apply for or inviting you to apply for a job that isn’t posted on a reputable site.
-  - **Tip:** Check the sender’s email address for unusual domains, such as @live.com or other domains not affiliated with the company.
+ - **Tip:** Check the sender’s email address for unusual domains, such as @live.com or other domains not affiliated with the company.
 - **Request to Cash or Deposit Checks:** You’re asked to cash or deposit a check on behalf of someone else, return a portion of the money, and keep the remainder.
 
 ### Additional Resources
@@ -38,5 +38,5 @@ Pay attention not only to the job description but also to how the employer inter
 - Common Scams & Frauds:<https://www.usa.gov/common-scams-frauds>
 - Report Scams & Frauds:<https://www.usa.gov/stop-scams-frauds>
 - [Handshake's Student Blog - Top 100 companies hiring students on Handshake right now](https://learn.joinhandshake.com/students/)
-  - [Free Resume Template for Students and New Grads](https://learn.joinhandshake.com/students/free-resume-template-for-students-and-new-grads/)
-  - [Free Cover Letter Template for Students and New Grads](https://learn.joinhandshake.com/students/free-cover-letter-template-for-students-and-new-grads/)
+ - [Free Resume Template for Students and New Grads](https://learn.joinhandshake.com/students/free-resume-template-for-students-and-new-grads/)
+ - [Free Cover Letter Template for Students and New Grads](https://learn.joinhandshake.com/students/free-cover-letter-template-for-students-and-new-grads/)

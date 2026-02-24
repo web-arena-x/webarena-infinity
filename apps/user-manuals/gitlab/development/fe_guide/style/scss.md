@@ -7,9 +7,7 @@ title: SCSS style guide
 
 ## Utility Classes
 
-In order to reduce the generation of more CSS as our site grows, prefer the use
-of utility classes over adding new CSS. In complex cases, CSS can be addressed
-by adding component classes.
+In order to reduce the generation of more CSS as our site grows, prefer the use of utility classes over adding new CSS. In complex cases, CSS can be addressed by adding component classes.
 
 ### Where are CSS utility classes defined?
 
@@ -31,10 +29,7 @@ Avoid [Bootstrap's Utility Classes](https://getbootstrap.com/docs/4.3/utilities/
 
 While migrating [Bootstrap's Utility Classes](https://getbootstrap.com/docs/4.3/utilities/)
 to the [GitLab UI](https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/blob/main/packages/gitlab-ui/doc/css.md#utilities)
-utility classes, note both the classes for margin and padding differ. The size scale used at
-GitLab differs from the scale used in the Bootstrap library. For a Bootstrap padding or margin
-utility, you may need to double the size of the applied utility to achieve the same visual
-result (such as `ml-1` becoming `gl-ml-2`).
+utility classes, note both the classes for margin and padding differ. The size scale used at GitLab differs from the scale used in the Bootstrap library. For a Bootstrap padding or margin utility, you may need to double the size of the applied utility to achieve the same visual result (such as `ml-1` becoming `gl-ml-2`).
 
 {{< /alert >}}
 
@@ -46,14 +41,11 @@ for motivation, proposal, and implementation details.
 
 #### Tailwind CSS basics
 
-Below are some Tailwind CSS basics and information about how it has been
-configured to use the [Pajamas design system](https://design.gitlab.com/). For a
-more in-depth guide see the [official Tailwind CSS documentation](https://tailwindcss.com/docs/utility-first).
+Below are some Tailwind CSS basics and information about how it has been configured to use the [Pajamas design system](https://design.gitlab.com/). For a more in-depth guide see the [official Tailwind CSS documentation](https://tailwindcss.com/docs/utility-first).
 
 ##### Prefix
 
-We have configured Tailwind CSS to use a
-[prefix](https://tailwindcss.com/docs/configuration#prefix) so all utility classes are prefixed with `gl-`.
+We have configured Tailwind CSS to use a [prefix](https://tailwindcss.com/docs/configuration#prefix) so all utility classes are prefixed with `gl-`.
 When using responsive utilities or state modifiers the prefix goes after the colon.
 
 **Examples**: `gl-mt-5`, `lg:gl-mt-5`.
@@ -68,8 +60,7 @@ The available breakpoints are configured in [tailwind.defaults.js#L44](https://g
 ##### Hover, focus, and other state modifiers
 
 [State modifiers](https://tailwindcss.com/docs/hover-focus-and-other-states)
-can be used to conditionally apply any Tailwind CSS class. Prefix the CSS utility class
-with the name of the modifier, followed by the `:` character.
+can be used to conditionally apply any Tailwind CSS class. Prefix the CSS utility class with the name of the modifier, followed by the `:` character.
 
 **Example**: `hover:gl-underline`
 
@@ -81,26 +72,22 @@ You can use the [important modifier](https://tailwindcss.com/docs/configuration#
 
 ##### Spacing and sizing CSS utility classes
 
-Spacing and sizing CSS utility classes (for example, `margin`, `padding`, `width`, `height`) use our spacing scale defined in
-[src/tokens/build/tailwind/tokens.cjs](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/7c0fb4b07a0f0d0a58dd0137831412dbf53ea498/src/tokens/build/tailwind/tokens.cjs). See [https://design.gitlab.com/tailwind-documentation/margin](https://design.gitlab.com/tailwind-documentation/margin) for available CSS utility classes.
+Spacing and sizing CSS utility classes (for example, `margin`, `padding`, `width`, `height`) use our spacing scale defined in [src/tokens/build/tailwind/tokens.cjs](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/7c0fb4b07a0f0d0a58dd0137831412dbf53ea498/src/tokens/build/tailwind/tokens.cjs). See [https://design.gitlab.com/tailwind-documentation/margin](https://design.gitlab.com/tailwind-documentation/margin) for available CSS utility classes.
 
 **Example**: `gl-mt-5` is `margin-top: 1rem;`
 
 ##### Color CSS utility classes
 
-Color CSS utility classes (e.g. `color` and `background-color`) use colors defined in
-[src/tokens/build/tailwind/tokens.cjs](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/7c0fb4b07a0f0d0a58dd0137831412dbf53ea498/src/tokens/build/tailwind/tokens.cjs).
+Color CSS utility classes (e.g. `color` and `background-color`) use colors defined in [src/tokens/build/tailwind/tokens.cjs](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/7c0fb4b07a0f0d0a58dd0137831412dbf53ea498/src/tokens/build/tailwind/tokens.cjs).
 See [https://design.gitlab.com/tailwind-documentation/text-color](https://design.gitlab.com/tailwind-documentation/text-color) for available CSS utility classes.
 
 **Example**: `gl-text-subtle` is `color: var(--gl-text-color-subtle, #626168);`
 
 #### Building the Tailwind CSS bundle
 
-When using Vite or Webpack with the GitLab Development Kit, Tailwind CSS watches for file changes to
-build detected utilities on the fly.
+When using Vite or Webpack with the GitLab Development Kit, Tailwind CSS watches for file changes to build detected utilities on the fly.
 
-To build a fresh Tailwind CSS bundle, run `yarn tailwindcss:build`. This is the script that gets
-called internally when building production assets with `bundle exec rake gitlab:assets:compile`.
+To build a fresh Tailwind CSS bundle, run `yarn tailwindcss:build`. This is the script that gets called internally when building production assets with `bundle exec rake gitlab:assets:compile`.
 
 However the bundle gets built, the output is saved to `app/assets/builds/tailwind.css`.
 
@@ -121,12 +108,12 @@ extension. For HAML and custom `*-class` prop support these are the recommended 
 
 ```json
 {
-  "tailwindCSS.experimental.classRegex": [
+ "tailwindCSS.experimental.classRegex": [
     ["class: [\"|']+([^\"|']*)[\"|']+", "([a-zA-Z0-9\\-:!/]+)"],
     ["(\\.[\\w\\-.]+)[\\n\\=\\{\\s]", "([\\w\\-]+)"],
     ["[a-z]+-class(?:es)?=\"([^'\"]*)\""]
-  ],
-  "tailwindCSS.emmetCompletions": true
+ ],
+ "tailwindCSS.emmetCompletions": true
 }
 ```
 
@@ -137,25 +124,23 @@ For full HAML and custom `*-class` prop support these are the recommended update
 
 ```json
 {
-  "includeLanguages": {
+ "includeLanguages": {
     "haml": "html"
-  },
-  "emmetCompletions": true,
-  "experimental": {
+ },
+ "emmetCompletions": true,
+ "experimental": {
     "classRegex": [
       ["class: [\"|']+([^\"|']*)[\"|']+", "([a-zA-Z0-9\\-:!/]+)"],
       ["(\\.[\\w\\-.]+)[\\n\\=\\{\\s]", "([\\w\\-]+)"],
       ["[a-z]+-class(?:es)?=\"([^'\"]*)\""]
     ]
-  }
+ }
 }
 ```
 
 ### Where should you put new utility classes?
 
-Utility classes are generated by [Tailwind CSS](https://tailwindcss.com/) which
-supports most CSS features. If there is something that is not available we should
-update [tailwind.defaults.js](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/7c0fb4b07a0f0d0a58dd0137831412dbf53ea498/tailwind.defaults.js) in GitLab UI.
+Utility classes are generated by [Tailwind CSS](https://tailwindcss.com/) which supports most CSS features. If there is something that is not available we should update [tailwind.defaults.js](https://gitlab.com/gitlab-org/gitlab-ui/-/blob/7c0fb4b07a0f0d0a58dd0137831412dbf53ea498/tailwind.defaults.js) in GitLab UI.
 
 ### When should you create component classes?
 
@@ -164,10 +149,7 @@ We recommend a "utility-first" approach.
 1. Start with utility classes.
 1. If composing utility classes into a component class removes code duplication and encapsulates a clear responsibility, do it.
 
-This encourages an organic growth of component classes and prevents the creation of
-one-off non-reusable classes. Also, the kind of classes that emerge from "utility-first"
-tend to be design-centered (for example, `.button`, `.alert`, `.card`) rather than
-domain-centered (for example, `.security-report-widget`, `.commit-header-icon`).
+This encourages an organic growth of component classes and prevents the creation of one-off non-reusable classes. Also, the kind of classes that emerge from "utility-first" tend to be design-centered (for example, `.button`, `.alert`, `.card`) rather than domain-centered (for example, `.security-report-widget`, `.commit-header-icon`).
 
 Inspiration:
 
@@ -176,42 +158,37 @@ Inspiration:
 
 ### Leveraging Tailwind CSS in HTML and in stylesheets
 
-When writing component classes, it's important to effectively integrate Tailwind CSS's utility classes to
-maintain consistency with the design system and keeping the CSS bundles small.
+When writing component classes, it's important to effectively integrate Tailwind CSS's utility classes to maintain consistency with the design system and keeping the CSS bundles small.
 
 **Utility CSS Classes in HTML vs. in stylesheets**:
 
-By using the utility classes directly in the HTML, we can keep the CSS file size smaller and adhere
-to the utility-first philosophy. By avoiding to combine utility classes with custom styles in one components class
-unless absolutely necessary, we can prevent confusion and potential conflicts.
+By using the utility classes directly in the HTML, we can keep the CSS file size smaller and adhere to the utility-first philosophy. By avoiding to combine utility classes with custom styles in one components class unless absolutely necessary, we can prevent confusion and potential conflicts.
 
 - **Reasons for the Preference**:
-  - **Smaller CSS File Size**: Utilizing utility classes directly can lead to more compact CSS files and
-  promote a more consistent design system.
-  - **Clarity and Maintainability**: When utility classes are used in HTML, it's clearer how styles are
-  applied, reducing the risk of conflicts and regressions.
+ - **Smaller CSS File Size**: Utilizing utility classes directly can lead to more compact CSS files and
+ promote a more consistent design system.
+ - **Clarity and Maintainability**: When utility classes are used in HTML, it's clearer how styles are
+ applied, reducing the risk of conflicts and regressions.
 
 - **Potential Issues with Combining Styles**:
-  - **Conflicts**: If utility classes and custom styles are combined in a single class, conflicts can arise,
-  especially when the styles have interdependencies.
-  - **Regressions**: It becomes less obvious how styles should resolve, leading to possible regressions
-  or unexpected behavior.
+ - **Conflicts**: If utility classes and custom styles are combined in a single class, conflicts can arise,
+ especially when the styles have interdependencies.
+ - **Regressions**: It becomes less obvious how styles should resolve, leading to possible regressions
+ or unexpected behavior.
 
 By following these guidelines, we can create clean, maintainable stylesheets that leverage Tailwind CSS effectively.
 
 #### 1. Use utility classes directly in HTML (preferred approach)
 
-For better maintainability and to adhere to the utility-first principle, add utility classes directly
-to the HTML element. A component class should primarily contain only the non-utility CSS styles.
-In the following example, you add the utility classes `gl-fixed` and `gl-inset-x-0`, instead of adding
-`position: fixed; right: 0; left: 0;` to the SCSS file:
+For better maintainability and to adhere to the utility-first principle, add utility classes directly to the HTML element. A component class should primarily contain only the non-utility CSS styles.
+In the following example, you add the utility classes `gl-fixed` and `gl-inset-x-0`, instead of adding `position: fixed; right: 0; left: 0;` to the SCSS file:
 
 ```html
 <!-- Bad -->
 <div class="my-class"></div>
 
 <style>
-  .my-class {
+ .my-class {
     top: $header-height;
     min-height: $comparison-empty-state-height;
     position: fixed;
@@ -224,19 +201,16 @@ In the following example, you add the utility classes `gl-fixed` and `gl-inset-x
 <div class="my-class gl-fixed gl-inset-x-0"></div>
 
 <style>
-  .my-class {
+ .my-class {
     top: $header-height;
     min-height: $comparison-empty-state-height;
-  }
+ }
 </style>
 ```
 
 #### 2. Apply utility classes in component classes (when necessary)
 
-Sometime it might not feasible to use utility classes directly in HTML and you need to include them in our
-custom SCSS files. Then, you might want to inherit style definitions from the design system without needing to figure
-out the relevant properties or values. To simplify this process, you can use Tailwind CSS's
-[`@apply` directive](https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply)
+Sometime it might not feasible to use utility classes directly in HTML and you need to include them in our custom SCSS files. Then, you might want to inherit style definitions from the design system without needing to figure out the relevant properties or values. To simplify this process, you can use Tailwind CSS's [`@apply` directive](https://tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply)
 to include utilities' style definitions in your custom styles.
 
 Using `@apply` is _encouraged_ for applying CSS properties that depend on the design system (e.g. `margin`, `padding`).
@@ -245,26 +219,25 @@ For CSS properties that are unit-less (e.g `display: flex`) it is okay to use CS
 ```scss
 // Bad
 .my-class {
-  margin-top: 0.5rem;
+ margin-top: 0.5rem;
 }
 
 // Okay
 .my-class {
-  display: flex;
+ display: flex;
 }
 
 // Good
 .my-class {
-  @apply gl-mt-5;
-  @apply gl-flex;
+ @apply gl-mt-5;
+ @apply gl-flex;
 }
 ```
 
 ## Responsive design
 
 Our UI should work well on mobile and desktop. To accomplish this we use [CSS container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries). In general we should take a mobile first approach to container queries. This means writing CSS for mobile, then using min-width container queries to override styles on desktop. An exception to this rule is setting the display mode on child components. For example when hiding `GlButton` on mobile we don't want to override the display mode set by our component CSS so we should use a max-width container query.
-Our current Tailwind configuration does not support max-width container queries, so if such workaround
-is needed, you'd need to write some custom styles.
+Our current Tailwind configuration does not support max-width container queries, so if such workaround is needed, you'd need to write some custom styles.
 
 ### Tailwind CSS classes
 
@@ -301,49 +274,43 @@ ensuring that the component can gracefully fall back to its own `display` value 
 ```scss
 // Bad (using desktop-first media queries)
 .class-name {
-  @apply gl-mt-5 max-lg:gl-mt-3;
+ @apply gl-mt-5 max-lg:gl-mt-3;
 }
 
 // Good (using min-width container queries)
 .class-name {
-  @apply gl-mt-3 @lg:gl-mt-5;
+ @apply gl-mt-3 @lg:gl-mt-5;
 }
 
 // Bad (using max-width container queries)
 .class-name {
-  display: block;
+ display: block;
 
-  @include gl-container-width-up-down(lg) {
+ @include gl-container-width-up-down(lg) {
     display: flex;
-  }
+ }
 }
 
 // Good (using min-width container queries)
 .class-name {
-  display: flex;
+ display: flex;
 
-  @include gl-container-width-up(lg) {
+ @include gl-container-width-up(lg) {
     display: block;
-  }
+ }
 }
 ```
 
 ### Migrating from media queries
 
 As of August 2025, we are dropping legacy media queries in favor of container queries.
-Container queries give us a better way of building responsive layouts within self-contained
-application, without relying on the browser window width which might not be the best reference
-width in many cases.
+Container queries give us a better way of building responsive layouts within self-contained application, without relying on the browser window width which might not be the best reference width in many cases.
 
-Since most of our code was previously written with media queries, it needs to be migrated over to
-container queries. To help with the process, we have built a migration script that performs the
-following tasks:
+Since most of our code was previously written with media queries, it needs to be migrated over to container queries. To help with the process, we have built a migration script that performs the following tasks:
 
 - Replaces Tailwind media queries CSS utils with container queries utils.
 - Replaces Bootstrap responsive utils with their Tailwind container utils equivalents.
-- Replaces other legacy Bootstrap non-responsive utils with their Tailwind equivalents. This helps
-  with another ongoing migration which we might as well tackle at the same time while we are changing
-  many pages in the product.
+- Replaces other legacy Bootstrap non-responsive utils with their Tailwind equivalents. This helps with another ongoing migration which we might as well tackle at the same time while we are changing many pages in the product.
 - Rewrites media queries in SCSS files to use container queries mixins instead.
 
 The script supports the following file types:
@@ -355,8 +322,7 @@ The script supports the following file types:
 - SCSS
 
 <sup>*</sup>In HAML files, the script might break the syntax because the Tailwind container queries
-syntax leverages special characters that HAML inline class names don't support. Those would need to
-be moved to an explicit `class` attribute manually after running the script:
+syntax leverages special characters that HAML inline class names don't support. Those would need to be moved to an explicit `class` attribute manually after running the script:
 
 ```haml
 # This breaks the HAML syntax:
@@ -374,52 +340,45 @@ scripts/frontend/migrate_to_container_queries.mjs \
     ee/app/assets/javascripts/geo_replicable_item/components/app.vue
 ```
 
-The script can be used in conjunction with the `find_frontend_files` script which finds all
-JavaScript/Vue assets a given file depends on. For example, you could use this combination to find
-a page's JavaScript entrypoint's dependencies and pass them all at once to the migration script:
+The script can be used in conjunction with the `find_frontend_files` script which finds all JavaScript/Vue assets a given file depends on. For example, you could use this combination to find a page's JavaScript entrypoint's dependencies and pass them all at once to the migration script:
 
 ```shell
 scripts/frontend/migrate_to_container_queries.mjs $(scripts/frontend/find_frontend_files.mjs app/assets/javascripts/todos/index.js)
 ```
 
 Not every media query need be migrated as some media queries are needed for global behaviors.
-You may add your files to `scripts/frontend/lib/container_queries_migration_exclusions.txt` to
-exclude them from automatic migrations.
+You may add your files to `scripts/frontend/lib/container_queries_migration_exclusions.txt` to exclude them from automatic migrations.
 
-To find partials a given HAML view depends on, navigate to the relevant page in your GDK, then run
-the following script in the browser's console to copy the list of files to the clipboard:
+To find partials a given HAML view depends on, navigate to the relevant page in your GDK, then run the following script in the browser's console to copy the list of files to the clipboard:
 
 ```javascript
 (() => {
-  const partialRegex = /BEGIN\s+(?<partial>\S+.haml)\s*/;
-  const extractPartial = node => {
+ const partialRegex = /BEGIN\s+(?<partial>\S+.haml)\s*/;
+ const extractPartial = node => {
     const match = partialRegex.exec(node.data);
     if (match?.groups?.partial) return match.groups.partial;
     return null;
-  };
+ };
 
-  const nodeIterator = document.createNodeIterator(document.documentElement, NodeFilter.SHOW_COMMENT);
-  const partials = [];
-  let currentNode;
-  while ((currentNode = nodeIterator.nextNode())) {
+ const nodeIterator = document.createNodeIterator(document.documentElement, NodeFilter.SHOW_COMMENT);
+ const partials = [];
+ let currentNode;
+ while ((currentNode = nodeIterator.nextNode())) {
     const partial = extractPartial(currentNode);
     if (partial) partials.push(partial);
-  }
+ }
 
-  copy(partials.join('\n'));
+ copy(partials.join('\n'));
 })();
 ```
 
 {{< alert type="note" >}}
 
-Keep in mind that, while the script can help speed up migrations, it also cannot migrate
-everything for you. In particular, you should pay attention to the following:
+Keep in mind that, while the script can help speed up migrations, it also cannot migrate everything for you. In particular, you should pay attention to the following:
 
 - If you are using UI elements from NPM dependencies, those would need to be migrated or overidden manually.
-- The code you are migrating might contain some JavaScript that reacts to the window being
-  resized. This kind of script would need to be migrated manually in a way that's "container-aware".
-- If your SCSS implements media queries with custom breakpoints, the script might not be able to
-  rewrite those, so you'd need to migrate them manually.
+- The code you are migrating might contain some JavaScript that reacts to the window being resized. This kind of script would need to be migrated manually in a way that's "container-aware".
+- If your SCSS implements media queries with custom breakpoints, the script might not be able to rewrite those, so you'd need to migrate them manually.
 
 {{< /alert >}}
 
@@ -427,114 +386,106 @@ everything for you. In particular, you should pay attention to the following:
 
 Filenames should use `snake_case`.
 
-CSS classes should use the `lowercase-hyphenated` format rather than
-`snake_case` or `camelCase`.
+CSS classes should use the `lowercase-hyphenated` format rather than `snake_case` or `camelCase`.
 
 ```scss
 // Bad
 .class_name {
-  color: #fff;
+ color: #fff;
 }
 
 // Bad
 .className {
-  color: #fff;
+ color: #fff;
 }
 
 // Good
 .class-name {
-  color: #fff;
+ color: #fff;
 }
 ```
 
-Avoid making compound class names with SCSS `&` features. It makes
-searching for usages harder, and provides limited benefit.
+Avoid making compound class names with SCSS `&` features. It makes searching for usages harder, and provides limited benefit.
 
 ```scss
 // Bad
 .class {
-  &-name {
+ &-name {
     color: orange;
-  }
+ }
 }
 
 // Good
 .class-name {
-  color: #fff;
+ color: #fff;
 }
 ```
 
 Class names should be used instead of tag name selectors.
-Using tag name selectors is discouraged because they can affect
-unintended elements in the hierarchy.
+Using tag name selectors is discouraged because they can affect unintended elements in the hierarchy.
 
 ```scss
 // Bad
 ul {
-  color: #fff;
+ color: #fff;
 }
 
 // Good
 .class-name {
-  color: #fff;
+ color: #fff;
 }
 
 // Best
 // prefer an existing utility class over adding existing styles
 ```
 
-Class names are also preferable to IDs. Rules that use IDs
-are not-reusable, as there can only be one affected element on
-the page.
+Class names are also preferable to IDs. Rules that use IDs are not-reusable, as there can only be one affected element on the page.
 
 ```scss
 // Bad
 #my-element {
-  padding: 0;
+ padding: 0;
 }
 
 // Good
 .my-element {
-  padding: 0;
+ padding: 0;
 }
 ```
 
 ## Nesting
 
-Avoid unnecessary nesting. The extra specificity of a wrapper component
-makes things harder to override.
+Avoid unnecessary nesting. The extra specificity of a wrapper component makes things harder to override.
 
 ```scss
 // Bad
 .component-container {
-  .component-header {
+ .component-header {
     /* ... */
-  }
+ }
 
-  .component-body {
+ .component-body {
     /* ... */
-  }
+ }
 }
 
 // Good
 .component-container {
-  /* ... */
+ /* ... */
 }
 
 .component-header {
-  /* ... */
+ /* ... */
 }
 
 .component-body {
-  /* ... */
+ /* ... */
 }
 ```
 
 ## Selectors with a `js-` Prefix
 
-Do not use any selector prefixed with `js-` for styling purposes. These
-selectors are intended for use only with JavaScript to allow for removal or
-renaming without breaking styling.
+Do not use any selector prefixed with `js-` for styling purposes. These selectors are intended for use only with JavaScript to allow for removal or renaming without breaking styling.
 
 ## Concatenating classes
 
@@ -543,78 +494,64 @@ Do not concatenate strings to create classes. Instead, write out the full class 
 ```scss
 // Bad
 .foo {
-  /* ... */
-  &-bar {
+ /* ... */
+ &-bar {
     /* ... */
-  }
+ }
 }
 
 // Good
 .foo {
-  /* ... */
+ /* ... */
 }
 
 .foo-bar {
-  /* ... */
+ /* ... */
 }
 ```
 
 ## Selectors with Util CSS Classes
 
-Do not use utility CSS classes as selectors in your stylesheets. These classes
-are likely to change, requiring updates to the selectors and making the
-implementation harder to maintain. Instead, use another existing CSS class or
-add a new custom CSS class for styling elements. This approach improves
-maintainability and reduces the risk of bugs.
+Do not use utility CSS classes as selectors in your stylesheets. These classes are likely to change, requiring updates to the selectors and making the implementation harder to maintain. Instead, use another existing CSS class or add a new custom CSS class for styling elements. This approach improves maintainability and reduces the risk of bugs.
 
 ```scss
 // ❌ Bad
 .gl-mb-5 {
-  /* ... */
+ /* ... */
 }
 
 // ✅ Good
 .component-header {
-  /* ... */
+ /* ... */
 }
 ```
 
 ## Selectors with ARIA attributes
 
-Do not use any attribute selector with ARIA for styling purposes. These
-attributes and roles are intended for supporting assistive technology.
-The structure of the components annotated with ARIA might change
-and so its styling. We need to be able to move these roles and attributes
-to different elements, without breaking styling.
+Do not use any attribute selector with ARIA for styling purposes. These attributes and roles are intended for supporting assistive technology.
+The structure of the components annotated with ARIA might change and so its styling. We need to be able to move these roles and attributes to different elements, without breaking styling.
 
 ```scss
 // Bad
 &[aria-expanded=false] &-header {
-  border-bottom: 0;
+ border-bottom: 0;
 }
 
 // Good
 &.is-collapsed &-header {
-  border-bottom: 0;
+ border-bottom: 0;
 }
 ```
 
 ## Using `extend` at-rule
 
-Usage of the `extend` at-rule is prohibited due to
-[memory leaks](https://gitlab.com/gitlab-org/gitlab/-/issues/323021) and
-[the rule doesn't work as it should](https://sass-lang.com/documentation/breaking-changes/extend-compound/).
+Usage of the `extend` at-rule is prohibited due to [memory leaks](https://gitlab.com/gitlab-org/gitlab/-/issues/323021) and [the rule doesn't work as it should](https://sass-lang.com/documentation/breaking-changes/extend-compound/).
 
 ## Linting
 
-We use [stylelint](https://stylelint.io) to check for style guide conformity. It uses the
-ruleset in `.stylelintrc` and rules from
-[our SCSS configuration](https://gitlab.com/gitlab-org/frontend/gitlab-stylelint-config).
+We use [stylelint](https://stylelint.io) to check for style guide conformity. It uses the ruleset in `.stylelintrc` and rules from [our SCSS configuration](https://gitlab.com/gitlab-org/frontend/gitlab-stylelint-config).
 `.stylelintrc` is located in the home directory of the project.
 
-To check if any warnings are produced by your changes, run `yarn lint:stylelint`
-in the GitLab directory. Stylelint also runs in GitLab CI/CD to
-catch any warnings.
+To check if any warnings are produced by your changes, run `yarn lint:stylelint` in the GitLab directory. Stylelint also runs in GitLab CI/CD to catch any warnings.
 
-If the Rake task is throwing warnings you don't understand, SCSS Lint's
-documentation includes [a full list of their rules](https://stylelint.io/user-guide/rules/).
+If the Rake task is throwing warnings you don't understand, SCSS Lint's documentation includes [a full list of their rules](https://stylelint.io/user-guide/rules/).

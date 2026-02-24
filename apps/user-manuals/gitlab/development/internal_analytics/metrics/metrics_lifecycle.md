@@ -45,19 +45,16 @@ Currently, the [Metrics Dictionary](https://metrics.gitlab.com/) is built automa
 
    - **`database/system`**: If the metric has an `instrumentation_class` and the assigned class is no longer used by any other metric you can remove the class and specs.
      If the metric is instrumented within [`lib/gitlab/usage_data.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/usage_data.rb)
-     or [`ee/lib/ee/gitlab/usage_data.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/ee/gitlab/usage_data.rb) then remove the associated code and specs
-     ([example](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/60149/diffs#6335dc533bd21df26db9de90a02dd66278c2390d_167_167)).
+     or [`ee/lib/ee/gitlab/usage_data.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/ee/gitlab/usage_data.rb) then remove the associated code and specs ([example](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/60149/diffs#6335dc533bd21df26db9de90a02dd66278c2390d_167_167)).
    - **`redis_hll/redis/internal_events`**: Remove the tracking code, for example, `track_internal_event` and associated specs.
 
 1. Update the attributes of the metric's YAML definition:
 
    - Set the `status:` to `removed`.
    - Set `removed_by_url:` to the URL of the MR removing the metric
-   - Set `milestone_removed:` to the number of the
-     milestone in which the metric was removed.
+   - Set `milestone_removed:` to the number of the milestone in which the metric was removed.
 
-   Do not remove the metric's YAML definition altogether. Some GitLab Self-Managed instances might not immediately update to the latest version of GitLab, and
-   therefore continue to report the removed metric. The Analytics Instrumentation team requires a record of all removed metrics to identify and filter them.
+   Do not remove the metric's YAML definition altogether. Some GitLab Self-Managed instances might not immediately update to the latest version of GitLab, and therefore continue to report the removed metric. The Analytics Instrumentation team requires a record of all removed metrics to identify and filter them.
 
 ## Group name changes
 
@@ -72,9 +69,9 @@ $ scripts/internal_events/product_group_renamer.rb 5-min-app 2-min-app
 Updated '5-min-app' to '2-min-app' in 3 files
 
 Updated files:
-  config/metrics/schema/product_groups.json
-  config/metrics/counts_28d/20210216184517_p_ci_templates_5_min_production_app_monthly.yml
-  config/metrics/counts_7d/20210216184515_p_ci_templates_5_min_production_app_weekly.yml
+ config/metrics/schema/product_groups.json
+ config/metrics/counts_28d/20210216184517_p_ci_templates_5_min_production_app_monthly.yml
+ config/metrics/counts_7d/20210216184515_p_ci_templates_5_min_production_app_weekly.yml
 ```
 
 After running the script, you must commit all the modified files to Git and create a merge request.

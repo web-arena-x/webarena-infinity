@@ -37,9 +37,7 @@ A secret is active when:
 - It is not expired.
 - It can be used for authentication.
 
-Because active secrets can be used to impersonate a legitimate user, they pose a
-greater security risk than inactive secrets. If several secrets are leaked at once,
-knowing which secrets are active is an important part of triage and remediation.
+Because active secrets can be used to impersonate a legitimate user, they pose a greater security risk than inactive secrets. If several secrets are leaked at once, knowing which secrets are active is an important part of triage and remediation.
 
 ## Enable validity checks
 
@@ -54,8 +52,7 @@ To enable validity checks for a project:
 1. Under **Pipeline Secret Detection**, turn on the **Validity checks** toggle.
 
 GitLab checks the status of detected secrets when the `secret_detection` CI/CD job is complete.
-To view a secret's status, view the vulnerability details page. To update the status of a secret,
-for example after revoking it, re-run the `secret_detection` CI/CD job.
+To view a secret's status, view the vulnerability details page. To update the status of a secret, for example after revoking it, re-run the `secret_detection` CI/CD job.
 
 ### Coverage
 
@@ -97,8 +94,7 @@ Validity checks support the following secret types:
 
 ## Validity check workflow
 
-When the secret detection analyzer detects a potential secret, GitLab verifies the status of
-the secret with its vendor, and assigns the detection one of the following statuses:
+When the secret detection analyzer detects a potential secret, GitLab verifies the status of the secret with its vendor, and assigns the detection one of the following statuses:
 
 - Possibly active: GitLab couldn't verify the secret status, or the secret type is not supported by validity checks.
 - Active: The secret is not expired and can be used for authentication.
@@ -150,14 +146,10 @@ This might be because:
 - The secret type is not supported by validity checks.
 - There was a problem connecting to the token provider.
 
-To resolve this issue, re-run the `secret_detection` job. If the status persists after a few attempts,
-you might need to validate the secret manually.
+To resolve this issue, re-run the `secret_detection` job. If the status persists after a few attempts, you might need to validate the secret manually.
 
 Unless you're certain the token isn't active, you should revoke and replace possibly active secrets as soon as possible.
 
 ### External service token verification delays
 
-External service token verification might take longer than GitLab token verification due to rate limits
-imposed by external services. If an external service token shows **possibly active** status temporarily,
-this is typical. The verification is queued and completes shortly. Check the **Last verified at**
-timestamp to see when the status was last updated, or refresh the page after a few moments.
+External service token verification might take longer than GitLab token verification due to rate limits imposed by external services. If an external service token shows **possibly active** status temporarily, this is typical. The verification is queued and completes shortly. Check the **Last verified at** timestamp to see when the status was last updated, or refresh the page after a few moments.

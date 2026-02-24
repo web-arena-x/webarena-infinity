@@ -6,8 +6,7 @@ title: Remote Development Workspaces
 ---
 
 Remote Development Workspaces provide cloud-based development environments that integrate with GitLab projects.
-As a developer working on this feature, you create and maintain the infrastructure that users use to
-spin up containerized development environments directly from their GitLab projects.
+As a developer working on this feature, you create and maintain the infrastructure that users use to spin up containerized development environments directly from their GitLab projects.
 
 ## Development workflow
 

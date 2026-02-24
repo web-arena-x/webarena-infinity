@@ -18,8 +18,8 @@ To add a new category, click the blue button **Add Appointment Category** in the
 
 - **Name**: Should describe the appointment category in the most general sense. We see many schools using school year or area of study as appointment categories.
 - **Description**: A more detailed description of who this appointment is for.
-- **Appointment Types**: Appointment types that will be listed within this category, if you have not created the appointment types for this category yet you can leave this blank and add them at a different time.  
-  - If the desired type isn't listed, click the link below the text field "Create a new type".
+- **Appointment Types**: Appointment types that will be listed within this category, if you have not created the appointment types for this category yet you can leave this blank and add them at a different time. 
+ - If the desired type isn't listed, click the link below the text field "Create a new type".
 
 ![add_a_new_category.png](https://support.joinhandshake.com/hc/article_attachments/26001341510295)
 
@@ -34,7 +34,7 @@ If you'd like to make changes to an existing category, click **Edit** to the far
 On the page that loads, you can:
 
 - update the Name, Description, and selected Appointment Types
-  - If you make changes, click the green button **Update Appointment Category** in the lower-right corner to save the changes.
+ - If you make changes, click the green button **Update Appointment Category** in the lower-right corner to save the changes.
 - Delete the category (click the red button **Delete** in the lower-left corner)
 - Archive the category (click the gray button **Archive** in the lower-left corner)
 

@@ -7,7 +7,7 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360007797394-Trouble
 For a Career Services user or Student to successfully log in via SSO in Handshake, the account *must* have an **auth \_identifier** configured within the accounts settings — this is the only value used for SSO authorization and verification.
 
 - Student accounts typically have an **auth \_identifier** populated on their accounts via the student data import.
-  - *To learn more about importing student data in Handshake, refer to* [Importing Student Data](https://support.joinhandshake.com/hc/en-us/articles/233086688).
+ - *To learn more about importing student data in Handshake, refer to* [Importing Student Data](https://support.joinhandshake.com/hc/en-us/articles/233086688).
 - Career Services users can have an **auth \_identifier** manually entered on their profiles at any time.
 
 ## Possible error messages
@@ -112,7 +112,7 @@ To fix this**:**
 - The fingerprint value when you roll over to a new x.509 certificate (SAML)
 - The base URL if moving to a new CAS server (CAS)
 - The bind username/password, BaseDN, or Search Filters for LDAPS
-  - **Note**: if you're changing LDAPS IP's, we do need to unblock these on the backend **prior** to the change.  [SSO Setup Guides: LDAP Configuration](https://support.joinhandshake.com/hc/en-us/articles/360012362193).
+ - **Note**: if you're changing LDAPS IP's, we do need to unblock these on the backend **prior** to the change.  [SSO Setup Guides: LDAP Configuration](https://support.joinhandshake.com/hc/en-us/articles/360012362193).
 
 ### Additional Resources
 

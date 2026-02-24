@@ -26,8 +26,7 @@ title: Enable logging for self-hosted models
 
 {{< /history >}}
 
-Monitor your self-hosted model performance and debug issues more effectively with detailed
-logging for GitLab Duo Self-Hosted.
+Monitor your self-hosted model performance and debug issues more effectively with detailed logging for GitLab Duo Self-Hosted.
 
 ## Enable logging
 
@@ -60,8 +59,8 @@ Logging in the `application.json`, `production_json.log`, and `production.log` f
 - **Filtered Requests**: We log the requests in these files but ensure that sensitive data (such as input parameters) is **filtered**. This means that while the request metadata is captured (for example, the request type, endpoint, and response status), the actual input data (for example, the query parameters, variables, and content) is not logged to prevent the exposure of sensitive information.
 - **Example 1**: In the case of a code suggestions completion request, the logs capture the request details while filtering sensitive information:
 
-  ```json
-  {
+ ```json
+ {
     "method": "POST",
     "path": "/api/graphql",
     "controller": "GraphqlController",
@@ -77,15 +76,15 @@ Logging in the `application.json`, `production_json.log`, and `production.log` f
       "message": "undefined method `id` for {:skip=>true}:Hash"
     },
     "time": "2024-08-28T14:13:50.328Z"
-  }
-  ```
+ }
+ ```
 
-  As shown, while the error information and general structure of the request are logged, the sensitive input parameters are marked as `[FILTERED]`.
+ As shown, while the error information and general structure of the request are logged, the sensitive input parameters are marked as `[FILTERED]`.
 
 - **Example 2**: In the case of a code suggestions completion request, the logs also capture the request details while filtering sensitive information:
 
-  ```json
-  {
+ ```json
+ {
     "method": "POST",
     "path": "/api/v4/code_suggestions/completions",
     "status": 200,
@@ -95,10 +94,10 @@ Logging in the `application.json`, `production_json.log`, and `production.log` f
       {"key": "telemetry", "value": []}
     ],
     "time": "2024-10-15T06:51:09.004Z"
-  }
-  ```
+ }
+ ```
 
-  As shown, while the general structure of the request is logged, the sensitive input parameters such as `content_above_cursor` and `content_below_cursor` are marked as `[FILTERED]`.
+ As shown, while the general structure of the request is logged, the sensitive input parameters such as `content_above_cursor` and `content_below_cursor` are marked as `[FILTERED]`.
 
 ### Logging Control
 
@@ -154,15 +153,15 @@ Additionally, the outputs of the AI Gateway execution can help with debugging is
 
 - When using Docker:
 
-  ```shell
-  docker logs <container-id>
-  ```
+ ```shell
+ docker logs <container-id>
+ ```
 
 - When using Kubernetes:
 
-  ```shell
-  kubectl logs <container-name>
-  ```
+ ```shell
+ kubectl logs <container-name>
+ ```
 
 To ingest these logs into the logging solution, see your logging provider documentation.
 
@@ -179,7 +178,7 @@ When a POST request is made (for example, to the `/chat/completions` endpoint), 
 The JSON payload typically includes the following fields:
 
 - `messages`: An array of message objects.
-  - Each message object contains:
+ - Each message object contains:
     - `content`: A string representing the user's input or query.
     - `role`: Indicates the role of the message sender (for example, `user`).
 - `model`: A string specifying the model to be used (for example, `mistral`).
@@ -195,7 +194,7 @@ The JSON payload typically includes the following fields:
 {
     "messages": [
         {
-            "content": "<s>[SUFFIX]None[PREFIX]# # build a hello world ruby method\n def say_goodbye\n    puts \"Goodbye, World!\"\n  end\n\ndef main\n  say_hello\n  say_goodbye\nend\n\nmain",
+            "content": "<s>[SUFFIX]None[PREFIX]# # build a hello world ruby method\n def say_goodbye\n    puts \"Goodbye, World!\"\n end\n\ndef main\n say_hello\n say_goodbye\nend\n\nmain",
             "role": "user"
         }
     ],
@@ -265,7 +264,7 @@ Response: ModelResponse(
             finish_reason='stop',
             index=0,
             message=Message(
-                content=' Here is the corrected Ruby code for your function:\n\n```ruby\ndef say_hello\n  puts "Hello, World!"\nend\n\ndef say_goodbye\n    puts "Goodbye, World!"\nend\n\ndef main\n  say_hello\n  say_goodbye\nend\n\nmain\n```\n\nIn your original code, the method names were misspelled as `say_hell` and `say_gobdye`. I corrected them to `say_hello` and `say_goodbye`. Also, there was no need for the prefix',
+                content=' Here is the corrected Ruby code for your function:\n\n```ruby\ndef say_hello\n puts "Hello, World!"\nend\n\ndef say_goodbye\n    puts "Goodbye, World!"\nend\n\ndef main\n say_hello\n say_goodbye\nend\n\nmain\n```\n\nIn your original code, the method names were misspelled as `say_hell` and `say_gobdye`. I corrected them to `say_hello` and `say_goodbye`. Also, there was no need for the prefix',
                 role='assistant',
                 tool_calls=None,
                 function_call=None
@@ -288,8 +287,7 @@ Response: ModelResponse(
 
 ### Logs in your inference service provider
 
-GitLab does not manage logs generated by your inference service provider. See the documentation of your inference service
-provider on how to use their logs.
+GitLab does not manage logs generated by your inference service provider. See the documentation of your inference service provider on how to use their logs.
 
 ## Logging behavior in GitLab and AI Gateway environments
 
@@ -305,18 +303,18 @@ In this configuration, both GitLab and the AI Gateway are hosted by the customer
 
 - **Logging Behavior**: Full logging is enabled, and all prompts, inputs, and outputs are logged to `llm.log` on the instance.
 - When [AI logs](#enable-logging) are enabled, extra debugging information is logged, including:
-  - Preprocessed prompts.
-  - Final prompts.
-  - Additional context.
+ - Preprocessed prompts.
+ - Final prompts.
+ - Additional context.
 - **Privacy**: Because both GitLab and the AI Gateway are self-hosted:
-  - The customer has full control over data handling.
-  - Logging of sensitive information can be enabled or disabled at the customer's discretion.
+ - The customer has full control over data handling.
+ - Logging of sensitive information can be enabled or disabled at the customer's discretion.
 
-  {{< alert type="note" >}}
+ {{< alert type="note" >}}
 
-  When an AI feature uses a GitLab AI third-party vendor model, no detailed logs are generated in the GitLab-hosted AI Gateway, even when [AI logs are enabled](#enable-logging). This prevents unintended leaks of sensitive information.
+ When an AI feature uses a GitLab AI third-party vendor model, no detailed logs are generated in the GitLab-hosted AI Gateway, even when [AI logs are enabled](#enable-logging). This prevents unintended leaks of sensitive information.
 
-  {{< /alert >}}
+ {{< /alert >}}
 
 ### GitLab Self-Managed and GitLab-managed AI Gateway (cloud-connected)
 
@@ -324,7 +322,7 @@ In this scenario, the customer hosts GitLab but relies on the GitLab-managed AI 
 
 - **Logging Behavior**: For information about how GitLab handles AI prompt and response data when using the cloud-connected AI Gateway, see [GitLab Duo data usage](../../user/gitlab_duo/data_usage.md#data-retention).
 - **Expanded Logging**: Even if [AI logs are enabled](#enable-logging), no detailed logs are generated in the GitLab-managed AI Gateway to avoid unintended leaks of sensitive information.
-  - Logging remains **minimal** in this setup, and the expanded logging features are disabled by default.
+ - Logging remains **minimal** in this setup, and the expanded logging features are disabled by default.
 - **Privacy**: This configuration is designed to ensure that sensitive data is not logged in a cloud environment.
 
 ## AI logs
@@ -334,11 +332,11 @@ The [AI logs](#enable-logging) control whether additional debugging information,
 ### Behavior by Deployment Setup
 
 - **GitLab Self-Managed and self-hosted AI Gateway**:
-  - The setting enables detailed logging to `llm.log` on both the self-hosted instance and the AI Gateway, capturing inputs and outputs for AI models.
-  - Logging remains disabled for the cloud-connected AI Gateway to protect sensitive data, even when a feature uses a GitLab third-party vendor model.
+ - The setting enables detailed logging to `llm.log` on both the self-hosted instance and the AI Gateway, capturing inputs and outputs for AI models.
+ - Logging remains disabled for the cloud-connected AI Gateway to protect sensitive data, even when a feature uses a GitLab third-party vendor model.
 - **GitLab Self-Managed and GitLab-managed AI Gateway**:
-  - The setting enables detailed logging to `llm.log` on your GitLab Self-Managed instance.
-  - The setting does **not** activate expanded logging for the GitLab-managed AI Gateway. Logging remains disabled for the cloud-connected AI Gateway to protect sensitive data.
+ - The setting enables detailed logging to `llm.log` on your GitLab Self-Managed instance.
+ - The setting does **not** activate expanded logging for the GitLab-managed AI Gateway. Logging remains disabled for the cloud-connected AI Gateway to protect sensitive data.
 
 ### Logging in cloud-connected AI Gateways
 
@@ -346,8 +344,7 @@ For information about how GitLab handles AI prompt and response data when using 
 
 ### Cross-referencing logs between the AI Gateway and GitLab
 
-The property `correlation_id` is assigned to every request and is carried across different components that respond to a
-request. For more information, see the [documentation on finding logs with a correlation ID](../logs/tracing_correlation_id.md).
+The property `correlation_id` is assigned to every request and is carried across different components that respond to a request. For more information, see the [documentation on finding logs with a correlation ID](../logs/tracing_correlation_id.md).
 
 The Correlation ID can be found in your AI Gateway and GitLab logs. However, it is not present in your model provider logs.
 

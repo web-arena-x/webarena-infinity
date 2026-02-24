@@ -11,7 +11,7 @@ To edit a drawing set's name or date.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' permissions on the Drawings tool.
+ - 'Admin' permissions on the Drawings tool.
 
 ## Steps
 
@@ -20,7 +20,7 @@ To edit a drawing set's name or date.
 1. Navigate to your project's **Drawings** tool.
 2. Click **Drawing Sets**.
 3. Click the gear ![icon-settings-gear-grey.png](data:image/png;base64,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) icon on the drawing set you want to edit.
-4. Click **Edit**.  
+4. Click **Edit**. 
      
    ![edit-drawing-set.png](https://support.procore.com/@api/deki/files/86875/edit-drawing-set.png?revision=1)
 5. Edit the drawing set's name and date by clicking in the appropriate fields.
@@ -32,7 +32,7 @@ To edit a drawing set's name or date.
 2. On the 'Drawing Log Settings' page, view the **Edit Drawing Sets** section.
 3. Click on the name or the date of a set to make changes.
 
-![edit-drawing-set-name.png](https://support.procore.com/@api/deki/files/87339/edit-drawing-set-name.png?revision=2)  
+![edit-drawing-set-name.png](https://support.procore.com/@api/deki/files/87339/edit-drawing-set-name.png?revision=2) 
 *Note:* You can reorder sets by dragging them into a new order, or delete sets by clicking the **X** next to the set. For more information on deleting drawing sets, see [Delete a Drawing Set](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/delete-a-drawing-set "Delete a Drawing Set").
 
 ## See Also

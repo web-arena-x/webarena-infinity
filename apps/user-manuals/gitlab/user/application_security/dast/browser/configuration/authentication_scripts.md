@@ -31,10 +31,10 @@ To use authentication scripts with DAST, configure the following variables:
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://your-app.example.com"
     DAST_AUTH_SCRIPT: "auth_script.js"
 ```
@@ -89,16 +89,15 @@ To run a script, add the following to your CI/CD configuration:
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://example.com"
     DAST_AUTH_SCRIPT: "auth_script.js"
 ```
 
-If you use the `otp.generateTOTP()` method, make sure to add the `DAST_AUTH_OTP_KEY` variable
-to your CI/CD configuration as well.
+If you use the `otp.generateTOTP()` method, make sure to add the `DAST_AUTH_OTP_KEY` variable to your CI/CD configuration as well.
 
 ## Document interaction methods
 
@@ -733,9 +732,9 @@ if (!process.env.USERNAME || !process.env.PASSWORD) {
 }
 
 try {
-  // Custom code that can throw exceptions
+ // Custom code that can throw exceptions
 } catch (e) {
-  log.error("Critical error during authentication: " + e.message)
+ log.error("Critical error during authentication: " + e.message)
 }
 
 doc.navigateURL("https://app.example.com/login")
@@ -770,43 +769,43 @@ Example:
 
 ```javascript
 try {
-  log.info("Starting complex authentication flow")
+ log.info("Starting complex authentication flow")
 
-  // Multi-step authentication
-  doc.navigateURL("https://enterprise.example.com/login")
-  doc.actionFormInput("id:username", process.env.USERNAME)
-  doc.actionFormInput("id:password", process.env.PASSWORD)
-  doc.actionLeftClick("id:login-btn")
+ // Multi-step authentication
+ doc.navigateURL("https://enterprise.example.com/login")
+ doc.actionFormInput("id:username", process.env.USERNAME)
+ doc.actionFormInput("id:password", process.env.PASSWORD)
+ doc.actionLeftClick("id:login-btn")
 
-  // Handle TOTP if required
-  if (doc.getURL().includes("/mfa")) {
+ // Handle TOTP if required
+ if (doc.getURL().includes("/mfa")) {
     const totpCode = otp.generateTOTP()
     doc.actionFormInput("id:mfa-code", totpCode)
     doc.actionLeftClick("id:verify-btn")
-  }
+ }
 
-  auth.successIfAtURL("https://enterprise.example.com/portal")
+ auth.successIfAtURL("https://enterprise.example.com/portal")
 
 } catch (authException) {
-  log.errorWithException(authException, "Authentication flow failed during login process")
+ log.errorWithException(authException, "Authentication flow failed during login process")
 
-  // Additional error context
-  const currentUrl = doc.getURL()
-  log.error("Current URL at time of failure: " + currentUrl)
+ // Additional error context
+ const currentUrl = doc.getURL()
+ log.error("Current URL at time of failure: " + currentUrl)
 
-  throw authException
+ throw authException
 }
 
 // Example with validation error handling
 try {
-  const username = process.env.USERNAME
-  if (!username) {
+ const username = process.env.USERNAME
+ if (!username) {
     throw new Error("USERNAME environment variable is required")
-  }
+ }
 
-  doc.actionFormInput("id:username", username)
+ doc.actionFormInput("id:username", username)
 } catch (validationError) {
-  log.errorWithException(validationError, "Failed to validate required authentication parameters")
+ log.errorWithException(validationError, "Failed to validate required authentication parameters")
 }
 ```
 

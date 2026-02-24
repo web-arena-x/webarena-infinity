@@ -21,10 +21,7 @@ description: Vulnerabilities, licenses, filtering, and exporting.
 
 {{< /history >}}
 
-Use the dependency list to review your project or group's dependencies and key details about those
-dependencies, including their known vulnerabilities. This list is a collection of dependencies in your
-project, including existing and new findings. This information is sometimes referred to as a
-Software Bill of Materials, SBOM, or BOM.
+Use the dependency list to review your project or group's dependencies and key details about those dependencies, including their known vulnerabilities. This list is a collection of dependencies in your project, including existing and new findings. This information is sometimes referred to as a Software Bill of Materials, SBOM, or BOM.
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
 For an overview, see [Project Dependency - Advanced Security Testing](https://www.youtube.com/watch?v=ckqkn9Tnbw4).
@@ -34,16 +31,13 @@ For an overview, see [Project Dependency - Advanced Security Testing](https://ww
 To list your project's dependencies, run [dependency scanning](../dependency_scanning/_index.md)
 or [container scanning](../container_scanning/_index.md) on the default branch of your project.
 
-The dependency list also shows dependencies from any
-[CycloneDX reports](../../../ci/yaml/artifacts_reports.md#artifactsreportscyclonedx) uploaded from the
-latest default branch pipeline.
+The dependency list also shows dependencies from any [CycloneDX reports](../../../ci/yaml/artifacts_reports.md#artifactsreportscyclonedx) uploaded from the latest default branch pipeline.
 The CycloneDX reports must comply with [the CycloneDX specification](https://github.com/CycloneDX/specification) version `1.4`, `1.5`, or `1.6`.
 You can use the [CycloneDX Web Tool](https://cyclonedx.github.io/cyclonedx-web-tool/validate) to validate CycloneDX reports.
 
 {{< alert type="note" >}}
 
-Although this is not mandatory for populating the dependency list, the SBOM document must include and comply with the
-GitLab CycloneDX property taxonomy to provide some properties and to enable some security features.
+Although this is not mandatory for populating the dependency list, the SBOM document must include and comply with the GitLab CycloneDX property taxonomy to provide some properties and to enable some security features.
 
 {{< /alert >}}
 
@@ -81,7 +75,7 @@ Details of each dependency are listed, sorted by decreasing severity of vulnerab
 | Packager                    | The package manager used to install the dependency. Displays as "unknown" for unsupported package managers. |
 | Location                    | For system dependencies, this field lists the image that was scanned. For application dependencies, this field shows a link to the packager-specific lock file in your project that declared the dependency. It also shows the direct [dependents](#dependency-paths), if any. If there are transitive dependencies, selecting **View dependency paths** shows the full path of all dependents. Transitive dependencies are indirect dependents that have a direct dependent as an ancestor. |
 | License (for projects only) | Links to dependency's software licenses. A warning badge that includes the number of vulnerabilities detected in the dependency. |
-| Projects (for groups only)  | Links to the project with the dependency. If multiple projects have the same dependency, the total number of these projects is shown. To go to a project with this dependency, select the **Projects** number, then search for and select its name. |
+| Projects (for groups only) | Links to the project with the dependency. If multiple projects have the same dependency, the total number of these projects is shown. To go to a project with this dependency, select the **Projects** number, then search for and select its name. |
 
 ## Filter dependency list
 
@@ -97,8 +91,7 @@ Details of each dependency are listed, sorted by decreasing severity of vulnerab
 
 {{< /history >}}
 
-You can filter the dependency list to focus on only a subset of dependencies. The dependency
-list is available for groups and projects.
+You can filter the dependency list to focus on only a subset of dependencies. The dependency list is available for groups and projects.
 
 For groups, you can filter by:
 
@@ -142,13 +135,9 @@ For more information, see the history.
 
 {{< /alert >}}
 
-If a dependency has known vulnerabilities, view them by selecting the arrow next to the
-dependency's name or the badge that indicates how many known vulnerabilities exist. For each
-vulnerability, its severity and description appears below it. To view more details of a vulnerability,
-select the vulnerability's description. The [vulnerability's details](../vulnerabilities/_index.md) page is opened.
+If a dependency has known vulnerabilities, view them by selecting the arrow next to the dependency's name or the badge that indicates how many known vulnerabilities exist. For each vulnerability, its severity and description appears below it. To view more details of a vulnerability, select the vulnerability's description. The [vulnerability's details](../vulnerabilities/_index.md) page is opened.
 The dependency list shows only vulnerabilities in the `detected` and `confirmed` states.
-When a vulnerability's state changes, the changes are not reflected on the dependency list
-until a new pipeline runs on the default branch containing an SBoM.
+When a vulnerability's state changes, the changes are not reflected on the dependency list until a new pipeline runs on the default branch containing an SBoM.
 
 ## Dependency paths
 
@@ -160,9 +149,7 @@ until a new pipeline runs on the default branch containing an SBoM.
 
 {{< /history >}}
 
-The dependency path shows the direct dependents of a listed component if the component is transient
-and belongs to a supported package manager. The dependency path is only displayed for dependencies
-that have vulnerabilities.
+The dependency path shows the direct dependents of a listed component if the component is transient and belongs to a supported package manager. The dependency path is only displayed for dependencies that have vulnerabilities.
 
 Dependency paths are supported for the following package managers:
 
@@ -183,8 +170,7 @@ Dependency paths are supported for the following package managers only when usin
 
 ### Licenses
 
-If the [dependency scanning](../dependency_scanning/_index.md) CI/CD job is configured,
-[discovered licenses](../../compliance/license_scanning_of_cyclonedx_files/_index.md) are displayed on this page.
+If the [dependency scanning](../dependency_scanning/_index.md) CI/CD job is configured, [discovered licenses](../../compliance/license_scanning_of_cyclonedx_files/_index.md) are displayed on this page.
 
 ## Export
 
@@ -200,8 +186,7 @@ To export the dependency list:
 1. Select **Secure** > **Dependency list**.
 1. Select **Export** and then select the file format.
 
-The dependency list is sent to your email address. To download the dependency list, select the
-link in the email.
+The dependency list is sent to your email address. To download the dependency list, select the link in the email.
 
 ## Troubleshooting
 

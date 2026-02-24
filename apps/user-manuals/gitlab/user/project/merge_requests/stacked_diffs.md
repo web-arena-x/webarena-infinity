@@ -20,8 +20,7 @@ title: Stacked diffs
 
 {{< /history >}}
 
-Use stacked diffs in the [GitLab CLI](https://docs.gitlab.com/cli/) to create small changes that
-build upon each other to ultimately deliver a feature. Each stack is separate, so you can:
+Use stacked diffs in the [GitLab CLI](https://docs.gitlab.com/cli/) to create small changes that build upon each other to ultimately deliver a feature. Each stack is separate, so you can:
 
 - Continue building new features while earlier changes are reviewed.
 - Respond to review feedback on specific diffs without affecting other work.
@@ -40,18 +39,15 @@ The workflow for stacked diffs is:
 
    - Pushes all branches in your stack to GitLab.
    - Creates a merge request for each diff that doesn't have one yet.
-   - Chains the merge requests together. Each merge request, except the first one,
-     targets the previous diff branch.
+   - Chains the merge requests together. Each merge request, except the first one, targets the previous diff branch.
 
-The base command for this feature in the CLI is
-[`stack`](https://docs.gitlab.com/cli/stack/), which
-you then extend with [other commands](#available-commands).
+The base command for this feature in the CLI is [`stack`](https://docs.gitlab.com/cli/stack/), which you then extend with [other commands](#available-commands).
 
 <div class="video-fallback">
-  To learn more, see: <a href="https://www.youtube.com/watch?v=TOQOV8PWYic">Stacked Diffs in the CLI overview</a>.
+ To learn more, see: <a href="https://www.youtube.com/watch?v=TOQOV8PWYic">Stacked Diffs in the CLI overview</a>.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/TOQOV8PWYic" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/TOQOV8PWYic" frameborder="0" allowfullscreen> </iframe>
 </figure>
 <!-- Video published on 2024-06-18 -->
 
@@ -98,8 +94,7 @@ To create a stacked diff:
    glab stack sync
    ```
 
-Your merge requests are available for review. You can continue creating more diffs in this stack,
-or switch to work on something else.
+Your merge requests are available for review. You can continue creating more diffs in this stack, or switch to work on something else.
 
 ## Add changes to a diff in a stack
 
@@ -151,7 +146,5 @@ Use these commands to work with stacked diffs:
 
 Use the following commands for different purposes:
 
-- `glab stack save`: Creates a new diff (commit and branch). Use this when you're adding
-  a new logical change to your stack.
-- `glab stack amend`: Modifies the current diff. Use this when responding to review feedback
-  or fixing the current change.
+- `glab stack save`: Creates a new diff (commit and branch). Use this when you're adding a new logical change to your stack.
+- `glab stack amend`: Modifies the current diff. Use this when responding to review feedback or fixing the current change.

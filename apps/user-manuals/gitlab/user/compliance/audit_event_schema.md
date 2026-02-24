@@ -35,7 +35,7 @@ Audit events have a predictable schema in the body of the response.
 
 ```json
 {
-  "properties": {
+ "properties": {
     "id": {
       "type": "string"
     },
@@ -70,8 +70,8 @@ Audit events have a predictable schema in the body of the response.
     "target_details": {
       "type": "string"
     },
-  },
-  "type": "object"
+ },
+ "type": "object"
 }
 ```
 
@@ -109,11 +109,11 @@ Fetch:
 
 ```json
 {
-  "id": "1",
-  "author_id": -3,
-  "entity_id": 29,
-  "entity_type": "Project",
-  "details": {
+ "id": "1",
+ "author_id": -3,
+ "entity_id": 29,
+ "entity_type": "Project",
+ "details": {
     "author_name": "deploy-key-name",
     "author_class": "DeployKey",
     "target_id": 29,
@@ -125,14 +125,14 @@ Fetch:
     },
     "ip_address": "127.0.0.1",
     "entity_path": "example-group/example-project"
-  },
-  "ip_address": "127.0.0.1",
-  "author_name": "deploy-key-name",
-  "entity_path": "example-group/example-project",
-  "target_details": "example-project",
-  "created_at": "2022-07-26T05:43:53.662Z",
-  "target_type": "Project",
-  "target_id": 29,
-  "event_type": "repository_git_operation"
+ },
+ "ip_address": "127.0.0.1",
+ "author_name": "deploy-key-name",
+ "entity_path": "example-group/example-project",
+ "target_details": "example-project",
+ "created_at": "2022-07-26T05:43:53.662Z",
+ "target_type": "Project",
+ "target_id": 29,
+ "event_type": "repository_git_operation"
 }
 ```

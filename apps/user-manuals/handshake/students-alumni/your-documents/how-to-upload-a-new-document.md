@@ -50,17 +50,17 @@ Handshake will automatically attempt to convert any .DOC or .DOCX format to a PD
 3. Add the following:
 
 - Document file (add from computer)
-  - Click on the field **Choose file** to upload a document from your computer
+ - Click on the field **Choose file** to upload a document from your computer
 - **Document Name** (t*ext field*)
-  - This field defaults to the file name of your document. However, you can change it by clicking in the text box and typing the desired name within the field!
+ - This field defaults to the file name of your document. However, you can change it by clicking in the text box and typing the desired name within the field!
     - **Tip**: If you're uploading a resume for a specific application, include the company name in the Document Name for future reference!
 - **Document Type** (*dropdown*)
-  - Choose the corresponding document type: Resume, Cover Letter, Transcript, Other Document
+ - Choose the corresponding document type: Resume, Cover Letter, Transcript, Other Document
     - **Tip**: *Pay special attention to the document type!* If you upload a transcript but set the document type as resume, it won't be included in your list of transcript documents when applying for jobs. Make sure the document type accurately represents the document.
 - **Public** (*check box*)
-  - Check the box if you want your profile to be made viewable to employers. If kept private, documents will be stored here for use when applying to jobs and interviews. To learn more about this, check out [Understanding Document Visibility](../privacy-safety/understanding-document-visibility.md).
+ - Check the box if you want your profile to be made viewable to employers. If kept private, documents will be stored here for use when applying to jobs and interviews. To learn more about this, check out [Understanding Document Visibility](../privacy-safety/understanding-document-visibility.md).
 - **Description** (t*ext field*)
-  - Add a description of the uploaded document if relevant or desired!
+ - Add a description of the uploaded document if relevant or desired!
 
 ![Upload document screen.png](https://support.joinhandshake.com/hc/article_attachments/29606377879447)
 

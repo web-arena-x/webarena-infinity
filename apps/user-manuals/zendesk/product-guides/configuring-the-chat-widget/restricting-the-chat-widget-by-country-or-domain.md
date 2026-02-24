@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408887520282-Restricting-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Team, Professional, or Enterprise |
 
@@ -22,9 +22,9 @@ Prevent the widget from loading in certain countries by adding them to the Block
 
 1. From the Chat dashboard, go to **Settings**> **Widget**> **Widget Security** tab.
 2. Next to **Blocked Countries**, select **On**.
-3. To add a country to the blocklist, select it from the dropdown menu.   
+3. To add a country to the blocklist, select it from the dropdown menu.  
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/chat_block_menu.png)
-4. To remove a country from the blocklist, click on its tile.  
+4. To remove a country from the blocklist, click on its tile. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/chat_unblock_country.png)
 5. Click **Save Changes**.
 
@@ -38,6 +38,6 @@ You can enter an unlimited number of URL paths. It will do an exact match with w
 
 1. From the dashboard, go to **Settings**> **Widget**> **Widget Security** tab.
 2. Next to **Allowed Domains**, select **On**.
-3. Enter the domains you want to allow in the field. To add additional domains, click the **+**button.  
+3. Enter the domains you want to allow in the field. To add additional domains, click the **+**button. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/chat_allow_domain.png)
 4. Click **Save Changes**.

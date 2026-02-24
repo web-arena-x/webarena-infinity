@@ -6,17 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408823158426-Zendesk-term
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-When moving across to Zendesk from Freshdesk, part of the onboarding process is becoming
-familiar with the terminology used. This article correlates Freshdesk terminology to
-Zendesk Support.
+When moving across to Zendesk from Freshdesk, part of the onboarding process is becoming familiar with the terminology used. This article correlates Freshdesk terminology to Zendesk Support.
 
 This article has the following sections:
 
@@ -26,18 +24,13 @@ This article has the following sections:
 
 Related articles:
 
-- [Introduction to the Support agent
-  interface](https://support.zendesk.com/hc/en-us/articles/4408883355546)
+- [Introduction to the Support agent interface](https://support.zendesk.com/hc/en-us/articles/4408883355546)
 
 ## People
 
-In Freshdesk and Zendesk, the main user roles are administrators and agents. They can
-be assigned to a role or a group to help manage your support workflow. There are
-also customer roles which are the people who create support requests. In Zendesk,
-they can be configured as external or internal based on their access to Support. The
-table below provides a list of terms used in Freshdesk and Support.
+In Freshdesk and Zendesk, the main user roles are administrators and agents. They can be assigned to a role or a group to help manage your support workflow. There are also customer roles which are the people who create support requests. In Zendesk, they can be configured as external or internal based on their access to Support. The table below provides a list of terms used in Freshdesk and Support.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Freshdesk term** | **Zendesk term** | **Description** |
 | Administrator | Admin | An agent with additional privileges to configure and manage your ticketing system. |
@@ -50,11 +43,9 @@ table below provides a list of terms used in Freshdesk and Support.
 
 ## Tickets
 
-A ticketing system is the mechanism for agents to resolve support requests
-from customers. The following table shows terminology relating to ticket features
-and functions used in Freshdesk and Support.
+A ticketing system is the mechanism for agents to resolve support requests from customers. The following table shows terminology relating to ticket features and functions used in Freshdesk and Support.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Freshdesk term** | **Zendesk term** | **Description** |
 | Due by time | First reply time | When a ticket needs to be responded to or resolved as defined by the SLA policy. |
@@ -66,12 +57,9 @@ and functions used in Freshdesk and Support.
 
 ## Tools
 
-Freshdesk and Zendesk provide business rules to help automate and manage
-your support workflow. They also provide metrics to measure customer service
-performance and the ability to report customer feedback. The table below correlates
-Freshdesk terminology to Support.
+Freshdesk and Zendesk provide business rules to help automate and manage your support workflow. They also provide metrics to measure customer service performance and the ability to report customer feedback. The table below correlates Freshdesk terminology to Support.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Freshdesk term** | **Zendesk term** | **Description** |
 | Automation rule | Triggers | When a ticket is created or updated, an action is automatically performed based on predefined conditions. A trigger is a type of business rule. To learn more about triggers in Support, see [About triggers and how they work](https://support.zendesk.com/hc/en-us/articles/4408822236058) |

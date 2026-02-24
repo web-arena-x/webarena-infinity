@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408832356762-Using-the-em
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Enterprise |
 
@@ -41,11 +41,11 @@ In this example, we'll set up a *notify requester of comment update* trigger and
 
 1. In [Admin Center](https://support.zendesk.com/hc/en-us/articles/4408838272410), click the **Objects and rules** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ac_objects_rules_icon.png)) in the sidebar, then select **Business rules > Triggers**.
 2. Find the *Notify requester of comment update* trigger, then click **Edit**.
-3. Add the condition [Brand] [Is] [Acme], then click **Save**.  
+3. Add the condition [Brand] [Is] [Acme], then click **Save**. 
      
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/brand-trigger-1.png)
 4. Hover your mouse over the trigger you just modified, then click **Clone.**
-5. Change your cloned trigger so that the brand condition matches your second brand, in this case Brand-X, then click **Save**.  
+5. Change your cloned trigger so that the brand condition matches your second brand, in this case Brand-X, then click **Save**. 
    At this point you have two functional triggers with nothing different about them. From here you can differentiate the brands.
 6. Edit the Notify trigger action in your new trigger and update the message with whatever needs to be changed for your brand.
 
@@ -55,8 +55,8 @@ An update was made to your ticket by one of our Acme support reps. You can reply
 
 To support Brand-X, you can update the phone number and brand name to create an alternate version:
 
-An update was made to your ticket by one of our Brand-X support reps. You can reply to this email if you need more information or reach during business hours by phone at +1-888-765-4321.  
-  
+An update was made to your ticket by one of our Brand-X support reps. You can reply to this email if you need more information or reach during business hours by phone at +1-888-765-4321. 
+ 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/brand-trigger-2.png)
 
 You can go a step further by adding logos using HTML. For example, Acme can add their corporate logo to their emails. Because they've created multiple triggers, they can now brand each one differently.

@@ -91,31 +91,31 @@ After the interviews are selected, click the following actions directly from the
 
 - **Send Email to Contacts or Requester**: This will create a new email with the recipients set to the the Contacts of the interview, Requester, or Yourself via Handshake.
 - **Print Packets**: This will allow you to print an interview packet by Room, Employer, or Employer and Room. You can choose what is included in this printout:
-  - Schedule Details
-  - Contact Details
-  - Required Documents
+ - Schedule Details
+ - Contact Details
+ - Required Documents
     - Resume
     - Cover Letter
     - Transcript
     - Other Documents
-  - Applicant Profiles
+ - Applicant Profiles
 
  Click the **More** drop-down to:
 
 - **Add Label**: This will apply a label to the interviews
 - **Remove Label**: This will remove the existing label from the interview
 - **Download Checkins to CSV:** You'll be able to download the following information from the interviews:
-  - Check-in Date
-  - Student ID
-  - Student First Name
-  - Student Last Name
-  - Student Email
-  - Student School year
-  - Student School
-  - Student Graduation Date
-  - Majors
-  - Interview ID
-  - Interview Employer
+ - Check-in Date
+ - Student ID
+ - Student First Name
+ - Student Last Name
+ - Student Email
+ - Student School year
+ - Student School
+ - Student Graduation Date
+ - Majors
+ - Interview ID
+ - Interview Employer
 
 ![More_Bulk_Actions_Image.png](https://support.joinhandshake.com/hc/article_attachments/25998877955223)
 

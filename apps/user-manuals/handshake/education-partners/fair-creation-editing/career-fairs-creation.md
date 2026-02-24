@@ -16,11 +16,11 @@ Basic Information
 
 - **Career Fair Name**
 - **Career Fair Logo** *(for our image size guide, refer to [Handshake Image Size Guide](https://support.joinhandshake.com/hc/en-us/articles/219132827)**)*
-- \***Career center**  *(this will only appear if you have more than one career center configured for fairs)*
+- \***Career center** *(this will only appear if you have more than one career center configured for fairs)*
 - **Point of Contact for Students** *(select from an existing contact or create a new one)*
 - **Status** 
-  - **Published**: *visible to students and employers*
-  - **Drafting**: *only visible to career service users*
+ - **Published**: *visible to students and employers*
+ - **Drafting**: *only visible to career service users*
 
 ![new_fair_-_basic_information.png](https://support.joinhandshake.com/hc/article_attachments/25997635860247)
 
@@ -29,14 +29,14 @@ Location
 The following steps are for an in-person fair. If you're creating a virtual fair, refer to [Virtual Fairs: Creation](https://support.joinhandshake.com/hc/en-us/articles/360050727073).
 
 - **Is this career fair in-person or virtual?**
-  - **In-person** *(select In-person)*
-  - **Virtual**
+ - **In-person** *(select In-person)*
+ - **Virtual**
 - **Is this career fair facilitated on Handshake?** *(select one–for in-person fairs, you can select either option with no impact on the fair)*
-  - **Yes**
-  - **No**
+ - **Yes**
+ - **No**
 - **Student Registration Link** *(add link to textbox if external)*
 - **Location** *(enter the address for your in-person fair)*
-  - **Note**: Handshake doesn't currently support multi-location fairs. We recommend creating separate fairs for each location and adding the specific location number (ex: #1, #2, ect.) within the title of the fair.
+ - **Note**: Handshake doesn't currently support multi-location fairs. We recommend creating separate fairs for each location and adding the specific location number (ex: #1, #2, ect.) within the title of the fair.
 
 ![in-person_fair_-_location.png](https://support.joinhandshake.com/hc/article_attachments/25997635856791)
 
@@ -49,7 +49,7 @@ Dates and Times
 - **Industry focus** *(select employer industries that you'd like to be represented at the fair, if you aren't sure, select All)*
 - **Booth Map** *(click **Choose File** to upload your map. You can always add this later)*
 - **Add new date and time** *(formerly called sessions)*
-  - If you choose to add more than one date and time, you'll need to enter information for each session individually (Start time, End time, Focus Area, Industry focus, and Booth Map)
+ - If you choose to add more than one date and time, you'll need to enter information for each session individually (Start time, End time, Focus Area, Industry focus, and Booth Map)
 
 ![new_fair_-_dates_and_times.png](https://support.joinhandshake.com/hc/article_attachments/25997655624855)
 
@@ -58,10 +58,10 @@ Student Information
 - **Career fair is invite-only** *(check the box if only invited students should attend)*
 - **Student registration start**and**end dates** and **times** *(click the calendar icon to the right of the box to choose)*
 - **Registration Limit** *(check the box if you would like to limit how many students can register for this fair)*
-  - *(Enter the number below for the number of students that can register for this fair)*
+ - *(Enter the number below for the number of students that can register for this fair)*
 - **Waitlist***(this option is available if there is a Registration Limit. Check the box to enable a waitlist that students can join after the registration limit has reached maximum capacity. Learn more about waitlists here [Waitlists for Fairs & Events](https://support.joinhandshake.com/hc/en-us/articles/360041903773))*
-  - **Automatically move students off the waitlist in the order they joined (recommended)***(check this box to set up your waitlist to automatically transfer students from waitlist to registration when a spot opens up)*
-  - **Manually move students off the waitlist** *(check this box to move students from the waitlist to registration manually when a spot opens up)*
+ - **Automatically move students off the waitlist in the order they joined (recommended)***(check this box to set up your waitlist to automatically transfer students from waitlist to registration when a spot opens up)*
+ - **Manually move students off the waitlist** *(check this box to move students from the waitlist to registration manually when a spot opens up)*
 - **Estimated student attendance** *(enter the number of students that you expect to register for this career fair)*
 - **Student registration survey** *(add a survey from the dropdown you'd like students to complete as part of registration. If you aren't able to locate the survey you want to include, create it by clicking the link.)*
 - **Make available to ALL non-Handshake schools** *(check the box to allow any student on Handshake with a non-partnered school, and/or community members, to view and register for this fair)*
@@ -71,13 +71,13 @@ Student Information
 Employer Information
 
 - **Hide this career fair from employers** *(check the box to hide the fair)*
-  - **Note**: if the fair is hidden, employers won't be able to discover the career fair unless you share the employer preview link with them.
+ - **Note**: if the fair is hidden, employers won't be able to discover the career fair unless you share the employer preview link with them.
 - **Employer registration start** and **end** **dates** and **times** *(click the calendar icon to the right of the box to choose)*
 - **Estimated employer registrations** *(enter the number of employers you expect to register for this fair)*
 - **Employer instructions** *(enter any instructions that should be displayed to employers on the registration page, not visible to students)*
 - **Employer payment method**s *(select one or both)*
-  - **Credit Card** *(payments have to be enabled at your school to select Credit Card)*
-  - **Other**
+ - **Credit Card** *(payments have to be enabled at your school to select Credit Card)*
+ - **Other**
 - **Payment Instructions** *(enter any payment instructions. These are sent to the employer within the invoice notification email and will also appear on the employer invoice if you allow "*Other*" as a payment method)*
 - **Approve employers before invoicing** *(check the box if required)*
 - **Employer refund policy** *(enter the refund policy for the fair. These instructions are sent in the invoice notification email and are on the invoice if you allow manual payments.)*
@@ -111,7 +111,7 @@ Additional Information
 
 - **Name tag printing** *(check this box if attendees will be able to print name tags from the check-in kiosk)*
 - **Name tag label XML** *(add the XML for the name tag label. Only Dymo label printers are supported. Label fields named 'Name', 'FirstName', 'LastName', 'Major', 'GradDate', and 'MajorGradDate' are supported.)*
-  - For assistance with XML formatting, check out [Name Tag XML Formatting](https://support.joinhandshake.com/hc/en-us/articles/360005841133).
+ - For assistance with XML formatting, check out [Name Tag XML Formatting](https://support.joinhandshake.com/hc/en-us/articles/360005841133).
 
 ![name_tag_printing.png](https://support.joinhandshake.com/hc/article_attachments/25997635858455)
 

@@ -15,8 +15,7 @@ title: IP allowlist
 GitLab provides some [monitoring endpoints](health_check.md)
 that provide health check information when probed.
 
-To control access to those endpoints through IP allowlisting, you can add single
-hosts or use IP ranges:
+To control access to those endpoints through IP allowlisting, you can add single hosts or use IP ranges:
 
 {{< tabs >}}
 

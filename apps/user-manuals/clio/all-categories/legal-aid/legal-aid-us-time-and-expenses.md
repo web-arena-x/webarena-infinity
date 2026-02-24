@@ -84,7 +84,7 @@ Clio for Co-Counsel allows you to work with individuals outside of your Clio acc
    - Under **Permissions**, select **Everyone**.
 3. Share the placeholder matter with your co-counsel volunteer contacts. Learn more about sharing matters via Clio for Co-Counsel [here](https://help.clio.com/hc/en-us/articles/9290191798683).
    - In the share modal, select all the volunteer contacts that you want to share the matter with. You do not need to check the box for **Notify contacts via email** since this is for a personalized message.
-4. If you created a primary email account and plussing email accounts for your volunteers, any emails sent to the volunteers' plussing email accounts will be sent to the primary email account that you created. Go to these emails and follow the directions to create co-counsel accounts for each of your volunteers.  
+4. If you created a primary email account and plussing email accounts for your volunteers, any emails sent to the volunteers' plussing email accounts will be sent to the primary email account that you created. Go to these emails and follow the directions to create co-counsel accounts for each of your volunteers. 
    - Once each account is created, the volunteer contact will be added as a co-counsel user under the placeholder matter's **Clio for Co-Counsel** subtab.
 5. Create a new time entry to track time on behalf of a volunteer co-counsel user.
    - Under **Matter,** select the placeholder matter.

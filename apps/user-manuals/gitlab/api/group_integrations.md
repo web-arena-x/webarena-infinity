@@ -37,7 +37,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 75,
     "title": "Jenkins CI",
     "slug": "jenkins",
@@ -60,8 +60,8 @@ Example response:
     "comment_on_event_enabled": true,
     "inherited": false,
     "vulnerability_events": true
-  },
-  {
+ },
+ {
     "id": 76,
     "title": "Alerts endpoint",
     "slug": "alerts",
@@ -84,7 +84,7 @@ Example response:
     "comment_on_event_enabled": true,
     "inherited": false,
     "vulnerability_events": true
-  }
+ }
 ]
 ```
 
@@ -209,7 +209,7 @@ Parameters:
 
 | Parameter | Type | Required | Description |
 | --------- | ---- | -------- | ----------- |
-| `new_issue_url` | string | yes |  URL of the new issue. |
+| `new_issue_url` | string | yes | URL of the new issue. |
 | `issues_url` | string | yes | URL of the issue. |
 | `project_url` | string | yes | URL of the project. |
 | `use_inherited_settings` | boolean | no | Indicates whether or not to inherit default settings. Defaults to `false`. |
@@ -270,8 +270,7 @@ GET /groups/:id/integrations/buildkite
 
 ## Campfire Classic
 
-You can integrate with Campfire Classic. However, Campfire Classic is an old product that is
-[no longer sold](https://gitlab.com/gitlab-org/gitlab/-/issues/329337) by Basecamp.
+You can integrate with Campfire Classic. However, Campfire Classic is an old product that is [no longer sold](https://gitlab.com/gitlab-org/gitlab/-/issues/329337) by Basecamp.
 
 ### Set up Campfire Classic
 
@@ -285,9 +284,9 @@ Parameters:
 
 | Parameter     | Type    | Required | Description                                                                                 |
 |---------------|---------|----------|---------------------------------------------------------------------------------------------|
-| `token`       | string  | yes     | API authentication token from Campfire Classic. To get the token, sign in to Campfire Classic and select **My info**. |
-| `subdomain`   | string  | no    | `.campfirenow.com` subdomain when you're signed in. |
-| `room`        | string  | no    | ID portion of the Campfire Classic room URL. |
+| `token`       | string | yes     | API authentication token from Campfire Classic. To get the token, sign in to Campfire Classic and select **My info**. |
+| `subdomain`   | string | no    | `.campfirenow.com` subdomain when you're signed in. |
+| `room`        | string | no    | ID portion of the Campfire Classic room URL. |
 | `use_inherited_settings` | boolean | no | Indicates whether or not to inherit default settings. Defaults to `false`. |
 
 ### Disable Campfire Classic
@@ -320,7 +319,7 @@ Parameters:
 
 | Parameter     | Type   | Required | Description    |
 | ------------- | ------ | -------- | -------------- |
-| `issues_url`  | string | yes     | URL of the issue.     |
+| `issues_url` | string | yes     | URL of the issue.     |
 | `project_url` | string | yes     | URL of the project.   |
 | `use_inherited_settings` | boolean | no | Indicates whether or not to inherit default settings. Defaults to `false`. |
 
@@ -387,7 +386,7 @@ Parameters:
 
 | Parameter | Type | Required | Description |
 | --------- | ---- | -------- | ----------- |
-| `new_issue_url` | string | yes |  URL of the new issue. |
+| `new_issue_url` | string | yes | URL of the new issue. |
 | `issues_url` | string | yes | URL of the issue. |
 | `project_url` | string | yes | URL of the project. |
 | `use_inherited_settings` | boolean | no | Indicates whether or not to inherit default settings. Defaults to `false`. |
@@ -422,12 +421,12 @@ Parameters:
 
 | Parameter              | Type    | Required | Description                                                                                                                                                                            |
 |------------------------|---------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `api_key`              | string  | yes     | API key used for authentication with Datadog.                                                                                                                                          |
-| `api_url`              | string  | no    | (Advanced) The full URL for your Datadog site.                                                                                                                                          |
-| `datadog_env`          | string  | no    | For self-managed deployments, set the `env%` tag for all the data sent to Datadog.                                                                                                      |
-| `datadog_service`      | string  | no    | Tag all data from this GitLab instance in Datadog. Can be used when managing several self-managed deployments.                                                                          |
-| `datadog_site`         | string  | no    | The Datadog site to send data to. To send data to the EU site, use `datadoghq.eu`.                                                                                                      |
-| `datadog_tags`         | string  | no    | Custom tags in Datadog. Specify one tag per line in the format `key:value\nkey2:value2`                                                                                                 |
+| `api_key`              | string | yes     | API key used for authentication with Datadog.                                                                                                                                          |
+| `api_url`              | string | no    | (Advanced) The full URL for your Datadog site.                                                                                                                                          |
+| `datadog_env`          | string | no    | For self-managed deployments, set the `env%` tag for all the data sent to Datadog.                                                                                                      |
+| `datadog_service`      | string | no    | Tag all data from this GitLab instance in Datadog. Can be used when managing several self-managed deployments.                                                                          |
+| `datadog_site`         | string | no    | The Datadog site to send data to. To send data to the EU site, use `datadoghq.eu`.                                                                                                      |
+| `datadog_tags`         | string | no    | Custom tags in Datadog. Specify one tag per line in the format `key:value\nkey2:value2`                                                                                                 |
 | `archive_trace_events` | boolean | no    | When enabled, job logs are collected by Datadog and displayed along with pipeline execution traces. |
 | `use_inherited_settings` | boolean | no | Indicates whether or not to inherit default settings. Defaults to `false`. |
 
@@ -463,7 +462,7 @@ Parameters:
 | --------- | ---- | -------- | ----------- |
 | `diffblue_license_key` | string | yes | Diffblue Cover license key. |
 | `diffblue_access_token_name` | string | yes | Access token name used by Diffblue Cover in pipelines. |
-| `diffblue_access_token_secret` | string  | yes | Access token secret used by Diffblue Cover in pipelines. |
+| `diffblue_access_token_secret` | string | yes | Access token secret used by Diffblue Cover in pipelines. |
 | `use_inherited_settings` | boolean | no | Indicates whether or not to inherit default settings. Defaults to `false`. |
 
 ### Disable Diffblue Cover
@@ -701,10 +700,8 @@ On GitLab.com, this feature is not available. On GitLab Dedicated, this feature 
 
 {{< /alert >}}
 
-[GitGuardian](https://www.gitguardian.com/) is a cybersecurity service that detects sensitive data such as API keys
-and passwords in source code repositories.
-It scans Git repositories, alerts on policy violations, and helps organizations
-fix security issues before hackers can exploit them.
+[GitGuardian](https://www.gitguardian.com/) is a cybersecurity service that detects sensitive data such as API keys and passwords in source code repositories.
+It scans Git repositories, alerts on policy violations, and helps organizations fix security issues before hackers can exploit them.
 
 You can configure GitLab to reject commits based on GitGuardian policies.
 
@@ -817,8 +814,7 @@ GET /groups/:id/integrations/jira-cloud-app
 
 Update the GitLab for Slack app integration for a group.
 
-You cannot create a GitLab for Slack app through the API because the integration
-requires an OAuth 2.0 token that you cannot get from the GitLab API alone.
+You cannot create a GitLab for Slack app through the API because the integration requires an OAuth 2.0 token that you cannot get from the GitLab API alone.
 Instead, you must [install the app](../user/project/integrations/gitlab_slack_application.md#install-the-gitlab-for-slack-app) from the GitLab UI.
 You can then use this API endpoint to update the integration.
 
@@ -1148,8 +1144,8 @@ Parameters:
 | `url`           | string | yes | The URL to the Jira project which is being linked to this GitLab project (for example, `https://jira.example.com`). |
 | `api_url`   | string | no | The base URL to the Jira instance API. Web URL value is used if not set (for example, `https://jira-api.example.com`). |
 | `username`      | string | no   | The email or username to be used with Jira. For Jira Cloud use an email, for Jira Data Center and Jira Server use a username. Required when using Basic authentication (`jira_auth_type` is `0`). |
-| `password`      | string | yes  | The Jira API token, password, or personal access token to be used with Jira. When your authentication method is basic (`jira_auth_type` is `0`), use an API token for Jira Cloud or a password for Jira Data Center or Jira Server. When your authentication method is a Jira personal access token (`jira_auth_type` is `1`), use the personal access token. |
-| `jira_auth_type`| integer | no  | The authentication method to be used with Jira. `0` means Basic Authentication. `1` means Jira personal access token. Defaults to `0`. |
+| `password`      | string | yes | The Jira API token, password, or personal access token to be used with Jira. When your authentication method is basic (`jira_auth_type` is `0`), use an API token for Jira Cloud or a password for Jira Data Center or Jira Server. When your authentication method is a Jira personal access token (`jira_auth_type` is `1`), use the personal access token. |
+| `jira_auth_type`| integer | no | The authentication method to be used with Jira. `0` means Basic Authentication. `1` means Jira personal access token. Defaults to `0`. |
 | `jira_issue_prefix` | string | no | Prefix to match Jira issue keys. |
 | `jira_issue_regex` | string | no | Regular expression to match Jira issue keys. |
 | `jira_issue_transition_automatic` | boolean | no | Enable [automatic issue transitions](../integration/jira/issues.md#automatic-issue-transitions). Takes precedence over `jira_issue_transition_id` if enabled. Defaults to `false`. |
@@ -1197,7 +1193,7 @@ Parameters:
 
 | Parameter     | Type   | Required | Description    |
 | ------------- | ------ | -------- | -------------- |
-| `workspace_url`  | string | yes     | URL of the issue.     |
+| `workspace_url` | string | yes     | URL of the issue.     |
 | `use_inherited_settings` | boolean | no | Indicates whether or not to inherit default settings. Defaults to `false`. |
 
 ### Disable Linear
@@ -1797,25 +1793,25 @@ Example response:
 
 ```json
 {
-  "id": 4,
-  "title": "Slack slash commands",
-  "slug": "slack-slash-commands",
-  "created_at": "2017-06-27T05:51:39-07:00",
-  "updated_at": "2017-06-27T05:51:39-07:00",
-  "active": true,
-  "push_events": true,
-  "issues_events": true,
-  "confidential_issues_events": true,
-  "merge_requests_events": true,
-  "tag_push_events": true,
-  "note_events": true,
-  "job_events": true,
-  "pipeline_events": true,
-  "comment_on_event_enabled": false,
-  "inherited": false,
-  "properties": {
+ "id": 4,
+ "title": "Slack slash commands",
+ "slug": "slack-slash-commands",
+ "created_at": "2017-06-27T05:51:39-07:00",
+ "updated_at": "2017-06-27T05:51:39-07:00",
+ "active": true,
+ "push_events": true,
+ "issues_events": true,
+ "confidential_issues_events": true,
+ "merge_requests_events": true,
+ "tag_push_events": true,
+ "note_events": true,
+ "job_events": true,
+ "pipeline_events": true,
+ "comment_on_event_enabled": false,
+ "inherited": false,
+ "properties": {
     "token": "<your_access_token>"
-  }
+ }
 }
 ```
 

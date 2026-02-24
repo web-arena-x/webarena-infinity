@@ -15,19 +15,13 @@ title: Work items
 {{< /details >}}
 
 Work items are the core elements for planning and tracking work in GitLab.
-Planning and tracking product development often requires breaking work into smaller, manageable parts
-while maintaining connection to the bigger picture.
-Work items are designed around this fundamental need, providing a unified way to represent units of
-work at any level, from strategic initiatives to individual tasks.
+Planning and tracking product development often requires breaking work into smaller, manageable parts while maintaining connection to the bigger picture.
+Work items are designed around this fundamental need, providing a unified way to represent units of work at any level, from strategic initiatives to individual tasks.
 
-The hierarchical nature of work items enables clear relationships between different levels of work,
-helping teams understand how daily tasks contribute to larger goals and how strategic objectives break
-down into actionable components.
+The hierarchical nature of work items enables clear relationships between different levels of work, helping teams understand how daily tasks contribute to larger goals and how strategic objectives break down into actionable components.
 
-This structure supports various planning frameworks like Scrum, Kanban, and portfolio management
-approaches, while giving teams visibility into progress at every level.
-With work items, you can organize your team's work using common structures that support various
-planning frameworks including Scrum, Kanban, and portfolio management approaches.
+This structure supports various planning frameworks like Scrum, Kanban, and portfolio management approaches, while giving teams visibility into progress at every level.
+With work items, you can organize your team's work using common structures that support various planning frameworks including Scrum, Kanban, and portfolio management approaches.
 
 ## Work item types
 
@@ -62,8 +56,7 @@ When you enable this feature, it:
 
 - Removes **Plan** > **Issues** and **Plan** > **Epics** from the left sidebar in groups and projects.
 - Adds **Plan** > **Work items** to the left sidebar.
-- Pins **Work items** on the left sidebar for projects and groups, if you had previously pinned
-  **Plan** > **Issues** or **Plan** > **Epics**.
+- Pins **Work items** on the left sidebar for projects and groups, if you had previously pinned **Plan** > **Issues** or **Plan** > **Epics**.
 - Removes **Settings** > **Issues** from the left sidebar in groups.
 - Adds **Settings** > **Work items** to the left sidebar in groups.
 
@@ -94,43 +87,42 @@ managing_issues.md#filter-the-list-of-issues here -->
 These filters are available for work items:
 
 - Assignee
-  - Operators: `is`, `is not one of`, `is one of`
+ - Operators: `is`, `is not one of`, `is one of`
 - Author
-  - Operators: `is`, `is not one of`, `is one of`
+ - Operators: `is`, `is not one of`, `is one of`
 - Confidential
-  - Values: `Yes`, `No`
+ - Values: `Yes`, `No`
 - Contact
-  - Operators: `is`
+ - Operators: `is`
 - Status
-  - Operators: `is`
+ - Operators: `is`
 - Health status
-  - Operators: `is`, `is not`
+ - Operators: `is`, `is not`
 - Iteration
-  - Operators: `is`, `is not`
+ - Operators: `is`, `is not`
 - Label
-  - Operators: `is`, `is not one of`, `is one of`
+ - Operators: `is`, `is not one of`, `is one of`
 - Milestone
-  - Operators: `is`, `is not`
+ - Operators: `is`, `is not`
 - My reaction
-  - Operators: `is`, `is not`
+ - Operators: `is`, `is not`
 - Organisation
-  - Operators: `is`
+ - Operators: `is`
 - Parent
-  - Operators: `is`, `is not`
-  - Values: Any `Issue`, `Epic`, `Objective`
+ - Operators: `is`, `is not`
+ - Values: Any `Issue`, `Epic`, `Objective`
 - Release
-  - Operators: `is`, `is not`
+ - Operators: `is`, `is not`
 - Search within
-  - Operators: `Titles`, `Descriptions`
+ - Operators: `Titles`, `Descriptions`
 - State
-  - Values: `Any`, `Open`, `Closed`
+ - Values: `Any`, `Open`, `Closed`
 - Type
-  - Values: `Issue`, `Incident`, `Task`, `Epic`, `Objective`, `Key Result`, `Test case`
+ - Values: `Issue`, `Incident`, `Task`, `Epic`, `Objective`, `Key Result`, `Test case`
 - Weight
-  - Operators: `is`, `is not`
+ - Operators: `is`, `is not`
 
-To access filters you've used recently, on the left side of the filter bar, select the
-**Recent searches** ({{< icon name="history" >}}) dropdown list.
+To access filters you've used recently, on the left side of the filter bar, select the **Recent searches** ({{< icon name="history" >}}) dropdown list.
 
 ### Sort work items
 
@@ -159,11 +151,9 @@ To change the sorting criteria:
 
 To toggle the sorting order between ascending and descending:
 
-- On the right of the filter bar, select **Sort direction** ({{< icon name="sort-lowest" >}}
-  or {{< icon name="sort-highest" >}}).
+- On the right of the filter bar, select **Sort direction** ({{< icon name="sort-lowest" >}} or {{< icon name="sort-highest" >}}).
 
-For more information about sorting logic, see
-[Sorting and ordering issue lists](../project/issues/sorting_issue_lists.md).
+For more information about sorting logic, see [Sorting and ordering issue lists](../project/issues/sorting_issue_lists.md).
 
 ## Configure list display preferences
 
@@ -174,16 +164,12 @@ For more information about sorting logic, see
 
 {{< /history >}}
 
-Customize how work items are displayed on the list pages by showing or hiding specific metadata
-fields and configuring view preferences.
+Customize how work items are displayed on the list pages by showing or hiding specific metadata fields and configuring view preferences.
 
 GitLab saves your display preferences at different levels:
 
-- **Fields**: Saved per namespace. You can have different field visibility settings for different
-  groups and projects based on your workflow needs. For example, you can show assignee and labels
-  in one group or project, but hide them in another.
-- **Your preferences**: Saved globally across all projects and groups. This ensures consistent
-  behavior for how you prefer to view work items.
+- **Fields**: Saved per namespace. You can have different field visibility settings for different groups and projects based on your workflow needs. For example, you can show assignee and labels in one group or project, but hide them in another.
+- **Your preferences**: Saved globally across all projects and groups. This ensures consistent behavior for how you prefer to view work items.
 
 To configure display preferences:
 
@@ -202,8 +188,7 @@ To configure display preferences:
    - Blocked/Blocking: Blocking relationship indicators
    - Comments: Comment counts
    - Popularity: Popularity metrics
-1. Under **Your preferences**, turn on or turn off **Open items in side panel** to choose how
-   epics open when you select them:
+1. Under **Your preferences**, turn on or turn off **Open items in side panel** to choose how epics open when you select them:
    - On (default): Items open in a drawer on the right side of the screen.
    - Off: Items open in a full page view.
 

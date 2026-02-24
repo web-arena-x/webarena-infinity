@@ -8,8 +8,7 @@ title: npm package publishing guidelines
 GitLab uses npm packages as a means to improve code reuse and modularity in and across projects.
 This document outlines the best practices and guidelines for securely publishing npm packages to npmjs.com.
 
-By adhering to these guidelines, we can ensure secure and reliable publishing of NPM packages,
-fostering trust and consistency in the GitLab ecosystem.
+By adhering to these guidelines, we can ensure secure and reliable publishing of NPM packages, fostering trust and consistency in the GitLab ecosystem.
 
 ## Setting up an npm account
 
@@ -29,10 +28,8 @@ fostering trust and consistency in the GitLab ecosystem.
    - **[Secret detection](../user/application_security/secret_detection/pipeline/_index.md)**
 1. Secure NPM tokens used for registry interactions:
    - Strongly consider using an external secret store like OpenBao or Vault
-   - At a minimum, store tokens [securely](../ci/pipeline_security/_index.md#cicd-variables) in environment variables
-     in GitLab CI/CD pipelines, ensuring that masking and protection is enabled.
-   - Do not store tokens on your local machine in unsecured locations. Instead, store tokens in 1Password and
-     refrain from storing these secrets in unencrypted files like shell profiles, `.npmrc`, and `.env`.
+   - At a minimum, store tokens [securely](../ci/pipeline_security/_index.md#cicd-variables) in environment variables in GitLab CI/CD pipelines, ensuring that masking and protection is enabled.
+   - Do not store tokens on your local machine in unsecured locations. Instead, store tokens in 1Password and refrain from storing these secrets in unencrypted files like shell profiles, `.npmrc`, and `.env`.
 1. Add `gitlab-bot` as author of the package. This ensures the organization retains ownership if a team member's email becomes invalid during offboarding.
 
 ### Dependency Integrity
@@ -41,8 +38,7 @@ fostering trust and consistency in the GitLab ecosystem.
 1. Consider performing [dependency pinning/specification](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file)
    to lock specific versions and prevent unintended upgrades to malicious or vulnerable versions.
    This may make upgrading dependencies more involved.
-1. Use `npm ci` (or `yarn install --frozen-lockfile`) instead of `npm install` in CI/CD pipelines
-   to ensure dependencies are installed exactly as defined in the lock file.
+1. Use `npm ci` (or `yarn install --frozen-lockfile`) instead of `npm install` in CI/CD pipelines to ensure dependencies are installed exactly as defined in the lock file.
 1. [Run untamper-my-lockfile](https://gitlab.com/gitlab-org/frontend/untamper-my-lockfile/#usage) to protect lockfile integrity.
 
 ### Enforcing CI/CD-Only Publishing
@@ -79,32 +75,32 @@ Below is an example `.gitlab-ci.yml` configuration for publishing an NPM package
 
 ```yaml
 stages:
-  - test
-  - build
-  - deploy
+ - test
+ - build
+ - deploy
 
 test:
-  stage: test
-  image: node:22
-  script:
+ stage: test
+ image: node:22
+ script:
     - npm ci
     - npm test
 
 build:
-  stage: build
-  image: node:22
-  script:
+ stage: build
+ image: node:22
+ script:
     - npm ci
     - npm run build
 
 publish:
-  stage: deploy
-  image: node:22
-  script:
+ stage: deploy
+ image: node:22
+ script:
     - npm ci
     - npm run build
     - npm publish
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 ```
 

@@ -22,9 +22,9 @@ To make sure Figma applies changes to all instances of a component, you will nee
 
 - **Unpublished components**:
 
-  If you're on the Starter plan, or haven't published the components to a library, you can edit your main components like you would any other layers.
+ If you're on the Starter plan, or haven't published the components to a library, you can edit your main components like you would any other layers.
 
-  Figma will automatically apply any changes you make to the main component to any instances of the component in your file.
+ Figma will automatically apply any changes you make to the main component to any instances of the component in your file.
 - **Published components:**Figma will immediately apply any changes you make to any instances in that file. If you want those changes to apply to instances in other files, you will need to publish those changes to the library.
 
 **Want to change the location of components?** You can move published components between files and libraries. [Move published components.](https://help.figma.com/hc/en-us/articles/4404848314647/)
@@ -60,7 +60,7 @@ You can only push overrides if the main component is in the same file as the ins
 Note: It's not possible to push overrides to a component that's nested within another component. You will need to make those changes to the main component itself.
 
 1. Select the instance with your overrides applied to it. You need to select the parent frame of the instance, not a sublayer.
-2. In the right sidebar, click  next to the component name.
+2. In the right sidebar, click next to the component name.
 3. Select **Push overrides to main component** from the options.
 4. Figma will apply your overrides to the main component.
 

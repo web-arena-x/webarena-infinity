@@ -15,15 +15,14 @@ In Procore, an *RFI Manager* is the person responsible for overseeing an RFI th
 ## Things to Consider
 
 - **Required User Permissions**:
-  - *To designate the project's default RFI Manager for the projects RFIs*:
+ - *To designate the project's default RFI Manager for the projects RFIs*:
     - 'Admin' level permissions on the project's RFIs tool.
-  - *To be designated as the project's default RFI* *Manager*:
-    - 'Admin' level permission on the project's RFIs tool  
-      OR
+ - *To be designated as the project's default RFI* *Manager*:
+    - 'Admin' level permission on the project's RFIs tool OR
     - 'Read Only' or 'Standard' level permissions on the project's RFIs tool with the ['Act as RFI Manager' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on your permissions template.
 - **Additional Information**:
-  - Selecting the project's default RFI manager only affects new RFIs created after the setting was updated.
-  - See [What is the RFI Manager role?](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/designate-the-default-rfi-manager-for-a-projects-rfis "products/online/user-guide/project-level/rfi/tutorials/designate-the-default-rfi-manager-for-a-projects-rfis")
+ - Selecting the project's default RFI manager only affects new RFIs created after the setting was updated.
+ - See [What is the RFI Manager role?](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/designate-the-default-rfi-manager-for-a-projects-rfis "products/online/user-guide/project-level/rfi/tutorials/designate-the-default-rfi-manager-for-a-projects-rfis")
 
 ## Steps
 
@@ -32,13 +31,12 @@ In Procore, an *RFI Manager* is the person responsible for overseeing an RFI th
 3. Navigate to the **RFI Settings** page.
 4. Select one of the following option buttons:
    - To allow users with 'Standard' level permissions to select any user with the appropriate permissions as the RFI Manager when creating an RFI:
-     - Click the button next to 'If a Standard user creates an RFI, they can select any Admin user as the RFI Manager'  
-       *Note*: Users with 'Read Only' or 'Standard' level permissions on the project's RFIs tool with the ['Act as RFI Manager' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on their permissions template can also be selected as an RFI Manager if this option is selected.
+     - Click the button next to 'If a Standard user creates an RFI, they can select any Admin user as the RFI Manager' *Note*: Users with 'Read Only' or 'Standard' level permissions on the project's RFIs tool with the ['Act as RFI Manager' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#RFIs "Grant Granular Permissions in a Project Permissions Template") enabled on their permissions template can also be selected as an RFI Manager if this option is selected.
    - To select a user as the project's default RFI Manager:
      - Click the button next to 'If a Standard user creates an RFI, the RFI Manager will be:'.
-     - Select the user you want to designate as the project's default RFI Manager.  
+     - Select the user you want to designate as the project's default RFI Manager. 
        *Note:* Users with the appropriate permissions can edit an RFI's default RFI Manager when creating or editing an RFI. See [Create an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/create-an-rfi "Create an RFI") and [Edit an RFI](https://support.procore.com/products/online/user-guide/project-level/rfi/tutorials/edit-an-rfi "Edit an RFI").
-5. Click **Update**.  
+5. Click **Update**. 
    *Note:* Selecting the project's default RFI manager only affects new RFIs created after the setting was updated.
 
 ## Next Steps

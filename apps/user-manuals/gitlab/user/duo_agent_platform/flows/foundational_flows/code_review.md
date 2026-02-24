@@ -62,8 +62,7 @@ You can interact with GitLab Duo by:
 
 ### Automatic code reviews
 
-You can configure automatic code reviews for projects or groups to ensure all merge requests receive
-an initial review by GitLab Duo.
+You can configure automatic code reviews for projects or groups to ensure all merge requests receive an initial review by GitLab Duo.
 
 Learn how to [enable automatic reviews for a project](../../../project/merge_requests/duo_in_merge_requests.md#automatic-reviews-from-gitlab-duo-for-a-project).
 
@@ -71,8 +70,7 @@ Learn how to [enable automatic reviews for groups and applications](../../../pro
 
 ### Custom code review instructions
 
-Customize the behavior of Code Review Flow with repository-specific review instructions. You can
-guide GitLab Duo to:
+Customize the behavior of Code Review Flow with repository-specific review instructions. You can guide GitLab Duo to:
 
 - Focus on specific code quality aspects (such as security, performance, and maintainability).
 - Enforce coding standards and best practices unique to your project.
@@ -83,13 +81,10 @@ To configure custom instructions, see [customize instructions for GitLab Duo](..
 
 ## Differences from GitLab Duo Code Review (Classic)
 
-While the Code Review Flow provides the same core functionality as
-[GitLab Duo Code Review (Classic)](../../../project/merge_requests/duo_in_merge_requests.md#gitlab-duo-code-review-classic),
-the GitLab Duo Agent Platform implementation offers:
+While the Code Review Flow provides the same core functionality as [GitLab Duo Code Review (Classic)](../../../project/merge_requests/duo_in_merge_requests.md#gitlab-duo-code-review-classic), the GitLab Duo Agent Platform implementation offers:
 
 - Improved context awareness: Better understanding of repository structure and cross-file dependencies.
 - Agentic capabilities: Multi-step reasoning for more thorough analysis.
 - Modern architecture: Built on the scalable GitLab Duo Agent Platform.
 
-All existing features including custom instructions, automatic reviews, and interaction patterns
-remain compatible.
+All existing features including custom instructions, automatic reviews, and interaction patterns remain compatible.

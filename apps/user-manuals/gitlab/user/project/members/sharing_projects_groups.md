@@ -29,8 +29,7 @@ You can share by invitation:
 
 ## Sharing projects
 
-When you want a group to have access to your project,
-you can invite the [group](../../group/_index.md) to the project.
+When you want a group to have access to your project, you can invite the [group](../../group/_index.md) to the project.
 The group's direct and inherited members get access to the project, which becomes a **shared project**.
 
 In this case, inherited members are members that are inherited from parent groups into the groups that are invited.
@@ -61,8 +60,7 @@ For example, you can invite:
 - An **internal** group to a **public** project.
 - A **public** group to a **public** project.
 
-If the project's top-level group does not allow the project to be shared outside the hierarchy,
-the invited group or subgroup must be in the project's [namespace](../../namespace/_index.md).
+If the project's top-level group does not allow the project to be shared outside the hierarchy, the invited group or subgroup must be in the project's [namespace](../../namespace/_index.md).
 
 ### Member access and roles
 
@@ -77,9 +75,7 @@ Each member's access depends on:
 - Their role in the group.
 - The maximum role you choose when you invite the group.
 
-Invited members keep the lower of these two roles. For example, if a member has the Guest
-role in their group, and you add their group to a project with a maximum role of Maintainer,
-they keep the Guest role in the project.
+Invited members keep the lower of these two roles. For example, if a member has the Guest role in their group, and you add their group to a project with a maximum role of Maintainer, they keep the Guest role in the project.
 
 In addition:
 
@@ -88,9 +84,7 @@ In addition:
 - On the project's **Members** page, the members of the invited group are listed on the **Members** tab.
 - On the usage quota page, members who have the **Project Invite** badge next to their profile count towards the billable members of the shared project's top-level group.
 
-[In GitLab 16.11 and later](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/144638),
-the invited group's name and membership source are masked on the **Members** and the **Groups** tabs,
-unless one of the following applies:
+[In GitLab 16.11 and later](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/144638), the invited group's name and membership source are masked on the **Members** and the **Groups** tabs, unless one of the following applies:
 
 - The invited group is public.
 - The current user is a member of the invited group.
@@ -114,7 +108,7 @@ For a project that was created by `Group 1`:
 
 - The members of `Group 1` have access to the project.
 - The Owner of `Group 1` can invite `Group 2` to the project.
-  This way, members of both `Group 1` and `Group 2` have access to the shared project.
+ This way, members of both `Group 1` and `Group 2` have access to the shared project.
 
 ### Invite a group to a project
 
@@ -206,8 +200,7 @@ You can also use the REST API to [list a group's shared projects](../../../api/g
 ### Prevent a project from being shared with groups
 
 Sharing a project with another group increases the number of users who can invite yet more members to the project.
-Each (sub)group can be an additional source of access permissions,
-which can be confusing and difficult to control.
+Each (sub)group can be an additional source of access permissions, which can be confusing and difficult to control.
 
 To prevent a project from being shared with other groups:
 
@@ -229,8 +222,7 @@ When this setting is disabled:
 
 ## Sharing groups
 
-When you want another group's members to have access to your group,
-you can invite the [group](../../group/_index.md) to your group.
+When you want another group's members to have access to your group, you can invite the [group](../../group/_index.md) to your group.
 The group's direct members get access to the group, which becomes a **shared group**.
 
 Only direct members of the invited group get access to the shared group, not inherited, shared or subgroup members. To grant subgroup members access, invite the subgroup directly.
@@ -251,9 +243,7 @@ Each member's access depends on:
 - Their role in the invited group.
 - The maximum role you choose when you invite the group.
 
-Invited members keep the lower of these two roles. For example, if a member has the Guest
-role in their group, and you invite their group to another group with a maximum role of Maintainer,
-they keep the Guest role in the new group.
+Invited members keep the lower of these two roles. For example, if a member has the Guest role in their group, and you invite their group to another group with a maximum role of Maintainer, they keep the Guest role in the new group.
 
 After you invite a group to your group:
 
@@ -262,9 +252,7 @@ After you invite a group to your group:
 - On the group's **Members** page, the members of the invited group are listed on the **Members** tab.
 - On the group's usage quota page, direct members of the invited group who have the **Group Invite** badge next to their profile count towards the billable members of the inviting group.
 
-[In GitLab 16.11 and later](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/144638),
-the invited group's name and membership source are masked on the **Members** and the **Groups** tabs,
-unless one of the following applies:
+[In GitLab 16.11 and later](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/144638), the invited group's name and membership source are masked on the **Members** and the **Groups** tabs, unless one of the following applies:
 
 - The invited group is public.
 - The current user is a member of the invited group.
@@ -345,8 +333,7 @@ You can also use the REST API to [list a group's shared groups](../../../api/gro
 
 ### Prevent inviting groups outside the group hierarchy
 
-You can configure a top-level group so its subgroups and projects
-cannot invite other groups outside of the top-level group's hierarchy.
+You can configure a top-level group so its subgroups and projects cannot invite other groups outside of the top-level group's hierarchy.
 This option is only available for top-level groups.
 
 For example, in the following group and project hierarchy:
@@ -378,7 +365,7 @@ If you intend to collaborate with external users on projects in your group, cons
 - If you have a lot of users to manage, consider organizing users in groups separate from the groups organizing projects. Share these user groups into the groups and projects they need access to.
 - Carefully consider which groups you invite to your projects. Invite only groups that need access, to prevent oversharing and maintain security.
 - When you invite a group:
-  - Set the maximum role appropriately. It's better to assign the minimum permissions needed, instead of defaulting to the highest role.
-  - Members from subgroups of the invited group do not gain access to the project. You might prefer to invite subgroups separately instead.
+ - Set the maximum role appropriately. It's better to assign the minimum permissions needed, instead of defaulting to the highest role.
+ - Members from subgroups of the invited group do not gain access to the project. You might prefer to invite subgroups separately instead.
 - Check the maximum role of users who belong to multiple groups with access to a project. To prevent unintended high permissions, you might want to change the users' roles.
 - Periodically review group access to shared projects and update as appropriate. If a group no longer needs access to a project, remove it.

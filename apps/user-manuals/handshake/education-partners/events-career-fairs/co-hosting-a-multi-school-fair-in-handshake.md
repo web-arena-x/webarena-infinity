@@ -27,14 +27,14 @@ Co-hosts have access to an Actions menu on the left of the fair overview page, w
 These are the available actions you have as a co-host and some corresponding how-to articles:
 
 - **Invite Students**
-  - [Fairs: Inviting Students](https://support.joinhandshake.com/hc/en-us/articles/4405170708631)
+ - [Fairs: Inviting Students](https://support.joinhandshake.com/hc/en-us/articles/4405170708631)
 - **Email Student Attendees**
-  - [Email Event or Fair Attendees](https://support.joinhandshake.com/hc/en-us/articles/360000625108)
+ - [Email Event or Fair Attendees](https://support.joinhandshake.com/hc/en-us/articles/360000625108)
 - **Student Preview Page** *(check out the fair from a student perspective)*
 - **Employer Preview Page** *(check out the fair from an employer's perspective)*
 - **Employer List** *(view registered employers)*
 - **Download My School Attendees**
-  - [Download Event and Fair Attendees Across Multiple Schools](https://support.joinhandshake.com/hc/en-us/articles/231760687#h_01FBQFDAX2AJF5YJE7GECNC1PY)
+ - [Download Event and Fair Attendees Across Multiple Schools](https://support.joinhandshake.com/hc/en-us/articles/231760687#h_01FBQFDAX2AJF5YJE7GECNC1PY)
 
 ![Actions on a multi school fair.png](https://support.joinhandshake.com/hc/article_attachments/23563915107607)
 

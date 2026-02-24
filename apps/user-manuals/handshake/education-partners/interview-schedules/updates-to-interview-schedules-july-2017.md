@@ -161,8 +161,8 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/115010580968-Updates
 1. The slots were mixed up due to leaving the breaks out of the update to the slots. If you are adding or subtracting time you will see the slots before and after adjust accordingly but any slots not selected will stay at the same time.
 
 - **How do you add a slot at 8:30 to accommodate additional students if the schedule is only set from 9-11:30 am?**
-  1. You can add a slot to the schedule at the bottom of the interview schedule. You will then need to update the time of this slot.
-  2. ![](https://support.joinhandshake.com/hc/article_attachments/25992956480023)
+ 1. You can add a slot to the schedule at the bottom of the interview schedule. You will then need to update the time of this slot.
+ 2. ![](https://support.joinhandshake.com/hc/article_attachments/25992956480023)
 
 - **So the allow multiple applications "no" the default?**
 

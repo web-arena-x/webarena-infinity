@@ -70,9 +70,9 @@ The Importer should give you detailed automated feedback on the formatting of yo
 - **Headers:** Confirm all headers & fields match the exact formatting requirements (The Importer will notify you if it finds data that we don't map).
 - **Missing Fields:** Determine if values in your file are not registering. If they don't register, they will fail to import.
 - **Gut Check:** Conduct a quick gut check on the data you are importing:
-  - How many students are you bringing in? How many are you archiving? etc
-  - Are you planning to create new accounts or update existing accounts?
-  - What new majors, minors, colleges, and/or campuses were found? Should this create new ones or could these be duplicates/typos?
+ - How many students are you bringing in? How many are you archiving? etc
+ - Are you planning to create new accounts or update existing accounts?
+ - What new majors, minors, colleges, and/or campuses were found? Should this create new ones or could these be duplicates/typos?
 
  You can expect to see feedback like this:
 

@@ -28,40 +28,40 @@ Click on the expandable headers below for for more information on the following 
 4. Select which students should be required to receive document feedback. *I**f you do not select any options, Document Feedback will be applied to all student accounts.*
 
 - **Major Groups (the whole group or choose specific Majors within a group)**
-  - Agriculture, Food & Horticulture
-  - Arts & Design
-  - Business, Entrepreneurship & Human Resources
-  - Civics & Government
-  - Communications
-  - Computer Science, Information Systems & Technology
-  - Education
-  - Engineering
-  - General Studies
-  - Health Professions
-  - Humanities & Languages
-  - Life Science
-  - Math & Physical Sciences
-  - Natural Resources, Sustainability & Environmental Science
-  - Social Sciences
+ - Agriculture, Food & Horticulture
+ - Arts & Design
+ - Business, Entrepreneurship & Human Resources
+ - Civics & Government
+ - Communications
+ - Computer Science, Information Systems & Technology
+ - Education
+ - Engineering
+ - General Studies
+ - Health Professions
+ - Humanities & Languages
+ - Life Science
+ - Math & Physical Sciences
+ - Natural Resources, Sustainability & Environmental Science
+ - Social Sciences
 - **School years**
-  - Freshman
-  - Sophomore
-  - Junior
-  - Senior
-  - Masters
-  - Doctorate
-  - Alumni
-  - Postdoctoral Studies
-  - Accelerated Masters
-  - Masters of Business Administration
+ - Freshman
+ - Sophomore
+ - Junior
+ - Senior
+ - Masters
+ - Doctorate
+ - Alumni
+ - Postdoctoral Studies
+ - Accelerated Masters
+ - Masters of Business Administration
 - **Minimum Departmental GPA**
-  - Type the minimum GPA (if required) into the space.
+ - Type the minimum GPA (if required) into the space.
 - **Minimum Cumulative GPA**
-  - Type the minimum GPA (if required) into the space.
+ - Type the minimum GPA (if required) into the space.
 - **Colleges**
-  - Select one or multiple Colleges from the dropdown.
+ - Select one or multiple Colleges from the dropdown.
 - **Required Labels**
-  - Select a student label/s from the dropdown.
+ - Select a student label/s from the dropdown.
 
 ![Document_Feedback_Requirements.png](https://support.joinhandshake.com/hc/article_attachments/26001239217047)
 

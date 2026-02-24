@@ -20,7 +20,7 @@ Click on the sidebar button in the top right corner to open or close the project
 
 ## Basics
 
-When viewing a project, click into the `Overview`  tab to view the project overview.
+When viewing a project, click into the `Overview` tab to view the project overview.
 
 
 
@@ -28,16 +28,8 @@ When viewing a project, click into the `Overview`  tab to view the project overv
 
 We'll display all project properties beneath the short project summary. Click on any property to add or edit it. Clicking on the project name or description will let you edit the text directly. 
 
-Property | Description
---- | ---
-Status | Defaults to planned. These statuses are preset and not configurable.
-Lead | Limited to one member of your workspace
-Team | Defaults to single team but you can add multiple teams 
-Milestone | Defaults to Upcoming
-Start date | Required for project graphs
-Target date | Required to estimate completion date
-Members | Add anyone from the workspace
-Icon | Customize color and icon from our presets
+Property | Description --- | --- Status | Defaults to planned. These statuses are preset and not configurable.
+Lead | Limited to one member of your workspace Team | Defaults to single team but you can add multiple teams Milestone | Defaults to Upcoming Start date | Required for project graphs Target date | Required to estimate completion date Members | Add anyone from the workspace Icon | Customize color and icon from our presets
 
 ### External links
 
@@ -45,7 +37,7 @@ To add an external link to a Linear project, go to the `Resources` section. Pres
 
 ### Project documents
 
-To add an external link to a Linear project, go to the `Resources` section. Press the  `+` button and select Create Document. Documents use the same Markdown as issues and have similar editing capabilities including tagging others and linking to issues.
+To add an external link to a Linear project, go to the `Resources` section. Press the `+` button and select Create Document. Documents use the same Markdown as issues and have similar editing capabilities including tagging others and linking to issues.
 
 
 

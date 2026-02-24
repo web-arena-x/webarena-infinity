@@ -27,11 +27,11 @@ We highly recommend running them in a test environment with a backup of the inst
 admin = User.find(user_id) # replace user_id with the id of the admin you want to cancel the pipeline
 # Iterate over each cancelable pipeline
 Ci::Pipeline.cancelable.find_each do |pipeline|
-  Ci::CancelPipelineService.new(
+ Ci::CancelPipelineService.new(
     pipeline: pipeline,
     current_user: user,
     cascade_to_children: false # the children are included in the outer loop
-  )
+ )
 end
 ```
 
@@ -64,8 +64,8 @@ Gitlab::Ci::Lint.new(project: project, current_user: User.first).validate(conten
 
 ```ruby
 Project.all.each do |p|
-  p.auto_devops_attributes={"enabled"=>"0"}
-  p.save
+ p.auto_devops_attributes={"enabled"=>"0"}
+ p.save
 end
 ```
 
@@ -90,13 +90,10 @@ ps = Ci::CreatePipelineService.new(schedule.project, user, ref: schedule.ref).ex
 
 {{< alert type="warning" >}}
 
-The option to pass runner registration tokens and support for certain configuration arguments is considered legacy
-and is not recommended.
+The option to pass runner registration tokens and support for certain configuration arguments is considered legacy and is not recommended.
 Use the [runner creation workflow](https://docs.gitlab.com/runner/register/#register-with-a-runner-authentication-token)
-to generate an authentication token to register runners. This process provides full
-traceability of runner ownership and enhances your runner fleet's security.
-For more information, see
-[Migrating to the new runner registration workflow](../../ci/runners/new_creation_workflow.md).
+to generate an authentication token to register runners. This process provides full traceability of runner ownership and enhances your runner fleet's security.
+For more information, see [Migrating to the new runner registration workflow](../../ci/runners/new_creation_workflow.md).
 
 {{< /alert >}}
 
@@ -112,13 +109,10 @@ Gitlab::CurrentSettings.current_application_settings.runners_registration_token
 
 {{< alert type="warning" >}}
 
-The option to pass runner registration tokens and support for certain configuration arguments is considered legacy
-and is not recommended.
+The option to pass runner registration tokens and support for certain configuration arguments is considered legacy and is not recommended.
 Use the [runner creation workflow](https://docs.gitlab.com/runner/register/#register-with-a-runner-authentication-token)
-to generate an authentication token to register runners. This process provides full
-traceability of runner ownership and enhances your runner fleet's security.
-For more information, see
-[Migrating to the new runner registration workflow](../../ci/runners/new_creation_workflow.md).
+to generate an authentication token to register runners. This process provides full traceability of runner ownership and enhances your runner fleet's security.
+For more information, see [Migrating to the new runner registration workflow](../../ci/runners/new_creation_workflow.md).
 
 {{< /alert >}}
 

@@ -12,8 +12,7 @@ title: Active sessions
 
 {{< /details >}}
 
-GitLab lists all devices that have logged into your account. You can
-review the sessions, and revoke any you don't recognize.
+GitLab lists all devices that have logged into your account. You can review the sessions, and revoke any you don't recognize.
 
 ## List all active sessions
 
@@ -27,8 +26,7 @@ To list all active sessions:
 
 ## Active sessions limit
 
-GitLab allows users to have up to 100 active sessions at once. If the number of active sessions
-exceeds 100, the oldest ones are deleted.
+GitLab allows users to have up to 100 active sessions at once. If the number of active sessions exceeds 100, the oldest ones are deleted.
 
 ## Revoke a session
 
@@ -41,16 +39,13 @@ To revoke an active session:
 
 {{< alert type="note" >}}
 
-When any session is revoked all **Remember me** tokens for all
-devices are revoked. For details about **Remember me**, see
-[cookies used for sign-in](_index.md#cookies-used-for-sign-in).
+When any session is revoked all **Remember me** tokens for all devices are revoked. For details about **Remember me**, see [cookies used for sign-in](_index.md#cookies-used-for-sign-in).
 
 {{< /alert >}}
 
 ## Revoke sessions through the Rails console
 
-You can also revoke user sessions through the Rails console. You can use this to revoke
-multiple sessions at the same time.
+You can also revoke user sessions through the Rails console. You can use this to revoke multiple sessions at the same time.
 
 ### Revoke all sessions for all users
 
@@ -79,7 +74,7 @@ To revoke all sessions for all users:
         if sessions.any?
             puts "\n#{user.username} (#{user.name}):"
             sessions.each do |session|
-                puts "  - IP: #{session.ip_address}, Browser: #{session.browser}, Last active: #{session.updated_at}"
+                puts " - IP: #{session.ip_address}, Browser: #{session.browser}, Last active: #{session.updated_at}"
             end
         end
     end

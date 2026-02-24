@@ -24,12 +24,12 @@ You can use bulleted lists to represent unordered sets of information. Figma bul
 
 ### Create a bulleted list
 
-1. Select the  **Text** tool in the toolbar or by pressing the `T` key.
+1. Select the **Text** tool in the toolbar or by pressing the `T` key.
 2. Once in the text layer, there are a few ways to start a bulleted list:
    - Enter one `-` or `*` followed by a `Space`on a Mac or Windows.
    - Enter the keyboard shortcuts:
    - Mac: `⌥ Option``8`
-   - Windows: `Alt`+`0`+`1`+`4`+`9`- In the right sidebar, under the Text properties section, you can click  to open the **Type details** panel. From the List style property, select  Bulleted list.
+   - Windows: `Alt`+`0`+`1`+`4`+`9`- In the right sidebar, under the Text properties section, you can click to open the **Type details** panel. From the List style property, select Bulleted list.
 
 **Tip:** You can use `⌘ Command``Shift``8` to turn an individual text selection or multiple text layers into a bulleted list.
 
@@ -39,12 +39,12 @@ Numbered lists can be used to represent groups of ordered or sequential informat
 
 ### Create a numbered list
 
-1. Select the  **Text** tool in the toolbar or by pressing the `T` key.
+1. Select the **Text** tool in the toolbar or by pressing the `T` key.
 2. From within the text layer, there are a couple of ways to start a numbered list:
    - Enter one of the creation characters below followed by a `Space`:
      - `1``.`
      - `1``)`
-   - Click  in the **Text** section of the right sidebar, then select  **Numbered** list.
+   - Click in the **Text** section of the right sidebar, then select **Numbered** list.
 
 **Tip:** You can use `⌘ Command``Shift``7` to turn an individual text selection or multiple text layers into a numbered list.
 
@@ -78,9 +78,9 @@ Figma bulleted and numbered lists currently support **five** levels of indentati
 To adjust list item spacing:
 
 1. Select text in a list or a text layer with only list text.
-2. Use the  field to enter a px value in the list spacing field. Or hover above the icon and drag to **decrease (left)** or **increase (right)** the value.
+2. Use the field to enter a px value in the list spacing field. Or hover above the icon and drag to **decrease (left)** or **increase (right)** the value.
 
-You can also adjust list spacing from the **Type details** panel by clicking  in the **Text** section of the right sidebar.
+You can also adjust list spacing from the **Type details** panel by clicking in the **Text** section of the right sidebar.
 
 ### Paragraph
 
@@ -124,4 +124,4 @@ Toggle hanging lists to move bullet points or numbers of each list item outside 
 
 - Effects will be applied to the entire selected text layer. This includes any bullets and counters.
 
-Tip! Selecting the  No list property from the Type panel removes any current list styling from a text selection.
+Tip! Selecting the No list property from the Type panel removes any current list styling from a text selection.

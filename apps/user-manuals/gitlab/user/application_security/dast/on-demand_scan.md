@@ -14,8 +14,7 @@ title: DAST on-demand scan
 
 {{< alert type="warning" >}}
 
-Do not run DAST scans against a production server. Not only can it perform any function that a user can, such
-as clicking buttons or submitting forms, but it may also trigger bugs, leading to modification or loss of production data.
+Do not run DAST scans against a production server. Not only can it perform any function that a user can, such as clicking buttons or submitting forms, but it may also trigger bugs, leading to modification or loss of production data.
 Only run DAST scans against a test server.
 
 {{< /alert >}}
@@ -29,17 +28,12 @@ Only run DAST scans against a test server.
 
 {{< /history >}}
 
-An on-demand DAST scan runs outside the DevOps lifecycle. Changes in your repository don't trigger
-the scan. You must either start it manually, or schedule it to run. For on-demand DAST scans,
-a [site profile](profiles.md#site-profile) defines **what** is to be scanned, and a
-[scanner profile](profiles.md#scanner-profile) defines **how** the application is to be scanned.
+An on-demand DAST scan runs outside the DevOps lifecycle. Changes in your repository don't trigger the scan. You must either start it manually, or schedule it to run. For on-demand DAST scans, a [site profile](profiles.md#site-profile) defines **what** is to be scanned, and a [scanner profile](profiles.md#scanner-profile) defines **how** the application is to be scanned.
 
 An on-demand scan can be run in active or passive mode:
 
 - **Passive mode**: The default mode, which runs a [Passive Browser based scan](browser/_index.md#passive-scans).
-- **Active mode**: Runs an [Active Browser based scan](browser/_index.md#active-scans) which is potentially harmful to the site being scanned. To
-  minimize the risk of accidental damage, running an active scan requires a
-  [validated site profile](profiles.md#site-profile-validation).
+- **Active mode**: Runs an [Active Browser based scan](browser/_index.md#active-scans) which is potentially harmful to the site being scanned. To minimize the risk of accidental damage, running an active scan requires a [validated site profile](profiles.md#site-profile-validation).
 
 ### View on-demand DAST scans
 
@@ -48,16 +42,13 @@ To view on-demand scans:
 1. On the top bar, select **Search or go to** and find your project or group.
 1. Select **Secure** > **On-demand scans**.
 
-On-demand scans are grouped by their status. The scan library contains all available on-demand
-scans.
+On-demand scans are grouped by their status. The scan library contains all available on-demand scans.
 
 ### Run an on-demand DAST scan
 
 Prerequisites:
 
-- You must have permission to run an on-demand DAST scan against a protected branch. The default
-  branch is automatically protected. For more information, see
-  [Pipeline security on protected branches](../../../ci/pipelines/_index.md#pipeline-security-on-protected-branches).
+- You must have permission to run an on-demand DAST scan against a protected branch. The default branch is automatically protected. For more information, see [Pipeline security on protected branches](../../../ci/pipelines/_index.md#pipeline-security-on-protected-branches).
 
 To run an existing on-demand scan:
 

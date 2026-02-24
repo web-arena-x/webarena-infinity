@@ -53,7 +53,7 @@ requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "<my_package>"  # Will be dynamically replaced by CI/CD pipeline
+name = "<my_package>" # Will be dynamically replaced by CI/CD pipeline
 version = "<1.0.0>"    # Will be dynamically replaced by CI/CD pipeline
 description = "<Your package description>"
 readme = "README.md"
@@ -63,7 +63,7 @@ authors = [
 ]
 
 [project.urls]
-"Homepage" = "<https://gitlab.com/my_package>"  # Will be replaced with actual project URL
+"Homepage" = "<https://gitlab.com/my_package>" # Will be replaced with actual project URL
 ```
 
 Make sure you replace `Your Name` and `your.email@example.com` with your own personal details.
@@ -80,46 +80,46 @@ In your project root, add a `.gitlab-ci.yml` file. Add the following configurati
 
 ```yaml
 variables:
-  # Base Python version for all jobs
-  PYTHON_VERSION: '3.10'
-  # Package names and versions
-  PACKAGE_NAME: ${CI_PROJECT_NAME}
-  PACKAGE_VERSION: "1.0.0"  # Use semantic versioning
-  # Sigstore service URLs
-  FULCIO_URL: 'https://fulcio.sigstore.dev'
-  REKOR_URL: 'https://rekor.sigstore.dev'
-  # Identity for Sigstore verification
-  CERTIFICATE_IDENTITY: 'https://gitlab.com/${CI_PROJECT_PATH}//.gitlab-ci.yml@refs/heads/${CI_DEFAULT_BRANCH}'
-  CERTIFICATE_OIDC_ISSUER: 'https://gitlab.com'
-  # Pip cache directory for faster builds
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.pip-cache"
-  # Auto-accept prompts from Cosign
-  COSIGN_YES: "true"
-  # Base URL for generic package registry
-  GENERIC_PACKAGE_BASE_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${PACKAGE_VERSION}"
+ # Base Python version for all jobs
+ PYTHON_VERSION: '3.10'
+ # Package names and versions
+ PACKAGE_NAME: ${CI_PROJECT_NAME}
+ PACKAGE_VERSION: "1.0.0" # Use semantic versioning
+ # Sigstore service URLs
+ FULCIO_URL: 'https://fulcio.sigstore.dev'
+ REKOR_URL: 'https://rekor.sigstore.dev'
+ # Identity for Sigstore verification
+ CERTIFICATE_IDENTITY: 'https://gitlab.com/${CI_PROJECT_PATH}//.gitlab-ci.yml@refs/heads/${CI_DEFAULT_BRANCH}'
+ CERTIFICATE_OIDC_ISSUER: 'https://gitlab.com'
+ # Pip cache directory for faster builds
+ PIP_CACHE_DIR: "$CI_PROJECT_DIR/.pip-cache"
+ # Auto-accept prompts from Cosign
+ COSIGN_YES: "true"
+ # Base URL for generic package registry
+ GENERIC_PACKAGE_BASE_URL: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${PACKAGE_VERSION}"
 
 default:
-  before_script:
+ before_script:
     # Normalize package name once at the start of any job
     - export NORMALIZED_NAME=$(echo "${CI_PROJECT_NAME}" | tr '-' '_')
 
 # Template for Python-based jobs
 .python-job:
-  image: python:${PYTHON_VERSION}
-  before_script:
+ image: python:${PYTHON_VERSION}
+ before_script:
     # First normalize package name
     - export NORMALIZED_NAME=$(echo "${CI_PROJECT_NAME}" | tr '-' '_')
     # Then install Python dependencies
     - pip install --upgrade pip
     - pip install build twine setuptools wheel
-  cache:
+ cache:
     paths:
       - ${PIP_CACHE_DIR}
 
 # Template for Python + Cosign jobs
 .python+cosign-job:
-  extends: .python-job
-  before_script:
+ extends: .python-job
+ before_script:
     # First normalize package name
     - export NORMALIZED_NAME=$(echo "${CI_PROJECT_NAME}" | tr '-' '_')
     # Then install dependencies
@@ -130,12 +130,12 @@ default:
     - pip install --upgrade pip
     - pip install build twine setuptools wheel
 stages:
-  - build
-  - sign
-  - verify
-  - publish
-  - publish_signatures
-  - consumer_verification
+ - build
+ - sign
+ - verify
+ - publish
+ - publish_signatures
+ - consumer_verification
 ```
 
 This base configuration:
@@ -154,9 +154,9 @@ In your `.gitlab-ci.yml` file, add the following configuration:
 
 ```yaml
 build:
-  extends: .python-job
-  stage: build
-  script:
+ extends: .python-job
+ stage: build
+ script:
     # Initialize git repo with actual content
     - git init
     - git config --global init.defaultBranch main
@@ -176,7 +176,7 @@ build:
 
     # Build package
     - python -m build
-  artifacts:
+ artifacts:
     paths:
       - dist/
       - pyproject.toml
@@ -198,12 +198,12 @@ In your `.gitlab-ci.yml` file, add the following configuration:
 
 ```yaml
 sign:
-  extends: .python+cosign-job
-  stage: sign
-  id_tokens:
+ extends: .python+cosign-job
+ stage: sign
+ id_tokens:
     SIGSTORE_ID_TOKEN:
       aud: sigstore
-  script:
+ script:
     - |
       for file in dist/*.whl dist/*.tar.gz; do
         if [ -f "$file" ]; then
@@ -223,7 +223,7 @@ sign:
           ls -l "dist/${filename}.sig" "dist/${filename}.crt"
         fi
       done
-  artifacts:
+ artifacts:
     paths:
       - dist/
 ```
@@ -244,9 +244,9 @@ In your `.gitlab-ci.yml` file, add the following configuration:
 
 ```yaml
 verify:
-  extends: .python+cosign-job
-  stage: verify
-  script:
+ extends: .python+cosign-job
+ stage: verify
+ script:
     - |
       failed=0
 
@@ -291,9 +291,9 @@ In your `.gitlab-ci.yml` file, add the following configuration:
 
 ```yaml
 publish:
-  extends: .python-job
-  stage: publish
-  script:
+ extends: .python-job
+ stage: publish
+ script:
     - |
       # Configure PyPI settings for GitLab package registry
       cat << EOF > ~/.pypirc
@@ -327,9 +327,9 @@ In your `.gitlab-ci.yml` file, add the following configuration:
 
 ```yaml
 publish_signatures:
-  extends: .python+cosign-job
-  stage: publish_signatures
-  script:
+ extends: .python+cosign-job
+ stage: publish_signatures
+ script:
     - |
       for file in dist/*.whl dist/*.tar.gz; do
         if [ -f "$file" ]; then
@@ -370,9 +370,9 @@ In your `.gitlab-ci.yml` file, add the following configuration:
 
 ```yaml
 consumer_verification:
-  extends: .python+cosign-job
-  stage: consumer_verification
-  script:
+ extends: .python+cosign-job
+ stage: consumer_verification
+ script:
     - |
       # Initialize git repo for setuptools_scm
       git init

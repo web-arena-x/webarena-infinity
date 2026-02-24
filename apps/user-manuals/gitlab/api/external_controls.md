@@ -36,11 +36,11 @@ PATCH /api/v4/projects/:id/compliance_external_controls/:external_control_id/sta
 
 HTTP Headers:
 
-| Header                |  Type   | Required | Description                                                                                   |
+| Header                | Type   | Required | Description                                                                                   |
 | --------------------- | ------- | -------- | --------------------------------------------------------------------------------------------- |
-| `X-Gitlab-Timestamp`  | string  | yes      | Current Unix timestamp.                                                                       |
-| `X-Gitlab-Nonce`      | string  | yes      | Random string or token to prevent replay attacks.                                             |
-| `X-Gitlab-Hmac-Sha256`| string  | yes      | HMAC-SHA256 signature of the request.                                                         |
+| `X-Gitlab-Timestamp` | string | yes      | Current Unix timestamp.                                                                       |
+| `X-Gitlab-Nonce`      | string | yes      | Random string or token to prevent replay attacks.                                             |
+| `X-Gitlab-Hmac-Sha256`| string | yes      | HMAC-SHA256 signature of the request.                                                         |
 
 To compute the HMAC-SHA256 signature:
 
@@ -53,10 +53,9 @@ Supported attributes:
 | ------------------------ | ------- | -------- |---------------------------------------------------------------------------------------------------|
 | `id`                     | integer | yes      | ID of a project.                                                                                  |
 | `external_control_id`    | integer | yes      | ID of an external control.                                                                        |
-| `status`                 | string  | yes      | Set to `pass` to mark the control as passed, or `fail` to fail it.                                |
+| `status`                 | string | yes      | Set to `pass` to mark the control as passed, or `fail` to fail it.                                |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute                | Type     | Description                                   |
 |--------------------------|----------|-----------------------------------------------|
@@ -66,13 +65,13 @@ Example request:
 
 ```shell
 curl --request PATCH \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "X-Gitlab-Timestamp: <X-Gitlab-Timestamp>" \
-  --header "X-Gitlab-Nonce: <X-Gitlab-Nonce>" \
-  --header "X-Gitlab-Hmac-Sha256: <X-Gitlab-Hmac-Sha256>" \
-  --header "Content-Type: application/json" \
-  --data '{"status": "pass"}' \
-  --url "https://gitlab.example.com/api/v4/projects/<id>/compliance_external_controls/<external_control_id>/status"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "X-Gitlab-Timestamp: <X-Gitlab-Timestamp>" \
+ --header "X-Gitlab-Nonce: <X-Gitlab-Nonce>" \
+ --header "X-Gitlab-Hmac-Sha256: <X-Gitlab-Hmac-Sha256>" \
+ --header "Content-Type: application/json" \
+ --data '{"status": "pass"}' \
+ --url "https://gitlab.example.com/api/v4/projects/<id>/compliance_external_controls/<external_control_id>/status"
 ```
 
 Example response:

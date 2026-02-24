@@ -12,8 +12,7 @@ A prompt example should answer the questions:
 - What development challenge does this solve?
 - How do you use GitLab Duo to solve it?
 
-These pages should be precise and easy to scan. They do not replace
-other documentation types on the site, but instead complement them.
+These pages should be precise and easy to scan. They do not replace other documentation types on the site, but instead complement them.
 They should not be full of links or related conceptual or task information.
 
 ## Format

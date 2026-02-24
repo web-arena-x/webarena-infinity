@@ -15,17 +15,17 @@ You can use the Procore Imports app to self-import your submittals in bulk to y
 ## Things to Consider
 
 - ********************************Required User Permissions:********************************
-  - 'Admin' level permissions on the project's Submittals tool.  
+ - 'Admin' level permissions on the project's Submittals tool. 
     *Note:* Granular Permissions are not supported in the Procore Imports application.
 - ********************************Additional Information:********************************
-  - This feature is only available to computers running Windows 10 or newer. See [Install Procore Imports](../../tutorials/procore-imports-setup-guide.md#Install_Procore_Imports_App "Setup Guide").
-  - This import can only be used to add submittals. Your import will not edit or delete any existing submittals in your project.
+ - This feature is only available to computers running Windows 10 or newer. See [Install Procore Imports](../../tutorials/procore-imports-setup-guide.md#Install_Procore_Imports_App "Setup Guide").
+ - This import can only be used to add submittals. Your import will not edit or delete any existing submittals in your project.
 
 ## Video
 
-|  |
+| |
 | --- |
-|  |
+| |
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ You can use the Procore Imports app to self-import your submittals in bulk to y
    - ********Skip this step:********Select this option to upload a completed XLSX or CSV file of your submittals to Procore.
 5. Choose **Select Template File** to upload an XLSX or CSV file of your submittals from your local device.
 6. Click **Process**.
-7. Review your submittals.  
+7. Review your submittals. 
    ****Note***:* If there are any errors in the import, a list of the errors will be provided. You can then "Save Errors to continue" to download a copy of the errors to compare against your original import file.
 8. Choose from the following options:
    - ****************Save records to computer:****************Select this option to save your records as an XLSX or CSV file and return to complete the import process at another time.

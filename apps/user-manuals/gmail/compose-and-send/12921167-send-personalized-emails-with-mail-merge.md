@@ -49,7 +49,7 @@ To use mail merge, sign in to an account with an eligible Google Workspace plan:
 - To ensure your message uses the correct recipient name, [check their name in Google Contacts](https://contacts.google.com/).
 - To add multiple recipients, create a label in Google Contacts and group recipients. When you add the label in the "To:" line in Gmail, the grouped recipients populate automatically. [Learn how to organize contacts with labels](/contacts/answer/30970).
 - If the recipient isn’t in Google Contacts, mail merge populates the first and last name based on what you enter in the "To:" line.
-  - For example, if you enter "Lisa Rodriguez <lisa@example.com>" as a recipient, Gmail uses "Lisa" as @firstname and "Rodriguez" as @lastname.
+ - For example, if you enter "Lisa Rodriguez <lisa@example.com>" as a recipient, Gmail uses "Lisa" as @firstname and "Rodriguez" as @lastname.
 
 ## Add recipients from a spreadsheet to your message
 
@@ -86,10 +86,10 @@ If you have a recipient with missing information for a merge tag, you get an err
 In this situation, you can:
 
 - Enter a default value in the error message.
-  - For example, for recipients who don’t have a first name, "Hi @firstname" can be "Hi friend."
+ - For example, for recipients who don’t have a first name, "Hi @firstname" can be "Hi friend."
 - Go back to the draft and:
-  - Add the missing value in the "To:" line, in Google Contacts, or in the spreadsheet you linked.
-  - Remove any recipient with missing values from the "To:" line or the spreadsheet you linked.
+ - Add the missing value in the "To:" line, in Google Contacts, or in the spreadsheet you linked.
+ - Remove any recipient with missing values from the "To:" line or the spreadsheet you linked.
 
 ## Find your sent messages
 
@@ -104,7 +104,7 @@ With mail merge, you can:
 
 - Add up to 1,500 recipients in the "To" line per message
 - Send to a maximum of 1,500 recipients per day
-  - With mail merge on, you can send one message to 1,000 recipients and another message to 500 recipients.
+ - With mail merge on, you can send one message to 1,000 recipients and another message to 500 recipients.
 
 To ensure you can always send regular emails, mail merge has a daily limit that works within your account's total sending capacity. For most work, school, and Workspace Individual accounts, the total daily sending limit is 2,000 emails.
 

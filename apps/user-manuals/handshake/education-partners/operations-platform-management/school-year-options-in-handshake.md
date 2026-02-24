@@ -15,10 +15,10 @@ Topics:
 - [How can these be used?](#h_01F0F0V8HCVTE3BGHRQ8Z1CP65)
 - [What are the new school years?](#h_01F0F0VF85X5X256C2AYCJ92J4)
 - [Workflow Considerations](#h_01F0F0VWYDNXR7G7MQA4P160JS)
-  - [Importer](#h_01F0GSDCRT51GN0YM15B1VQ5FB)
-  - [Qualifications](#h_01F0GSDK1ADQPR3B98ZN3NCV4X)
-  - [Filters](#h_01F0GSDTQJ458XQSZF0K5GH45B)
-  - [Reporting in Analytics + dashboards](#h_01F0GSE2ESF7B1V10P81XP3HR6)
+ - [Importer](#h_01F0GSDCRT51GN0YM15B1VQ5FB)
+ - [Qualifications](#h_01F0GSDK1ADQPR3B98ZN3NCV4X)
+ - [Filters](#h_01F0GSDTQJ458XQSZF0K5GH45B)
+ - [Reporting in Analytics + dashboards](#h_01F0GSE2ESF7B1V10P81XP3HR6)
 - [What do these school years look like for students?](#h_01F0F0VNV4NHFYG55X3F4G4MYA)
 
 ### How can these be used?
@@ -60,8 +60,8 @@ For additional information, please refer to [Importing Student Data](https://sup
 We recommend reviewing features you use that allow student qualifications to be set based on school year. This includes any active features with school year qualifications currently configured and features that will have school year qualifications:
 
 - Appointments: [Configure School Appointment Categories and Types](https://support.joinhandshake.com/hc/en-us/articles/218693018-Configure-School-Appointment-Categories-and-Types)
-  - Categories: If categorized by school year
-  - Types: If requirements are based on school year
+ - Categories: If categorized by school year
+ - Types: If requirements are based on school year
 - Document Feedback: [About Document Feedback](../handshakes-school-settings/about-document-feedback.md)
 - Events: [Events: Set Student Qualifications](https://support.joinhandshake.com/hc/en-us/articles/360062117794)
 - Fairs: [Fairs: Set Student Qualifications](../fair-creation-editing/fairs-set-student-qualifications.md)
@@ -92,20 +92,20 @@ We recommend reviewing features you use that allow student qualifications to be 
 From the student perspective, when they click the school year dropdown, school years will be listed with new headers added:
 
 - Community/Technical College:
-  - First year
-  - Second year
+ - First year
+ - Second year
 - Undergraduate
-  - Freshman
-  - Sophomore
-  - Junior
-  - Senior
+ - Freshman
+ - Sophomore
+ - Junior
+ - Senior
 - Graduate
-  - Master's
-  - Doctoral
-  - Postdoctoral
+ - Master's
+ - Doctoral
+ - Postdoctoral
 - Additional Options
-  - Alumni
-  - Certificate Program
+ - Alumni
+ - Certificate Program
 
 Here's an example of how the dropdown will appear on the student profile:
 

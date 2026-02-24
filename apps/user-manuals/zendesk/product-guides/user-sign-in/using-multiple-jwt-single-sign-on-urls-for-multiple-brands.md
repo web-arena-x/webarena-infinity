@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408886711066-Using-multip
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Enterprise |
 
@@ -35,7 +35,7 @@ This article contains the following sections:
 
 ## Two or more brands set up
 
-You need to configure at least two brands to follow this procedure, if you haven't already. For details, see  [Setting up multiple brands](https://support.zendesk.com/hc/en-us/articles/204108983). After you set it up, save the brand URL and the host-mapped brand URL. You will use them in the script later.
+You need to configure at least two brands to follow this procedure, if you haven't already. For details, see [Setting up multiple brands](https://support.zendesk.com/hc/en-us/articles/204108983). After you set it up, save the brand URL and the host-mapped brand URL. You will use them in the script later.
 
 ## Two or more user authentication systems set up with JWT SSO
 
@@ -71,7 +71,7 @@ Login URL: https://page2.example.com/zdlogin.php
 
 Logout URL: https://page2.example.com/zdlogout.php
 
-Next, create the script. Remove the  *https://*  from the URL for each brand URL. Keep them on the website links.
+Next, create the script. Remove the *https://* from the URL for each brand URL. Keep them on the website links.
 
 You can also find the scripts here:
 
@@ -147,12 +147,12 @@ Consider the following:
 To prevent invalid JWT request errors, hardcode https://(*defaultsubdomain*).zendesk.com/ as `/access/jwt?jwt=` for both brands where *(defaultsubdomain)* is your main brand subdomain. For example, mydomain.zendesk.com.
 
 1. Hardcode https://(*defaultsubdomain*).zendesk.com into the SSO script, so the JWT payload always gets sent to https://(*defaultsubdomain*).zendesk.com/access/jwt
-2. Implement that snippet into the script to use 'return\_to' so the end user is redirected back to the origin Help Center. Make sure to append the payload for both brand marking URLs as fixed as '(*defaultsubdomain*)' and append 'return\_to'.  
+2. Implement that snippet into the script to use 'return\_to' so the end user is redirected back to the origin Help Center. Make sure to append the payload for both brand marking URLs as fixed as '(*defaultsubdomain*)' and append 'return\_to'. 
      
    The snippet for your reference:
 
 ```
-if(isset($_GET["return_to"])) {  
-  $location .= "&return_to=" . urlencode($_GET["return_to"]);  
+if(isset($_GET["return_to"])) { 
+  $location .= "&return_to=" . urlencode($_GET["return_to"]); 
 }
 ```

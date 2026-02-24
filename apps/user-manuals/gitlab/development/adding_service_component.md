@@ -12,19 +12,19 @@ The GitLab product is made up of several service components that run as independ
 The following outline re-uses the [maturity metric](https://handbook.gitlab.com/handbook/product/ux/category-maturity/category-maturity-scorecards/) naming as an example of the various phases of integrating a component. These phases are only loosely coupled to a components actual maturity, and are intended as a guide for implementation order. For example, a component does not need to be enabled by default to be Lovable. Being enabled by default does not on its own cause a component to be Lovable.
 
 - Proposed
-  - [Proposing a new component](#proposing-a-new-component)
+ - [Proposing a new component](#proposing-a-new-component)
 - Minimal
-  - [Integrating a new service with GitLab](#integrating-a-new-service-with-gitlab)
-  - [Handling service dependencies](#handling-service-dependencies)
+ - [Integrating a new service with GitLab](#integrating-a-new-service-with-gitlab)
+ - [Handling service dependencies](#handling-service-dependencies)
 - Viable
-  - [Bundled with GitLab installations](#bundling-a-service-with-gitlab)
-  - [End-to-end testing in GitLab QA](testing_guide/end_to_end/beginners_guide/_index.md)
-  - [Release management](#release-management)
-  - [Enabled on GitLab.com](feature_flags/controls.md#enabling-a-feature-for-gitlabcom)
+ - [Bundled with GitLab installations](#bundling-a-service-with-gitlab)
+ - [End-to-end testing in GitLab QA](testing_guide/end_to_end/beginners_guide/_index.md)
+ - [Release management](#release-management)
+ - [Enabled on GitLab.com](feature_flags/controls.md#enabling-a-feature-for-gitlabcom)
 - Complete
-  - [Validated by the Reference Architecture group and scaled out recommendations made](https://handbook.gitlab.com/handbook/engineering/infrastructure/test-platform/self-managed-excellence/#reference-architectures)
+ - [Validated by the Reference Architecture group and scaled out recommendations made](https://handbook.gitlab.com/handbook/engineering/infrastructure/test-platform/self-managed-excellence/#reference-architectures)
 - Lovable
-  - Enabled by default for the majority of users
+ - Enabled by default for the majority of users
 
 ## Proposing a new component
 
@@ -83,8 +83,7 @@ In order for a service to be bundled for end-users or GitLab.com, it needs to be
 
 ## Handling service dependencies
 
-Dependencies should be kept up to date and be tracked for security updates. For the Rails codebase, the JavaScript and Ruby dependencies are
-scanned for vulnerabilities using GitLab [dependency scanning](../user/application_security/dependency_scanning/_index.md).
+Dependencies should be kept up to date and be tracked for security updates. For the Rails codebase, the JavaScript and Ruby dependencies are scanned for vulnerabilities using GitLab [dependency scanning](../user/application_security/dependency_scanning/_index.md).
 
 In addition, any system dependencies used in Omnibus packages or the Cloud Native images should be added to the [dependency update automation](https://handbook.gitlab.com/handbook/engineering/infrastructure-platforms/gitlab-delivery/distribution/maintenance).
 

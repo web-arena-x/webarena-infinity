@@ -12,7 +12,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408838041370-Welcome-to-t
 
 ### Get started and prepare to launch
 
-|  |  |
+| | |
 | --- | --- |
 | suite-welcome-gr-10.png | Ready to start!? Learn what's in Zendesk Suite, how the parts are related, and where to start. Then use our launch guide and checklist to get up and running. Learn more about rolling out support channels to your customers.   - [Getting started](https://support.zendesk.com/hc/en-us/articles/4408881937306) - [Launch guide](https://support.zendesk.com/hc/en-us/articles/4408882670106-Launch-guide-for-Zendesk-Suite) - [Providing multi-channel support](https://support.zendesk.com/hc/en-us/articles/4408844047898) |
 

@@ -6,22 +6,17 @@ Source: https://support.zendesk.com/hc/en-us/articles/6970583409690-About-AI-age
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-AI agents are the next generation of AI-powered bots that automate and resolve your
-customers’ issues across service channels. As AI becomes increasingly essential to customer
-interactions, AI agents enable you to move toward greater automation and efficiency.
+AI agents are the next generation of AI-powered bots that automate and resolve your customers’ issues across service channels. As AI becomes increasingly essential to customer interactions, AI agents enable you to move toward greater automation and efficiency.
 
-AI agent functionality is split into multiple levels, each offering the support you need for
-different business requirements. Each level of AI agent functionality comes with an allotted
-number of [automated resolutions](https://support.zendesk.com/hc/en-us/articles/5352026794010), which are used to measure usage
-of AI agents.
+AI agent functionality is split into multiple levels, each offering the support you need for different business requirements. Each level of AI agent functionality comes with an allotted number of [automated resolutions](https://support.zendesk.com/hc/en-us/articles/5352026794010), which are used to measure usage of AI agents.
 
 This article contains the following topics:
 
@@ -38,12 +33,10 @@ AI agent functionality is split into two different levels: Essential and Advance
 
 ### AI agents - Essential
 
-Included in all Zendesk Suite and Support plans, AI agents - Essential allows you to
-start automating in minutes with generative replies powered by the latest AI technology.
+Included in all Zendesk Suite and Support plans, AI agents - Essential allows you to start automating in minutes with generative replies powered by the latest AI technology.
 You can create AI agents across messaging, email, API, and web form channels.
 
-The Essential level is designed for quick, self-service adoption. With it, you create
-generative AI agents that harness knowledge-based self service.
+The Essential level is designed for quick, self-service adoption. With it, you create generative AI agents that harness knowledge-based self service.
 
 To learn more, see [Getting started with AI agents - Essential](https://support.zendesk.com/hc/en-us/articles/6478272212506).
 
@@ -51,13 +44,9 @@ To learn more, see [Getting started with AI agents - Essential](https://support.
 
 ### AI agents - Advanced
 
-Available as an add-on for any Suite or Support plan, AI agents - Advanced includes all
-features of the Essential level in addition to advanced functionality such as conversation
-flows (including hybrid flows that combine generative AI and scripted responses), API
-access and orchestration, and advanced analytics.
+Available as an add-on for any Suite or Support plan, AI agents - Advanced includes all features of the Essential level in addition to advanced functionality such as conversation flows (including hybrid flows that combine generative AI and scripted responses), API access and orchestration, and advanced analytics.
 
-The Advanced level is designed for customers with high support volumes or more complex
-automation requirements.
+The Advanced level is designed for customers with high support volumes or more complex automation requirements.
 
 To learn more, see the following resources:
 
@@ -68,8 +57,7 @@ To learn more, see the following resources:
 
 ### Legacy AI agent functionality
 
-Customers who had any drafted or published AI agents as of February 2, 2025 still retain
-access to certain legacy AI agent features that are not included in the Essential level.
+Customers who had any drafted or published AI agents as of February 2, 2025 still retain access to certain legacy AI agent features that are not included in the Essential level.
 These legacy features include:
 
 - [Bot builder](https://support.zendesk.com/hc/en-us/articles/4408838909210)
@@ -77,20 +65,17 @@ These legacy features include:
 - [Intents](https://support.zendesk.com/hc/en-us/articles/6038620020762)
 - [Article recommendations](https://support.zendesk.com/hc/en-us/articles/7510607688730#topic_o1b_m1n_gbc)
 
-These features will no longer receive functional improvements, but will be fully
-supported with important bug fixes and technical upgrades.
+These features will no longer receive functional improvements, but will be fully supported with important bug fixes and technical upgrades.
 
 ## Features included in each level
 
-The following table describes the features included with the various AI agents levels and any
-additional requirements.
+The following table describes the features included with the various AI agents levels and any additional requirements.
 
-Note: Customers with access to legacy AI agent functionality also
-have access to all features on the Essential level.
+Note: Customers with access to legacy AI agent functionality also have access to all features on the Essential level.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
-|  | **Essential** | **Advanced** |
+| | **Essential** | **Advanced** |
 | **Generative AI replies** | | |
 | Generative replies on messaging channels | [Yes](https://support.zendesk.com/hc/en-us/articles/4408824263578) | [Yes](https://support.zendesk.com/hc/en-us/articles/8357749315098) |
 | Generative replies on email channels | [Yes](https://support.zendesk.com/hc/en-us/articles/4408824263578) | [Yes](https://support.zendesk.com/hc/en-us/articles/8357758805146) |

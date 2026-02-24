@@ -14,8 +14,8 @@ Linear's MCP server follows the authenticated remote [MCP spec](https://modelcon
 
 Our MCP server supports both Server-Sent Events (SSE) and Streamable HTTP transports. Both transports use OAuth 2.1 with dynamic client registration for authentication at the following addresses:
 
-  * HTTP: `https://mcp.linear.app/mcp`
-  * SSE: `https://mcp.linear.app/sse`
+ * HTTP: `https://mcp.linear.app/mcp`
+ * SSE: `https://mcp.linear.app/sse`
 
 **We recommend using the streamable HTTP endpoint where supported for increased reliability**. For instructions for specific clients, read on…
 
@@ -26,8 +26,8 @@ Our MCP server supports both Server-Sent Events (SSE) and Streamable HTTP transp
 * Navigate to **Settings** in the sidebar on web or desktop
 * Scroll to **Integrations** at the bottom and click **Add more**
 * In the prompt enter:
-  * Integration name: `Linear`
-  * Integration URL: `https://mcp.linear.app/mcp`
+ * Integration name: `Linear`
+ * Integration URL: `https://mcp.linear.app/mcp`
 * Make sure to enable the tools in any new chats
 
 **Free, Pro (Claude desktop)**
@@ -37,12 +37,12 @@ Our MCP server supports both Server-Sent Events (SSE) and Streamable HTTP transp
 
 ```json
 {
-  "mcpServers": {
+ "mcpServers": {
     "linear": {
       "command": "npx",
       "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"]
     }
-  }
+ }
 }
 ```
 
@@ -92,7 +92,7 @@ Run `codex mcp login linear` to move through the authentication flow.
 
 ### Cursor
 
-To add the MCP to Cursor, you can install by clicking [here](cursor://anysphere.cursor-deeplink/mcp/install?name=Linear&config=eyJ1cmwiOiJodHRwczovL21jcC5saW5lYXIuYXBwL21jcCJ9), or searching for Linear from Cursor's [MCP tools page](https://cursor.com/docs/context/mcp/directory).  
+To add the MCP to Cursor, you can install by clicking [here](cursor://anysphere.cursor-deeplink/mcp/install?name=Linear&config=eyJ1cmwiOiJodHRwczovL21jcC5saW5lYXIuYXBwL21jcCJ9), or searching for Linear from Cursor's [MCP tools page](https://cursor.com/docs/context/mcp/directory). 
 
 
 ![C](https://webassets.linear.app/images/ornj730p/production/7ff4a8f3f3f95e1a25a241c49f5d46c66e17b80a-760x343.png?q=95&auto=format&dpr=2)
@@ -108,12 +108,12 @@ To add the MCP to Cursor, you can install by clicking [here](cursor://anysphere.
 
 ```json
 {
-  "mcpServers": {
+ "mcpServers": {
     "linear": {
       "command": "npx",
       "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"]
     }
-  }
+ }
 }
 ```
 
@@ -139,12 +139,12 @@ To add the MCP to v0, you can install from the [connections](https://v0.app/chat
 
 ```json
 {
-  "mcpServers": {
+ "mcpServers": {
     "linear": {
       "command": "npx",
       "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"]
     }
-  }
+ }
 }
 ```
 
@@ -155,14 +155,14 @@ To add the MCP to v0, you can install from the [connections](https://v0.app/chat
 
 ```json
 {
-  "context_servers": {
+ "context_servers": {
     "linear": {
       "source": "custom",
       "command": "npx",
       "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"],
       "env": {}
     }
-  }
+ }
 }
 ```
 
@@ -180,8 +180,8 @@ Hundreds of other tools now support MCP servers, you can configure them to use L
 
 <details>
 <summary>Why am I seeing an internal server error when trying to connect?</summary>
-Enter the following in the Terminal to clear saved auth info: `rm -rf ~/.mcp-auth` then try again to connect.  
-  
+Enter the following in the Terminal to clear saved auth info: `rm -rf ~/.mcp-auth` then try again to connect. 
+ 
 Additionally you may need to update to a newer version of node if required.
 </details>
 

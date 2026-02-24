@@ -50,7 +50,7 @@ If you want to collaborate on a contact, lead, or deal, you have two options, de
 
 - If you have permission to reassign ownership of the record, then click **Become a collaborator**.
 
-  You will only see this option if you have the access rights. This won't require any further approval from the record owner.
+ You will only see this option if you have the access rights. This won't require any further approval from the record owner.
 
 ![Sell Collaborators](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_collaborator_2.png)
 

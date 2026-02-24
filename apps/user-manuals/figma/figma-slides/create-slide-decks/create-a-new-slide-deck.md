@@ -26,7 +26,7 @@ There are a few ways to create a new slide deck in your drafts:
 
 ### From the file browser
 
-1. Open the team or organization space you wish to create your deck and click  **Drafts** in the file browser.
+1. Open the team or organization space you wish to create your deck and click **Drafts** in the file browser.
 2. Click **Create new** and then click **Slide deck**.
 
 ### Visit the link

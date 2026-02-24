@@ -30,16 +30,16 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "email": "email@example.com",
     "confirmed_at" : "2021-03-26T19:07:56.248Z"
-  },
-  {
+ },
+ {
     "id": 3,
     "email": "email2@example.com",
     "confirmed_at" : null
-  }
+ }
 ]
 ```
 
@@ -78,7 +78,7 @@ GET /user/emails/:email_id
 
 Supported attributes:
 
-| Attribute  | Type    | Required | Description |
+| Attribute | Type    | Required | Description |
 |:-----------|:--------|:---------|:------------|
 | `email_id` | integer | yes      | ID of email address |
 
@@ -86,9 +86,9 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "email": "email@example.com",
-  "confirmed_at" : "2021-03-26T19:07:56.248Z"
+ "id": 1,
+ "email": "email@example.com",
+ "confirmed_at" : "2021-03-26T19:07:56.248Z"
 }
 ```
 
@@ -108,22 +108,21 @@ Supported attributes:
 
 ```json
 {
-  "id": 4,
-  "email": "email@example.com",
-  "confirmed_at" : "2021-03-26T19:07:56.248Z"
+ "id": 4,
+ "email": "email@example.com",
+ "confirmed_at" : "2021-03-26T19:07:56.248Z"
 }
 ```
 
-Returns a created email with status `201 Created` on success. If an
-error occurs a `400 Bad Request` is returned with a message explaining the error:
+Returns a created email with status `201 Created` on success. If an error occurs a `400 Bad Request` is returned with a message explaining the error:
 
 ```json
 {
-  "message": {
+ "message": {
     "email": [
       "has already been taken"
     ]
-  }
+ }
 }
 ```
 
@@ -150,8 +149,8 @@ Supported attributes:
 
 | Attribute           | Type    | Required | Description |
 |:--------------------|:--------|:---------|:------------|
-| `id`                | string  | yes      | ID of user account|
-| `email`             | string  | yes      | Email address |
+| `id`                | string | yes      | ID of user account|
+| `email`             | string | yes      | Email address |
 | `skip_confirmation` | boolean | no       | Skip confirmation and assume email is verified. Possible values: `true`, `false`. Default value: `false`. |
 
 ## Delete an email address
@@ -170,7 +169,7 @@ DELETE /user/emails/:email_id
 
 Supported attributes:
 
-| Attribute  | Type    | Required | Description |
+| Attribute | Type    | Required | Description |
 |:-----------|:--------|:---------|:------------|
 | `email_id` | integer | yes      | ID of email address |
 
@@ -200,7 +199,7 @@ DELETE /users/:id/emails/:email_id
 
 Supported attributes:
 
-| Attribute  | Type    | Required | Description |
+| Attribute | Type    | Required | Description |
 |:-----------|:--------|:---------|:------------|
 | `id`       | integer | yes      | ID of user account |
 | `email_id` | integer | yes      | ID of email address |

@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408822084634-Finding-and-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > Account > Billing > Contacts
+Location: Admin Center > Account > Billing > Contacts
 
 Account ownership is managed in [Admin Center](https://support.zendesk.com/hc/en-us/articles/4408839227290--Draft-Using-Zendesk-Admin-Center). You must be the current account owner to change account ownership. There can be only one account owner at a time. If you aren't the account owner, you can [find the account owner](#topic_xkh_3lm_ygb) and request they make the change.
 

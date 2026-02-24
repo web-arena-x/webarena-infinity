@@ -37,14 +37,14 @@ GET packages/terraform/modules/v1/:module_namespace/:module_name/:module_system/
 
 ```shell
 curl --header "Authorization: Bearer <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/packages/terraform/modules/v1/group/hello-world/local/versions"
+ --url "https://gitlab.example.com/api/v4/packages/terraform/modules/v1/group/hello-world/local/versions"
 ```
 
 Example response:
 
 ```json
 {
-  "modules": [
+ "modules": [
     {
       "versions": [
         {
@@ -76,7 +76,7 @@ Example response:
       ],
       "source": "https://gitlab.example.com/group/hello-world"
     }
-  ]
+ ]
 }
 ```
 
@@ -96,27 +96,27 @@ GET packages/terraform/modules/v1/:module_namespace/:module_name/:module_system
 
 ```shell
 curl --header "Authorization: Bearer <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/packages/terraform/modules/v1/group/hello-world/local"
+ --url "https://gitlab.example.com/api/v4/packages/terraform/modules/v1/group/hello-world/local"
 ```
 
 Example response:
 
 ```json
 {
-  "name": "hello-world/local",
-  "provider": "local",
-  "providers": [
+ "name": "hello-world/local",
+ "provider": "local",
+ "providers": [
     "local"
-  ],
-  "root": {
+ ],
+ "root": {
     "dependencies": []
-  },
-  "source": "https://gitlab.example.com/group/hello-world",
-  "submodules": [],
-  "version": "1.0.0",
-  "versions": [
+ },
+ "source": "https://gitlab.example.com/group/hello-world",
+ "submodules": [],
+ "version": "1.0.0",
+ "versions": [
     "1.0.0"
-  ]
+ ]
 }
 ```
 
@@ -136,27 +136,27 @@ GET packages/terraform/modules/v1/:module_namespace/:module_name/:module_system/
 
 ```shell
 curl --header "Authorization: Bearer <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/packages/terraform/modules/v1/group/hello-world/local/1.0.0"
+ --url "https://gitlab.example.com/api/v4/packages/terraform/modules/v1/group/hello-world/local/1.0.0"
 ```
 
 Example response:
 
 ```json
 {
-  "name": "hello-world/local",
-  "provider": "local",
-  "providers": [
+ "name": "hello-world/local",
+ "provider": "local",
+ "providers": [
     "local"
-  ],
-  "root": {
+ ],
+ "root": {
     "dependencies": []
-  },
-  "source": "https://gitlab.example.com/group/hello-world",
-  "submodules": [],
-  "version": "1.0.0",
-  "versions": [
+ },
+ "source": "https://gitlab.example.com/group/hello-world",
+ "submodules": [],
+ "version": "1.0.0",
+ "versions": [
     "1.0.0"
-  ]
+ ]
 }
 ```
 
@@ -176,7 +176,7 @@ GET packages/terraform/modules/v1/:module_namespace/:module_name/:module_system/
 
 ```shell
 curl --header "Authorization: Bearer <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/packages/terraform/modules/v1/group/hello-world/local/download"
+ --url "https://gitlab.example.com/api/v4/packages/terraform/modules/v1/group/hello-world/local/download"
 ```
 
 Example response:
@@ -206,7 +206,7 @@ GET packages/terraform/modules/v1/:module_namespace/:module_name/:module_system/
 
 ```shell
 curl --header "Authorization: Bearer <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/packages/terraform/modules/v1/group/hello-world/local/1.0.0/download"
+ --url "https://gitlab.example.com/api/v4/packages/terraform/modules/v1/group/hello-world/local/1.0.0/download"
 ```
 
 Example response:
@@ -234,15 +234,15 @@ GET packages/terraform/modules/v1/:module_namespace/:module_name/:module_system/
 
 ```shell
 curl --header "Authorization: Bearer <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/packages/terraform/modules/v1/group/hello-world/local/1.0.0/file"
+ --url "https://gitlab.example.com/api/v4/packages/terraform/modules/v1/group/hello-world/local/1.0.0/file"
 ```
 
 To write the output to file:
 
 ```shell
 curl --header "Authorization: Bearer <personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/packages/terraform/modules/v1/group/hello-world/local/1.0.0/file" \
-  --output hello-world-local.tgz
+ --url "https://gitlab.example.com/api/v4/packages/terraform/modules/v1/group/hello-world/local/1.0.0/file" \
+ --output hello-world-local.tgz
 ```
 
 ### From a project
@@ -260,15 +260,15 @@ GET /projects/:id/packages/terraform/modules/:module_name/:module_system/:module
 
 ```shell
 curl --user "<username>:<personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/terraform/modules/hello-world/local/1.0.0"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/terraform/modules/hello-world/local/1.0.0"
 ```
 
 To write the output to file:
 
 ```shell
 curl --user "<username>:<personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/terraform/modules/hello-world/local/1.0.0" \
-  --output hello-world-local.tgz
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/terraform/modules/hello-world/local/1.0.0" \
+ --output hello-world-local.tgz
 ```
 
 ## Upload module
@@ -281,14 +281,14 @@ PUT /projects/:id/packages/terraform/modules/:module-name/:module-system/:module
 |------------------|-------------------|----------|-------------|
 | `id`             | integer or string | yes      | The ID or URL-encoded path of the project. |
 | `module-name`    | string            | yes      | The module name. |
-| `module-system`  | string            | yes      | The name of the module system or [provider](https://www.terraform.io/registry/providers). |
+| `module-system` | string            | yes      | The name of the module system or [provider](https://www.terraform.io/registry/providers). |
 | `module-version` | string            | yes      | Specific module version to upload. |
 
 ```shell
 curl --fail-with-body \
    --header "PRIVATE-TOKEN: <your_access_token>" \
    --upload-file path/to/file.tgz \
-   --url  "https://gitlab.example.com/api/v4/projects/<your_project_id>/packages/terraform/modules/my-module/my-system/0.0.1/file"
+   --url "https://gitlab.example.com/api/v4/projects/<your_project_id>/packages/terraform/modules/my-module/my-system/0.0.1/file"
 ```
 
 Tokens that can be used to authenticate:
@@ -296,13 +296,13 @@ Tokens that can be used to authenticate:
 | Header          | Value |
 |-----------------|-------|
 | `PRIVATE-TOKEN` | A [personal access token](../../user/profile/personal_access_tokens.md) with `api` scope. |
-| `DEPLOY-TOKEN`  | A [deploy token](../../user/project/deploy_tokens/_index.md) with `write_package_registry` scope. |
+| `DEPLOY-TOKEN` | A [deploy token](../../user/project/deploy_tokens/_index.md) with `write_package_registry` scope. |
 | `JOB-TOKEN`     | A [job token](../../ci/jobs/ci_job_token.md). |
 
 Example response:
 
 ```json
 {
-  "message": "201 Created"
+ "message": "201 Created"
 }
 ```

@@ -7,22 +7,17 @@ title: Sliding List partitioning
 
 ## Description
 
-The sliding list partitioning strategy is a dynamic partitioning approach that creates sequential numeric partitions
-and automatically manages their lifecycle.
+The sliding list partitioning strategy is a dynamic partitioning approach that creates sequential numeric partitions and automatically manages their lifecycle.
 
-Unlike other partitioning strategies, sliding list partitioning uses a simple incrementing integer as the partition key
-and provides custom logic to determine when to create new partitions and when to drop old ones.
+Unlike other partitioning strategies, sliding list partitioning uses a simple incrementing integer as the partition key and provides custom logic to determine when to create new partitions and when to drop old ones.
 
-This strategy is particularly useful for tables that need to maintain a rolling window of data where old partitions
-can be safely removed once their data has been processed or is no longer needed (for example, after 'X' days or size > 'X' bytes).
+This strategy is particularly useful for tables that need to maintain a rolling window of data where old partitions can be safely removed once their data has been processed or is no longer needed (for example, after 'X' days or size > 'X' bytes).
 
 ## Workflow
 
 ### Register the Model for partition management
 
-On `Gitlab.com` partitions are not created on application startup, they are created by the _PartitionManagementWorker_,
-which executes several times per day. The model that uses sliding list partitioning should also be added in
-`Gitlab::Database::Partitioning.register_models` for the PartitionManagementWorker to handle them.
+On `Gitlab.com` partitions are not created on application startup, they are created by the _PartitionManagementWorker_, which executes several times per day. The model that uses sliding list partitioning should also be added in `Gitlab::Database::Partitioning.register_models` for the PartitionManagementWorker to handle them.
 
 ### Define partitioning blocks
 
@@ -40,11 +35,11 @@ Make sure proper indexes are used for filter conditions used within the partitio
 
 ```ruby
 class LooseForeignKeys::DeletedRecord < Gitlab::Database::SharedModel
-  include PartitionedTable
+ include PartitionedTable
 
-  PARTITION_DURATION = 1.day
+ PARTITION_DURATION = 1.day
 
-  partitioned_by :partition, strategy: :sliding_list,
+ partitioned_by :partition, strategy: :sliding_list,
     next_partition_if: ->(active_partition) do
       oldest_record_in_partition = LooseForeignKeys::DeletedRecord
         .select(:id, :created_at)

@@ -20,9 +20,7 @@ title: CI/CD pipelines in the VS Code extension
 
 {{< /history >}}
 
-If your GitLab project uses CI/CD pipelines, you can start, watch, and debug CI/CD pipelines from the
-GitLab Workflow extension for VS Code. When you work locally on a Git branch, the bottom status bar
-shows either:
+If your GitLab project uses CI/CD pipelines, you can start, watch, and debug CI/CD pipelines from the GitLab Workflow extension for VS Code. When you work locally on a Git branch, the bottom status bar shows either:
 
 - The status of its most recent pipeline.
 - **No pipeline** if a pipeline hasn't run yet.
@@ -117,7 +115,7 @@ Quickly find the CI/CD variable you are looking for with CI/CD variable autocomp
 Prerequisites:
 
 - The name of your CI/CD configuration file starts with `.gitlab-ci` and ends with `.yml` or `.yaml`.
-  For example `.gitlab-ci.yml` or `.gitlab-ci.production.yml`
+ For example `.gitlab-ci.yml` or `.gitlab-ci.production.yml`
 
 To autocomplete a variable:
 

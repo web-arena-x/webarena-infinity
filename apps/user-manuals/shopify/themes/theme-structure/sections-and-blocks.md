@@ -63,7 +63,7 @@ For example, your theme has an **Email signup** section. You can use this sectio
 * a **Heading** block
 * a **Subheading** block
 
-If you add the **Email form** block and click  **Add block** to add another block, then the **Email form** block no longer displays as an option in the block picker. This limitation helps prevent any issues with capturing the customer's email, and ensures that the customer can easily enter their email address.
+If you add the **Email form** block and click **Add block** to add another block, then the **Email form** block no longer displays as an option in the block picker. This limitation helps prevent any issues with capturing the customer's email, and ensures that the customer can easily enter their email address.
 
 If you've added all three of the available blocks for the **Email signup** section, then the block picker displays a message that all available blocks have been used.
 
@@ -79,9 +79,9 @@ Theme blocks are blocks that are defined within your theme and can have dynamic 
 
 For example, your theme has a **Slideshow** section with theme blocks.
 
-In the slideshow section of your theme, when you click  **Add block**, you can select a **Slide** block from the block picker. No other block types are available. If you try to add a **Slide** block to another section in your theme, such as an **Image banner** section, then **Slide** isn't available. This is an example of a restricted block.
+In the slideshow section of your theme, when you click **Add block**, you can select a **Slide** block from the block picker. No other block types are available. If you try to add a **Slide** block to another section in your theme, such as an **Image banner** section, then **Slide** isn't available. This is an example of a restricted block.
 
-After you add a **Slide** block to the **Slideshow** section, you can click  **Add block** to add additional blocks to any **Slide** blocks in the **Slideshow** section, such as a **Heading**, **Image**, **Button**. These blocks are nested in the **Slide** block. This is an example of a nested block.
+After you add a **Slide** block to the **Slideshow** section, you can click **Add block** to add additional blocks to any **Slide** blocks in the **Slideshow** section, such as a **Heading**, **Image**, **Button**. These blocks are nested in the **Slide** block. This is an example of a nested block.
 
 If you add a second **Slide** block to the **Slideshow** section, then the theme automatically adds a **Slideshow controls** block. This block displays buttons that visitors to your site can click to navigate from one slide to the another. You can customize the style of buttons or hide the controls, but you can't remove or delete the block. This is an example of a required block that displays conditionally.
 
@@ -92,7 +92,7 @@ To access theme blocks, your theme must have sections that support theme blocks.
 #### Steps:
 
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
-2. Next to the theme that you want to check, click the  button, and then click **Edit Code**.
+2. Next to the theme that you want to check, click the button, and then click **Edit Code**.
 3. In the sidebar, search for the blocks folder.
 
 ## Customizing your theme templates with sections and blocks
@@ -110,7 +110,7 @@ Desktop
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Find the theme that you want to edit, and then click **Edit theme**.
 3. Customize your home page, or click the **Home page** drop-down menu and then select the template that you want to add a section to.
-4. In the sidebar, click  **Add section**, and then take one of the following steps:
+4. In the sidebar, click **Add section**, and then take one of the following steps:
 
    * Select a section from the list.
    * Use the **Search sections** field to find a specific section, and then select it.
@@ -118,12 +118,12 @@ Desktop
 
    * Edit the settings and content of your new section.
    * Edit the settings and content of the default blocks that load with the section.
-   * Click  **Add block** to [add a new block](sections-and-blocks.md#add-block).
-6. Optional: To rearrange the order of the sections on your page, hover on the section name and then click and drag the  button.
+   * Click **Add block** to [add a new block](sections-and-blocks.md#add-block).
+6. Optional: To rearrange the order of the sections on your page, hover on the section name and then click and drag the button.
 7. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -131,7 +131,7 @@ Mobile
 6. Tap **Sections**, then tap **Add section**, and then take one of the following steps:
 
    * Select a section from the list, and then tap **Add**.
-   * Tap the  button to search for a specific section, select your section, and then tap **Add**.
+   * Tap the button to search for a specific section, select your section, and then tap **Add**.
 7. Customize your new section by taking any of the following steps:
 
    * Edit the settings and content of your new section.
@@ -152,7 +152,7 @@ Desktop
 6. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -176,17 +176,17 @@ Desktop
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Find the theme that you want to edit, and then click **Edit theme**.
 3. To edit a section or block on your home page, either select it directly or use the **Home page** drop-down menu to choose the specific template that contains the section or block you want to edit.
-4. Click and hold the  and then drag the block or section to a new location.
+4. Click and hold the and then drag the block or section to a new location.
 5. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Next to the theme that you want to edit, tap **Edit theme**.
 5. To edit a section or block on your home page, either select it directly or use the **Home page** drop-down menu to choose the specific template that contains the section or block you want to edit.
 6. Tap **Sections** > **Edit**.
-7. Tap and hold the  and then drag the block or section to a new location.
+7. Tap and hold the and then drag the block or section to a new location.
 8. Tap **Done**.
 9. Tap **Save** or **✓**.
 
@@ -205,13 +205,13 @@ Desktop
 5. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Next to the theme that you want to edit, tap **Edit theme**.
 5. Duplicate a section or block on your home page, or tap the **Home page** drop-down menu and then select the template that contains the section or block that you want to duplicate.
 6. Tap **Sections** > **Edit**.
-7. Tap  > **Duplicate**.
+7. Tap > **Duplicate**.
 8. Tap **Save** or **✓**.
 
 ## Copy and paste blocks
@@ -234,19 +234,19 @@ Desktop
 1. From your Shopify admin, go to **Online Store** > [**Themes**](https://admin.shopify.com/themes).
 2. Find the theme that you want to edit, and then click **Edit theme**.
 3. Hide or delete a section or block on your home page, or click the **Home page** drop-down menu and then select the template that contains the section or block that you want to hide or delete.
-4. Optional: To hide a section or block from your online store, hover on a section or block name, and then click the  button.
-5. Optional: To delete a section or block from your online store, hover on a section or block name, and then click the  button.
+4. Optional: To hide a section or block from your online store, hover on a section or block name, and then click the button.
+5. Optional: To delete a section or block from your online store, hover on a section or block name, and then click the button.
 6. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
 5. Hide or delete a section or block on your home page, or tap the **Home page** drop-down menu and then select the template that contains the section or block that you want to hide or delete.
 6. Tap **Sections**, and then tap the section or block that you want to hide or delete.
-7. Optional: To hide a section or block from your online store, tap  > **Hide**.
-8. Optional: To delete a section or block from your online store, tap  > **Remove**.
+7. Optional: To hide a section or block from your online store, tap > **Hide**.
+8. Optional: To delete a section or block from your online store, tap > **Remove**.
 9. Tap **Save** or **✓**.
 
 ## Renaming a section or block
@@ -269,18 +269,18 @@ Desktop
 4. Update the title in either of the following ways:
 
 * Click the title, and then edit or enter a new name.
-* Click  >  **Rename**, and then enter a new name.
+* Click > **Rename**, and then enter a new name.
 
 5. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
 5. Tap or swipe to open the section menu.
 6. Tap the section or block that you want to rename to open the settings.
-7. Tap  >  **Rename**, and then enter a new name.
+7. Tap > **Rename**, and then enter a new name.
 8. Tap **Save** or **✓**.
 
 ## Working with blocks
@@ -309,22 +309,22 @@ Desktop
 5. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
 5. You can add a block to a section on your home page, or tap the **Home page** drop-down menu and then select the template that you want to add a block to.
-6. Tap **Sections**, then tap  **Block** for the section that you want to add a block to, and then take one of the following steps:
+6. Tap **Sections**, then tap **Block** for the section that you want to add a block to, and then take one of the following steps:
 
    * Select a block from the list.
-   * Tap the  button to search for a specific block, and then select your block.
+   * Tap the button to search for a specific block, and then select your block.
 7. Tap **Save** or **✓**.
 
 ## Use metafields and metaobjects with dynamic sources
 
 You can use [metafields](https://help.shopify.com/en/manual/custom-data/metafields) and [metaobjects](https://help.shopify.com/en/manual/custom-data/metaobjects) to display dynamic information on your online store. If you have a theme that supports metafields, then you can connect a metafield to a compatible section or block settings in the theme editor.
 
-For example, if you sell candles, then you might want to display burn times for each candle available on your store. After you set up a product metafield for `Burn time` in the **Custom data** section of your Shopify admin settings, you can add a text block to your product template's main section. In the text block, you can click the  button on the text setting and select the **Burn time** metafield. Burn time information will now display on your products.
+For example, if you sell candles, then you might want to display burn times for each candle available on your store. After you set up a product metafield for `Burn time` in the **Custom data** section of your Shopify admin settings, you can add a text block to your product template's main section. In the text block, you can click the button on the text setting and select the **Burn time** metafield. Burn time information will now display on your products.
 
 If you have a Shopify theme, then you can connect most metafields and metaobjects to your theme by using the theme editor. If you're using other themes, or if you want to add custom data types that your theme doesn't support, then you can [edit your theme code](../customizing-themes/edit-code/edit-theme-code.md#edit-your-theme-code) or hire a Shopify Partner to help you.
 Learn more about [hiring a Shopify Partner](https://help.shopify.com/en/manual/partner-directory).
@@ -333,7 +333,7 @@ Not all sections or blocks support dynamic sources. Check your [theme's architec
 
 You can display dynamic information in your online store by adding sections or blocks that can use dynamic sources. Dynamic sources can be used in any template, section, or block that displays compatible resources (product, collection, page, blog and blog post). You need to [add your metafield](https://help.shopify.com/en/manual/custom-data/metafields) before you can connect it in your templates. Refer to [*Dynamic sources*](https://shopify.dev/themes/architecture/settings#dynamic-sources) for more information about using metafields and metaobjects with dynamic sources in your theme.
 
-After you complete the setup process, follow the steps below to connect dynamic sources to sections or blocks in your theme, using the  button.
+After you complete the setup process, follow the steps below to connect dynamic sources to sections or blocks in your theme, using the button.
 
 #### Steps:
 
@@ -343,17 +343,17 @@ Desktop
 2. Find the theme that you want to edit, and then click **Edit theme**.
 3. Edit a section or block on your home page, or click the **Home page** drop-down menu and then select the template that contains the section or block that you want to edit.
 4. In the sidebar, click a section or block name to load the content into the preview window and access the settings and options that are available for you to edit.
-5. Click the  button for the relevant content type that you want to edit, and then [connect your dynamic source](sections-and-blocks.md#dynamic-source-selector).
+5. Click the button for the relevant content type that you want to edit, and then [connect your dynamic source](sections-and-blocks.md#dynamic-source-selector).
 6. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
 5. Edit a section or block on your home page, or tap the **Home page** drop-down menu and then select the template that contains the section or block that you want to edit.
 6. Tap **Sections**, and then tap a section or block name to load the content into the preview window and access the settings and options that are available for you to edit.
-7. Tap the  button for the relevant content type that you want to edit, and then [connect your dynamic source](sections-and-blocks.md#dynamic-source-selector).
+7. Tap the button for the relevant content type that you want to edit, and then [connect your dynamic source](sections-and-blocks.md#dynamic-source-selector).
 8. Tap **Save** or **✓**.
 
 Learn more about [displaying metafields on your online store](https://help.shopify.com/en/manual/custom-data/metafields/displaying-metafields-on-your-online-store) and [displaying metaobjects on your online store](https://help.shopify.com/en/manual/custom-data/metaobjects/connecting-to-your-online-store).

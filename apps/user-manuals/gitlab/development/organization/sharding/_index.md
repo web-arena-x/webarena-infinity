@@ -147,7 +147,7 @@ The keep file contains code that:
 - If table `dast_site_profiles_builds` has FK relation to its parent table `dast_site_profiles` with CASCADE delete then records will get deleted when the associated `dast_site_profiles` records are deleted.
 - But it's also good to add a LFK entry for `dast_site_profiles_builds`.
 
-  ```yaml
+ ```yaml
    dast_site_profiles_builds:
      - table: projects
        column: project_id
@@ -162,13 +162,13 @@ Once the column has been added and the backfill is finished we need to finalize 
 
 - Output will look something like:
 
-  ![ChatOps response showing batched background migration status with progress percentage and batch counts.](img/chatops_v18_6.png)
+ ![ChatOps response showing batched background migration status with progress percentage and batch counts.](img/chatops_v18_6.png)
 
-  The ChatOps output displays:
-  - Job class name
-  - Table name
-  - Status (e.g., `finished`, `active`, `paused`)
-  - Progress percentage
+ The ChatOps output displays:
+ - Job class name
+ - Table name
+ - Status (e.g., `finished`, `active`, `paused`)
+ - Progress percentage
 
 1. Once it's 100% create a new branch from master and run: `bundle exec rails g post_deployment_migration finalize_<table><sharding_key>`
 
@@ -332,11 +332,11 @@ Let's take the recent `BackfillPushEventPayloadsProjectId` BBM failure as an exa
 
 - Failures are also reported as a comment on backfilled original MR. Example: MR [!183123](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/183123#note_2482744925)
 
-  ![Merge request comment showing batched background migration failure notification.](img/bbm-failure_v18_6.png)
+ ![Merge request comment showing batched background migration failure notification.](img/bbm-failure_v18_6.png)
 
 - We can also check the status of the job in `#chat-ops-test` Slack channel, using `/chatops run batched_background_migrations list --job-class-name=<desired_sharding_key_migration_job_name>`.
 
-  ![ChatOps output indicating a failed batched background migration status.](img/backfill-chatops-failed_v18_6.png)
+ ![ChatOps output indicating a failed batched background migration status.](img/backfill-chatops-failed_v18_6.png)
 
 - Let's figure out the reason for failure using [Kibana dashboard](https://log.gprd.gitlab.net/app/discover).
 
@@ -380,7 +380,7 @@ Let's take the recent `BackfillApprovalMergeRequestRulesUsersProjectId` BBM fail
 
 - You'll be tagged on the original MR.
 
-  ![Merge request comment tagging team members about the migration failure.](img/bbm-mr-message_v18_6.png)
+ ![Merge request comment tagging team members about the migration failure.](img/bbm-mr-message_v18_6.png)
 
 1. We can also check the status of the job in `#chat-ops-test` Slack channel, using `/chatops run batched_background_migrations list --job-class-name=<desired_sharding_key_migration_job_name>`.
 
@@ -401,9 +401,9 @@ Let's take the recent `BackfillApprovalMergeRequestRulesUsersProjectId` BBM fail
 
 - Metric: `gitlab_component_utilization:pg_table_size_bytes:1h`.
 - Label filters:
-  - `env: gprd`.
-  - `type: patroni`.
-  - `relname: approval_merge_request_rules_users`.
+ - `env: gprd`.
+ - `type: patroni`.
+ - `relname: approval_merge_request_rules_users`.
 
 1. Timeline: select at least a few days prior to the date of job creation. You can see in the MR that failure was reported on [2025-03-31](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/183354#note_2425371444) and the job was created on **2025-03-11**. I have selected the time range from **2025-03-01** to **2025-04-02**. You can adjust it accordingly.
 1. After running the query a graph will be generated within the selected time frame.

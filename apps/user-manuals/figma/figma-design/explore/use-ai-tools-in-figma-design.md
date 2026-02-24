@@ -18,7 +18,7 @@ AI outputs may be misleading or wrong. The information provided by the tools sho
 
 Figma AI helps you get started faster, find what you're looking for, and stay in the flow. In this article, you can explore all the AI features available in Figma Design.
 
-You can access Figma AI tools using  **Actions** in the Figma Design toolbar. If an admin has [disabled Figma AI for your team or organization](https://help.figma.com/hc/en-us/articles/17725942479127), you won’t be able to use these features.
+You can access Figma AI tools using **Actions** in the Figma Design toolbar. If an admin has [disabled Figma AI for your team or organization](https://help.figma.com/hc/en-us/articles/17725942479127), you won’t be able to use these features.
 
 Note: Figma AI uses a credit system that is shared across all Figma AI features and products, including some tools mentioned in this article. [Learn more about how AI credits work](https://help.figma.com/hc/en-us/articles/33459875669015-How-AI-credits-work).
 
@@ -142,8 +142,7 @@ When it comes to building AI, we want to be transparent about what we’re doing
 
 There are a few things to keep in mind when using any AI tool:
 
-**Accuracy**  
-AI-powered tools are designed to provide information and results based on artificial intelligence algorithms and identify patterns and relationships from large amounts of data. It’s important to note that the accuracy and reliability of these results may vary.
+**Accuracy** AI-powered tools are designed to provide information and results based on artificial intelligence algorithms and identify patterns and relationships from large amounts of data. It’s important to note that the accuracy and reliability of these results may vary.
 
 There is a possibility of inaccuracies, omissions, or misleading outcomes due to the complexities and limitations of AI technologies. Therefore, the information provided by the tool should be regarded as a general reference and not a fact or a substitute for expert advice or your own research.
 

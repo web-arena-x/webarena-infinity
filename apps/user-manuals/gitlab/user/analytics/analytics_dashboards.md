@@ -35,8 +35,7 @@ An enhanced dashboard experience is proposed in [epic 13801](https://gitlab.com/
 
 {{< /history >}}
 
-A data source is a connection to a database or collection of data which can be used by your dashboard
-filters and visualizations to query and retrieve results.
+A data source is a connection to a database or collection of data which can be used by your dashboard filters and visualizations to query and retrieve results.
 
 ## Built-in dashboards
 
@@ -56,7 +55,7 @@ The following built-in dashboards are available:
 You can [create custom dashboards](#create-a-dashboard-by-configuration) to visualize the metrics that are most relevant to your case.
 
 - Each project can have an unlimited number of dashboards.
-  The only limitation might be the [repository size limit](../project/repository/repository_size.md#size-and-storage-limits).
+ The only limitation might be the [repository size limit](../project/repository/repository_size.md#size-and-storage-limits).
 - Each dashboard can reference one or more [visualizations](#define-a-chart-visualization-template).
 - Visualizations can be shared across dashboards.
 
@@ -119,8 +118,7 @@ To change the location of a group's custom dashboards:
 
 ### Project dashboards
 
-By default custom dashboards are saved to the current project, because
-dashboards are usually defined in the project where the analytics data is retrieved from.
+By default custom dashboards are saved to the current project, because dashboards are usually defined in the project where the analytics data is retrieved from.
 However, you can also have a separate project for dashboards.
 This setup is recommended if you want to enforce specific access rules to the dashboard definitions or share dashboards across multiple projects.
 
@@ -157,13 +155,13 @@ and one visualization (line chart) that applies to all dashboards, the file stru
 ```plaintext
 .gitlab/analytics/dashboards
 ├── conversion_funnels
-│  └── conversion_funnels.yaml
+│ └── conversion_funnels.yaml
 ├── demographic_breakdown
-│  └── demographic_breakdown.yaml
+│ └── demographic_breakdown.yaml
 ├── north_star_metrics
-|  └── north_star_metrics.yaml
+| └── north_star_metrics.yaml
 ├── visualizations
-│  └── example_line_chart.yaml
+│ └── example_line_chart.yaml
 ```
 
 ### Dashboard filters
@@ -179,9 +177,9 @@ To enable filters, in the `.yaml` configuration file set the filter's `enabled` 
 title: My dashboard
 # ...
 filters:
-  excludeAnonymousUsers:
+ excludeAnonymousUsers:
     enabled: true
-  dateRange:
+ dateRange:
     enabled: true
 ```
 
@@ -196,8 +194,7 @@ You can define different charts and add visualization options to some of them, s
 - Data table.
 - Single stat, with the only option to set `decimalPlaces` (number, default value is 0).
 
-This process can also be followed for user-created dashboards. Each visualization must be written with the following
-required fields:
+This process can also be followed for user-created dashboards. Each visualization must be written with the following required fields:
 
 - version
 - type
@@ -208,26 +205,21 @@ required fields:
 
 {{< alert type="note" >}}
 
-We recommend using visualization templates sparingly. Visualization templates can lead to long visualization
-selection lists in the dashboard editor UI if not managed, which may lead to visualizations being missed or duplicated.
-Generally, visualization templates should be reserved for visualizations that will be used identically
-across several dashboards.
+We recommend using visualization templates sparingly. Visualization templates can lead to long visualization selection lists in the dashboard editor UI if not managed, which may lead to visualizations being missed or duplicated.
+Generally, visualization templates should be reserved for visualizations that will be used identically across several dashboards.
 
 {{< /alert >}}
 
 If you need a visualization to be used by multiple dashboards, you might store them as separate template files.
-When added to a dashboard, the visualization template will be copied over to the dashboard. Visualization templates
-copied to dashboards are not updated when the visualization template is updated.
+When added to a dashboard, the visualization template will be copied over to the dashboard. Visualization templates copied to dashboards are not updated when the visualization template is updated.
 
 To define a chart visualization template for your dashboards:
 
 1. In the `.gitlab/analytics/dashboards/visualizations/` directory, create a `.yaml` file.
    The filename should be descriptive of the visualization it defines.
-1. In the `.yaml` file, define the visualization configuration, according to the schema in
-   `ee/app/validators/json_schemas/analytics_visualization.json`.
+1. In the `.yaml` file, define the visualization configuration, according to the schema in `ee/app/validators/json_schemas/analytics_visualization.json`.
 
-For [example](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/gitlab/analytics/product_analytics/visualizations/events_over_time.yaml), to create a line chart that illustrates event count over time, in the `visualizations` folder
-create a `line_chart.yaml` file with the following required fields:
+For [example](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/gitlab/analytics/product_analytics/visualizations/events_over_time.yaml), to create a line chart that illustrates event count over time, in the `visualizations` folder create a `line_chart.yaml` file with the following required fields:
 
 - version
 - type
@@ -249,8 +241,7 @@ If the dashboard displays a global error message that the configuration is inval
 
 ### `Invalid visualization configuration`
 
-If a dashboard panel displays a message that the visualization configuration is invalid,
-check that your visualization configurations match the [visualization JSON schema](#define-a-chart-visualization-template)
+If a dashboard panel displays a message that the visualization configuration is invalid, check that your visualization configurations match the [visualization JSON schema](#define-a-chart-visualization-template)
 defined in `ee/app/validators/json_schemas/analytics_visualization.json`.
 
 ### Dashboard panel error

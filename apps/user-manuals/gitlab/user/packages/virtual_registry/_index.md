@@ -91,8 +91,7 @@ Manage virtual registries for a top-level group.
 
 ### Creating a virtual registry
 
-You can create a virtual registry for any of the
-[supported package formats](#supported-package-formats).
+You can create a virtual registry for any of the [supported package formats](#supported-package-formats).
 
 When you create a virtual registry:
 
@@ -130,8 +129,7 @@ To delete a virtual registry:
 
 ## Manage upstream registries
 
-Manage upstream registries in a virtual registry
-for a top-level group.
+Manage upstream registries in a virtual registry for a top-level group.
 
 ### View upstream registries
 
@@ -155,8 +153,7 @@ To edit an upstream registry:
 
 ### Reorder upstream registries
 
-The order of upstream registries determines the priority
-in which they are queried for packages.
+The order of upstream registries determines the priority in which they are queried for packages.
 
 To change the order of upstream registries:
 
@@ -170,8 +167,8 @@ Best practices for upstream ordering:
 
 - Position private registries before public ones to prioritize internal packages.
 - Prioritize registries with the most packages at the top of the list. This approach:
-  - Increases the chances that a high-priority registry can fulfill the request
-  - Prevents walking the entire ordered list to find a valid upstream registry
+ - Increases the chances that a high-priority registry can fulfill the request
+ - Prevents walking the entire ordered list to find a valid upstream registry
 - Place faster or more reliable registries higher in the list.
 - Put public registries last as fallbacks for public dependencies.
 - Put registries with the least amount of packages at the bottom of the list.
@@ -202,24 +199,18 @@ The virtual registry returns a `404 Not Found` error if it cannot find an upstre
 
 ### Cache validity period
 
-The cache validity period sets the amount of time, in hours,
-that a cache entry is considered valid to fulfill a request.
+The cache validity period sets the amount of time, in hours, that a cache entry is considered valid to fulfill a request.
 
-Before the virtual registry pulls from an existing cache entry,
-it checks the cache validity period to determine if the entry must be refreshed or not.
+Before the virtual registry pulls from an existing cache entry, it checks the cache validity period to determine if the entry must be refreshed or not.
 
-If the entry is outside the validity period, the virtual registry checks
-if the upstream response is identical to the one in the cache. If:
+If the entry is outside the validity period, the virtual registry checks if the upstream response is identical to the one in the cache. If:
 
 - The response is identical, the entry is used to fulfill the request.
 - The response is not identical, the response is downloaded again from the upstream to overwrite the upstream cache entry.
 
-If the virtual registry cannot connect to an upstream due to network conditions,
-the upstream serves the request with the available cache entry.
+If the virtual registry cannot connect to an upstream due to network conditions, the upstream serves the request with the available cache entry.
 
-As long as the virtual registry has the response related to
-a request in the cache, that request is fulfilled,
-even when outside the validity period.
+As long as the virtual registry has the response related to a request in the cache, that request is fulfilled, even when outside the validity period.
 
 ### Set the cache validity period
 
@@ -317,8 +308,7 @@ After a cleanup policy runs, you can view the following execution metrics:
 - Total storage space freed.
 - Any errors that occurred during execution.
 
-These metrics help you understand the effectiveness of your cleanup policy
-so you can adjust settings as needed.
+These metrics help you understand the effectiveness of your cleanup policy so you can adjust settings as needed.
 
 ## Performance considerations
 
@@ -331,11 +321,9 @@ Virtual registry performance might vary based on factors like:
 ### Tradeoffs
 
 Virtual registries are more advanced than public registries.
-When you pull dependencies with a virtual registry,
-it might take longer than other registries, such as public, official registries.
+When you pull dependencies with a virtual registry, it might take longer than other registries, such as public, official registries.
 
-Compared with public registries, virtual registries
-also support multiple upstream registries and authentication.
+Compared with public registries, virtual registries also support multiple upstream registries and authentication.
 
 ### Upstream prioritization
 

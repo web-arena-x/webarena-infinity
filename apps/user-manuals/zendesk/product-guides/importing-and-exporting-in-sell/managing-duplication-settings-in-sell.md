@@ -25,7 +25,7 @@ This method applies to automated methods of adding items, like importing and lea
 - Make sure that either Name, Email, or Phone is checked - at least one of them is required to detect duplicates.
 - Choose which fields can be empty when Sell is matching your chosen fields together.
 
-  For example, you might have chosen to match Name, Email, Phone, and LinkedIn fields, but also specified that the LinkedIn field can be empty. For example, if Sell finds two contacts and one contact has a LinkedIn entry, and the Name, Email, and Phone fields match between the two contacts, Sell will merge these two contacts together.
+ For example, you might have chosen to match Name, Email, Phone, and LinkedIn fields, but also specified that the LinkedIn field can be empty. For example, if Sell finds two contacts and one contact has a LinkedIn entry, and the Name, Email, and Phone fields match between the two contacts, Sell will merge these two contacts together.
 
 - Note that at least one field must have an entry to accurately make matches.
 - Click **Save**.

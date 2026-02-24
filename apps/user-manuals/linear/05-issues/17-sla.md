@@ -52,11 +52,11 @@ You can filter by almost any field to specify when SLAs should be applied, inclu
 
 ### Business Day SLAs
 
-When configuring an SLA with a custom time period, you can choose business days as your unit of time to exclude days that are not a part of your work week.  
-By default Business days are considered Monday through Friday.  
-  
-On the SLA settings page, you can choose optionally to set your work week to  Sunday > Thursday. This will affect your SLA calculations and other features that  skip working days, like [nudges on project reminder updates](https://linear.app/docs/initiative-and-project-updates#initiative-and-project-update-reminders).   
-  
+When configuring an SLA with a custom time period, you can choose business days as your unit of time to exclude days that are not a part of your work week. 
+By default Business days are considered Monday through Friday. 
+ 
+On the SLA settings page, you can choose optionally to set your work week to Sunday > Thursday. This will affect your SLA calculations and other features that skip working days, like [nudges on project reminder updates](https://linear.app/docs/initiative-and-project-updates#initiative-and-project-update-reminders).   
+ 
 When setting an SLA manually on an issue, you can choose business days or standard days when choosing a duration.
 
 ![Business day SLAs settings](https://webassets.linear.app/images/ornj730p/production/e283f7d5b724f3799af272452405906eda894830-1776x696.png?q=95&auto=format&dpr=2)
@@ -69,14 +69,7 @@ Linear's default SLA rules contain conditions to remove SLAs when priority is ma
 
 Linear groups SLAs into different SLA statuses. You will be able to filter and organize views of issues by their SLA status, and the different statuses will be indicated by the color of the SLA icon. 
 
-SLA status | Definition
---- | ---
-Low risk | More than 1 week away from SLA
-Medium risk | Within 1 week of SLA
-High risk | Within 1 day of SLA
-Breached | SLA has passed
-Achieved | Issue was completed within SLA
-Failed | Issue was completed after SLA was breached
+SLA status | Definition --- | --- Low risk | More than 1 week away from SLA Medium risk | Within 1 week of SLA High risk | Within 1 day of SLA Breached | SLA has passed Achieved | Issue was completed within SLA Failed | Issue was completed after SLA was breached
 
 ### SLA notifications
 
@@ -92,7 +85,7 @@ You can filter any view to see issues according to SLA status: _Breached, High R
 
 You can add SLAs to issues even when they don't apply to a predefined rule. Select the three dot menu from the issue creation modal to apply an SLA. 
 
-Note that if you create an SLA that conflicts with a "removal" rule, the SLA will automatically be removed after the issue is created. In these cases, you can override the rule but only if you add the SLA by editing the issue after it's created (not during issue creation). Do so from the issue view by selecting the three dot menu, then _Set SLA_.  
+Note that if you create an SLA that conflicts with a "removal" rule, the SLA will automatically be removed after the issue is created. In these cases, you can override the rule but only if you add the SLA by editing the issue after it's created (not during issue creation). Do so from the issue view by selecting the three dot menu, then _Set SLA_. 
 
 ## FAQ
 

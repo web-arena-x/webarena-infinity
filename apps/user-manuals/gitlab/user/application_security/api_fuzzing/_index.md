@@ -13,13 +13,10 @@ description: Testing, security, vulnerabilities, automation, and errors.
 
 {{< /details >}}
 
-Web API fuzz testing passes unexpected values to API operation parameters to cause unexpected behavior
-and errors in the backend. Use fuzz testing to discover bugs and potential vulnerabilities that other
-QA processes might miss.
+Web API fuzz testing passes unexpected values to API operation parameters to cause unexpected behavior and errors in the backend. Use fuzz testing to discover bugs and potential vulnerabilities that other QA processes might miss.
 
 You should use fuzz testing in addition to the other security scanners in [GitLab Secure](../_index.md)
-and your own test processes. If you're using [GitLab CI/CD](../../../ci/_index.md),
-you can run fuzz tests as part your CI/CD workflow.
+and your own test processes. If you're using [GitLab CI/CD](../../../ci/_index.md), you can run fuzz tests as part your CI/CD workflow.
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
 For an overview, see [Web API fuzzing - Advanced Security Testing](https://www.youtube.com/watch?v=oUHsfvLGhDk).
@@ -31,33 +28,32 @@ Get started with API fuzzing by editing your CI/CD configuration.
 Prerequisites:
 
 - A web API using one of the supported API types:
-  - REST API
-  - SOAP
-  - GraphQL
-  - Form bodies, JSON, or XML
+ - REST API
+ - SOAP
+ - GraphQL
+ - Form bodies, JSON, or XML
 - An API specification in one of the following formats:
-  - OpenAPI v2 or v3 Specification
-  - GraphQL Schema
-  - HTTP Archive (HAR)
-  - Postman Collection v2.0 or v2.1
+ - OpenAPI v2 or v3 Specification
+ - GraphQL Schema
+ - HTTP Archive (HAR)
+ - Postman Collection v2.0 or v2.1
 - An available GitLab Runner with the `docker` executor on Linux/amd64.
 - A deployed target application.
 - The `fuzz` stage is added to your CI/CD pipeline definition, after the `deploy` stage:
 
-  ```yaml
-  stages:
+ ```yaml
+ stages:
     - build
     - test
     - deploy
     - fuzz
-  ```
+ ```
 
 To enable API fuzzing:
 
 - Use the [Web API fuzzing configuration form](configuration/enabling_the_analyzer.md#web-api-fuzzing-configuration-form).
 
-  The form lets you choose values for the most common API fuzzing options, and builds
-  a YAML snippet that you can paste in your GitLab CI/CD configuration.
+ The form lets you choose values for the most common API fuzzing options, and builds a YAML snippet that you can paste in your GitLab CI/CD configuration.
 
 ## Understanding the results
 
@@ -92,31 +88,25 @@ For more details, see the [pipeline security report](../detect/security_scanning
 To get the most out of API fuzzing, follow these recommendations:
 
 - To run the latest versions of the analyzers, configure runners to use `pull_policy: always`.
-- By default, API fuzzing downloads all artifacts defined by previous jobs in the pipeline. If your
-  API fuzzing job does not rely on `environment_url.txt` to define the URL under test or any other
-  files created in previous jobs, you should not download artifacts.
+- By default, API fuzzing downloads all artifacts defined by previous jobs in the pipeline. If your API fuzzing job does not rely on `environment_url.txt` to define the URL under test or any other files created in previous jobs, you should not download artifacts.
 
-  To avoid downloading artifacts, extend the analyzer CI/CD job to specify no dependencies.
-  For example, for the API fuzzing analyzer, add the following to your `.gitlab-ci.yml` file:
+ To avoid downloading artifacts, extend the analyzer CI/CD job to specify no dependencies.
+ For example, for the API fuzzing analyzer, add the following to your `.gitlab-ci.yml` file:
 
-  ```yaml
-  apifuzzer_fuzz:
+ ```yaml
+ apifuzzer_fuzz:
     dependencies: []
-  ```
+ ```
 
 ### Application deployment options
 
 API fuzzing requires a deployed application to be available to scan.
 
-Depending on the complexity of the target application, there are a few options as to how to deploy and configure
-the API fuzzing template.
+Depending on the complexity of the target application, there are a few options as to how to deploy and configure the API fuzzing template.
 
 #### Review apps
 
-Review apps are the most involved method of deploying your API fuzzing target application. To assist in the process,
-GitLab created a review app deployment using Google Kubernetes Engine (GKE). This example can be found in the
-[Review apps - GKE](https://gitlab.com/gitlab-org/security-products/demos/dast/review-app-gke) project, plus detailed
-instructions to configure review apps in DAST.
+Review apps are the most involved method of deploying your API fuzzing target application. To assist in the process, GitLab created a review app deployment using Google Kubernetes Engine (GKE). This example can be found in the [Review apps - GKE](https://gitlab.com/gitlab-org/security-products/demos/dast/review-app-gke) project, plus detailed instructions to configure review apps in DAST.
 
 #### Docker services
 
@@ -129,20 +119,20 @@ When adding a `services` section to the job, the `alias` is used to define the h
 
 ```yaml
 stages:
-  - build
-  - fuzz
+ - build
+ - fuzz
 
 include:
-  - template: API-Fuzzing.gitlab-ci.yml
+ - template: API-Fuzzing.gitlab-ci.yml
 
 # Deploys the container to the GitLab container registry
 deploy:
-  services:
-  - name: docker:dind
+ services:
+ - name: docker:dind
     alias: dind
-  image: docker:20.10.16
-  stage: build
-  script:
+ image: docker:20.10.16
+ stage: build
+ script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
     - docker pull $CI_REGISTRY_IMAGE:latest || true
     - docker build --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA --tag $CI_REGISTRY_IMAGE:latest .
@@ -150,40 +140,32 @@ deploy:
     - docker push $CI_REGISTRY_IMAGE:latest
 
 apifuzzer_fuzz:
-  services: # use services to link your app container to the dast job
+ services: # use services to link your app container to the dast job
     - name: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
       alias: yourapp
 
 variables:
-  FUZZAPI_TARGET_URL: https://yourapp
+ FUZZAPI_TARGET_URL: https://yourapp
 ```
 
-Most applications depend on multiple services such as databases or caching services. By default, services defined in the services fields cannot communicate
-with each another. To allow communication between services, enable the `FF_NETWORK_PER_BUILD` feature flag.
+Most applications depend on multiple services such as databases or caching services. By default, services defined in the services fields cannot communicate with each another. To allow communication between services, enable the `FF_NETWORK_PER_BUILD` feature flag.
 
 ```yaml
 variables:
-  FF_NETWORK_PER_BUILD: "true" # enable network per build so all services can communicate on the same network
+ FF_NETWORK_PER_BUILD: "true" # enable network per build so all services can communicate on the same network
 
 services: # use services to link the container to the dast job
-  - name: mongo:latest
+ - name: mongo:latest
     alias: mongo
-  - name: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+ - name: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
     alias: yourapp
 ```
 
 ## Roll out
 
-Web API fuzzing runs in the `fuzz` stage of the CI/CD pipeline. To ensure API fuzzing scans the
-latest code, your CI/CD pipeline should deploy changes to a test environment in one of the stages
-preceding the `fuzz` stage.
+Web API fuzzing runs in the `fuzz` stage of the CI/CD pipeline. To ensure API fuzzing scans the latest code, your CI/CD pipeline should deploy changes to a test environment in one of the stages preceding the `fuzz` stage.
 
-If your pipeline is configured to deploy to the same web server on each run, running a
-pipeline while another is still running could cause a race condition in which one pipeline
-overwrites the code from another. The API to scan should be excluded from changes for the duration
-of a fuzzing scan. The only changes to the API should be from the fuzzing scanner. Any changes made
-to the API (for example, by users, scheduled tasks, database changes, code changes, other pipelines,
-or other scanners) during a scan could cause inaccurate results.
+If your pipeline is configured to deploy to the same web server on each run, running a pipeline while another is still running could cause a race condition in which one pipeline overwrites the code from another. The API to scan should be excluded from changes for the duration of a fuzzing scan. The only changes to the API should be from the fuzzing scanner. Any changes made to the API (for example, by users, scheduled tasks, database changes, code changes, other pipelines, or other scanners) during a scan could cause inaccurate results.
 
 You can run a web API fuzzing scan using the following methods:
 
@@ -222,16 +204,7 @@ When experiencing a behavior not working as expected, consider providing context
 
 ## Glossary
 
-- Assert: Assertions are detection modules used by checks to trigger a fault. Many assertions have
-  configurations. A check can use multiple Assertions. For example, Log Analysis, Response Analysis,
-  and Status Code are common Assertions used together by checks. Checks with multiple Assertions
-  allow them to be turned on and off.
-- Check: Performs a specific type of test, or performed a check for a type of vulnerability. For
-  example, the JSON Fuzzing Check performs fuzz testing of JSON payloads. The API fuzzer is
-  comprised of several checks. Checks can be turned on and off in a profile.
-- Fault: During fuzzing, a failure identified by an Assert is called a fault. Faults are
-  investigated to determine if they are a security vulnerability, a non-security issue, or a false
-  positive. Faults don't have a known vulnerability type until they are investigated. Example
-  vulnerability types are SQL Injection and Denial of Service.
-- Profile: A configuration file has one or more testing profiles, or sub-configurations. You may
-  have a profile for feature branches and another with extra testing for a main branch.
+- Assert: Assertions are detection modules used by checks to trigger a fault. Many assertions have configurations. A check can use multiple Assertions. For example, Log Analysis, Response Analysis, and Status Code are common Assertions used together by checks. Checks with multiple Assertions allow them to be turned on and off.
+- Check: Performs a specific type of test, or performed a check for a type of vulnerability. For example, the JSON Fuzzing Check performs fuzz testing of JSON payloads. The API fuzzer is comprised of several checks. Checks can be turned on and off in a profile.
+- Fault: During fuzzing, a failure identified by an Assert is called a fault. Faults are investigated to determine if they are a security vulnerability, a non-security issue, or a false positive. Faults don't have a known vulnerability type until they are investigated. Example vulnerability types are SQL Injection and Denial of Service.
+- Profile: A configuration file has one or more testing profiles, or sub-configurations. You may have a profile for feature branches and another with extra testing for a main branch.

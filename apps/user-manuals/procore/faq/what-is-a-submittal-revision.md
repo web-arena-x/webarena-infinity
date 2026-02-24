@@ -20,7 +20,7 @@ See [Create a Submittal Revision](https://support.procore.com/products/online/u
 
 If you create a new revision by creating a new submittal and manually copying related information from the previous, several problems can occur.
 
-Duplicate revisions could be created where the relationship to previous revisions couldn't be easily determined or linked. (e.g. 04400, 18, 1)  
+Duplicate revisions could be created where the relationship to previous revisions couldn't be easily determined or linked. (e.g. 04400, 18, 1) 
 Users could use different naming conventions for the submittal revision field. For example, there were no restrictions to what you could enter in the revision field. Therefore, you could use numeric or alpha values, or even words, which could easily lead to inconsistent and confusing results.
 
 ##### How are my submittal revisions linked to each other?

@@ -8,14 +8,11 @@ Before you Start
 
 Who can use this feature
 
-Available on
-[all plans](https://help.figma.com/hc/articles/360040328273)
+Available on [all plans](https://help.figma.com/hc/articles/360040328273)
 
-Available in Figma Design and Figma Sites. You can also access
-auto layout from design mode in Figma Slides and Figma Buzz.
+Available in Figma Design and Figma Sites. You can also access auto layout from design mode in Figma Slides and Figma Buzz.
 
-Anyone with `can edit` access to a file can use
-auto layout
+Anyone with `can edit` access to a file can use auto layout
 
 Auto layout can be used on frames so that designs will respond dynamically to content changes, saving you time and making your designs responsive and adaptable.
 
@@ -30,7 +27,7 @@ Use auto layout to create responsive designs, such as:
 
 ## Add auto layout
 
-To start using auto layout on designs, select one or more layers and press `⇧ Shift` `A` or click  **Add auto layout** from the right sidebar. Figma will try to determine which [auto layout flow](#flow)—vertical, horizontal, or grid—you want to use. You can switch to a different flow at anytime.
+To start using auto layout on designs, select one or more layers and press `⇧ Shift` `A` or click **Add auto layout** from the right sidebar. Figma will try to determine which [auto layout flow](#flow)—vertical, horizontal, or grid—you want to use. You can switch to a different flow at anytime.
 
 [Learn more about toggling auto layout on designs.](https://help.figma.com/hc/en-us/articles/5731482952599-Add-auto-layout-to-a-design)
 
@@ -44,11 +41,11 @@ Once auto layout is being used on a frame, you can choose from three options to 
 
 ### Horizontal and vertical
 
-The  **Vertical** option places objects in your frame along the y-axis. Any objects you add, remove, or reorder will follow the y-axis. For example: Multiple list items in a to-do list, or posts within a newsfeed or timeline.
+The **Vertical** option places objects in your frame along the y-axis. Any objects you add, remove, or reorder will follow the y-axis. For example: Multiple list items in a to-do list, or posts within a newsfeed or timeline.
 
-The  **Horizontal** option places objects in your frame along the x-axis. Any objects you add, remove, or reorder will follow the x-axis. For example: A row of buttons, or icons in a mobile navigation menu.
+The **Horizontal** option places objects in your frame along the x-axis. Any objects you add, remove, or reorder will follow the x-axis. For example: A row of buttons, or icons in a mobile navigation menu.
 
-When you have the horizontal selected,  **Wrap** becomes available. Wrap pushes any overflowing objects to the next line in your frame.
+When you have the horizontal selected, **Wrap** becomes available. Wrap pushes any overflowing objects to the next line in your frame.
 
 ![three sets of designs, all with the same elements: three circles, one pink, one yellow, one green. The first set of circles are placed in a vertical direction. The second set of circles are placed in a horizontal direction. The third set of circles are wrapped, with the pink and yellow circles in the first row, and the green circle in the second row.](https://help.figma.com/hc/article_attachments/24357080207127)
 
@@ -60,7 +57,7 @@ The horizontal and vertical auto layout options also have additional properties 
 
 🚧 The grid option for auto layout is currently in [open beta](https://help.figma.com/hc/en-us/articles/4406787442711). Some functions and settings may not yet be available to grid. The feature may change and you may experience bugs or performance issues during the beta period.
 
-The  **Grid** option places objects in columns and rows, allowing you to create galleries, bento boxes, and dashboard layouts that respond and resize to different frame sizes.
+The **Grid** option places objects in columns and rows, allowing you to create galleries, bento boxes, and dashboard layouts that respond and resize to different frame sizes.
 
 Unlike the wrap setting for horizontal and vertical flows, objects in a grid don’t wrap to the next line. Instead, they are placed in a “grid” and have the option to span multiple rows or columns.
 
@@ -164,10 +161,10 @@ Objects with ignore auto layout enabled are treated as objects in a regular fram
 
 You can have an object ignore the auto layout flow by doing one of the following:
 
-- Select a child of an auto layout frame, and click  **Ignore auto layout**in the right sidebar
+- Select a child of an auto layout frame, and click **Ignore auto layout**in the right sidebar
 - Drag an object into an auto layout frame while pressing:
-  - **Mac:** `⌃ Control`
-  - **Windows:** `S`
+ - **Mac:** `⌃ Control`
+ - **Windows:** `S`
 
 ![In a Figma Design file, a cursor drags an X icon into an auto layout frame while holding the control key. The cursor releases the X icon in the top-right corner of the frame.](https://help.figma.com/hc/article_attachments/31937331190167)
 
@@ -199,7 +196,7 @@ For example: Let's say we a habit logging app where each habit gets an analytics
 
 As components are frames, you can add auto layout to them. You will need to add auto layout to each component individually. There isn't currently a way to add auto layout in bulk.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Action** | **Main component** | **Instance** |
 | Adjust vertical and horizontal padding | ✓ | ✓ |
@@ -281,22 +278,22 @@ Use these keyboard shortcuts and click specific areas in an auto layout frame to
 
 ### Articles
 
-- **Article**: [Toggle auto layout on a design](https://help.figma.com/hc/en-us/articles/5731482952599-Add-auto-layout-to-a-design)  
-  Ready to start using auto layout? Learn how to use auto layout on frames and layers so that you can start making your designs responsive.
-- **Article**: [Use the horizontal or vertical flows in auto layout](https://help.figma.com/hc/articles/31289464393751)  
-  Learn about the properties available to the horizontal and vertical flows in auto layout.
-- **Article**: [Use the grid in auto layout flow](https://help.figma.com/hc/articles/31289469907863)  
-  Learn how to work with columns, rows, and cells with the grid layout flow.
-- **Article**: [Create multi-dimensional auto layout flows](https://help.figma.com/hc/articles/31441443713047)  
-  Combine multiple auto layout flows to build fully responsive components and screens.
+- **Article**: [Toggle auto layout on a design](https://help.figma.com/hc/en-us/articles/5731482952599-Add-auto-layout-to-a-design) 
+ Ready to start using auto layout? Learn how to use auto layout on frames and layers so that you can start making your designs responsive.
+- **Article**: [Use the horizontal or vertical flows in auto layout](https://help.figma.com/hc/articles/31289464393751) 
+ Learn about the properties available to the horizontal and vertical flows in auto layout.
+- **Article**: [Use the grid in auto layout flow](https://help.figma.com/hc/articles/31289469907863) 
+ Learn how to work with columns, rows, and cells with the grid layout flow.
+- **Article**: [Create multi-dimensional auto layout flows](https://help.figma.com/hc/articles/31441443713047) 
+ Combine multiple auto layout flows to build fully responsive components and screens.
 
 ### Projects and hands-on learning
 
-- **Figma tutorial playlist**: [Learn to create flexible designs and components](https://youtube.com/playlist?list=PLXDU_eVOJTx55HFubfbTL3ellJjBM2QE2&si=166Ohn4M4sID1REI)  
-  This playlist includes video tutorials that cover the basics of auto layout, how to apply auto layout to designs, and hands-on tutorials for more practice.
-- **Community file**: [Auto layout playground](https://www.figma.com/community/file/784448220678228461)  
-  Grab a copy of the auto layout playground file to practice while you learn.
-- **Community file**: [Grid playground](https://www.figma.com/community/file/1484548529005244626)  
-  Grab a copy of the grid auto layout playground file to practice while you learn.
-- **Project**: [Create a responsive card with auto layout and constraints](https://help.figma.com/hc/en-us/articles/18894664907287-Create-a-responsive-card-with-auto-layout-and-constraints)  
-  In this project, learn how to a responsive card design for a podcast app using auto layout, constraints, components, and shape tools.
+- **Figma tutorial playlist**: [Learn to create flexible designs and components](https://youtube.com/playlist?list=PLXDU_eVOJTx55HFubfbTL3ellJjBM2QE2&si=166Ohn4M4sID1REI) 
+ This playlist includes video tutorials that cover the basics of auto layout, how to apply auto layout to designs, and hands-on tutorials for more practice.
+- **Community file**: [Auto layout playground](https://www.figma.com/community/file/784448220678228461) 
+ Grab a copy of the auto layout playground file to practice while you learn.
+- **Community file**: [Grid playground](https://www.figma.com/community/file/1484548529005244626) 
+ Grab a copy of the grid auto layout playground file to practice while you learn.
+- **Project**: [Create a responsive card with auto layout and constraints](https://help.figma.com/hc/en-us/articles/18894664907287-Create-a-responsive-card-with-auto-layout-and-constraints) 
+ In this project, learn how to a responsive card design for a podcast app using auto layout, constraints, components, and shape tools.

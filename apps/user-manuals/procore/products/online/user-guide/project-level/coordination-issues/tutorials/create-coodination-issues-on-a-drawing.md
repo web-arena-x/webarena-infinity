@@ -15,11 +15,11 @@ You can create coordination issues in three locations: the Procore Coordination 
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Standard' or 'Admin' level permissions on both the Coordination Issues and Drawings tools.
+ - 'Standard' or 'Admin' level permissions on both the Coordination Issues and Drawings tools.
 - **Additional Information**:
-  - Creating a coordination issue automatically adds the markup to the drawing for anyone with access to the Drawings tool.
-  - When you create a coordination issue, it automatically includes a snapshot and a link to the original drawing. This helps you easily reference the drawing from the Coordination Issues tool.
-  - For additional information about creating and linking issues to drawings, see [Create or Link Coordination Issues to a Drawing](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/create-or-link-coordination-issues-on-a-drawing "Add Coordination Issues to a Drawing") in the Drawings tool.
+ - Creating a coordination issue automatically adds the markup to the drawing for anyone with access to the Drawings tool.
+ - When you create a coordination issue, it automatically includes a snapshot and a link to the original drawing. This helps you easily reference the drawing from the Coordination Issues tool.
+ - For additional information about creating and linking issues to drawings, see [Create or Link Coordination Issues to a Drawing](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/create-or-link-coordination-issues-on-a-drawing "Add Coordination Issues to a Drawing") in the Drawings tool.
 
 ## Steps
 
@@ -31,7 +31,7 @@ Before adding an issue, open the drawing.
 
 1. Navigate to the project's **Drawings** tool.
 2. Find the drawing you want to work on and click **Open**.
-3. Click the **Markup** tool at the top of the viewer.  
+3. Click the **Markup** tool at the top of the viewer. 
      
    ![](/)![markup-in-the-drawing-toolbar.jpg](https://support.procore.com/@api/deki/files/69390/markup-in-the-drawing-toolbar.jpg?revision=5&size=bestfit&width=428&height=46)
 
@@ -43,9 +43,9 @@ Decide how to show the issue on the drawing.
 
 This method places a specific icon on the drawing to represent the issue.
 
-1. Click the **Pins** icon on the markup toolbar.  
+1. Click the **Pins** icon on the markup toolbar. 
    ![drawings-toolbar-pin.png](https://support.procore.com/@api/deki/files/200137/drawings-toolbar-pin.png?revision=1&size=bestfit&width=45&height=47)
-2. If you don't see it, another pin type (like Photos or Punch Item) may be selected. Click that icon to expand the menu and find the **Issue** pin.  
+2. If you don't see it, another pin type (like Photos or Punch Item) may be selected. Click that icon to expand the menu and find the **Issue** pin. 
    ![drawings-toolbar-coordination-issues.png](https://support.procore.com/@api/deki/files/83788/drawings-toolbar-coordination-issues.png?revision=1&size=bestfit&width=45&height=47)
 3. Click directly on the drawing where you want to place the pin.
 4. Proceed to **Step 3**.

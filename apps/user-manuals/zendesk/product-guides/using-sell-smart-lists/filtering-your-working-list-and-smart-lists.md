@@ -30,7 +30,7 @@ You can switch between views in the top right corner of the screen.
 **To create a list filter**
 
 1. On the Sell sidebar, click **Leads** (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_leads.png)), **Contacts** (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_contacts.png)), or **Deals** (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_deals.png)).
-2. In the top right corner of the screen, click the view you want to use.  
+2. In the top right corner of the screen, click the view you want to use. 
    For leads and contacts, click either **Index view** (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_index_view.png)), or **Table view**![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_table_view.png).
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_leads_contacts_view_index_board_field.png)

@@ -12,23 +12,17 @@ title: 'Tutorial: Move your personal project to a group'
 
 {{< /details >}}
 
-If you created a project under a [personal namespace](../../user/namespace/_index.md),
-you can perform common tasks, like managing issues, merge requests,
-source control, and CI/CD.
+If you created a project under a [personal namespace](../../user/namespace/_index.md), you can perform common tasks, like managing issues, merge requests, source control, and CI/CD.
 
-However, at some point you might outgrow your personal project and
-want to move your project to a group namespace instead. With a group namespace, you can:
+However, at some point you might outgrow your personal project and want to move your project to a group namespace instead. With a group namespace, you can:
 
 - Give a group of users access to your project, rather than adding users one-by-one.
 - View all issues and merge requests for all projects in the group.
 - View all unique users in the group namespace, across all projects.
 - Manage usage quotas.
-- Start a trial or upgrade to a paid subscription tier. This option is important if you're
-  impacted by the [changes to user limits](https://about.gitlab.com/blog/2022/03/24/efficient-free-tier/),
-  and need more users.
+- Start a trial or upgrade to a paid subscription tier. This option is important if you're impacted by the [changes to user limits](https://about.gitlab.com/blog/2022/03/24/efficient-free-tier/), and need more users.
 
-This tutorial shows you how to move your project from a personal namespace
-to a group namespace.
+This tutorial shows you how to move your project from a personal namespace to a group namespace.
 
 ## Steps
 
@@ -41,8 +35,7 @@ Here's an overview of the steps:
 ### Create a group
 
 To begin, make sure you have a suitable group to move your project to.
-The group must allow the creation of projects, and you must have at least the
-Maintainer role for the group.
+The group must allow the creation of projects, and you must have at least the Maintainer role for the group.
 
 If you don't have a group, create one:
 
@@ -71,15 +64,12 @@ Now you're ready to move your project:
 1. Enter the project's name and select **Confirm**.
 
 You are redirected to the project's new page.
-If you have more than one personal project, you can repeat these steps for each
-project.
+If you have more than one personal project, you can repeat these steps for each project.
 
 {{< alert type="note" >}}
 
-For more information about these migration steps,
-see [Transferring your project into another namespace](../../user/project/working_with_projects.md#transfer-a-project).
-A migration might result in follow-up work to update the project path in
-your related resources and tools, such as websites and package managers.
+For more information about these migration steps, see [Transferring your project into another namespace](../../user/project/working_with_projects.md#transfer-a-project).
+A migration might result in follow-up work to update the project path in your related resources and tools, such as websites and package managers.
 
 {{< /alert >}}
 
@@ -90,8 +80,7 @@ You can now view your project in your group:
 1. On the top bar, select **Search or go to** and find your group.
 1. Look for your project under **Subgroups and projects**.
 
-Start enjoying the benefits of a group! For example, as the group Owner, you can
-quickly view all unique users in your namespace:
+Start enjoying the benefits of a group! For example, as the group Owner, you can quickly view all unique users in your namespace:
 
 1. In your group, select **Settings** > **Usage quotas**.
 1. The **Seats** tab displays all users across all projects in your group.

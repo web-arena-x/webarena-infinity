@@ -18,11 +18,10 @@ Sessions show the status and execution data for the agents and flows you've run.
 Sessions are created by GitLab Duo Chat (Agentic) and foundational flows in the IDE or UI. Examples include:
 
 - Flows that are executed on a runner, like the [Fix your CI/CD Pipeline Flow](../flows/fix_pipeline.md).
-  These sessions are visible in the UI under **Automate** > **Sessions**.
+ These sessions are visible in the UI under **Automate** > **Sessions**.
 - Flows that run in the IDE, like the [Software development Flow](../flows/software_development.md).
-  These sessions are visible in the IDE, on the **Flows** tab, under **Sessions**.
-- Sessions created by GitLab Duo Chat. These sessions are visible on the right sidebar
-  by selecting **GitLab Duo Chat history**.
+ These sessions are visible in the IDE, on the **Flows** tab, under **Sessions**.
+- Sessions created by GitLab Duo Chat. These sessions are visible on the right sidebar by selecting **GitLab Duo Chat history**.
 - Flows that are invoked by triggers. These sessions are visible in the UI under **Automate** > **Sessions**.
 
 GitLab Duo Chat (Classic) does not create sessions, because it's not agentic.
@@ -50,8 +49,7 @@ To view sessions you've triggered:
 ## GitLab Duo Chat (Agentic) sessions
 
 Because chats are interactive, they require a clearer separation in the UI.
-You can think of the Chat history as a filtered view of sessions that exists
-exclusively for Chats.
+You can think of the Chat history as a filtered view of sessions that exists exclusively for Chats.
 
 ## Cancel a running session
 

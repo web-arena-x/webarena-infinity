@@ -12,17 +12,13 @@ title: MLOps
 
 {{< /details >}}
 
-GitLab Machine Learning Operations (MLOps) is set of tools designed to help with
-your machine learning workflows.
+GitLab Machine Learning Operations (MLOps) is set of tools designed to help with your machine learning workflows.
 
 GitLab MLOps features include:
 
-- Model registry: Manage your machine learning models, along with associated metadata such
-  as parameters, performance metrics, artifacts, and logs. For more information, see
-  [model registry](model_registry/_index.md).
+- Model registry: Manage your machine learning models, along with associated metadata such as parameters, performance metrics, artifacts, and logs. For more information, see [model registry](model_registry/_index.md).
 - Model experiments: Track and manage machine learning experiments in GitLab.
-  An experiment is a collection of comparable model candidates, which are variations of the training of a
-  machine learning model. For more information, see [model experiments](experiment_tracking/_index.md).
+ An experiment is a collection of comparable model candidates, which are variations of the training of a machine learning model. For more information, see [model experiments](experiment_tracking/_index.md).
 
 ## GitLab MLOps Python client
 

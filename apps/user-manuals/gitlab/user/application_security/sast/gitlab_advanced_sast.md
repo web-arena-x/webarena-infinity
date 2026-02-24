@@ -26,9 +26,7 @@ title: GitLab Advanced SAST
 
 {{< /history >}}
 
-GitLab Advanced SAST is a static application security testing (SAST) analyzer
-that uses cross-function and cross-file taint analysis to detect complex vulnerabilities
-with fewer false positives than traditional SAST.
+GitLab Advanced SAST is a static application security testing (SAST) analyzer that uses cross-function and cross-file taint analysis to detect complex vulnerabilities with fewer false positives than traditional SAST.
 
 GitLab Advanced SAST is an opt-in feature.
 When enabled, GitLab Advanced SAST scans all supported language files using its predefined ruleset.
@@ -59,9 +57,9 @@ Prerequisites:
 
 - Enable the standard SAST analyzer. For details, see [SAST prerequisites](_index.md#getting-started).
 - For GitLab Self-Managed, use a supported GitLab version:
-  - Minimum version: GitLab 17.1 or later
-  - Recommended version: GitLab 17.4 or later (includes code-flow view, vulnerability deduplication, and updated templates)
-  - Template compatibility:
+ - Minimum version: GitLab 17.1 or later
+ - Recommended version: GitLab 17.4 or later (includes code-flow view, vulnerability deduplication, and updated templates)
+ - Template compatibility:
     - Stable template: GitLab 17.3 or later
     - Latest template: GitLab 17.2 or later
     - Do not mix [stable and latest templates](../detect/security_configuration.md#template-editions) in the same project
@@ -84,15 +82,11 @@ To enable GitLab Advanced SAST:
    The message **Simulation completed successfully** confirms the file is valid.
 1. Select the **Edit** tab.
 1. Complete the fields.
-1. Select the **Start a new merge request with these changes** checkbox, then select **Commit
-   changes**.
-1. Complete the fields according to your standard workflow, then select **Create
-   merge request**.
+1. Select the **Start a new merge request with these changes** checkbox, then select **Commit changes**.
+1. Complete the fields according to your standard workflow, then select **Create merge request**.
 1. Review and edit the merge request according to your standard workflow, then select **Merge**.
 
-At this point, GitLab Advanced SAST is enabled in your pipeline. Supported source code is scanned
-for vulnerabilities when a pipeline runs. The corresponding job appears in the `test` stage in your
-pipeline.
+At this point, GitLab Advanced SAST is enabled in your pipeline. Supported source code is scanned for vulnerabilities when a pipeline runs. The corresponding job appears in the `test` stage in your pipeline.
 
 After completing these steps, you can:
 
@@ -179,9 +173,7 @@ When excluding paths, be selective to avoid hiding vulnerabilities. Common candi
 ### Use multi-core scanning
 
 Multi-core scanning is enabled by default in GitLab Advanced SAST (analyzer version v1.1.10 and later).
-You can increase the runner size to make more resources available for scanning. For self-managed
-runners, you must customize the `--multi-core` flag in the
-[security scanner configuration](_index.md#security-scanner-configuration).
+You can increase the runner size to make more resources available for scanning. For self-managed runners, you must customize the `--multi-core` flag in the [security scanner configuration](_index.md#security-scanner-configuration).
 
 ### Diff-based scanning
 
@@ -200,16 +192,13 @@ To ensure complete coverage, a full scan runs on the default branch after the me
 When diff-based scanning is enabled:
 
 - Only files that were modified or added in the merge request, along with their dependent files, are scanned.
-- If enabled, you'll see the job log print: `Running differential scan`
-  If disabled, it prints: `Running full scan`
+- If enabled, you'll see the job log print: `Running differential scan` If disabled, it prints: `Running full scan`
 - In the **merge request security widget**, a dedicated **Diff-based** tab shows relevant scan findings.
 - In the **Pipeline Security** tab, an alert labeled **Partial SAST report** indicates that only partial findings are included.
 
 #### Use diff-based scanning to improve performance
 
-To enable diff-based scanning in merge request pipelines, set this CI/CD variable
-in the project's CI/CD configuration file or in either a scan execution policy or pipeline
-execution policy.
+To enable diff-based scanning in merge request pipelines, set this CI/CD variable in the project's CI/CD configuration file or in either a scan execution policy or pipeline execution policy.
 
 | Variable                     | Value          | Description |
 |------------------------------|----------------|-------------|
@@ -264,35 +253,26 @@ A full scan always runs on the default branch after the merge, where fixed vulne
 
 ## Roll out
 
-After you are confident in GitLab Advanced SAST results for one project, extend it to additional
-projects and groups. You should create a shared CI/CD configuration that includes GitLab Advanced
-SAST and enforce it across the desired groups and projects.
+After you are confident in GitLab Advanced SAST results for one project, extend it to additional projects and groups. You should create a shared CI/CD configuration that includes GitLab Advanced SAST and enforce it across the desired groups and projects.
 
 For more details, see [Security configuration](../detect/security_configuration.md).
 
 ## Vulnerability detection criteria
 
-GitLab Advanced SAST uses cross-file, cross-function scanning with taint analysis
-to trace the flow of user input into the program. This ensures that injection vulnerabilities,
-such as SQL injection and cross-site scripting (XSS), are detected even when they span multiple functions and files.
+GitLab Advanced SAST uses cross-file, cross-function scanning with taint analysis to trace the flow of user input into the program. This ensures that injection vulnerabilities, such as SQL injection and cross-site scripting (XSS), are detected even when they span multiple functions and files.
 
-The analyzer only reports taint-based vulnerabilities when there is a verifiable flow that
-brings untrusted user input from a source to a point where untrusted data could cause security vulnerabilities.
+The analyzer only reports taint-based vulnerabilities when there is a verifiable flow that brings untrusted user input from a source to a point where untrusted data could cause security vulnerabilities.
 This approach minimizes noise compared to other products that may report vulnerabilities with less validation.
 
-Detection emphasizes input that crosses trust boundaries, like values sourced from HTTP requests,
-but excludes command-line arguments, environment variables, or other inputs typically provided by the user operating the program.
+Detection emphasizes input that crosses trust boundaries, like values sourced from HTTP requests, but excludes command-line arguments, environment variables, or other inputs typically provided by the user operating the program.
 
-For details of which types of vulnerabilities GitLab Advanced SAST detects,
-see [GitLab Advanced SAST CWE coverage](advanced_sast_coverage.md).
+For details of which types of vulnerabilities GitLab Advanced SAST detects, see [GitLab Advanced SAST CWE coverage](advanced_sast_coverage.md).
 
 ## Transitioning from Semgrep to GitLab Advanced SAST
 
 When you migrate from Semgrep to GitLab Advanced SAST, an automated transition process deduplicates vulnerabilities. This process links previously detected Semgrep vulnerabilities with corresponding GitLab Advanced SAST findings, replacing them when a match is found.
 
-After enabling Advanced SAST scanning in the default branch when a scan runs and detects
-vulnerabilities, it checks whether any of them should replace existing Semgrep vulnerabilities based
-on the following conditions.
+After enabling Advanced SAST scanning in the default branch when a scan runs and detects vulnerabilities, it checks whether any of them should replace existing Semgrep vulnerabilities based on the following conditions.
 
 ### Conditions for deduplication
 
@@ -325,8 +305,7 @@ In some cases, Semgrep vulnerabilities may still appear as duplicates if the [de
 
 ## Code coverage
 
-By default, GitLab Advanced SAST analyzes all source code in the supported languages. If diff-based
-scanning is enabled, only the changes in a merge request are scanned.
+By default, GitLab Advanced SAST analyzes all source code in the supported languages. If diff-based scanning is enabled, only the changes in a merge request are scanned.
 
 ### Supported languages
 
@@ -349,10 +328,7 @@ GitLab Advanced SAST supports the following languages with cross-function and cr
 
 **Footnotes**:
 
-1. GitLab Advanced SAST CPP requires additional configuration (such as a compilation
-   database) to be used with GitLab Advanced SAST. For details, see
-   [C/C++ configuration](cpp_advanced_sast.md). GitLab Advanced SAST CPP does not exclude Semgrep
-   for C/C++ projects; both analyzers run in parallel with different rule sets.
+1. GitLab Advanced SAST CPP requires additional configuration (such as a compilation database) to be used with GitLab Advanced SAST. For details, see [C/C++ configuration](cpp_advanced_sast.md). GitLab Advanced SAST CPP does not exclude Semgrep for C/C++ projects; both analyzers run in parallel with different rule sets.
 
 ### PHP known issues
 
@@ -365,14 +341,13 @@ When analyzing PHP code, GitLab Advanced SAST has the following limitations:
 
 You can adjust GitLab Advanced SAST behavior using the following variables:
 
-| CI/CD variable                          | Default  | Description                                                                         |
+| CI/CD variable                          | Default | Description                                                                         |
 |-----------------------------------------|----------|-------------------------------------------------------------------------------------|
-| `GITLAB_ADVANCED_SAST_ENABLED`          | `false`  | Enables GitLab Advanced SAST scanning for all supported languages except C and C++. |
-| `GITLAB_ADVANCED_SAST_CPP_ENABLED`      | `false`  | Enables GitLab Advanced SAST scanning specifically for C and C++ projects.          |
+| `GITLAB_ADVANCED_SAST_ENABLED`          | `false` | Enables GitLab Advanced SAST scanning for all supported languages except C and C++. |
+| `GITLAB_ADVANCED_SAST_CPP_ENABLED`      | `false` | Enables GitLab Advanced SAST scanning specifically for C and C++ projects.          |
 | `GITLAB_ADVANCED_SAST_RULE_TIMEOUT`     | `30`     | Timeout in seconds per rule per file. When exceeded, that analysis is skipped.      |
 
-Advanced SAST scanning is disabled by default. To explicitly disable it when enabled at a higher level (like group-level),
-set `GITLAB_ADVANCED_SAST_ENABLED` (or `GITLAB_ADVANCED_SAST_CPP_ENABLED` for C/C++ projects) to `false`.
+Advanced SAST scanning is disabled by default. To explicitly disable it when enabled at a higher level (like group-level), set `GITLAB_ADVANCED_SAST_ENABLED` (or `GITLAB_ADVANCED_SAST_CPP_ENABLED` for C/C++ projects) to `false`.
 
 ## Customize GitLab Advanced SAST
 
@@ -381,8 +356,7 @@ For details, see [Customize rulesets](customize_rulesets.md#disable-predefined-g
 
 ## Request source code of LGPL-licensed components in GitLab Advanced SAST
 
-To request information about the source code of LGPL-licensed components in GitLab Advanced SAST,
-[contact GitLab Support](https://about.gitlab.com/support/).
+To request information about the source code of LGPL-licensed components in GitLab Advanced SAST, [contact GitLab Support](https://about.gitlab.com/support/).
 
 To ensure a quick response, include the GitLab Advanced SAST analyzer version in your request.
 
@@ -398,8 +372,7 @@ When working with GitLab Advanced SAST, you might encounter the following issues
 
 ### Advanced SAST scan running longer than expected
 
-If you've followed the optimization steps and your Advanced SAST scan is still running longer than
-expected, reach out to GitLab Support for further assistance with the following information:
+If you've followed the optimization steps and your Advanced SAST scan is still running longer than expected, reach out to GitLab Support for further assistance with the following information:
 
 - [GitLab Advanced SAST analyzer version](#identify-the-gitlab-advanced-sast-analyzer-version)
 - Programming language used in your repository
@@ -427,25 +400,24 @@ In this example, the version is `1.1.1`.
 
 To generate the `trace.ctf` artifact (in non-C/C++ projects), add the following to your `.gitlab-ci.yml`.
 
-Set `RUNNER_SCRIPT_TIMEOUT` to at least 10 minutes shorter than `timeout` to ensure the artifact has
-time to upload.
+Set `RUNNER_SCRIPT_TIMEOUT` to at least 10 minutes shorter than `timeout` to ensure the artifact has time to upload.
 
 ```yaml
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 variables:
-  GITLAB_ADVANCED_SAST_ENABLED: 'true'
-  MEMTRACE: 'trace.ctf'
-  DISABLE_MULTI_CORE: true # Disable multi core when collecting memtrace
+ GITLAB_ADVANCED_SAST_ENABLED: 'true'
+ MEMTRACE: 'trace.ctf'
+ DISABLE_MULTI_CORE: true # Disable multi core when collecting memtrace
 
 gitlab-advanced-sast:
-  artifacts:
+ artifacts:
     paths:
-      - '**/trace.ctf'  # Collects all trace.ctf files generated by this job
+      - '**/trace.ctf' # Collects all trace.ctf files generated by this job
     expire_in: 1 week   # Sets retention for artifacts
     when: always        # Ensures artifact export even if the job fails
-  variables:
+ variables:
     RUNNER_SCRIPT_TIMEOUT: 50m
-  timeout: 1h
+ timeout: 1h
 ```

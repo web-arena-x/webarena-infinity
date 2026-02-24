@@ -16,9 +16,7 @@ description: Task management, actions, and access changes.
 Your *To-Do List* is a chronological list of items waiting for your input.
 The items are known as *to-do items*.
 
-You can use the To-Do List to track actions
-related to the work you do in GitLab. When people contact you or your attention is
-needed, a to-do item appears in your To-Do List.
+You can use the To-Do List to track actions related to the work you do in GitLab. When people contact you or your attention is needed, a to-do item appears in your To-Do List.
 
 ## Access the To-Do List
 
@@ -75,26 +73,21 @@ Some of the actions that add a to-do item to your To-Do List:
 
 - An issue or merge request is assigned to you.
 - A merge request review is requested.
-- You're mentioned in the description or
-  comment of an issue, merge request, or epic.
+- You're mentioned in the description or comment of an issue, merge request, or epic.
 - You're mentioned in a comment on a commit or design.
 - The CI/CD pipeline for your merge request fails.
-- An open merge request cannot be merged due to conflict, and one of the
-  following is true:
-  - You're the author.
-  - You're the user that set the merge request to automatically merge after a
-    pipeline succeeds.
+- An open merge request cannot be merged due to conflict, and one of the following is true:
+ - You're the author.
+ - You're the user that set the merge request to automatically merge after a pipeline succeeds.
 - A merge request is removed from a [merge train](../ci/pipelines/merge_trains.md), and you're the user that added it.
 - A member access request is raised for a group or project you're an owner of.
 
 In GitLab 17.8 and later, you receive a new to-do notification every time someone mentions you, even in the same issue or merge request.
 
-For other actions that create to-do items like assignments or review requests,
-you receive only one notification per action type, even if that action occurs multiple times in the same issue or merge request.
+For other actions that create to-do items like assignments or review requests, you receive only one notification per action type, even if that action occurs multiple times in the same issue or merge request.
 
 To-do items aren't affected by [GitLab notification email settings](profile/notifications.md).
-The only exception: If your notification setting is set to **Custom** and **Merge request you're eligible to approve is created** is
-selected, you get a to-do item when you are eligible to approve a merge request.
+The only exception: If your notification setting is set to **Custom** and **Merge request you're eligible to approve is created** is selected, you get a to-do item when you are eligible to approve a merge request.
 
 ## Create a to-do item
 
@@ -140,8 +133,7 @@ Hi, please message @frank :incoming_envelope:
 
 ## Actions that mark a to-do item as done
 
-Various actions on the to-do item object (like issue, merge request, or epic) mark its
-corresponding to-do item as done.
+Various actions on the to-do item object (like issue, merge request, or epic) mark its corresponding to-do item as done.
 
 To-do items are marked as done if you:
 
@@ -163,8 +155,7 @@ To-do items are **not** marked as done if you:
 - Assign yourself.
 - Change the health status of an issue.
 
-If someone else closes, merges, or takes action on an issue, merge request, or
-epic, your to-do item remains pending.
+If someone else closes, merges, or takes action on an issue, merge request, or epic, your to-do item remains pending.
 
 ## Mark a to-do item as done
 
@@ -199,8 +190,7 @@ You can snooze to-do items to temporarily hide them from your main To-Do List. T
 To snooze a to-do item:
 
 1. In your To-Do List, next to the to-do item you want to snooze, select Snooze ({{< icon name="clock" >}}).
-1. If you wish to snooze the to-do item until a specific time and date, select the
-   `Until a specific time and date` option. Otherwise, choose one of the preset snooze durations:
+1. If you wish to snooze the to-do item until a specific time and date, select the `Until a specific time and date` option. Otherwise, choose one of the preset snooze durations:
    - For one hour
    - Until later today (4 hours later)
    - Until tomorrow (tomorrow at 8 AM local time)
@@ -252,11 +242,9 @@ To bulk edit to-do items:
 ## How a user's To-Do List is affected when their access changes
 
 For security reasons, GitLab deletes to-do items when a user no longer has access to a related resource.
-For example, if the user no longer has access to an issue, merge request, epic, project, or group,
-GitLab deletes the related to-do items.
+For example, if the user no longer has access to an issue, merge request, epic, project, or group, GitLab deletes the related to-do items.
 
-This process occurs in the hour after their access changes. Deletion is delayed to
-prevent data loss, in case the user's access was accidentally revoked.
+This process occurs in the hour after their access changes. Deletion is delayed to prevent data loss, in case the user's access was accidentally revoked.
 
 ## Related topics
 

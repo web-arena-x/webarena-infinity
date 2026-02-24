@@ -30,21 +30,21 @@ Parameters:
 
 | Attribute | Type    | Required | Description |
 | --------- | ------- | -------- | ----------- |
-| `email`   | string  | yes      | Public email address of the account. |
+| `email`   | string | yes      | Public email address of the account. |
 | `size`    | integer | no       | Single pixel dimension. Only used for avatar lookups at `Gravatar` or a configured `Libravatar` server. |
 
 Example request:
 
 ```shell
 curl --request GET \
-  --url "https://gitlab.example.com/api/v4/avatar?email=admin@example.com&size=32"
+ --url "https://gitlab.example.com/api/v4/avatar?email=admin@example.com&size=32"
 ```
 
 Example response:
 
 ```json
 {
-  "avatar_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=64&d=identicon"
+ "avatar_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=64&d=identicon"
 }
 ```
 

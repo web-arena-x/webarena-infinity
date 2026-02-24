@@ -13,8 +13,7 @@ When you document an [experiment or beta](../../policy/development_stages_suppor
 
 ## Experiment and beta feature toggles
 
-The **Use experiment and beta features** toggle in namespace settings is specifically for
-[GitLab Duo features](../../user/gitlab_duo/turn_on_off.md#turn-on-beta-and-experimental-features) only.
+The **Use experiment and beta features** toggle in namespace settings is specifically for [GitLab Duo features](../../user/gitlab_duo/turn_on_off.md#turn-on-beta-and-experimental-features) only.
 This setting should not be used for non-AI/GitLab Duo experiment or beta features.
 
 For non-GitLab Duo experiment and beta features:
@@ -25,16 +24,12 @@ For non-GitLab Duo experiment and beta features:
 
 ### Settings by GitLab instance type
 
-There are two different settings that control experiment and beta features for GitLab Duo,
-depending on the type of GitLab instance:
+There are two different settings that control experiment and beta features for GitLab Duo, depending on the type of GitLab instance:
 
 - **GitLab.com (SaaS)**: Uses the top-level namespace setting `experiment_features_enabled`.
-  This is a namespace-level setting that allows each top-level group to control whether
-  experiment and beta GitLab Duo features are enabled for their namespace.
+ This is a namespace-level setting that allows each top-level group to control whether experiment and beta GitLab Duo features are enabled for their namespace.
 
-- **GitLab Self-Managed and GitLab Dedicated**: Uses the instance-level setting
-  `instance_level_ai_beta_features_enabled`. This is an instance-wide setting controlled
-  by administrators that applies to all namespaces on the instance.
+- **GitLab Self-Managed and GitLab Dedicated**: Uses the instance-level setting `instance_level_ai_beta_features_enabled`. This is an instance-wide setting controlled by administrators that applies to all namespaces on the instance.
 
 When implementing GitLab Duo features:
 
@@ -55,8 +50,7 @@ When the feature changes from experiment or beta to generally available:
 
 ## Features that require user enrollment or feedback
 
-To include details about how users should enroll or leave feedback,
-add it below the `type=flag` alert.
+To include details about how users should enroll or leave feedback, add it below the `type=flag` alert.
 
 For example:
 
@@ -97,27 +91,21 @@ Follow these guidelines when you document GitLab Duo features.
 When documenting a GitLab Duo experiment:
 
 - On the [GitLab Duo feature summary page](../../user/gitlab_duo/feature_summary.md):
-  - Add a row to the table.
-  - Add the feature to an area at the top of the page, near other features that are available
-    during a similar stage of the software development lifecycle.
+ - Add a row to the table.
+ - Add the feature to an area at the top of the page, near other features that are available during a similar stage of the software development lifecycle.
 - Document the feature near other similar features.
-- Make sure you add history and status values, including any
-  [add-on information](styleguide/availability_details.md#add-ons).
+- Make sure you add history and status values, including any [add-on information](styleguide/availability_details.md#add-ons).
 
 ### Beta
 
 When a GitLab Duo experiment moves to beta:
 
-- On the [GitLab Duo feature summary page](../../user/gitlab_duo/feature_summary.md),
-  update the row in the table.
-- Make sure you update the history and status values, including any
-  [add-on information](styleguide/availability_details.md#add-ons).
+- On the [GitLab Duo feature summary page](../../user/gitlab_duo/feature_summary.md), update the row in the table.
+- Make sure you update the history and status values, including any [add-on information](styleguide/availability_details.md#add-ons).
 
 ### Generally available
 
 When a GitLab Duo feature becomes generally available:
 
-- On the [GitLab Duo feature summary page](../../user/gitlab_duo/feature_summary.md),
-  move the feature to the GA table.
-- Make sure you update the history and status values, including any
-  [add-on information](styleguide/availability_details.md#add-ons).
+- On the [GitLab Duo feature summary page](../../user/gitlab_duo/feature_summary.md), move the feature to the GA table.
+- Make sure you update the history and status values, including any [add-on information](styleguide/availability_details.md#add-ons).

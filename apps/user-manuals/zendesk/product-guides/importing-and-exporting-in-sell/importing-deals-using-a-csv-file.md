@@ -18,8 +18,8 @@ This article covers the following topics:
 
 - [Uploading your CSV file](https://support.zendesk.com/hc/en-us/articles/4408845638298#topic_xjv_pmg_dqb)
 - [Importing your settings and mapping](https://support.zendesk.com/hc/en-us/articles/4408845638298#topic_g1f_qmg_dqb)
-  - [Import your data options](https://support.zendesk.com/hc/en-us/articles/4408845638298#topic_l1d_w4g_dqb)
-  - [Mapping](https://support.zendesk.com/hc/en-us/articles/4408845638298#topic_jpx_x4g_dqb)
+ - [Import your data options](https://support.zendesk.com/hc/en-us/articles/4408845638298#topic_l1d_w4g_dqb)
+ - [Mapping](https://support.zendesk.com/hc/en-us/articles/4408845638298#topic_jpx_x4g_dqb)
 - [Reviewing your import selections](https://support.zendesk.com/hc/en-us/articles/4408845638298#topic_qxn_qmg_dqb)
 - [Reverting an import](https://support.zendesk.com/hc/en-us/articles/4408845638298#topic_r2w_qmg_dqb)
 
@@ -69,7 +69,7 @@ All deals are added in your import. As contacts are also added with deals, the f
 - **Add only new contacts currently not in Sell**. Use this option if you are importing all new data, such as adding contacts that have never been imported into Sell before. If you select this option, Sell will duplicate companies. It will not attach the person to each company.
 - **Only update existing Sell contact with new data from the import file**. Use this option when you already have contacts in Sell that you’re working with, but you have some additional data that you would like to add to their records. To avoid duplicates and be sure the new data is added to the appropriate contact, select only fields that are present on existing contacts in Sell, so we know to match the new data to the corresponding record.
 
-  Note: When you choose the first and the third option, be aware that reverting an import does not remove the data that was merged into existing contacts. Reverting an import only removes new contacts (see the section [Reverting an import](https://support.zendesk.com/hc/en-us/articles/4408845638298#topic_r2w_qmg_dqb), below).
+ Note: When you choose the first and the third option, be aware that reverting an import does not remove the data that was merged into existing contacts. Reverting an import only removes new contacts (see the section [Reverting an import](https://support.zendesk.com/hc/en-us/articles/4408845638298#topic_r2w_qmg_dqb), below).
 
 - **If data currently in Zendesk Sell does not match data in the import**. (This choice only appears when you select an option that includes updating existing contacts). This option indicates that you're making changes to your contacts that already exist in Sell. The fields that appear on your contacts can either have an existing value or be empty. This indicates that you have the option for the new data from your file to override these existing field values or to fill an empty field.
 
@@ -79,10 +79,10 @@ You'll be prompted to choose from the following:
 - **Update all existing Sell data with new data from the import file**. Use this option to overwrite all field values whether empty or not with the data from your import file.
 - **Automatically create a custom field to retain both values.** Use this option to create a new custom fields (usually called Address) . If you're importing leads, then you'll see an additional option which you will not see when importing contacts or deals:
 
-  **If a contact in the import file already exists as a contact in Zendesk Sell:**
+ **If a contact in the import file already exists as a contact in Zendesk Sell:**
 
-  - Do not import it
-  - Import it and create duplicate contacts
+ - Do not import it
+ - Import it and create duplicate contacts
 
 ### Mapping
 
@@ -150,4 +150,4 @@ Be aware of the following when reverting an import:
 - If you create a contact and a deal at the same time through a CSV import, and then revert the import, both the contact and the deal will be deleted.
 - The Revert Import option is not available when you bulk update existing data (see [Bulk updating using a CSV file](https://support.zendesk.com/hc/en-us/articles/4408836276890)).
 
-  Note: If an import contains over 1000 entries, it can take up to 10 minutes for all data to be removed from your account.
+ Note: If an import contains over 1000 entries, it can take up to 10 minutes for all data to be removed from your account.

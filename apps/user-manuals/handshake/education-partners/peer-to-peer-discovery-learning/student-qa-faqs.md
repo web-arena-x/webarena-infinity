@@ -62,13 +62,13 @@ All Q&A content is reviewed and moderated by Handshake moderators before it is p
 **Career Services**
 
 - **What happened to the students' Q&A button?**
-  - Our team made the decision to remove the Q&A button from the students' view of Handshake after recognizing that Q&A was not used at a high rate. Q&A is still accessible directly through the following link [Student Q&A](https://app.joinhandshake.com/stu/community_questions)
-  - Q&A is also available on job and employer pages when relevant content is available.
-  - There are no plans to fully remove Q&A from Handshake.
+ - Our team made the decision to remove the Q&A button from the students' view of Handshake after recognizing that Q&A was not used at a high rate. Q&A is still accessible directly through the following link [Student Q&A](https://app.joinhandshake.com/stu/community_questions)
+ - Q&A is also available on job and employer pages when relevant content is available.
+ - There are no plans to fully remove Q&A from Handshake.
 
 - **Where do I see my students’ Q&A?**
-  - You will be able to see your students’ Q&A in [Handshake Insights.](https://app.joinhandshake.com/analytics/explore_embed?insights_page=ZXhwbG9yZS9nZW5lcmF0ZWRfaGFuZHNoYWtlX3Byb2R1Y3Rpb24vY29tbXVuaXR5X3F1ZXN0aW9ucz9xaWQ9aDk5SzVsTjJwZFRYTEs2Y29sbTBRYSZlbWJlZF9kb21haW49aHR0cHM6JTJGJTJGYXBwLmpvaW5oYW5kc2hha2UuY29t)
-  - Common reports:
+ - You will be able to see your students’ Q&A in [Handshake Insights.](https://app.joinhandshake.com/analytics/explore_embed?insights_page=ZXhwbG9yZS9nZW5lcmF0ZWRfaGFuZHNoYWtlX3Byb2R1Y3Rpb24vY29tbXVuaXR5X3F1ZXN0aW9ucz9xaWQ9aDk5SzVsTjJwZFRYTEs2Y29sbTBRYSZlbWJlZF9kb21haW49aHR0cHM6JTJGJTJGYXBwLmpvaW5oYW5kc2hha2UuY29t)
+ - Common reports:
     - [Count of Approved Questions](https://app.joinhandshake.com/analytics/explore_embed?insights_page=ZXhwbG9yZS9nZW5lcmF0ZWRfaGFuZHNoYWtlX3Byb2R1Y3Rpb24vY29tbXVuaXR5X3F1ZXN0aW9ucz9xaWQ9VWl2eTdKSTE5bWl6c0VOTXM2eUdyNiZlbWJlZF9kb21haW49aHR0cHM6JTJGJTJGYXBwLmpvaW5oYW5kc2hha2UuY29tJnRvZ2dsZT1maWw=)
     - [Count of Questions Asked by School](https://app.joinhandshake.com/analytics/explore_embed?insights_page=ZXhwbG9yZS9nZW5lcmF0ZWRfaGFuZHNoYWtlX3Byb2R1Y3Rpb24vY29tbXVuaXR5X3F1ZXN0aW9ucz9xaWQ9TWZRMnowalBZaG50elFSdmRtbWhHaCZlbWJlZF9kb21haW49aHR0cHM6JTJGJTJGYXBwLmpvaW5oYW5kc2hha2UuY29tJnRvZ2dsZT1maWw=)
     - [Count of Answers Submitted by School](https://app.joinhandshake.com/analytics/explore_embed?insights_page=ZXhwbG9yZS9nZW5lcmF0ZWRfaGFuZHNoYWtlX3Byb2R1Y3Rpb24vY29tbXVuaXR5X3F1ZXN0aW9ucz9xaWQ9eGI5S09TVDlmSlB4Wk9Yc1RCQ0FPcCZlbWJlZF9kb21haW49aHR0cHM6JTJGJTJGYXBwLmpvaW5oYW5kc2hha2UuY29tJnRvZ2dsZT1maWw=)
@@ -77,21 +77,20 @@ All Q&A content is reviewed and moderated by Handshake moderators before it is p
     - Tip: filter to your school to see these counts for only your school![](https://support.joinhandshake.com/hc/article_attachments/26001283099159)
 
 - **Why do some questions and answers not have schools or students attached?**
-  - There are two reasons a question or answer would be missing a student/school:
+ - There are two reasons a question or answer would be missing a student/school:
     - 1.) Students can choose to remain anonymous when submitting questions and answers
     - 2.) A set of questions were created by Handshake
 
 - **Can staff receive alerts when new Q&A is posted?**
-  - We will introduce the ability for Career Services staff to turn on notifications about new Q&A by October.
+ - We will introduce the ability for Career Services staff to turn on notifications about new Q&A by October.
 
 - **For multi-office campuses, can we get the ability to filter Q&A by school?**
 
 - We do not currently have this functionality, but will circle back with our plans in this regard.
 
-- **How have universities connected or aligned peer advising programs with the Review and Q&A platforms within Handshake?**  
-  *We encourage schools to ask similar best practice questions to generate more ideas at our [Handshake Community site](https://handshake.cmail19.com/t/d-l-ndkyddt-jrurljahj-o/).**Christian Garcia provided the following example.*  
+- **How have universities connected or aligned peer advising programs with the Review and Q&A platforms within Handshake?** *We encourage schools to ask similar best practice questions to generate more ideas at our [Handshake Community site](https://handshake.cmail19.com/t/d-l-ndkyddt-jrurljahj-o/).**Christian Garcia provided the following example.*
     
-  We haven't connected these officially, but it's something I am having my Director of Career Education add to the spring Peer Advisor training/re-training. I want the PAs to become well versed in these new features so they can not only speak to them intelligently, they can actually show them as well. We also launched a new program called Toppel Taco Tuesdays where we take our PAs and staff (each in yellow shirts with varying messages) to a specific spot on campus to engage students and get them to engage with Handshake. We have high tops with laptops/iPads for us to show students what Handshake is all about, how easy it is to use, and how they can learn from their peers. As a result, this is another way we are connected our PAs to these new features.
+ We haven't connected these officially, but it's something I am having my Director of Career Education add to the spring Peer Advisor training/re-training. I want the PAs to become well versed in these new features so they can not only speak to them intelligently, they can actually show them as well. We also launched a new program called Toppel Taco Tuesdays where we take our PAs and staff (each in yellow shirts with varying messages) to a specific spot on campus to engage students and get them to engage with Handshake. We have high tops with laptops/iPads for us to show students what Handshake is all about, how easy it is to use, and how they can learn from their peers. As a result, this is another way we are connected our PAs to these new features.
 
 - **How do you market these resources to your students and how does this inform the work career services are doing with students?** Abra mentioned in the webinar that her team promoted Reviews in their student newsletter! We have also heard good examples of career coaches guiding students to the Reviews section on the employer page during career coaching appointments. The goal being to guide students to another resource to learn more about a company from their peers.
 
@@ -100,20 +99,20 @@ All Q&A content is reviewed and moderated by Handshake moderators before it is p
 **Students**
 
 - **How will Q&A be presented to students?**
-  - Students will find Q&A on job and employer pages when relevant content is available.
+ - Students will find Q&A on job and employer pages when relevant content is available.
 
 - **How do students/alumni ask and answer questions?**
-  - Ask: students can submit questions on any Q&A page.
-  - Answer: Handshake reaches out to students and alumni who have public profiles on Handshake and have relevant backgrounds to answer questions. We’ve found that both students and alumni have been very willing and eager to answer and share their advice with fellow students.  We’ve also been excited to see that alumni from all types, regions and industries are willing to share their feedback.
+ - Ask: students can submit questions on any Q&A page.
+ - Answer: Handshake reaches out to students and alumni who have public profiles on Handshake and have relevant backgrounds to answer questions. We’ve found that both students and alumni have been very willing and eager to answer and share their advice with fellow students.  We’ve also been excited to see that alumni from all types, regions and industries are willing to share their feedback.
 
 - **Can a student ask or answer a question anonymously?**
-  - Asking: Students can choose between asking questions anonymously or doing so publically
-  - Answering: students have two options when answering questions:
-  - Fully visible: Display full name, photo, school, school year and major
-  - Semi-anonymous: Hide full name and photo, but display school, school year and major- Rationale: After talking to students, the overwhelming feedback was that totally anonymous answers were significantly less valuable. This is because some context around who is behind the answer is important for establishing credibility and understanding if an answer is relevant to a student. For example, an English major at a small liberal arts college may find an answer from an engineering student at a large state school interesting, but less relevant to them personally.
+ - Asking: Students can choose between asking questions anonymously or doing so publically
+ - Answering: students have two options when answering questions:
+ - Fully visible: Display full name, photo, school, school year and major
+ - Semi-anonymous: Hide full name and photo, but display school, school year and major- Rationale: After talking to students, the overwhelming feedback was that totally anonymous answers were significantly less valuable. This is because some context around who is behind the answer is important for establishing credibility and understanding if an answer is relevant to a student. For example, an English major at a small liberal arts college may find an answer from an engineering student at a large state school interesting, but less relevant to them personally.
 
 - **Can students submit questions and answers that are visible only to other students and not employers?**
-  - No, all Q&A will be visible to other students, employers and career centers.
+ - No, all Q&A will be visible to other students, employers and career centers.
 
 - **Do students at my school only see reviews from other students at my school?**
 
@@ -122,21 +121,21 @@ All Q&A content is reviewed and moderated by Handshake moderators before it is p
 **Employers**
 
 - **Can employers see Q&A about them in Handshake?**
-  - Yes, employers can see and answer Q&A about them on their employer pages, exactly as students see them.
+ - Yes, employers can see and answer Q&A about them on their employer pages, exactly as students see them.
 - **Can an employer flag an answer?**
-  - Yes! Click the flag located on the answer, and then follow the directions provided. 
+ - Yes! Click the flag located on the answer, and then follow the directions provided. 
 
     ![](https://support.joinhandshake.com/hc/article_attachments/26001260011799)
 
     ![Flagging_an_Answer_as_an_Employer.png](https://support.joinhandshake.com/hc/article_attachments/13440127067543)
 
 - **What if a question or answer upsets an employer?**
-  - We’ve found the majority of submitted Q&A to be thoughtful, constructive and high quality. Q&A is moderated so that content that doesn’t meet the standards set in our content guidelines is not published.
+ - We’ve found the majority of submitted Q&A to be thoughtful, constructive and high quality. Q&A is moderated so that content that doesn’t meet the standards set in our content guidelines is not published.
 
 - **Will employers be notified when new Q&A gets posted about them?**
 
 - We currently do not have this functionality, and will circle back with plans in this respect.
 
 - **Can employers answer questions?**
-  - Yes, in order to answer a question click on the Answers and fill out your answer which will be reviewed. ![](https://support.joinhandshake.com/hc/article_attachments/26001260006935)
-  - ![](https://support.joinhandshake.com/hc/article_attachments/26001260009751)
+ - Yes, in order to answer a question click on the Answers and fill out your answer which will be reviewed. ![](https://support.joinhandshake.com/hc/article_attachments/26001260006935)
+ - ![](https://support.joinhandshake.com/hc/article_attachments/26001260009751)

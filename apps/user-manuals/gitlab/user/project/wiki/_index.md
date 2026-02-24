@@ -24,10 +24,8 @@ Wiki pages:
 - Maintain your content separately from your codebase while keeping them in the same project.
 
 Each wiki is a separate Git repository.
-You can create and edit wiki pages through the GitLab web interface or
-[locally using Git](#create-or-edit-wiki-pages-locally).
-Wiki pages written in Markdown support all [Markdown features](../../markdown.md) and provide
-[wiki-specific behavior](markdown.md) for links.
+You can create and edit wiki pages through the GitLab web interface or [locally using Git](#create-or-edit-wiki-pages-locally).
+Wiki pages written in Markdown support all [Markdown features](../../markdown.md) and provide [wiki-specific behavior](markdown.md) for links.
 
 Wiki pages display a [sidebar](#sidebar), which you can customize.
 
@@ -41,8 +39,7 @@ To access a project wiki:
    - On any page in the project, use the <kbd>g</kbd>+<kbd>w</kbd>
      [wiki keyboard shortcut](../../shortcuts.md).
 
-If **Plan** > **Wiki** is not listed in the left sidebar of your project, a project administrator
-has [disabled it](#enable-or-disable-a-project-wiki).
+If **Plan** > **Wiki** is not listed in the left sidebar of your project, a project administrator has [disabled it](#enable-or-disable-a-project-wiki).
 
 ## Configure a default branch for your wiki
 
@@ -59,21 +56,16 @@ To rename your wiki's default branch,see [Update the default branch name in your
 
 {{< /history >}}
 
-When a wiki is created, it is empty. On your first visit, you can create the
-home page users see when viewing the wiki. This page requires a specific path
-to be used as your wiki's home page. To create it:
+When a wiki is created, it is empty. On your first visit, you can create the home page users see when viewing the wiki. This page requires a specific path to be used as your wiki's home page. To create it:
 
 1. On the top bar, select **Search or go to** and find your project or group.
 1. Select **Plan** > **Wiki**.
 1. Select **Create your first page**.
 1. Optional. Change the **Title** of the home page.
-1. GitLab requires this first page to have path `home`. The page on this
-   path serves as the front page for your wiki.
+1. GitLab requires this first page to have path `home`. The page on this path serves as the front page for your wiki.
 1. Select a **Format** for styling your text.
-1. Add a welcome message for your home page in the **Content** section. You can
-   always edit it later.
-1. Add a **Commit message**. Git requires a commit message, so GitLab creates one
-   if you don't enter one yourself.
+1. Add a welcome message for your home page in the **Content** section. You can always edit it later.
+1. Add a **Commit message**. Git requires a commit message, so GitLab creates one if you don't enter one yourself.
 1. Select **Create page**.
 
 ## Create a new wiki page
@@ -95,12 +87,10 @@ Prerequisites:
 1. Select a content format.
 1. Add a **Title** for your new page.
 1. Optional. Uncheck **Generate page path from title** and change the **Path** of the page.
-   Page paths use [special characters](#special-characters-in-page-paths) for subdirectories and formatting,
-   and have [length restrictions](#length-restrictions-for-file-and-directory-names).
+   Page paths use [special characters](#special-characters-in-page-paths) for subdirectories and formatting, and have [length restrictions](#length-restrictions-for-file-and-directory-names).
 1. Optional. Add content to your wiki page.
 1. Optional. Attach a file, and GitLab stores it in the wiki's Git repository.
-1. Add a **Commit message**. Git requires a commit message, so GitLab creates one
-   if you don't enter one yourself.
+1. Add a **Commit message**. Git requires a commit message, so GitLab creates one if you don't enter one yourself.
 1. Select **Create page**.
 
 ### From a template
@@ -111,8 +101,7 @@ Prerequisites:
 
 {{< /history >}}
 
-You can create a new wiki page from a [template](#create-a-template) if you have at least one
-template in your project.
+You can create a new wiki page from a [template](#create-a-template) if you have at least one template in your project.
 
 Prerequisites:
 
@@ -166,17 +155,14 @@ Prerequisites:
 
 ### Create or edit wiki pages locally
 
-Wikis are based on Git repositories, so you can clone them locally and edit
-them like you would do with every other Git repository. To clone a wiki repository
-locally:
+Wikis are based on Git repositories, so you can clone them locally and edit them like you would do with every other Git repository. To clone a wiki repository locally:
 
 1. On the top bar, select **Search or go to** and find your project or group.
 1. Select **Plan** > **Wiki**.
 1. Select **Wiki actions** ({{< icon name="ellipsis_v" >}}), then **Clone repository**.
 1. Follow the on-screen instructions.
 
-Files you add to your wiki locally must use one of the following
-supported extensions, depending on the markup language you wish to use.
+Files you add to your wiki locally must use one of the following supported extensions, depending on the markup language you wish to use.
 Files with unsupported extensions don't display when pushed to GitLab:
 
 - Markdown extensions: `.mdown`, `.mkd`, `.mkdn`, `.md`, `.markdown`.
@@ -193,18 +179,13 @@ Files with unsupported extensions don't display when pushed to GitLab:
 
 {{< /history >}}
 
-Wiki pages are stored as files in a Git repository, and by default, the filename of
-a page is also its title. Certain characters in the filename have a special meaning:
+Wiki pages are stored as files in a Git repository, and by default, the filename of a page is also its title. Certain characters in the filename have a special meaning:
 
 - Spaces are converted into hyphens when storing a page.
 - Hyphens (`-`) are converted back into spaces when displaying a page.
-- Slashes (`/`) are used as path separators, and can't be displayed in titles. If you
-  create a file with title containing `/` characters, GitLab creates all the subdirectories
-  needed to build that path. For example, a title of `docs/my-page` creates a wiki
-  page with a path `/wikis/docs/my-page`.
+- Slashes (`/`) are used as path separators, and can't be displayed in titles. If you create a file with title containing `/` characters, GitLab creates all the subdirectories needed to build that path. For example, a title of `docs/my-page` creates a wiki page with a path `/wikis/docs/my-page`.
 
-To circumvent these limitations, you can also store the title of a wiki page in a
-front matter block before a page's contents. For example:
+To circumvent these limitations, you can also store the title of a wiki page in a front matter block before a page's contents. For example:
 
 ```yaml
 ---
@@ -215,18 +196,14 @@ title: Page title
 ### Length restrictions for file and directory names
 
 Many common file systems have a [limit of 255 bytes](https://en.wikipedia.org/wiki/Comparison_of_file_systems#Limits)
-for file and directory names. Git and GitLab both support paths exceeding
-those limits. However, if your file system enforces these limits, you cannot check out a
-local copy of a wiki that contains filenames exceeding this limit. To prevent this
-problem, the GitLab web interface and API enforce these limits:
+for file and directory names. Git and GitLab both support paths exceeding those limits. However, if your file system enforces these limits, you cannot check out a local copy of a wiki that contains filenames exceeding this limit. To prevent this problem, the GitLab web interface and API enforce these limits:
 
 - 245 bytes for filenames (reserving 10 bytes for the file extension).
 - 255 bytes for directory names.
 
 Non-ASCII characters take up more than one byte.
 
-While you can still create files locally that exceed these limits, your teammates
-may not be able to check out the wiki locally afterward.
+While you can still create files locally that exceed these limits, your teammates may not be able to check out the wiki locally afterward.
 
 ## Edit a wiki page
 
@@ -252,12 +229,9 @@ Unsaved changes to a wiki page are preserved in local browser storage to prevent
 
 {{< /history >}}
 
-Wiki pages with headings in their contents automatically display a table of contents
-section in the sidebar.
+Wiki pages with headings in their contents automatically display a table of contents section in the sidebar.
 
-You can also choose to optionally display a separate table of contents section on the page
-itself. To generate a table of contents from a wiki page's subheadings, use the
-`[[_TOC_]]` tag. For an example, read [Table of contents](../../markdown.md#table-of-contents).
+You can also choose to optionally display a separate table of contents section on the page itself. To generate a table of contents from a wiki page's subheadings, use the `[[_TOC_]]` tag. For an example, read [Table of contents](../../markdown.md#table-of-contents).
 
 ## Delete a wiki page
 
@@ -281,9 +255,7 @@ Prerequisites:
 
 {{< /history >}}
 
-In GitLab 17.1 and later, when you move or rename a page, a redirect is
-automatically set up from the old page to the new page. A list of redirects
-is stored in the `.gitlab/redirects.yml` file in the Wiki repository.
+In GitLab 17.1 and later, when you move or rename a page, a redirect is automatically set up from the old page to the new page. A list of redirects is stored in the `.gitlab/redirects.yml` file in the Wiki repository.
 
 Prerequisites:
 
@@ -293,9 +265,7 @@ Prerequisites:
 1. Select **Plan** > **Wiki**.
 1. Go to the page you want to move or rename.
 1. Select **Edit**.
-1. To move the page, add the new path to the **Path** field. For example,
-   if you have a wiki page called `About` under `Company` and you want to
-   move it to the wiki's root, change the **Path** from `About` to `/About`.
+1. To move the page, add the new path to the **Path** field. For example, if you have a wiki page called `About` under `Company` and you want to move it to the wiki's root, change the **Path** from `About` to `/About`.
 1. To rename the page, change the **Path**.
 1. Select **Save changes**.
 
@@ -341,9 +311,7 @@ After completing the integration, the diagrams.net editor opens with the URL you
 
 {{< /history >}}
 
-You can create templates to use when creating new pages, or to apply
-to existing pages. Templates are wiki pages that are stored in the `templates/`
-directory in the wiki repository.
+You can create templates to use when creating new pages, or to apply to existing pages. Templates are wiki pages that are stored in the `templates/` directory in the wiki repository.
 
 ### Create a template
 
@@ -362,16 +330,14 @@ For example, Markdown templates only apply to Markdown pages.
 
 ### Apply a template
 
-When you are [creating](#create-a-new-wiki-page) or [editing](#edit-a-wiki-page) a wiki page,
-you can apply a template.
+When you are [creating](#create-a-new-wiki-page) or [editing](#edit-a-wiki-page) a wiki page, you can apply a template.
 
 Prerequisites:
 
 - You must have [created](#create-a-template) at least one template already.
 
 1. In the **Content** section, select the **Choose a template** dropdown list.
-1. Select a template from the list. If the page already has some content, a warning displays
-   indicating that the existing content will be overridden.
+1. Select a template from the list. If the page already has some content, a warning displays indicating that the existing content will be overridden.
 1. Select **Apply template**.
 
 ### Restore a page template to a previous version
@@ -403,8 +369,7 @@ To restore a wiki page template to a previous version:
 
 The page template is restored to the selected version. All previous versions remain in the page history.
 
-You can also restore wiki pages using the same process. For more information, see
-[Restore a wiki page to a previous version](#restore-a-wiki-page-to-a-previous-version).
+You can also restore wiki pages using the same process. For more information, see [Restore a wiki page to a previous version](#restore-a-wiki-page-to-a-previous-version).
 
 ## Wiki page subscriptions
 
@@ -491,8 +456,7 @@ To restore a wiki page to a previous version:
 
 The page is restored to the selected version. All previous versions remain in the page history.
 
-You can also restore wiki page templates using the same process. For more information, see
-[Restore a page template to a previous version](#restore-a-page-template-to-a-previous-version).
+You can also restore wiki page templates using the same process. For more information, see [Restore a page template to a previous version](#restore-a-page-template-to-a-previous-version).
 
 ## Sidebar
 
@@ -504,14 +468,11 @@ You can also restore wiki page templates using the same process. For more inform
 
 {{< /history >}}
 
-Wiki pages display a sidebar that contains a list of pages in the wiki,
-displayed as a nested tree, with sibling pages listed in alphabetical order.
+Wiki pages display a sidebar that contains a list of pages in the wiki, displayed as a nested tree, with sibling pages listed in alphabetical order.
 
-You can quickly find a page by its title in the wiki using the search box in
-the sidebar.
+You can quickly find a page by its title in the wiki using the search box in the sidebar.
 
-For performance reasons, the sidebar is limited to displaying 5000 entries. To
-view a list of all pages, select **View All Pages** in the sidebar.
+For performance reasons, the sidebar is limited to displaying 5000 entries. To view a list of all pages, select **View All Pages** in the sidebar.
 
 ### Customize sidebar
 
@@ -521,8 +482,7 @@ Prerequisites:
 
 - You must have at least the Developer role.
 
-This process creates a wiki page named `_sidebar` which fully
-replaces the default sidebar navigation:
+This process creates a wiki page named `_sidebar` which fully replaces the default sidebar navigation:
 
 1. On the top bar, select **Search or go to** and find your project or group.
 1. Select **Plan** > **Wiki**.
@@ -546,11 +506,9 @@ A `_sidebar` example, formatted with Markdown:
 ## Enable or disable a project wiki
 
 Wikis are enabled by default in GitLab. Project [administrators](../../permissions.md)
-can enable or disable a project wiki by following the instructions in
-[Sharing and permissions](../settings/_index.md#configure-project-features-and-permissions).
+can enable or disable a project wiki by following the instructions in [Sharing and permissions](../settings/_index.md#configure-project-features-and-permissions).
 
-Administrators for GitLab Self-Managed can
-[configure additional wiki settings](../../../administration/wikis/_index.md).
+Administrators for GitLab Self-Managed can [configure additional wiki settings](../../../administration/wikis/_index.md).
 
 You can disable group wikis from the [group settings](group.md#configure-group-wiki-visibility)
 
@@ -565,11 +523,9 @@ To add a link to an external wiki from a project's left sidebar:
 1. Optional. Select **Test settings**.
 1. Select **Save changes**.
 
-You can now see the **External wiki** option from your project's
-left sidebar.
+You can now see the **External wiki** option from your project's left sidebar.
 
-When you enable this integration, the link to the external
-wiki doesn't replace the link to the internal wiki.
+When you enable this integration, the link to the external wiki doesn't replace the link to the internal wiki.
 To hide the internal wiki from the sidebar, [disable the project's wiki](#disable-the-projects-wiki).
 
 To hide the link to an external wiki:
@@ -596,9 +552,7 @@ The internal wiki is now disabled, and users and project members:
 - Cannot add, delete, or edit wiki pages.
 - Cannot view any wiki page.
 
-Previously added wiki pages are preserved in case you
-want to re-enable the wiki. To re-enable it, repeat the process
-to disable the wiki but toggle it on (in blue).
+Previously added wiki pages are preserved in case you want to re-enable the wiki. To re-enable it, repeat the process to disable the wiki but toggle it on (in blue).
 
 ## Rich text editor
 
@@ -646,8 +600,8 @@ GitLab tracks wiki creation, deletion, and update events. These events are displ
 
 - [User profile](../../profile/_index.md#access-your-user-profile).
 - Activity pages, depending on the type of wiki:
-  - [Group activity](../../group/manage.md#view-group-activity).
-  - [Project activity](../working_with_projects.md#view-project-activity).
+ - [Group activity](../../group/manage.md#view-group-activity).
+ - [Project activity](../working_with_projects.md#view-project-activity).
 
 Commits to wikis are not counted in [repository analytics](../../analytics/repository_analytics.md).
 
@@ -655,10 +609,8 @@ Commits to wikis are not counted in [repository analytics](../../analytics/repos
 
 ### Page slug rendering with Apache reverse proxy
 
-Page slugs are encoded using the
-[`ERB::Util.url_encode`](https://www.rubydoc.info/stdlib/erb/ERB%2FUtil.url_encode) method.
-If you use an Apache reverse proxy, you can add a `nocanon` argument to the `ProxyPass`
-line of your Apache configuration to ensure your page slugs render correctly.
+Page slugs are encoded using the [`ERB::Util.url_encode`](https://www.rubydoc.info/stdlib/erb/ERB%2FUtil.url_encode) method.
+If you use an Apache reverse proxy, you can add a `nocanon` argument to the `ProxyPass` line of your Apache configuration to ensure your page slugs render correctly.
 
 ### Recreate a project wiki with the Rails console
 
@@ -677,9 +629,7 @@ This operation deletes all data in the wiki.
 
 {{< alert type="warning" >}}
 
-Any command that changes data directly could be damaging if not run correctly, or under the
-right conditions. We highly recommend running them in a test environment with a backup of the
-instance ready to be restored, just in case.
+Any command that changes data directly could be damaging if not run correctly, or under the right conditions. We highly recommend running them in a test environment with a backup of the instance ready to be restored, just in case.
 {{< /alert >}}
 
 To clear all data from a project wiki and recreate it in a blank state:

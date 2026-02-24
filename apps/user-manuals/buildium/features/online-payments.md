@@ -35,8 +35,7 @@ How do I collect payments online with Buildium?
 
 To collect online payments, Buildium customers should follow these general steps:
 
-1. **Apply for ePay****\***  
-   All Buildium customers have access to our simple, step-by-step guide on how to apply for ePay. For Growth and Premium customers, our Customer Care team can answer any “how-to” questions throughout your application process.
+1. **Apply for ePay****\*** All Buildium customers have access to our simple, step-by-step guide on how to apply for ePay. For Growth and Premium customers, our Customer Care team can answer any “how-to” questions throughout your application process.
 
 Once your application is approved:
 

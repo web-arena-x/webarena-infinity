@@ -30,11 +30,11 @@ Prerequisites:
 - You must have the Owner role on the GitLab project that you are connecting with AWS CodePipeline.
 - You must have the appropriate permissions to create a connection in AWS.
 - You must use a supported AWS region. Unsupported regions (also listed in the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-gitlab.html)) are:
-  - Asia Pacific (Hong Kong).
-  - Africa (Cape Town).
-  - Middle East (Bahrain).
-  - Europe (Zurich).
-  - AWS GovCloud (US-West and US-East).
+ - Asia Pacific (Hong Kong).
+ - Africa (Cape Town).
+ - Middle East (Bahrain).
+ - Europe (Zurich).
+ - AWS GovCloud (US-West and US-East).
 
 To create a connection to a project on GitLab.com, you can use either the AWS Management Console, or the AWS Command Line Interface (AWS CLI).
 
@@ -78,10 +78,8 @@ Now you've connected AWS CodeSuite to GitLab.com, you can create or edit a pipel
    - The connection used does not have access to the project.
 
 1. In **Output artifact format**, select the format for your artifacts. To store:
-   - Output artifacts from the GitLab action using the default method, select **CodePipeline default**. The action accesses the files from the GitLab repository and
-     stores the artifacts in a ZIP file in the pipeline artifact store.
-   - A JSON file that contains a URL reference to the repository so that downstream actions can perform Git commands directly, select **Full clone**. This option can only be used
-     by CodeBuild downstream actions. To choose this option:
+   - Output artifacts from the GitLab action using the default method, select **CodePipeline default**. The action accesses the files from the GitLab repository and stores the artifacts in a ZIP file in the pipeline artifact store.
+   - A JSON file that contains a URL reference to the repository so that downstream actions can perform Git commands directly, select **Full clone**. This option can only be used by CodeBuild downstream actions. To choose this option:
      - [Update the permissions for your CodeBuild project service role](https://docs.aws.amazon.com/codepipeline/latest/userguide/troubleshooting.html#codebuild-role-connections).
      - Follow the [AWS CodePipeline tutorial on how to use full clone with a GitHub pipeline source](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-github-gitclone.html).
 1. Save the source action and continue.
@@ -96,9 +94,7 @@ To use the AWS CLI to create a connection:
 
 To use the `create-connection` command:
 
-1. Open a terminal (Linux, macOS, or Unix) or command prompt (Windows). Use the AWS CLI to run the `create-connection` command,
-   specifying the `--provider-type` and `--connection-name` for your connection. In this example, the third-party provider name is
-   `GitLab` and the specified connection name is `MyConnection`.
+1. Open a terminal (Linux, macOS, or Unix) or command prompt (Windows). Use the AWS CLI to run the `create-connection` command, specifying the `--provider-type` and `--connection-name` for your connection. In this example, the third-party provider name is `GitLab` and the specified connection name is `MyConnection`.
 
    ```shell
    aws codestar-connections create-connection --provider-type GitLab --connection-name MyConnection

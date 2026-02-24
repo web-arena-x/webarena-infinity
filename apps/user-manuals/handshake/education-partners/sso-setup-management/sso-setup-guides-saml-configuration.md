@@ -12,13 +12,9 @@ If you are not on InCommon, you can download a copy [here](https://mdq.incommon
 
 # Step 2: Configure Your SAML Service
 
-Handshake's entityID is: `https://app.joinhandshake.com/sp`  
-Handshake's AssertionConsumerService Post URL is: `https://app.joinhandshake.com/saml_consume`
+Handshake's entityID is: `https://app.joinhandshake.com/sp` Handshake's AssertionConsumerService Post URL is: `https://app.joinhandshake.com/saml_consume`
 
-**Attribute or NameID Suggestions**  
-RequestedAttribute: `FriendlyName="eduPersonPrincipalName"`  
-Requested Format: `NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"`  
- **NOTE:**The attribute or NameID you specify should return a value matching the format of the auth\_identifier field from your student syncs. Also you should specify this value, **either** a NameID **OR** an attribute, in your Handshake SSO Preferences (after step 4 [HERE](sso-setup-guides-in-app-setup-and-testing.md)), ***but not both***.
+**Attribute or NameID Suggestions** RequestedAttribute: `FriendlyName="eduPersonPrincipalName"` Requested Format: `NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"` **NOTE:**The attribute or NameID you specify should return a value matching the format of the auth\_identifier field from your student syncs. Also you should specify this value, **either** a NameID **OR** an attribute, in your Handshake SSO Preferences (after step 4 [HERE](sso-setup-guides-in-app-setup-and-testing.md)), ***but not both***.
 
 **ADFS or Azure AD Configuration**
 

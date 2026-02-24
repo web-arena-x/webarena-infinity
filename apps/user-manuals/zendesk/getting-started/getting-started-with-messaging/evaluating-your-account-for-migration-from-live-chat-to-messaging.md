@@ -29,7 +29,7 @@ This article includes the following topics:
 
 | Questions | Checklist |
 | --- | --- |
-| **Features** |  |
+| **Features** | |
 | Have you built your own chat widget using the [Chat Web SDK](https://api.zopim.com/web-sdk/)? | Yes |
 | Do you use [authentication](https://support.zendesk.com/hc/en-us/articles/4411666638746-Authenticating-end-users-in-messaging-for-the-Web-Widget-and-mobile-SDK) to identify your customers? | Yes |
 | Do you use [conversion tracking](https://support.zendesk.com/hc/en-us/articles/4408886086042)? | Yes |

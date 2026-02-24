@@ -32,30 +32,20 @@ On GitLab Self-Managed, by default this feature is not available. To make it ava
 
 {{< /alert >}}
 
-You can choose to allow GitLab to manage your cluster for you. If your cluster
-is managed by GitLab, resources for your projects are automatically created. See
-the [Access controls](cluster_access.md) section for
-details about the created resources.
+You can choose to allow GitLab to manage your cluster for you. If your cluster is managed by GitLab, resources for your projects are automatically created. See the [Access controls](cluster_access.md) section for details about the created resources.
 
-If you choose to manage your own cluster, project-specific resources aren't created
-automatically. If you are using [Auto DevOps](../../../topics/autodevops/_index.md), you must
-explicitly provide the `KUBE_NAMESPACE` [deployment variable](deploy_to_cluster.md#deployment-variables)
+If you choose to manage your own cluster, project-specific resources aren't created automatically. If you are using [Auto DevOps](../../../topics/autodevops/_index.md), you must explicitly provide the `KUBE_NAMESPACE` [deployment variable](deploy_to_cluster.md#deployment-variables)
 for your deployment jobs to use. Otherwise, a namespace is created for you.
 
 {{< alert type="warning" >}}
 
-Be aware that manually managing resources that have been created by GitLab, like
-namespaces and service accounts, can cause unexpected errors. If this occurs, try
-[clearing the cluster cache](#clearing-the-cluster-cache).
+Be aware that manually managing resources that have been created by GitLab, like namespaces and service accounts, can cause unexpected errors. If this occurs, try [clearing the cluster cache](#clearing-the-cluster-cache).
 
 {{< /alert >}}
 
 ## Clearing the cluster cache
 
-If you allow GitLab to manage your cluster, GitLab stores a cached
-version of the namespaces and service accounts it creates for your projects. If you
-modify these resources in your cluster manually, this cache can fall out of sync with
-your cluster. This can cause deployment jobs to fail.
+If you allow GitLab to manage your cluster, GitLab stores a cached version of the namespaces and service accounts it creates for your projects. If you modify these resources in your cluster manually, this cache can fall out of sync with your cluster. This can cause deployment jobs to fail.
 
 To clear the cache:
 
@@ -66,8 +56,7 @@ To clear the cache:
 ## Base domain
 
 Specifying a base domain automatically sets `KUBE_INGRESS_BASE_DOMAIN` as a deployment variable.
-If you are using [Auto DevOps](../../../topics/autodevops/_index.md), this domain is used for the different
-stages. For example, Auto Review Apps and Auto Deploy.
+If you are using [Auto DevOps](../../../topics/autodevops/_index.md), this domain is used for the different stages. For example, Auto Review Apps and Auto Deploy.
 
 The domain should have a wildcard DNS configured to the Ingress IP address.
 You can either:
@@ -78,47 +67,42 @@ You can either:
 To determine the external Ingress IP address, or external Ingress hostname:
 
 - If the cluster is on GKE:
-  1. Select the **Google Kubernetes Engine** link in the **Advanced settings**,
-     or go directly to the [Google Kubernetes Engine dashboard](https://console.cloud.google.com/kubernetes/).
-  1. Select the proper project and cluster.
-  1. Select **Connect**.
-  1. Execute the `gcloud` command in a local terminal or using the **Cloud Shell**.
+ 1. Select the **Google Kubernetes Engine** link in the **Advanced settings**, or go directly to the [Google Kubernetes Engine dashboard](https://console.cloud.google.com/kubernetes/).
+ 1. Select the proper project and cluster.
+ 1. Select **Connect**.
+ 1. Execute the `gcloud` command in a local terminal or using the **Cloud Shell**.
 
-- If the cluster is not on GKE: Follow the specific instructions for your
-  Kubernetes provider to configure `kubectl` with the right credentials.
-  The output of the following examples show the external endpoint of your
-  cluster. This information can then be used to set up DNS entries and forwarding
-  rules that allow external access to your deployed applications.
+- If the cluster is not on GKE: Follow the specific instructions for your Kubernetes provider to configure `kubectl` with the right credentials.
+ The output of the following examples show the external endpoint of your cluster. This information can then be used to set up DNS entries and forwarding rules that allow external access to your deployed applications.
 
 Depending on your Ingress, the external IP address can be retrieved in various ways.
 This list provides a generic solution, and some GitLab-specific approaches:
 
 - In general, you can list the IP addresses of all load balancers by running:
 
-  ```shell
-  kubectl get svc --all-namespaces -o jsonpath='{range.items[?(@.status.loadBalancer.ingress)]}{.status.loadBalancer.ingress[*].ip} '
-  ```
+ ```shell
+ kubectl get svc --all-namespaces -o jsonpath='{range.items[?(@.status.loadBalancer.ingress)]}{.status.loadBalancer.ingress[*].ip} '
+ ```
 
 - If you installed Ingress using the **Applications**, run:
 
-  ```shell
-  kubectl get service --namespace=gitlab-managed-apps ingress-nginx-ingress-controller -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
-  ```
+ ```shell
+ kubectl get service --namespace=gitlab-managed-apps ingress-nginx-ingress-controller -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+ ```
 
-- Some Kubernetes clusters return a hostname instead, like
-  [Amazon EKS](https://aws.amazon.com/eks/). For these platforms, run:
+- Some Kubernetes clusters return a hostname instead, like [Amazon EKS](https://aws.amazon.com/eks/). For these platforms, run:
 
-  ```shell
-  kubectl get service --namespace=gitlab-managed-apps ingress-nginx-ingress-controller -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'
-  ```
+ ```shell
+ kubectl get service --namespace=gitlab-managed-apps ingress-nginx-ingress-controller -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'
+ ```
 
-  If you use EKS, an [Elastic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/)
-  is also created, which incurs additional AWS costs.
+ If you use EKS, an [Elastic Load Balancer](https://docs.aws.amazon.com/elasticloadbalancing/)
+ is also created, which incurs additional AWS costs.
 
 - Istio/Knative uses a different command. Run:
 
-  ```shell
-  kubectl get svc --namespace=istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip} '
-  ```
+ ```shell
+ kubectl get svc --namespace=istio-system istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip} '
+ ```
 
 If you see a trailing `%` on some Kubernetes versions, do not include it.

@@ -23,12 +23,12 @@ We recommend that you complete the school settings in the order designated below
 - [Bulk Invites](school-settings-bulk-invites.md)
 - [Targeted Emails](../emails/school-settings-targeted-email-configuration.md)
 - [Campus Information](https://support.joinhandshake.com/hc/en-us/articles/218692968-Campus-Information):
-  - Office Locations
-  - [Terms](https://support.joinhandshake.com/hc/en-us/articles/360021197633-School-Settings-Create-a-Term)
-  - Rooms
-  - Buildings
-  - Campuses
-  - Colleges
+ - Office Locations
+ - [Terms](https://support.joinhandshake.com/hc/en-us/articles/360021197633-School-Settings-Create-a-Term)
+ - Rooms
+ - Buildings
+ - Campuses
+ - Colleges
 - [Labels](school-settings-labels.md)
 - [Payment Preferences](../payments-invoices/payments-system-setup-and-testing-guide.md)
 - [Kiosk Preferences](https://support.joinhandshake.com/hc/en-us/articles/232288088)
@@ -36,9 +36,9 @@ We recommend that you complete the school settings in the order designated below
 - [Document Feedback](about-document-feedback.md)
 - [Event Preferences](school-settings-event-preferences.md)
 - If your institution is using Appointments:
-  - [Appointment Categories](school-settings-appointment-categories.md)
-  - [Appointment Mediums](school-settings-appointment-mediums.md)
-  - [Appointment Preferences](school-settings-appointment-preferences.md)
-  - [Appointment Types](school-settings-appointment-types.md)
+ - [Appointment Categories](school-settings-appointment-categories.md)
+ - [Appointment Mediums](school-settings-appointment-mediums.md)
+ - [Appointment Preferences](school-settings-appointment-preferences.md)
+ - [Appointment Types](school-settings-appointment-types.md)
 - If your institution is using Experiences:
-  - You can set visibility and permissions from School Settings, then you'll need to create at least one experiences template that students may use. Check out [Creating an Experiences Template](https://support.joinhandshake.com/hc/en-us/articles/360021195853) for more information.
+ - You can set visibility and permissions from School Settings, then you'll need to create at least one experiences template that students may use. Check out [Creating an Experiences Template](https://support.joinhandshake.com/hc/en-us/articles/360021195853) for more information.

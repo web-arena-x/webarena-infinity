@@ -13,7 +13,7 @@ We have proactive and reactive suggestions for managing duplicate student accoun
 Topics:
 
 - [Proactive: Lowering the amount of new Duplicate Accounts](#h_01K2FT1V3N2D1Z399AV4YG86T5)
-  - [Update alumni emails through the Importer](#h_01K2FWJE2VVVGG34D8YMWW89CP)
+ - [Update alumni emails through the Importer](#h_01K2FWJE2VVVGG34D8YMWW89CP)
 - [Reactive: Merge](#h_01K2FQX1NJ4F9WRC02KW6V68K9)
 - [Additional Resources](#h_01K0D2KV3EXQKC9GCJZAQ0MH0R)
 - [FAQ's](#h_01K0D23T9NJRE1KJQQXD6QTBF1)
@@ -48,32 +48,32 @@ The following are the criteria that need to be met for the account that is *alre
 - The connected account has accepted Handshake's Terms of Service agreement
 - The connected account is not blocked or disabled
 - This connected account has Handshake data in one of the following modules:
-  - Fair/Event attendee data
-  - Appointment data
-  - Experience data
-  - Job application data
-  - FDS/Survey data
+ - Fair/Event attendee data
+ - Appointment data
+ - Experience data
+ - Job application data
+ - FDS/Survey data
 
 Following a successful merge, the duplicate account will be removed and the job application data and email address (as well as any documents, profile photo, and/or profile custom link, if they exist) associated with the duplicate account will be transferred over to the connected account.
 
 ### Additional Resources
 
 - If the account was created with a personal (not .edu) email, and they haven't applied to any jobs with that account yet, the student can contact Support to request account deletion, then use one of the following options on the existing account:
-  - Have the student add the email address as an additional email on their account as described in [Update Your Primary Email Address in Handshake](https://support.joinhandshake.com/hc/en-us/articles/4409142959511).
+ - Have the student add the email address as an additional email on their account as described in [Update Your Primary Email Address in Handshake](https://support.joinhandshake.com/hc/en-us/articles/4409142959511).
     - Learn more about this workflow's impact to your team in [Additional Email Addresses for Students](additional-email-addresses-for-students.md).
 - If the student cannot access their .edu email to change the email themselves, you can change it for them per [Career Services User Settings: Email Change Request Process](https://support.joinhandshake.com/hc/en-us/articles/235760768) - this will prompt a confirmation to the new email which the student will need to confirm within 24 hours.
-- Alternative: if the student account with the .edu email address doesn't have any data associated with it, you can delete the account by following the steps in [How to Delete a Student Account](https://support.joinhandshake.com/hc/en-us/articles/115002537847), then approve the pending request with the personal email and update the username and auth identifier fields as needed by accessing the account tab in their student record:  
+- Alternative: if the student account with the .edu email address doesn't have any data associated with it, you can delete the account by following the steps in [How to Delete a Student Account](https://support.joinhandshake.com/hc/en-us/articles/115002537847), then approve the pending request with the personal email and update the username and auth identifier fields as needed by accessing the account tab in their student record: 
     
-  ![Username and auth identifier fields on student account.png](https://support.joinhandshake.com/hc/article_attachments/34160513179543)
+ ![Username and auth identifier fields on student account.png](https://support.joinhandshake.com/hc/article_attachments/34160513179543)
 
 ### FAQ's
 
 **"This email address is already connected to an existing user in Handshake." shows when I try to change the email, but I am unable to locate an account with that email address. What do I do?**
 
 - If this is the case, there's already an existing account in Handshake with the email address that is not connected to the school. You will need to determine whether the student is connected to another institution or not. If you're unsure, contact Support for verification.
-  - If the student is *not* connected to another institution, you can add them manually by following the steps in [How to Process Student & Alumni Connection Requests](https://support.joinhandshake.com/hc/en-us/articles/222262007).
+ - If the student is *not* connected to another institution, you can add them manually by following the steps in [How to Process Student & Alumni Connection Requests](https://support.joinhandshake.com/hc/en-us/articles/222262007).
     - **Note**: you can use this workflow to determine whether a student is connected to another institution. If you are unable to add them this way, they are likely connected elsewhere.
-  - If the student *is* connected to another institution, refer to [Managing Students Already in Handshake but not Connected to Your School](https://support.joinhandshake.com/hc/en-us/articles/115013134948).
+ - If the student *is* connected to another institution, refer to [Managing Students Already in Handshake but not Connected to Your School](https://support.joinhandshake.com/hc/en-us/articles/115013134948).
 
 **Can I delete a student that is pending at my institution?**
 

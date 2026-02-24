@@ -47,7 +47,7 @@ For example, to retrieve usage data for all Code Suggestions events for the `git
 
 ```graphql
 query {
-  group(fullPath: "gitlab-org") {
+ group(fullPath: "gitlab-org") {
     aiUsageData {
       codeSuggestionEvents(startDate: "2025-09-26") {
         nodes {
@@ -61,7 +61,7 @@ query {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -69,7 +69,7 @@ The query returns the following output:
 
 ```graphql
 {
-  "data": {
+ "data": {
     "group": {
       "aiUsageData": {
         "codeSuggestionEvents": {
@@ -105,7 +105,7 @@ The query returns the following output:
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -113,7 +113,7 @@ Alternatively, to retrieve usage data for all GitLab Duo events for the `gitlab-
 
 ```graphql
 query {
-  group(fullPath: "gitlab-org") {
+ group(fullPath: "gitlab-org") {
     aiUsageData {
       all(startDate: "2025-09-26") {
         nodes {
@@ -125,7 +125,7 @@ query {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -133,7 +133,7 @@ The query returns the following output:
 
 ```graphql
 {
-  "data": {
+ "data": {
     "group": {
       "aiUsageData": {
         "all": {
@@ -163,7 +163,7 @@ The query returns the following output:
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -189,7 +189,7 @@ For example, to retrieve all GitLab Duo usage events for the entire instance:
 
 ```graphql
 query {
-  aiUsageData {
+ aiUsageData {
     all(startDate: "2025-09-26", endDate: "2025-09-30") {
       nodes {
         event
@@ -200,7 +200,7 @@ query {
         extras
       }
     }
-  }
+ }
 }
 ```
 
@@ -208,7 +208,7 @@ The query returns the following output:
 
 ```json
 {
-  "data": {
+ "data": {
     "aiUsageData": {
       "all": {
         "nodes": [
@@ -233,7 +233,7 @@ The query returns the following output:
         ]
       }
     }
-  }
+ }
 }
 ```
 
@@ -273,7 +273,7 @@ For example, to retrieve both top-level and feature-level totals:
 
 ```graphql
 query {
-  group(fullPath:"gitlab-org") {
+ group(fullPath:"gitlab-org") {
     aiUserMetrics {
       nodes {
         user {
@@ -291,7 +291,7 @@ query {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -299,7 +299,7 @@ The query returns the following output:
 
 ```graphql
 {
-  "data": {
+ "data": {
     "group": {
       "aiUserMetrics": {
         "nodes": [
@@ -336,7 +336,7 @@ The query returns the following output:
         ]
       }
     }
-  }
+ }
 }
 ```
 
@@ -344,8 +344,8 @@ In this example:
 
 - The top-level `totalEventCount` (82 for USER_1) is the sum of all events across all features.
 - Each feature's `totalEventCount` represents the sum of events within that feature only.
-  - Code Suggestions: 60 events (10 accepted + 50 shown)
-  - Chat: 22 events
+ - Code Suggestions: 60 events (10 accepted + 50 shown)
+ - Chat: 22 events
 
 ### Feature-specific metric types
 
@@ -371,7 +371,7 @@ For example, to retrieve detailed metrics across multiple GitLab Duo features:
 
 ```graphql
 query {
-  group(fullPath:"gitlab-org") {
+ group(fullPath:"gitlab-org") {
     aiUserMetrics {
       nodes {
         user {
@@ -398,7 +398,7 @@ query {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -406,7 +406,7 @@ The query returns the following output:
 
 ```graphql
 {
-  "data": {
+ "data": {
     "group": {
       "aiUserMetrics": {
         "nodes": [
@@ -461,7 +461,7 @@ The query returns the following output:
         ]
       }
     }
-  }
+ }
 }
 ```
 
@@ -497,7 +497,7 @@ For example, to retrieve Code Suggestions and GitLab Duo Chat usage data for a s
 
 ```graphql
 query {
-  group(fullPath: "gitlab-org") {
+ group(fullPath: "gitlab-org") {
     aiMetrics(startDate: "2024-12-01", endDate: "2024-12-31") {
       codeSuggestions{
         shownCount
@@ -510,7 +510,7 @@ query {
       duoAssignedUsersCount
       duoUsedCount
     }
-  }
+ }
 }
 ```
 
@@ -518,7 +518,7 @@ The query returns the following output:
 
 ```graphql
 {
-  "data": {
+ "data": {
     "group": {
       "aiMetrics": {
         "codeSuggestions": {
@@ -533,11 +533,10 @@ The query returns the following output:
         "duoUsedCount": 714
       }
     }
-  },
+ },
 }
 ```
 
 ## Export AI metrics data to CSV
 
-You can export AI metrics data to a CSV file with the
-[GitLab AI Metrics Exporter tool](https://gitlab.com/smathur/custom-duo-metrics).
+You can export AI metrics data to a CSV file with the [GitLab AI Metrics Exporter tool](https://gitlab.com/smathur/custom-duo-metrics).

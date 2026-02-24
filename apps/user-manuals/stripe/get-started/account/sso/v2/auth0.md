@@ -170,19 +170,19 @@ Follow these steps to create an application.
 
 ```
 {
-  "audience": "https://dashboard.stripe.com/saml/metadata",
-  "recipient": "https://dashboard.stripe.com/login/saml/consume",
-  "mappings": {
+ "audience": "https://dashboard.stripe.com/saml/metadata",
+ "recipient": "https://dashboard.stripe.com/login/saml/consume",
+ "mappings": {
     "email": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
-  },
-  "signatureAlgorithm": "rsa-sha256",
-  "digestAlgorithm": "sha256",
-  "destination": "https://dashboard.stripe.com/login/saml/consume",
-  "signResponse": false,
-  "nameIdentifierFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
-  "nameIdentifierProbes": [
+ },
+ "signatureAlgorithm": "rsa-sha256",
+ "digestAlgorithm": "sha256",
+ "destination": "https://dashboard.stripe.com/login/saml/consume",
+ "signResponse": false,
+ "nameIdentifierFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+ "nameIdentifierProbes": [
     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"
-  ]
+ ]
 }
 ```
 
@@ -204,22 +204,22 @@ This script configures the Stripe roles you want to support in the Stripe Dashbo
 
 ```
 function (user, context, callback) {
-  // If there's no user app_metadata, create it.
-  if (typeof (user.app_metadata) === 'undefined') {
+ // If there's no user app_metadata, create it.
+ if (typeof (user.app_metadata) === 'undefined') {
     user.app_metadata = {};
-  }
+ }
 
-  // If the user doesn't have roles for the account, add a default value.
-  if (typeof (user.app_metadata.) === 'undefined') {
+ // If the user doesn't have roles for the account, add a default value.
+ if (typeof (user.app_metadata.) === 'undefined') {
     user.app_metadata. = ['view_only'];
-  }
+ }
 
-  // Add a mapping from app_metadata to the required SAML attribute.
-  context.samlConfiguration.mappings = {
+ // Add a mapping from app_metadata to the required SAML attribute.
+ context.samlConfiguration.mappings = {
     "Stripe-Role-": "app_metadata."
-  };
+ };
 
-  callback(null, user, context);
+ callback(null, user, context);
 }
 ```
 
@@ -266,26 +266,26 @@ If you have team members with multiple Stripe accounts, update the JavaScript ru
 
 ```
 function (user, context, callback) {
-  // If there's no user app_metadata, create it.
-  if (typeof (user.app_metadata) === 'undefined') {
+ // If there's no user app_metadata, create it.
+ if (typeof (user.app_metadata) === 'undefined') {
     user.app_metadata = {};
-  }
+ }
 
-  // If the user doesn't have roles for the accounts, add a default value.
-  if (typeof (user.app_metadata.acct_1234}) === 'undefined') {
+ // If the user doesn't have roles for the accounts, add a default value.
+ if (typeof (user.app_metadata.acct_1234}) === 'undefined') {
     user.app_metadata.acct_1234} = ['view_only'];
-  }
-  if (typeof (user.app_metadata.acct_5678}) === 'undefined') {
+ }
+ if (typeof (user.app_metadata.acct_5678}) === 'undefined') {
     user.app_metadata.acct_5678} = ['view_only'];
-  }
+ }
 
-  // Add a mapping from app_metadata to the required SAML attribute.
-  context.samlConfiguration.mappings = {
+ // Add a mapping from app_metadata to the required SAML attribute.
+ context.samlConfiguration.mappings = {
     "Stripe-Role-acct_1234": "app_metadata.acct_1234"
     "Stripe-Role-acct_5678": "app_metadata.acct_5678"
-  };
+ };
 
-  callback(null, user, context);
+ callback(null, user, context);
 }
 ```
 
@@ -295,13 +295,13 @@ The following example shows user app metadata that is associated with two Stripe
 
 ```
 {
-  "acct_1234": [
+ "acct_1234": [
     "analyst",
     "developer"
-  ],
-  "acct_5678": [
+ ],
+ "acct_5678": [
     "view_only",
-  ]
+ ]
 }
 ```
 
@@ -381,8 +381,8 @@ Send Stripe an assertion from your identity provider to grant a team member acce
 
 ```
 <saml2:attribute name="Stripe-Role-STRIPE-ACCOUNT-ID" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
-  <saml2:attributevalue>none
-  </saml2:attributevalue>
+ <saml2:attributevalue>none
+ </saml2:attributevalue>
 </saml2:attribute>
 ```
 

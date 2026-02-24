@@ -57,9 +57,7 @@ For private connections to internal resources using non-public certificates, you
 
 ##### Private connectivity for webhooks and integrations
 
-If your webhooks and integrations need to connect to services that are not accessible from the public internet,
-you can use AWS PrivateLink for private connectivity. Because GitLab Dedicated is a SaaS service,
-it cannot directly connect to local IP addresses in your network.
+If your webhooks and integrations need to connect to services that are not accessible from the public internet, you can use AWS PrivateLink for private connectivity. Because GitLab Dedicated is a SaaS service, it cannot directly connect to local IP addresses in your network.
 
 To set up private connectivity for your internal services:
 
@@ -152,9 +150,7 @@ For more information, see [custom domains](../../administration/dedicated/config
 
 {{< alert type="note" >}}
 
-GitLab Pages does not support custom domains. Pages sites are accessible only at
-`tenant_name.gitlab-dedicated.site`, regardless of any custom domain configured for your
-GitLab Dedicated instance.
+GitLab Pages does not support custom domains. Pages sites are accessible only at `tenant_name.gitlab-dedicated.site`, regardless of any custom domain configured for your GitLab Dedicated instance.
 
 {{< /alert >}}
 
@@ -197,13 +193,11 @@ GitLab Dedicated uses the [advanced search functionality](../../integration/adva
 
 #### ClickHouse Cloud
 
-You can access [advanced analytical features](../../integration/clickhouse.md) through the
-ClickHouse Cloud integration, which is enabled by default for eligible customers. You are eligible if:
+You can access [advanced analytical features](../../integration/clickhouse.md) through the ClickHouse Cloud integration, which is enabled by default for eligible customers. You are eligible if:
 
 - Your GitLab Dedicated tenant is deployed to a commercial AWS region.
-  GitLab Dedicated for Government is not supported.
-- Your tenant's primary region supports ClickHouse Cloud. For supported regions, see
-  [primary regions](../../administration/dedicated/create_instance/data_residency_high_availability.md#primary-regions).
+ GitLab Dedicated for Government is not supported.
+- Your tenant's primary region supports ClickHouse Cloud. For supported regions, see [primary regions](../../administration/dedicated/create_instance/data_residency_high_availability.md#primary-regions).
 
 #### GitLab Pages
 
@@ -213,8 +207,7 @@ Your website uses the domain `tenant_name.gitlab-dedicated.site`, where `tenant_
 
 {{< alert type="note" >}}
 
-Custom domains are not supported. If you add a custom domain like `gitlab.my-company.com`,
-you still access your website at `tenant_name.gitlab-dedicated.site`.
+Custom domains are not supported. If you add a custom domain like `gitlab.my-company.com`, you still access your website at `tenant_name.gitlab-dedicated.site`.
 
 {{< /alert >}}
 
@@ -268,17 +261,14 @@ Limitations:
 
 ## Settings managed by GitLab
 
-While you can modify most settings through the Admin area, GitLab automatically manages
-certain settings to ensure system stability and security.
+While you can modify most settings through the Admin area, GitLab automatically manages certain settings to ensure system stability and security.
 
 ### Rate limits
 
-GitLab configures rate limits based on your instance size and automatically resets them to
-these defaults during maintenance windows to ensure optimal performance.
+GitLab configures rate limits based on your instance size and automatically resets them to these defaults during maintenance windows to ensure optimal performance.
 These limits prevent any single user or automation from degrading performance for other users on your instance.
 
-For more information about how rate limits work in GitLab Dedicated,
-see [authenticated user rate limits](../../administration/dedicated/user_rate_limits.md).
+For more information about how rate limits work in GitLab Dedicated, see [authenticated user rate limits](../../administration/dedicated/user_rate_limits.md).
 
 ## Unavailable features
 
@@ -292,8 +282,8 @@ This section lists the features that are not available for GitLab Dedicated.
 | Smart card authentication                     | Authentication using smart cards for enhanced security.               | Cannot use existing smart card infrastructure.               |
 | Kerberos authentication                       | Single sign-on authentication using Kerberos protocol.                | Must authenticate separately to GitLab.                      |
 | FortiAuthenticator/FortiToken 2FA             | Two-factor authentication using Fortinet security solutions.          | Cannot integrate existing Fortinet 2FA infrastructure.       |
-| Git clone using HTTPS with username/password  | Git operations using username and password authentication over HTTPS. | Must use access tokens for Git operations.                   |
-| [Sigstore](../../ci/yaml/signing_examples.md) | Keyless signing and verification for software supply chain security.  | Must use traditional code signing methods.                   |
+| Git clone using HTTPS with username/password | Git operations using username and password authentication over HTTPS. | Must use access tokens for Git operations.                   |
+| [Sigstore](../../ci/yaml/signing_examples.md) | Keyless signing and verification for software supply chain security. | Must use traditional code signing methods.                   |
 | Port remapping                                | Remap ports like SSH (22) to different inbound ports.                 | GitLab Dedicated only uses default communication ports.      |
 
 ### Communication and collaboration
@@ -314,16 +304,14 @@ For more information about AI features, see [GitLab Duo](../../user/gitlab_duo/_
 
 #### Feature flags
 
-Feature flags are used to support the development and rollout of new,
-[experiment, and beta features](../../development/documentation/experiment_beta.md).
+Feature flags are used to support the development and rollout of new, [experiment, and beta features](../../development/documentation/experiment_beta.md).
 In GitLab Dedicated:
 
 - You cannot modify feature flags.
 - Features enabled by default are available.
 - Features disabled by default are not available and cannot be enabled.
 
-When a feature becomes generally available, it's available in the same version
-following the [release schedule](../../administration/dedicated/maintenance.md) for deployments.
+When a feature becomes generally available, it's available in the same version following the [release schedule](../../administration/dedicated/maintenance.md) for deployments.
 
 ### GitLab Pages
 
@@ -355,8 +343,7 @@ The following features require direct server access and cannot be configured:
 {{< alert type="note" >}}
 
 Server-side Git hooks are not supported for security and performance reasons.
-Instead, use [push rules](../../user/project/repository/push_rules.md) to enforce repository policies
-or [webhooks](../../user/project/integrations/webhooks.md) to trigger external actions on Git events.
+Instead, use [push rules](../../user/project/repository/push_rules.md) to enforce repository policies or [webhooks](../../user/project/integrations/webhooks.md) to trigger external actions on Git events.
 
 {{< /alert >}}
 
@@ -384,20 +371,19 @@ The following are not included in service level availability calculations:
 
 ### Disaster recovery
 
-For more information about disaster recovery, including recovery objectives, see
-[disaster recovery for GitLab Dedicated](../../administration/dedicated/disaster_recovery.md).
+For more information about disaster recovery, including recovery objectives, see [disaster recovery for GitLab Dedicated](../../administration/dedicated/disaster_recovery.md).
 
 ## Migrate to GitLab Dedicated
 
 To migrate your data to GitLab Dedicated:
 
 - From another GitLab instance:
-  - Use [direct transfer](../../user/group/import/_index.md).
-  - Use the [direct transfer API](../../api/bulk_imports.md).
+ - Use [direct transfer](../../user/group/import/_index.md).
+ - Use the [direct transfer API](../../api/bulk_imports.md).
 - From third-party services:
-  - Use the [import sources](../../user/import/_index.md) (migration tools).
+ - Use the [import sources](../../user/import/_index.md) (migration tools).
 - For complex migrations:
-  - Engage [Professional Services](../../user/import/_index.md#migrate-by-engaging-professional-services).
+ - Engage [Professional Services](../../user/import/_index.md#migrate-by-engaging-professional-services).
 
 ## Expired subscriptions
 
@@ -405,16 +391,14 @@ Before your subscription expires, you receive a notification that the end date i
 
 When your subscription expires, you can access your instance for 30 days.
 
-To preserve your data, contact your account team or email Support within 15 days
-of expiration to request data preservation.
+To preserve your data, contact your account team or email Support within 15 days of expiration to request data preservation.
 
 During this 30-day period, you can:
 
 - Email Support to request additional time to retrieve data.
 - Engage Professional Services for migration assistance or offboarding support.
 
-After 30 days, if your data is not archived or migrated to another instance,
-your instance is terminated and all Customer Content is deleted.
+After 30 days, if your data is not archived or migrated to another instance, your instance is terminated and all Customer Content is deleted.
 This includes all projects, repositories, issues, merge requests, and other data.
 
 You can request confirmation of account removal 90 days after instance termination.

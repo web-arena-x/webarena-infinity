@@ -11,16 +11,16 @@ To email a daily log to users in the project.
 ## Things to Consider
 
 - **Required User Permissions**:
-  - 'Standard' or 'Admin' permissions on the project's Daily Log tool.
+ - 'Standard' or 'Admin' permissions on the project's Daily Log tool.
 - **Additional Information**:
-  - Users with the ‘Collaborator Entry Only’ granular permission cannot email the daily log.
+ - Users with the ‘Collaborator Entry Only’ granular permission cannot email the daily log.
 
 ## Steps
 
 1. Navigate to the project's **Daily Log** tool.
-2. Click the **Email** button.  
+2. Click the **Email** button. 
    ![email-daily-log.png](https://support.procore.com/@api/deki/files/78585/email-daily-log.png?revision=2)
-3. Fill out the following fields as appropriate:  
+3. Fill out the following fields as appropriate: 
    *Note:* An asterisk (\*) denotes a required field.
    - **To**\*: Begin typing the name of a user you want to forward the daily log to and select them from the drop-down menu.
    - **CC**: If you want to CC one or more users, select them from the drop-down menu.

@@ -22,8 +22,7 @@ By default, this request returns 20 results at a time because the API results [a
 
 {{< alert type="note" >}}
 
-This endpoint supports both offset-based and [keyset-based](rest/_index.md#keyset-based-pagination) pagination, but keyset-based
-pagination is strongly recommended when requesting consecutive pages of results.
+This endpoint supports both offset-based and [keyset-based](rest/_index.md#keyset-based-pagination) pagination, but keyset-based pagination is strongly recommended when requesting consecutive pages of results.
 
 {{< /alert >}}
 
@@ -31,7 +30,7 @@ pagination is strongly recommended when requesting consecutive pages of results.
 GET /projects/:id/jobs
 ```
 
-| Attribute  | Type                           | Required | Description |
+| Attribute | Type                           | Required | Description |
 | ---------- | ------------------------------ | -------- | ----------- |
 | `id`       | integer or string                 | Yes      | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the project. |
 | `scope`    | string, or array of strings | No       | Scope of jobs to show. Either one of or an array of [job status values](#job-status-values). All jobs are returned if `scope` is not provided. |
@@ -40,15 +39,15 @@ GET /projects/:id/jobs
 
 ```shell
 curl --globoff \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/jobs?scope[]=pending&scope[]=running"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/jobs?scope[]=pending&scope[]=running"
 ```
 
 Example of response:
 
 ```json
 [
-  {
+ {
     "commit": {
       "author_email": "admin@example.com",
       "author_name": "Administrator",
@@ -140,8 +139,8 @@ Example of response:
       "website_url": "",
       "organization": ""
     }
-  },
-  {
+ },
+ {
     "commit": {
       "author_email": "admin@example.com",
       "author_name": "Administrator",
@@ -202,7 +201,7 @@ Example of response:
       "website_url": "",
       "organization": ""
     }
-  }
+ }
 ]
 ```
 
@@ -249,15 +248,15 @@ GET /projects/:id/pipelines/:pipeline_id/jobs
 
 ```shell
 curl --globoff \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/pipelines/6/jobs?scope[]=pending&scope[]=running"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/pipelines/6/jobs?scope[]=pending&scope[]=running"
 ```
 
 Example of response:
 
 ```json
 [
-  {
+ {
     "commit": {
       "author_email": "admin@example.com",
       "author_name": "Administrator",
@@ -339,8 +338,8 @@ Example of response:
       "website_url": "",
       "organization": ""
     }
-  },
-  {
+ },
+ {
     "commit": {
       "author_email": "admin@example.com",
       "author_name": "Administrator",
@@ -410,7 +409,7 @@ Example of response:
       "website_url": "",
       "organization": ""
     }
-  }
+ }
 ]
 ```
 
@@ -430,15 +429,15 @@ GET /projects/:id/pipelines/:pipeline_id/bridges
 
 ```shell
 curl --globoff \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/pipelines/6/bridges?scope[]=pending&scope[]=running"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/pipelines/6/bridges?scope[]=pending&scope[]=running"
 ```
 
 Example of response:
 
 ```json
 [
-  {
+ {
     "commit": {
       "author_email": "admin@example.com",
       "author_name": "Administrator",
@@ -503,7 +502,7 @@ Example of response:
       "updated_at": "2015-12-24T17:58:27.896Z",
       "web_url": "https://example.com/diaspora/diaspora-client/pipelines/5"
     }
-  }
+ }
 ]
 ```
 
@@ -520,11 +519,11 @@ Examples (must run as part of the [`script`](../ci/yaml/_index.md#script) sectio
 ```shell
 # Option 1
 curl --header "Authorization: Bearer $CI_JOB_TOKEN" \
-  --url "${CI_API_V4_URL}/job"
+ --url "${CI_API_V4_URL}/job"
 
 # Option 2
 curl --header "JOB-TOKEN: $CI_JOB_TOKEN" \
-  --url "${CI_API_V4_URL}/job"
+ --url "${CI_API_V4_URL}/job"
 
 # Option 3
 curl --url "${CI_API_V4_URL}/job?job_token=$CI_JOB_TOKEN"
@@ -534,7 +533,7 @@ Example of response:
 
 ```json
 {
-  "commit": {
+ "commit": {
     "author_email": "admin@example.com",
     "author_name": "Administrator",
     "created_at": "2015-12-24T16:51:14.000+01:00",
@@ -542,40 +541,40 @@ Example of response:
     "message": "Test the CI integration.",
     "short_id": "0ff3ae19",
     "title": "Test the CI integration."
-  },
-  "coverage": null,
-  "archived": false,
-  "source": "push",
-  "allow_failure": false,
-  "created_at": "2015-12-24T15:51:21.880Z",
-  "started_at": "2015-12-24T17:54:30.733Z",
-  "finished_at": "2015-12-24T17:54:31.198Z",
-  "erased_at": null,
-  "duration": 0.465,
-  "queued_duration": 0.123,
-  "artifacts_expire_at": "2016-01-23T17:54:31.198Z",
-  "id": 8,
-  "name": "rubocop",
-  "pipeline": {
+ },
+ "coverage": null,
+ "archived": false,
+ "source": "push",
+ "allow_failure": false,
+ "created_at": "2015-12-24T15:51:21.880Z",
+ "started_at": "2015-12-24T17:54:30.733Z",
+ "finished_at": "2015-12-24T17:54:31.198Z",
+ "erased_at": null,
+ "duration": 0.465,
+ "queued_duration": 0.123,
+ "artifacts_expire_at": "2016-01-23T17:54:31.198Z",
+ "id": 8,
+ "name": "rubocop",
+ "pipeline": {
     "id": 6,
     "project_id": 1,
     "ref": "main",
     "sha": "0ff3ae198f8601a285adcf5c0fff204ee6fba5fd",
     "status": "pending"
-  },
-  "ref": "main",
-  "artifacts": [],
-  "runner": null,
-  "runner_manager": null,
-  "stage": "test",
-  "status": "failed",
-  "failure_reason": "script_failure",
-  "tag": false,
-  "web_url": "https://example.com/foo/bar/-/jobs/8",
-  "project": {
+ },
+ "ref": "main",
+ "artifacts": [],
+ "runner": null,
+ "runner_manager": null,
+ "stage": "test",
+ "status": "failed",
+ "failure_reason": "script_failure",
+ "tag": false,
+ "web_url": "https://example.com/foo/bar/-/jobs/8",
+ "project": {
     "ci_job_token_scope_enabled": false
-  },
-  "user": {
+ },
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
@@ -590,14 +589,13 @@ Example of response:
     "twitter": "",
     "website_url": "",
     "organization": ""
-  }
+ }
 }
 ```
 
 ## Get GitLab agent for Kubernetes by `CI_JOB_TOKEN`
 
-Retrieve the job that generated the `CI_JOB_TOKEN`, along with a list of allowed
-[agents](../user/clusters/agent/_index.md).
+Retrieve the job that generated the `CI_JOB_TOKEN`, along with a list of allowed [agents](../user/clusters/agent/_index.md).
 
 ```plaintext
 GET /job/allowed_agents
@@ -614,7 +612,7 @@ Example request:
 ```shell
 # Option 1
 curl --header "JOB-TOKEN: <CI_JOB_TOKEN>" \
-  --url "https://gitlab.example.com/api/v4/job/allowed_agents"
+ --url "https://gitlab.example.com/api/v4/job/allowed_agents"
 
 # Option 2
 curl --url "https://gitlab.example.com/api/v4/job/allowed_agents?job_token=<CI_JOB_TOKEN>"
@@ -624,7 +622,7 @@ Example response:
 
 ```json
 {
-  "allowed_agents": [
+ "allowed_agents": [
     {
       "id": 1,
       "config_project": {
@@ -637,14 +635,14 @@ Example response:
         "created_at": "2022-11-16T14:51:50.579Z"
       }
     }
-  ],
-  "job": {
+ ],
+ "job": {
     "id": 1
-  },
-  "pipeline": {
+ },
+ "pipeline": {
     "id": 2
-  },
-  "project": {
+ },
+ "project": {
     "id": 1,
     "groups": [
       {
@@ -657,15 +655,15 @@ Example response:
         "id": 3
       }
     ]
-  },
-  "user": {
+ },
+ "user": {
     "id": 2,
     "name": "John Doe3",
     "username": "user2",
     "state": "active",
     "avatar_url": "https://www.gravatar.com/avatar/10fc7f102b",
     "web_url": "http://localhost/user2"
-  }
+ }
 }
 ```
 
@@ -680,18 +678,18 @@ GET /projects/:id/jobs/:job_id
 | Attribute | Type           | Required | Description |
 |-----------|----------------|----------|-------------|
 | `id`      | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
-| `job_id`  | integer        | Yes      | ID of a job. |
+| `job_id` | integer        | Yes      | ID of a job. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/jobs/8"
+ --url "https://gitlab.example.com/api/v4/projects/1/jobs/8"
 ```
 
 Example of response:
 
 ```json
 {
-  "commit": {
+ "commit": {
     "author_email": "admin@example.com",
     "author_name": "Administrator",
     "created_at": "2015-12-24T16:51:14.000+01:00",
@@ -699,42 +697,42 @@ Example of response:
     "message": "Test the CI integration.",
     "short_id": "0ff3ae19",
     "title": "Test the CI integration."
-  },
-  "coverage": null,
-  "archived": false,
-  "source": "push",
-  "allow_failure": false,
-  "created_at": "2015-12-24T15:51:21.880Z",
-  "started_at": "2015-12-24T17:54:30.733Z",
-  "finished_at": "2015-12-24T17:54:31.198Z",
-  "erased_at": null,
-  "duration": 0.465,
-  "queued_duration": 0.010,
-  "artifacts_expire_at": "2016-01-23T17:54:31.198Z",
-  "tag_list": [
+ },
+ "coverage": null,
+ "archived": false,
+ "source": "push",
+ "allow_failure": false,
+ "created_at": "2015-12-24T15:51:21.880Z",
+ "started_at": "2015-12-24T17:54:30.733Z",
+ "finished_at": "2015-12-24T17:54:31.198Z",
+ "erased_at": null,
+ "duration": 0.465,
+ "queued_duration": 0.010,
+ "artifacts_expire_at": "2016-01-23T17:54:31.198Z",
+ "tag_list": [
       "docker runner", "macos-10.15"
     ],
-  "id": 8,
-  "name": "rubocop",
-  "pipeline": {
+ "id": 8,
+ "name": "rubocop",
+ "pipeline": {
     "id": 6,
     "project_id": 1,
     "ref": "main",
     "sha": "0ff3ae198f8601a285adcf5c0fff204ee6fba5fd",
     "status": "pending"
-  },
-  "ref": "main",
-  "artifacts": [],
-  "runner": null,
-  "runner_manager": null,
-  "stage": "test",
-  "status": "failed",
-  "tag": false,
-  "web_url": "https://example.com/foo/bar/-/jobs/8",
-  "project": {
+ },
+ "ref": "main",
+ "artifacts": [],
+ "runner": null,
+ "runner_manager": null,
+ "stage": "test",
+ "status": "failed",
+ "tag": false,
+ "web_url": "https://example.com/foo/bar/-/jobs/8",
+ "project": {
     "ci_job_token_scope_enabled": false
-  },
-  "user": {
+ },
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
@@ -749,7 +747,7 @@ Example of response:
     "twitter": "",
     "website_url": "",
     "organization": ""
-  }
+ }
 }
 ```
 
@@ -764,12 +762,12 @@ GET /projects/:id/jobs/:job_id/trace
 | Attribute | Type           | Required | Description |
 |-----------|----------------|----------|-------------|
 | `id`      | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
-| `job_id`  | integer        | Yes      | ID of a job. |
+| `job_id` | integer        | Yes      | ID of a job. |
 
 ```shell
 curl --location \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/jobs/8/trace"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/jobs/8/trace"
 ```
 
 Possible response status codes:
@@ -790,20 +788,20 @@ POST /projects/:id/jobs/:job_id/cancel
 | Attribute | Type           | Required | Description |
 |-----------|----------------|----------|-------------|
 | `id`      | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
-| `job_id`  | integer        | Yes      | ID of a job. |
+| `job_id` | integer        | Yes      | ID of a job. |
 | `force`   | boolean        | No       | [Forces cancellation](../ci/jobs/_index.md#force-cancel-a-job) of a job in `canceling` state when set to `true`. |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/jobs/1/cancel"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/jobs/1/cancel"
 ```
 
 Example of response:
 
 ```json
 {
-  "commit": {
+ "commit": {
     "author_email": "admin@example.com",
     "author_name": "Administrator",
     "created_at": "2015-12-24T16:51:14.000+01:00",
@@ -811,31 +809,31 @@ Example of response:
     "message": "Test the CI integration.",
     "short_id": "0ff3ae19",
     "title": "Test the CI integration."
-  },
-  "coverage": null,
-  "archived": false,
-  "source": "push",
-  "allow_failure": false,
-  "created_at": "2016-01-11T10:13:33.506Z",
-  "started_at": "2016-01-11T10:14:09.526Z",
-  "finished_at": null,
-  "erased_at": null,
-  "duration": 8,
-  "queued_duration": 0.010,
-  "id": 1,
-  "name": "rubocop",
-  "ref": "main",
-  "artifacts": [],
-  "runner": null,
-  "runner_manager": null,
-  "stage": "test",
-  "status": "canceled",
-  "tag": false,
-  "web_url": "https://example.com/foo/bar/-/jobs/1",
-  "project": {
+ },
+ "coverage": null,
+ "archived": false,
+ "source": "push",
+ "allow_failure": false,
+ "created_at": "2016-01-11T10:13:33.506Z",
+ "started_at": "2016-01-11T10:14:09.526Z",
+ "finished_at": null,
+ "erased_at": null,
+ "duration": 8,
+ "queued_duration": 0.010,
+ "id": 1,
+ "name": "rubocop",
+ "ref": "main",
+ "artifacts": [],
+ "runner": null,
+ "runner_manager": null,
+ "stage": "test",
+ "status": "canceled",
+ "tag": false,
+ "web_url": "https://example.com/foo/bar/-/jobs/1",
+ "project": {
     "ci_job_token_scope_enabled": false
-  },
-  "user": null
+ },
+ "user": null
 }
 ```
 
@@ -850,19 +848,19 @@ POST /projects/:id/jobs/:job_id/retry
 | Attribute | Type           | Required | Description |
 |-----------|----------------|----------|-------------|
 | `id`      | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
-| `job_id`  | integer        | Yes      | ID of a job. |
+| `job_id` | integer        | Yes      | ID of a job. |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/jobs/1/retry"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/jobs/1/retry"
 ```
 
 Example of response:
 
 ```json
 {
-  "commit": {
+ "commit": {
     "author_email": "admin@example.com",
     "author_name": "Administrator",
     "created_at": "2015-12-24T16:51:14.000+01:00",
@@ -870,31 +868,31 @@ Example of response:
     "message": "Test the CI integration.",
     "short_id": "0ff3ae19",
     "title": "Test the CI integration."
-  },
-  "coverage": null,
-  "archived": false,
-  "source": "push",
-  "allow_failure": false,
-  "created_at": "2016-01-11T10:13:33.506Z",
-  "started_at": null,
-  "finished_at": null,
-  "erased_at": null,
-  "duration": null,
-  "queued_duration": 0.010,
-  "id": 1,
-  "name": "rubocop",
-  "ref": "main",
-  "artifacts": [],
-  "runner": null,
-  "runner_manager": null,
-  "stage": "test",
-  "status": "pending",
-  "tag": false,
-  "web_url": "https://example.com/foo/bar/-/jobs/1",
-  "project": {
+ },
+ "coverage": null,
+ "archived": false,
+ "source": "push",
+ "allow_failure": false,
+ "created_at": "2016-01-11T10:13:33.506Z",
+ "started_at": null,
+ "finished_at": null,
+ "erased_at": null,
+ "duration": null,
+ "queued_duration": 0.010,
+ "id": 1,
+ "name": "rubocop",
+ "ref": "main",
+ "artifacts": [],
+ "runner": null,
+ "runner_manager": null,
+ "stage": "test",
+ "status": "pending",
+ "tag": false,
+ "web_url": "https://example.com/foo/bar/-/jobs/1",
+ "project": {
     "ci_job_token_scope_enabled": false
-  },
-  "user": null
+ },
+ "user": null
 }
 ```
 
@@ -914,21 +912,21 @@ Parameters
 | Attribute | Type           | Required | Description |
 |-----------|----------------|----------|-------------|
 | `id`      | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
-| `job_id`  | integer        | Yes      | ID of a job. |
+| `job_id` | integer        | Yes      | ID of a job. |
 
 Example of request
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/jobs/1/erase"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/jobs/1/erase"
 ```
 
 Example of response:
 
 ```json
 {
-  "commit": {
+ "commit": {
     "author_email": "admin@example.com",
     "author_name": "Administrator",
     "created_at": "2015-12-24T16:51:14.000+01:00",
@@ -936,39 +934,38 @@ Example of response:
     "message": "Test the CI integration.",
     "short_id": "0ff3ae19",
     "title": "Test the CI integration."
-  },
-  "coverage": null,
-  "archived": false,
-  "source": "push",
-  "allow_failure": false,
-  "download_url": null,
-  "id": 1,
-  "name": "rubocop",
-  "ref": "main",
-  "artifacts": [],
-  "runner": null,
-  "runner_manager": null,
-  "stage": "test",
-  "created_at": "2016-01-11T10:13:33.506Z",
-  "started_at": "2016-01-11T10:13:33.506Z",
-  "finished_at": "2016-01-11T10:15:10.506Z",
-  "erased_at": "2016-01-11T11:30:19.914Z",
-  "duration": 97.0,
-  "queued_duration": 0.010,
-  "status": "failed",
-  "tag": false,
-  "web_url": "https://example.com/foo/bar/-/jobs/1",
-  "project": {
+ },
+ "coverage": null,
+ "archived": false,
+ "source": "push",
+ "allow_failure": false,
+ "download_url": null,
+ "id": 1,
+ "name": "rubocop",
+ "ref": "main",
+ "artifacts": [],
+ "runner": null,
+ "runner_manager": null,
+ "stage": "test",
+ "created_at": "2016-01-11T10:13:33.506Z",
+ "started_at": "2016-01-11T10:13:33.506Z",
+ "finished_at": "2016-01-11T10:15:10.506Z",
+ "erased_at": "2016-01-11T11:30:19.914Z",
+ "duration": 97.0,
+ "queued_duration": 0.010,
+ "status": "failed",
+ "tag": false,
+ "web_url": "https://example.com/foo/bar/-/jobs/1",
+ "project": {
     "ci_job_token_scope_enabled": false
-  },
-  "user": null
+ },
+ "user": null
 }
 ```
 
 {{< alert type="note" >}}
 
-You can't delete archived jobs with the API, but you can
-[delete job artifacts and logs from jobs completed before a specific date](../administration/cicd/job_artifacts_troubleshooting.md#delete-old-builds-and-artifacts)
+You can't delete archived jobs with the API, but you can [delete job artifacts and logs from jobs completed before a specific date](../administration/cicd/job_artifacts_troubleshooting.md#delete-old-builds-and-artifacts)
 
 {{< /alert >}}
 
@@ -982,7 +979,7 @@ POST /projects/:id/jobs/:job_id/play
 
 | Attribute                  | Type            | Required | Description |
 |----------------------------|-----------------|----------|-------------|
-| `id`                       | integer or string  | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
+| `id`                       | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `job_id`                   | integer         | Yes      | ID of a job. |
 | `job_variables_attributes` | array of hashes | No       | An array containing the custom variables available to the job. |
 
@@ -990,17 +987,17 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --data @variables.json \
-  --url "https://gitlab.example.com/api/v4/projects/1/jobs/1/play"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --data @variables.json \
+ --url "https://gitlab.example.com/api/v4/projects/1/jobs/1/play"
 ```
 
 `@variables.json` is structured like:
 
 ```json
 {
-  "job_variables_attributes": [
+ "job_variables_attributes": [
     {
       "key": "TEST_VAR_1",
       "value": "test1"
@@ -1009,7 +1006,7 @@ curl --request POST \
       "key": "TEST_VAR_2",
       "value": "test2"
     }
-  ]
+ ]
 }
 ```
 
@@ -1017,7 +1014,7 @@ Example response:
 
 ```json
 {
-  "commit": {
+ "commit": {
     "author_email": "admin@example.com",
     "author_name": "Administrator",
     "created_at": "2015-12-24T16:51:14.000+01:00",
@@ -1025,30 +1022,30 @@ Example response:
     "message": "Test the CI integration.",
     "short_id": "0ff3ae19",
     "title": "Test the CI integration."
-  },
-  "coverage": null,
-  "archived": false,
-  "source": "push",
-  "allow_failure": false,
-  "created_at": "2016-01-11T10:13:33.506Z",
-  "started_at": null,
-  "finished_at": null,
-  "erased_at": null,
-  "duration": null,
-  "queued_duration": 0.010,
-  "id": 1,
-  "name": "rubocop",
-  "ref": "main",
-  "artifacts": [],
-  "runner": null,
-  "runner_manager": null,
-  "stage": "test",
-  "status": "pending",
-  "tag": false,
-  "web_url": "https://example.com/foo/bar/-/jobs/1",
-  "project": {
+ },
+ "coverage": null,
+ "archived": false,
+ "source": "push",
+ "allow_failure": false,
+ "created_at": "2016-01-11T10:13:33.506Z",
+ "started_at": null,
+ "finished_at": null,
+ "erased_at": null,
+ "duration": null,
+ "queued_duration": 0.010,
+ "id": 1,
+ "name": "rubocop",
+ "ref": "main",
+ "artifacts": [],
+ "runner": null,
+ "runner_manager": null,
+ "stage": "test",
+ "status": "pending",
+ "tag": false,
+ "web_url": "https://example.com/foo/bar/-/jobs/1",
+ "project": {
     "ci_job_token_scope_enabled": false
-  },
-  "user": null
+ },
+ "user": null
 }
 ```

@@ -15,19 +15,19 @@ You can resize the columns in the Submittals tool so it displays data in a way t
 ## Things to Consider
 
 - **Required User Permission:**
-  - 'Read-only' level permissions or higher on the project's Submittals tool.
+ - 'Read-only' level permissions or higher on the project's Submittals tool.
 - **Supported Tabs:**
-  - You can resize the columns in the Items, Packages, Spec Sections, Ball In Court, and Recycle Bin tabs.
+ - You can resize the columns in the Items, Packages, Spec Sections, Ball In Court, and Recycle Bin tabs.
 
 ## Steps
 
-1. Navigate to the project's **Submittals** tool.  
+1. Navigate to the project's **Submittals** tool. 
    This reveals the submittals list.
 2. Select a column to resize.
-3. Hover near the right edge of the column.  
+3. Hover near the right edge of the column. 
    You will see a blue highlighted space with an expand icon.
-4. Click and hold the mouse to adjust the column.  
-   Drag the mouse right to expand the column or left to minimize the column.  
+4. Click and hold the mouse to adjust the column. 
+   Drag the mouse right to expand the column or left to minimize the column. 
      
    ![resize-column-width.gif](https://support.procore.com/@api/deki/files/71424/resize-column-width.gif?revision=3)
 

@@ -34,11 +34,11 @@ To add a library:
 4. Click the library to view its assets. From there you can:
    - Click **Add to file** to enable the library in the file
    - Click **Open file** to view the library file
-5. Click  to close the modal.
+5. Click to close the modal.
 
 ![Libraries modal showing Habitz Design System assets with Add to file button highlighted in the upper right corner.](https://help.figma.com/hc/article_attachments/27999040559767)
 
-Tip: If a library has a  check mark next to its name, it means the library has been [approved by an admin](https://help.figma.com/hc/en-us/articles/21310245473815). Available on the [Enterprise plan](https://help.figma.com/hc/en-us/articles/360040328273) only.
+Tip: If a library has a check mark next to its name, it means the library has been [approved by an admin](https://help.figma.com/hc/en-us/articles/21310245473815). Available on the [Enterprise plan](https://help.figma.com/hc/en-us/articles/360040328273) only.
 
 In the **Libraries** modal, you can browse libraries available to you and add them to the current file. The **Browse libraries** section has a few tabs you can use to browse:
 
@@ -66,7 +66,7 @@ When you make a library available in a design file, everyone in the file can acc
 
 Styles Components Variables
 
-Find and apply styles using the   **Style and variables** picker in the right sidebar. Learn how to [apply styles in Figma Design](https://help.figma.com/hc/en-us/articles/360040316193). ![Cursor pointing to style and variables picker in Figma's Fill section for applying styles. The icon for the picker is four small circles arranged in a 2 by 2 square.](https://help.figma.com/hc/article_attachments/27999040564887)
+Find and apply styles using the  **Style and variables** picker in the right sidebar. Learn how to [apply styles in Figma Design](https://help.figma.com/hc/en-us/articles/360040316193). ![Cursor pointing to style and variables picker in Figma's Fill section for applying styles. The icon for the picker is four small circles arranged in a 2 by 2 square.](https://help.figma.com/hc/article_attachments/27999040564887)
 
 Drag components into the canvas from the **Assets** tab in the left sidebar. Learn how to [add components to your designs](https://help.figma.com/hc/en-us/articles/360039150173). ![Assets tab open in Figma, displaying search bar and library options, cursor pointing at tab label.](https://help.figma.com/hc/article_attachments/27999040567063)
 

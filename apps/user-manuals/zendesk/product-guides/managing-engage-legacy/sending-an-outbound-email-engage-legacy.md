@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/9731467027610-Sending-an-O
 
 Outbound email for Engage has been specifically designed to address the needs of agents when communicating with customers outside of current contacts. This includes the ability to add attachments, use snippets, reply to existing threads, manage customer profiles more efficiently, and use generative AI via Engage’s Smart Tools, to assist our customer service personnel in writing outgoing emails more effectively.
 
-The aim of this feature is to allow agents to email new customers outside of an active call.  
+The aim of this feature is to allow agents to email new customers outside of an active call. 
 **Key Benefits Include:**
 
 - Ability for agents to start new email contacts with an easy-to-use interface.
@@ -40,7 +40,7 @@ Skip steps 2 to 4 if you want to send an outbound email to an existing profile.
 9. Click the "Send email" button once the email you wish to send is completed.
 10. Upon sending the message, a notification will appear to validate the successful delivery of the email.
 11. Emails sent successfully may be seen in the client's contact history, which includes all of the correspondence between the customer and the agent.
-12. An agent will be able link an outgoing email to a Case that may be active for a customer. To do so, simply select an case from the dropdown list found below the email editor, label "Assign to a Case".  
+12. An agent will be able link an outgoing email to a Case that may be active for a customer. To do so, simply select an case from the dropdown list found below the email editor, label "Assign to a Case". 
     [.callout-critical]Please note that the TO: address should only contain the email address linked to the customer profile. But you can add more than one email address to the CC and BCC.[.callout-critical]
 
 ![__wf_reserved_inherit](https://support.zendesk.com/hc/article_attachments/9731450521370)

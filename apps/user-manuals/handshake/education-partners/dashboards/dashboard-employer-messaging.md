@@ -32,11 +32,11 @@ The reports included in this dashboard, along with the fields that you can filte
 - *Number of* Employers Proactively Reaching out to Students
 - Message Activity by Month
 - Avg Messages Sent Per Student
-- Top Employers:  
-  - Employer Name
-  - Students Messaged *Count*
-  - Open Rate Bucket
-  - Click Rate Bucket
+- Top Employers: 
+ - Employer Name
+ - Students Messaged *Count*
+ - Open Rate Bucket
+ - Click Rate Bucket
     - **Note**: information in the dashboard is also copied below, in [Open and Click Rates](#h_01EY1XG5TK28059G7PGS1TAQ8T)
 - Most Active Industries
 - Engagement by Industry (Min 100 Messages Sent)

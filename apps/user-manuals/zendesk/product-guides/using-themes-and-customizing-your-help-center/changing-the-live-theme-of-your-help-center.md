@@ -6,17 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408828836250-Changing-the
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Guide Professional or Enterprise |
 
-The [Copenhagen theme](https://support.zendesk.com/hc/en-us/articles/4408845834522) is enabled by default when
-you set up your help center. If you have other themes in your help
-center, you can easily change your theme at any time.
+The [Copenhagen theme](https://support.zendesk.com/hc/en-us/articles/4408845834522) is enabled by default when you set up your help center. If you have other themes in your help center, you can easily change your theme at any time.
 
 **To change the live theme for your help center**
 
@@ -28,5 +26,4 @@ center, you can easily change your theme at any time.
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/theming_themes_menu.png)
 3. Confirm that you want to make this theme live for your help center.
 
-   The theme moves to the
-   top of the page and is applied to your live help center.
+   The theme moves to the top of the page and is applied to your live help center.

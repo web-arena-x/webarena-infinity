@@ -36,17 +36,16 @@ Gets all feature flag user lists for the requested project.
 GET /projects/:id/feature_flags_user_lists
 ```
 
-Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to
-control the pagination of results.
+Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to control the pagination of results.
 
 | Attribute | Type           | Required | Description                                                                      |
 | --------- | -------------- | -------- | -------------------------------------------------------------------------------- |
 | `id`      | integer or string | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
-| `search`  | string         | no       | Return user lists matching the search criteria.                                  |
+| `search` | string         | no       | Return user lists matching the search criteria.                                  |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/feature_flags_user_lists"
+ --url "https://gitlab.example.com/api/v4/projects/1/feature_flags_user_lists"
 ```
 
 Example response:
@@ -90,10 +89,10 @@ POST /projects/:id/feature_flags_user_lists
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-type: application/json" \
-  --url "https://gitlab.example.com/api/v4/projects/1/feature_flags_user_lists" \
-  --data @- << EOF
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-type: application/json" \
+ --url "https://gitlab.example.com/api/v4/projects/1/feature_flags_user_lists" \
+ --data @- << EOF
 {
     "name": "my_user_list",
     "user_xids": "user1,user2,user3"
@@ -123,8 +122,7 @@ Gets a feature flag user list.
 GET /projects/:id/feature_flags_user_lists/:iid
 ```
 
-Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to
-control the pagination of results.
+Use the `page` and `per_page` [pagination](rest/_index.md#offset-based-pagination) parameters to control the pagination of results.
 
 | Attribute           | Type             | Required   | Description                                                                            |
 | ------------------- | ---------------- | ---------- | ---------------------------------------------------------------------------------------|
@@ -133,7 +131,7 @@ control the pagination of results.
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/feature_flags_user_lists/1"
+ --url "https://gitlab.example.com/api/v4/projects/1/feature_flags_user_lists/1"
 ```
 
 Example response:
@@ -167,10 +165,10 @@ PUT /projects/:id/feature_flags_user_lists/:iid
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-type: application/json" \
-  --url "https://gitlab.example.com/api/v4/projects/1/feature_flags_user_lists/1" \
-  --data @- << EOF
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-type: application/json" \
+ --url "https://gitlab.example.com/api/v4/projects/1/feature_flags_user_lists/1" \
+ --data @- << EOF
 {
     "user_xids": "user2,user3,user4"
 }
@@ -206,6 +204,6 @@ DELETE /projects/:id/feature_flags_user_lists/:iid
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/feature_flags_user_lists/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/feature_flags_user_lists/1"
 ```

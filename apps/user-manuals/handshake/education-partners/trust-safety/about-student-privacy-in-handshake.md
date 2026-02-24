@@ -11,33 +11,21 @@ To get the most out of Handshake, and to ensure your students are accurately qua
 Importing student data is a vital step in implementation and makes sure that:
 
 - **Data is is up to date**
-  - This information is imported directly from your student information
-    system (SIS).
+ - This information is imported directly from your student information system (SIS).
 - **Your students can discover amazing jobs and internships**
-  - Students with majors, GPA, work authorization, and coursework are much more likely to be contacted by an employer.
+ - Students with majors, GPA, work authorization, and coursework are much more likely to be contacted by an employer.
 - **Employers can trust student qualifications**
-  - Major, GPA, education level, and school year are all functionally
-    tied to requirements on job postings in Handshake. Importing
-    this
-    information will ensure that students are qualified for positions
-    they *should* be qualified for, and employers can
-    quickly
-    rely on the accuracy of the application. This in turn increases
-    employer
-    engagement across the platform.
+ - Major, GPA, education level, and school year are all functionally tied to requirements on job postings in Handshake. Importing this information will ensure that students are qualified for positions they *should* be qualified for, and employers can quickly rely on the accuracy of the application. This in turn increases employer engagement across the platform.
 - **Students have a great experience upon their first login**
-  - This first experience is crucial for long term student engagement.
+ - This first experience is crucial for long term student engagement.
 - **Analytics and reports are relevant**
-  - **S****chools that don’t sync a robust dataset have less students engaged, and a much harder time reporting on their impact.** Importing
-    even the most basic required fields empowers you to build reports
-    and explore activity by particular cohorts.
+ - **S****chools that don’t sync a robust dataset have less students engaged, and a much harder time reporting on their impact.** Importing even the most basic required fields empowers you to build reports and explore activity by particular cohorts.
 
 Explore each of the collapsible headers for more information!
 
 **Student Profiles and Privacy**
 
-Student profiles are automatically set to **private** when
-their profiles are uploaded by the school, or created by the student.
+Student profiles are automatically set to **private** when their profiles are uploaded by the school, or created by the student.
 
 During the account activation process, also known as student onboarding in Handshake, students are given the option to choose their profile visibility after agreeing to the Terms of Service and Privacy Policy. Note that students can also choose to make their profile shareable outside of Handshake. To learn more about this, please refer to **How to Make Your Profile Public and Share Your Profile Link**
 
@@ -81,10 +69,10 @@ Student and employer users can block one another to maintain privacy and further
 The following interactions cannot happen between two users if one of them has been blocked by the other.
 
 - The blocked user *cannot*:
-  - Successfully send a message to the other user on Handshake
+ - Successfully send a message to the other user on Handshake
     - This includes campaigns and bulk messages.
-  - View the other user's profile or activity
-  - View the other user in people search, event attendee lists, job pages, feed, and other aspects of Handshake.
+ - View the other user's profile or activity
+ - View the other user in people search, event attendee lists, job pages, feed, and other aspects of Handshake.
 
 Any previous messages between the two users will be removed from view.
 

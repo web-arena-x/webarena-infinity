@@ -16,4 +16,4 @@ When students are searching for jobs, they will now see search suggestions liste
 **How can students effectively use these suggested searches?**
 
 - Students can click on any of these suggested search terms to explore jobs with these keywords. They can also apply other filters to narrow their search.
-  - *Please note that suggestions will only appear when a keyword is unspecified.*
+ - *Please note that suggestions will only appear when a keyword is unspecified.*

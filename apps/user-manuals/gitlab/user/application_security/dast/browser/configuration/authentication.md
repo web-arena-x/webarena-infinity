@@ -6,19 +6,14 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: Authentication
 ---
 
-For complete coverage, the DAST analyzer must authenticate with the application being tested. This
-requires configuring the authentication credentials and authentication method in the DAST CI/CD job.
+For complete coverage, the DAST analyzer must authenticate with the application being tested. This requires configuring the authentication credentials and authentication method in the DAST CI/CD job.
 
 DAST requires authentication to:
 
-- Simulate real-world attacks and identify vulnerabilities that might be exploited by
-  attackers.
+- Simulate real-world attacks and identify vulnerabilities that might be exploited by attackers.
 - Test user-specific features and custom behavior that may only be visible after authentication.
 
-The DAST job authenticates itself to the application, most commonly by filling in and submitting a
-login form on a browser. After the form is submitted, the DAST job confirms that authentication was
-successful. If authentication was successful, the DAST job continues and also saves the credentials
-for reuse when crawling the target application. If not, the DAST job stops.
+The DAST job authenticates itself to the application, most commonly by filling in and submitting a login form on a browser. After the form is submitted, the DAST job confirms that authentication was successful. If authentication was successful, the DAST job continues and also saves the credentials for reuse when crawling the target application. If not, the DAST job stops.
 
 Authentication methods supported by DAST include:
 
@@ -29,13 +24,9 @@ Authentication methods supported by DAST include:
 When choosing authentication credentials:
 
 - **DO NOT** use credentials that are valid for production systems, production servers, or used to access production data.
-- **DO NOT** run an authenticated scan against a production server. Authenticated scans may perform
-  **any** function that the authenticated user can, including modifying or deleting data, submitting
-  forms, and following links. Only run an authenticated scan against non-production systems or
-  servers.
+- **DO NOT** run an authenticated scan against a production server. Authenticated scans may perform **any** function that the authenticated user can, including modifying or deleting data, submitting forms, and following links. Only run an authenticated scan against non-production systems or servers.
 - Provide credentials that allow DAST to test the entire application.
-- Note the credentials' expiry date, if any, for future reference. For example, with a password
-  manager such as 1Password.
+- Note the credentials' expiry date, if any, for future reference. For example, with a password manager such as 1Password.
 
 The following diagram illustrates the usage of authentication variables at different stages of authentication:
 
@@ -80,8 +71,7 @@ sequenceDiagram
 
 {{< alert type="note" >}}
 
-You should periodically confirming that the analyzer's authentication is still working, as this tends to break over
-time due to changes to the application.
+You should periodically confirming that the analyzer's authentication is still working, as this tends to break over time due to changes to the application.
 
 {{< /alert >}}
 
@@ -117,9 +107,9 @@ To run a DAST authenticated scan:
 
 - You have the secret key for the test user's TOTP enrollment, encoded in Base32.
 - You have confirmed that the auth provider supports the following TOTP configuration (same as Google Authenticator):
-  - HMAC algorithm: SHA-1
-  - Time step: 30 seconds
-  - Token length: 6
+ - HMAC algorithm: SHA-1
+ - Time step: 30 seconds
+ - Token length: 6
 - You know the [selectors](#finding-an-elements-selector) of the TOTP field that DAST uses to input the generated TOTP token.
 - You know the element's [selector](#finding-an-elements-selector) that submits the TOTP token, if it is submitted separately from the password.
 
@@ -140,10 +130,10 @@ For example:
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://example.com/dashboard/welcome"
     DAST_AUTH_URL: "https://example.com/login"
 ```
@@ -157,10 +147,10 @@ Configuration requires the CI/CD variables `DAST_AUTH_TYPE`, `DAST_AUTH_URL`, `D
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://example.com"
     DAST_AUTH_TYPE: "basic-digest"
     DAST_AUTH_URL: "https://example.com"
@@ -178,10 +168,10 @@ You should set up the URL and selectors of fields in the job definition YAML, fo
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://example.com"
     DAST_AUTH_URL: "https://example.com/login"
     DAST_AUTH_USERNAME_FIELD: "css:[name=username]"
@@ -211,10 +201,10 @@ You should set up the URL and selectors of fields in the job definition YAML, fo
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://example.com"
     DAST_AUTH_URL: "https://example.com/login"
     DAST_AUTH_USERNAME_FIELD: "css:[name=username]"
@@ -241,10 +231,10 @@ The `_FIELD` selector variables can be defined in the job definition YAML, for e
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://example.com"
     DAST_AUTH_URL: "https://example.com/login"
     DAST_AUTH_USERNAME_FIELD: "css:[name=username]"
@@ -260,8 +250,7 @@ See [Custom CI/CD variables](../../../../../ci/variables/_index.md#for-a-project
 ### Configuration for Single Sign-On (SSO)
 
 If a user can sign in to an application, then in most cases, DAST is also able to sign in.
-Even when an application uses Single Sign-on. Applications using SSO solutions should configure DAST
-authentication using the [single-step](#configuration-for-a-single-step-login-form) or [multi-step](#configuration-for-a-multi-step-login-form) login form configuration guides.
+Even when an application uses Single Sign-on. Applications using SSO solutions should configure DAST authentication using the [single-step](#configuration-for-a-single-step-login-form) or [multi-step](#configuration-for-a-multi-step-login-form) login form configuration guides.
 
 DAST supports authentication processes where a user is redirected to an external Identity Provider's site to sign in.
 Check the [known issues](#known-issues) of DAST authentication to determine if your SSO authentication process is supported.
@@ -289,29 +278,29 @@ Create the `krb5.conf` file:
 
 ```ini
 [libdefaults]
-  # Realm is another name for domain name
-  default_realm = EXAMPLE.COM
-  # These settings are not needed for Windows Domains
-  # they support other Kerberos implementations
-  kdc_timesync = 1
-  ccache_type = 4
-  forwardable = true
-  proxiable = true
-  rdns = false
-  fcc-mit-ticketflags = true
+ # Realm is another name for domain name
+ default_realm = EXAMPLE.COM
+ # These settings are not needed for Windows Domains
+ # they support other Kerberos implementations
+ kdc_timesync = 1
+ ccache_type = 4
+ forwardable = true
+ proxiable = true
+ rdns = false
+ fcc-mit-ticketflags = true
 [realms]
-  EXAMPLE.COM = {
+ EXAMPLE.COM = {
     # Domain controller or KDC
     kdc = kdc.example.com
     # Domain controller or admin server
     admin_server = kdc.example.com
-  }
+ }
 [domain_realm]
-  # Mapping DNS domains to realms/Windows domain
-  # DNS domains provided by DAST_AUTH_NEGOTIATE_DELEGATION
-  # should also be represented here (but without the wildcard)
-  .example.com = EXAMPLE.COM
-  example.com = EXAMPLE.COM
+ # Mapping DNS domains to realms/Windows domain
+ # DNS domains provided by DAST_AUTH_NEGOTIATE_DELEGATION
+ # should also be represented here (but without the wildcard)
+ .example.com = EXAMPLE.COM
+ example.com = EXAMPLE.COM
 ```
 
 This configuration makes use of the `DAST_AUTH_NEGOTIATE_DELEGATION` variable.
@@ -335,34 +324,34 @@ Pull it all together into a job definition:
 # This job will extend the dast job defined in
 # the DAST template which must also be included.
 dast:
-  image:
+ image:
     name: "$SECURE_ANALYZERS_PREFIX/dast:$DAST_VERSION$DAST_IMAGE_SUFFIX"
     docker:
       user: root
-  variables:
+ variables:
     DAST_TARGET_URL: https://target.example.com
     DAST_AUTH_URL: https://target.example.com
     DAST_AUTH_TYPE: basic-digest
     DAST_AUTH_NEGOTIATE_DELEGATION: '*.example.com,example.com,*.EXAMPLE.COM,EXAMPLE.COM'
     # Not shown -- DAST_AUTH_USERNAME, DAST_AUTH_PASSWORD set via Settings -> CI -> Variables
-  before_script:
+ before_script:
     - KRB5_CONF='
 [libdefaults]
-  default_realm = EXAMPLE.COM
-  kdc_timesync = 1
-  ccache_type = 4
-  forwardable = true
-  proxiable = true
-  rdns = false
-  fcc-mit-ticketflags = true
+ default_realm = EXAMPLE.COM
+ kdc_timesync = 1
+ ccache_type = 4
+ forwardable = true
+ proxiable = true
+ rdns = false
+ fcc-mit-ticketflags = true
 [realms]
-  EXAMPLE.COM = {
+ EXAMPLE.COM = {
     kdc = ad1.example.com
     admin_server = ad1.example.com
-  }
+ }
 [domain_realm]
-  .example.com = EXAMPLE.COM
-  example.com = EXAMPLE.COM
+ .example.com = EXAMPLE.COM
+ example.com = EXAMPLE.COM
 '
     - cat "$KRB5_CONF" > /etc/krb5.conf
     - echo '$DAST_AUTH_PASSWORD' | kinit $DAST_AUTH_USERNAME
@@ -379,38 +368,36 @@ Ticket cache: FILE:/tmp/krb5cc_1000
 Default principal: mike@EXAMPLE.COM
 
 Valid starting       Expires              Service principal
-11/11/2024 21:50:50  11/12/2024 07:50:50  krbtgt/EXAMPLE.COM@EXAMPLE.COM
+11/11/2024 21:50:50 11/12/2024 07:50:50 krbtgt/EXAMPLE.COM@EXAMPLE.COM
         renew until 11/12/2024 21:50:50
 ```
 
 The DAST scanner will also output the following, indicating success:
 
 ```plaintext
-2024-11-08T17:03:09.226 INF AUTH  attempting to authenticate find_auth_fields="basic-digest"
-2024-11-08T17:03:09.226 INF AUTH  loading login page LoginURL="https://target.example.com"
-2024-11-08T17:03:10.619 INF AUTH  verifying if login attempt was successful true_when="HTTP status code < 400 and has authentication token and no login form found (auto-detected)"
-2024-11-08T17:03:10.619 INF AUTH  requirement is satisfied, HTTP login request returned status code 200 want="HTTP status code < 400" url="https://target.example.com/"
-2024-11-08T17:03:10.623 INF AUTH  requirement is satisfied, did not detect a login form want="no login form found (auto-detected)"
-2024-11-08T17:03:10.623 INF AUTH  authentication token cookies names=""
-2024-11-08T17:03:10.623 INF AUTH  authentication token storage events keys=""
-2024-11-08T17:03:10.623 INF AUTH  requirement is satisfied, basic authentication detected want="has authentication token"
-2024-11-08T17:03:11.230 INF AUTH  login attempt succeeded
+2024-11-08T17:03:09.226 INF AUTH attempting to authenticate find_auth_fields="basic-digest"
+2024-11-08T17:03:09.226 INF AUTH loading login page LoginURL="https://target.example.com"
+2024-11-08T17:03:10.619 INF AUTH verifying if login attempt was successful true_when="HTTP status code < 400 and has authentication token and no login form found (auto-detected)"
+2024-11-08T17:03:10.619 INF AUTH requirement is satisfied, HTTP login request returned status code 200 want="HTTP status code < 400" url="https://target.example.com/"
+2024-11-08T17:03:10.623 INF AUTH requirement is satisfied, did not detect a login form want="no login form found (auto-detected)"
+2024-11-08T17:03:10.623 INF AUTH authentication token cookies names=""
+2024-11-08T17:03:10.623 INF AUTH authentication token storage events keys=""
+2024-11-08T17:03:10.623 INF AUTH requirement is satisfied, basic authentication detected want="has authentication token"
+2024-11-08T17:03:11.230 INF AUTH login attempt succeeded
 ```
 
 ### Clicking to go to the login form
 
-Define `DAST_AUTH_BEFORE_LOGIN_ACTIONS` to provide a path of elements to click on from the `DAST_AUTH_URL` so that DAST can access the
-login form. This method is suitable for applications that show the login form in a pop-up (modal) window or when the login form does not
-have a unique URL.
+Define `DAST_AUTH_BEFORE_LOGIN_ACTIONS` to provide a path of elements to click on from the `DAST_AUTH_URL` so that DAST can access the login form. This method is suitable for applications that show the login form in a pop-up (modal) window or when the login form does not have a unique URL.
 
 For example:
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://example.com"
     DAST_AUTH_URL: "https://example.com/login"
     DAST_AUTH_BEFORE_LOGIN_ACTIONS: "css:.navigation-menu,css:.login-menu-item"
@@ -418,8 +405,7 @@ dast:
 
 ### Taking additional actions after submitting the login form
 
-Define `DAST_AUTH_AFTER_LOGIN_ACTIONS` to provide a sequence of actions to perform
-after submitting the sign-in form, but before verification, when authentication details are recorded.
+Define `DAST_AUTH_AFTER_LOGIN_ACTIONS` to provide a sequence of actions to perform after submitting the sign-in form, but before verification, when authentication details are recorded.
 This can be used to proceed past a "keep me signed in" dialog.
 
 | Action                           | Format                      |
@@ -433,10 +419,10 @@ For example:
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://example.com"
     DAST_AUTH_URL: "https://example.com/login"
     DAST_AUTH_AFTER_LOGIN_ACTIONS: "select(option=id:accept-yes),click(on=id:continue-button)"
@@ -451,10 +437,10 @@ Provided URLs can be either absolute URLs, or regular expressions of URL paths r
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://example.com/welcome/home"
     DAST_SCOPE_EXCLUDE_URLS: "https://example.com/logout,/user/.*/logout"
 ```
@@ -486,8 +472,7 @@ Chrome DevTools element selector tool is an effective way to find a selector.
    ![highlight](img/dast_auth_browser_scan_highlight_v16_9.png)
 1. Once highlighted, you can see the element's details, including attributes that would make a good candidate for a selector.
 
-In this example, the `id="user_login"` appears to be a good candidate. You can use this as a selector as the DAST username field by setting
-`DAST_AUTH_USERNAME_FIELD: "id:user_login"`.
+In this example, the `id="user_login"` appears to be a good candidate. You can use this as a selector as the DAST username field by setting `DAST_AUTH_USERNAME_FIELD: "id:user_login"`.
 
 #### Choose the right selector
 
@@ -510,8 +495,7 @@ When using selectors to locate specific fields you should avoid searching on:
 
 ## Verifying authentication is successful
 
-After DAST has submitted the login form, a verification process takes place
-to determine if authentication succeeded. The scan halts with an error if authentication is unsuccessful.
+After DAST has submitted the login form, a verification process takes place to determine if authentication succeeded. The scan halts with an error if authentication is unsuccessful.
 
 Following the submission of the login form, authentication is determined to be unsuccessful when:
 
@@ -521,8 +505,7 @@ Following the submission of the login form, authentication is determined to be u
 
 ### Verification checks
 
-Verification checks run checks on the state of the browser once authentication is complete
-to determine further if authentication succeeded.
+Verification checks run checks on the state of the browser once authentication is complete to determine further if authentication succeeded.
 
 DAST tests for the absence of a login form if no verification checks are configured.
 
@@ -537,45 +520,43 @@ For example:
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://example.com"
     DAST_AUTH_SUCCESS_IF_AT_URL: "https://example.com/user/welcome"
 ```
 
 #### Verify based on presence of an element
 
-Define `DAST_AUTH_SUCCESS_IF_ELEMENT_FOUND` as a [selector](#finding-an-elements-selector) that finds one or many elements on the page
-displayed after the login form is successfully submitted. If no element is found, authentication is unsuccessful.
+Define `DAST_AUTH_SUCCESS_IF_ELEMENT_FOUND` as a [selector](#finding-an-elements-selector) that finds one or many elements on the page displayed after the login form is successfully submitted. If no element is found, authentication is unsuccessful.
 Searching for the selector on the page displayed when login fails should return no elements.
 
 For example:
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://example.com"
     DAST_AUTH_SUCCESS_IF_ELEMENT_FOUND: "css:.welcome-user"
 ```
 
 #### Verify based on absence of a login form
 
-Define `DAST_AUTH_SUCCESS_IF_NO_LOGIN_FORM` as `"true"` to indicate that DAST should search for the login form on the
-page displayed after the login form is successfully submitted. If a login form is still present after logging in, authentication is unsuccessful.
+Define `DAST_AUTH_SUCCESS_IF_NO_LOGIN_FORM` as `"true"` to indicate that DAST should search for the login form on the page displayed after the login form is successfully submitted. If a login form is still present after logging in, authentication is unsuccessful.
 
 For example:
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://example.com"
     DAST_AUTH_SUCCESS_IF_NO_LOGIN_FORM: "true"
 ```
@@ -585,25 +566,22 @@ dast:
 DAST records authentication tokens set during the authentication process.
 Authentication tokens are loaded into new browsers when DAST opens them so the user can remain logged in throughout the scan.
 
-To record tokens, DAST takes a snapshot of cookies, local storage, and session storage values set by the application before
-the authentication process. DAST does the same after authentication and uses the difference to determine which were created
-by the authentication process.
+To record tokens, DAST takes a snapshot of cookies, local storage, and session storage values set by the application before the authentication process. DAST does the same after authentication and uses the difference to determine which were created by the authentication process.
 
 DAST considers cookies, local storage and session storage values set with sufficiently "random" values to be authentication tokens.
 For example, `sessionID=HVxzpS8GzMlPAc2e39uyIVzwACIuGe0H` would be viewed as an authentication token, while `ab_testing_group=A1` would not.
 
 The CI/CD variable `DAST_AUTH_COOKIE_NAMES` can be used to specify the names of authentication cookies and bypass the randomness check used by DAST.
-Not only can this make the authentication process more robust, but it can also increase vulnerability check accuracy for checks that
-inspect authentication tokens.
+Not only can this make the authentication process more robust, but it can also increase vulnerability check accuracy for checks that inspect authentication tokens.
 
 For example:
 
 ```yaml
 include:
-  - template: DAST.gitlab-ci.yml
+ - template: DAST.gitlab-ci.yml
 
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://example.com"
     DAST_AUTH_COOKIE_NAMES: "sessionID,refreshToken"
 ```
@@ -611,16 +589,15 @@ dast:
 ## Known issues
 
 - DAST cannot bypass a CAPTCHA if the authentication flow includes one.
-  Turn these off for the configured user in the testing environment for the application being scanned.
+ Turn these off for the configured user in the testing environment for the application being scanned.
 - DAST cannot authenticate with one-time passwords (OTP) using SMS or biometrics.
-  Turn these off for the configured user in the testing environment for the application being scanned; or change the type of MFA for the user to TOTP.
+ Turn these off for the configured user in the testing environment for the application being scanned; or change the type of MFA for the user to TOTP.
 - DAST cannot authenticate to applications that do not set an [authentication token](#authentication-tokens) during login.
 - DAST cannot authenticate to applications that require more text inputs than username, password, and optional TOTP.
 
 ## Troubleshooting
 
-The [logs](#read-the-logs) provide insight into what DAST is doing and expecting during the authentication process. For more detailed
-information, configure the [authentication report](#configure-the-authentication-report).
+The [logs](#read-the-logs) provide insight into what DAST is doing and expecting during the authentication process. For more detailed information, configure the [authentication report](#configure-the-authentication-report).
 
 For more information about particular error messages or situations see [known problems](#known-problems).
 
@@ -633,15 +610,15 @@ For example, the following log shows failed authentication for a multi-step logi
 Authentication failed because a home page should be displayed after login. Instead, the login form was still present.
 
 ```plaintext
-2022-11-16T13:43:02.000 INF AUTH  attempting to authenticate
-2022-11-16T13:43:02.000 INF AUTH  loading login page LoginURL=https://example.com/login
-2022-11-16T13:43:10.000 INF AUTH  multi-step authentication detected
-2022-11-16T13:43:15.000 INF AUTH  verifying if user submit was successful true_when="HTTP status code < 400"
-2022-11-16T13:43:15.000 INF AUTH  requirement is satisfied, no login HTTP message detected want="HTTP status code < 400"
-2022-11-16T13:43:20.000 INF AUTH  verifying if login attempt was successful true_when="HTTP status code < 400 and has authentication token and no login form found (no element found when searching using selector css:[id=email] or css:[id=password] or css:[id=submit])"
-2022-11-24T14:43:20.000 INF AUTH  requirement is satisfied, HTTP login request returned status code 200 url=https://example.com/user/login?error=invalid%20credentials want="HTTP status code < 400"
-2022-11-16T13:43:21.000 INF AUTH  requirement is unsatisfied, login form was found want="no login form found (no element found when searching using selector css:[id=email] or css:[id=password] or css:[id=submit])"
-2022-11-16T13:43:21.000 INF AUTH  login attempt failed error="authentication failed: failed to authenticate user"
+2022-11-16T13:43:02.000 INF AUTH attempting to authenticate
+2022-11-16T13:43:02.000 INF AUTH loading login page LoginURL=https://example.com/login
+2022-11-16T13:43:10.000 INF AUTH multi-step authentication detected
+2022-11-16T13:43:15.000 INF AUTH verifying if user submit was successful true_when="HTTP status code < 400"
+2022-11-16T13:43:15.000 INF AUTH requirement is satisfied, no login HTTP message detected want="HTTP status code < 400"
+2022-11-16T13:43:20.000 INF AUTH verifying if login attempt was successful true_when="HTTP status code < 400 and has authentication token and no login form found (no element found when searching using selector css:[id=email] or css:[id=password] or css:[id=submit])"
+2022-11-24T14:43:20.000 INF AUTH requirement is satisfied, HTTP login request returned status code 200 url=https://example.com/user/login?error=invalid%20credentials want="HTTP status code < 400"
+2022-11-16T13:43:21.000 INF AUTH requirement is unsatisfied, login form was found want="no login form found (no element found when searching using selector css:[id=email] or css:[id=password] or css:[id=submit])"
+2022-11-16T13:43:21.000 INF AUTH login attempt failed error="authentication failed: failed to authenticate user"
 ```
 
 ### Configure the authentication report
@@ -659,7 +636,7 @@ An example configuration where the authentication debug report is exported may l
 
 ```yaml
 dast:
-  variables:
+ variables:
     DAST_TARGET_URL: "https://example.com"
     DAST_AUTH_REPORT: "true"
 ```
@@ -672,8 +649,8 @@ DAST failed to find a login form when loading the login page, often because the 
 The log reports a fatal error such as:
 
 ```plaintext
-2022-12-07T12:44:02.838 INF AUTH  loading login page LoginURL=[authentication URL]
-2022-12-07T12:44:11.119 FTL MAIN  authentication failed: login form not found
+2022-12-07T12:44:02.838 INF AUTH loading login page LoginURL=[authentication URL]
+2022-12-07T12:44:11.119 FTL MAIN authentication failed: login form not found
 ```
 
 Suggested actions:
@@ -686,12 +663,11 @@ Suggested actions:
 
 #### Scan doesn't crawl authenticated pages
 
-If DAST captures the wrong [authentication tokens](#authentication-tokens) during the authentication process then
-the scan can't crawl authenticated pages. Names of cookies and storage authentication tokens are written to the log. For example:
+If DAST captures the wrong [authentication tokens](#authentication-tokens) during the authentication process then the scan can't crawl authenticated pages. Names of cookies and storage authentication tokens are written to the log. For example:
 
 ```plaintext
-2022-11-24T14:42:31.492 INF AUTH  authentication token cookies names=["sessionID"]
-2022-11-24T14:42:31.492 INF AUTH  authentication token storage events keys=["token"]
+2022-11-24T14:42:31.492 INF AUTH authentication token cookies names=["sessionID"]
+2022-11-24T14:42:31.492 INF AUTH authentication token storage events keys=["token"]
 ```
 
 Suggested actions:
@@ -705,7 +681,7 @@ Suggested actions:
 DAST failed to find the username, password, first submit button, or submit button elements. The log reports a fatal error such as:
 
 ```plaintext
-2022-12-07T13:14:11.545 FTL MAIN  authentication failed: unable to find elements with selector: css:#username
+2022-12-07T13:14:11.545 FTL MAIN authentication failed: unable to find elements with selector: css:#username
 ```
 
 Suggested actions:
@@ -718,11 +694,11 @@ Suggested actions:
 DAST failed to authenticate due to a failed login verification check. The log reports a fatal error such as:
 
 ```plaintext
-2022-12-07T06:39:49.483 INF AUTH  verifying if login attempt was successful true_when="HTTP status code < 400 and has authentication token and no login form found (no element found when searching using selector css:[name=username] or css:[name=password] or css:button[type=\"submit\"])"
-2022-12-07T06:39:49.484 INF AUTH  requirement is satisfied, HTTP login request returned status code 303 url=http://auth-manual:8090/login want="HTTP status code < 400"
-2022-12-07T06:39:49.513 INF AUTH  requirement is unsatisfied, login form was found want="no login form found (no element found when searching using selector css:[name=username] or css:[name=password] or css:button[type=\"submit\"])"
-2022-12-07T06:39:49.589 INF AUTH  login attempt failed error="authentication failed: failed to authenticate user"
-2022-12-07T06:39:53.626 FTL MAIN  authentication failed: failed to authenticate user
+2022-12-07T06:39:49.483 INF AUTH verifying if login attempt was successful true_when="HTTP status code < 400 and has authentication token and no login form found (no element found when searching using selector css:[name=username] or css:[name=password] or css:button[type=\"submit\"])"
+2022-12-07T06:39:49.484 INF AUTH requirement is satisfied, HTTP login request returned status code 303 url=http://auth-manual:8090/login want="HTTP status code < 400"
+2022-12-07T06:39:49.513 INF AUTH requirement is unsatisfied, login form was found want="no login form found (no element found when searching using selector css:[name=username] or css:[name=password] or css:button[type=\"submit\"])"
+2022-12-07T06:39:49.589 INF AUTH login attempt failed error="authentication failed: failed to authenticate user"
+2022-12-07T06:39:53.626 FTL MAIN authentication failed: failed to authenticate user
 ```
 
 Suggested actions:
@@ -731,31 +707,27 @@ Suggested actions:
 
 #### Requirement unsatisfied, login form was found
 
-Applications typically display a dashboard when the user logs in and the login form with an error message when the
-username or password is incorrect.
+Applications typically display a dashboard when the user logs in and the login form with an error message when the username or password is incorrect.
 
-This error occurs when DAST detects the login form on the page displayed after authenticating the user,
-indicating that the login attempt failed.
+This error occurs when DAST detects the login form on the page displayed after authenticating the user, indicating that the login attempt failed.
 
 ```plaintext
-2022-12-07T06:39:49.513 INF AUTH  requirement is unsatisfied, login form was found want="no login form found (no element found when searching using selector css:[name=username] or css:[name=password] or css:button[type=\"submit\"])"
+2022-12-07T06:39:49.513 INF AUTH requirement is unsatisfied, login form was found want="no login form found (no element found when searching using selector css:[name=username] or css:[name=password] or css:button[type=\"submit\"])"
 ```
 
 Suggested actions:
 
 - Verify that the username and password/authentication credentials used are correct.
 - Generate the [authentication report](#configure-the-authentication-report) and verify the `Request` for the `Login submit` is correct.
-- It's possible that the authentication report `Login submit` request and response are empty. This occurs when there is no request that would result
-  in a full page reload, such as a request made when submitting a HTML form. This occurs when using websockets or AJAX to submit the login form.
-- If the page displayed following user authentication genuinely has elements matching the login form selectors, configure `DAST_AUTH_SUCCESS_IF_AT_URL`
-  or `DAST_AUTH_SUCCESS_IF_ELEMENT_FOUND` to use an alternate method of verifying the login attempt.
+- It's possible that the authentication report `Login submit` request and response are empty. This occurs when there is no request that would result in a full page reload, such as a request made when submitting a HTML form. This occurs when using websockets or AJAX to submit the login form.
+- If the page displayed following user authentication genuinely has elements matching the login form selectors, configure `DAST_AUTH_SUCCESS_IF_AT_URL` or `DAST_AUTH_SUCCESS_IF_ELEMENT_FOUND` to use an alternate method of verifying the login attempt.
 
 #### Requirement unsatisfied, selector returned no results
 
 DAST cannot find an element matching the selector provided in `DAST_AUTH_SUCCESS_IF_ELEMENT_FOUND` on the page displayed following user login.
 
 ```plaintext
-2022-12-07T06:39:33.239 INF AUTH  requirement is unsatisfied, searching DOM using selector returned no results want="has element css:[name=welcome]"
+2022-12-07T06:39:33.239 INF AUTH requirement is unsatisfied, searching DOM using selector returned no results want="has element css:[name=welcome]"
 ```
 
 Suggested actions:
@@ -768,7 +740,7 @@ Suggested actions:
 DAST detected that the page displayed following user login has a URL different to what was expected according to `DAST_AUTH_SUCCESS_IF_AT_URL`.
 
 ```plaintext
-2022-12-07T11:28:00.241 INF AUTH  requirement is unsatisfied, browser is not at URL browser_url="https://example.com/home" want="is at url https://example.com/user/dashboard"
+2022-12-07T11:28:00.241 INF AUTH requirement is unsatisfied, browser is not at URL browser_url="https://example.com/home" want="is at url https://example.com/user/dashboard"
 ```
 
 Suggested actions:
@@ -782,7 +754,7 @@ The HTTP response when loading the login form or submitting the form had a statu
 or 500 (server error).
 
 ```plaintext
-2022-12-07T06:39:53.626 INF AUTH  requirement is unsatisfied, HTTP login request returned status code 502 url="https://example.com/user/login" want="HTTP status code < 400"
+2022-12-07T06:39:53.626 INF AUTH requirement is unsatisfied, HTTP login request returned status code 502 url="https://example.com/user/login" want="HTTP status code < 400"
 ```
 
 - Verify that the username and password/authentication credentials used are correct.
@@ -794,9 +766,9 @@ or 500 (server error).
 DAST could not detect an [authentication token](#authentication-tokens) created during the authentication process.
 
 ```plaintext
-2022-12-07T11:25:29.010 INF AUTH  authentication token cookies names=[]
-2022-12-07T11:25:29.010 INF AUTH  authentication token storage events keys=[]
-2022-12-07T11:25:29.010 INF AUTH  requirement is unsatisfied, no basic authentication, cookie or storage event authentication token detected want="has authentication token"
+2022-12-07T11:25:29.010 INF AUTH authentication token cookies names=[]
+2022-12-07T11:25:29.010 INF AUTH authentication token storage events keys=[]
+2022-12-07T11:25:29.010 INF AUTH requirement is unsatisfied, no basic authentication, cookie or storage event authentication token detected want="has authentication token"
 ```
 
 Suggestion actions:

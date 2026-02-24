@@ -33,7 +33,7 @@ Once you've requested an internship, you can manage the details directly in Hand
 4. Enter the Organization information:
 
 - **Organization** (required)
-  - *This may be an employer, institution, or program*
+ - *This may be an employer, institution, or program*
 - **Location**
 - **Industry**
 - **Phone Number**
@@ -46,20 +46,20 @@ Once you've requested an internship, you can manage the details directly in Hand
 5. Enter the Experience information:
 
 - **Experience** (required)
-  - *This may be a specific job, internship, or other learning opportunity.*
+ - *This may be a specific job, internship, or other learning opportunity.*
 - **Department**
 - **Date** (yyyy-mm-dd)
-  - Start and End
+ - Start and End
 - **Experience Type**
 - **Employment Type**
 - **Salary**
 - **Offer Date**
 - **Offer Accepted**
-  - Yes
-  - No
-  - Undecided
+ - Yes
+ - No
+ - Undecided
 - **Add experience to profile?**
-  - Check the box to add to your Handshake profile
+ - Check the box to add to your Handshake profile
 
 ![Experience_Information_Image.png](https://support.joinhandshake.com/hc/article_attachments/25991264609303)
 

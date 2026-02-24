@@ -21,8 +21,7 @@ description: Repository migration, third-party repositories, and user contributi
 
 Bring your existing work into GitLab.
 
-A migration tool is available for some third-party platforms. Some support
-[post-migration mapping](mapping.md) of user contribution and membership.
+A migration tool is available for some third-party platforms. Some support [post-migration mapping](mapping.md) of user contribution and membership.
 
 | Migrate from                                                                | Groups                  | Projects    | Migration tool | Post-migration mapping |
 |:----------------------------------------------------------------------------|:------------------------|:------------|:---------------|:-----------------------|
@@ -40,7 +39,7 @@ A migration tool is available for some third-party platforms. Some support
 | [Perforce Helix](../project/import/perforce.md)                             | {{< no >}}              | {{< yes >}} | {{< no >}}     | {{< no >}}             |
 | [Subversion](#migrate-from-subversion)                                      | {{< no >}}              | {{< yes >}} | {{< no >}}     | {{< no >}}             |
 | [Team Foundation Version Control (TFVC)](../project/import/tfvc.md)         | {{< no >}}              | {{< yes >}} | {{< no >}}     | {{< no >}}             |
-| [Jira (issues only)](../project/import/jira.md)                             | {{< no >}}              | {{< no >}}  | {{< yes >}}    | {{< no >}}             |
+| [Jira (issues only)](../project/import/jira.md)                             | {{< no >}}              | {{< no >}} | {{< yes >}}    | {{< no >}}             |
 
 **Footnotes**:
 
@@ -48,23 +47,20 @@ A migration tool is available for some third-party platforms. Some support
 
 ## Migrate from Subversion
 
-GitLab cannot automatically migrate Subversion repositories to Git. To convert Subversion repositories to Git,
-you can use external tools, for example:
+GitLab cannot automatically migrate Subversion repositories to Git. To convert Subversion repositories to Git, you can use external tools, for example:
 
 - [`git svn`](https://git-scm.com/book/en/v2/Git-and-Other-Systems-Migrating-to-Git), for very small and basic repositories.
 - [`reposurgeon`](http://www.catb.org/~esr/reposurgeon/repository-editing.html), for larger and more complex repositories.
 
 ## Migrate by engaging Professional Services
 
-If you prefer, you can engage GitLab Professional Services to migrate groups and projects to GitLab instead of doing it
-yourself. For more information, see the [Professional Services Full Catalog](https://about.gitlab.com/services/catalog/).
+If you prefer, you can engage GitLab Professional Services to migrate groups and projects to GitLab instead of doing it yourself. For more information, see the [Professional Services Full Catalog](https://about.gitlab.com/services/catalog/).
 
 ## View project import history
 
 You can view all project imports you created. This list includes:
 
-- Paths of source projects if projects were imported from external systems, or import method if GitLab projects were
-  migrated.
+- Paths of source projects if projects were imported from external systems, or import method if GitLab projects were migrated.
 - Paths of destination projects.
 - Start date of each import.
 - Status of each import.

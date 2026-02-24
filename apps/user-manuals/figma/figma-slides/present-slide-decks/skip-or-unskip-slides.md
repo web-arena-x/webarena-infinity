@@ -23,6 +23,6 @@ To skip a slide:
 1. Select the slide you want to skip.
 2. Right-click on the slide and select **Skip slide**.
 
-A  closed eye icon will appear on the slide preview, indicating that it is hidden. To unskip a slide, right-click on a skipped slide and select **Unskip slide**.
+A closed eye icon will appear on the slide preview, indicating that it is hidden. To unskip a slide, right-click on a skipped slide and select **Unskip slide**.
 
 ![](https://help.figma.com/hc/article_attachments/25311102944407)

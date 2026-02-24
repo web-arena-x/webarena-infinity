@@ -15,9 +15,9 @@ Subpages allow you provide students with an in-depth view of your company’s te
 - [Access subpages](#h_01J4A208X0M0TR8TPXN11YMNF8)
 - [Create a subpage](#h_01J4A205KR80AHSAQMB7VVMGKS)
 - [Manage subpages](#h_01J4A2F18EY66815HGCBC0DHBN) 
-  - [Edit subpage details](#h_01J4A2K2B2BH3C5DBMRJ7ZBG6X)
-  - [Arrange display order of subpages](#h_01J4A2X2VDS1WJWKFB1GG3NT47)
-  - [Delete subpage](#h_01J4A45D9VZ8G24V9QMA2AYX8P)
+ - [Edit subpage details](#h_01J4A2K2B2BH3C5DBMRJ7ZBG6X)
+ - [Arrange display order of subpages](#h_01J4A2X2VDS1WJWKFB1GG3NT47)
+ - [Delete subpage](#h_01J4A45D9VZ8G24V9QMA2AYX8P)
 
 #### Access subpages
 

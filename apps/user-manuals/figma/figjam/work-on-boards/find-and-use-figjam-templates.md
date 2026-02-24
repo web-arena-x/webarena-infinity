@@ -39,7 +39,7 @@ From **Templates and tools**:
 
 Create a new FigJam file:
 
-1. Click  **FigJam board** or type `figjam.new` in your browser's address bar.
+1. Click **FigJam board** or type `figjam.new` in your browser's address bar.
 2. From the templates picker, browse or search templates.
 3. Hover over a template and click **Insert template**.
 
@@ -53,7 +53,7 @@ You can add a template created by Figma to an existing FigJam board a few differ
 
 #### Menu
 
-1. Click  in the right sidebar.
+1. Click in the right sidebar.
 2. Search or browse templates in the templates modal.
 3. Hover over a template thumbnail and click **Add template**.
 
@@ -62,14 +62,14 @@ You can add a template created by Figma to an existing FigJam board a few differ
 When you [create a section](organize-your-figjam-board-with-sections.md#h_01HBV7BZ4JSYQZ35W3KJJCWFXM), you can add template content to it:
 
 1. Create a section.
-2. Click  **Templates** next to the section title.
+2. Click **Templates** next to the section title.
 3. Select a template from the list.
 
 ![Section template list.](https://help.figma.com/hc/article_attachments/31406375985943)
 
 #### Bottom toolbar
 
-1. Click  in your toolbar.
+1. Click in your toolbar.
 2. Select the **Template** tab.
 3. Scroll and browse through available templates, or use the search bar at the top of the modal to search for a specific keyword.
 4. Hover over any template and click **Add template** to add it to your board.
@@ -98,6 +98,6 @@ Members of the Figma Community can publish their FigJam files for others to use 
 
 You can turn off the option to see the template picker when you create a new file at any time.
 
-1. Click  in the upper left corner of a FigJam board.
+1. Click in the upper left corner of a FigJam board.
 2. Navigate to **Preferences**.
 3. Turn off **Show templates for new files**.

@@ -22,8 +22,7 @@ You might use this functionality to notify your users:
 - About a new project, a new feature, or a new product launch.
 - About a new deployment, or that downtime is expected.
 
-For information about email notifications originating from GitLab, read
-[GitLab notification emails](../user/profile/notifications.md).
+For information about email notifications originating from GitLab, read [GitLab notification emails](../user/profile/notifications.md).
 
 ## Sending emails to users from GitLab
 
@@ -41,9 +40,7 @@ To send an email:
 
 ## Unsubscribing from emails
 
-Users can choose to unsubscribe from receiving emails from GitLab by following
-the unsubscribe link in the email. Unsubscribing is unauthenticated in order
-to keep this feature simple.
+Users can choose to unsubscribe from receiving emails from GitLab by following the unsubscribe link in the email. Unsubscribing is unauthenticated in order to keep this feature simple.
 
 On unsubscribe, users receive an email notification that unsubscribe happened.
 The endpoint that provides the unsubscribe option is rate-limited.

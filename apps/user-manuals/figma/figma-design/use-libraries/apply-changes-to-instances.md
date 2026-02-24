@@ -62,8 +62,7 @@ Figma uses the following criteria to determine whether to preserve a change on a
 - The layer names of the current instance and the variant or instance you’re selecting must match. This applies both when swapping instances and selecting variants.
 - When selecting variants, Figma also checks if the layer properties you’ve changed originally matched between variants. If so, Figma will preserve your changes.
 
-In our example below, Figma preserves the fill change on Step 3, but not on Step 4. This is because the `default primary` button and `hover
-primary` button both started with the same fill of `#1BC47D`. Our change was to change the hex code from `#1BC47D` to `#F531B3`.
+In our example below, Figma preserves the fill change on Step 3, but not on Step 4. This is because the `default primary` button and `hover primary` button both started with the same fill of `#1BC47D`. Our change was to change the hex code from `#1BC47D` to `#F531B3`.
 
 Figma doesn’t preserve our change in Step 4 as the `hover secondary` variant has a fill of `#FFFFFF`, which is different to the fill we applied our original change to (`#1BC47D`).
 
@@ -78,8 +77,8 @@ Reset the instance to restore the properties of the main component. You can choo
 ![A button instance is selected, and the More Actions menu is open.](https://help.figma.com/hc/article_attachments/26978261704599)
 
 1. Select the instance to view changes for the entire instance, or a specific layer to view changes for that layer only.
-2. Click  **More actions** next to the component name in the right panel.
-3. Figma opens a menu that lets you view any changes for your selection. Figma only lists properties that have changes applied.  
+2. Click **More actions** next to the component name in the right panel.
+3. Figma opens a menu that lets you view any changes for your selection. Figma only lists properties that have changes applied. 
    - Select  **Reset > Reset [property]** to reset a specific property.
    - Select  **Reset > Reset all changes** to reset all properties for that layer.
 4. Figma resets the property to match the main component.
@@ -93,7 +92,7 @@ You can only push changes if the main component is in the same file as the insta
 Note: It’s not possible to push changes to a component that’s nested within another component. You need to make those changes to the main component itself.
 
 1. Select the instance with your changes applied to it. You need to select the instance itself, not a specific layer within it.
-2. Click  **More actions** next to the component name in the right panel.
-3. Select  **Push changes to main component**.
+2. Click **More actions** next to the component name in the right panel.
+3. Select **Push changes to main component**.
 
 Note: If you are working in a published library file, you need to [publish your changes](%E2%80%9Chttps://help.figma.com/hc/en-us/articles/360038665934#Publish_changes_to_the_library%E2%80%9D) to allow other instances to receive those updates.

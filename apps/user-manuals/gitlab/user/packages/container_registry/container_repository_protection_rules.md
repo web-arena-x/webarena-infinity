@@ -22,9 +22,7 @@ description: Protected container repositories in GitLab limit which user roles c
 
 {{< /history >}}
 
-By default, any user with at least the Developer role can push and delete
-container images to or from container repositories. Protect a container repository to restrict
-which users can make changes to container images in your container repository.
+By default, any user with at least the Developer role can push and delete container images to or from container repositories. Protect a container repository to restrict which users can make changes to container images in your container repository.
 
 When a container repository is protected, the default behavior enforces these restrictions on the container repository and its images:
 
@@ -70,8 +68,7 @@ To create a protection rule:
 1. Complete the fields:
    - **Repository path pattern** is a container repository path you want to protect.
      The pattern can include a wildcard (`*`).
-   - **Minimum access level for push** describes the minimum access level required
-     to push (create or update) to the protected container repository path.
+   - **Minimum access level for push** describes the minimum access level required to push (create or update) to the protected container repository path.
 1. Select **Protect**.
 
 The protection rule is created and the container repository is now protected.

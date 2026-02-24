@@ -6,7 +6,7 @@ Source: https://support.procore.com/products/online/user-guide/project-level/sub
 
 ## Objective
 
-To forward an email that contains information about a submittal to other Procore users from the Project level Submittals tool.  
+To forward an email that contains information about a submittal to other Procore users from the Project level Submittals tool. 
 *Important*: The steps in this article show you how to send  an email containing a summary about the submittal.
 
 ## Background
@@ -16,13 +16,13 @@ The email functionality on the Submittals tool allows you to send an email outsi
 ## Things to Consider
 
 - **Required User Permissions:**
-  - *To send an email to a user:*
+ - *To send an email to a user:*
     - 'Standard' or 'Admin' level permissions on the project's Submittals tool.
-  - *To receive an emailed submittal:*
-    - ‘Read-Only’ level or higher permissions to the project's Submittals tool.  
+ - *To receive an emailed submittal:*
+    - ‘Read-Only’ level or higher permissions to the project's Submittals tool. 
       *Note:* Recipients must be listed in the project's Directory tool.
 - **Additional Information:**
-  - If a person is missing from the recipient selection list, add them to the Project level Directory with 'Read Only' or higher level permissions to the Submittals tool. If you don't have permission to add users to the Project Directory, ask a member of your team who is responsible for Directory management to add them.   
+ - If a person is missing from the recipient selection list, add them to the Project level Directory with 'Read Only' or higher level permissions to the Submittals tool. If you don't have permission to add users to the Project Directory, ask a member of your team who is responsible for Directory management to add them.  
     *Note:* The newly added user does NOT have to accept the invitation to join the project before they can be selected from the recipient list.
 
 ## Steps
@@ -39,11 +39,11 @@ The email functionality on the Submittals tool allows you to send an email outsi
    - **Title**. The descriptive name that best summarizes the information in the submittal.
    - **Attachments**. Attach any relevant files. You have these options:
 
-     - Click **Attach File(s)**and then choose the appropriate option from the shortcut menu that appears.  
+     - Click **Attach File(s)**and then choose the appropriate option from the shortcut menu that appears. 
        OR
      - Use a drag-and-drop operation to move files from your computer into the grey **Drag and Drop File(s)** box.
    - **Message**: Enter the body of your email message.
-7. Click **Send**.   
+7. Click **Send**.  
    The system sends the email to all of the recipients. A copy of the email and any replies are stored as a communication thread in the Emails subtab of the submittal.
 
 ## See Also

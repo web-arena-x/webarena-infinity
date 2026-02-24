@@ -18,7 +18,7 @@ Get ready to automate! Use these resources to guide you to success with messagin
 
 Find out how messaging works, and how to prepare your team for success.
 
-[Learn about messaging](https://support.zendesk.com/hc/en-us/articles/4408846454682)  
+[Learn about messaging](https://support.zendesk.com/hc/en-us/articles/4408846454682) 
 [Learn about the messaging lifecycle](https://support.zendesk.com/hc/en-us/articles/4408824482586)
 
 ---

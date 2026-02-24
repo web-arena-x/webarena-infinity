@@ -55,6 +55,6 @@ In our example below, the cards in our design use a fixed layout guide. Our left
 
 Our plus icon uses **center** constraints. We can see that Figma has set the object's position in relation to the frame and not the layout guide.![iPhone and iPad screens using fixed layout guides; plus icon centers within each card's frame, independent of guide.](https://help.figma.com/hc/article_attachments/360082650673)
 
-**Tip**: You can nest frames within other frames for even greater control. This allows you to define different behavior between Frames or objects.  
-  
+**Tip**: You can nest frames within other frames for even greater control. This allows you to define different behavior between Frames or objects. 
+ 
 If you’re familiar with HTML, this works like a **<div>** element works in a webpage. Learn more about [Grid Systems for screen design](https://www.figma.com/blog/grid-systems-for-screen-design/).

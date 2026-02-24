@@ -94,7 +94,7 @@ Please refer to our dedicated article [Virtual Fairs: Accessibility](https://su
 **Can all employers attend my virtual fair?**
 
 - All employers can attend and engage with students at a virtual fair when invited by a university, subject to university attendance fees. There will be no Handshake charge to attend a university event and we will not gate any employers from access to a school.
-  - There will still be an ability for you as a university to charge employers for fairs via Handshake, as before with physical fairs.
+ - There will still be an ability for you as a university to charge employers for fairs via Handshake, as before with physical fairs.
 - For our premium employers, we may provide additional tools to help them manage their own virtual events across many schools at once, tie event attendance into their workflows, and for better ways for them to engage their employee population beyond recruiters. All of that is still under discussion.
 - That said, our premium employer tools have always been built around a few core principles: (a) never charge for job postings or event attendance, (b) never charge for access to an individual school. So, we would never charge for basic attendance at a university event or access to a school.
 

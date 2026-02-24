@@ -9,8 +9,7 @@ For information on how to configure value stream analytics (VSA) in GitLab, see 
 
 ## How does Value Stream Analytics work?
 
-Value Stream Analytics calculates the duration between two timestamp columns or timestamp
-expressions and runs various aggregations on the data.
+Value Stream Analytics calculates the duration between two timestamp columns or timestamp expressions and runs various aggregations on the data.
 
 For example:
 
@@ -26,8 +25,7 @@ Apart from the durations, we expose the record count within a stage.
 
 ## Feature availability
 
-- Group level (licensed): Requires Ultimate or Premium subscription. This version is the most
-  feature-full.
+- Group level (licensed): Requires Ultimate or Premium subscription. This version is the most feature-full.
 - Project level (licensed): We are continually adding features to project level VSA to bring it in line with group level VSA.
 - Project level (FOSS): Keep it as is.
 
@@ -41,7 +39,7 @@ Apart from the durations, we expose the record count within a stage.
 | Task by type chart                                   | Yes                                                                                           | No                                                                     | No                   |
 | DORA Metrics                                         | Yes                                                                                           | Yes                                                                    | No                   |
 | Cycle time and lead time summary (Lifecycle metrics) | Yes                                                                                           | Yes                                                                    | No                   |
-| New issues, commits and deploys (Lifecycle metrics)  | Yes, excluding commits                                                                        | Yes                                                                    | Yes                  |
+| New issues, commits and deploys (Lifecycle metrics) | Yes, excluding commits                                                                        | Yes                                                                    | Yes                  |
 | Uses aggregated backend                              | Yes                                                                                           | No                                                                     | No                   |
 | Date filter behavior                                 | Filters items [finished in the date range](https://gitlab.com/groups/gitlab-org/-/epics/6046) | Filters items by creation date.                                        | Filters items by creation date. |
 | Authorization                                        | At least reporter                                                                             | At least reporter                                                      | Can be public.       |
@@ -50,8 +48,7 @@ Apart from the durations, we expose the record count within a stage.
 
 ### Stages
 
-A stage represents an event pair (start and end events) with additional metadata, such as the name
-of the stage. Stages are configurable by the user within the pairing rules defined in the backend.
+A stage represents an event pair (start and end events) with additional metadata, such as the name of the stage. Stages are configurable by the user within the pairing rules defined in the backend.
 
 **Example stage: Code Review**
 
@@ -60,17 +57,16 @@ of the stage. Stages are configurable by the user within the pairing rules defin
 - End event identifier: Merge request merge time.
 - End event column: uses the `merge_request_metrics.merged_at` timestamp column.
 - Stage event hash ID: a calculated hash for the pair of start and end event identifiers.
-  - If two stages have the same configuration of start and end events, then their stage event hash.
+ - If two stages have the same configuration of start and end events, then their stage event hash.
     IDs are identical.
-  - The stage event hash ID is later used to store the aggregated data in partitioned database tables.
+ - The stage event hash ID is later used to store the aggregated data in partitioned database tables.
 
 Historically, value stream analytics defined [six stages](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/analytics/cycle_analytics/default_stages.rb)
 which are always available to the end-users regardless of the subscription.
 
 ### Value streams
 
-Value streams are container objects for the stages. There can be multiple value streams per group
-focusing on different aspects of the DevOps lifecycle.
+Value streams are container objects for the stages. There can be multiple value streams per group focusing on different aspects of the DevOps lifecycle.
 
 ### Events
 
@@ -103,12 +99,12 @@ For the duration calculation the `timestamp_projection` method is used.
 
 ```ruby
 def timestamp_projection
-  # your timestamp expression comes here
+ # your timestamp expression comes here
 end
 
 # event will use the issue creation time in the duration calculation
 def timestamp_projection
-  Issue.arel_table[:created_at]
+ Issue.arel_table[:created_at]
 end
 ```
 
@@ -121,16 +117,16 @@ Example for joining the `issue_metrics` table and using the `first_mentioned_in_
 
 ```ruby
 def object_type
-  Issue
+ Issue
 end
 
 def timestamp_projection
-  IssueMetrics.arel_table[:first_mentioned_in_commit_at]
+ IssueMetrics.arel_table[:first_mentioned_in_commit_at]
 end
 
 def apply_query_customization(query)
-  # in this case the query attribute will be based on the Issue model: `Issue.where(...)`
-  query.joins(:metrics)
+ # in this case the query attribute will be based on the Issue model: `Issue.where(...)`
+ query.joins(:metrics)
 end
 ```
 
@@ -152,98 +148,98 @@ Supported start/end event pairings:
 
 ```mermaid
 graph LR;
-  IssueCreated --> IssueClosed;
-  IssueCreated --> IssueFirstAddedToBoard;
-  IssueCreated --> IssueFirstAssociatedWithMilestone;
-  IssueCreated --> IssueFirstMentionedInCommit;
-  IssueCreated --> IssueLastEdited;
-  IssueCreated --> IssueLabelAdded;
-  IssueCreated --> IssueLabelRemoved;
-  IssueCreated --> IssueFirstAssignedAt;
-  MergeRequestCreated --> MergeRequestMerged;
-  MergeRequestCreated --> MergeRequestClosed;
-  MergeRequestCreated --> MergeRequestFirstDeployedToProduction;
-  MergeRequestCreated --> MergeRequestLastBuildStarted;
-  MergeRequestCreated --> MergeRequestLastBuildFinished;
-  MergeRequestCreated --> MergeRequestLastEdited;
-  MergeRequestCreated --> MergeRequestLabelAdded;
-  MergeRequestCreated --> MergeRequestLabelRemoved;
-  MergeRequestCreated --> MergeRequestFirstAssignedAt;
-  MergeRequestFirstAssignedAt --> MergeRequestClosed;
-  MergeRequestFirstAssignedAt --> MergeRequestLastBuildStarted;
-  MergeRequestFirstAssignedAt --> MergeRequestLastEdited;
-  MergeRequestFirstAssignedAt --> MergeRequestMerged;
-  MergeRequestFirstAssignedAt --> MergeRequestLabelAdded;
-  MergeRequestFirstAssignedAt --> MergeRequestLabelRemoved;
-  MergeRequestLastBuildStarted --> MergeRequestLastBuildFinished;
-  MergeRequestLastBuildStarted --> MergeRequestClosed;
-  MergeRequestLastBuildStarted --> MergeRequestFirstDeployedToProduction;
-  MergeRequestLastBuildStarted --> MergeRequestLastEdited;
-  MergeRequestLastBuildStarted --> MergeRequestMerged;
-  MergeRequestLastBuildStarted --> MergeRequestLabelAdded;
-  MergeRequestLastBuildStarted --> MergeRequestLabelRemoved;
-  MergeRequestMerged --> MergeRequestFirstDeployedToProduction;
-  MergeRequestMerged --> MergeRequestClosed;
-  MergeRequestMerged --> MergeRequestFirstDeployedToProduction;
-  MergeRequestMerged --> MergeRequestLastEdited;
-  MergeRequestMerged --> MergeRequestLabelAdded;
-  MergeRequestMerged --> MergeRequestLabelRemoved;
-  IssueLabelAdded --> IssueLabelAdded;
-  IssueLabelAdded --> IssueLabelRemoved;
-  IssueLabelAdded --> IssueClosed;
-  IssueLabelAdded --> IssueFirstAssignedAt;
-  IssueLabelRemoved --> IssueClosed;
-  IssueLabelRemoved --> IssueFirstAssignedAt;
-  IssueFirstAddedToBoard --> IssueClosed;
-  IssueFirstAddedToBoard --> IssueFirstAssociatedWithMilestone;
-  IssueFirstAddedToBoard --> IssueFirstMentionedInCommit;
-  IssueFirstAddedToBoard --> IssueLastEdited;
-  IssueFirstAddedToBoard --> IssueLabelAdded;
-  IssueFirstAddedToBoard --> IssueLabelRemoved;
-  IssueFirstAddedToBoard --> IssueFirstAssignedAt;
-  IssueFirstAssignedAt --> IssueClosed;
-  IssueFirstAssignedAt --> IssueFirstAddedToBoard;
-  IssueFirstAssignedAt --> IssueFirstAssociatedWithMilestone;
-  IssueFirstAssignedAt --> IssueFirstMentionedInCommit;
-  IssueFirstAssignedAt --> IssueLastEdited;
-  IssueFirstAssignedAt --> IssueLabelAdded;
-  IssueFirstAssignedAt --> IssueLabelRemoved;
-  IssueFirstAssociatedWithMilestone --> IssueClosed;
-  IssueFirstAssociatedWithMilestone --> IssueFirstAddedToBoard;
-  IssueFirstAssociatedWithMilestone --> IssueFirstMentionedInCommit;
-  IssueFirstAssociatedWithMilestone --> IssueLastEdited;
-  IssueFirstAssociatedWithMilestone --> IssueLabelAdded;
-  IssueFirstAssociatedWithMilestone --> IssueLabelRemoved;
-  IssueFirstAssociatedWithMilestone --> IssueFirstAssignedAt;
-  IssueFirstMentionedInCommit --> IssueClosed;
-  IssueFirstMentionedInCommit --> IssueFirstAssociatedWithMilestone;
-  IssueFirstMentionedInCommit --> IssueFirstAddedToBoard;
-  IssueFirstMentionedInCommit --> IssueLastEdited;
-  IssueFirstMentionedInCommit --> IssueLabelAdded;
-  IssueFirstMentionedInCommit --> IssueLabelRemoved;
-  IssueClosed --> IssueLastEdited;
-  IssueClosed --> IssueLabelAdded;
-  IssueClosed --> IssueLabelRemoved;
-  MergeRequestClosed --> MergeRequestFirstDeployedToProduction;
-  MergeRequestClosed --> MergeRequestLastEdited;
-  MergeRequestClosed --> MergeRequestLabelAdded;
-  MergeRequestClosed --> MergeRequestLabelRemoved;
-  MergeRequestFirstDeployedToProduction --> MergeRequestLastEdited;
-  MergeRequestFirstDeployedToProduction --> MergeRequestLabelAdded;
-  MergeRequestFirstDeployedToProduction --> MergeRequestLabelRemoved;
-  MergeRequestLastBuildFinished --> MergeRequestClosed;
-  MergeRequestLastBuildFinished --> MergeRequestFirstDeployedToProduction;
-  MergeRequestLastBuildFinished --> MergeRequestLastEdited;
-  MergeRequestLastBuildFinished --> MergeRequestMerged;
-  MergeRequestLastBuildFinished --> MergeRequestLabelAdded;
-  MergeRequestLastBuildFinished --> MergeRequestLabelRemoved;
-  MergeRequestLabelAdded --> MergeRequestLabelAdded;
-  MergeRequestLabelAdded --> MergeRequestLabelRemoved;
-  MergeRequestLabelAdded --> MergeRequestMerged;
-  MergeRequestLabelAdded --> MergeRequestFirstAssignedAt;
-  MergeRequestLabelRemoved --> MergeRequestLabelAdded;
-  MergeRequestLabelRemoved --> MergeRequestLabelRemoved;
-  MergeRequestLabelRemoved --> MergeRequestFirstAssignedAt;
+ IssueCreated --> IssueClosed;
+ IssueCreated --> IssueFirstAddedToBoard;
+ IssueCreated --> IssueFirstAssociatedWithMilestone;
+ IssueCreated --> IssueFirstMentionedInCommit;
+ IssueCreated --> IssueLastEdited;
+ IssueCreated --> IssueLabelAdded;
+ IssueCreated --> IssueLabelRemoved;
+ IssueCreated --> IssueFirstAssignedAt;
+ MergeRequestCreated --> MergeRequestMerged;
+ MergeRequestCreated --> MergeRequestClosed;
+ MergeRequestCreated --> MergeRequestFirstDeployedToProduction;
+ MergeRequestCreated --> MergeRequestLastBuildStarted;
+ MergeRequestCreated --> MergeRequestLastBuildFinished;
+ MergeRequestCreated --> MergeRequestLastEdited;
+ MergeRequestCreated --> MergeRequestLabelAdded;
+ MergeRequestCreated --> MergeRequestLabelRemoved;
+ MergeRequestCreated --> MergeRequestFirstAssignedAt;
+ MergeRequestFirstAssignedAt --> MergeRequestClosed;
+ MergeRequestFirstAssignedAt --> MergeRequestLastBuildStarted;
+ MergeRequestFirstAssignedAt --> MergeRequestLastEdited;
+ MergeRequestFirstAssignedAt --> MergeRequestMerged;
+ MergeRequestFirstAssignedAt --> MergeRequestLabelAdded;
+ MergeRequestFirstAssignedAt --> MergeRequestLabelRemoved;
+ MergeRequestLastBuildStarted --> MergeRequestLastBuildFinished;
+ MergeRequestLastBuildStarted --> MergeRequestClosed;
+ MergeRequestLastBuildStarted --> MergeRequestFirstDeployedToProduction;
+ MergeRequestLastBuildStarted --> MergeRequestLastEdited;
+ MergeRequestLastBuildStarted --> MergeRequestMerged;
+ MergeRequestLastBuildStarted --> MergeRequestLabelAdded;
+ MergeRequestLastBuildStarted --> MergeRequestLabelRemoved;
+ MergeRequestMerged --> MergeRequestFirstDeployedToProduction;
+ MergeRequestMerged --> MergeRequestClosed;
+ MergeRequestMerged --> MergeRequestFirstDeployedToProduction;
+ MergeRequestMerged --> MergeRequestLastEdited;
+ MergeRequestMerged --> MergeRequestLabelAdded;
+ MergeRequestMerged --> MergeRequestLabelRemoved;
+ IssueLabelAdded --> IssueLabelAdded;
+ IssueLabelAdded --> IssueLabelRemoved;
+ IssueLabelAdded --> IssueClosed;
+ IssueLabelAdded --> IssueFirstAssignedAt;
+ IssueLabelRemoved --> IssueClosed;
+ IssueLabelRemoved --> IssueFirstAssignedAt;
+ IssueFirstAddedToBoard --> IssueClosed;
+ IssueFirstAddedToBoard --> IssueFirstAssociatedWithMilestone;
+ IssueFirstAddedToBoard --> IssueFirstMentionedInCommit;
+ IssueFirstAddedToBoard --> IssueLastEdited;
+ IssueFirstAddedToBoard --> IssueLabelAdded;
+ IssueFirstAddedToBoard --> IssueLabelRemoved;
+ IssueFirstAddedToBoard --> IssueFirstAssignedAt;
+ IssueFirstAssignedAt --> IssueClosed;
+ IssueFirstAssignedAt --> IssueFirstAddedToBoard;
+ IssueFirstAssignedAt --> IssueFirstAssociatedWithMilestone;
+ IssueFirstAssignedAt --> IssueFirstMentionedInCommit;
+ IssueFirstAssignedAt --> IssueLastEdited;
+ IssueFirstAssignedAt --> IssueLabelAdded;
+ IssueFirstAssignedAt --> IssueLabelRemoved;
+ IssueFirstAssociatedWithMilestone --> IssueClosed;
+ IssueFirstAssociatedWithMilestone --> IssueFirstAddedToBoard;
+ IssueFirstAssociatedWithMilestone --> IssueFirstMentionedInCommit;
+ IssueFirstAssociatedWithMilestone --> IssueLastEdited;
+ IssueFirstAssociatedWithMilestone --> IssueLabelAdded;
+ IssueFirstAssociatedWithMilestone --> IssueLabelRemoved;
+ IssueFirstAssociatedWithMilestone --> IssueFirstAssignedAt;
+ IssueFirstMentionedInCommit --> IssueClosed;
+ IssueFirstMentionedInCommit --> IssueFirstAssociatedWithMilestone;
+ IssueFirstMentionedInCommit --> IssueFirstAddedToBoard;
+ IssueFirstMentionedInCommit --> IssueLastEdited;
+ IssueFirstMentionedInCommit --> IssueLabelAdded;
+ IssueFirstMentionedInCommit --> IssueLabelRemoved;
+ IssueClosed --> IssueLastEdited;
+ IssueClosed --> IssueLabelAdded;
+ IssueClosed --> IssueLabelRemoved;
+ MergeRequestClosed --> MergeRequestFirstDeployedToProduction;
+ MergeRequestClosed --> MergeRequestLastEdited;
+ MergeRequestClosed --> MergeRequestLabelAdded;
+ MergeRequestClosed --> MergeRequestLabelRemoved;
+ MergeRequestFirstDeployedToProduction --> MergeRequestLastEdited;
+ MergeRequestFirstDeployedToProduction --> MergeRequestLabelAdded;
+ MergeRequestFirstDeployedToProduction --> MergeRequestLabelRemoved;
+ MergeRequestLastBuildFinished --> MergeRequestClosed;
+ MergeRequestLastBuildFinished --> MergeRequestFirstDeployedToProduction;
+ MergeRequestLastBuildFinished --> MergeRequestLastEdited;
+ MergeRequestLastBuildFinished --> MergeRequestMerged;
+ MergeRequestLastBuildFinished --> MergeRequestLabelAdded;
+ MergeRequestLastBuildFinished --> MergeRequestLabelRemoved;
+ MergeRequestLabelAdded --> MergeRequestLabelAdded;
+ MergeRequestLabelAdded --> MergeRequestLabelRemoved;
+ MergeRequestLabelAdded --> MergeRequestMerged;
+ MergeRequestLabelAdded --> MergeRequestFirstAssignedAt;
+ MergeRequestLabelRemoved --> MergeRequestLabelAdded;
+ MergeRequestLabelRemoved --> MergeRequestLabelRemoved;
+ MergeRequestLabelRemoved --> MergeRequestFirstAssignedAt;
 ```
 
 ## Default stages
@@ -259,9 +255,9 @@ The reason for this was that we'd like to add the abilities to hide and order st
 `DataCollector` is the central point where the data is queried from the database. The class always operates on a single stage and consists of the following components:
 
 - `BaseQueryBuilder`:
-  - Responsible for composing the initial query.
-  - Deals with `Stage` specific configuration: events and their query customizations.
-  - Parameters coming from the UI: date ranges.
+ - Responsible for composing the initial query.
+ - Deals with `Stage` specific configuration: events and their query customizations.
+ - Parameters coming from the UI: date ranges.
 - `Median`: Calculates the median duration for a stage using the query from `BaseQueryBuilder`.
 - `RecordsFetcher`: Loads relevant records for a stage using the query from `BaseQueryBuilder` and specific `Finder` classes to apply visibility rules.
 - `DataForDurationChart`: Loads calculated durations with the finish time (end event timestamp) for the scatterplot chart.
@@ -272,8 +268,7 @@ To support the aggregated value stream analytics backend, these classes were rei
 
 ### Database query backend
 
-VSA supports two backends: [aggregated](value_stream_analytics/value_stream_analytics_aggregated_backend.md) and "live". The live query backend can be
-considered legacy, which will be phased out at some point.
+VSA supports two backends: [aggregated](value_stream_analytics/value_stream_analytics_aggregated_backend.md) and "live". The live query backend can be considered legacy, which will be phased out at some point.
 
 - "live": uses the standard `IssuableFinders`.
 - aggregated: queries data from pre-aggregated database tables.
@@ -284,8 +279,8 @@ considered legacy, which will be phased out at some point.
 - Services (`Analytics::CycleAnalytics` module): All `Stage` related actions are delegated to respective service objects.
 - Models (`Analytics::CycleAnalytics` module): Models are used to persist the `Stage` objects.
 - Feature classes (`Gitlab::Analytics::CycleAnalytics` module):
-  - Responsible for composing queries and define feature specific business logic.
-  - `DataCollector`, `Event`, `StageEvents`, etc.
+ - Responsible for composing queries and define feature specific business logic.
+ - `DataCollector`, `Event`, `StageEvents`, etc.
 
 ## Frontend
 
@@ -336,14 +331,9 @@ If your GDK is up and running, you can run the seed script to generate some data
 SEED_CYCLE_ANALYTICS=true SEED_VSA=true FILTER=cycle_analytics rake db:seed_fu
 ```
 
-The data generator script creates a new group and a new project with issue and merge request
-data (see the output of the script). To view the group-level version of the feature, you
-need to request a license for your GDK instance.
+The data generator script creates a new group and a new project with issue and merge request data (see the output of the script). To view the group-level version of the feature, you need to request a license for your GDK instance.
 
-After this step, you can access the group level value stream analytics page where you can create
-value streams and stages. The data aggregation might be delayed so you might not see the
-data right after the stage creation. To speed up this process, you can run the following command
-in your rails console (`rails c`):
+After this step, you can access the group level value stream analytics page where you can create value streams and stages. The data aggregation might be delayed so you might not see the data right after the stage creation. To speed up this process, you can run the following command in your rails console (`rails c`):
 
 ```ruby
 Analytics::CycleAnalytics::ReaggregationWorker.new.perform

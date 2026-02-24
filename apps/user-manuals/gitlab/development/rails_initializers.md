@@ -8,9 +8,7 @@ title: Rails initializers
 Initializers are executed when the Rails process is started. That means that initializers are also executed during every deploy.
 
 By default, Rails loads Zeitwerk after the initializers in `config/initializers` are loaded.
-Autoloading before Zeitwerk is loaded is now deprecated but because we use a lot of autoloaded
-constants in our initializers, we had to move the loading of Zeitwerk earlier than these
-initializers.
+Autoloading before Zeitwerk is loaded is now deprecated but because we use a lot of autoloaded constants in our initializers, we had to move the loading of Zeitwerk earlier than these initializers.
 
 A side-effect of this is that in the initializers, `config.autoload_paths` is already frozen.
 
@@ -24,18 +22,13 @@ Some examples where you would need to do this are:
 
 ## Database connections in initializers
 
-Ideally, database connections are not opened from Rails initializers. Opening a
-database connection (for example, checking the database exists, or making a database
-query) from an initializer means that tasks like `db:drop`, and
-`db:test:prepare` will fail because an active session prevents the database from
-being dropped.
+Ideally, database connections are not opened from Rails initializers. Opening a database connection (for example, checking the database exists, or making a database query) from an initializer means that tasks like `db:drop`, and `db:test:prepare` will fail because an active session prevents the database from being dropped.
 
-To prevent this, we stop database connections from being opened during
-routes loading. Doing will result in an error:
+To prevent this, we stop database connections from being opened during routes loading. Doing will result in an error:
 
 ```shell
 RuntimeError:
-  Database connection should not be called during initializers.
+ Database connection should not be called during initializers.
 # ./config/initializers/00_connection_logger.rb:15:in `new_client'
 # ./lib/gitlab/database/load_balancing/load_balancer.rb:112:in `block in read_write'
 # ./lib/gitlab/database/load_balancing/load_balancer.rb:184:in `retry_with_backoff'

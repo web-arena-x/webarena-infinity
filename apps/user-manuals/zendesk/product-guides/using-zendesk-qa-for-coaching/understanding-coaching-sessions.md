@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/7043747156506-Understandin
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Quality Assurance (QA) or Workforce Engagement Management (WEM) |
 
-Location:  Zendesk QA > Coaching > Sessions
+Location: Zendesk QA > Coaching > Sessions
 
 Coaching capabilities in Zendesk QA help you identify agents who need support, and plan targeted coaching sessions to enhance their performance. These capabilities also allow you to visualize and understand the impact of your coaching efforts, making feedback more meaningful and sessions more effective.
 
@@ -35,7 +35,7 @@ Prepare and conduct coaching sessions using comment templates and talking points
 **To set up a coaching session**
 
 1. In [Quality Assurance](https://support.zendesk.com/hc/en-us/articles/4408838272410), click ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/qa_coaching_icon.png) **Coaching** in the sidebar.
-2. Click the **Sessions**  icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zqa_coaching_sessions.png)).
+2. Click the **Sessions** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zqa_coaching_sessions.png)).
 3. Click **+Session**.
 4. Select the agent you want to coach.
 5. By default, you're set as the coach. You can optionally select another team member to coach the agent.
@@ -55,10 +55,10 @@ You can also view the following information related to the agent's performance o
 
 - **Metrics**:
 
-  - [IQS score](https://support.zendesk.com/hc/en-us/articles/7043701093786)
-  - Feedback score
-  - Score per category
-  - [Quiz results](https://support.zendesk.com/hc/en-us/articles/7043661759130)
+ - [IQS score](https://support.zendesk.com/hc/en-us/articles/7043701093786)
+ - Feedback score
+ - Score per category
+ - [Quiz results](https://support.zendesk.com/hc/en-us/articles/7043661759130)
 - **Feedback**: Feedback comments from reviewers.
 - **Pins:** [Pins](https://support.zendesk.com/hc/en-us/articles/7043759543194) created under the agent's profile
 

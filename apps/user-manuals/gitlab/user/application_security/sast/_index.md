@@ -7,40 +7,19 @@ description: Scanning, configuration, analyzers, vulnerabilities, reporting, cus
 ---
 
 <style>
-table.sast-table tr:nth-child(even) {
-    background-color: transparent;
-}
+table.sast-table tr:nth-child(even) { background-color: transparent; }
 
-table.sast-table td {
-    border-left: 1px solid #dbdbdb;
-    border-right: 1px solid #dbdbdb;
-    border-bottom: 1px solid #dbdbdb;
-}
+table.sast-table td { border-left: 1px solid #dbdbdb; border-right: 1px solid #dbdbdb; border-bottom: 1px solid #dbdbdb; }
 
-table.sast-table tr td:first-child {
-    border-left: 0;
-}
+table.sast-table tr td:first-child { border-left: 0; }
 
-table.sast-table tr td:last-child {
-    border-right: 0;
-}
+table.sast-table tr td:last-child { border-right: 0; }
 
-table.sast-table ul {
-    font-size: 1em;
-    list-style-type: none;
-    padding-left: 0px;
-    margin-bottom: 0px;
-}
+table.sast-table ul { font-size: 1em; list-style-type: none; padding-left: 0px; margin-bottom: 0px; }
 
-table.no-vertical-table-lines td {
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid #f0f0f0;
-}
+table.no-vertical-table-lines td { border-left: none; border-right: none; border-bottom: 1px solid #f0f0f0; }
 
-table.no-vertical-table-lines tr {
-    border-top: none;
-}
+table.no-vertical-table-lines tr { border-top: none; }
 </style>
 
 {{< details >}}
@@ -50,23 +29,15 @@ table.no-vertical-table-lines tr {
 
 {{< /details >}}
 
-Static application security testing (SAST) discovers vulnerabilities in your source code before they
-reach production. Integrated directly into your CI/CD pipeline, SAST identifies security issues
-during development when they're easiest and most cost-effective to fix.
+Static application security testing (SAST) discovers vulnerabilities in your source code before they reach production. Integrated directly into your CI/CD pipeline, SAST identifies security issues during development when they're easiest and most cost-effective to fix.
 
-Security vulnerabilities found late in development create costly delays and potential breaches. SAST
-scans happen automatically with each commit, giving you immediate feedback without disrupting
-your workflow.
+Security vulnerabilities found late in development create costly delays and potential breaches. SAST scans happen automatically with each commit, giving you immediate feedback without disrupting your workflow.
 
 ## Reducing false positives with GitLab Duo
 
-SAST scanners can generate false positives that create noise in your vulnerability reports. The
-[GitLab Duo false positive detection](../vulnerabilities/false_positive_detection.md) feature automatically
-analyzes Critical and High severity SAST vulnerabilities to identify likely false positives. This helps your
-security team focus on genuine vulnerabilities and reduces time spent on manual triage.
+SAST scanners can generate false positives that create noise in your vulnerability reports. The [GitLab Duo false positive detection](../vulnerabilities/false_positive_detection.md) feature automatically analyzes Critical and High severity SAST vulnerabilities to identify likely false positives. This helps your security team focus on genuine vulnerabilities and reduces time spent on manual triage.
 
-For Ultimate tier customers with a GitLab Duo add-on, false positive detection runs automatically
-after each security scan and provides confidence scores with explanations for each assessment.
+For Ultimate tier customers with a GitLab Duo add-on, false positive detection runs automatically after each security scan and provides confidence scores with explanations for each assessment.
 
 ## Features
 
@@ -87,17 +58,14 @@ The following table lists the GitLab tiers in which each feature is available.
 
 ## Getting started
 
-Enable SAST in your project by using either the UI or editing your project's GitLab CI/CD
-configuration file.
+Enable SAST in your project by using either the UI or editing your project's GitLab CI/CD configuration file.
 
 Prerequisites:
 
-- Linux-based GitLab Runner with either the Docker or Kubernetes executor. If you're using hosted
-  runners for GitLab.com, this is enabled by default.
-  - Windows Runners are not supported.
-  - CPU architectures other than amd64 are not supported.
-- GitLab CI/CD configuration (`.gitlab-ci.yml`) must include the `test` stage, which is included by
-  default. If you redefine the stages in the `.gitlab-ci.yml` file, the `test` stage is required.
+- Linux-based GitLab Runner with either the Docker or Kubernetes executor. If you're using hosted runners for GitLab.com, this is enabled by default.
+ - Windows Runners are not supported.
+ - CPU architectures other than amd64 are not supported.
+- GitLab CI/CD configuration (`.gitlab-ci.yml`) must include the `test` stage, which is included by default. If you redefine the stages in the `.gitlab-ci.yml` file, the `test` stage is required.
 
 > [!note]
 > By default, SAST runs only in branch pipelines. To run SAST in merge request pipelines, see
@@ -105,8 +73,7 @@ Prerequisites:
 
 ### Enable SAST by using the UI
 
-You can enable and configure SAST by using the UI, either with the default settings or with
-customizations. The method you can use depends on your GitLab license tier.
+You can enable and configure SAST by using the UI, either with the default settings or with customizations. The method you can use depends on your GitLab license tier.
 
 #### Enable SAST with customizations
 
@@ -125,9 +92,7 @@ customizations. The method you can use depends on your GitLab license tier.
 
 {{< alert type="note" >}}
 
-The UI configuration method works best with minimal or no existing `.gitlab-ci.yml` file. If you
-have a complex configuration, the tool might fail to parse it. In that case,
-[edit the CI/CD file](#enable-sast-by-editing-the-cicd-file) instead.
+The UI configuration method works best with minimal or no existing `.gitlab-ci.yml` file. If you have a complex configuration, the tool might fail to parse it. In that case, [edit the CI/CD file](#enable-sast-by-editing-the-cicd-file) instead.
 
 {{< /alert >}}
 
@@ -135,27 +100,20 @@ To enable and configure SAST with customizations:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Secure** > **Security configuration**.
-1. If the latest pipeline for the default branch of the project has completed and produced valid
-   SAST artifacts, select **Configure SAST**, otherwise select **Enable SAST** in the static
-   application security testing (SAST) row.
+1. If the latest pipeline for the default branch of the project has completed and produced valid SAST artifacts, select **Configure SAST**, otherwise select **Enable SAST** in the static application security testing (SAST) row.
 1. Enter the custom SAST values.
 
-   Custom values are stored in the `.gitlab-ci.yml` file. For CI/CD variables not in the SAST
-   configuration page, their values are inherited from the GitLab SAST template.
+   Custom values are stored in the `.gitlab-ci.yml` file. For CI/CD variables not in the SAST configuration page, their values are inherited from the GitLab SAST template.
 1. Select **Create merge request**.
 1. Review and merge the merge request.
 
-Pipelines now include a SAST job. If supported source code is present, the appropriate analyzers and
-default rules automatically scan for vulnerabilities when a pipeline runs. The corresponding jobs
-appear under the `test` stage in the project's pipeline.
+Pipelines now include a SAST job. If supported source code is present, the appropriate analyzers and default rules automatically scan for vulnerabilities when a pipeline runs. The corresponding jobs appear under the `test` stage in the project's pipeline.
 
 #### Enable SAST with default settings only
 
 {{< alert type="note" >}}
 
-The UI configuration method works best with minimal or no existing `.gitlab-ci.yml` file. If you
-have a complex configuration, the tool might fail to parse it. In that case,
-[edit the CI/CD file](#enable-sast-by-editing-the-cicd-file) instead.
+The UI configuration method works best with minimal or no existing `.gitlab-ci.yml` file. If you have a complex configuration, the tool might fail to parse it. In that case, [edit the CI/CD file](#enable-sast-by-editing-the-cicd-file) instead.
 
 {{< /alert >}}
 
@@ -170,9 +128,7 @@ To enable and configure SAST with default settings:
 1. Select **Create merge request**.
 1. Review and merge the merge request to enable SAST.
 
-Pipelines now include a SAST job. If supported source code is present, the appropriate analyzers and
-default rules automatically scan for vulnerabilities when a pipeline runs. The corresponding jobs
-appear under the `test` stage in the project's pipeline.
+Pipelines now include a SAST job. If supported source code is present, the appropriate analyzers and default rules automatically scan for vulnerabilities when a pipeline runs. The corresponding jobs appear under the `test` stage in the project's pipeline.
 
 ### Enable SAST by editing the CI/CD file
 
@@ -203,20 +159,15 @@ To enable SAST in your project:
 1. Complete the fields:
    - Commit message.
    - Branch. For example, `add-sast`.
-1. Select the **Start a new merge request with these changes** checkbox, then select
-   **Commit changes**.
+1. Select the **Start a new merge request with these changes** checkbox, then select **Commit changes**.
 
    The merge request page opens.
-1. Complete the fields according to your standard workflow, then select **Create
-   merge request**.
+1. Complete the fields according to your standard workflow, then select **Create merge request**.
 1. Review and edit the merge request according to your standard workflow, then select **Merge**.
 
-Pipelines now include a SAST job. If supported source code is present, the appropriate analyzers and
-default rules automatically scan for vulnerabilities when a pipeline runs. The corresponding jobs
-appear under the `test` stage in the project's pipeline.
+Pipelines now include a SAST job. If supported source code is present, the appropriate analyzers and default rules automatically scan for vulnerabilities when a pipeline runs. The corresponding jobs appear under the `test` stage in the project's pipeline.
 
-You can see a working example in
-[SAST example project](https://gitlab.com/gitlab-org/security-products/demos/analyzer-configurations/semgrep/sast-getting-started).
+You can see a working example in [SAST example project](https://gitlab.com/gitlab-org/security-products/demos/analyzer-configurations/semgrep/sast-getting-started).
 
 ### Next steps
 
@@ -263,10 +214,7 @@ Additional ways to see SAST results:
 - Merge request changes view: Shows inline annotations for changed lines.
 - Vulnerability report: Shows confirmed vulnerabilities on the default branch.
 
-A pipeline consists of multiple jobs, including SAST and DAST scanning. If any job fails to finish
-for any reason, the security dashboard does not show SAST scanner output. For example, if the SAST
-job finishes but the DAST job fails, the security dashboard does not show SAST results. On failure,
-the analyzer outputs an exit code.
+A pipeline consists of multiple jobs, including SAST and DAST scanning. If any job fails to finish for any reason, the security dashboard does not show SAST scanner output. For example, if the SAST job finishes but the DAST job fails, the security dashboard does not show SAST results. On failure, the analyzer outputs an exit code.
 
 ### Merge request widget
 
@@ -302,8 +250,7 @@ The results are compared using advanced vulnerability tracking whenever it is av
 
 {{< /history >}}
 
-SAST results display in the merge request **Changes** view. Lines containing SAST
-issues are marked by a symbol beside the gutter. Select the symbol to see the list of issues, then select an issue to see its details.
+SAST results display in the merge request **Changes** view. Lines containing SAST issues are marked by a symbol beside the gutter. Select the symbol to see the list of issues, then select an issue to see its details.
 
 ![SAST Inline Indicator](img/sast_inline_indicator_v16_7.png)
 
@@ -341,7 +288,7 @@ For example, to skip `rule-template-injection.go`, add the following to your `.g
 
 ```yaml
 variables:
-  SAST_EXCLUDED_PATHS: "rule-template-injection.go"
+ SAST_EXCLUDED_PATHS: "rule-template-injection.go"
 ```
 
 For more information about configuration options, see [Available CI/CD variables](#available-cicd-variables).
@@ -414,11 +361,11 @@ These languages are supported by standard analyzers (all tiers) but not by GitLa
 
 | Language           | Standard analyzer<sup>1</sup>                                                                           | Proposed support<sup>2</sup> |
 |--------------------|---------------------------------------------------------------------------------------------------------|------------------------------|
-| Apex (Salesforce)  | {{< yes >}} [PMD-Apex](https://gitlab.com/gitlab-org/security-products/analyzers/pmd-apex)              | None                         |
+| Apex (Salesforce) | {{< yes >}} [PMD-Apex](https://gitlab.com/gitlab-org/security-products/analyzers/pmd-apex)              | None                         |
 | Elixir (Phoenix)   | {{< yes >}} [Sobelow](https://gitlab.com/gitlab-org/security-products/analyzers/sobelow)                | None                         |
-| Groovy             | {{< yes >}} [SpotBugs](https://gitlab.com/gitlab-org/security-products/analyzers/spotbugs)<sup>3</sup>  | None                         |
+| Groovy             | {{< yes >}} [SpotBugs](https://gitlab.com/gitlab-org/security-products/analyzers/spotbugs)<sup>3</sup> | None                         |
 | Kotlin<sup>4</sup> | {{< yes >}}                                                                                             | [Epic 15173](https://gitlab.com/groups/gitlab-org/-/epics/15173) |
-| Objective-C (iOS)  | {{< yes >}}                                                                                             | [Epic 16318](https://gitlab.com/groups/gitlab-org/-/epics/16318) |
+| Objective-C (iOS) | {{< yes >}}                                                                                             | [Epic 16318](https://gitlab.com/groups/gitlab-org/-/epics/16318) |
 | Scala              | {{< yes >}}                                                                                             | [Epic 15174](https://gitlab.com/groups/gitlab-org/-/epics/15174) |
 | Swift (iOS)        | {{< yes >}}                                                                                             | [Epic 16318](https://gitlab.com/groups/gitlab-org/-/epics/16318) |
 
@@ -427,11 +374,7 @@ These languages are supported by standard analyzers (all tiers) but not by GitLa
 1. All tiers. Uses [Semgrep](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep)
    analyzer with [GitLab-managed rules](rules.md#semgrep-based-analyzer) unless otherwise specified.
 1. The referenced epic proposes GitLab Advanced SAST support for these languages.
-1. SpotBugs with the find-sec-bugs plugin. Supports Gradle, Maven, and SBT. It can also be used with variants
-   like the Gradle wrapper, Grails, and the Maven wrapper. However, SpotBugs has
-   [limitations](https://gitlab.com/gitlab-org/gitlab/-/issues/350801) when used against Ant-based
-   projects. You should use the GitLab Advanced SAST or Semgrep-based analyzer for Ant-based Java or
-   Scala projects.
+1. SpotBugs with the find-sec-bugs plugin. Supports Gradle, Maven, and SBT. It can also be used with variants like the Gradle wrapper, Grails, and the Maven wrapper. However, SpotBugs has [limitations](https://gitlab.com/gitlab-org/gitlab/-/issues/350801) when used against Ant-based projects. You should use the GitLab Advanced SAST or Semgrep-based analyzer for Ant-based Java or Scala projects.
 1. Including Android.
 
 The SAST CI/CD template also includes an analyzer job that can scan Kubernetes manifests and Helm charts; this job is off by default.
@@ -448,14 +391,9 @@ To learn more about SAST analyzers that are no longer supported, see [Analyzers 
 
 {{< /details >}}
 
-Source code is volatile; as developers make changes, source code may move in the same file or
-between files. Security analyzers may have already reported vulnerabilities that are being tracked
-in the vulnerability report. These vulnerabilities are linked to specific problematic code fragments
-so that they can be found and fixed. If the code fragments are not tracked reliably as they move,
-vulnerability management is harder because the same vulnerability could be reported again.
+Source code is volatile; as developers make changes, source code may move in the same file or between files. Security analyzers may have already reported vulnerabilities that are being tracked in the vulnerability report. These vulnerabilities are linked to specific problematic code fragments so that they can be found and fixed. If the code fragments are not tracked reliably as they move, vulnerability management is harder because the same vulnerability could be reported again.
 
-GitLab SAST uses an advanced vulnerability tracking algorithm to more accurately identify when the
-same vulnerability has moved in the same file due to refactoring or unrelated changes.
+GitLab SAST uses an advanced vulnerability tracking algorithm to more accurately identify when the same vulnerability has moved in the same file due to refactoring or unrelated changes.
 
 Support for advanced vulnerability tracking depends on the language and analyzers used.
 
@@ -504,8 +442,7 @@ The default scanner images are built on a base Alpine image for size and maintai
 
 ### FIPS-enabled images
 
-GitLab offers an image version, based on the [Red Hat UBI](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image) base image,
-that uses a FIPS 140-validated cryptographic module. To use the FIPS-enabled image, you can either:
+GitLab offers an image version, based on the [Red Hat UBI](https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image) base image, that uses a FIPS 140-validated cryptographic module. To use the FIPS-enabled image, you can either:
 
 - Set the `SAST_IMAGE_SUFFIX` to `-fips`.
 - Add the `-fips` extension to the default image name.
@@ -514,10 +451,10 @@ For example:
 
 ```yaml
 variables:
-  SAST_IMAGE_SUFFIX: '-fips'
+ SAST_IMAGE_SUFFIX: '-fips'
 
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 ```
 
 A FIPS-compliant image is only available for the GitLab Advanced SAST and Semgrep-based analyzer.
@@ -527,8 +464,7 @@ A FIPS-compliant image is only available for the GitLab Advanced SAST and Semgre
 
 ## Download a SAST report
 
-Each SAST analyzer outputs a JSON report as a job artifact. The file contains details of all
-detected vulnerabilities. You can download the file for processing outside GitLab.
+Each SAST analyzer outputs a JSON report as a job artifact. The file contains details of all detected vulnerabilities. You can download the file for processing outside GitLab.
 
 For more information, see:
 
@@ -541,26 +477,20 @@ GitLab SAST is designed to be used in its default configuration. However, you ca
 
 ### Stable vs latest SAST templates
 
-SAST offers a
-[`stable`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/SAST.gitlab-ci.yml)
-template, used by default for production use, and a
-[`latest`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/SAST.latest.gitlab-ci.yml)
-template for testing cutting-edge features. For details on the differences and when to use each, see
-[template editions](../detect/security_configuration.md#template-editions).
+SAST offers a [`stable`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/SAST.gitlab-ci.yml)
+template, used by default for production use, and a [`latest`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Jobs/SAST.latest.gitlab-ci.yml)
+template for testing cutting-edge features. For details on the differences and when to use each, see [template editions](../detect/security_configuration.md#template-editions).
 
 ### Overriding SAST jobs
 
-To override a job definition, (for example, change properties like `variables`, `dependencies`, or [`rules`](../../../ci/yaml/_index.md#rules)),
-declare a job with the same name as the SAST job to override. Place this new job after the template
-inclusion and specify any additional keys under it. For example, this enables `FAIL_NEVER` for the
-`spotbugs` analyzer:
+To override a job definition, (for example, change properties like `variables`, `dependencies`, or [`rules`](../../../ci/yaml/_index.md#rules)), declare a job with the same name as the SAST job to override. Place this new job after the template inclusion and specify any additional keys under it. For example, this enables `FAIL_NEVER` for the `spotbugs` analyzer:
 
 ```yaml
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 spotbugs-sast:
-  variables:
+ variables:
     FAIL_NEVER: 1
 ```
 
@@ -571,8 +501,7 @@ The GitLab-managed CI/CD template specifies a major version and automatically pu
 In some cases, you may need to use a specific version.
 For example, you might need to avoid a regression in a later release.
 
-To override the automatic update behavior, set the `SAST_ANALYZER_IMAGE_TAG` CI/CD variable
-in your CI/CD configuration file after you include the `SAST.gitlab-ci.yml` template.
+To override the automatic update behavior, set the `SAST_ANALYZER_IMAGE_TAG` CI/CD variable in your CI/CD configuration file after you include the `SAST.gitlab-ci.yml` template.
 
 Only set this variable within a specific job.
 If you set it [at the top level](../../../ci/variables/_index.md#define-a-cicd-variable-in-the-gitlab-ciyml-file), the version you set is used for other SAST analyzers.
@@ -587,53 +516,44 @@ This example uses a specific minor version of the `semgrep` analyzer and a speci
 
 ```yaml
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 semgrep-sast:
-  variables:
+ variables:
     SAST_ANALYZER_IMAGE_TAG: "3.7"
 
 brakeman-sast:
-  variables:
+ variables:
     SAST_ANALYZER_IMAGE_TAG: "3.1.1"
 ```
 
 ### Using CI/CD variables to pass credentials for private repositories
 
-Some analyzers require downloading the project's dependencies to
-perform the analysis. In turn, such dependencies may live in private Git
-repositories and thus require credentials like username and password to download them.
-Depending on the analyzer, such credentials can be provided to
-it via [custom CI/CD variables](#custom-cicd-variables).
+Some analyzers require downloading the project's dependencies to perform the analysis. In turn, such dependencies may live in private Git repositories and thus require credentials like username and password to download them.
+Depending on the analyzer, such credentials can be provided to it via [custom CI/CD variables](#custom-cicd-variables).
 
 #### Using a CI/CD variable to pass username and password to a private Maven repository
 
-If your private Maven repository requires login credentials,
-you can use the `MAVEN_CLI_OPTS` CI/CD variable.
+If your private Maven repository requires login credentials, you can use the `MAVEN_CLI_OPTS` CI/CD variable.
 
 For more information, see [how to use private Maven repositories](../dependency_scanning/_index.md#authenticate-with-a-private-maven-repository).
 
 ### Enabling Kubesec analyzer
 
-You need to set `SCAN_KUBERNETES_MANIFESTS` to `"true"` to enable the
-Kubesec analyzer. In `.gitlab-ci.yml`, define:
+You need to set `SCAN_KUBERNETES_MANIFESTS` to `"true"` to enable the Kubesec analyzer. In `.gitlab-ci.yml`, define:
 
 ```yaml
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 variables:
-  SCAN_KUBERNETES_MANIFESTS: "true"
+ SCAN_KUBERNETES_MANIFESTS: "true"
 ```
 
 ### Scan other languages with the Semgrep-based analyzer
 
-You can customize the Semgrep-based SAST analyzer to scan languages that are not supported by a
-GitLab-managed ruleset. However, because GitLab does not provide rulesets for these other languages,
-you must
-[replace or add to the predefined rules](customize_rulesets.md#replace-or-add-to-the-predefined-rules)
-to cover them. You must also modify the `rules` of the `semgrep-sast` CI/CD job so that the job runs
-when the relevant files are modified.
+You can customize the Semgrep-based SAST analyzer to scan languages that are not supported by a GitLab-managed ruleset. However, because GitLab does not provide rulesets for these other languages, you must [replace or add to the predefined rules](customize_rulesets.md#replace-or-add-to-the-predefined-rules)
+to cover them. You must also modify the `rules` of the `semgrep-sast` CI/CD job so that the job runs when the relevant files are modified.
 
 #### Scan a Rust application
 
@@ -648,7 +568,7 @@ For example, to scan a Rust application, you must:
      timeout = 60
 
      [[semgrep.passthrough]]
-       type  = "url"
+       type = "url"
        value = "https://semgrep.dev/c/p/rust"
        target = "rust.yml"
    ```
@@ -676,27 +596,24 @@ To use version `6`, manually pin the version by following the instructions [Pinn
 
 ```yaml
 spotbugs-sast:
-  variables:
+ variables:
     SAST_ANALYZER_IMAGE_TAG: "6"
 ```
 
 ### Using pre-compilation with SpotBugs analyzer
 
-The SpotBugs-based analyzer scans compiled bytecode for Groovy projects. By default, it
-automatically attempts to fetch dependencies and compile your code so it can be scanned.
+The SpotBugs-based analyzer scans compiled bytecode for Groovy projects. By default, it automatically attempts to fetch dependencies and compile your code so it can be scanned.
 
 Automatic compilation can fail if either:
 
 - Your project requires custom build configurations.
 - You use language versions that aren't built into the analyzer.
 
-To resolve these issues, skip the analyzer's compilation step and directly provide artifacts from an
-earlier stage in your pipeline instead. This strategy is called pre-compilation.
+To resolve these issues, skip the analyzer's compilation step and directly provide artifacts from an earlier stage in your pipeline instead. This strategy is called pre-compilation.
 
 #### Sharing pre-compiled artifacts
 
-1. Use a compilation job (typically named `build`) to compile your project and store the compiled
-   output as a `job artifact` by using the CI/CD `artifacts: paths` variable.
+1. Use a compilation job (typically named `build`) to compile your project and store the compiled output as a `job artifact` by using the CI/CD `artifacts: paths` variable.
 
    - For Maven projects, the output folder is usually the `target` directory.
    - For Gradle projects, it's typically the `build` directory.
@@ -710,25 +627,25 @@ The following example pre-compiles a Gradle project and provides the compiled by
 
 ```yaml
 stages:
-  - build
-  - test
+ - build
+ - test
 
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 build:
-  image: gradle:7.6-jdk8
-  stage: build
-  script:
+ image: gradle:7.6-jdk8
+ stage: build
+ script:
     - gradle build
-  artifacts:
+ artifacts:
     paths:
       - build/
 
 spotbugs-sast:
-  dependencies:
+ dependencies:
     - build
-  variables:
+ variables:
     COMPILE: "false"
     SECURE_LOG_LEVEL: debug
 ```
@@ -743,26 +660,26 @@ The following example pre-compiles a Maven project and provides the compiled byt
 
 ```yaml
 stages:
-  - build
-  - test
+ - build
+ - test
 
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 build:
-  image: maven:3.6-jdk-8-slim
-  stage: build
-  script:
+ image: maven:3.6-jdk-8-slim
+ stage: build
+ script:
     - mvn package -Dmaven.repo.local=./.m2/repository
-  artifacts:
+ artifacts:
     paths:
       - .m2/
       - target/
 
 spotbugs-sast:
-  dependencies:
+ dependencies:
     - build
-  variables:
+ variables:
     MAVEN_REPO_PATH: $CI_PROJECT_DIR/.m2/repository
     COMPILE: "false"
     SECURE_LOG_LEVEL: debug
@@ -774,32 +691,27 @@ SAST can be configured using the `variables` parameter in `.gitlab-ci.yml`.
 
 {{< alert type="warning" >}}
 
-All customization of GitLab security scanning tools should be tested in a merge request before
-merging these changes to the default branch. Failure to do so can give unexpected results,
-including a large number of false positives.
+All customization of GitLab security scanning tools should be tested in a merge request before merging these changes to the default branch. Failure to do so can give unexpected results, including a large number of false positives.
 
 {{< /alert >}}
 
-The following example includes the SAST template to override the `SEARCH_MAX_DEPTH` variable to `10`
-in all jobs. The template is evaluated before the pipeline configuration, so the last mention of the
-variable takes precedence.
+The following example includes the SAST template to override the `SEARCH_MAX_DEPTH` variable to `10` in all jobs. The template is evaluated before the pipeline configuration, so the last mention of the variable takes precedence.
 
 ```yaml
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 variables:
-  SEARCH_MAX_DEPTH: 10
+ SEARCH_MAX_DEPTH: 10
 ```
 
 #### Custom Certificate Authority
 
-To trust a custom Certificate Authority, set the `ADDITIONAL_CA_CERT_BUNDLE` variable to the bundle
-of CA certs that you want to trust in the SAST environment. The `ADDITIONAL_CA_CERT_BUNDLE` value should contain the [text representation of the X.509 PEM public-key certificate](https://www.rfc-editor.org/rfc/rfc7468#section-5.1). For example, to configure this value in the `.gitlab-ci.yml` file, use the following:
+To trust a custom Certificate Authority, set the `ADDITIONAL_CA_CERT_BUNDLE` variable to the bundle of CA certs that you want to trust in the SAST environment. The `ADDITIONAL_CA_CERT_BUNDLE` value should contain the [text representation of the X.509 PEM public-key certificate](https://www.rfc-editor.org/rfc/rfc7468#section-5.1). For example, to configure this value in the `.gitlab-ci.yml` file, use the following:
 
 ```yaml
 variables:
-  ADDITIONAL_CA_CERT_BUNDLE: |
+ ADDITIONAL_CA_CERT_BUNDLE: |
       -----BEGIN CERTIFICATE-----
       MIIGqTCCBJGgAwIBAgIQI7AVxxVwg2kch4d56XNdDjANBgkqhkiG9w0BAQsFADCB
       ...
@@ -823,15 +735,15 @@ The following are Docker image-related CI/CD variables.
 #### Vulnerability filters
 
 <table class="sast-table">
-  <thead>
+ <thead>
     <tr>
       <th>CI/CD variable</th>
       <th>Description</th>
       <th>Default Value</th>
       <th>Analyzer</th>
     </tr>
-  </thead>
-  <tbody>
+ </thead>
+ <tbody>
     <tr>
       <td rowspan="3">
         <code>SAST_EXCLUDED_PATHS</code>
@@ -915,18 +827,14 @@ The following are Docker image-related CI/CD variables.
         All other SAST analyzers
       </td>
     </tr>
-  </tbody>
+ </tbody>
 </table>
 
 **Footnotes**:
 
-1. <a id="sast-excluded-paths-description"></a>You might need to exclude temporary directories used by your build tool as
-   these can generate false positives. To exclude paths, copy and paste the default excluded paths, then **add** your
-   own paths to be excluded. If you don't specify the default excluded paths, the defaults are overridden and only the
-   paths you specify are excluded from SAST scans.
+1. <a id="sast-excluded-paths-description"></a>You might need to exclude temporary directories used by your build tool as these can generate false positives. To exclude paths, copy and paste the default excluded paths, then **add** your own paths to be excluded. If you don't specify the default excluded paths, the defaults are overridden and only the paths you specify are excluded from SAST scans.
 
-1. <a id="sast-excluded-paths-semgrep"></a>For these analyzers, `SAST_EXCLUDED_PATHS` is implemented as a **pre-filter**,
-   which is applied before the scan is executed.
+1. <a id="sast-excluded-paths-semgrep"></a>For these analyzers, `SAST_EXCLUDED_PATHS` is implemented as a **pre-filter**, which is applied before the scan is executed.
 
    The analyzer skips any files or directories whose path matches one of the comma-separated patterns.
 
@@ -942,22 +850,15 @@ The following are Docker image-related CI/CD variables.
 
    Each pattern is a glob-style pattern that uses the same syntax as [gitignore](https://git-scm.com/docs/gitignore#_pattern_format).
 
-1. <a id="sast-excluded-paths-all-other-sast-analyzers"></a>For these analyzers, `SAST_EXCLUDED_PATHS` is implemented as
-   a **post-filter**, which is applied after the scan is executed.
+1. <a id="sast-excluded-paths-all-other-sast-analyzers"></a>For these analyzers, `SAST_EXCLUDED_PATHS` is implemented as a **post-filter**, which is applied after the scan is executed.
 
-   Patterns can be globs (see [`doublestar.Match`](https://pkg.go.dev/github.com/bmatcuk/doublestar/v4@v4.0.2#Match) for supported
-   patterns), or file or folder paths (for example, `doc,spec`). Parent directories also match patterns.
+   Patterns can be globs (see [`doublestar.Match`](https://pkg.go.dev/github.com/bmatcuk/doublestar/v4@v4.0.2#Match) for supported patterns), or file or folder paths (for example, `doc,spec`). Parent directories also match patterns.
 
-   The post-filter implementation of `SAST_EXCLUDED_PATHS` is available for all SAST analyzers. Some
-   SAST analyzers such as those with [superscript `2`](#sast-excluded-paths-semgrep) implement `SAST_EXCLUDED_PATHS`
-   as both a pre-filter and post-filter. A pre-filter is more efficient because it reduces the number of files
-   to be scanned.
+   The post-filter implementation of `SAST_EXCLUDED_PATHS` is available for all SAST analyzers. Some SAST analyzers such as those with [superscript `2`](#sast-excluded-paths-semgrep) implement `SAST_EXCLUDED_PATHS` as both a pre-filter and post-filter. A pre-filter is more efficient because it reduces the number of files to be scanned.
 
-   For analyzers that support `SAST_EXCLUDED_PATHS` as both a pre-filter and post-filter, the pre-filter is applied first,
-   then the post-filter is applied to any vulnerabilities that remain.
+   For analyzers that support `SAST_EXCLUDED_PATHS` as both a pre-filter and post-filter, the pre-filter is applied first, then the post-filter is applied to any vulnerabilities that remain.
 
-1. <a id="sast-spotbugs-excluded-build-paths-description"></a> For this variable, Path patterns can be globs
-   (see [`doublestar.Match`](https://pkg.go.dev/github.com/bmatcuk/doublestar/v4@v4.0.2#Match) for supported patterns).
+1. <a id="sast-spotbugs-excluded-build-paths-description"></a> For this variable, Path patterns can be globs (see [`doublestar.Match`](https://pkg.go.dev/github.com/bmatcuk/doublestar/v4@v4.0.2#Match) for supported patterns).
    Directories are excluded from the build process if the path pattern matches a supported build file:
 
    - `build.sbt`
@@ -973,9 +874,7 @@ The following are Docker image-related CI/CD variables.
    Passing a parent directory for the pattern, such as `project` or `project/subdir`, does not exclude the directory from being built, because in this case, the build file is not explicitly matched by the pattern.
 
 1. <a id="search-max-depth-description"></a>The [SAST CI/CD template](https://gitlab.com/gitlab-org/gitlab/blob/v17.4.1-ee/lib/gitlab/ci/templates/Jobs/SAST.gitlab-ci.yml)
-   searches the repository to detect the programming languages
-   used, and selects the matching analyzers. Then, each analyzer searches the codebase to find the specific files or directories
-   it should scan. Set the value of `SEARCH_MAX_DEPTH` to specify how many directory levels the analyzer's search phase should span.
+   searches the repository to detect the programming languages used, and selects the matching analyzers. Then, each analyzer searches the codebase to find the specific files or directories it should scan. Set the value of `SEARCH_MAX_DEPTH` to specify how many directory levels the analyzer's search phase should span.
 
 #### Analyzer settings
 
@@ -1006,24 +905,19 @@ Some analyzers can be customized with CI/CD variables.
 
 #### Security scanner configuration
 
-SAST analyzers internally use OSS security scanners to perform the analysis. GitLab sets the recommended
-configuration for the security scanner so that you need not to worry about tuning them. However,
-there can be some rare cases where our default scanner configuration does not suit your
-requirements.
+SAST analyzers internally use OSS security scanners to perform the analysis. GitLab sets the recommended configuration for the security scanner so that you need not to worry about tuning them. However, there can be some rare cases where our default scanner configuration does not suit your requirements.
 
-To allow some customization of scanner behavior, you can add a limited set of flags to the
-underlying scanner. Specify the flags in the `SAST_SCANNER_ALLOWED_CLI_OPTS` CI/CD variable. These
-flags are added to the scanner's CLI options.
+To allow some customization of scanner behavior, you can add a limited set of flags to the underlying scanner. Specify the flags in the `SAST_SCANNER_ALLOWED_CLI_OPTS` CI/CD variable. These flags are added to the scanner's CLI options.
 
 <table class="sast-table">
-  <thead>
+ <thead>
     <tr>
       <th>Analyzer</th>
       <th>CLI option</th>
       <th>Description</th>
     </tr>
-  </thead>
-  <tbody>
+ </thead>
+ <tbody>
     <tr>
       <td rowspan="2">
         GitLab Advanced SAST
@@ -1065,14 +959,11 @@ flags are added to the scanner's CLI options.
       <td>
         <p>
           Maximum size for a file to be scanned. Any input program larger than this is ignored.
-          Set to <code>0</code> or a negative value to disable this filter. Bytes can be specified with or without a unit of measurement,
-          for example: <code>12.5kb</code>, <code>1.5MB</code>, or <code>123</code>. Defaults to <code>1000000</code> bytes.
+          Set to <code>0</code> or a negative value to disable this filter. Bytes can be specified with or without a unit of measurement, for example: <code>12.5kb</code>, <code>1.5MB</code>, or <code>123</code>. Defaults to <code>1000000</code> bytes.
         </p>
         <p>
           <b>Note:</b>
-          You should keep this flag set to the default value. Also, avoid changing this flag to scan minified
-          JavaScript, which is unlikely to work well, <code>DLLs</code>, <code>JARs</code> or other binary files
-          because binary files are not scanned.
+          You should keep this flag set to the default value. Also, avoid changing this flag to scan minified JavaScript, which is unlikely to work well, <code>DLLs</code>, <code>JARs</code> or other binary files because binary files are not scanned.
         </p>
       </td>
     </tr>
@@ -1095,41 +986,36 @@ flags are added to the scanner's CLI options.
       <td>
         Sets the analysis effort level. Valid values are, in increasing order of precision and ability to detect more vulnerabilities
         <code>min</code>, <code>less</code>, <code>more</code> and <code>max</code>. Default value is set to
-        <code>max</code> which may require more memory and time to complete the scan, depending on the project's size. If you
-        face memory or performance issues, you can reduce the analysis effort level to a lower value. For example:
+        <code>max</code> which may require more memory and time to complete the scan, depending on the project's size. If you face memory or performance issues, you can reduce the analysis effort level to a lower value. For example:
         <code>-effort less</code>.
       </td>
     </tr>
-  </tbody>
+ </tbody>
 </table>
 
 #### Custom CI/CD variables
 
-When the GitLab SAST template is used, all standard SAST configuration CI/CD variables
-and [custom variables](../../../ci/variables/_index.md#define-a-cicd-variable-in-the-ui) are
-propagated to the underlying SAST analyzer images.
+When the GitLab SAST template is used, all standard SAST configuration CI/CD variables and [custom variables](../../../ci/variables/_index.md#define-a-cicd-variable-in-the-ui) are propagated to the underlying SAST analyzer images.
 
 ### Exclude code from analysis
 
-You can mark individual lines, or blocks, of code to be excluded from being analyzed for
-vulnerabilities. You should manage all vulnerabilities through Vulnerability Management, or adjust the scanned file paths
-using `SAST_EXCLUDED_PATHS` before using this method of finding-by-finding comment annotation.
+You can mark individual lines, or blocks, of code to be excluded from being analyzed for vulnerabilities. You should manage all vulnerabilities through Vulnerability Management, or adjust the scanned file paths using `SAST_EXCLUDED_PATHS` before using this method of finding-by-finding comment annotation.
 
 When using the Semgrep-based analyzer, the following options are also available:
 
 - Ignore a line of code - add `// nosemgrep:` comment to the end of the line (the prefix is according to the development language).
 
-  Java example:
+ Java example:
 
-  ```java
-  vuln_func(); // nosemgrep
-  ```
+ ```java
+ vuln_func(); // nosemgrep
+ ```
 
-  Python example:
+ Python example:
 
-  ```python
-  vuln_func(); # nosemgrep
-  ```
+ ```python
+ vuln_func(); # nosemgrep
+ ```
 
 - Ignore a line of code for specific rule - add `// nosemgrep: RULE_ID` comment at the end of the line (the prefix is according to the development language).
 
@@ -1149,9 +1035,7 @@ For more details see [Semgrep documentation](https://semgrep.dev/docs/ignoring-f
 
 {{< /details >}}
 
-For instances in an environment with limited, restricted, or intermittent access
-to external resources through the internet, some adjustments are required for the SAST job to
-run successfully. For more information, see [Offline environments](../offline_deployments/_index.md).
+For instances in an environment with limited, restricted, or intermittent access to external resources through the internet, some adjustments are required for the SAST job to run successfully. For more information, see [Offline environments](../offline_deployments/_index.md).
 
 ### Requirements for offline SAST
 
@@ -1161,18 +1045,12 @@ To use SAST in an offline environment, you need:
 - A Docker container registry with locally available copies of SAST [analyzer](https://gitlab.com/gitlab-org/security-products/analyzers) images.
 - Configure certificate checking of packages (optional).
 
-GitLab Runner has a [default `pull_policy` of `always`](https://docs.gitlab.com/runner/executors/docker.html#using-the-always-pull-policy),
-meaning the runner tries to pull Docker images from the GitLab container registry even if a local
-copy is available. The GitLab Runner [`pull_policy` can be set to `if-not-present`](https://docs.gitlab.com/runner/executors/docker.html#using-the-if-not-present-pull-policy)
-in an offline environment if you prefer using only locally available Docker images. However,
-keep the pull policy setting to `always` if not in an offline environment. This setting
-enables the use of updated scanners in your CI/CD pipelines.
+GitLab Runner has a [default `pull_policy` of `always`](https://docs.gitlab.com/runner/executors/docker.html#using-the-always-pull-policy), meaning the runner tries to pull Docker images from the GitLab container registry even if a local copy is available. The GitLab Runner [`pull_policy` can be set to `if-not-present`](https://docs.gitlab.com/runner/executors/docker.html#using-the-if-not-present-pull-policy)
+in an offline environment if you prefer using only locally available Docker images. However, keep the pull policy setting to `always` if not in an offline environment. This setting enables the use of updated scanners in your CI/CD pipelines.
 
 ### Make GitLab SAST analyzer images available inside your Docker registry
 
-For SAST with all supported languages and frameworks, import the following default SAST analyzer
-images from `registry.gitlab.com` into your
-[local Docker container registry](../../packages/container_registry/_index.md):
+For SAST with all supported languages and frameworks, import the following default SAST analyzer images from `registry.gitlab.com` into your [local Docker container registry](../../packages/container_registry/_index.md):
 
 ```plaintext
 registry.gitlab.com/security-products/gitlab-advanced-sast:2
@@ -1183,9 +1061,7 @@ registry.gitlab.com/security-products/sobelow:6
 registry.gitlab.com/security-products/spotbugs:5
 ```
 
-The process for importing Docker images into a local offline Docker registry depends on
-**your network security policy**. Consult your IT staff to find an accepted and approved
-process by which external resources can be imported or temporarily accessed. These scanners are [periodically updated](../detect/vulnerability_scanner_maintenance.md)
+The process for importing Docker images into a local offline Docker registry depends on **your network security policy**. Consult your IT staff to find an accepted and approved process by which external resources can be imported or temporarily accessed. These scanners are [periodically updated](../detect/vulnerability_scanner_maintenance.md)
 with new definitions, and you may be able to make occasional updates on your own.
 
 For details on saving and transporting Docker images as a file, see the Docker documentation on:
@@ -1201,34 +1077,29 @@ Support for custom certificate authorities was introduced in the following versi
 
 | Analyzer   | Version |
 |------------|---------|
-| `kubesec`  | [v2.1.0](https://gitlab.com/gitlab-org/security-products/analyzers/kubesec/-/releases/v2.1.0) |
+| `kubesec` | [v2.1.0](https://gitlab.com/gitlab-org/security-products/analyzers/kubesec/-/releases/v2.1.0) |
 | `pmd-apex` | [v2.1.0](https://gitlab.com/gitlab-org/security-products/analyzers/pmd-apex/-/releases/v2.1.0) |
-| `semgrep`  | [v0.0.1](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep/-/releases/v0.0.1) |
-| `sobelow`  | [v2.2.0](https://gitlab.com/gitlab-org/security-products/analyzers/sobelow/-/releases/v2.2.0) |
+| `semgrep` | [v0.0.1](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep/-/releases/v0.0.1) |
+| `sobelow` | [v2.2.0](https://gitlab.com/gitlab-org/security-products/analyzers/sobelow/-/releases/v2.2.0) |
 | `spotbugs` | [v2.7.1](https://gitlab.com/gitlab-org/security-products/analyzers/spotbugs/-/releases/v2.7.1) |
 
 ### Set SAST CI/CD variables to use local SAST analyzers
 
-Add the following configuration to your `.gitlab-ci.yml` file. You must replace
-`SECURE_ANALYZERS_PREFIX` to refer to your local Docker container registry:
+Add the following configuration to your `.gitlab-ci.yml` file. You must replace `SECURE_ANALYZERS_PREFIX` to refer to your local Docker container registry:
 
 ```yaml
 include:
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 variables:
-  SECURE_ANALYZERS_PREFIX: "localhost:5000/analyzers"
+ SECURE_ANALYZERS_PREFIX: "localhost:5000/analyzers"
 ```
 
-The SAST job should now use local copies of the SAST analyzers to scan your code and generate
-security reports without requiring internet access.
+The SAST job should now use local copies of the SAST analyzers to scan your code and generate security reports without requiring internet access.
 
 ### Configure certificate checking of packages
 
-If a SAST job invokes a package manager, you must configure its certificate verification. In an
-offline environment, certificate verification with an external source is not possible. Either use a
-self-signed certificate or disable certificate verification. Refer to the package manager's
-documentation for instructions.
+If a SAST job invokes a package manager, you must configure its certificate verification. In an offline environment, certificate verification with an external source is not possible. Either use a self-signed certificate or disable certificate verification. Refer to the package manager's documentation for instructions.
 
 ## Running SAST in SELinux
 

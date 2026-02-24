@@ -50,8 +50,8 @@ Here's an example of school-managed information from our demo instance:
 Before creating new reports with this field, we recommend taking the following steps:
 
 - check your anchor report(s) to understand how many students currently have information filled
-  - [gender anchor report](https://app.joinhandshake.com/analytics/reports/13092)
-  - [ethnicity anchor report](https://app.joinhandshake.com/analytics/reports/13100)
+ - [gender anchor report](https://app.joinhandshake.com/analytics/reports/13092)
+ - [ethnicity anchor report](https://app.joinhandshake.com/analytics/reports/13100)
 - review the saved report blog post linked below
 
 #### Saved reports

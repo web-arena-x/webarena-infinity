@@ -10,7 +10,7 @@ For more information on creating manual appointment types, refer to [School Sett
 
 **Getting started:**
 
-1. While logged into your Handshake account, use [Analytics](https://app.joinhandshake.com/analytics/explore) to create a report of appointment types you'd like to bulk add.  It's also useful to explore majors, colleges, labels, and school year names and even add them to your report so that you can be sure you're working with the exact names you'll need when uploading the data.  
+1. While logged into your Handshake account, use [Analytics](https://app.joinhandshake.com/analytics/explore) to create a report of appointment types you'd like to bulk add.  It's also useful to explore majors, colleges, labels, and school year names and even add them to your report so that you can be sure you're working with the exact names you'll need when uploading the data. 
    **Note**: All data that is uploaded must be exactly the same in the upload file as it looks in Handshake.  Here is an [example report](https://app.joinhandshake.com/analytics/explore_embed?insights_page=ZXhwbG9yZS9nZW5lcmF0ZWRfaGFuZHNoYWtlX3Byb2R1Y3Rpb24vYXBwb2ludG1lbnRzP2VtYmVkX2RvbWFpbj1odHRwczolMkYlMkZhcHAuam9pbmhhbmRzaGFrZS5jb20mc2hvdz1kYXRhLGZpZWxkcyZxdWVyeT1NRHh0V0tCJnZpcz0lN0IlN0Q=) you can use in Analytics.
 2. After creating the report in Analytics, download it in CSV formatting.
 3. Open the download file in Excel, and update the column headers to the correct format as listed below. Refer to the list below of all available fields and formatting.

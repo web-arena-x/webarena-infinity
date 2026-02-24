@@ -60,7 +60,7 @@ You can download the FigJam app from the App Store on iPads running iPadOS 16 or
 
 ## Browse and create boards
 
-To find existing FigJam boards, tap the  **toggle sidebar** button to open the left sidebar and do one of the following:
+To find existing FigJam boards, tap the **toggle sidebar** button to open the left sidebar and do one of the following:
 
 - Browse the **Recents** tab to view boards you recently opened
 - Tap **Drafts** to view boards in your drafts or tap **Starred** to view boards you’ve starred
@@ -73,13 +73,13 @@ To create a new FigJam board:
 1. Open the FigJam app.
 2. Tap **New board** in the upper-right corner.
 
-After the new board is created, you can start adding objects to customize the board or add a [template](https://help.figma.com/hc/en-us/articles/1500004414082-Get-FigJam-templates) to get started quickly. To find templates, tap the  plus in the bottom toolbar and tap **More**. From the **Templates** tab, you can browse through available templates.
+After the new board is created, you can start adding objects to customize the board or add a [template](https://help.figma.com/hc/en-us/articles/1500004414082-Get-FigJam-templates) to get started quickly. To find templates, tap the plus in the bottom toolbar and tap **More**. From the **Templates** tab, you can browse through available templates.
 
 ## Navigate around the board
 
 ### Navigate pages
 
-Press the  pages icon in the top toolbar to navigate existing pages of a FigJam file.
+Press the pages icon in the top toolbar to navigate existing pages of a FigJam file.
 
 Note
 
@@ -109,13 +109,13 @@ There are a few ways to select multiple objects:
 
 **Long-press and drag**
 
-Long-press with one finger until a  appears, then drag over selection.
+Long-press with one finger until a appears, then drag over selection.
 
 ![Select multiple objects with a box.](https://help.figma.com/hc/article_attachments/24796271245079)
 
 **Long-press menu**
 
-1. Long-press with one finger until a  appears, then release.
+1. Long-press with one finger until a appears, then release.
 2. Tap **Select objects**.
 3. Tap objects individually to select or deselect.
 
@@ -138,9 +138,9 @@ Learn more about [selecting objects in FigJam →](https://help.figma.com/hc/en-
 To group two or more items:
 
 1. Select the objects you want to group.
-2. Tap the  three dot menu in the toolbar and select Group selection.
+2. Tap the three dot menu in the toolbar and select Group selection.
 
-To ungroup objects in a group, tap the  three dot menu and select **Ungroup**.
+To ungroup objects in a group, tap the three dot menu and select **Ungroup**.
 
 Learn more about [groups in FigJam →](https://help.figma.com/hc/en-us/articles/1500004414962-Groups-in-FigJam)
 
@@ -149,17 +149,17 @@ Learn more about [groups in FigJam →](https://help.figma.com/hc/en-us/articles
 Any objects placed on your FigJam board can be locked. Lock objects to prevent them from being moved, edited, or deleted.
 
 1. Select one or more objects.
-2. Tap the  three dot menu and select **Lock/Unlock**.
+2. Tap the three dot menu and select **Lock/Unlock**.
 
 To unlock an object or grouping, tap .
 
 ## Undo and redo
 
-Tap  to undo, or  to redo an action.
+Tap to undo, or to redo an action.
 
 You can also use gestures on the screen:
 
-|  |  |
+| | |
 | --- | --- |
 | **Undo** | **Redo** |
 | Two-finger tap | Three-finger tap |
@@ -170,14 +170,14 @@ You can also use gestures on the screen:
 To doodle on your board:
 
 1. Tap the **Marker** or **Highlighter** tool in the bottom toolbar.
-2. Select a color and stroke weight. You can always change this after you’re done drawing. You can also change which side of the screen these options display on by tapping the  three dot menu, tapping **Show menu…**, and selecting **On left** or **On right**.
+2. Select a color and stroke weight. You can always change this after you’re done drawing. You can also change which side of the screen these options display on by tapping the three dot menu, tapping **Show menu…**, and selecting **On left** or **On right**.
 3. Tap and drag on the board to start drawing. You can use your finger or an Apple Pencil.
 
 ![Drawing tools color picker bar.](https://help.figma.com/hc/article_attachments/27887719074967)
 
 ### Drawing preferences
 
-Personalize your drawing preferences by tapping the  three dot menu in the top toolbar > **Drawing preferences**.
+Personalize your drawing preferences by tapping the three dot menu in the top toolbar > **Drawing preferences**.
 
 **Pencil always draws**: Apple Pencil will always be used to draw using the last used drawing tool when no other tool is selected. If you want to use an Apple Pencil for a specific tool, like eraser or precision select, tap the icon in the toolbar.
 
@@ -219,7 +219,7 @@ You can also create a new text object by pasting the text in a free space on you
 
 To add a table to your board:
 
-1. Tap the  plus in the bottom toolbar.
+1. Tap the plus in the bottom toolbar.
 2. Tap **Table**.
 3. Use the **+** plus to add rows and columns to the table.
 
@@ -229,7 +229,7 @@ Learn more about using [tables in FigJam →](../work-on-boards/tables-in-figja
 
 To add a section to your board:
 
-1. Tap the  plus in the bottom toolbar.
+1. Tap the plus in the bottom toolbar.
 2. Tap **Section**.
 3. Use the **+** plus to add rows and columns to the table.
 
@@ -239,7 +239,7 @@ Learn more about using [sections in FigJam →](../work-on-boards/organize-your
 
 Add [images](https://help.figma.com/hc/en-us/articles/1500004290881) to your board from your iPad’s camera roll, files, or by taking a photo.
 
-1. Tap the  plus in the bottom toolbar.
+1. Tap the plus in the bottom toolbar.
 2. Tap **Add image from…**
 3. Select the source of your image:
    - Photo library
@@ -254,20 +254,20 @@ FigJam’s collaborative tools are its heart and soul, and they’re available o
 
 To add your stamp of approval to a teammate’s great idea:
 
-1. Tap the  plus in the bottom toolbar.
+1. Tap the plus in the bottom toolbar.
 2. Tap **Stamp**.
 3. Select a stamp.
 4. Tap the object or area of the screen you want to stamp.
 
-To disable the stamp tool, tap  again.
+To disable the stamp tool, tap again.
 
 ### Emote
 
 To show your excitement in real time:
 
-1. Tap the  plus in the bottom toolbar.
+1. Tap the plus in the bottom toolbar.
 2. Tap **Stamp**.
-3. Tap  in the wheel.
+3. Tap in the wheel.
 4. Select an emotion.
 5. Tap and drag across the board.
 
@@ -289,7 +289,7 @@ Learn more about [high fives →](../run-meetings/stamps-emotes-and-high-fives.m
 
 Cursor chat allows you to type live, temporary messages to others in your FigJam file.
 
-With your iPad mounted on a Magic Keyboard, press `/` or tap  in the emote wheel to activate cursor chat. Once you've entered cursor chat mode, an empty speech bubble appears next to your cursor.
+With your iPad mounted on a Magic Keyboard, press `/` or tap in the emote wheel to activate cursor chat. Once you've entered cursor chat mode, an empty speech bubble appears next to your cursor.
 
 Your chat bubble is anchored to your cursor and follows you around the board. You can pan around and pinch-to-zoom the board without exiting cursor chat.
 
@@ -305,11 +305,11 @@ Comment in a FigJam file by long-pressing any area of the board, then selecting 
 
 ![Collaborative FigJam board on iPad with sticky notes, drawings, and annotations showcasing brainstorming features.](https://help.figma.com/hc/article_attachments/24796348156055)
 
-Tap the  three dot menu next to a comment to share it, mark it as unread, or add a reaction to it. You can also delete and edit comments you made.
+Tap the three dot menu next to a comment to share it, mark it as unread, or add a reaction to it. You can also delete and edit comments you made.
 
-Tap the  checkmark to resolve a comment you added.
+Tap the checkmark to resolve a comment you added.
 
-To hide comments from your board, tap the  three dot menu in the upper right corner and select **Hide comments**.
+To hide comments from your board, tap the three dot menu in the upper right corner and select **Hide comments**.
 
 Tip
 
@@ -349,8 +349,8 @@ Track time and manage working sessions with the timer in FigJam, whether you're 
 
 To start a timer:
 
-1. Tap the  three dot menu in the top toolbar and select **Show timer**.
+1. Tap the three dot menu in the top toolbar and select **Show timer**.
 2. Enter the minutes and seconds.
-3. Tap  **Play** to start the timer.
+3. Tap **Play** to start the timer.
 
 Learn more about [using the timer →](../run-meetings/stay-on-track-with-the-timer-in-figjam.md)

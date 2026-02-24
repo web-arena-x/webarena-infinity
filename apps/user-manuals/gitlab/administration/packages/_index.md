@@ -14,8 +14,7 @@ description: Administer the package registry.
 {{< /details >}}
 
 To use GitLab as a private repository for a variety of common package managers, use the package registry.
-You can build and publish
-packages, which can be consumed as dependencies in downstream projects.
+You can build and publish packages, which can be consumed as dependencies in downstream projects.
 
 ## Supported formats
 
@@ -54,7 +53,7 @@ Consider contributing to GitLab to add support for these formats.
 | P2        | [#36895](https://gitlab.com/gitlab-org/gitlab/-/issues/36895) |
 | Puppet    | [#36897](https://gitlab.com/gitlab-org/gitlab/-/issues/36897) |
 | RPM       | [#5932](https://gitlab.com/gitlab-org/gitlab/-/issues/5932) |
-| RubyGems  | [#803](https://gitlab.com/gitlab-org/gitlab/-/issues/803) |
+| RubyGems | [#803](https://gitlab.com/gitlab-org/gitlab/-/issues/803) |
 | SBT       | [#36898](https://gitlab.com/gitlab-org/gitlab/-/issues/36898) |
 | Terraform | [Draft: Merge request](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/18834) |
 | Vagrant   | [#36899](https://gitlab.com/gitlab-org/gitlab/-/issues/36899) |
@@ -63,9 +62,7 @@ Consider contributing to GitLab to add support for these formats.
 
 ## Rate limits
 
-When downloading packages as dependencies in downstream projects, many requests are made through the
-Packages API. You may therefore reach enforced user and IP rate limits. To address this issue, you
-can define specific rate limits for the Packages API. For more details, see [package registry rate limits](../settings/package_registry_rate_limits.md).
+When downloading packages as dependencies in downstream projects, many requests are made through the Packages API. You may therefore reach enforced user and IP rate limits. To address this issue, you can define specific rate limits for the Packages API. For more details, see [package registry rate limits](../settings/package_registry_rate_limits.md).
 
 ## Enable or disable the package registry
 
@@ -162,13 +159,11 @@ The package registry is enabled by default. To disable it:
 
 ## Change the storage path
 
-By default, the packages are stored locally, but you can change the default
-local location or even use object storage.
+By default, the packages are stored locally, but you can change the default local location or even use object storage.
 
 ### Change the local storage path
 
-By default, the packages are stored in a local path, relative to the GitLab
-installation:
+By default, the packages are stored in a local path, relative to the GitLab installation:
 
 - Linux package (Omnibus): `/var/opt/gitlab/gitlab-rails/shared/packages/`
 - Self-compiled (source): `/home/git/gitlab/shared/packages/`
@@ -218,8 +213,7 @@ To change the local storage path:
 
 {{< /tabs >}}
 
-If you already had packages stored in the old storage path, move everything
-from the old to the new location to ensure existing packages stay accessible:
+If you already had packages stored in the old storage path, move everything from the old to the new location to ensure existing packages stay accessible:
 
 ```shell
 mv /var/opt/gitlab/gitlab-rails/shared/packages/* /mnt/packages/
@@ -228,17 +222,13 @@ mv /var/opt/gitlab/gitlab-rails/shared/packages/* /mnt/packages/
 Docker and Kubernetes do not use local storage.
 
 - For the Helm chart (Kubernetes): Use object storage instead.
-- For Docker: The `/var/opt/gitlab/` directory is already
-  mounted in a directory on the host. There's no need to change the local
-  storage path inside the container.
+- For Docker: The `/var/opt/gitlab/` directory is already mounted in a directory on the host. There's no need to change the local storage path inside the container.
 
 ### Use object storage
 
-Instead of relying on the local storage, you can use an object storage to store
-packages.
+Instead of relying on the local storage, you can use an object storage to store packages.
 
-For more information, see how to use the
-[consolidated object storage settings](../object_storage.md#configure-a-single-storage-connection-for-all-object-types-consolidated-form).
+For more information, see how to use the [consolidated object storage settings](../object_storage.md#configure-a-single-storage-connection-for-all-object-types-consolidated-form).
 
 ### Migrate packages between object storage and local storage
 

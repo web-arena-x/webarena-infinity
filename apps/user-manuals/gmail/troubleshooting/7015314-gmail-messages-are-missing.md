@@ -12,13 +12,13 @@ If you can’t find an email:
 
 - Your storage is full. Your account storage is shared with Google Drive and Google Photos. If your storage is full, you may not be able to send or receive emails.
 
-  [Check how much space you have left](https://one.google.com/storage)
+ [Check how much space you have left](https://one.google.com/storage)
 - It’s in your trash or spam. Emails in your trash or spam are permanently deleted after 30 days or when you manually empty your trash or spam.
 - It’s permanently removed. You can find email drafts under the "Drafts" label. When you discard a draft, you can’t recover it.
 - You deleted it from another device. There’s only one copy of every email. When you delete an email from any device that’s synced with your Gmail account, the email is deleted forever.
 - You deleted it in another email client that’s synced with your Gmail account, such as Apple Mail. To locate your emails:
-  - In a web browser, go to [mail.google.com](https://mail.google.com/).
-  - From a mobile device, download the Gmail app.
+ - In a web browser, go to [mail.google.com](https://mail.google.com/).
+ - From a mobile device, download the Gmail app.
 
 ## Step 1: Search for an email
 
@@ -68,7 +68,7 @@ Check your forwarding settings
 
 - If an email isn’t authenticated, it may go to Spam. [Learn how to check if an email is authenticated](/mail/answer/180707).
 - If you find that your emails go to an unfamiliar address, someone may have unauthorized access to your account.
-  - To turn off forwarding, select **Disable forwarding**.
+ - To turn off forwarding, select **Disable forwarding**.
 
 Check IMAP or POP settings
 
@@ -90,9 +90,9 @@ Check IMAP or POP settings
 
 - Check your settings to make sure emails are not automatically deleted or archived.
 - Remove access to unused apps and services connected to your account:
-  1. In your Google Account, go to [Third-party apps & services](https://myaccount.google.com/connections).
-  2. If you don’t recognize an app or service, click it.
-  3. Click **Remove**.
+ 1. In your Google Account, go to [Third-party apps & services](https://myaccount.google.com/connections).
+ 2. If you don’t recognize an app or service, click it.
+ 3. Click **Remove**.
 
 ## Request email recovery
 

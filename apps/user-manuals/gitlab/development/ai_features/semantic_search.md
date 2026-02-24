@@ -85,9 +85,9 @@ For Elasticsearch or OpenSearch clusters used by Advanced Search:
 
 ```ruby
 connection = Ai::ActiveContext::Connection.create!(
-  name: "os",
-  options: { url: ["http://localhost:9202"] },
-  adapter_class: "ActiveContext::Databases::OpenSearch::Adapter"
+ name: "os",
+ options: { url: ["http://localhost:9202"] },
+ adapter_class: "ActiveContext::Databases::OpenSearch::Adapter"
 )
 connection.activate!
 ```
@@ -222,9 +222,9 @@ Test that the vector store connection is working:
 
 ```ruby
 ActiveContext::adapter.search(
-  user: current_user,
-  collection: ::Ai::ActiveContext::Collections::Code,
-  query: ActiveContext::Query.all
+ user: current_user,
+ collection: ::Ai::ActiveContext::Collections::Code,
+ query: ActiveContext::Query.all
 )
 ```
 
@@ -236,8 +236,8 @@ Test that embedding generation is configured:
 
 ```ruby
 ::ActiveContext::Embeddings.generate_embeddings(
-  "test",
-  version: ::Ai::ActiveContext::Collections::Code::MODELS[1]
+ "test",
+ version: ::Ai::ActiveContext::Collections::Code::MODELS[1]
 )
 ```
 
@@ -287,13 +287,13 @@ Ai::ActiveContext::Queries::Code.available?
 
 # Perform a semantic search
 result = Ai::ActiveContext::Queries::Code.new(
-  search_term: "user authentication logic",
-  user: current_user
+ search_term: "user authentication logic",
+ user: current_user
 ).filter(
-  project_id: project.id,
-  path: "app/controllers/",  # Optional: filter by directory
-  knn_count: 10,             # Number of vectors to compare
-  limit: 10                  # Number of results to return
+ project_id: project.id,
+ path: "app/controllers/", # Optional: filter by directory
+ knn_count: 10,             # Number of vectors to compare
+ limit: 10                  # Number of results to return
 )
 ```
 
@@ -317,9 +317,9 @@ Find all items in the vector store:
 
 ```ruby
 ActiveContext::adapter.search(
-  user: current_user,
-  collection: ::Ai::ActiveContext::Collections::Code,
-  query: ActiveContext::Query.all
+ user: current_user,
+ collection: ::Ai::ActiveContext::Collections::Code,
+ query: ActiveContext::Query.all
 )
 ```
 

@@ -32,7 +32,7 @@ You can add a link to an entire text layer, or to a selection of text within the
 ### From the Properties panel
 
 1. Make your selection.
-2. Click  **Create link** in the properties panel.
+2. Click **Create link** in the properties panel.
 3. Type or paste a URL into the provided input box above the selected text.
 4. Press `Enter` to apply the link.
 
@@ -56,7 +56,7 @@ Add links directly to text without using the link input box.
    - Mac: `Command` `V`
    - Windows: `Control` `V`
 
-If you want to display the full URL in the page, use the paste keyboard shortcut twice—once to paste it as text, and once more to turn it into a link.  
+If you want to display the full URL in the page, use the paste keyboard shortcut twice—once to paste it as text, and once more to turn it into a link. 
 Learn more about how links work in our [Links playground file](https://www.figma.com/community/file/832634397112145954).
 
 Tip: To add a URL or an email without creating a link, use the keyboard shortcut:
@@ -86,7 +86,7 @@ To copy a link to a prototype:
 1. Open the file.
 2. Click **Present** to open the prototype in [presentation view](https://help.figma.com/hc/en-us/articles/360040318013).
 3. Click the **Share Prototype** button and set any [link sharing permissions](https://help.figma.com/hc/en-us/articles/360040531773).
-4. Click  **Copy link** to copy the URL to your clipboard.
+4. Click **Copy link** to copy the URL to your clipboard.
 
 ### Page
 

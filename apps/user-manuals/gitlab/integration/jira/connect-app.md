@@ -32,17 +32,17 @@ For Jira Data Center or Jira Server, use the [Jira DVCS connector](dvcs/_index.m
 After you link a group, the following GitLab data is synced to Jira for all projects in that group when you [mention a Jira issue ID](development_panel.md#information-displayed-in-the-development-panel):
 
 - Existing project data (before you linked the group):
-  - The last 400 merge requests
-  - The last 400 branches and the last commit to each of those branches (GitLab 15.11 and later)
+ - The last 400 merge requests
+ - The last 400 branches and the last commit to each of those branches (GitLab 15.11 and later)
 - New project data (after you linked the group):
-  - Merge requests
+ - Merge requests
     - Merge request author
-  - Branches
-  - Commits
+ - Branches
+ - Commits
     - Commit author
-  - Pipelines
-  - Deployments
-  - Feature flags
+ - Pipelines
+ - Deployments
+ - Feature flags
 
 ## Install the GitLab for Jira Cloud app
 
@@ -68,8 +68,7 @@ Alternatively, [get the app directly from the Atlassian Marketplace](https://mar
 You can now [configure the GitLab for Jira Cloud app](#configure-the-gitlab-for-jira-cloud-app).
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
-For an overview, see
-[Installing the GitLab for Jira Cloud app from the Atlassian Marketplace for GitLab.com](https://youtu.be/52rB586_rs8?list=PL05JrBw4t0Koazgli_PmMQCER2pVH7vUT).
+For an overview, see [Installing the GitLab for Jira Cloud app from the Atlassian Marketplace for GitLab.com](https://youtu.be/52rB586_rs8?list=PL05JrBw4t0Koazgli_PmMQCER2pVH7vUT).
 <!-- Video published on 2024-10-30 -->
 
 The video above shows the older [Universal Plugin Manager interface](https://community.atlassian.com/forums/Community-Announcements-articles/Cloud-admins-we-re-making-app-management-easier/ba-p/2806285) which might be unavailable on newer Jira Cloud instances.
@@ -132,8 +131,7 @@ To configure the GitLab for Jira Cloud app:
    {{< /alert >}}
    {{< alert type="note" >}}
 
-   GitLab requires you to sign in to link groups, but does not tie the configuration to a
-   specific user. The GitLab instance receives a token from Jira that is used to update information in Jira.
+   GitLab requires you to sign in to link groups, but does not tie the configuration to a specific user. The GitLab instance receives a token from Jira that is used to update information in Jira.
    For more information, see [GitLab access to Jira](#gitlab-access-to-jira).
 
    {{< /alert >}}
@@ -147,9 +145,9 @@ To configure the GitLab for Jira Cloud app:
 After you link to a GitLab group:
 
 - Data is synced to Jira for all projects in that group. The initial data sync happens in batches of 20 projects per minute.
-  For groups with many projects, the data sync for some projects is delayed.
+ For groups with many projects, the data sync for some projects is delayed.
 - A GitLab for Jira Cloud app integration is automatically enabled for the group, and all subgroups or projects in that group.
-  The integration allows you to [configure Jira Service Management](#configure-jira-service-management).
+ The integration allows you to [configure Jira Service Management](#configure-jira-service-management).
 
 ## Configure Jira Service Management
 
@@ -170,11 +168,9 @@ Prerequisites:
 
 You can connect GitLab to your IT service project to track your deployments.
 
-Configuration happens in GitLab, in the GitLab for
-Jira Cloud app integration. The integration is enabled for a group, its subgroups, and projects in GitLab after a [GitLab group has been linked](#configure-the-gitlab-for-jira-cloud-app).
+Configuration happens in GitLab, in the GitLab for Jira Cloud app integration. The integration is enabled for a group, its subgroups, and projects in GitLab after a [GitLab group has been linked](#configure-the-gitlab-for-jira-cloud-app).
 
-Enabling and disabling the GitLab for Jira Cloud app integration happens entirely automatically through group linking,
-and not through the GitLab integrations form or API.
+Enabling and disabling the GitLab for Jira Cloud app integration happens entirely automatically through group linking, and not through the GitLab integrations form or API.
 
 In Jira Service Management:
 
@@ -187,8 +183,7 @@ In GitLab:
 1. Select **Settings** > **Integrations**.
 1. Select **GitLab for Jira Cloud app**. If the integration is disabled, first [link a GitLab group](#configure-the-gitlab-for-jira-cloud-app)
    which enables the GitLab for Jira Cloud app integration for the group, its subgroups, and projects.
-1. In the **Service ID** field, enter the service ID that you want to map into this project. To use multiple service IDs,
-   add a comma between each service ID.
+1. In the **Service ID** field, enter the service ID that you want to map into this project. To use multiple service IDs, add a comma between each service ID.
 
 You can map up to 100 services.
 
@@ -213,8 +208,7 @@ For more information about deployment tracking in Jira, see [Set up deployment t
 > This feature was added as a community contribution and is developed and maintained by the GitLab community only.
 
 You can set up deployment gating to bring change requests from GitLab to Jira Service Management for approval.
-With deployment gating, any GitLab deployments to your selected environments are automatically sent
-to Jira Service Management and are only deployed if they're approved.
+With deployment gating, any GitLab deployments to your selected environments are automatically sent to Jira Service Management and are only deployed if they're approved.
 
 #### Create the service account token
 
@@ -237,19 +231,19 @@ To enable deployment gating:
 
 - In GitLab:
 
-  1. On the top bar, select **Search or go to** and find your project.
-  1. Select **Settings** > **Integrations**.
-  1. Select **GitLab for Jira Cloud app**.
-  1. Under **Deployment gating**, select the **Enable deployment gating** checkbox.
-  1. In the **Environment tiers** text box, enter the names of the environments you want to enable deployment gating for.
+ 1. On the top bar, select **Search or go to** and find your project.
+ 1. Select **Settings** > **Integrations**.
+ 1. Select **GitLab for Jira Cloud app**.
+ 1. Under **Deployment gating**, select the **Enable deployment gating** checkbox.
+ 1. In the **Environment tiers** text box, enter the names of the environments you want to enable deployment gating for.
      You can enter multiple environment names separated by commas (for example, `production, staging, testing, development`).
      Use lowercase letters only.
-  1. Select **Save changes**.
+ 1. Select **Save changes**.
 
 - In Jira Service Management:
 
-  1. [Set up deployment gating](https://support.atlassian.com/jira-service-management-cloud/docs/set-up-deployment-gating/).
-  1. In the **Service account token** text box, [paste the service account token value you copied from GitLab](#create-the-service-account-token).
+ 1. [Set up deployment gating](https://support.atlassian.com/jira-service-management-cloud/docs/set-up-deployment-gating/).
+ 1. In the **Service account token** text box, [paste the service account token value you copied from GitLab](#create-the-service-account-token).
 
 #### Add the service account to protected environments
 
@@ -267,30 +261,29 @@ To add the service account to your protected environments in GitLab:
 
 - Create a service account user:
 
-  ```shell
-  curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" --data "name=<name_of_your_choice>&username=<username_of_your_choice>"  "<https://gitlab.com/api/v4/groups/<group_id>/service_accounts"
-  ```
+ ```shell
+ curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" --data "name=<name_of_your_choice>&username=<username_of_your_choice>" "<https://gitlab.com/api/v4/groups/<group_id>/service_accounts"
+ ```
 
 - Add the service account to a group or project by using your personal access token:
 
-  ```shell
-  curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
+ ```shell
+ curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
        --data "user_id=<service_account_id>&access_level=30" "https://gitlab.com/api/v4/groups/<group_id>/members"
-  curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
+ curl --request POST --header "PRIVATE-TOKEN: <your_access_token>" \
        --data "user_id=<service_account_id>&access_level=30" "https://gitlab.com/api/v4/projects/<project_id>/members"
-  ```
+ ```
 
 - Generate a service account token by using your personal access token:
 
-  ```shell
-  curl --request POST --header "PRIVATE-TOKEN: <your_access_token>"
-  "https://gitlab.com/api/v4/groups/<group_id>/service_accounts/<service_account_id>/personal_access_tokens" --data "scopes[]=api,read_user,read_repository" --data "name=service_accounts_token"
-  ```
+ ```shell
+ curl --request POST --header "PRIVATE-TOKEN: <your_access_token>"
+ "https://gitlab.com/api/v4/groups/<group_id>/service_accounts/<service_account_id>/personal_access_tokens" --data "scopes[]=api,read_user,read_repository" --data "name=service_accounts_token"
+ ```
 
 ## Update the GitLab for Jira Cloud app
 
-Most updates to the app are automatic. For more information, see the
-[Atlassian documentation](https://developer.atlassian.com/platform/marketplace/upgrading-and-versioning-cloud-apps/).
+Most updates to the app are automatic. For more information, see the [Atlassian documentation](https://developer.atlassian.com/platform/marketplace/upgrading-and-versioning-cloud-apps/).
 
 If the app requires additional permissions, [you must manually approve the update in Jira](https://developer.atlassian.com/platform/marketplace/upgrading-and-versioning-cloud-apps/#changes-that-require-manual-customer-approval).
 
@@ -328,8 +321,7 @@ For GitLab Self-Managed instances that use the GitLab for Jira Cloud app from th
 
 ### Data stored by Jira
 
-[Data sent to Jira](#data-sent-from-gitlab-to-jira) is stored by Jira
-and displayed in the [Jira development panel](development_panel.md).
+[Data sent to Jira](#data-sent-from-gitlab-to-jira) is stored by Jira and displayed in the [Jira development panel](development_panel.md).
 
 When the GitLab for Jira Cloud app is uninstalled, Jira permanently deletes this data.
 This process happens asynchronously and might take up to several hours.
@@ -354,13 +346,11 @@ Failed to link group. Please try again.
 
 A `403 Forbidden` is returned if the user information cannot be fetched from Jira because of insufficient permissions.
 
-To resolve this issue, ensure you meet certain
-[Jira user requirements](../../administration/settings/jira_cloud_app.md#jira-user-requirements).
+To resolve this issue, ensure you meet certain [Jira user requirements](../../administration/settings/jira_cloud_app.md#jira-user-requirements).
 
 ### Jira Code does not work after linking to a GitLab group
 
-[Jira Code](https://support.atlassian.com/jira-software-cloud/docs/enable-code/) might not work after you
-[link the GitLab for Jira Cloud app to a GitLab group](#configure-the-gitlab-for-jira-cloud-app).
+[Jira Code](https://support.atlassian.com/jira-software-cloud/docs/enable-code/) might not work after you [link the GitLab for Jira Cloud app to a GitLab group](#configure-the-gitlab-for-jira-cloud-app).
 To resolve this issue, you must configure both Bitbucket and Jira.
 
 In Bitbucket:

@@ -22,15 +22,14 @@ title: Code review analytics
 Code review analytics displays a table of open merge requests that have at least one non-author comment.
 The review time is the amount of time since the first comment by a non-author in a merge request.
 
-You can use code review analytics to view review metrics per merge request
-and improve your code review process.
+You can use code review analytics to view review metrics per merge request and improve your code review process.
 
 - A high number of comments or commits may indicate:
-  - Code that is too complex.
-  - Authors who require more training.
+ - Code that is too complex.
+ - Authors who require more training.
 - A long review time may indicate:
-  - Types of work that move slower than other types.
-  - Opportunities to accelerate your development cycle.
+ - Types of work that move slower than other types.
+ - Opportunities to accelerate your development cycle.
 - Few comments and approvers may indicate a lack of available team members.
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
@@ -51,8 +50,7 @@ To view code review analytics:
    1. Select a parameter. You can filter merge requests by milestone and label.
    1. Select a value for the selected parameter.
 
-The table shows up to 20 merge requests in review per page,
-and includes the following information about each merge request:
+The table shows up to 20 merge requests in review per page, and includes the following information about each merge request:
 
 - Merge request title
 - Review time

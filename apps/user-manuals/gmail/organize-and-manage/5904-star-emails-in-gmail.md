@@ -35,18 +35,18 @@ You can add stars of different colors, or other icons.
 
 - To find all starred messages, enter `is:starred.`
 - To find messages with a specific star, enter `has:` followed by the star's name. The names are based on your current star options in use:
-  - `has:yellow-star`
-  - `has:orange-star`
-  - `has:red-star`
-  - `has:purple-star`
-  - `has:blue-star`
-  - `has:green-star`
-  - `has:red-bang`
-  - `has:orange-guillemet`
-  - `has:yellow-bang`
-  - `has:green-check`
-  - `has:blue-info`
-  - `has:purple-question`
+ - `has:yellow-star`
+ - `has:orange-star`
+ - `has:red-star`
+ - `has:purple-star`
+ - `has:blue-star`
+ - `has:green-star`
+ - `has:red-bang`
+ - `has:orange-guillemet`
+ - `has:yellow-bang`
+ - `has:green-check`
+ - `has:blue-info`
+ - `has:purple-question`
 
 [Computer](5904-star-emails-in-gmail.md) [Android](5904-star-emails-in-gmail.md)[iPhone & iPad](5904-star-emails-in-gmail.md)
 

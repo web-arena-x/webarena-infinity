@@ -25,21 +25,15 @@ To enable the PostgreSQL Server Exporter:
    postgres_exporter['enable'] = true
    ```
 
-   If PostgreSQL Server Exporter is configured on a separate node, make sure that the local
-   address is [listed in `trust_auth_cidr_addresses`](../../postgresql/replication_and_failover.md#network-information) or the
-   exporter can't connect to the database.
+   If PostgreSQL Server Exporter is configured on a separate node, make sure that the local address is [listed in `trust_auth_cidr_addresses`](../../postgresql/replication_and_failover.md#network-information) or the exporter can't connect to the database.
 
-1. Save the file and [reconfigure GitLab](../../restart_gitlab.md#reconfigure-a-linux-package-installation) for the changes to
-   take effect.
+1. Save the file and [reconfigure GitLab](../../restart_gitlab.md#reconfigure-a-linux-package-installation) for the changes to take effect.
 
-Prometheus begins collecting performance data from
-the PostgreSQL Server Exporter exposed under `localhost:9187`.
+Prometheus begins collecting performance data from the PostgreSQL Server Exporter exposed under `localhost:9187`.
 
 ## Advanced configuration
 
-In most cases, PostgreSQL Server Exporter works with the defaults and you should not
-need to change anything. To further customize the PostgreSQL Server Exporter,
-use the following configuration options:
+In most cases, PostgreSQL Server Exporter works with the defaults and you should not need to change anything. To further customize the PostgreSQL Server Exporter, use the following configuration options:
 
 1. Edit `/etc/gitlab/gitlab.rb`:
 

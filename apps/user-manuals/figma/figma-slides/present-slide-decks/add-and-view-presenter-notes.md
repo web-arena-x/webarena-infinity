@@ -20,19 +20,19 @@ You can add presenter notes to any slide to help you stay on track during your p
 
 Figma Slides supports the following markdown syntax in the presenter notes field:
 
-|  |  |
+| | |
 | --- | --- |
 | **Element** | **Markdown syntax** |
 | Bold | \*\*bold text\*\* |
 | Italic | \*italicized text\* |
 | Strikethrough | ~~struck text~~ |
-| Ordered list | 1. First item  2. Second item  3. Third item |
-| Unordered list | - First item  - Second item  - Third item |
+| Ordered list | 1. First item 2. Second item 3. Third item |
+| Unordered list | - First item - Second item - Third item |
 
 ## Add presenter notes to a slide
 
 1. Open your slide deck.
-2. Use the toggle in the left sidebar to switch to  **slide view**.
+2. Use the toggle in the left sidebar to switch to **slide view**.
 3. Select the slide you want to add presenter notes to.
 4. If the presenter notes field is minimized, click the **Show presenter notes** handle above the toolbar to open the field.
 5. Type your notes in the field that displays below the slide.

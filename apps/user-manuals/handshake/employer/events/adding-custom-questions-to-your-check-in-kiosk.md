@@ -35,14 +35,14 @@ In addition to our standard list of check-in questions, custom prompts can be co
 
 - **Short free text**
 - **Single-select**
-  - *Add your own prompts for attendees to select from*
+ - *Add your own prompts for attendees to select from*
 - **Multi-select**
-  - *Add your own prompts for attendees to select from*
+ - *Add your own prompts for attendees to select from*
 
 ![Answer type.png](https://support.joinhandshake.com/hc/article_attachments/26001343265047)
 
 - To add an additional question(s), click the white button **+ Add question**.
-  - **Note**: You can add as many custom questions as desired.
+ - **Note**: You can add as many custom questions as desired.
 - To make a question required, check the box for **Required**.
 - To remove a question, click the bin icon located on the far right side of the textbox.
 

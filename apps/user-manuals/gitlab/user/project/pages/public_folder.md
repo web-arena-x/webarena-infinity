@@ -15,14 +15,11 @@ title: GitLab Pages public folder
 
 {{< history >}}
 
-- GitLab 16.1 introduced support for configuring the published folder in
-  `.gitlab-ci.yml`. You no longer need to change your framework configuration. For more
-  information, see [set a custom folder to be deployed with Pages](introduction.md#customize-the-default-folder).
+- GitLab 16.1 introduced support for configuring the published folder in `.gitlab-ci.yml`. You no longer need to change your framework configuration. For more information, see [set a custom folder to be deployed with Pages](introduction.md#customize-the-default-folder).
 
 {{< /history >}}
 
-Follow these instructions to configure the `public` folder
-for the following frameworks.
+Follow these instructions to configure the `public` folder for the following frameworks.
 
 ## Eleventy
 
@@ -30,25 +27,24 @@ For Eleventy, you should do one of the following:
 
 - Add the `--output=public` flag in the Eleventy build commands, for example:
 
-  `npx @11ty/eleventy --input=path/to/sourcefiles --output=public`
+ `npx @11ty/eleventy --input=path/to/sourcefiles --output=public`
 
 - Add the following to your `.eleventy.js` file:
 
-  ```javascript
-  // .eleventy.js
-  module.exports = function(eleventyConfig) {
+ ```javascript
+ // .eleventy.js
+ module.exports = function(eleventyConfig) {
     return {
       dir: {
         output: "public"
       }
     }
-  };
-  ```
+ };
+ ```
 
 ## Astro
 
-By default, Astro uses the `public` folder to store static assets. For GitLab Pages,
-rename that folder to a collision-free alternative first:
+By default, Astro uses the `public` folder to store static assets. For GitLab Pages, rename that folder to a collision-free alternative first:
 
 1. In your project directory, run:
 
@@ -77,8 +73,7 @@ rename that folder to a collision-free alternative first:
 
 {{< alert type="note" >}}
 
-GitLab Pages supports only static sites. For SvelteKit,
-you can use [`adapter-static`](https://kit.svelte.dev/docs/adapters#supported-environments-static-sites).
+GitLab Pages supports only static sites. For SvelteKit, you can use [`adapter-static`](https://kit.svelte.dev/docs/adapters#supported-environments-static-sites).
 
 {{< /alert >}}
 
@@ -89,11 +84,11 @@ When using `adapter-static`, add the following to your `svelte.config.js`:
 import adapter from '@sveltejs/adapter-static';
 
 export default {
-  kit: {
+ kit: {
     adapter: adapter({
       pages: 'public'
     })
-  }
+ }
 };
 ```
 
@@ -101,8 +96,7 @@ export default {
 
 {{< alert type="note" >}}
 
-GitLab Pages supports only static sites. For Next.js, you can use
-Next's [Static HTML export functionality](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports).
+GitLab Pages supports only static sites. For Next.js, you can use Next's [Static HTML export functionality](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports).
 
 {{< /alert >}}
 
@@ -112,11 +106,11 @@ You should use the following `next.config.js` so all static assets can be export
 ```javascript
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  images: {
+ reactStrictMode: true,
+ images: {
     unoptimized: true,
-  },
-  assetPrefix: "https://example.gitlab.io/namespace-here/my-gitlab-project/"
+ },
+ assetPrefix: "https://example.gitlab.io/namespace-here/my-gitlab-project/"
 }
 
 module.exports = nextConfig
@@ -126,12 +120,12 @@ An example `.gitlab-ci.yml` can be as minimal as:
 
 ```yaml
 create-pages:
-  before_script:
+ before_script:
     - npm install
-  script:
+ script:
     - npm run build
     - mv out/* public
-  pages: true  # specifies that this is a Pages job and publishes the default public directory
+ pages: true # specifies that this is a Pages job and publishes the default public directory
 ```
 
 The previous YAML example uses [user-defined job names](_index.md#user-defined-job-names).
@@ -144,8 +138,7 @@ GitLab Pages supports only static sites.
 
 {{< /alert >}}
 
-By default, Nuxt uses the `public` folder to store static assets. For GitLab
-Pages, rename the `public` folder to a collision-free alternative first:
+By default, Nuxt uses the `public` folder to store static assets. For GitLab Pages, rename the `public` folder to a collision-free alternative first:
 
 1. In your project directory, run:
 
@@ -169,8 +162,7 @@ Pages, rename the `public` folder to a collision-free alternative first:
    }
    ```
 
-1. Configure your Nuxt.js application for
-   [Static Site Generation](https://nuxt.com/docs/getting-started/deployment#static-hosting).
+1. Configure your Nuxt.js application for [Static Site Generation](https://nuxt.com/docs/getting-started/deployment#static-hosting).
 
 ## Vite
 
@@ -179,9 +171,9 @@ Update your `vite.config.js` to include the following:
 ```javascript
 // vite.config.js
 export default {
-  build: {
+ build: {
     outDir: 'public'
-  }
+ }
 }
 ```
 
@@ -192,18 +184,15 @@ Update your `webpack.config.js` to include the following:
 ```javascript
 // webpack.config.js
 module.exports = {
-  output: {
+ output: {
     path: __dirname + '/public'
-  }
+ }
 };
 ```
 
 ## Should you commit the `public` folder?
 
-Not necessarily. However, when the GitLab Pages deploy pipeline runs, it looks
-for an [artifact](../../../ci/jobs/job_artifacts.md) of that name.
-If you set up a job that creates the `public` folder before deploy, such as by
-running `npm run build`, committing the folder isn't required.
+Not necessarily. However, when the GitLab Pages deploy pipeline runs, it looks for an [artifact](../../../ci/jobs/job_artifacts.md) of that name.
+If you set up a job that creates the `public` folder before deploy, such as by running `npm run build`, committing the folder isn't required.
 
-If you prefer to build your site locally, you can commit the `public` folder and
-omit the build step during the job instead.
+If you prefer to build your site locally, you can commit the `public` folder and omit the build step during the job instead.

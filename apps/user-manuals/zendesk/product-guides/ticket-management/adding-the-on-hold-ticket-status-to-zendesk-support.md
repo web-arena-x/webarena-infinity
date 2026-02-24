@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408889282458-Adding-the-O
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > Objects and rules > Tickets > Fields
+Location: Admin Center > Objects and rules > Tickets > Fields
 
 The On-hold status is optional and only available if you activate it for the Support ticket interface. On-hold is an internal ticket status for tickets that require input or resolution from a third party. On-hold status is visible to agents only, not end users. For end users, tickets that are set to On-hold are always displayed as Open.
 

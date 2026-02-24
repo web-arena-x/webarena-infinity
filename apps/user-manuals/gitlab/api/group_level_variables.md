@@ -35,8 +35,8 @@ GET /groups/:id/variables
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/variables"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/variables"
 ```
 
 ```json
@@ -74,8 +74,7 @@ curl \
 
 {{< /history >}}
 
-Get the details of a group's specific variable. If there are multiple variables with the same key,
-use `filter` to select the correct `environment_scope`.
+Get the details of a group's specific variable. If there are multiple variables with the same key, use `filter` to select the correct `environment_scope`.
 
 ```plaintext
 GET /groups/:id/variables/:key
@@ -85,12 +84,12 @@ GET /groups/:id/variables/:key
 | --------- | ----------------- | -------- | ----------- |
 | `id`      | integer or string | Yes      | ID of a group or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
 | `key`     | string            | Yes      | Key of a variable. |
-| `filter`  | hash              | No       | Filters results when multiple variables share the same key. Possible values: `[environment_scope]`. Premium and Ultimate only. |
+| `filter` | hash              | No       | Filters results when multiple variables share the same key. Possible values: `[environment_scope]`. Premium and Ultimate only. |
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/variables/SCOPED_VARIABLE_1?filter[environment_scope]=production"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/variables/SCOPED_VARIABLE_1?filter[environment_scope]=production"
 ```
 
 ```json
@@ -136,10 +135,10 @@ POST /groups/:id/variables
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/variables" \
-  --form "key=NEW_VARIABLE" \
-  --form "value=new value"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/variables" \
+ --form "key=NEW_VARIABLE" \
+ --form "value=new value"
 ```
 
 ```json
@@ -164,8 +163,7 @@ curl --request POST \
 
 {{< /history >}}
 
-Update a group's variable. If there are multiple variables with the same key,
-use `filter` to select the correct `environment_scope`.
+Update a group's variable. If there are multiple variables with the same key, use `filter` to select the correct `environment_scope`.
 
 ```plaintext
 PUT /groups/:id/variables/:key
@@ -186,9 +184,9 @@ PUT /groups/:id/variables/:key
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/variables/SCOPED_VARIABLE_1?value=scoped-variable-updated-value&environment_scope=production&filter[environment_scope]=production" \
-  --form "value=updated value"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/variables/SCOPED_VARIABLE_1?value=scoped-variable-updated-value&environment_scope=production&filter[environment_scope]=production" \
+ --form "value=updated value"
 ```
 
 ```json
@@ -213,8 +211,7 @@ curl --request PUT \
 
 {{< /history >}}
 
-Remove a group's variable. If there are multiple variables with the same key,
-use `filter` to select the correct `environment_scope`.
+Remove a group's variable. If there are multiple variables with the same key, use `filter` to select the correct `environment_scope`.
 
 ```plaintext
 DELETE /groups/:id/variables/:key
@@ -224,10 +221,10 @@ DELETE /groups/:id/variables/:key
 | --------- | ----------------- | -------- | ----------- |
 | `id`      | integer or string | Yes      | ID of a group or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
 | `key`     | string            | Yes      | Key of a variable. |
-| `filter`  | hash              | No       | Filters results when multiple variables share the same key. Possible values: `[environment_scope]`. Premium and Ultimate only. |
+| `filter` | hash              | No       | Filters results when multiple variables share the same key. Possible values: `[environment_scope]`. Premium and Ultimate only. |
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/variables/SCOPED_VARIABLE_1?filter[environment_scope]=production"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/variables/SCOPED_VARIABLE_1?filter[environment_scope]=production"
 ```

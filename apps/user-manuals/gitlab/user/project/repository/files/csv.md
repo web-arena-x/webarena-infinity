@@ -14,16 +14,13 @@ title: CSV files
 {{< /details >}}
 
 A comma-separated values (CSV) file is a delimited text file that uses a comma to separate values.
-Each line of the file is a data record. Each record consists of one or more fields, separated by
-commas. The use of the comma as a field separator is the source of the name for this file format.
-A CSV file typically stores tabular data (numbers and text) in plain text, in which case each line
-has the same number of fields.
+Each line of the file is a data record. Each record consists of one or more fields, separated by commas. The use of the comma as a field separator is the source of the name for this file format.
+A CSV file typically stores tabular data (numbers and text) in plain text, in which case each line has the same number of fields.
 
 The CSV file format is not fully standardized. Other characters can be used as column delimiters.
 Fields may or may not be surrounded to escape special characters.
 
-When added to a repository, files with a `.csv` extension are rendered as a table when viewed in
-GitLab:
+When added to a repository, files with a `.csv` extension are rendered as a table when viewed in GitLab:
 
 ![CSV file rendered as a table](img/csv_as_table_v17_10.png)
 
@@ -55,5 +52,4 @@ If your CSV file doesn't display correctly in GitLab:
 - Enclose all fields that contain special characters in double quotes (`"`).
 - Test how the CSV file displays in GitLab after making changes.
 
-These parsing requirements only affect the visual rendering of CSV files and do not impact the actual
-file content stored in your repository.
+These parsing requirements only affect the visual rendering of CSV files and do not impact the actual file content stored in your repository.

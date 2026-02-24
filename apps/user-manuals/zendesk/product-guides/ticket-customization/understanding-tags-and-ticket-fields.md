@@ -41,6 +41,6 @@ Changing the tag will result in the following behavior:
 - If you change the field option tag to tag that does exist on a ticket, the field will revert to a 'null' value until an update occurs. After an update, Zendesk Support re-reads the tags and will select the correct field option.
 - Since you need an update to populate the updated field option, you cannot change field option tags to edit closed tickets.
 
-  Note: The only exception to this rule is if your field option was deleted and then re-added into the same field (as discussed above). You cannot create the same field option in a different field and expect the results to populate historical tickets.
+ Note: The only exception to this rule is if your field option was deleted and then re-added into the same field (as discussed above). You cannot create the same field option in a different field and expect the results to populate historical tickets.
 
 As you might imagine, this can become especially messy when you delete field options or disable/delete entire fields. Remember, data is important. Once it's gone, you'll never be able to get it back.

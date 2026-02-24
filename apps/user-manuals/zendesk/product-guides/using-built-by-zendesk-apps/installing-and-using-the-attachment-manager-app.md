@@ -11,11 +11,11 @@ The [Attachment Manager app](https://www.zendesk.com/apps/support/attachment-ma
 This article contains the following topics:
 
 - [Installing the app](#h_47f13980-ca5c-4b46-87c5-e793d5205f60)
-  - [Understanding the tags added by the Attachment Manager app](#h_01K1EEC0MZG6THQKDZNGTB5HDB)
+ - [Understanding the tags added by the Attachment Manager app](#h_01K1EEC0MZG6THQKDZNGTB5HDB)
 - [Using the app](#h_1766ee90-eb15-49c8-9b87-5d9f9b802b2a)
-  - [Redacting ticket attachments](#h_0df26e0c-da78-4d0f-b6a4-282d4c4b30be)
-  - [Redacting restricted ticket attachments](#h_2a821888-f5a3-47a2-ac36-b5f9089b0692)
-  - [Adding attachments to the attachment library](#h_d05e652a-793c-4965-b2e0-74ea36b95d18)
+ - [Redacting ticket attachments](#h_0df26e0c-da78-4d0f-b6a4-282d4c4b30be)
+ - [Redacting restricted ticket attachments](#h_2a821888-f5a3-47a2-ac36-b5f9089b0692)
+ - [Adding attachments to the attachment library](#h_d05e652a-793c-4965-b2e0-74ea36b95d18)
 
 # Installing the app
 
@@ -26,7 +26,7 @@ The Attachment Manager app is installed from the [Zendesk Marketplace.](https://
 1. In [Admin Center](https://support.zendesk.com/hc/en-us/articles/4408838272410), click the **Apps and integrations** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ac_apps_integrations_icon.png)) in the sidebar, then select **Apps > Zendesk Support apps**.
 2. Click **Marketplace** at the top of the page and then enter "Attachment Manager" in the Marketplace search bar. Or, simply follow the marketplace link above.
 3. Double-click on the Attachment Manager app icon, and click **Install**.
-4. In the installation section, enter a name for the app.  
+4. In the installation section, enter a name for the app. 
    ![attachment_manager_install.png](https://support.zendesk.com/hc/article_attachments/4408851802650)
 5. Enter the tags to be added to existing tickets and new tickets with attachments. See [Understanding the tags added by the app](#h_01K1EEC0MZG6THQKDZNGTB5HDB).
 6. Specify any whitelist or blacklist options for allowing or blocking file extensions.
@@ -76,7 +76,7 @@ The second item in the app accordion list is **Restricted attachments**, which
 2. Select the attachments you would like to remove, or select the checkmark to the left of **Name** if you would like to select all attachments.
 3. Click **Redact attachments**.
 4. A pop-up confirmation window appears to confirm your changes.
-5. Type confirmation text and click **Redact**.   
+5. Type confirmation text and click **Redact**.  
      
    ![](https://support.zendesk.com/hc/article_attachments/4408850703642)
 

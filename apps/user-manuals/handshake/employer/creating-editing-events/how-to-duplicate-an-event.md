@@ -39,8 +39,8 @@ When planning a similar event, duplicating a previous one allows you to prefill 
 - **Contact and contact message preferences**
 - **Event location preferences**
 
-  - On-campus: Host school and Career Center (if originally filled out)
-  - Off-campus
+ - On-campus: Host school and Career Center (if originally filled out)
+ - Off-campus
 - **Handshake video preferences**, including the option to record
 - **Registration limit**
 - **Invited schools**

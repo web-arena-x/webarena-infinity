@@ -29,10 +29,7 @@ For token-based authentication methods, the minimum required scope:
 
 {{< alert type="note" >}}
 
-Admin Mode does not apply during authentication with the container registry. If you are an administrator
-with Admin Mode enabled, and you create a personal access token without the `admin_mode` scope,
-that token works even though Admin Mode is enabled. For more information, see
-[Admin Mode](../../../administration/settings/sign_in_restrictions.md#admin-mode).
+Admin Mode does not apply during authentication with the container registry. If you are an administrator with Admin Mode enabled, and you create a personal access token without the `admin_mode` scope, that token works even though Admin Mode is enabled. For more information, see [Admin Mode](../../../administration/settings/sign_in_restrictions.md#admin-mode).
 
 {{< /alert >}}
 
@@ -66,8 +63,7 @@ TOKEN=<token>
 echo "$TOKEN" | docker login registry.example.com -u <username> --password-stdin
 ```
 
-After authentication, the client caches the credentials. Later operations make authorization
-requests that return JWT tokens, authorized to do only the specified operation.
+After authentication, the client caches the credentials. Later operations make authorization requests that return JWT tokens, authorized to do only the specified operation.
 Tokens remain valid:
 
 - For [5 minutes by default](../../../administration/packages/container_registry.md#increase-token-duration) on GitLab Self-Managed
@@ -79,52 +75,48 @@ To use CI/CD to authenticate with the container registry, you can use:
 
 - The `CI_REGISTRY_USER` CI/CD variable.
 
-  This variable holds a per-job user with read-write access to the container registry.
-  Its password is also automatically created and available in `CI_REGISTRY_PASSWORD`.
+ This variable holds a per-job user with read-write access to the container registry.
+ Its password is also automatically created and available in `CI_REGISTRY_PASSWORD`.
 
-  ```shell
-  echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
-  ```
+ ```shell
+ echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
+ ```
 
 - A [CI job token](../../../ci/jobs/ci_job_token.md).
 
-  This token can only be used for read (pull) access. It has the `read_registry` scope but not the `write_registry` scope needed for push operations.
+ This token can only be used for read (pull) access. It has the `read_registry` scope but not the `write_registry` scope needed for push operations.
 
-  ```shell
-  echo "$CI_JOB_TOKEN" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
-  ```
+ ```shell
+ echo "$CI_JOB_TOKEN" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
+ ```
 
-  You can also use the `gitlab-ci-token` scheme:
+ You can also use the `gitlab-ci-token` scheme:
 
-  ```shell
-  echo "$CI_JOB_TOKEN" | docker login $CI_REGISTRY -u gitlab-ci-token --password-stdin
-  ```
+ ```shell
+ echo "$CI_JOB_TOKEN" | docker login $CI_REGISTRY -u gitlab-ci-token --password-stdin
+ ```
 
 - A [GitLab deploy token](../../project/deploy_tokens/_index.md#gitlab-deploy-token) with the minimum scope of:
-  - For read (pull) access, `read_registry`.
-  - For write (push) access, `read_registry` and `write_registry`.
+ - For read (pull) access, `read_registry`.
+ - For write (push) access, `read_registry` and `write_registry`.
 
-  ```shell
-  echo "$CI_DEPLOY_PASSWORD" | docker login $CI_REGISTRY -u $CI_DEPLOY_USER --password-stdin
-  ```
+ ```shell
+ echo "$CI_DEPLOY_PASSWORD" | docker login $CI_REGISTRY -u $CI_DEPLOY_USER --password-stdin
+ ```
 
 - A personal access token with the minimum scope of:
-  - For read (pull) access, `read_registry`.
-  - For write (push) access, `read_registry` and `write_registry`.
+ - For read (pull) access, `read_registry`.
+ - For write (push) access, `read_registry` and `write_registry`.
 
-  ```shell
-  echo "<access_token>" | docker login $CI_REGISTRY -u <username> --password-stdin
-  ```
+ ```shell
+ echo "<access_token>" | docker login $CI_REGISTRY -u <username> --password-stdin
+ ```
 
 ## Troubleshooting
 
 ### `docker login` command fails with `access forbidden`
 
-The container registry returns the GitLab API URL to the Docker client
-to validate credentials. The Docker client uses basic auth, so the request contains
-the `Authorization` header. If the `Authorization` header is missing in the request to the
-`/jwt/auth` endpoint configured in the `token_realm` for the registry configuration,
-you receive an `access forbidden` error message.
+The container registry returns the GitLab API URL to the Docker client to validate credentials. The Docker client uses basic auth, so the request contains the `Authorization` header. If the `Authorization` header is missing in the request to the `/jwt/auth` endpoint configured in the `token_realm` for the registry configuration, you receive an `access forbidden` error message.
 
 For example:
 

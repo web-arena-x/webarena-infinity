@@ -117,7 +117,7 @@ The Payment QR code will appear on a separate page from your bill. When your cli
 1. Go to **Billing** or click the **Bills** subtab in a contact or matter.
 2. *Optional*: Download multiple approved bills by checking the box next to all the bills you want to download.
 3. Click the down arrow next to **Send** and select **Download.**
-4. Select **PDF** as the output format.  
+4. Select **PDF** as the output format. 
 
    **Note:** If you do not want to include the Payment QR code on your PDF bill, toggle off **Payment QR code on bill** for each download. Toggling off on a per-download basis will apply to all bills within the same download.
 

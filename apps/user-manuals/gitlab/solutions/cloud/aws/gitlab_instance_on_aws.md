@@ -37,7 +37,7 @@ Some services, such as log aggregation, outbound email are not specified by GitL
 | **Front End Load Balancing**                                 | AWS ELB                        |
 | **Internal Load Balancing**                                  | AWS ELB                        |
 | **Outbound Email Services**                                  | AWS Simple Email Service (SES) |
-| **Certificate Authority and Management**                     | AWS Certificate Manager (ACM)  |
+| **Certificate Authority and Management**                     | AWS Certificate Manager (ACM) |
 | **DNS**                                                      | AWS Route53 (tested)           |
 | **GitLab and Infrastructure Log Aggregation**                | AWS CloudWatch Logs            |
 | **Infrastructure Performance Metrics**                       | AWS CloudWatch Metrics         |

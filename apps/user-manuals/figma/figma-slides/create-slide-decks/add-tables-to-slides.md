@@ -20,8 +20,8 @@ Add tables to your slides to present information in an organized and structured 
 
 To add a new table:
 
-1. Click  **Assets** in the toolbar.
-2. Select  **Table**.
+1. Click **Assets** in the toolbar.
+2. Select **Table**.
 3. Click and drag your cursor to create a table with the number of rows and columns you need.
 
 Once added, you can double-click inside a table cell to start typing.
@@ -87,9 +87,9 @@ To add a row or column at the end or bottom of the table:
 
 ![](https://help.figma.com/hc/article_attachments/30601070387607)
 
-To add a row or column in the middle of the table, select the  blue plus that appears.
+To add a row or column in the middle of the table, select the blue plus that appears.
 
-Note: If you don’t see the  blue plus, you may need to zoom in.
+Note: If you don’t see the blue plus, you may need to zoom in.
 
 ![](https://help.figma.com/hc/article_attachments/30601070391447)
 

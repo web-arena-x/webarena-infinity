@@ -16,8 +16,7 @@ GitLab Duo includes:
 
 GitLab Duo requires setup by your administrator, group, or project owner.
 
-If you have issues accessing GitLab Duo features, your administrators
-can check the health of the installation.
+If you have issues accessing GitLab Duo features, your administrators can check the health of the installation.
 
 For more information, see:
 
@@ -43,12 +42,9 @@ For more information, see:
 
 ## Step 3: Try other GitLab Duo features
 
-GitLab Duo is available throughout your workflow. From planning sprints to
-troubleshooting CI/CD pipelines, from writing test cases to resolving security threats,
-GitLab Duo can help you in a variety of ways.
+GitLab Duo is available throughout your workflow. From planning sprints to troubleshooting CI/CD pipelines, from writing test cases to resolving security threats, GitLab Duo can help you in a variety of ways.
 
-With the GitLab Duo Agent Platform, you can build and deploy AI-powered
-assistants to autonomously perform tasks.
+With the GitLab Duo Agent Platform, you can build and deploy AI-powered assistants to autonomously perform tasks.
 
 The features you have access to might differ, depending on your subscription.
 
@@ -61,8 +57,7 @@ For more information, see:
 
 ## Step 4: Prepare to use GitLab Duo in your IDE
 
-Now try GitLab Duo features in your IDE. In VS Code and other editors, you can use
-features like GitLab Duo Chat, the software development flow, and Code Suggestions.
+Now try GitLab Duo features in your IDE. In VS Code and other editors, you can use features like GitLab Duo Chat, the software development flow, and Code Suggestions.
 
 To get started, install an extension and authenticate with GitLab.
 

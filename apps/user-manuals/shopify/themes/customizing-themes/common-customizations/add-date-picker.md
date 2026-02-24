@@ -47,15 +47,15 @@ Desktop
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 
 <div style="width:300px; clear:both;">
-  <p>
+ <p>
     <label for="date">Pick a delivery date:</label>
     <input id="date" type="text" name="attributes[date]" value="{{ cart.attributes.date }}" />
     <span style="display:block" class="instructions"> We do not deliver during the weekend.</span>
-  </p>
+ </p>
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
     if (window.jQuery) {
       $(function() {
         $("#date").datepicker({
@@ -65,15 +65,14 @@ Desktop
         });
       });
     }
-  });
+ });
 </script>
 ```
 
 6. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage themes**.
 4. Find the theme you want to edit, tap the **…** button to open the actions menu, and then tap **Edit code**.
@@ -89,15 +88,15 @@ Mobile
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 
 <div style="width:300px; clear:both;">
-  <p>
+ <p>
     <label for="date">Pick a delivery date:</label>
     <input id="date" type="text" name="attributes[date]" value="{{ cart.attributes.date }}" />
     <span style="display:block" class="instructions"> We do not deliver during the weekend.</span>
-  </p>
+ </p>
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+ document.addEventListener('DOMContentLoaded', function() {
     if (window.jQuery) {
       $(function() {
         $("#date").datepicker({
@@ -107,7 +106,7 @@ Mobile
         });
       });
     }
-  });
+ });
 </script>
 ```
 

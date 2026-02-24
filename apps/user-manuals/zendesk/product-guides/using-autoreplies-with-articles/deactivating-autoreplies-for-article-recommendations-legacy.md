@@ -6,16 +6,13 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408846786714-Deactivating
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-As of July 31, 2025, the
-autoreplies with articles feature is considered legacy functionality. Instead, [use AI agents](https://support.zendesk.com/hc/en-us/articles/6478272212506) to deliver generative AI-powered responses
-on messaging, email, and web form channels.
+As of July 31, 2025, the autoreplies with articles feature is considered legacy functionality. Instead, [use AI agents](https://support.zendesk.com/hc/en-us/articles/6478272212506) to deliver generative AI-powered responses on messaging, email, and web form channels.
 
-You can deactivate autoreplies
-with articles for email notifications, web forms, or both.
+You can deactivate autoreplies with articles for email notifications, web forms, or both.
 
 **To deactivate autoreplies in emails**
 
@@ -24,16 +21,12 @@ with articles for email notifications, web forms, or both.
    Triggers**.
 2. On the Triggers page, locate the autoreply trigger you want to deactivate.
 3. Hover your mouse over the trigger to display the options menu icon (
-   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/support_trigger_options.png)) and select
-   **Deactivate**.
+   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/support_trigger_options.png)) and select **Deactivate**.
 
-   The
-   trigger’s status is changed to Inactive.
+   The trigger’s status is changed to Inactive.
 4. Repeat for each trigger you've created for email autoreplies.
 
-   You can view a list of
-   autoreply triggers on the Manage autoreplies page. See [Viewing and managing your autoreply
-   settings.](https://support.zendesk.com/hc/en-us/articles/4408821295898)
+   You can view a list of autoreply triggers on the Manage autoreplies page. See [Viewing and managing your autoreply settings.](https://support.zendesk.com/hc/en-us/articles/4408821295898)
 
 **To deactivate autoreplies in web forms**
 

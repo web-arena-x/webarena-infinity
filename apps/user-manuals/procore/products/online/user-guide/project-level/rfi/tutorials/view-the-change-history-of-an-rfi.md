@@ -11,7 +11,7 @@ To view the change history of an RFI in the project's RFIs tool.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's RFIs tool.
+ - 'Admin' level permissions on the project's RFIs tool.
 
 ## Steps
 

@@ -10,8 +10,8 @@ Security tools that perform API fuzz testing, such as API fuzzing, perform testi
 - How many requests per second can be sent to your application by GitLab tooling
 - How fast your application responds to requests
 - How many requests must be sent to test the application
-  - How many operations your API is comprised of
-  - How many fields are in each operation (think JSON bodies, headers, query string, cookies, etc.)
+ - How many operations your API is comprised of
+ - How many fields are in each operation (think JSON bodies, headers, query string, cookies, etc.)
 
 If API fuzzing testing job still takes longer than expected after following the advice in this performance guide, reach out to support for further assistance.
 
@@ -27,23 +27,21 @@ The first step to resolving performance issues is to understand what is contribu
 
 ### The application contains a slow operation that impacts the overall test speed (> 1/2 second)
 
-The API fuzzing job output contains helpful information about testing speed, operation
-response times, and summary information. Use the following sample output to track down
-performance issues:
+The API fuzzing job output contains helpful information about testing speed, operation response times, and summary information. Use the following sample output to track down performance issues:
 
 ```shell
 API Fuzzing: Loaded 10 operations from: assets/har-large-response/large_responses.har
 API Fuzzing:
 API Fuzzing: Testing operation [1/10]: 'GET http://target:7777/api/large_response_json'.
-API Fuzzing:  - Parameters: (Headers: 4, Query: 0, Body: 0)
-API Fuzzing:  - Request body size: 0 Bytes (0 bytes)
+API Fuzzing: - Parameters: (Headers: 4, Query: 0, Body: 0)
+API Fuzzing: - Request body size: 0 Bytes (0 bytes)
 API Fuzzing:
 API Fuzzing: Finished testing operation 'GET http://target:7777/api/large_response_json'.
-API Fuzzing:  - Excluded Parameters: (Headers: 0, Query: 0, Body: 0)
-API Fuzzing:  - Performed 767 requests
-API Fuzzing:  - Average response body size: 130 MB
-API Fuzzing:  - Average call time: 2 seconds and 82.69 milliseconds (2.082693 seconds)
-API Fuzzing:  - Time to complete: 14 minutes, 8 seconds and 788.36 milliseconds (848.788358 seconds)
+API Fuzzing: - Excluded Parameters: (Headers: 0, Query: 0, Body: 0)
+API Fuzzing: - Performed 767 requests
+API Fuzzing: - Average response body size: 130 MB
+API Fuzzing: - Average call time: 2 seconds and 82.69 milliseconds (2.082693 seconds)
+API Fuzzing: - Time to complete: 14 minutes, 8 seconds and 788.36 milliseconds (848.788358 seconds)
 ```
 
 The job console output snippet starts with how many operations were found (10). Next are notifications that testing has started on a specific operation, and an operation summary has been completed. The summary shows that API fuzzing took 767 requests to fully test this operation and its related fields. The summary also shows that this operation took 14 minutes to complete, with an average response time of 2 seconds.
@@ -84,8 +82,8 @@ Here is an example job definition for API fuzzing that adds a `tags` section to 
 
 ```yaml
 apifuzzer_fuzz:
-  tags:
-  - saas-linux-medium-amd64
+ tags:
+ - saas-linux-medium-amd64
 ```
 
 In the `gl-api-security-scanner.log` file you can search for the string `Starting work item processor` to inspect the reported max DOP (degree of parallelism). The max DOP should be greater than or equal to the number of vCPUs assigned to the runner. If unable to identify the problem, open a ticket with support to assist.
@@ -104,7 +102,7 @@ To verify the operation is excluded, run the API fuzzing job and review the job 
 
 ```yaml
 apifuzzer_fuzz:
-  variables:
+ variables:
     FUZZAPI_EXCLUDE_PATHS: /api/large_response_json
 ```
 
@@ -120,15 +118,15 @@ The rules used in the `apifuzzer_v1` and `apifuzzer_v2` jobs are copied from the
 ```yaml
 # Disable the main apifuzzer_fuzz job
 apifuzzer_fuzz:
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH
       when: never
 
 apifuzzer_v1:
-  extends: apifuzzer_fuzz
-  variables:
+ extends: apifuzzer_fuzz
+ variables:
     FUZZAPI_EXCLUDE_PATHS: /api/v1/**
-  rules:
+ rules:
     - if: $API_FUZZING_DISABLED == 'true' || $API_FUZZING_DISABLED == '1'
       when: never
     - if: $API_FUZZING_DISABLED_FOR_DEFAULT_BRANCH == 'true' &&
@@ -144,9 +142,9 @@ apifuzzer_v1:
     - if: $CI_COMMIT_BRANCH
 
 apifuzzer_v2:
-  variables:
+ variables:
     FUZZAPI_EXCLUDE_PATHS: /api/v2/**
-  rules:
+ rules:
     - if: $API_FUZZING_DISABLED == 'true' || $API_FUZZING_DISABLED == '1'
       when: never
     - if: $API_FUZZING_DISABLED_FOR_DEFAULT_BRANCH &&
@@ -163,17 +161,8 @@ apifuzzer_v2:
 
 In the case of one or two slow operations, the team might decide to skip testing the operations, or exclude them from feature branch tests, but include them for default branch tests. Excluding the operation is done using the `FUZZAPI_EXCLUDE_PATHS` configuration [variable as explained in this section.](configuration/customizing_analyzer_settings.md#exclude-paths)
 
-This example shows an operation that returns a large amount of data. The
-operation is `GET http://target:7777/api/large_response_json`. To exclude it,
-provide the `FUZZAPI_EXCLUDE_PATHS` configuration variable with the path portion
-of the operation URL `/api/large_response_json`. The configuration disables the
-main `apifuzzer_fuzz` job and creates two new jobs `apifuzzer_main` and
-`apifuzzer_branch`. The `apifuzzer_branch` is set up to exclude the long
-operation and only run on non-default branches (for example, feature branches).
-The `apifuzzer_main` branch is set up to only execute on the default branch
-(`main` in this example). The `apifuzzer_branch` jobs run faster, allowing for
-quick development cycles, while the `apifuzzer_main` job which only runs on
-default branch builds, takes longer to run.
+This example shows an operation that returns a large amount of data. The operation is `GET http://target:7777/api/large_response_json`. To exclude it, provide the `FUZZAPI_EXCLUDE_PATHS` configuration variable with the path portion of the operation URL `/api/large_response_json`. The configuration disables the main `apifuzzer_fuzz` job and creates two new jobs `apifuzzer_main` and `apifuzzer_branch`. The `apifuzzer_branch` is set up to exclude the long operation and only run on non-default branches (for example, feature branches).
+The `apifuzzer_main` branch is set up to only execute on the default branch (`main` in this example). The `apifuzzer_branch` jobs run faster, allowing for quick development cycles, while the `apifuzzer_main` job which only runs on default branch builds, takes longer to run.
 
 To verify the operation is excluded, run the API fuzzing job and review the job console output. It includes a list of included and excluded operations at the end of the test.
 
@@ -181,16 +170,16 @@ To verify the operation is excluded, run the API fuzzing job and review the job 
 # Disable the main job so you can create two jobs with
 # different names
 apifuzzer_fuzz:
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH
       when: never
 
 # API fuzzing for feature branch work, excludes /api/large_response_json
 apifuzzer_branch:
-  extends: apifuzzer_fuzz
-  variables:
+ extends: apifuzzer_fuzz
+ variables:
     FUZZAPI_EXCLUDE_PATHS: /api/large_response_json
-  rules:
+ rules:
     - if: $API_FUZZING_DISABLED == 'true' || $API_FUZZING_DISABLED == '1'
       when: never
     - if: $API_FUZZING_DISABLED_FOR_DEFAULT_BRANCH &&
@@ -207,8 +196,8 @@ apifuzzer_branch:
 # API fuzzing for default branch (main in this case)
 # Includes the long running operations
 apifuzzer_main:
-  extends: apifuzzer_fuzz
-  rules:
+ extends: apifuzzer_fuzz
+ rules:
     - if: $API_FUZZING_DISABLED == 'true' || $API_FUZZING_DISABLED == '1'
       when: never
     - if: $API_FUZZING_DISABLED_FOR_DEFAULT_BRANCH &&

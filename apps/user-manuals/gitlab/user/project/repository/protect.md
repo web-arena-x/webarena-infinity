@@ -13,8 +13,7 @@ title: Protect your repository
 
 {{< /details >}}
 
-Repository protection prevents unauthorized changes to your codebase while maintaining
-development workflows. These controls help you solve common development challenges, including:
+Repository protection prevents unauthorized changes to your codebase while maintaining development workflows. These controls help you solve common development challenges, including:
 
 - Accidental commits to production or protected branches.
 - Exposed sensitive data in commit histories.
@@ -23,11 +22,9 @@ development workflows. These controls help you solve common development challeng
 - Unverified commit authorship.
 - Non-compliant code entering the main branch.
 
-By combining different protection methods, you create validation points that work together to
-enforce your organization's standards.
+By combining different protection methods, you create validation points that work together to enforce your organization's standards.
 
-Higher GitLab tiers have access to additional tools to apply comprehensive security scanning,
-enforce compliance, and manage vulnerabilities across multiple projects and groups.
+Higher GitLab tiers have access to additional tools to apply comprehensive security scanning, enforce compliance, and manage vulnerabilities across multiple projects and groups.
 In these environments, some of the protection methods may already be enforced by your organization.
 For details on these advanced security tools, see [secure your application](../../application_security/secure_your_application.md).
 
@@ -38,31 +35,28 @@ Each method addresses different security needs and can be combined for comprehen
 
 | Protection method | Description | When to use | Instance | Groups | Projects |
 |-------------------|-------------|-------------|----------|--------|----------|
-| [Protected branches](branches/protected.md)                      | Controls permissions on branches to ensure code stability and quality.                         | Control who can push and merge, prevent accidental deletion, enforce reviews, or regulate force push permissions. | {{< no >}}  | {{< yes >}} | {{< yes >}} |
-| [Merge request approvals](../merge_requests/approvals/_index.md) | Review process that requires approvals before changes merge.                                   | Require code reviews, create approval rules, or configure approval settings.                                      | {{< no >}}  | {{< yes >}} | {{< yes >}} |
+| [Protected branches](branches/protected.md)                      | Controls permissions on branches to ensure code stability and quality.                         | Control who can push and merge, prevent accidental deletion, enforce reviews, or regulate force push permissions. | {{< no >}} | {{< yes >}} | {{< yes >}} |
+| [Merge request approvals](../merge_requests/approvals/_index.md) | Review process that requires approvals before changes merge.                                   | Require code reviews, create approval rules, or configure approval settings.                                      | {{< no >}} | {{< yes >}} | {{< yes >}} |
 | [Push rules](push_rules.md)                                      | Pre-receive Git hooks that validate commits, files, and tags before they enter the repository. | Evaluate commit contents, enforce branch name rules, prevent tag removal, or require signed commits.              | {{< yes >}} | {{< yes >}} | {{< yes >}} |
-| [Code Owners](../codeowners/_index.md)                           | Defines who has expertise for specific files and directories in your codebase.                 | Require expert approval for changes to specific files or identify responsible parties for code maintenance.       | {{< no >}}  | {{< no >}}  | {{< yes >}} |
-| [Status checks](../merge_requests/status_checks.md)              | API calls to external systems that validate merge request status.                              | Integrate with third-party workflow tools or validate against external quality requirements.                      | {{< no >}}  | {{< no >}}  | {{< yes >}} |
+| [Code Owners](../codeowners/_index.md)                           | Defines who has expertise for specific files and directories in your codebase.                 | Require expert approval for changes to specific files or identify responsible parties for code maintenance.       | {{< no >}} | {{< no >}} | {{< yes >}} |
+| [Status checks](../merge_requests/status_checks.md)              | API calls to external systems that validate merge request status.                              | Integrate with third-party workflow tools or validate against external quality requirements.                      | {{< no >}} | {{< no >}} | {{< yes >}} |
 
 ## Branch rules
 
 To help you manage multiple protection methods, GitLab provides a unified [branch rules](branches/branch_rules.md)
 interface for protected branches, approval rules, and status checks.
-Use the **Branch rules** page in your project settings to configure all branch protections from one
-location, view protection status across branches, and manage complex protection combinations.
+Use the **Branch rules** page in your project settings to configure all branch protections from one location, view protection status across branches, and manage complex protection combinations.
 
 {{< alert type="note" >}}
 
 For group protection, configure protected branches and push rules in your group settings.
-The **Branch rules** page is available only in projects. Group rules apply to all projects
-in the group and work alongside any project-specific rules you create.
+The **Branch rules** page is available only in projects. Group rules apply to all projects in the group and work alongside any project-specific rules you create.
 
 {{< /alert >}}
 
 ## Configure your protection strategy
 
-Choose protection methods based on your workflow and security requirements. The following are example
-strategies.
+Choose protection methods based on your workflow and security requirements. The following are example strategies.
 
 ### Baseline protection
 

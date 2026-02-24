@@ -29,7 +29,7 @@ There are a couple ways to create a mind map:
 
 ### Shape picker
 
-1. Click  **Shapes** >  **Mind maps**.
+1. Click **Shapes** > **Mind maps**.
 2. Click the board to place you mind map.
 3. [Build your mind map ↓](#h_01HH0Q5ZMASBHNBRNQ0SB6SH3T)
 
@@ -39,7 +39,7 @@ There are a couple ways to create a mind map:
 
 Generate mind maps using FigJam AI.
 
-1. Click  in the toolbar > select **Make templates and diagrams**.
+1. Click in the toolbar > select **Make templates and diagrams**.
 2. Click the text field and enter your own prompt.
 3. Click **Make**.
 
@@ -50,7 +50,7 @@ Generate mind maps using FigJam AI.
 ### Existing text
 
 1. [Create or select a text object](create-text-and-links-in-figjam.md) on your board.
-2. Click the  Mind maps icon in the selection toolbar.
+2. Click the Mind maps icon in the selection toolbar.
 3. [Build your mind map ↓](#h_01HH0Q5ZMASBHNBRNQ0SB6SH3T)
 
 ![Start mind map from text object selection menu.](https://help.figma.com/hc/article_attachments/26279856049943)
@@ -66,20 +66,20 @@ You can add to mind maps by expanding from existing nodes and by dragging object
 ### Expand from node
 
 1. Select an existing node.
-2. Click  or in the direction you want to build.
+2. Click or in the direction you want to build.
 3. Click to edit the child’s text field.
 
 You can also use FigJam AI to generate ideas and expand on an existing node.
 
 1. Select an existing node.
-2. Click  from the toolbar.
+2. Click from the toolbar.
 3. Click **Generate ideas**.
 
 ### Add existing object
 
 1. Select an existing object, such as stickies, shapes, and text.
 2. Drag and hover the object over the node you want to connect it to.
-3. When the  icon appears, release the object to connect it to the node.
+3. When the icon appears, release the object to connect it to the node.
 
 Tip:
 

@@ -7,8 +7,7 @@ title: Manage billing account
 ---
 
 Customers Portal is your comprehensive self-service hub for [managing GitLab subscriptions](manage_subscription.md) and billing.
-You can purchase GitLab products, manage your subscriptions throughout the entire subscription lifecycle, view and pay invoices,
-and access your billing details and contact information.
+You can purchase GitLab products, manage your subscriptions throughout the entire subscription lifecycle, view and pay invoices, and access your billing details and contact information.
 
 If you made your purchase through an authorized reseller, you must contact them directly to make changes to your subscription.
 For more information, see [customers that purchased through a reseller](#subscription-purchased-through-a-reseller).
@@ -37,19 +36,15 @@ To sign in to Customers Portal with your email and to receive a one-time sign-in
 
 ## Confirm Customers Portal email address
 
-The first time you sign in to Customers Portal with a one-time sign-in link,
-you must confirm your email address to maintain access to Customers Portal. If you sign in
-to Customers Portal through GitLab.com, you don't need to confirm your email address.
+The first time you sign in to Customers Portal with a one-time sign-in link, you must confirm your email address to maintain access to Customers Portal. If you sign in to Customers Portal through GitLab.com, you don't need to confirm your email address.
 
-You must also confirm any updates to the profile email address. You will receive
-an automatic email with instructions about how to confirm, which you can [resend](https://customers.gitlab.com/customers/confirmation/new)
+You must also confirm any updates to the profile email address. You will receive an automatic email with instructions about how to confirm, which you can [resend](https://customers.gitlab.com/customers/confirmation/new)
 if required.
 
 ## Change profile owner information
 
 The profile owner's email address is used for the [Customers Portal legacy sign-in](#sign-in-to-customers-portal).
-If the profile owner is also a [billing account manager](#subscription-and-billing-contacts),
-their personal details are used on invoices, and for license and subscription-related emails.
+If the profile owner is also a [billing account manager](#subscription-and-billing-contacts), their personal details are used on invoices, and for license and subscription-related emails.
 
 To change profile details, including name and email address:
 
@@ -70,16 +65,11 @@ To change your company details, including company name and tax ID:
 
 ## Subscription and billing contacts
 
-Users involved in subscription management can have three distinct roles
-with varying levels of permissions and visibility into the subscription:
+Users involved in subscription management can have three distinct roles with varying levels of permissions and visibility into the subscription:
 
 - Billing account manager: Has access to view and edit subscriptions, payment methods, and billing account settings. Can pay and download invoices, and update the subscription contact to any listed billing account manager.
-- Subscription contact (or "Sold to" contact): The subscription owner and primary contact
-  for your billing account. Receives notifications about subscription events and information
-  about applying the subscription. This role is also a billing account manager by default.
-- Billing contact (or "Bill to" contact): Receives all invoices and notifications about
-  subscription events. Does not have a Customers Portal account with access to the subscription
-  unless this role is also a billing account manager.
+- Subscription contact (or "Sold to" contact): The subscription owner and primary contact for your billing account. Receives notifications about subscription events and information about applying the subscription. This role is also a billing account manager by default.
+- Billing contact (or "Bill to" contact): Receives all invoices and notifications about subscription events. Does not have a Customers Portal account with access to the subscription unless this role is also a billing account manager.
 
 One user can have all three roles.
 
@@ -168,12 +158,9 @@ To change the billing contact:
 
 ## Change your payment method
 
-Purchases in Customers Portal require a credit card on record as a payment method. You can add
-multiple credit cards to your account, so that purchases for different products are charged to the
-correct card.
+Purchases in Customers Portal require a credit card on record as a payment method. You can add multiple credit cards to your account, so that purchases for different products are charged to the correct card.
 
-If you would like to use an alternative method to pay,
-[contact our Sales team](https://customers.gitlab.com/contact_us).
+If you would like to use an alternative method to pay, [contact our Sales team](https://customers.gitlab.com/contact_us).
 
 To change your payment method:
 
@@ -184,8 +171,7 @@ To change your payment method:
 
 ### Set a default payment method
 
-Automatic renewal of a subscription is charged to your default payment method. To mark a payment
-method as the default:
+Automatic renewal of a subscription is charged to your default payment method. To mark a payment method as the default:
 
 1. Sign in to [Customers Portal](https://customers.gitlab.com/customers/sign_in).
 1. On the left sidebar, select **Billing account settings**.
@@ -207,8 +193,7 @@ To pay for an invoice:
 1. On the invoice you want to pay for, select **Pay for invoice**.
 1. Complete the payment form.
 
-If you would like to use an alternative payment method,
-[contact our Billing team](https://customers.gitlab.com/contact_us#contact-billing-team).
+If you would like to use an alternative payment method, [contact our Billing team](https://customers.gitlab.com/contact_us#contact-billing-team).
 
 ## Link a GitLab.com account
 
@@ -224,16 +209,14 @@ To link a GitLab.com account to your Customers Portal profile:
 
 ## Change the linked account
 
-If you want to link your Customers Portal account to a different GitLab.com account,
-you must use your GitLab.com account to register for a new Customers Portal profile.
+If you want to link your Customers Portal account to a different GitLab.com account, you must use your GitLab.com account to register for a new Customers Portal profile.
 
 If you want to change subscription contacts, you can instead do either of the following:
 
 - [Change the billing contact](#change-your-billing-contact).
 - [Change the subscription contact](#change-your-subscription-contact).
 
-If you have a legacy Customers Portal profile that is not linked to a GitLab.com account, you may still
-[sign in](https://customers.gitlab.com/customers/sign_in?legacy=true) using a one-time sign-in link sent to your email.
+If you have a legacy Customers Portal profile that is not linked to a GitLab.com account, you may still [sign in](https://customers.gitlab.com/customers/sign_in?legacy=true) using a one-time sign-in link sent to your email.
 However, you should [create](https://gitlab.com/users/sign_up) and [link a GitLab.com account](#change-the-linked-account)
 to ensure continued access to Customers Portal.
 
@@ -272,8 +255,7 @@ If you have access to the subscription contact's email mailbox:
 1. Change the subscription contact information to your details.
 1. Change the linked account to your GitLab.com account.
 
-If you don't have access to the subscription contact's email mailbox,
-[contact Support](https://support.gitlab.com/hc/en-us/requests/new?ticket_form_id=360000071293)
+If you don't have access to the subscription contact's email mailbox, [contact Support](https://support.gitlab.com/hc/en-us/requests/new?ticket_form_id=360000071293)
 to request transferring the subscription ownership.
 You must provide proof of ownership for Support to process your request.
 
@@ -296,17 +278,14 @@ A Tax ID is a unique number assigned by tax authorities to businesses registered
 
 Providing a valid Tax ID may reduce your tax burden by allowing us to apply reverse charge mechanisms instead of charging VAT/GST on your invoices. Without a valid Tax ID, applicable VAT/GST rates are based on your location.
 
-If your business is not registered for indirect taxes (due to size thresholds or other
-reasons), GitLab applies the standard VAT/GST rate according to local regulations.
+If your business is not registered for indirect taxes (due to size thresholds or other reasons), GitLab applies the standard VAT/GST rate according to local regulations.
 
 For detailed Tax ID formats by country and additional information, see our [complete Tax ID reference guide](https://handbook.gitlab.com/handbook/finance/tax/#frequently-asked-questions---tax-id-for-non-us-customers).
 
 ## Troubleshooting
 
-If you encounter issues or have questions about your GitLab subscription,
-visit the [Contact us](https://customers.gitlab.com/contact_us) page.
-Access resources, services, and contact options of the sales, billing, and support teams
-to get quick access to the help you need.
+If you encounter issues or have questions about your GitLab subscription, visit the [Contact us](https://customers.gitlab.com/contact_us) page.
+Access resources, services, and contact options of the sales, billing, and support teams to get quick access to the help you need.
 
 ### Subscription purchased through a reseller
 
@@ -331,8 +310,7 @@ After your subscription order is processed, you will receive several emails:
 
 ### Billing and subscription contact's names don't match
 
-If the billing account manager's email is linked to contacts with different first or last names,
-you will be prompted to update the name.
+If the billing account manager's email is linked to contacts with different first or last names, you will be prompted to update the name.
 
 If you are the billing account manager, follow the instructions to [update your personal profile](#change-profile-owner-information).
 

@@ -35,7 +35,7 @@ In the **Date and time** section, you can update the:
 - **Length**
 - **Date**
 - **Time**
-  - **Note**: updating the session's time and/or date will cancel existing sessions and remove interviewers and students from all future sessions.
+ - **Note**: updating the session's time and/or date will cancel existing sessions and remove interviewers and students from all future sessions.
 - **Timezone**
 - **Number of occurrences**
 
@@ -146,7 +146,7 @@ Upon cancellation, the candidate will be removed from the meeting and the time s
 ![Assign](https://support.joinhandshake.com/hc/article_attachments/26001303308183)
 
 - To add additional hosts, click the white button **+Add**, select the host you want to add, then click the blue button **Add**.
-  - Repeat this step for each host you want to add to the schedule, up to **10** hosts.
+ - Repeat this step for each host you want to add to the schedule, up to **10** hosts.
 
 ![Add](https://support.joinhandshake.com/hc/article_attachments/26001342851351)
 
@@ -219,7 +219,7 @@ An email will be sent to the candidate notifying them that they have ‌been add
 2. In the pop-up modal, select the required number of sessions a student can book.
 
 - The maximum number of sessions is equal to the amount of hosts on the schedule.
-  - For instance, if the grid view shows 3 columns with hosts, the employer can request a student to book a maximum of 3 sessions, allowing for 1 session per host.
+ - For instance, if the grid view shows 3 columns with hosts, the employer can request a student to book a maximum of 3 sessions, allowing for 1 session per host.
 
 3. Next, click into the **Candidates** field, then select the candidates you want to invite.
 
@@ -232,7 +232,7 @@ An email will be sent to the candidate notifying them that they have ‌been add
 5. Once the candidates and the required number of sessions have been selected, click the blue button **Send**.
 
 - Alternatively, you can click the white button **Copy Invite link** to share your schedule via your preferred method (message, email, in a virtual fair session, etc.). 
-  - The copied link can be shared with students affiliated with schools that have approved your employer on Handshake, as well as students who do not have a Handshake account.
+ - The copied link can be shared with students affiliated with schools that have approved your employer on Handshake, as well as students who do not have a Handshake account.
 
 Handshake prompts students with an account to sign in and register. Students without a Handshake profile can register as a guest, then sign up for a session.
 

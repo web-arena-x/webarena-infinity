@@ -20,7 +20,7 @@ For example, imagine you have a form your customers fill out to provide product 
 
 To import a CSV, drag and drop the file into your board or:
 
-1. Click  in the top toolbar.
+1. Click in the top toolbar.
 2. Go to **File** > **Import from CSV**.
 3. Select a CSV file and click **Open**.
 
@@ -50,7 +50,7 @@ To convert cells in a table to stickies:
 
 Give your team the bigger picture by adding images to your board. FigJam supports PNG, JPG, GIF, TIFF, or WEBP image formats. GIFs can also be added to your board, but they won't be animated.
 
-To add images, drag and drop them into the board or click  and select from there.
+To add images, drag and drop them into the board or click and select from there.
 
 **[Learn how to place and edit images in FigJam →](https://help.figma.com/hc/en-us/articles/1500004290881-Place-and-edit-images-in-FigJam)**
 

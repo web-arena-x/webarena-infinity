@@ -5,9 +5,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: Rails Endpoints
 ---
 
-Rails Endpoints are used by different GitLab components, they cannot be
-used by other consumers. This documentation is intended for people
-working on the GitLab codebase.
+Rails Endpoints are used by different GitLab components, they cannot be used by other consumers. This documentation is intended for people working on the GitLab codebase.
 
 These Rails Endpoints:
 
@@ -22,8 +20,7 @@ We are evaluating a new approach for documenting Rails endpoints. [Check out the
 
 ## SAST scanners
 
-Static application security testing (SAST) checks your source code for known vulnerabilities. When
-SAST is enabled on a project these endpoints are available.
+Static application security testing (SAST) checks your source code for known vulnerabilities. When SAST is enabled on a project these endpoints are available.
 
 ### List existing merge request code quality findings sorted by files
 
@@ -37,7 +34,7 @@ Response:
 
 ```json
 {
-  "files": {
+ "files": {
     "index.js": [
       {
         "line": 1,
@@ -45,7 +42,7 @@ Response:
         "severity": "major"
       }
     ]
-  }
+ }
 }
 ```
 
@@ -59,8 +56,8 @@ GET /projects/:id/merge_requests/:merge_request_iid/codequality_reports.json
 
 ```json
 {
-  "status": "failed",
-  "new_errors": [
+ "status": "failed",
+ "new_errors": [
     {
       "description": "Unexpected 'debugger' statement.",
       "severity": "major",
@@ -69,9 +66,9 @@ GET /projects/:id/merge_requests/:merge_request_iid/codequality_reports.json
       "web_url": "https://gitlab.com/jannik_lehmann/code-quality-test/-/blob/ed1c1b3052fe6963beda0e416d5e2ba3378eb715/noise.rb#L12",
       "engine_name": "eslint"
     }
-  ],
-  "resolved_errors": [],
-  "existing_errors": [],
-  "summary": { "total": 1, "resolved": 0, "errored": 1 }
+ ],
+ "resolved_errors": [],
+ "existing_errors": [],
+ "summary": { "total": 1, "resolved": 0, "errored": 1 }
 }
 ```

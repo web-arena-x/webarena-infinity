@@ -13,8 +13,8 @@ If you’re familiar with Gmail in Basic HTML view, use this guide to learn how 
 - For help with Gmail in Standard view as a web application, visit [Use Gmail with a screen reader](90559-use-gmail-with-a-screen-reader.md).
 - ChromeVox and VoiceOver can’t be customized to reliably use Gmail as a web page. If you use one of these screen readers, visit [Use Gmail with a screen reader](90559-use-gmail-with-a-screen-reader.md).
 - If you prefer, you can use Gmail with an email client application that supports IMAP and POP, such as Outlook or Apple Mail.
-  - [Learn how to read Gmail messages using IMAP](7126229-add-gmail-to-another-email-client.md).
-  - [Learn how to read Gmail messages using POP](7104828-read-gmail-messages-on-other-email-clients-using-pop.md).
+ - [Learn how to read Gmail messages using IMAP](7126229-add-gmail-to-another-email-client.md).
+ - [Learn how to read Gmail messages using POP](7104828-read-gmail-messages-on-other-email-clients-using-pop.md).
 
 ## Update your settings
 

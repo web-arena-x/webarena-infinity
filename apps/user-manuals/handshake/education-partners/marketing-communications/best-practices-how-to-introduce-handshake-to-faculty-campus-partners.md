@@ -22,10 +22,10 @@ Ask a few key questions! This will ensure you have a list of priorities and the 
 
 Use this table (in combination with the [pros/cons for faculty use)](https://support.joinhandshake.com/hc/en-us/articles/218692718) to segment the different levels of involvement:
 
-|  |  |
+| | |
 | --- | --- |
 | **If the goal is..** | **Career Services should start with..** |
-| Encouraging students to log in and leverage resources on Handshake (Recommended) | Import or add faculty as **contacts with a labe**l name "faculty-staff" and:  Send an **email** to campus partners highlighting the benefits and how they can talk about Handshake (see email templates below) |
+| Encouraging students to log in and leverage resources on Handshake (Recommended) | Import or add faculty as **contacts with a labe**l name "faculty-staff" and: Send an **email** to campus partners highlighting the benefits and how they can talk about Handshake (see email templates below) |
 | Exploring positions from the student perspective on Handshake | Encourage campus partners to register & request a **student** account (see recommendations below) |
 | Posting positions to hire for their departments | Determine your o[n campus employment](https://support.joinhandshake.com/hc/en-us/articles/360005589413) model - and instruct campus partners to register for and **employer** account as necessary |
 | Accessing admin functions to manage appointments or particular workflows | Provision a **career services**[accoun](https://support.joinhandshake.com/hc/en-us/articles/360000618268)t for those particular campus partners |
@@ -36,7 +36,7 @@ If your faculty or campus partners are not yet added as **Contacts** in Handshak
 
 You can use [this standard process for importing your Employer contacts in Handshake](https://support.joinhandshake.com/hc/en-us/articles/115002887467). However for faculty, you'll want your CSV file to include **these fields in particular:**
 
-|  |  |  |  |  |  |
+| | | | | | |
 | --- | --- | --- | --- | --- | --- |
 | ***Required header formatting*** | **email\_address** | **first\_name** | **last\_name** | **employer\_name** | **title** |
 | *Example faculty details* | mcgonagall@hogwarts.edu | Minerva | McGonagall | (Your school) Hogwarts School of Witchcraft and Wizardry | Deputy Headmistress, Transfiguration professor |
@@ -65,7 +65,7 @@ This article outlines how to [import labels](https://support.joinhandshake.com/h
 
 You might want to use an example like this in your formatting:
 
-|  |  |  |  |  |  |
+| | | | | | |
 | --- | --- | --- | --- | --- | --- |
 | ***Required header formatting*** | **identifier** | **identifiable\_type** | **user\_type** | **name** | **label\_type** |
 | *Example content* | mcgonagall@hogwarts.edu | Contact | (leave this blank) | faculty-staff | (public) |

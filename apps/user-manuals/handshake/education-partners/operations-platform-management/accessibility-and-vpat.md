@@ -48,76 +48,76 @@ At Handshake, we are committed to fostering an environment where all users can a
 - Ensure ARIA roles, states, and properties are valid
 - Provide fieldsets for groups of form controls - all of our common form components, specifically RadioButtonList, CheckboxList, MonthYearSelect, and Pills, are properly grouped within fieldsets. This will allow us to keep our form components accessible moving forward.
 - Apply aria-live regions for favorite buttons (falls within Ensure custom controls provide proper textual name in the accessibility audit)
-  - If a job shows up multiple times on a page, and the job is favorited in one area, an announcement will now be made to users with screen readers that the other parts of the UI are updated.
-  - Along with this change, we were able to standardize how announcements are being made, which should make it easier to avoid this violation moving forward
+ - If a job shows up multiple times on a page, and the job is favorited in one area, an announcement will now be made to users with screen readers that the other parts of the UI are updated.
+ - Along with this change, we were able to standardize how announcements are being made, which should make it easier to avoid this violation moving forward
 - Provide fieldsets for groups of form controls
-  - Postings
-  - Profile
-  - Reviews
-  - First destination response
+ - Postings
+ - Profile
+ - Reviews
+ - First destination response
 - Ensure form field constraints and errors are associated with their corresponding field
-  - Profile
-  - Appointments
-  - First destination
+ - Profile
+ - Appointments
+ - First destination
 - Inform assistive technologies of changes in content
-  - Documents
-  - Employers
-  - Appointments
-  - Peer messaging
+ - Documents
+ - Employers
+ - Appointments
+ - Peer messaging
 - Ensure color is not the sole means of indicating error messages
-  - Appointments
-  - First Destination Surveys
+ - Appointments
+ - First Destination Surveys
 - Ensure custom controls are keyboard accessible
-  - Documents
-  - Employers
-  - Job roles
-  - Notifications
-  - Interview Schedules
+ - Documents
+ - Employers
+ - Job roles
+ - Notifications
+ - Interview Schedules
 - Ensure the reading order of content and elements are correct when viewed without style sheets
-  - Employers
+ - Employers
 - Ensure page tabs provide state and role
-  - Postings
-  - Employers
-  - Career fairs
-  - Q&A
-  - Search
-  - Experiences
+ - Postings
+ - Employers
+ - Career fairs
+ - Q&A
+ - Search
+ - Experiences
 - Provide an informative, context-sensitive page title - 60% of our page titles did not have accurate titles. Highly used workflows below:
-  - Login
-  - Register
-  - Homepage
-  - Job search
-  - Employers
-  - Q&A
-  - Review
-  - Appointments
-  - Messages
-  - Notifications
-  - Articles
-  - Surveys
+ - Login
+ - Register
+ - Homepage
+ - Job search
+ - Employers
+ - Q&A
+ - Review
+ - Appointments
+ - Messages
+ - Notifications
+ - Articles
+ - Surveys
 - Provide a valid label for form fields - 27% occurrence rate
-  - Login
-  - Profile
-  - Job search
-  - Reviews
-  - Surveys
+ - Login
+ - Profile
+ - Job search
+ - Reviews
+ - Surveys
 - Ensure custom controls provide proper textual name, role, and state information - 33% occurrence rate
-  - Homepage
-  - Profile
-  - Employers
-  - Jobs
-  - Interests
-  - Reviews
-  - Notifications
+ - Homepage
+ - Profile
+ - Employers
+ - Jobs
+ - Interests
+ - Reviews
+ - Notifications
 - Ensure containing elements allow text resize without loss of functionality. 23% occurrence rate.
-  - Jobs
-  - First Destination Surveys
-  - Appointments
-  - Messages
+ - Jobs
+ - First Destination Surveys
+ - Appointments
+ - Messages
 - Provide an accessible alert method for content changes that occur without explicit user knowledge. 10% occurrence rate.
-  - Interests
-  - Articles
-  - Surveys
+ - Interests
+ - Articles
+ - Surveys
 
 **In Progress Updates**
 

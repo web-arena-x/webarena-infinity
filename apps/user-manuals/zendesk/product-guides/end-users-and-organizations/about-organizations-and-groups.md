@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408886146842-About-organi
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -37,10 +37,10 @@ Each collection of users is defined as follows:
 
 - **Organizations**
 
-  Organizations are typically collections of your end users, but they can also include team members. On the Team plan, users can belong to only one organization. On Professional and Enterprise plans, users can belong to up to 300 organizations. The use of organizations is optional, but by arranging your end users into organizations you can keep track of what those organizations are requesting. You can also enable users within an organization to see each other’s tickets. This expands visibility of the organization's support issues and should reduce the number of duplicate tickets.
+ Organizations are typically collections of your end users, but they can also include team members. On the Team plan, users can belong to only one organization. On Professional and Enterprise plans, users can belong to up to 300 organizations. The use of organizations is optional, but by arranging your end users into organizations you can keep track of what those organizations are requesting. You can also enable users within an organization to see each other’s tickets. This expands visibility of the organization's support issues and should reduce the number of duplicate tickets.
 - **Groups**
 
-  Groups collect team members together based on criteria those team members have in common. Groups can only contain team members; no end users can be included. All agents must be assigned to at least one group, but they can be members of more than one. Groups can be used to support organizations. You can designate one group as the default group for your account and you can also designate a default group for each team member. All new team members you create will be added to the default group.
+ Groups collect team members together based on criteria those team members have in common. Groups can only contain team members; no end users can be included. All agents must be assigned to at least one group, but they can be members of more than one. Groups can be used to support organizations. You can designate one group as the default group for your account and you can also designate a default group for each team member. All new team members you create will be added to the default group.
 
 ## End users and organizations
 
@@ -48,21 +48,21 @@ Although you don't have to add your end users to organizations, it can be extrem
 
 - **To support service level agreements**
 
-  You can create organizations that mirror the [service level agreements](https://support.zendesk.com/hc/en-us/articles/4408829459866) that you've established with your customers. For example, your paying customers are guaranteed a faster response than those who use your free services and you want to distinguish between the two. Or, perhaps you've set up levels of support based on which version of your products and service levels your customers have purchased (for example: basic, professional, enterprise or silver, gold, platinum). You can create organizations for each set of customers and route them through the support workflow accordingly. You can then create business rules and reports to escalate tickets as needed and to track performance against your service level agreements.
+ You can create organizations that mirror the [service level agreements](https://support.zendesk.com/hc/en-us/articles/4408829459866) that you've established with your customers. For example, your paying customers are guaranteed a faster response than those who use your free services and you want to distinguish between the two. Or, perhaps you've set up levels of support based on which version of your products and service levels your customers have purchased (for example: basic, professional, enterprise or silver, gold, platinum). You can create organizations for each set of customers and route them through the support workflow accordingly. You can then create business rules and reports to escalate tickets as needed and to track performance against your service level agreements.
 - **To track and manage tickets by company**
 
-  Perhaps you sell your products to other businesses. You can create organizations for each of those companies to manage and track their ticket activity.
+ Perhaps you sell your products to other businesses. You can create organizations for each of those companies to manage and track their ticket activity.
 - **To manage requests based on email domains**
 
-  You can automatically add end users to organizations based on their email domain. For example, you might have both internal and external end users. You can create an organization for your internal end users and automatically add them to the organization, based on their email domain, the first time they submit a request. The new request is then picked up in the workflow rules you've set up for that organization.
+ You can automatically add end users to organizations based on their email domain. For example, you might have both internal and external end users. You can create an organization for your internal end users and automatically add them to the organization, based on their email domain, the first time they submit a request. The new request is then picked up in the workflow rules you've set up for that organization.
 
-  Note: When you add a domain to an organization, that domain is handled as if it has been added to your [allowlist](https://support.zendesk.com/hc/en-us/articles/4408886840986) and overrides the blocklist. While this raises the threshold from spam detection for all emails from that domain, it doesn't prevent emails from being marked as spam. Emails that appear to be spam may still be marked as spam.
+ Note: When you add a domain to an organization, that domain is handled as if it has been added to your [allowlist](https://support.zendesk.com/hc/en-us/articles/4408886840986) and overrides the blocklist. While this raises the threshold from spam detection for all emails from that domain, it doesn't prevent emails from being marked as spam. Emails that appear to be spam may still be marked as spam.
 - **To support customers by location and language**
 
-  If you support organizations or individual customers across the globe, you can create organizations for locations and languages and then route those requests to agents that are co-located and speak the same languages.
+ If you support organizations or individual customers across the globe, you can create organizations for locations and languages and then route those requests to agents that are co-located and speak the same languages.
 - **To define access to Help Center**
 
-  You can use organizations to create user segments to define who can see what in your Help Center. You might want most of your Help Center to be viewable by all end users but also create several just for certain groups of users (customers with premium service plans, perhaps). Organizations enable you to do this. For information see [Creating users segments for Guide user permissions](https://support.zendesk.com/hc/en-us/articles/4408837707290).
+ You can use organizations to create user segments to define who can see what in your Help Center. You might want most of your Help Center to be viewable by all end users but also create several just for certain groups of users (customers with premium service plans, perhaps). Organizations enable you to do this. For information see [Creating users segments for Guide user permissions](https://support.zendesk.com/hc/en-us/articles/4408837707290).
 
 You can create organizations and add end users to them manually, one at a time, or automate the process by adding users and their organizations in bulk import operations.
 
@@ -76,19 +76,19 @@ Groups are only for team members and every agent must belong to at least one gro
 
 - **To escalate tickets based on complexity**
 
-  You can manage escalation by setting up a tiered support group structure. For example, you can create groups for levels of support based on factors such as urgency and complexity. By default, you could assign all tickets to the Level 1 group and then escalate them to Level 2 manually based on the technical complexity of the issue. The Level 2 agents (who may also be members of the Level 1 group) have the advanced technical skills needed to resolve the issue. For an example of this, see [Managing your escalation queue](https://support.zendesk.com/hc/en-us/articles/4408821995290).
+ You can manage escalation by setting up a tiered support group structure. For example, you can create groups for levels of support based on factors such as urgency and complexity. By default, you could assign all tickets to the Level 1 group and then escalate them to Level 2 manually based on the technical complexity of the issue. The Level 2 agents (who may also be members of the Level 1 group) have the advanced technical skills needed to resolve the issue. For an example of this, see [Managing your escalation queue](https://support.zendesk.com/hc/en-us/articles/4408821995290).
 - **To support service level agreements**
 
-  As in the example for organizations above, you can set up corresponding groups to support organizations defined by service levels.
+ As in the example for organizations above, you can set up corresponding groups to support organizations defined by service levels.
 - **To provide support by expertise**
 
-  You can create groups based on expertise. For example, a company that develops both software and hardware might place the team members who support the software into one group and those team members who support the hardware in another. A custom field could be added to the support request form prompting end users to specify the product they're seeking support for and this could be used to route the ticket to the appropriate group.
+ You can create groups based on expertise. For example, a company that develops both software and hardware might place the team members who support the software into one group and those team members who support the hardware in another. A custom field could be added to the support request form prompting end users to specify the product they're seeking support for and this could be used to route the ticket to the appropriate group.
 - **To support customers by location and language**
 
-  As noted above, you can set up organizations by location and language and then assign team members (or groups) to their tickets. Even if you didn't set up organizations for this, you can route to tickets to these groups based on the end user's email domain (*somecompany*.fr, for example) or their language preference.
+ As noted above, you can set up organizations by location and language and then assign team members (or groups) to their tickets. Even if you didn't set up organizations for this, you can route to tickets to these groups based on the end user's email domain (*somecompany*.fr, for example) or their language preference.
 - **To keep sensitive tickets private (Enterprise only)**
 
-  If you have tickets that contain sensitive or protected information, such as personally identifiable information or security issues, you can create private groups. Only admins and agents in the private group can see tickets assigned to the group. Collaborators and followers, if added to a private ticket, can see all comments, but will not be able to see other tickets within the group. Private groups cannot be converted to public. See [About private ticket groups and how they work](https://support.zendesk.com/hc/en-us/articles/4767122732058).
+ If you have tickets that contain sensitive or protected information, such as personally identifiable information or security issues, you can create private groups. Only admins and agents in the private group can see tickets assigned to the group. Collaborators and followers, if added to a private ticket, can see all comments, but will not be able to see other tickets within the group. Private groups cannot be converted to public. See [About private ticket groups and how they work](https://support.zendesk.com/hc/en-us/articles/4767122732058).
 
 When you create groups, you can add existing team members to them. You can add new team members to one or more groups when you're adding them to Zendesk Support. You can also bulk import new users and define their role as agent, then manually add them to groups.
 

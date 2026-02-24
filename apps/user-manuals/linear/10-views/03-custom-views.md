@@ -27,8 +27,8 @@ You can also save any filtered board or list as a custom view with the keyboard 
 
 ### Edit views
 
-To edit an existing view, click on the view name from within the view itself and  choose the _Edit view…_ option in the pop-up menu.   
-  
+To edit an existing view, click on the view name from within the view itself and choose the _Edit view…_ option in the pop-up menu.   
+ 
 You also have the option to duplicate an existing view from here, just click on the _Duplicate view..._ option.
 
 ### Share views
@@ -36,7 +36,7 @@ You also have the option to duplicate an existing view from here, just click on 
 ![Share view](https://webassets.linear.app/images/ornj730p/production/866f7257d57e24abaeb6ff6c8a613fc2f57eeca7-1998x850.png?q=95&auto=format&dpr=2)
 
 If a shared view is created at the workspace level, then the view will appear under Workspace views on the Views page. If you select a specific team when creating the view, then only members of that team will see the shared view and it will be listed under Team views in the View page.   
-  
+ 
 To share a view across multiple teams but limit it to projects or issues within a specific team or teams, create an _All teams_ view and use filters to refine the list.
 
 ### Create views attached to Teams or Projects
@@ -44,7 +44,7 @@ To share a view across multiple teams but limit it to projects or issues within 
 ![+ Create new view button next to All Issues, Active and Backlog views](https://webassets.linear.app/images/ornj730p/production/f8bbfb68fe973ab9e7de98fc8b8a7318653aff17-800x218.png?q=95&auto=format&dpr=2)
 
 From your team's Issues and Projects sections, you can create new views that appear alongside the team's default views (All Issues, Active and Backlog.)   
-  
+ 
 Unlike shared team views in the Views menu, these contextual views are shown only in the Issues and Projects section. 
 
 ### Copy view link
@@ -98,40 +98,40 @@ In Project views, any projects meeting the view's filter criteria will appear. U
 <summary>Example Project Views</summary>
 **At Risk Projects**
 
-  
+ 
 See which projects are currently at risk to quickly spot projects that need attention.
 
 ![At Risk projects](https://webassets.linear.app/images/ornj730p/production/3215b876c776078d0bfd996c0cc257486517579a-1420x300.png?q=95&auto=format&dpr=2)
 *At Risk projects*
 
-  
+ 
 **Quarterly review**
 
-  
+ 
 Look at projects completed last quarter and compare that to last quarter's planned roadmap. You can also share this view with stakeholders who need to know which features have launched.
 
 ![Quarterly review](https://webassets.linear.app/images/ornj730p/production/d7aed9fc43016b4da5b93908cd9d5248fcfe9b9d-1464x304.png?q=95&auto=format&dpr=2)
 *Quarterly review*
 
-  
+ 
 **Projects by user**
 
-  
+ 
 Keep a list of your projects or projects or those of your direct report. Order projects by target date and look at the Status indicator to get a sense of when they’ll ship.
 
 ![Projects by user](https://webassets.linear.app/images/ornj730p/production/659ca5f8bdf184b12d72e09f9d4ccab0c04ec1f0-1434x300.png?q=95&auto=format&dpr=2)
 *Projects by user*
 
-**Upcoming releases**  
-  
+**Upcoming releases** 
+ 
 Create a list of projects that are coming up for release by filtering for specific milestones (e.g. Alpha, Beta, GA).
 
 ![Upcoming releases](https://webassets.linear.app/images/ornj730p/production/ffc045c7f5201fc719abc6201a938b0cf2ac9dac-1438x316.png?q=95&auto=format&dpr=2)
 *Upcoming releases*
 
-  
-**Projects by initiative**  
-  
+ 
+**Projects by initiative** 
+ 
 Filter by initiative to create a view of projects across different initiatives.
 
 ![Q3 team roadmaps](https://webassets.linear.app/images/ornj730p/production/df31574143d9b9186f851a4ea891a8fae391b1f5-1444x266.png?q=95&auto=format&dpr=2)

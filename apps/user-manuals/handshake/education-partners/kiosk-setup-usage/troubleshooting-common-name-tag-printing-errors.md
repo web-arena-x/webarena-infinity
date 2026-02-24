@@ -58,8 +58,8 @@ Additional considerations:
 - Only one DYMO LabelWriter printer should be added to local printers in the settings. Make sure to remove others that won’t be used.
 - When installing 550 on a Mac, a terminal window will pop up and ask for your Password to be input — this is the password for your user login to your computer. This is necessary for the web service to be trusted. You may also need to enable the extension via security settings.
 - If DYMO Connect isn't installing on a Mac, confirm that the web service is connected. Click the DYMO.WebApi icon in the top navigation bar, then click Diagnose. The DYMO Connect service will begin running.
-  - If you receive an error connecting, click Reset.
-  - If you receive a trust certificate error, make sure ‘Always Trust’ is selected for each of the Trust settings. To check, locate your Keychain Access, then double-click **Localhost**.
+ - If you receive an error connecting, click Reset.
+ - If you receive a trust certificate error, make sure ‘Always Trust’ is selected for each of the Trust settings. To check, locate your Keychain Access, then double-click **Localhost**.
 
 This should get you up and running smoothly!
 

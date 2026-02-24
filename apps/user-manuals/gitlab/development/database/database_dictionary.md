@@ -5,8 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Database Dictionary
 ---
 
-This page documents the database schema for GitLab, so data analysts and other groups can
-locate the feature categories responsible for specific database tables.
+This page documents the database schema for GitLab, so data analysts and other groups can locate the feature categories responsible for specific database tables.
 
 ## Location
 

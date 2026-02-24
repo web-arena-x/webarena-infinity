@@ -13,10 +13,8 @@ title: Branches
 
 {{< /details >}}
 
-Branches keep your team's development work organized and separated. When multiple people work
-on different features simultaneously, branches prevent changes from conflicting with each other.
-Each branch acts as an isolated workspace where you implement new features, fix bugs, or
-experiment with ideas.
+Branches keep your team's development work organized and separated. When multiple people work on different features simultaneously, branches prevent changes from conflicting with each other.
+Each branch acts as an isolated workspace where you implement new features, fix bugs, or experiment with ideas.
 
 With branches, your team can:
 
@@ -28,14 +26,12 @@ With branches, your team can:
 The development workflow for branches is:
 
 1. [Create a branch](#create-a-branch) and add commits to it.
-   To streamline this process, you should follow
-   [branch naming patterns](#prefix-branch-names-with-a-number).
+   To streamline this process, you should follow [branch naming patterns](#prefix-branch-names-with-a-number).
 1. When the work is ready for review, create a [merge request](../../merge_requests/_index.md) to propose merging the changes in your branch.
 1. Preview the changes with a [review app](../../../../ci/review_apps/_index.md).
 1. [Request a review](../../merge_requests/reviews/_index.md#request-a-review).
 1. After your merge request is approved, merge your branch to the origin branch.
-   The [merge method](../../merge_requests/methods/_index.md) determines how merge requests
-   are handled in your project.
+   The [merge method](../../merge_requests/methods/_index.md) determines how merge requests are handled in your project.
 1. After the contents of your branch are merged, [delete the merged branch](#delete-merged-branches).
 
 ## View all branches
@@ -49,14 +45,14 @@ On this page, you can:
 
 - See all branches, or filter to see only active or stale branches.
 
-  A branch is considered active if a commit has been made to it in the last three months.
-  Otherwise it is considered stale.
+ A branch is considered active if a commit has been made to it in the last three months.
+ Otherwise it is considered stale.
 
 - [Create new branches](#create-a-branch).
 - [Delete merged branches](#delete-merged-branches).
 - See merge request links that point to the default branch.
 
-  Branches with merge requests that do not point to the default branch display the {{< icon name="merge-request" >}} **New** merge request button.
+ Branches with merge requests that do not point to the default branch display the {{< icon name="merge-request" >}} **New** merge request button.
 
 - [View branch rules](branch_rules.md#view-branch-rules).
 - See latest pipeline status on the branch.
@@ -73,28 +69,23 @@ To create a new branch from the GitLab UI:
 1. Select **Code** > **Branches**.
 1. In the upper-right corner, select **New branch**.
 1. Enter a **Branch name**.
-1. In **Create from**, select the base of your branch: an existing branch, an existing
-   tag, or a commit SHA.
+1. In **Create from**, select the base of your branch: an existing branch, an existing tag, or a commit SHA.
 1. Select **Create branch**.
 
 ### In a blank project
 
-A [blank project](../../_index.md#create-a-blank-project) does not contain a branch, but
-you can add one.
+A [blank project](../../_index.md#create-a-blank-project) does not contain a branch, but you can add one.
 
 Prerequisites:
 
 - You must have at least the Developer role for the project.
-- If you don't have the Maintainer or Owner role, the
-  [default branch protection](../../../group/manage.md#change-the-default-branch-protection-of-a-group)
-  must be set to `Partially protected` or `Not protected` for you to push a commit
-  to the default branch.
+- If you don't have the Maintainer or Owner role, the [default branch protection](../../../group/manage.md#change-the-default-branch-protection-of-a-group)
+ must be set to `Partially protected` or `Not protected` for you to push a commit to the default branch.
 
 To add a [default branch](default.md) to a blank project:
 
 1. On the top bar, select **Search or go to** and find your project.
-1. Scroll to **The repository for this project is empty** and select the type of
-   file you want to add.
+1. Scroll to **The repository for this project is empty** and select the type of file you want to add.
 1. In the Web IDE, make any desired changes to this file, then select **Create commit**.
 1. Enter a commit message, and select **Commit**.
 
@@ -103,9 +94,7 @@ GitLab creates a default branch and adds your file to it.
 ### From an issue
 
 When viewing an issue, you can create an associated branch directly from that page.
-Branches created this way use the
-[default pattern for branch names from issues](#configure-default-pattern-for-branch-names-from-issues),
-including variables.
+Branches created this way use the [default pattern for branch names from issues](#configure-default-pattern-for-branch-names-from-issues), including variables.
 
 Prerequisites:
 
@@ -118,17 +107,13 @@ To create a branch from an issue:
 1. Below the issue description, select **Create merge request** {{< icon name="chevron-down" >}} to display the dropdown list.
 1. Select **Create branch**.
 1. In the dialog, from the **Source (branch or tag)** dropdown list, select a source branch or tag.
-1. Review the suggested branch name. It's based on your project's
-   [default branch name pattern](#configure-default-pattern-for-branch-names-from-issues).
+1. Review the suggested branch name. It's based on your project's [default branch name pattern](#configure-default-pattern-for-branch-names-from-issues).
 1. Optional. If you need to use a different branch name, enter it in the **Branch name** text box.
 1. Select **Create branch**.
 
-For information about creating branches in empty repositories,
-see [Empty repository behavior](#empty-repository-behavior).
+For information about creating branches in empty repositories, see [Empty repository behavior](#empty-repository-behavior).
 
-If the name of the created branch is
-[prefixed with the issue number](#prefix-branch-names-with-a-number), GitLab cross-links
-the issue and related merge request.
+If the name of the created branch is [prefixed with the issue number](#prefix-branch-names-with-a-number), GitLab cross-links the issue and related merge request.
 
 ### From a task
 
@@ -144,17 +129,13 @@ To create a branch directly from a task:
 1. Below the task description, select **Create merge request** {{< icon name="chevron-down" >}} to display the dropdown list.
 1. Select **Create branch**.
 1. In the dialog, from the **Source branch or tag** dropdown list, select a source branch or tag.
-1. Review the suggested branch name. It's based on your project's
-   [default branch name pattern](#configure-default-pattern-for-branch-names-from-issues).
+1. Review the suggested branch name. It's based on your project's [default branch name pattern](#configure-default-pattern-for-branch-names-from-issues).
 1. Optional. If you need to use a different branch name, enter it in the **Branch name** text box.
 1. Select **Create branch**.
 
-For information about creating branches in empty repositories,
-see [Empty repository behavior](#empty-repository-behavior).
+For information about creating branches in empty repositories, see [Empty repository behavior](#empty-repository-behavior).
 
-If the name of the created branch is
-[prefixed with the task number](#prefix-branch-names-with-a-number), GitLab cross-links
-the issue and related merge request.
+If the name of the created branch is [prefixed with the task number](#prefix-branch-names-with-a-number), GitLab cross-links the issue and related merge request.
 
 ### Empty repository behavior
 
@@ -163,15 +144,13 @@ If your Git repository is empty, GitLab:
 - Creates a default branch.
 - Commits a blank `README.md` file to it.
 - Creates and redirects you to a new branch based on the issue title.
-- If your project is [configured with a deployment service](../../integrations/_index.md) like Kubernetes,
-  GitLab prompts you to set up [auto deploy](../../../../topics/autodevops/stages.md#auto-deploy)
-  by helping you create a `.gitlab-ci.yml` file.
+- If your project is [configured with a deployment service](../../integrations/_index.md) like Kubernetes, GitLab prompts you to set up [auto deploy](../../../../topics/autodevops/stages.md#auto-deploy)
+ by helping you create a `.gitlab-ci.yml` file.
 
 ## Name your branch
 
 Git enforces [branch name rules](https://git-scm.com/docs/git-check-ref-format)
-to help ensure branch names remain compatible with other tools. GitLab
-adds extra requirements for branch names, and provides benefits for well-structured branch names.
+to help ensure branch names remain compatible with other tools. GitLab adds extra requirements for branch names, and provides benefits for well-structured branch names.
 
 GitLab enforces these additional rules on all branches:
 
@@ -179,8 +158,7 @@ GitLab enforces these additional rules on all branches:
 - Branch names with 40 hexadecimal characters are prohibited, because they are similar to Git commit hashes.
 - Branch names are case-sensitive.
 
-Common software packages, like Docker, can enforce
-[additional branch naming restrictions](../../../../administration/packages/container_registry_troubleshooting.md#docker-connection-error).
+Common software packages, like Docker, can enforce [additional branch naming restrictions](../../../../administration/packages/container_registry_troubleshooting.md#docker-connection-error).
 
 For the best compatibility with other software packages, use only:
 
@@ -189,21 +167,18 @@ For the best compatibility with other software packages, use only:
 - Underscores (`_`)
 - Lowercase letters from the ASCII standard table
 
-You can use forward slashes (`/`) and emoji in branch names, but compatibility with other
-software packages cannot be guaranteed.
+You can use forward slashes (`/`) and emoji in branch names, but compatibility with other software packages cannot be guaranteed.
 
 Branch names with specific formatting offer extra benefits:
 
-- Streamline your merge request workflow by
-  [prefixing branch names with issue numbers](#prefix-branch-names-with-a-number).
+- Streamline your merge request workflow by [prefixing branch names with issue numbers](#prefix-branch-names-with-a-number).
 - Automate [branch protections](protected.md) based on branch name.
 - Test branch names with [push rules](../push_rules.md) before branches are pushed up to GitLab.
 - Define which [CI/CD jobs](../../../../ci/jobs/_index.md) to run on merge requests.
 
 ### Configure default pattern for branch names from issues
 
-By default, GitLab uses the pattern `%{id}-%{title}` when creating a branch from
-an issue, but you can change this pattern.
+By default, GitLab uses the pattern `%{id}-%{title}` when creating a branch from an issue, but you can change this pattern.
 
 Prerequisites:
 
@@ -221,9 +196,7 @@ To change the default pattern for branches created from issues:
 
 ### Prefix branch names with a number
 
-To streamline the creation of merge requests, start your Git branch name with the
-issue or task number, followed by a hyphen. For example, to link a branch to issue `#123`,
-start the branch name with `123-`.
+To streamline the creation of merge requests, start your Git branch name with the issue or task number, followed by a hyphen. For example, to link a branch to issue `#123`, start the branch name with `123-`.
 
 The branch must be in the same project as the issue or task.
 
@@ -231,17 +204,13 @@ GitLab uses this number to import data into the merge request:
 
 - The item is marked as related to the merge request, and they display links to each other.
 - The branch is connected to the issue or task.
-- If your project is configured with a
-  [default closing pattern](../../issues/managing_issues.md#default-closing-pattern),
-  merging the merge request [also closes](../../issues/managing_issues.md#closing-issues-automatically)
-  the related issue.
-- If the merge request is in the same project, and not a fork, the issue milestone
-  and labels are copied to the merge request.
+- If your project is configured with a [default closing pattern](../../issues/managing_issues.md#default-closing-pattern), merging the merge request [also closes](../../issues/managing_issues.md#closing-issues-automatically)
+ the related issue.
+- If the merge request is in the same project, and not a fork, the issue milestone and labels are copied to the merge request.
 
 ## Manage and protect branches
 
-GitLab provides multiple methods to protect individual branches. These methods
-ensure your branches receive oversight and quality checks from their creation to their deletion. To view and edit branch protections, see [Branch rules](branch_rules.md).
+GitLab provides multiple methods to protect individual branches. These methods ensure your branches receive oversight and quality checks from their creation to their deletion. To view and edit branch protections, see [Branch rules](branch_rules.md).
 
 ### Download branch comparisons
 
@@ -259,15 +228,15 @@ To download the branch comparison as a diff, add `format=diff` to the compare UR
 
 - If the URL has no query parameters, append `?format=diff`:
 
-  ```plaintext
-  https://gitlab.example.com/my-group/my-project/-/compare/main...feature-branch?format=diff
-  ```
+ ```plaintext
+ https://gitlab.example.com/my-group/my-project/-/compare/main...feature-branch?format=diff
+ ```
 
 - If the URL already has query parameters, append `&format=diff`:
 
-  ```plaintext
-  https://gitlab.example.com/my-group/my-project/-/compare/main...feature-branch?from_project_id=2&format=diff
-  ```
+ ```plaintext
+ https://gitlab.example.com/my-group/my-project/-/compare/main...feature-branch?from_project_id=2&format=diff
+ ```
 
 To download and apply the diff:
 
@@ -281,15 +250,15 @@ To download the branch comparison as a patch file, add `format=patch` to the com
 
 - If the URL has no query parameters, append `?format=patch`:
 
-  ```plaintext
-  https://gitlab.example.com/my-group/my-project/-/compare/main...feature-branch?format=patch
-  ```
+ ```plaintext
+ https://gitlab.example.com/my-group/my-project/-/compare/main...feature-branch?format=patch
+ ```
 
 - If the URL already has query parameters, append `&format=patch`:
 
-  ```plaintext
-  https://gitlab.example.com/my-group/my-project/-/compare/main...feature-branch?from_project_id=2&format=patch
-  ```
+ ```plaintext
+ https://gitlab.example.com/my-group/my-project/-/compare/main...feature-branch?from_project_id=2&format=patch
+ ```
 
 To download and apply the patch using [`git am`](https://git-scm.com/docs/git-am):
 
@@ -352,13 +321,9 @@ For more information, see [Handle sensitive information](../../../../topics/git/
 {{< /history >}}
 
 Some projects use multiple long-term branches for development, like `develop` and `qa`.
-In these projects, you might want to keep `main` as the default branch, but expect
-merge requests to target `develop` or `qa` instead. Target branch workflows help ensure
-merge requests target the appropriate development branch for your project.
+In these projects, you might want to keep `main` as the default branch, but expect merge requests to target `develop` or `qa` instead. Target branch workflows help ensure merge requests target the appropriate development branch for your project.
 
-When you create a merge request, the workflow checks the name of the branch. If the
-branch name matches the workflow, the merge request targets the branch you specify. If the branch name does not match, the merge request targets the
-default branch of the project.
+When you create a merge request, the workflow checks the name of the branch. If the branch name matches the workflow, the merge request targets the branch you specify. If the branch name does not match, the merge request targets the default branch of the project.
 
 Rules are processed on a "first-match" basis - if two rules match the same branch name, the top-most rule is applied.
 
@@ -391,11 +356,9 @@ These target branches simplify the process of creating merge requests for a proj
 - Uses `main` to represent the deployed state of your application.
 - Tracks current, unreleased development work in another long-running branch, like `develop`.
 
-If your workflow initially places new features in `develop` instead of `main`, these target branches
-ensure all branches matching either `feature/*` or `bug/*` do not target `main` by mistake.
+If your workflow initially places new features in `develop` instead of `main`, these target branches ensure all branches matching either `feature/*` or `bug/*` do not target `main` by mistake.
 
-When you're ready to release to `main`, create a branch named `release/*`, and
-ensure this branch targets `main`.
+When you're ready to release to `main`, create a branch named `release/*`, and ensure this branch targets `main`.
 
 ### Delete a target branch workflow
 
@@ -427,11 +390,8 @@ To do this:
 
 ### Multiple branches containing the same commit
 
-At a deeper technical level, Git branches aren't separate entities, but labels
-attached to a set of commit SHAs. When GitLab determines whether or not a branch has been
-merged, it checks the target branch for the existence of those commit SHAs.
-This behavior can cause unexpected results when two merge requests contain the same
-commits. In this example, branches `B` and `C` both start from the same commit (`3`)
+At a deeper technical level, Git branches aren't separate entities, but labels attached to a set of commit SHAs. When GitLab determines whether or not a branch has been merged, it checks the target branch for the existence of those commit SHAs.
+This behavior can cause unexpected results when two merge requests contain the same commits. In this example, branches `B` and `C` both start from the same commit (`3`)
 on branch `A`:
 
 ```mermaid
@@ -453,19 +413,15 @@ gitGraph
 ```
 
 If you merge branch `B`, branch `A` also appears as merged (without any action from you)
-because all commits from branch `A` now appear in the target branch `main`. Branch `C`
-remains unmerged, because commit `5` wasn't part of branch `A` or `B`.
+because all commits from branch `A` now appear in the target branch `main`. Branch `C` remains unmerged, because commit `5` wasn't part of branch `A` or `B`.
 
-Merge request `A` remains merged, even if you attempt to push new commits
-to its branch. If any changes in merge request `A` remain unmerged (because they
-weren't part of merge request `A`), open a new merge request for them.
+Merge request `A` remains merged, even if you attempt to push new commits to its branch. If any changes in merge request `A` remain unmerged (because they weren't part of merge request `A`), open a new merge request for them.
 
 ### Error: ambiguous `HEAD` branch exists
 
 In versions of Git earlier than 2.16.0, you could create a branch named `HEAD`.
 This branch named `HEAD` collides with the internal reference (also named `HEAD`)
-Git uses to describe the active (checked out) branch. This naming collision can
-prevent you from updating the default branch of your repository:
+Git uses to describe the active (checked out) branch. This naming collision can prevent you from updating the default branch of your repository:
 
 ```plaintext
 Error: Could not set the default branch. Do you have a branch named 'HEAD' in your repository?
@@ -479,8 +435,7 @@ To fix this problem:
 1. Make sure the branch has no uncommitted changes.
 1. Select **Delete branch**, then **Yes, delete branch**.
 
-Git versions [2.16.0 and later](https://github.com/git/git/commit/a625b092cc59940521789fe8a3ff69c8d6b14eb2),
-prevent you from creating a branch with this name.
+Git versions [2.16.0 and later](https://github.com/git/git/commit/a625b092cc59940521789fe8a3ff69c8d6b14eb2), prevent you from creating a branch with this name.
 
 ### Find all branches you've authored
 
@@ -490,17 +445,15 @@ To find all branches you've authored in a project, run this command in a Git rep
 git for-each-ref --format='%(authoremail) %(refname:short)' | grep $(git config --get user.email)
 ```
 
-To get a total of all branches in a project, sorted by author, run this command
-in a Git repository:
+To get a total of all branches in a project, sorted by author, run this command in a Git repository:
 
 ```shell
-git for-each-ref --format='%(authoremail)'  | sort | uniq -c | sort -g
+git for-each-ref --format='%(authoremail)' | sort | uniq -c | sort -g
 ```
 
 ### Error: `Failed to create branch 4:Deadline Exceeded`
 
-This error is caused by a timeout in Gitaly. It occurs when creating a branch
-take longer to complete than the configured timeout period.
+This error is caused by a timeout in Gitaly. It occurs when creating a branch take longer to complete than the configured timeout period.
 
 To resolve this issue, choose one of the following:
 

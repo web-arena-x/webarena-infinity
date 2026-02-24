@@ -6,7 +6,7 @@ Source: https://help.figma.com/hc/en-us/articles/360039811114-Create-a-Figma-acc
 
 Who can use this feature
 
-Anyone can create a free Figma account. To collaborate with others you will need to create a  [team](https://help.figma.com/hc/en-us/articles/360040328273-Choose-a-Figma-Plan).
+Anyone can create a free Figma account. To collaborate with others you will need to create a [team](https://help.figma.com/hc/en-us/articles/360040328273-Choose-a-Figma-Plan).
 
 Visit our [What platforms and devices does Figma support](https://help.figma.com/hc/en-us/articles/360039827194-What-platforms-and-devices-does-Figma-support) article for information on supported browsers and platforms.
 

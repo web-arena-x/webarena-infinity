@@ -27,8 +27,8 @@ This article contains the following sections on Zendesk Suite Product Controls:
 - **Restrict IP addresses**. [Limit the agent interface](https://support.zendesk.com/hc/en-us/articles/4408894156186-Restricting-access-to-Zendesk-Support-and-your-Help-Center-using-IP-restrictions)) to only those users from coming from a specific range of approved IP addresses.
 - **Secure Attachment Access**. Require users to login to their account before accessing attachments by [activating private attachments](https://support.zendesk.com/hc/en-us/articles/4408832757146).
 - **Malware Scanning.** Admins should follow company guidelines on how to manage attachments that have been flagged by our [Malware Scanning](managing-malicious-attachments.md).
-- **Email**  
-  - - [Disable rich content](https://support.zendesk.com/hc/en-us/articles/4408828563866-Disabling-and-enabling-rich-content-in-incoming-emails) in emails (i.e., non-plain text/HTML).
+- **Email** 
+ - - [Disable rich content](https://support.zendesk.com/hc/en-us/articles/4408828563866-Disabling-and-enabling-rich-content-in-incoming-emails) in emails (i.e., non-plain text/HTML).
     - Decommission unused support email addresses.
     - Disable wildcard email address when not needed.
     - Enable email authentication with SPF, DKIM and DMARC to reduce email spoofing and Business Email Compromise.
@@ -37,7 +37,7 @@ This article contains the following sections on Zendesk Suite Product Controls:
 - **Sandbox.** We recommend using a sandbox environment for testing and launching code before it goes into your production environment. Please note that this is only available with Enterprise plans.
 - **Support Mobile app.** Decide if you want to allow access for Agents via the Support Mobile app, and if not, remove the Mobile App access in Admin Center under “More Security Settings”. Please note that Password Access to the API needs to be allowed for Mobile Apps to work.
 - **Log Management.**
-  - - **Audit logs.** Manage your audit logs to keep track of changes in your account. Export reports via the API or as CSV. Only available with Enterprise plans.
+ - - **Audit logs.** Manage your audit logs to keep track of changes in your account. Export reports via the API or as CSV. Only available with Enterprise plans.
     - **Ticket interaction/event logs**. [See all actions and notifications that have occurred in your account](https://support.zendesk.com/hc/en-us/articles/4408829602970-Viewing-all-events-of-a-ticket).
     - **Integration logs.** Track data syncing between your Support instance and your integration via this tool in the Admin Center**.**
 - **End user verification**. Require [end users](https://support.zendesk.com/hc/en-us/articles/4408887573274-Configuring-end-user-access-and-sign-in) to register and verify their email address.
@@ -53,7 +53,7 @@ This article contains the following sections on Zendesk Suite Product Controls:
 - **Disable Ability for Admins to Set Passwords for Users**. Enforce least privilege and remove the ability to set a password without having a user apply 2FA and verify their email address through the normal password reset process. See [this document](https://support.zendesk.com/hc/en-us/articles/4408822149018-Setting-the-password-security-level-for-your-Zendesk#topic_phk_dm5_k) for more information about setting password security levels.
 - **Webhooks.** Use TLS/HTTPS to securely [connect](https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks) [to](https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks) [th](https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks)[ird](https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks) [party](https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks) [endpoints](https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks) [s](https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks)[uch](https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks) [as](https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks) [applic](https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks)[ations](https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks) [or](https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks) [websites.](https://support.zendesk.com/hc/en-us/articles/4408839108378-Creating-webhooks)
 - **API Access**
-  - - Disable password access to your API to limit the exposure of protected information.
+ - - Disable password access to your API to limit the exposure of protected information.
     - **API Tokens**. Have your Admin set up least privilege access to reduce the number of people who have access to your API and sensitive customer data (e.g., PII, PHI etc.). Please see the [Security Configuration Requirements for HIPAA or HDS Enabled Accounts](https://support.zendesk.com/hc/en-us/articles/4408828395802) for related information about API token management.
 - **OAuth** clients. Secure access to your API (and related data). Choose the right flow type for your use case and prefer Authorization Code Grant or Implicit Grant over Password Grant if possible. Visit [OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html) for a detailed list of industry best practices.
 

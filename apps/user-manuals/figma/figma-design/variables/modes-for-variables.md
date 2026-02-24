@@ -6,7 +6,7 @@ Source: https://help.figma.com/hc/en-us/articles/15343816063383-Modes-for-variab
 
 **The entry point to the variables modal is moving!** Currently, the variables modal is not discoverable if you have a layer selected. We're slowly rolling out a new left navigation bar to users in Figma Design, which will include the entry point to the variables modal so you can access your variable collections anytime.
 
-![navigation-bar-variables-entry-point.png](https://help.figma.com/hc/article_attachments/37506151518615)  
+![navigation-bar-variables-entry-point.png](https://help.figma.com/hc/article_attachments/37506151518615) 
 The variables modal will also be edge-to-edge in your window by default, called **variables view**, so that you can see more of your variables and modes at once. You can still minimize to a modal view like before.
 
 [Learn more about the new navigation bar.](https://help.figma.com/hc/articles/360039831974)
@@ -15,12 +15,10 @@ Before you Start
 
 Who can use this feature
 
-Anyone on
-[Education, Professional, Organization, and Enterprise plans](https://help.figma.com/hc/en-us/articles/360040328273-Choose-a-Figma-Plan)
+Anyone on [Education, Professional, Organization, and Enterprise plans](https://help.figma.com/hc/en-us/articles/360040328273-Choose-a-Figma-Plan)
 can create and use modes for variables
 
-The number of modes you can create per variable collection
-[depends on your plan](https://help.figma.com/hc/en-us/articles/360040328273)
+The number of modes you can create per variable collection [depends on your plan](https://help.figma.com/hc/en-us/articles/360040328273)
 
 Looking for more resources on variables?
 [Check out our guide to variables](https://help.figma.com/hc/en-us/articles/15339657135383).
@@ -48,7 +46,7 @@ There are many contexts that variable modes can help support. Here are a few ide
 ## Create a mode
 
 1. Deselect all objects by clicking anywhere on the canvas.
-2. Open the variables modal by clicking  **Open variables** in the **Local variables** section of the right sidebar.
+2. Open the variables modal by clicking **Open variables** in the **Local variables** section of the right sidebar.
 3. Open the collection you want to create a new mode in.
 4. From an existing variable, click **New variable mode** to the right of the column headers. Figma duplicates values from the first column to the new one.
 
@@ -163,7 +161,7 @@ The following example demonstrates how design tokens should be formatted.
 
 The following token types are supported for import:
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **DTCG token type** | **Figma variable type** | **Notes** |
 | [Color](https://www.designtokens.org/tr/2025.10/format/#color) | Color | The following color spaces are supported:   - HSL - sRGB |
@@ -177,7 +175,7 @@ The following token types are supported for import:
 
 You can reference variables from other collections using the `com.figma.aliasData` extension with the following properties. If Figma is able to locate a variable in another collection you have access to matching the provided data, the value will be set to an alias referencing that variable.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Property** | **Data** | **Notes** |
 | targetVariableID | ID of the target variable | On import, we will first try to link a variable alias to a variable with an ID matching variableID. |
@@ -191,7 +189,7 @@ When importing tokens, Figma will normalize the names of tokens in nested groups
 
 ### Import design tokens into a new collection
 
-1. Open the  Variables modal.
+1. Open the Variables modal.
 2. Create a new collection, then drag-and-drop one or more eligible file types into the Variables modal.
 
 A new mode will be created for each file you import. Variables will only be created for tokens that meet the following criteria:
@@ -202,7 +200,7 @@ A new mode will be created for each file you import. Variables will only be crea
 
 ### Import design tokens to update existing modes
 
-1. Open the  Variables modal.
+1. Open the Variables modal.
 2. Select an existing collection, then right-click on the mode you want to update and choose **Import mode**.
 3. Select the file you want to import, and click **Open**.
 
@@ -214,7 +212,7 @@ You can export variable modes to a JSON file.
 
 To export a variable mode:
 
-1. Open the  Variables modal.
+1. Open the Variables modal.
 2. Do one of the following:
    - **To export a single mode:** Open the collection, then right-click on the mode you want to export and choose **Export mode**.
    - **To export all modes in a collection:** Right-click on the collection and choose **Export modes**.
@@ -241,7 +239,7 @@ Tip: Want to change variable modes while prototyping? [Learn how to use the Set 
 To switch the mode on an object:
 
 1. Select the layer, group, or container object.
-2. From the **Appearance** section of the right sidebar, click  **Apply variable mode**.
+2. From the **Appearance** section of the right sidebar, click **Apply variable mode**.
 3. Hover over a variable collection and choose a mode.
 
 Once you specify a mode on an object, a tag with the mode icon and mode name will appear next to the layer name in the **Layers** panel of the left sidebar. If there are multiple modes, hover over the tag to see a list of modes.
@@ -253,7 +251,7 @@ Once you specify a mode on an object, a tag with the mode icon and mode name wil
 You can switch modes on pages if any local collection of variables contains multiple modes.
 
 1. Deselect everything on the canvas.
-2. From the **Page** section of the right sidebar, click  **Apply variable mode**.
+2. From the **Page** section of the right sidebar, click **Apply variable mode**.
 3. Hover over a variable collection and choose a mode.
 
 ### Set to auto mode (objects only)
@@ -276,7 +274,7 @@ String and number variables can be mapped to variant instances so it switches to
 1. Create a string or number variable with multiple values (or modes).
 2. Set the variable’s values to match the variant property’s values.
 3. Grab a component instance of the variant, and hover over the variant property in the right sidebar.
-4. Click  **Assign variable** and choose the variable.
+4. Click **Assign variable** and choose the variable.
 
 Now, the instance will switch to a different variant whenever the mode switches.
 
@@ -290,7 +288,7 @@ Note: Currently, boolean variables cannot be applied to [boolean properties](../
 2. Create two variant instances within the same component set.
 3. Set one variant’s value to `True` and the other one to `False`.
 4. Grab a component instance of one of the variants, and hover over the variant property in the right sidebar.
-5. Click  **Assign variable** and choose the boolean variable.
+5. Click **Assign variable** and choose the boolean variable.
 
 [Learn how to use variants and variables in prototypes](https://help.figma.com/hc/en-us/articles/14506587589399).
 
@@ -308,7 +306,7 @@ Now, the nested instance will switch to a different variant whenever the mode sw
 
 ## Mode conflicts
 
-Any modes with conflicts will show an  **information icon** next to it in the mode switcher. Conflicts occur when objects in a file use different versions of the same variable.
+Any modes with conflicts will show an **information icon** next to it in the mode switcher. Conflicts occur when objects in a file use different versions of the same variable.
 
 If you select a mode with a conflict, the mode is only applied to layers that can render it. The layer must be using a version of the variable that contains that mode.
 
@@ -343,16 +341,16 @@ In some cases, there's a chain of files with connected assets that are experienc
 
 For example, let's say you created a variable in File 1 and publish it to team libraries. In File 2, you use the variable on Main Component A. In File 3, an instance of Component A is inserted into Main Component B. Lastly, an instance of Component B is inserted into File 4. This chain looks like this:
 
-> File 1: Variable (version 1)  
-> File 2: Main Component A (uses variable version 1)  
-> File 3: Main Component B (uses instance of Component A)  
+> File 1: Variable (version 1) 
+> File 2: Main Component A (uses variable version 1) 
+> File 3: Main Component B (uses instance of Component A) 
 > File 4: Instance of Component B
 
-One day, someone adds a new mode to the variable in File 1. You grab an asset from File 1 and insert it into File 4. You start seeing an  **information icon**next to one of the modes in the mode switcher. So now, the chain looks like this (changes are **bolded**):
+One day, someone adds a new mode to the variable in File 1. You grab an asset from File 1 and insert it into File 4. You start seeing an **information icon**next to one of the modes in the mode switcher. So now, the chain looks like this (changes are **bolded**):
 
-> File 1: Variable (**version 2**)  
-> File 2: Main Component A (uses variable version 1)  
-> File 3: Main Component B (uses instance of Component A)  
+> File 1: Variable (**version 2**) 
+> File 2: Main Component A (uses variable version 1) 
+> File 3: Main Component B (uses instance of Component A) 
 > File 4: Instance of component B (**you spot a conflict**)
 
 ![Animation illustrating a chain of mode conflicts across four files. A variable's version updates in file one, which impacts a series of components and nested components in files 2 through 4.](https://help.figma.com/hc/article_attachments/20661411678103)
@@ -361,7 +359,7 @@ In this case, reviewing and accepting updates in File 4 will not resolve the iss
 
 As a solution, you will need to publish and accept updates to all files involved in the order of the chain.
 
-> File 1: Publish variable  
-> File 2: Accept variable update; Then publish Main Component A  
-> File 3: Accept updates to variable and Component A; Then publish Component B  
+> File 1: Publish variable 
+> File 2: Accept variable update; Then publish Main Component A 
+> File 3: Accept updates to variable and Component A; Then publish Component B 
 > File 4: Accept updates to variable, Component A, and Component B

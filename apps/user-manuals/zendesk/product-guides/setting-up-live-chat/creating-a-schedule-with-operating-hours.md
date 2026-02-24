@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408822398106-Creating-a-s
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Professional or Enterprise |
 

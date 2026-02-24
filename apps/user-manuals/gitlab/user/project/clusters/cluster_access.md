@@ -23,19 +23,14 @@ instead.
 When creating a cluster in GitLab, you are asked if you would like to create either:
 
 - A [Role-based access control (RBAC)](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
-  cluster, which is the GitLab default and recommended option.
+ cluster, which is the GitLab default and recommended option.
 - An [Attribute-based access control (ABAC)](https://kubernetes.io/docs/reference/access-authn-authz/abac/) cluster.
 
-When GitLab creates the cluster,
-a `gitlab` service account with `cluster-admin` privileges is created in the `default` namespace
-to manage the newly created cluster.
+When GitLab creates the cluster, a `gitlab` service account with `cluster-admin` privileges is created in the `default` namespace to manage the newly created cluster.
 
-Helm also creates additional service accounts and other resources for each
-installed application. Consult the documentation of the Helm charts for each application
-for details.
+Helm also creates additional service accounts and other resources for each installed application. Consult the documentation of the Helm charts for each application for details.
 
-If you are [adding an existing Kubernetes cluster](add_existing_cluster.md),
-ensure the token of the account has administrator privileges for the cluster.
+If you are [adding an existing Kubernetes cluster](add_existing_cluster.md), ensure the token of the account has administrator privileges for the cluster.
 
 The resources created by GitLab differ depending on the type of cluster.
 
@@ -43,10 +38,8 @@ The resources created by GitLab differ depending on the type of cluster.
 
 Note the following about access controls:
 
-- Environment-specific resources are only created if your cluster is
-  [managed by GitLab](gitlab_managed_clusters.md).
-- If your cluster was created before GitLab 12.2, it uses a single namespace for all project
-  environments.
+- Environment-specific resources are only created if your cluster is [managed by GitLab](gitlab_managed_clusters.md).
+- If your cluster was created before GitLab 12.2, it uses a single namespace for all project environments.
 
 ## RBAC cluster resources
 
@@ -77,16 +70,10 @@ GitLab creates the following resources for ABAC clusters.
 ## Security of runners
 
 Runners have the [privileged mode](https://docs.gitlab.com/runner/executors/docker.html#the-privileged-mode)
-enabled by default, which allows them to execute special commands and run
-Docker in Docker. This functionality is needed to run some of the
-[Auto DevOps](../../../topics/autodevops/_index.md)
-jobs. This implies the containers are running in privileged mode and you should,
-therefore, be aware of some important details.
+enabled by default, which allows them to execute special commands and run Docker in Docker. This functionality is needed to run some of the [Auto DevOps](../../../topics/autodevops/_index.md)
+jobs. This implies the containers are running in privileged mode and you should, therefore, be aware of some important details.
 
-The privileged flag gives all capabilities to the running container, which in
-turn can do almost everything that the host can do. Be aware of the
-inherent security risk associated with performing `docker run` operations on
-arbitrary images as they effectively have root access.
+The privileged flag gives all capabilities to the running container, which in turn can do almost everything that the host can do. Be aware of the inherent security risk associated with performing `docker run` operations on arbitrary images as they effectively have root access.
 
 If you don't want to use a runner in privileged mode, either:
 

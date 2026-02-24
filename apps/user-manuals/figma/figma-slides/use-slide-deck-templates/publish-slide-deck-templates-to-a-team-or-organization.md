@@ -18,7 +18,7 @@ Anyone with `can edit` access to a slide deck can publish it as a template
 
 Create custom slide deck templates and publish them to your team or organization.
 
-You can identify published templates by the orange  template icon in the file browser. To help find and manage your custom templates, we recommend keeping them in one project. Learn more about [projects](https://help.figma.com/hc/en-us/articles/1500005554982-Guide-to-files-and-projects).
+You can identify published templates by the orange template icon in the file browser. To help find and manage your custom templates, we recommend keeping them in one project. Learn more about [projects](https://help.figma.com/hc/en-us/articles/1500005554982-Guide-to-files-and-projects).
 
 ![An image showing the slide deck template icon in the file browser. ](https://help.figma.com/hc/article_attachments/34643683056407)
 

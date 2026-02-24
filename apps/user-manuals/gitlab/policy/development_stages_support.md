@@ -13,8 +13,7 @@ Some reasons for these kinds of feature releases include:
 - Validating the edge-cases of scale, support, and maintenance burden of features in their current form for every designed use case.
 - Features not complete enough to be considered an MVC, but added to the codebase as part of the development process.
 
-Some features may not be aligned to these recommendations if they were developed before the recommendations were in place,
-or if a team determined an alternative implementation approach was needed.
+Some features may not be aligned to these recommendations if they were developed before the recommendations were in place, or if a team determined an alternative implementation approach was needed.
 
 All other features are considered to be publicly available.
 
@@ -43,7 +42,7 @@ Experimental features:
 - May have security fixes released in canonical (in the open) depending on the current state of release maturity. Standard vulnerability remediation SLOs do not apply to experimental features.
 - Require VP approval for exceptions to move to Beta without meeting stated Beta requirements.
 - Have [no support available](https://about.gitlab.com/support/statement-of-support/#experiment-beta-features).
-  Issues regarding such features should be opened in the [GitLab issue tracker](https://gitlab.com/gitlab-org/gitlab/-/issues).
+ Issues regarding such features should be opened in the [GitLab issue tracker](https://gitlab.com/gitlab-org/gitlab/-/issues).
 - Might be unstable.
 - Could be removed at any time.
 - Might have a risk of data loss.
@@ -62,12 +61,10 @@ Beta features:
 - May have security fixes released in canonical (in the open) depending on the current state of release maturity. Standard vulnerability remediation SLOs do not apply to beta features.
 - Must have a documented and stakeholder-aligned plan for implementing audit logging before general availability. This plan must specify what events are logged, log format and retention, how security teams will access logs, and integration points with existing audit systems.
 - Require e-group approval for exceptions to move to GA without meeting stated GA requirements.
-- Are [supported on a commercially-reasonable effort basis](https://about.gitlab.com/support/statement-of-support/#experiment-beta-features),
-  but with the expectation that issues require extra time and assistance from development to troubleshoot.
+- Are [supported on a commercially-reasonable effort basis](https://about.gitlab.com/support/statement-of-support/#experiment-beta-features), but with the expectation that issues require extra time and assistance from development to troubleshoot.
 - Might be unstable.
 - Have configuration and dependencies that are unlikely to change.
-- Have features and functions that are unlikely to change. However, breaking changes can occur outside of major releases
-  or with less notice than for generally available features.
+- Have features and functions that are unlikely to change. However, breaking changes can occur outside of major releases or with less notice than for generally available features.
 - Have a low risk of data loss.
 - Have a user experience that is complete or near completion.
 - Can be equivalent to partner "Public Preview" status.

@@ -39,7 +39,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 142,
     "user": {
       "id": 1,
@@ -65,8 +65,8 @@ Example response:
       "start_date": null
     },
     "action": "add"
-  },
-  {
+ },
+ {
     "id": 143,
     "user": {
       "id": 1,
@@ -92,7 +92,7 @@ Example response:
       "start_date": null
     },
     "action": "remove"
-  }
+ }
 ]
 ```
 
@@ -122,19 +122,19 @@ Example response:
 
 ```json
 {
-  "id": 143,
-  "user": {
+ "id": 143,
+ "user": {
     "id": 1,
     "name": "Administrator",
     "username": "root",
     "state": "active",
     "avatar_url": "https://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "web_url": "http://gitlab.example.com/root"
-  },
-  "created_at": "2018-08-21T14:38:20.077Z",
-  "resource_type": "Issue",
-  "resource_id": 253,
-  "iteration":   {
+ },
+ "created_at": "2018-08-21T14:38:20.077Z",
+ "resource_type": "Issue",
+ "resource_id": 253,
+ "iteration":   {
     "id": 53,
     "iid": 13,
     "group_id": 5,
@@ -145,7 +145,7 @@ Example response:
     "updated_at": "2020-01-27T05:07:12.573Z",
     "due_date": null,
     "start_date": null
-  },
-  "action": "remove"
+ },
+ "action": "remove"
 }
 ```

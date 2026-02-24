@@ -5,8 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Widgets
 ---
 
-Frontend widgets are standalone Vue applications or Vue component trees that can be added on a page
-to handle a part of the functionality.
+Frontend widgets are standalone Vue applications or Vue component trees that can be added on a page to handle a part of the functionality.
 
 Good examples of widgets are [sidebar assignees](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/assets/javascripts/sidebar/components/assignees/sidebar_assignees_widget.vue) and [sidebar confidentiality](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/assets/javascripts/sidebar/components/confidential/sidebar_confidentiality_widget.vue).
 
@@ -15,22 +14,20 @@ When building a widget, we should follow a few principles described below.
 ## Vue Apollo is required
 
 All widgets should use the same stack (Vue + Apollo Client).
-To make it happen, we must add Vue Apollo to the application root (if we use a widget
-as a component) or provide it directly to a widget. For sidebar widgets, use the
-[issuable Apollo Client and Apollo Provider](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/assets/javascripts/graphql_shared/issuable_client.js):
+To make it happen, we must add Vue Apollo to the application root (if we use a widget as a component) or provide it directly to a widget. For sidebar widgets, use the [issuable Apollo Client and Apollo Provider](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/assets/javascripts/graphql_shared/issuable_client.js):
 
 ```javascript
 import SidebarConfidentialityWidget from '~/sidebar/components/confidential/sidebar_confidentiality_widget.vue';
 import { apolloProvider } from '~/graphql_shared/issuable_client';
 
 function mountConfidentialComponent() {
-  new Vue({
+ new Vue({
     apolloProvider,
     components: {
       SidebarConfidentialityWidget,
     },
     /* ... */
-  });
+ });
 }
 ```
 
@@ -40,35 +37,31 @@ All editable sidebar widgets should use [`SidebarEditableItem`](https://gitlab.c
 
 ## No global state mappings
 
-We aim to make widgets as reusable as possible. That's why we should avoid adding any external state
-bindings to widgets or to their child components. This includes Vuex mappings and mediator stores.
+We aim to make widgets as reusable as possible. That's why we should avoid adding any external state bindings to widgets or to their child components. This includes Vuex mappings and mediator stores.
 
 ## Widget responsibility
 
 A widget is responsible for fetching and updating an entity it's designed for (assignees, iterations, and so on).
 This means a widget should **always** fetch data (if it's not in Apollo cache already).
-Even if we provide an initial value to the widget, it should perform a GraphQL query in the background
-to be stored in Apollo cache.
+Even if we provide an initial value to the widget, it should perform a GraphQL query in the background to be stored in Apollo cache.
 
-Eventually, when we have an Apollo Client cache as a global application state, we won't need to pass
-initial data to the sidebar widget. Then it will be capable of retrieving the data from the cache.
+Eventually, when we have an Apollo Client cache as a global application state, we won't need to pass initial data to the sidebar widget. Then it will be capable of retrieving the data from the cache.
 
 ## Using GraphQL queries and mutations
 
 We need widgets to be flexible to work with different entities (epics, issues, merge requests, and so on).
-Because we need different GraphQL queries and mutations for different sidebars, we create
-[_mappings_](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/assets/javascripts/sidebar/constants.js#L9):
+Because we need different GraphQL queries and mutations for different sidebars, we create [_mappings_](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/assets/javascripts/sidebar/constants.js#L9):
 
 ```javascript
 export const assigneesQueries = {
-  [TYPE_ISSUE]: {
+ [TYPE_ISSUE]: {
     query: getIssueParticipants,
     mutation: updateAssigneesMutation,
-  },
-  [TYPE_MERGE_REQUEST]: {
+ },
+ [TYPE_MERGE_REQUEST]: {
     query: getMergeRequestParticipants,
     mutation: updateMergeRequestParticipantsMutation,
-  },
+ },
 };
 ```
 
@@ -81,14 +74,14 @@ Unfortunately, Apollo assigns aliased fields a `typename` of `undefined`, so we 
 
 ```plaintext
 query issueConfidential($fullPath: ID!, $iid: String) {
-  namespace: project(fullPath: $fullPath) {
+ namespace: project(fullPath: $fullPath) {
     __typename
     issuable: issue(iid: $iid) {
       __typename
       id
       confidential
     }
-  }
+ }
 }
 ```
 
@@ -99,7 +92,7 @@ to the parent application, we should emit an event:
 
 ```javascript
 updateAssignees(assigneeUsernames) {
-  return this.$apollo
+ return this.$apollo
     .mutate({
       mutation: this.$options.assigneesQueries[this.issuableType].mutation,
       variables: {...},
@@ -120,11 +113,11 @@ import { confidentialityQueries } from '~/sidebar/constants';
 import { defaultClient as gqlClient } from '~/graphql_shared/issuable_client';
 
 created() {
-  if (this.issuableType !== IssuableType.Issue) {
+ if (this.issuableType !== IssuableType.Issue) {
     return;
-  }
+ }
 
-  gqlClient
+ gqlClient
     .watchQuery({
       query: confidentialityQueries[this.issuableType].query,
       variables: {...},
@@ -135,7 +128,7 @@ created() {
     });
 },
 methods: {
-  ...mapActions(['setConfidentiality']),
+ ...mapActions(['setConfidentiality']),
 },
 ```
 

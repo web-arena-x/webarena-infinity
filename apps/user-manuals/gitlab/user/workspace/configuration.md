@@ -21,8 +21,7 @@ title: Configure workspaces
 {{< /history >}}
 
 You can use [workspaces](_index.md) to create and manage isolated development environments for your GitLab projects.
-Each workspace includes its own set of dependencies, libraries, and tools,
-which you can customize to meet the specific needs of each project.
+Each workspace includes its own set of dependencies, libraries, and tools, which you can customize to meet the specific needs of each project.
 
 ## Set up workspace infrastructure
 
@@ -40,8 +39,7 @@ To set up infrastructure for workspaces, regardless of cloud provider, you must:
 1. Optional. [Configure support for private container registries](#configure-support-for-private-container-registries).
 1. Optional. [Configure sudo access for a workspace](#configure-sudo-access-for-a-workspace).
 
-If you use AWS, you can use our OpenTofu tutorial. For more information, see
-[Tutorial: Set up workspaces infrastructure on AWS](set_up_infrastructure.md).
+If you use AWS, you can use our OpenTofu tutorial. For more information, see [Tutorial: Set up workspaces infrastructure on AWS](set_up_infrastructure.md).
 
 ## Create a workspace
 
@@ -75,8 +73,7 @@ Prerequisites:
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Edit** > **New workspace**.
 1. From the **Cluster agent** dropdown list, select a cluster agent owned by the group the project belongs to.
-1. From the **Git reference** dropdown list, select the branch, tag, or commit hash
-   GitLab uses to create the workspace. By default, this is the branch you're viewing.
+1. From the **Git reference** dropdown list, select the branch, tag, or commit hash GitLab uses to create the workspace. By default, this is the branch you're viewing.
 1. From the **Devfile** dropdown list, select one of the following:
    - [GitLab default devfile](_index.md#gitlab-default-devfile).
    - [Custom devfile](_index.md#custom-devfile).
@@ -93,8 +90,7 @@ Prerequisites:
 1. Select the merge request you want to create a workspace for.
 1. Select **Code** > **Open in Workspace**.
 1. From the **Cluster agent** dropdown list, select a cluster agent owned by the group the project belongs to.
-1. From the **Git reference** dropdown list, select the branch, tag, or commit hash
-   GitLab uses to create the workspace. By default, this is the source branch of the merge request.
+1. From the **Git reference** dropdown list, select the branch, tag, or commit hash GitLab uses to create the workspace. By default, this is the source branch of the merge request.
 1. From the **Devfile** dropdown list, select one of the following:
    - [GitLab default devfile](_index.md#gitlab-default-devfile).
    - [Custom devfile](_index.md#custom-devfile).
@@ -112,15 +108,13 @@ You also have access to the terminal and can install any necessary dependencies.
 
 ### Monitor workspace startup progress
 
-When you start a workspace, you can monitor the progress of initialization tasks and `postStart`
-events by checking the workspace logs. For more information, see [Workspace logs directory](_index.md#workspace-logs-directory).
+When you start a workspace, you can monitor the progress of initialization tasks and `postStart` events by checking the workspace logs. For more information, see [Workspace logs directory](_index.md#workspace-logs-directory).
 
 ## Platform compatibility
 
 The platform requirements for workspaces depend on your development needs.
 
-For basic workspace functionality, workspaces run on any `linux/amd64` Kubernetes cluster that supports
-the GitLab agent for Kubernetes, regardless of the underlying operating system.
+For basic workspace functionality, workspaces run on any `linux/amd64` Kubernetes cluster that supports the GitLab agent for Kubernetes, regardless of the underlying operating system.
 
 To choose a method that fits your platform requirements, see [Configure sudo access for a workspace](#configure-sudo-access-for-a-workspace).
 
@@ -132,8 +126,7 @@ To choose a method that fits your platform requirements, see [Configure sudo acc
 
 {{< /history >}}
 
-Development environments often require building and running containers to manage and use dependencies
-during runtime.
+Development environments often require building and running containers to manage and use dependencies during runtime.
 To build and run containers in a workspace, see [configure sudo access for a workspace with Sysbox](#with-sysbox).
 
 ## Configure support for private container registries
@@ -159,8 +152,7 @@ For more information, see [`image_pull_secrets`](settings.md#image_pull_secrets)
 
 {{< /history >}}
 
-Development environments often require sudo permissions to install, configure, and use dependencies
-during runtime. Choose the method that fits your platform requirements:
+Development environments often require sudo permissions to install, configure, and use dependencies during runtime. Choose the method that fits your platform requirements:
 
 | Method                                   | Platform requirements                                                                                                                                                                                                                                                                     | Usage |
 |------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------|
@@ -171,46 +163,39 @@ during runtime. Choose the method that fits your platform requirements:
 Prerequisites:
 
 - Your container images must support [arbitrary user IDs](_index.md#arbitrary-user-ids).
-  Even with sudo access configured, container images used in a [devfile](_index.md#devfile)
-  cannot run with a user ID of `0`.
+ Even with sudo access configured, container images used in a [devfile](_index.md#devfile)
+ cannot run with a user ID of `0`.
 
 ### With Sysbox
 
-[Sysbox](https://github.com/nestybox/sysbox) is a container runtime that improves container isolation
-and enables containers to run the same workloads as virtual machines.
+[Sysbox](https://github.com/nestybox/sysbox) is a container runtime that improves container isolation and enables containers to run the same workloads as virtual machines.
 
 To configure sudo access with Sysbox:
 
 1. In your Kubernetes cluster, [install Sysbox](https://github.com/nestybox/sysbox#installation).
 1. Configure the GitLab agent for Kubernetes:
 
-   - Set the default runtime class. In [`default_runtime_class`](settings.md#default_runtime_class),
-     enter the runtime class for Sysbox. For example, `sysbox-runc`.
+   - Set the default runtime class. In [`default_runtime_class`](settings.md#default_runtime_class), enter the runtime class for Sysbox. For example, `sysbox-runc`.
    - Enable privilege escalation.
      Set [`allow_privilege_escalation`](settings.md#allow_privilege_escalation) to `true`.
-   - Configure the annotations required by Sysbox. Set [`annotations`](settings.md#annotations) to
-     `{"io.kubernetes.cri-o.userns-mode": "auto:size=65536"}`.
+   - Configure the annotations required by Sysbox. Set [`annotations`](settings.md#annotations) to `{"io.kubernetes.cri-o.userns-mode": "auto:size=65536"}`.
 
 ### With Kata Containers
 
-[Kata Containers](https://github.com/kata-containers/kata-containers) is a standard implementation
-of lightweight virtual machines that perform like containers but provide the workload isolation and
-security of virtual machines.
+[Kata Containers](https://github.com/kata-containers/kata-containers) is a standard implementation of lightweight virtual machines that perform like containers but provide the workload isolation and security of virtual machines.
 
 To configure sudo access with Kata Containers:
 
 1. In your Kubernetes cluster, [install Kata Containers](https://github.com/kata-containers/kata-containers/tree/main/docs/install).
 1. Configure the GitLab agent for Kubernetes:
 
-   - Set the default runtime class. In [`default_runtime_class`](settings.md#default_runtime_class),
-     enter the runtime class for Kata Containers. For example, `kata-qemu`.
+   - Set the default runtime class. In [`default_runtime_class`](settings.md#default_runtime_class), enter the runtime class for Kata Containers. For example, `kata-qemu`.
    - Enable privilege escalation.
      Set [`allow_privilege_escalation`](settings.md#allow_privilege_escalation) to `true`.
 
 ### With user namespaces
 
-[User namespaces](https://kubernetes.io/docs/concepts/workloads/pods/user-namespaces/) isolate
-container users from host users.
+[User namespaces](https://kubernetes.io/docs/concepts/workloads/pods/user-namespaces/) isolate container users from host users.
 
 To configure sudo access with user namespaces:
 
@@ -231,9 +216,9 @@ To configure sudo access with user namespaces:
 Prerequisites:
 
 - You must enable SSH access for the images specified in your [devfile](_index.md#devfile).
-  For more information, see [update your workspace container image](#update-your-workspace-container-image).
+ For more information, see [update your workspace container image](#update-your-workspace-container-image).
 - You must configure a TCP load balancer that points to the GitLab workspaces proxy.
-  For more information, see [update your DNS records](set_up_gitlab_agent_and_proxies.md#update-your-dns-records).
+ For more information, see [update your DNS records](set_up_gitlab_agent_and_proxies.md#update-your-dns-records).
 
 To connect to a workspace with an SSH client:
 
@@ -258,8 +243,7 @@ To connect to a workspace with an SSH client:
 
 1. For the password, enter your personal access token with at least the `read_api` scope.
 
-When you connect to `gitlab-workspaces-proxy` through the TCP load balancer,
-`gitlab-workspaces-proxy` examines the username (workspace name) and interacts with GitLab to verify:
+When you connect to `gitlab-workspaces-proxy` through the TCP load balancer, `gitlab-workspaces-proxy` examines the username (workspace name) and interacts with GitLab to verify:
 
 - The personal access token
 - User access to the workspace
@@ -268,13 +252,10 @@ When you connect to `gitlab-workspaces-proxy` through the TCP load balancer,
 
 You can update your custom workspace images in two ways.
 
-If your workspace image is based on the [workspace base image](_index.md#workspace-base-image),
-SSH support is already configured and ready to use. This approach ensures your image has all
-necessary workspace configurations.
+If your workspace image is based on the [workspace base image](_index.md#workspace-base-image), SSH support is already configured and ready to use. This approach ensures your image has all necessary workspace configurations.
 For detailed instructions, see [Create a custom workspace image](create_image.md).
 
-If you prefer not to use the workspace base image, you can build from your own base image. If you do
-this, configure SSH support manually in your runtime images:
+If you prefer not to use the workspace base image, you can build from your own base image. If you do this, configure SSH support manually in your runtime images:
 
 1. Install [`sshd`](https://man.openbsd.org/sshd.8) in your runtime images.
 1. Create a user named `gitlab-workspaces` to allow access to your container without a password.

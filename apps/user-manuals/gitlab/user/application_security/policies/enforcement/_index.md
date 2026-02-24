@@ -29,22 +29,14 @@ When designing policies:
 
 To enforce policies to meet your requirements, consider the following factors:
 
-- **Inheritance**: By default, a policy is enforced on the organizational units it's linked to, and
-  all their descendent subgroups and their projects.
+- **Inheritance**: By default, a policy is enforced on the organizational units it's linked to, and all their descendent subgroups and their projects.
 - **Scope**: To customize policy enforcement, you can define a policy's scope to match your needs.
 
 #### Inheritance
 
-To maximize policy coverage, link a security policy project to the highest organizational units that
-achieves your objectives: groups, subgroups, or projects. A policy is enforced on the organizational
-units it's linked to, and all their descendent subgroups and their projects. Enforcement at the
-highest point minimizes the number of security policies required, minimizing the management
-overhead.
+To maximize policy coverage, link a security policy project to the highest organizational units that achieves your objectives: groups, subgroups, or projects. A policy is enforced on the organizational units it's linked to, and all their descendent subgroups and their projects. Enforcement at the highest point minimizes the number of security policies required, minimizing the management overhead.
 
-You can use policy inheritance to incrementally roll out policies. For example, when rolling out a
-new policy, you can enforce it on a single project, then conduct testing. If the tests pass, you can
-then remove it from the project and enforce it on a group, moving up the hierarchy until the policy
-is enforced on all applicable projects.
+You can use policy inheritance to incrementally roll out policies. For example, when rolling out a new policy, you can enforce it on a single project, then conduct testing. If the tests pass, you can then remove it from the project and enforce it on a group, moving up the hierarchy until the policy is enforced on all applicable projects.
 
 Policies enforced on an existing group or subgroup are automatically enforced in any new subgroups and projects created under them, provided that:
 
@@ -53,9 +45,7 @@ Policies enforced on an existing group or subgroup are automatically enforced in
 
 {{< alert type="note" >}}
 
-GitLab.com users can enforce policies against their top-level group or across subgroups, but cannot
-enforce policies across GitLab.com top-level groups. GitLab Self-Managed administrators can enforce policies
-across multiple top-level groups in their instance.
+GitLab.com users can enforce policies against their top-level group or across subgroups, but cannot enforce policies across GitLab.com top-level groups. GitLab Self-Managed administrators can enforce policies across multiple top-level groups in their instance.
 
 {{< /alert >}}
 
@@ -67,32 +57,27 @@ The following example illustrates two groups and their structure:
 **Alpha** group (contains code projects)
 
 - **Finance** (subgroup)
-  - Project A
-  - Accounts receiving (subgroup)
+ - Project A
+ - Accounts receiving (subgroup)
     - Project B
     - Project C
 - **Engineering** (subgroup)
-  - Project K
-  - Project L
-  - Project M
+ - Project K
+ - Project L
+ - Project M
 
 **Security and compliance** group (contains security policy projects)
 
 - Security Policy Management
 - Security Policy Management - security policy project
-  - SAST policy
-  - Secret detection policy
+ - SAST policy
+ - Secret detection policy
 
 Assuming no policies are enforced, consider the following examples:
 
-- If the "SAST" policy is enforced at group Alpha, the policy applies to both of Alpha's subgroups, Finance and
-  Engineering, and all their projects and subgroups. If the secret detection policy is enforced
-  also at subgroup "Accounts receiving", both policies apply to projects B and C. However, only the
-  "SAST" policy applies to project A.
-- If the "SAST" policy is enforced at subgroup "Accounts receiving", it applies only to projects B
-  and C. No policy applies to project A.
-- If the secret detection policy is enforced at project K, it applies only to project K. No other
-  subgroups or projects have a policy apply to them.
+- If the "SAST" policy is enforced at group Alpha, the policy applies to both of Alpha's subgroups, Finance and Engineering, and all their projects and subgroups. If the secret detection policy is enforced also at subgroup "Accounts receiving", both policies apply to projects B and C. However, only the "SAST" policy applies to project A.
+- If the "SAST" policy is enforced at subgroup "Accounts receiving", it applies only to projects B and C. No policy applies to project A.
+- If the secret detection policy is enforced at project K, it applies only to project K. No other subgroups or projects have a policy apply to them.
 
 #### Scope
 
@@ -108,16 +93,11 @@ You can refine a policy's scope by:
 
 - Compliance frameworks: Enforce a policy on projects with selected compliance frameworks.
 - Group:
-  - All projects in a group, including all of the group's subgroups and their projects. Optionally
-    exclude specific projects.
-  - All projects from multiple groups, including all of the groups' subgroups and their projects. Any
-    groups linked to the same security policy project can be listed in the policy. Optionally
-    exclude specific projects.
-- Projects: Include or exclude specific projects. Only projects linked to the same security policy
-  project can be listed in the policy.
+ - All projects in a group, including all of the group's subgroups and their projects. Optionally exclude specific projects.
+ - All projects from multiple groups, including all of the groups' subgroups and their projects. Any groups linked to the same security policy project can be listed in the policy. Optionally exclude specific projects.
+- Projects: Include or exclude specific projects. Only projects linked to the same security policy project can be listed in the policy.
 
-You can apply these refinements together in the same policy. However, exclusion takes precedence over
-inclusion.
+You can apply these refinements together in the same policy. However, exclusion takes precedence over inclusion.
 
 ## Separation of duties
 
@@ -138,6 +118,6 @@ The Owner role and custom roles with the `manage_security_policy_link` permissio
 
 | Organization unit | Group owner or group `manage_security_policy_link` permission | Subgroup owner or subgroup `manage_security_policy_link` permission | Project owner or project `manage_security_policy_link` permission |
 |-------------------|---------------------------------------------------------------|---------------------------------------------------------------------|-------------------------------------------------------------------|
-| Group             | {{< yes >}} | {{< no >}}  | {{< no >}} |
+| Group             | {{< yes >}} | {{< no >}} | {{< no >}} |
 | Subgroup          | {{< yes >}} | {{< yes >}} | {{< no >}} |
 | Project           | {{< yes >}} | {{< yes >}} | {{< yes >}} |

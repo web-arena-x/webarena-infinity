@@ -10,8 +10,7 @@ To make testing Rake tasks a little easier:
 - Use RSpec's metadata tag `type: :task` or
 - Place your spec in `spec/tasks` or `ee/spec/tasks`
 
-By doing so, `RakeHelpers` is included which exposes a `run_rake_task(<task>)`
-method to make executing tasks possible.
+By doing so, `RakeHelpers` is included which exposes a `run_rake_task(<task>)` method to make executing tasks possible.
 
 See `spec/support/helpers/rake_helpers.rb` for all available methods.
 
@@ -23,11 +22,11 @@ Example:
 require 'spec_helper'
 
 describe 'gitlab:shell rake tasks', :silence_stdout do
-  before do
+ before do
     Rake.application.rake_require 'tasks/gitlab/shell'
 
     stub_warn_user_is_not_gitlab
-  end
+ end
 
  describe 'install task' do
     it 'invokes create_hooks task' do
@@ -35,7 +34,7 @@ describe 'gitlab:shell rake tasks', :silence_stdout do
 
       run_rake_task('gitlab:shell:install')
     end
-  end
+ end
 end
 ```
 

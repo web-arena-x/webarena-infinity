@@ -11,21 +11,21 @@ To view all drawing revisions that have been deleted on the project.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' on the project's Drawings tool.
+ - 'Admin' on the project's Drawings tool.
 - **Additional Information:**
-  - This view used to be called the Deleted Drawing Revisions Report.
+ - This view used to be called the Deleted Drawing Revisions Report.
 
 ## Steps
 
-1. Navigate to the project's **Drawings** tool.  
+1. Navigate to the project's **Drawings** tool. 
    *Optional:*If your project uses Drawing Areas, select the relevant **Drawing Area**.
 2. Click **Trash** to see a list of deleted drawing revisions.
 
 #### Download Deleted Drawings
 
 - Mark the checkbox next to each drawing you would like to download.
-- Click the **Download ![icon-download-cloud.png](https://support.procore.com/@api/deki/files/281337/icon-download-cloud.png?revision=1&size=bestfit&width=18&height=18)**icon.  
-  *Note*: You cannot retrieve deleted drawing revisions and have them populate back into Procore automatically. Instead, you must download any deleted drawings and [reupload them to the Drawings tool](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/upload-drawings "Upload Drawings").
+- Click the **Download ![icon-download-cloud.png](https://support.procore.com/@api/deki/files/281337/icon-download-cloud.png?revision=1&size=bestfit&width=18&height=18)**icon. 
+ *Note*: You cannot retrieve deleted drawing revisions and have them populate back into Procore automatically. Instead, you must download any deleted drawings and [reupload them to the Drawings tool](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/upload-drawings "Upload Drawings").
 
 #### Search and Filter for Deleted Drawings
 
@@ -34,8 +34,8 @@ To view all drawing revisions that have been deleted on the project.
 
 #### Export Deleted Drawings Report as a PDF or CSV
 
-- Click **Export** to export the deleted drawings report to a PDF or CSV format.   
-  *Note*: The PDF or CSV will export only those drawings that are currently in the list.
+- Click **Export** to export the deleted drawings report to a PDF or CSV format.  
+ *Note*: The PDF or CSV will export only those drawings that are currently in the list.
 
 ## See Also
 

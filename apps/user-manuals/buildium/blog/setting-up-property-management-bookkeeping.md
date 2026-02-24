@@ -92,13 +92,13 @@ As your portfolio grows, you’ll want to move from a basic chart of accounts to
 | --- | --- |
 | Income | Rental Income – Residential |
 | Expenses | Rental Income – Commercial |
-|  | Management Fees |
-|  | Late Fees |
-|  | Application Fees |
-|  | Repairs – Unit |
-|  | Repairs – Common Area |
-|  | Utilities – Owner Paid |
-|  | Utilities – Tenant Paid |
+| | Management Fees |
+| | Late Fees |
+| | Application Fees |
+| | Repairs – Unit |
+| | Repairs – Common Area |
+| | Utilities – Owner Paid |
+| | Utilities – Tenant Paid |
 
 ### Property and Portfolio Reporting Levels
 

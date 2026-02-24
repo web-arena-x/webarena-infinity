@@ -42,10 +42,10 @@ To find a specific teammate, use the search field to narrow down the displayed l
 **Note**: There is a limit of 100 team members per virtual fair registration. 
 
 - All team members must have an active Handshake account to launch a Handshake video session.
-  - *To get started, they should* [*Create an Employer User Account, Join a Company, and Connect with Schools*](https://support.joinhandshake.com/hc/en-us/articles/219133047).
+ - *To get started, they should* [*Create an Employer User Account, Join a Company, and Connect with Schools*](https://support.joinhandshake.com/hc/en-us/articles/219133047).
 - Team members listed without a role and marked as 'Unclaimed Account' had accounts created on their behalf but have not yet claimed them (i.e., confirmed the account and set a password).
 - If a teammate doesn’t appear on the list, they likely don’t have a Handshake account yet or aren’t connected to your company.
-  - Recruiters can manually add teammates or invite colleagues to join their company on Handshake, if this setting is enabled by the company profile owner or admin.
+ - Recruiters can manually add teammates or invite colleagues to join their company on Handshake, if this setting is enabled by the company profile owner or admin.
     - If enabled, recruiters will have two options to invite a teammate who is not yet on Handshake.
       - **Copy Invite Link**: Click this button to copy a link to share with your colleague. This allows them to create their own account and connect directly to your company profile once their account is confirmed.
       - **Add Teammate Manually**: Click this button to create an account for your colleague. They will receive an email prompting them to confirm their account and set a password. Once the account is claimed, you'll be able to add them to group or 1:1 sessions.
@@ -62,7 +62,7 @@ Group session durations, ranging from 10 to 60 minutes, are determined by the sc
 
 - If **No**, click the blue button **Confirm sessions** in the lower-right corner to proceed.
 - If **Yes**, provide a response to the following questions:
-  - **Are you using Handshake Video or another video tool?** *(select one)*
+ - **Are you using Handshake Video or another video tool?** *(select one)*
     - **Handshake video session**
       - **\***Would you like to record these sessions? *(Select Yes/No)*
         - **Note**: this feature is only available to Premium partners.
@@ -124,7 +124,7 @@ These sessions allow your team members to meet individually with qualified stude
 
 - Qualifications can be changed up until the fair starts. After the fair begins, the only option will be to clear all qualifications.
 - By selecting qualifications, you limit student sign-ups to only those who meet the criteria. Students who do not meet the selected qualifications will be unable to sign up for 1:1 sessions.
-  - To help fill any empty 1:1 sessions, we offer an automated feature that pauses your session qualifications 48 hours before the fair.
+ - To help fill any empty 1:1 sessions, we offer an automated feature that pauses your session qualifications 48 hours before the fair.
     - To opt out of this feature, select **No, keep my qualifications in place the whole time**.
     - If you opt into the feature, you will receive a reminder email 72 hours before the fair, allowing you to opt out at that time if desired.
 

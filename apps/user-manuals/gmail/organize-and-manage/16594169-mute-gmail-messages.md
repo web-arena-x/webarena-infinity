@@ -10,9 +10,9 @@ After you mute a message:
 
 - The message is labeled as "Muted."
 - You can still receive a message in your inbox if:
-  - The message is only sent to you.
-  - The message is sent to a Google Group you’re in.
-  - Someone adds you to the “To” or “Cc” fields.
+ - The message is only sent to you.
+ - The message is sent to a Google Group you’re in.
+ - Someone adds you to the “To” or “Cc” fields.
 
 ## Mute a message
 
@@ -24,8 +24,8 @@ After you mute a message:
 
 - **To find a muted message:** In the search bar at the top of Gmail, enter: `is:muted`
 - **To mute a message with keyboard shortcuts:**
-  1. Check the box next to the message.
-  2. Press **M**.
+ 1. Check the box next to the message.
+ 2. Press **M**.
 
 [Learn more about keyboard shortcuts](/mail/answer/6594#zippy=%2Cactions).
 

@@ -38,15 +38,15 @@ You’ll find the most common text properties in the **Typography** section of t
 
 View the list of properties and links
 
-1. Select  to create and apply [text styles](https://help.figma.com/hc/en-us/articles/360039957034).
+1. Select to create and apply [text styles](https://help.figma.com/hc/en-us/articles/360039957034).
 2. Select the font name to [browse a list of web fonts, fonts installed on your computer, and shared fonts](https://help.figma.com/hc/en-us/articles/360041308034) to find a [typeface or font family](explore-text-properties.md#font-family).
 3. Select a font [weight](explore-text-properties.md#font-weight) or style.
 4. Adjust the [font size](explore-text-properties.md#font-size) of your text.
-5. Use  [line height](explore-text-properties.md#line-height) to adjust the vertical distance between lines of text.
-6. Use  [letter spacing](explore-text-properties.md#letter-spacing) to adjust the horizontal distance between letters.
+5. Use [line height](explore-text-properties.md#line-height) to adjust the vertical distance between lines of text.
+6. Use [letter spacing](explore-text-properties.md#letter-spacing) to adjust the horizontal distance between letters.
 7. Adjust the [horizontal alignment](explore-text-properties.md#horizontal-alignment) of text within the text box.
 8. Adjust the [vertical alignment](explore-text-properties.md#vertical-alignment) of text within the text box.
-9. Click  to open the [type settings](explore-text-properties.md#type-settings) panel and explore more text properties.
+9. Click to open the [type settings](explore-text-properties.md#type-settings) panel and explore more text properties.
 
 ![Typography settings panel showing options for font family, style, size, line height, letter spacing, and alignment.](https://help.figma.com/hc/article_attachments/27469557155991)
 
@@ -54,7 +54,7 @@ Looking for the text **resizing** property? You can update **resizing** for tex
 
 ### Type settings
 
-The **Type settings** menu gives you access to additional text properties and OpenType features. Go to the **Typography** section and click  to open the type settings.
+The **Type settings** menu gives you access to additional text properties and OpenType features. Go to the **Typography** section and click to open the type settings.
 
 Type settings are grouped under two tabs: **Basics** and **Details**. If the font you’re using is a variable font, you’ll also see a **Variable** tab.
 
@@ -84,13 +84,13 @@ Basics Details Variable
 ![Typography settings panel showing indentation and letter case options under the "Details" tab.](https://help.figma.com/hc/article_attachments/27469551206935)
 
 - Adjust **Indentation** settings:
-  - Adjust [paragraph indentation](explore-text-properties.md#paragraph-indentation) to offset the first line of text in a paragraph.
-  - Toggle [hanging quotes](https://help.figma.com/hc/en-us/articles/360039956634/preview/eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MzYwMDM5OTU2NjM0LCJleHAiOjE2Nzk5NDE2Mjh9.sH_Ld41tbwuSusIVlYxAWGyB2VRD0gH1Tp1bkkIbG6U#Hanging_quotes)
-  - Toggle [hanging lists](https://help.figma.com/hc/en-us/articles/360039956634/preview/eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MzYwMDM5OTU2NjM0LCJleHAiOjE2Nzk5NDE2Mjh9.sH_Ld41tbwuSusIVlYxAWGyB2VRD0gH1Tp1bkkIbG6U#Hanging_lists)
+ - Adjust [paragraph indentation](explore-text-properties.md#paragraph-indentation) to offset the first line of text in a paragraph.
+ - Toggle [hanging quotes](https://help.figma.com/hc/en-us/articles/360039956634/preview/eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MzYwMDM5OTU2NjM0LCJleHAiOjE2Nzk5NDE2Mjh9.sH_Ld41tbwuSusIVlYxAWGyB2VRD0gH1Tp1bkkIbG6U#Hanging_quotes)
+ - Toggle [hanging lists](https://help.figma.com/hc/en-us/articles/360039956634/preview/eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MzYwMDM5OTU2NjM0LCJleHAiOjE2Nzk5NDE2Mjh9.sH_Ld41tbwuSusIVlYxAWGyB2VRD0gH1Tp1bkkIbG6U#Hanging_lists)
 - Use [**Letter case**](explore-text-properties.md#letter-case) to transform text into another case, this is a non-destructive action. Choose from uppercase, lowercase, capitalize, and small caps. If available, you can also toggle case-sensitive forms and capital spacing.
 - Adjust properties related to **Numbers**, such as [style](explore-text-properties.md#numbers-style), [position (superscript and subscript)](explore-text-properties.md#h_01G6682GY2AHM7ETNZRPTQD5FY), [fractions](explore-text-properties.md#numbers-fractions), and more.
 - Adjust any [OpenType](https://help.figma.com/hc/en-us/articles/4913951097367) features. These can vary between fonts. For example: in the Inter font, you can adjust Letter forms, Stylistic sets, Character variants, Horizontal spacing, and present numbers as fractional denominators and numerators.
-- Click  to close the type settings panel.
+- Click to close the type settings panel.
 
 A variable font is a font that provides a range of dynamic font variations for a typeface in a single file. A regular static font can only contain one font per file.
 
@@ -106,7 +106,7 @@ If you have access to Dev Mode, you can inspect text layers and their properties
 
 ![Sidebar panel displaying text properties in Dev Mode, including font-family, size, weight, line-height, and letter-spacing settings.](https://help.figma.com/hc/article_attachments/27469551212951)
 
-1. Confirm that you have a  **Text layer** selected. If there have been changes since you last viewed this layer, you can [Compare changes](../inspect-designs/compare-changes-in-dev-mode.md).
+1. Confirm that you have a **Text layer** selected. If there have been changes since you last viewed this layer, you can [Compare changes](../inspect-designs/compare-changes-in-dev-mode.md).
 2. Choose the **Code** output you’d like to view text properties for.
 3. Review text properties in the **Typography** section of the right sidebar.
 4. Click to copy all text properties to your clipboard.
@@ -162,18 +162,18 @@ Strikethrough adds a horizontal line through the center of your text.
 
 Use strikethrough to indicate obsolete or inaccurate information. This allows you to convey its state, without redacting or obscuring the original text.
 
-Click the  icon to apply strikethrough to selected text.
+Click the icon to apply strikethrough to selected text.
 
 Underline adds a horizontal line along the baseline of your text. Use underline to place emphasis on a particular section of the text, or show that it includes a link.
 
 Underlining links is considered good practice in web design. If applied consistently, this can help to improve the accessibility of your design.
 
-Click the  icon to apply underline to selected text, or use the keyboard shortcut:
+Click the icon to apply underline to selected text, or use the keyboard shortcut:
 
 - **Mac:** `Option` `U`
 - **Windows:** `Ctrl` `U`
 
-You can then access additional underline settings. From **Type settings**, select  the chevron to view and adjust **Underline details:**
+You can then access additional underline settings. From **Type settings**, select the chevron to view and adjust **Underline details:**
 
 - **Style**: Select a solid, dotted, or wavy underline style.
 - **Thickness**: Adjust the width of the underline.
@@ -199,8 +199,8 @@ You can access weights once you select the font family. Adjust the font-weight u
 
 - Click the arrow to explore styles for the selected font.
 - Use the keyboard shortcuts to increase and decrease the font-weight.
-  - **Mac:** Hold down `⌥ Option` `⌘ Command` and `<` to increase or `>` to decrease.
-  - **Windows:** Hold down `Ctrl` `Alt` and `<` to increase or `>` to decrease.
+ - **Mac:** Hold down `⌥ Option` `⌘ Command` and `<` to increase or `>` to decrease.
+ - **Windows:** Hold down `Ctrl` `Alt` and `<` to increase or `>` to decrease.
 
 Font size controls the scale of your text. Figma represents font size in density-independent pixels.
 
@@ -209,8 +209,8 @@ Adjust the font size using the field next to the font style. There are a few way
 - Click the arrow to select a default font size.
 - Enter your own number in the field.
 - Use the keyboard shortcuts:
-  - **Mac:** Hold down `Shift` `⌘ Command` and `<` to increase or `>` to decrease.
-  - **Windows:** Hold down `Ctrl` `Shift` and `<` to increase or `>` to decrease.
+ - **Mac:** Hold down `Shift` `⌘ Command` and `<` to increase or `>` to decrease.
+ - **Windows:** Hold down `Ctrl` `Shift` and `<` to increase or `>` to decrease.
 
 Figma represents text sizes in a few different ways
 
@@ -243,13 +243,13 @@ Letter case allows you to change the case of selected text. This is super handy 
 
 ### Letter spacing
 
-Letter spacing  lets you define the space between characters in a word, line, or paragraph. This can determine how easy your text is to read.
+Letter spacing lets you define the space between characters in a word, line, or paragraph. This can determine how easy your text is to read.
 
 This is not to be confused with **kerning**, which refers to the process of adjusting space between individual characters in a typeface.
 
 Adjust the letter spacing for an entire text layer, or a selection of text. To replicate kerning, place the cursor between two letters and adjust the letter spacing.
 
-Use the  field to adjust letter spacing for your selection, or use the keyboard shortcuts:
+Use the field to adjust letter spacing for your selection, or use the keyboard shortcuts:
 
 - **Mac**: Hold down `⌥ Option` and `<` to increase or `>` to decrease.
 - **Windows**: Hold down `Alt` and `<` to increase or `>` to decrease.
@@ -260,11 +260,11 @@ Tip! Tracking describes the letter spacing process in the manual printing proces
 
 ### Line height
 
-Line height  allows you to control the vertical distance between lines of text in a paragraph. This can help to balance designs and improve the readability of your copy. This is the same as **line spacing**.
+Line height allows you to control the vertical distance between lines of text in a paragraph. This can help to balance designs and improve the readability of your copy. This is the same as **line spacing**.
 
 Small line heights can make text difficult to read. Large line heights can make text look messy and disjointed.
 
-Use the  field to adjust the vertical space between lines of text, or use the keyboard shortcuts:
+Use the field to adjust the vertical space between lines of text, or use the keyboard shortcuts:
 
 - **Mac:** Hold down `⇧ Shift` `⌥ Option` and `<` to increase or `>` to decrease.
 - **Windows:** Hold down `Alt` `Shift` and `<` to increase or `>` to decrease.
@@ -296,7 +296,7 @@ To adjust list item spacing:
 1. Select text in a list or a text layer with only list text.
 2. Enter a px value in the **List spacing** field. Or hover above the icon and drag to **decrease (left)** or **increase (right)** the value.
 
-You can also adjust list spacing from the **Type details** panel by clicking  in the **Typography** section of the right sidebar.
+You can also adjust list spacing from the **Type details** panel by clicking in the **Typography** section of the right sidebar.
 
 ### Numbers
 
@@ -304,9 +304,9 @@ The number section includes any properties or features for numerical figures. Th
 
 Fractions Position (subscript and superscript) Slashed Zero Style
 
-Create **fractions** from numbers. Enter a fraction as `X/X` and click the  to turn it into a fraction.
+Create **fractions** from numbers. Enter a fraction as `X/X` and click the to turn it into a fraction.
 
-Use  **subscript** or  **superscript** to offset the position of numbers and characters.
+Use **subscript** or **superscript** to offset the position of numbers and characters.
 
 Subscript characters are positioned below the line the type. Superscript characters are positioned above the line of type. Both default to a smaller size than the rest of the text.
 
@@ -355,7 +355,7 @@ Note: Figma will create a new paragraph when you use the `Enter` or `Return` key
 
 ### Text truncation and max lines
 
-Truncate text  hides text that overflows the bounding box. An ellipsis `...` is added at the end of the text to indicate hidden overflow text.
+Truncate text hides text that overflows the bounding box. An ellipsis `...` is added at the end of the text to indicate hidden overflow text.
 
 **Max lines** allows you to set the number of lines of text before it truncates. Max lines is available only if truncate text is enabled, and:
 

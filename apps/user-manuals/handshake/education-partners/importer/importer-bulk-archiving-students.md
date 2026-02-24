@@ -33,7 +33,7 @@ To archive students, the file must contain headers for all of the *required fiel
 
 For an example, use the following specifications below, or refer to the example .csv file attached at the the bottom of the article.
 
-|  |  |
+| | |
 | --- | --- |
 | **Header** | **Description** |
 | **email\_address** | Student's Handshake account email |

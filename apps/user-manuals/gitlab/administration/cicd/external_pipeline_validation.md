@@ -14,9 +14,7 @@ title: External pipeline validation
 
 You can use an external service to validate a pipeline before it's created.
 
-GitLab sends a POST request to the external service URL with the pipeline
-data as payload. The response code from the external service determines if GitLab
-should accept or reject the pipeline. If the response is:
+GitLab sends a POST request to the external service URL with the pipeline data as payload. The response code from the external service determines if GitLab should accept or reject the pipeline. If the response is:
 
 - `200`, the pipeline is accepted.
 - `406`, the pipeline is rejected.
@@ -24,19 +22,14 @@ should accept or reject the pipeline. If the response is:
 
 If there's an error or the request times out, the pipeline is accepted.
 
-Pipelines rejected by the external validation service aren't created, and don't
-appear in pipeline lists in the GitLab UI or API. If you create a pipeline in the
-UI that is rejected, `Pipeline cannot be run. External validation failed` is displayed.
+Pipelines rejected by the external validation service aren't created, and don't appear in pipeline lists in the GitLab UI or API. If you create a pipeline in the UI that is rejected, `Pipeline cannot be run. External validation failed` is displayed.
 
 ## Configure external pipeline validation
 
-To configure external pipeline validation, add the
-[`EXTERNAL_VALIDATION_SERVICE_URL` environment variable](../environment_variables.md)
+To configure external pipeline validation, add the [`EXTERNAL_VALIDATION_SERVICE_URL` environment variable](../environment_variables.md)
 and set it to the external service URL.
 
-By default, requests to the external service time out after five seconds. To override
-the default, set the `EXTERNAL_VALIDATION_SERVICE_TIMEOUT` environment variable to the
-required number of seconds.
+By default, requests to the external service time out after five seconds. To override the default, set the `EXTERNAL_VALIDATION_SERVICE_TIMEOUT` environment variable to the required number of seconds.
 
 ## Payload schema
 
@@ -48,8 +41,8 @@ required number of seconds.
 
 ```json
 {
-  "type": "object",
-  "required" : [
+ "type": "object",
+ "required" : [
     "project",
     "user",
     "credit_card",
@@ -57,8 +50,8 @@ required number of seconds.
     "builds",
     "total_builds_count",
     "namespace"
-  ],
-  "properties" : {
+ ],
+ "properties" : {
     "project": {
       "type": "object",
       "required": [
@@ -169,7 +162,7 @@ required number of seconds.
         "trial": { "type": "boolean" }
       }
     }
-  }
+ }
 }
 ```
 

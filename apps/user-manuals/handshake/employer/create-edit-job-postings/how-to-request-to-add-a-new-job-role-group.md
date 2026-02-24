@@ -16,16 +16,15 @@ If the category you are looking for is not available, contact our Support team t
 
 1. Start a chatbot conversation from this article's page:
 
-- Click **Contact Support** in the black header at the top of the page  
-  *Or*
+- Click **Contact Support** in the black header at the top of the page *Or*
 - Click the green message bubble icon in the lower-right corner
 
 Once the chatbot opens:
 
 - Select your primary user type:
 
-  - "An employer", or
-  - "In career services or IT" *(if you work for one of our partner schools)*
+ - "An employer", or
+ - "In career services or IT" *(if you work for one of our partner schools)*
 
 2. In the chat window, type the phrase “**New Job Role Group Request**”, then press Enter or Return on your keyboard to send the message.
 

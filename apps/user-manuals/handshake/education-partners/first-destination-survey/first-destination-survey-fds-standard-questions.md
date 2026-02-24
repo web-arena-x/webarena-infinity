@@ -24,7 +24,7 @@ A First Destination Survey is used to capture information regarding how new coll
    - Over 30 Hours a week (Full Time)
    - Under 30 Hours a week (Part Time)
 
-2. Type of employment  
+2. Type of employment 
    - Organization/Company
    - Entrepreneur
    - Freelancer
@@ -65,7 +65,7 @@ A First Destination Survey is used to capture information regarding how new coll
    - Name of organization
 2. What city is this position located in?
    - Select a city
-3. Please tell us about your position  
+3. Please tell us about your position 
    - What is your position?
    - What is your job function?
    - Did you get this job through Handshake?

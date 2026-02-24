@@ -49,15 +49,15 @@ Compare theme features
 
 | Feature | Vintage | OS 2.0 | Theme blocks |
 | --- | --- | --- | --- |
-| **Sections on the home page**  Customize the content on your online store's home page. Add, rearrange, or remove sections to create your page layout. | ✔ | ✔ | ✔ |
-| **Sections on every page**  Customize the content on most of your online store's pages. Add, rearrange, or remove sections and blocks to create unique page layouts. Themes with sections on every page are built with [JSON templates](https://shopify.dev/docs/storefronts/themes/architecture/templates/json-templates). | ✘ | ✔ | ✔ |
-| **Create templates**  Create new templates for theme from the theme editor. | ✘ | ✔ | ✔ |
-| **Enhanced app support**  Install or change apps without touching any code. Add app functionality anywhere in your theme using [app blocks](../customizing-themes/apps.md#app-blocks) and [app embeds](../customizing-themes/apps.md#app-embeds). | ✘ | ✔ | ✔ |
-| **Richer content using dynamic sources**  Add dynamic, specialized information to any setting in your theme by connecting the setting to a [dynamic source](../theme-structure/sections-and-blocks.md#metafields-and-dynamic-sources). A dynamic source can be a resource attribute or a metafield value. | ✘ | ✔ | ✔ |
-| **Collection filtering**  Allow customers to [filter](../customizing-themes/common-customizations/storefront-filters.md) collections in your store by availability, price, and more. | ✘ | ✔ | ✔ |
-| **Predictive search**  Predictive search displays suggested results as you type. | ✘ | ✔ | ✔ |
-| **Planet app**  Showcase your commitment to carbon-neutral shipping by adding a customizable Planet badge and marketing assets to your online store. | ✘ | ✔ | ✔ |
-| **Theme blocks**  Create advanced customizations to your sections and blocks with [theme blocks](../theme-structure/sections-and-blocks.md#theme-blocks). | ✘ | ✘ | ✔ |
+| **Sections on the home page** Customize the content on your online store's home page. Add, rearrange, or remove sections to create your page layout. | ✔ | ✔ | ✔ |
+| **Sections on every page** Customize the content on most of your online store's pages. Add, rearrange, or remove sections and blocks to create unique page layouts. Themes with sections on every page are built with [JSON templates](https://shopify.dev/docs/storefronts/themes/architecture/templates/json-templates). | ✘ | ✔ | ✔ |
+| **Create templates** Create new templates for theme from the theme editor. | ✘ | ✔ | ✔ |
+| **Enhanced app support** Install or change apps without touching any code. Add app functionality anywhere in your theme using [app blocks](../customizing-themes/apps.md#app-blocks) and [app embeds](../customizing-themes/apps.md#app-embeds). | ✘ | ✔ | ✔ |
+| **Richer content using dynamic sources** Add dynamic, specialized information to any setting in your theme by connecting the setting to a [dynamic source](../theme-structure/sections-and-blocks.md#metafields-and-dynamic-sources). A dynamic source can be a resource attribute or a metafield value. | ✘ | ✔ | ✔ |
+| **Collection filtering** Allow customers to [filter](../customizing-themes/common-customizations/storefront-filters.md) collections in your store by availability, price, and more. | ✘ | ✔ | ✔ |
+| **Predictive search** Predictive search displays suggested results as you type. | ✘ | ✔ | ✔ |
+| **Planet app** Showcase your commitment to carbon-neutral shipping by adding a customizable Planet badge and marketing assets to your online store. | ✘ | ✔ | ✔ |
+| **Theme blocks** Create advanced customizations to your sections and blocks with [theme blocks](../theme-structure/sections-and-blocks.md#theme-blocks). | ✘ | ✘ | ✔ |
 
 ### Determine your theme architecture version
 
@@ -79,8 +79,7 @@ Desktop
 5. If no **Add section** button appears, then you might have a vintage *sectioned* theme or a vintage *non-sectioned* theme. Follow the steps in [Determine your vintage theme architecture version](versions.md#determine-your-architecture) to learn which vintage architecture version your theme is using.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -111,8 +110,7 @@ Desktop
 * If there aren't any files in the **Sections** directory, then you're using a non-sectioned theme.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, tap the **…** button to open the actions menu, and then tap **Edit code**.

@@ -10,7 +10,7 @@ Your ability to close a job depends on your employer account type and whether yo
 
 - **Basic employers**: **Owners** and **Recruiters** can only close jobs they have personally created. Jobs posted by teammates will appear as **view-only** and cannot be closed.
 
-  - To close jobs you did not create, you must upgrade to an eligible paid plan.
+ - To close jobs you did not create, you must upgrade to an eligible paid plan.
 - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**, can close jobs created by themselves or by teammates, provided they have the appropriate permissions.
 
 ### 

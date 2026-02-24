@@ -9,9 +9,9 @@ If you're interested in launching a Kiosk for your First Destination Survey, fol
 Before launching the Kiosk, you'll need to ensure:
 
 - The survey is in **Published** status
-  - Y*ou won't be able to launch the kiosk if your survey is in drafting status.*
+ - Y*ou won't be able to launch the kiosk if your survey is in drafting status.*
 - Students have been added to the survey
-  - O*nly students added to the survey will be able to submit responses via the Kiosk.*
+ - O*nly students added to the survey will be able to submit responses via the Kiosk.*
 
 For more information on creating a FDS, adding students, and publishing the survey, refer to[Create a New First Destination Survey](create-a-new-first-destination-survey.md)*.*
 

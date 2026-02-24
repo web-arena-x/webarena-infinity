@@ -99,9 +99,8 @@ After generating the key pair, you need to **add the public key** to the sending
 
 Next, if you have an existing SPF record, **change the DNS settings** to include Amazon SES before the terminating clause
 
-- Add include:amazonses.com before the end of your record. For example, if you have a record like:  
-   “*v=spf1 include:\_spf.example.com -all*”  
-   It should be changed to: “*v=spf1 include:\_spf.example.com include:amazonses.com -all*”
+- Add include:amazonses.com before the end of your record. For example, if you have a record like: 
+   “*v=spf1 include:\_spf.example.com -all*” It should be changed to: “*v=spf1 include:\_spf.example.com include:amazonses.com -all*”
 
 After configuring the DNS record, you need to create a domain with a verified identity
 

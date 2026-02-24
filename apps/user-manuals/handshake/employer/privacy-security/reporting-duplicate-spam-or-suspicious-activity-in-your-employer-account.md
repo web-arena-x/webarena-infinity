@@ -8,16 +8,13 @@ As an employer account owner, you may occasionally notice suspicious activity in
 
 ### Types of activity to watch for
 
-- **Duplicate job postings**  
-  The same job may appear more than once if a connected teammate also created it.
-- **Spam job or event creations**  
-  Examples include:
+- **Duplicate job postings** The same job may appear more than once if a connected teammate also created it.
+- **Spam job or event creations** Examples include:
 
-  - Jobs or events that don’t represent your company
-  - Irrelevant or inappropriate content (e.g., scam jobs, non-career-related events)
-  - Jobs or events created by teammates without your prior approval
-- **Malicious or unauthorized users**  
-  A user appears to be posting jobs or events on behalf of your company without approval.
+ - Jobs or events that don’t represent your company
+ - Irrelevant or inappropriate content (e.g., scam jobs, non-career-related events)
+ - Jobs or events created by teammates without your prior approval
+- **Malicious or unauthorized users** A user appears to be posting jobs or events on behalf of your company without approval.
 
 ### Deciding what action to take
 
@@ -28,10 +25,8 @@ As an employer account owner, you may occasionally notice suspicious activity in
 
 ### What you should do
 
-- **If you are a Basic employer Owner**  
-  Basic Owners cannot close jobs or cancel events created by other teammates, or deactivate teammates directly. If you notice suspicious activity, contact Support.
-- **If you are on another employer account type (Essentials, TES, etc.)**  
-  Teammates with the appropriate permissions can take direct actions such as closing jobs or canceling events, while only **Owners and Admins** can deactivate teammates. We also recommend reporting suspicious activity to Support so our team can investigate and ensure your account remains secure.
+- **If you are a Basic employer Owner** Basic Owners cannot close jobs or cancel events created by other teammates, or deactivate teammates directly. If you notice suspicious activity, contact Support.
+- **If you are on another employer account type (Essentials, TES, etc.)** Teammates with the appropriate permissions can take direct actions such as closing jobs or canceling events, while only **Owners and Admins** can deactivate teammates. We also recommend reporting suspicious activity to Support so our team can investigate and ensure your account remains secure.
 
 ### 
 

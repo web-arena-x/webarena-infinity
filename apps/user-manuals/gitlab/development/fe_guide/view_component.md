@@ -5,12 +5,10 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: ViewComponent
 ---
 
-ViewComponent is a framework for creating reusable, testable & encapsulated view
-components with Ruby on Rails, without the need for a JavaScript framework like Vue.
+ViewComponent is a framework for creating reusable, testable & encapsulated view components with Ruby on Rails, without the need for a JavaScript framework like Vue.
 They are rendered server-side and can be seamlessly used with template languages like [Haml](haml.md).
 
-For more information, see the [official documentation](https://viewcomponent.org/) or
-[this introduction video](https://youtu.be/akRhUbvtnmo).
+For more information, see the [official documentation](https://viewcomponent.org/) or [this introduction video](https://youtu.be/akRhUbvtnmo).
 
 ## Browse components with Lookbook
 
@@ -18,8 +16,7 @@ We have a [Lookbook](https://github.com/allmarkedup/lookbook) in `http://gdk.tes
 
 ## Pajamas components
 
-Some of the components of our [Pajamas](https://design.gitlab.com) design system are
-available as a ViewComponent in `app/components/pajamas`.
+Some of the components of our [Pajamas](https://design.gitlab.com) design system are available as a ViewComponent in `app/components/pajamas`.
 
 {{< alert type="note" >}}
 
@@ -49,12 +46,11 @@ You can set the variant, persistence, and more:
 
 ```ruby
 = render Pajamas::AlertComponent.new(title: "All done!",
-  variant: :success,
-  dismissible: :false)
+ variant: :success,
+ dismissible: :false)
 ```
 
-For the full list of options, see its
-[source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/pajamas/alert_component.rb).
+For the full list of options, see its [source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/pajamas/alert_component.rb).
 
 #### Banner
 
@@ -66,26 +62,24 @@ In its simplest form the banner component looks like this:
 
 ```ruby
 = render Pajamas::BannerComponent.new(button_text: 'Learn more', button_link: example_path,
-  svg_path: 'illustrations/example.svg') do |c|
-  - c.with_title { 'Hello world!' }
-  %p Content of your banner goes here...
+ svg_path: 'illustrations/example.svg') do |c|
+ - c.with_title { 'Hello world!' }
+ %p Content of your banner goes here...
 ```
 
-If you have a need for more control, you can also use the `illustration` slot
-instead of `svg_path` and the `primary_action` slot instead of `button_text` and `button_link`:
+If you have a need for more control, you can also use the `illustration` slot instead of `svg_path` and the `primary_action` slot instead of `button_text` and `button_link`:
 
 ```ruby
 = render Pajamas::BannerComponent.new do |c|
-  - c.with_illustration do
+ - c.with_illustration do
     = custom_icon('my_inline_svg')
-  - c.with_title do
+ - c.with_title do
     Hello world!
-  - c.with_primary_action do
+ - c.with_primary_action do
     = render 'my_button_in_a_partial'
 ```
 
-For the full list of options, see its
-[source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/pajamas/banner_component.rb).
+For the full list of options, see its [source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/pajamas/banner_component.rb).
 
 #### Button
 
@@ -93,36 +87,34 @@ The `Pajamas::ButtonComponent` follows the [Pajamas Button](https://design.gitla
 
 **Examples**:
 
-The button component has a lot of options but all of them have good defaults,
-so the simplest button looks like this:
+The button component has a lot of options but all of them have good defaults, so the simplest button looks like this:
 
 ```ruby
 = render Pajamas::ButtonComponent.new do |c|
-  = _('Button text goes here')
+ = _('Button text goes here')
 ```
 
 The following example shows most of the available options:
 
 ```ruby
 = render Pajamas::ButtonComponent.new(category: :secondary,
-  variant: :danger,
-  size: :small,
-  type: :submit,
-  disabled: true,
-  loading: false,
-  block: true) do |c|
-  Button text goes here
+ variant: :danger,
+ size: :small,
+ type: :submit,
+ disabled: true,
+ loading: false,
+ block: true) do |c|
+ Button text goes here
 ```
 
 You can also create button-like looking `<a>` tags, like this:
 
 ```ruby
 = render Pajamas::ButtonComponent.new(href: root_path) do |c|
-  Go home
+ Go home
 ```
 
-For the full list of options, see its
-[source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/pajamas/button_component.rb).
+For the full list of options, see its [source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/pajamas/button_component.rb).
 
 #### Card
 
@@ -134,12 +126,12 @@ The card has one mandatory `body` slot and optional `header` and `footer` slots:
 
 ```ruby
 = render Pajamas::CardComponent.new do |c|
-  - c.with_header do
+ - c.with_header do
     I'm the header.
-  - c.with_body do
+ - c.with_body do
     %p Multiple line
     %p body content.
-  - c.with_footer do
+ - c.with_footer do
     Footer goes here.
 ```
 
@@ -151,8 +143,7 @@ If you want to add custom attributes to any of these or the card itself, use the
 
 `header_options` and `footer_options` are available, too.
 
-For the full list of options, see its
-[source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/pajamas/card_component.rb).
+For the full list of options, see its [source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/pajamas/card_component.rb).
 
 #### Checkbox tag
 
@@ -164,16 +155,15 @@ For example:
 
 ```ruby
 = render Pajamas::CheckboxTagComponent.new(name: 'project[initialize_with_sast]',
-  checkbox_options: { data: { testid: 'initialize-with-sast-checkbox', track_label: track_label, track_action: 'activate_form_input', track_property: 'init_with_sast' } }) do |c|
-  - c.with_label do
+ checkbox_options: { data: { testid: 'initialize-with-sast-checkbox', track_label: track_label, track_action: 'activate_form_input', track_property: 'init_with_sast' } }) do |c|
+ - c.with_label do
     = s_('ProjectsNew|Enable Static Application Security Testing (SAST)')
-  - c.with_help_text do
+ - c.with_help_text do
     = s_('ProjectsNew|Analyze your source code for known security vulnerabilities.')
     = link_to _('Learn more.'), help_page_path('user/application_security/sast/_index.md'), target: '_blank', rel: 'noopener noreferrer', data: { track_action: 'followed' }
 ```
 
-For the full list of options, see its
-[source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/pajamas/checkbox_tag_component.rb).
+For the full list of options, see its [source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/pajamas/checkbox_tag_component.rb).
 
 #### Checkbox
 
@@ -187,8 +177,7 @@ To use a checkbox without an instance of [ActionView::Helpers::FormBuilder](http
 
 {{< /alert >}}
 
-For the full list of options, see its
-[source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/pajamas/checkbox_component.rb).
+For the full list of options, see its [source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/pajamas/checkbox_component.rb).
 
 #### Experiment badge
 
@@ -214,8 +203,7 @@ The component includes an informative popover that explains what experiment or b
 = render Pajamas::ExperimentBadgeComponent.new(type: :experiment, popover_placement: 'top')
 ```
 
-For the full list of options, see its
-[source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/pajamas/experiment_badge_component.rb).
+For the full list of options, see its [source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/pajamas/experiment_badge_component.rb).
 
 #### Toggle
 
@@ -223,21 +211,19 @@ The `Pajamas::ToggleComponent` follows the [Pajamas Toggle](https://design.gitla
 
 ```ruby
 = render Pajamas::ToggleComponent.new(classes: 'js-force-push-toggle',
-  label: s_("ProtectedBranch|Toggle allowed to force push"),
-  is_checked: protected_branch.allow_force_push,
-  label_position: :hidden) do
-  Leverage this block to render a rich help text. To render a plain text help text, prefer the `help` parameter.
+ label: s_("ProtectedBranch|Toggle allowed to force push"),
+ is_checked: protected_branch.allow_force_push,
+ label_position: :hidden) do
+ Leverage this block to render a rich help text. To render a plain text help text, prefer the `help` parameter.
 ```
 
 {{< alert type="note" >}}
 
-**The toggle ViewComponent is special as it depends on the Vue.js component.**
-To actually initialize this component, make sure to call the `initToggle` helper from `~/toggles`.
+**The toggle ViewComponent is special as it depends on the Vue.js component.** To actually initialize this component, make sure to call the `initToggle` helper from `~/toggles`.
 
 {{< /alert >}}
 
-For the full list of options, see its
-[source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/pajamas/toggle_component.rb).
+For the full list of options, see its [source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/pajamas/toggle_component.rb).
 
 ## Layouts
 
@@ -253,12 +239,11 @@ A standard page header with a page title and optional actions.
 
 ```ruby
 = render ::Layouts::PageHeadingComponent.new(_('Page title')) do |c|
-  - c.with_actions do
+ - c.with_actions do
     = buttons
 ```
 
-For the full list of options, see its
-[source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/layouts/page_heading_component.rb).
+For the full list of options, see its [source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/layouts/page_heading_component.rb).
 
 #### CRUD component
 
@@ -268,22 +253,21 @@ A list container being used to host a table or list with user actions such as cr
 
 ```ruby
 = render ::Layouts::CrudComponent.new(_('CRUD title'), icon: 'ICONNAME', count: COUNT) do |c|
-  - c.with_description do
+ - c.with_description do
     = description
-  - c.with_actions do
+ - c.with_actions do
     = buttons
-  - c.with_form do
+ - c.with_form do
     = add item form
-  - c.with_body do
+ - c.with_body do
     = body
-  - c.with_pagination do
+ - c.with_pagination do
     = pagination component
-  - c.with_footer do
+ - c.with_footer do
     = optional footer
 ```
 
-For the full list of options, see its
-[source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/layouts/crud_component.rb).
+For the full list of options, see its [source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/layouts/crud_component.rb).
 
 #### Horizontal section
 
@@ -293,18 +277,17 @@ Many of the settings pages use a layout where the title and description are on t
 
 ```ruby
 = render ::Layouts::HorizontalSectionComponent.new(options: { class: 'gl-mb-6' }) do |c|
-  - c.with_title { _('Naming, visibility') }
-  - c.with_description do
+ - c.with_title { _('Naming, visibility') }
+ - c.with_description do
     = _('Update your group name, description, avatar, and visibility.')
     = link_to _('Learn more about groups.'), help_page_path('user/group/_index.md')
-  - c.with_body do
+ - c.with_body do
     .form-group.gl-form-group
       = f.label :name, _('New group name')
       = f.text_field :name
 ```
 
-For the full list of options, see its
-[source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/layouts/horizontal_section_component.rb).
+For the full list of options, see its [source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/layouts/horizontal_section_component.rb).
 
 #### Settings block
 
@@ -314,14 +297,13 @@ A settings block (accordion) to group related settings.
 
 ```ruby
 = render ::Layouts::SettingsBlock.new(_('Settings block heading')) do |c|
-  - c.with_description do
+ - c.with_description do
     = description
-  - c.with_body do
+ - c.with_body do
     = body
 ```
 
-For the full list of options, see its
-[source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/layouts/settings_block_component.rb).
+For the full list of options, see its [source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/layouts/settings_block_component.rb).
 
 #### Settings section
 
@@ -331,23 +313,20 @@ Similar to SettingsBlock (see above) this component is used to group related set
 
 ```ruby
 = render ::Layouts::SettingsSection.new(_('Settings section heading')) do |c|
-  - c.with_description do
+ - c.with_description do
     = description
-  - c.with_body do
+ - c.with_body do
     = body
 ```
 
-For the full list of options, see its
-[source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/layouts/settings_section_component.rb).
+For the full list of options, see its [source](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/components/layouts/settings_section_component.rb).
 
 ## Best practices
 
-- If you are about to create a new view in Haml, use the available components
-  over creating plain Haml tags with CSS classes.
-- If you are making changes to an existing Haml view and see, for example, a
-  button that is still implemented with plain Haml, consider migrating it to use a ViewComponent.
+- If you are about to create a new view in Haml, use the available components over creating plain Haml tags with CSS classes.
+- If you are making changes to an existing Haml view and see, for example, a button that is still implemented with plain Haml, consider migrating it to use a ViewComponent.
 - If you decide to create a new component, consider creating [previews](https://viewcomponent.org/guide/previews.html) for it, too.
-  This will help others to discover your component with Lookbook, also it makes it much easier to test its different states.
+ This will help others to discover your component with Lookbook, also it makes it much easier to test its different states.
 
 ### Preview layouts
 

@@ -15,18 +15,18 @@ The Productivity section allows you to track how much material arrives on sit
 ## Things to Consider
 
 - **Required User Permissions:**
-  - - **To create entries:**
-      - 'Standard' or 'Admin' level permissions on the project's Daily Log tool.  
+ - - **To create entries:**
+      - 'Standard' or 'Admin' level permissions on the project's Daily Log tool. 
         *Note*: Users must be able to view the relevant contract in order to add it to the Productivity entry. See [View Commitments](https://support.procore.com/products/online/user-guide/project-level/commitments/tutorials/view-commitments "View Commitments").
     - ****To create pending entries as a collaborator****:
       - 'Read Only' or 'Standard' permissions to the Daily Log tool with the ['Collaborator Entry Only' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#Daily_Log "Grant Granular Permissions in a Permission Template") enabled on your permissions template. See [Create Daily Log Entries as a Collaborator](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/create-daily-log-entries-as-a-collaborator "Create Daily Log Entries as a Collaborator").
 - **Additional Information:**
-  - In order to complete a Productivity entry, you must ensure the following about the commitment:
+ - In order to complete a Productivity entry, you must ensure the following about the commitment:
     - Set to use the Unit/Quantity accounting method. See [How do I set the accounting method for a contract or funding?](https://support.procore.com/faq/how-do-i-set-the-accounting-method-for-a-contract-or-funding "How do I set the accounting method for a contract or funding?")
     - Be in the 'Approved' status. [Approve and Sign a Commitment Contract](https://support.procore.com/products/online/user-guide/project-level/commitments/tutorials/approve-and-sign-a-subcontract "Approve and Sign a Commitment Contract").
     - Have one or more line items added to the Schedule of Values (SOV). See. [Add a Line Item to a Commitment's Schedule of Values](https://support.procore.com/products/online/user-guide/project-level/commitments/tutorials/add-a-line-item-to-a-schedule-of-values "Add a Line Item to a Commitment's Schedule of Values").
 - **Limitations:**
-  - For Procore customers using Project Financials tools, keep in mind that productivity entries do NOT interact with the 'Procore Labor Productivity Cost' budget view. For more information, see [Set Up the Procore Labor Productivity Cost Budget View](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/set-up-the-procore-labor-productivity-cost-budget-view "Set Up the Procore Labor Productivity Cost Budget View").
+ - For Procore customers using Project Financials tools, keep in mind that productivity entries do NOT interact with the 'Procore Labor Productivity Cost' budget view. For more information, see [Set Up the Procore Labor Productivity Cost Budget View](https://support.procore.com/products/online/user-guide/company-level/admin/tutorials/set-up-the-procore-labor-productivity-cost-budget-view "Set Up the Procore Labor Productivity Cost Budget View").
 
 ## Steps
 

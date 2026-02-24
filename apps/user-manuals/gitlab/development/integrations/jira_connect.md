@@ -16,25 +16,20 @@ Developers have several options for how set up a development environment for the
 The following are required to install the app:
 
 - A Jira Cloud instance. Atlassian provides [free instances for development and testing](https://developer.atlassian.com/platform/marketplace/getting-started/#free-developer-instances-to-build-and-test-your-app).
-- A GitLab instance available over the internet. For the app to work, Jira Cloud should
-  be able to connect to the GitLab instance through the internet. For this we
-  recommend using Gitpod or a similar cloud development environment. For more
-  information on using Gitpod with GDK, see the:
+- A GitLab instance available over the internet. For the app to work, Jira Cloud should be able to connect to the GitLab instance through the internet. For this we recommend using Gitpod or a similar cloud development environment. For more information on using Gitpod with GDK, see the:
 
-  - [GDK with Gitpod](https://gitlab-org.gitlab.io/gitlab-development-kit/howto/gitpod/)
+ - [GDK with Gitpod](https://gitlab-org.gitlab.io/gitlab-development-kit/howto/gitpod/)
     documentation.
-  - [GDK in Gitpod](https://www.loom.com/share/9c9711d4876a40869b9294eecb24c54d)
+ - [GDK in Gitpod](https://www.loom.com/share/9c9711d4876a40869b9294eecb24c54d)
     video.
 
-  <!-- vale gitlab_base.Spelling = NO -->
+ <!-- vale gitlab_base.Spelling = NO -->
 
-  GitLab team members **must not** use tunneling tools such as Serveo or `ngrok`. These are
-  security risks, and must not be run on GitLab developer laptops.
+ GitLab team members **must not** use tunneling tools such as Serveo or `ngrok`. These are security risks, and must not be run on GitLab developer laptops.
 
-  <!-- vale gitlab_base.Spelling = YES -->
+ <!-- vale gitlab_base.Spelling = YES -->
 
-  Jira requires all connections to the app host to be over SSL. If you set up
-  your own environment, remember to enable SSL and an appropriate certificate.
+ Jira requires all connections to the app host to be over SSL. If you set up your own environment, remember to enable SSL and an appropriate certificate.
 
 ### Setting up GitPod
 
@@ -45,8 +40,7 @@ you must [make port `3000` public](https://gitlab-org.gitlab.io/gitlab-developme
 
 To install the app in Jira:
 
-1. Enable Jira development mode to install apps that are not from the Atlassian
-   Marketplace:
+1. Enable Jira development mode to install apps that are not from the Atlassian Marketplace:
 
    1. In Jira, go to **Jira settings** > **Apps** > **Manage apps**.
    1. Scroll to the bottom of the **Manage apps** page and select **Settings**.
@@ -70,16 +64,14 @@ To install the app in Jira:
    You can also select **Getting Started** to open the configuration page rendered from your GitLab instance.
 
    _Note that any changes to the app descriptor requires you to uninstall then reinstall the app._
-1. If the _Installed and ready to go!_ dialog opens asking you to **Get started**, do not get started yet
-   and instead select **Close**.
+1. If the _Installed and ready to go!_ dialog opens asking you to **Get started**, do not get started yet and instead select **Close**.
 1. You must now [set up the OAuth authentication flow](#set-up-the-gitlab-oauth-authentication-flow).
 
 ### Set up the GitLab OAuth authentication flow
 
 GitLab for Jira users authenticate with GitLab using GitLab OAuth.
 
-Ensure you have [installed the app in Jira](#install-the-app-in-jira) first before doing these steps,
-otherwise the app installation in Jira fails.
+Ensure you have [installed the app in Jira](#install-the-app-in-jira) first before doing these steps, otherwise the app installation in Jira fails.
 
 The following steps describe setting up an environment to test the GitLab OAuth flow:
 
@@ -101,8 +93,7 @@ The following steps describe setting up an environment to test the GitLab OAuth 
 
 ### Set up the app in Jira
 
-Ensure you have [set up OAuth first](#set-up-the-gitlab-oauth-authentication-flow) first before doing these steps,
-otherwise these steps fail.
+Ensure you have [set up OAuth first](#set-up-the-gitlab-oauth-authentication-flow) first before doing these steps, otherwise these steps fail.
 
 1. In Jira, go to **Jira settings** > **Apps** > **Manage apps**.
 1. Scroll to **User-installed apps**, find your GitLab for Jira Cloud app and expand it.
@@ -131,12 +122,9 @@ To set up a development Jira Connect Proxy:
 
 - A Jira Cloud instance. Atlassian provides [free instances for development and testing](https://developer.atlassian.com/platform/marketplace/getting-started/#free-developer-instances-to-build-and-test-your-app).
 - Two GitLab instances available over the internet.
-  - One to serve as the **Jira Connect proxy** (simulating GitLab.com)
-  - One to serve as the **GitLab instance** that will connect to Jira through the Jira Connect proxy
-  - For the app to work, Jira Cloud should
-    be able to connect to the **Jira Connect proxy** instance through the internet. For this we
-    recommend using Gitpod or a similar cloud development environment. For more
-    information on using Gitpod with GDK, see the:
+ - One to serve as the **Jira Connect proxy** (simulating GitLab.com)
+ - One to serve as the **GitLab instance** that will connect to Jira through the Jira Connect proxy
+ - For the app to work, Jira Cloud should be able to connect to the **Jira Connect proxy** instance through the internet. For this we recommend using Gitpod or a similar cloud development environment. For more information on using Gitpod with GDK, see the:
 
     - [GDK with Gitpod](https://gitlab-org.gitlab.io/gitlab-development-kit/howto/gitpod/)
     documentation.
@@ -145,13 +133,11 @@ To set up a development Jira Connect Proxy:
 
     <!-- vale gitlab_base.Spelling = NO -->
 
-    GitLab team members **must not** use tunneling tools such as Serveo or `ngrok`. These are
-    security risks, and must not be run on GitLab developer laptops.
+    GitLab team members **must not** use tunneling tools such as Serveo or `ngrok`. These are security risks, and must not be run on GitLab developer laptops.
 
     <!-- vale gitlab_base.Spelling = YES -->
 
-    Jira requires all connections to the app host to be over SSL. If you set up
-    your own environment, remember to enable SSL and an appropriate certificate.
+    Jira requires all connections to the app host to be over SSL. If you set up your own environment, remember to enable SSL and an appropriate certificate.
 
 ### Setting up GitPod
 

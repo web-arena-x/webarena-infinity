@@ -12,8 +12,7 @@ title: Google Secure LDAP
 
 {{< /details >}}
 
-[Google Cloud Identity](https://cloud.google.com/identity/) provides a Secure
-LDAP service that can be configured with GitLab for authentication and group sync.
+[Google Cloud Identity](https://cloud.google.com/identity/) provides a Secure LDAP service that can be configured with GitLab for authentication and group sync.
 
 Secure LDAP requires a slightly different configuration than standard LDAP servers.
 The steps below cover:
@@ -29,15 +28,11 @@ Secure LDAP is only available on specific Google Workspace editions. For more in
 
 1. Go to **Apps** > **LDAP** > **Add Client**.
 
-1. Provide an **LDAP client name** and an optional **Description**. Any descriptive
-   values are acceptable. For example, the name could be `GitLab` and the
-   description could be `GitLab LDAP Client`. Select **Continue**.
+1. Provide an **LDAP client name** and an optional **Description**. Any descriptive values are acceptable. For example, the name could be `GitLab` and the description could be `GitLab LDAP Client`. Select **Continue**.
 
    ![Google Workspace window with client details for adding LDAP client.](img/google_secure_ldap_add_step_1_v11_9.png)
 
-1. Set **Access Permission** according to your needs. You must choose either
-   `Entire domain (GitLab)` or `Selected organizational units` for both **Verify user
-   credentials** and **Read user information**. Select **Add LDAP Client**.
+1. Set **Access Permission** according to your needs. You must choose either `Entire domain (GitLab)` or `Selected organizational units` for both **Verify user credentials** and **Read user information**. Select **Add LDAP Client**.
 
    {{< alert type="note" >}}
 
@@ -48,30 +43,23 @@ Secure LDAP is only available on specific Google Workspace editions. For more in
 
    ![Google Workspace window with access permissions for adding LDAP client.](img/google_secure_ldap_add_step_2_v11_9.png)
 
-1. Download the generated certificate. This is required for GitLab to
-   communicate with the Google Secure LDAP service. Save the downloaded certificates
-   for later use. After downloading, select **Continue to Client Details**.
+1. Download the generated certificate. This is required for GitLab to communicate with the Google Secure LDAP service. Save the downloaded certificates for later use. After downloading, select **Continue to Client Details**.
 
 1. Expand the **Service Status** section and turn the LDAP client `ON for everyone`.
-   After selecting **Save**, select the **Service Status** bar again to collapse
-   and return to the rest of the settings.
+   After selecting **Save**, select the **Service Status** bar again to collapse and return to the rest of the settings.
 
 1. Expand the **Authentication** section and choose **Generate New Credentials**.
-   Copy/note these credentials for later use. After selecting **Close**, select
-   the **Authentication** bar again to collapse and return to the rest of the settings.
+   Copy/note these credentials for later use. After selecting **Close**, select the **Authentication** bar again to collapse and return to the rest of the settings.
 
-Now the Google Secure LDAP Client configuration is finished. The screenshot below
-shows an example of the final settings. Continue on to configure GitLab.
+Now the Google Secure LDAP Client configuration is finished. The screenshot below shows an example of the final settings. Continue on to configure GitLab.
 
 ![Google Workspace Admin window with configured LDAP settings for GitLab.](img/google_secure_ldap_client_settings_v11_9.png)
 
 ## Configuring GitLab
 
-Edit GitLab configuration, inserting the access credentials and certificate
-obtained earlier.
+Edit GitLab configuration, inserting the access credentials and certificate obtained earlier.
 
-The following are the configuration keys that need to be modified using the
-values obtained during the LDAP client configuration earlier:
+The following are the configuration keys that need to be modified using the values obtained during the LDAP client configuration earlier:
 
 - `bind_dn`: The access credentials username
 - `password`: The access credentials password
@@ -220,5 +208,4 @@ For self-compiled installations:
 
 ## Using encrypted credentials
 
-You can optionally store the `bind_dn` and `password` in a separate encrypted configuration file using the
-[same steps as the regular LDAP integration](_index.md#use-encrypted-credentials).
+You can optionally store the `bind_dn` and `password` in a separate encrypted configuration file using the [same steps as the regular LDAP integration](_index.md#use-encrypted-credentials).

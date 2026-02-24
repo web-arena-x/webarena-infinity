@@ -12,8 +12,7 @@ title: Resource label events API
 
 {{< /details >}}
 
-Use this API to retrieve resource label events that track who, when, and which
-[label](../user/project/labels.md) was added to (or removed from)
+Use this API to retrieve resource label events that track who, when, and which [label](../user/project/labels.md) was added to (or removed from)
 an issue, merge request, or epic.
 
 ## Issues
@@ -26,14 +25,14 @@ Gets a list of all label events for a single issue.
 GET /projects/:id/issues/:issue_iid/resource_label_events
 ```
 
-| Attribute           | Type             | Required   | Description  |
+| Attribute           | Type             | Required   | Description |
 | ------------------- | ---------------- | ---------- | ------------ |
 | `id`                | integer or string   | yes        | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
 | `issue_iid`         | integer          | yes        | The IID of an issue |
 
 ```json
 [
-  {
+ {
     "id": 142,
     "user": {
       "id": 1,
@@ -53,8 +52,8 @@ GET /projects/:id/issues/:issue_iid/resource_label_events
       "description": ""
     },
     "action": "add"
-  },
-  {
+ },
+ {
     "id": 143,
     "user": {
       "id": 1,
@@ -74,7 +73,7 @@ GET /projects/:id/issues/:issue_iid/resource_label_events
       "description": ""
     },
     "action": "remove"
-  }
+ }
 ]
 ```
 
@@ -100,7 +99,7 @@ Parameters:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/issues/11/resource_label_events/1"
+ --url "https://gitlab.example.com/api/v4/projects/5/issues/11/resource_label_events/1"
 ```
 
 ## Epics
@@ -114,10 +113,8 @@ curl --header "PRIVATE-TOKEN: <your_access_token>" \
 
 {{< alert type="warning" >}}
 
-The Epics REST API was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/460668) in GitLab 17.0
-and is planned for removal in v5 of the API.
-From GitLab 17.4 to 18.0, if [the new look for epics](../user/group/epics/_index.md#epics-as-work-items) is enabled, and in GitLab 18.1 and later, use the
-Work Items API instead. For more information, see [migrate epic APIs to work items](graphql/epic_work_items_api_migration_guide.md).
+The Epics REST API was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/460668) in GitLab 17.0 and is planned for removal in v5 of the API.
+From GitLab 17.4 to 18.0, if [the new look for epics](../user/group/epics/_index.md#epics-as-work-items) is enabled, and in GitLab 18.1 and later, use the Work Items API instead. For more information, see [migrate epic APIs to work items](graphql/epic_work_items_api_migration_guide.md).
 This change is a breaking change.
 
 {{< /alert >}}
@@ -130,14 +127,14 @@ Gets a list of all label events for a single epic.
 GET /groups/:id/epics/:epic_id/resource_label_events
 ```
 
-| Attribute           | Type             | Required   | Description  |
+| Attribute           | Type             | Required   | Description |
 | ------------------- | ---------------- | ---------- | ------------ |
 | `id`                | integer or string   | yes        | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
 | `epic_id`           | integer          | yes        | The ID of an epic |
 
 ```json
 [
-  {
+ {
     "id": 106,
     "user": {
       "id": 1,
@@ -157,8 +154,8 @@ GET /groups/:id/epics/:epic_id/resource_label_events
       "description": ""
     },
     "action": "add"
-  },
-  {
+ },
+ {
     "id": 107,
     "user": {
       "id": 1,
@@ -178,13 +175,13 @@ GET /groups/:id/epics/:epic_id/resource_label_events
       "description": ""
     },
     "action": "add"
-  }
+ }
 ]
 ```
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/epics/11/resource_label_events"
+ --url "https://gitlab.example.com/api/v4/groups/1/epics/11/resource_label_events"
 ```
 
 ### Get single epic label event
@@ -205,8 +202,8 @@ Parameters:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/epics/11/resource_label_events/107"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/epics/11/resource_label_events/107"
 ```
 
 ## Merge requests
@@ -219,14 +216,14 @@ Gets a list of all label events for a single merge request.
 GET /projects/:id/merge_requests/:merge_request_iid/resource_label_events
 ```
 
-| Attribute           | Type             | Required   | Description  |
+| Attribute           | Type             | Required   | Description |
 | ------------------- | ---------------- | ---------- | ------------ |
 | `id`                | integer or string   | yes        | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
 | `merge_request_iid` | integer          | yes        | The IID of a merge request |
 
 ```json
 [
-  {
+ {
     "id": 119,
     "user": {
       "id": 1,
@@ -246,8 +243,8 @@ GET /projects/:id/merge_requests/:merge_request_iid/resource_label_events
       "description": ""
     },
     "action": "add"
-  },
-  {
+ },
+ {
     "id": 120,
     "user": {
       "id": 1,
@@ -267,13 +264,13 @@ GET /projects/:id/merge_requests/:merge_request_iid/resource_label_events
       "description": ""
     },
     "action": "add"
-  }
+ }
 ]
 ```
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/merge_requests/11/resource_label_events"
+ --url "https://gitlab.example.com/api/v4/projects/5/merge_requests/11/resource_label_events"
 ```
 
 ### Get single merge request label event
@@ -294,6 +291,6 @@ Parameters:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/merge_requests/11/resource_label_events/120"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/merge_requests/11/resource_label_events/120"
 ```

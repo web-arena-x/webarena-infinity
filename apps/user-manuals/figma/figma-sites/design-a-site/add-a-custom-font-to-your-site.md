@@ -37,8 +37,8 @@ If your designs use a font installed on your computer—or a font shared in your
 ![The Fonts page in settings with the option to upload WOFF files showcased.](https://help.figma.com/hc/article_attachments/35034760030615)
 
 1. In a Figma Sites file, make sure you have at least one text layer using your custom font.
-2. Click  **Site settings**.
-3. In the left sidebar, click  **Fonts**.
+2. Click **Site settings**.
+3. In the left sidebar, click **Fonts**.
 4. Click **Upload** to add the `.woff` or `.woff2` file for each font used in the file.
 
 ## Remove a custom font from your site
@@ -53,14 +53,14 @@ To delete a custom font from your site, follow these steps:
 
 ### 1. Remove the font upload from your site file
 
-1. In a Figma Sites file, click  **Site settings**.
-2. In the left sidebar, click  **Fonts**.
-3. Click  **Delete font** next to the font you want to remove.
+1. In a Figma Sites file, click **Site settings**.
+2. In the left sidebar, click **Fonts**.
+3. Click **Delete font** next to the font you want to remove.
 
 ### 2. Update all the text elements that use the font
 
 1. In the same file, select a text layer that uses the custom font.
-2. Click the  **Actions** menu in the toolbar and search for **Select all with same font**.
+2. Click the **Actions** menu in the toolbar and search for **Select all with same font**.
 3. With all matching text layers selected, choose another font in the **Typography** section of the right sidebar.
 
 ### 3. Republish your site
@@ -74,7 +74,7 @@ Why is the custom font showing on the canvas but not in the preview?
 
 If you’re working with other people on the file, they may have installed a font on their computer and applied it to a text element in the file.
 
-If you don’t have the font installed, the font will display correctly on the canvas, but not in the preview window. If this is the case, you should see a  missing font alert at the bottom of the left navigation bar.
+If you don’t have the font installed, the font will display correctly on the canvas, but not in the preview window. If this is the case, you should see a missing font alert at the bottom of the left navigation bar.
 
 To resolve this issue, you’ll need to [add the font to Figma](https://help.figma.com/hc/en-us/articles/360039956894). This requires the OTF or TTF font files, not the WOFF or WOFF2 files used for web publishing.
 

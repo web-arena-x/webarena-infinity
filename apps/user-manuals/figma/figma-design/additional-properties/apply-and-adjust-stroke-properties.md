@@ -23,7 +23,7 @@ Strokes are a collection of properties you can apply to layers in design files. 
 To apply a stroke to a layer:
 
 1. Select the layer you want to add a stroke to.
-2. Click  **Add stroke** in the **Stroke** section of the right sidebar.
+2. Click **Add stroke** in the **Stroke** section of the right sidebar.
 3. Adjust the stroke properties to configure the stroke.
 
 ![Canvas with a circled layer selected, showing 240x240 dimensions; right panel highlights "Add stroke" option.](https://help.figma.com/hc/article_attachments/33073858752151)
@@ -43,10 +43,10 @@ The stroke fill is the main property you’ll use to define the stroke. You can 
 You can use the following settings to configure a stroke fill:
 
 - Use the [color picker](https://help.figma.com/hc/en-us/articles/360041003774-Apply-paints-with-the-color-picker) to select a [fill type](https://help.figma.com/hc/en-us/articles/360041003694-Paints-in-Figma), value, and opacity
-- Click  **Add stroke fill** to add another fill to the stroke
-- Use the  **Show** and  **Hide** options to toggle the stroke fill’s visibility
-- Select  **Apply styles and variables** to open the **Libraries** picker.
-- Click the  minus to remove the stroke fill from the selected layer
+- Click **Add stroke fill** to add another fill to the stroke
+- Use the **Show** and **Hide** options to toggle the stroke fill’s visibility
+- Select **Apply styles and variables** to open the **Libraries** picker.
+- Click the minus to remove the stroke fill from the selected layer
 
 ### Position
 
@@ -61,7 +61,7 @@ There are some things to keep in mind when choosing a stroke’s position:
 
 ### Weight
 
-Use the  **Weight** field to select the weight of the stroke in pixels.
+Use the **Weight** field to select the weight of the stroke in pixels.
 
 **Note:** A stroke’s weight is not included in the layer’s overall dimensions.
 
@@ -86,7 +86,7 @@ By default, stroke properties are applied to all sides of a layer. If your layer
 - **Right**
 - **Custom**
 
-When you select  **Custom**, you’ll see four individual fields in the **Stroke** section. Use the fields to adjust the weight for each side independently. To remove a stroke from a side, set the weight to `0`.
+When you select **Custom**, you’ll see four individual fields in the **Stroke** section. Use the fields to adjust the weight for each side independently. To remove a stroke from a side, set the weight to `0`.
 
 You can use individual strokes to create common design elements and patterns:
 
@@ -117,7 +117,7 @@ To edit end points independently, you need to select each end point in vector ed
 
 1. With the layer selected, press `Enter` to open [vector edit mode](../design-with-vector-tools/edit-vector-layers.md).
 2. Select a single end point.
-3. Select  **Advanced stroke settings**.
+3. Select **Advanced stroke settings**.
 4. Choose an option from the **End point** menu.
 
 ### Cap and tip endpoints
@@ -134,7 +134,7 @@ Choose from a selection of caps or tips to add to your end points:
 
 ## Stroke types
 
-You can use the advanced stroke settings to further customize how a stroke looks. To access these settings, navigate to the **Stroke** section in the right sidebar and select  **Advanced stroke settings**.
+You can use the advanced stroke settings to further customize how a stroke looks. To access these settings, navigate to the **Stroke** section in the right sidebar and select **Advanced stroke settings**.
 
 ![](https://help.figma.com/hc/article_attachments/31937331461143)
 
@@ -150,7 +150,7 @@ You can use the basic stroke settings to create a dashed or dotted stroke.
 
 Create a uniform dashed line.
 
-1. In the **Stroke** panel, select  to open the **Advanced stroke** menu.
+1. In the **Stroke** panel, select to open the **Advanced stroke** menu.
 2. Select the **Dashed** stroke style
 3. Enter the length you want for the **Dash**, in pixels.
 4. Enter the length of the **Gap** between dashes, in pixels.
@@ -164,17 +164,17 @@ Create a uniform dashed line.
 Create a dotted line.
 
 1. In the **Stroke** panel, use the dropdown to change the stroke position to **Center**.
-2. Select  to open the **Advanced stroke** menu.
+2. Select to open the **Advanced stroke** menu.
 3. Select the **Dashed** stroke style
 4. Enter a **Dash** length of `1` pixel.
-5. In the **Dash cap** setting, select  **Round**.
+5. In the **Dash cap** setting, select **Round**.
 6. Adjust the **Gap** between dashes to suit.
 
 ### Custom
 
 Create a dashed or dotted line with a custom pattern.
 
-1. In the **Stroke** panel, select  to open the **Advanced stroke** menu.
+1. In the **Stroke** panel, select to open the **Advanced stroke** menu.
 2. Set the **Stroke style** setting to the **Custom** option.
 3. Use the following syntax in the **Dashes** setting to define the dash pattern `dash, gap, dash, gap`...
 4. Select the **Dash cap** you want to use.
@@ -247,7 +247,7 @@ When you apply a color style to a stroke, you can still adjust the other propert
 ## Apply color styles to strokes
 
 1. Select the layer you want to update.
-2. In the **Stroke** section of the right-hand panel, click the  style icon.
+2. In the **Stroke** section of the right-hand panel, click the style icon.
 3. Use the style picker to select the relevant color style.
 4. Adjust any of the other properties of the stroke, as desired.
 
@@ -255,5 +255,5 @@ When you apply a color style to a stroke, you can still adjust the other propert
 
 Strokes respond differently based on how you resize them.
 
-- Resize the object if you want to retain a stroke's weight, while adjusting the object's dimensions. Hover over the stroke's bounding box until the  cursor appears, then drag to resize.
+- Resize the object if you want to retain a stroke's weight, while adjusting the object's dimensions. Hover over the stroke's bounding box until the cursor appears, then drag to resize.
 - Use the **scale** tool to scale the stroke properties along with the object's dimensions. [Learn how to use the scale tool](https://help.figma.com/hc/en-us/articles/360040451453)

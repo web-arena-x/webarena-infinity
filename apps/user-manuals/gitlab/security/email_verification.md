@@ -20,9 +20,7 @@ description: Confirm user identity with email verification.
 
 {{< /history >}}
 
-Account email verification provides an additional layer of GitLab account security. When certain
-conditions are met, an account is locked. If your account is locked, you must verify your email
-or reset your password to sign in to GitLab.
+Account email verification provides an additional layer of GitLab account security. When certain conditions are met, an account is locked. If your account is locked, you must verify your email or reset your password to sign in to GitLab.
 
 {{< alert type="note" >}}
 
@@ -45,20 +43,15 @@ An account is locked when either:
 
 A locked account without 2FA is not unlocked automatically.
 
-After a successful sign in, an email with a six-digit verification code is sent to your account's
-primary email address. If you cannot access your primary email address, you can instead send the
-verification code to any of your secondary email addresses.
+After a successful sign in, an email with a six-digit verification code is sent to your account's primary email address. If you cannot access your primary email address, you can instead send the verification code to any of your secondary email addresses.
 
 The verification code expires after 60 minutes.
 
-To unlock your account, sign in and enter the verification code. You can also
-[reset your password](https://gitlab.com/users/password/new).
+To unlock your account, sign in and enter the verification code. You can also [reset your password](https://gitlab.com/users/password/new).
 
 ## Accounts with 2FA or OAuth
 
-An account is locked when there are ten or more failed sign-in attempts, or more than the
-amount defined in the [configurable locked user policy](unlock_user.md#gitlab-self-managed-and-gitlab-dedicated-users).
+An account is locked when there are ten or more failed sign-in attempts, or more than the amount defined in the [configurable locked user policy](unlock_user.md#gitlab-self-managed-and-gitlab-dedicated-users).
 
-Accounts with 2FA or OAuth are automatically unlocked after ten minutes, or more than the
-amount defined in the [configurable locked user policy](unlock_user.md#gitlab-self-managed-and-gitlab-dedicated-users).
+Accounts with 2FA or OAuth are automatically unlocked after ten minutes, or more than the amount defined in the [configurable locked user policy](unlock_user.md#gitlab-self-managed-and-gitlab-dedicated-users).
 To unlock an account manually, reset your password.

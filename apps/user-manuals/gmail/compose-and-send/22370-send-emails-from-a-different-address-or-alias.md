@@ -33,7 +33,7 @@ If you own another email address, you can send mail as that address. For example
 
 ## Step 3: Change the "From" address
 
-1. In the message, click the "From" line.  
+1. In the message, click the "From" line. 
    (If you don't see this, click the space next to the recipient's email.)
 2. Select the address to send from.
 

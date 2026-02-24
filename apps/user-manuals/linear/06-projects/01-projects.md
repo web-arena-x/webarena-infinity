@@ -90,7 +90,7 @@ We have a single lead field to keep ownership of the project clear. If more peop
 <details>
 <summary>How is it decided what projects are listed in the project picker menu?</summary>
 It will default to show you the following options when adding a project to an issue:   
-  
+ 
 Projects you lead, are a member of, created by user recently, has overlapping teams with user, active, recently created, then cancelled and completed.
 </details>
 

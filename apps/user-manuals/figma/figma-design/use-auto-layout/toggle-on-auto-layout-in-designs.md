@@ -33,7 +33,7 @@ You can use auto layout on a frame or a selection of objects. This includes:
 To use auto layout, select one or more layers and use one of the following methods:
 
 - Use the keyboard shortcut `⇧ Shift` `A`
-- In the right panel, click  next to **Auto layout**
+- In the right panel, click next to **Auto layout**
 - Right-click on a frame or object and select **Add auto layout**
 
 If you have a frame or a main component selected, you can also choose from one of the auto layout flows in the **Layout** section of the right sidebar:
@@ -57,8 +57,8 @@ Note: Suggest auto layout can handle moderately-complex designs, such as cards, 
 You can access this option from a few places:
 
 - Use the keyboard shortcut:
-  - Mac: `⌃ Control` `⇧ Shift` `A`
-  - Windows `⌃ Control` `Alt` `⇧ Shift` `A`
+ - Mac: `⌃ Control` `⇧ Shift` `A`
+ - Windows `⌃ Control` `Alt` `⇧ Shift` `A`
 - Right-click the frame or object and go to **More layout options** > **Suggest auto layout**
 - Select **Suggest auto layout** from the Actions menu
 
@@ -76,11 +76,11 @@ When you remove auto layout, you will have access to a frame's regular propertie
 
 There are a couple of ways to remove auto layout:
 
-- In the right sidebar, click  **Freeform** or  **Remove auto layout**
+- In the right sidebar, click **Freeform** or **Remove auto layout**
 - Right-click on the frame and select **Remove auto layout**
 - Use keyboard shortcuts:
-  - Mac: `⌥ Option``⇧ Shift``A`
-  - Windows: `Alt``⇧ Shift``A`
+ - Mac: `⌥ Option``⇧ Shift``A`
+ - Windows: `Alt``⇧ Shift``A`
 
 ### Remove all auto layout in a selection
 

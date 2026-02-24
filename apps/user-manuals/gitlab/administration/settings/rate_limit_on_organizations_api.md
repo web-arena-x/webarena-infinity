@@ -29,8 +29,7 @@ For more information, see the history.
 
 Requests over the rate limit are logged into the `auth.log` file.
 
-For example, if you set a limit of 400 for `POST /organizations`, requests to the API endpoint that
-exceed a rate of 400 within one minute are blocked. Access to the endpoint is restored after one minute.
+For example, if you set a limit of 400 for `POST /organizations`, requests to the API endpoint that exceed a rate of 400 within one minute are blocked. Access to the endpoint is restored after one minute.
 
 You can configure the per minute rate limit per user for requests to the [POST /organizations API](../../api/organizations.md#create-an-organization). The default is 10.
 

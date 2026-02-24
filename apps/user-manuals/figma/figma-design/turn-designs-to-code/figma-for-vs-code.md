@@ -30,13 +30,13 @@ There are a couple of ways to open a design file through the VS Code extension:
 
 1. Set CSS as your preferred language in **Code** **settings** or the **Code** section of the Inspect panel.
 2. Click on a top-level frame.
-3. In the Inspect panel, click  **Options** next to the layer name.
+3. In the Inspect panel, click **Options** next to the layer name.
 4. Select **Open in VS Code**.
 
 **From VS Code**
 
 1. Open VS Code.
-2. Click  Figma in the activity bar, or find Figma for VS Code from your list of extensions.
+2. Click Figma in the activity bar, or find Figma for VS Code from your list of extensions.
 3. In the primary sidebar under Files, click on the design you want to open.
 
 # Inspect Figma designs in VS Code
@@ -53,7 +53,7 @@ Select from a grid of frames and see them individually with focus view. Search f
 
 ## See which designs are ready for development
 
-Click  Layers in the toolbar to view sections marked as Ready for development.
+Click Layers in the toolbar to view sections marked as Ready for development.
 
 ## View code snippets
 
@@ -63,7 +63,7 @@ Choose your preferred language and unit for code snippets in the top-right of th
 
 ## Access Dev resources
 
-Access relevant development links in the **Dev resources** tab. Click  **Add Dev resources** to add a link to a code file or dev resource.
+Access relevant development links in the **Dev resources** tab. Click **Add Dev resources** to add a link to a code file or dev resource.
 
 If a link has a matching implementation in your current codebase, it opens the file in VS Code instead of the browser.
 

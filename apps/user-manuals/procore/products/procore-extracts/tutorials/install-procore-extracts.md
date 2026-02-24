@@ -15,23 +15,22 @@ The Procore Extracts application allows you to extract project information from 
 ## Things to Consider
 
 - ****Required User Permission****:
-  - 'Admin' permission on the tools you want to extract data from.  
+ - 'Admin' permission on the tools you want to extract data from. 
     *Note*: Anyone can download the Extracts application through the download link below. However, after logging in, you will only see the projects and tools that you have permission to extract data from.
 - **Additional Information**:
-  - Procore Extracts can only be downloaded to computers running Windows 7 or newer.
-  - Procore Extracts must be installed by a user who has admin rights to the device where installation is occurring.
+ - Procore Extracts can only be downloaded to computers running Windows 7 or newer.
+ - Procore Extracts must be installed by a user who has admin rights to the device where installation is occurring.
 
 ## Steps
 
-1. Click **Download Now** to download the Procore Extracts application.  
+1. Click **Download Now** to download the Procore Extracts application. 
      
-   Download Now  
+   Download Now 
      
    *Note*: The application will begin downloading to your computer.
-2. Right-click the downloaded .exe file in Windows File Explorer and choose **Run as administrator** to start the installation.  
-   OR  
-   Click **Save** to choose a location for the application to be installed.
-3. The application will automatically launch.  
+2. Right-click the downloaded .exe file in Windows File Explorer and choose **Run as administrator** to start the installation. 
+   OR Click **Save** to choose a location for the application to be installed.
+3. The application will automatically launch. 
    *Note*: You can also open the application from your computer through the Start menu.
 4. Log in to Procore Extracts with your Procore credentials.
 

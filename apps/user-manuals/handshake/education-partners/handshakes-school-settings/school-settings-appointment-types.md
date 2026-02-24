@@ -30,10 +30,10 @@ To create new appointment types that represent the types of appointments availab
 - **Name**: should describe this appointment
 - **Description**: helps students select the correct appointment type
 - **Length**: duration of appointment in minutes
-  - **Note**: since each user will have appointment types connected to their account, this will be important when setting up available blocks to take appointments
+ - **Note**: since each user will have appointment types connected to their account, this will be important when setting up available blocks to take appointments
 - **Maximum open appointments**: the maximum number of scheduled *(future, not completed)* appointments a student can have of this appointment type
 - **Categories**: the category/categories that this appointment should be organized under
-  - **Note**: if you do not know yet, you can always update this at a different time
+ - **Note**: if you do not know yet, you can always update this at a different time
 - **Drop-In Enabled**: check this box if students can walk into your office for this type
 
 3. Click the blue **Next** button to proceed to the next step.
@@ -74,7 +74,7 @@ If you'd like to set qualifications for students in order to view and select thi
 
 *For more information on any of the fields when editing, refer to the above section for adding a new type!*
 
-1.  Click the **Edit** button on the far right of the page for the appointment type you would like to change.
+1. Click the **Edit** button on the far right of the page for the appointment type you would like to change.
 
 2. On the first page, you can:
 
@@ -90,7 +90,7 @@ If you'd like to set qualifications for students in order to view and select thi
 
 ### Delete an appointment type
 
-1.  Click the **Edit** button on the far right of the page for the appointment type you would like to delete.
+1. Click the **Edit** button on the far right of the page for the appointment type you would like to delete.
 
 2. In the upper-right corner of the page is the **Actions** button with an arrow pointing up. Click on the button to access a popup selection of **Delete** and **Archive**.
 

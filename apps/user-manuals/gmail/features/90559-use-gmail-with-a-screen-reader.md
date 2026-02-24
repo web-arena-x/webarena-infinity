@@ -10,32 +10,32 @@ Use the tips on this page to get the best Gmail experience when you use a deskto
 
 - [Quick start](#quickstart)
 - [Get started](#getstarted)
-  - [Configure your screen reader & Gmail](#configurescreenreader)
-  - [Recommended browser & screen readers](#recommendedbrowsers)
-  - [Use Gmail as a web application](#usegmail)
-  - [Turn on keyboard shortcuts in Gmail](#turnonkeyboardshortcuts)
+ - [Configure your screen reader & Gmail](#configurescreenreader)
+ - [Recommended browser & screen readers](#recommendedbrowsers)
+ - [Use Gmail as a web application](#usegmail)
+ - [Turn on keyboard shortcuts in Gmail](#turnonkeyboardshortcuts)
 - [Navigation fundamentals](#navigationfundamentals)
-  - [Navigate, activate & select](#navigateactivateselect)
-  - [Use keyboard shortcuts](#usekeyboardshortcuts)
-  - [Access the context menu](#accesscontextmenu)
-  - [Learn about the Gmail interface](#gmailinterface)
+ - [Navigate, activate & select](#navigateactivateselect)
+ - [Use keyboard shortcuts](#usekeyboardshortcuts)
+ - [Access the context menu](#accesscontextmenu)
+ - [Learn about the Gmail interface](#gmailinterface)
 - [Perform common tasks](#performcommontasks)
-  - [Open Gmail](#opengmail)
-  - [Browse & read emails](#browsereademails)
-  - [Browse the Inbox](#browseinbox)
-  - [Take action on selected conversations](#selectedconversations)
-  - [Read an email](#reademail)
-  - [Search for messages](#searchformessages)
-  - [Use advanced search options](#useadvancedsearch)
-  - [Use labels to organize mail](#uselabels)
-  - [Compose & reply to emails](#composereplyemails)
-  - [Format messages](#formatmessages)
-  - [Check spelling & grammar](#checkspellinggrammar)
-  - [Use Smart Compose](#usesmartcompose)
-  - [Attach a file to the message](#attachafile)
-  - [Send as Confidential](#sendasconfidential)
-  - [Create a signature](#createsignature)
-  - [Insert or change a signature](#insertchangesignature)
+ - [Open Gmail](#opengmail)
+ - [Browse & read emails](#browsereademails)
+ - [Browse the Inbox](#browseinbox)
+ - [Take action on selected conversations](#selectedconversations)
+ - [Read an email](#reademail)
+ - [Search for messages](#searchformessages)
+ - [Use advanced search options](#useadvancedsearch)
+ - [Use labels to organize mail](#uselabels)
+ - [Compose & reply to emails](#composereplyemails)
+ - [Format messages](#formatmessages)
+ - [Check spelling & grammar](#checkspellinggrammar)
+ - [Use Smart Compose](#usesmartcompose)
+ - [Attach a file to the message](#attachafile)
+ - [Send as Confidential](#sendasconfidential)
+ - [Create a signature](#createsignature)
+ - [Insert or change a signature](#insertchangesignature)
 - [Use Gmail settings](#gmailsettings)
 
 ## Quick start
@@ -47,40 +47,40 @@ This article provides information to help you use Gmail. It can take time to rea
 - Open [gmail.com](https://mail.google.com/).
 - To make sure Gmail keyboard shortcuts are enabled, [use the steps in Keyboard shortcuts](#usekeyboardshortcuts).
 - Set your screen reader to [use Gmail as a web application](#usegmail):
-  - Turn off JAWS virtual cursor.
-  - Switch to NVDA focus mode.
-  - Turn off ChromeVox sticky mode.
-  - Turn off VoiceOver QuickNav.
+ - Turn off JAWS virtual cursor.
+ - Switch to NVDA focus mode.
+ - Turn off ChromeVox sticky mode.
+ - Turn off VoiceOver QuickNav.
 
 ### Tips
 
 - To move focus among conversations in the Inbox or with a specific label, press Up orDown arrow or j or k.
 - To open a conversation and read messages, press Enter or o.
 - To read messages in the opened conversation:
-  - Press the n key to read each unread message in the conversation, beginning with the oldest unread message.
-  - Press the p key to read previous messages in the conversation.
-  - To read by units, such as paragraph, sentence, word, or line: Use your screen reader's “virtual mode.”
-  - Press semicolon to expand all messages so they all can be read with n and p.
+ - Press the n key to read each unread message in the conversation, beginning with the oldest unread message.
+ - Press the p key to read previous messages in the conversation.
+ - To read by units, such as paragraph, sentence, word, or line: Use your screen reader's “virtual mode.”
+ - Press semicolon to expand all messages so they all can be read with n and p.
 - To perform actions, enter:
-  - u: Return to the Inbox and leave message as read.
-  - a**:** Reply to everyone on the focused message.
-  - r: Reply to the sender of the focused message.
-  - e**:** Archive the conversation.
-  - m: Mute the conversation.
+ - u: Return to the Inbox and leave message as read.
+ - a**:** Reply to everyone on the focused message.
+ - r: Reply to the sender of the focused message.
+ - e**:** Archive the conversation.
+ - m: Mute the conversation.
 - To select one or more conversations in the Inbox’s list of conversations, press the x key. Once conversations are selected, you can use the actions listed above, except u.
 - These commands are also useful:
-  - c: Compose a new message.
-  - g then i: Go to the Inbox.
-  - Shift + i: Mark as read. Returns to the Inbox when applied on an opened message.
-  - Shift + u: Mark as unread. Returns to the Inbox when applied on an opened message.
-  - plus or equals: Mark as important.
-  - hyphen: Mark as not important.
-  - b: Snooze.
-  - Shift + t: Add to Tasks.
-  - v: Move to.
-  - l: Open label as.
-  - y: Remove label. Similar to archive.
-  - z: Undo the most recent action.
+ - c: Compose a new message.
+ - g then i: Go to the Inbox.
+ - Shift + i: Mark as read. Returns to the Inbox when applied on an opened message.
+ - Shift + u: Mark as unread. Returns to the Inbox when applied on an opened message.
+ - plus or equals: Mark as important.
+ - hyphen: Mark as not important.
+ - b: Snooze.
+ - Shift + t: Add to Tasks.
+ - v: Move to.
+ - l: Open label as.
+ - y: Remove label. Similar to archive.
+ - z: Undo the most recent action.
 
 ## Get started
 
@@ -178,28 +178,28 @@ On ChromeOS press:
 There are 4 sections or panes in the Gmail interface. By default, here’s a list of common components and how you can identify the different sections:
 
 - Top header, presented by your screen reader in a banner landmark:
-  - Main Menu: Show/Hide toggle button for the set of links to Inbox, Sent, Drafts, etc.
-  - Gmail: Link to home screen.
-  - Search edit field: Presented by your screen reader in a search landmark that also includes a “Show search options” button.
-  - Status button: Set your status as “Active,” “Do Not Disturb,” “Away,” or create your own. Adjust Chat notification settings.
-  - Support button.
-  - Settings button.
-  - Google apps button: Open other Google applications in a new tab.
-  - Google Account button: Manage your account. Sign in and out of your accounts.
+ - Main Menu: Show/Hide toggle button for the set of links to Inbox, Sent, Drafts, etc.
+ - Gmail: Link to home screen.
+ - Search edit field: Presented by your screen reader in a search landmark that also includes a “Show search options” button.
+ - Status button: Set your status as “Active,” “Do Not Disturb,” “Away,” or create your own. Adjust Chat notification settings.
+ - Support button.
+ - Settings button.
+ - Google apps button: Open other Google applications in a new tab.
+ - Google Account button: Manage your account. Sign in and out of your accounts.
 - Left panel, presented by your screen reader in a navigation landmark:
-  - Mail: Lists labels and folders. This article focuses primarily on Mail.
-  - Chat: Lists contacts or groups with whom you converse.
-  - Spaces: Create or find group conversations with the option to share files or tasks.
-  - Meet: Create or join a meeting that opens in a new browser tab.
+ - Mail: Lists labels and folders. This article focuses primarily on Mail.
+ - Chat: Lists contacts or groups with whom you converse.
+ - Spaces: Create or find group conversations with the option to share files or tasks.
+ - Meet: Create or join a meeting that opens in a new browser tab.
 
 Tip: For more information on Chat, Spaces, and Meet, go to [Using Chat with accessibility features](https://support.google.com/chat/answer/7652236).
 
 - Main area, presented by your screen reader in a main landmark
-  - This is the largest and main section of the Gmail interface. Conversations, messages, or message content is displayed here. There’s a toolbar that you can access if you press the comma key. Toolbar functions are also available through keyboard shortcuts or the context menu. These methods are often faster than the toolbar. When Chat or Spaces are activated from the left panel, they’re displayed here in place of mail or as a condensed version in a pop-up chat window.
+ - This is the largest and main section of the Gmail interface. Conversations, messages, or message content is displayed here. There’s a toolbar that you can access if you press the comma key. Toolbar functions are also available through keyboard shortcuts or the context menu. These methods are often faster than the toolbar. When Chat or Spaces are activated from the left panel, they’re displayed here in place of mail or as a condensed version in a pop-up chat window.
 - Right side panel, presented by your screen reader in a side panel complementary landmark
-  - This panel is controlled by a toggle button labeled “Show side panel” or “Hide side panel.” In “virtual mode,” the button is at the end of your screen reader’s virtual or browse buffer.
-  - When the side panel is shown, its contents are in a complementary landmark labeled “Side panel.”
-  - When expanded, this area provides access to other Google products, such as Calendar, Keep, Tasks, and Contacts.
+ - This panel is controlled by a toggle button labeled “Show side panel” or “Hide side panel.” In “virtual mode,” the button is at the end of your screen reader’s virtual or browse buffer.
+ - When the side panel is shown, its contents are in a complementary landmark labeled “Side panel.”
+ - When expanded, this area provides access to other Google products, such as Calendar, Keep, Tasks, and Contacts.
 
 ## Perform common tasks
 
@@ -261,9 +261,9 @@ Actions available when a conversation is opened include:
 
 - Toggle star/cycle among stars you’ve enabled from Settings (s)
 - Add Shift to the following to work in a new tab, for example, Shift + r:
-  - Reply (r)
-  - Reply to all (a)
-  - Forward (f)
+ - Reply (r)
+ - Reply to all (a)
+ - Forward (f)
 - Delete (number sign)
 - Report as spam (exclamation)
 - Remove label (y)
@@ -292,11 +292,11 @@ If this sounds too complex, in Settings, you can turn off “Conversation view.�
 
 - Press the slash key to navigate to the search field.
 - When you search, you can:
-  - Enter your search criteria and press enter.
-  - Use search operators to fine tune your results. To use a search operator, insert it prior to the term you’re searching for. Some examples would be:
+ - Enter your search criteria and press enter.
+ - Use search operators to fine tune your results. To use a search operator, insert it prior to the term you’re searching for. Some examples would be:
     - “is:” To search for emails by a descriptive term regarding their status, such as: read, unread, starred, flagged, or important. For example: “is:unread”
     - “from:” or “to:” To search for emails that are to or from a certain contact. For example: “from:david”
-  - You can combine operators to further filter search results. A full list of available search operators can be found in [Search operators you can use with Gmail](7190-refine-searches-in-gmail.md).
+ - You can combine operators to further filter search results. A full list of available search operators can be found in [Search operators you can use with Gmail](7190-refine-searches-in-gmail.md).
 - Search results are displayed in the main area and can be navigated or acted upon like other lists of conversations, such as the Inbox.
 
 ### Use Advanced search options
@@ -431,15 +431,15 @@ To add or remove formatting of existing text, select the text and press the keyb
 - Numbered list (Ctrl + Shift + 7), or (⌘ + Shift + 7).
 - Bulleted list (Ctrl + Shift + 8), or (⌘ + Shift + 8).
 - Available font selection from dropdown:
-  - Previous font (Ctrl + Shift + 5) or (⌘ + Shift + 5).
-  - Next font (Ctrl + Shift + 6) or (⌘ + Shift + 6).
+ - Previous font (Ctrl + Shift + 5) or (⌘ + Shift + 5).
+ - Next font (Ctrl + Shift + 6) or (⌘ + Shift + 6).
 - Font size:
-  - Smaller (Ctrl + Shift + hyphen) or (⌘ + Shift + hyphen).
-  - Larger (Ctrl + Shift + plus) or (⌘ + Shift + plus).
+ - Smaller (Ctrl + Shift + hyphen) or (⌘ + Shift + hyphen).
+ - Larger (Ctrl + Shift + plus) or (⌘ + Shift + plus).
 - Indent less (Ctrl + left bracket), or (⌘ + left bracket).
 - Indent more (Ctrl + right bracket), or (⌘ + right bracket).
 - Insert link (Ctrl + k), or (⌘ + k).
-  - This opens an “Edit Link” dialog with text inputs to enter the text to display and the address of the link. It also contains radio buttons to specify whether the link points to a URL or an email address. If you change the selection of these radio buttons, it automatically sends focus to the text input to enter the address.
+ - This opens an “Edit Link” dialog with text inputs to enter the text to display and the address of the link. It also contains radio buttons to specify whether the link points to a URL or an email address. If you change the selection of these radio buttons, it automatically sends focus to the text input to enter the address.
 - To remove all formatting from selected text, press Ctrl + backslash, or ⌘ + backslash.
 
 ### Check spelling & grammar
@@ -548,7 +548,7 @@ To change most settings, toggle back to “focus mode” to interact with the co
 To save or cancel any changes:
 
 1. Use your screen reader “virtual mode.”
-2. Go to the navigation landmark after the table to find a “Save changes” button and a “Cancel” button.  
+2. Go to the navigation landmark after the table to find a “Save changes” button and a “Cancel” button. 
    Note: “Save changes” is only available when settings have been changed.
 3. When no changes were made, you can use the browser back navigation to leave Settings.
 

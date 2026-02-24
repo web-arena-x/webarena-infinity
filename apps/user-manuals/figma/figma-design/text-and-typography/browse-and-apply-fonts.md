@@ -44,7 +44,7 @@ Browse and apply fonts from the **Text** section in the [right sidebar:](htt
 1. Select a text layer, or some text within the layer, in order to adjust its properties.
 2. The current font is displayed at the top of the **Text** section. Click the font name to open up the font picker.
 3. Search or select a font from the list, or click **All fonts** to select a filter. Hover over a font name to preview it on any selected text layers.
-4. Click  to close the window and return to the canvas.
+4. Click to close the window and return to the canvas.
 
 ![Font](https://help.figma.com/hc/article_attachments/15286514853015)
 

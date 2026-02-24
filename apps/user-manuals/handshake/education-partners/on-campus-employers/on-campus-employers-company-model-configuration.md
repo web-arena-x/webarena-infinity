@@ -26,19 +26,19 @@ This can potentially prevent you from connecting to or creating a profile. We us
 ## **How to Configure:**
 
 - **Identify a core list of departments** and offices that will need to create their own company profile
-  - This is a great time to organize your POC lists and departments (although we can always add more)
+ - This is a great time to organize your POC lists and departments (although we can always add more)
 
 - **Determine any guidelines** or company naming conventions you’d like campus employers to adhere to
-  - EX: All companies will be titled: “*University Name: Department Title”*
-  - EX: All postings will be titled: *“School U: Job Title”*
+ - EX: All companies will be titled: “*University Name: Department Title”*
+ - EX: All postings will be titled: *“School U: Job Title”*
 
 - **Determine if your on-campus employment model will also include work study**
-  - Will work study be a separate profile? Or will it be integrated within each of these department accounts?
-  - Explore t[his article on work study](https://support.joinhandshake.com/hc/en-us/articles/360003935494) to configure
-  - Let your Handshake Relationship Manager know you'll be managing work study in Handshake
+ - Will work study be a separate profile? Or will it be integrated within each of these department accounts?
+ - Explore t[his article on work study](https://support.joinhandshake.com/hc/en-us/articles/360003935494) to configure
+ - Let your Handshake Relationship Manager know you'll be managing work study in Handshake
 
 - I**dentify a POC for each department** who will act as the company owner
-  - One or two individuals (usually an office admin) will post on behalf of the entire department
+ - One or two individuals (usually an office admin) will post on behalf of the entire department
 
 - **Send an email introduction** to those these department POCs when you're ready to launch, letting each of them know about this upcoming switch.
 

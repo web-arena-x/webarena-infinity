@@ -26,7 +26,7 @@ Linear's **Product Intelligence** tackles both problems. When new work comes in,
 
 This turns your backlog from noise into actionable context, and eliminates the manual work of routing and organizing information.
 
-  
+ 
 _[space for product intelligence demo - tbd]_
 
 ### FAQs

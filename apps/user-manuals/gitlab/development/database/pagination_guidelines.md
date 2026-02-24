@@ -60,13 +60,13 @@ It's not possible to make all filter and sort combinations performant, so we sho
 Offset-based pagination is the easiest way to paginate over records, however, it does not scale well for large database tables. As a long-term solution, [keyset pagination](keyset_pagination.md) is preferred. Switching between offset and keyset pagination is generally straightforward and can be done without affecting the end-user if the following conditions are met:
 
 - Avoid presenting total counts, prefer limit counts.
-  - Example: count maximum 1001 records, and then on the UI show 1000+ if the count is 1001, show the actual number otherwise.
-  - See the [badge counters approach](../merge_request_concepts/performance.md#badge-counters) for more information.
+ - Example: count maximum 1001 records, and then on the UI show 1000+ if the count is 1001, show the actual number otherwise.
+ - See the [badge counters approach](../merge_request_concepts/performance.md#badge-counters) for more information.
 - Avoid using page numbers, use next and previous page buttons.
-  - Keyset pagination doesn't support page numbers.
+ - Keyset pagination doesn't support page numbers.
 - For APIs, advise against building URLs for the next page by "hand".
-  - Promote the usage of the [`Link` header](../../api/rest/_index.md#pagination-link-header) where the URLs for the next and previous page are provided by the backend.
-  - This way changing the URL structure is possible without breaking backward compatibility.
+ - Promote the usage of the [`Link` header](../../api/rest/_index.md#pagination-link-header) where the URLs for the next and previous page are provided by the backend.
+ - This way changing the URL structure is possible without breaking backward compatibility.
 
 {{< alert type="note" >}}
 
@@ -188,9 +188,9 @@ SELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 20 OFFSET 0
 The query execution plan shows that this query is efficient, the database only read 20 rows from the database (`rows=20`):
 
 ```plaintext
- Limit  (cost=0.43..3.19 rows=20 width=1309) (actual time=0.098..2.093 rows=20 loops=1)
+ Limit (cost=0.43..3.19 rows=20 width=1309) (actual time=0.098..2.093 rows=20 loops=1)
    Buffers: shared hit=103
-   ->  Index Scan Backward using users_pkey on users  (cost=0.43..X rows=X width=1309) (actual time=0.097..2.087 rows=20 loops=1)
+   -> Index Scan Backward using users_pkey on users (cost=0.43..X rows=X width=1309) (actual time=0.097..2.087 rows=20 loops=1)
          Buffers: shared hit=103
  Planning Time: 0.333 ms
  Execution Time: 2.145 ms
@@ -208,10 +208,10 @@ SELECT "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT 20 OFFSET 999980;
 The plan shows that the database reads 1_000_000 rows to return 20 rows, with a very high execution time (5.5 seconds):
 
 ```plaintext
-Limit  (cost=137878.89..137881.65 rows=20 width=1309) (actual time=5523.588..5523.667 rows=20 loops=1)
+Limit (cost=137878.89..137881.65 rows=20 width=1309) (actual time=5523.588..5523.667 rows=20 loops=1)
    Buffers: shared hit=1007901 read=14774 written=609
    I/O Timings: read=420.591 write=57.344
-   ->  Index Scan Backward using users_pkey on users  (cost=0.43..X rows=X width=1309) (actual time=0.060..5459.353 rows=1000000 loops=1)
+   -> Index Scan Backward using users_pkey on users (cost=0.43..X rows=X width=1309) (actual time=0.060..5459.353 rows=1000000 loops=1)
          Buffers: shared hit=1007901 read=14774 written=609
          I/O Timings: read=420.591 write=57.344
  Planning Time: 0.821 ms
@@ -259,8 +259,8 @@ SELECT "issues".* FROM "issues" WHERE "issues"."id" > 5 ORDER BY "issues"."id" A
 Looking at the query execution plan, we can see that this query read only 5 rows (offset-based pagination would read 10 rows):
 
 ```plaintext
- Limit  (cost=0.56..2.08 rows=5 width=1301) (actual time=0.093..0.137 rows=5 loops=1)
-   ->  Index Scan using issues_pkey on issues  (cost=0.56..X rows=X width=1301) (actual time=0.092..0.136 rows=5 loops=1)
+ Limit (cost=0.56..2.08 rows=5 width=1301) (actual time=0.093..0.137 rows=5 loops=1)
+   -> Index Scan using issues_pkey on issues (cost=0.56..X rows=X width=1301) (actual time=0.092..0.136 rows=5 loops=1)
          Index Cond: (id > 5)
  Planning Time: 7.710 ms
  Execution Time: 0.224 ms

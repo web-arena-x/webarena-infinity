@@ -49,8 +49,7 @@ Desktop
 7. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -74,8 +73,7 @@ Desktop
 7. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.
@@ -106,8 +104,7 @@ Desktop
 8. Preview your store to view the embedded app live.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. Find the theme that you want to edit, and then tap **Edit theme**.

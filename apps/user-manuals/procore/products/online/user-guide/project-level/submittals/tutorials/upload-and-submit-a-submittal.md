@@ -21,19 +21,19 @@ Depending on the specific requirements of your agreement, you may be required to
 ## Things to Consider
 
 - **Required User Permissions:**
-  - *To respond to a request for action on a submittal:*'Standard' level permissions on the project's Submittals tool.
+ - *To respond to a request for action on a submittal:*'Standard' level permissions on the project's Submittals tool.
 - **Requirements:**
-  - For the system to send you an automated email notification, you must have (1) a Procore user account that has been granted a minimum of 'Standard' level permissions on the project's Submittals tool and (2) be designated as the 'Submitter' in submittal workflow. Additionally, the user who created the submittal (or the 'Submittal Manager') must have clicked the **Create and Send Emails** button on the submittal.
+ - For the system to send you an automated email notification, you must have (1) a Procore user account that has been granted a minimum of 'Standard' level permissions on the project's Submittals tool and (2) be designated as the 'Submitter' in submittal workflow. Additionally, the user who created the submittal (or the 'Submittal Manager') must have clicked the **Create and Send Emails** button on the submittal.
 - **Additional Information:**
-  - The submittal's status must be 'Open'.
-  - You might receive additional email notifications at various stages of the submittal's review, depending on the project's settings.
+ - The submittal's status must be 'Open'.
+ - You might receive additional email notifications at various stages of the submittal's review, depending on the project's settings.
 
 ## Steps
 
 ### Respond to the Request for Action
 
 1. Choose from one of these options:
-   - Open the email message and click the **View Online** link. If you are not currently logged into Procore, you will be prompted to log in.  
+   - Open the email message and click the **View Online** link. If you are not currently logged into Procore, you will be prompted to log in. 
      OR
    - Log in to Procore and navigate to the project's **Submittals** tool. Next, locate the submittal in the 'Items' view and click **View** next to the submittal. Your name will be listed in the 'Ball In Court' field.
 2. Review the submittal's information and any included attachments.
@@ -46,7 +46,7 @@ Depending on the specific requirements of your agreement, you may be required to
    - Drag and drop files from your computer.
 5. Click **Next**.
 6. Add the following information:
-   - **Response**. The system automatically selects the 'Submitted' as your response, or selects the custom response configured for a 'Submitted' item.   
+   - **Response**. The system automatically selects the 'Submitted' as your response, or selects the custom response configured for a 'Submitted' item.  
      *Note:* The response automatically selected may be different if a custom response was configured in the tool's advanced settings.
    - **Comments**. *Optional*. Enter any comments to include with the response.
 7. Click **Preview**.
@@ -58,12 +58,12 @@ Depending on the specific requirements of your agreement, you may be required to
 9. Click one of the following options:
    - Click **Respond** to save your information and submit the submittal.
    - Click **Back** if you need to change any information you added.
-   - Click **Cancel** to close the window and return to the submittal's page. *Note:* Any information you added before closing the window won't be saved.  
+   - Click **Cancel** to close the window and return to the submittal's page. *Note:* Any information you added before closing the window won't be saved. 
        
      ![submittal-response-preview-and-respond.png](https://support.procore.com/@api/deki/files/439799/submittal-response-preview-and-respond.png?revision=1)
 
-The system sends an email notification to any user types selected in the 'Submitter Role Submits (via Workflow)' email configuration after you save your response. See [Who receives an email when a submittal is created or updated?](https://support.procore.com/faq/who-receives-an-email-when-a-submittal-is-created-or-updated "Who receives an email when a submittal is created or updated?")  
-  
+The system sends an email notification to any user types selected in the 'Submitter Role Submits (via Workflow)' email configuration after you save your response. See [Who receives an email when a submittal is created or updated?](https://support.procore.com/faq/who-receives-an-email-when-a-submittal-is-created-or-updated "Who receives an email when a submittal is created or updated?") 
+ 
 The system waits until all required users in each step of a submittal's workflow respond before shifting the Ball In Court to the next step.
 
 ## See Also

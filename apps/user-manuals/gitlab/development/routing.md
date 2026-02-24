@@ -5,12 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Routing
 ---
 
-The GitLab backend is written primarily with Rails so it uses
-[Rails routing](https://guides.rubyonrails.org/routing.html). Beside Rails best
-practices, there are few rules unique to the GitLab application. To
-support subgroups, GitLab project and group routes use the wildcard
-character to match project and group routes. For example, we might have
-a path such as:
+The GitLab backend is written primarily with Rails so it uses [Rails routing](https://guides.rubyonrails.org/routing.html). Beside Rails best practices, there are few rules unique to the GitLab application. To support subgroups, GitLab project and group routes use the wildcard character to match project and group routes. For example, we might have a path such as:
 
 ```plaintext
 /gitlab-com/customer-success/north-america/west/customerA
@@ -22,13 +17,9 @@ However, paths can be ambiguous. Consider the following example:
 /gitlab-com/edit
 ```
 
-It's ambiguous whether there is a subgroup named `edit` or whether
-this is a special endpoint to edit the `gitlab-com` group.
+It's ambiguous whether there is a subgroup named `edit` or whether this is a special endpoint to edit the `gitlab-com` group.
 
-To eliminate the ambiguity and to make the backend easier to maintain,
-we introduced the `/-/` scope. The purpose of it is to separate group or
-project paths from the rest of the routes. Also it helps to reduce the
-number of [reserved names](../user/reserved_names.md).
+To eliminate the ambiguity and to make the backend easier to maintain, we introduced the `/-/` scope. The purpose of it is to separate group or project paths from the rest of the routes. Also it helps to reduce the number of [reserved names](../user/reserved_names.md).
 
 ## View all available routes
 
@@ -66,8 +57,7 @@ To achieve that, use the `scope '-'` method.
 
 ## Project routes
 
-Every project route must be under the `/-/` scope, except cases where a Git
-client or other software requires something different.
+Every project route must be under the `/-/` scope, except cases where a Git client or other software requires something different.
 
 Examples:
 
@@ -100,26 +90,19 @@ For more details on organization routing implementation, see the [Organization d
 
 ## Changing existing routes
 
-Don't change a URL to an existing page, unless it's necessary. If you must make a change,
-make it unnoticeable for users, because we don't want them to receive `404 Not Found`
-if we can avoid it. This table describes the minimum required in different
-cases:
+Don't change a URL to an existing page, unless it's necessary. If you must make a change, make it unnoticeable for users, because we don't want them to receive `404 Not Found` if we can avoid it. This table describes the minimum required in different cases:
 
 | URL description                       | Example        | What to do |
 |---------------------------------------|----------------|------------|
-| Can be used in scripts and automation | `snippet#raw`  | Support both an old and new URL for one major release. Then, support a redirect from an old URL to a new URL for another major release. |
+| Can be used in scripts and automation | `snippet#raw` | Support both an old and new URL for one major release. Then, support a redirect from an old URL to a new URL for another major release. |
 | Likely to be saved or shared          | `issue#show`   | Add a redirect from an old URL to a new URL until the next major release. |
 | Limited use, unlikely to be shared    | `admin#labels` | No extra steps required. |
 
-In all cases, an old route should only be removed once traffic to it has
-dropped sufficiently (for instance, according to logs or BigQuery). Otherwise, more
-effort may be required to inform users about its deprecation before it can be
-considered again for removal.
+In all cases, an old route should only be removed once traffic to it has dropped sufficiently (for instance, according to logs or BigQuery). Otherwise, more effort may be required to inform users about its deprecation before it can be considered again for removal.
 
 ## Migrating unscoped routes
 
-Currently, the majority of routes are placed under the `/-/` scope. However,
-you can help us migrate the rest of them! To migrate routes:
+Currently, the majority of routes are placed under the `/-/` scope. However, you can help us migrate the rest of them! To migrate routes:
 
 1. Modify existing routes by adding `-` scope.
 1. Add redirects for legacy routes by using `Gitlab::Routing.redirect_legacy_paths`.

@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357750876826-Available-CR
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -110,22 +110,22 @@ Updates ticket fields to streamline your processes. The following fields can be 
 - Assignee email
 - Group ID
 - Type
-  - problem
-  - incident
-  - question
-  - task
+ - problem
+ - incident
+ - question
+ - task
 - Priority
-  - urgent
-  - high
-  - normal
-  - low
+ - urgent
+ - high
+ - normal
+ - low
 - Status
-  - new
-  - open
-  - pending
-  - hold
-  - solved
-  - closed
+ - new
+ - open
+ - pending
+ - hold
+ - solved
+ - closed
 
     Note: When using the Update ticket Info action to change the status to solved or closed, all required fields must be completed.
 
@@ -154,11 +154,11 @@ The action allows your AI agent to:
 Mandatory fields are:
 
 - Status
-  - New
-  - Open
-  - Pending
-  - On-hold
-  - Solved
+ - New
+ - Open
+ - Pending
+ - On-hold
+ - Solved
 - Number of days back (1 day is 24 hours)
 - Requester (customerEmail)
 - Tags

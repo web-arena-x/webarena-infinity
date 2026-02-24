@@ -195,8 +195,8 @@ server.js
 const stripe = require('stripe')('{{SECRET_KEY_ROCKET_RIDES}}');
 
 const session = await stripe.checkout.sessions.create({
-  customer_creation: 'always',
-  line_items: [
+ customer_creation: 'always',
+ line_items: [
     {
       price_data: {
         currency: 'usd',
@@ -207,13 +207,13 @@ const session = await stripe.checkout.sessions.create({
       },
       quantity: 1,
     },
-  ],
-  mode: 'payment',
-  ui_mode: 'embedded',
-  return_url: 'https://checkout.rocket-rides.com/checkout/return?session_id={CHECKOUT_SESSION_ID}',
-  saved_payment_method_options: {
+ ],
+ mode: 'payment',
+ ui_mode: 'embedded',
+ return_url: 'https://checkout.rocket-rides.com/checkout/return?session_id={CHECKOUT_SESSION_ID}',
+ saved_payment_method_options: {
     payment_method_save: 'enabled',
-  },
+ },
 });
 ```
 
@@ -236,12 +236,12 @@ const customer = await stripe.customers.update(
 '{{CUSTOMER_ID}}'
 
 ,
-  {
+ {
     email: 'jenny@example.com',
     metadata: {
       door: "front"
     },
-  }
+ }
 );
 ```
 
@@ -282,7 +282,7 @@ const paymentMethod = await stripe.paymentMethods.update(
 '{{PAYMENT_METHOD_ID}}'
 
 ,
-  {
+ {
     "billing_details": {
       "address": {
         "city": "South San Francisco",
@@ -293,7 +293,7 @@ const paymentMethod = await stripe.paymentMethods.update(
         "state": "CA"
       },
     },
-  }
+ }
 );
 ```
 
@@ -311,12 +311,12 @@ server.js
 const stripe = require('stripe')('{{SECRET_KEY_ROCKET_REPAIRS}}');
 
 const session = await stripe.checkout.sessions.create({
-  customer:
+ customer:
 
 '{{CUSTOMER_ID}}'
 
 ,
-  line_items: [
+ line_items: [
     {
       price_data: {
         currency: 'usd',
@@ -327,13 +327,13 @@ const session = await stripe.checkout.sessions.create({
       },
       quantity: 1,
     },
-  ],
-  mode: 'payment',
-  ui_mode: 'embedded',
-  return_url: 'https://checkout.rocket-repairs.com/checkout/return?session_id={CHECKOUT_SESSION_ID}',
-  saved_payment_method_options: {
+ ],
+ mode: 'payment',
+ ui_mode: 'embedded',
+ return_url: 'https://checkout.rocket-repairs.com/checkout/return?session_id={CHECKOUT_SESSION_ID}',
+ saved_payment_method_options: {
     payment_method_save: 'enabled',
-  },
+ },
 });
 ```
 
@@ -349,12 +349,12 @@ server.js
 const stripe = require('stripe')('{{SECRET_KEY_ROCKET_REPAIRS}}');
 
 const session = await stripe.checkout.sessions.create({
-  customer:
+ customer:
 
 '{{CUSTOMER_ID}}'
 
 ,
-  line_items: [
+ line_items: [
     {
       price_data: {
         currency: 'usd',
@@ -365,12 +365,12 @@ const session = await stripe.checkout.sessions.create({
       },
       quantity: 1,
     },
-  ],
-  mode: 'subscription',
-  ui_mode: 'embedded',
-  return_url: 'https://checkout.rocket-repairs.com/checkout/return?session_id={CHECKOUT_SESSION_ID}',
-  saved_payment_method_options: {
+ ],
+ mode: 'subscription',
+ ui_mode: 'embedded',
+ return_url: 'https://checkout.rocket-repairs.com/checkout/return?session_id={CHECKOUT_SESSION_ID}',
+ saved_payment_method_options: {
     payment_method_save: 'enabled',
-  },
+ },
 });
 ```

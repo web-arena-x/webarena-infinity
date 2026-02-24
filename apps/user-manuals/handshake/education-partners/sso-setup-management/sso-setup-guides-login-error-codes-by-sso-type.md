@@ -8,7 +8,7 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360012284814-SSO-Set
 
 # SAML Error Codes
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | **Error Code** | **Error Meaning** | **Test Mode Message** | **Next Steps** |
 | 1 | SAML Response was somehow not included in the URL | Sorry, we couldn't find your school's system from your login. Please contact Support@"" Err 1 | Check your local SAML configuration and ensure that it matches your settings under Handshake SSO Preferences |
@@ -19,17 +19,17 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360012284814-SSO-Set
 | 6 | Failed to get successful response | Failed to get a successful SAML response. Got: <responder status> | Check your local SAML SSO setup and verify you are sending a valid response. |
 | 7 | NameId not found and no saml\_name\_identifier is configured | NameId not found in the response. Check your Name ID Format setting, or configure SAML use an attribute instead | Check your NameID Format setting in Handshake SSO Preferences. If not using a NameID, switch "Identifier Lookup Mode" to Attribute and fill in the attribute value. |
 
-- **Note**: Depending on the Identity Provider you are utilizing for SSO, you may receive the following error when attempting to log in (using SAML auth):  
-  ![mceclip0.png](https://support.joinhandshake.com/hc/article_attachments/25995551492119)
+- **Note**: Depending on the Identity Provider you are utilizing for SSO, you may receive the following error when attempting to log in (using SAML auth): 
+ ![mceclip0.png](https://support.joinhandshake.com/hc/article_attachments/25995551492119)
 
-This is related to your Identity Provider's '*requested authentication context*' which can be enabled/disabled under your SSO Preferences page:  
+This is related to your Identity Provider's '*requested authentication context*' which can be enabled/disabled under your SSO Preferences page: 
 ![](/attachments/token/mC2ZiiPnzrfmJQEIkoN5MPmZS/?name=inline-1485382199.png)
 
 You'll need to disable this setting if you are using ADFS or Azure AD, but this should typically be enabled for most other Identity Providers.
 
 # CAS Error Codes
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | **Error Code** | **Error Meaning** | **Test Mode Message** | **Next steps** |
 | 1 | School\_id param is missing or doesn't map to a school | Sorry, we had trouble finding your school. Please contact support | Not common, Handshake support must correct at this time. Please open support ticket. |
@@ -40,7 +40,7 @@ You'll need to disable this setting if you are using ADFS or Azure AD, but this 
 
 # LDAP Error Codes
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | **Error Code** | **Error Meaning** | **Test Mode Message** | **Next Steps** |
 | 1 | Base bind method returned false: <https://github.com/ruby-ldap/ruby-net-ldap/blob/master/lib/net/ldap.rb#L813-L814> | Failed to connect to LDAP server: #{get\_operation\_result} | Verify your bind settings (host IP and credentials) in Handshake SSO Preferences. Make sure you also unblocked both of our IP's and have requested for us to unblock yours (see LDAP Setup Guide). If verified, try putting the DC value in front of the username with a slash between.(Example: DC=abc, username could be "abc/*username*") |

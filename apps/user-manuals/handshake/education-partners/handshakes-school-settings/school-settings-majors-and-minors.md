@@ -40,7 +40,7 @@ To begin, go to your school settings and select **Majors**
 
 ### To delete a major:
 
-1. Use the bin icon to the right of the major that you wish to delete  
+1. Use the bin icon to the right of the major that you wish to delete 
    ![Bin](https://support.joinhandshake.com/hc/article_attachments/26001214975639)
 2. This will pop up a box asking you to confirm whether you want to delete this major. If the major is mapped, and if students have selected the major on their profiles, that information will be provided before you finalize your decision to delete the major.
 
@@ -58,10 +58,10 @@ To begin, go to your school settings and select **Majors**
 
 ### To add a minor, search for a minor or delete a minor:
 
-1. In school settings, select **Minors**  
+1. In school settings, select **Minors** 
    ![Minors tab in School Settings.png](https://support.joinhandshake.com/hc/article_attachments/22047066156183)
 2. Search for a minor using the search bar
-3. Type in a new minor and click **Add**  
+3. Type in a new minor and click **Add** 
    ![Search and Add a minor.png](https://support.joinhandshake.com/hc/article_attachments/22047066184343)
-4. Use the bin icon on the right of the minor to remove the minor from the list  
+4. Use the bin icon on the right of the minor to remove the minor from the list 
    ![Delete minor.png](https://support.joinhandshake.com/hc/article_attachments/22047066208023)

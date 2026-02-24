@@ -17,23 +17,17 @@ To set up a review process for changes in your project, configure merge request 
 They help to ensure that changes are reviewed before they're merged into your project.
 You can configure approvals to be optional or required, depending on your project's needs and GitLab tier.
 
-- [GitLab Free](https://about.gitlab.com/pricing/) allows
-  all users with at least the Developer [role](../../../permissions.md) to
-  approve merge requests. These approvals are optional and don't prevent merging without approval.
-- [GitLab Premium](https://about.gitlab.com/pricing/) and
-  [GitLab Ultimate](https://about.gitlab.com/pricing/) provide you with more
-  flexibility to:
+- [GitLab Free](https://about.gitlab.com/pricing/) allows all users with at least the Developer [role](../../../permissions.md) to approve merge requests. These approvals are optional and don't prevent merging without approval.
+- [GitLab Premium](https://about.gitlab.com/pricing/) and [GitLab Ultimate](https://about.gitlab.com/pricing/) provide you with more flexibility to:
 
-  - Create required [rules](rules.md) about the number and type of required approvals.
-  - Create a list of [Code Owners](../../codeowners/_index.md) for specific files.
-  - Configure approvals
-    [for the entire instance](../../../../administration/merge_requests_approvals.md).
-  - Configure [group merge request approval settings](../../../group/manage.md#group-merge-request-approval-settings).
+ - Create required [rules](rules.md) about the number and type of required approvals.
+ - Create a list of [Code Owners](../../codeowners/_index.md) for specific files.
+ - Configure approvals [for the entire instance](../../../../administration/merge_requests_approvals.md).
+ - Configure [group merge request approval settings](../../../group/manage.md#group-merge-request-approval-settings).
 
     {{< alert type="note" >}}
 
-    Support for group merge request approval settings is tracked in
-    [epic 4367](https://gitlab.com/groups/gitlab-org/-/epics/4367).
+    Support for group merge request approval settings is tracked in [epic 4367](https://gitlab.com/groups/gitlab-org/-/epics/4367).
 
     {{< /alert >}}
 
@@ -52,10 +46,8 @@ To configure approval rules:
 
 You can also configure:
 
-- More [merge request approval settings](settings.md) for more control of the
-  level of oversight and security your project needs.
-- Merge request approval rules with the
-  [Merge request approvals API](../../../../api/merge_request_approvals.md).
+- More [merge request approval settings](settings.md) for more control of the level of oversight and security your project needs.
+- Merge request approval rules with the [Merge request approvals API](../../../../api/merge_request_approvals.md).
 
 For more information on configuring rules, see [Approval rules](rules.md).
 
@@ -87,8 +79,7 @@ Use cases include:
 
 {{< /history >}}
 
-To view the approval status of a merge request, check the merge request itself, or the list of
-merge requests for your project or group.
+To view the approval status of a merge request, check the merge request itself, or the list of merge requests for your project or group.
 
 ### For a single merge request
 
@@ -115,8 +106,8 @@ Approver visibility depends on your project membership, and group privacy:
 
 - Project members see all approvers.
 - Project non-members see:
-  - All approvers, if the approvers are all from public groups.
-  - No information about approvers, if any of the approvers are from private groups.
+ - All approvers, if the approvers are all from public groups.
+ - No information about approvers, if any of the approvers are from private groups.
 
 ### In the list of merge requests
 
@@ -168,8 +159,7 @@ To prevent merge request creators from approving their own work, enable the [Pre
 
 ### Approval rule changes
 
-If you enable [approval rule overrides](settings.md#prevent-editing-approval-rules-in-merge-requests), changes to default approval rules
-don't affect existing merge requests, except for [target branch](rules.md#approvals-for-protected-branches) changes.
+If you enable [approval rule overrides](settings.md#prevent-editing-approval-rules-in-merge-requests), changes to default approval rules don't affect existing merge requests, except for [target branch](rules.md#approvals-for-protected-branches) changes.
 
 ## Invalid rules
 
@@ -185,8 +175,7 @@ GitLab marks approval rules as **Auto approved** when they're impossible to sati
 - No eligible approvers are assigned to the rule.
 - The required approvals exceed the number of eligible approvers.
 
-These rules are automatically approved to unblock merge requests, unless you created rules through a
-[merge request approval policy](../../../application_security/policies/merge_request_approval_policies.md).
+These rules are automatically approved to unblock merge requests, unless you created rules through a [merge request approval policy](../../../application_security/policies/merge_request_approval_policies.md).
 
 Invalid policy-created rules:
 

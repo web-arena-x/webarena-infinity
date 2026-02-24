@@ -27,26 +27,26 @@ GET /license
 
 ```json
 {
-  "id": 2,
-  "plan": "ultimate",
-  "created_at": "2018-02-27T23:21:58.674Z",
-  "starts_at": "2018-01-27",
-  "expires_at": "2022-01-27",
-  "historical_max": 300,
-  "maximum_user_count": 300,
-  "expired": false,
-  "overage": 200,
-  "user_limit": 100,
-  "active_users": 300,
-  "licensee": {
+ "id": 2,
+ "plan": "ultimate",
+ "created_at": "2018-02-27T23:21:58.674Z",
+ "starts_at": "2018-01-27",
+ "expires_at": "2022-01-27",
+ "historical_max": 300,
+ "maximum_user_count": 300,
+ "expired": false,
+ "overage": 200,
+ "user_limit": 100,
+ "active_users": 300,
+ "licensee": {
     "Name": "John Doe1",
     "Email": "johndoe1@gitlab.com",
     "Company": "GitLab"
-  },
-  "add_ons": {
+ },
+ "add_ons": {
     "GitLab_FileLocks": 1,
     "GitLab_Auditor_User": 1
-  }
+ }
 }
 ```
 
@@ -58,7 +58,7 @@ GET /licenses
 
 ```json
 [
-  {
+ {
     "id": 1,
     "plan": "premium",
     "created_at": "2018-02-27T23:21:58.674Z",
@@ -78,8 +78,8 @@ GET /licenses
       "GitLab_FileLocks": 1,
       "GitLab_Auditor_User": 1
     }
-  },
-  {
+ },
+ {
     "id": 2,
     "plan": "ultimate",
     "created_at": "2018-02-27T23:21:58.674Z",
@@ -98,7 +98,7 @@ GET /licenses
     "add_ons": {
       "GitLab_FileLocks": 1
     }
-  }
+ }
 ]
 ```
 
@@ -142,26 +142,26 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "plan": "premium",
-  "created_at": "2018-02-27T23:21:58.674Z",
-  "starts_at": "2018-01-27",
-  "expires_at": "2022-01-27",
-  "historical_max": 300,
-  "maximum_user_count": 300,
-  "expired": false,
-  "overage": 200,
-  "user_limit": 100,
-  "active_users": 50,
-  "licensee": {
+ "id": 1,
+ "plan": "premium",
+ "created_at": "2018-02-27T23:21:58.674Z",
+ "starts_at": "2018-01-27",
+ "expires_at": "2022-01-27",
+ "historical_max": 300,
+ "maximum_user_count": 300,
+ "expired": false,
+ "overage": 200,
+ "user_limit": 100,
+ "active_users": 50,
+ "licensee": {
     "Name": "John Doe1",
     "Email": "johndoe1@gitlab.com",
     "Company": "GitLab"
-  },
-  "add_ons": {
+ },
+ "add_ons": {
     "GitLab_FileLocks": 1,
     "GitLab_Auditor_User": 1
-  }
+ }
 }
 ```
 
@@ -185,26 +185,26 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "plan": "ultimate",
-  "created_at": "2018-02-27T23:21:58.674Z",
-  "starts_at": "2018-01-27",
-  "expires_at": "2022-01-27",
-  "historical_max": 300,
-  "maximum_user_count": 300,
-  "expired": false,
-  "overage": 200,
-  "user_limit": 100,
-  "active_users": 300,
-  "licensee": {
+ "id": 1,
+ "plan": "ultimate",
+ "created_at": "2018-02-27T23:21:58.674Z",
+ "starts_at": "2018-01-27",
+ "expires_at": "2022-01-27",
+ "historical_max": 300,
+ "maximum_user_count": 300,
+ "expired": false,
+ "overage": 200,
+ "user_limit": 100,
+ "active_users": 300,
+ "licensee": {
     "Name": "John Doe1",
     "Email": "johndoe1@gitlab.com",
     "Company": "GitLab"
-  },
-  "add_ons": {
+ },
+ "add_ons": {
     "GitLab_FileLocks": 1,
     "GitLab_Auditor_User": 1
-  }
+ }
 }
 ```
 
@@ -255,7 +255,7 @@ Example response:
 
 ```json
 {
-  "success": true
+ "success": true
 }
 ```
 

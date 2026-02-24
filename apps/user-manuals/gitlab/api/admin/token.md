@@ -65,7 +65,7 @@ Supported attributes:
 
 | Attribute    | Type    | Required | Description                |
 |--------------|---------|----------|----------------------------|
-| `token`      | string  | Yes      | Existing token to identify. `Personal`, `project` or `group access` tokens must begin with `glpat` or the current [custom prefix](../../administration/settings/account_and_limit_settings.md#personal-access-token-prefix). |
+| `token`      | string | Yes      | Existing token to identify. `Personal`, `project` or `group access` tokens must begin with `glpat` or the current [custom prefix](../../administration/settings/account_and_limit_settings.md#personal-access-token-prefix). |
 
 If successful, returns [`200`](../rest/troubleshooting.md#status-codes) and information about the token.
 
@@ -81,10 +81,10 @@ Example request:
 
 ```shell
 curl --request POST \
-  --url "https://gitlab.example.com/api/v4/admin/token" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header 'Content-Type: application/json' \
-  --data '{"token": "glpat-<example-token>"}'
+ --url "https://gitlab.example.com/api/v4/admin/token" \
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header 'Content-Type: application/json' \
+ --data '{"token": "glpat-<example-token>"}'
 ```
 
 Example response:
@@ -99,8 +99,8 @@ Example response:
  "created_at": "2024-09-04T07:19:18.652Z",
  "updated_at": "2024-09-04T07:19:18.652Z",
  "scopes": [
-  "api",
-  "read_api"
+ "api",
+ "read_api"
  ],
  "impersonation": false,
  "expire_notification_delivered": false,
@@ -160,7 +160,7 @@ Supported attributes:
 
 | Attribute    | Type    | Required | Description              |
 |--------------|---------|----------|--------------------------|
-| `token`      | string  | Yes      | Existing token to revoke. `Personal`, `project` or `group access` tokens must begin with `glpat` or the current [custom prefix](../../administration/settings/account_and_limit_settings.md#personal-access-token-prefix). |
+| `token`      | string | Yes      | Existing token to revoke. `Personal`, `project` or `group access` tokens must begin with `glpat` or the current [custom prefix](../../administration/settings/account_and_limit_settings.md#personal-access-token-prefix). |
 
 If successful, returns [`204`](../rest/troubleshooting.md#status-codes) without content.
 
@@ -176,8 +176,8 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --url "https://gitlab.example.com/api/v4/admin/token" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header 'Content-Type: application/json' \
-  --data '{"token": "glpat-<example-token>"}'
+ --url "https://gitlab.example.com/api/v4/admin/token" \
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header 'Content-Type: application/json' \
+ --data '{"token": "glpat-<example-token>"}'
 ```

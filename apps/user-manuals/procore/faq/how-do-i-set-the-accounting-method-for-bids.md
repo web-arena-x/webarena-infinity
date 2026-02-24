@@ -36,8 +36,8 @@ The 'Response Field Type' column has the following options to select for each li
 
 - The 'Include/Exclude' option is only available to select in the Base Bid section. The Alternates section uses 'Amount' and 'Unit & Quantity'.
 - The 'Response Field Type' automatically populates as you add line items, but you can change it as needed.
-  - The first line item you add to the Base Bid will have the 'Response Field Type' set to 'Amount' by default.
-  - When you add another line item, the 'Response Field Type' is automatically copied from the previous line item. For example, if you select 'Include/Exclude' for a line item, the next line item that you add will already have 'Include/Exclude' selected.
+ - The first line item you add to the Base Bid will have the 'Response Field Type' set to 'Amount' by default.
+ - When you add another line item, the 'Response Field Type' is automatically copied from the previous line item. For example, if you select 'Include/Exclude' for a line item, the next line item that you add will already have 'Include/Exclude' selected.
 - If a bid has already been submitted, you can't edit the Response Field Type for items that were set to 'Amount' or 'Unit & Quantity'.
 - If you edit line items on a bid form after bids have been submitted, you'll have an option to send a correspondence about the change and resend bid invitations.
 

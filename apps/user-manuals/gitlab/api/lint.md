@@ -43,8 +43,7 @@ jq --null-input --arg yaml "$(<example-gitlab-ci.yml)" '.content=$yaml' \
        - echo "hello world"
    ```
 
-1. To escape and encode an input YAML file (`example-gitlab-ci.yml`), then `POST` it to the
-   GitLab API, create a one-line command that combines `curl` and `jq`:
+1. To escape and encode an input YAML file (`example-gitlab-ci.yml`), then `POST` it to the GitLab API, create a one-line command that combines `curl` and `jq`:
 
    ```shell
    jq --null-input --arg yaml "$(<example-gitlab-ci.yml)" '.content=$yaml' \
@@ -60,39 +59,38 @@ To reformat responses from the CI Lint API, either:
 - Pipe the CI Lint response directly to `jq`.
 - Store the API response as a text file, and provide it to `jq` as an argument, like this:
 
-  ```shell
-  jq --raw-output '.merged_yaml | fromjson' <your_input_here>
-  ```
+ ```shell
+ jq --raw-output '.merged_yaml | fromjson' <your_input_here>
+ ```
 
 For example, this JSON array:
 
 ```json
-{"valid":"true","errors":[],"merged_yaml":"---\n.api_test:\n  rules:\n  - if: $CI_PIPELINE_SOURCE==\"merge_request_event\"\n    changes:\n    - src/api/*\ndeploy:\n  rules:\n  - when: manual\n    allow_failure: true\n  extends:\n  - \".api_test\"\n  script:\n  - echo \"hello world\"\n"}
+{"valid":"true","errors":[],"merged_yaml":"---\n.api_test:\n rules:\n - if: $CI_PIPELINE_SOURCE==\"merge_request_event\"\n    changes:\n    - src/api/*\ndeploy:\n rules:\n - when: manual\n    allow_failure: true\n extends:\n - \".api_test\"\n script:\n - echo \"hello world\"\n"}
 ```
 
 When parsed and reformatted, the resulting YAML file contains:
 
 ```yaml
 .api_test:
-  rules:
-  - if: $CI_PIPELINE_SOURCE=="merge_request_event"
+ rules:
+ - if: $CI_PIPELINE_SOURCE=="merge_request_event"
     changes:
     - src/api/*
 deploy:
-  rules:
-  - when: manual
+ rules:
+ - when: manual
     allow_failure: true
-  extends:
-  - ".api_test"
-  script:
-  - echo "hello world"
+ extends:
+ - ".api_test"
+ script:
+ - echo "hello world"
 ```
 
 ## Validate a new CI/CD configuration
 
 Validates a new `.gitlab-ci.yml` configuration for a specified project.
-This endpoint validates the CI/CD configuration in the context of the
-project, including:
+This endpoint validates the CI/CD configuration in the context of the project, including:
 
 - Using the project's CI/CD variables.
 - Searching the project's files for `include:local` entries.
@@ -103,19 +101,19 @@ POST /projects/:id/ci/lint
 
 | Attribute      | Type    | Required | Description |
 |----------------|---------|----------|-------------|
-| `content`      | string  | Yes      | The CI/CD configuration content. |
+| `content`      | string | Yes      | The CI/CD configuration content. |
 | `dry_run`      | boolean | No       | Run [pipeline creation simulation](../ci/yaml/lint.md#simulate-a-pipeline), or only do static check. Default: `false`. |
 | `include_jobs` | boolean | No       | If the list of jobs that would exist in a static check or pipeline simulation should be included in the response. Default: `false`. |
-| `ref`          | string  | No       | When `dry_run` is `true`, sets the branch or tag context to use to validate the CI/CD YAML configuration. Defaults to the project's default branch when not set. |
+| `ref`          | string | No       | When `dry_run` is `true`, sets the branch or tag context to use to validate the CI/CD YAML configuration. Defaults to the project's default branch when not set. |
 
 Example request:
 
 ```shell
 curl --header "Content-Type: application/json" \
-  --url "https://gitlab.example.com/api/v4/projects/:id/ci/lint" \
-  --data @- <<'EOF'
+ --url "https://gitlab.example.com/api/v4/projects/:id/ci/lint" \
+ --data @- <<'EOF'
 {
-  "content": "{
+ "content": "{
     \"image\": \"ruby:2.6\",
     \"services\": [\"postgres\"],
     \"before_script\": [
@@ -131,7 +129,7 @@ curl --header "Content-Type: application/json" \
       \"tags\": [\"ruby\", \"postgres\"],
       \"only\": [\"branches\"]
     }
-  }"
+ }"
 }
 EOF
 ```
@@ -140,29 +138,29 @@ Example responses:
 
 - Valid configuration:
 
-  ```json
-  {
+ ```json
+ {
     "valid": true,
-    "merged_yaml": "---\ntest_job:\n  script: echo 1\n",
+    "merged_yaml": "---\ntest_job:\n script: echo 1\n",
     "errors": [],
     "warnings": [],
     "includes": []
-  }
-  ```
+ }
+ ```
 
 - Invalid configuration:
 
-  ```json
-  {
+ ```json
+ {
     "valid": false,
     "errors": [
       "jobs config should contain at least one visible job"
     ],
     "warnings": [],
-    "merged_yaml": "---\n\".job\":\n  script:\n  - echo \"A hidden job\"\n",
+    "merged_yaml": "---\n\".job\":\n script:\n - echo \"A hidden job\"\n",
     "includes": []
-  }
-  ```
+ }
+ ```
 
 ## Validate an existing CI/CD configuration
 
@@ -174,8 +172,7 @@ Example responses:
 {{< /history >}}
 
 Validates an existing `.gitlab-ci.yml` configuration for a specified project.
-This endpoint validates the CI/CD configuration in the context of the
-project, including:
+This endpoint validates the CI/CD configuration in the context of the project, including:
 
 - Using the project's CI/CD variables.
 - Searching the project's files for `include:local` entries.
@@ -186,12 +183,12 @@ GET /projects/:id/ci/lint
 
 | Attribute      | Type    | Required | Description |
 |----------------|---------|----------|-------------|
-| `content_ref`  | string  | No       | The CI/CD configuration content is taken from this commit SHA, branch or tag. Defaults to the SHA of the head of the project's default branch when not set. |
+| `content_ref` | string | No       | The CI/CD configuration content is taken from this commit SHA, branch or tag. Defaults to the SHA of the head of the project's default branch when not set. |
 | `dry_run`      | boolean | No       | Run pipeline creation simulation, or only do static check. |
-| `dry_run_ref`  | string  | No       | Of `dry_run` is `true`, sets the branch or tag context to use to validate the CI/CD YAML configuration. Defaults to the project's default branch when not set. |
+| `dry_run_ref` | string | No       | Of `dry_run` is `true`, sets the branch or tag context to use to validate the CI/CD YAML configuration. Defaults to the project's default branch when not set. |
 | `include_jobs` | boolean | No       | If the list of jobs that would exist in a static check or pipeline simulation should be included in the response. Default: `false`. |
-| `ref`          | string  | No       | (Deprecated) When `dry_run` is `true`, sets the branch or tag context to use to validate the CI/CD YAML configuration. Defaults to the project's default branch when not set. Use `dry_run_ref` instead. |
-| `sha`          | string  | No       | (Deprecated) The CI/CD configuration content is taken from this commit SHA, branch or tag. Defaults to the SHA of the head of the project's default branch when not set. Use `content_ref` instead. |
+| `ref`          | string | No       | (Deprecated) When `dry_run` is `true`, sets the branch or tag context to use to validate the CI/CD YAML configuration. Defaults to the project's default branch when not set. Use `dry_run_ref` instead. |
+| `sha`          | string | No       | (Deprecated) The CI/CD configuration content is taken from this commit SHA, branch or tag. Defaults to the SHA of the head of the project's default branch when not set. Use `content_ref` instead. |
 
 Example request:
 
@@ -202,14 +199,14 @@ curl --url "https://gitlab.example.com/api/v4/projects/:id/ci/lint"
 Example responses:
 
 - Valid configuration, with `include.yml` as an [included file](../ci/yaml/_index.md#include)
-  and `include_jobs` set to `true`:
+ and `include_jobs` set to `true`:
 
-  ```json
-  {
+ ```json
+ {
     "valid": true,
     "errors": [],
     "warnings": [],
-    "merged_yaml": "---\ninclude-job:\n  script:\n  - echo \"An included job\"\njob:\n  rules:\n  - if: \"$CI_COMMIT_BRANCH\"\n  script:\n  - echo \"A test job\"\n",
+    "merged_yaml": "---\ninclude-job:\n script:\n - echo \"An included job\"\njob:\n rules:\n - if: \"$CI_COMMIT_BRANCH\"\n script:\n - echo \"A test job\"\n",
     "includes": [
       {
         "type": "local",
@@ -260,19 +257,19 @@ Example responses:
         "needs": null
       }
     ]
-  }
-  ```
+ }
+ ```
 
 - Invalid configuration:
 
-  ```json
-  {
+ ```json
+ {
     "valid": false,
     "errors": [
       "jobs config should contain at least one visible job"
     ],
     "warnings": [],
-    "merged_yaml": "---\n\".job\":\n  script:\n  - echo \"A hidden job\"\n",
+    "merged_yaml": "---\n\".job\":\n script:\n - echo \"A hidden job\"\n",
     "includes": []
-  }
-  ```
+ }
+ ```

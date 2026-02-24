@@ -5,9 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Model Registry
 ---
 
-Model registry is the component in the MLOps lifecycle responsible for managing
-model versions. Beyond tracking just artifacts, it is responsible to track the
-metadata associated to each model, like:
+Model registry is the component in the MLOps lifecycle responsible for managing model versions. Beyond tracking just artifacts, it is responsible to track the metadata associated to each model, like:
 
 - Performance
 - Parameters
@@ -15,8 +13,7 @@ metadata associated to each model, like:
 
 ## Data topology
 
-All entities belong to a project, and only users with access to the project can
-interact with the entities.
+All entities belong to a project, and only users with access to the project can interact with the entities.
 
 ### `Ml::Model`
 
@@ -43,12 +40,8 @@ interact with the entities.
 
 ## MLflow compatibility layer
 
-To make it easier for Data Scientists with GitLab Model registry, we provided a
-compatibility layer to [MLflow client](https://mlflow.org/docs/latest/python_api/mlflow.client.html).
-We do not provide an MLflow instance with GitLab. Instead, GitLab itself acts as
-an instance of MLflow. This method stores data on the GitLab database, which
-improves user reliability and functionality. See the user documentation about
-[the compatibility layer](../../../user/project/ml/experiment_tracking/mlflow_client.md).
+To make it easier for Data Scientists with GitLab Model registry, we provided a compatibility layer to [MLflow client](https://mlflow.org/docs/latest/python_api/mlflow.client.html).
+We do not provide an MLflow instance with GitLab. Instead, GitLab itself acts as an instance of MLflow. This method stores data on the GitLab database, which improves user reliability and functionality. See the user documentation about [the compatibility layer](../../../user/project/ml/experiment_tracking/mlflow_client.md).
 
 The compatibility layer is implemented by replicating the [MLflow rest API](https://mlflow.org/docs/latest/rest-api.html)
 in [`lib/api/ml/mlflow`](https://gitlab.com/gitlab-org/gitlab/-/tree/master/lib/api/ml/mlflow).
@@ -92,6 +85,5 @@ To test the script with MLflow with GitLab as the backend:
 
 1. Go to the project `/-/ml/experiments`. An experiment should have been created.
 
-You can edit the script to call the client methods we are trying to implement. See
-[GitLab Model experiments example](https://gitlab.com/gitlab-org/incubation-engineering/mlops/model_experiment_example)
+You can edit the script to call the client methods we are trying to implement. See [GitLab Model experiments example](https://gitlab.com/gitlab-org/incubation-engineering/mlops/model_experiment_example)
 for a more complete example.

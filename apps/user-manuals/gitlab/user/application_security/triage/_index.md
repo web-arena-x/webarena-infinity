@@ -6,21 +6,14 @@ title: Triage
 description: Vulnerability separation by status.
 ---
 
-Triage is the second phase of the vulnerability management lifecycle: detect, triage, analyze,
-remediate.
+Triage is the second phase of the vulnerability management lifecycle: detect, triage, analyze, remediate.
 
-Triage is an ongoing process of evaluating each vulnerability to decide which need attention now and
-which are not as critical. High-risk vulnerabilities are separated from medium or low risk threats.
-It may not be possible or feasible to analyze and remediate every vulnerability. As part of a risk
-management framework, triage helps ensure resources are applied where they're most effective. It's
-best to triage vulnerabilities often, so that the number of vulnerabilities per triage cycle is
-small and manageable.
+Triage is an ongoing process of evaluating each vulnerability to decide which need attention now and which are not as critical. High-risk vulnerabilities are separated from medium or low risk threats.
+It may not be possible or feasible to analyze and remediate every vulnerability. As part of a risk management framework, triage helps ensure resources are applied where they're most effective. It's best to triage vulnerabilities often, so that the number of vulnerabilities per triage cycle is small and manageable.
 
-The objective of the triage phase is to either confirm or dismiss each vulnerability. A confirmed
-vulnerability continues to the analysis phase but a dismissed vulnerability does not.
+The objective of the triage phase is to either confirm or dismiss each vulnerability. A confirmed vulnerability continues to the analysis phase but a dismissed vulnerability does not.
 
-Use the data contained in the security dashboard, the security inventory, and the vulnerability
-report to help triage vulnerabilities efficiently and effectively.
+Use the data contained in the security dashboard, the security inventory, and the vulnerability report to help triage vulnerabilities efficiently and effectively.
 
 ## Scope
 
@@ -33,30 +26,22 @@ Filter the vulnerability report to identify vulnerabilities needing triage:
 ## Risk analysis
 
 You should conduct vulnerability triage according to a risk assessment framework.
-Depending on your industry or geographical location, compliance with a framework might be
-required by law. If not, you should use a respected risk assessment framework, for example:
+Depending on your industry or geographical location, compliance with a framework might be required by law. If not, you should use a respected risk assessment framework, for example:
 
 - [SANS Institute Vulnerability Management Framework](https://www.sans.org/blog/the-vulnerability-assessment-framework/)
 - [OWASP Threat and Safeguard Matrix (TaSM)](https://owasp.org/www-project-threat-and-safeguard-matrix/)
 
-If available, use the
-[Security Analyst Agent](../../duo_agent_platform/agents/foundational_agents/security_analyst_agent.md)
-to accelerate your vulnerability analysis. The agent efficiently triages, assesses, and remediates
-security findings by providing insights, risk assessments, and remediation guidance.
+If available, use the [Security Analyst Agent](../../duo_agent_platform/agents/foundational_agents/security_analyst_agent.md)
+to accelerate your vulnerability analysis. The agent efficiently triages, assesses, and remediates security findings by providing insights, risk assessments, and remediation guidance.
 
-Generally, the amount of time and effort spent on a vulnerability should be proportional to its
-risk. For example, your triage strategy might be that only vulnerabilities of critical and high risk continue
-to the analysis phase and the remainder are dismissed. You should make this decision according to your risk
-threshold for vulnerabilities.
+Generally, the amount of time and effort spent on a vulnerability should be proportional to its risk. For example, your triage strategy might be that only vulnerabilities of critical and high risk continue to the analysis phase and the remainder are dismissed. You should make this decision according to your risk threshold for vulnerabilities.
 
 After you triage a vulnerability you should change its status to either:
 
 - **Confirmed**: You have triaged this vulnerability and decided it requires analysis.
 - **Dismissed**: You have triaged this vulnerability and decided against analysis.
 
-When you dismiss a vulnerability you must provide a brief comment that states why it has been
-dismissed. Dismissed vulnerabilities are ignored if detected in subsequent scans. Vulnerability
-records are permanent but you can change a vulnerability's status at any time.
+When you dismiss a vulnerability you must provide a brief comment that states why it has been dismissed. Dismissed vulnerabilities are ignored if detected in subsequent scans. Vulnerability records are permanent but you can change a vulnerability's status at any time.
 
 ## Triage strategies
 
@@ -67,29 +52,15 @@ Try these strategies to focus on the most important vulnerabilities first.
 Prioritize vulnerabilities according to their risk.
 
 - Use the [Vulnerability Prioritizer CI/CD component](../vulnerabilities/risk_assessment_data.md#vulnerability-prioritizer)
-  to help prioritize vulnerabilities. For example, vulnerabilities in the CISA Known Exploited
-  Vulnerabilities (KEV) catalogue should be analyzed and remediated as highest priority because
-  these are known to have been exploited.
-- For each group, go to the **Security inventory** to visualize the assets you need to secure and to understand
-  the actions that need to be taken to improve your security posture.
-- For each group, go to the **Security dashboard** and view the **Project security status** panel. This groups
-  projects by their highest-severity vulnerability. Use this grouping to prioritize triaging
-  vulnerabilities in each project.
-- Prioritize vulnerability triage on your highest-priority projects - for example, applications
-  deployed to customers.
-- For each project, view the vulnerability report. Group the vulnerabilities by severity and change
-  the status of all vulnerabilities of critical and high severity to "Confirmed".
+ to help prioritize vulnerabilities. For example, vulnerabilities in the CISA Known Exploited Vulnerabilities (KEV) catalogue should be analyzed and remediated as highest priority because these are known to have been exploited.
+- For each group, go to the **Security inventory** to visualize the assets you need to secure and to understand the actions that need to be taken to improve your security posture.
+- For each group, go to the **Security dashboard** and view the **Project security status** panel. This groups projects by their highest-severity vulnerability. Use this grouping to prioritize triaging vulnerabilities in each project.
+- Prioritize vulnerability triage on your highest-priority projects - for example, applications deployed to customers.
+- For each project, view the vulnerability report. Group the vulnerabilities by severity and change the status of all vulnerabilities of critical and high severity to "Confirmed".
 
 ### Dismiss vulnerabilities of low risk
 
 Bulk triage low-risk vulnerabilities to focus on the most important ones.
 
-- Vulnerabilities are sometimes detected but no longer detected in subsequent CI/CD pipelines. In
-  this instance the vulnerability's activity is labeled as **No longer detected**. You might choose
-  to dismiss these vulnerabilities if their severity is **Low** or **Info**. Use the filter
-  **Activity: No longer detected** in the vulnerability report to select them and change their
-  status to **Dismissed**. You can also automate this by using a
-  [vulnerability management policy](../policies/vulnerability_management_policy.md).
-- Dismiss vulnerabilities by identifier. If a vulnerability is mitigated by controls outside the
-  application layer, you might choose to dismiss them. Use the **Identifier** filter in the
-  vulnerability report to select them and change their status to **Dismissed**.
+- Vulnerabilities are sometimes detected but no longer detected in subsequent CI/CD pipelines. In this instance the vulnerability's activity is labeled as **No longer detected**. You might choose to dismiss these vulnerabilities if their severity is **Low** or **Info**. Use the filter **Activity: No longer detected** in the vulnerability report to select them and change their status to **Dismissed**. You can also automate this by using a [vulnerability management policy](../policies/vulnerability_management_policy.md).
+- Dismiss vulnerabilities by identifier. If a vulnerability is mitigated by controls outside the application layer, you might choose to dismiss them. Use the **Identifier** filter in the vulnerability report to select them and change their status to **Dismissed**.

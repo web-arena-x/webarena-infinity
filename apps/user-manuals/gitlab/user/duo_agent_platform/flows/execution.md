@@ -25,10 +25,9 @@ When flows execute in GitLab CI/CD:
 
 - They use a [composite identity](../composite_identity.md) to limit access.
 - The tools at their disposal are specific to the purpose of the flow.
-  These tools can include the creation of merge requests or the running of local shell commands in their execution environment.
+ These tools can include the creation of merge requests or the running of local shell commands in their execution environment.
 
-By default, the runner environment allows network access to the GitLab instance only,
-though [you can change this](#change-the-default-docker-image).
+By default, the runner environment allows network access to the GitLab instance only, though [you can change this](#change-the-default-docker-image).
 This separate environment protects from unintended consequences of running shell commands.
 
 To prevent flows from running autonomously in the GitLab UI, you can [turn off flow execution](../../gitlab_duo/turn_on_off.md).
@@ -52,13 +51,11 @@ The configuration is applied when flows run in CI/CD for your project.
 ### Change the default Docker image
 
 By default, all flows executed with CI/CD use a standard Docker image provided by GitLab.
-This Docker image automatically includes network protection by using
-[Anthropic Sandbox Runtime (`srt`)](https://github.com/anthropic-experimental/sandbox-runtime).
+This Docker image automatically includes network protection by using [Anthropic Sandbox Runtime (`srt`)](https://github.com/anthropic-experimental/sandbox-runtime).
 This image is configured to allow access to the GitLab instance only.
 However, you can change the Docker image and specify your own instead.
 Your own image can be useful for complex projects that require specific dependencies or tools.
-If you do this agents will be able to reach out to any domain
-that is reachable from the GitLab Runner associated with the session.
+If you do this agents will be able to reach out to any domain that is reachable from the GitLab Runner associated with the session.
 
 To change the default Docker image, add the following to your `agent-config.yml` file:
 
@@ -86,8 +83,7 @@ If you use a custom Docker image, ensure that the following commands are availab
 - `npm`
 
 Most base images include these commands by default. However, minimal images (like `alpine` variants)
-might require you to install them explicitly. If needed, you can install missing commands in the
-[setup script configuration](#configure-setup-scripts).
+might require you to install them explicitly. If needed, you can install missing commands in the [setup script configuration](#configure-setup-scripts).
 
 Additionally, depending on the tool calls made by agents during flow execution, other common utilities may be required.
 
@@ -96,7 +92,7 @@ For example, if you use an Alpine-based image:
 ```yaml
 image: python:3.11-alpine
 setup_script:
-  - apk add --update git nodejs npm
+ - apk add --update git nodejs npm
 ```
 
 ### Configure setup scripts
@@ -107,9 +103,9 @@ To add setup scripts, add the following to your `agent-config.yml` file:
 
 ```yaml
 setup_script:
-  - apt-get update && apt-get install -y curl
-  - pip install -r requirements.txt
-  - echo "Setup complete"
+ - apt-get update && apt-get install -y curl
+ - pip install -r requirements.txt
+ - echo "Setup complete"
 ```
 
 These commands:
@@ -128,7 +124,7 @@ To cache specific paths, add the following to your `agent-config.yml` file:
 
 ```yaml
 cache:
-  paths:
+ paths:
     - node_modules/
     - .npm/
 ```
@@ -141,8 +137,8 @@ You can use cache keys to create different caches for different scenarios. Cache
 
 ```yaml
 cache:
-  key: my-project-cache
-  paths:
+ key: my-project-cache
+ paths:
     - vendor/
     - .bundle/
 ```
@@ -153,11 +149,11 @@ Create dynamic cache keys based on file contents (like lock files). When these f
 
 ```yaml
 cache:
-  key:
+ key:
     files:
       - package-lock.json
       - yarn.lock
-  paths:
+ paths:
     - node_modules/
 ```
 
@@ -167,11 +163,11 @@ Combine a prefix with the SHA computed for the cache key files:
 
 ```yaml
 cache:
-  key:
+ key:
     files:
       - package-lock.json
     prefix: $CI_JOB_NAME
-  paths:
+ paths:
     - node_modules/
     - .npm/
 ```
@@ -194,18 +190,18 @@ image: python:3.11
 
 # Setup script to run before the flow
 setup_script:
-  - apt-get update && apt-get install -y build-essential
-  - pip install --upgrade pip
-  - pip install -r requirements.txt
+ - apt-get update && apt-get install -y build-essential
+ - pip install --upgrade pip
+ - pip install -r requirements.txt
 
 # Cache configuration
 cache:
-  key:
+ key:
     files:
       - requirements.txt
       - Pipfile.lock
     prefix: python-deps
-  paths:
+ paths:
     - .cache/pip
     - venv/
 ```
@@ -222,27 +218,23 @@ This configuration:
 Flows that use CI/CD are executed on runners. These runners must:
 
 - Use an [executor](https://docs.gitlab.com/runner/executors/) that supports Docker images.
-  For example, `docker`, `docker-autoscaler`, `kubernetes`, or others.
-  The `shell` executor is not supported.
+ For example, `docker`, `docker-autoscaler`, `kubernetes`, or others.
+ The `shell` executor is not supported.
 - Have the `gitlab--duo` tag, so the runner knows to pick up the correct jobs.
 - Be instance runners or assigned to the top-level group. Flows cannot use runners configured for a subgroup or project. On GitLab Self-Managed this restriction can be disabled by disabling the `duo_runner_restrictions` feature flag.
 
 In addition, runners on GitLab Self-Managed:
 
 - Must allow network traffic to the GitLab Duo Workflow Service configured for the GitLab instance.
-  If you aren't using custom models, this traffic goes to `duo-workflow-svc.runway.gitlab.net`, port `443`.
-- Must be able to download the default image from `registry.gitlab.com`
-  or be able to access [the Docker image you specified](#change-the-default-docker-image).
-- Might have to be [privileged](https://docs.gitlab.com/runner/security/#reduce-the-security-risk-of-using-privileged-containers),
-  depending on what the flow does. For example, a flow that builds Docker images
-  needs a privileged runner.
+ If you aren't using custom models, this traffic goes to `duo-workflow-svc.runway.gitlab.net`, port `443`.
+- Must be able to download the default image from `registry.gitlab.com` or be able to access [the Docker image you specified](#change-the-default-docker-image).
+- Might have to be [privileged](https://docs.gitlab.com/runner/security/#reduce-the-security-risk-of-using-privileged-containers), depending on what the flow does. For example, a flow that builds Docker images needs a privileged runner.
 
 On GitLab.com, flows can use:
 
 - [Hosted runners](../../../ci/runners/hosted_runners/_index.md), which GitLab provides.
 
-Flows executed on runners can be secured with runtime sandboxing offering network and file system isolation. To benefit
-from sandboxing you must:
+Flows executed on runners can be secured with runtime sandboxing offering network and file system isolation. To benefit from sandboxing you must:
 
 1. Enable [privileged](https://docs.gitlab.com/runner/security/#reduce-the-security-risk-of-using-privileged-containers)
    mode by setting `privileged = true` in your [runner configuration](https://docs.gitlab.com/runner/configuration/advanced-configuration/).

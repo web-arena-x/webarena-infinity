@@ -25,14 +25,14 @@ package main
 import "regexp"
 
 func broken(hostNames []byte) string {
-  var hostRe = regexp.MustCompile("\bforbidden.host.org")
-  if hostRe.Match(hostNames) {
+ var hostRe = regexp.MustCompile("\bforbidden.host.org")
+ if hostRe.Match(hostNames) {
     return "Must not target forbidden.host.org"
-  } else {
+ } else {
     // This will be reached even if hostNames is exactly "forbidden.host.org",
     // because the literal backspace is not matched
     return ""
-  }
+ }
 }
 ```
 
@@ -46,14 +46,14 @@ package main
 import "regexp"
 
 func fixed(hostNames []byte) string {
-  var hostRe = regexp.MustCompile(`\bforbidden.host.org`)
-  if hostRe.Match(hostNames) {
+ var hostRe = regexp.MustCompile(`\bforbidden.host.org`)
+ if hostRe.Match(hostNames) {
     return "Must not target forbidden.host.org"
-  } else {
+ } else {
     // hostNames definitely doesn't contain a word "forbidden.host.org", as "\\b"
     // is the start-of-word anchor, not a literal backspace.
     return ""
-  }
+ }
 }
 ```
 
@@ -131,35 +131,27 @@ References:
 
 ## OS command injection guidelines
 
-Command injection is an issue in which an attacker is able to execute arbitrary commands on the host
-operating system through a vulnerable application. Such attacks don't always provide feedback to a
-user, but the attacker can use simple commands like `curl` to obtain an answer.
+Command injection is an issue in which an attacker is able to execute arbitrary commands on the host operating system through a vulnerable application. Such attacks don't always provide feedback to a user, but the attacker can use simple commands like `curl` to obtain an answer.
 
 ### Impact
 
-The impact of command injection greatly depends on the user context running the commands, as well as
-how data is validated and sanitized. It can vary from low impact because the user running the
-injected commands has limited rights, to critical impact if running as the root user.
+The impact of command injection greatly depends on the user context running the commands, as well as how data is validated and sanitized. It can vary from low impact because the user running the injected commands has limited rights, to critical impact if running as the root user.
 
 Potential impacts include:
 
 - Execution of arbitrary commands on the host machine.
-- Unauthorized access to sensitive data, including passwords and tokens in secrets or configuration
-  files.
+- Unauthorized access to sensitive data, including passwords and tokens in secrets or configuration files.
 - Exposure of sensitive system files on the host machine, such as `/etc/passwd/` or `/etc/shadow`.
 - Compromise of related systems and services gained through access to the host machine.
 
-You should be aware of and take steps to prevent command injection when working with user-controlled
-data that are used to run OS commands.
+You should be aware of and take steps to prevent command injection when working with user-controlled data that are used to run OS commands.
 
 ### Mitigation and prevention
 
-To prevent OS command injections, user-supplied data shouldn't be used within OS commands. In cases
-where you can't avoid this:
+To prevent OS command injections, user-supplied data shouldn't be used within OS commands. In cases where you can't avoid this:
 
 - Validate user-supplied data against an allowlist.
-- Ensure that user-supplied data only contains alphanumeric characters (and no syntax or whitespace
-  characters, for example).
+- Ensure that user-supplied data only contains alphanumeric characters (and no syntax or whitespace characters, for example).
 - Always use `--` to separate options from arguments.
 
 Go has built-in protections that usually prevent an attacker from successfully injecting OS commands.
@@ -170,14 +162,14 @@ Consider the following example:
 package main
 
 import (
-  "fmt"
-  "os/exec"
+ "fmt"
+ "os/exec"
 )
 
 func main() {
-  cmd := exec.Command("echo", "1; cat /etc/passwd")
-  out, _ := cmd.Output()
-  fmt.Printf("%s", out)
+ cmd := exec.Command("echo", "1; cat /etc/passwd")
+ out, _ := cmd.Output()
+ fmt.Printf("%s", out)
 }
 ```
 
@@ -214,15 +206,15 @@ If a vulnerable application extracts an archive file with any of these filenames
 ```go
 // unzip INSECURELY extracts source zip file to destination.
 func unzip(src, dest string) error {
-  r, err := zip.OpenReader(src)
-  if err != nil {
+ r, err := zip.OpenReader(src)
+ if err != nil {
     return err
-  }
-  defer r.Close()
+ }
+ defer r.Close()
 
-  os.MkdirAll(dest, 0750)
+ os.MkdirAll(dest, 0750)
 
-  for _, f := range r.File {
+ for _, f := range r.File {
     if f.FileInfo().IsDir() { // Skip directories in this example for simplicity.
       continue
     }
@@ -244,9 +236,9 @@ func unzip(src, dest string) error {
     if _, err := io.Copy(f, rc); err != nil {
       return err
     }
-  }
+ }
 
-  return nil
+ return nil
 }
 ```
 
@@ -262,20 +254,20 @@ package main
 import "gitlab-com/gl-security/appsec/labsec/archive/zip"
 
 func main() {
-  f, err := os.Open("/tmp/uploaded.zip")
-  if err != nil {
+ f, err := os.Open("/tmp/uploaded.zip")
+ if err != nil {
     panic(err)
-  }
-  defer f.Close()
+ }
+ defer f.Close()
 
-  fi, err := f.Stat()
-  if err != nil {
+ fi, err := f.Stat()
+ if err != nil {
     panic(err)
-  }
+ }
 
-  if err := zip.Extract(context.Background(), f, fi.Size(), "/tmp/extracted"); err != nil {
+ if err := zip.Extract(context.Background(), f, fi.Size(), "/tmp/extracted"); err != nil {
     panic(err)
-  }
+ }
 }
 ```
 
@@ -284,15 +276,15 @@ In case the LabSec utilities do not fit your needs, here is an example for extra
 ```go
 // unzip extracts source zip file to destination with protection against Zip Slip attacks.
 func unzip(src, dest string) error {
-  r, err := zip.OpenReader(src)
-  if err != nil {
+ r, err := zip.OpenReader(src)
+ if err != nil {
     return err
-  }
-  defer r.Close()
+ }
+ defer r.Close()
 
-  os.MkdirAll(dest, 0750)
+ os.MkdirAll(dest, 0750)
 
-  for _, f := range r.File {
+ for _, f := range r.File {
     if f.FileInfo().IsDir() { // Skip directories in this example for simplicity.
       continue
     }
@@ -320,9 +312,9 @@ func unzip(src, dest string) error {
     if _, err := io.Copy(f, rc); err != nil {
       return err
     }
-  }
+ }
 
-  return nil
+ return nil
 }
 ```
 
@@ -335,14 +327,14 @@ Symlink attacks makes it possible for an attacker to read the contents of arbitr
 ```go
 // printZipContents INSECURELY prints contents of files in a zip file.
 func printZipContents(src string) error {
-  r, err := zip.OpenReader(src)
-  if err != nil {
+ r, err := zip.OpenReader(src)
+ if err != nil {
     return err
-  }
-  defer r.Close()
+ }
+ defer r.Close()
 
-  // Loop over each entry and output file contents
-  for _, f := range r.File {
+ // Loop over each entry and output file contents
+ for _, f := range r.File {
     if f.FileInfo().IsDir() {
       continue
     }
@@ -360,9 +352,9 @@ func printZipContents(src string) error {
     }
 
     fmt.Println(buf.String())
-  }
+ }
 
-  return nil
+ return nil
 }
 ```
 
@@ -377,14 +369,14 @@ In case the LabSec utilities do not fit your needs, here is an example for extra
 ```go
 // printZipContents prints contents of files in a zip file with protection against symlink attacks.
 func printZipContents(src string) error {
-  r, err := zip.OpenReader(src)
-  if err != nil {
+ r, err := zip.OpenReader(src)
+ if err != nil {
     return err
-  }
-  defer r.Close()
+ }
+ defer r.Close()
 
-  // Loop over each entry and output file contents
-  for _, f := range r.File {
+ // Loop over each entry and output file contents
+ for _, f := range r.File {
     if f.FileInfo().IsDir() {
       continue
     }
@@ -406,8 +398,8 @@ func printZipContents(src string) error {
     }
 
     fmt.Println(buf.String())
-  }
+ }
 
-  return nil
+ return nil
 }
 ```

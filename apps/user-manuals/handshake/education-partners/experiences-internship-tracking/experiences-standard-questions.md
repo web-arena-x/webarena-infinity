@@ -29,14 +29,14 @@ Custom (based on the templates at your school![Experience](https://support.joinh
 - Experience\* (the job)
 - Department
 - Date range
-- Experience Type  
-  - Job
-  - Internship
-  - Cooperative Education
-  - Experiential Learning
-  - On Campus Employment
-  - Fellowship
-  - Graduate School
-  - Volunteer
+- Experience Type 
+ - Job
+ - Internship
+ - Cooperative Education
+ - Experiential Learning
+ - On Campus Employment
+ - Fellowship
+ - Graduate School
+ - Volunteer
 
 ![Experience](https://support.joinhandshake.com/hc/article_attachments/25997611218071)

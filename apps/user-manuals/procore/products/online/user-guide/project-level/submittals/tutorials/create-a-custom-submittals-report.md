@@ -18,12 +18,12 @@ Depending on your access permission level, you can create custom reports that 
 ## Things to Consider
 
 - **Required User Permissions:**
-  - *To create, edit, and view reports that have not been marked 'Personal' to another user*, 'Admin' level permissions to the Submittals tool.
-  - *To create personal reports and view global and project-specific reports*, ' 'Standard'﻿ level permissions to the Submittals tool.
-  - *To view global and project-specific reports*, 'Read Only'﻿ level permissions to the Submittals tool.
+ - *To create, edit, and view reports that have not been marked 'Personal' to another user*, 'Admin' level permissions to the Submittals tool.
+ - *To create personal reports and view global and project-specific reports*, ' 'Standard'﻿ level permissions to the Submittals tool.
+ - *To view global and project-specific reports*, 'Read Only'﻿ level permissions to the Submittals tool.
 - **Additional Information:**
-  - You can create an unlimited number of reports on a project.
-  - The reports you create are listed from most recent to least recent in the right sidebar of the Submittals tool.
+ - You can create an unlimited number of reports on a project.
+ - The reports you create are listed from most recent to least recent in the right sidebar of the Submittals tool.
 
 ## Steps
 
@@ -33,19 +33,19 @@ Depending on your access permission level, you can create custom reports that 
 ### Create a Custom Submittals Report
 
 1. Navigate to the project's **Submittals** tool.
-2. Click **Reports > Create New Report**.  
+2. Click **Reports > Create New Report**. 
    This opens the Create Submittal Custom Report page.
 3. Do the following:
    - **Enter Report Name**. Click the pencil icon and type a name for the report.
    - **Enter Description**. Click the pencil icon and type a description for the report.
-4. In the **Select Tool** area, click **Submittals**.   
+4. In the **Select Tool** area, click **Submittals**.  
    This adds the Submittals tab to your report.
 5. In the right-pane, use a drag-and-drop operation to move the desired columns into your report's layout. See [Which data columns can I add to a custom Submittals report?](https://support.procore.com/faq/which-data-columns-can-i-add-to-a-custom-submittals-report "Which data columns can I add to a custom Submittals report?")
-6. If you want to create calculations using columns, click **Create Calculation**. Then add your calculation and click **Save** to close the New Calculation window.   
+6. If you want to create calculations using columns, click **Create Calculation**. Then add your calculation and click **Save** to close the New Calculation window.  
    *Note*: To learn how to create a calculation, see [Create a Calculated Column in a Custom Report](https://support.procore.com/products/online/user-guide/project-level/reports/tutorials/create-a-calculated-column-in-a-project-report "Create a Calculated Column in a Custom Report").
 7. If you want to apply a filter, choose one from the **Add Filter** drop-down list.
 8. If you want to group report data, add the desired group using the **Group By** drop-down list.
-9. When your report is in the desired state, click **Create Report**.   
+9. When your report is in the desired state, click **Create Report**.  
    The system saves your report. For more information about creating custom reports, see [Create a Custom Company Report](https://support.procore.com/products/online/user-guide/company-level/reports/tutorials/create-a-company-single-tool-report "Create a Custom Company Report") or [Create a Custom Project Report](https://support.procore.com/products/online/user-guide/project-level/reports/tutorials/create-a-project-single-tool-report "Create a Custom Project Report").
 
 ### Create a Custom Submittals Report Using a Report Template
@@ -54,7 +54,7 @@ To use this option, your user account must be assigned the permission level desc
 
 1. Navigate to the Company or Project level **Reports** tool.
 2. Click **Report > Create Report**.
-3. Under ****Project Management****, click ****Show All****.   
+3. Under ****Project Management****, click ****Show All****.  
    This lists all of the available templates for Procore's Project Management tools. See [What report templates are available in the Reports tools?](https://support.procore.com/faq/what-report-templates-are-available-in-the-360-reporting-tools "What report templates are available in the Reports tools?") The report templates available for the Submittals tool include:
    - Overdue Submittals
    - Submittals by Package
@@ -63,7 +63,7 @@ To use this option, your user account must be assigned the permission level desc
    - Submittals Procurement
    - Submittals by Responsible Contractor
 4. Click the report template that you want to use.
-5. Click **Use Template**.  
+5. Click **Use Template**. 
    The system creates generates a new report using the selected template. You can then proceed with editing the report, distributing a snapshot, sharing the report, cloning the report, or deleting the report. For more information, see the documentation for the appropriate Reports tool: [Company Level Reports](https://support.procore.com/products/online/user-guide/company-level/reports "Reports") or [Project Level Reports](https://support.procore.com/products/online/user-guide/project-level/reports "Reports").
 
 ## See Also

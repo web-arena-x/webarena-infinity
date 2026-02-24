@@ -13,8 +13,7 @@ title: Remote development
 
 {{< /details >}}
 
-Remote development is a set of features you can use to make code changes
-without having to install any dependencies or clone any repositories locally.
+Remote development is a set of features you can use to make code changes without having to install any dependencies or clone any repositories locally.
 These features include:
 
 - [Web IDE](#web-ide)
@@ -36,8 +35,7 @@ The Web IDE, however, lacks a native runtime environment where you could compile
 {{< /details >}}
 
 You can use [workspaces](../../workspace/_index.md) to create a fully featured development environment directly from GitLab.
-This environment runs on a remote server and provides you with a complete IDE experience
-without having to install any dependencies or clone repositories locally.
+This environment runs on a remote server and provides you with a complete IDE experience without having to install any dependencies or clone repositories locally.
 
 With workspaces, you can:
 

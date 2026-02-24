@@ -15,9 +15,9 @@ Change History lists all changes that have been made to the Daily Log during tha
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Standard' or 'Admin' level permissions on the project's Daily Log tool.
+ - 'Standard' or 'Admin' level permissions on the project's Daily Log tool.
 - ****Additional Information:****
-  - The Change History log  must be enabled in the Daily Log Settings to see the change history. See [Configure Advanced Settings: Daily Log](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/configure-advanced-settings-daily-log "Configure Advanced Settings: Daily Log").
+ - The Change History log  must be enabled in the Daily Log Settings to see the change history. See [Configure Advanced Settings: Daily Log](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/configure-advanced-settings-daily-log "Configure Advanced Settings: Daily Log").
 
 ## Steps
 

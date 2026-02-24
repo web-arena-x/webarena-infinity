@@ -13,8 +13,7 @@ description: Enable the container registry metadata database in one step.
 
 {{< /details >}}
 
-Use the one-step import method if you regularly run [offline garbage collection](container_registry.md#container-registry-garbage-collection). This method is a
-simpler operation compared to the three-step import method.
+Use the one-step import method if you regularly run [offline garbage collection](container_registry.md#container-registry-garbage-collection). This method is a simpler operation compared to the three-step import method.
 
 ## One-step import
 
@@ -40,8 +39,7 @@ Otherwise, data written during the import becomes inaccessible or leads to incon
 1. Ensure the registry is set to `read-only` mode.
 
    Edit your `/etc/gitlab/gitlab.rb` and add the `maintenance` section to the `registry['storage']` configuration.
-   For example, for a `gcs` backend registry using a `gs://my-company-container-registry` bucket,
-   the configuration could be:
+   For example, for a `gcs` backend registry using a `gs://my-company-container-registry` bucket, the configuration could be:
 
    ```ruby
    ## Object Storage - Container Registry
@@ -66,9 +64,7 @@ Otherwise, data written during the import becomes inaccessible or leads to incon
    sudo -u registry gitlab-ctl registry-database import --log-to-stdout
    ```
 
-1. If the command completed successfully, the registry is fully imported. You
-   can enable the database, turn off read-only mode in the configuration, and
-   start the registry service:
+1. If the command completed successfully, the registry is fully imported. You can enable the database, turn off read-only mode in the configuration, and start the registry service:
 
    ```ruby
    registry['database'] = {
@@ -119,8 +115,7 @@ Prerequisites:
 1. Ensure the registry is set to `read-only` mode.
 
    Edit your `/etc/gitlab/gitlab.rb` and add the `maintenance` section to the `registry['storage']` configuration.
-   For example, for a `gcs` backed registry using a `gs://my-company-container-registry` bucket,
-   the configuration could be:
+   For example, for a `gcs` backed registry using a `gs://my-company-container-registry` bucket, the configuration could be:
 
    ```ruby
    ## Object Storage - Container Registry
@@ -145,9 +140,7 @@ Prerequisites:
    sudo gitlab-ctl registry-database import
    ```
 
-1. If the command completed successfully, the registry is now fully imported. You
-   can now enable the database, turn off read-only mode in the configuration, and
-   start the registry service:
+1. If the command completed successfully, the registry is now fully imported. You can now enable the database, turn off read-only mode in the configuration, and start the registry service:
 
    ```ruby
    registry['database'] = {

@@ -11,15 +11,15 @@ To view a report of all drawing sets and revisions that have been uploaded to t
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Read Only' or higher permissions on the project's Drawings tool.
+ - 'Read Only' or higher permissions on the project's Drawings tool.
 - **Additional Information:**
-  - If the number and title of a drawing is gray and italicized, the drawing has been marked as 'obsolete'. See [Mark Drawings as Obsolete](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/mark-drawings-as-obsolete "Mark Drawings as Obsolete").
+ - If the number and title of a drawing is gray and italicized, the drawing has been marked as 'obsolete'. See [Mark Drawings as Obsolete](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/mark-drawings-as-obsolete "Mark Drawings as Obsolete").
 
 ## Steps
 
 1. Navigate to the project's **Drawings** tool.
-2. Click **Reports** and select **All Sets and Revisions** from the drop down menu.  
-   *Note:* You will see a list of all the drawings that have been uploaded, including obsolete drawings.  
+2. Click **Reports** and select **All Sets and Revisions** from the drop down menu. 
+   *Note:* You will see a list of all the drawings that have been uploaded, including obsolete drawings. 
      
    ![all sets.png](https://support.procore.com/@api/deki/files/45171/all_sets.png?revision=1)
 
@@ -30,8 +30,8 @@ To view a report of all drawing sets and revisions that have been uploaded to t
 
 #### Export Deleted Drawings Report as a CSV
 
-- Click **Export** and select CSV from the drop down menu to export the drawings report.  
-  *Note:* The CSV will export only those drawings that are currently in the list. This means that it considers search and filter parameters.
+- Click **Export** and select CSV from the drop down menu to export the drawings report. 
+ *Note:* The CSV will export only those drawings that are currently in the list. This means that it considers search and filter parameters.
 
 ## See Also
 

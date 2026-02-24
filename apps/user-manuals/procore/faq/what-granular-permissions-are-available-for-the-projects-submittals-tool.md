@@ -12,7 +12,7 @@ In Procore, the term granular permissions refers to task-based privileges that c
 
 | Granular Permission Name | Granular Permission Description |
 | --- | --- |
-| Apply Submittal Workflow Template | Grants a user with 'Standard' level permissions on the Submittals tool the privilege to apply a submittal workflow template to an individual submittal.  Users with 'Read Only' permissions on the Submittals tool must also be assigned the 'Create Submittal' granular permission to be able to assign a submittal workflow template to a submittal.  This granular permission does NOT apply to bulk application of submittal workflow templates. |
+| Apply Submittal Workflow Template | Grants a user with 'Standard' level permissions on the Submittals tool the privilege to apply a submittal workflow template to an individual submittal. Users with 'Read Only' permissions on the Submittals tool must also be assigned the 'Create Submittal' granular permission to be able to assign a submittal workflow template to a submittal. This granular permission does NOT apply to bulk application of submittal workflow templates. |
 | Create Submittal | Grants a user the privilege to create submittal items. |
 | Create Submittal Package | Grants a user the privilege to create submittal packages. |
 | View Private Submittals Associated to Users within Same Company | Grants a user the privilege to view a submittal marked 'Private' if another user in their company is the submittal's creator or is designated as the Submittal Manager, a Submitter, an Approver, or a Distribution List member. |

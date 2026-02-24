@@ -25,7 +25,7 @@ Project milestones represent different stages in a project’s lifecycle. You ca
 * Click on the `…` icon beside an existing milestone to edit or delete the milestone
 * Click on the date beside an existing milestone to edit the date
 
-## ,  
+## , 
 ,Basics
 
 ### Create milestones
@@ -52,18 +52,18 @@ You can also drag milestones on the timeline to your preferred date, select mult
 
 ### Add milestones to issues
 
-If an issue belongs to a project that contains milestones, you can add a milestone to the issue from the command menu by searching "Add to milestone". You can also use the keyboard shortcut `Shift` `M`, or you can drag the issue onto the milestone in the project details pane.  
-  
+If an issue belongs to a project that contains milestones, you can add a milestone to the issue from the command menu by searching "Add to milestone". You can also use the keyboard shortcut `Shift` `M`, or you can drag the issue onto the milestone in the project details pane. 
+ 
 When creating a new issue in a project with milestones, we will automatically suggest suitable milestones during the creation process. You can choose one of the suggestions or click on the diamond icon to choose another milestone.
 
 
 
 ### Filter and group by milestones
 
-Filter by milestone by pressing `F` from within a project, searching for the _Milestone_ filter type and choosing the desired milestones. Alternatively, open the project details pane and quickly filter for a single milestone by clicking on it.  
-  
-When viewing an issue that has a milestone attached, you can also click on the arrow beside the milestone in the issue details pane to open the project with that milestone applied as a quick filter.  
-  
+Filter by milestone by pressing `F` from within a project, searching for the _Milestone_ filter type and choosing the desired milestones. Alternatively, open the project details pane and quickly filter for a single milestone by clicking on it. 
+ 
+When viewing an issue that has a milestone attached, you can also click on the arrow beside the milestone in the issue details pane to open the project with that milestone applied as a quick filter. 
+ 
 Clicking into the [display options](https://linear.app/docs/display-options) for a project permits grouping by milestone.
 
 
@@ -82,28 +82,28 @@ You may find that a milestone grows large enough to handle as its own project. W
 
 ## Milestones and Initiatives
 
-When viewing projects within an [Initiative](https://linear.app/docs/initiatives), the current milestone is displayed on the timeline alongside its completion percentage. The same is true when viewing projects within a team. Hover or click a milestone to view more details.  
-  
-Double-clicking on a milestone from either view will open the project with that milestone applied as a quick filter. Clear this filter from the project details sidebar to view all issues within the project.  
+When viewing projects within an [Initiative](https://linear.app/docs/initiatives), the current milestone is displayed on the timeline alongside its completion percentage. The same is true when viewing projects within a team. Hover or click a milestone to view more details. 
+ 
+Double-clicking on a milestone from either view will open the project with that milestone applied as a quick filter. Clear this filter from the project details sidebar to view all issues within the project. 
 
 
-You can also filter by completed and upcoming milestones on the initiative view. Click  _Filter_ at the top of an initiative, choose between _Next milestone_ and _Completed milestones_, and then enter the text contained with the milestone names you are looking for.
+You can also filter by completed and upcoming milestones on the initiative view. Click _Filter_ at the top of an initiative, choose between _Next milestone_ and _Completed milestones_, and then enter the text contained with the milestone names you are looking for.
 
 
 
 ## Milestones progress
 
-When viewing milestones in the project details pane, we will show a completion percentage for each milestone. This is the percentage of issues in the milestone that have been moved to a completed status.  
-  
-The diamond icon for the milestone will change depending on the completion status and the milestone currently being worked towards will have a yellow icon to show focus. Take a look at the below video to see this in action.  
+When viewing milestones in the project details pane, we will show a completion percentage for each milestone. This is the percentage of issues in the milestone that have been moved to a completed status. 
+ 
+The diamond icon for the milestone will change depending on the completion status and the milestone currently being worked towards will have a yellow icon to show focus. Take a look at the below video to see this in action. 
 
 
 ![Video](https://webassets.linear.app/files/ornj730p/production/ee2dbcea9ef97dd58ac3967166b45f5e747ff4ee.mp4)
 
-  
+ 
 If you have access to our [Insights](https://linear.app/docs/insights) feature, you will be able to view milestones as a dimension and segment milestones by status type so you can see which milestones are currently in progress.
 
-## ,  
+## , 
 ,How Linear uses milestones
 
 Once we had completed a functional prototype, we used milestones to help us organize work inside our milestones project. We chose the following milestones:
@@ -114,8 +114,8 @@ Once we had completed a functional prototype, we used milestones to help us orga
 * Public launch
 * Post launch
 
-In our weekly project syncs, we were able to quickly see at a glance the current milestone's completion percentage. We could also easily filter for issues in the current milestone to check if there were any issues we needed to discuss or move to another milestone.  
-  
+In our weekly project syncs, we were able to quickly see at a glance the current milestone's completion percentage. We could also easily filter for issues in the current milestone to check if there were any issues we needed to discuss or move to another milestone. 
+ 
 Looking at how other teams have used milestones while in beta, we have seen similar patterns of dividing work into development and release phases. 
 
 

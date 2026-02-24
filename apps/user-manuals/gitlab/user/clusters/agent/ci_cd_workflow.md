@@ -20,8 +20,7 @@ title: Using GitLab CI/CD with a Kubernetes cluster
 
 You can use GitLab CI/CD to safely connect, deploy, and update your Kubernetes clusters.
 
-To do so, [install an agent in your cluster](install/_index.md). When done, you have a Kubernetes context and can
-run Kubernetes API commands in your GitLab CI/CD pipeline.
+To do so, [install an agent in your cluster](install/_index.md). When done, you have a Kubernetes context and can run Kubernetes API commands in your GitLab CI/CD pipeline.
 
 To ensure access to your cluster is safe:
 
@@ -40,27 +39,21 @@ To update a Kubernetes cluster with GitLab CI/CD:
 
 1. Ensure you have a working Kubernetes cluster and the manifests are in a GitLab project.
 1. In the same GitLab project, [register and install the GitLab agent for Kubernetes](install/_index.md).
-1. [Update your `.gitlab-ci.yml` file](#update-your-gitlab-ciyml-file-to-run-kubectl-commands) to
-   select the agent's Kubernetes context and run the Kubernetes API commands.
+1. [Update your `.gitlab-ci.yml` file](#update-your-gitlab-ciyml-file-to-run-kubectl-commands) to select the agent's Kubernetes context and run the Kubernetes API commands.
 1. Run your pipeline to deploy to or update the cluster.
 
 If you have multiple GitLab projects that contain Kubernetes manifests:
 
-1. [Install the GitLab agent for Kubernetes](install/_index.md) in its own project, or in one of the
-   GitLab projects where you keep Kubernetes manifests.
+1. [Install the GitLab agent for Kubernetes](install/_index.md) in its own project, or in one of the GitLab projects where you keep Kubernetes manifests.
 1. [Authorize agent access](#authorize-agent-access) in your GitLab projects.
 1. Optional. For added security, [use impersonation](#restrict-project-and-group-access-by-using-impersonation).
-1. [Update your `.gitlab-ci.yml` file](#update-your-gitlab-ciyml-file-to-run-kubectl-commands) to
-   select the agent's Kubernetes context and run the Kubernetes API commands.
+1. [Update your `.gitlab-ci.yml` file](#update-your-gitlab-ciyml-file-to-run-kubectl-commands) to select the agent's Kubernetes context and run the Kubernetes API commands.
 1. Run your pipeline to deploy to or update the cluster.
 
 ## Authorize agent access
 
-If you have multiple projects with Kubernetes manifests, you must authorize
-these projects to access the agent. You can authorize agent access for individual
-projects, groups, or subgroups so all projects have access.
-For added security, you can also
-[use impersonation](#restrict-project-and-group-access-by-using-impersonation).
+If you have multiple projects with Kubernetes manifests, you must authorize these projects to access the agent. You can authorize agent access for individual projects, groups, or subgroups so all projects have access.
+For added security, you can also [use impersonation](#restrict-project-and-group-access-by-using-impersonation).
 
 Authorization configuration can take one or two minutes to propagate.
 
@@ -86,8 +79,7 @@ To authorize the GitLab project where you keep Kubernetes manifests to access th
        - id: path/to/project
    ```
 
-   - Authorized projects must have the same top-level group or user namespace as the agent's configuration project, unless the
-     [instance level authorization](#authorize-all-projects-in-your-gitlab-instance-to-access-the-agent) application setting is enabled.
+   - Authorized projects must have the same top-level group or user namespace as the agent's configuration project, unless the [instance level authorization](#authorize-all-projects-in-your-gitlab-instance-to-access-the-agent) application setting is enabled.
    - You can install additional agents into the same cluster to accommodate additional hierarchies.
    - You can authorize up to 500 projects.
 
@@ -118,8 +110,7 @@ To authorize all of the GitLab projects in a group or subgroup to access the age
        - id: path/to/group/subgroup
    ```
 
-   - Authorized groups must have the same top-level group as the agent's configuration project, unless the
-     [instance level authorization](#authorize-all-projects-in-your-gitlab-instance-to-access-the-agent) application setting is enabled.
+   - Authorized groups must have the same top-level group as the agent's configuration project, unless the [instance level authorization](#authorize-all-projects-in-your-gitlab-instance-to-access-the-agent) application setting is enabled.
    - You can install additional agents into the same cluster to accommodate additional hierarchies.
    - All of the subgroups of an authorized group also have access to the same agent (without being specified individually).
    - You can authorize up to 500 groups.
@@ -183,8 +174,8 @@ To authorize the agent to access all of the GitLab projects:
 After making these changes to the agent configuration file:
 
 - All CI/CD jobs in all projects in your instance are authorized to access the agent.
-  You can use CI/CD job impersonation with RBAC to grant or restrict access as needed.
-  For more information, see [Restrict project and group access by using impersonation](#restrict-project-and-group-access-by-using-impersonation).
+ You can use CI/CD job impersonation with RBAC to grant or restrict access as needed.
+ For more information, see [Restrict project and group access by using impersonation](#restrict-project-and-group-access-by-using-impersonation).
 - All CI/CD jobs include a `kubeconfig` file with contexts for every shared agent connection.
 - The `kubeconfig` path is available in the `$KUBECONFIG` environment variable.
 - You can choose the context to run `kubectl` commands from your CI/CD scripts.
@@ -198,11 +189,11 @@ Use the format `<path/to/agent/project>:<agent-name>`. For example:
 
 ```yaml
 deploy:
-  image: debian:13-slim
-  variables:
+ image: debian:13-slim
+ variables:
     KUBECTL_VERSION: v1.34
     DEBIAN_FRONTEND: noninteractive
-  script:
+ script:
     # Follows https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management
     - apt-get update
     - apt-get install -y --no-install-recommends apt-transport-https ca-certificates curl gnupg
@@ -226,12 +217,11 @@ Set the value of `KUBE_CONTEXT` to the context of the agent you want Auto DevOps
 
 ```yaml
 deploy:
-  variables:
+ variables:
     KUBE_CONTEXT: path/to/agent/project:agent-name
 ```
 
-You can assign different agents to separate Auto DevOps jobs. For instance,
-Auto DevOps can use one agent for `staging` jobs, and another agent for `production` jobs.
+You can assign different agents to separate Auto DevOps jobs. For instance, Auto DevOps can use one agent for `staging` jobs, and another agent for `production` jobs.
 To use multiple agents, define an [environment-scoped CI/CD variable](../../../ci/environments/_index.md#limit-the-environment-scope-of-a-cicd-variable)
 for each agent. For example:
 
@@ -245,31 +235,28 @@ for each agent. For example:
 
 ### Environments with both certificate-based and agent-based connections
 
-When you deploy to an environment that has both a
-[certificate-based cluster](../../infrastructure/clusters/_index.md) (deprecated) and an agent connection:
+When you deploy to an environment that has both a [certificate-based cluster](../../infrastructure/clusters/_index.md) (deprecated) and an agent connection:
 
-- The certificate-based cluster's context is called `gitlab-deploy`. This context
-  is always selected by default.
+- The certificate-based cluster's context is called `gitlab-deploy`. This context is always selected by default.
 - Agent contexts are included in `$KUBECONFIG`.
-  You can select them by using `kubectl config use-context <path/to/agent/project>:<agent-name>`.
+ You can select them by using `kubectl config use-context <path/to/agent/project>:<agent-name>`.
 
-To use an agent connection when certificate-based connections are present, you can manually configure a new `kubectl`
-configuration context. For example:
+To use an agent connection when certificate-based connections are present, you can manually configure a new `kubectl` configuration context. For example:
 
 ```yaml
 deploy:
-  variables:
+ variables:
     KUBE_CONTEXT: my-context # The name to use for the new context
     AGENT_ID: 1234 # replace with your agent's numeric ID
     K8S_PROXY_URL: https://<KAS_DOMAIN>/k8s-proxy/ # For agent server (KAS) deployed in Kubernetes cluster (for gitlab.com use kas.gitlab.com); replace with your URL
     # K8S_PROXY_URL: https://<GITLAB_DOMAIN>/-/kubernetes-agent/k8s-proxy/ # For agent server (KAS) in Omnibus
     # Include any additional variables
-  before_script:
+ before_script:
     - kubectl config set-credentials agent:$AGENT_ID --token="ci:${AGENT_ID}:${CI_JOB_TOKEN}"
     - kubectl config set-cluster gitlab --server="${K8S_PROXY_URL}"
     - kubectl config set-context "$KUBE_CONTEXT" --cluster=gitlab --user="agent:${AGENT_ID}"
     - kubectl config use-context "$KUBE_CONTEXT"
-  # Include the remaining job configuration
+ # Include the remaining job configuration
 ```
 
 ### Environments with KAS that use self-signed certificates
@@ -298,8 +285,7 @@ To configure your client, do one of the following:
 
 {{< /history >}}
 
-By default, your CI/CD job inherits all the permissions from the service account used to install the
-agent in the cluster.
+By default, your CI/CD job inherits all the permissions from the service account used to install the agent in the cluster.
 To restrict access to your cluster, you can use [impersonation](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#user-impersonation).
 
 To specify impersonations, use the `access_as` attribute in your agent configuration file and use Kubernetes RBAC rules to manage impersonated account permissions.
@@ -320,16 +306,15 @@ The agent is impersonated by default. You don't need to do anything to impersona
 
 To impersonate the CI/CD job that accesses the cluster, under the `access_as` key, add the `ci_job: {}` key-value.
 
-When the agent makes the request to the actual Kubernetes API, it sets the
-impersonation credentials in the following way:
+When the agent makes the request to the actual Kubernetes API, it sets the impersonation credentials in the following way:
 
 - `UserName` is set to `gitlab:ci_job:<job id>`. Example: `gitlab:ci_job:1074499489`.
 - `Groups` is set to:
 
-  - `gitlab:ci_job` to identify all requests coming from CI jobs.
-  - The list of IDs of groups the project is in.
-  - The project ID.
-  - The slug and tier of the environment this job belongs to.
+ - `gitlab:ci_job` to identify all requests coming from CI jobs.
+ - The list of IDs of groups the project is in.
+ - The project ID.
+ - The slug and tier of the environment this job belongs to.
 
     Example: for a CI job in `group1/group1-1/project1` where:
 
@@ -338,7 +323,7 @@ impersonation credentials in the following way:
     - Project `group1/group1-1/project1` has ID 150.
     - Job running in the `prod` environment, which has the `production` environment tier.
 
-  Group list would be `[gitlab:ci_job, gitlab:group:23, gitlab:group_env_tier:23:production, gitlab:group:25, gitlab:group_env_tier:25:production, gitlab:project:150, gitlab:project_env:150:prod, gitlab:project_env_tier:150:production]`.
+ Group list would be `[gitlab:ci_job, gitlab:group:23, gitlab:group_env_tier:23:production, gitlab:group:25, gitlab:group_env_tier:25:production, gitlab:project:150, gitlab:project_env:150:prod, gitlab:project_env_tier:150:production]`.
 
 - `Extra` carries extra information about the request. The following properties are set on the impersonated identity:
 
@@ -350,14 +335,14 @@ impersonation credentials in the following way:
 | `agent.gitlab.com/ci_pipeline_id`    | Contains the CI pipeline ID.                                                 |
 | `agent.gitlab.com/ci_job_id`         | Contains the CI job ID.                                                      |
 | `agent.gitlab.com/username`          | Contains the username of the user the CI job is running as.                  |
-| `agent.gitlab.com/environment_slug`  | Contains the slug of the environment. Only set if running in an environment. |
-| `agent.gitlab.com/environment_tier`  | Contains the tier of the environment. Only set if running in an environment. |
+| `agent.gitlab.com/environment_slug` | Contains the slug of the environment. Only set if running in an environment. |
+| `agent.gitlab.com/environment_tier` | Contains the tier of the environment. Only set if running in an environment. |
 
 Example `config.yaml` to restrict access by the CI/CD job's identity:
 
 ```yaml
 ci_access:
-  projects:
+ projects:
     - id: path/to/project
       access_as:
         ci_job: {}
@@ -371,13 +356,13 @@ The following `RoleBinding` resource restricts all CI/CD jobs to view rights onl
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: ci-job-view
+ name: ci-job-view
 roleRef:
-  name: view
-  kind: ClusterRole
-  apiGroup: rbac.authorization.k8s.io
+ name: view
+ kind: ClusterRole
+ apiGroup: rbac.authorization.k8s.io
 subjects:
-  - name: gitlab:ci_job
+ - name: gitlab:ci_job
     kind: Group
 ```
 
@@ -415,8 +400,8 @@ By default, if your agent is [available to a project](#authorize-agent-access), 
 
 To restrict access to the agent to only jobs with specific environments, add `environments` to `ci_access.projects` or `ci_access.groups`. For example:
 
-  ```yaml
-  ci_access:
+ ```yaml
+ ci_access:
     projects:
       - id: path/to/project-1
       - id: path/to/project-2
@@ -427,13 +412,13 @@ To restrict access to the agent to only jobs with specific environments, add `en
       - id: path/to/group-1
         environments:
           - production
-  ```
+ ```
 
 In this example:
 
 - All CI/CD jobs under `project-1` can access the agent.
 - CI/CD jobs under `project-2` with `staging` or `review/*` environments can access the agent.
-  - `*` is a wildcard, so `review/*` matches all environments under `review`.
+ - `*` is a wildcard, so `review/*` matches all environments under `review`.
 - CI/CD jobs for projects under `group-1` with `production` environments can access the agent.
 
 ## Restrict access to the agent to protected branches
@@ -463,10 +448,10 @@ This feature is available for testing, but not ready for production use.
 To restrict access to the agent to only jobs run on [protected branches](../../project/repository/branches/protected.md):
 
 - Add `protected_branches_only: true` to `ci_access.projects` or `ci_access.groups`.
-  For example:
+ For example:
 
-  ```yaml
-  ci_access:
+ ```yaml
+ ci_access:
     projects:
       - id: path/to/project-1
         protected_branches_only: true
@@ -475,7 +460,7 @@ To restrict access to the agent to only jobs run on [protected branches](../../p
         protected_branches_only: true
         environments:
           - production
-  ```
+ ```
 
 By default, `protected_branches_only` is set to `false`, and the agent can be accessed from unprotected and protected branches.
 
@@ -487,12 +472,12 @@ For example, the following configuration grants access to unprotected branches i
 ```yaml
 # .gitlab/agents/my-agent/config.yaml
 ci_access:
-  project:
+ project:
     - id: example/my-project # Project of the group below
       protected_branches_only: false # This configuration supersedes the group configuration
       environments:
         - dev
-  groups:
+ groups:
     - id: example
       protected_branches_only: true
       environments:
@@ -510,10 +495,7 @@ For more details, see [Access to Kubernetes from CI/CD](https://gitlab.com/gitla
 
 ### Grant write permissions to `~/.kube/cache`
 
-Tools like `kubectl`, Helm, `kpt`, and `kustomize` cache information about
-the cluster in `~/.kube/cache`. If this directory is not writable, the tool fetches information on each invocation,
-making interactions slower and creating unnecessary load on the cluster. For the best experience, in the
-image you use in your `.gitlab-ci.yml` file, ensure this directory is writable.
+Tools like `kubectl`, Helm, `kpt`, and `kustomize` cache information about the cluster in `~/.kube/cache`. If this directory is not writable, the tool fetches information on each invocation, making interactions slower and creating unnecessary load on the cluster. For the best experience, in the image you use in your `.gitlab-ci.yml` file, ensure this directory is writable.
 
 ### Enable TLS
 

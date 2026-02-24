@@ -7,8 +7,7 @@ title: Test import project
 
 For testing, we can import our own [GitLab CE](https://gitlab.com/gitlab-org/gitlab-foss/) project (named `gitlabhq` in this case) under a group named `qa-perf-testing`. Project tarballs that can be used for testing can be found over on the [performance-data](https://gitlab.com/gitlab-org/quality/performance-data) project. A different project could be used if required.
 
-You can import the project into your GitLab environment in a number of ways. They are detailed as follows with the
-assumption that the recommended group `qa-perf-testing` and project `gitlabhq` are being set up.
+You can import the project into your GitLab environment in a number of ways. They are detailed as follows with the assumption that the recommended group `qa-perf-testing` and project `gitlabhq` are being set up.
 
 ## Importing the project
 
@@ -51,16 +50,14 @@ There is also an option to [import the project via GitHub](../user/project/impor
 
 This method takes longer to import than the other methods and depends on several factors. It's recommended to use the other methods.
 
-To test importing from GitHub Enterprise (GHE) to GitLab, you need a GHE instance. You can request a
-[GitHub Enterprise Server trial](https://docs.github.com/en/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-server) and install it on Google Cloud Platform.
+To test importing from GitHub Enterprise (GHE) to GitLab, you need a GHE instance. You can request a [GitHub Enterprise Server trial](https://docs.github.com/en/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-server) and install it on Google Cloud Platform.
 
 - GitLab team members can use [Sandbox Cloud Realm](https://handbook.gitlab.com/handbook/company/infrastructure-standards/realms/sandbox/) for this purpose.
 - Others can request a [Google Cloud Platforms free trial](https://cloud.google.com/free).
 
 ### Import by using a Rake task
 
-To import the test project by using a Rake task, see
-[Import large projects](../administration/raketasks/project_import_export.md#import-large-projects).
+To import the test project by using a Rake task, see [Import large projects](../administration/raketasks/project_import_export.md#import-large-projects).
 
 ### Import by using the Rails console
 
@@ -132,7 +129,7 @@ You can use this snippet: `https://gitlab.com/gitlab-org/gitlab/snippets/1924954
 You can execute the script from the `gdk/gitlab` directory like this:
 
 ```shell
-bundle exec rails r  /path_to_script/script.rb project_name /path_to_extracted_project request_store_enabled
+bundle exec rails r /path_to_script/script.rb project_name /path_to_extracted_project request_store_enabled
 ```
 
 ## Access token setup

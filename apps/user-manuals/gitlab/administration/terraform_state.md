@@ -13,8 +13,7 @@ description: Administer Terraform state storage.
 
 {{< /details >}}
 
-GitLab can be used as a backend for [Terraform](../user/infrastructure/_index.md) state
-files. The files are encrypted before being stored. This feature is enabled by default.
+GitLab can be used as a backend for [Terraform](../user/infrastructure/_index.md) state files. The files are encrypted before being stored. This feature is enabled by default.
 
 The storage location of these files defaults to:
 
@@ -27,17 +26,16 @@ Use [external object storage](https://docs.gitlab.com/charts/advanced/external-o
 
 ## Disabling Terraform state
 
-You can disable Terraform state across the entire instance. You might want to disable Terraform to reduce disk space,
-or because your instance doesn't use Terraform.
+You can disable Terraform state across the entire instance. You might want to disable Terraform to reduce disk space, or because your instance doesn't use Terraform.
 
 When Terraform state administration is disabled:
 
 - On the left sidebar, you cannot select **Operate** > **Terraform states**.
 - Any CI/CD jobs that access the Terraform state fail with this error:
 
-  ```shell
-  Error refreshing state: HTTP remote state endpoint invalid auth
-  ```
+ ```shell
+ Error refreshing state: HTTP remote state endpoint invalid auth
+ ```
 
 To disable Terraform administration, follow the steps below according to your installation.
 
@@ -68,13 +66,11 @@ For self-compiled installations:
 
 ## Using local storage
 
-The default configuration uses local storage. To change the location where
-Terraform state files are stored locally, follow the steps below.
+The default configuration uses local storage. To change the location where Terraform state files are stored locally, follow the steps below.
 
 For Linux package installations:
 
-1. To change the storage path for example to `/mnt/storage/terraform_state`, edit
-   `/etc/gitlab/gitlab.rb` and add the following line:
+1. To change the storage path for example to `/mnt/storage/terraform_state`, edit `/etc/gitlab/gitlab.rb` and add the following line:
 
    ```ruby
    gitlab_rails['terraform_state_storage_path'] = "/mnt/storage/terraform_state"
@@ -84,8 +80,7 @@ For Linux package installations:
 
 For self-compiled installations:
 
-1. To change the storage path for example to `/mnt/storage/terraform_state`, edit
-   `/home/git/gitlab/config/gitlab.yml` and add or amend the following lines:
+1. To change the storage path for example to `/mnt/storage/terraform_state`, edit `/home/git/gitlab/config/gitlab.yml` and add or amend the following lines:
 
    ```yaml
    terraform_state:
@@ -104,8 +99,7 @@ For self-compiled installations:
 
 {{< /details >}}
 
-Instead of storing Terraform state files on disk, we recommend the use of
-[one of the supported object storage options](object_storage.md#supported-object-storage-providers).
+Instead of storing Terraform state files on disk, we recommend the use of [one of the supported object storage options](object_storage.md#supported-object-storage-providers).
 This configuration relies on valid credentials to be configured already.
 
 [Read more about using object storage with GitLab](object_storage.md).
@@ -127,8 +121,7 @@ The following settings are:
 
 {{< alert type="warning" >}}
 
-It's not possible to migrate Terraform state files from object storage back to local storage,
-so proceed with caution. [An issue exists](https://gitlab.com/gitlab-org/gitlab/-/issues/350187)
+It's not possible to migrate Terraform state files from object storage back to local storage, so proceed with caution. [An issue exists](https://gitlab.com/gitlab-org/gitlab/-/issues/350187)
 to change this behavior.
 
 {{< /alert >}}
@@ -137,18 +130,17 @@ To migrate Terraform state files to object storage:
 
 - For Linux package installations:
 
-  ```shell
-  gitlab-rake gitlab:terraform_states:migrate
-  ```
+ ```shell
+ gitlab-rake gitlab:terraform_states:migrate
+ ```
 
 - For self-compiled installations:
 
-  ```shell
-  sudo -u git -H bundle exec rake gitlab:terraform_states:migrate RAILS_ENV=production
-  ```
+ ```shell
+ sudo -u git -H bundle exec rake gitlab:terraform_states:migrate RAILS_ENV=production
+ ```
 
-You can optionally track progress and verify that all Terraform state files migrated successfully using the
-[PostgreSQL console](https://docs.gitlab.com/omnibus/settings/database.html#connecting-to-the-bundled-postgresql-database):
+You can optionally track progress and verify that all Terraform state files migrated successfully using the [PostgreSQL console](https://docs.gitlab.com/omnibus/settings/database.html#connecting-to-the-bundled-postgresql-database):
 
 - `sudo gitlab-rails dbconsole --database main` for Linux package installations.
 - `sudo -u git -H psql -d gitlabhq_production` for self-compiled installations.
@@ -171,8 +163,7 @@ sudo find /var/opt/gitlab/gitlab-rails/shared/terraform_state -type f | grep -v 
 
 ### S3-compatible connection settings
 
-You should use the
-[consolidated object storage settings](object_storage.md#configure-a-single-storage-connection-for-all-object-types-consolidated-form).
+You should use the [consolidated object storage settings](object_storage.md#configure-a-single-storage-connection-for-all-object-types-consolidated-form).
 This section describes the earlier configuration format.
 
 See [the available connection settings for different providers](object_storage.md#configure-the-connection-settings).
@@ -181,8 +172,7 @@ See [the available connection settings for different providers](object_storage.m
 
 {{< tab title="Linux package (Omnibus)" >}}
 
-1. Edit `/etc/gitlab/gitlab.rb` and add the following lines; replacing with
-   the values you want:
+1. Edit `/etc/gitlab/gitlab.rb` and add the following lines; replacing with the values you want:
 
    ```ruby
    gitlab_rails['terraform_state_object_store_enabled'] = true
@@ -195,11 +185,11 @@ See [the available connection settings for different providers](object_storage.m
    }
    ```
 
-  {{< alert type="note" >}}
+ {{< alert type="note" >}}
 
-  If you are using AWS IAM profiles, be sure to omit the AWS access key and secret access key/value pairs.
+ If you are using AWS IAM profiles, be sure to omit the AWS access key and secret access key/value pairs.
 
-  {{< /alert >}}
+ {{< /alert >}}
 
    ```ruby
    gitlab_rails['terraform_state_object_store_connection'] = {
@@ -216,8 +206,7 @@ See [the available connection settings for different providers](object_storage.m
 
 {{< tab title="Self-compiled (source)" >}}
 
-1. Edit `/home/git/gitlab/config/gitlab.yml` and add or amend the following
-   lines:
+1. Edit `/home/git/gitlab/config/gitlab.yml` and add or amend the following lines:
 
    ```yaml
    terraform_state:
@@ -292,12 +281,12 @@ If the SHA-256 hash value of `12345` is `5994471abb01112afcc18159f6cc74b4f511b99
 ```plaintext
 terraform/                                                                 <- configured Terraform storage directory
 ├─ 59/                                                                     <- first and second character of project ID hash
-|  ├─ 94/                                                                  <- third and fourth character of project ID hash
-|  |  ├─ 5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5/ <- full project ID hash
-|  |  |  ├─ example-uuid/                                                  <- state UUID
-|  |  |  |  ├─ 1.tf                                                        <- individual state versions
-|  |  |  |  ├─ 2.tf
-|  |  |  |  ├─ 3.tf
+| ├─ 94/                                                                  <- third and fourth character of project ID hash
+| | ├─ 5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5/ <- full project ID hash
+| | | ├─ example-uuid/                                                  <- state UUID
+| | | | ├─ 1.tf                                                        <- individual state versions
+| | | | ├─ 2.tf
+| | | | ├─ 3.tf
 ```
 
 ### Decryption process

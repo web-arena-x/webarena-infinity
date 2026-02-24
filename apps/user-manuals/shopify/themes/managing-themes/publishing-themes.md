@@ -27,8 +27,7 @@ Desktop
 2. In the **Theme library** section, find the theme that you want to publish, and then click **Publish**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. In the **Theme library** section, find the theme that you want to publish, and then tap **Publish**.
@@ -49,8 +48,7 @@ Desktop
 4. In the **Publish...** window, click **Publish**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap
-   .
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap .
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Manage all themes**.
 4. In the **Theme library** section, find the theme that you want to publish, and then tap **Edit theme**.

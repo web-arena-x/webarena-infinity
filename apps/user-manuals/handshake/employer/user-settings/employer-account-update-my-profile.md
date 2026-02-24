@@ -26,14 +26,14 @@ On Handshake, you can update and manage your own profile at any time to ensure y
 2. Your profile contains the following sections:
 
 - **Profile info** (*includes photo if uploaded*)
-  - First name
-  - Last name
-  - Headline (e.g., "Talent Acquisition Specialist | Connecting Students with Opportunities")
+ - First name
+ - Last name
+ - Headline (e.g., "Talent Acquisition Specialist | Connecting Students with Opportunities")
     - **Note**: To update your job title in Handshake, refer to [Employer Account User Settings](https://support.joinhandshake.com/hc/en-us/articles/219133127).
-  - Pronouns
-  - Location
+ - Pronouns
+ - Location
 - **Summary**
-  - Space to share a little about yourself. 1-2 sentences should do it.
+ - Space to share a little about yourself. 1-2 sentences should do it.
 - **Skills**
 - **Work experience**
 - **Education**
@@ -69,8 +69,8 @@ The following fields are optional:
 - **Pronouns**
 - **Location**
 - **Links**
-  - The title and URL are required.
-  - The URL must begin with http:// or https://.
+ - The title and URL are required.
+ - The URL must begin with http:// or https://.
 
 ![Edit profile.png](https://support.joinhandshake.com/hc/article_attachments/32134323654295)
 

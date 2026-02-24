@@ -17,15 +17,15 @@ If an approver or submitter in a submittal's workflow needs to change a response
 ## Things to Consider
 
 - **Required User Permission**:
-  - 'Admin' level permissions on the project's Submittals tool.
+ - 'Admin' level permissions on the project's Submittals tool.
 - **Additional** **Information**:
-  - Submittals must be in 'Draft' or 'Open' status in order to change the Ball In Court (BIC).
+ - Submittals must be in 'Draft' or 'Open' status in order to change the Ball In Court (BIC).
 
 ## Steps
 
 1. Navigate to the project's **Submittals** tool.
 2. Click **View** next to the submittal you want to change the Ball In Court (BIC) for in the **Items** list.
-3. In the 'Submittal Workflow' table, click **Set Ball in Court**at the end of the numbered row above the user's name or group of users' names that you want to make the current BIC.  
+3. In the 'Submittal Workflow' table, click **Set Ball in Court**at the end of the numbered row above the user's name or group of users' names that you want to make the current BIC. 
    ![submittal-change-ball-in-court4.png](https://support.procore.com/@api/deki/files/439816/submittal-change-ball-in-court4.png?revision=1)
 
 This moves the BIC assignment to the selected user or group of users and updates their response to 'Pending'.

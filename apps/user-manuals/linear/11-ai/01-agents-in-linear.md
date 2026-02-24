@@ -32,7 +32,7 @@ Agents can be uninstalled or managed by admins from **Settings > Applications** 
 Agents are designed to work seamlessly alongside human teammates:
 
 * **Delegate issues to them** by assigning the issue to the agent. This triggers the agent to take action based on its programmed behavior.
-  * The human assignee remains responsible for the issue, even after delegation to an agent.
+ * The human assignee remains responsible for the issue, even after delegation to an agent.
 * **@mention them** in comments or descriptions to trigger their functions.
 
 If you're not sure how to interact or what they're able to help with, you can try @mentioning the agent to ask for help.

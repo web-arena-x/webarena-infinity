@@ -16,7 +16,7 @@ You can toggle on board layout with the keyboard shortcut `Cmd/Ctrl` `B`. Altern
 
 `Shift` `X` or or `Shift` `Click` to select multiple issues
 
-`Option/Alt` `Shift` `Up` or `Down`  to move a selected issue to the top or bottom of the column
+`Option/Alt` `Shift` `Up` or `Down` to move a selected issue to the top or bottom of the column
 
 `T` to toggle the collapse or expansion of a swimlane
 
@@ -62,9 +62,9 @@ Alternatively, click and pull an empty space in the board to scroll horizontally
 ### Swimlanes
 
 Board and list views have the option to display an extra dimension for visualising your projects or issues in lanes or rows on a board view, commonly known as swimlanes in project management.   
-  
-These sub-grouping options are especially useful for a high-level overview of the company's progress or resource allocation. You can sort by columns, group those columns and lay them out as rows for your chosen dimension such as teams, cycles, assignee, lead, initiative or project health to name a few.  
-  
+ 
+These sub-grouping options are especially useful for a high-level overview of the company's progress or resource allocation. You can sort by columns, group those columns and lay them out as rows for your chosen dimension such as teams, cycles, assignee, lead, initiative or project health to name a few. 
+ 
 These lanes can be collapsed or expanded for further visual clarity in board view.
 
 ![Linear interface showing a board view of projects](https://webassets.linear.app/images/ornj730p/production/238e212208818157d687416737b7e922aef7b14f-2560x1440.png?q=95&auto=format&dpr=2)

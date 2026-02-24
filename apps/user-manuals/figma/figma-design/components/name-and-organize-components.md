@@ -62,7 +62,7 @@ To illustrate the importance of component organization, the following example wi
 - In the file, we'll create a page called `Icons`, which houses all of our icon components.
 - We support two sizes for each icon, 16px and 32px. We'll create two sections for each size, and name them accordingly `16` and `32`, then place the icon components into their corresponding sections.
 - To make it easier to differentiate between the icon sizes, we'll make sure to include the icon's size in its name. For example, `icon-16-home` and `icon-32-home`.
-- In another file, we've created a dialog window that needs a close  icon. We've already created and published this close icon component in our Figma UI file, so we'll use an instance of that component in our other file.
+- In another file, we've created a dialog window that needs a close icon. We've already created and published this close icon component in our Figma UI file, so we'll use an instance of that component in our other file.
 
 Note: For this approach, you will need to [publish your library](../create-and-share-libraries/publish-a-library.md) and [add it to the other file](../manage-your-libraries/add-or-remove-a-library-from-a-design-file.md). The ability to publish libraries is only available on our [paid plans](https://help.figma.com/hc/en-us/articles/360040328273-Figma-plans-and-features).
 

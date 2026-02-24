@@ -5,42 +5,38 @@ title: Batched Background Migration Spec Helpers
 info: Any user with at least the Maintainer role can merge updates to this content. For details, see https://docs.gitlab.com/ee/development/development_processes.html#development-guidelines-review.
 ---
 
-The versioned spec helper library for batched background migrations
-reduces boilerplate code in migration specs.
+The versioned spec helper library for batched background migrations reduces boilerplate code in migration specs.
 
 ## Spec helper features
 
-Batched background migration specs often require defining multiple table helpers using
-the `table()` method from `MigrationsHelpers`. This results in repetitive code:
+Batched background migration specs often require defining multiple table helpers using the `table()` method from `MigrationsHelpers`. This results in repetitive code:
 
 ```ruby
 # Without helpers - repetitive
 RSpec.describe Gitlab::BackgroundMigration::BackfillProjectId do
-  let!(:projects) { table(:projects) }
-  let!(:issues) { table(:issues) }
-  let!(:notes) { table(:notes) }
-  let!(:users) { table(:users) }
-  # ... more table definitions
+ let!(:projects) { table(:projects) }
+ let!(:issues) { table(:issues) }
+ let!(:notes) { table(:notes) }
+ let!(:users) { table(:users) }
+ # ... more table definitions
 end
 ```
 
-The batched background migration spec helpers eliminate this repetition through
-lazy evaluation and memoization:
+The batched background migration spec helpers eliminate this repetition through lazy evaluation and memoization:
 
 ```ruby
 # With helpers - clean and concise
 RSpec.describe Gitlab::BackgroundMigration::BackfillProjectId do
-  include Gitlab::BackgroundMigration::SpecHelpers::V1
+ include Gitlab::BackgroundMigration::SpecHelpers::V1
 
-  # Declare the tables you need
-  tables :projects, :issues, :notes, :users
+ # Declare the tables you need
+ tables :projects, :issues, :notes, :users
 end
 ```
 
 ## Versioning
 
-The helpers are versioned to ensure backward compatibility. When modifications are needed,
-a new version can be created without breaking existing specs.
+The helpers are versioned to ensure backward compatibility. When modifications are needed, a new version can be created without breaking existing specs.
 
 ### Available Versions
 
@@ -52,7 +48,7 @@ Include the version module you want to use:
 
 ```ruby
 RSpec.describe Gitlab::BackgroundMigration::SomeMigration do
-  include Gitlab::BackgroundMigration::SpecHelpers::V1
+ include Gitlab::BackgroundMigration::SpecHelpers::V1
 end
 ```
 
@@ -64,17 +60,17 @@ Tables must be explicitly declared using the `tables` method before they can be 
 
 ```ruby
 RSpec.describe Gitlab::BackgroundMigration::BackfillNamespaceId do
-  include Gitlab::BackgroundMigration::SpecHelpers::V1
+ include Gitlab::BackgroundMigration::SpecHelpers::V1
 
-  # Declare all tables needed in your spec
-  tables :issues, :namespaces, :projects
+ # Declare all tables needed in your spec
+ tables :issues, :namespaces, :projects
 
-  it 'backfills namespace_id' do
+ it 'backfills namespace_id' do
     # Tables are created on first access after declaration
     namespace = namespaces.create!(name: 'test', path: 'test')
     project = projects.create!(namespace_id: namespace.id)
     issue = issues.create!(project_id: project.id)
-  end
+ end
 end
 ```
 
@@ -84,16 +80,16 @@ Table helpers are memoized, so repeated access returns the same instance:
 
 ```ruby
 RSpec.describe Gitlab::BackgroundMigration::SomeMigration do
-  include Gitlab::BackgroundMigration::SpecHelpers::V1
+ include Gitlab::BackgroundMigration::SpecHelpers::V1
 
-  tables :users
+ tables :users
 
-  it 'uses memoized tables' do
-    users_1 = users  # Creates the helper on first access
-    users_2 = users  # Returns the same instance
+ it 'uses memoized tables' do
+    users_1 = users # Creates the helper on first access
+    users_2 = users # Returns the same instance
 
     expect(users_1).to be(users_2)
-  end
+ end
 end
 ```
 
@@ -105,15 +101,15 @@ You can configure tables with custom options:
 
 ```ruby
 RSpec.describe Gitlab::BackgroundMigration::SomeMigration do
-  include Gitlab::BackgroundMigration::SpecHelpers::V1
+ include Gitlab::BackgroundMigration::SpecHelpers::V1
 
-  tables :custom_table
-  configure_table :custom_table, primary_key: :custom_id
+ tables :custom_table
+ configure_table :custom_table, primary_key: :custom_id
 
-  it 'uses custom primary key' do
+ it 'uses custom primary key' do
     record = custom_table.create!(custom_id: 1, name: 'test')
     expect(custom_table.primary_key).to eq('custom_id')
-  end
+ end
 end
 ```
 
@@ -121,10 +117,10 @@ end
 
 ```ruby
 RSpec.describe Gitlab::BackgroundMigration::SomeMigration do
-  include Gitlab::BackgroundMigration::SpecHelpers::V1
+ include Gitlab::BackgroundMigration::SpecHelpers::V1
 
-  tables :ci_builds
-  configure_table :ci_builds, database: :ci
+ tables :ci_builds
+ configure_table :ci_builds, database: :ci
 end
 ```
 
@@ -132,14 +128,14 @@ end
 
 ```ruby
 RSpec.describe Gitlab::BackgroundMigration::SomeMigration, migration: :gitlab_ci do
-  include Gitlab::BackgroundMigration::SpecHelpers::V1
+ include Gitlab::BackgroundMigration::SpecHelpers::V1
 
-  tables :p_ci_builds
-  configure_table :p_ci_builds, partitioned: true, database: :ci
+ tables :p_ci_builds
+ configure_table :p_ci_builds, partitioned: true, database: :ci
 
-  it 'works with partitioned tables' do
+ it 'works with partitioned tables' do
     build = p_ci_builds.create!(partition_id: 100, project_id: 1)
-  end
+ end
 end
 ```
 
@@ -153,20 +149,20 @@ To convert an existing spec to use the helpers:
 
 ```ruby
 RSpec.describe Gitlab::BackgroundMigration::BackfillProjectId,
-  feature_category: :code_review_workflow,
-  schema: 20240501044347 do
+ feature_category: :code_review_workflow,
+ schema: 20240501044347 do
 
-  let!(:projects) { table(:projects) }
-  let!(:merge_requests) { table(:merge_requests) }
-  let!(:approval_rules) { table(:approval_merge_request_rules) }
+ let!(:projects) { table(:projects) }
+ let!(:merge_requests) { table(:merge_requests) }
+ let!(:approval_rules) { table(:approval_merge_request_rules) }
 
-  it 'backfills project_id' do
+ it 'backfills project_id' do
     project = projects.create!(name: 'test')
     mr = merge_requests.create!(target_project_id: project.id)
     rule = approval_rules.create!(merge_request_id: mr.id)
 
     # test logic
-  end
+ end
 end
 ```
 
@@ -174,20 +170,20 @@ end
 
 ```ruby
 RSpec.describe Gitlab::BackgroundMigration::BackfillProjectId,
-  feature_category: :code_review_workflow,
-  schema: 20240501044347 do
+ feature_category: :code_review_workflow,
+ schema: 20240501044347 do
 
-  include Gitlab::BackgroundMigration::SpecHelpers::V1
+ include Gitlab::BackgroundMigration::SpecHelpers::V1
 
-  tables :approval_merge_request_rules, :merge_requests, :projects
+ tables :approval_merge_request_rules, :merge_requests, :projects
 
-  it 'backfills project_id' do
+ it 'backfills project_id' do
     project = projects.create!(name: 'test')
     mr = merge_requests.create!(target_project_id: project.id)
     rule = approval_merge_request_rules.create!(merge_request_id: mr.id)
 
     # test logic
-  end
+ end
 end
 ```
 

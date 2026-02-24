@@ -21,8 +21,7 @@ description: Mentions, locked discussions, internal notes, and thread resolution
 
 {{< /history >}}
 
-GitLab encourages communication through comments, threads, and
-[suggesting changes for code](../project/merge_requests/reviews/suggestions.md).
+GitLab encourages communication through comments, threads, and [suggesting changes for code](../project/merge_requests/reviews/suggestions.md).
 Comments support [Markdown](../markdown.md) and [quick actions](../project/quick_actions.md).
 
 Two types of comments are available:
@@ -30,8 +29,7 @@ Two types of comments are available:
 - A standard comment.
 - A comment in a thread, which you can [resolve](../project/merge_requests/_index.md#manage-comment-threads).
 
-You can [suggest code changes](../project/merge_requests/reviews/suggestions.md) in your commit diff comment,
-which the user can accept through the user interface.
+You can [suggest code changes](../project/merge_requests/reviews/suggestions.md) in your commit diff comment, which the user can accept through the user interface.
 
 ## Places you can add comments
 
@@ -52,12 +50,10 @@ Each object can have as many as 5,000 comments.
 
 ## Mentions
 
-You can mention a user or a group (including [subgroups](../group/subgroups/_index.md#mention-subgroups)) in your GitLab
-instance with `@username` or `@groupname`. GitLab notifies all mentioned users with to-do items and emails.
+You can mention a user or a group (including [subgroups](../group/subgroups/_index.md#mention-subgroups)) in your GitLab instance with `@username` or `@groupname`. GitLab notifies all mentioned users with to-do items and emails.
 Users can change this setting for themselves in the [notification settings](../profile/notifications.md).
 
-You can quickly see which comments involve you, because GitLab highlights
-mentions for yourself (the current, authenticated user) in a different color.
+You can quickly see which comments involve you, because GitLab highlights mentions for yourself (the current, authenticated user) in a different color.
 
 When you mention someone, in a work item or merge request, they become a [participant](../participants.md).
 
@@ -76,23 +72,16 @@ For more information, see the history.
 
 {{< /alert >}}
 
-Avoid mentioning `@all` in comments and descriptions. `@all` mentions more than
-just the participants of the project, issue, or merge request, but all members
-of that project's parent group. All these users receive an email notification
-and a to-do item, and might interpret it as spam.
+Avoid mentioning `@all` in comments and descriptions. `@all` mentions more than just the participants of the project, issue, or merge request, but all members of that project's parent group. All these users receive an email notification and a to-do item, and might interpret it as spam.
 
-When you enable this feature flag, typing `@all` in comments and descriptions
-results in plain text instead of mentioning all users.
-When you disable this feature, existing `@all` mentions in the Markdown texts are unchanged,
-and remain as links. Only future `@all` mentions appear as plain text.
+When you enable this feature flag, typing `@all` in comments and descriptions results in plain text instead of mentioning all users.
+When you disable this feature, existing `@all` mentions in the Markdown texts are unchanged, and remain as links. Only future `@all` mentions appear as plain text.
 
-Notifications and mentions can be disabled in
-[a group's settings](../group/manage.md#disable-email-notifications).
+Notifications and mentions can be disabled in [a group's settings](../group/manage.md#disable-email-notifications).
 
 ### Mention a group in an issue or merge request
 
-When you mention a group in a comment, every member of the group gets a to-do item
-added to their to-do list.
+When you mention a group in a comment, every member of the group gets a to-do item added to their to-do list.
 
 1. On the top bar, select **Search or go to** and find your project.
 1. For merge requests, select **Code** > **Merge requests**, and find your merge request.
@@ -118,11 +107,9 @@ To add a commit diff comment:
 1. Select **Code** > **Merge requests**, and find your merge request.
 1. Select the **Commits** tab, then select the commit message.
 1. Start a comment:
-   - To comment on an entire file, find the file you want to comment on and,
-     in the file header, select **Comment on this file** ({{< icon name="comment" >}}).
+   - To comment on an entire file, find the file you want to comment on and, in the file header, select **Comment on this file** ({{< icon name="comment" >}}).
    - To comment on specific lines, find the line number you want to comment on. Hover over the line number,
-   then select **Comment** ({{< icon name="comment" >}}). To select more lines, drag the
-   **Comment** ({{< icon name="comment" >}}) icon.
+   then select **Comment** ({{< icon name="comment" >}}). To select more lines, drag the **Comment** ({{< icon name="comment" >}}) icon.
 1. Enter your comment.
 1. Submit your comment:
    - To add your comment immediately, select **Add comment now**, or use the keyboard shortcut:
@@ -138,29 +125,24 @@ The comment is not displayed on your project's **Code** > **Commits** page.
 
 {{< alert type="note" >}}
 
-When your comment contains a reference to a commit included in the merge request,
-it's converted to a link in the context of the merge request.
-For example, `28719b171a056960dfdc0012b625d0b47b123196` becomes `28719b17` that links to
-`https://gitlab.example.com/example-group/example-project/-/merge_requests/12345/diffs?commit_id=28719b171a056960dfdc0012b625d0b47b123196`.
+When your comment contains a reference to a commit included in the merge request, it's converted to a link in the context of the merge request.
+For example, `28719b171a056960dfdc0012b625d0b47b123196` becomes `28719b17` that links to `https://gitlab.example.com/example-group/example-project/-/merge_requests/12345/diffs?commit_id=28719b171a056960dfdc0012b625d0b47b123196`.
 
 {{< /alert >}}
 
 ## Reply to a comment by sending email
 
-If you have ["reply by email"](../../administration/reply_by_email.md) configured,
-you can reply to comments by sending an email.
+If you have ["reply by email"](../../administration/reply_by_email.md) configured, you can reply to comments by sending an email.
 
 - When you reply to a standard comment, it creates another standard comment.
 - When you reply to a threaded comment, it creates a reply in the thread.
-- When you [send an email to an issue email address](../project/issues/managing_issues.md#copy-issue-email-address),
-  it creates a standard comment.
+- When you [send an email to an issue email address](../project/issues/managing_issues.md#copy-issue-email-address), it creates a standard comment.
 
 You can use [Markdown](../markdown.md) and [quick actions](../project/quick_actions.md) in your email replies.
 
 ### Comment reply expiration
 
-Email replies that create standard or threaded comments are subject to a two year
-[retention policy](../../administration/reply_by_email.md#retention-policy-for-notifications).
+Email replies that create standard or threaded comments are subject to a two year [retention policy](../../administration/reply_by_email.md#retention-policy-for-notifications).
 
 ## Edit a comment
 
@@ -198,13 +180,11 @@ To lock an issue or merge request:
 1. On the top bar, select **Search or go to** and find your project.
 1. For merge requests, select **Code** > **Merge requests**, and find your merge request.
 1. For issues, select **Plan** > **Issues**, and find your issue.
-1. In the upper-right corner, select **Merge request actions** or **Issue actions**
-   ({{< icon name="ellipsis_v" >}}), then select **Lock discussion**.
+1. In the upper-right corner, select **Merge request actions** or **Issue actions** ({{< icon name="ellipsis_v" >}}), then select **Lock discussion**.
 
 GitLab adds a system note to the page details.
 
-You must unlock all locked discussions in closed issues or merge requests before you can
-reopen the issue or merge request.
+You must unlock all locked discussions in closed issues or merge requests before you can reopen the issue or merge request.
 
 ## Comments on confidential items
 
@@ -232,8 +212,7 @@ Internal notes differ from public comments:
 - Only project members with least the Reporter role can view the internal note.
 - You can't convert internal notes to regular comments.
 - All replies to internal notes are also internal.
-- Internal notes display an **Internal note** badge and are shown in a different
-  color than public comments:
+- Internal notes display an **Internal note** badge and are shown in a different color than public comments:
 
 ![Internal notes](img/add_internal_note_v16_9.png)
 
@@ -247,14 +226,11 @@ To add an internal note:
 1. Below the comment, select **Make this an internal note**.
 1. Select **Add internal note**.
 
-You can also mark an entire [issue as confidential](../project/issues/confidential_issues.md),
-or create [confidential merge requests](../project/merge_requests/confidential.md).
+You can also mark an entire [issue as confidential](../project/issues/confidential_issues.md), or create [confidential merge requests](../project/merge_requests/confidential.md).
 
 ## Show only comments
 
-In discussions with many comments, filter the discussion to show only comments or history of
-changes ([system notes](../project/system_notes.md)). System notes include changes to the description, mentions in other GitLab
-objects, or changes to labels, assignees, and the milestone.
+In discussions with many comments, filter the discussion to show only comments or history of changes ([system notes](../project/system_notes.md)). System notes include changes to the description, mentions in other GitLab objects, or changes to labels, assignees, and the milestone.
 GitLab saves your preference, and applies it to every issue, merge request, or epic you view.
 
 1. On a merge request, issue, or epic, select the **Overview** tab.
@@ -265,9 +241,7 @@ GitLab saves your preference, and applies it to every issue, merge request, or e
 
 ## Change activity sort order
 
-Reverse the default order and interact with the activity feed sorted by most recent items
-at the top. GitLab saves your preference in local storage and applies it to every issue,
-merge request, or epic you view. Issues and epics share the same sorting preference, while merge requests maintain their own separate preference.
+Reverse the default order and interact with the activity feed sorted by most recent items at the top. GitLab saves your preference in local storage and applies it to every issue, merge request, or epic you view. Issues and epics share the same sorting preference, while merge requests maintain their own separate preference.
 
 To change the activity sort order:
 
@@ -366,8 +340,7 @@ To resolve a thread:
 
 The same actions can be performed to reopen a thread.
 
-Merge requests provide more flexible [thread management options](../project/merge_requests/_index.md#manage-comment-threads),
-such as:
+Merge requests provide more flexible [thread management options](../project/merge_requests/_index.md#manage-comment-threads), such as:
 
 - Move open threads to a new issue.
 - Prevent merging until all threads are resolved.
@@ -417,5 +390,4 @@ To generate a summary of issue discussions:
 The comments in the issue are summarized in as many as 10 list items.
 You can ask follow up questions based on the response.
 
-Data usage: When you use this feature, the text of all comments on the issue are sent to
-the large language model.
+Data usage: When you use this feature, the text of all comments on the issue are sent to the large language model.

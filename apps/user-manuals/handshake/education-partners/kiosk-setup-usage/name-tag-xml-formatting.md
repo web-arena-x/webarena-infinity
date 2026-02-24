@@ -17,16 +17,16 @@ Topics:
 - [Supported fields for name tags](#h_01FPX8PC9N838VV4YMD8G61NRV)
 - [Format name tag XML](#h_01F6FZ2WNJKCW70T6V2EZHV7VP)
 - [Add XML to an event or fair](#h_01FPX6367P34ZGENXRTN3VQTPC)
-- Example XMLs   
-  - [Label size 1 1/8 x 3 1/2](#label-two)
-  - [Label size 2 1/4 x 4](#h_01FPX2V1X847T9XGHWH8EXPPB7)
+- Example XMLs  
+ - [Label size 1 1/8 x 3 1/2](#label-two)
+ - [Label size 2 1/4 x 4](#h_01FPX2V1X847T9XGHWH8EXPPB7)
 
 ### Supported fields for name tags
 
 Handshake supports the following fields from the student profile for name tags:
 
 - **FirstName**
-  - The FirstName field will pull the student’s preferred name if they have one associated with their account.
+ - The FirstName field will pull the student’s preferred name if they have one associated with their account.
 - **LastName**
 - **Name**
 - **Major**
@@ -39,7 +39,7 @@ When printing name tags, if any of this information is missing or inaccurate, we
 
 ### Format name tag XML
 
-To customize your XML, open the Dymo software on your computer and follow the steps below.   
+To customize your XML, open the Dymo software on your computer and follow the steps below.  
 **Note:** At this time, only the Dymo Label Writer has the options listed below for customization. If you have Dymo Connect instead, we recommend using one of the below examples and editing the Font Family and Alignment sections directly to adjust the label formatting.
 
 1. You will need to format your label based on the size of your label and the fields you would like to include. To do this, create a text box on your label as shown in the example below:

@@ -27,7 +27,7 @@ To access Smart Tools feedback, follow the steps below:
 
 The feedback data is stored in Amazon S3 using the following structure:
 
-- <trace\_id>.trace.d  
+- <trace\_id>.trace.d 
   - <start\_ts>\_<span\_id>\_<end\_ts>.span  - …
 
 Each file is a JSON file. Typically, the feedback span will be the last span in a trace when sorted by name.

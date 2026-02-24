@@ -17,11 +17,9 @@ GitLab supports authentication using smart cards.
 
 ## Existing password authentication
 
-By default, existing users can continue to sign in with a username and password when smart card
-authentication is enabled.
+By default, existing users can continue to sign in with a username and password when smart card authentication is enabled.
 
-To force existing users to use only smart card authentication,
-[disable username and password authentication](../settings/sign_in_restrictions.md#password-authentication-enabled).
+To force existing users to use only smart card authentication, [disable username and password authentication](../settings/sign_in_restrictions.md#password-authentication-enabled).
 
 ## Authentication methods
 
@@ -40,9 +38,7 @@ GitLab supports two authentication methods:
 
 Smart cards with X.509 certificates can be used to authenticate with GitLab.
 
-To use a smart card with an X.509 certificate to authenticate against a local
-database with GitLab, `CN` and `emailAddress` must be defined in the
-certificate. For example:
+To use a smart card with an X.509 certificate to authenticate against a local database with GitLab, `CN` and `emailAddress` must be defined in the certificate. For example:
 
 ```plaintext
 Certificate:
@@ -65,17 +61,13 @@ Certificate:
 
 {{< /details >}}
 
-Smart cards with X.509 certificates using SAN extensions can be used to authenticate
-with GitLab.
+Smart cards with X.509 certificates using SAN extensions can be used to authenticate with GitLab.
 
-To use a smart card with an X.509 certificate to authenticate against a local
-database with GitLab:
+To use a smart card with an X.509 certificate to authenticate against a local database with GitLab:
 
-- At least one of the `subjectAltName` (SAN) extensions
-  must define the user identity (`email`) within the GitLab instance (`URI`).
+- At least one of the `subjectAltName` (SAN) extensions must define the user identity (`email`) within the GitLab instance (`URI`).
 - The `URI` must match `Gitlab.config.host.gitlab`.
-- If your certificate contains only **one** SAN email entry, you don't need to
-  add or modify it to match the `email` with the `URI`.
+- If your certificate contains only **one** SAN email entry, you don't need to add or modify it to match the `email` with the `URI`.
 
 For example:
 
@@ -107,10 +99,7 @@ Certificate:
 
 {{< /details >}}
 
-GitLab implements a standard way of certificate matching following
-[RFC4523](https://www.rfc-editor.org/rfc/rfc4523). It uses the
-`certificateExactMatch` certificate matching rule against the `userCertificate`
-attribute. As a prerequisite, you must use an LDAP server that:
+GitLab implements a standard way of certificate matching following [RFC4523](https://www.rfc-editor.org/rfc/rfc4523). It uses the `certificateExactMatch` certificate matching rule against the `userCertificate` attribute. As a prerequisite, you must use an LDAP server that:
 
 - Supports the `certificateExactMatch` matching rule.
 - Has the certificate stored in the `userCertificate` attribute.
@@ -137,8 +126,7 @@ Active Directory does not support the `certificateExactMatch` rule or the `userC
 Use the following attributes to customize the field GitLab checks and the format for certificate data:
 
 - `smartcard_ad_cert_field` - specify the name of the field to search. This can be any attribute on a user object.
-- `smartcard_ad_cert_format` - specify the format of the information gathered from the certificate. This format must be one of the following values. The most common is
-  `issuer_and_serial_number` to match the behavior of non-Active Directory LDAP servers.
+- `smartcard_ad_cert_format` - specify the format of the information gathered from the certificate. This format must be one of the following values. The most common is `issuer_and_serial_number` to match the behavior of non-Active Directory LDAP servers.
 
 | `smartcard_ad_cert_format` | Example data                                                 |
 | -------------------------- | ------------------------------------------------------------ |
@@ -153,8 +141,7 @@ Use the following attributes to customize the field GitLab checks and the format
 
 For `issuer_and_serial_number`, the `<SR>` portion is in reverse-byte-order, with the least-significant byte first. For more information, see [how to map a user to a certificate using the altSecurityIdentities attribute](https://learn.microsoft.com/en-us/archive/blogs/spatdsg/howto-map-a-user-to-a-certificate-via-all-the-methods-available-in-the-altsecurityidentities-attribute).
 
-The reverse issuer formats sort the issuer string from the smallest unit to the largest. Some
-Active Directory servers store certificates in this format.
+The reverse issuer formats sort the issuer string from the smallest unit to the largest. Some Active Directory servers store certificates in this format.
 
 > [!note]
 > If no `smartcard_ad_cert_format` is specified, but an LDAP server is configured with `active_directory: true` and smart cards enabled, GitLab defaults to the behavior of 16.8 and earlier, and uses `certificateExactMatch` on the `userCertificate` attribute.
@@ -199,8 +186,7 @@ For Linux package installations:
    {{< alert type="note" >}}
 
    Assign a value to at least one of the following variables:
-   `gitlab_rails['smartcard_client_certificate_required_host']` or
-   `gitlab_rails['smartcard_client_certificate_required_port']`.
+   `gitlab_rails['smartcard_client_certificate_required_host']` or `gitlab_rails['smartcard_client_certificate_required_port']`.
 
    {{< /alert >}}
 
@@ -211,11 +197,9 @@ For self-compiled installations:
 
 1. Configure NGINX to request a client side certificate
 
-   In NGINX configuration, an **additional** server context must be defined with
-   the same configuration except:
+   In NGINX configuration, an **additional** server context must be defined with the same configuration except:
 
-   - The additional NGINX server context must be configured to run on a different
-     port:
+   - The additional NGINX server context must be configured to run on a different port:
 
      ```plaintext
      listen *:3444 ssl;
@@ -227,8 +211,7 @@ For self-compiled installations:
      listen smartcard.example.com:443 ssl;
      ```
 
-   - The additional NGINX server context must be configured to require the client
-     side certificate:
+   - The additional NGINX server context must be configured to require the client side certificate:
 
      ```plaintext
      ssl_verify_depth 2;
@@ -236,15 +219,13 @@ For self-compiled installations:
      ssl_verify_client on;
      ```
 
-   - The additional NGINX server context must be configured to forward the client
-     side certificate:
+   - The additional NGINX server context must be configured to forward the client side certificate:
 
      ```plaintext
      proxy_set_header    X-SSL-Client-Certificate    $ssl_client_escaped_cert;
      ```
 
-   For example, the following is an example server context in an NGINX
-   configuration file (such as in `/etc/nginx/sites-available/gitlab-ssl`):
+   For example, the following is an example server context in an NGINX configuration file (such as in `/etc/nginx/sites-available/gitlab-ssl`):
 
    ```plaintext
    server {

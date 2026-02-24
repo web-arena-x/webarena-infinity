@@ -21,14 +21,14 @@ Topics:
 In order to print name tags successfully, you must have done the following:
 
 - become familiar with the kiosk hardware requirements and process
-  - [Check In Kiosk Hardware Recommendations](https://support.joinhandshake.com/hc/en-us/articles/115015790188-Check-In-Kiosk-Hardware-Recommendations)
-  - [Launch a Check-in Kiosk](https://support.joinhandshake.com/hc/en-us/articles/219132907)
+ - [Check In Kiosk Hardware Recommendations](https://support.joinhandshake.com/hc/en-us/articles/115015790188-Check-In-Kiosk-Hardware-Recommendations)
+ - [Launch a Check-in Kiosk](https://support.joinhandshake.com/hc/en-us/articles/219132907)
 - acquired and set up a name tag printer on the computer you'll be using the day of the event or fair
-  - [Name Tag Printing System Requirements](name-tag-printing-system-requirements.md)
+ - [Name Tag Printing System Requirements](name-tag-printing-system-requirements.md)
 - enabled name tag printing on the event or fair and added configured XML
-  - [Name Tag XML Formatting](name-tag-xml-formatting.md)
+ - [Name Tag XML Formatting](name-tag-xml-formatting.md)
 - if you plan to use card swipe check-in, make sure card swipe is enabled
-  - [How to Enable Card Swipe Check-in for Students](how-to-enable-card-swipe-check-in-for-students.md)
+ - [How to Enable Card Swipe Check-in for Students](how-to-enable-card-swipe-check-in-for-students.md)
 
 ## Printing name tags for an event or fair
 
@@ -43,7 +43,7 @@ In order to print name tags successfully, you must have done the following:
 If your institution is participating in a multi-school fair through Handshake, Career Services users at both the host and the invited school(s) can check-in and successfully print name tags for all student attendees. 
 
 - The host school must share the Check-in Kiosk URL with the invited school for them to access it, as invited schools *cannot* directly access the check-in kiosk link from the career fair details page.
-  - The invited schools are able to use the shared link, regardless of their user account permissions, because the kiosk URL is generated based on the host school's settings.
+ - The invited schools are able to use the shared link, regardless of their user account permissions, because the kiosk URL is generated based on the host school's settings.
 - **Only the Host school can use card readers.** All students from Invited schools must enter their email address.
 
 The Check-in Kiosk URL can be found within the overview page of the fair in Handshake:

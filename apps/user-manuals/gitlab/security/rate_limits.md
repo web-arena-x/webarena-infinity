@@ -14,16 +14,13 @@ title: Rate limits
 
 {{< alert type="note" >}}
 
-For GitLab.com, see
-[GitLab.com-specific rate limits](../user/gitlab_com/_index.md#rate-limits-on-gitlabcom).
+For GitLab.com, see [GitLab.com-specific rate limits](../user/gitlab_com/_index.md#rate-limits-on-gitlabcom).
 
-For GitLab Dedicated, see
-[Authenticated user rate limits](../administration/dedicated/user_rate_limits.md).
+For GitLab Dedicated, see [Authenticated user rate limits](../administration/dedicated/user_rate_limits.md).
 
 {{< /alert >}}
 
-Rate limiting is a common technique used to improve the security and durability
-of a web application.
+Rate limiting is a common technique used to improve the security and durability of a web application.
 
 For example, a simple script can make thousands of web requests per second. The requests could be:
 
@@ -31,12 +28,10 @@ For example, a simple script can make thousands of web requests per second. The 
 - Apathetic.
 - Just a bug.
 
-Your application and infrastructure may not be able to cope with the load. For more details, see
-[Denial-of-service attack](https://en.wikipedia.org/wiki/Denial-of-service_attack).
+Your application and infrastructure may not be able to cope with the load. For more details, see [Denial-of-service attack](https://en.wikipedia.org/wiki/Denial-of-service_attack).
 Most cases can be mitigated by limiting the rate of requests from a single IP address.
 
-Most [brute-force attacks](https://en.wikipedia.org/wiki/Brute-force_attack) are
-similarly mitigated by a rate limit.
+Most [brute-force attacks](https://en.wikipedia.org/wiki/Brute-force_attack) are similarly mitigated by a rate limit.
 
 > [!note]
 > The rate limits for API requests do not affect requests made by the frontend, because these requests are always counted as web traffic.
@@ -74,17 +69,14 @@ You can set these rate limits using the Rails console:
 
 ## Failed authentication ban for Git and container registry
 
-GitLab returns HTTP status code `403` for 1 hour, if 30 failed authentication requests were received
-in a 3-minute period from a single IP address. This applies only to combined:
+GitLab returns HTTP status code `403` for 1 hour, if 30 failed authentication requests were received in a 3-minute period from a single IP address. This applies only to combined:
 
 - Git requests.
 - Container registry (`/jwt/auth`) requests.
 
 This limit:
 
-- Is reset by requests that authenticate successfully. For example, 29 failed authentication
-  requests followed by 1 successful request, followed by 29 more failed authentication requests
-  would not trigger a ban.
+- Is reset by requests that authenticate successfully. For example, 29 failed authentication requests followed by 1 successful request, followed by 29 more failed authentication requests would not trigger a ban.
 - Does not apply to JWT requests authenticated by `gitlab-ci-token`.
 - Is disabled by default.
 
@@ -96,16 +88,13 @@ To avoid being rate limited, you can:
 - Configure [exponential back off and retry](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/retry-backoff.html) for failed authentication attempts.
 - Use a documented process and [best practice](https://about.gitlab.com/blog/2023/10/25/access-token-lifetime-limits/#how-to-minimize-the-impact) to manage token expiry.
 
-For configuration information, see
-[Linux package configuration options](https://docs.gitlab.com/omnibus/settings/configuration.html#configure-a-failed-authentication-ban).
+For configuration information, see [Linux package configuration options](https://docs.gitlab.com/omnibus/settings/configuration.html#configure-a-failed-authentication-ban).
 
 ## Non-configurable limits
 
 ### Repository archives
 
-A rate limit for [downloading repository archives](../api/repositories.md#get-file-archive) is
-available. The limit applies to the project and to the user initiating the download either through
-the UI or the API.
+A rate limit for [downloading repository archives](../api/repositories.md#get-file-archive) is available. The limit applies to the project and to the user initiating the download either through the UI or the API.
 
 The rate limit is 5 requests per minute per user.
 
@@ -117,15 +106,13 @@ The rate limit is 5 requests per minute per user.
 
 ### Users sign up
 
-There is a rate limit per IP address on the `/users/sign_up` endpoint. This is to mitigate attempts to misuse the endpoint. For example, to mass
-discover usernames or email addresses in use.
+There is a rate limit per IP address on the `/users/sign_up` endpoint. This is to mitigate attempts to misuse the endpoint. For example, to mass discover usernames or email addresses in use.
 
 The rate limit is 20 calls per minute per IP address.
 
 ### Update username
 
-There is a rate limit on how frequently a username can be changed. This is enforced to mitigate misuse of the feature. For example, to mass discover
-which usernames are in use.
+There is a rate limit on how frequently a username can be changed. This is enforced to mitigate misuse of the feature. For example, to mass discover which usernames are in use.
 
 The rate limit is 10 calls per minute per authenticated user.
 
@@ -181,8 +168,7 @@ The rate limit is 60 deletions per minute.
 
 {{< /history >}}
 
-Sets a rate limit for listing all project members in a group or project. Defaults
-to 200 requests per minute on the following endpoints:
+Sets a rate limit for listing all project members in a group or project. Defaults to 200 requests per minute on the following endpoints:
 
 ```plaintext
 GET /groups/:id/members/all
@@ -206,8 +192,7 @@ For files larger than 10 MB, the rate limit is 5 calls per minute per object per
 - [Repository blob endpoint](../api/repositories.md#get-a-blob-from-repository): `/projects/:id/repository/blobs/:sha`
 - [Repository file endpoint](../api/repository_files.md#get-file-from-repository): `/projects/:id/repository/files/:file_path`
 
-These limits help prevent excessive resource usage when accessing large repository files through
-the API.
+These limits help prevent excessive resource usage when accessing large repository files through the API.
 
 ### Notification emails
 
@@ -242,8 +227,7 @@ The rate limit is 1 triggered import per minute per user.
 
 ### Commit diff files
 
-This is a rate limit for expanded commit diff files (`/[group]/[project]/-/commit/[:sha]/diff_files?expanded=1`),
-which is enforced to prevent from abusing this endpoint.
+This is a rate limit for expanded commit diff files (`/[group]/[project]/-/commit/[:sha]/diff_files?expanded=1`), which is enforced to prevent from abusing this endpoint.
 
 The rate limit is 6 requests per minute per user (authenticated) or per IP address (unauthenticated).
 
@@ -258,8 +242,7 @@ The rate limit is 5 calls per minute per user per project.
 
 ### Rack Attack is denylisting the load balancer
 
-Rack Attack may block your load balancer if all traffic appears to come from
-the load balancer. In that case, you must:
+Rack Attack may block your load balancer if all traffic appears to come from the load balancer. In that case, you must:
 
 1. [Configure `nginx[real_ip_trusted_addresses]`](https://docs.gitlab.com/omnibus/settings/nginx.html#configuring-gitlab-trusted_proxies-and-the-nginx-real_ip-module).
    This keeps users' IPs from being listed as the load balancer IPs.
@@ -286,8 +269,7 @@ To remove a blocked IP:
    /opt/gitlab/embedded/bin/redis-cli -s /var/opt/gitlab/redis/redis.socket
    ```
 
-1. You can remove the block using the following syntax, replacing `<ip>` with
-   the actual IP that is denylisted:
+1. You can remove the block using the following syntax, replacing `<ip>` with the actual IP that is denylisted:
 
    ```plaintext
    del cache:gitlab:rack::attack:allow2ban:ban:<ip>

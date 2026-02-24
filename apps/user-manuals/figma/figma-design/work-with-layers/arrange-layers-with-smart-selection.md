@@ -28,7 +28,7 @@ To make a Smart selection, all layers must be an equal distance apart and overla
 Figma supports smart selections in both one and two dimensions. One dimensional (1D) Smart selections have layers that overlap on one axis, like layers arranged in a column or row. Two dimensional (2D) Smart selection have layers that overlap on both axes, like layers arranged in a grid or table.
 
 1. Select any layers you'd like to include in the Smart selection. Layers don't need to be the same size or shape. You can select individual layers, groups, frames, or components. [Select layers and objects.](https://help.figma.com/hc/en-us/articles/360040449873)
-2. Figma adds smart handles to your selection on the canvas. Each distinct object has a pink ring in the center of it.  
+2. Figma adds smart handles to your selection on the canvas. Each distinct object has a pink ring in the center of it. 
    ![Cursor using smart handles to adjust spacing between layers in a grid on the canvas.](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5c33c33904286304a71df744/file-61oJEyUF21.png)
 3. When you hover over your Smart selection, additional pink handles will appear between each layer. These handles allow you to adjust the vertical or horizontal spacing between layers.![Smart selection adjusting horizontal and vertical spacing between layers using pink handles and tooltips indicating pixel distance.](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5c33c34704286304a71df745/file-6pGhfu6yW7.png)
 
@@ -55,29 +55,29 @@ Adjust the vertical or horizontal space between layers in your selection. You ca
 
 - A 
 
-  #### Canvas
+ #### Canvas
 
-  1. Hover over one of the smart handles between layers. An arrow will appear where the cursor was.
-  2. Click and drag the handle to adjust the space between layers. A tooltip above your cursor shows the current space between layers, in pixels.  
+ 1. Hover over one of the smart handles between layers. An arrow will appear where the cursor was.
+ 2. Click and drag the handle to adjust the space between layers. A tooltip above your cursor shows the current space between layers, in pixels. 
      - **Up** to decrease the vertical space
      - **Down** to increase the vertical space
      - **Left** to decrease the horizontal space
      - **Right** to increase the horizontal space
-  3. Release the cursor to apply your changes.![Smart selection interface showing vertical spacing adjustment between layers with pink handles and a value tooltip.](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5c33c46404286304a71df74a/file-lwXnt7bK9g.png)
+ 3. Release the cursor to apply your changes.![Smart selection interface showing vertical spacing adjustment between layers with pink handles and a value tooltip.](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5c33c46404286304a71df74a/file-lwXnt7bK9g.png)
 
-  **Tip:** Hold down `Shift` while scrolling to adjust the increments by the amount specified in your **Big nudge** settings. [Learn more about setting custom nudge values.](../file-utilities/set-small-and-big-nudge-values.md)
+ **Tip:** Hold down `Shift` while scrolling to adjust the increments by the amount specified in your **Big nudge** settings. [Learn more about setting custom nudge values.](../file-utilities/set-small-and-big-nudge-values.md)
 - B 
 
-  #### Right sidebar
+ #### Right sidebar
 
-  You can also update the space between property from the Layout section of the right sidebar. Depending on your selection, you'll see two fields in the sidebar.
+ You can also update the space between property from the Layout section of the right sidebar. Depending on your selection, you'll see two fields in the sidebar.
 
-  Enter a number directly in the field, or hover the cursor over the icon to scrub the field.
+ Enter a number directly in the field, or hover the cursor over the icon to scrub the field.
 
-  - horizontal space between
-  - vertical space between
+ - horizontal space between
+ - vertical space between
 
-  ![Grid of nine squares on Figma canvas with selection handles; right sidebar shows layout and position adjustments and values.](https://help.figma.com/hc/article_attachments/30838323598359)
+ ![Grid of nine squares on Figma canvas with selection handles; right sidebar shows layout and position adjustments and values.](https://help.figma.com/hc/article_attachments/30838323598359)
 
 ### Reorder or rearrange layers
 

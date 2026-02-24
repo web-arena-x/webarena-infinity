@@ -30,7 +30,7 @@ Note: Figma Organizations can [track how often instances are detached with Desig
 
 1. Select the instance you wish to detach.
 2. Click on the instance menu in the Properties Panel.
-3. Select **Detach instance** from the menu.  
+3. Select **Detach instance** from the menu. 
    ![](https://help.figma.com/hc/article_attachments/30657054240535)
 
 # Right-click menu
@@ -55,6 +55,6 @@ This allows you to keep the object(s) you created, without having them as compon
 - Windows: `Control``Z`
 
 - If you want to revert something that's been a component for a while:
-  1. Create an instance of the new component.
-  2. Detach the instance from the component.
-  3. Delete the original component.
+ 1. Create an instance of the new component.
+ 2. Detach the instance from the component.
+ 3. Delete the original component.

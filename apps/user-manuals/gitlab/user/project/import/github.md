@@ -19,17 +19,13 @@ description: "Import projects from GitHub to GitLab."
 
 {{< /history >}}
 
-You can import your GitHub projects from either GitHub.com or GitHub Enterprise. Importing projects does not
-migrate or import any types of groups or organizations from GitHub to GitLab.
+You can import your GitHub projects from either GitHub.com or GitHub Enterprise. Importing projects does not migrate or import any types of groups or organizations from GitHub to GitLab.
 
 Imported issues, merge requests, comments, and events have an **Imported** badge in GitLab.
 
-The namespace is a user or group in GitLab, such as `gitlab.com/sidney-jones` or
-`gitlab.com/customer-success`.
+The namespace is a user or group in GitLab, such as `gitlab.com/sidney-jones` or `gitlab.com/customer-success`.
 
-Using the GitLab UI, the GitHub importer always imports from the
-`github.com` domain. If you are importing from a self-hosted GitHub Enterprise Server domain, use the
-[GitLab Import API](#use-the-api) GitHub endpoint with a GitLab access token with the `api` scope.
+Using the GitLab UI, the GitHub importer always imports from the `github.com` domain. If you are importing from a self-hosted GitHub Enterprise Server domain, use the [GitLab Import API](#use-the-api) GitHub endpoint with a GitLab access token with the `api` scope.
 
 You can change the target namespace and target repository name before you import.
 
@@ -38,8 +34,7 @@ For an overview of the import process, see [How to migrate from GitHub to GitLab
 
 ## Estimating import duration
 
-Every import from GitHub is different, which affects the duration of imports you perform. However, in testing, GitLab
-imported `https://github.com/kubernetes/kubernetes` in 76 hours. Tests showed that the project comprised:
+Every import from GitHub is different, which affects the duration of imports you perform. However, in testing, GitLab imported `https://github.com/kubernetes/kubernetes` in 76 hours. Tests showed that the project comprised:
 
 - 80,000 pull requests.
 - 45,000 issues.
@@ -47,10 +42,8 @@ imported `https://github.com/kubernetes/kubernetes` in 76 hours. Tests showed th
 
 ## Prerequisites
 
-To import projects from GitHub, you must enable the
-[GitHub import source](../../../administration/settings/import_and_export_settings.md#configure-allowed-import-sources).
-If that import source is not enabled, ask your GitLab administrator to enable it. The GitHub import source is enabled
-by default on GitLab.com.
+To import projects from GitHub, you must enable the [GitHub import source](../../../administration/settings/import_and_export_settings.md#configure-allowed-import-sources).
+If that import source is not enabled, ask your GitLab administrator to enable it. The GitHub import source is enabled by default on GitLab.com.
 
 ### Permissions and roles
 
@@ -59,8 +52,7 @@ To use the GitHub importer, you must have:
 - Access to the source GitHub project
 - At least the Maintainer role for the destination GitLab group (introduced in GitLab 16.0)
 
-Also, the organization the GitHub repository belongs to must not impose restrictions of a
-[third-party application access policy](https://docs.github.com/en/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)
+Also, the organization the GitHub repository belongs to must not impose restrictions of a [third-party application access policy](https://docs.github.com/en/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)
 on the GitLab instance you import to.
 
 ### Accounts for user contribution mapping
@@ -74,30 +66,21 @@ on the GitLab instance you import to.
 ## Known issues
 
 - GitHub pull request comments (known as diff notes in GitLab) created before 2017 are imported in separate threads.
-  This occurs because of a limitation of the GitHub API that doesn't include `in_reply_to_id` for comments before 2017.
-- [In GitLab 18.3 and earlier](https://gitlab.com/gitlab-org/gitlab/-/issues/424400), Markdown attachments
-  from repositories on GitHub Enterprise Server instances are not imported.
-  [In GitLab 18.4 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/553386):
-  - Only video and image files in Markdown attachments are imported.
-  - Other file attachments are not imported.
-- Because of a [known issue](https://gitlab.com/gitlab-org/gitlab/-/issues/418800), when importing projects that used
-  [GitHub auto-merge](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request), the imported project in GitLab can have merge commits labeled `unverified` if the commit was signed with the GitHub internal GPG key.
-- GitLab [can't import](https://gitlab.com/gitlab-org/gitlab/-/issues/424046) GitHub Markdown image attachments that
-  were uploaded to private repositories before 2023-05-09. If you encounter this problem and are willing to provide a sample repository,
-  add a comment to [issue 424046](https://gitlab.com/gitlab-org/gitlab/-/issues/424046) and GitLab will contact you.
+ This occurs because of a limitation of the GitHub API that doesn't include `in_reply_to_id` for comments before 2017.
+- [In GitLab 18.3 and earlier](https://gitlab.com/gitlab-org/gitlab/-/issues/424400), Markdown attachments from repositories on GitHub Enterprise Server instances are not imported.
+ [In GitLab 18.4 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/553386):
+ - Only video and image files in Markdown attachments are imported.
+ - Other file attachments are not imported.
+- Because of a [known issue](https://gitlab.com/gitlab-org/gitlab/-/issues/418800), when importing projects that used [GitHub auto-merge](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request), the imported project in GitLab can have merge commits labeled `unverified` if the commit was signed with the GitHub internal GPG key.
+- GitLab [can't import](https://gitlab.com/gitlab-org/gitlab/-/issues/424046) GitHub Markdown image attachments that were uploaded to private repositories before 2023-05-09. If you encounter this problem and are willing to provide a sample repository, add a comment to [issue 424046](https://gitlab.com/gitlab-org/gitlab/-/issues/424046) and GitLab will contact you.
 - For [GitLab-specific references](../../markdown.md#gitlab-specific-references), GitLab uses the `#` character for issues and a `!` character for merge requests.
-  However, GitHub uses only the `#` character for both issues and pull requests. When importing:
+ However, GitHub uses only the `#` character for both issues and pull requests. When importing:
 
-  - Comment notes, GitLab only creates links to issues because GitLab can't determine whether a references points to an
-    issue or a merge request.
-  - Issues or merge request descriptions, GitLab doesn't create links for any references because their imported
-    counterparts might not have been created on the destination yet.
+ - Comment notes, GitLab only creates links to issues because GitLab can't determine whether a references points to an issue or a merge request.
+ - Issues or merge request descriptions, GitLab doesn't create links for any references because their imported counterparts might not have been created on the destination yet.
 
-- When importing from GitHub accounts with SAML single sign-on (SSO) enabled, Markdown attachments might fail to import. This issue is caused by a GitHub
-  API limitation where assets cannot be downloaded using a personal access token when SSO is enforced. To workaround the issue, add the GitLab user performing
-  the import as an
-  [Outside Collaborator](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)
-  to the GitHub repository. This permits access to private attachments during import.
+- When importing from GitHub accounts with SAML single sign-on (SSO) enabled, Markdown attachments might fail to import. This issue is caused by a GitHub API limitation where assets cannot be downloaded using a personal access token when SSO is enforced. To workaround the issue, add the GitLab user performing the import as an [Outside Collaborator](https://docs.github.com/en/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)
+ to the GitHub repository. This permits access to private attachments during import.
 
 ## Import your GitHub repository into GitLab
 
@@ -121,8 +104,7 @@ because the backend exchanges the access token with the appropriate permissions.
 1. Select **Authorize with GitHub**.
 1. Proceed to [selecting which repositories to import](#select-which-repositories-to-import).
 
-To use a different method to perform an import after previously performing
-these steps, sign out of your GitLab account and sign in again.
+To use a different method to perform an import after previously performing these steps, sign out of your GitLab account and sign in again.
 
 ### Use a GitHub personal access token
 
@@ -141,9 +123,7 @@ To import your GitHub repository using a GitHub personal access token:
 1. Select **Authenticate**.
 1. Proceed to [selecting which repositories to import](#select-which-repositories-to-import).
 
-To use a different token to perform an import after previously performing
-these steps, sign out of your GitLab account and sign in again, or revoke the
-older token in GitHub.
+To use a different token to perform an import after previously performing these steps, sign out of your GitLab account and sign in again, or revoke the older token in GitHub.
 
 ### Use the API
 
@@ -173,8 +153,7 @@ To import your GitHub repository using the GitLab REST API:
 
 {{< /history >}}
 
-After you authorize access to your GitHub repositories, GitLab redirects you to the importer page and
-your GitHub repositories are listed.
+After you authorize access to your GitHub repositories, GitLab redirects you to the importer page and your GitHub repositories are listed.
 
 Use one of the following tabs to filter the list of repositories:
 
@@ -197,33 +176,25 @@ When the **Organization** tab is selected, you can further narrow down your sear
 To make imports as fast as possible, the following items aren't imported from GitHub by default:
 
 - More than approximately 30,000 comments because of a [limitation of the GitHub API](troubleshooting_github_import.md#missing-comments).
-- Markdown attachments from repository comments, release posts, issue descriptions, and pull request descriptions. These can include
-  images, text, or binary attachments. If not imported, links in Markdown to attachments break after you remove the attachments from GitHub.
+- Markdown attachments from repository comments, release posts, issue descriptions, and pull request descriptions. These can include images, text, or binary attachments. If not imported, links in Markdown to attachments break after you remove the attachments from GitHub.
 
 You can choose to import these items, but this could significantly increase import time. To import these items, select the appropriate fields in the UI:
 
-- **Use alternative comments import method**. If importing GitHub projects with more than approximately 30,000 comments across all issues and pull requests, you should enable this method because of a
-  [limitation of the GitHub API](troubleshooting_github_import.md#missing-comments).
+- **Use alternative comments import method**. If importing GitHub projects with more than approximately 30,000 comments across all issues and pull requests, you should enable this method because of a [limitation of the GitHub API](troubleshooting_github_import.md#missing-comments).
 - **Import Markdown attachments**.
-- **Import collaborators** (selected by default). Leaving it selected might result in new users using a seat in the group or namespace,
-  and being granted permissions [as high as project owner](#collaborators-members). Only direct collaborators are imported.
-  Outside collaborators are never imported.
-  [In GitLab 18.4 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/559224), when you import collaborators,
-  the [**Users cannot be added to projects in this group** setting](../../group/access_and_permissions.md#prevent-members-from-being-added-to-projects-in-a-group) is respected.
+- **Import collaborators** (selected by default). Leaving it selected might result in new users using a seat in the group or namespace, and being granted permissions [as high as project owner](#collaborators-members). Only direct collaborators are imported.
+ Outside collaborators are never imported.
+ [In GitLab 18.4 and later](https://gitlab.com/gitlab-org/gitlab/-/issues/559224), when you import collaborators, the [**Users cannot be added to projects in this group** setting](../../group/access_and_permissions.md#prevent-members-from-being-added-to-projects-in-a-group) is respected.
 
 ### Select which repositories to import
 
-By default, the proposed repository namespaces match the names as they exist in GitHub, but based
-on your permissions, you can choose to edit these names before you proceed to import any of them.
+By default, the proposed repository namespaces match the names as they exist in GitHub, but based on your permissions, you can choose to edit these names before you proceed to import any of them.
 
-To select which repositories to import, next to any number of repositories select **Import** or
-select **Import all repositories**.
+To select which repositories to import, next to any number of repositories select **Import** or select **Import all repositories**.
 
-Additionally, you can filter projects by name. If a filter is applied, **Import all repositories**
-only imports matched repositories.
+Additionally, you can filter projects by name. If a filter is applied, **Import all repositories** only imports matched repositories.
 
-The **Status** column shows the import status of each repository. You can choose to keep the page
-open and watch updates in real time or you can return to it later.
+The **Status** column shows the import status of each repository. You can choose to keep the page open and watch updates in real time or you can return to it later.
 
 To cancel imports that are pending or in progress, next to the imported project, select **Cancel**.
 If the import has already started, the imported files are kept.
@@ -275,19 +246,16 @@ of mapping user contributions for GitLab.com, GitLab Self-Managed, and GitLab De
 
 ### Alternative method of mapping
 
-In GitLab 18.7 and earlier, you can disable the `github_user_mapping` feature flag to use the alternative user
-contribution mapping method for imports.
+In GitLab 18.7 and earlier, you can disable the `github_user_mapping` feature flag to use the alternative user contribution mapping method for imports.
 
 {{< alert type="flag" >}}
 
-The availability of this feature is controlled by a feature flag. This feature is not recommended and is unavailable
-for:
+The availability of this feature is controlled by a feature flag. This feature is not recommended and is unavailable for:
 
 - Migrations to GitLab.com.
 - Migrations to GitLab Self-Managed and GitLab Dedicated 18.8 and later.
 
-Problems that are found in this mapping method are unlikely to be fixed. Use the
-[post-migration method](../../import/mapping.md) instead that doesn't have these limitations.
+Problems that are found in this mapping method are unlikely to be fixed. Use the [post-migration method](../../import/mapping.md) instead that doesn't have these limitations.
 
 For more information, see [issue 510963](https://gitlab.com/gitlab-org/gitlab/-/work_items/510963).
 
@@ -295,23 +263,17 @@ For more information, see [issue 510963](https://gitlab.com/gitlab-org/gitlab/-/
 
 Requirements:
 
-- Each GitHub author and assignee in the repository must have a
-  [public-facing email address](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).
-  GitHub Enterprise does not require a public email address, so you might have to add it to existing accounts.
+- Each GitHub author and assignee in the repository must have a [public-facing email address](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address).
+ GitHub Enterprise does not require a public email address, so you might have to add it to existing accounts.
 - The GitHub user's email address must match their GitLab email address.
 - If a user's email address in GitHub is set as their secondary email address in GitLab, they must confirm it.
 
-Using this method, when [user accounts are provisioned correctly](#accounts-for-user-contribution-mapping), users are
-mapped during the import.
+Using this method, when [user accounts are provisioned correctly](#accounts-for-user-contribution-mapping), users are mapped during the import.
 
 If the requirements are not met, the importer can't map the particular user's contributions. In this case:
 
-- The project creator is set as the author and assignee of issues and merge requests. The project creator is usually the
-  user that initiated the import process. For some contributions that have a description or note such as pull requests,
-  issue, notes, the importer amends the text with details of who originally created the contribution.
-- Reviewers and approvals added on pull requests in GitHub cannot be imported. In this case, the importer creates comments
-  describing that non-existent users were added as reviewers and approvers. However, the actual reviewer status and
-  approval are not applied to the merge request in GitLab.
+- The project creator is set as the author and assignee of issues and merge requests. The project creator is usually the user that initiated the import process. For some contributions that have a description or note such as pull requests, issue, notes, the importer amends the text with details of who originally created the contribution.
+- Reviewers and approvals added on pull requests in GitHub cannot be imported. In this case, the importer creates comments describing that non-existent users were added as reviewers and approvers. However, the actual reviewer status and approval are not applied to the merge request in GitLab.
 
 ## Mirror a repository and share pipeline status
 
@@ -321,14 +283,11 @@ If the requirements are not met, the importer can't map the particular user's co
 
 {{< /details >}}
 
-Depending on your GitLab tier, [repository mirroring](../repository/mirror/_index.md) can be set up to keep
-your imported repository in sync with its GitHub copy.
+Depending on your GitLab tier, [repository mirroring](../repository/mirror/_index.md) can be set up to keep your imported repository in sync with its GitHub copy.
 
-Additionally, you can configure GitLab to send pipeline status updates back to GitHub with the
-[GitHub Project Integration](../integrations/github.md).
+Additionally, you can configure GitLab to send pipeline status updates back to GitHub with the [GitHub Project Integration](../integrations/github.md).
 
-If you import your project using [CI/CD for external repository](../../../ci/ci_cd_for_external_repos/_index.md), then both
-features are automatically configured.
+If you import your project using [CI/CD for external repository](../../../ci/ci_cd_for_external_repos/_index.md), then both features are automatically configured.
 
 {{< alert type="note" >}}
 
@@ -342,18 +301,14 @@ Administrator access on the GitLab server is required for these steps.
 
 ### Increase the number of Sidekiq workers
 
-For large projects it may take a while to import all data. To reduce the time necessary, you can increase the number of
-Sidekiq workers that process the following queues:
+For large projects it may take a while to import all data. To reduce the time necessary, you can increase the number of Sidekiq workers that process the following queues:
 
 - `github_importer`
 - `github_importer_advance_stage`
 
-For an optimal experience, it's recommended having at least 4 Sidekiq processes (each running a number of threads equal
-to the number of CPU cores) that only process these queues. It's also recommended that these processes run on separate
-servers. For 4 servers with 8 cores this means you can import up to 32 objects (for example, issues) in parallel.
+For an optimal experience, it's recommended having at least 4 Sidekiq processes (each running a number of threads equal to the number of CPU cores) that only process these queues. It's also recommended that these processes run on separate servers. For 4 servers with 8 cores this means you can import up to 32 objects (for example, issues) in parallel.
 
-Reducing the time spent in cloning a repository can be done by increasing network throughput, CPU capacity, and disk
-performance (by using high performance SSDs, for example) of the disks that store the Git repositories (for your GitLab instance).
+Reducing the time spent in cloning a repository can be done by increasing network throughput, CPU capacity, and disk performance (by using high performance SSDs, for example) of the disks that store the Git repositories (for your GitLab instance).
 Increasing the number of Sidekiq workers does not reduce the time spent cloning repositories.
 
 ### Enable GitHub OAuth using a GitHub Enterprise Cloud OAuth App
@@ -364,8 +319,7 @@ GitHub API requests are usually subject to a rate limit of 5,000 requests per ho
 
 Prerequisites:
 
-- You have access to a
-  [GitHub Enterprise Cloud organization](https://docs.github.com/en/enterprise-cloud@latest/get-started/onboarding/getting-started-with-github-enterprise-cloud).
+- You have access to a [GitHub Enterprise Cloud organization](https://docs.github.com/en/enterprise-cloud@latest/get-started/onboarding/getting-started-with-github-enterprise-cloud).
 - GitLab is configured to enable [GitHub OAuth](../../../integration/github.md#enable-github-oauth-in-gitlab).
 
 To enable a higher rate limit:
@@ -373,10 +327,7 @@ To enable a higher rate limit:
 - [Create an OAuth app in GitHub](../../../integration/github.md#create-an-oauth-app-in-github). Ensure that the OAuth app is owned by the Enterprise Cloud Organization, not your personal GitHub account.
 - Perform the project import using [GitHub OAuth](#use-github-oauth).
 - Optional. By default, sign-in is enabled for all configured OAuth providers.
-  If you want to enable GitHub OAuth for imports but you want to
-  prevent the ability for users to sign in to your GitLab instance with GitHub,
-  you can
-  [disable sign-in with GitHub](../../../integration/omniauth.md#enable-or-disable-sign-in-with-an-omniauth-provider-without-disabling-import-sources).
+ If you want to enable GitHub OAuth for imports but you want to prevent the ability for users to sign in to your GitLab instance with GitHub, you can [disable sign-in with GitHub](../../../integration/omniauth.md#enable-or-disable-sign-in-with-an-omniauth-provider-without-disabling-import-sources).
 
 ## Imported data
 
@@ -384,18 +335,18 @@ The following items of a project are imported:
 
 - All fork branches of the project related to open pull requests
 
-  {{< alert type="note" >}}
+ {{< alert type="note" >}}
 
-  Fork branches are imported with a naming scheme similar to `GH-SHA-username/pull-request-number/fork-name/branch`.
+ Fork branches are imported with a naming scheme similar to `GH-SHA-username/pull-request-number/fork-name/branch`.
 
-  {{< /alert >}}
+ {{< /alert >}}
 
 - All project branches
 - Attachments for:
-  - Comments
-  - Issue descriptions
-  - Pull request descriptions
-  - Release notes
+ - Comments
+ - Issue descriptions
+ - Pull request descriptions
+ - Release notes
 - Branch protection rules
 - [Collaborators (members)](#collaborators-members)
 - [Git LFS objects](../../../topics/git/lfs/_index.md)
@@ -416,9 +367,7 @@ The following items of a project are imported:
 - Repository descriptions
 - Wiki pages
 
-References to pull requests and issues are preserved. Each imported repository maintains visibility level unless that
-[visibility level is restricted](../../public_access.md#restrict-use-of-public-or-internal-projects), in which case it
-defaults to the default project visibility.
+References to pull requests and issues are preserved. Each imported repository maintains visibility level unless that [visibility level is restricted](../../public_access.md#restrict-use-of-public-or-internal-projects), in which case it defaults to the default project visibility.
 
 ### Branch protection rules and project settings
 
@@ -458,23 +407,21 @@ These GitHub collaborator roles are mapped to these GitLab [member roles](../../
 | Maintain    | Maintainer         |
 | Admin       | Owner              |
 
-GitHub Enterprise Cloud has
-[custom repository roles](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles).
+GitHub Enterprise Cloud has [custom repository roles](https://docs.github.com/en/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles).
 These roles aren't supported and cause partially completed imports.
 
 To import GitHub collaborators, you must have at least the Write role on the GitHub project. Otherwise collaborators import is skipped.
 
 ## Import from GitHub Enterprise on an internal network
 
-If your GitHub Enterprise instance is on a internal network that is inaccessible to the internet, you can use a reverse proxy
-to allow GitLab.com to access the instance.
+If your GitHub Enterprise instance is on a internal network that is inaccessible to the internet, you can use a reverse proxy to allow GitLab.com to access the instance.
 
 The proxy needs to:
 
 - Forward requests to the GitHub Enterprise instance.
 - Convert to the public proxy hostname all occurrences of the internal hostname in:
-  - The API response body.
-  - The API response `Link` header.
+ - The API response body.
+ - The API response `Link` header.
 
 GitHub API uses the `Link` header for pagination.
 
@@ -486,14 +433,14 @@ curl --header "Authorization: Bearer <YOUR-TOKEN>" "https://{PROXY_HOSTNAME}/use
 ### URLs in the response body should use the proxy hostname
 
 {
-  "login": "example_username",
-  "id": 1,
-  "url": "https://{PROXY_HOSTNAME}/users/example_username",
-  "html_url": "https://{PROXY_HOSTNAME}/example_username",
-  "followers_url": "https://{PROXY_HOSTNAME}/api/v3/users/example_username/followers",
-  ...
-  "created_at": "2014-02-11T17:03:25Z",
-  "updated_at": "2022-10-18T14:36:27Z"
+ "login": "example_username",
+ "id": 1,
+ "url": "https://{PROXY_HOSTNAME}/users/example_username",
+ "html_url": "https://{PROXY_HOSTNAME}/example_username",
+ "followers_url": "https://{PROXY_HOSTNAME}/api/v3/users/example_username/followers",
+ ...
+ "created_at": "2014-02-11T17:03:25Z",
+ "updated_at": "2022-10-18T14:36:27Z"
 }
 ```
 
@@ -532,8 +479,7 @@ The following configuration is an example on how to configure Apache HTTP Server
 
 {{< alert type="warning" >}}
 
-For simplicity, the snippet does not have configuration to encrypt the connection between the client and the proxy. However, for security reasons you should include that
-configuration. See [sample Apache TLS/SSL configuration](https://ssl-config.mozilla.org/#server=apache&version=2.4.41&config=intermediate&openssl=1.1.1k&guideline=5.6).
+For simplicity, the snippet does not have configuration to encrypt the connection between the client and the proxy. However, for security reasons you should include that configuration. See [sample Apache TLS/SSL configuration](https://ssl-config.mozilla.org/#server=apache&version=2.4.41&config=intermediate&openssl=1.1.1k&guideline=5.6).
 
 {{< /alert >}}
 
@@ -550,26 +496,26 @@ LoadModule proxy_http_module lib/httpd/modules/mod_proxy_http.so
 LoadModule ssl_module lib/httpd/modules/mod_ssl.so
 
 <VirtualHost GITHUB_ENTERPRISE_HOSTNAME:80>
-  ServerName GITHUB_ENTERPRISE_HOSTNAME
+ ServerName GITHUB_ENTERPRISE_HOSTNAME
 
-  # Enables reverse-proxy configuration with SSL support
-  SSLProxyEngine On
-  ProxyPass "/" "https://GITHUB_ENTERPRISE_HOSTNAME/"
-  ProxyPassReverse "/" "https://GITHUB_ENTERPRISE_HOSTNAME/"
+ # Enables reverse-proxy configuration with SSL support
+ SSLProxyEngine On
+ ProxyPass "/" "https://GITHUB_ENTERPRISE_HOSTNAME/"
+ ProxyPassReverse "/" "https://GITHUB_ENTERPRISE_HOSTNAME/"
 
-  # Replaces occurrences of the local GitHub Enterprise URL with the Proxy URL
-  # GitHub Enterprise compresses the responses, the filters INFLATE and DEFLATE needs to be used to
-  # decompress and compress the response back
-  AddOutputFilterByType INFLATE;SUBSTITUTE;DEFLATE application/json
-  Substitute "s|https://GITHUB_ENTERPRISE_HOSTNAME|https://PROXY_HOSTNAME|ni"
-  SubstituteMaxLineLength 50M
+ # Replaces occurrences of the local GitHub Enterprise URL with the Proxy URL
+ # GitHub Enterprise compresses the responses, the filters INFLATE and DEFLATE needs to be used to
+ # decompress and compress the response back
+ AddOutputFilterByType INFLATE;SUBSTITUTE;DEFLATE application/json
+ Substitute "s|https://GITHUB_ENTERPRISE_HOSTNAME|https://PROXY_HOSTNAME|ni"
+ SubstituteMaxLineLength 50M
 
-  # GitHub API uses the response header "Link" for the API pagination
-  # For example:
-  #   <https://example.com/api/v3/repositories/1/issues?page=2>; rel="next", <https://example.com/api/v3/repositories/1/issues?page=3>; rel="last"
-  # The directive below replaces all occurrences of the GitHub Enterprise URL with the Proxy URL if the
-  # response header Link is present
-  Header edit* Link "https://GITHUB_ENTERPRISE_HOSTNAME" "https://PROXY_HOSTNAME"
+ # GitHub API uses the response header "Link" for the API pagination
+ # For example:
+ #   <https://example.com/api/v3/repositories/1/issues?page=2>; rel="next", <https://example.com/api/v3/repositories/1/issues?page=3>; rel="last"
+ # The directive below replaces all occurrences of the GitHub Enterprise URL with the Proxy URL if the
+ # response header Link is present
+ Header edit* Link "https://GITHUB_ENTERPRISE_HOSTNAME" "https://PROXY_HOSTNAME"
 </VirtualHost>
 ```
 

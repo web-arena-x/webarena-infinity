@@ -31,30 +31,30 @@ The **Insights Library** consists of three sections:
 These are pre-built Looker dashboards featuring automated data uploads. The following reports showcase key data points, among others:
 
 - **Core Activities**
-  - Number of students viewing your jobs
-  - Number of approved schools you're connected with
-  - Number of applications
-  - Number of events and fairs
-  - Number of company profile views
-  - Number of jobs posted and total job views
+ - Number of students viewing your jobs
+ - Number of approved schools you're connected with
+ - Number of applications
+ - Number of events and fairs
+ - Number of company profile views
+ - Number of jobs posted and total job views
 - **Messaging Activities** 
-  - Number of campaigns sent
-  - Number of messages sent
-  - Number of candidates reached
-  - Open rate %
-  - Engagement rate %
+ - Number of campaigns sent
+ - Number of messages sent
+ - Number of candidates reached
+ - Open rate %
+ - Engagement rate %
 - **Event Analytics** 
-  - Number of in-person, hybrid, and virtual events
-  - Number of RSVPs who applied
-  - Engagement rate %
-  - Number of campaigns per event
+ - Number of in-person, hybrid, and virtual events
+ - Number of RSVPs who applied
+ - Engagement rate %
+ - Number of campaigns per event
 - **Content and Community Activity**
-  - Total impressions
-  - Video play rate and watch time
+ - Total impressions
+ - Video play rate and watch time
 - **Brand Page** (*This report is available only for premium partners with either a Professional or Advanced Brand page*)
-  - Page views
-  - Page follows
-  - Viewers and followers based on class year and education levels
+ - Page views
+ - Page follows
+ - Viewers and followers based on class year and education levels
 
 2. **Business Reports**
 

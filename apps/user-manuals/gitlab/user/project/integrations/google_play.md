@@ -61,7 +61,7 @@ To enable the integration in fastlane and upload the build to the given track in
 
 ```ruby
 upload_to_play_store(
-  track: 'internal',
-  aab: '../build/app/outputs/bundle/release/app-release.aab'
+ track: 'internal',
+ aab: '../build/app/outputs/bundle/release/app-release.aab'
 )
 ```

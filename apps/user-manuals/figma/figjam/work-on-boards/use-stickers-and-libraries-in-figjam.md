@@ -26,7 +26,7 @@ Access your team's components and stickers curated by Figma with the library.
 
 To browse your libraries:
 
-1. Click  in the toolbar. Or use the keyboard shortcut `⌥ Option``2` / `Alt``2` to open the modal.
+1. Click in the toolbar. Or use the keyboard shortcut `⌥ Option``2` / `Alt``2` to open the modal.
 2. Select the **Stickers** tab.
 3. Search for stickers and components or browse your libraries.
 4. Click and drag an object from the library to your board.
@@ -40,8 +40,8 @@ Right-click a sticker from the **Recents** section of the library and select **
 If your component has variants, you can select variants from the inline menu.
 
 1. Add the component to the board.
-2. If it has variants, the  menu will show when it's selected.
-3. Click  to open the menu and select a variant:![Inline menu displaying button variants selection in FigJam.](https://help.figma.com/hc/article_attachments/1500012055681)
+2. If it has variants, the menu will show when it's selected.
+3. Click to open the menu and select a variant:![Inline menu displaying button variants selection in FigJam.](https://help.figma.com/hc/article_attachments/1500012055681)
 
 # Manage libraries
 
@@ -53,10 +53,10 @@ Want to add the library to all files?
 
 To make a library available in all FigJam files, team admins can toggle libraries for all team Figma Design or FigJam files. [Enable libraries in team files →](https://help.figma.com/hc/en-us/articles/360038743434-Enable-libraries-in-drafts-teams-and-files)
 
-1. Click  in the toolbar.
+1. Click in the toolbar.
 2. Select the **Stickers** tab.
-3. Under **Libraries**, click  **Add your own** to add a library.
-4. From **Manage libraries**, you can view any libraries you have access to. Use the  **search** field to find a specific library or browse the list of available libraries.
+3. Under **Libraries**, click **Add your own** to add a library.
+4. From **Manage libraries**, you can view any libraries you have access to. Use the **search** field to find a specific library or browse the list of available libraries.
 5. Click **Add to file** to make that library available in the current file.
 
 ## Update library
@@ -65,7 +65,7 @@ Accept updates from published libraries to see the updated instances on your boa
 
 To update libraries in FigJam:
 
-1. Click  in the toolbar.
+1. Click in the toolbar.
 2. Select the **Stickers** tab.
 3. You'll see a banner notifying you of any updates to your components.
 4. Click **Update** to accept the changes in FigJam.
@@ -74,10 +74,10 @@ To update libraries in FigJam:
 
 If you don't want a library to show up in the file anymore, you can remove it. This will only remove the library from this file and won't remove any components you've added to the board.
 
-1. Click  in the toolbar.
+1. Click in the toolbar.
 2. Select the **Stickers** tab.
-3. Under **Libraries**, click  **Add your own** to add a library.
-4. From **Manage libraries**, you can view any libraries you have access to. Use the  **search** field to find a specific library or browse the list of available libraries.
+3. Under **Libraries**, click **Add your own** to add a library.
+4. From **Manage libraries**, you can view any libraries you have access to. Use the **search** field to find a specific library or browse the list of available libraries.
 5. You'll see any libraries you've added at the top of the modal. Hover over the **Added** button for the library you want to remove.
 6. Click **Remove** to remove the library for this file only.
 

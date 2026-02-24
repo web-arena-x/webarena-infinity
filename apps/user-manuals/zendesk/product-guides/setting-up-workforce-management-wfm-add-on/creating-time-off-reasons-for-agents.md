@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/6443329403034-Creating-tim
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Workforce Management (WFM) or Workforce Engagement Management (WEM) |
 
@@ -14,27 +14,20 @@ Verified AI summary ◀▼
 
 Create and manage time off reasons to define the types of leave agents can take, like personal or sick time. You can add new reasons, edit existing ones, or delete them as needed. This flexibility helps tailor time off categories to fit your organization's needs, ensuring agents have clear options when requesting leave. Use the settings to adjust your organization's time off structure.
 
-Time off reasons are part of your Workforce Management (WFM) organization’s structure and
-define the types of time agents can take off. This includes both planned and unplanned time
-off, such as personal time or sick time.
+Time off reasons are part of your Workforce Management (WFM) organization’s structure and define the types of time agents can take off. This includes both planned and unplanned time off, such as personal time or sick time.
 
 By default, two time off reasons are already created:
 
 - **Paid leave**: Planned absences for personal time off.
-- **Sick leave**: Unplanned absences due to personal illness or health-related
-  issues.
+- **Sick leave**: Unplanned absences due to personal illness or health-related issues.
 
-However, admins and [team member with permission](https://support.zendesk.com/hc/en-us/articles/6443374440090) can create new time off reasons and edit
-or delete existing ones.
+However, admins and [team member with permission](https://support.zendesk.com/hc/en-us/articles/6443374440090) can create new time off reasons and edit or delete existing ones.
 
 The article contains the following sections:
 
-- [Creating time off
-  reasons](#topic_ac1_3vs_whc)
-- [Editing time off
-  reasons](#topic_cn5_cxs_whc)
-- [Deleting time off
-  reasons](#topic_ixp_gxs_whc)
+- [Creating time off reasons](#topic_ac1_3vs_whc)
+- [Editing time off reasons](#topic_cn5_cxs_whc)
+- [Deleting time off reasons](#topic_ixp_gxs_whc)
 
 ## Creating time off reasons
 
@@ -49,8 +42,7 @@ You can create additional time off reasons for your organization.
 4. From the Category menu, select **Planned** or **Unplanned**.
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/wfm_time_off_reasons.png)
-5. Enter a description. This is the text that agents see when they request this time off
-   reason.
+5. Enter a description. This is the text that agents see when they request this time off reason.
 6. Click **Create time off reason**.
 
 ## Editing time off reasons
@@ -67,8 +59,7 @@ You can edit your organization’s time off reasons.
 
 ## Deleting time off reasons
 
-You can also delete your organization's time off reasons. This action can't be
-undone.
+You can also delete your organization's time off reasons. This action can't be undone.
 
 **To delete a time off reason**
 

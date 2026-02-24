@@ -24,21 +24,16 @@ or [GitLab API](#use-the-gitlab-api).
 
 {{< alert type="warning" >}}
 
-Deleting container images is a destructive action and can't be undone. To restore
-a deleted container image, you must rebuild and re-upload it.
+Deleting container images is a destructive action and can't be undone. To restore a deleted container image, you must rebuild and re-upload it.
 
 {{< /alert >}}
 
 ## Garbage collection
 
-Deleting a container image on GitLab Self-Managed instances doesn't free up storage space, it only marks the image
-as eligible for deletion. To actually delete unreferenced container images and recover storage space, GitLab Self-Managed instance administrators
-must run [garbage collection](../../../administration/packages/container_registry.md#container-registry-garbage-collection).
+Deleting a container image on GitLab Self-Managed instances doesn't free up storage space, it only marks the image as eligible for deletion. To actually delete unreferenced container images and recover storage space, GitLab Self-Managed instance administrators must run [garbage collection](../../../administration/packages/container_registry.md#container-registry-garbage-collection).
 
-The container registry on GitLab.com includes an automatic online garbage
-collector.
-With the automatic garbage collector, the following are automatically scheduled
-for deletion in 24 hours if left unreferenced:
+The container registry on GitLab.com includes an automatic online garbage collector.
+With the automatic garbage collector, the following are automatically scheduled for deletion in 24 hours if left unreferenced:
 
 - Layers that aren't referenced by any image manifest.
 - Image manifests that have no tags and aren't referenced by another manifest (like multi-architecture images).
@@ -53,14 +48,10 @@ To delete container images using the GitLab UI:
 1. For:
    - A group, select **Operate** > **Container Registry**.
    - A project, select **Deploy** > **Container Registry**.
-1. From the **Container Registry** page, you can select what you want to delete,
-   by either:
+1. From the **Container Registry** page, you can select what you want to delete, by either:
 
-   - Deleting the entire repository, and all the tags it contains, by selecting
-     the red {{< icon name="remove" >}} **Trash** icon.
-   - Navigating to the repository, and deleting tags individually or in bulk
-     by selecting the red {{< icon name="remove" >}} **Trash** icon next to the tag you want
-     to delete.
+   - Deleting the entire repository, and all the tags it contains, by selecting the red {{< icon name="remove" >}} **Trash** icon.
+   - Navigating to the repository, and deleting tags individually or in bulk by selecting the red {{< icon name="remove" >}} **Trash** icon next to the tag you want to delete.
 
 1. On the dialog, select **Remove tag**.
 
@@ -69,8 +60,7 @@ automatically stop attempting to delete images.
 
 ## Use the GitLab API
 
-You can use the API to automate the process of deleting container images. For more
-information, see the following endpoints:
+You can use the API to automate the process of deleting container images. For more information, see the following endpoints:
 
 - [Delete a Registry repository](../../../api/container_registry.md#delete-registry-repository)
 - [Delete an individual Registry repository tag](../../../api/container_registry.md#delete-a-registry-repository-tag)
@@ -80,49 +70,45 @@ information, see the following endpoints:
 
 {{< alert type="note" >}}
 
-GitLab CI/CD doesn't provide a built-in way to remove your container images. This example uses a
-third-party tool called [`regctl`](https://github.com/regclient/regclient) that talks to the GitLab Registry API.
+GitLab CI/CD doesn't provide a built-in way to remove your container images. This example uses a third-party tool called [`regctl`](https://github.com/regclient/regclient) that talks to the GitLab Registry API.
 For assistance with this third-party tool, see [the issue tracker for regclient](https://github.com/regclient/regclient/issues).
 
 {{< /alert >}}
 
-The following example defines two stages: `build`, and `clean`. The `build_image` job builds a container
-image for the branch, and the `delete_image` job deletes it. The `reg` executable is downloaded and used to
-remove the container image matching the `$CI_PROJECT_PATH:$CI_COMMIT_REF_SLUG`
-[predefined CI/CD variable](../../../ci/variables/predefined_variables.md).
+The following example defines two stages: `build`, and `clean`. The `build_image` job builds a container image for the branch, and the `delete_image` job deletes it. The `reg` executable is downloaded and used to remove the container image matching the `$CI_PROJECT_PATH:$CI_COMMIT_REF_SLUG` [predefined CI/CD variable](../../../ci/variables/predefined_variables.md).
 
 To use this example, change the `IMAGE_TAG` variable to match your needs.
 
 ```yaml
 stages:
-  - build
-  - clean
+ - build
+ - clean
 
 build_image:
-  image: docker:20.10.16
-  stage: build
-  services:
+ image: docker:20.10.16
+ stage: build
+ services:
     - docker:20.10.16-dind
-  variables:
+ variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
-  script:
+ script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker build -t $IMAGE_TAG .
     - docker push $IMAGE_TAG
-  rules:
+ rules:
       - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
         when: never
       - if: $CI_COMMIT_BRANCH
 
 delete_image:
-  stage: clean
-  variables:
+ stage: clean
+ variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
     REGCTL_VERSION: v0.6.1
-  rules:
+ rules:
       - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
-  image: alpine:latest
-  script:
+ image: alpine:latest
+ script:
     - apk update
     - apk add curl
     - curl --fail-with-body --location "https://github.com/regclient/regclient/releases/download/${REGCTL_VERSION}/regctl-linux-amd64" > /usr/bin/regctl
@@ -133,12 +119,10 @@ delete_image:
 
 {{< alert type="note" >}}
 
-You can download the latest `regctl` release from [the releases page](https://github.com/regclient/regclient/releasess), then update
-the code example by changing the `REGCTL_VERSION` variable defined in the `delete_image` job.
+You can download the latest `regctl` release from [the releases page](https://github.com/regclient/regclient/releasess), then update the code example by changing the `REGCTL_VERSION` variable defined in the `delete_image` job.
 
 {{< /alert >}}
 
 ## Use a cleanup policy
 
-You can create a per-project [cleanup policy](reduce_container_registry_storage.md#cleanup-policy) to ensure older tags and
-images are regularly removed from the container registry.
+You can create a per-project [cleanup policy](reduce_container_registry_storage.md#cleanup-policy) to ensure older tags and images are regularly removed from the container registry.

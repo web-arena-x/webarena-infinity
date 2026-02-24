@@ -13,17 +13,16 @@ title: Branch rules
 
 {{< /details >}}
 
-GitLab provides multiple methods to protect individual branches. These methods
-ensure your branches receive oversight and quality checks from their creation to their deletion:
+GitLab provides multiple methods to protect individual branches. These methods ensure your branches receive oversight and quality checks from their creation to their deletion:
 
 - Apply enhanced security and protection to your project's [default branch](default.md).
 - Configure [protected branches](protected.md) to:
-  - Limit who can push and merge to a branch.
-  - Manage if users can force push to the branch.
-  - Manage if changes to files listed in the `CODEOWNERS` file can be pushed directly to the branch.
+ - Limit who can push and merge to a branch.
+ - Manage if users can force push to the branch.
+ - Manage if changes to files listed in the `CODEOWNERS` file can be pushed directly to the branch.
 - Configure [approval rules](../../merge_requests/approvals/rules.md#approvals-for-protected-branches) to manage review requirements and implement [security-related approvals](../../merge_requests/approvals/rules.md#security-approvals).
 - Integrate with third-party [status checks](../../merge_requests/status_checks.md)
-  to ensure the contents of your branch meets your defined quality standards.
+ to ensure the contents of your branch meets your defined quality standards.
 
 You can manage your branches:
 
@@ -39,8 +38,7 @@ You can manage your branches:
 
 {{< /history >}}
 
-The branch rules overview page shows all branches with any configured protections,
-and their protection methods:
+The branch rules overview page shows all branches with any configured protections, and their protection methods:
 
 ![Example of a branch with configured protections](img/view_branch_protections_v15_10.png)
 
@@ -149,8 +147,7 @@ To add a merge request approval rule:
 
      A value of `0` makes [the rule optional](../../merge_requests/approvals/rules.md#configure-optional-approval-rules), and any number greater than `0` creates a required rule.
      The maximum number of required approvals is `100`.
-   - Select users or groups that are
-     [eligible to approve](../../merge_requests/approvals/rules.md#eligible-approvers).
+   - Select users or groups that are [eligible to approve](../../merge_requests/approvals/rules.md#eligible-approvers).
 
      GitLab suggests approvers based on previous authors of the files changed by the merge request.
 1. Select **Save changes**.

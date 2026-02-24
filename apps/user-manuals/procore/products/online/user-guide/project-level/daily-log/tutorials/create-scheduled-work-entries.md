@@ -15,15 +15,15 @@ The Scheduled Work section allows you to add tracking information for the proje
 ## Things to Consider
 
 - **Required User Permissions:**
-  - *To create entries:*
+ - *To create entries:*
     - 'Standard' or 'Admin' level permissions on the project's Daily Log tool.
-  - **To create pending entries as a collaborator**:
+ - **To create pending entries as a collaborator**:
     - 'Read Only' or 'Standard' permissions to the Daily Log tool with the ['Collaborator Entry Only' granular permission](../../../company-level/permissions/tutorials/grant-granular-permissions-in-a-project-permissions-template.md#Daily_Log "Grant Granular Permissions in a Permission Template") enabled on your permissions template. See [Create Daily Log Entries as a Collaborator](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/create-daily-log-entries-as-a-collaborator "Create Daily Log Entries as a Collaborator").
 - **Additional Information:**
-  - Information such as the resource and task name can be carried over to the Scheduled Work log from the project's schedule. If you want this information to be populated automatically, ensure the following prerequisites are met:
+ - Information such as the resource and task name can be carried over to the Scheduled Work log from the project's schedule. If you want this information to be populated automatically, ensure the following prerequisites are met:
     - A schedule file, such as a Microsoft Project file, must be uploaded to the project's Schedule tool. See [Upload a Project Schedule File to Procore's Web Application](https://support.procore.com/products/online/user-guide/project-level/schedule/tutorials/upload-a-project-schedule-file-to-procores-web-application "Upload a Project Schedule File to Procore's Web Application").
     - The schedule file must include resource assignments on the project's tasks. Refer to your schedule program's support resources for specific instructions.
-  - The Scheduled Work log pulls live data from the project’s uploaded schedule and updates automatically.
+ - The Scheduled Work log pulls live data from the project’s uploaded schedule and updates automatically.
     - If the schedule changes, even after a day has been marked complete, those updates may be reflected in the log when that day is revisited.
     - This ensures the log stays aligned with the most current version of the schedule.
 

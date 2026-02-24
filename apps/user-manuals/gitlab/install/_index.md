@@ -6,10 +6,8 @@ description: Read through the GitLab installation methods.
 title: Install GitLab
 ---
 
-You can install GitLab on most GNU/Linux distributions, on several
-cloud providers, and in Kubernetes clusters.
-To get the best experience, you should balance performance, reliability,
-ease of administration (backups, upgrades, and troubleshooting) with the cost of hosting.
+You can install GitLab on most GNU/Linux distributions, on several cloud providers, and in Kubernetes clusters.
+To get the best experience, you should balance performance, reliability, ease of administration (backups, upgrades, and troubleshooting) with the cost of hosting.
 
 {{< cards >}}
 

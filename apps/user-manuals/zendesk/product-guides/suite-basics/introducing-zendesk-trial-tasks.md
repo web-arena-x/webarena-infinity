@@ -44,7 +44,7 @@ As part of signing up for a trial, Zendesk would like to know a little more abou
 
 - Answer the questions, then click **Continue**.
 
-  If you don't want to answer the questions, click **No thanks**.
+ If you don't want to answer the questions, click **No thanks**.
 
 Depending on how you answer the questions we will tailor the tasks in the trial wizard to match your experience level. We’ll also make changes based on how your customers reach you. This helps you to have the best trial experience possible.
 
@@ -61,9 +61,9 @@ To help you get a head start on your Zendesk trial, Zendesk includes sample data
 
 - In the trial setup questionnaire, select a business type from the drop-down menu.
 
-  The business type you select determines the sample content. If you leave this question unanswered or skip the questionnaire entirely, you’ll see sample Consumer (B2C) data in your account.
+ The business type you select determines the sample content. If you leave this question unanswered or skip the questionnaire entirely, you’ll see sample Consumer (B2C) data in your account.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/suite_trail_sample_data_small3.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/suite_trail_sample_data_small3.png)
 
 At the end of the trial, when you decide to purchase a Zendesk account, you’ll have the option to keep or [delete](#topic_ewq_j1h_jxb) any sample data you added.
 
@@ -99,23 +99,23 @@ Any email sent to this address automatically becomes a ticket in your Zendesk ac
 
 - **Email**: This is your default Support email address where customers can send their support requests.
 
-  Any email sent to this address automatically becomes a ticket in your Zendesk account. Zendesk created a default support address for you, but you can change it or add more addresses. After you complete the trial tasks, you can add additional email addresses, set email preferences, or customize your email templates. See [A complete guide to understanding email in Zendesk](https://support.zendesk.com/hc/en-us/articles/4887918604058).
+ Any email sent to this address automatically becomes a ticket in your Zendesk account. Zendesk created a default support address for you, but you can change it or add more addresses. After you complete the trial tasks, you can add additional email addresses, set email preferences, or customize your email templates. See [A complete guide to understanding email in Zendesk](https://support.zendesk.com/hc/en-us/articles/4887918604058).
 
-  Tip: If you've set up a customer solution before, the trial tasks include a **Take it further** link. Click the link to open the online setup guide and learn about creating [custom email addresses](https://support.zendesk.com/hc/en-us/articles/4408842868506#topic_kby_k3w_jw).
+ Tip: If you've set up a customer solution before, the trial tasks include a **Take it further** link. Click the link to open the online setup guide and learn about creating [custom email addresses](https://support.zendesk.com/hc/en-us/articles/4408842868506#topic_kby_k3w_jw).
 - **Messaging and live chat**: One key element of a winning support strategy is to enable customers to connect with your agents over the channel of their choice. You can use messaging and live chat to instantly connect.
 
-  We'll provide you with the code you need for customers to connect directly from your website. When customers connect from your website, you can automate your responses with self-serve options and your agents can chat with them directly. You can also set up your account to support popular social messaging applications. See [Getting started with social messaging](https://support.zendesk.com/hc/en-us/articles/4408831648794).
+ We'll provide you with the code you need for customers to connect directly from your website. When customers connect from your website, you can automate your responses with self-serve options and your agents can chat with them directly. You can also set up your account to support popular social messaging applications. See [Getting started with social messaging](https://support.zendesk.com/hc/en-us/articles/4408831648794).
 - **AI agents**: Deploy an Al agent as your frontline and resolve a majority of your customer requests autonomously.
 
-  AI agents are the next generation of AI-powered bots that automate and resolve your customers’ issues across service channels. AI agents functionality is included in Zendesk Suite or Support plans, along with a number of automated resolutions used to measure usage of AI agents. See [Overview of AI agents](https://support.zendesk.com/hc/en-us/articles/6970583409690).
+ AI agents are the next generation of AI-powered bots that automate and resolve your customers’ issues across service channels. AI agents functionality is included in Zendesk Suite or Support plans, along with a number of automated resolutions used to measure usage of AI agents. See [Overview of AI agents](https://support.zendesk.com/hc/en-us/articles/6970583409690).
 - **Help center**: Your help center location where you can post articles and teach your customers to be self-sufficient.
 
-  You help center consists of a knowledge base and a customer contact portal. As a Knowledge admin, you can create and publish FAQs, articles, and videos in the help center and work with your agents to make sure customers have the latest, up-to-date information about your products. The task wizard provides a link where you can set up your help center. See [Getting started with Guide](https://support.zendesk.com/hc/en-us/articles/4408846795674).
+ You help center consists of a knowledge base and a customer contact portal. As a Knowledge admin, you can create and publish FAQs, articles, and videos in the help center and work with your agents to make sure customers have the latest, up-to-date information about your products. The task wizard provides a link where you can set up your help center. See [Getting started with Guide](https://support.zendesk.com/hc/en-us/articles/4408846795674).
 - **Voice**: Your Talk number where customers can call for help.
 
-  When customers call this number, Zendesk automatically creates a ticket so you have a record of the call. Zendesk created a default phone number for you, but you can change it later or forward an existing number. Zendesk Talk includes a variety of features you can use to set up your call center, enable call recordings, add voicemail, and so on. See [Getting started with Zendesk Talk](https://support.zendesk.com/hc/en-us/articles/4408821196314).
+ When customers call this number, Zendesk automatically creates a ticket so you have a record of the call. Zendesk created a default phone number for you, but you can change it later or forward an existing number. Zendesk Talk includes a variety of features you can use to set up your call center, enable call recordings, add voicemail, and so on. See [Getting started with Zendesk Talk](https://support.zendesk.com/hc/en-us/articles/4408821196314).
 
-  Tip: If you've set up a customer solution before, the trial tasks include a **Take it further** link. Click the link to open the online setup guide and learn about [setting up voice lines](https://support.zendesk.com/hc/en-us/articles/4408838035866).
+ Tip: If you've set up a customer solution before, the trial tasks include a **Take it further** link. Click the link to open the online setup guide and learn about [setting up voice lines](https://support.zendesk.com/hc/en-us/articles/4408838035866).
 
 ### Send a test ticket
 
@@ -184,7 +184,7 @@ The Zendesk Agent Workspace provides a single, unified interface your agents can
 
 - Click the play icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/uc_arrow_icon.png)) to watch the video.
 
-  This video shows you how interact with your customer on a social messaging channel and use customer context to learn more about your customer. It also shows you how to use side conversations to loop in team members outside the ticketing system.
+ This video shows you how interact with your customer on a social messaging channel and use customer context to learn more about your customer. It also shows you how to use side conversations to loop in team members outside the ticketing system.
 
 ### Learn about tickets
 
@@ -209,9 +209,9 @@ You can increase agent productivity by:
 - **Using prepared responses**: Macros enable your agents to perform standard or common actions with just a few clicks. For example, you might have a macro that answers a frequently-asked question or sends a friendly reminder that asks a customer to respond. Macros enable you to standardize your approach to similar tickets.
 - **Automating repeat actions**: Triggers and automations are simple, but powerful tools that perform actions only if certain conditions are met. From simple auto replies to complex escalations and adjustments, triggers and automations are designed to free-up your agents from repetitive tasks so they can focus on more important things.
 
-  In this section, you can take a tour to learn how to personalize the automated reply customers receive when they send a request to your support email address.
+ In this section, you can take a tour to learn how to personalize the automated reply customers receive when they send a request to your support email address.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/trial_edit_notification.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/trial_edit_notification.png)
 
 Follow the videos and tours in this task to learn how Zendesk can increase productivity for your agents.
 
@@ -219,12 +219,12 @@ In addition, take a look at the [sample data](#topic_tfc_vxg_jxb) in your trial 
 
 - In addition to the [standard ticket views](https://support.zendesk.com/hc/en-us/articles/4408829483930#topic_gnx_2tm_vt) included in every account, you’ll see sample views showing additional ways to filter your ticket queue. Open the views to see which types of tickets appear in each view.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/suite_trial_sample_data_views.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/suite_trial_sample_data_views.png)
 - In addition to the [standard macros](https://support.zendesk.com/hc/en-us/articles/4408844187034) that are included in every account, you’ll see some sample macros you can use to apply repeat actions to a ticket. Try applying these macros to tickets in your queue to see how they work.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/suite_trial_sample_data_macros.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/suite_trial_sample_data_macros.png)
 
-To learn more, see [Creating views to manage ticket workflow](https://support.zendesk.com/hc/en-us/articles/4408888828570),  [Using macros to update tickets](https://support.zendesk.com/hc/en-us/articles/4408887656602), and [Routing and automation options for incoming tickets](https://support.zendesk.com/hc/en-us/articles/4408831658650).
+To learn more, see [Creating views to manage ticket workflow](https://support.zendesk.com/hc/en-us/articles/4408888828570), [Using macros to update tickets](https://support.zendesk.com/hc/en-us/articles/4408887656602), and [Routing and automation options for incoming tickets](https://support.zendesk.com/hc/en-us/articles/4408831658650).
 
 ## Messaging and live chat
 
@@ -377,13 +377,13 @@ Once you decide to [buy Zendesk](https://support.zendesk.com/hc/en-us/articles/4
 
 - Click the help icon (?) next to your profile image.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/onboarding_help_support.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/onboarding_help_support.png)
 
-  A help panel appears. The panel includes simple setup instructions, plus links to various learning resources, including:
+ A help panel appears. The panel includes simple setup instructions, plus links to various learning resources, including:
 
-  - Step-by-step setup guides with new tutorial videos
-  - Links to articles, community, and training courses
-  - Search capability of the entire Zendesk help center
+ - Step-by-step setup guides with new tutorial videos
+ - Links to articles, community, and training courses
+ - Search capability of the entire Zendesk help center
 
     ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/in_prodict_help_setup.png)
 

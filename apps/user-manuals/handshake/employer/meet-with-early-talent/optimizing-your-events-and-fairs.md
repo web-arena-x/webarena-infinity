@@ -57,19 +57,19 @@ Premium partners using the Events module can:
 Engage in any of the following activities to drive stronger outcomes:
 
 - **Promote your event or fair**
-  - Send a campaign to invite candidates.
+ - Send a campaign to invite candidates.
     - Click the white button **Create campaign**.
       - *Learn more about* [*Campaigns: Create an Event, Fair or Branding Campaign*](https://support.joinhandshake.com/hc/en-us/articles/360034459273).
 - **Customize check-in**
-  - Collect custom data during attendee check-in.
+ - Collect custom data during attendee check-in.
     - Click the white button **Set up kiosk**.
       - *Learn how to*[*Create and Launch a Check-in Kiosk*](https://support.joinhandshake.com/hc/en-us/articles/8739849048727).
 - **Share availability**
-  - Allow students to sign up for meeting slots.
+ - Allow students to sign up for meeting slots.
     - Click the white button **Manage schedule**.
       - *Read more about*[*Managing Schedules for Virtual Fairs*](https://support.joinhandshake.com/hc/en-us/articles/360051272433).
 - **Review pro tips**
-  - Explore best practices to make the most of your virtual event.
+ - Explore best practices to make the most of your virtual event.
     - Click the white button **View blog**.
 
 ### 

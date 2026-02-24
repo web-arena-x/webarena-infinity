@@ -23,38 +23,38 @@ Manage team libraries in the team's settings.
 Professional plan Organization and Enterprise plan
 
 1. Open the [file browser](https://help.figma.com/hc/en-us/articles/14381406380183-Guide-to-the-file-browser) by logging in to your account at [figma.com](https://figma.com).
-   - If you’re in a file, click the  Figma menu > **Back to files**.
-2. Select  **All projects**.
-3. Click  **Open team dropdown**next to the team name and select **View settings**.
+   - If you’re in a file, click the Figma menu > **Back to files**.
+2. Select **All projects**.
+3. Click **Open team dropdown**next to the team name and select **View settings**.
 4. Under **Libraries** or **Shared**, click the **View team's libraries** option.
 5. View a list of available libraries in the library modal. Every library corresponds to a file with published styles, components and variables.
 6. Click the library name to view assets in that library.
-7. Click **Off**  next to the library to adjust.
+7. Click **Off** next to the library to adjust.
 8. Choose which files to make the library available in:
    - Design files
    - FigJam boards
    - Slide decks
    - Buzz files
    - All files
-9. To remove a library from your files, click  next to the current setting and select **Off**.
+9. To remove a library from your files, click next to the current setting and select **Off**.
 
 1. Open the [file browser](https://help.figma.com/hc/en-us/articles/14381406380183-Guide-to-the-file-browser) by logging in to your account at [figma.com](https://figma.com).
-   - If you’re in a file, click the  Figma menu > **Back to files**.
+   - If you’re in a file, click the Figma menu > **Back to files**.
 2. Navigate to a team page.
-   - Organization or Enterprise plan (without workspaces): Select  **All teams** from the left sidebar. Then, select a team.
-   - Enterprise plan (with workspaces): Select  **All workspaces** from the left sidebar. Select a workspace, then select a team.
-3. Click  **Open team dropdown** next to the team name and select **View settings**.
+   - Organization or Enterprise plan (without workspaces): Select **All teams** from the left sidebar. Then, select a team.
+   - Enterprise plan (with workspaces): Select **All workspaces** from the left sidebar. Select a workspace, then select a team.
+3. Click **Open team dropdown** next to the team name and select **View settings**.
 4. Under **Libraries** or **Shared**, click the **Enable libraries** option.
 5. View a list of available libraries in the library modal. Every library corresponds to a file with published styles, components and variables.
 6. Click the library name to view assets in that library.
-7. Click **Off**  next to the library to adjust.
+7. Click **Off** next to the library to adjust.
 8. Choose which files to make the library available in:
    - Design files
    - FigJam boards
    - Slide decks
    - Buzz files
    - All files
-9. To remove a library from your files, click  next to the current setting and select **Off**.
+9. To remove a library from your files, click next to the current setting and select **Off**.
 
 **Note:** On the [Enterprise plan](https://help.figma.com/hc/en-us/articles/360040328273), you can set a [default mode](https://help.figma.com/hc/en-us/articles/15343816063383.html#Default_mode) for the team if the library contains a [variable collection](https://help.figma.com/hc/en-us/articles/14506821864087.html#h_01H9V3QSVH2T1EYNXP7RNXZ8MV) with at least two [modes](https://help.figma.com/hc/en-us/articles/15343816063383).
 
@@ -72,13 +72,13 @@ Tip: Admins can manage a team's access to UI kits from the team's libraries sett
 
 When you make a library available in a design file, you can:
 
-- Find and apply styles using the  style pickers in the right sidebar. **[Apply styles to layers in Figma Design →](https://help.figma.com/hc/en-us/articles/360040316193)**
+- Find and apply styles using the style pickers in the right sidebar. **[Apply styles to layers in Figma Design →](https://help.figma.com/hc/en-us/articles/360040316193)**
 - Drag components into the canvas from the **Assets** panel in the left sidebar. Click to select variants of a component. **[Add components to your designs →](https://help.figma.com/hc/en-us/articles/360039150173)**
 - Review any variables published in the library whether they are included as a style or are mapped to a property in a component. [**Apply variables to designs →**](https://help.figma.com/hc/en-us/articles/15343107263511)
 
 ### FigJam files
 
-Access components, along with stickers curated by Figma, from the  **library** tool. **[Use stickers and components from libraries →](https://help.figma.com/hc/en-us/articles/1500004290841)**
+Access components, along with stickers curated by Figma, from the **library** tool. **[Use stickers and components from libraries →](https://help.figma.com/hc/en-us/articles/1500004290841)**
 
 ### Slide decks
 
@@ -88,8 +88,8 @@ When you [make a library available for Figma Slides](../../figma-slides/create-s
 
 When you make a library available in a Figma Buzz file, you can:
 
-- [Find an apply styles to fonts and colors](https://help.figma.com/hc/articles/33799043961879) when using the toolbar by selecting  **Apply styles and variables**.
-- [Use the  Inserts menu to add components](https://help.figma.com/hc/articles/33799043961879) to your file. You can also swap between variants of the component.
+- [Find an apply styles to fonts and colors](https://help.figma.com/hc/articles/33799043961879) when using the toolbar by selecting **Apply styles and variables**.
+- [Use the Inserts menu to add components](https://help.figma.com/hc/articles/33799043961879) to your file. You can also swap between variants of the component.
 
 ## More resources
 

@@ -13,8 +13,7 @@ title: Unit test reports
 
 {{< /details >}}
 
-Unit test reports display test results directly in merge requests and pipeline details,
-so you can identify failures without searching through job logs.
+Unit test reports display test results directly in merge requests and pipeline details, so you can identify failures without searching through job logs.
 
 Use unit test reports when you want to:
 
@@ -49,11 +48,11 @@ For test case limits, see [Maximum test cases per unit test report](../../user/g
 
 GitLab parses a subset of JUnit XML elements and attributes to display test results in the UI.
 
-| XML Element  | XML Attribute   | Description |
+| XML Element | XML Attribute   | Description |
 | ------------ | --------------- | ----------- |
 | `testsuites` | `time`          | Total execution time for all test suites. Used for test execution time calculations. |
-| `testsuite`  | `name`          | Test suite name. Parsed for internal grouping. |
-| `testsuite`  | `time`          | Execution time for an individual test suite. Used for test execution time calculations. |
+| `testsuite` | `name`          | Test suite name. Parsed for internal grouping. |
+| `testsuite` | `time`          | Execution time for an individual test suite. Used for test execution time calculations. |
 | `testcase`   | `classname`     | Test class or category name. Displayed as the suite name in UI. |
 | `testcase`   | `name`          | Individual test name. |
 | `testcase`   | `file`          | File path where the test is defined. |
@@ -75,12 +74,12 @@ The following elements and attributes are not parsed:
 
 ```xml
 <testsuites>
-  <testsuite name="Authentication Tests" tests="1" failures="1">
+ <testsuite name="Authentication Tests" tests="1" failures="1">
     <testcase classname="LoginTest" name="test_invalid_password" file="spec/auth_spec.rb" time="0.23">
       <failure>Expected authentication to fail</failure>
       <system-out>[[ATTACHMENT|screenshots/failure.png]]</system-out>
     </testcase>
-  </testsuite>
+ </testsuite>
 </testsuites>
 ```
 
@@ -104,8 +103,7 @@ Test results are compared between the merge request's source and target branches
 
 If branches cannot be compared, for example when there is no target branch data yet, only the failed tests from your branch are shown.
 
-For tests that failed in the default branch in the last 14 days,
-you see a message like `Failed {n} time(s) in {default_branch} in the last 14 days`.
+For tests that failed in the default branch in the last 14 days, you see a message like `Failed {n} time(s) in {default_branch} in the last 14 days`.
 This count includes failed tests from completed pipelines, but not [blocked pipelines](../jobs/job_control.md#types-of-manual-jobs).
 Support for blocked pipelines is proposed in [issue 431265](https://gitlab.com/gitlab-org/gitlab/-/issues/431265).
 
@@ -117,8 +115,7 @@ To configure unit test reports:
 
 1. Configure your test job to output JUnit XML format test reports.
    For configuration details, review your testing framework's documentation.
-1. In your `.gitlab-ci.yml` file, add
-   [`artifacts:reports:junit`](../yaml/artifacts_reports.md#artifactsreportsjunit) to your test job.
+1. In your `.gitlab-ci.yml` file, add [`artifacts:reports:junit`](../yaml/artifacts_reports.md#artifactsreportsjunit) to your test job.
 1. Specify the path to your XML test report files.
 1. Optional. To make report files browsable, include them with [`artifacts:paths`](../yaml/_index.md#artifactspaths).
 1. Optional. To upload reports even when jobs fail, use [`artifacts:when:always`](../yaml/_index.md#artifactswhen).
@@ -127,11 +124,11 @@ Example configuration for Ruby with RSpec:
 
 ```yaml
 ruby:
-  stage: test
-  script:
+ stage: test
+ script:
     - bundle install
     - bundle exec rspec --format progress --format RspecJunitFormatter --out rspec.xml
-  artifacts:
+ artifacts:
     when: always
     paths:
       - rspec.xml
@@ -148,8 +145,7 @@ You can view test results:
 
 View detailed information about test failures in merge requests.
 
-The **Test summary** panel shows an overview of your test results,
-including how many tests failed and passed.
+The **Test summary** panel shows an overview of your test results, including how many tests failed and passed.
 
 ![Expanded Test summary panel that shows one failed test with the View details link](img/test_summary_panel_expanded_v18_1.png)
 
@@ -159,13 +155,11 @@ To view test failure details:
 1. To expand the **Test summary** panel, select **Show details** ({{< icon name="chevron-lg-down" >}}).
 1. Select **View details** next to a failed test.
 
-The dialog displays the test name, file path, execution time, screenshot attachment (if configured),
-and error output.
+The dialog displays the test name, file path, execution time, screenshot attachment (if configured), and error output.
 
 To view all test results:
 
-- From the **Test summary** panel, select **Full report**
-  to go to the **Tests** tab in the pipeline details.
+- From the **Test summary** panel, select **Full report** to go to the **Tests** tab in the pipeline details.
 
 ### Copy failed test names
 
@@ -207,14 +201,11 @@ You can also retrieve test reports with the [Pipelines API](../../api/pipelines.
 
 Test results display different timing metrics:
 
-Pipeline duration
-: Elapsed time from when the pipeline starts until it completes.
+Pipeline duration : Elapsed time from when the pipeline starts until it completes.
 
-Test execution time
-: Total time spent running all tests across all jobs, added together.
+Test execution time : Total time spent running all tests across all jobs, added together.
 
-Queue time
-: Time jobs spent waiting for available runners.
+Queue time : Time jobs spent waiting for available runners.
 
 When jobs run in parallel, cumulative test execution time can exceed pipeline duration.
 
@@ -261,8 +252,7 @@ To add screenshots to test reports:
 
 1. Run your pipeline.
 
-You can access the screenshot link in the test details dialog
-when you select **View details** for a failed test in the **Test summary** panel.
+You can access the screenshot link in the test details dialog when you select **View details** for a failed test in the **Test summary** panel.
 
 ![A failed unit test report with test details and screenshot attachment](img/unit_test_report_screenshot_v18_1.png)
 
@@ -277,8 +267,7 @@ This issue occurs when:
 - Report artifacts have expired.
 - JUnit files exceed size limits.
 
-To resolve this issue, set a longer [`expire_in`](../yaml/_index.md#artifactsexpire_in) value for the report artifact,
-or run a new pipeline to generate a new report.
+To resolve this issue, set a longer [`expire_in`](../yaml/_index.md#artifactsexpire_in) value for the report artifact, or run a new pipeline to generate a new report.
 
 If JUnit files exceed size limits, ensure:
 
@@ -316,5 +305,4 @@ To resolve this issue:
 - Check that all XML elements are properly closed.
 - Ensure attribute names and values are correctly formatted.
 
-For [grouped jobs](../jobs/_index.md#group-similar-jobs-together-in-pipeline-views),
-only the first parsing error from the group is displayed.
+For [grouped jobs](../jobs/_index.md#group-similar-jobs-together-in-pipeline-views), only the first parsing error from the group is displayed.

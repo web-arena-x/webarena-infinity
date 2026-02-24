@@ -142,10 +142,10 @@ Hovering over each bar reveals a dialog that explains the score's definition.
 
 For example, if a project has a high score for deployment frequency (velocity), it means that the project has one or more deploys to production per day.
 
-| Metric                  | High | Medium  | Low  | Description |
+| Metric                  | High | Medium | Low | Description |
 |-------------------------|------|---------|------|-------------|
-| Deployment frequency    | ≥30  | 1-29    | \<1  | The number of deploys to production per day |
-| Lead time for changes   | ≤7   | 8-29    | ≥30  | The number of days to go from code committed to code successfully running in production |
+| Deployment frequency    | ≥30 | 1-29    | \<1 | The number of deploys to production per day |
+| Lead time for changes   | ≤7   | 8-29    | ≥30 | The number of days to go from code committed to code successfully running in production |
 | Time to restore service | ≤1   | 2-6     | ≥7   | The number of days to restore service when a service incident or a defect that impacts users occurs |
 | Change failure rate     | ≤15% | 16%-44% | ≥45% | The percentage of changes to production resulted in degraded service |
 
@@ -153,12 +153,11 @@ To learn more, see the blog post [Inside DORA Performers score in GitLab Value S
 
 #### Filter the panel by project topic
 
-When you customize dashboards with a YAML configuration,
-you can filter the displayed projects by assigned [topics](../project/project_topics.md).
+When you customize dashboards with a YAML configuration, you can filter the displayed projects by assigned [topics](../project/project_topics.md).
 
 ```yaml
 panels:
-  - title: 'My dora performers scores'
+ - title: 'My dora performers scores'
     visualization: dora_performers_score
     queryOverrides:
       namespace: group/my-custom-group
@@ -236,15 +235,15 @@ To view the Value Streams Dashboard for a group:
 
 - From Analytics Dashboards:
 
-  1. On the top bar, select **Search or go to** and find your group.
-  1. Select **Analyze** > **Analytics Dashboards**.
+ 1. On the top bar, select **Search or go to** and find your group.
+ 1. Select **Analyze** > **Analytics Dashboards**.
 
 - From Value Stream Analytics:
 
-  1. On the top bar, select **Search or go to** and find your project or group.
-  1. Select **Analyze** > **Value stream analytics**.
-  1. Below the **Filter results** text box, in the **Lifecycle metrics** row, select **Value Streams Dashboard / DORA**.
-  1. Optional. To open the new page, append this path `/analytics/dashboards/value_streams_dashboard` to the group URL (for example, `https://gitlab.com/groups/gitlab-org/-/analytics/dashboards/value_streams_dashboard`).
+ 1. On the top bar, select **Search or go to** and find your project or group.
+ 1. Select **Analyze** > **Value stream analytics**.
+ 1. Below the **Filter results** text box, in the **Lifecycle metrics** row, select **Value Streams Dashboard / DORA**.
+ 1. Optional. To open the new page, append this path `/analytics/dashboards/value_streams_dashboard` to the group URL (for example, `https://gitlab.com/groups/gitlab-org/-/analytics/dashboards/value_streams_dashboard`).
 
 ### For projects
 
@@ -263,14 +262,11 @@ To view the Value Streams Dashboard as an analytics dashboard for a project:
 
 ## Schedule reports
 
-You can schedule reports using the CI/CD component
-[Value Streams Dashboard Scheduled Reports tool](https://gitlab.com/components/vsd-reports-generator).
+You can schedule reports using the CI/CD component [Value Streams Dashboard Scheduled Reports tool](https://gitlab.com/components/vsd-reports-generator).
 This tool saves time and effort by eliminating the need to manually search for the right dashboard with the relevant data, so that you can focus on analyzing insights.
 By scheduling reports, you can ensure that the decision-makers in your organization receive proactive, timely, and relevant information.
 
-The Scheduled Reports tool collects metrics from projects or groups through the public GitLab GraphQL API,
-then builds a report using GitLab Flavored Markdown,
-and opens an issue in a specified project.
+The Scheduled Reports tool collects metrics from projects or groups through the public GitLab GraphQL API, then builds a report using GitLab Flavored Markdown, and opens an issue in a specified project.
 The issue includes a comparison metrics table in Markdown format.
 
 See an [example scheduled report](https://gitlab.com/components/vsd-reports-generator#example-for-monthly-executive-value-streams-report).
@@ -333,7 +329,7 @@ description: 'Custom description'
 #   queryOverrides.namespace - The Group or Project path to use for the chart panel
 #   queryOverrides.filters.includeMetrics - Shows rows by metric ID in the table panel.
 panels:
-  - title: 'Group usage overview'
+ - title: 'Group usage overview'
     visualization: usage_overview
     queryOverrides:
       namespace: group
@@ -346,7 +342,7 @@ panels:
       xPos: 1
       height: 1
       width: 12
-  - title: 'Group dora and issue metrics'
+ - title: 'Group dora and issue metrics'
     visualization: ai_impact_table
     queryOverrides:
       namespace: group
@@ -359,7 +355,7 @@ panels:
       xPos: 1
       height: 12
       width: 12
-  - title: 'My dora performers scores'
+ - title: 'My dora performers scores'
     visualization: dora_performers_score
     queryOverrides:
       namespace: group/my-project
@@ -424,8 +420,7 @@ Filters for the `dora_chart` visualization.
 
 ## Dashboard metrics and drill-down reports
 
-The following table provides an overview of the metrics available in the Value Streams Dashboard,
-along with their descriptions and the name of the drill-down report where they are displayed.
+The following table provides an overview of the metrics available in the Value Streams Dashboard, along with their descriptions and the name of the drill-down report where they are displayed.
 
 | Metric                             | Description | Drill-down report | ID |
 |------------------------------------| ----------- | ----------------- | -- |
@@ -447,11 +442,11 @@ along with their descriptions and the name of the drill-down report where they a
 | Pipeline median duration           | The median time it takes for pipelines to complete. | CI/CD analytics | `pipeline_duration_median` |
 | Pipeline success rate              | The percentage of pipelines that completed successfully. | CI/CD analytics | `pipeline_success_rate` |
 | Pipeline failure rate              | The percentage of pipelines that failed. | CI/CD analytics | `pipeline_failed_rate` |
-| Duo features usage                 | Number of contributors who used any GitLab Duo feature. |  | `duo_used_count` |
-| Code Suggestions usage             | Users with assigned GitLab Duo seats who used at least one GitLab Duo feature. |  | `code_suggestions_usage_rate` |
-| Code Suggestions acceptance rate   | Code Suggestions accepted out of total Code Suggestions generated. |  | `code_suggestions_acceptance_rate` |
-| Duo Chat usage                     | Users with assigned GitLab Duo seats who used GitLab Duo Chat. |  | `duo_chat_usage_rate` |
-| Duo RCA usage                      | Users with assigned GitLab Duo seats who used Root Cause Analysis. |  | `duo_rca_usage_rate` |
+| Duo features usage                 | Number of contributors who used any GitLab Duo feature. | | `duo_used_count` |
+| Code Suggestions usage             | Users with assigned GitLab Duo seats who used at least one GitLab Duo feature. | | `code_suggestions_usage_rate` |
+| Code Suggestions acceptance rate   | Code Suggestions accepted out of total Code Suggestions generated. | | `code_suggestions_acceptance_rate` |
+| Duo Chat usage                     | Users with assigned GitLab Duo seats who used GitLab Duo Chat. | | `duo_chat_usage_rate` |
+| Duo RCA usage                      | Users with assigned GitLab Duo seats who used Root Cause Analysis. | | `duo_rca_usage_rate` |
 
 ## Metrics with Jira
 

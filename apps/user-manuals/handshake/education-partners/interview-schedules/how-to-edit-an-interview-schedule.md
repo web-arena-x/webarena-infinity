@@ -27,11 +27,11 @@ Topics:
 3. Click on the interview schedule's name. Slots may be managed:
 
 - individually: 
-  - to edit: click directly on the text in the time slot's row, anywhere *except* Remove
-  - to remove: click the red button **Remove**, to the far right in the row
+ - to edit: click directly on the text in the time slot's row, anywhere *except* Remove
+ - to remove: click the red button **Remove**, to the far right in the row
 - in bulk: first check the boxes to the left of the times you want to edit, then click
-  - to edit: the blue button **Bulk Edit Slots**, to the upper-right above the table
-  - to remove: the red button **Bulk Remove Slots**, to the right of Bulk Edit Slots
+ - to edit: the blue button **Bulk Edit Slots**, to the upper-right above the table
+ - to remove: the red button **Bulk Remove Slots**, to the right of Bulk Edit Slots
 
 ![oci_overview_page.png](https://support.joinhandshake.com/hc/article_attachments/25997002233111)
 

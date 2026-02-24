@@ -51,8 +51,7 @@ After the Harbor integration is activated:
 
 ### Secure your requests to the Harbor APIs
 
-For each API request through the Harbor integration, the credentials for your connection to the Harbor API use
-the `username:password` combination. The following are suggestions for safe use:
+For each API request through the Harbor integration, the credentials for your connection to the Harbor API use the `username:password` combination. The following are suggestions for safe use:
 
 - Use TLS on the Harbor APIs you connect to.
 - Follow the principle of least privilege (for access on Harbor) with your credentials.
@@ -60,9 +59,7 @@ the `username:password` combination. The following are suggestions for safe use:
 
 ### CI/CD variable security
 
-Malicious code pushed to your `.gitlab-ci.yml` file could compromise your variables, including
-`$HARBOR_PASSWORD`, and send them to a third-party server. For more details, see
-[CI/CD variable security](../../../ci/variables/_index.md#cicd-variable-security).
+Malicious code pushed to your `.gitlab-ci.yml` file could compromise your variables, including `$HARBOR_PASSWORD`, and send them to a third-party server. For more details, see [CI/CD variable security](../../../ci/variables/_index.md#cicd-variable-security).
 
 ## Use Harbor variables
 
@@ -73,14 +70,14 @@ Read more about OCI in Helm's [blog](https://helm.sh/blog/storing-charts-in-oci/
 
 ```yaml
 helm:
-  stage: helm
-  image:
+ stage: helm
+ image:
     name: dtzar/helm-kubectl:latest
     entrypoint: ['']
-  variables:
+ variables:
     # Enable OCI support (not required since Helm v3.8.0)
     HELM_EXPERIMENTAL_OCI: 1
-  script:
+ script:
     # Log in to the Helm registry
     - helm registry login "${HARBOR_URL}" -u "${HARBOR_USERNAME}" -p "${HARBOR_PASSWORD}"
     # Package your Helm chart, which is in the `test` directory

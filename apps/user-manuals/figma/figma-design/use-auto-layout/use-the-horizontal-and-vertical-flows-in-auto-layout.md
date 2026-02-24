@@ -23,11 +23,11 @@ This article covers just one aspect of working auto layout. Check out these othe
 
 ## Vertical and horizontal flows
 
-The  **vertical** auto layout flow places objects in your frame along the y-axis. Any objects you add, remove, or reorder will follow the y-axis. For example: list items in a to-do list, or posts within a newsfeed or timeline.
+The **vertical** auto layout flow places objects in your frame along the y-axis. Any objects you add, remove, or reorder will follow the y-axis. For example: list items in a to-do list, or posts within a newsfeed or timeline.
 
-The  **horizontal** auto layout flow objects in your frame along the x-axis. Any objects you add, remove, or reorder will follow the x-axis. For example: a row of buttons, or icons in a mobile navigation menu.
+The **horizontal** auto layout flow objects in your frame along the x-axis. Any objects you add, remove, or reorder will follow the x-axis. For example: a row of buttons, or icons in a mobile navigation menu.
 
-When you have the horizontal selected,  **Wrap** becomes available. Wrap pushes any overflowing objects to the next line in your frame.
+When you have the horizontal selected, **Wrap** becomes available. Wrap pushes any overflowing objects to the next line in your frame.
 
 ![three sets of designs, all with the same elements: three circles, one pink, one yellow, one green. The first set of circles are placed in a vertical direction. The second set of circles are placed in a horizontal direction. The third set of circles are wrapped, with the pink and yellow circles in the first row, and the green circle in the second row.](https://help.figma.com/hc/article_attachments/31837628742551)
 
@@ -198,7 +198,7 @@ You can change the order that objects appear in an auto layout frame. This is on
 To remove an object from a main component or auto layout frame:
 
 - Drag the object outside of the auto layout frame
-- Click  next to **Appearance** in the right sidebar, or next to the layer in the left sidebar to toggle the layer visibility
+- Click next to **Appearance** in the right sidebar, or next to the layer in the left sidebar to toggle the layer visibility
 - Select the object and press the `Delete` or `Backspace` key
 
 You can't delete a layer or object from an instance. If you try, Figma will only toggle the layer's visibility instead of removing it.
@@ -213,7 +213,7 @@ New to auto layout? Play around with the different auto layout properties in the
 
 More ways to learn:
 
-- **Figma tutorial playlist:** [Learn to create flexible designs and components](https://youtube.com/playlist?list=PLXDU_eVOJTx55HFubfbTL3ellJjBM2QE2&si=166Ohn4M4sID1REI)  
-  This playlist includes video tutorials that cover the basics of auto layout, how to apply auto layout to designs, and hands-on tutorials for more practice.
-- **Community file:** [Auto layout playground](https://www.figma.com/community/file/784448220678228461)  
-  Grab a copy of the auto layout playground file to practice while you learn.
+- **Figma tutorial playlist:** [Learn to create flexible designs and components](https://youtube.com/playlist?list=PLXDU_eVOJTx55HFubfbTL3ellJjBM2QE2&si=166Ohn4M4sID1REI) 
+ This playlist includes video tutorials that cover the basics of auto layout, how to apply auto layout to designs, and hands-on tutorials for more practice.
+- **Community file:** [Auto layout playground](https://www.figma.com/community/file/784448220678228461) 
+ Grab a copy of the auto layout playground file to practice while you learn.

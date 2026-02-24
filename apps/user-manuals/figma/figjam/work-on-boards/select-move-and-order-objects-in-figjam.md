@@ -13,9 +13,9 @@ Before you start
 
 ## Select tool
 
-When you create or enter a FigJam file, the  **select** tool is enabled by default. Use the **select** tool to select, move, and [resize objects](https://help.figma.com/hc/en-us/articles/1500006206242) on your board.
+When you create or enter a FigJam file, the **select** tool is enabled by default. Use the **select** tool to select, move, and [resize objects](https://help.figma.com/hc/en-us/articles/1500006206242) on your board.
 
-Click the  **select** tool in the toolbar or press `V` .
+Click the **select** tool in the toolbar or press `V` .
 
 - Select a single object.
 - Click and hold an empty space, then drag your cursor to select multiple objects.
@@ -29,7 +29,7 @@ You can deselect an object once you are done interacting with it.
 
 ### Select a single object
 
-1. Select the  **select** tool in the toolbar or press `V`.
+1. Select the **select** tool in the toolbar or press `V`.
 2. Click on an object to select it.
 
 ### Select multiple objects
@@ -118,7 +118,7 @@ Objects in FigJam can only be aligned to other objects. There are six different 
 Use tidy up to rearrange and organize objects like stickies and shapes into a uniform grid of rows and columns. You can also adjust the horizontal and vertical spacing between objects and rearrange their order while maintaining their spacing.
 
 1. Select at least three objects on your board. **[Learn how to select multiple objects ↑](#h_01F3PWAKB76XYA57PCZB37PKHV)**
-2. Click  in the selection's toolbar.
+2. Click in the selection's toolbar.
 
 Your objects are moved into a grid formation with even spacing. The dots and lines that appear in the selection's bounding box allow you to rearrange objects and adjust spacing.
 

@@ -20,7 +20,7 @@ You can view all updates at once, or view updates to a single component, style, 
 
 ### View all updates
 
-When library updates are available, the  **Libraries** icon on the Assets tab in the left sidebar will display a blue badge.
+When library updates are available, the **Libraries** icon on the Assets tab in the left sidebar will display a blue badge.
 
 ![](https://help.figma.com/hc/article_attachments/27999040455447)
 
@@ -28,7 +28,7 @@ When library updates are available, the  **Libraries** icon on the Assets tab in
 
 To view all available updates:
 
-1. Click  **Review library updates** on the **Assets** tab in the left sidebar.
+1. Click **Review library updates** on the **Assets** tab in the left sidebar.
 2. Select the **Updates** tab. By default, the **Updates** tab displays assets on the current page. Use the **Show updates for all pages** toggle to see all available updates.
 3. Click **Update** next to an individual asset, or **Update all** to apply all updates. Updates are applied to assets on every page of the file.
 
@@ -36,7 +36,7 @@ To view all available updates:
 
 ### View updates for a single component or style
 
-When you select an instance or a layer using a style or variable with an available update, an  update icon will appear in the **Design** tab of the right sidebar. Click **Update available** and then select **Update selected instance** or **Review update**.
+When you select an instance or a layer using a style or variable with an available update, an update icon will appear in the **Design** tab of the right sidebar. Click **Update available** and then select **Update selected instance** or **Review update**.
 
 ![](https://help.figma.com/hc/article_attachments/26961683055895)
 

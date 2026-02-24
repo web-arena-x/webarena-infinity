@@ -6,21 +6,17 @@ Source: https://support.zendesk.com/hc/en-us/articles/9836794562842-Using-Jira-a
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-By connecting the [action builder](https://support.zendesk.com/hc/en-us/articles/8855513857306) to external systems, such as Jira, admins can
-integrate Zendesk with external systems in automated workflows, improving collaboration
-and maintaining a seamless experience across multiple platforms.
+By connecting the [action builder](https://support.zendesk.com/hc/en-us/articles/8855513857306) to external systems, such as Jira, admins can integrate Zendesk with external systems in automated workflows, improving collaboration and maintaining a seamless experience across multiple platforms.
 
-Note: The steps
-associated with external systems in action flows are referred to collectively as
-*external actions*.
+Note: The steps associated with external systems in action flows are referred to collectively as *external actions*.
 
 This article contains the following topics:
 
@@ -29,8 +25,7 @@ This article contains the following topics:
 
 ## Connecting Jira to action builder
 
-Before you can include external actions in your action flows, you must connect the
-action builder to the external system.
+Before you can include external actions in your action flows, you must connect the action builder to the external system.
 
 When connecting to external systems for use in action flows, the following best practices are recommended:
 
@@ -41,32 +36,20 @@ When connecting to external systems for use in action flows, the following best 
 **To connect Jira to action builder**
 
 1. In [Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554#topic_hfg_dyz_1hb), click ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ac_apps_integrations_icon.png)
-   **Apps and integrations** in the sidebar, then select **Actions > Action
-   flows**.
+   **Apps and integrations** in the sidebar, then select **Actions > Action flows**.
 2. [Create](https://support.zendesk.com/hc/en-us/articles/8855601898266) or [edit](https://support.zendesk.com/hc/en-us/articles/9052312956570) an action flow.
 3. Open the step sidebar.
 4. Under **External actions**, click **Jira**.
 5. Click **Connect**.
-6. Follow Atlassian's prompts to authenticate and complete the
-   connection.
+6. Follow Atlassian's prompts to authenticate and complete the connection.
 
-   Note: All external actions performed by an action flow are
-   attributed to the user who connected the external system. Therefore, it
-   is a best practice to use a dedicated service account rather than
-   personal credentials when connecting to each external
-   system.
+   Note: All external actions performed by an action flow are attributed to the user who connected the external system. Therefore, it is a best practice to use a dedicated service account rather than personal credentials when connecting to each external system.
 
-After you've connected to the system, you'll see an indicator that it's connected and
-details about the instance you're connected to, as well as the actions available for
-Jira.
+After you've connected to the system, you'll see an indicator that it's connected and details about the instance you're connected to, as well as the actions available for Jira.
 
 ## Using Jira actions in action flows
 
-Jira action steps can be used to automatically create and update Jira issues based on
-tickets. For example, you could automatically create Jira issues for bugs reported
-in Zendesk tickets, check a Jira issue's status before closing a Zendesk ticket,
-update Jira issue assignment based on ticket assignment, or move a Jira issue from
-one status to another when a ticket is being worked.
+Jira action steps can be used to automatically create and update Jira issues based on tickets. For example, you could automatically create Jira issues for bugs reported in Zendesk tickets, check a Jira issue's status before closing a Zendesk ticket, update Jira issue assignment based on ticket assignment, or move a Jira issue from one status to another when a ticket is being worked.
 
 The following Jira actions are available:
 
@@ -77,36 +60,33 @@ The following Jira actions are available:
 
 ### Creating a Jira issue
 
-Use the *Create issue* action to create a new issue in the connected Jira
-project.
+Use the *Create issue* action to create a new issue in the connected Jira project.
 
 This action has the following inputs and outputs:
 
-|  | Variables |
+| | Variables |
 | --- | --- |
 | Inputs | `project_id`, `summary`, `issue_type_id`, `assignee_id`, `priority_id`, `description`, `labels` |
 | Output | `id`, `key`, `self` |
 
 ### Getting a Jira issue
 
-Use the *Get issue* action to retrieve details about a specific Jira
-issue.
+Use the *Get issue* action to retrieve details about a specific Jira issue.
 
 This action has the following inputs and outputs:
 
-|  | Variables |
+| | Variables |
 | --- | --- |
 | Inputs | `issue_id` or `issue_key` |
 | Output | Full issue metadata |
 
 ### Editing a Jira issue
 
-Use the *Edit issue* action to update a Jira issue's details, incuding the
-summary, assignee, and description.
+Use the *Edit issue* action to update a Jira issue's details, incuding the summary, assignee, and description.
 
 This action has the following inputs and outputs:
 
-|  | Variables |
+| | Variables |
 | --- | --- |
 | Inputs | `project_id`, `summary`, `issue_type_id`, `assignee_id`, `priority_id`, `description`, `labels` |
 | Output | `id`, `key`, `self` |
@@ -118,7 +98,7 @@ For example, from "To do" to "In progress" when work begins.
 
 This action has the following inputs and outputs:
 
-|  | Variables |
+| | Variables |
 | --- | --- |
 | Inputs | `issue_id` or `issue_key`, `transition_id` |
 | Output | none |

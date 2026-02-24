@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/6084239129626-Managing-cus
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Enterprise |
 
-Location:  Admin Center > Objects and rules > Custom objects > Objects
+Location: Admin Center > Objects and rules > Custom objects > Objects
 
 After you create custom objects, you might need to modify them to meet your needs as things change within your organization. There are a variety of reasons why you might want to modify an existing custom object. [Adding new fields to a custom object](https://support.zendesk.com/hc/en-us/articles/5392409465370) and [managing agent access to an object's records](https://support.zendesk.com/hc/en-us/articles/6073847712282) are things you might do during initial object creation or at a later time, so they're covered elsewhere.
 

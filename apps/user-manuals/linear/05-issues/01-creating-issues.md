@@ -58,7 +58,7 @@ You can create recurring issues to automate your repeated tasks on a cadence of 
 
 ### Create a recurring issue
 
-When creating a new issue, you can choose to make it into recurring in the issue composer using the `…`  menu and choosing _"Make recurring…"_
+When creating a new issue, you can choose to make it into recurring in the issue composer using the `…` menu and choosing _"Make recurring…"_
 
 <details>
 <summary>Creating a recurring issue from the issue composer</summary>
@@ -67,14 +67,12 @@ When creating a new issue, you can choose to make it into recurring in the issue
 
 ### Convert an existing issue into a recurring issue
 
-To convert any issue into a recurring issue, open the issue and in the `…`  menu choose` Convert into > Recurring issue…,  
-,`You can also use the `Cmd/Ctrl` + `K `menu by typing _"Convert into recurring issue"_.  
+To convert any issue into a recurring issue, open the issue and in the `…` menu choose` Convert into > Recurring issue…, ,`You can also use the `Cmd/Ctrl` + `K `menu by typing _"Convert into recurring issue"_.
 You can then choose your first due date, and the cadence at which it repeats.
 
 ### Create recurring issues in team settings
 
-Navigate to **Team settings > Recurring issues.**  
-To create a new recurring issue, click the `+` icon and set your chosen schedule of recurrence.
+Navigate to **Team settings > Recurring issues.** To create a new recurring issue, click the `+` icon and set your chosen schedule of recurrence.
 
 ### Create recurring issues from templates
 
@@ -193,7 +191,7 @@ If you use `Esc` or click on the close button, a pop-up modal will appear giving
 <details>
 <summary>Can you create issues and use keyboard shortcuts in Safari?</summary>
 If Safari is stealing your focus when hitting tab during issue creation, enable this Safari advanced preference:   
-  
+ 
 Safari > Preferences > Advanced > Enable "Press tab to highlight each item on a webpage".
 
 ![Safari accessibility preferences modal showing press tab](https://webassets.linear.app/images/ornj730p/production/d1b238d1514c7004f9e3b3d9f4431d4bb27a8a38-992x622.png?q=95&auto=format&dpr=2)

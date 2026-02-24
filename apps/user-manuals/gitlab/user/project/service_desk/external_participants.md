@@ -55,30 +55,25 @@ To enable the setting for the project:
 
 ## As an external participant
 
-An external participant receives a notification for each public comment on the issue or ticket
-using [Service Desk emails](configure.md#customize-emails-sent-to-external-participants).
+An external participant receives a notification for each public comment on the issue or ticket using [Service Desk emails](configure.md#customize-emails-sent-to-external-participants).
 
 ### Replying to notification emails
 
 An external participant can [reply to the received notification email](../../../administration/reply_by_email.md#you-reply-to-the-notification-email).
-It creates a new comment on the issue or ticket and displays the email address of the external participant
-instead of a GitLab username. The email address is followed by `(external participant)`.
+It creates a new comment on the issue or ticket and displays the email address of the external participant instead of a GitLab username. The email address is followed by `(external participant)`.
 
 ![Comment from an external participant on an issue or ticket](img/service_desk_external_participants_comment_v17_0.png)
 
 ### Unsubscribing from notification emails
 
-External participants can use the unsubscribe link in the default Service Desk email template to
-unsubscribe from the issue or ticket.
+External participants can use the unsubscribe link in the default Service Desk email template to unsubscribe from the issue or ticket.
 
-If you [customize your `thank_you`, `new_participant`, and `new_note` email templates](configure.md#customize-emails-sent-to-external-participants),
-you can use the `%{UNSUBSCRIBE_URL}` placeholder to add the unsubscribe link to the templates.
+If you [customize your `thank_you`, `new_participant`, and `new_note` email templates](configure.md#customize-emails-sent-to-external-participants), you can use the `%{UNSUBSCRIBE_URL}` placeholder to add the unsubscribe link to the templates.
 
 Your GitLab instance must be reachable (for example, from the public internet) for the external participant to successfully unsubscribe.
 If that's not the case, consider removing the unsubscribe link from your template.
 
-Emails from GitLab also contain special headers that allow supported email clients and other software
-to [unsubscribe external participants automatically](../../profile/notifications.md#using-an-email-client-or-other-software).
+Emails from GitLab also contain special headers that allow supported email clients and other software to [unsubscribe external participants automatically](../../profile/notifications.md#using-an-email-client-or-other-software).
 
 ## As a GitLab user
 
@@ -119,8 +114,7 @@ To see a list of all external participants:
 
 1. Go to the issue or ticket.
 1. Scroll down to the comment editor.
-1. If the issue or ticket has external participants, you can see a warning under the comment editor
-   that lists all external participants.
+1. If the issue or ticket has external participants, you can see a warning under the comment editor that lists all external participants.
 
 ![Warning below the comment editor listing external participants](img/service_desk_external_participants_comment_editor_warning_v17_0.png)
 
@@ -138,16 +132,14 @@ The availability of this feature is controlled by a feature flag. For more infor
 
 {{< /alert >}}
 
-Add an external participant using the [`/add_email` quick action](../quick_actions.md#add_email) when you want
-to include them in the conversation at any time.
+Add an external participant using the [`/add_email` quick action](../quick_actions.md#add_email) when you want to include them in the conversation at any time.
 
 When added, the external participant starts receiving notifications using Service Desk emails.
 
 New external participants receive the `new_participant` email to let them know they were added to the ticket.
 GitLab doesn't send a `thank_you` email for manually added external participants.
 
-You should add external participants in a dedicated comment because they don't receive a notification
-email for the comment that contains the `/add_email` quick action.
+You should add external participants in a dedicated comment because they don't receive a notification email for the comment that contains the `/add_email` quick action.
 
 Prerequisites:
 
@@ -175,8 +167,7 @@ The availability of this feature is controlled by a feature flag. For more infor
 
 {{< /alert >}}
 
-Remove an external participant from an issue or Service Desk ticket using the
-[`/remove_email` quick action](../quick_actions.md#remove_email)
+Remove an external participant from an issue or Service Desk ticket using the [`/remove_email` quick action](../quick_actions.md#remove_email)
 when they should stop receiving notifications.
 
 After removing them from the issue or ticket they don't receive new notifications.

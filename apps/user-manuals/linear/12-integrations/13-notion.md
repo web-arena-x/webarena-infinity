@@ -28,7 +28,7 @@ Simply copy a link to a specific Linear issue or project and paste it into a Not
 
 **Open files**
 
-Click the preview, mention or URL to open the associated data in Linear.  
+Click the preview, mention or URL to open the associated data in Linear. 
 
 
 **Refreshing mentions and previews**

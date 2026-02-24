@@ -43,25 +43,18 @@ Use [GitLab CI/CD](../../../ci/_index.md) to build, push, test, and deploy conta
 You can configure your `.gitlab-ci.yml` file to build and push container images to the container registry.
 
 - If multiple jobs require authentication, put the authentication command in the `before_script`.
-- Before building, use `docker build --pull` to fetch changes to base images. It takes slightly
-  longer, but it ensures your image is up-to-date.
-- Before each `docker run`, do an explicit `docker pull` to fetch
-  the image that was just built. This step is especially important if you are
-  using multiple runners that cache images locally.
+- Before building, use `docker build --pull` to fetch changes to base images. It takes slightly longer, but it ensures your image is up-to-date.
+- Before each `docker run`, do an explicit `docker pull` to fetch the image that was just built. This step is especially important if you are using multiple runners that cache images locally.
 
-  If you use the Git SHA in your image tag, each job is unique and you
-  should never have a stale image. However, it's still possible to have a
-  stale image if you rebuild a given commit after a dependency has changed.
-- Don't build directly to the `latest` tag because multiple jobs may be
-  happening simultaneously.
+ If you use the Git SHA in your image tag, each job is unique and you should never have a stale image. However, it's still possible to have a stale image if you rebuild a given commit after a dependency has changed.
+- Don't build directly to the `latest` tag because multiple jobs may be happening simultaneously.
 
 ### Use a Docker-in-Docker container image
 
 You can use your own Docker-in-Docker (DinD)
 container images with the container registry or Dependency Proxy.
 
-Use DinD to build, test, and deploy containerized
-applications from your CI/CD pipeline.
+Use DinD to build, test, and deploy containerized applications from your CI/CD pipeline.
 
 Prerequisites:
 
@@ -82,12 +75,12 @@ Your `.gitlab-ci.yml` should look similar to this:
 
 ```yaml
 build:
-  image: $CI_REGISTRY/group/project/docker:24.0.5-cli
-  services:
+ image: $CI_REGISTRY/group/project/docker:24.0.5-cli
+ services:
     - name: $CI_REGISTRY/group/project/docker:24.0.5-dind
       alias: docker
-  stage: build
-  script:
+ stage: build
+ script:
     - docker build -t my-docker-image .
     - docker run my-docker-image /script/to/run/tests
 ```
@@ -107,12 +100,12 @@ Your `.gitlab-ci.yml` should look similar to this:
 
 ```yaml
 build:
-  image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/docker:24.0.5-cli
-  services:
+ image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/docker:24.0.5-cli
+ services:
     - name: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/docker:24.0.5-dind
       alias: docker
-  stage: build
-  script:
+ stage: build
+ script:
     - docker build -t my-docker-image .
     - docker run my-docker-image /script/to/run/tests
 ```
@@ -121,8 +114,7 @@ build:
 
 {{< /tabs >}}
 
-If you forget to set the service alias, the container image can't find the `dind` service,
-and an error like the following is shown:
+If you forget to set the service alias, the container image can't find the `dind` service, and an error like the following is shown:
 
 ```plaintext
 error during connect: Get http://docker:2376/v1.39/info: dial tcp: lookup docker on 192.168.0.1:53: no such host
@@ -134,11 +126,11 @@ If you're using DinD on your runners, your `.gitlab-ci.yml` file should look sim
 
 ```yaml
 build:
-  image: docker:24.0.5-cli
-  stage: build
-  services:
+ image: docker:24.0.5-cli
+ stage: build
+ services:
     - docker:24.0.5-dind
-  script:
+ script:
     - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
     - docker build -t $CI_REGISTRY/group/project/image:latest .
     - docker push $CI_REGISTRY/group/project/image:latest
@@ -148,13 +140,13 @@ You can use [CI/CD variables](../../../ci/variables/_index.md) in your `.gitlab-
 
 ```yaml
 build:
-  image: docker:24.0.5-cli
-  stage: build
-  services:
+ image: docker:24.0.5-cli
+ stage: build
+ services:
     - docker:24.0.5-dind
-  variables:
+ variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
-  script:
+ script:
     - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
     - docker build -t $IMAGE_TAG .
     - docker push $IMAGE_TAG
@@ -171,65 +163,63 @@ The `build` is stored in the container registry and used by subsequent stages th
 
 ```yaml
 default:
-  image: docker:24.0.5-cli
-  services:
+ image: docker:24.0.5-cli
+ services:
     - docker:24.0.5-dind
-  before_script:
+ before_script:
     - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY -u $CI_REGISTRY_USER --password-stdin
 
 stages:
-  - build
-  - test
-  - release
-  - deploy
+ - build
+ - test
+ - release
+ - deploy
 
 variables:
-  # Use TLS https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#tls-enabled
-  DOCKER_HOST: tcp://docker:2376
-  DOCKER_TLS_CERTDIR: "/certs"
-  CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
-  CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
+ # Use TLS https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#tls-enabled
+ DOCKER_HOST: tcp://docker:2376
+ DOCKER_TLS_CERTDIR: "/certs"
+ CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+ CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
 
 build:
-  stage: build
-  script:
+ stage: build
+ script:
     - docker build --pull -t $CONTAINER_TEST_IMAGE .
     - docker push $CONTAINER_TEST_IMAGE
 
 test1:
-  stage: test
-  script:
+ stage: test
+ script:
     - docker pull $CONTAINER_TEST_IMAGE
     - docker run $CONTAINER_TEST_IMAGE /script/to/run/tests
 
 test2:
-  stage: test
-  script:
+ stage: test
+ script:
     - docker pull $CONTAINER_TEST_IMAGE
     - docker run $CONTAINER_TEST_IMAGE /script/to/run/another/test
 
 release-image:
-  stage: release
-  script:
+ stage: release
+ script:
     - docker pull $CONTAINER_TEST_IMAGE
     - docker tag $CONTAINER_TEST_IMAGE $CONTAINER_RELEASE_IMAGE
     - docker push $CONTAINER_RELEASE_IMAGE
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == "main"
 
 deploy:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - ./deploy.sh
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == "main"
-  environment: production
+ environment: production
 ```
 
 {{< alert type="note" >}}
 
-The previous example explicitly calls `docker pull`. If you prefer to implicitly pull the container image using `image:`,
-and use either the [Docker](https://docs.gitlab.com/runner/executors/docker.html) or [Kubernetes](https://docs.gitlab.com/runner/executors/kubernetes/) executor,
-make sure that [`pull_policy`](https://docs.gitlab.com/runner/executors/docker.html#set-the-always-pull-policy) is set to `always`.
+The previous example explicitly calls `docker pull`. If you prefer to implicitly pull the container image using `image:`, and use either the [Docker](https://docs.gitlab.com/runner/executors/docker.html) or [Kubernetes](https://docs.gitlab.com/runner/executors/kubernetes/) executor, make sure that [`pull_policy`](https://docs.gitlab.com/runner/executors/docker.html#set-the-always-pull-policy) is set to `always`.
 
 {{< /alert >}}

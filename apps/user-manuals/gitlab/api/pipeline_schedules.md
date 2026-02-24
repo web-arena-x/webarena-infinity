@@ -29,8 +29,8 @@ GET /projects/:id/pipeline_schedules
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules"
 ```
 
 ```json
@@ -72,8 +72,8 @@ GET /projects/:id/pipeline_schedules/:pipeline_schedule_id
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13"
 ```
 
 ```json
@@ -148,15 +148,15 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13/pipelines"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13/pipelines"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 47,
     "iid": 12,
     "project_id": 29,
@@ -167,8 +167,8 @@ Example response:
     "web_url": "https://example.com/foo/bar/pipelines/47",
     "created_at": "2016-08-11T11:28:34.085Z",
     "updated_at": "2016-08-11T11:32:35.169Z"
-  },
-  {
+ },
+ {
     "id": 48,
     "iid": 13,
     "project_id": 29,
@@ -179,7 +179,7 @@ Example response:
     "web_url": "https://example.com/foo/bar/pipelines/48",
     "created_at": "2016-08-12T10:06:04.561Z",
     "updated_at": "2016-08-12T10:09:56.223Z"
-  }
+ }
 ]
 ```
 
@@ -212,13 +212,13 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules" \
-  --form "description=Build packages" \
-  --form "ref=main" \
-  --form "cron=0 1 * * 5" \
-  --form "cron_timezone=UTC" \
-  --form "active=true"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules" \
+ --form "description=Build packages" \
+ --form "ref=main" \
+ --form "cron=0 1 * * 5" \
+ --form "cron_timezone=UTC" \
+ --form "active=true"
 ```
 
 Example response:
@@ -250,15 +250,15 @@ Example request with `inputs`:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules" \
-  --form "description=Build packages" \
-  --form "ref=main" \
-  --form "cron=0 1 * * 5" \
-  --form "cron_timezone=UTC" \
-  --form "active=true" \
-  --form "inputs[][name]=deploy_strategy" \
-  --form "inputs[][value]=blue-green"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules" \
+ --form "description=Build packages" \
+ --form "ref=main" \
+ --form "cron=0 1 * * 5" \
+ --form "cron_timezone=UTC" \
+ --form "active=true" \
+ --form "inputs[][name]=deploy_strategy" \
+ --form "inputs[][value]=blue-green"
 ```
 
 ## Edit a pipeline schedule
@@ -284,9 +284,9 @@ Example request:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13" \
-  --form "cron=0 2 * * *"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13" \
+ --form "cron=0 2 * * *"
 ```
 
 Example response:
@@ -323,13 +323,13 @@ Example request with `inputs`:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13" \
-  --form "cron=0 2 * * *" \
-  --form "inputs[][name]=deploy_strategy" \
-  --form "inputs[][value]=rolling" \
-  --form "inputs[][name]=existing_input" \
-  --form "inputs[][_destroy]=true"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13" \
+ --form "cron=0 2 * * *" \
+ --form "inputs[][name]=deploy_strategy" \
+ --form "inputs[][value]=rolling" \
+ --form "inputs[][name]=existing_input" \
+ --form "inputs[][_destroy]=true"
 ```
 
 ## Take ownership of a pipeline schedule
@@ -347,8 +347,8 @@ POST /projects/:id/pipeline_schedules/:pipeline_schedule_id/take_ownership
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13/take_ownership"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13/take_ownership"
 ```
 
 ```json
@@ -394,8 +394,8 @@ DELETE /projects/:id/pipeline_schedules/:pipeline_schedule_id
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13"
 ```
 
 ```json
@@ -428,8 +428,7 @@ curl --request DELETE \
 
 ## Run a scheduled pipeline immediately
 
-Trigger a new scheduled pipeline, which runs immediately. The next scheduled run
-of this pipeline is not affected.
+Trigger a new scheduled pipeline, which runs immediately. The next scheduled run of this pipeline is not affected.
 
 ```plaintext
 POST /projects/:id/pipeline_schedules/:pipeline_schedule_id/play
@@ -444,15 +443,15 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/42/pipeline_schedules/1/play"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/42/pipeline_schedules/1/play"
 ```
 
 Example response:
 
 ```json
 {
-  "message": "201 Created"
+ "message": "201 Created"
 }
 ```
 
@@ -474,10 +473,10 @@ POST /projects/:id/pipeline_schedules/:pipeline_schedule_id/variables
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13/variables" \
-  --form "key=NEW_VARIABLE" \
-  --form "value=new value"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13/variables" \
+ --form "key=NEW_VARIABLE" \
+ --form "value=new value"
 ```
 
 ```json
@@ -508,8 +507,7 @@ GET /projects/:id/pipeline_schedules/:pipeline_schedule_id/variables/:key
 | `key`                  | string            | Yes      | Key of a variable. |
 | `pipeline_schedule_id` | integer           | Yes      | ID of the pipeline schedule. |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute       | Type   | Description |
 | --------------- | ------ | ----------- |
@@ -521,8 +519,8 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13/variables/NEW_VARIABLE"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13/variables/NEW_VARIABLE"
 ```
 
 Example response:
@@ -553,9 +551,9 @@ PUT /projects/:id/pipeline_schedules/:pipeline_schedule_id/variables/:key
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13/variables/NEW_VARIABLE" \
-  --form "value=updated value"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13/variables/NEW_VARIABLE" \
+ --form "value=updated value"
 ```
 
 ```json
@@ -582,8 +580,8 @@ DELETE /projects/:id/pipeline_schedules/:pipeline_schedule_id/variables/:key
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13/variables/NEW_VARIABLE"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/29/pipeline_schedules/13/variables/NEW_VARIABLE"
 ```
 
 ```json

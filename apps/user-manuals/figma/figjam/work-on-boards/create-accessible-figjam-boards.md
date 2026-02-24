@@ -18,7 +18,7 @@ Organize your FigJam board into sections. This makes it easier for collaborators
 
 To add a section:
 
-1. Click  in the bottom toolbar or use the keyboard shortcut `⇧Shift``S`.
+1. Click in the bottom toolbar or use the keyboard shortcut `⇧Shift``S`.
 2. Click the location of the board where you’d like the section to go to create a square section, or click and drag to create a custom sized section.
 
 [Learn more about using sections →](https://help.figma.com/hc/en-us/articles/4939765379351)
@@ -30,7 +30,7 @@ Use tidy up to rearrange and organize objects like stickies and shapes into a un
 To tidy things up:
 
 1. Select at least three objects on your board.
-2. Click  in the selection's toolbar.
+2. Click in the selection's toolbar.
 
 [Learn how to align, tidy up, and organize your objects →](https://help.figma.com/hc/en-us/articles/1500004292221-Select-move-and-order-objects#Align,_tidy_up,_and_organize_your_objects)
 
@@ -67,7 +67,7 @@ A few things to consider with colors:
 
 - FigJam preset colors for sections and stickies are built with accessibility in mind
 - Text in stickies is always black and paired with preset colors, so there’s no need to worry about contrast issues
-- When using custom colors with the  text tool, text should provide sufficient contrast to the background color
+- When using custom colors with the text tool, text should provide sufficient contrast to the background color
 - When using custom colors for sections, they should provide sufficient contrast to their contents
 - Avoid alternating between font colors
 - Avoid red, pink, and green text, as this can be problematic for individuals with a color vision impairment
@@ -95,10 +95,10 @@ Cursor chat can’t be read by screen readers and can be difficult for someone t
 
 1. Select the **Stamp** tool. There are a few ways to do this:
 
-   - Click  in the toolbar.
+   - Click in the toolbar.
    - Press the keyboard shortcut `E`.
    - Right-click the board and select **Stamp**.
-   - Click  and select **Stamp**.
+   - Click and select **Stamp**.
 2. Click on your stamp of choice from the stamp wheel.
 3. Click on the board or on an object to place the stamp.
 

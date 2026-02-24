@@ -23,22 +23,17 @@ The alert list displays the following information:
 
 ![The alert list showing details about open alerts](img/alert_list_v13_1.png)
 
-- **Search**: The alert list supports a simple free text search on the title,
-  description, monitoring tool, and service fields.
-- **Severity**: The current importance of a alert and how much attention it
-  should receive. For a listing of all statuses, read [Alert Management severity](#alert-severity).
-- **Start time**: How long ago the alert fired. This field uses the standard
-  GitLab pattern of `X time ago`, but is supported by a granular date/time
-  tooltip depending on the user's locale.
-- **Alert description**: The description of the alert, which attempts to
-  capture the most meaningful data.
+- **Search**: The alert list supports a simple free text search on the title, description, monitoring tool, and service fields.
+- **Severity**: The current importance of a alert and how much attention it should receive. For a listing of all statuses, read [Alert Management severity](#alert-severity).
+- **Start time**: How long ago the alert fired. This field uses the standard GitLab pattern of `X time ago`, but is supported by a granular date/time tooltip depending on the user's locale.
+- **Alert description**: The description of the alert, which attempts to capture the most meaningful data.
 - **Event count**: The number of times that an alert has fired.
 - **Issue**: A link to the incident issue that has been created for the alert.
 - **Status**: The current status of the alert:
-  - **Triggered**: Investigation has not started.
-  - **Acknowledged**: Someone is actively investigating the problem.
-  - **Resolved**: No further work is required.
-  - **Ignored**: No action is taken on the alert.
+ - **Triggered**: Investigation has not started.
+ - **Acknowledged**: Someone is actively investigating the problem.
+ - **Resolved**: No further work is required.
+ - **Ignored**: No action is taken on the alert.
 
 ## Alert severity
 
@@ -57,7 +52,7 @@ Alerts contain one of the following icons:
 | Medium   | {{< icon name="severity-medium" >}}   | `#fca429`           |
 | Low      | {{< icon name="severity-low" >}}      | `#fdbc60`           |
 | Info     | {{< icon name="severity-info" >}}     | `#418cd8`           |
-| Unknown  | {{< icon name="severity-unknown" >}}  | `#bababa`           |
+| Unknown | {{< icon name="severity-unknown" >}} | `#bababa`           |
 
 <!-- vale gitlab_base.SubstitutionWarning = YES -->
 
@@ -121,13 +116,13 @@ To change an alert's status:
 
 - From the [alert list](#alert-list):
 
-  1. In the **Status** column, next to an alert, select the status dropdown list.
-  1. Select a status.
+ 1. In the **Status** column, next to an alert, select the status dropdown list.
+ 1. Select a status.
 
 - From the [alert details page](#alert-details-page):
 
-  1. On the right sidebar, select **Edit**.
-  1. Select a status.
+ 1. On the right sidebar, select **Edit**.
+ 1. Select a status.
 
 To stop email notifications for alert recurrences in projects with [email notifications enabled](paging.md#email-notifications-for-alerts), change the alert's status away from **Triggered**.
 
@@ -173,8 +168,7 @@ To assign an alert:
 
    ![Alert details page with the right sidebar expanded, showing the Assignee dropdown list for assigning or unassigning users](img/alert_details_assignees_v13_1.png)
 
-1. If the right sidebar is not expanded, select
-   **Expand sidebar** ({{< icon name="chevron-double-lg-right" >}}) to expand it.
+1. If the right sidebar is not expanded, select **Expand sidebar** ({{< icon name="chevron-double-lg-right" >}}) to expand it.
 
 1. On the right sidebar, locate the **Assignee**, and then select **Edit**.
    From the list, select each user you want to assign to the alert.
@@ -209,10 +203,7 @@ To configure the actions:
 1. Select **Settings** > **Monitor**.
 1. Expand the **Alerts** section, then select the **Alert settings** tab.
 1. Select the **Create an incident** checkbox.
-1. Optional. To customize the incident, from the **Incident template**, select a template to be
-   appended to the [incident summary](incidents.md#summary).
-   If the dropdown list is empty,
-   [create an issue template](../../user/project/description_templates.md#create-a-description-template) first.
-1. Optional. To send [an email notification](paging.md#email-notifications-for-alerts), select the
-   **Send a single email notification to Owners and Maintainers for new alerts** checkbox.
+1. Optional. To customize the incident, from the **Incident template**, select a template to be appended to the [incident summary](incidents.md#summary).
+   If the dropdown list is empty, [create an issue template](../../user/project/description_templates.md#create-a-description-template) first.
+1. Optional. To send [an email notification](paging.md#email-notifications-for-alerts), select the **Send a single email notification to Owners and Maintainers for new alerts** checkbox.
 1. Select **Save changes**.

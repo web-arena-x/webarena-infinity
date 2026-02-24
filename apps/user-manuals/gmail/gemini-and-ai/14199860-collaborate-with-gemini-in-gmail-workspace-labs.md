@@ -79,20 +79,20 @@ Gemini can summarize an email thread with more than 2 replies.
 In the side panel, you can also prompt to ask for a summary.
 
 - **Examples**:
-  - “Summarize this email.”
-  - “Create a list of action items for me based on this email.”
-  - “Explain this email to me like I’m 5 years old.”
+ - “Summarize this email.”
+ - “Create a list of action items for me based on this email.”
+ - “Explain this email to me like I’m 5 years old.”
 
 Suggest reply options
 
 Gemini can draft a new email or a reply.
 
 - To get suggested replies:
-  1. On your computer, open an email thread.
-  2. Click Ask Gemini ![](//lh3.googleusercontent.com/NbNY5xIMPg1tJn8q8hOUEHHed4oq7paehm3riEqsInKb9U3voOLe5xMdJOc3tjOHog0=h36).
-  3. At the bottom of the side panel, click **Suggest a reply**.
+ 1. On your computer, open an email thread.
+ 2. Click Ask Gemini ![](//lh3.googleusercontent.com/NbNY5xIMPg1tJn8q8hOUEHHed4oq7paehm3riEqsInKb9U3voOLe5xMdJOc3tjOHog0=h36).
+ 3. At the bottom of the side panel, click **Suggest a reply**.
 - To draft a new email, ask Gemini to create the draft.
-  - **Examples**:
+ - **Examples**:
     - “Write an announcement email for the launch of Project Clover.”
     - “Create a thank you note to a colleague for their work on Project Clover.”
 

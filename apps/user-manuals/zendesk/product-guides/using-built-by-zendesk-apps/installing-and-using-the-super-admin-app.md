@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408881571482-Installing-a
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -57,7 +57,7 @@ After searching for agents, you can update the details of multiple agents.
 **To update multiple agents**
 
 1. When your list of agents is shown, select the checkbox next to the agents you would like to edit.
-2. Click **Edit Agents** and update the following fields:  
+2. Click **Edit Agents** and update the following fields: 
    - Role
    - Default group
    - Add tags
@@ -65,7 +65,7 @@ After searching for agents, you can update the details of multiple agents.
    - Suspension: active or suspended
 
    ![](https://support.zendesk.com/hc/article_attachments/7856503417882)
-3. Click **Confirm** and wait for the app to complete the updates.  
+3. Click **Confirm** and wait for the app to complete the updates. 
    **Note:** During the update process, do not close the app window.
 
 ### Searching and updating end users
@@ -76,10 +76,10 @@ The app also enables searching and updating multiple end users.
 
 1. In the SuperAdmin app, click the **End Users** tab.
 2. Search for end users by keywords in the search field, or click on the **Suspended/Active** status.
-3. Once the search results has been found, toggle various fields in the view by clicking the gear icon.  
+3. Once the search results has been found, toggle various fields in the view by clicking the gear icon. 
    ![](https://support.zendesk.com/hc/article_attachments/7856497914010)
 4. Once your list of end users has been found, select the checkbox next to the agents you would like to edit.
-5. Click on the **Edit End Users** button and update the following fields:  
+5. Click on the **Edit End Users** button and update the following fields: 
    - Role
    - Add tags
    - Remove tags

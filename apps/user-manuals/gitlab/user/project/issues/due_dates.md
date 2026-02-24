@@ -18,8 +18,7 @@ title: Due dates
 
 {{< /history >}}
 
-Use due dates in work items to track deadlines, and make sure features are
-shipped on time.
+Use due dates in work items to track deadlines, and make sure features are shipped on time.
 
 Due dates are supported in:
 
@@ -39,8 +38,7 @@ Due dates also appear in your [to-do items](../../todos.md).
 ## View issues with due dates
 
 You can see issues with their due dates on the **Issues** page.
-If an issue contains a due date,
-it is shown below the issue title:
+If an issue contains a due date, it is shown below the issue title:
 
 ![An issue with a due date in 2024.](img/overdue_issue_v17_9.png)
 
@@ -86,8 +84,7 @@ To set a due date with quick actions in an issue's description or comment:
 
 ## Export issue due dates to a calendar
 
-Issues with due dates can also be exported as an iCalendar feed. The URL of the
-feed can be added to calendar applications.
+Issues with due dates can also be exported as an iCalendar feed. The URL of the feed can be added to calendar applications.
 
 - The **Project Issues** page
 - The **Group Issues** page
@@ -100,5 +97,4 @@ feed can be added to calendar applications.
    - Issues for all projects [in a group](../../group/_index.md)
 
 1. On the right, from the **Actions** ({{< icon name="ellipsis_v" >}}) dropdown list, select **Subscribe to calendar** to display the `.ics` file.
-1. Copy the full link to the page (including the full query string) and use it in your
-   preferred calendar application.
+1. Copy the full link to the page (including the full query string) and use it in your preferred calendar application.

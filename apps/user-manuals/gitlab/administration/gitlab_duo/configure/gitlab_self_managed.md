@@ -16,12 +16,11 @@ gitlab_dedicated: no
 ## Prerequisites
 
 - Allow both outbound and inbound connections.
-  Network firewalls might cause delay.
+ Network firewalls might cause delay.
 - [Turn off Silent Mode](../../silent_mode/_index.md#turn-off-silent-mode).
 - [Activate your GitLab instance with an activation code](../../license.md#activate-gitlab-ee).
-  You cannot use a legacy license.
-  Except for [GitLab Duo Self-Hosted](../../gitlab_duo_self_hosted/_index.md),
-  you also cannot use an offline license.
+ You cannot use a legacy license.
+ Except for [GitLab Duo Self-Hosted](../../gitlab_duo_self_hosted/_index.md), you also cannot use an offline license.
 - Turn on composite identity.
 
 For the best results, use GitLab 17.2 and later.
@@ -30,8 +29,7 @@ Earlier versions might continue to work, but performance might be degraded.
 ## Turn on composite identity
 
 You must turn on [composite identity](../../../user/duo_agent_platform/composite_identity.md)
-so that the `@duo-developer` service account can perform actions
-on behalf of users.
+so that the `@duo-developer` service account can perform actions on behalf of users.
 
 1. In the upper-right corner, select **Admin**.
 1. On the left sidebar, select **GitLab Duo**.
@@ -41,17 +39,12 @@ on behalf of users.
 
  Check both your outbound and inbound settings:
 
-- Your firewalls and HTTP/S proxy servers must allow outbound connections
-  to `cloud.gitlab.com` and `customers.gitlab.com` on port `443` both with `https://`.
-  These hosts are protected by Cloudflare. Update your firewall settings to allow traffic to
-  all IP addresses in the [list of IP ranges Cloudflare publishes](https://www.cloudflare.com/ips/).
-- To use an HTTP/S proxy, both `gitLab_workhorse` and `gitLab_rails` must have the necessary
-  [web proxy environment variables](https://docs.gitlab.com/omnibus/settings/environment-variables.html) set.
+- Your firewalls and HTTP/S proxy servers must allow outbound connections to `cloud.gitlab.com` and `customers.gitlab.com` on port `443` both with `https://`.
+ These hosts are protected by Cloudflare. Update your firewall settings to allow traffic to all IP addresses in the [list of IP ranges Cloudflare publishes](https://www.cloudflare.com/ips/).
+- To use an HTTP/S proxy, both `gitLab_workhorse` and `gitLab_rails` must have the necessary [web proxy environment variables](https://docs.gitlab.com/omnibus/settings/environment-variables.html) set.
 - In multi-node GitLab installations, configure the HTTP/S proxy on all **Rails** and **Sidekiq** nodes.
 - GitLab application nodes must connect to the GitLab Duo Workflow at `https://duo-workflow-svc.runway.gitlab.net` with HTTP/2. The application and service communicate with gRPC.
-- For GitLab Duo Agent Platform features your firewalls and HTTP/S proxy servers must allow outbound
-  connections to `duo-workflow-svc.runway.gitlab.net` on port `443` with `https://` and support for
-  HTTP/2 traffic.
+- For GitLab Duo Agent Platform features your firewalls and HTTP/S proxy servers must allow outbound connections to `duo-workflow-svc.runway.gitlab.net` on port `443` with `https://` and support for HTTP/2 traffic.
 
 ## Allow inbound connections from clients to the GitLab instance
 
@@ -71,23 +64,21 @@ Your GitLab instance must allow inbound connections from IDE clients.
 If you have issues:
 
 - Check for restrictions on WebSocket traffic to `wss://gitlab.example.com/-/cable` and other `.com` domains.
-- If you use reverse proxies like Apache, you might see GitLab Duo Chat connection issues in your
-  logs, like **WebSocket connection to .... failures**.
+- If you use reverse proxies like Apache, you might see GitLab Duo Chat connection issues in your logs, like **WebSocket connection to .... failures**.
 
 To resolve this issue, edit your proxy settings:
 
 ```apache
 # Enable WebSocket reverse Proxy
 # Needs proxy_wstunnel enabled
-  RewriteCond %{HTTP:Upgrade} websocket [NC]
-  RewriteCond %{HTTP:Connection} upgrade [NC]
-  RewriteRule ^/?(.*) "ws://127.0.0.1:8181/$1" [P,L]
+ RewriteCond %{HTTP:Upgrade} websocket [NC]
+ RewriteCond %{HTTP:Connection} upgrade [NC]
+ RewriteRule ^/?(.*) "ws://127.0.0.1:8181/$1" [P,L]
 ```
 
 ## Allow connections from the runner
 
-For GitLab Duo Agent Platform features that make use of runners, like flows,
-the runner must be able to connect to the GitLab instance.
+For GitLab Duo Agent Platform features that make use of runners, like flows, the runner must be able to connect to the GitLab instance.
 
 The same [inbound connections from clients to the GitLab instance](#allow-inbound-connections-from-clients-to-the-gitlab-instance)
 must be allowed as outbound connections from the runner to the GitLab instance.
@@ -135,8 +126,7 @@ These tests are performed:
 | GitLab Duo Agent Platform | Tests whether the backend service is operational and accessible. This service is required for agentic features like the Agent Platform and GitLab Duo Chat (Agentic). |
 | System exchange | Tests whether Code Suggestions can be used in your instance. If the system exchange assessment fails, users might not be able to use GitLab Duo features. |
 
-For GitLab instances earlier than version 17.10, if you are encountering any issues with the health check,
-see the [troubleshooting page](../../../user/gitlab_duo/troubleshooting.md).
+For GitLab instances earlier than version 17.10, if you are encountering any issues with the health check, see the [troubleshooting page](../../../user/gitlab_duo/troubleshooting.md).
 
 ## Other hosting options
 
@@ -145,9 +135,8 @@ By default, GitLab Duo uses supported AI vendor language models and sends data t
 If you want to host your own language models or AI gateway:
 
 - You can [use GitLab Duo Self-Hosted to host the AI gateway and use any of the supported self-hosted models](../../gitlab_duo_self_hosted/_index.md#self-hosted-ai-gateway-and-llms).
-  This option provides full control over your data and security.
-- Use a [hybrid configuration](../../gitlab_duo_self_hosted/_index.md#hybrid-ai-gateway-and-model-configuration),
-  where you host your own AI gateway and models for some features, but configure other features to use the GitLab AI gateway and vendor models.
+ This option provides full control over your data and security.
+- Use a [hybrid configuration](../../gitlab_duo_self_hosted/_index.md#hybrid-ai-gateway-and-model-configuration), where you host your own AI gateway and models for some features, but configure other features to use the GitLab AI gateway and vendor models.
 
 ## Hide sidebar widget that shows GitLab Duo Core availability (removed)
 

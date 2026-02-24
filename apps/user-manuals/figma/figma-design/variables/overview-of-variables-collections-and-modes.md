@@ -22,7 +22,7 @@ Like styles and components, variables can also be published to team libraries. W
 
 There are four types of variables. Each one can be applied to specific properties and elements.
 
-|  |  |
+| | |
 | --- | --- |
 | **Variable type** | **Defined by** |
 | Color | Solid fills |
@@ -57,18 +57,18 @@ Number variables can be applied to:
 
 - [Corner radius and individual corner radius](../additional-properties/adjust-corner-radius-and-smoothing.md)
 - [Dimensions, including minimum and maximum width/height](https://help.figma.com/hc/en-us/articles/360039956914-Adjust-alignment-rotation-and-position)
-- [Font properties](https://help.figma.com/hc/en-us/articles/360039956634)  
-  - Font size
-  - Font weight (numbers only, e.g. 400, 700)
-  - Line height
-  - Letter spacing (interpreted as Px, not %)
-  - Paragraph indent
-  - Paragraph spacing
+- [Font properties](https://help.figma.com/hc/en-us/articles/360039956634) 
+ - Font size
+ - Font weight (numbers only, e.g. 400, 700)
+ - Line height
+ - Letter spacing (interpreted as Px, not %)
+ - Paragraph indent
+ - Paragraph spacing
 - Layer opacity (numbers >100 will default to 100)
 - [Layout guides](https://help.figma.com/hc/en-us/articles/360040450513-Create-layout-grids-with-grids-columns-and-rows)
-  - Uniform grid size
-  - Row and column count (whole numbers only)
-  - Width, height, margin, offset, and gutter
+ - Uniform grid size
+ - Row and column count (whole numbers only)
+ - Width, height, margin, offset, and gutter
 - [Padding and gap between](https://help.figma.com/hc/en-us/articles/360040451373-Explore-auto-layout-properties#h_01HB9Q13716VY5NF7AC5XHK9KD)
 - [Shadow and blur effects](https://help.figma.com/hc/en-us/articles/360041488473-Apply-shadow-or-blur-effects): X, Y, blur and spread values
 - [Stroke weight](../additional-properties/apply-and-adjust-stroke-properties.md): all, top, bottom, left, and right
@@ -82,9 +82,9 @@ String variables use a sequence of characters such as `Inter`, `Hello world!`, o
 
 String variables can be applied to:
 
-- [Font properties](https://help.figma.com/hc/en-us/articles/360039956634)  
-  - Font family
-  - Font style and weight (name only, e.g. regular, bold, black italic)
+- [Font properties](https://help.figma.com/hc/en-us/articles/360039956634) 
+ - Font family
+ - Font style and weight (name only, e.g. regular, bold, black italic)
 - [Layer visibility](../work-with-layers/toggle-visibility-to-hide-layers.md), if the string has a value of “true” or “false”
 - Text content
 - [Text styles](https://help.figma.com/hc/en-us/articles/360039957034)

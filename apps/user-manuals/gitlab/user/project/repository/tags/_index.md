@@ -17,21 +17,17 @@ In Git, a tag marks an important point in a repository's history.
 Git supports two types of tags:
 
 - Lightweight tags point to specific commits, and contain no other information.
-  Also known as soft tags. Create or remove them as needed.
-- Annotated tags contain metadata, can be signed for verification purposes,
-  and can't be changed.
+ Also known as soft tags. Create or remove them as needed.
+- Annotated tags contain metadata, can be signed for verification purposes, and can't be changed.
 
 The creation or deletion of a tag can be used as a trigger for automation, including:
 
-- Using a [webhook](../../integrations/webhook_events.md#tag-events) to automate actions
-  like Slack notifications.
+- Using a [webhook](../../integrations/webhook_events.md#tag-events) to automate actions like Slack notifications.
 - Signaling a [repository mirror](../mirror/_index.md) to update.
 - Running a CI/CD pipeline with [`if: $CI_COMMIT_TAG`](../../../../ci/jobs/job_rules.md#common-if-clauses-with-predefined-variables).
 
-When you [create a release](../../releases/_index.md),
-GitLab also creates a tag to mark the release point.
-Many projects combine an annotated release tag with a stable branch. Consider
-setting deployment or release tags automatically.
+When you [create a release](../../releases/_index.md), GitLab also creates a tag to mark the release point.
+Many projects combine an annotated release tag with a stable branch. Consider setting deployment or release tags automatically.
 
 In the GitLab UI, each tag displays:
 
@@ -74,8 +70,7 @@ Tags can be created from the command line, or the GitLab UI.
 
 To create either a lightweight or annotated tag from the command line, and push it upstream:
 
-1. To create a lightweight tag, run the command `git tag TAG_NAME`, changing
-   `TAG_NAME` to your desired tag name.
+1. To create a lightweight tag, run the command `git tag TAG_NAME`, changing `TAG_NAME` to your desired tag name.
 1. To create an annotated tag, run one of the versions of `git tag` from the command line:
 
    ```shell
@@ -99,15 +94,13 @@ To create a tag from the GitLab UI:
 1. Select **New tag**.
 1. Provide a **Tag name**.
 1. For **Create from**, select an existing branch name, tag, or commit SHA.
-1. Optional. Add a **Message** to create an annotated tag, or leave blank to
-   create a lightweight tag.
+1. Optional. Add a **Message** to create an annotated tag, or leave blank to create a lightweight tag.
 1. Select **Create tag**.
 
 ## Name your tag
 
 Git enforces [tag name rules](https://git-scm.com/docs/git-check-ref-format)
-to help ensure tag names remain compatible with other tools. GitLab
-adds extra requirements for tag names, and provides benefits for well-structured tag names.
+to help ensure tag names remain compatible with other tools. GitLab adds extra requirements for tag names, and provides benefits for well-structured tag names.
 
 GitLab enforces these additional rules on all tags:
 
@@ -137,47 +130,41 @@ To prevent users from removing a tag with `git push`, create a [push rule](../pu
 
 ## Trigger pipelines from a tag
 
-GitLab CI/CD provides a predefined variable, [`CI_COMMIT_TAG`](../../../../ci/variables/predefined_variables.md),
-to identify tags in your pipeline configurations.
+GitLab CI/CD provides a predefined variable, [`CI_COMMIT_TAG`](../../../../ci/variables/predefined_variables.md), to identify tags in your pipeline configurations.
 You can use this variable in job rules and workflow rules to test if a pipeline was triggered by a tag.
 
-By default, if your CI/CD jobs don't have specific rules in place,
-they are included in a tag pipeline for any newly created tag.
+By default, if your CI/CD jobs don't have specific rules in place, they are included in a tag pipeline for any newly created tag.
 Tag pipelines are only created when a tag targets a commit.
 
-In your `.gitlab-ci.yml` file for the CI/CD pipeline configuration of your project,
-you can use the `CI_COMMIT_TAG` variable to control pipelines for new tags:
+In your `.gitlab-ci.yml` file for the CI/CD pipeline configuration of your project, you can use the `CI_COMMIT_TAG` variable to control pipelines for new tags:
 
 - At the job level with [`rules:if`](../../../../ci/yaml/_index.md#rulesif).
 - At the pipeline level with the [`workflow`](../../../../ci/yaml/workflow.md) keyword.
 
 ## Trigger security scans in tag pipelines
 
-By default, scan execution policies only run on branches, not tags. However, you can
-configure pipeline execution policies to run security scans on tags.
+By default, scan execution policies only run on branches, not tags. However, you can configure pipeline execution policies to run security scans on tags.
 
 To run security scans on tags:
 
-1. Create a CI/CD configuration YAML file with custom jobs that extend the security scanner
-   templates and include rules to run on tags.
+1. Create a CI/CD configuration YAML file with custom jobs that extend the security scanner templates and include rules to run on tags.
 1. Create a pipeline execution policy that injects this configuration into your pipelines.
 
 ### Example pipeline execution policy
 
-This example shows how to create a pipeline execution policy that runs dependency scanning
-and SAST scans on tags:
+This example shows how to create a pipeline execution policy that runs dependency scanning and SAST scans on tags:
 
 ```yaml
 pipeline_execution_policy:
 - name: Pipeline Execution Policy
-  description: Run security scans on tags
-  enabled: true
-  pipeline_config_strategy: inject_policy
-  content:
+ description: Run security scans on tags
+ enabled: true
+ pipeline_config_strategy: inject_policy
+ content:
     include:
     - project: <Project path to YAML>
       file: tag-security-scans.yml
-  skip_ci:
+ skip_ci:
     allowed: false
 ```
 
@@ -187,31 +174,31 @@ This example shows how to extend security scanner jobs to run on tags:
 
 ```yaml
 include:
-  - template: Jobs/Dependency-Scanning.gitlab-ci.yml
-  - template: Jobs/SAST.gitlab-ci.yml
+ - template: Jobs/Dependency-Scanning.gitlab-ci.yml
+ - template: Jobs/SAST.gitlab-ci.yml
 
 # Extend dependency scanning to run on tags
 gemnasium-python-dependency_scanning_tags:
-  extends: gemnasium-python-dependency_scanning
-  rules:
+ extends: gemnasium-python-dependency_scanning
+ rules:
     - if: $CI_COMMIT_TAG
 
 # Extend SAST scanning to run on tags
 semgrep-sast_tags:
-  extends: semgrep-sast
-  rules:
+ extends: semgrep-sast
+ rules:
     - if: $CI_COMMIT_TAG
 
 # Example of a custom job that runs only on tags
 policy_job_for_tags:
-  script:
+ script:
     - echo "This job runs only on tags"
-  rules:
+ rules:
     - if: $CI_COMMIT_TAG
 
 # Example of a job that runs on all pipelines
 policy_job_always:
-  script:
+ script:
     - echo "This policy job runs always."
 ```
 

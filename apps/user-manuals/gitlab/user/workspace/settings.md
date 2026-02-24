@@ -6,9 +6,7 @@ description: Configure the GitLab agent for Kubernetes to support workspaces.
 title: Workspace settings
 ---
 
-Workspace settings configure how the GitLab agent for Kubernetes manages remote development environments
-in
-your Kubernetes cluster. These settings control:
+Workspace settings configure how the GitLab agent for Kubernetes manages remote development environments in your Kubernetes cluster. These settings control:
 
 - Resource allocation
 - Security
@@ -74,15 +72,14 @@ To enable remote development in the agent configuration, set `enabled` to `true`
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  enabled: true
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ enabled: true
 ```
 
 {{< alert type="note" >}}
 
-If `enabled` is set to `false` for an agent that has active or stopped workspaces,
-those workspaces become orphaned and unusable.
+If `enabled` is set to `false` for an agent that has active or stopped workspaces, those workspaces become orphaned and unusable.
 
 Before you disable remote development on an agent:
 
@@ -99,24 +96,23 @@ Example configuration:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  dns_zone: "<workspaces.example.dev>"
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ dns_zone: "<workspaces.example.dev>"
 ```
 
 ### `gitlab_workspaces_proxy`
 
-Use this setting to define the namespace where
-[`gitlab-workspaces-proxy`](set_up_gitlab_agent_and_proxies.md) is installed.
+Use this setting to define the namespace where [`gitlab-workspaces-proxy`](set_up_gitlab_agent_and_proxies.md) is installed.
 The default value for `gitlab_workspaces_proxy.namespace` is `gitlab-workspaces`.
 
 Example configuration:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  gitlab_workspaces_proxy:
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ gitlab_workspaces_proxy:
     namespace: "<custom-gitlab-workspaces-proxy-namespace>"
 ```
 
@@ -129,9 +125,9 @@ The default value is:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  network_policy:
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ network_policy:
     enabled: true
     egress:
       - allow: "0.0.0.0/0"
@@ -144,8 +140,7 @@ remote_development:
 In this configuration:
 
 - The network policy is generated for each workspace because `enabled` is `true`.
-- The egress rules allow all traffic to the internet (`0.0.0.0/0`) except to the
-  IP CIDR ranges `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`.
+- The egress rules allow all traffic to the internet (`0.0.0.0/0`) except to the IP CIDR ranges `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`.
 
 The behavior of the network policy depends on the Kubernetes network plugin.
 For more information, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/network-policies/).
@@ -178,9 +173,9 @@ Example configuration:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  network_policy:
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ network_policy:
     egress:
       - allow: "0.0.0.0/0"
         except:
@@ -214,9 +209,9 @@ Example configuration:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  default_resources_per_workspace_container:
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ default_resources_per_workspace_container:
     requests:
       cpu: "0.5"
       memory: "512Mi"
@@ -246,8 +241,7 @@ Workspaces fail when they exceed the values you set for `requests` and `limits`.
 
 {{< alert type="note" >}}
 
-If [`shared_namespace`](#shared_namespace) is set, `max_resources_per_workspace` must be an
-empty hash. Users can create a Kubernetes [Resource quota](https://kubernetes.io/docs/concepts/policy/resource-quotas/)
+If [`shared_namespace`](#shared_namespace) is set, `max_resources_per_workspace` must be an empty hash. Users can create a Kubernetes [Resource quota](https://kubernetes.io/docs/concepts/policy/resource-quotas/)
 in the `shared_namespace` to achieve the same result as specifying this value here.
 
 {{< /alert >}}
@@ -256,9 +250,9 @@ Example configuration:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  max_resources_per_workspace:
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ max_resources_per_workspace:
     requests:
       cpu: "1"
       memory: "1Gi"
@@ -267,8 +261,7 @@ remote_development:
       memory: "2Gi"
 ```
 
-The maximum resources you define must include any resources required for init containers
-to perform bootstrapping operations such as cloning the project repository.
+The maximum resources you define must include any resources required for init containers to perform bootstrapping operations such as cloning the project repository.
 
 ### `workspaces_quota`
 
@@ -285,8 +278,7 @@ You cannot create new workspaces for an agent when:
 - The number of workspaces for the agent has reached the defined `workspaces_quota`.
 - `workspaces_quota` is set to `0`.
 
-If `workspaces_quota` is set to a value below the number of non-terminated workspaces
-for an agent, the agent's workspaces are not terminated automatically.
+If `workspaces_quota` is set to a value below the number of non-terminated workspaces for an agent, the agent's workspaces are not terminated automatically.
 
 The default value is `-1` (unlimited).
 Possible values are greater than or equal to `-1`.
@@ -295,9 +287,9 @@ Example configuration:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  workspaces_quota: 10
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ workspaces_quota: 10
 ```
 
 ### `workspaces_per_user_quota`
@@ -315,8 +307,7 @@ You cannot create new workspaces for a user when:
 - The number of workspaces for the user has reached the defined `workspaces_per_user_quota`.
 - `workspaces_per_user_quota` is set to `0`.
 
-If `workspaces_per_user_quota` is set to a value below the number of non-terminated workspaces
-for a user, the user's workspaces are not terminated automatically.
+If `workspaces_per_user_quota` is set to a value below the number of non-terminated workspaces for a user, the user's workspaces are not terminated automatically.
 
 The default value is `-1` (unlimited).
 Possible values are greater than or equal to `-1`.
@@ -325,9 +316,9 @@ Example configuration:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  workspaces_per_user_quota: 3
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ workspaces_per_user_quota: 3
 ```
 
 ### `use_kubernetes_user_namespaces`
@@ -340,8 +331,7 @@ remote_development:
 
 Use this setting to specify whether to use the user namespaces feature in Kubernetes.
 
-[User namespaces](https://kubernetes.io/docs/concepts/workloads/pods/user-namespaces/) isolate the user
-running inside the container from the user on the host.
+[User namespaces](https://kubernetes.io/docs/concepts/workloads/pods/user-namespaces/) isolate the user running inside the container from the user on the host.
 
 The default value is `false`. Before you set the value to `true`, ensure your Kubernetes cluster supports user namespaces.
 
@@ -349,13 +339,12 @@ Example configuration:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  use_kubernetes_user_namespaces: true
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ use_kubernetes_user_namespaces: true
 ```
 
-For more information about `use_kubernetes_user_namespaces`, see
-[user namespaces](https://kubernetes.io/docs/concepts/workloads/pods/user-namespaces/).
+For more information about `use_kubernetes_user_namespaces`, see [user namespaces](https://kubernetes.io/docs/concepts/workloads/pods/user-namespaces/).
 
 ### `default_runtime_class`
 
@@ -373,9 +362,9 @@ Example configuration:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  default_runtime_class: "example-runtime-class-name"
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ default_runtime_class: "example-runtime-class-name"
 ```
 
 A valid value:
@@ -385,8 +374,7 @@ A valid value:
 - Starts with an alphanumeric character
 - Ends with an alphanumeric character.
 
-For more information about `default_runtime_class`, see
-[Runtime Class](https://kubernetes.io/docs/concepts/containers/runtime-class/).
+For more information about `default_runtime_class`, see [Runtime Class](https://kubernetes.io/docs/concepts/containers/runtime-class/).
 
 ### `allow_privilege_escalation`
 
@@ -410,14 +398,13 @@ Example configuration:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  default_runtime_class: "example-runtime-class-name"
-  allow_privilege_escalation: true
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ default_runtime_class: "example-runtime-class-name"
+ allow_privilege_escalation: true
 ```
 
-For more information about `allow_privilege_escalation`, see
-[Configure a Security Context for a Pod or Container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
+For more information about `allow_privilege_escalation`, see [Configure a Security Context for a Pod or Container](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
 
 ### `image_pull_secrets`
 
@@ -427,8 +414,7 @@ For more information about `allow_privilege_escalation`, see
 
 {{< /history >}}
 
-Use this setting to specify existing Kubernetes secrets of the type `kubernetes.io/dockercfg`
-or `kubernetes.io/dockerconfigjson` required by workspaces to pull private images.
+Use this setting to specify existing Kubernetes secrets of the type `kubernetes.io/dockercfg` or `kubernetes.io/dockerconfigjson` required by workspaces to pull private images.
 
 The default value is `[]`.
 
@@ -436,23 +422,21 @@ Example configuration:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  image_pull_secrets:
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ image_pull_secrets:
     - name: "image-pull-secret-name"
       namespace: "image-pull-secret-namespace"
 ```
 
-In this example, the secret `image-pull-secret-name` from the namespace
-`image-pull-secret-namespace` is synced to the namespace of the workspace.
+In this example, the secret `image-pull-secret-name` from the namespace `image-pull-secret-namespace` is synced to the namespace of the workspace.
 
 For `image_pull_secrets`, the `name` and `namespace` attributes are required.
 The name of the secret must be unique.
 If [`shared_namespace`](#shared_namespace) is set, the namespace of the secret must be the same as the `shared_namespace`.
 
 If the secret you've specified does not exist in the Kubernetes cluster, the secret is ignored.
-When you delete or update the secret, the secret is deleted or updated
-in all the namespaces of the workspaces where the secret is referenced.
+When you delete or update the secret, the secret is deleted or updated in all the namespaces of the workspaces where the secret is referenced.
 
 ### `annotations`
 
@@ -470,9 +454,9 @@ Example configuration:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  annotations:
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ annotations:
     "example.com/key": "value"
 ```
 
@@ -486,8 +470,7 @@ Prefixes that end with `gitlab.com` are also reserved.
 
 A valid annotation value is a string.
 
-For more information about `annotations`, see
-[Annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+For more information about `annotations`, see [Annotations](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
 
 ### `labels`
 
@@ -505,9 +488,9 @@ Example configuration:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  labels:
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ labels:
     "example.com/key": "value"
 ```
 
@@ -525,8 +508,7 @@ A valid label value:
 - Begins and ends with an alphanumeric character.
 - Can contain dashes (`-`), underscores (`_`), and periods (`.`).
 
-For more information about `labels`, see
-[Labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/).
+For more information about `labels`, see [Labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/).
 
 ### `max_active_hours_before_stop`
 
@@ -536,23 +518,20 @@ For more information about `labels`, see
 
 {{< /history >}}
 
-This setting automatically stops the agent's workspaces after they have been active for the specified
-number of hours. An active state is any non-stopped or non-terminated state.
+This setting automatically stops the agent's workspaces after they have been active for the specified number of hours. An active state is any non-stopped or non-terminated state.
 
-The timer for this setting starts when you create the workspace, and is reset every time you
-restart the workspace.
+The timer for this setting starts when you create the workspace, and is reset every time you restart the workspace.
 It also applies even if the workspace is in an error or failure state.
 
-The default value is `36`, or one and a half days. This avoids stopping the workspace during
-the user's typical working hours.
+The default value is `36`, or one and a half days. This avoids stopping the workspace during the user's typical working hours.
 
 Example configuration:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  max_active_hours_before_stop: 60
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ max_active_hours_before_stop: 60
 ```
 
 A valid value:
@@ -573,8 +552,7 @@ This means that the workspace might be active for up to one hour longer than the
 
 {{< /history >}}
 
-Use this setting to automatically terminate the agent's workspaces after they have been in the stopped
-state for the specified number of hours.
+Use this setting to automatically terminate the agent's workspaces after they have been in the stopped state for the specified number of hours.
 
 The default value is `722`, or approximately one month.
 
@@ -582,9 +560,9 @@ Example configuration:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  max_stopped_hours_before_termination: 4332
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ max_stopped_hours_before_termination: 4332
 ```
 
 A valid value:
@@ -617,9 +595,9 @@ Example configuration:
 
 ```yaml
 remote_development:
-  # NOTE: This is a partial example.
-  # Some required fields are not included.
-  shared_namespace: "example-shared-namespace"
+ # NOTE: This is a partial example.
+ # Some required fields are not included.
+ shared_namespace: "example-shared-namespace"
 ```
 
 A valid value:
@@ -629,8 +607,7 @@ A valid value:
 - Starts with an alphanumeric character.
 - Ends with an alphanumeric character.
 
-For more information about Kubernetes namespaces, see
-[Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
+For more information about Kubernetes namespaces, see [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
 
 ## Complete example configuration
 
@@ -639,12 +616,12 @@ It includes all available settings in the [configuration reference](#configurati
 
 ```yaml
 remote_development:
-  enabled: true
-  dns_zone: workspaces.dev.test
-  gitlab_workspaces_proxy:
+ enabled: true
+ dns_zone: workspaces.dev.test
+ gitlab_workspaces_proxy:
     namespace: "gitlab-workspaces"
 
-  network_policy:
+ network_policy:
     enabled: true
     egress:
       - allow: "0.0.0.0/0"
@@ -653,7 +630,7 @@ remote_development:
           - "172.16.0.0/12"
           - "192.168.0.0/16"
 
-  default_resources_per_workspace_container:
+ default_resources_per_workspace_container:
     requests:
       cpu: "0.5"
       memory: "512Mi"
@@ -661,7 +638,7 @@ remote_development:
       cpu: "1"
       memory: "1Gi"
 
-  max_resources_per_workspace:
+ max_resources_per_workspace:
     requests:
       cpu: "1"
       memory: "1Gi"
@@ -669,26 +646,26 @@ remote_development:
       cpu: "2"
       memory: "4Gi"
 
-  workspaces_quota: 10
-  workspaces_per_user_quota: 3
+ workspaces_quota: 10
+ workspaces_per_user_quota: 3
 
-  use_kubernetes_user_namespaces: false
-  default_runtime_class: "standard"
-  allow_privilege_escalation: false
+ use_kubernetes_user_namespaces: false
+ default_runtime_class: "standard"
+ allow_privilege_escalation: false
 
-  image_pull_secrets:
+ image_pull_secrets:
     - name: "registry-secret"
       namespace: "default"
 
-  annotations:
+ annotations:
     environment: "production"
     team: "engineering"
 
-  labels:
+ labels:
     app: "workspace"
     tier: "development"
 
-  max_active_hours_before_stop: 60
-  max_stopped_hours_before_termination: 4332
-  shared_namespace: ""
+ max_active_hours_before_stop: 60
+ max_stopped_hours_before_termination: 4332
+ shared_namespace: ""
 ```

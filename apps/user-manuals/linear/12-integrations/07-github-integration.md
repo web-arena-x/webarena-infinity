@@ -8,9 +8,7 @@ Linear supports linking your GitHub pull requests, automating workflow statuses,
 
 The GitHub integration offers two core functionalities:
 
-Link GitHub PRs | Sync GitHub issues
---- | ---
-Automate your issue status by linking to a GitHub pull request or commit to follow their progress. | Sync Linear teams to GitHub repos of your choice, to automatically create and sync issues between Linear and GitHub. This will create a synced thread in the Linear issue so comments will sync both ways
+Link GitHub PRs | Sync GitHub issues --- | --- Automate your issue status by linking to a GitHub pull request or commit to follow their progress. | Sync Linear teams to GitHub repos of your choice, to automatically create and sync issues between Linear and GitHub. This will create a synced thread in the Linear issue so comments will sync both ways
 
 This will only sync issues _going forward_. To import and sync historical GitHub Issues, refer to our [GitHub Issues Importer](https://linear.app/docs/github-to-linear).
 
@@ -68,18 +66,7 @@ GitHub Enterprise Server will support the majority of the functionality of our e
 
 The table below provides a comparison of available features across GitHub.com, GitHub Enterprise Cloud, and GitHub Enterprise Server.
 
-Feature | Github.com | GitHub Enterprise Cloud | GitHub Enterprise Server
---- | --- | --- | ---
-Installation Method | Linear GitHub App | Linear GitHub App | Separate GHES App
-IP Requirements | None | IP Allow List config required if enabled | No special firewall rules
-Multiple GitHub Orgs | Yes | Yes | No
-PR Linking | Yes | Yes | Yes
-Branch Name Formatting | Yes | Yes | Yes
-Status Automation from PRs | Yes | Yes | Yes
-Magic Words for Linking | Yes | Yes | PR description only
-Commit Linking | Yes | Yes | No
-Github Issues Sync | Yes | Yes | No
-Issues Sync → Multiple Repositories to Single Team | Yes | Yes | No
+Feature | Github.com | GitHub Enterprise Cloud | GitHub Enterprise Server --- | --- | --- | --- Installation Method | Linear GitHub App | Linear GitHub App | Separate GHES App IP Requirements | None | IP Allow List config required if enabled | No special firewall rules Multiple GitHub Orgs | Yes | Yes | No PR Linking | Yes | Yes | Yes Branch Name Formatting | Yes | Yes | Yes Status Automation from PRs | Yes | Yes | Yes Magic Words for Linking | Yes | Yes | PR description only Commit Linking | Yes | Yes | No Github Issues Sync | Yes | Yes | No Issues Sync → Multiple Repositories to Single Team | Yes | Yes | No
 
 #### Add multiple GitHub organizations
 
@@ -143,14 +130,14 @@ Properties that are synced between Linear and GitHub issues include:
 
 * _`Title`_
 * _`Description`_
-* _`Status`_  
+* _`Status`_ 
 Please note that any custom statuses set at the GitHub Project level do not sync to Linear.
-* _`Assignee`_  
+* _`Assignee`_ 
 Linear users can connect their GitHub account from https://linear.app/settings/account/connections to be synced as the issue assignee
 * _`Labels`_
-* _`Sub-issues`_  
+* _`Sub-issues`_ 
 Multi-level & cross-repository/team hierarchies are supported. If parent issue is not a synced issue (e.g. it's in a different GH repo/Linear team), the sub-issue can still get synced, but will have no parent issue set on the other end.
-* _`Comments`_  
+* _`Comments`_ 
 Comments made not in the synced thread of the Linear issue will not get synced to the GitHub issue. This allows for private discussions.
 
 Moving GitHub synced Linear issues between Linear teams will maintain the synced relationship. You can also transfer GitHub issues between two synced repos; this will appropriately update the team of the associated issue in Linear.
@@ -178,9 +165,7 @@ Watch this video for a quick demo on the available linking methods:
 
 ### Link through pull requests
 
-Branch name | Pull request title | Magic words
---- | --- | ---
-Include `issue ID` in the branch name
+Branch name | Pull request title | Magic words --- | --- | --- Include `issue ID` in the branch name
 
 Use the _Copy git branch name_ action or shortcut Cmd/Ctrl Shift . when viewing or highlighting/selecting an issue and paste it into the new branch name in GitHub. | Include the Linear `issue ID` (e.g. ID-123) in the title when creating pull requests. | **Method**
 
@@ -328,8 +313,8 @@ If enabled for private teams, the issue titles will not be included in the comme
 
 If you want to automatically resolve your Linear issue IDs (e.g. _ENG-123_) in PR descriptions or comment to links, you can enable this using GitHub's _Autolink references_ feature. See instructions on [GitHub](https://help.github.com/en/github/administering-a-repository/configuring-autolinks-to-reference-external-resources).
 
-Use the following URL format: `https://linear.app/<workspace>/issue/ID-<num> `where `workspace` corresponds to your workspace's URL and `ID` is the issue identifier key for your team. You need to add each team separately as they all have a different ID pattern.  
-  
+Use the following URL format: `https://linear.app/<workspace>/issue/ID-<num> `where `workspace` corresponds to your workspace's URL and `ID` is the issue identifier key for your team. You need to add each team separately as they all have a different ID pattern. 
+ 
 If you change your Linear team name/ID, you may need to reconfigure the Autolink settings.
 
 ## FAQ

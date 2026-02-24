@@ -26,15 +26,13 @@ If you cannot install a browser plugin, you can [manually generate and capture a
 
 Pay specific attention to:
 
-- The `NameID`, which identifies the user signing in. If the user has previously
-  signed in, this must match the value that [GitLab stored](#verify-nameid).
+- The `NameID`, which identifies the user signing in. If the user has previously signed in, this must match the value that [GitLab stored](#verify-nameid).
 - The presence of a `X509Certificate`, which is required to verify the response signature.
 - The `SubjectConfirmation` and `Conditions`, which can cause errors if misconfigured.
 
 ### Generate a SAML response
 
-Use SAML responses to preview the attribute names and values sent in the assertions list while attempting to sign in
-using an identity provider.
+Use SAML responses to preview the attribute names and values sent in the assertions list while attempting to sign in using an identity provider.
 
 To generate a SAML Response:
 
@@ -49,8 +47,7 @@ To generate a SAML Response:
 1. For GitLab Self-Managed instance:
    - Go to the instance home page
    - Select the `SAML Login` button to sign in
-1. A SAML response is displayed in the tracer console that resembles this
-   [example SAML response](_index.md#example-saml-response).
+1. A SAML response is displayed in the tracer console that resembles this [example SAML response](_index.md#example-saml-response).
 1. Within the SAML tracer, select the **Export** icon to save the response in JSON format.
 
 #### Manually generate a SAML response
@@ -69,8 +66,7 @@ Regardless of what browser you use, the process is similar to the following:
 1. Paste this value into the following command: `echo "<value>" | base64 --decode > saml_response.xml`.
 1. Open `saml_response.xml` in a code editor.
 
-   If you have an XML "prettifier" installed in your code editor, you should be able to automatically
-   format the response to be easier to read.
+   If you have an XML "prettifier" installed in your code editor, you should be able to automatically format the response to be easier to read.
 
 ## Search Rails logs for a SAML sign-in
 
@@ -87,26 +83,26 @@ For example, by searching for `system_access`, you can find entries that show wh
 
 ```json
 {
-  "severity": "INFO",
-  "time": "2024-08-13T06:05:35.721Z",
-  "correlation_id": "01J555EZK136DQ8S7P32G9GEND",
-  "meta.caller_id": "OmniauthCallbacksController#saml",
-  "meta.remote_ip": "45.87.213.198",
-  "meta.feature_category": "system_access",
-  "meta.user": "bbtest",
-  "meta.user_id": 16,
-  "meta.client_id": "user/16",
-  "author_id": 16,
-  "author_name": "bbtest@agounder.onmicrosoft.com",
-  "entity_id": 16,
-  "entity_type": "User",
-  "created_at": "2024-08-13T06:05:35.708+00:00",
-  "ip_address": "45.87.213.198",
-  "with": "saml",
-  "target_id": 16,
-  "target_type": "User",
-  "target_details": "bbtest@agounder.onmicrosoft.com",
-  "entity_path": "bbtest"
+ "severity": "INFO",
+ "time": "2024-08-13T06:05:35.721Z",
+ "correlation_id": "01J555EZK136DQ8S7P32G9GEND",
+ "meta.caller_id": "OmniauthCallbacksController#saml",
+ "meta.remote_ip": "45.87.213.198",
+ "meta.feature_category": "system_access",
+ "meta.user": "bbtest",
+ "meta.user_id": 16,
+ "meta.client_id": "user/16",
+ "author_id": 16,
+ "author_name": "bbtest@agounder.onmicrosoft.com",
+ "entity_id": 16,
+ "entity_type": "User",
+ "created_at": "2024-08-13T06:05:35.708+00:00",
+ "ip_address": "45.87.213.198",
+ "with": "saml",
+ "target_id": 16,
+ "target_type": "User",
+ "target_details": "bbtest@agounder.onmicrosoft.com",
+ "entity_path": "bbtest"
 }
 ```
 
@@ -114,19 +110,19 @@ If you have configured SAML Group Links, the log also shows entries detailing me
 
 ```json
 {
-  "severity": "INFO",
-  "time": "2024-08-13T05:24:07.769Z",
-  "correlation_id": "01J55330SRTKTD5CHMS96DNZEN",
-  "meta.caller_id": "Auth::SamlGroupSyncWorker",
-  "meta.remote_ip": "45.87.213.206",
-  "meta.feature_category": "system_access",
-  "meta.client_id": "ip/45.87.213.206",
-  "meta.root_caller_id": "OmniauthCallbacksController#saml",
-  "id": 179,
-  "author_id": 6,
-  "entity_id": 2,
-  "entity_type": "Group",
-  "details": {
+ "severity": "INFO",
+ "time": "2024-08-13T05:24:07.769Z",
+ "correlation_id": "01J55330SRTKTD5CHMS96DNZEN",
+ "meta.caller_id": "Auth::SamlGroupSyncWorker",
+ "meta.remote_ip": "45.87.213.206",
+ "meta.feature_category": "system_access",
+ "meta.client_id": "ip/45.87.213.206",
+ "meta.root_caller_id": "OmniauthCallbacksController#saml",
+ "id": 179,
+ "author_id": 6,
+ "entity_id": 2,
+ "entity_type": "Group",
+ "details": {
     "remove": "user_access",
     "member_id": 7,
     "author_name": "BB Test",
@@ -137,7 +133,7 @@ If you have configured SAML Group Links, the log also shows entries detailing me
     "custom_message": "Membership destroyed",
     "ip_address": "45.87.213.198",
     "entity_path": "group1"
-  }
+ }
 }
 ```
 
@@ -145,15 +141,15 @@ You can also see details of the user that GitLab received from the SAML provider
 
 ```json
 {
-  "severity": "INFO",
-  "time": "2024-08-20T07:01:20.979Z",
-  "correlation_id": "01J5Q9E59X4P40ZT3MCE35C2A9",
-  "meta.caller_id": "OmniauthCallbacksController#saml",
-  "meta.remote_ip": "xxx.xxx.xxx.xxx",
-  "meta.feature_category": "system_access",
-  "meta.client_id": "ip/xxx.xxx.xxx.xxx",
-  "payload_type": "saml_response",
-  "saml_response": {
+ "severity": "INFO",
+ "time": "2024-08-20T07:01:20.979Z",
+ "correlation_id": "01J5Q9E59X4P40ZT3MCE35C2A9",
+ "meta.caller_id": "OmniauthCallbacksController#saml",
+ "meta.remote_ip": "xxx.xxx.xxx.xxx",
+ "meta.feature_category": "system_access",
+ "meta.client_id": "ip/xxx.xxx.xxx.xxx",
+ "payload_type": "saml_response",
+ "saml_response": {
     "issuer": [
       "https://sts.windows.net/03b8c6c5-104b-43e2-aed3-abb07df387cc/"
     ],
@@ -200,7 +196,7 @@ You can also see details of the user that GitLab received from the SAML provider
     "assertion_encrypted": false,
     "response_id": "_392cc747-7c8b-41de-8be0-23f5590d5ded",
     "assertion_id": "_b4f253e2-aa61-46a4-902b-43592fe30800"
-  }
+ }
 }
 ```
 
@@ -210,15 +206,12 @@ You can use one of the following to troubleshoot SAML:
 
 - A [complete GitLab with SAML testing environment using Docker compose](https://gitlab.com/gitlab-com/support/toolbox/replication/tree/master/compose_files).
 - A [quick start guide to start a Docker container](../../../administration/troubleshooting/test_environments.md#saml)
-  with a plug and play SAML 2.0 identity provider if you only require a SAML provider.
-- A local environment by
-  [enabling SAML for groups on a GitLab Self-Managed instance](../../../integration/saml.md#configure-group-saml-sso-on-gitlab-self-managed).
+ with a plug and play SAML 2.0 identity provider if you only require a SAML provider.
+- A local environment by [enabling SAML for groups on a GitLab Self-Managed instance](../../../integration/saml.md#configure-group-saml-sso-on-gitlab-self-managed).
 
 ## Verify configuration
 
-For convenience, some [example resources](example_saml_config.md) used by the GitLab
-Support Team are included. While they may help you verify the SAML app configuration,
-they are not guaranteed to reflect the current state of third-party products.
+For convenience, some [example resources](example_saml_config.md) used by the GitLab Support Team are included. While they may help you verify the SAML app configuration, they are not guaranteed to reflect the current state of third-party products.
 
 ### Calculate the fingerprint
 
@@ -232,8 +225,7 @@ Replace `<certificate.crt>` with the name of the certificate file.
 
 {{< alert type="note" >}}
 
-In GitLab 17.11 and later, the fingerprint algorithm is
-[automatically detected](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/184530)
+In GitLab 17.11 and later, the fingerprint algorithm is [automatically detected](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/184530)
 based on fingerprint length.
 
 In GitLab 17.10 and earlier, SHA1 is the default fingerprint algorithm.
@@ -253,46 +245,33 @@ When the certificate used for your identity provider changes (for example when u
 
 ### Invalid audience
 
-This error means that the identity provider doesn't recognize GitLab as a valid sender and
-receiver of SAML requests. Make sure to:
+This error means that the identity provider doesn't recognize GitLab as a valid sender and receiver of SAML requests. Make sure to:
 
 - Add the GitLab callback URL to the approved audiences of the identity provider server.
 - Avoid trailing whitespace in the `issuer` string.
 
 ### Key validation error, Digest mismatch or Fingerprint mismatch
 
-These errors all come from a similar place, the SAML certificate. SAML requests
-must be validated using either a fingerprint, a certificate, or a validator.
+These errors all come from a similar place, the SAML certificate. SAML requests must be validated using either a fingerprint, a certificate, or a validator.
 
 For this requirement, be sure to take the following into account:
 
 - If you use a fingerprint, confirm your SHA256 fingerprint:
-  1. Re-download the certificate file.
-  1. [Calculate the fingerprint](#calculate-the-fingerprint).
-  1. Compare the fingerprint to the value provided in `idp_cert_fingerprint`. The values should be the same.
-- If no certificate is provided in the settings, a fingerprint or fingerprint
-  validator needs to be provided and the response from the server must contain
-  a certificate (`<ds:KeyInfo><ds:X509Data><ds:X509Certificate>`).
-- If a certificate is provided in the settings, it is no longer necessary for
-  the request to contain one. In this case the fingerprint or fingerprint
-  validators are optional.
+ 1. Re-download the certificate file.
+ 1. [Calculate the fingerprint](#calculate-the-fingerprint).
+ 1. Compare the fingerprint to the value provided in `idp_cert_fingerprint`. The values should be the same.
+- If no certificate is provided in the settings, a fingerprint or fingerprint validator needs to be provided and the response from the server must contain a certificate (`<ds:KeyInfo><ds:X509Data><ds:X509Certificate>`).
+- If a certificate is provided in the settings, it is no longer necessary for the request to contain one. In this case the fingerprint or fingerprint validators are optional.
 
-If none of the previously described scenarios is valid, the request
-fails with one of the mentioned errors.
+If none of the previously described scenarios is valid, the request fails with one of the mentioned errors.
 
 ### Missing claims, or `Email can't be blank` errors
 
-The identity provider server needs to pass certain information in order for GitLab to either
-create an account, or match the login information to an existing account. `email`
-is the minimum amount of information that needs to be passed. If the identity provider server
-is not providing this information, all SAML requests fail.
+The identity provider server needs to pass certain information in order for GitLab to either create an account, or match the login information to an existing account. `email` is the minimum amount of information that needs to be passed. If the identity provider server is not providing this information, all SAML requests fail.
 
 Make sure this information is provided.
 
-Another issue that can result in this error is when the correct information is being sent by
-the identity provider, but the attributes don't match the names in the OmniAuth `info` hash. In this case,
-you must set `attribute_statements` in the SAML configuration to
-[map the attribute names in your SAML Response to the corresponding OmniAuth `info` hash names](../../../integration/saml.md#map-saml-response-attribute-names).
+Another issue that can result in this error is when the correct information is being sent by the identity provider, but the attributes don't match the names in the OmniAuth `info` hash. In this case, you must set `attribute_statements` in the SAML configuration to [map the attribute names in your SAML Response to the corresponding OmniAuth `info` hash names](../../../integration/saml.md#map-saml-response-attribute-names).
 
 ## User sign in banner error messages
 
@@ -353,10 +332,8 @@ This can be prevented by configuring the `NameID` to return a consistent value. 
 
 Ensure that the user who is trying to link their GitLab account has been added as a user within the identity provider's SAML app.
 
-Alternatively, the SAML response may be missing the `InResponseTo` attribute in the
-`samlp:Response` tag, which is [expected by the SAML gem](https://github.com/onelogin/ruby-saml/blob/9f710c5028b069bfab4b9e2b66891e0549765af5/lib/onelogin/ruby-saml/response.rb#L307-L316).
-The identity provider administrator should ensure that the login is
-initiated by the service provider and not only the identity provider.
+Alternatively, the SAML response may be missing the `InResponseTo` attribute in the `samlp:Response` tag, which is [expected by the SAML gem](https://github.com/onelogin/ruby-saml/blob/9f710c5028b069bfab4b9e2b66891e0549765af5/lib/onelogin/ruby-saml/response.rb#L307-L316).
+The identity provider administrator should ensure that the login is initiated by the service provider and not only the identity provider.
 
 ### Message: `There is already a GitLab account associated with this email address.`
 
@@ -374,8 +351,7 @@ There is already a GitLab account associated with this email address.
 Sign in with your existing credentials to connect your organization's account
 ```
 
-To resolve this problem, the user should check they are using the correct GitLab password to sign in. The user first needs
-to [reset their password](https://gitlab.com/users/password/new) if both:
+To resolve this problem, the user should check they are using the correct GitLab password to sign in. The user first needs to [reset their password](https://gitlab.com/users/password/new) if both:
 
 - The account was provisioned by SCIM.
 - They are signing in with username and password for the first time.
@@ -389,15 +365,13 @@ to [reset their password](https://gitlab.com/users/password/new) if both:
 
 {{< /details >}}
 
-Users might get an error that states "SAML Name ID and email address do not match your user account. Contact an administrator."
-This means:
+Users might get an error that states "SAML Name ID and email address do not match your user account. Contact an administrator." This means:
 
 - The NameID value sent by SAML does not match the existing SAML identity `extern_uid` value. Both the NameID and the `extern_uid` are case-sensitive. For more information, see [manage user SAML identity](_index.md#manage-user-saml-identity).
 - Either the SAML response did not include an email address or the email address did not match the user's GitLab email address.
 
 The workaround is that a GitLab group Owner uses the [SAML API](../../../api/saml.md) to update the user's SAML `extern_uid`.
-The `extern_uid` value must match the Name ID value sent by the SAML identity provider (IdP). Depending on the IdP configuration
-this may be a generated unique ID, an email address, or other value.
+The `extern_uid` value must match the Name ID value sent by the SAML identity provider (IdP). Depending on the IdP configuration this may be a generated unique ID, an email address, or other value.
 
 ### Error: `Certificate element missing in response (ds:x509certificate)`
 
@@ -422,9 +396,7 @@ For GitLab Self-Managed, administrators can use the [users API](../../../api/use
 
 When using SAML for groups, group members of a role with the appropriate permissions can make use of the [members API](../../../api/members.md) to view group SAML identity information for members of the group.
 
-This can then be compared to the `NameID` sent by the identity provider by decoding the
-message with a [SAML debugging tool](#saml-debugging-tools). These values must match to
-identify users.
+This can then be compared to the `NameID` sent by the identity provider by decoding the message with a [SAML debugging tool](#saml-debugging-tools). These values must match to identify users.
 
 ### Stuck in a login "loop"
 
@@ -447,11 +419,9 @@ If the user receives a `404` after signing in successfully, check if you have IP
 - For GitLab Self-Managed, [at the instance level](../../../administration/reporting/ip_addr_restrictions.md).
 
 Because SAML SSO for groups is a paid feature, your subscription expiring can result in a `404` error when you're signing in using SAML SSO on GitLab.com.
-If all users are receiving a `404` when attempting to sign in using SAML, confirm
-[there is an active subscription](../../../subscriptions/manage_subscription.md#view-subscription) being used in this SAML SSO namespace.
+If all users are receiving a `404` when attempting to sign in using SAML, confirm [there is an active subscription](../../../subscriptions/manage_subscription.md#view-subscription) being used in this SAML SSO namespace.
 
-If you receive a `404` during setup when using "verify configuration", make sure you have used the correct
-[SHA-1 generated fingerprint](../../../integration/saml.md#configure-saml-on-your-idp).
+If you receive a `404` during setup when using "verify configuration", make sure you have used the correct [SHA-1 generated fingerprint](../../../integration/saml.md#configure-saml-on-your-idp).
 
 If a user is trying to sign in for the first time and the GitLab single sign-on URL has not [been configured](_index.md#set-up-your-identity-provider), they may see a 404.
 As outlined in the [user access section](_index.md#link-saml-to-your-existing-gitlabcom-account), a group Owner needs to provide the URL to users.
@@ -460,16 +430,16 @@ If the top-level group has [restricted membership by email domain](../access_and
 
 - That the top-level group has restricted membership by email domain.
 - That, in [audit events](../../../administration/compliance/audit_event_reports.md) for the top-level group:
-  - You can see **Signed in with GROUP_SAML authentication** action for that user.
-  - That the user's username is the same as the username you configured for SAML SSO, by selecting the **Author** name.
+ - You can see **Signed in with GROUP_SAML authentication** action for that user.
+ - That the user's username is the same as the username you configured for SAML SSO, by selecting the **Author** name.
     - If the username is different to the username you configured for SAML SSO, ask the user to [unlink the SAML identity](_index.md#unlink-accounts) from their personal account.
 
 If all users are receiving a `404` after signing in to the identity provider (IdP):
 
 - Verify the `assertion_consumer_service_url`:
 
-  - In the GitLab configuration by [matching it to the HTTPS endpoint of GitLab](../../../integration/saml.md#configure-saml-support-in-gitlab).
-  - As the `Assertion Consumer Service URL` or equivalent when setting up the SAML app on your IdP.
+ - In the GitLab configuration by [matching it to the HTTPS endpoint of GitLab](../../../integration/saml.md#configure-saml-support-in-gitlab).
+ - As the `Assertion Consumer Service URL` or equivalent when setting up the SAML app on your IdP.
 
 - Verify if the `404` is related to [the user having too many groups assigned to them in their Azure IdP](group_sync.md#microsoft-azure-active-directory-integration).
 
@@ -479,12 +449,12 @@ If a subset of users receive a `404` error after they sign in to the IdP, first 
 
 - Ensure the user has been [added to the SAML identity provider](_index.md#user-access-and-management), and [SCIM](scim_setup.md) if configured.
 - Ensure the user's SCIM identity's `active` attribute is `true` using the [SCIM API](../../../api/scim.md).
-  If the `active` attribute is `false`, you can do one of the following to possibly resolve the issue:
+ If the `active` attribute is `false`, you can do one of the following to possibly resolve the issue:
 
-  - Trigger a sync for the user in the SCIM identity provider. For example, Azure has a "Provision on demand" option.
-  - Remove and re-add the user in the SCIM identity provider.
-  - Have the user [unlink their account](_index.md#unlink-accounts) if possible, then [link their account](_index.md#link-saml-to-your-existing-gitlabcom-account).
-  - Use the [internal SCIM API](../../../development/internal_api/_index.md#update-a-single-scim-provisioned-user) to update the user's SCIM identity using your group's SCIM token.
+ - Trigger a sync for the user in the SCIM identity provider. For example, Azure has a "Provision on demand" option.
+ - Remove and re-add the user in the SCIM identity provider.
+ - Have the user [unlink their account](_index.md#unlink-accounts) if possible, then [link their account](_index.md#link-saml-to-your-existing-gitlabcom-account).
+ - Use the [internal SCIM API](../../../development/internal_api/_index.md#update-a-single-scim-provisioned-user) to update the user's SCIM identity using your group's SCIM token.
     If you do not know your group's SCIM token, reset the token and update the SCIM identity provider app with the new token.
     Example request:
 
@@ -501,11 +471,9 @@ If a subset of users receive a `404` error after they sign in to the IdP, first 
 
 {{< /details >}}
 
-If you see a "500 error" in GitLab when you are redirected back from the SAML
-sign-in page, this could indicate that:
+If you see a "500 error" in GitLab when you are redirected back from the SAML sign-in page, this could indicate that:
 
-- GitLab couldn't get the email address for the SAML user. Ensure the identity provider provides a claim containing the user's
-  email address using the claim name `email` or `mail`.
+- GitLab couldn't get the email address for the SAML user. Ensure the identity provider provides a claim containing the user's email address using the claim name `email` or `mail`.
 - The certificate set your `gitlab.rb` file for `identity provider_cert_fingerprint` or `identity provider_cert` file is incorrect.
 - Your `gitlab.rb` file is set to enable `identity provider_cert_fingerprint`, and `identity provider_cert` is being provided, or the reverse.
 
@@ -518,15 +486,11 @@ sign-in page, this could indicate that:
 
 {{< /details >}}
 
-If you see a "422 error" in GitLab when you are redirected from the SAML
-sign-in page, you might have an incorrectly configured Assertion Consumer
-Service (ACS) URL on the identity provider.
+If you see a "422 error" in GitLab when you are redirected from the SAML sign-in page, you might have an incorrectly configured Assertion Consumer Service (ACS) URL on the identity provider.
 
-Make sure the ACS URL points to `https://gitlab.example.com/users/auth/saml/callback`, where
-`gitlab.example.com` is the URL of your GitLab instance.
+Make sure the ACS URL points to `https://gitlab.example.com/users/auth/saml/callback`, where `gitlab.example.com` is the URL of your GitLab instance.
 
-If the ACS URL is correct, and you still have errors, review the other
-Troubleshooting sections.
+If the ACS URL is correct, and you still have errors, review the other Troubleshooting sections.
 
 #### 422 error with non-allowed email
 
@@ -606,7 +570,7 @@ Ensure the SAML identity provider is configured to send a [supported mail attrib
 
 ```xml
 <Attribute Name="email">
-  <AttributeValue>user@example.com‹/AttributeValue>
+ <AttributeValue>user@example.com‹/AttributeValue>
 </Attribute>
 ```
 
@@ -614,7 +578,7 @@ Attribute names starting with phrases such as `http://schemas.xmlsoap.org/ws/200
 
 ```xml
 <Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/emailaddress">
-  <AttributeValue>user@example.com‹/AttributeValue>
+ <AttributeValue>user@example.com‹/AttributeValue>
 </Attribute>
 ```
 

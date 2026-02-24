@@ -13,8 +13,7 @@ description: "Export group relations with the REST API."
 
 {{< /details >}}
 
-Use this API to migrate a group structure. Each top-level
-relation (for example, milestones, boards, and labels) is stored as a separate file.
+Use this API to migrate a group structure. Each top-level relation (for example, milestones, boards, and labels) is stored as a separate file.
 
 This API is primarily used during [group migration by direct transfer](../user/group/import/_index.md).
 To use this API, your GitLab instance must meet certain [prerequisites](../user/group/import/direct_transfer_migrations.md#prerequisites).
@@ -36,13 +35,13 @@ POST /groups/:id/export_relations
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/export_relations"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/export_relations"
 ```
 
 ```json
 {
-  "message": "202 Accepted"
+ "message": "202 Accepted"
 }
 ```
 
@@ -54,15 +53,15 @@ View the status of the relations export:
 GET /groups/:id/export_relations/status
 ```
 
-| Attribute  | Type              | Required | Description |
+| Attribute | Type              | Required | Description |
 |------------|-------------------|----------|------------ |
 | `id`       | Integer or string | Yes      | ID of the group. |
 | `relation` | String            | No       | Name of the project top-level relation to view. |
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/export_relations/status"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/export_relations/status"
 ```
 
 The status can be one of the following:
@@ -73,7 +72,7 @@ The status can be one of the following:
 
 ```json
 [
-  {
+ {
     "relation": "badges",
     "status": 1,
     "error": null,
@@ -89,15 +88,15 @@ The status can be one of the following:
         "updated_at": "2021-05-04T11:25:20.423Z"
       }
     ]
-  },
-  {
+ },
+ {
     "relation": "boards",
     "status": 1,
     "error": null,
     "updated_at": "2021-05-04T11:25:20.085Z",
     "batched": false,
     "batches_count": 0
-  }
+ }
 ]
 ```
 
@@ -118,9 +117,9 @@ GET /groups/:id/export_relations/download
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --remote-header-name \
-  --remote-name "https://gitlab.example.com/api/v4/groups/1/export_relations/download?relation=labels"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --remote-header-name \
+ --remote-name "https://gitlab.example.com/api/v4/groups/1/export_relations/download?relation=labels"
 ```
 
 ```shell

@@ -25,8 +25,7 @@ title: 'Tutorial: Use the personal homepage'
 The personal homepage consolidates all information relevant to you in one place.
 You can quickly identify new work items that need your attention, or pick up where you left off.
 
-Follow this tutorial to learn how to find your way around the homepage,
-and to get the most out of it.
+Follow this tutorial to learn how to find your way around the homepage, and to get the most out of it.
 
 ## Before you begin
 
@@ -49,15 +48,13 @@ Below your avatar, view the number of merge requests and issues that you're invo
 
 The **Items that need your attention** list shows all work items across GitLab that need your input.
 
-The **Follow the latest updates** feed shows your activity across GitLab,
-and the activity of specific projects and users you're interested in.
+The **Follow the latest updates** feed shows your activity across GitLab, and the activity of specific projects and users you're interested in.
 
 Go to the right side of the homepage to access quick links to items you've recently viewed and projects you frequently visit.
 
 ## Use the homepage to start your day
 
-Let's go over a few ways you can use the homepage to get started with your
-work for the day:
+Let's go over a few ways you can use the homepage to get started with your work for the day:
 
 1. Use the filter in the **Items that need your attention** list to view the events that are most important to you.
    For example, to see merge requests that are blocked because of failed pipelines, select **Failed builds** from the filter dropdown list.

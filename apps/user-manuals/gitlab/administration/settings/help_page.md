@@ -12,8 +12,7 @@ title: Customize the Help page message
 
 {{< /details >}}
 
-In large organizations, it is useful to have information about who to contact or where
-to go for help. You can customize and display this information on the GitLab `/help` page.
+In large organizations, it is useful to have information about who to contact or where to go for help. You can customize and display this information on the GitLab `/help` page.
 
 ## Add a help message to the Help page
 
@@ -30,8 +29,7 @@ You can now see the message on `/help`.
 
 {{< alert type="note" >}}
 
-By default, `/help` is visible to unauthenticated users. However, if the
-[**Public** visibility level](visibility_and_access_controls.md#restrict-visibility-levels)
+By default, `/help` is visible to unauthenticated users. However, if the [**Public** visibility level](visibility_and_access_controls.md#restrict-visibility-levels)
 is restricted, `/help` is visible only to authenticated users.
 
 {{< /alert >}}
@@ -79,8 +77,7 @@ You can redirect all `/help` links to a destination that meets the [necessary re
 1. In the **Documentation pages URL** field, enter the URL.
 1. Select **Save changes**.
 
-If the **Documentation pages URL** field is empty, the GitLab instance displays a basic version of the documentation
-sourced from the [`doc` directory](https://gitlab.com/gitlab-org/gitlab/-/tree/master/doc) of GitLab.
+If the **Documentation pages URL** field is empty, the GitLab instance displays a basic version of the documentation sourced from the [`doc` directory](https://gitlab.com/gitlab-org/gitlab/-/tree/master/doc) of GitLab.
 
 ### Destination requirements
 
@@ -88,10 +85,9 @@ When redirecting `/help`, GitLab:
 
 - Uses the specified URL as the base URL for the redirect.
 - Constructs the full URL by:
-  - Adding the version number (`${VERSION}`).
-  - Adding the documentation path.
-  - Removing any `.md` file extensions.
+ - Adding the version number (`${VERSION}`).
+ - Adding the documentation path.
+ - Removing any `.md` file extensions.
 
-For example, if the URL is set to `https://docs.gitlab.com`, requests for
-`/help/administration/settings/help_page.md` redirect to:
+For example, if the URL is set to `https://docs.gitlab.com`, requests for `/help/administration/settings/help_page.md` redirect to:
 `https://docs.gitlab.com/${VERSION}/administration/settings/help_page`.

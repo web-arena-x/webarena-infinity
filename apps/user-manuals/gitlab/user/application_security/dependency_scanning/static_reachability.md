@@ -24,18 +24,13 @@ title: Static reachability analysis
 
 {{< /history >}}
 
-Dependency scanning identifies all vulnerable dependencies in your project. However, not all
-vulnerabilities pose equal risk. Static reachability analysis (SRA) helps you prioritize remediation
-by determining which vulnerable packages are reachable, meaning they are imported by your
-application. By focusing on reachable vulnerabilities, SRA enables you to prioritize remediation
-based on actual threat exposure rather than theoretical risk.
+Dependency scanning identifies all vulnerable dependencies in your project. However, not all vulnerabilities pose equal risk. Static reachability analysis (SRA) helps you prioritize remediation by determining which vulnerable packages are reachable, meaning they are imported by your application. By focusing on reachable vulnerabilities, SRA enables you to prioritize remediation based on actual threat exposure rather than theoretical risk.
 
 Static reachability analysis is production-ready but marked as Limited Availability because it is bundled with [dependency scanning](dependency_scanning_sbom/_index.md), which is in Limited Availability maturity level.
 
 ## Getting started
 
-If you are new to static reachability analysis, the following steps show how to enable it for your
-project.
+If you are new to static reachability analysis, the following steps show how to enable it for your project.
 
 Share any feedback on the new static reachability analysis in this [feedback issue](https://gitlab.com/gitlab-org/gitlab/-/issues/535498).
 
@@ -43,23 +38,16 @@ Prerequisites:
 
 - Ensure the project uses [supported languages and package managers](#supported-languages-and-package-managers).
 - [Dependency scanning analyzer](https://gitlab.com/gitlab-org/security-products/analyzers/dependency-scanning)
-  version 0.39.0 or later (earlier versions may support specific languages - see `History` above)
+ version 0.39.0 or later (earlier versions may support specific languages - see `History` above)
 - Enable [Dependency scanning by using SBOM](dependency_scanning_sbom/_index.md#getting-started).
-  [Gemnasium](https://gitlab.com/gitlab-org/security-products/analyzers/gemnasium) analyzers are not
-  supported.
+ [Gemnasium](https://gitlab.com/gitlab-org/security-products/analyzers/gemnasium) analyzers are not supported.
 - Language-specific prerequisites:
-  - For Python, follow the [pip](dependency_scanning_sbom/_index.md#pip) or
-    [pipenv](dependency_scanning_sbom/_index.md#pipenv)
-    related instructions for dependency scanning using SBOM. You can also use any other Python package
-    manager that is
-    [supported](https://gitlab.com/gitlab-org/security-products/analyzers/dependency-scanning#supported-files)
+ - For Python, follow the [pip](dependency_scanning_sbom/_index.md#pip) or [pipenv](dependency_scanning_sbom/_index.md#pipenv)
+    related instructions for dependency scanning using SBOM. You can also use any other Python package manager that is [supported](https://gitlab.com/gitlab-org/security-products/analyzers/dependency-scanning#supported-files)
     by the dependency scanning analyzer.
-  - For JavaScript and TypeScript, ensure your repository has lock files
-    [supported](https://gitlab.com/gitlab-org/security-products/analyzers/dependency-scanning#supported-files)
+ - For JavaScript and TypeScript, ensure your repository has lock files [supported](https://gitlab.com/gitlab-org/security-products/analyzers/dependency-scanning#supported-files)
     by the dependency scanning analyzer.
-  - For Java, follow the [Maven](dependency_scanning_sbom/_index.md#maven) or
-    [Gradle](dependency_scanning_sbom/_index.md#gradle) related instructions for dependency scanning using SBOM
-    to generate the required dependency graph files.
+ - For Java, follow the [Maven](dependency_scanning_sbom/_index.md#maven) or [Gradle](dependency_scanning_sbom/_index.md#gradle) related instructions for dependency scanning using SBOM to generate the required dependency graph files.
 
 Performance impact:
 
@@ -73,12 +61,11 @@ To enable SRA:
 ```yaml
 include:
 - template: Jobs/Dependency-Scanning.v2.gitlab-ci.yml
-  variables:
-  DS_STATIC_REACHABILITY_ENABLED: true
+ variables:
+ DS_STATIC_REACHABILITY_ENABLED: true
 ```
 
-At this point, SRA is enabled in your pipeline. When dependency scanning runs and outputs an SBOM,
-the results are supplemented by static reachability analysis.
+At this point, SRA is enabled in your pipeline. When dependency scanning runs and outputs an SBOM, the results are supplemented by static reachability analysis.
 
 ## Understanding the results
 
@@ -90,27 +77,19 @@ To identify vulnerable dependencies that are reachable, either:
 
 A dependency can have one of the following reachability values:
 
-Yes
-: The package linked to this vulnerability is confirmed reachable in code.
+Yes : The package linked to this vulnerability is confirmed reachable in code.
 
-  When a direct dependency is marked as reachable its transitive dependencies are also
-  marked as reachable.
+ When a direct dependency is marked as reachable its transitive dependencies are also marked as reachable.
 
-Not Found
-: SRA ran successfully but did not detect usage of the vulnerable package.
+Not Found : SRA ran successfully but did not detect usage of the vulnerable package.
 
-Not Available
-: SRA was not executed, so no reachability data exists.
+Not Available : SRA was not executed, so no reachability data exists.
 
 ### Not Found reachability value
 
-If a vulnerable dependency's reachability value is shown as **Not Found**, exercise caution rather than completely
-dismissing it, as SRA cannot always definitively determine package usage.
+If a vulnerable dependency's reachability value is shown as **Not Found**, exercise caution rather than completely dismissing it, as SRA cannot always definitively determine package usage.
 
-Dependencies in excluded directories might appear in the SBOM but be marked as **Not Found**. This occurs when lock files
-are in scope of dependency scanning but the source code that uses those dependencies is excluded. For example, you configure the
-CI/CD variable `DS_EXCLUDED_PATHS` to exclude the directory `tests/` from dependency scanning. All dependencies identified from
-the lock file are listed in the SBOM, but SRA does not scan source code in excluded paths.
+Dependencies in excluded directories might appear in the SBOM but be marked as **Not Found**. This occurs when lock files are in scope of dependency scanning but the source code that uses those dependencies is excluded. For example, you configure the CI/CD variable `DS_EXCLUDED_PATHS` to exclude the directory `tests/` from dependency scanning. All dependencies identified from the lock file are listed in the SBOM, but SRA does not scan source code in excluded paths.
 
 ## Supported languages and package managers
 
@@ -127,9 +106,7 @@ While the end-to-end static reachability feature is at Limited Availability leve
 | Beta | JavaScript, TypeScript | No support for frontend frameworks. |
 | Beta | Java | Java support is in early stages with [known limitations](#java-static-reachability-limitations) and may have higher false negative rates. |
 
-SRA supplements the SBOMs generated by the new dependency scanner analyzer and so supports the same
-package managers. If a package manager without dependency graph support is used, all indirect
-dependencies are marked as [not found](#understanding-the-results).
+SRA supplements the SBOMs generated by the new dependency scanner analyzer and so supports the same package managers. If a package manager without dependency graph support is used, all indirect dependencies are marked as [not found](#understanding-the-results).
 
 | Language              | Supported package managers                  | Supported file suffix |
 |-----------------------|---------------------------------------------|-----------------------|
@@ -140,17 +117,11 @@ dependencies are marked as [not found](#understanding-the-results).
 **Footnotes**:
 
 1. When using dependency scanning with `pipdeptree`,
-  [optional dependencies](https://setuptools.pypa.io/en/latest/userguide/dependency_management.html#optional-dependencies)
-   are marked as direct dependencies instead of as transitive dependencies. Static reachability
-   analysis might not identify those packages as in use. For example, requiring `passlib[bcrypt]`
-   may result in `passlib` being marked as `in_use` and `bcrypt` is marked as `not_found`. For
-   more details, see [pip](dependency_scanning_sbom/_index.md#pip).
-1. For Python `pipenv`, static reachability analysis doesn't support `Pipfile.lock` files. Support
-   is available only for `pipenv.graph.json` because it supports a dependency graph.
-1. For Java, static reachability analysis requires dependency graph files. For Maven projects,
-   use `maven.graph.json` files as described in the [Maven](dependency_scanning_sbom/_index.md#maven)
-   instructions. For Gradle projects, use dependency lock files as described in the
-   [Gradle](dependency_scanning_sbom/_index.md#gradle) instructions.
+ [optional dependencies](https://setuptools.pypa.io/en/latest/userguide/dependency_management.html#optional-dependencies)
+   are marked as direct dependencies instead of as transitive dependencies. Static reachability analysis might not identify those packages as in use. For example, requiring `passlib[bcrypt]` may result in `passlib` being marked as `in_use` and `bcrypt` is marked as `not_found`. For more details, see [pip](dependency_scanning_sbom/_index.md#pip).
+1. For Python `pipenv`, static reachability analysis doesn't support `Pipfile.lock` files. Support is available only for `pipenv.graph.json` because it supports a dependency graph.
+1. For Java, static reachability analysis requires dependency graph files. For Maven projects, use `maven.graph.json` files as described in the [Maven](dependency_scanning_sbom/_index.md#maven)
+   instructions. For Gradle projects, use dependency lock files as described in the [Gradle](dependency_scanning_sbom/_index.md#gradle) instructions.
 
 ### Java static reachability limitations
 
@@ -163,24 +134,17 @@ These limitations may result in higher false negative rates for projects using m
 
 ## Running SRA in an offline environment
 
-To use the dependency scanning component in an offline environment, you must first
-[mirror the component project](../../../ci/components/_index.md#use-a-gitlabcom-component-on-gitlab-self-managed).
+To use the dependency scanning component in an offline environment, you must first [mirror the component project](../../../ci/components/_index.md#use-a-gitlabcom-component-on-gitlab-self-managed).
 
 ## How static reachability analysis works
 
-Dependency scanning generates an SBOM report that identifies all components and their transitive
-dependencies. Static reachability analysis checks each dependency in the SBOM report and adds a
-reachability value to the SBOM report. The enriched SBOM is then ingested by the GitLab instance.
+Dependency scanning generates an SBOM report that identifies all components and their transitive dependencies. Static reachability analysis checks each dependency in the SBOM report and adds a reachability value to the SBOM report. The enriched SBOM is then ingested by the GitLab instance.
 
-An SBOM is enriched only when both the SBOM file and the source code files belong to the same
-project directory tree. When multiple nested projects exist, the system selects the closest
-(deepest) project path to determine enrichment.
+An SBOM is enriched only when both the SBOM file and the source code files belong to the same project directory tree. When multiple nested projects exist, the system selects the closest (deepest) project path to determine enrichment.
 
 Static reachability analysis relies on [metadata](https://gitlab.com/gitlab-org/security-products/static-reachability-metadata/-/tree/v1?ref_type=heads) that maps package names from SBOMs to their corresponding code import paths for Python and Java packages. This metadata is maintained with weekly updates.
 
 The following are marked as not found:
 
 - Dependencies that are found in the project's lock files but are not imported in the code.
-- Tools that are included in the project's lock files for local usage but are not imported in the
-  code. For example, tools such as coverage testing or linting packages are marked as not found even
-  if used locally.
+- Tools that are included in the project's lock files for local usage but are not imported in the code. For example, tools such as coverage testing or linting packages are marked as not found even if used locally.

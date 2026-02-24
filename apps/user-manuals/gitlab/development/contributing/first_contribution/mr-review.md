@@ -17,8 +17,7 @@ Now you're ready to push changes from the community fork to the main GitLab repo
    Select **Create merge request**.
    If you don't see this message, on the left sidebar, select **Code** > **Merge requests** > **New merge request**.
 
-1. Take a look at the branch names. You should be merging from your branch
-   in the community fork to the `master` branch in the GitLab repository.
+1. Take a look at the branch names. You should be merging from your branch in the community fork to the `master` branch in the GitLab repository.
 
    ![The user interface for creating a new merge request that highlights the source and destination branches](img/new_merge_request_v15_11.png)
 
@@ -32,11 +31,9 @@ Now you're ready to push changes from the community fork to the main GitLab repo
 
    ![A snapshot of the changes made in the merge request, with differences highlighted in red and green](img/changes_tab_v15_11.png)
 
-   The red text shows the code before you made changes. The green shows what
-   the code looks like now.
+   The red text shows the code before you made changes. The green shows what the code looks like now.
 
-1. If you're happy with this merge request and want to start the review process, type
-   `@gitlab-bot ready` in a comment and then select **Comment**.
+1. If you're happy with this merge request and want to start the review process, type `@gitlab-bot ready` in a comment and then select **Comment**.
 
    ![A draft comment with the "GitLab bot ready" command to initiate the review process](img/bot_ready_v16_6.png)
 
@@ -51,7 +48,7 @@ Your pipeline must be successful for your merge request to be merged.
 
 - To check the status of your pipeline, at the top of your merge request, select **Pipelines**.
 - If you need help understanding or fixing the pipeline, use the `@gitlab-bot help` command in a comment to tag an MR coach.
-  - For more on MR coaching, visit [How GitLab Merge Request Coaches Can Help You](../merge_request_coaches.md).
+ - For more on MR coaching, visit [How GitLab Merge Request Coaches Can Help You](../merge_request_coaches.md).
 
 ### Getting a review
 
@@ -61,8 +58,7 @@ However, you can type `@gitlab-bot ready` in a comment to alert reviewers that y
 - When the label is set to `workflow::ready for review`, [a developer reviews the MR](../../code_review.md).
 - After you have resolved all of their feedback and the MR has been approved, the MR is ready for merge.
 
-If you need help at any point in the process, type `@gitlab-bot help` in a comment or initiate a
-[mentor session](https://about.gitlab.com/community/contribute/mentor-sessions/) on [Discord](https://discord.com/invite/gitlab).
+If you need help at any point in the process, type `@gitlab-bot help` in a comment or initiate a [mentor session](https://about.gitlab.com/community/contribute/mentor-sessions/) on [Discord](https://discord.com/invite/gitlab).
 
 When the merge request is merged, your change becomes part of the GitLab codebase.
 Great job! Thank you for your contribution!

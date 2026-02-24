@@ -40,8 +40,8 @@ When viewing a Sentry issue, go to the right sidebar and select _Link Linear_ _i
 
 ### Automations
 
-We’ll automatically close Sentry issues when the linked Linear issue is resolved. We'll also update the assignee in Sentry if it changes in Linear (this will work if you use the same email for Linear and Sentry).  
-  
+We’ll automatically close Sentry issues when the linked Linear issue is resolved. We'll also update the assignee in Sentry if it changes in Linear (this will work if you use the same email for Linear and Sentry). 
+ 
 You can also configure automatic creation of Linear issues based on issue/event alerts and metric alerts in Sentry from Alerts > Create Alert and customize your rules to create a Linear issue.
 
 > [!NOTE]

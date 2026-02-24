@@ -12,8 +12,7 @@ title: Use AliCloud as an OmniAuth authentication provider
 
 {{< /details >}}
 
-You can enable the AliCloud OAuth 2.0 OmniAuth provider and sign in to
-GitLab using your AliCloud account.
+You can enable the AliCloud OAuth 2.0 OmniAuth provider and sign in to GitLab using your AliCloud account.
 
 ## Create an AliCloud application
 
@@ -66,11 +65,9 @@ Sign in to the AliCloud platform and create an application on it. AliCloud gener
      ```
 
 1. Configure the [common settings](omniauth.md#configure-common-settings)
-   to add `alicloud` as a single sign-on provider. This enables Just-In-Time
-   account provisioning for users who do not have an existing GitLab account.
+   to add `alicloud` as a single sign-on provider. This enables Just-In-Time account provisioning for users who do not have an existing GitLab account.
 
-1. Add the provider configuration. Replace `YOUR_APP_ID` with the ID on the application details page
-   and `YOUR_APP_SECRET` with the **SecretValue** you got when you registered the AliCloud application.
+1. Add the provider configuration. Replace `YOUR_APP_ID` with the ID on the application details page and `YOUR_APP_SECRET` with the **SecretValue** you got when you registered the AliCloud application.
 
    - For Linux package installations:
 

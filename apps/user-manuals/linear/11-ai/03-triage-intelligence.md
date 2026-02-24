@@ -17,7 +17,7 @@ When enabled, issues in your workspace are analyzed by agentic models. Every fut
 
 Enable Triage Intelligence by navigating to Settings > AI and toggling the feature on; this will enable the feature for every team. Taking this action requires admin permissions.
 
-In teams where the functionality won't be useful, turn it off in that team's individual  triage suggestions settings. Or, if the scope of suggestions should be limited to that team and its sub-teams (don't suggest related issues in other teams, for example), set that behavior in the "Include suggestions from" menu. 
+In teams where the functionality won't be useful, turn it off in that team's individual triage suggestions settings. Or, if the scope of suggestions should be limited to that team and its sub-teams (don't suggest related issues in other teams, for example), set that behavior in the "Include suggestions from" menu. 
 
 ### Issue property suggestions
 

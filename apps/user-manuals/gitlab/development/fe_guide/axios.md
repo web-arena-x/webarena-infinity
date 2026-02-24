@@ -19,9 +19,9 @@ This exported module should be used instead of directly using Axios to ensure th
 ## Usage
 
 ```javascript
-  import axios from './lib/utils/axios_utils';
+ import axios from './lib/utils/axios_utils';
 
-  axios.get(url)
+ axios.get(url)
     .then((response) => {
       // `data` is the response that was provided by the server
       const data = response.data;
@@ -51,11 +51,11 @@ We have also decided against using [Axios interceptors](https://github.com/axios
 ### Example
 
 ```javascript
-  import axios from '~/lib/utils/axios_utils';
-  import MockAdapter from 'axios-mock-adapter';
+ import axios from '~/lib/utils/axios_utils';
+ import MockAdapter from 'axios-mock-adapter';
 
-  let mock;
-  beforeEach(() => {
+ let mock;
+ beforeEach(() => {
     // This sets the mock adapter on the default instance
     mock = new MockAdapter(axios);
     // Mock any GET request to /users
@@ -65,11 +65,11 @@ We have also decided against using [Axios interceptors](https://github.com/axios
         { id: 1, name: 'John Smith' }
       ]
     });
-  });
+ });
 
-  afterEach(() => {
+ afterEach(() => {
     mock.restore();
-  });
+ });
 ```
 
 ### Mock poll requests in tests with Axios
@@ -77,5 +77,5 @@ We have also decided against using [Axios interceptors](https://github.com/axios
 Because a polling function requires a header object, we need to always include an object as the third argument:
 
 ```javascript
-  mock.onGet('/users').reply(200, { foo: 'bar' }, {});
+ mock.onGet('/users').reply(200, { foo: 'bar' }, {});
 ```

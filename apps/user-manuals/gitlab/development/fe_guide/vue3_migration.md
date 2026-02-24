@@ -41,7 +41,7 @@ If you need to switch between Vue 2 and Vue 3, follow these steps carefully:
 1. **Set the desired Vue version:**
 
    ```shell
-   gdk config set vite.vue_version 3  # or 2
+   gdk config set vite.vue_version 3 # or 2
    ```
 
 1. **Reconfigure GDK:**
@@ -66,8 +66,7 @@ You can verify your Vite configuration by checking your `gdk.yml` file:
 gdk config get vite
 ```
 
-This should display your current Vite settings, including the enabled status and Vue version. Your GDK
-should also be up and running.
+This should display your current Vite settings, including the enabled status and Vue version. Your GDK should also be up and running.
 
 ### Troubleshooting
 
@@ -135,8 +134,7 @@ If you need cross-component communication (between different Vue apps), then per
 
 We have created a factory that you can use to instantiate a new [mitt](https://github.com/developit/mitt)-like event hub.
 
-This makes it easier to migrate existing event hubs to the new recommended approach, or
-to create new ones.
+This makes it easier to migrate existing event hubs to the new recommended approach, or to create new ones.
 
 ```javascript
 import createEventHub from '~/helpers/event_hub_factory';
@@ -144,8 +142,7 @@ import createEventHub from '~/helpers/event_hub_factory';
 export default createEventHub();
 ```
 
-Event hubs created with the factory expose the same methods as Vue 2 event hubs (`$on`, `$once`, `$off` and
-`$emit`), making them backward compatible with our previous approach.
+Event hubs created with the factory expose the same methods as Vue 2 event hubs (`$on`, `$once`, `$off` and `$emit`), making them backward compatible with our previous approach.
 
 ## \<template functional>
 
@@ -161,7 +158,7 @@ Functional components must be written as plain functions:
 import { h } from 'vue'
 
 const FunctionalComp = (props, slots) => {
-  return h('div', `Hello! ${props.name}`)
+ return h('div', `Hello! ${props.name}`)
 }
 ```
 
@@ -183,22 +180,22 @@ The syntax with `v-slot` directive. To fix rendering slots in `shallowMount`, we
 import SomeChildComponent from './some_child_component.vue'
 
 export default {
-  components: {
+ components: {
     SomeChildComponent
-  }
+ }
 }
 
 </script>
 
 <template>
-  <div>
+ <div>
     <h1>Hello GitLab!</h1>
     <some-child-component>
       <template #header>
         Header content
       </template>
     </some-child-component>
-  </div>
+ </div>
 </template>
 ```
 
@@ -208,9 +205,9 @@ export default {
 import SomeChildComponent from '~/some_child_component.vue'
 
 shallowMount(MyAwesomeComponent, {
-  stubs: {
+ stubs: {
     SomeChildComponent
-  }
+ }
 })
 ```
 
@@ -218,18 +215,16 @@ shallowMount(MyAwesomeComponent, {
 
 **Why**?
 
-In Vue 3, props default value factory functions no longer have access to `this`
-(the component instance).
+In Vue 3, props default value factory functions no longer have access to `this` (the component instance).
 
 **What to use instead**
 
-Write a computed prop that resolves the desired value from other props. This
-will work in both Vue 2 and 3.
+Write a computed prop that resolves the desired value from other props. This will work in both Vue 2 and 3.
 
 ```html
 <script>
 export default {
-  props: {
+ props: {
     metric: {
       type: String,
       required: true,
@@ -239,24 +234,22 @@ export default {
       required: false,
       default: null,
     },
-  },
-  computed: {
+ },
+ computed: {
     actualTitle() {
       return this.title ?? this.metric;
     },
-  },
+ },
 }
 
 </script>
 
 <template>
-  <div>{{ actualTitle }}</div>
+ <div>{{ actualTitle }}</div>
 </template>
 ```
 
-[In Vue 3](https://v3-migration.vuejs.org/breaking-changes/props-default-this.html),
-the props default value factory is passed the raw props as an argument, and can
-also access injections.
+[In Vue 3](https://v3-migration.vuejs.org/breaking-changes/props-default-this.html), the props default value factory is passed the raw props as an argument, and can also access injections.
 
 ## Handling libraries that do not work with `@vue/compat`
 
@@ -318,11 +311,11 @@ According to [VueApollo v4 installation guide](https://v4.apollo.vuejs.org/guide
  });
 
 -new Vue({
--  el: "#app",
--  apolloProvider,
--  render(h) {
+- el: "#app",
+- apolloProvider,
+- render(h) {
 +const app = createApp({
-+  render() {
++ render() {
      return h(Demo);
    },
  });
@@ -378,16 +371,16 @@ With this knowledge, we can move the initialization of our tooling as early as p
  });
 
 -const app = createApp({
--  render() {
+- render() {
 +new Vue({
-+  el: "#app",
-+  apolloProvider,
-+  render(h) {
++ el: "#app",
++ apolloProvider,
++ render(h) {
      return h(Demo);
    },
-+  beforeCreate() {
++ beforeCreate() {
 +    this.$.appContext.app.use(this.$options.apolloProvider);
-+  },
++ },
  });
 -app.use(apolloProvider);
 -app.mount("#app");
@@ -415,12 +408,12 @@ We can utilize `Vue.use(VueApollo)` code, which existed in our codebase, to hide
 
 -const apolloProvider = createApolloProvider({
 +class VueApollo {
-+  constructor(...args) {
++ constructor(...args) {
 +    return createApolloProvider(...args);
-+  }
++ }
 +
-+  // called by Vue.use
-+  static install() {
++ // called by Vue.use
++ static install() {
 +    Vue.mixin({
 +      beforeCreate() {
 +        if (this.$options.apolloProvider) {
@@ -428,7 +421,7 @@ We can utilize `Vue.use(VueApollo)` code, which existed in our codebase, to hide
 +        }
 +      },
 +    });
-+  }
++ }
 +}
 +
 +Vue.use(VueApollo);
@@ -441,9 +434,9 @@ We can utilize `Vue.use(VueApollo)` code, which existed in our codebase, to hide
    render(h) {
      return h(Demo);
    },
--  beforeCreate() {
+- beforeCreate() {
 -    this.$.appContext.app.use(this.$options.apolloProvider);
--  },
+- },
  });
 ```
 
@@ -483,8 +476,7 @@ You can view these changes in [04-add-webpack-alias](https://gitlab.com/gitlab-o
 
 #### Step 5. Observe the results
 
-At this point, you should be able again to run **both*- Vue.js 2 version with `yarn serve` and Vue.js 3 one with `yarn serve:vue3`
-[Final MR](https://gitlab.com/gitlab-org/frontend/vue3-migration-vue-apollo/-/merge_requests/1/diffs) with all changes from previous steps displays no changes to `index.js` (application code), which was our goal
+At this point, you should be able again to run **both*- Vue.js 2 version with `yarn serve` and Vue.js 3 one with `yarn serve:vue3` [Final MR](https://gitlab.com/gitlab-org/frontend/vue3-migration-vue-apollo/-/merge_requests/1/diffs) with all changes from previous steps displays no changes to `index.js` (application code), which was our goal
 
 ### Applying this approach in the GitLab project
 
@@ -495,5 +487,4 @@ In [commit adding VueApollo v4 support](https://gitlab.com/gitlab-org/gitlab/-/c
 
 ## Unit testing
 
-For more information about implementing unit tests or fixing tests that fail while using Vue 3,
-read the [Vue 3 testing guide](../testing_guide/testing_vue3.md).
+For more information about implementing unit tests or fixing tests that fail while using Vue 3, read the [Vue 3 testing guide](../testing_guide/testing_vue3.md).

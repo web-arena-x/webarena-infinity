@@ -15,7 +15,7 @@ Source: https://www.buildium.com/features/business-performance
 
 ![](https://www.buildium.com/wp-content/uploads/2022/06/BusPerf-Hero.jpg)
 
-[Features](https://www.buildium.com/?page_id=22322)  Business Performance
+[Features](https://www.buildium.com/?page_id=22322) Business Performance
 
 # Property Management Reporting Driven by Data
 

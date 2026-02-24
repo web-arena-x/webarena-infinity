@@ -36,9 +36,9 @@ Identify what goals you are looking to achieve with the Advocate program. Are yo
 **General tips and best practices**
 
 - **Choosing the right Advocates**
-  - **Advocates will serve as an extension of your company and recruiting team. Selecting individuals who are outgoing, personable, and are genuinely enthusiastic about your company is key.**
+ - **Advocates will serve as an extension of your company and recruiting team. Selecting individuals who are outgoing, personable, and are genuinely enthusiastic about your company is key.**
 - **Setting clear expectations**
-  - Once you’ve found the right people, make sure they're clear on how and when to engage with prospects, so connections can be made and followed up on. It may be helpful to provide general talking points and facts about your company that they can share with candidates.
+ - Once you’ve found the right people, make sure they're clear on how and when to engage with prospects, so connections can be made and followed up on. It may be helpful to provide general talking points and facts about your company that they can share with candidates.
 
 ## 
 

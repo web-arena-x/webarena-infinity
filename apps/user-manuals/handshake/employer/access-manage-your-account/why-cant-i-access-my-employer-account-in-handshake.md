@@ -90,7 +90,7 @@ When you log in, if your status is "Your request to join the company is under re
 
 If you log in and receive a message stating that your account has been deactivated, it may be due to one of the following reasons:
 
-1. The owner or admin of the company profile manually deactivated your account.  
+1. The owner or admin of the company profile manually deactivated your account. 
 2. You have not logged into your account for an extended period.
 
 To reactivate your account, contact the owner of the company profile. The owner's contact details are displayed on the login screen.

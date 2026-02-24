@@ -19,22 +19,16 @@ description: Enable automated system operations through internal bot users for G
 
 {{< /history >}}
 
-GitLab uses internal users (sometimes referred to as "bots") to perform actions or functions that cannot be attributed
-to a regular user.
+GitLab uses internal users (sometimes referred to as "bots") to perform actions or functions that cannot be attributed to a regular user.
 
 Internal users:
 
 - Are created automatically by GitLab and do not count towards a license limit. You cannot create internal users manually.
-- Are used when a traditional user account isn't applicable. For example, when generating alerts or automatic review
-  feedback.
-- Have reduced access and a very specific purpose. They cannot be used for regular user actions, such as authentication
-  or API requests.
+- Are used when a traditional user account isn't applicable. For example, when generating alerts or automatic review feedback.
+- Have reduced access and a very specific purpose. They cannot be used for regular user actions, such as authentication or API requests.
 - Have email addresses and names that can be attributed to any actions they perform.
 
-Internal users are sometimes created as part of feature development. For example, the GitLab Migration Bot for
-[migrating](https://gitlab.com/gitlab-org/gitlab/-/issues/216120) from GitLab Snippets to
-[Versioned Snippets](../user/snippets.md#versioned-snippets). GitLab Migration Bot was used as the author of snippets
-when a snippet's original author wasn't available. For example, when the user was disabled.
+Internal users are sometimes created as part of feature development. For example, the GitLab Migration Bot for [migrating](https://gitlab.com/gitlab-org/gitlab/-/issues/216120) from GitLab Snippets to [Versioned Snippets](../user/snippets.md#versioned-snippets). GitLab Migration Bot was used as the author of snippets when a snippet's original author wasn't available. For example, when the user was disabled.
 
 Other examples of internal users:
 
@@ -47,16 +41,14 @@ Other examples of internal users:
 - [Placeholder User](../user/import/mapping.md#placeholder-users) created during imports
 - Visual Review Bot
 - Resource access tokens, including [project access tokens](../user/project/settings/project_access_tokens.md)
-  and [group access tokens](../user/group/settings/group_access_tokens.md), which are
-  `project_{project_id}_bot_{random_string}` and `group_{group_id}_bot_{random_string}` users with a `PersonalAccessToken`.
+ and [group access tokens](../user/group/settings/group_access_tokens.md), which are `project_{project_id}_bot_{random_string}` and `group_{group_id}_bot_{random_string}` users with a `PersonalAccessToken`.
 
 ## GitLab Admin Bot
 
 [GitLab Admin Bot](https://gitlab.com/gitlab-org/gitlab/-/blob/1d38cfdbed081f8b3fa14b69dd743440fe85081b/lib/users/internal.rb#L104)
 is an internal user that cannot be accessed or modified by regular users and is responsible for many tasks including:
 
-- Applying [default compliance frameworks](../user/compliance/compliance_frameworks/_index.md#default-compliance-frameworks) to
-  projects.
+- Applying [default compliance frameworks](../user/compliance/compliance_frameworks/_index.md#default-compliance-frameworks) to projects.
 - [Automatically deactivating dormant users](moderate_users.md#automatically-deactivate-dormant-users).
 - [Automatically deleting unconfirmed users](moderate_users.md#automatically-delete-unconfirmed-users).
 - [Deleting dormant projects](dormant_project_deletion.md).
@@ -64,11 +56,8 @@ is an internal user that cannot be accessed or modified by regular users and is 
 
 ## GitLab Security Bot
 
-GitLab Security Bot is an internal user responsible for commenting on merge requests that violate a
-[security policy](../user/application_security/policies/_index.md).
+GitLab Security Bot is an internal user responsible for commenting on merge requests that violate a [security policy](../user/application_security/policies/_index.md).
 
 ## GitLab Security Policy Bot
 
-GitLab Security Policy Bot is an internal user responsible for triggering scheduled pipelines
-defined in [security policies](../user/application_security/policies/_index.md#gitlab-security-policy-bot-user). This account is
-created in every project on which a security policy is enforced.
+GitLab Security Policy Bot is an internal user responsible for triggering scheduled pipelines defined in [security policies](../user/application_security/policies/_index.md#gitlab-security-policy-bot-user). This account is created in every project on which a security policy is enforced.

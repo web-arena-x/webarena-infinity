@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357751811610-Creating-a-t
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 

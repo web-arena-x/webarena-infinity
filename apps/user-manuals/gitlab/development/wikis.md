@@ -6,8 +6,7 @@ description: Development guidelines for Wikis
 title: Wikis development guidelines
 ---
 
-Wiki functionality in GitLab uses Git repositories as the storage backend and is accessed from
-the Rails app through Gitaly RPC calls.
+Wiki functionality in GitLab uses Git repositories as the storage backend and is accessed from the Rails app through Gitaly RPC calls.
 
 You can access wikis through:
 
@@ -25,10 +24,8 @@ Some notable gems that are used for wikis are:
 
 ## Wiki rendering
 
-When rendering wiki pages, we use a
-[custom Banzai pipeline](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/banzai/pipeline/wiki_pipeline.rb).
-This pipeline adds [wiki-specific markup](../user/project/wiki/markdown.md),
-such as the `[[link]]` syntax.
+When rendering wiki pages, we use a [custom Banzai pipeline](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/banzai/pipeline/wiki_pipeline.rb).
+This pipeline adds [wiki-specific markup](../user/project/wiki/markdown.md), such as the `[[link]]` syntax.
 
 ## Model classes
 
@@ -37,21 +34,21 @@ You must initialize it with a container, which can be either a `Project` or `Gro
 
 ```mermaid
 classDiagram
-  Wiki --> ProjectWiki
-  Wiki --> GroupWiki
+ Wiki --> ProjectWiki
+ Wiki --> GroupWiki
 
-  class Wiki {
+ class Wiki {
     #container
     #repository
-  }
+ }
 
-  class ProjectWiki {
+ class ProjectWiki {
     #project → #container
-  }
+ }
 
-  class GroupWiki {
+ class GroupWiki {
     #group → #container
-  }
+ }
 ```
 
 Some models wrap similar classes from Gitaly:
@@ -59,7 +56,7 @@ Some models wrap similar classes from Gitaly:
 | Rails Model | Gitaly Class                                            |
 |:------------|:--------------------------------------------------------|
 | `Wiki`      | `Gitlab::Git::Wiki`                                     |
-| `WikiPage`  | `Gitlab::Git::WikiPage`, `Gitlab::Git::WikiPageVersion` |
+| `WikiPage` | `Gitlab::Git::WikiPage`, `Gitlab::Git::WikiPageVersion` |
 |             | `Gitlab::Git::WikiFile`                                 |
 
 Only some data is persisted in the database:

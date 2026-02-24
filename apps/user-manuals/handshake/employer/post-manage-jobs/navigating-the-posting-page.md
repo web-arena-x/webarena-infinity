@@ -10,8 +10,8 @@ You may also be able to manage the job or download applicant data, depending on 
 
 - **Basic employers:** **Owners** and **Recruiters** can only manage, edit, or download data for jobs they have personally created. Jobs posted by other teammates will appear on your list but are **view-only**.
 
-  - Access is limited to the **Overview** and **Job details** tabs. The **Schools**, **Matches**, and **Applicants** tabs will not be accessible.
-  - To manage jobs you did not create, you must upgrade to an eligible paid plan.
+ - Access is limited to the **Overview** and **Job details** tabs. The **Schools**, **Matches**, and **Applicants** tabs will not be accessible.
+ - To manage jobs you did not create, you must upgrade to an eligible paid plan.
 - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**, can manage, edit, or download data for both their own jobs and those posted by teammates, provided they have the appropriate permissions.
 
 Features available only to Premium partners are indicated by an asterisk (\*). *For more information, please check out this*[*resource*](https://www.joinhandshake.com/employers-premium/)*.*
@@ -55,16 +55,16 @@ View aggregate performance data for:
 Use this tab to view your job’s school postings, approval status, and recommended schools.
 
 - **Recommended Schools**
-  - Handshake recommends schools based on the number of qualified candidates at each school who meet your job’s criteria.
+ - Handshake recommends schools based on the number of qualified candidates at each school who meet your job’s criteria.
     - *Explore* [*School Network Management: School Recommendations*](https://support.joinhandshake.com/hc/en-us/articles/4416913786391-School-Network-Management-School-Recommendations).
 - **Post to more schools**
-  - If your employer has access to the Open Network, the checkbox for **Post to full network** is visible. *Learn* [*How to Connect with Handshake Open Network*](https://support.joinhandshake.com/hc/en-us/articles/360034245293).
-  - Use the keyword search to find a school by name or location.
+ - If your employer has access to the Open Network, the checkbox for **Post to full network** is visible. *Learn* [*How to Connect with Handshake Open Network*](https://support.joinhandshake.com/hc/en-us/articles/360034245293).
+ - Use the keyword search to find a school by name or location.
     - To remove a school, click the **X** to the right of their name.
     - To post your jobs to the additional school(s) selected, click the blue button **Post**.
 - **Requested schools**
-  - Filter on approval status by using the checkbox(es) to the right of the keyword search.
-  - Click the three hash marks to the far right of each school row to access additional actions.
+ - Filter on approval status by using the checkbox(es) to the right of the keyword search.
+ - Click the three hash marks to the far right of each school row to access additional actions.
     - **View Details** — Opens a modal with approval status, application dates, applicant count, and comments.
     - **View School** —Opens the school’s profile, where you can review contact information and approval status.
 
@@ -103,41 +103,41 @@ The **Job details** tab includes the posting information that's visible to schoo
 You can make changes to the job posting details in the following sections:
 
 - **Basic Information**
-  - Job title
-  - Position type
-  - Federal Work-Study Program
-  - Job description
+ - Job title
+ - Position type
+ - Federal Work-Study Program
+ - Job description
 - **Location requirements**
-  - Location type
-  - Onsite location
+ - Location type
+ - Onsite location
 - **Time requirements**
-  - Schedule
-  - Employment duration
+ - Schedule
+ - Employment duration
 - **Compensation**
-  - Expected pay
-  - Additional compensation
-  - Benefits
+ - Expected pay
+ - Additional compensation
+ - Benefits
     - Perks
-  - Additional benefits URL
+ - Additional benefits URL
 - **Categorize your job**
-  - *Learn more* [*About Job Roles and Job Role Groups (Employers)*](https://support.joinhandshake.com/hc/en-us/articles/360033423494).
+ - *Learn more* [*About Job Roles and Job Role Groups (Employers)*](https://support.joinhandshake.com/hc/en-us/articles/360033423494).
 - **Candidate qualifications**
-  - Work authorization
-  - School year
-  - Latest graduation date
-  - Major groups
-  - Minimum GPA
+ - Work authorization
+ - School year
+ - Latest graduation date
+ - Major groups
+ - Minimum GPA
 - **Application process**
-  - Application open date
-  - Application close date
-  - Number of hires
-  - How will candidates submit applications
-  - External URL
-  - Instructions for applicants
+ - Application open date
+ - Application close date
+ - Number of hires
+ - How will candidates submit applications
+ - External URL
+ - Instructions for applicants
 - **Your hiring team**
-  - Company division
-  - Job owner
-  - Hiring team members
+ - Company division
+ - Job owner
+ - Hiring team members
 
 *Learn* [*How to Edit a Job Posting*](https://support.joinhandshake.com/hc/en-us/articles/115002790408).
 

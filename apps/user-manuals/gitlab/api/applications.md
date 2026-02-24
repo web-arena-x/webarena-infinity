@@ -38,9 +38,9 @@ Supported attributes:
 
 | Attribute      | Type    | Required | Description                      |
 |:---------------|:--------|:---------|:---------------------------------|
-| `name`         | string  | yes      | Name of the application.         |
-| `redirect_uri` | string  | yes      | Redirect URI of the application. |
-| `scopes`       | string  | yes      | Scopes available to the application. Separate multiple scopes with a space. |
+| `name`         | string | yes      | Name of the application.         |
+| `redirect_uri` | string | yes      | Redirect URI of the application. |
+| `scopes`       | string | yes      | Scopes available to the application. Separate multiple scopes with a space. |
 | `confidential` | boolean | no       | If `true`, the application can securely store client credentials, such as the client secret. Non-confidential applications (such as native mobile apps and Single Page Apps) might expose client credentials. Defaults to `true` if unspecified. |
 
 Example request:

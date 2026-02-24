@@ -25,12 +25,12 @@ If a popup appears in Handshake, after clicking **Apply Externally**, this indic
 Within the popup, there are 3 possible actions that may be required for Step 1. These options are detailed below: 
 
 - **Review Employer Instructions**
-  - "[COMPANY NAME] has provided the following instructions for applying externally: [CUSTOM MESSAGE FROM EMPLOYER*]"*
+ - "[COMPANY NAME] has provided the following instructions for applying externally: [CUSTOM MESSAGE FROM EMPLOYER*]"*
 
 ![external_apply_-_employer_instructions.png](https://support.joinhandshake.com/hc/article_attachments/26001362744855)
 
 - **Submit Documents on Handshake**
-  - Details on required Document(s) are provided in this space. Select your document via one of the following:
+ - Details on required Document(s) are provided in this space. Select your document via one of the following:
     - Click the dropdown menu to select from all uploaded documents.
     - Click the blue button **Upload New** to choose a new file from your computer.
     - Click on the name of one of the two most recent document uploads to your account, displayed below "Recently Added".
@@ -38,7 +38,7 @@ Within the popup, there are 3 possible actions that may be required for Step 1. 
 ![external_apply_-_document_required.png](https://support.joinhandshake.com/hc/article_attachments/26001385535511)
 
 - **Complete Pre-Application Questions**
-  - *CUSTOM QUESTIONS FROM EMPLOYER*(if questions are listed, enter your responses in the provided text field within the popup)
+ - *CUSTOM QUESTIONS FROM EMPLOYER*(if questions are listed, enter your responses in the provided text field within the popup)
 
 ![external_apply_-_answer_questions.png](https://support.joinhandshake.com/hc/article_attachments/26001362742807)
 

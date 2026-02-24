@@ -13,9 +13,7 @@ title: Repository
 
 {{< /details >}}
 
-Your [repository](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository) is a component
-of your GitLab project. You store your code in your repository, and track changes to it with version
-control.
+Your [repository](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository) is a component of your GitLab project. You store your code in your repository, and track changes to it with version control.
 
 Each repository is part of a [GitLab project](../_index.md), and cannot exist without a GitLab project.
 Your project provides the configuration options for your repository.
@@ -33,9 +31,9 @@ You can add files to a repository:
 
 - When you [create a project](../_index.md), or
 - After you create a project, using the following options:
-  - [Web editor](web_editor.md#upload-a-file).
-  - [User Interface (UI)](#add-a-file-from-the-ui).
-  - [Command line](../../../topics/git/add_files.md).
+ - [Web editor](web_editor.md#upload-a-file).
+ - [User Interface (UI)](#add-a-file-from-the-ui).
+ - [Command line](../../../topics/git/add_files.md).
 
 ### Add a file from the UI
 
@@ -49,29 +47,26 @@ To add or upload a file from the GitLab UI:
 1. Next to the directory name, select the plus icon ({{< icon name="plus" >}}) > **Upload file**.
 1. Drop or upload your file.
 1. Enter a commit message.
-1. Optional. To create a merge request with your changes, in **Target branch**, enter a branch name
-   that's not your repository's [default branch](branches/default.md).
+1. Optional. To create a merge request with your changes, in **Target branch**, enter a branch name that's not your repository's [default branch](branches/default.md).
 1. Select **Upload file**.
 
 ## Commit changes to a repository
 
-You can commit your changes to a branch in the repository. When you use the command line,
-use [`git commit`](../../../topics/git/commands.md#git-commit).
+You can commit your changes to a branch in the repository. When you use the command line, use [`git commit`](../../../topics/git/commands.md#git-commit).
 
-For information about how to use commits to improve communication and collaboration,
-trigger or skip pipelines, and reverting changes, see [commits](../merge_requests/commits.md).
+For information about how to use commits to improve communication and collaboration, trigger or skip pipelines, and reverting changes, see [commits](../merge_requests/commits.md).
 
 ## Clone a repository
 
 You can clone a repository using the:
 
 - Command line:
-  - [Clone with SSH](../../../topics/git/clone.md#clone-with-ssh)
-  - [Clone with HTTPS](../../../topics/git/clone.md#clone-with-https)
+ - [Clone with SSH](../../../topics/git/clone.md#clone-with-ssh)
+ - [Clone with HTTPS](../../../topics/git/clone.md#clone-with-https)
 - GitLab UI:
-  - [Clone and open in Apple Xcode](../../../topics/git/clone.md#clone-and-open-in-apple-xcode)
-  - [Clone and open in Visual Studio Code](../../../topics/git/clone.md#clone-and-open-in-visual-studio-code)
-  - [Clone and open in IntelliJ IDEA](../../../topics/git/clone.md#clone-and-open-in-intellij-idea)
+ - [Clone and open in Apple Xcode](../../../topics/git/clone.md#clone-and-open-in-apple-xcode)
+ - [Clone and open in Visual Studio Code](../../../topics/git/clone.md#clone-and-open-in-visual-studio-code)
+ - [Clone and open in IntelliJ IDEA](../../../topics/git/clone.md#clone-and-open-in-intellij-idea)
 
 ## Download repository source code
 
@@ -95,13 +90,11 @@ To download a repository's source code as a compressed file:
 
      Download the artifacts from the latest CI/CD job.
 
-The checksums of generated archives can change even if the repository itself doesn't
-change. For example, this occurs if Git or a third-party library that GitLab uses changes.
+The checksums of generated archives can change even if the repository itself doesn't change. For example, this occurs if Git or a third-party library that GitLab uses changes.
 
 ## View repository by Git revision
 
-To view all repository files and folders at a specific Git revision, such as a commit SHA,
-branch name, or tag:
+To view all repository files and folders at a specific Git revision, such as a commit SHA, branch name, or tag:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. At the top, select to open the **Select Git revision** dropdown list.
@@ -120,27 +113,23 @@ When new files are added, this information can take up to five minutes to update
 
 ### Add repository languages
 
-Not all files are detected and listed on the **Project overview** page. Documentation,
-vendor code, and [most markup languages](files/_index.md#supported-markup-languages) are excluded.
+Not all files are detected and listed on the **Project overview** page. Documentation, vendor code, and [most markup languages](files/_index.md#supported-markup-languages) are excluded.
 To view a list of supported files and languages, see [supported data types](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
 
 To change this behavior and include additional file types in the default settings:
 
 1. In your repository's root directory, create a file named `.gitattributes`.
-1. Add a line that tells GitLab to include a specific file type. For example,
-   to enable `.proto` files, add the following:
+1. Add a line that tells GitLab to include a specific file type. For example, to enable `.proto` files, add the following:
 
    ```plaintext
    *.proto linguist-detectable=true
    ```
 
-This feature can use excessive CPU. If you experience an issue, see the
-[Repository Languages: excessive CPU use](files/_index.md#repository-languages-excessive-cpu-use) troubleshooting section.
+This feature can use excessive CPU. If you experience an issue, see the [Repository Languages: excessive CPU use](files/_index.md#repository-languages-excessive-cpu-use) troubleshooting section.
 
 ## Repository contributor analytics
 
-You can view a line chart with the number of commits to the selected project branch over time,
-and line charts with the number of commits by each project member.
+You can view a line chart with the number of commits to the selected project branch over time, and line charts with the number of commits by each project member.
 For more information, see [Contributor analytics](../../analytics/contributor_analytics.md).
 
 ## Repository history graph
@@ -154,29 +143,20 @@ To view the repository history graph, go to your project's **Code** > **Reposito
 
 ## Repository path changes
 
-When a repository path changes, GitLab handles the transition from the
-old location to the new one with a redirect.
+When a repository path changes, GitLab handles the transition from the old location to the new one with a redirect.
 
-When you [rename a user](../../profile/_index.md#change-your-username),
-[change a group path](../../group/manage.md#change-a-groups-path), or [rename a repository](../working_with_projects.md#rename-a-repository):
+When you [rename a user](../../profile/_index.md#change-your-username), [change a group path](../../group/manage.md#change-a-groups-path), or [rename a repository](../working_with_projects.md#rename-a-repository):
 
-- URLs for the namespace and everything under it, like projects, are
-  redirected to the new URLs.
-- Git remote URLs for projects under the
-  namespace redirect to the new remote URL. When you push or pull to a
-  repository that has changed location, a warning message to update
-  your remote is displayed. Automation scripts or Git clients continue to
-  work after a rename.
-- The redirects are available as long as the original path is not claimed by
-  another group, user, or project.
+- URLs for the namespace and everything under it, like projects, are redirected to the new URLs.
+- Git remote URLs for projects under the namespace redirect to the new remote URL. When you push or pull to a repository that has changed location, a warning message to update your remote is displayed. Automation scripts or Git clients continue to work after a rename.
+- The redirects are available as long as the original path is not claimed by another group, user, or project.
 - [API redirects](../../../api/rest/_index.md#redirects) may need to be followed explicitly.
 
 After you change a path, you must update the existing URL in the following resources:
 
-- [Include statements](../../../ci/yaml/includes.md) except [`include:component`](../../../ci/components/_index.md),
-  otherwise pipelines fail with a syntax error. CI/CD component references can follow redirects.
+- [Include statements](../../../ci/yaml/includes.md) except [`include:component`](../../../ci/components/_index.md), otherwise pipelines fail with a syntax error. CI/CD component references can follow redirects.
 - Namespaced API calls that use the [encoded path](../../../api/rest/_index.md#namespaced-paths)
-  instead of the numeric namespace and project IDs.
+ instead of the numeric namespace and project IDs.
 - [Docker image references](../../../ci/yaml/_index.md#image).
 - Variables that specify a project or namespace.
 - [CODEOWNERS file](../codeowners/_index.md#codeowners-file).
@@ -198,21 +178,18 @@ After you change a path, you must update the existing URL in the following resou
 
 If it seems that a commit has gone "missing", search the sequence of pushes to a repository.
 [This StackOverflow article](https://stackoverflow.com/questions/13468027/the-mystery-of-the-missing-commit-across-merges)
-describes how you can end up in this state without a force push. Another cause can be a misconfigured
-[server hook](../../../administration/server_hooks.md) that changes a HEAD ref in a `git reset` operation.
+describes how you can end up in this state without a force push. Another cause can be a misconfigured [server hook](../../../administration/server_hooks.md) that changes a HEAD ref in a `git reset` operation.
 
-If you look at the output from the sample code below for the target branch, you
-see a discontinuity in the from/to commits as you step through the output.
+If you look at the output from the sample code below for the target branch, you see a discontinuity in the from/to commits as you step through the output.
 The `commit_from` of each new push should equal the `commit_to` of the previous push.
 A break in that sequence indicates one or more commits have been "lost" from the repository history.
 
-Using the [rails console](../../../administration/operations/rails_console.md#starting-a-rails-console-session),
-the following example checks the last 100 pushes and prints the `commit_from` and `commit_to` entries:
+Using the [rails console](../../../administration/operations/rails_console.md#starting-a-rails-console-session), the following example checks the last 100 pushes and prints the `commit_from` and `commit_to` entries:
 
 ```ruby
 p = Project.find_by_full_path('project/path')
 p.events.pushed_action.last(100).each do |e|
-  printf "%-20.20s %8s...%8s (%s)", e.push_event_payload[:ref], e.push_event_payload[:commit_from], e.push_event_payload[:commit_to], e.author.try(:username)
+ printf "%-20.20s %8s...%8s (%s)", e.push_event_payload[:ref], e.push_event_payload[:commit_from], e.push_event_payload[:commit_to], e.author.try(:username)
 end ; nil
 ```
 
@@ -229,9 +206,6 @@ master f05321a5b5728bd8a89b7bf530aa44043c951dce...7d02e575fd790e76a3284ee4353682
 ### Error: Xcode fails to clone repository
 
 GitLab provides an option to [restrict a list of allowed SSH keys](../../../security/ssh_keys_restrictions.md).
-If your SSH key is not on the allowed list, you might encounter an error like
-`The repository rejected the provided credentials`.
+If your SSH key is not on the allowed list, you might encounter an error like `The repository rejected the provided credentials`.
 
-To resolve this issue, create a new SSH key pair that meets the guidelines for
-[supported SSH key types](../../ssh.md#supported-ssh-key-types). After you generate a
-supported SSH key, try cloning the repository again.
+To resolve this issue, create a new SSH key pair that meets the guidelines for [supported SSH key types](../../ssh.md#supported-ssh-key-types). After you generate a supported SSH key, try cloning the repository again.

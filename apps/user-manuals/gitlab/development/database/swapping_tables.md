@@ -5,9 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Swapping Tables
 ---
 
-Sometimes you need to replace one table with another. For example, when
-migrating data in a very large table it's often better to create a copy of the
-table and insert & migrate the data into this new table in the background.
+Sometimes you need to replace one table with another. For example, when migrating data in a very large table it's often better to create a copy of the table and insert & migrate the data into this new table in the background.
 
 For example, to swap a table called `events` with another table called `events_for_migration`, you would need to:
 
@@ -23,27 +21,20 @@ rename_table :events_for_migration, :events
 rename_table :events_temporary, :events_for_migration
 ```
 
-This does not require any downtime as long as the 3 `rename_table` calls are
-executed in the same database transaction. Rails by default uses database
-transactions for migrations, but if it doesn't you need to start one
-manually:
+This does not require any downtime as long as the 3 `rename_table` calls are executed in the same database transaction. Rails by default uses database transactions for migrations, but if it doesn't you need to start one manually:
 
 ```ruby
 Event.transaction do
-  rename_table :events, :events_temporary
-  rename_table :events_for_migration, :events
-  rename_table :events_temporary, :events_for_migration
+ rename_table :events, :events_temporary
+ rename_table :events_for_migration, :events
+ rename_table :events_temporary, :events_for_migration
 end
 ```
 
-Once swapped you _have to_ reset the primary key of the new table. For
-PostgreSQL you can use the `reset_pk_sequence!` method like so:
+Once swapped you _have to_ reset the primary key of the new table. For PostgreSQL you can use the `reset_pk_sequence!` method like so:
 
 ```ruby
 reset_pk_sequence!('events')
 ```
 
-Failure to reset the primary keys results in newly created rows starting
-with an ID value of 1. Depending on the existing data this can then lead to
-duplicate key constraints from popping up, preventing users from creating new
-data.
+Failure to reset the primary keys results in newly created rows starting with an ID value of 1. Depending on the existing data this can then lead to duplicate key constraints from popping up, preventing users from creating new data.

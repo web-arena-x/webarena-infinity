@@ -7,13 +7,13 @@ Source: https://support.procore.com/faq/how-are-the-date-columns-in-submittal-cu
 ## Answer
 
 - **Approver Due Date Variance**
-  - When a Submittal is Closed, this column is equal to *Approver Return Date - Approver Due Date*
-  - When a Submittal is Open, this column is equal to *Current Date - Approver Due Date*
+ - When a Submittal is Closed, this column is equal to *Approver Return Date - Approver Due Date*
+ - When a Submittal is Open, this column is equal to *Current Date - Approver Due Date*
 - **Approver Returned Date Duration**
-  - When as Submittal is Closed, this column is equal to *Approver Returned Date - Approver Sent Date*
-  - When a Submittal is Open, this column is equal to *Current Date - Approver Sent Date*
+ - When as Submittal is Closed, this column is equal to *Approver Returned Date - Approver Sent Date*
+ - When a Submittal is Open, this column is equal to *Current Date - Approver Sent Date*
 - **Ball in Court Duration**
-  - When a Submittal is Open, this column is equal to *Current Date - Ball in Court Sent Date*
+ - When a Submittal is Open, this column is equal to *Current Date - Ball in Court Sent Date*
 
 ## See Also
 

@@ -69,26 +69,26 @@ Example response:
 
 ```json
 {
-  "group_id": 5,
-  "next_run_at": "2024-06-06T12:28:27.855Z",
-  "last_run_at": "2024-05-30T12:28:27.855Z",
-  "last_run_deleted_size": 1048576,
-  "last_run_deleted_entries_count": 25,
-  "keep_n_days_after_download": 30,
-  "status": "scheduled",
-  "cadence": 7,
-  "enabled": true,
-  "notify_on_success": false,
-  "notify_on_failure": false,
-  "failure_message": null,
-  "last_run_detailed_metrics": {
+ "group_id": 5,
+ "next_run_at": "2024-06-06T12:28:27.855Z",
+ "last_run_at": "2024-05-30T12:28:27.855Z",
+ "last_run_deleted_size": 1048576,
+ "last_run_deleted_entries_count": 25,
+ "keep_n_days_after_download": 30,
+ "status": "scheduled",
+ "cadence": 7,
+ "enabled": true,
+ "notify_on_success": false,
+ "notify_on_failure": false,
+ "failure_message": null,
+ "last_run_detailed_metrics": {
     "maven": {
       "deleted_entries_count": 25,
       "deleted_size": 1048576
     }
-  },
-  "created_at": "2024-05-30T12:28:27.855Z",
-  "updated_at": "2024-05-30T12:28:27.855Z"
+ },
+ "created_at": "2024-05-30T12:28:27.855Z",
+ "updated_at": "2024-05-30T12:28:27.855Z"
 }
 ```
 
@@ -130,21 +130,21 @@ Example response:
 
 ```json
 {
-  "group_id": 5,
-  "next_run_at": "2024-06-06T12:28:27.855Z",
-  "last_run_at": null,
-  "last_run_deleted_size": 0,
-  "last_run_deleted_entries_count": 0,
-  "keep_n_days_after_download": 30,
-  "status": "scheduled",
-  "cadence": 7,
-  "enabled": true,
-  "notify_on_success": false,
-  "notify_on_failure": false,
-  "failure_message": null,
-  "last_run_detailed_metrics": {},
-  "created_at": "2024-05-30T12:28:27.855Z",
-  "updated_at": "2024-05-30T12:28:27.855Z"
+ "group_id": 5,
+ "next_run_at": "2024-06-06T12:28:27.855Z",
+ "last_run_at": null,
+ "last_run_deleted_size": 0,
+ "last_run_deleted_entries_count": 0,
+ "keep_n_days_after_download": 30,
+ "status": "scheduled",
+ "cadence": 7,
+ "enabled": true,
+ "notify_on_success": false,
+ "notify_on_failure": false,
+ "failure_message": null,
+ "last_run_detailed_metrics": {},
+ "created_at": "2024-05-30T12:28:27.855Z",
+ "updated_at": "2024-05-30T12:28:27.855Z"
 }
 ```
 
@@ -188,26 +188,26 @@ Example response:
 
 ```json
 {
-  "group_id": 5,
-  "next_run_at": "2024-06-06T12:28:27.855Z",
-  "last_run_at": "2024-05-30T12:28:27.855Z",
-  "last_run_deleted_size": 1048576,
-  "last_run_deleted_entries_count": 25,
-  "keep_n_days_after_download": 60,
-  "status": "scheduled",
-  "cadence": 7,
-  "enabled": true,
-  "notify_on_success": false,
-  "notify_on_failure": false,
-  "failure_message": null,
-  "last_run_detailed_metrics": {
+ "group_id": 5,
+ "next_run_at": "2024-06-06T12:28:27.855Z",
+ "last_run_at": "2024-05-30T12:28:27.855Z",
+ "last_run_deleted_size": 1048576,
+ "last_run_deleted_entries_count": 25,
+ "keep_n_days_after_download": 60,
+ "status": "scheduled",
+ "cadence": 7,
+ "enabled": true,
+ "notify_on_success": false,
+ "notify_on_failure": false,
+ "failure_message": null,
+ "last_run_detailed_metrics": {
     "maven": {
       "deleted_entries_count": 25,
       "deleted_size": 1048576
     }
-  },
-  "created_at": "2024-05-30T12:28:27.855Z",
-  "updated_at": "2024-05-30T12:28:27.855Z"
+ },
+ "created_at": "2024-05-30T12:28:27.855Z",
+ "updated_at": "2024-05-30T12:28:27.855Z"
 }
 ```
 

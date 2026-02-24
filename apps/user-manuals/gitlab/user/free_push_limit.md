@@ -49,7 +49,6 @@ When trying to resolve the push limit, you might encounter the following issues.
 
 ### Error message displays after removing large file
 
-You might get the push limit error even after you have deleted the large file from
-your repository locally. To resolve this issue, try to remove the commit that introduced the large file.
+You might get the push limit error even after you have deleted the large file from your repository locally. To resolve this issue, try to remove the commit that introduced the large file.
 
 For more information, see [revert commits and modify history](../topics/git/undo.md#revert-commits-and-modify-history).

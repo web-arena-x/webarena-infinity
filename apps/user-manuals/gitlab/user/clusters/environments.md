@@ -22,8 +22,7 @@ title: Cluster Environments (deprecated)
 > [!flag]
 > This feature is not available by default on GitLab Self-Managed. To make it available, an administrator can [enable the feature flag](../../administration/feature_flags/_index.md) named `certificate_based_clusters`.
 
-Cluster environments provide a consolidated view of which CI [environments](../../ci/environments/_index.md) are
-deployed to the Kubernetes cluster and it:
+Cluster environments provide a consolidated view of which CI [environments](../../ci/environments/_index.md) are deployed to the Kubernetes cluster and it:
 
 - Shows the project and the relevant environment related to the deployment.
 - Displays the status of the pods for that environment.
@@ -36,18 +35,15 @@ With cluster environments, you can gain insight into:
 
 ![Cluster environments page](img/cluster_environments_table_v12_3.png)
 
-Access to cluster environments is restricted to
-[group maintainers and owners](../permissions.md#group-permissions).
+Access to cluster environments is restricted to [group maintainers and owners](../permissions.md#group-permissions).
 
 ## Usage
 
 To:
 
-- Track environments for the cluster, you must
-  [deploy to a Kubernetes cluster](../project/clusters/deploy_to_cluster.md)
-  successfully.
-- Show pod usage correctly, you must
-  [enable deploy boards](../project/deploy_boards.md#enabling-deploy-boards).
+- Track environments for the cluster, you must [deploy to a Kubernetes cluster](../project/clusters/deploy_to_cluster.md)
+ successfully.
+- Show pod usage correctly, you must [enable deploy boards](../project/deploy_boards.md#enabling-deploy-boards).
 
 After you have successful deployments to your group-level or instance-level cluster:
 

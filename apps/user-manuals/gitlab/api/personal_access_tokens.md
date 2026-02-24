@@ -22,9 +22,7 @@ Use this API to interact with [personal access tokens](../user/profile/personal_
 
 {{< /history >}}
 
-Lists all personal access tokens accessible by the authenticating user. For administrators, returns
-a list of all personal access tokens in the instance. For non-administrators, returns a list of all
-of their personal access tokens.
+Lists all personal access tokens accessible by the authenticating user. For administrators, returns a list of all personal access tokens in the instance. For non-administrators, returns a list of all of their personal access tokens.
 
 ```plaintext
 GET /personal_access_tokens
@@ -46,7 +44,7 @@ Supported attributes:
 | `created_before`   | datetime (ISO 8601) | No       | If defined, returns tokens created before the specified time. |
 | `expires_after`    | date (ISO 8601)     | No       | If defined, returns tokens that expire after the specified time. |
 | `expires_before`   | date (ISO 8601)     | No       | If defined, returns tokens that expire before the specified time. |
-| `last_used_after`  | datetime (ISO 8601) | No       | If defined, returns tokens last used after the specified time. |
+| `last_used_after` | datetime (ISO 8601) | No       | If defined, returns tokens last used after the specified time. |
 | `last_used_before` | datetime (ISO 8601) | No       | If defined, returns tokens last used before the specified time. |
 | `revoked`          | boolean             | No       | If `true`, only returns revoked tokens. |
 | `search`           | string              | No       | If defined, returns tokens that include the specified value in the name. |
@@ -58,8 +56,8 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/personal_access_tokens?user_id=3&created_before=2022-01-01"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/personal_access_tokens?user_id=3&created_before=2022-01-01"
 ```
 
 Example response:
@@ -111,8 +109,8 @@ GET /personal_access_tokens/:id
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/personal_access_tokens/<id>"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/personal_access_tokens/<id>"
 ```
 
 If successful, returns details on the token.
@@ -120,8 +118,8 @@ If successful, returns details on the token.
 Other possible responses:
 
 - `401: Unauthorized` if either:
-  - The token does not exist.
-  - You do not have access to the specified token.
+ - The token does not exist.
+ - You do not have access to the specified token.
 - `404: Not Found` if the user is an administrator but the token does not exist.
 
 ### Self-inform
@@ -132,14 +130,12 @@ Other possible responses:
 
 {{< /history >}}
 
-Instead of getting details on a specific personal access token, you can also return details on
-the personal access token you used to authenticate the request. To return these details, you must
-use the `self` keyword in the request URL.
+Instead of getting details on a specific personal access token, you can also return details on the personal access token you used to authenticate the request. To return these details, you must use the `self` keyword in the request URL.
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/personal_access_tokens/self"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/personal_access_tokens/self"
 ```
 
 ## Create a personal access token
@@ -164,9 +160,7 @@ You can create personal access tokens with the user tokens API. For more informa
 
 {{< /history >}}
 
-Rotates a specified personal access token. This revokes the previous token and creates a new token
-that expires after one week. Administrators can revoke tokens for any user. Non-administrators can
-only revoke their own tokens.
+Rotates a specified personal access token. This revokes the previous token and creates a new token that expires after one week. Administrators can revoke tokens for any user. Non-administrators can only revoke their own tokens.
 
 ```plaintext
 POST /personal_access_tokens/:id/rotate
@@ -179,8 +173,8 @@ POST /personal_access_tokens/:id/rotate
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/personal_access_tokens/<personal_access_token_id>/rotate"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/personal_access_tokens/<personal_access_token_id>/rotate"
 ```
 
 Example response:
@@ -207,10 +201,10 @@ Other possible responses:
 
 - `400: Bad Request` if not rotated successfully.
 - `401: Unauthorized` if any of the following conditions are true:
-  - The token does not exist.
-  - The token has expired.
-  - The token was revoked.
-  - You do not have access to the specified token.
+ - The token does not exist.
+ - The token has expired.
+ - The token was revoked.
+ - You do not have access to the specified token.
 - `403: Forbidden` if the token is not allowed to rotate itself.
 - `404: Not Found` if the user is an administrator but the token does not exist.
 - `405: Method Not Allowed` if the token is not a personal access token.
@@ -223,16 +217,15 @@ Other possible responses:
 
 {{< /history >}}
 
-Instead of rotating a specific personal access token, you can also rotate the same personal access
-token you used to authenticate the request. To self-rotate a personal access token, you must:
+Instead of rotating a specific personal access token, you can also rotate the same personal access token you used to authenticate the request. To self-rotate a personal access token, you must:
 
 - Rotate a personal access token with the [`api` or `self_rotate` scope](../user/profile/personal_access_tokens.md#personal-access-token-scopes).
 - Use the `self` keyword in the request URL.
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/personal_access_tokens/self/rotate"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/personal_access_tokens/self/rotate"
 ```
 
 ### Automatic reuse detection
@@ -243,16 +236,11 @@ curl --request POST \
 
 {{< /history >}}
 
-When you rotate or revoke a token, GitLab automatically tracks the relationship between the old and
-new tokens. Each time a new token is generated, a connection is made to the previous token. These
-connected tokens form a token family.
+When you rotate or revoke a token, GitLab automatically tracks the relationship between the old and new tokens. Each time a new token is generated, a connection is made to the previous token. These connected tokens form a token family.
 
-If you attempt to use the API to rotate an access token that was already revoked, any active tokens from the same
-token family are revoked.
+If you attempt to use the API to rotate an access token that was already revoked, any active tokens from the same token family are revoked.
 
-This feature helps secure GitLab if an old token is ever leaked or stolen. By tracking token
-relationships and automatically revoking access when old tokens are used, attackers cannot exploit
-compromised tokens.
+This feature helps secure GitLab if an old token is ever leaked or stolen. By tracking token relationships and automatically revoking access when old tokens are used, attackers cannot exploit compromised tokens.
 
 ## Revoke a personal access token
 
@@ -269,8 +257,8 @@ DELETE /personal_access_tokens/:id
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/personal_access_tokens/<personal_access_token_id>"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/personal_access_tokens/<personal_access_token_id>"
 ```
 
 If successful, returns `204: No Content`.
@@ -290,14 +278,12 @@ Other possible responses:
 
 {{< /history >}}
 
-Instead of revoking a specific personal access token, you can also revoke the same personal access
-token you used to authenticate the request. To self-revoke a personal access token, you must use
-the `self` keyword in the request URL.
+Instead of revoking a specific personal access token, you can also revoke the same personal access token you used to authenticate the request. To self-revoke a personal access token, you must use the `self` keyword in the request URL.
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/personal_access_tokens/self"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/personal_access_tokens/self"
 ```
 
 ## List all token associations
@@ -321,16 +307,16 @@ Supported attributes:
 
 | Attribute           | Type     | Required | Description                                                              |
 |---------------------|----------|----------|--------------------------------------------------------------------------|
-| `min_access_level`  | integer  | No       | Limit to groups and projects where the token has at least the specified access level. Possible values: `5` (Minimal access), `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), or `50` (Owner). |
-| `page`              | integer  | No       | Page to retrieve. Defaults to `1`.                                       |
-| `per_page`          | integer  | No       | Number of records to return per page. Defaults to `20`.                  |
+| `min_access_level` | integer | No       | Limit to groups and projects where the token has at least the specified access level. Possible values: `5` (Minimal access), `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), or `50` (Owner). |
+| `page`              | integer | No       | Page to retrieve. Defaults to `1`.                                       |
+| `per_page`          | integer | No       | Number of records to return per page. Defaults to `20`.                  |
 
 Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/personal_access_tokens/self/associations"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/personal_access_tokens/self/associations"
 ```
 
 Example response:

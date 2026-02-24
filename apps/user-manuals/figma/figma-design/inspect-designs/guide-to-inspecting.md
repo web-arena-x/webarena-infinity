@@ -50,7 +50,7 @@ The **Properties** tab gives you a list of properties for objects on the canvas.
 ### Export
 
 1. Select the layers you want to export. If you want to export the entire canvas of the current page, deselect everything on the canvas.
-2. In the **Export** tab, click the  plus icon to add an export configuration. You can add as many export configurations to a selection as needed.
+2. In the **Export** tab, click the plus icon to add an export configuration. You can add as many export configurations to a selection as needed.
 3. Configure the export settings. Learn more about [Figma's export formats and settings](https://help.figma.com/hc/en-us/articles/13402894554519).
 4. If needed, click **Preview** to see how your asset will look. If you have multiple objects selected, the **Preview** setting won’t display.
 5. Click **Export.**
@@ -61,12 +61,12 @@ The **Properties** tab gives you a list of properties for objects on the canvas.
 
 [Comments](https://help.figma.com/hc/en-us/articles/360041068574) help designers and developers collaborate by drawing attention to specific parts of the design. You can leave comments to share more context about how parts of the design should work.
 
-1. Click  in the toolbar, or press `C` to enter comment mode. Your cursor will turn into a .
+1. Click in the toolbar, or press `C` to enter comment mode. Your cursor will turn into a .
 2. Select a location to comment on:
    - Click the location on the canvas where you'd like the comment to be pinned.
    - Or, click and drag your cursor to select a region to comment on.
 3. Type your message in the field. Type `@` to [mention](../comments/add-comments-to-files.md#mention) a colleague or collaborator.
-4. Click  to send your message.
+4. Click to send your message.
 
 ### Use plugins
 
@@ -110,7 +110,7 @@ The **Design** tab gives you a list of properties for objects on the canvas. Thi
 ### Export
 
 1. Select the layers you want to export. If you want to export the entire canvas of the current page, deselect everything on the canvas.
-2. In the **Design** tab, click the  plus icon in the **Export** section to add an export configuration. You can add as many export configurations to a selection as needed.
+2. In the **Design** tab, click the plus icon in the **Export** section to add an export configuration. You can add as many export configurations to a selection as needed.
 3. Configure the export settings. Learn more about [Figma's export formats and settings](https://help.figma.com/hc/en-us/articles/13402894554519).
 4. If needed, click **Preview** to see how your asset will look. If you have multiple objects selected, the **Preview** setting won’t display.
 5. Click **Export**.
@@ -121,18 +121,18 @@ The **Design** tab gives you a list of properties for objects on the canvas. Thi
 
 [Comments](https://help.figma.com/hc/en-us/articles/360041068574) help designers and developers collaborate by drawing attention to specific parts of the design. You can leave comments to share more context about how parts of the design should work.
 
-1. Click  in the toolbar, or press `C` to enter comment mode. Your cursor will turn into a .
+1. Click in the toolbar, or press `C` to enter comment mode. Your cursor will turn into a .
 2. Select a location to comment on:
    - Click the location on the canvas where you'd like the comment to be pinned.
    - Or, click and drag your cursor to select a region to comment on.
 3. Type your message in the field. Type `@` to [mention](../comments/add-comments-to-files.md#mention) a colleague or collaborator.
-4. Click  to send your message.
+4. Click to send your message.
 
 ### Use plugins
 
 You can run a plugin from the Community or directly from a file in Figma or FigJam.
 
-1. Click  **Resources** in the toolbar.
+1. Click **Resources** in the toolbar.
 2. From the **Plugins** tab, select from your recently used or saved plugins or search for a plugin from the Community.
 3. Click on a plugin to view its details.
 4. Click **Run** to run the plugin in the current file.
@@ -141,7 +141,7 @@ You can run a plugin from the Community or directly from a file in Figma or FigJ
 
 ## I have Dev Mode
 
-To inspect designs, enter Dev Mode by selecting the  Dev Mode toggle or by using the keyboard shortcut `Shift` `D`. From there, you can use the following inspection tools:
+To inspect designs, enter Dev Mode by selecting the Dev Mode toggle or by using the keyboard shortcut `Shift` `D`. From there, you can use the following inspection tools:
 
 ### Measure distances
 
@@ -162,7 +162,7 @@ Click any object on the canvas while in Dev Mode to populate the **Code** sectio
 To change your language and unit selection, or use a codegen plugin:
 
 1. In the top-right of the **Code** section, select a language or plugin from the dropdown.
-2. If required, click  **Inspect settings** and select a unit from the dropdown.
+2. If required, click **Inspect settings** and select a unit from the dropdown.
 
 [Learn how to use code snippets in Dev Mode.](https://help.figma.com/hc/en-us/articles/15023202277399)
 
@@ -194,7 +194,7 @@ Dev Mode can automatically detect icons and present them as downloadable assets 
 To set up a custom export:
 
 1. In Dev Mode, select the layers you want to export.
-2. In the **Inspect** tab, click the  plus icon in the **Export** section to add an export configuration. You can add as many export configurations to a selection as needed.
+2. In the **Inspect** tab, click the plus icon in the **Export** section to add an export configuration. You can add as many export configurations to a selection as needed.
 3. Configure the export settings. Learn more about [Figma's export formats and settings](https://help.figma.com/hc/en-us/articles/13402894554519).
 4. If needed, click **Preview** to see how your asset will look. If you have multiple objects selected, the **Preview** setting does not display.
 5. Click **Export**.
@@ -204,7 +204,7 @@ To set up a custom export:
 Download any selected image on the canvas, and choose between downloading the image at its current size on the canvas or the original image at full resolution.
 
 1. In Dev Mode, select the image you want to download.
-2. From the **Assets** section in the right sidebar, hover over the image you want to download and click the  **Export** icon that appears.
+2. From the **Assets** section in the right sidebar, hover over the image you want to download and click the **Export** icon that appears.
 3. From the dropdown, choose from one of the options:
    - **Source image file**: Download the original image that was used when the image was first imported into Figma.
    - **Layer export**: Download the image at its current layer size.

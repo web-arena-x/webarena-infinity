@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408832576410-Migrating-so
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-Location:  Admin Center > Channels > Messaging and social > Messaging
+Location: Admin Center > Channels > Messaging and social > Messaging
 
 This article describes how you can migrate your Facebook Messenger and Twitter DM social messaging channels from a standard Support interface to the Zendesk Agent Workspace.
 

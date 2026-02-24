@@ -52,11 +52,7 @@ Here are some helpful tips for creating effective Auto Label prompts to ensure y
 
 **Use examples** — Provide an example email that fits the category to refine the logic, and to help constrain what’s included.
 
-- Example: *Emails that contain the exact string "bug". Do not analyze the content of the email; you are looking for an exact string match with these three characters only.*  
-  *### Example that should receive this label*  
-  *From: Joe Schmoe schmoey@joe.com Date: Monday, March 3 2025 at 1:08 AM PST Subject: Feedback To: Superhuman Mail hello@superhuman.com There seems to be a bug where images can't be copied.*  
-  *### Example that should NOT receive this label*  
-  *From: Joe Schmoe schmoey@joe.com Date: Monday, March 3 2025 at 1:08 AM PST Subject: Feedback To: Superhuman Mail hello@superhuman.com There seems to be an issue where images can't be copied.*
+- Example: *Emails that contain the exact string "bug". Do not analyze the content of the email; you are looking for an exact string match with these three characters only.* *### Example that should receive this label* *From: Joe Schmoe schmoey@joe.com Date: Monday, March 3 2025 at 1:08 AM PST Subject: Feedback To: Superhuman Mail hello@superhuman.com There seems to be a bug where images can't be copied.* *### Example that should NOT receive this label* *From: Joe Schmoe schmoey@joe.com Date: Monday, March 3 2025 at 1:08 AM PST Subject: Feedback To: Superhuman Mail hello@superhuman.com There seems to be an issue where images can't be copied.*
 
 ## **Other Tips for Writing an Effective Prompt:**
 
@@ -77,8 +73,7 @@ Here is what the prompt cannot access:
 
 **Leverage boolean logic** — Use conditional rules to improve specificity.
 
-- Example: *This label should be applied to all newsletter and promotional emails that contain film-related events in Seattle, WA. Do NOT include events based in Seattle that aren't primarily cinematic events. For example, an email that primarily highlights a movie in Seattle should receive this label, but an email that only features events like live comedy performances, lectures, dance parties, or live musical performances should NOT receive this label.*  
-  *If an email features both film and non-film events in Seattle, it's correct to give it this label. Do NOT apply this label to emails that are not also newsletters or promotional in nature.*
+- Example: *This label should be applied to all newsletter and promotional emails that contain film-related events in Seattle, WA. Do NOT include events based in Seattle that aren't primarily cinematic events. For example, an email that primarily highlights a movie in Seattle should receive this label, but an email that only features events like live comedy performances, lectures, dance parties, or live musical performances should NOT receive this label.* *If an email features both film and non-film events in Seattle, it's correct to give it this label. Do NOT apply this label to emails that are not also newsletters or promotional in nature.*
 
 **Iterate and refine** — Test your prompt and make adjustments based on misclassifications.
 

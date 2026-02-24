@@ -13,11 +13,9 @@ title: GraphQL API
 
 {{< /details >}}
 
-[GraphQL](https://graphql.org/) is a query language for APIs. You can use it to
-request the exact data you need, and therefore limit the number of requests you need.
+[GraphQL](https://graphql.org/) is a query language for APIs. You can use it to request the exact data you need, and therefore limit the number of requests you need.
 
-GraphQL data is arranged in types, so your client can use
-[client-side GraphQL libraries](https://graphql.org/community/tools-and-libraries/)
+GraphQL data is arranged in types, so your client can use [client-side GraphQL libraries](https://graphql.org/community/tools-and-libraries/)
 to consume the API and avoid manual parsing.
 
 The GraphQL API is [versionless](https://graphql.org/learn/schema-design/#versioning).
@@ -52,8 +50,7 @@ The [get started](getting_started.md) page includes different methods to customi
 
 ### Authentication
 
-You can access some queries without authentication, but others require authentication. Mutations always require
-authentication.
+You can access some queries without authentication, but others require authentication. Mutations always require authentication.
 
 You can authenticate by using either a:
 
@@ -85,10 +82,10 @@ Example of token authentication using an `Authorization: Bearer <token>` request
 
 ```shell
 curl --request POST \
-  --url "https://gitlab.com/api/graphql" \
-  --header "Authorization: Bearer <token>" \
-  --header "Content-Type: application/json" \
-  --data "{\"query\": \"query {currentUser {name}}\"}"
+ --url "https://gitlab.com/api/graphql" \
+ --header "Authorization: Bearer <token>" \
+ --header "Content-Type: application/json" \
+ --data "{\"query\": \"query {currentUser {name}}\"}"
 ```
 
 ##### Parameter authentication
@@ -97,18 +94,18 @@ Example of using an OAuth 2.0 token in the `access_token` parameter:
 
 ```shell
 curl --request POST \
-  --url "https://gitlab.com/api/graphql?access_token=<oauth_token>" \
-  --header "Content-Type: application/json" \
-  --data "{\"query\": \"query {currentUser {name}}\"}"
+ --url "https://gitlab.com/api/graphql?access_token=<oauth_token>" \
+ --header "Content-Type: application/json" \
+ --data "{\"query\": \"query {currentUser {name}}\"}"
 ```
 
 You can pass in personal, project, or group access tokens using the `private_token` parameter:
 
 ```shell
 curl --request POST \
-  --url "https://gitlab.com/api/graphql?private_token=<access_token>" \
-  --header "Content-Type: application/json" \
-  --data "{\"query\": \"query {currentUser {name}}\"}"
+ --url "https://gitlab.com/api/graphql?private_token=<access_token>" \
+ --header "Content-Type: application/json" \
+ --data "{\"query\": \"query {currentUser {name}}\"}"
 ```
 
 ##### Token scopes
@@ -124,15 +121,13 @@ Tokens must have the correct scope to access the GraphQL API, either:
 
 Signing in to the main GitLab application sets a `_gitlab_session` session cookie.
 
-The [interactive GraphQL explorer](#interactive-graphql-explorer) and the web frontend of
-GitLab itself use this method of authentication.
+The [interactive GraphQL explorer](#interactive-graphql-explorer) and the web frontend of GitLab itself use this method of authentication.
 
 ## Object identifiers
 
 The GitLab GraphQL API uses a mix of identifiers.
 
-[Global IDs](#global-ids), full paths, and internal IDs (IIDs) are all used as arguments in the GitLab
-GraphQL API, but often a particular part of schema does not accept all of these at the same time.
+[Global IDs](#global-ids), full paths, and internal IDs (IIDs) are all used as arguments in the GitLab GraphQL API, but often a particular part of schema does not accept all of these at the same time.
 
 Although the GitLab GraphQL API has historically not been consistent on this, in general you can expect:
 
@@ -144,10 +139,10 @@ For example, finding a project by its full path `"gitlab-org/gitlab"`:
 
 ```graphql
 {
-  project(fullPath: "gitlab-org/gitlab") {
+ project(fullPath: "gitlab-org/gitlab") {
     id
     fullPath
-  }
+ }
 }
 ```
 
@@ -155,12 +150,12 @@ Another example, locking an issue by its project's full path `"gitlab-org/gitlab
 
 ```graphql
 mutation {
-  issueSetLocked(input: { projectPath: "gitlab-org/gitlab", iid: "1", locked: true }) {
+ issueSetLocked(input: { projectPath: "gitlab-org/gitlab", iid: "1", locked: true }) {
     issue {
       id
       iid
     }
-  }
+ }
 }
 ```
 
@@ -168,14 +163,13 @@ An example of finding a CI runner by its Global ID:
 
 ```graphql
 {
-  runner(id: "gid://gitlab/Ci::Runner/1") {
+ runner(id: "gid://gitlab/Ci::Runner/1") {
     id
-  }
+ }
 }
 ```
 
-Historically, the GitLab GraphQL API has been inconsistent with typing of full path and
-IID fields and arguments, but generally:
+Historically, the GitLab GraphQL API has been inconsistent with typing of full path and IID fields and arguments, but generally:
 
 - Full path fields and arguments are a GraphQL `ID` type.
 - IID fields and arguments are a GraphQL `String` type.
@@ -183,8 +177,7 @@ IID fields and arguments, but generally:
 ### Global IDs
 
 In the GitLab GraphQL API, a field or argument named `id` is nearly always a [Global ID](https://graphql.org/learn/global-object-identification/)
-and never a database primary key ID. A Global ID in the GitLab GraphQL API
-begins with `"gid://gitlab/"`. For example, `"gid://gitlab/Issue/123"`.
+and never a database primary key ID. A Global ID in the GitLab GraphQL API begins with `"gid://gitlab/"`. For example, `"gid://gitlab/Issue/123"`.
 
 Global IDs are a convention used for caching and fetching in some client-side libraries.
 
@@ -193,21 +186,17 @@ You should not expect that a cached Global ID will be valid beyond the time of a
 
 ## Available top-level queries
 
-The top-level entry points for all queries are defined in the [`Query` type](reference/_index.md#query-type) in the
-GraphQL reference.
+The top-level entry points for all queries are defined in the [`Query` type](reference/_index.md#query-type) in the GraphQL reference.
 
 ### Multiplex queries
 
-GitLab supports batching queries into a single request. For more information, see
-[Multiplex](https://graphql-ruby.org/queries/multiplex.html).
+GitLab supports batching queries into a single request. For more information, see [Multiplex](https://graphql-ruby.org/queries/multiplex.html).
 
 ## Breaking changes
 
-The GitLab GraphQL API is [versionless](https://graphql.org/learn/best-practices/#versioning) and changes to the API are
-primarily backward-compatible.
+The GitLab GraphQL API is [versionless](https://graphql.org/learn/best-practices/#versioning) and changes to the API are primarily backward-compatible.
 
-However, GitLab sometimes changes the GraphQL API in a way that is not backward-compatible. These changes are considered breaking changes, and
-can include removing or renaming fields, arguments, or other parts of the schema.
+However, GitLab sometimes changes the GraphQL API in a way that is not backward-compatible. These changes are considered breaking changes, and can include removing or renaming fields, arguments, or other parts of the schema.
 When creating a breaking change, GitLab follows a [deprecation and removal process](#deprecation-and-removal-process).
 
 To avoid having a breaking change affect your integrations, you should:
@@ -220,18 +209,14 @@ For GitLab Self-Managed, [reverting](../../update/convert_to_ee/revert.md) from 
 ### Breaking change exemptions
 
 Schema items labeled as experiments in the [GraphQL API reference](reference/_index.md)
-are exempt from the deprecation process. These items can be removed or changed at any
-time without notice.
+are exempt from the deprecation process. These items can be removed or changed at any time without notice.
 
-Fields behind a feature flag and disabled by default do not follow the
-deprecation and removal process. These fields can be removed at any time without notice.
+Fields behind a feature flag and disabled by default do not follow the deprecation and removal process. These fields can be removed at any time without notice.
 
 {{< alert type="warning" >}}
 
 GitLab makes all attempts to follow the [deprecation and removal process](#deprecation-and-removal-process).
-GitLab might make immediate breaking changes to the GraphQL
-API to patch critical security or performance concerns if the deprecation
-process would pose significant risk.
+GitLab might make immediate breaking changes to the GraphQL API to patch critical security or performance concerns if the deprecation process would pose significant risk.
 
 {{< /alert >}}
 
@@ -247,15 +232,11 @@ You can make calls against the GraphQL API as if all deprecated items were alrea
 This way, you can verify API calls ahead of a [breaking-change release](#deprecation-and-removal-process)
 before the items are actually removed from the schema.
 
-To make these calls, add a
-`remove_deprecated=true` query parameter to the GraphQL API endpoint. For example,
-`https://gitlab.com/api/graphql?remove_deprecated=true` for GraphQL on GitLab.com.
+To make these calls, add a `remove_deprecated=true` query parameter to the GraphQL API endpoint. For example, `https://gitlab.com/api/graphql?remove_deprecated=true` for GraphQL on GitLab.com.
 
 ### Deprecation and removal process
 
-Parts of the schema marked for removal from the GitLab GraphQL API are first
-deprecated but still available for at least six releases. They are then
-removed entirely during the next `XX.0` major release.
+Parts of the schema marked for removal from the GitLab GraphQL API are first deprecated but still available for at least six releases. They are then removed entirely during the next `XX.0` major release.
 
 Items are marked as deprecated in:
 
@@ -264,16 +245,13 @@ Items are marked as deprecated in:
 - The [deprecation feature removal schedule](../../update/deprecations.md), which is linked from release posts.
 - Introspection queries of the GraphQL API.
 
-The deprecation message provides an alternative for the deprecated schema item,
-if applicable.
+The deprecation message provides an alternative for the deprecated schema item, if applicable.
 
-To avoid experiencing breaking changes, you should remove the deprecated schema from your GraphQL API calls as soon as
-possible. You should [verify your API calls against the schema without the deprecated schema items](#verify-against-the-future-breaking-change-schema).
+To avoid experiencing breaking changes, you should remove the deprecated schema from your GraphQL API calls as soon as possible. You should [verify your API calls against the schema without the deprecated schema items](#verify-against-the-future-breaking-change-schema).
 
 #### Deprecation example
 
-The following fields are deprecated in different minor releases, but both
-removed in GitLab 17.0:
+The following fields are deprecated in different minor releases, but both removed in GitLab 17.0:
 
 | Field deprecated in | Reason |
 |:--------------------|:-------|
@@ -299,19 +277,13 @@ The following limits apply to the GitLab GraphQL API.
 
 ### Maximum query complexity
 
-The GitLab GraphQL API scores the complexity of a query. Generally, larger
-queries have a higher complexity score. This limit is designed to protecting
-the API from performing queries that could negatively impact its overall performance.
+The GitLab GraphQL API scores the complexity of a query. Generally, larger queries have a higher complexity score. This limit is designed to protecting the API from performing queries that could negatively impact its overall performance.
 
-You can [query](getting_started.md#query-complexity) the complexity score of a query
-and the limit for the request.
+You can [query](getting_started.md#query-complexity) the complexity score of a query and the limit for the request.
 
-If a query exceeds the complexity limit, an error message response is
-returned.
+If a query exceeds the complexity limit, an error message response is returned.
 
-In general, each field in a query adds `1` to the complexity score, although
-this can be higher or lower for particular fields. Sometimes, adding
-certain arguments may also increase the complexity of a query.
+In general, each field in a query adds `1` to the complexity score, although this can be higher or lower for particular fields. Sometimes, adding certain arguments may also increase the complexity of a query.
 
 ### Data limits
 
@@ -320,15 +292,14 @@ Blob requests are limited to:
 - A single blob of any size.
 - Multiple blobs with a total size of 20 MB or less.
 
-Blobs larger than 20 MB must be requested individually. This limit applies only when you request
-fields that contain blob data.
+Blobs larger than 20 MB must be requested individually. This limit applies only when you request fields that contain blob data.
 
 You might need to limit the number of paths in your requests to stay within the data limit.
 Make a request for the `size` field while excluding the data fields:
 
 ```gql
 {
-  project(fullPath: "gitlab-org/gitlab") {
+ project(fullPath: "gitlab-org/gitlab") {
     repository {
       blobs(paths: ["big_file.rb", "small_file.rb", "huge_file.rb", ..., etc.], ref: "master") {
         nodes {
@@ -337,22 +308,20 @@ Make a request for the `size` field while excluding the data fields:
         }
       }
     }
-  }
+ }
 }
 ```
 
-Use the response to calculate the total size and ensure subsequent
-requests do not exceed the 20 MB data limit.
+Use the response to calculate the total size and ensure subsequent requests do not exceed the 20 MB data limit.
 
 ## Resolve mutations detected as spam
 
 GraphQL mutations can be detected as spam. If a mutation is detected as spam and:
 
-- A CAPTCHA service is not configured, a
-  [GraphQL top-level error](https://spec.graphql.org/June2018/#sec-Errors) is raised. For example:
+- A CAPTCHA service is not configured, a [GraphQL top-level error](https://spec.graphql.org/June2018/#sec-Errors) is raised. For example:
 
-  ```json
-  {
+ ```json
+ {
     "errors": [
       {
         "message": "Request denied. Spam detected",
@@ -368,17 +337,17 @@ GraphQL mutations can be detected as spam. If a mutation is detected as spam and
         "snippet": null
       }
     }
-  }
-  ```
+ }
+ ```
 
 - A CAPTCHA service is configured, you receive a response with:
-  - `needsCaptchaResponse` set to `true`.
-  - The `spamLogId` and `captchaSiteKey` fields set.
+ - `needsCaptchaResponse` set to `true`.
+ - The `spamLogId` and `captchaSiteKey` fields set.
 
-  For example:
+ For example:
 
-  ```json
-  {
+ ```json
+ {
     "errors": [
       {
         "message": "Request denied. Solve CAPTCHA challenge and retry",
@@ -396,18 +365,16 @@ GraphQL mutations can be detected as spam. If a mutation is detected as spam and
         "snippet": null,
       }
     }
-  }
-  ```
+ }
+ ```
 
 - Use the `captchaSiteKey` to obtain a CAPTCHA response value using the appropriate CAPTCHA API.
-  Only [Google reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display) is supported.
+ Only [Google reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display) is supported.
 - Resubmit the request with the `X-GitLab-Captcha-Response` and `X-GitLab-Spam-Log-Id` headers set.
 
 {{< alert type="note" >}}
 
-The GitLab GraphiQL implementation doesn't permit passing of headers, so the request must be
-a cURL query. `--data-binary` is used to properly handle escaped double quotes
-in the JSON-embedded query.
+The GitLab GraphiQL implementation doesn't permit passing of headers, so the request must be a cURL query. `--data-binary` is used to properly handle escaped double quotes in the JSON-embedded query.
 
 {{< /alert >}}
 
@@ -415,9 +382,9 @@ in the JSON-embedded query.
 export CAPTCHA_RESPONSE="<CAPTCHA response obtained from CAPTCHA service>"
 export SPAM_LOG_ID="<spam_log_id obtained from initial REST response>"
 curl --request POST \
-  --header "Authorization: Bearer $PRIVATE_TOKEN" \
-  --header "Content-Type: application/json" \
-  --header "X-GitLab-Captcha-Response: $CAPTCHA_RESPONSE" \
-  --header "X-GitLab-Spam-Log-Id: $SPAM_LOG_ID" \
-  --data-binary '{"query": "mutation {createSnippet(input: {title: \"Title\" visibilityLevel: public blobActions: [ { action: create filePath: \"BlobPath\" content: \"BlobContent\" } ] }) { snippet { id title } errors }}"}' "https://gitlab.example.com/api/graphql"
+ --header "Authorization: Bearer $PRIVATE_TOKEN" \
+ --header "Content-Type: application/json" \
+ --header "X-GitLab-Captcha-Response: $CAPTCHA_RESPONSE" \
+ --header "X-GitLab-Spam-Log-Id: $SPAM_LOG_ID" \
+ --data-binary '{"query": "mutation {createSnippet(input: {title: \"Title\" visibilityLevel: public blobActions: [ { action: create filePath: \"BlobPath\" content: \"BlobContent\" } ] }) { snippet { id title } errors }}"}' "https://gitlab.example.com/api/graphql"
 ```

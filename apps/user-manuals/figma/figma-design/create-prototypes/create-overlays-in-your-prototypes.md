@@ -42,16 +42,16 @@ You create an overlay when you define the interaction of a connection. Overlays 
 3. Now you can customize the interaction. There are three aspects of the interaction, the trigger, action and destination.
    1. Select what kind of interaction will trigger the animation.
    2. Select **Open overlay** from the actions.
-   3. Figma determines the **Destination** based on where the connection ends. For this interaction, you want this to be the overlay frame.  
+   3. Figma determines the **Destination** based on where the connection ends. For this interaction, you want this to be the overlay frame. 
       ![Interaction details panel showing settings for a drag-triggered navigation to "Profile/Photos" destination.](https://help.figma.com/hc/article_attachments/360084140933)
 
 There are a few aspects of an overlay that you can customize:
 
 1. **Position:** The location of the overlay relative to the original frame. Choose from seven default options or set a position manually.
 2. **Close when clicking outside**: Check this setting to dismiss the overlay when a user clicks outside the overlay's dimensions.
-3. **Add background behind overlay:** Check this setting to add a background color behind the overlay and in front of the current frame. Set both the color and the opacity.  
+3. **Add background behind overlay:** Check this setting to add a background color behind the overlay and in front of the current frame. Set both the color and the opacity. 
    ![Overlay section of Interaction details menu](https://help.figma.com/hc/article_attachments/360084141453)
-4. In the Animation section, customize how the overlay will appear. Select the (1) transition and any additional settings, including (2) direction, (3) easing, and (4) duration. Learn how to [build prototypes with interactions and animations](https://help.figma.com/hc/en-us/articles/360040315773).  
+4. In the Animation section, customize how the overlay will appear. Select the (1) transition and any additional settings, including (2) direction, (3) easing, and (4) duration. Learn how to [build prototypes with interactions and animations](https://help.figma.com/hc/en-us/articles/360040315773). 
    ![Annotated view of Interaction Details and Animations panel](https://help.figma.com/hc/article_attachments/360083115954)
 
 **Tip!** Add GIFs to your overlays to simulate more advanced animations. GIFs show up as static images in the Editor, but playback as GIFs in [Presentation View](https://help.figma.com/hc/en-us/articles/360040318013).
@@ -90,8 +90,8 @@ You can only edit or remove an overlay in **Prototype** mode.
 
 ## Edit overlay
 
-1. Identify an overlay using the blue  icon. This will appear next to the frame in the canvas.
-2. Click the  icon to view overlay's settings in the right sidebar.
+1. Identify an overlay using the blue icon. This will appear next to the frame in the canvas.
+2. Click the icon to view overlay's settings in the right sidebar.
 3. Make any changes to the overlay, as required.
 
 Tip! You can also access the overlay settings by clicking on a hotspot, or on an arrow from one of the connections.
@@ -101,5 +101,5 @@ Tip! You can also access the overlay settings by clicking on a hotspot, or on an
 There are a few ways to delete an overlay:
 
 - Click on the connection arrow and drag it to an empty part of the canvas.
-- Click the  icon to select the overlay, then press the `Delete` key.
+- Click the icon to select the overlay, then press the `Delete` key.
 - Remove all connections on the current page. Right-click on a connection and select **Remove all interactions**.

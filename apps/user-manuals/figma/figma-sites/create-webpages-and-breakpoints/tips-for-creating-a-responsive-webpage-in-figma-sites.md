@@ -31,7 +31,7 @@ As a first step, we recommend applying auto layout to the webpage itself. Any el
 To apply auto layout to the webpage:
 
 1. Select the primary breakpoint in a webpage by clicking its name—usually **Desktop**.
-2. Click  **Apply auto layout** in the right sidebar or use the keyboard shortcut `Shift` `A`.
+2. Click **Apply auto layout** in the right sidebar or use the keyboard shortcut `Shift` `A`.
 3. If needed, change the auto layout direction to **Vertical**.
 
 **Why is auto layout so important for web design?**
@@ -71,7 +71,7 @@ We recommend designing each section on the canvas, then dropping it into the web
 
 1. On the canvas, add design elements to a frame you’d like to use as a content section.
 2. Drag that frame into the webpage.
-3. Select the frame and set the width to  **Fill container**. **Fill container** is only available as an option when nested inside another auto layout frame—in this case, the webpage itself.
+3. Select the frame and set the width to **Fill container**. **Fill container** is only available as an option when nested inside another auto layout frame—in this case, the webpage itself.
 
 **Tip**: Set [accessibility landmarks](../design-a-site/improve-the-accessibility-of-your-site.md)—like `nav`, `main`, and `footer`—on each top-level auto layout frame for better accessibility.
 

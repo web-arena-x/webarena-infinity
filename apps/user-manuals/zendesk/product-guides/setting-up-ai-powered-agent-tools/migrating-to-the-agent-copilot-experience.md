@@ -8,21 +8,15 @@ Agent copilotis a set of AI-powered features focused on making your agents more 
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Copilot |
 
-[Agent copilot](https://support.zendesk.com/hc/en-us/articles/7908817636378) is a set of AI-powered features focused on
-making your agents more productive while still allowing them to provide a high level of
-customer service.
+[Agent copilot](https://support.zendesk.com/hc/en-us/articles/7908817636378) is a set of AI-powered features focused on making your agents more productive while still allowing them to provide a high level of customer service.
 
-If you purchased Advanced AI before October 9, 2024, you might already be using legacy
-versions of the features included in agent copilot. On February 10, 2025, your account
-was migrated to the new and upgraded features included in agent copilot.
+If you purchased Advanced AI before October 9, 2024, you might already be using legacy versions of the features included in agent copilot. On February 10, 2025, your account was migrated to the new and upgraded features included in agent copilot.
 
-This article walks you through what changes occured in your system as a result of the
-agent copilot migration, from both an admin and an agent perspective. It also outlines
-some required steps you need to take to ensure a smooth experience for your users.
+This article walks you through what changes occured in your system as a result of the agent copilot migration, from both an admin and an agent perspective. It also outlines some required steps you need to take to ensure a smooth experience for your users.
 
 This article contains the following topics:
 
@@ -36,11 +30,9 @@ Related articles:
 
 ## What changes for admins and agents when you migrate to agent copilot
 
-Migrating to agent copilot gives you access to the new and improved features detailed
-in the table below. For full details on any of the features, see the resources in
-[Agent copilot resources](https://support.zendesk.com/hc/en-us/articles/7909179243418).
+Migrating to agent copilot gives you access to the new and improved features detailed in the table below. For full details on any of the features, see the resources in [Agent copilot resources](https://support.zendesk.com/hc/en-us/articles/7909179243418).
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Feature** | **Before migrating to agent copilot** | **After migrating to agent copilot** |
 | Auto assist | - EAP release only - Feature was known as agent copilot - Admin Center settings was located on   Generative AI page - Access was granted at agent level - Procedures were written in Admin Center - Actions were limited to certain Shopify   actions only | - General availability release - Feature is known as auto assist - Admin Center settings are located on Agent   copilot page - Access is granted at group level - Procedures are written in Guide (any   existing procedures from Admin Center are migrated   to Guide) - Actions are expanded to include custom API   actions |
@@ -56,14 +48,10 @@ in the table below. For full details on any of the features, see the resources i
 
 ## Required actions as a result of the agent copilot migration
 
-After being migrated to agent copilot, make sure to take the following steps to
-ensure a smooth experience:
+After being migrated to agent copilot, make sure to take the following steps to ensure a smooth experience:
 
 - [Communicate the agent-facing changes to your staff](#topic_ms1_dqw_xcc)
 
 ### Communicate the agent-facing changes to your staff
 
-Help your agents adjust to the new and updated features included in agent
-copilot. Use the [table
-above](#topic_skp_fpw_xcc) as a guide for what changes they can expect to their workflows,
-and what new tools they’ll have available to them.
+Help your agents adjust to the new and updated features included in agent copilot. Use the [table above](#topic_skp_fpw_xcc) as a guide for what changes they can expect to their workflows, and what new tools they’ll have available to them.

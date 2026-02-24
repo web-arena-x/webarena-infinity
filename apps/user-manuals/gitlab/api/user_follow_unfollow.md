@@ -32,21 +32,21 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/users/3/follow"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/users/3/follow"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "username": "john_smith",
-  "name": "John Smith",
-  "state": "active",
-  "locked": false,
-  "avatar_url": "http://localhost:3000/uploads/user/avatar/1/cd8.jpeg",
-  "web_url": "http://localhost:3000/john_smith"
+ "id": 1,
+ "username": "john_smith",
+ "name": "John Smith",
+ "state": "active",
+ "locked": false,
+ "avatar_url": "http://localhost:3000/uploads/user/avatar/1/cd8.jpeg",
+ "web_url": "http://localhost:3000/john_smith"
 }
 ```
 
@@ -68,8 +68,8 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/users/3/unfollow"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/users/3/unfollow"
 ```
 
 ## List all accounts that follow a user
@@ -90,15 +90,15 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/users/3/followers"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/users/3/followers"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 2,
     "name": "Lennie Donnelly",
     "username": "evette.kilback",
@@ -106,8 +106,8 @@ Example response:
     "locked": false,
     "avatar_url": "https://www.gravatar.com/avatar/7955171a55ac4997ed81e5976287890a?s=80&d=identicon",
     "web_url": "http://127.0.0.1:3000/evette.kilback"
-  },
-  {
+ },
+ {
     "id": 4,
     "name": "Serena Bradtke",
     "username": "cammy",
@@ -115,7 +115,7 @@ Example response:
     "locked": false,
     "avatar_url": "https://www.gravatar.com/avatar/a2daad869a7b60d3090b7b9bef4baf57?s=80&d=identicon",
     "web_url": "http://127.0.0.1:3000/cammy"
-  }
+ }
 ]
 ```
 
@@ -137,6 +137,6 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/users/3/following"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/users/3/following"
 ```

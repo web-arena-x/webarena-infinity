@@ -21,24 +21,24 @@ Features available only to Premium partners are indicated by an asterisk (\*).*F
 2. Complete the fields in the **Create a new event** form:
 
 - **Event Name**
-  - *85 character limit*
+ - *85 character limit*
 - **Event Categories** *(select up to two)*
-  - Hiring and recruiting
-  - About your company
-  - Guidance
-  - Networking
-  - Career fairs
-  - Conferences and more
+ - Hiring and recruiting
+ - About your company
+ - Guidance
+ - Networking
+ - Career fairs
+ - Conferences and more
 - **Start & End Dates**
-  - Click on the calendar icon to select the desired start and end dates for your event.
+ - Click on the calendar icon to select the desired start and end dates for your event.
     - Events cannot be set as recurring. However, events can last for more than 24 hours, **\***or occur during a 1-on-1 employer-hosted schedule.
-  - **Time Zone**
+ - **Time Zone**
 - **Contact**
-  - The contact person should be the primary point of contact for any event-related questions.
+ - The contact person should be the primary point of contact for any event-related questions.
     - The contact must have an active Handshake user account and the role to manage events.
       - **Note**: if their name does not appear in the dropdown, create a contact for the teammate first. *Learn* [*How to Create an External Contact*](https://support.joinhandshake.com/hc/en-us/articles/7475310750103).
-  - Check the box for **The contact person can accept messages from attendees**to allow attendees to message the contact directly.
-  - **Where is your event being held?**
+ - Check the box for **The contact person can accept messages from attendees**to allow attendees to message the contact directly.
+ - **Where is your event being held?**
     - **On-campus**: My company is hosting this event at a school.
       - **Which school is hosting?** *(select a school)*
       - **Virtual event available**: Students can choose to attend virtually or in person.
@@ -67,14 +67,14 @@ Features available only to Premium partners are indicated by an asterisk (\*).*F
               - **\*Note**: Premium partners with the Handshake Events module enabled can include an external registration link for all event types (on-campus, off-campus, virtual).
             - **Add a registration limit** *(optional)*: Select or enter the number of participants who can register for the event.
 - **Invite schools to promote your event**
-  - For Basic employers, only one school per event created can be requested.
+ - For Basic employers, only one school per event created can be requested.
     - \*Premium partners have the flexibility to select multiple schools or a school list when hosting events for groups of schools, such as HBCUs. *Learn more about* [*Creating and Managing School Lists*](https://support.joinhandshake.com/hc/en-us/articles/360033920474).
-  - **Note**: If a specific school doesn’t appear in your search, it may be because you don’t have permission to post events at that school, you're not yet connected to the school, or the school is not yet partnered with Handshake. *To search for a school or check your permissions, refer* [*Navigating the Schools Page*](https://support.joinhandshake.com/hc/en-us/articles/30981819127191).
+ - **Note**: If a specific school doesn’t appear in your search, it may be because you don’t have permission to post events at that school, you're not yet connected to the school, or the school is not yet partnered with Handshake. *To search for a school or check your permissions, refer* [*Navigating the Schools Page*](https://support.joinhandshake.com/hc/en-us/articles/30981819127191).
 - **Write an effective description**: A good description will help attract the right attendees. Write an effective description by providing details like agendas, who the event is for, and the value of attending *(2500 character limit).*
 - **Highlight guests** *(optional)*:Premium partners can add information (name, title, short bio, photo) about speakers, hosts, and panelists to the description. (*Maximum 5 participants allowed).*
 - **Update event thumbnail**:
-  - The logo currently displayed on your company's Handshake profile will automatically be used as the thumbnail.
-  - To update the logo, click the small pencil icon located in the top-right corner of the image. *For size and ratio recommendations, refer to our* [*Employer Logo & Banner Guide*](https://support.joinhandshake.com/hc/en-us/articles/360000184548).
+ - The logo currently displayed on your company's Handshake profile will automatically be used as the thumbnail.
+ - To update the logo, click the small pencil icon located in the top-right corner of the image. *For size and ratio recommendations, refer to our* [*Employer Logo & Banner Guide*](https://support.joinhandshake.com/hc/en-us/articles/360000184548).
 
 3. Click the blue button **Save** in the lower-right corner to create your event and submit it for approval.
 
@@ -117,7 +117,7 @@ Body:
 
 Where: [EVENT ADDRESS]
 
-Instructions:  
+Instructions: 
 Now that you're approved, we recommend inviting students to your event!"
 
 ![Approved event email.png](https://support.joinhandshake.com/hc/article_attachments/31291044429591)

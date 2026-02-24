@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/6443409056538-Managing-thi
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Workforce Management (WFM) or Workforce Engagement Management (WEM) |
 
@@ -26,7 +26,7 @@ To allow third-party cookies across the whole web, including Zendesk WFM:
 
 1. Open Google Chrome’s settings page ([chrome://settings](chrome://settings/)).
 2. Click **Privacy and security**.
-3. Under Cookies, deactivate the **Block third-party cookies**option.  
+3. Under Cookies, deactivate the **Block third-party cookies**option. 
    ![](https://support.zendesk.com/hc/article_attachments/6468163970458)
 
 ### Option 2: Adding an exception
@@ -34,5 +34,5 @@ To allow third-party cookies across the whole web, including Zendesk WFM:
 1. Open Google Chrome’s settings page ([chrome://settings](chrome://settings/)).
 2. Click **Privacy and security**.
 3. Under Cookies, click **Allow > Add**or **Manage exceptions**(depending on your Chrome version).
-4. Enter **[\*.]zendesk.com** to allow cookies for both Zendesk and Zendesk WFM.  
+4. Enter **[\*.]zendesk.com** to allow cookies for both Zendesk and Zendesk WFM. 
    ![](https://support.zendesk.com/hc/article_attachments/6468230413210)

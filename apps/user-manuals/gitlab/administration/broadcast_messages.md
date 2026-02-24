@@ -40,15 +40,13 @@ remote:
 ...
 ```
 
-If more than one banner is active at one time, they are displayed at the top of the page in order of
-creation. In the command line, only the latest banner is shown.
+If more than one banner is active at one time, they are displayed at the top of the page in order of creation. In the command line, only the latest banner is shown.
 
 A banner can only be dismissed if you configure the banner to be dismissable.
 
 ## Notifications
 
-GitLab shows notifications on the bottom right of a page. They can contain placeholders,
-which are replaced with the attributes of the current user:
+GitLab shows notifications on the bottom right of a page. They can contain placeholders, which are replaced with the attributes of the current user:
 
 ![A broadcast message notification using the name placeholder.](img/broadcast_messages_notification_v17_7.png)
 
@@ -101,8 +99,7 @@ To add a broadcast message:
 1. Optional. To show the message only to a subset of users, select **Target broadcast message**:
    - Show to all users on all pages.
    - Show to all users on specific matching pages.
-   - Show only to users who have specific roles on groups or project pages. This setting displays your message on
-     group, subgroup, and project pages, but does not display in Git remote responses.
+   - Show only to users who have specific roles on groups or project pages. This setting displays your message on group, subgroup, and project pages, but does not display in Git remote responses.
 1. If required, select the **Target roles** to show the broadcast message to.
 1. If required, add a **Target Path** to only show the broadcast message on URLs matching that path.
    Use the wildcard character `*` to match multiple URLs and specify paths, for example:
@@ -112,8 +109,7 @@ To add a broadcast message:
 1. Select a date and time (UTC) for the message to start and end.
 1. Select **Add broadcast message**.
 
-When a broadcast message expires, it no longer displays in the user interface, but is still listed in the
-list of broadcast messages.
+When a broadcast message expires, it no longer displays in the user interface, but is still listed in the list of broadcast messages.
 
 ## Edit a broadcast message
 

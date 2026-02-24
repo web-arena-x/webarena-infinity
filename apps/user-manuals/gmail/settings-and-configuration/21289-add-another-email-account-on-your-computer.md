@@ -21,7 +21,7 @@ In the Gmail app, you can also add another email account. However, you can't add
 - You can import messages from another email account, but not any folders or labels.
 - Your other email account needs to have POP access. If you’re not sure, check your other email account’s settings menu.
 - You can’t add an Outlook account to Gmail on your computer. To connect to Outlook, Microsoft now requires non-Microsoft email users to [use modern authentication methods](https://support.microsoft.com/en-us/office/modern-authentication-methods-now-needed-to-continue-syncing-outlook-email-in-non-microsoft-email-apps-c5d65390-9676-4763-b41f-d7986499a90d).
-  - To add an Outlook account to Gmail, use the Gmail app.
+ - To add an Outlook account to Gmail, use the Gmail app.
 
 ## Step 1: Change POP settings in your other account
 
@@ -94,18 +94,18 @@ If you get an error message, click **Show error details**.
 
 - **If POP is disabled:** Go to your other email account and turn on POP.
 - **If POP is unavailable:** Your email provider doesn’t support POP. You can:
-  - Import old emails from your other email account.
-  - Set up automatic forwarding.
+ - Import old emails from your other email account.
+ - Set up automatic forwarding.
 
 ## Fix the "Server denied POP3 access" error message
 
 - **If you use 2-Step Verification:** [Create an app password](/accounts/answer/185833).
 - **If you use a work or school account:**
-  - In the "POP Server" section:
+ - In the "POP Server" section:
     1. Enter “mail.domain.com”.
     2. Select **Port 110**.
 - **If you use Google MX records with a work or school account:**
-  - In the "POP Server" section:
+ - In the "POP Server" section:
     1. Enter “pop.gmail.com”.
     2. Select **Port 995**.
 

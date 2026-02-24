@@ -20,26 +20,17 @@ title: Security scanning results
 
 {{< /history >}}
 
-View and act on the results of pipeline security scanning in GitLab. Select security scanners run in
-a pipeline and output security reports. The contents of these reports are processed and presented in
-GitLab.
+View and act on the results of pipeline security scanning in GitLab. Select security scanners run in a pipeline and output security reports. The contents of these reports are processed and presented in GitLab.
 
 Key terminology for understanding security scan results:
 
-Finding
-: - A finding is a potential vulnerability identified in a development branch. A finding becomes a
-    vulnerability when the branch is merged into the default branch.
-: - Findings expire, either when the related CI/CD job artifact expires, or 90 days after the
-    pipeline is created, even if the related job artifacts are locked.
+Finding : - A finding is a potential vulnerability identified in a development branch. A finding becomes a vulnerability when the branch is merged into the default branch.
+: - Findings expire, either when the related CI/CD job artifact expires, or 90 days after the pipeline is created, even if the related job artifacts are locked.
 
-Vulnerability
-: - A vulnerability is a software security weakness identified in the default branch.
-: - Vulnerability records persist until they are [archived](../vulnerability_archival/_index.md),
-    even if the vulnerability is no longer detected in the default branch.
+Vulnerability : - A vulnerability is a software security weakness identified in the default branch.
+: - Vulnerability records persist until they are [archived](../vulnerability_archival/_index.md), even if the vulnerability is no longer detected in the default branch.
 
-The presentation of security scanning results differs depending on the
-[pipeline type](../../../ci/pipelines/pipeline_types.md) - branch pipeline or merge request
-pipeline.
+The presentation of security scanning results differs depending on the [pipeline type](../../../ci/pipelines/pipeline_types.md) - branch pipeline or merge request pipeline.
 
 Vulnerabilities identified in the default branch are listed in the [vulnerability report](../vulnerability_report/_index.md).
 
@@ -56,15 +47,11 @@ Vulnerabilities identified in the default branch are listed in the [vulnerabilit
 
 ## Security report artifacts
 
-Security scanners run in branch pipelines and, if enabled, merge request pipelines. Each security
-scanner outputs a security report artifact containing details of all findings or vulnerabilities detected by
-the specific security scanner. You can download these for analysis outside GitLab.
+Security scanners run in branch pipelines and, if enabled, merge request pipelines. Each security scanner outputs a security report artifact containing details of all findings or vulnerabilities detected by the specific security scanner. You can download these for analysis outside GitLab.
 
-In a development (non-default) branch, findings include any vulnerabilities present in the target
-branch when the development branch was created.
+In a development (non-default) branch, findings include any vulnerabilities present in the target branch when the development branch was created.
 
-Expired findings are not shown in the pipeline's **Security** tab. To reproduce them, re-run the
-pipeline.
+Expired findings are not shown in the pipeline's **Security** tab. To reproduce them, re-run the pipeline.
 
 ### Download a security report
 
@@ -74,8 +61,7 @@ pipeline.
 
 {{< /details >}}
 
-You can download a security report, for example to analyze outside GitLab or for archival
-purposes. A security report is a JSON file.
+You can download a security report, for example to analyze outside GitLab or for archival purposes. A security report is a JSON file.
 
 To download a security report:
 
@@ -97,9 +83,7 @@ The selected security report is downloaded to your device.
 
 {{< /details >}}
 
-The pipeline security report contains details of all findings or vulnerabilities detected in the
-branch. For a pipeline run against the default branch all vulnerabilities in the pipeline security
-report are also in the vulnerability report.
+The pipeline security report contains details of all findings or vulnerabilities detected in the branch. For a pipeline run against the default branch all vulnerabilities in the pipeline security report are also in the vulnerability report.
 
 For each finding or vulnerability you can:
 
@@ -111,8 +95,7 @@ For each finding or vulnerability you can:
 
 ### View pipeline security report
 
-View the pipeline security report to see details of all findings or vulnerabilities detected in the
-branch.
+View the pipeline security report to see details of all findings or vulnerabilities detected in the branch.
 
 To view a pipeline security report:
 
@@ -124,14 +107,11 @@ To see details of a finding or vulnerability, select its description.
 
 ### Change status or severity
 
-You can change the status, severity, or both of a finding or vulnerability in the pipeline's
-security tab. Any changes made to a finding persist when the branch is merged into the default
-branch.
+You can change the status, severity, or both of a finding or vulnerability in the pipeline's security tab. Any changes made to a finding persist when the branch is merged into the default branch.
 
 Prerequisites:
 
-- You must have at least the Maintainer role for the project or the `admin_vulnerability` custom
-  permission.
+- You must have at least the Maintainer role for the project or the `admin_vulnerability` custom permission.
 
 To change the status and severity of findings or vulnerabilities:
 
@@ -144,11 +124,9 @@ To change the status and severity of findings or vulnerabilities:
      1. Select the findings or vulnerabilities you want to change.
 
         - To select individual findings or vulnerabilities, select the checkbox beside each.
-        - To select all findings or vulnerabilities on the page, select the checkbox in the table
-          header.
+        - To select all findings or vulnerabilities on the page, select the checkbox in the table header.
 
-     1. In the **Select action** dropdown list, select either **Change status** or
-        **Change severity**.
+     1. In the **Select action** dropdown list, select either **Change status** or **Change severity**.
 
 ### Create an issue
 
@@ -161,8 +139,7 @@ Create an issue to track, document, and manage the remediation work for a findin
 1. Select a finding's description.
 1. Select **Create issue**.
 
-An issue is created in the project, with the description copied from the finding or vulnerability's
-description.
+An issue is created in the project, with the description copied from the finding or vulnerability's description.
 
 ## Merge request security widget
 
@@ -172,9 +149,7 @@ description.
 
 {{< /details >}}
 
-The merge request displays a security widget that provides a summary of the difference the changes
-would make to findings. It takes some time after the CI/CD pipeline has run to process the security
-reports, so there may be a delay until the security widget is shown.
+The merge request displays a security widget that provides a summary of the difference the changes would make to findings. It takes some time after the CI/CD pipeline has run to process the security reports, so there may be a delay until the security widget is shown.
 
 For example, consider two pipelines with these scan results:
 
@@ -184,11 +159,7 @@ For example, consider two pipelines with these scan results:
 - `V3` appears on the merge request widget as "fixed".
 - `V1` exists on both branches and is not shown on the merge request widget.
 
-To show the differences between the source branch and the target branch, security reports from both
-are required. The 10 most recent pipelines for the commit when the feature branch was created from
-the target branch are checked for a security report. If one can't be found in the 10 most recent
-pipelines then all findings are listed as new. Before enabling security scanning in merge requests
-ensure that security scanning is enabled for the default branch.
+To show the differences between the source branch and the target branch, security reports from both are required. The 10 most recent pipelines for the commit when the feature branch was created from the target branch are checked for a security report. If one can't be found in the 10 most recent pipelines then all findings are listed as new. Before enabling security scanning in merge requests ensure that security scanning is enabled for the default branch.
 
 ### View security widget
 
@@ -200,10 +171,7 @@ To view the security widget:
 1. Select **Merge requests**.
 1. Select a merge request.
 
-To see the details for each security report type, select **Show details**
-({{< icon name="chevron-down" >}}). For each security report type, the widget displays the first 25
-added and 25 fixed findings, sorted by severity. To see all findings on the source branch of the
-merge request, select **View all pipeline findings**.
+To see the details for each security report type, select **Show details** ({{< icon name="chevron-down" >}}). For each security report type, the widget displays the first 25 added and 25 fixed findings, sorted by severity. To see all findings on the source branch of the merge request, select **View all pipeline findings**.
 
 ![Security scanning results in a merge request](img/mr_security_widget_v18_1.png)
 
@@ -213,11 +181,9 @@ When working with security scanning, you might encounter the following issues.
 
 ### Dismissed vulnerabilities are visible in MR security widget
 
-When viewing the security widget in a merge request you might sometimes see dismissed
-vulnerabilities are still listed.
+When viewing the security widget in a merge request you might sometimes see dismissed vulnerabilities are still listed.
 
-No solution is yet available for this issue. For details, see
-[issue 411235](https://gitlab.com/gitlab-org/gitlab/-/issues/411235).
+No solution is yet available for this issue. For details, see [issue 411235](https://gitlab.com/gitlab-org/gitlab/-/issues/411235).
 
 ### Report parsing and scan ingestion errors
 

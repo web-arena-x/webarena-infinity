@@ -18,8 +18,7 @@ title: Debian project distributions API
 
 {{< /history >}}
 
-Use this API to manage [Debian project distributions](../../user/packages/debian_repository/_index.md). This API is behind a
-feature flag that is disabled by default. To use this API, you must [enable the Debian API](#enable-the-debian-api).
+Use this API to manage [Debian project distributions](../../user/packages/debian_repository/_index.md). This API is behind a feature flag that is disabled by default. To use this API, you must [enable the Debian API](#enable-the-debian-api).
 
 > [!warning]
 > This API is under development and is not meant for production use.
@@ -28,8 +27,7 @@ feature flag that is disabled by default. To use this API, you must [enable the 
 
 The Debian API is behind a feature flag that is disabled by default.
 [GitLab administrators with access to the GitLab Rails console](../../administration/feature_flags/_index.md)
-can opt to enable it. To enable it, follow the instructions in
-[Enable the Debian API](../../user/packages/debian_repository/_index.md#enable-the-debian-api).
+can opt to enable it. To enable it, follow the instructions in [Enable the Debian API](../../user/packages/debian_repository/_index.md#enable-the-debian-api).
 
 ## Authenticate to the Debian distributions APIs
 
@@ -43,7 +41,7 @@ Lists Debian distributions in the given project.
 GET /projects/:id/debian_distributions
 ```
 
-| Attribute  | Type           | Required | Description |
+| Attribute | Type           | Required | Description |
 | ---------- | -------------- | -------- | ----------- |
 | `id`       | integer or string | yes      | The ID or [URL-encoded path of the project](../rest/_index.md#namespaced-paths). |
 | `codename` | string         | no       | Filter with a specific `codename`. |
@@ -51,14 +49,14 @@ GET /projects/:id/debian_distributions
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/debian_distributions"
+ --url "https://gitlab.example.com/api/v4/projects/5/debian_distributions"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "codename": "sid",
     "suite": null,
@@ -74,7 +72,7 @@ Example response:
       "all",
       "amd64"
     ]
-  }
+ }
 ]
 ```
 
@@ -86,35 +84,35 @@ Gets a single Debian project distribution.
 GET /projects/:id/debian_distributions/:codename
 ```
 
-| Attribute  | Type           | Required | Description |
+| Attribute | Type           | Required | Description |
 | ---------- | -------------- | -------- | ----------- |
 | `id`       | integer or string | yes      | The ID or [URL-encoded path of the project](../rest/_index.md#namespaced-paths). |
 | `codename` | string         | yes      | The `codename` of a distribution. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/debian_distributions/unstable"
+ --url "https://gitlab.example.com/api/v4/projects/5/debian_distributions/unstable"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "codename": "sid",
-  "suite": null,
-  "origin": null,
-  "label": null,
-  "version": null,
-  "description": null,
-  "valid_time_duration_seconds": null,
-  "components": [
+ "id": 1,
+ "codename": "sid",
+ "suite": null,
+ "origin": null,
+ "label": null,
+ "version": null,
+ "description": null,
+ "valid_time_duration_seconds": null,
+ "components": [
     "main"
-  ],
-  "architectures": [
+ ],
+ "architectures": [
     "all",
     "amd64"
-  ]
+ ]
 }
 ```
 
@@ -126,14 +124,14 @@ Gets a single Debian project distribution key.
 GET /projects/:id/debian_distributions/:codename/key.asc
 ```
 
-| Attribute  | Type           | Required | Description |
+| Attribute | Type           | Required | Description |
 | ---------- | -------------- | -------- | ----------- |
 | `id`       | integer or string | yes      | The ID or [URL-encoded path of the project](../rest/_index.md#namespaced-paths). |
 | `codename` | string         | yes      | The `codename` of a distribution. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/debian_distributions/unstable/key.asc"
+ --url "https://gitlab.example.com/api/v4/projects/5/debian_distributions/unstable/key.asc"
 ```
 
 Example response:
@@ -167,7 +165,7 @@ POST /projects/:id/debian_distributions
 | Attribute                     | Type           | Required | Description |
 | ----------------------------- | -------------- | -------- | ----------- |
 | `id`                          | integer or string | yes      | The ID or [URL-encoded path of the project](../rest/_index.md#namespaced-paths). |
-| `codename`                    | string         | yes      | The Debian distribution's codename.  |
+| `codename`                    | string         | yes      | The Debian distribution's codename. |
 | `suite`                       | string         | no       | The new Debian distribution's suite. |
 | `origin`                      | string         | no       | The new Debian distribution's origin. |
 | `label`                       | string         | no       | The new Debian distribution's label. |
@@ -179,29 +177,29 @@ POST /projects/:id/debian_distributions
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/debian_distributions?codename=sid"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/debian_distributions?codename=sid"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "codename": "sid",
-  "suite": null,
-  "origin": null,
-  "label": null,
-  "version": null,
-  "description": null,
-  "valid_time_duration_seconds": null,
-  "components": [
+ "id": 1,
+ "codename": "sid",
+ "suite": null,
+ "origin": null,
+ "label": null,
+ "version": null,
+ "description": null,
+ "valid_time_duration_seconds": null,
+ "components": [
     "main"
-  ],
-  "architectures": [
+ ],
+ "architectures": [
     "all",
     "amd64"
-  ]
+ ]
 }
 ```
 
@@ -228,29 +226,29 @@ PUT /projects/:id/debian_distributions/:codename
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/debian_distributions/unstable?suite=new-suite&valid_time_duration_seconds=604800"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/debian_distributions/unstable?suite=new-suite&valid_time_duration_seconds=604800"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "codename": "sid",
-  "suite": "new-suite",
-  "origin": null,
-  "label": null,
-  "version": null,
-  "description": null,
-  "valid_time_duration_seconds": 604800,
-  "components": [
+ "id": 1,
+ "codename": "sid",
+ "suite": "new-suite",
+ "origin": null,
+ "label": null,
+ "version": null,
+ "description": null,
+ "valid_time_duration_seconds": 604800,
+ "components": [
     "main"
-  ],
-  "architectures": [
+ ],
+ "architectures": [
     "all",
     "amd64"
-  ]
+ ]
 }
 ```
 
@@ -262,13 +260,13 @@ Deletes a Debian project distribution.
 DELETE /projects/:id/debian_distributions/:codename
 ```
 
-| Attribute  | Type           | Required | Description |
+| Attribute | Type           | Required | Description |
 | ---------- | -------------- | -------- | ----------- |
 | `id`       | integer or string | yes      | The ID or [URL-encoded path of the project](../rest/_index.md#namespaced-paths). |
 | `codename` | string         | yes      | The Debian distribution's codename. |
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/debian_distributions/unstable"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/debian_distributions/unstable"
 ```

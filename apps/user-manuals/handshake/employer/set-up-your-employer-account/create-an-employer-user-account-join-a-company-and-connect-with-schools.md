@@ -11,9 +11,9 @@ Are you ready to join Handshake and streamline your hiring process? Review our b
 **Employers** (*non on-campus employers*)
 
 - Sign up with your company-issued email address.
-  - Signing up with your corporate email will help ensure you're connected with the right company.
+ - Signing up with your corporate email will help ensure you're connected with the right company.
 - Are you unable to sign up with a company-issued email, or does your company use a generic email domain? Check out [Registering for an Employer Account with a Generic Email Address](https://support.joinhandshake.com/hc/en-us/articles/360019584994-Registering-for-an-Employer-Account-with-a-Generic-Email-Address-).
-  - If you want to use Handshake to post personal jobs, read more about [Posting Personal, Babysitter, Household, or Caretaker Jobs](../create-edit-job-postings/posting-personal-babysitter-household-or-caretaker-jobs.md).
+ - If you want to use Handshake to post personal jobs, read more about [Posting Personal, Babysitter, Household, or Caretaker Jobs](../create-edit-job-postings/posting-personal-babysitter-household-or-caretaker-jobs.md).
 
 **On-campus employers**
 
@@ -31,11 +31,11 @@ Are you ready to join Handshake and streamline your hiring process? Review our b
 - **First name**
 - **Last name**
 - **Work email**
-  - If you enter a personal email address, a yellow banner will appear with the message: 'It looks like you're using a personal email (@gmail, @yahoo, @hotmail, etc). Please use your work email so we can connect you with your company.
-  - If you're ‌an on-campus employer, enter your email address ending in @edu.
-  - If you don’t have a work email, you can proceed with your personal email.
+ - If you enter a personal email address, a yellow banner will appear with the message: 'It looks like you're using a personal email (@gmail, @yahoo, @hotmail, etc). Please use your work email so we can connect you with your company.
+ - If you're ‌an on-campus employer, enter your email address ending in @edu.
+ - If you don’t have a work email, you can proceed with your personal email.
 - **Password***(create new password)*
-  - Passwords on Handshake must:
+ - Passwords on Handshake must:
     - Contain eight characters, *or more*
     - Contain characters from *two* of the following *three* character classes:
       - Alphabetic (e.g., a-z, A-Z)
@@ -67,12 +67,12 @@ Are you ready to join Handshake and streamline your hiring process? Review our b
 - **Types of candidates you're looking for**
 - **Phone number**
 - **Education history** (*optional*)
-  - **School Name**
-  - **Graduation Year**
-  - If your school is not listed, check the box for **School not listed**.
-  - To add another school, click **Add another school**.
+ - **School Name**
+ - **Graduation Year**
+ - If your school is not listed, check the box for **School not listed**.
+ - To add another school, click **Add another school**.
 - **Third-Party Recruiter Status**
-  - Are you a third-party recruiter working on behalf of another company? (select **Yes** or **No**)
+ - Are you a third-party recruiter working on behalf of another company? (select **Yes** or **No**)
     - **According to Handshake, a third-party recruiter is**:
       - An employer who is hiring or posting jobs for a company other than the one they work for.
       - An employer who is hiring or posting jobs, but another company provides the pay/salary.
@@ -84,8 +84,8 @@ Are you ready to join Handshake and streamline your hiring process? Review our b
 6. When finished, click the black button **Continue** in the lower-right corner.
 
 - **If you're unable to complete the registration**: Click your name in the upper-right corner and select **Log out**.
-  - Your user information will be saved, and you’ll return to the same page when you log back in.
-  - If you’re creating a new company profile and log out before completing all required fields, your company information will not be saved, and you’ll return to the 'Create or join your company' page.
+ - Your user information will be saved, and you’ll return to the same page when you log back in.
+ - If you’re creating a new company profile and log out before completing all required fields, your company information will not be saved, and you’ll return to the 'Create or join your company' page.
 
 *If you need to change information entered during registration, refer to* [*Updating Employer Information During Registration or Verification*](https://support.joinhandshake.com/hc/en-us/articles/35501451404567).
 
@@ -98,9 +98,9 @@ Upon completing your profile, you will be prompted to create or join your compan
 **Company is listed**
 
 - If your email domain is recognized and your company already has a profile, click the button **Request to join**.
-  - If your company is listed and you belong to a division, request to join. Once connected, contact the profile owner to add your division.
-  - If the incorrect company appears, click the button **Choose Another Company** to search for your company.
-  - If your company is listed but you need to create a profile for a different location (franchise), click the button **Choose Another Company** to create a new company profile.
+ - If your company is listed and you belong to a division, request to join. Once connected, contact the profile owner to add your division.
+ - If the incorrect company appears, click the button **Choose Another Company** to search for your company.
+ - If your company is listed but you need to create a profile for a different location (franchise), click the button **Choose Another Company** to create a new company profile.
     - *To learn how to create a new company profile, or if you're experiencing issues creating one, refer to* [*How to Create a New Company Profile*](https://support.joinhandshake.com/hc/en-us/articles/219133057).
 
 ![Request to join.png](https://support.joinhandshake.com/hc/article_attachments/30484505310487)
@@ -114,10 +114,10 @@ Once you request to join your company profile, the profile owner will review and
 **Company is not listed**
 
 - If your company’s email domain isn’t recognized, or if you're using a generic email address (e.g., @gmail.com), start by entering your company name in the search bar to search for an existing company profile.
-  - As you type, a dropdown may display company profiles associated with your email domain.
+ - As you type, a dropdown may display company profiles associated with your email domain.
     - If your company appears, select it and click the black button **Request to join**.
-  - If your company is not listed, enter its name in the search bar, click the option **+ Create a new company [COMPANY NAME]**, then click the black button **Create company**. *Learn more about* [*How to Create a New Company Profile*](https://support.joinhandshake.com/hc/en-us/articles/219133057).
-  - If you are certain that a company profile exists for your company but it does not appear in your list, contact Support.
+ - If your company is not listed, enter its name in the search bar, click the option **+ Create a new company [COMPANY NAME]**, then click the black button **Create company**. *Learn more about* [*How to Create a New Company Profile*](https://support.joinhandshake.com/hc/en-us/articles/219133057).
+ - If you are certain that a company profile exists for your company but it does not appear in your list, contact Support.
 
 ![Create new profile.png](https://support.joinhandshake.com/hc/article_attachments/30484495920535)
 
@@ -152,10 +152,10 @@ If you created a **new company profile** for your organization, you will be prom
 Once your employer account is verified, or you’ve connected with an existing approved company profile, you can access your account and begin building relationships with schools by:
 
 - **Posting jobs for their students**
-  - *If you're ready to post a job, refer to* [*How to Post a Job*](https://support.joinhandshake.com/hc/en-us/articles/218693198).
-  - **Note**: If you created a job posting or saved it as a draft during onboarding, a **"Post job"** prompt will appear on your homepage once your account is approved.
+ - *If you're ready to post a job, refer to* [*How to Post a Job*](https://support.joinhandshake.com/hc/en-us/articles/218693198).
+ - **Note**: If you created a job posting or saved it as a draft during onboarding, a **"Post job"** prompt will appear on your homepage once your account is approved.
 - **Requesting to join their network** if you're not already connected
-  - If you’re not ready to post a job yet, you can still connect with schools. *For instructions, refer to* [*How to Request Approval from Schools*](https://support.joinhandshake.com/hc/en-us/articles/36980302470423).
+ - If you’re not ready to post a job yet, you can still connect with schools. *For instructions, refer to* [*How to Request Approval from Schools*](https://support.joinhandshake.com/hc/en-us/articles/36980302470423).
 
 **Email notifications**
 

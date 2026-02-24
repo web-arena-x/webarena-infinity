@@ -12,22 +12,11 @@ title: GitLab Pages DNS records
 
 {{< /details >}}
 
-A Domain Name System (DNS) web service routes visitors to websites
-by translating domain names (such as `www.example.com`) into the
-numeric IP addresses (such as `192.0.2.1`) that computers use to
-connect to each other.
+A Domain Name System (DNS) web service routes visitors to websites by translating domain names (such as `www.example.com`) into the numeric IP addresses (such as `192.0.2.1`) that computers use to connect to each other.
 
-A DNS record is created to point a (sub)domain to a certain location,
-which can be an IP address or another domain. If you want to use
-GitLab Pages with your own (sub)domain, you need to access your domain's
-registrar control panel to add a DNS record pointing it back to your
-GitLab Pages site.
+A DNS record is created to point a (sub)domain to a certain location, which can be an IP address or another domain. If you want to use GitLab Pages with your own (sub)domain, you need to access your domain's registrar control panel to add a DNS record pointing it back to your GitLab Pages site.
 
-How to add DNS records depends on which server your domain
-is hosted on. Every control panel has its own place to do it. If you are
-not an administrator of your domain, and don't have access to your registrar,
-you must ask the technical support of your hosting service
-to do it for you.
+How to add DNS records depends on which server your domain is hosted on. Every control panel has its own place to do it. If you are not an administrator of your domain, and don't have access to your registrar, you must ask the technical support of your hosting service to do it for you.
 
 For the most popular hosting services, see the following instructions:
 
@@ -49,14 +38,12 @@ For the most popular hosting services, see the following instructions:
 
 <!-- vale gitlab_base.Spelling = YES -->
 
-If your hosting service is not listed, you can just try to
-search the web for `how to add dns record on <my hosting service>`.
+If your hosting service is not listed, you can just try to search the web for `how to add dns record on <my hosting service>`.
 
 ## `A` record
 
 A DNS `A` record maps a host to an IPv4 IP address.
-It points a root domain as `example.com` to the host's IP address as
-`192.0.2.1`.
+It points a root domain as `example.com` to the host's IP address as `192.0.2.1`.
 
 Example:
 
@@ -65,8 +52,7 @@ Example:
 ## `AAAA` record
 
 A DNS `AAAA` record maps a host to an IPv6 IP address.
-It points a root domain as `example.com` to the host's IP address as
-`2001:db8::1`.
+It points a root domain as `example.com` to the host's IP address as `2001:db8::1`.
 
 Example:
 
@@ -74,15 +60,13 @@ Example:
 
 ## `CNAME` record
 
-`CNAME` records define an alias for canonical name for your server (one defined
-by an `A` record). It points a subdomain to another domain.
+`CNAME` records define an alias for canonical name for your server (one defined by an `A` record). It points a subdomain to another domain.
 
 Example:
 
 - `www` => `CNAME` => `example.com`
 
-This way, visitors visiting `www.example.com` are redirected to
-`example.com`.
+This way, visitors visiting `www.example.com` are redirected to `example.com`.
 
 ## `MX` record
 
@@ -97,8 +81,7 @@ Then you can register emails for `users@mail.example.com`.
 
 ## `TXT` record
 
-A `TXT` record can associate arbitrary text with a host or other name. A common
-use is for site verification.
+A `TXT` record can associate arbitrary text with a host or other name. A common use is for site verification.
 
 Example:
 

@@ -92,7 +92,7 @@ Show or hide the physical device frame. Available only when a prototype device f
 
 Use presentation view to play your prototypes in a new tab.  you can interact with hotspots or enter [keyboard shortcuts](https://help.figma.com/hc/en-us/articles/360040035834#Keyboard_and_Gamepad_Shortcuts) within your prototype.
 
-To open a prototype in presentation view on desktop, click  **Present** in the toolbar, or use keyboard shortcut:
+To open a prototype in presentation view on desktop, click **Present** in the toolbar, or use keyboard shortcut:
 
 - Mac:`⌘ Command``⌥ Option``return`
 - Windows: `Control``Alt``enter`
@@ -112,8 +112,8 @@ Presentation view contains various options you can choose from to interact with 
 From the left side of the toolbar, you can:
 
 - Click the Figma logo to go to the file browser
-- Click  to show and hide the left sidebar, where you can select flows and view their descriptions.
-- Click  to enter comment mode and add comments to the prototype.
+- Click to show and hide the left sidebar, where you can select flows and view their descriptions.
+- Click to enter comment mode and add comments to the prototype.
 
 ![](https://help.figma.com/hc/article_attachments/24578414337687)
 
@@ -122,7 +122,7 @@ From the right side of the toolbar, you can:
 - Click the arrow next to your avatar and choose to [spotlight yourself or follow a presenter](https://help.figma.com/hc/en-us/articles/24260248467735)
 - Share the prototype
 - Open the [options menu](#h_01HER6XXFTAK565E14WGYEM4T4) to select different settings for the prototype.
-- Click  to enter fullscreen mode.
+- Click to enter fullscreen mode.
 
 ![](https://help.figma.com/hc/article_attachments/24578414353047)
 
@@ -134,7 +134,7 @@ From the bottom of the presentation view, you can:
 
 ## Options menu
 
-Click  to open the options menu for additional settings.
+Click to open the options menu for additional settings.
 
 ![](https://help.figma.com/hc/article_attachments/27448405278103)
 
@@ -208,13 +208,13 @@ Scales the prototype horizontally and vertically so that it fills the entire dis
 
 Depending on the size of frames, the prototype will default to certain scaling settings and different options will show in the **Recommended** and **Other scaling options** sections of the options menu:
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
-|  | **Default scaling setting** | **Other recommended and scaling options** |
+| | **Default scaling setting** | **Other recommended and scaling options** |
 | First frame is wider than 1024px | Actual size (100%) | Responsive |
 | First frame is narrower than 1024px | Actual size (100%) | Fit width and height |
 | All frames have a 16:9 format, or device type set to Presentation | Fill screen | Actual size (100%) |
-| If the device type is set to Custom | Fit width and height | Fill screen  Actual size (100%) |
+| If the device type is set to Custom | Fit width and height | Fill screen Actual size (100%) |
 
 ### Scaling options with a device frame
 

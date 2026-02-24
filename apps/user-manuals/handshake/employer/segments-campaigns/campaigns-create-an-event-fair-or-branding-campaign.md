@@ -23,7 +23,7 @@ Click **Campaigns** from the left navigation bar in Handshake, then click the bl
 Select a campaign type to proceed.
 
 - **Job**: Promote jobs posted in Handshake, your applicant tracking system, or CRM.
-  - *To create a job campaign, refer to* [*Campaigns: Create a Job Campaign*](https://support.joinhandshake.com/hc/en-us/articles/17014630910999).
+ - *To create a job campaign, refer to* [*Campaigns: Create a Job Campaign*](https://support.joinhandshake.com/hc/en-us/articles/17014630910999).
 - **Event**: Invite candidates to RSVP to events such as info sessions, tech talks, and conferences.
 - **Career fair**: Invite candidates to sign up to your in-person or virtual fair.
 - **Other**: Promote your brand without tagging a job, career fair, or event.
@@ -37,17 +37,17 @@ Expand the relevant header below to learn how to choose your campaign type and c
 **Select event** *(select one)*
 
 - **Posted on Handshake**
-  - **Event**
+ - **Event**
     - Select the event from the displayed list or search for it directly in the dropdown.
 - **Campaign name**
-  - Enter the name of the campaign in the text box.
+ - Enter the name of the campaign in the text box.
     - **Note**: Candidates will not be shown the name of the campaign.
 
 ![Select event .png](https://support.joinhandshake.com/hc/article_attachments/29631724201367)
 
 - **Posted externally**
-  - **Best practice**: Events posted on Handshake get higher campaign engagement and more attendees. Post event on Handshake instead.
-  - Enter the following information:
+ - **Best practice**: Events posted on Handshake get higher campaign engagement and more attendees. Post event on Handshake instead.
+ - Enter the following information:
     - **Event title**
     - **External URL**
     - **Location**
@@ -65,11 +65,11 @@ Expand the relevant header below to learn how to choose your campaign type and c
 
 - **In person**
 - **Virtual**
-  - Select the career fair from the displayed list or search for it directly in the dropdown.
-  - **Note**: Only the career fairs you are registered for will appear on the list.
+ - Select the career fair from the displayed list or search for it directly in the dropdown.
+ - **Note**: Only the career fairs you are registered for will appear on the list.
 - **Campaign name**
 - Enter the name of the campaign in the text box.
-  - **Note**: Candidates will not be shown the name of the campaign.
+ - **Note**: Candidates will not be shown the name of the campaign.
 
 ![Select career fair type.png](https://support.joinhandshake.com/hc/article_attachments/29631724214295)
 
@@ -78,7 +78,7 @@ Expand the relevant header below to learn how to choose your campaign type and c
 **Note**: If you select this option, you won't be able to tag a specific job, event, or fair hosted on Handshake.
 
 - **Campaign name**
-  - Enter the name of the campaign in the text box.
+ - Enter the name of the campaign in the text box.
     - **Note**: Candidates will not be shown the name of the campaign.
 
 ![Create other campaign.png](https://support.joinhandshake.com/hc/article_attachments/29631889703063)
@@ -90,10 +90,10 @@ The next steps are to define an audience, write a message and ‌follow-up, and 
 Select an audience for your campaign. You can choose to:
 
 - [Create new segment](#h_01HMC4P437D1EQVW67YT5SJZBZ)
-  - Based on the job description, create a new segment using our recommended segment filters.
-  - Audiences are generated based on the requirements within the job description.
+ - Based on the job description, create a new segment using our recommended segment filters.
+ - Audiences are generated based on the requirements within the job description.
 - [Use existing segment](#h_01HMC4QP60QKKC2Q0QQ6HSCG1Z)
-  - Choose from a segment you've created before.
+ - Choose from a segment you've created before.
 
 ![Define audience.png](https://support.joinhandshake.com/hc/article_attachments/29973492409239)
 
@@ -113,9 +113,9 @@ You can adjust the following filters:
 - Majors
 - Work authorization
 - Location
-  - Add up to 5 locations. Location includes candidates who live in or are interested in the location.
+ - Add up to 5 locations. Location includes candidates who live in or are interested in the location.
 - Underrepresented groups
-  - **Note**: Campaigns can't be sent using *only* filters for underrepresented groups. Additional candidate filters will be needed.
+ - **Note**: Campaigns can't be sent using *only* filters for underrepresented groups. Additional candidate filters will be needed.
 
 **Schools**
 
@@ -159,15 +159,15 @@ We exclude candidates who have received a campaign from you in the past two days
 To exclude specific audiences, customize the filters below as needed:
 
 - **Applied to a job**
-  - In the last 1 month
-  - In the last 3 months
-  - In the last 6 months
-  - In the last 12 months
+ - In the last 1 month
+ - In the last 3 months
+ - In the last 6 months
+ - In the last 12 months
 - **Received a message**
-  - In the last 1 month
-  - In the last 3 months
-  - In the last 6 months
-  - In the last 12 months
+ - In the last 1 month
+ - In the last 3 months
+ - In the last 6 months
+ - In the last 12 months
     - **From**
       - Any teammate
       - You
@@ -204,15 +204,15 @@ We exclude candidates who have received a campaign from you in the past two days
 To exclude specific audiences, customize the filters below as needed:
 
 - **Applied to a job**
-  - In the last 1 month
-  - In the last 3 months
-  - In the last 6 months
-  - In the last 12 months
+ - In the last 1 month
+ - In the last 3 months
+ - In the last 6 months
+ - In the last 12 months
 - **Received a message**
-  - In the last 1 month
-  - In the last 3 months
-  - In the last 6 months
-  - In the last 12 months
+ - In the last 1 month
+ - In the last 3 months
+ - In the last 6 months
+ - In the last 12 months
     - **From**
       - Any teammate
       - You
@@ -226,25 +226,17 @@ Once your settings are customized, click the black button **Continue** in the lo
 
 **Write message**
 
-Campaigns are delivered to candidates as emails and in-app messages,
-provided they have enabled notifications.
+Campaigns are delivered to candidates as emails and in-app messages, provided they have enabled notifications.
 
-**Subject line**  
-This will be used in the email notification.
+**Subject line** This will be used in the email notification.
 
-**Message**  
-Candidates get a lot of campaigns—the best ones are concise, personalized,
-and feel like a conversation. Try to use bullet points and avoid jargon.
+**Message** Candidates get a lot of campaigns—the best ones are concise, personalized, and feel like a conversation. Try to use bullet points and avoid jargon.
 
 - Compose your message in the text box and format it as desired.
-- To insert the job link in the message, click the gray-colored text **Insert job apply link** below
-  the text box.
-- To use a message template, click the blue-colored text **Use template** above
-  the text box.
-  - In the pop-up modal, select a template, then click the black
-    button **Use template**.
-- To save your message as a new template, click the blue-colored text
-  **Save as template**.
+- To insert the job link in the message, click the gray-colored text **Insert job apply link** below the text box.
+- To use a message template, click the blue-colored text **Use template** above the text box.
+ - In the pop-up modal, select a template, then click the black button **Use template**.
+- To save your message as a new template, click the blue-colored text **Save as template**.
 
 ![Write message.png](https://support.joinhandshake.com/hc/article_attachments/28456786274327)
 
@@ -262,8 +254,7 @@ Select which students you want ‌to send a follow-up message to from the **Send
 
 Check the box for **E****xclude students who replied to this campaign** and/or **Exclude original job posting attachment** if you want to exclude these students or job attachment. 
 
-When you are ready to compose your follow-up message, complete the following
-fields: 
+When you are ready to compose your follow-up message, complete the following fields:
 
 - Follow-up subject line
 - Follow-up message
@@ -272,22 +263,15 @@ fields: 
 
 #### Preview messages
 
-To preview your campaign and/or follow-up message, click the white button
-**Preview messages**.
+To preview your campaign and/or follow-up message, click the white button **Preview messages**.
 
-In the pop-up modal, review your message(s). Click the black button
-**Campaign** to view your campaign message, and click the
-white
-button **Follow-up** to view your follow-up message.
+In the pop-up modal, review your message(s). Click the black button **Campaign** to view your campaign message, and click the white button **Follow-up** to view your follow-up message.
 
-To exit the preview, click the **X** in upper-right corner
-of
-the modal.
+To exit the preview, click the **X** in upper-right corner of the modal.
 
 ![Preview messages.png](https://support.joinhandshake.com/hc/article_attachments/28456765226263)
 
-When ready, click the black button **Continue** in the lower-right
-corner of the page.
+When ready, click the black button **Continue** in the lower-right corner of the page.
 
 **Schedule delivery**
 

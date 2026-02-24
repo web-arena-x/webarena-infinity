@@ -13,8 +13,8 @@ Use Snippets to save time and work more efficiently when sending repetitive mess
 You can make Snippets in a few ways:
 
 - **Cmd+K** (Mac) or **Ctrl+K** (Windows) **→ Create Snippet**to start from scratch.
-  - **Private:** Only you can view and use this Snippet.
-  - **Team:** Shared with teammates using Superhuman so they can view and use it too.
+ - **Private:** Only you can view and use this Snippet.
+ - **Team:** Shared with teammates using Superhuman so they can view and use it too.
 - **Cmd+K** or **Ctrl+K → Create snippet from draft** to make a Snippet from a message you're drafting.
 - **Cmd+K** or **Ctrl+K → Create snippet from message** to make a Snippet from a message you're reading.
 

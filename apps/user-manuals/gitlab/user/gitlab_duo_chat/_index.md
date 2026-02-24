@@ -35,8 +35,7 @@ title: GitLab Duo Chat (Classic)
 
 {{< /history >}}
 
-GitLab Duo Chat (Classic) is an AI assistant that accelerates development with
-contextual, conversational AI. Chat:
+GitLab Duo Chat (Classic) is an AI assistant that accelerates development with contextual, conversational AI. Chat:
 
 - Explains code and suggests improvements directly in your development environment.
 - Analyzes code, merge requests, issues, and other GitLab artifacts.
@@ -81,16 +80,14 @@ Prerequisites:
 
 - You must have access to GitLab Duo Chat and GitLab Duo must be turned on.
 - On GitLab Self-Managed, you must be where Chat is available. It is not available on:
-  - The **Your work** pages, like the To-Do List.
-  - Your **User settings** page.
-  - The **Help** menu.
+ - The **Your work** pages, like the To-Do List.
+ - Your **User settings** page.
+ - The **Help** menu.
 
 To use Chat in the GitLab UI:
 
 1. On the top bar, select **Search or go to** and find your project.
-1. On the GitLab Duo sidebar, select either **New GitLab Duo Chat**
-   ({{< icon name="pencil-square" >}}) or **Current GitLab Duo Chat**
-   ({{< icon name="duo-chat" >}}).
+1. On the GitLab Duo sidebar, select either **New GitLab Duo Chat** ({{< icon name="pencil-square" >}}) or **Current GitLab Duo Chat** ({{< icon name="duo-chat" >}}).
    A Chat conversation opens in the GitLab Duo sidebar on the right side of your screen.
 1. Under the Chat text box, turn off the **Agentic** toggle.
 1. Enter your question in the message box and press <kbd>Enter</kbd> or select **Send**.
@@ -175,8 +172,7 @@ For example, you can select code and ask Chat, `Can you simplify this?`.
 
 ### Check configuration diagnostics
 
-To check your GitLab Duo configuration diagnostics and system settings, including
-system versioning, feature state management, and feature flags:
+To check your GitLab Duo configuration diagnostics and system settings, including system versioning, feature state management, and feature flags:
 
 - In the Chat pane, in the upper-right corner, select **Status**.
 
@@ -215,10 +211,10 @@ For example, you can select code and ask Chat, `Can you simplify this?`.
 To open GitLab Duo Chat in the editor window, use any of these methods:
 
 - From a keyboard shortcut:
-  - On Windows and Linux: <kbd>ALT</kbd>+<kbd>c</kbd>
-  - On macOS: <kbd>Option</kbd>+<kbd>c</kbd>
+ - On Windows and Linux: <kbd>ALT</kbd>+<kbd>c</kbd>
+ - On macOS: <kbd>Option</kbd>+<kbd>c</kbd>
 - In the currently open file in your IDE, right-click and select **GitLab Duo Chat** > **Open Quick Chat**.
-  Select some code to provide additional context.
+ Select some code to provide additional context.
 - Open the Command Palette, then select **GitLab Duo Chat: Open Quick Chat**.
 
 After Quick Chat opens:
@@ -241,8 +237,7 @@ To check the health of your GitLab Duo configuration:
 To close GitLab Duo Chat:
 
 - For GitLab Duo Chat on the left sidebar, select **GitLab Duo Chat** ({{< icon name="duo-chat" >}}).
-- For the quick chat window that's embedded in your file, in the upper-right corner,
-  select **Collapse** ({{< icon name="chevron-lg-up" >}}).
+- For the quick chat window that's embedded in your file, in the upper-right corner, select **Collapse** ({{< icon name="chevron-lg-up" >}}).
 
 ## Use GitLab Duo Chat in Visual Studio for Windows
 
@@ -285,18 +280,18 @@ To open GitLab Duo Chat in a chat window, use any of these methods:
 
 - On the right tool window bar, select **GitLab Duo Chat**.
 - From a keyboard shortcut:
-  - On Windows and Linux: <kbd>ALT</kbd>+<kbd>d</kbd>
-  - On macOS: <kbd>Option</kbd>+<kbd>d</kbd>
+ - On Windows and Linux: <kbd>ALT</kbd>+<kbd>d</kbd>
+ - On macOS: <kbd>Option</kbd>+<kbd>d</kbd>
 - From an open editor file:
-  1. Right-click and select **GitLab Duo Chat**.
-  1. Select **Open Chat Window**.
+ 1. Right-click and select **GitLab Duo Chat**.
+ 1. Select **Open Chat Window**.
 - With selected code:
-  1. In an editor, select code to include with your command.
-  1. Right-click and select **GitLab Duo Chat**.
-  1. Select **Explain Code**, **Fix Code**, **Generate Tests**, or **Refactor Code**.
+ 1. In an editor, select code to include with your command.
+ 1. Right-click and select **GitLab Duo Chat**.
+ 1. Select **Explain Code**, **Fix Code**, **Generate Tests**, or **Refactor Code**.
 - From a highlighted code issue:
-  1. Right-click and select **Show Context Actions**.
-  1. Select **Fix with Duo**.
+ 1. Right-click and select **Show Context Actions**.
+ 1. Select **Fix with Duo**.
 - With a keyboard or mouse shortcut for a GitLab Duo action, which you can set in **Settings** > **Keymap**.
 
 After GitLab Duo Chat opens:
@@ -318,10 +313,9 @@ After GitLab Duo Chat opens:
 To open GitLab Duo Chat in the editor window, use any of these methods:
 
 - From a keyboard shortcut:
-  - On Windows and Linux: <kbd>ALT</kbd>+<kbd>c</kbd>
-  - On macOS: <kbd>Option</kbd>+<kbd>c</kbd>
-- In an open file in your IDE, select some code,
-  then, in the floating toolbar, select **GitLab Duo Quick Chat** ({{< icon name="tanuki-ai" >}}).
+ - On Windows and Linux: <kbd>ALT</kbd>+<kbd>c</kbd>
+ - On macOS: <kbd>Option</kbd>+<kbd>c</kbd>
+- In an open file in your IDE, select some code, then, in the floating toolbar, select **GitLab Duo Quick Chat** ({{< icon name="tanuki-ai" >}}).
 - Right-click and select **GitLab Duo Chat** > **Open Quick Chat**.
 
 After Quick Chat opens:
@@ -334,10 +328,10 @@ After Quick Chat opens:
 1. To exit chat, either select **Escape to close**, or press <kbd>Escape</kbd> while focused on the chat.
 
 <div class="video-fallback">
-  <a href="https://youtu.be/5JbAM5g2VbQ">View how to use GitLab Duo Quick Chat</a>.
+ <a href="https://youtu.be/5JbAM5g2VbQ">View how to use GitLab Duo Quick Chat</a>.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube.com/embed/5JbAM5g2VbQ?si=pm7bTRDCR5we_1IX" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube.com/embed/5JbAM5g2VbQ?si=pm7bTRDCR5we_1IX" frameborder="0" allowfullscreen> </iframe>
 </figure>
 <!-- Video published on 2024-10-15 -->
 
@@ -387,19 +381,16 @@ Prerequisites:
 
 Different language models can be the source for GitLab Duo Chat.
 
-- On GitLab.com or GitLab Self-Managed, the default GitLab AI vendor models and
-  cloud-based AI gateway that is hosted by GitLab.
-- On GitLab Self-Managed, in GitLab 17.9 and later, [GitLab Duo Self-Hosted with a supported self-hosted model](../../administration/gitlab_duo_self_hosted/_index.md). Self-hosted models maximize
-  security and privacy by making sure nothing is sent to an external model. You can use GitLab AI vendor models, other supported language models, or bring your own compatible model.
+- On GitLab.com or GitLab Self-Managed, the default GitLab AI vendor models and cloud-based AI gateway that is hosted by GitLab.
+- On GitLab Self-Managed, in GitLab 17.9 and later, [GitLab Duo Self-Hosted with a supported self-hosted model](../../administration/gitlab_duo_self_hosted/_index.md). Self-hosted models maximize security and privacy by making sure nothing is sent to an external model. You can use GitLab AI vendor models, other supported language models, or bring your own compatible model.
 
 ## Input and output length
 
 For each Chat conversation, input and output length is limited:
 
-- Input is limited to 200,000 tokens (roughly 680,000 characters). The input tokens
-  include:
-  - All the [context that Chat is aware of](../gitlab_duo/context.md#gitlab-duo-chat).
-  - All the previous questions and answers in that conversation.
+- Input is limited to 200,000 tokens (roughly 680,000 characters). The input tokens include:
+ - All the [context that Chat is aware of](../gitlab_duo/context.md#gitlab-duo-chat).
+ - All the previous questions and answers in that conversation.
 - Output is limited to 8,192 tokens (roughly 28,600 characters).
 
 ## Give feedback

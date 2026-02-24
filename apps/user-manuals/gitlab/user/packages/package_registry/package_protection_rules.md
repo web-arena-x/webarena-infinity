@@ -32,9 +32,7 @@ title: Protected packages
 
 {{< /history >}}
 
-By default, any user with at least the Developer role can create,
-edit, and delete packages. Add a package protection rule to restrict
-which users can make changes to your packages.
+By default, any user with at least the Developer role can create, edit, and delete packages. Add a package protection rule to restrict which users can make changes to your packages.
 
 GitLab supports package protection for npm, PyPI, Maven, and Conan packages, but [epic 5574](https://gitlab.com/groups/gitlab-org/-/epics/5574) proposes to add additional features and package formats.
 

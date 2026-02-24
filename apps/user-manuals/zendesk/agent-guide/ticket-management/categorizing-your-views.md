@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/8009260752794-Categorizing
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > Workspaces > Agent tools > Views
+Location: Admin Center > Workspaces > Agent tools > Views
 
 Views are a way to group tickets based on certain criteria. You can access your views list and open any view to see the tickets associated with that view. The views list includes up to 100 active standard and shared team views and up to 10 personal views.
 

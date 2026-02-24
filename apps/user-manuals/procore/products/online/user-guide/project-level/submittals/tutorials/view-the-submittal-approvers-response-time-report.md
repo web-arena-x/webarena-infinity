@@ -19,10 +19,10 @@ The Submittal Approvers Response Time report is designed to track user response 
 ## Things to Consider
 
 - **Required User Permission**:
-  - 'Admin' level permissions to the project's Submittals tool
+ - 'Admin' level permissions to the project's Submittals tool
 - **Limitations**:
-  - This report is only available when the project is configured to use [submittal workflow](../../../../../../references/construction-management/glossary-of-terms.md#Submittal_Workflow "/references/construction-management/glossary-of-terms#Submittal Workflow").
-  - This report is not available with [package workflow](../../../../../../references/construction-management/glossary-of-terms.md#Package_Workflow "/references/construction-management/glossary-of-terms#Package Workflow") as it is designed to track response times on individual submittals, not packages.
+ - This report is only available when the project is configured to use [submittal workflow](../../../../../../references/construction-management/glossary-of-terms.md#Submittal_Workflow "/references/construction-management/glossary-of-terms#Submittal Workflow").
+ - This report is not available with [package workflow](../../../../../../references/construction-management/glossary-of-terms.md#Package_Workflow "/references/construction-management/glossary-of-terms#Package Workflow") as it is designed to track response times on individual submittals, not packages.
 
 ## Steps
 
@@ -38,9 +38,9 @@ After viewing the report in Procore, you can export the data to the CSV or PDF 
 
 ### Export a Submittal Approvers Response Time Report
 
-1. Navigate to project's **Submittals** tool.   
+1. Navigate to project's **Submittals** tool.  
    ![view-submittal-approvers-response-time-report.png](https://support.procore.com/@api/deki/files/73302/view-submittal-approvers-response-time-report.png?revision=3)
-2. Click one of these options:  
+2. Click one of these options: 
    ![export-report.png](https://support.procore.com/@api/deki/files/73301/export-report.png?revision=3)
    - **Export > PDF**. Exports data to the Adobe Portable Document Format (PDF). For an example, see PDF Export File below.
    - **Export > CSV**. Exports data to the Comma Separated Values (CSV) format. For an example, see CSV Export File below.

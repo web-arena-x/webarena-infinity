@@ -13,10 +13,7 @@ title: Escalation policies
 
 {{< /details >}}
 
-Escalation policies protect your company from missed critical alerts. Escalation policies contain
-time-boxed steps that automatically page the next responder in the escalation step if the responder
-in the previous step has not responded. You can create an escalation policy in the GitLab project
-where you manage [on-call schedules](oncall_schedules.md).
+Escalation policies protect your company from missed critical alerts. Escalation policies contain time-boxed steps that automatically page the next responder in the escalation step if the responder in the previous step has not responded. You can create an escalation policy in the GitLab project where you manage [on-call schedules](oncall_schedules.md).
 
 ## Add an escalation policy
 
@@ -30,8 +27,7 @@ To create an escalation policy:
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Monitor** > **Escalation Policies**.
 1. Select **Add an escalation policy**.
-1. Enter the policy's name and description, and
-   escalation rules to follow when a primary responder misses an alert.
+1. Enter the policy's name and description, and escalation rules to follow when a primary responder misses an alert.
 1. Select **Add escalation policy**.
 
 ![Escalation Policy](img/escalation_policy_v14_1.png)
@@ -40,12 +36,10 @@ To create an escalation policy:
 
 When configuring an escalation rule, you can designate who to page:
 
-- **Email on-call user in schedule**: notifies the users who are on-call when the rule is triggered,
-  covering all rotations on the specified [on-call schedule](oncall_schedules.md).
+- **Email on-call user in schedule**: notifies the users who are on-call when the rule is triggered, covering all rotations on the specified [on-call schedule](oncall_schedules.md).
 - **Email user**: notifies the specified user directly.
 
-When a notification is sent to a user through an on-call schedule or directly, a system note listing
-the paged users is created on the alert.
+When a notification is sent to a user through an on-call schedule or directly, a system note listing the paged users is created on the alert.
 
 The time specified for an escalation rule must be between 0 and 1440 minutes.
 

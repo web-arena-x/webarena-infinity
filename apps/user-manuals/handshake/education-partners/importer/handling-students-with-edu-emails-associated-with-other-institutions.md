@@ -17,9 +17,9 @@ You **cannot** create or update students with .edu email domains that are associ
 **To correct this:**
 
 - **For .edu domains that are indeed associated with your school**
-  - Open a support request to have these domains added to your Importer "domains" list.
+ - Open a support request to have these domains added to your Importer "domains" list.
 - **For .edu domains that are associated with other schools**
-  - Please update these email addresses in your file with alternate/personal emails from these students (@gmail.com, @yahoo.com, etc.).  Students will receive a new, separate Handshake account under their new .edu address at the next institution they attend.
+ - Please update these email addresses in your file with alternate/personal emails from these students (@gmail.com, @yahoo.com, etc.).  Students will receive a new, separate Handshake account under their new .edu address at the next institution they attend.
 
 \*If the student does not attend your institution anymore and did not provide an alternate email, the best option is typically to utilize their previous .edu email from your institution for account management purposes (***do not do this*** if you recycle emails for future students).
 

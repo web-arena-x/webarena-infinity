@@ -12,17 +12,13 @@ title: 'Tutorial: Scan a Docker container for vulnerabilities'
 
 {{< /details >}}
 
-You can use [container scanning](../../user/application_security/container_scanning/_index.md) to check for vulnerabilities
-in container images stored in the [container registry](../../user/packages/container_registry/_index.md).
+You can use [container scanning](../../user/application_security/container_scanning/_index.md) to check for vulnerabilities in container images stored in the [container registry](../../user/packages/container_registry/_index.md).
 
 Container scanning configuration is added to the pipeline configuration of a project. In this tutorial, you:
 
 1. Create a [new project](#create-a-new-project).
-1. [Add a `Dockerfile`](#add-a-dockerfile-to-new-project) file to the project. This `Dockerfile` contains minimal
-   configuration required to create a Docker image.
-1. Create [pipeline configuration](#create-pipeline-configuration) for the new project to create a Docker
-   image from the `Dockerfile`, build and push a Docker image to the container registry, and then scan the Docker image
-   for vulnerabilities.
+1. [Add a `Dockerfile`](#add-a-dockerfile-to-new-project) file to the project. This `Dockerfile` contains minimal configuration required to create a Docker image.
+1. Create [pipeline configuration](#create-pipeline-configuration) for the new project to create a Docker image from the `Dockerfile`, build and push a Docker image to the container registry, and then scan the Docker image for vulnerabilities.
 1. Check for [reported vulnerabilities](#check-for-reported-vulnerabilities).
 1. [Update the Docker image](#update-the-docker-image) and scan the updated image.
 
@@ -47,8 +43,7 @@ To provide something for container scanning to work on, create a `Dockerfile` wi
    FROM hello-world:latest
    ```
 
-Docker images created from this `Dockerfile` are based on [`hello-world`](https://hub.docker.com/_/hello-world) Docker
-image.
+Docker images created from this `Dockerfile` are based on [`hello-world`](https://hub.docker.com/_/hello-world) Docker image.
 
 1. Select **Commit changes**.
 
@@ -56,9 +51,7 @@ image.
 
 Now you're ready to create pipeline configuration. The pipeline configuration:
 
-1. Builds a Docker image from the `Dockerfile` file, and pushes the Docker image to the container registry. The
-   `build-image` job uses [Docker-in-Docker](../../ci/docker/using_docker_build.md) as a
-   [CI/CD service](../../ci/services/_index.md) to build the Docker image.
+1. Builds a Docker image from the `Dockerfile` file, and pushes the Docker image to the container registry. The `build-image` job uses [Docker-in-Docker](../../ci/docker/using_docker_build.md) as a [CI/CD service](../../ci/services/_index.md) to build the Docker image.
 1. Includes the `Container-Scanning.gitlab-ci.yml` template, to scan the Docker image stored in the container registry.
 
 To create the pipeline configuration:
@@ -94,24 +87,18 @@ When it's finished, you can check the results of the scan.
 
 Vulnerabilities for a scan are located on the pipeline that ran the scan. To check for reported vulnerabilities:
 
-1. Select **CI/CD** > **Pipelines** and select the most recent pipeline. This pipeline should consist of a job called
-   `container_scanning` in the `test` stage.
-1. If the `container_scanning` job was successful, select the **Security** tab. If any vulnerabilities were found, they
-   are listed on that page.
+1. Select **CI/CD** > **Pipelines** and select the most recent pipeline. This pipeline should consist of a job called `container_scanning` in the `test` stage.
+1. If the `container_scanning` job was successful, select the **Security** tab. If any vulnerabilities were found, they are listed on that page.
 
 ## Update the Docker image
 
-A Docker image based on `hello-world:latest` is unlikely to show any vulnerabilities. For an example of a scan that
-reports vulnerabilities:
+A Docker image based on `hello-world:latest` is unlikely to show any vulnerabilities. For an example of a scan that reports vulnerabilities:
 
 1. In the root directory of your project, select the existing `Dockerfile` file.
 1. Select **Edit**.
-1. Replace `FROM hello-world:latest` with a different Docker image for the
-   [`FROM`](https://docs.docker.com/reference/dockerfile/#from) instruction. The best Docker images to demonstrate
-   container scanning have:
+1. Replace `FROM hello-world:latest` with a different Docker image for the [`FROM`](https://docs.docker.com/reference/dockerfile/#from) instruction. The best Docker images to demonstrate container scanning have:
    - Operating system packages. For example, from Debian, Ubuntu, Alpine, or Red Hat.
    - Programming language packages. For example, NPM packages or Python packages.
 1. Select **Commit changes**.
 
-After you commit changes to the file, a new pipeline starts with this updated `Dockerfile`. When it's finished, you can
-check the results of the new scan.
+After you commit changes to the file, a new pipeline starts with this updated `Dockerfile`. When it's finished, you can check the results of the new scan.

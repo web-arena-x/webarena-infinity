@@ -23,11 +23,11 @@ Click **Jobs** from the left navigation bar, then select the job posting for whi
 **You can filter jobs by the following statuses**:
 
 - **Active**
-  - Jobs that are pending or approved.
+ - Jobs that are pending or approved.
 - **Not Posted**
-  - Jobs whose job form has been completed but not yet posted to any schools.
+ - Jobs whose job form has been completed but not yet posted to any schools.
 - **Closed**
-  - Jobs that have been previously approved at a school and the closing date has passed.
+ - Jobs that have been previously approved at a school and the closing date has passed.
 
 **You may also view results by**:
 
@@ -43,9 +43,9 @@ Click **Jobs** from the left navigation bar, then select the job posting for whi
 Jobs that have been successfully posted display in the table when the **Active** status is selected from the **Status** filter.
 
 - If your job is not listed with the **Active** status selected, select **Not Posted** from the **Status** filter.
-  - Jobs only display with the **Not Posted** status selected if you have completed the job form, but the job was not posted to any schools.
+ - Jobs only display with the **Not Posted** status selected if you have completed the job form, but the job was not posted to any schools.
 - If your job is not listed with either the **Active** or **Not Posted** status selected, click the white button **View drafts** on the **Jobs** page.
-  - Jobs only display on the **View drafts** page if the job form was not fully completed and the job was saved.  
+ - Jobs only display on the **View drafts** page if the job form was not fully completed and the job was saved. 
     - *To post a job in 'draft' mode, refer to [Manage your Job Drafts](https://support.joinhandshake.com/hc/en-us/articles/20509953798551)*.
 
 ![Status and view drafts button on jobs page.png](https://support.joinhandshake.com/hc/article_attachments/26001216268055)

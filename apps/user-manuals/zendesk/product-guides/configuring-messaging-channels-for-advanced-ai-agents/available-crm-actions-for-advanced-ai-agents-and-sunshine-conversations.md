@@ -1,4 +1,4 @@
-# Available CRM actions for advanced AI agents  and Sunshine Conversations
+# Available CRM actions for advanced AI agents and Sunshine Conversations
 
 Source: https://support.zendesk.com/hc/en-us/articles/8357734565402-Available-CRM-actions-for-advanced-AI-agents-and-Sunshine-Conversations
 
@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357734565402-Available-CR
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 

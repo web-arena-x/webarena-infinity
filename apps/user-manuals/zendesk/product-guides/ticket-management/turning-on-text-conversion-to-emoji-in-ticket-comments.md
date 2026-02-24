@@ -6,20 +6,18 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408822406810-Turning-on-t
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > Objects and rules > Tickets >
+Location: Admin Center > Objects and rules > Tickets >
 Settings
 
-You can allow agents to convert text (emoticons) to emoji in ticket comments. An
-emoticon is a combination of characters that renders as a picture. Emoticons will
-render as a picture in the ticket comment and email notification.
+You can allow agents to convert text (emoticons) to emoji in ticket comments. An emoticon is a combination of characters that renders as a picture. Emoticons will render as a picture in the ticket comment and email notification.
 
 You must be an administrator to turn on emoji text replacement.
 
@@ -34,9 +32,6 @@ For information about using emoticons in ticket comments, see [Using emoji emoti
 4. Click **Save**.
 
    This setting only turns on (or turns off)
-   converting text to emoji. It does not remove the emoji app icon
-   in the ticket comments toolbar.
+   converting text to emoji. It does not remove the emoji app icon in the ticket comments toolbar.
 
-If you turn off emoji text replacement, agents will not be able to convert text to
-emoji in tickets. Any emoticons in existing tickets remains in the tickets as
-characters and do not render as pictures.
+If you turn off emoji text replacement, agents will not be able to convert text to emoji in tickets. Any emoticons in existing tickets remains in the tickets as characters and do not render as pictures.

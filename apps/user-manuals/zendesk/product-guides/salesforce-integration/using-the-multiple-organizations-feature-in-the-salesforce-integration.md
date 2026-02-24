@@ -6,29 +6,22 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408832217882-Using-the-mu
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Professional or Enterprise |
 
-Location:  Admin Center > Apps and integrations > Integrations >
+Location: Admin Center > Apps and integrations > Integrations >
 Integrations
 
-Zendesk and Salesforce have fundamental differences in the way they store
-users. In Zendesk, each user must have a unique email address. This is not required for
-Salesforce contacts or leads.
+Zendesk and Salesforce have fundamental differences in the way they store users. In Zendesk, each user must have a unique email address. This is not required for Salesforce contacts or leads.
 
-In order for multiple Salesforce contacts that share an
-email address to sync to Zendesk, the integration uses a Support feature that [allows users to belong to multiple
-organizations](https://support.zendesk.com/hc/en-us/articles/204281436-Enabling-multiple-organizations-for-users-Professional-and-Enterprise-).
+In order for multiple Salesforce contacts that share an email address to sync to Zendesk, the integration uses a Support feature that [allows users to belong to multiple organizations](https://support.zendesk.com/hc/en-us/articles/204281436-Enabling-multiple-organizations-for-users-Professional-and-Enterprise-).
 
-This article explains the syncing behavior for the Salesforce integration when
-multiple organizations is turned on. You can request permission to turn on multiple
-organization sync by contacting [Zendesk Customer Support](https://support.zendesk.com/hc/en-us/articles/4408843597850). Permission is granted on a
-per-account basis.
+This article explains the syncing behavior for the Salesforce integration when multiple organizations is turned on. You can request permission to turn on multiple organization sync by contacting [Zendesk Customer Support](https://support.zendesk.com/hc/en-us/articles/4408843597850). Permission is granted on a per-account basis.
 
 This article contains the following sections:
 
@@ -38,53 +31,34 @@ This article contains the following sections:
 
 Related information:
 
-- [Enabling multiple organizations for
-  users](https://support.zendesk.com/hc/en-us/articles/4408838140314-Enabling-multiple-organizations-for-users-Professional-and-Enterprise-)
+- [Enabling multiple organizations for users](https://support.zendesk.com/hc/en-us/articles/4408838140314-Enabling-multiple-organizations-for-users-Professional-and-Enterprise-)
 - [Salesforce integration resources](https://support.zendesk.com/hc/en-us/articles/4408827957274)
 
 ## **Understanding the multiple organization syncing process**
 
-When the multiple organizations feature is turned on, multiple Salesforce
-contacts or leads with the same email address in different Salesforce accounts can
-be connected in Zendesk Support to a single user. Zendesk users can be members of
-multiple organizations.
+When the multiple organizations feature is turned on, multiple Salesforce contacts or leads with the same email address in different Salesforce accounts can be connected in Zendesk Support to a single user. Zendesk users can be members of multiple organizations.
 
-In Salesforce, when multiple contacts or leads share an email address, the
-first contact or lead linked to an account is considered the syncing record. The
-syncing record is the primary Salesforce record and is identified by a user account
-during syncing.
+In Salesforce, when multiple contacts or leads share an email address, the first contact or lead linked to an account is considered the syncing record. The syncing record is the primary Salesforce record and is identified by a user account during syncing.
 
-The syncing record updates its corresponding user entry in Zendesk during a
-sync when changes have been made to the user fields in Salesforce.
+The syncing record updates its corresponding user entry in Zendesk during a sync when changes have been made to the user fields in Salesforce.
 
-The following rules govern the syncing behavior between Salesforce and
-Zendesk:
+The following rules govern the syncing behavior between Salesforce and Zendesk:
 
-- If an organization doesn’t exist in Zendesk, organization
-  memberships aren't created.
+- If an organization doesn’t exist in Zendesk, organization memberships aren't created.
 - Organization memberships are only added, not deleted.
-- Mapped fields are synced if the Salesforce primary account-contact
-  relationship matches the user’s default organization in Zendesk.
-- An organization membership in Zendesk is created only if a
-  Salesforce contact is linked to a Salesforce account.
-- The integration respects existing default memberships, which are
-  manually assigned.
-- The following features must all be turned on to sync secondary
-  relationships:
-  - Accounts to Organizations sync
-  - Contacts/Leads to Users sync
-  - Primary relationship syncing
-  - [Allow users to belong to multiple
-    organizations](https://support.zendesk.com/hc/en-us/articles/204281436-Enabling-multiple-organizations-for-users-Professional-and-Enterprise-) in Support
-  - Secondary relationships in Salesforce.
+- Mapped fields are synced if the Salesforce primary account-contact relationship matches the user’s default organization in Zendesk.
+- An organization membership in Zendesk is created only if a Salesforce contact is linked to a Salesforce account.
+- The integration respects existing default memberships, which are manually assigned.
+- The following features must all be turned on to sync secondary relationships:
+ - Accounts to Organizations sync
+ - Contacts/Leads to Users sync
+ - Primary relationship syncing
+ - [Allow users to belong to multiple organizations](https://support.zendesk.com/hc/en-us/articles/204281436-Enabling-multiple-organizations-for-users-Professional-and-Enterprise-) in Support
+ - Secondary relationships in Salesforce.
 
 ## Account relationship syncing
 
-There are two types of account relationship syncs: primary and secondary. The primary
-account relationship refers to the main (primary) account that a Salesforce contact
-belongs to. A secondary account relationship refers to all other accounts that a
-Salesforce contact may belong to. Performing a primary account relationship sync can
-change the Zendesk user's primary organization.
+There are two types of account relationship syncs: primary and secondary. The primary account relationship refers to the main (primary) account that a Salesforce contact belongs to. A secondary account relationship refers to all other accounts that a Salesforce contact may belong to. Performing a primary account relationship sync can change the Zendesk user's primary organization.
 
 **To turn on account relationship syncing**
 
@@ -95,31 +69,19 @@ change the Zendesk user's primary organization.
 3. Click the **Data sync** tab.
 4. In **Accounts to Organizations sync**, click **Configure**.
 5. Select **Enable syncing** and click **Save**.
-6. Back on the Salesforce integrations page, click the **Data sync**
-   tab.
+6. Back on the Salesforce integrations page, click the **Data sync** tab.
 7. Under **Contacts/Leads to Users sync**, click **Configure**.
-8. Select **Enable syncing**, and under **Sync type**, select
-   **Contacts**.
-9. Select **Sync primary relationship** and, optionally, **Sync secondary
-   relationships**.
+8. Select **Enable syncing**, and under **Sync type**, select **Contacts**.
+9. Select **Sync primary relationship** and, optionally, **Sync secondary relationships**.
 
-   If you don't see these options, contact [Zendesk Customer Support](https://support.zendesk.com/hc/en-us/articles/4408843597850) to
-   give you access.
+   If you don't see these options, contact [Zendesk Customer Support](https://support.zendesk.com/hc/en-us/articles/4408843597850) to give you access.
 
-   Note: When performing the initial sync of Salesforce
-   contacts to Zendesk users, secondary account relationship sync must be
-   disabled. Because a Salesforce contact may have a large number of
-   secondary relationships, this could exceed Zendesk rate limits. After
-   the initial primary relationship sync is performed, the secondary
-   account relationship sync can be turned on.
+   Note: When performing the initial sync of Salesforce contacts to Zendesk users, secondary account relationship sync must be disabled. Because a Salesforce contact may have a large number of secondary relationships, this could exceed Zendesk rate limits. After the initial primary relationship sync is performed, the secondary account relationship sync can be turned on.
 10. Click **Save**.
 
 ## Syncing behavior when multiple organizations is turned on or off
 
-To understand what happens during syncing, the following examples describe
-some scenarios and the actions and results when you turn on the multiple
-organizations feature in Support and configure different account relationship
-syncing.
+To understand what happens during syncing, the following examples describe some scenarios and the actions and results when you turn on the multiple organizations feature in Support and configure different account relationship syncing.
 
 - [Scenario 1](#topic_p3p_h5r_3tb)
 - [Scenario 2](#topic_kth_mvr_3tb)
@@ -131,10 +93,8 @@ syncing.
 
 ### Scenario 1
 
-- Salesforce contact without a linked account is synced to
-  Zendesk.
-- Salesforce contact is matched with an existing user in
-  Zendesk.
+- Salesforce contact without a linked account is synced to Zendesk.
+- Salesforce contact is matched with an existing user in Zendesk.
 
 | Settings enabled | Sets the user's organization in Zendesk (normal contact sync) | Creates organization memberships (primary/secondary) | Syncs contact's mapped fields |
 | --- | --- | --- | --- |
@@ -146,10 +106,8 @@ syncing.
 
 ### Scenario 2
 
-- Salesforce contact without a linked account is synced to
-  Zendesk.
-- Salesforce contact is not matched with an existing user in
-  Zendesk.
+- Salesforce contact without a linked account is synced to Zendesk.
+- Salesforce contact is not matched with an existing user in Zendesk.
 
 | Settings enabled | Sets the user's organization in Zendesk (normal contact sync) | Creates organization memberships (primary/secondary) | Syncs contact's mapped fields |
 | --- | --- | --- | --- |
@@ -161,8 +119,7 @@ syncing.
 
 ### Scenario 3
 
-- Salesforce contact with a linked account is synced to
-  Zendesk.
+- Salesforce contact with a linked account is synced to Zendesk.
 - The contact is matched to an existing user in Zendesk.
 - The account is linked to an existing organization in Zendesk.
 - The organization is the matched user’s default organization.
@@ -177,12 +134,10 @@ syncing.
 
 ### Scenario 4
 
-- Salesforce contact with a linked account is synced to
-  Zendesk.
+- Salesforce contact with a linked account is synced to Zendesk.
 - The contact is matched to an existing user in Zendesk.
 - The account is linked to an existing organization.
-- The organization is not the matched user’s default
-  organization.
+- The organization is not the matched user’s default organization.
 
 | Settings enabled | Sets the user's organization in Zendesk (normal contact sync) | Creates organization memberships (primary/secondary) | Syncs contact's mapped fields |
 | --- | --- | --- | --- |
@@ -194,8 +149,7 @@ syncing.
 
 ### Scenario 5
 
-- Salesforce contact with a linked account is synced to
-  Zendesk.
+- Salesforce contact with a linked account is synced to Zendesk.
 - The contact is matched with an existing user in Zendesk.
 - The account is not linked to any organization.
 
@@ -209,8 +163,7 @@ syncing.
 
 ### Scenario 6
 
-- Salesforce contact with a linked account is synced to
-  Zendesk.
+- Salesforce contact with a linked account is synced to Zendesk.
 - The contact is not matched with any user.
 - The account is linked to an existing organization in Zendesk.
 
@@ -224,8 +177,7 @@ syncing.
 
 ### Scenario 7
 
-- Salesforce contact with a linked account is synced to
-  Zendesk.
+- Salesforce contact with a linked account is synced to Zendesk.
 - The contact is not matched with any user in Zendesk.
 - The account is not linked to any organization.
 

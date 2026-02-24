@@ -29,14 +29,14 @@ You can use “Help me write” with:
 ### Step 2: Write or refine your draft
 
 - To generate a new draft:
-  1. In the “Help me write” field, enter a prompt that describes the draft you need.
-  2. Click **Create**.
+ 1. In the “Help me write” field, enter a prompt that describes the draft you need.
+ 2. Click **Create**.
 
 ![An animation showing how to use AI in Gmail to write a cover letter for a job in marketing](//storage.googleapis.com/support-kms-prod/A1dDw79l77z3HmZyTpG6yn9UdZlUoOmwrYGA)
 
 - To refine an existing draft:
-  1. At the bottom of the compose window, click **Refine**.
-  2. Choose an option from the menu:
+ 1. At the bottom of the compose window, click **Refine**.
+ 2. Choose an option from the menu:
      - **Formalize**
      - **Elaborate**
      - **Shorten**
@@ -49,19 +49,19 @@ You can use “Help me write” with:
 After you generate a draft, you can:
 
 - Generate a new draft:
-  1. Click **Recreate**.
-  2. If your draft looks good, click **Insert**.
+ 1. Click **Recreate**.
+ 2. If your draft looks good, click **Insert**.
 
 - Refine the draft:
-  1. Click **Refine**.
-  2. Select an option from the menu.
-  3. If your draft looks good, click **Insert**.
+ 1. Click **Refine**.
+ 2. Select an option from the menu.
+ 3. If your draft looks good, click **Insert**.
 
 ## Learn how to improve your drafts
 
 To get the most relevant, personalized, and helpful drafts from Gemini, make your prompt as specific and detailed as you can.
 
-|  |  |
+| | |
 | --- | --- |
 | **What to include in your prompt** | **Example** |
 | Mention the person or group you are writing to. | “Write an apology to **my child's teacher** for their absence.” |

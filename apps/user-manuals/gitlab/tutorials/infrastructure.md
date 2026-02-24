@@ -6,8 +6,7 @@ description: GitOps, Kubernetes deployments.
 title: 'Tutorials: Manage your infrastructure'
 ---
 
-Use GitLab configuration features to reduce the effort needed to
-configure the infrastructure for your application.
+Use GitLab configuration features to reduce the effort needed to configure the infrastructure for your application.
 
 | Topic | Description | Good for beginners |
 |-------|-------------|--------------------|

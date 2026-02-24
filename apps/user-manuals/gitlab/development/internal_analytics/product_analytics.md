@@ -39,15 +39,11 @@ This feature is not ready for production use.
 
 {{< /alert >}}
 
-The product analytics feature empowers you to track user behavior and gain insights into how your
-applications are used and how users interact with your product.
-By using the data collected with product analytics in GitLab, you can better understand your users,
-identify friction points in funnels, make data-driven product decisions, and ultimately build better
-products that drive user engagement and business growth.
+The product analytics feature empowers you to track user behavior and gain insights into how your applications are used and how users interact with your product.
+By using the data collected with product analytics in GitLab, you can better understand your users, identify friction points in funnels, make data-driven product decisions, and ultimately build better products that drive user engagement and business growth.
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
-For an overview of the product analytics setup and functionality,
-watch the [Product Analytics walkthrough videos](https://www.youtube.com/playlist?list=PL05JrBw4t0Kqfb4oLOFKkXxNrBJzDQ3sL&feature=shared).
+For an overview of the product analytics setup and functionality, watch the [Product Analytics walkthrough videos](https://www.youtube.com/playlist?list=PL05JrBw4t0Kqfb4oLOFKkXxNrBJzDQ3sL&feature=shared).
 
 For more information about the vision and development of product analytics, see the [group direction page](https://about.gitlab.com/direction/monitor/platform-insights/product-analytics/).
 To leave feedback about product analytics bugs or functionality:
@@ -102,8 +98,7 @@ accDescr: How data is collected, processed, and visualized in dashboards.
 
 {{< /history >}}
 
-To track events in your project's applications,
-you must enable and configure product analytics.
+To track events in your project's applications, you must enable and configure product analytics.
 
 ### Product analytics provider
 
@@ -114,8 +109,7 @@ you must enable and configure product analytics.
 {{< /history >}}
 
 Your GitLab instance connects to a product analytics provider.
-A product analytics provider is the collection of services required to receive,
-process, store and query your analytics data.
+A product analytics provider is the collection of services required to receive, process, store and query your analytics data.
 
 {{< tabs >}}
 
@@ -130,8 +124,7 @@ You can request to delete your data at any time by [contacting support](https://
 
 {{< tab title="Self-managed provider" >}}
 
-A self-managed product analytics provider is a deployed instance of the
-[product analytics Helm charts](https://gitlab.com/gitlab-org/analytics-section/product-analytics/helm-charts).
+A self-managed product analytics provider is a deployed instance of the [product analytics Helm charts](https://gitlab.com/gitlab-org/analytics-section/product-analytics/helm-charts).
 
 On GitLab.com, the self-managed provider details are defined in [project-level settings](#project-level-settings).
 
@@ -156,8 +149,7 @@ Prerequisites:
 
 {{< alert type="note" >}}
 
-These instance-level settings are required to enable product analytics on GitLab Self-Managed,
-and cascade to all projects by default.
+These instance-level settings are required to enable product analytics on GitLab Self-Managed, and cascade to all projects by default.
 
 {{< /alert >}}
 
@@ -170,8 +162,7 @@ To enable product analytics on your instance:
 
 ### Project-level settings
 
-If you want to have a product analytics instance with a different configuration for your project,
-you can override the instance-level settings defined by the administrator on a per-project basis.
+If you want to have a product analytics instance with a different configuration for your project, you can override the instance-level settings defined by the administrator on a per-project basis.
 
 Prerequisites:
 
@@ -260,8 +251,7 @@ Product analytics dashboards are a subset of dashboards under [Analytics dashboa
 
 Specifically, product analytics dashboards and visualizations use the `cube_analytics` data type.
 The `cube_analytics` data type connects to the Cube instance defined when [product analytics was enabled](#enable-product-analytics).
-All filters and queries are sent to the Cube instance, and the returned data is processed by the
-product analytics data source to be rendered by the appropriate visualizations.
+All filters and queries are sent to the Cube instance, and the returned data is processed by the product analytics data source to be rendered by the appropriate visualizations.
 
 Data table visualizations from `cube_analytics` have an additional configuration option for rendering `links`.
 This option is an array of objects, each with `text` and `href` properties to specify the dimensions to be used in links.
@@ -281,21 +271,19 @@ When product analytics is enabled and onboarded, two built-in dashboards are ava
 
 {{< /history >}}
 
-When [exporting data](#raw-data-export) or [viewing dashboards](../../user/analytics/analytics_dashboards.md#view-project-dashboards),
-if there is no data for a given day, the missing data is autofilled with `0`.
+When [exporting data](#raw-data-export) or [viewing dashboards](../../user/analytics/analytics_dashboards.md#view-project-dashboards), if there is no data for a given day, the missing data is autofilled with `0`.
 
 The autofill approach has both benefits and limitations.
 
 - Benefits:
-  - The visualization's day axis matches the selected date range, removing ambiguity about missing data.
-  - Data exports have rows for the entire date range, making data analysis easier.
+ - The visualization's day axis matches the selected date range, removing ambiguity about missing data.
+ - Data exports have rows for the entire date range, making data analysis easier.
 - Limitations:
-  - The `day` [granularity](https://cube.dev/docs/product/apis-integrations/rest-api/query-format) must be used.
+ - The `day` [granularity](https://cube.dev/docs/product/apis-integrations/rest-api/query-format) must be used.
     All other granularities are not supported.
-  - Only date ranges defined by the [`inDateRange`](https://cube.dev/docs/product/apis-integrations/rest-api/query-format#indaterange) filter are filled.
+ - Only date ranges defined by the [`inDateRange`](https://cube.dev/docs/product/apis-integrations/rest-api/query-format#indaterange) filter are filled.
     - The date selector in the UI already uses this filter.
-  - The filling of data ignores the query-defined limit. If you set a limit of 10 data points over 20 days, it
-    returns 20 data points, with the missing data filled by `0`. [Issue 417231](https://gitlab.com/gitlab-org/gitlab/-/issues/417231) proposes a solution to this limitation.
+ - The filling of data ignores the query-defined limit. If you set a limit of 10 data points over 20 days, it returns 20 data points, with the missing data filled by `0`. [Issue 417231](https://gitlab.com/gitlab-org/gitlab/-/issues/417231) proposes a solution to this limitation.
 
 ## Raw data export
 
@@ -311,8 +299,7 @@ Because Cube acts as an abstraction layer between the raw data and the API, the 
 
 ### Export raw data with Cube queries
 
-You can [query the raw data with the REST API](../../api/product_analytics.md#send-query-request-to-cube),
-and convert the JSON output to any required format.
+You can [query the raw data with the REST API](../../api/product_analytics.md#send-query-request-to-cube), and convert the JSON output to any required format.
 
 To export the raw data for a specific dimension, pass a list of dimensions to the `dimensions` key.
 For example, the following query outputs the raw data for the attributes listed:
@@ -322,7 +309,7 @@ POST /api/v4/projects/PROJECT_ID/product_analytics/request/load?queryType=multi
 
 {
     "query":{
-  "dimensions": [
+ "dimensions": [
     "TrackedEvents.docEncoding",
     "TrackedEvents.docHost",
     "TrackedEvents.docPath",
@@ -333,10 +320,10 @@ POST /api/v4/projects/PROJECT_ID/product_analytics/request/load?queryType=multi
     "TrackedEvents.src",
     "TrackedEvents.utcTime",
     "TrackedEvents.vpSize"
-  ],
-  "order": {
+ ],
+ "order": {
     "TrackedEvents.apiKey": "asc"
-  }
+ }
     }
 }
 ```
@@ -377,8 +364,7 @@ The usage quota excludes projects that are not onboarded with product analytics.
 
 ### No events are collected
 
-Check your [instrumentation details](#enable-product-analytics),
-and make sure product analytics is enabled and set up correctly.
+Check your [instrumentation details](#enable-product-analytics), and make sure product analytics is enabled and set up correctly.
 
 ### Access to product analytics is restricted
 

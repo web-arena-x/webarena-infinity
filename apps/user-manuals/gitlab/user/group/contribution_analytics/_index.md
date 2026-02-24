@@ -12,11 +12,9 @@ title: Contribution analytics
 
 {{< /details >}}
 
-Contribution analytics provide an overview of the
-[contribution events](../../profile/contributions_calendar.md#user-contribution-events)
+Contribution analytics provide an overview of the [contribution events](../../profile/contributions_calendar.md#user-contribution-events)
 your group's members made in the last week, month, or three months.
-Interactive bar charts and a detailed table show contribution events
-(push events, issues, and merge requests) by group member.
+Interactive bar charts and a detailed table show contribution events (push events, issues, and merge requests) by group member.
 
 ![Contribution analytics bar graphs](img/contribution_analytics_push_v17_7.png)
 

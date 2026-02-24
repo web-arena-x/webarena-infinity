@@ -14,8 +14,7 @@ description: Configuration, rules, caching, artifacts, and logs.
 {{< /details >}}
 
 CI/CD jobs are the fundamental elements of a [GitLab CI/CD pipeline](../pipelines/_index.md).
-Jobs are configured in the `.gitlab-ci.yml` file with a list of commands to execute
-to accomplish tasks like building, testing, or deploying code.
+Jobs are configured in the `.gitlab-ci.yml` file with a list of commands to execute to accomplish tasks like building, testing, or deploying code.
 
 Jobs:
 
@@ -23,12 +22,11 @@ Jobs:
 - Run independently from other jobs.
 - Have a [job log](job_logs.md) with the full execution log for the job.
 
-Jobs are defined with [YAML keywords](../yaml/_index.md) that define all aspects
-of the job's execution, including keywords that:
+Jobs are defined with [YAML keywords](../yaml/_index.md) that define all aspects of the job's execution, including keywords that:
 
 - Control [how](job_control.md) and [when](job_rules.md) jobs run.
 - Group jobs together in collections called [stages](../yaml/_index.md#stages).
-  Stages run in sequence, while all jobs in a stage can run in parallel.
+ Stages run in sequence, while all jobs in a stage can run in parallel.
 - Define [CI/CD variables](../variables/_index.md) for flexible configuration.
 - Define [caches](../caching/_index.md) to speed up job execution.
 - Save files as [artifacts](job_artifacts.md) which can be used by other jobs.
@@ -39,20 +37,19 @@ To add a job to a pipeline, add it into your `.gitlab-ci.yml` file. The job must
 
 - Be defined at the top-level of the YAML configuration.
 - Have a unique [job name](#job-names).
-- Have either a [`script`](../yaml/_index.md#script) section defining commands to run,
-  or a [`trigger`](../yaml/_index.md#trigger) section to trigger a [downstream pipeline](../pipelines/downstream_pipelines.md)
-  to run.
+- Have either a [`script`](../yaml/_index.md#script) section defining commands to run, or a [`trigger`](../yaml/_index.md#trigger) section to trigger a [downstream pipeline](../pipelines/downstream_pipelines.md)
+ to run.
 
 For example:
 
 ```yaml
 my-ruby-job:
-  script:
+ script:
     - bundle install
     - bundle exec my_ruby_command
 
 my-shell-script-job:
-  script:
+ script:
     - my_shell_script.sh
 ```
 
@@ -70,8 +67,7 @@ You can't use these keywords as job names:
 - `include`
 - `pages:deploy` configured for a `deploy` stage
 
-Additionally, these names are valid when quoted, but are
-not recommended as they can make pipeline configuration unclear:
+Additionally, these names are valid when quoted, but are not recommended as they can make pipeline configuration unclear:
 
 - `"true":`
 - `"false":`
@@ -79,56 +75,50 @@ not recommended as they can make pipeline configuration unclear:
 
 Job names must be 255 characters or fewer.
 
-Use unique names for your jobs. If multiple jobs have the same name in a file,
-only one is added to the pipeline, and it's difficult to predict which one is chosen.
-If the same job name is used in one or more included files,
-[parameters are merged](../yaml/includes.md#override-included-configuration-values).
+Use unique names for your jobs. If multiple jobs have the same name in a file, only one is added to the pipeline, and it's difficult to predict which one is chosen.
+If the same job name is used in one or more included files, [parameters are merged](../yaml/includes.md#override-included-configuration-values).
 
 ### Hide a job
 
-To temporarily disable a job without deleting it from the configuration
-file, add a period (`.`) to the start of the job name. Hidden jobs do not need to contain
-the `script` or `trigger` keywords, but must contain valid YAML configuration.
+To temporarily disable a job without deleting it from the configuration file, add a period (`.`) to the start of the job name. Hidden jobs do not need to contain the `script` or `trigger` keywords, but must contain valid YAML configuration.
 
 For example:
 
 ```yaml
 .hidden_job:
-  script:
+ script:
     - run test
 ```
 
-Hidden jobs are not processed by GitLab CI/CD, but they can be used as templates
-for reusable configuration with:
+Hidden jobs are not processed by GitLab CI/CD, but they can be used as templates for reusable configuration with:
 
 - The [`extends` keyword](../yaml/yaml_optimization.md#use-extends-to-reuse-configuration-sections).
 - [YAML anchors](../yaml/yaml_optimization.md#anchors).
 
 ## Set default values for job keywords
 
-You can use the `default` keyword to set default job keywords and values, which are
-used by default by all jobs in a pipeline.
+You can use the `default` keyword to set default job keywords and values, which are used by default by all jobs in a pipeline.
 
 For example:
 
 ```yaml
 default:
-  image: 'ruby:2.4'
-  before_script:
+ image: 'ruby:2.4'
+ before_script:
     - echo Hello World
 
 rspec-job:
-  script: bundle exec rspec
+ script: bundle exec rspec
 ```
 
 When the pipeline runs, the job uses the default keywords:
 
 ```yaml
 rspec-job:
-  image: 'ruby:2.4'
-  before_script:
+ image: 'ruby:2.4'
+ before_script:
     - echo Hello World
-  script: bundle exec rspec
+ script: bundle exec rspec
 ```
 
 ### Control the inheritance of default keywords and variables
@@ -142,51 +132,51 @@ For example:
 
 ```yaml
 default:
-  image: 'ruby:2.4'
-  before_script:
+ image: 'ruby:2.4'
+ before_script:
     - echo Hello World
 
 variables:
-  DOMAIN: example.com
-  WEBHOOK_URL: https://my-webhook.example.com
+ DOMAIN: example.com
+ WEBHOOK_URL: https://my-webhook.example.com
 
 rubocop:
-  inherit:
+ inherit:
     default: false
     variables: false
-  script: bundle exec rubocop
+ script: bundle exec rubocop
 
 rspec:
-  inherit:
+ inherit:
     default: [image]
     variables: [WEBHOOK_URL]
-  script: bundle exec rspec
+ script: bundle exec rspec
 
 capybara:
-  inherit:
+ inherit:
     variables: false
-  script: bundle exec capybara
+ script: bundle exec capybara
 
 karma:
-  inherit:
+ inherit:
     default: true
     variables: [DOMAIN]
-  script: karma
+ script: karma
 ```
 
 In this example:
 
 - `rubocop`:
-  - inherits: Nothing.
+ - inherits: Nothing.
 - `rspec`:
-  - inherits: the default `image` and the `WEBHOOK_URL` variable.
-  - does **not** inherit: the default `before_script` and the `DOMAIN` variable.
+ - inherits: the default `image` and the `WEBHOOK_URL` variable.
+ - does **not** inherit: the default `before_script` and the `DOMAIN` variable.
 - `capybara`:
-  - inherits: the default `before_script` and `image`.
-  - does **not** inherit: the `DOMAIN` and `WEBHOOK_URL` variables.
+ - inherits: the default `before_script` and `image`.
+ - does **not** inherit: the `DOMAIN` and `WEBHOOK_URL` variables.
 - `karma`:
-  - inherits: the default `image` and `before_script`, and the `DOMAIN` variable.
-  - does **not** inherit: `WEBHOOK_URL` variable.
+ - inherits: the default `image` and `before_script`, and the `DOMAIN` variable.
+ - does **not** inherit: `WEBHOOK_URL` variable.
 
 ## View jobs in a pipeline
 
@@ -195,8 +185,7 @@ When you access a pipeline, you can see the related jobs for that pipeline.
 The order of jobs in a pipeline depends on the type of pipeline graph.
 
 - For [full pipeline graphs](../pipelines/_index.md#pipeline-details), jobs are sorted alphabetically by name.
-- For [pipeline mini graphs](../pipelines/_index.md#pipeline-mini-graphs), jobs are sorted by status severity
-  with failed jobs appearing first, and then alphabetically by name.
+- For [pipeline mini graphs](../pipelines/_index.md#pipeline-mini-graphs), jobs are sorted by status severity with failed jobs appearing first, and then alphabetically by name.
 
 Selecting an individual job shows you its [job log](job_logs.md), and allows you to:
 
@@ -297,17 +286,13 @@ The source attribute can have the following values:
 If you have many similar jobs, your [pipeline graph](../pipelines/_index.md#pipeline-details)
 becomes long and hard to read.
 
-You can automatically group similar jobs together. If the job names are formatted in a certain way,
-they are collapsed into a single group in regular pipeline graphs (not the mini graphs).
+You can automatically group similar jobs together. If the job names are formatted in a certain way, they are collapsed into a single group in regular pipeline graphs (not the mini graphs).
 
-You can recognize when a pipeline has grouped jobs if you see a number next to a job
-name instead of the retry or cancel buttons. The number indicates the amount of grouped
-jobs. Hovering over them shows you if all jobs have passed or any has failed. Select to expand them.
+You can recognize when a pipeline has grouped jobs if you see a number next to a job name instead of the retry or cancel buttons. The number indicates the amount of grouped jobs. Hovering over them shows you if all jobs have passed or any has failed. Select to expand them.
 
 ![A pipeline graph showing several stages and jobs, including three groups of grouped jobs.](img/pipeline_grouped_jobs_v17_9.png)
 
-To create a group of jobs, in the `.gitlab-ci.yml` file,
-separate each job name with a number and one of the following:
+To create a group of jobs, in the `.gitlab-ci.yml` file, separate each job name with a number and one of the following:
 
 - A slash (`/`), for example, `slash-test 1/3`, `slash-test 2/3`, `slash-test 3/3`.
 - A colon (`:`), for example, `colon-test 1:3`, `colon-test 2:3`, `colon-test 3:3`.
@@ -319,31 +304,28 @@ In the following example, these three jobs are in a group named `build ruby`:
 
 ```yaml
 build ruby 1/3:
-  stage: build
-  script:
+ stage: build
+ script:
     - echo "ruby1"
 
 build ruby 2/3:
-  stage: build
-  script:
+ stage: build
+ script:
     - echo "ruby2"
 
 build ruby 3/3:
-  stage: build
-  script:
+ stage: build
+ script:
     - echo "ruby3"
 ```
 
 The pipeline graph displays a group named `build ruby` with three jobs.
 
-The jobs are ordered by comparing the numbers from left to right. You
-usually want the first number to be the index and the second number to be the total.
+The jobs are ordered by comparing the numbers from left to right. You usually want the first number to be the index and the second number to be the total.
 
 [This regular expression](https://gitlab.com/gitlab-org/gitlab/-/blob/2f3dc314f42dbd79813e6251792853bc231e69dd/app/models/commit_status.rb#L99)
 evaluates the job names: `([\b\s:]+((\[.*\])|(\d+[\s:\/\\]+\d+))){1,3}\s*\z`.
-One or more `: [...]`, `X Y`, `X/Y`, or `X\Y` sequences are removed from the **end**
-of job names only. Matching substrings found at the beginning or in the middle of
-job names are not removed.
+One or more `: [...]`, `X Y`, `X/Y`, or `X\Y` sequences are removed from the **end** of job names only. Matching substrings found at the beginning or in the middle of job names are not removed.
 
 ## Retry jobs
 
@@ -361,8 +343,7 @@ When you retry a [trigger job](../yaml/_index.md#trigger) that triggers a downst
 
 - The trigger job generates a new downstream pipeline.
 - The downstream pipeline also associates with the user who initiated the retry.
-- The downstream pipeline runs with the configuration that exists at the time of the retry,
-  which might be different from the original run.
+- The downstream pipeline runs with the configuration that exists at the time of the retry, which might be different from the original run.
 
 ### Retry a job
 
@@ -408,13 +389,12 @@ When you cancel a job, what happens next depends on its state and the GitLab Run
 
 - For jobs that haven't started executing yet, the job is canceled immediately.
 - For running jobs:
-  - For GitLab Runner 16.10 and later with GitLab 17.0 and later:
+ - For GitLab Runner 16.10 and later with GitLab 17.0 and later:
     1. The job is marked as `canceling`.
-    1. The currently-running command is allowed to complete. The rest of the commands in the job's
-       [`before_script`](../yaml/_index.md#before_script) or [`script`](../yaml/_index.md#script) are skipped.
+    1. The currently-running command is allowed to complete. The rest of the commands in the job's [`before_script`](../yaml/_index.md#before_script) or [`script`](../yaml/_index.md#script) are skipped.
     1. If the job has an `after_script` section, it always starts and runs to completion.
     1. The job is marked as `canceled`.
-  - For GitLab Runner 16.9 and earlier with GitLab 16.11 and earlier, the job is `canceled` immediately without running `after_script`.
+ - For GitLab Runner 16.9 and earlier with GitLab 16.11 and earlier, the job is `canceled` immediately without running `after_script`.
 
 If you need to cancel a job immediately without waiting for the `after_script`, use [force cancel](#force-cancel-a-job).
 
@@ -422,8 +402,7 @@ If you need to cancel a job immediately without waiting for the `after_script`, 
 
 Prerequisites:
 
-- You must have at least the Developer role for the project,
-  or the [minimum role required to cancel a pipeline or job](../pipelines/settings.md#restrict-roles-that-can-cancel-pipelines-or-jobs).
+- You must have at least the Developer role for the project, or the [minimum role required to cancel a pipeline or job](../pipelines/settings.md#restrict-roles-that-can-cancel-pipelines-or-jobs).
 
 To cancel a job from a merge request:
 
@@ -474,8 +453,8 @@ Prerequisites:
 
 - You must have at least the Maintainer role for the project.
 - The job must be in the `canceling` state, which requires:
-  - GitLab 17.0 and later.
-  - GitLab Runner 16.10 and later.
+ - GitLab 17.0 and later.
+ - GitLab Runner 16.10 and later.
 
 To force cancel a job:
 
@@ -484,8 +463,7 @@ To force cancel a job:
 
 ## Troubleshoot a failed job
 
-When a pipeline fails or is allowed to fail, there are several places where you
-can find the reason:
+When a pipeline fails or is allowed to fail, there are several places where you can find the reason:
 
 - In the [pipeline graph](../pipelines/_index.md#pipeline-details), in the pipeline details view.
 - In the pipeline widgets, in the merge requests and commit pages.
@@ -505,21 +483,17 @@ You can use GitLab Duo Root Cause Analysis in GitLab Duo Chat to [troubleshoot f
 
 Deployment jobs are CI/CD jobs that use [environments](../environments/_index.md).
 A deployment job is any job that uses the `environment` keyword and the [`start` environment `action`](../yaml/_index.md#environmentaction).
-Deployment jobs do not need to be in the `deploy` stage. The following `deploy me`
-job is an example of a deployment job. `action: start` is the default behavior and
-is defined here for clarity, but you can omit it:
+Deployment jobs do not need to be in the `deploy` stage. The following `deploy me` job is an example of a deployment job. `action: start` is the default behavior and is defined here for clarity, but you can omit it:
 
 ```yaml
 deploy me:
-  script:
+ script:
     - deploy-to-cats.sh
-  environment:
+ environment:
     name: production
     url: https://cats.example.com
     action: start
 ```
 
-The behavior of deployment jobs can be controlled with
-[deployment safety](../environments/deployment_safety.md) settings like
-[preventing outdated deployment jobs](../environments/deployment_safety.md#prevent-outdated-deployment-jobs)
+The behavior of deployment jobs can be controlled with [deployment safety](../environments/deployment_safety.md) settings like [preventing outdated deployment jobs](../environments/deployment_safety.md#prevent-outdated-deployment-jobs)
 and [ensuring only one deployment job runs at a time](../environments/deployment_safety.md#ensure-only-one-deployment-job-runs-at-a-time).

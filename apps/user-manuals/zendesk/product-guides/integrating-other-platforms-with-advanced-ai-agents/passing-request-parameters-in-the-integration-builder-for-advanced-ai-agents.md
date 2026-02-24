@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8920235767834-Passing-requ
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -28,11 +28,11 @@ Related articles:
 **To set the parameter type in request parameters**
 
 1. Navigate to the **Request Parameters** section in the integration builder.
-2. Define your parameter and set its type as one of the following:  
+2. Define your parameter and set its type as one of the following: 
    - **String**: For textual data enclosed in quotes (for example, "example text").
    - **Number**: For numerical values (for example, 123).
    - **Boolean**: For true/false values.
-   - **Array**: For a collection of values (for example, ["item1", "item2"]).  
+   - **Array**: For a collection of values (for example, ["item1", "item2"]). 
      ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_pass_params_1.png)
 
 ## Add reformatting for array parameters

@@ -60,5 +60,5 @@ Check out [How to Send an Invoice](https://support.joinhandshake.com/hc/en-us/ar
 Refer to [Fairs: Filters & Bulk Actions for Registrations](https://support.joinhandshake.com/hc/en-us/articles/360041761534) for sending an email to the contacts individually or in bulk. 
 
 - If the fair is virtual and facilitated in Handshake, the Schedule Owner will receive an email alert to set their company schedule.
-  - You'll be able to use this same registration list view to help you track your engagement as the fair approaches. Refer to [Virtual Fairs: Monitoring Fair Engagement](https://support.joinhandshake.com/hc/en-us/articles/360051323174) for more information, as well as [Virtual Fairs: Session Details](https://support.joinhandshake.com/hc/en-us/articles/360053520554).
+ - You'll be able to use this same registration list view to help you track your engagement as the fair approaches. Refer to [Virtual Fairs: Monitoring Fair Engagement](https://support.joinhandshake.com/hc/en-us/articles/360051323174) for more information, as well as [Virtual Fairs: Session Details](https://support.joinhandshake.com/hc/en-us/articles/360053520554).
 - If the fair is hosted in-person or if it is virtual and facilitated outside of Handshake, students will be able to view the company name in the list of employers attending the fair.

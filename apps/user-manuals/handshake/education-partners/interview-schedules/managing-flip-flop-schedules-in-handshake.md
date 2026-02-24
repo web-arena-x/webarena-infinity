@@ -10,11 +10,11 @@ For this process to take place in Handshake, the following must be present:
 
 - An even number of rooms reserved in Handshake (2, 4, 6, etc.)
 - Both interviewers displayed on each time slot separated by a comma, for example:
-  - Interviewer A, Interviewer B
-  - Interviewer B, Interviewer A
+ - Interviewer A, Interviewer B
+ - Interviewer B, Interviewer A
 - A pair of rooms that will be flipped between two interviewers, for example:
-  - First room - interviewers listed as "Interviewer A, Interviewer B"
-  - Second room - interviewers listed as "Interviewer B, Interviewer A"
+ - First room - interviewers listed as "Interviewer A, Interviewer B"
+ - Second room - interviewers listed as "Interviewer B, Interviewer A"
 - The same time schedule for each pair of rooms.
 
 The student will sign up for *one* Interview session time, although they'll meet with two interviewers. Halfway through the Interview, the student will switch rooms to meet with the second recruiter.

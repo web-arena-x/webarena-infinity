@@ -11,14 +11,13 @@ title: 'Tutorial: Set up the GitLab agent for Kubernetes'
 This tutorial shows you how to:
 
 - Set up the [GitLab agent for Kubernetes](../clusters/agent/_index.md)
-  so users can create and manage workspaces in a project.
+ so users can create and manage workspaces in a project.
 - Set up the GitLab workspaces proxy to authenticate and authorize [workspaces](_index.md)
-  in your cluster.
+ in your cluster.
 
 {{< alert type="note" >}}
 
-You must complete the setup steps in this tutorial before you can configure a GitLab agent for Kubernetes
-to support workspaces.
+You must complete the setup steps in this tutorial before you can configure a GitLab agent for Kubernetes to support workspaces.
 After completing the tutorial, use the [GitLab agent for Kubernetes configuration](gitlab_agent_configuration.md)
 to configure your agent.
 
@@ -32,12 +31,12 @@ Before starting this tutorial, you must have:
 - A running Kubernetes cluster.
 - `helm` 3.11.0 or later and `kubectl` on your local machine.
 - Access to configure a wildcard domain in your DNS provider.
-  For example, `*.workspaces.example.dev` is required for workspace access.
+ For example, `*.workspaces.example.dev` is required for workspace access.
 
 For this tutorial, the following hierarchy is used:
 
 ```mermaid
-%%{init: {  "fontFamily": "GitLab Sans" }}%%
+%%{init: { "fontFamily": "GitLab Sans" }}%%
 graph TD
     accTitle: Hierarchy structure for GitLab workspaces
     accDescr: Workspace projects inherit agent access through the group hierarchy with agents connected to separate agent projects.
@@ -71,8 +70,7 @@ Install an [Ingress controller](https://kubernetes.io/docs/concepts/services-net
      --create-namespace
    ```
 
-1. Get the External IP address of the Load Balancer. You will need this when updating the
-   [DNS records](#update-your-dns-records).
+1. Get the External IP address of the Load Balancer. You will need this when updating the [DNS records](#update-your-dns-records).
 
    ```shell
    kubectl get svc -n gitlab-ingress-controller ingress-nginx-controller
@@ -80,8 +78,7 @@ Install an [Ingress controller](https://kubernetes.io/docs/concepts/services-net
 
 ## Install the GitLab agent for Kubernetes
 
-Install the [GitLab agent for Kubernetes](../clusters/agent/_index.md#kubernetes-integration-glossary) in your
-Kubernetes cluster to connect your cluster to GitLab:
+Install the [GitLab agent for Kubernetes](../clusters/agent/_index.md#kubernetes-integration-glossary) in your Kubernetes cluster to connect your cluster to GitLab:
 
 1. Complete one of the installation options in [Installing the agent for Kubernetes](../clusters/agent/install/_index.md).
 1. Note the `agentName` you configured. It's required when you configure the agent for workspaces.
@@ -91,9 +88,8 @@ Kubernetes cluster to connect your cluster to GitLab:
 The GitLab agent server for Kubernetes (KAS) is the component that communicates with the agent in your cluster.
 
 - On GitLab.com, the agent server is available at `wss://kas.gitlab.com` by default.
-- On GitLab Self-Managed, an administrator must
-  [set up the Kubernetes agent server (KAS)](../../administration/clusters/kas.md).
-  It's then available at `wss://gitlab.example.com/-/kubernetes-agent/`.
+- On GitLab Self-Managed, an administrator must [set up the Kubernetes agent server (KAS)](../../administration/clusters/kas.md).
+ It's then available at `wss://gitlab.example.com/-/kubernetes-agent/`.
 
 ## Configure the GitLab agent for Kubernetes
 
@@ -117,15 +113,13 @@ For a full list of configuration options, see the workspace [configuration refer
 The GitLab agent for Kubernetes is configured in one project, but you can use it in other project workspaces.
 A separate agent is not required for each project.
 
-The configured agent is not visible until you
-[allow the agent in your group](#allow-the-gitlab-agent-for-kubernetes-in-your-group).
+The configured agent is not visible until you [allow the agent in your group](#allow-the-gitlab-agent-for-kubernetes-in-your-group).
 
 {{< /alert >}}
 
 ## Allow the GitLab agent for Kubernetes in your group
 
-When you allow an agent in a group, the group, its subgroups, and all projects in those groups can
-use that agent.
+When you allow an agent in a group, the group, its subgroups, and all projects in those groups can use that agent.
 
 {{< alert type="note" >}}
 
@@ -143,8 +137,7 @@ To allow your GitLab agent for Kubernetes in a group and make it available to al
 
 ## Grant workspace permissions
 
-Grant users with at least the Developer role for the workspace and agent projects
-the necessary permissions to create and manage workspaces. You can:
+Grant users with at least the Developer role for the workspace and agent projects the necessary permissions to create and manage workspaces. You can:
 
 - [Add users to a project](../project/members/_index.md#add-users-to-a-project)
 - [Add users to a group](../group/_index.md#add-users-to-a-group)
@@ -164,8 +157,7 @@ For example, if your base domain is `workspaces.example.dev`:
 - Individual workspaces are available at URLs like `workspace-1.workspaces.example.dev`.
 
 You can generate certificates from any certificate authority.
-If [`cert-manager`](https://cert-manager.io/docs/) is configured for your Kubernetes cluster,
-you can use it to create and renew TLS certificates automatically.
+If [`cert-manager`](https://cert-manager.io/docs/) is configured for your Kubernetes cluster, you can use it to create and renew TLS certificates automatically.
 
 To generate certificates manually:
 
@@ -269,23 +261,23 @@ To create Kubernetes secrets:
 kubectl create namespace gitlab-workspaces
 
 kubectl create secret generic gitlab-workspaces-proxy-config \
-  --namespace="gitlab-workspaces" \
-  --from-literal="auth.client_id=${CLIENT_ID}" \
-  --from-literal="auth.client_secret=${CLIENT_SECRET}" \
-  --from-literal="auth.host=${GITLAB_URL}" \
-  --from-literal="auth.redirect_uri=${REDIRECT_URI}" \
-  --from-literal="auth.signing_key=${SIGNING_KEY}" \
-  --from-literal="ssh.host_key=$(cat ${SSH_HOST_KEY})"
+ --namespace="gitlab-workspaces" \
+ --from-literal="auth.client_id=${CLIENT_ID}" \
+ --from-literal="auth.client_secret=${CLIENT_SECRET}" \
+ --from-literal="auth.host=${GITLAB_URL}" \
+ --from-literal="auth.redirect_uri=${REDIRECT_URI}" \
+ --from-literal="auth.signing_key=${SIGNING_KEY}" \
+ --from-literal="ssh.host_key=$(cat ${SSH_HOST_KEY})"
 
 kubectl create secret tls gitlab-workspace-proxy-tls \
-  --namespace="gitlab-workspaces" \
-  --cert="${WORKSPACES_DOMAIN_CERT}" \
-  --key="${WORKSPACES_DOMAIN_KEY}"
+ --namespace="gitlab-workspaces" \
+ --cert="${WORKSPACES_DOMAIN_CERT}" \
+ --key="${WORKSPACES_DOMAIN_KEY}"
 
 kubectl create secret tls gitlab-workspace-proxy-wildcard-tls \
-  --namespace="gitlab-workspaces" \
-  --cert="${WILDCARD_DOMAIN_CERT}" \
-  --key="${WILDCARD_DOMAIN_KEY}"
+ --namespace="gitlab-workspaces" \
+ --cert="${WILDCARD_DOMAIN_CERT}" \
+ --key="${WILDCARD_DOMAIN_KEY}"
 ```
 
 ## Install the GitLab workspaces proxy Helm chart
@@ -310,13 +302,9 @@ To install the Helm chart for the GitLab workspaces proxy:
 
    {{< alert type="warning" >}}
 
-   Chart versions 0.1.22 and earlier contain a security vulnerability that exposes sensitive
-   information through command line arguments. For more information, see the
-   [vulnerability](https://gitlab.com/gitlab-org/gitlab/-/issues/567267).
+   Chart versions 0.1.22 and earlier contain a security vulnerability that exposes sensitive information through command line arguments. For more information, see the [vulnerability](https://gitlab.com/gitlab-org/gitlab/-/issues/567267).
 
-   Chart versions 0.1.20 and earlier also contain a security vulnerability that sets cookies
-   on a wildcard domain. For more information, see the
-   [vulnerability fix](https://gitlab.com/gitlab-org/workspaces/gitlab-workspaces-proxy/-/merge_requests/34).
+   Chart versions 0.1.20 and earlier also contain a security vulnerability that sets cookies on a wildcard domain. For more information, see the [vulnerability fix](https://gitlab.com/gitlab-org/workspaces/gitlab-workspaces-proxy/-/merge_requests/34).
 
    You should upgrade to chart version 0.1.23 or later to address both vulnerabilities.
 
@@ -325,8 +313,7 @@ To install the Helm chart for the GitLab workspaces proxy:
    {{< alert type="note" >}}
 
    Before chart version 0.1.16, the Helm chart installation created secrets automatically.
-   If you're upgrading from a version earlier than 0.1.16,
-   [create the required Kubernetes secrets](#create-kubernetes-secrets) before running the upgrade command.
+   If you're upgrading from a version earlier than 0.1.16, [create the required Kubernetes secrets](#create-kubernetes-secrets) before running the upgrade command.
 
    {{< /alert >}}
 
@@ -371,8 +358,7 @@ To install the Helm chart for the GitLab workspaces proxy:
 
 To update your DNS records:
 
-1. Point `${GITLAB_WORKSPACES_PROXY_DOMAIN}` and `${GITLAB_WORKSPACES_WILDCARD_DOMAIN}`
-   to the load balancer external IP address exposed by the [Ingress controller](#install-an-ingress-controller).
+1. Point `${GITLAB_WORKSPACES_PROXY_DOMAIN}` and `${GITLAB_WORKSPACES_WILDCARD_DOMAIN}` to the load balancer external IP address exposed by the [Ingress controller](#install-an-ingress-controller).
 1. Check if `gitlab-workspaces-proxy` is accessible:
 
    ```shell
@@ -391,12 +377,11 @@ To update your DNS records:
 
 ## Update the GitLab agent for Kubernetes configuration
 
-If you deploy the Helm chart for the proxy to a namespace other than `gitlab-workspaces`,
-update your [GitLab agent for Kubernetes configuration](gitlab_agent_configuration.md):
+If you deploy the Helm chart for the proxy to a namespace other than `gitlab-workspaces`, update your [GitLab agent for Kubernetes configuration](gitlab_agent_configuration.md):
 
 ```yaml
 remote_development:
-  gitlab_workspaces_proxy:
+ gitlab_workspaces_proxy:
     namespace: "<custom-gitlab-workspaces-proxy-namespace>"
 ```
 

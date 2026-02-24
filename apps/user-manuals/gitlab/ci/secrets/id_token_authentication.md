@@ -24,8 +24,7 @@ CI/CD jobs can use ID tokens for OIDC authentication with third-party services, 
 - [Secrets providers](_index.md)
 - [Cloud services](../cloud_services/_index.md)
 
-For example, the flow for using ID tokens to authenticate with HashiCorp Vault is summarized
-by this diagram:
+For example, the flow for using ID tokens to authenticate with HashiCorp Vault is summarized by this diagram:
 
 ```mermaid
 sequenceDiagram
@@ -58,19 +57,17 @@ For example:
 
 ```yaml
 job_with_id_tokens:
-  id_tokens:
+ id_tokens:
     FIRST_ID_TOKEN:
       aud: https://first.service.com
     SECOND_ID_TOKEN:
       aud: https://second.service.com
-  script:
+ script:
     - first-service-authentication-script.sh $FIRST_ID_TOKEN
     - second-service-authentication-script.sh $SECOND_ID_TOKEN
 ```
 
-In this example, the two tokens have different `aud` claims. Third party services can be configured to reject tokens
-that do not have an `aud` claim matching their bound audience. Use this functionality to reduce the number of
-services with which a token can authenticate. This reduces the severity of having a token compromised.
+In this example, the two tokens have different `aud` claims. Third party services can be configured to reject tokens that do not have an `aud` claim matching their bound audience. Use this functionality to reduce the number of services with which a token can authenticate. This reduces the severity of having a token compromised.
 
 ## Token payload
 
@@ -124,42 +121,42 @@ The token also includes custom claims provided by GitLab:
 
 ```json
 {
-  "namespace_id": "72",
-  "namespace_path": "my-group",
-  "project_id": "20",
-  "project_path": "my-group/my-project",
-  "user_id": "1",
-  "user_login": "sample-user",
-  "user_email": "sample-user@example.com",
-  "user_identities": [
+ "namespace_id": "72",
+ "namespace_path": "my-group",
+ "project_id": "20",
+ "project_path": "my-group/my-project",
+ "user_id": "1",
+ "user_login": "sample-user",
+ "user_email": "sample-user@example.com",
+ "user_identities": [
       {"provider": "github", "extern_uid": "2435223452345"},
       {"provider": "bitbucket", "extern_uid": "john.smith"}
-  ],
-  "pipeline_id": "574",
-  "pipeline_source": "push",
-  "job_id": "302",
-  "ref": "feature-branch-1",
-  "ref_type": "branch",
-  "ref_path": "refs/heads/feature-branch-1",
-  "ref_protected": "false",
-  "groups_direct": ["mygroup/mysubgroup", "myothergroup/myothersubgroup"],
-  "environment": "test-environment2",
-  "environment_protected": "false",
-  "deployment_tier": "testing",
-  "environment_action": "start",
-  "runner_id": 1,
-  "runner_environment": "self-hosted",
-  "sha": "714a629c0b401fdce83e847fc9589983fc6f46bc",
-  "project_visibility": "public",
-  "ci_config_ref_uri": "gitlab.example.com/my-group/my-project//.gitlab-ci.yml@refs/heads/main",
-  "ci_config_sha": "714a629c0b401fdce83e847fc9589983fc6f46bc",
-  "jti": "235b3a54-b797-45c7-ae9a-f72d7bc6ef5b",
-  "iss": "https://gitlab.example.com",
-  "iat": 1681395193,
-  "nbf": 1681395188,
-  "exp": 1681398793,
-  "sub": "project_path:my-group/my-project:ref_type:branch:ref:feature-branch-1",
-  "aud": "https://vault.example.com"
+ ],
+ "pipeline_id": "574",
+ "pipeline_source": "push",
+ "job_id": "302",
+ "ref": "feature-branch-1",
+ "ref_type": "branch",
+ "ref_path": "refs/heads/feature-branch-1",
+ "ref_protected": "false",
+ "groups_direct": ["mygroup/mysubgroup", "myothergroup/myothersubgroup"],
+ "environment": "test-environment2",
+ "environment_protected": "false",
+ "deployment_tier": "testing",
+ "environment_action": "start",
+ "runner_id": 1,
+ "runner_environment": "self-hosted",
+ "sha": "714a629c0b401fdce83e847fc9589983fc6f46bc",
+ "project_visibility": "public",
+ "ci_config_ref_uri": "gitlab.example.com/my-group/my-project//.gitlab-ci.yml@refs/heads/main",
+ "ci_config_sha": "714a629c0b401fdce83e847fc9589983fc6f46bc",
+ "jti": "235b3a54-b797-45c7-ae9a-f72d7bc6ef5b",
+ "iss": "https://gitlab.example.com",
+ "iat": 1681395193,
+ "nbf": 1681395188,
+ "exp": 1681398793,
+ "sub": "project_path:my-group/my-project:ref_type:branch:ref:feature-branch-1",
+ "aud": "https://vault.example.com"
 }
 ```
 
@@ -170,31 +167,26 @@ The expiry time for the token is set to the job's timeout if specified, or 5 min
 
 ### `400: missing token` status code
 
-This error indicates that one or more basic components necessary for ID tokens are
-either missing or not configured as expected.
+This error indicates that one or more basic components necessary for ID tokens are either missing or not configured as expected.
 
-To find the problem, an administrator can look for more details in the instance's
-`exceptions_json.log` for the specific method that failed.
+To find the problem, an administrator can look for more details in the instance's `exceptions_json.log` for the specific method that failed.
 
 ### `GitLab::Ci::Jwt::NoSigningKeyError`
 
-This error in the `exceptions_json.log` file is likely because the signing key is
-missing from the database and the token could not be generated. To verify this is the issue,
-run the following query on the instance's PostgreSQL terminal:
+This error in the `exceptions_json.log` file is likely because the signing key is missing from the database and the token could not be generated. To verify this is the issue, run the following query on the instance's PostgreSQL terminal:
 
 ```sql
 SELECT encrypted_ci_jwt_signing_key FROM application_settings;
 ```
 
-If the returned value is empty, use the following Rails snippet to generate a new key
-and replace it internally:
+If the returned value is empty, use the following Rails snippet to generate a new key and replace it internally:
 
 ```ruby
-  key = OpenSSL::PKey::RSA.new(2048).to_pem
+ key = OpenSSL::PKey::RSA.new(2048).to_pem
 
-  ApplicationSetting.find_each do |application_setting|
+ ApplicationSetting.find_each do |application_setting|
     application_setting.update(ci_jwt_signing_key: key)
-  end
+ end
 ```
 
 ### `401: unauthorized` status code

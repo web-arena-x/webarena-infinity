@@ -15,8 +15,8 @@ Click the yellow button **Cancel** in the lower-left corner of the expanded sect
 In the pop-up that appears, enter the details for notifications to be sent:
 
 - Click to to select whom you should notify of the cancelation:
-  - Employers *(checkbox)*
-  - Students *(radio buttons)*
+ - Employers *(checkbox)*
+ - Students *(radio buttons)*
     - Do not notify students
     - Notify students who have taken slots
     - Notify all student applicants

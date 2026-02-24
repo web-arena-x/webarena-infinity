@@ -18,8 +18,8 @@ These Google services include:
 - Google Shopping
 - Google Maps
 
-When linked, these services can share your data with each other and with all other Google services for certain purposes. All types of data described in Google's Privacy Policy can be shared across linked Google services. This includes your activity data when you’re signed in, such as things you search for and the videos you watch and listen to.  
-  
+When linked, these services can share your data with each other and with all other Google services for certain purposes. All types of data described in Google's Privacy Policy can be shared across linked Google services. This includes your activity data when you’re signed in, such as things you search for and the videos you watch and listen to. 
+ 
 You can manage your choices of which services are linked in your Google Account.
 
 **Tip:** Linking Google services is not about sharing your data with third-party services.

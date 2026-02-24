@@ -21,36 +21,26 @@ title: Debian packages in the package registry
 
 {{< alert type="warning" >}}
 
-The Debian package registry for GitLab is under development and isn't ready for production use. This [epic](https://gitlab.com/groups/gitlab-org/-/epics/6057) details the remaining
-work and timelines to make it production ready. Support for [Debian packages is an experiment](../package_registry/supported_functionality.md), and has known security vulnerabilities.
+The Debian package registry for GitLab is under development and isn't ready for production use. This [epic](https://gitlab.com/groups/gitlab-org/-/epics/6057) details the remaining work and timelines to make it production ready. Support for [Debian packages is an experiment](../package_registry/supported_functionality.md), and has known security vulnerabilities.
 
 {{< /alert >}}
 
-Publish Debian packages in your project's package registry. Then install the
-packages whenever you need to use them as a dependency.
+Publish Debian packages in your project's package registry. Then install the packages whenever you need to use them as a dependency.
 
 Project and Group packages are supported.
 
-For documentation of the specific API endpoints that Debian package manager
-clients use, see the [Debian API documentation](../../../api/packages/debian.md).
+For documentation of the specific API endpoints that Debian package manager clients use, see the [Debian API documentation](../../../api/packages/debian.md).
 
 Prerequisites:
 
 - The `dpkg-deb` binary must be installed on the GitLab instance.
-  This binary is usually provided by the [`dpkg` package](https://wiki.debian.org/Teams/Dpkg/Downstream),
-  installed by default on Debian and derivatives.
-- Recommended. Use `dpkg-deb` 1.22.21 or later. In `dpkg-deb` 1.22.20 and earlier,
-  the binary cannot delete temporary files from archives that
-  contain non-writable directories. These files consume disk space
-  and can cause a denial of service attack.
-- Support for compression algorithm ZStandard requires version `dpkg >= 1.21.18`
-  from Debian 12 Bookworm or `dpkg >= 1.19.0.5ubuntu2` from Ubuntu
-  18.04 Bionic Beaver.
+ This binary is usually provided by the [`dpkg` package](https://wiki.debian.org/Teams/Dpkg/Downstream), installed by default on Debian and derivatives.
+- Recommended. Use `dpkg-deb` 1.22.21 or later. In `dpkg-deb` 1.22.20 and earlier, the binary cannot delete temporary files from archives that contain non-writable directories. These files consume disk space and can cause a denial of service attack.
+- Support for compression algorithm ZStandard requires version `dpkg >= 1.21.18` from Debian 12 Bookworm or `dpkg >= 1.19.0.5ubuntu2` from Ubuntu 18.04 Bionic Beaver.
 
 ## Enable the Debian API
 
-Debian repository support is still a work in progress. It's gated behind a feature flag that's
-disabled by default.
+Debian repository support is still a work in progress. It's gated behind a feature flag that's disabled by default.
 [GitLab administrators with access to the GitLab Rails console](../../../administration/feature_flags/_index.md)
 can opt to enable it.
 
@@ -101,29 +91,25 @@ and [package repositories](#authenticate-to-the-debian-package-repositories).
 
 To create, read, update, or delete a distribution, you need one of the following:
 
-- [Personal access token](../../profile/personal_access_tokens.md),
-  using `--header "PRIVATE-TOKEN: <personal_access_token>"`
+- [Personal access token](../../profile/personal_access_tokens.md), using `--header "PRIVATE-TOKEN: <personal_access_token>"`
 - [Deploy token](../../project/deploy_tokens/_index.md)
-  using `--header "Deploy-Token: <deploy_token>"`
+ using `--header "Deploy-Token: <deploy_token>"`
 - [CI/CD job token](../../../ci/jobs/ci_job_token.md)
-  using `--header "Job-Token: <job_token>"`
+ using `--header "Job-Token: <job_token>"`
 
 ### Authenticate to the Debian Package Repositories
 
-To publish a package, or install a private package, you need to use basic authentication,
-with one of the following:
+To publish a package, or install a private package, you need to use basic authentication, with one of the following:
 
-- [Personal access token](../../profile/personal_access_tokens.md),
-  using `<username>:<personal_access_token>`
+- [Personal access token](../../profile/personal_access_tokens.md), using `<username>:<personal_access_token>`
 - [Deploy token](../../project/deploy_tokens/_index.md)
-  using `<deploy_token_name>:<deploy_token>`
+ using `<deploy_token_name>:<deploy_token>`
 - [CI/CD job token](../../../ci/jobs/ci_job_token.md)
-  using `gitlab-ci-token:<job_token>`
+ using `gitlab-ci-token:<job_token>`
 
 ## Create a Distribution
 
-At the project level, Debian packages are published with Debian distributions. At the
-group level, Debian packages are aggregated from the projects in the group provided that:
+At the project level, Debian packages are published with Debian distributions. At the group level, Debian packages are aggregated from the projects in the group provided that:
 
 - The project visibility is set to `public`.
 - The Debian `codename` for the group matches the Debian `codename` for the project.
@@ -132,28 +118,28 @@ To create a project-level distribution using a personal access token:
 
 ```shell
 curl --fail-with-body --request POST --header "PRIVATE-TOKEN: <personal_access_token>" \
-  "https://gitlab.example.com/api/v4/projects/<project_id>/debian_distributions?codename=<codename>"
+ "https://gitlab.example.com/api/v4/projects/<project_id>/debian_distributions?codename=<codename>"
 ```
 
 Example response with `codename=sid`:
 
 ```json
 {
-  "id": 1,
-  "codename": "sid",
-  "suite": null,
-  "origin": null,
-  "label": null,
-  "version": null,
-  "description": null,
-  "valid_time_duration_seconds": null,
-  "components": [
+ "id": 1,
+ "codename": "sid",
+ "suite": null,
+ "origin": null,
+ "label": null,
+ "version": null,
+ "description": null,
+ "valid_time_duration_seconds": null,
+ "components": [
     "main"
-  ],
-  "architectures": [
+ ],
+ "architectures": [
     "all",
     "amd64"
-  ]
+ ]
 }
 ```
 
@@ -175,8 +161,7 @@ Once built, several files are created:
 - `.changes` file: Upload metadata, and list of uploaded files (all the above)
 
 To upload these files, you can use `dput-ng >= 1.32` (Debian bullseye).
-`<username>` and `<password>` are defined like in
-[Debian package repositories](#authenticate-to-the-debian-package-repositories):
+`<username>` and `<password>` are defined like in [Debian package repositories](#authenticate-to-the-debian-package-repositories):
 
 ```shell
 cat <<EOF > dput.cf
@@ -197,15 +182,13 @@ dput --config=dput.cf --unchecked --no-upload-log gitlab <your_package>.changes
 
 {{< /history >}}
 
-When you don't have access to `.changes` file, you can directly upload a `.deb` by passing
-distribution `codename` and target `component` as parameters with
-your [credentials](#authenticate-to-the-debian-package-repositories).
+When you don't have access to `.changes` file, you can directly upload a `.deb` by passing distribution `codename` and target `component` as parameters with your [credentials](#authenticate-to-the-debian-package-repositories).
 For example, to upload to component `main` of distribution `sid` using a personal access token:
 
 ```shell
 curl --fail-with-body --request PUT --user "<username>:<personal_access_token>" \
-  "https://gitlab.example.com/api/v4/projects/<project_id>/packages/debian/your.deb?distribution=sid&component=main" \
-  --upload-file  /path/to/your.deb
+ "https://gitlab.example.com/api/v4/projects/<project_id>/packages/debian/your.deb?distribution=sid&component=main" \
+ --upload-file /path/to/your.deb
 ```
 
 ## Install a package
@@ -286,8 +269,7 @@ Prerequisites:
 
 - You must have at least the Maintainer role.
 
-Before you delete a package, make sure you understand
-the [associated security risks](../package_registry/supported_functionality.md#deleting-packages).
+Before you delete a package, make sure you understand the [associated security risks](../package_registry/supported_functionality.md#deleting-packages).
 
 To delete a package, you can either:
 

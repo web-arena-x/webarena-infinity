@@ -99,7 +99,7 @@ The following status indicator appears: `Under maintenance. Users may experience
 ### Scheduled maintenance
 
 - What this maintenance indicator means: Your instance is currently in a scheduled maintenance window.
-  Brief disruptions might occur during maintenance. For more information, see [GitLab Dedicated maintenance operations](maintenance.md#access-during-maintenance).
+ Brief disruptions might occur during maintenance. For more information, see [GitLab Dedicated maintenance operations](maintenance.md#access-during-maintenance).
 - When this maintenance indicator appears: The scheduled maintenance indicator appears during your scheduled maintenance window.
 - What GitLab is doing: Planned updates, patches, or infrastructure improvements are being conducted to keep your instance secure and up-to-date.
 
@@ -141,8 +141,7 @@ The **Hosted runners** section shows the [hosted runners](hosted_runners.md) ass
 
 ## Resource access
 
-The **Resource access** section in Switchboard provides network information
-needed to configure external services and firewalls to work with your GitLab Dedicated instance.
+The **Resource access** section in Switchboard provides network information needed to configure external services and firewalls to work with your GitLab Dedicated instance.
 
 To view your resource access information:
 
@@ -169,8 +168,7 @@ To manage access to and view application logs, see [access application logs for 
 
 ### NAT gateway IP addresses
 
-NAT gateway IP addresses typically remain consistent during standard operations
-but can change when GitLab rebuilds your instance during disaster recovery.
+NAT gateway IP addresses typically remain consistent during standard operations but can change when GitLab rebuilds your instance during disaster recovery.
 
 Use this information to:
 
@@ -179,8 +177,7 @@ Use this information to:
 
 ### Container registry
 
-The **Container registry** section provides the FQDN (Fully Qualified Domain Name) for your
-instance's container registry S3 bucket.
+The **Container registry** section provides the FQDN (Fully Qualified Domain Name) for your instance's container registry S3 bucket.
 
 Use this information to:
 
@@ -223,9 +220,7 @@ To view your custom domain details:
 
 {{< /details >}}
 
-If your custom domain is configured with Cloudflare Web Application Firewall (WAF),
-additional configuration details are displayed including Cloudflare nameservers
-and DNSSEC parameters for FedRAMP compliance.
+If your custom domain is configured with Cloudflare Web Application Firewall (WAF), additional configuration details are displayed including Cloudflare nameservers and DNSSEC parameters for FedRAMP compliance.
 
 The additional details include:
 
@@ -239,12 +234,10 @@ Use these values to configure DNS delegation and DNSSEC validation with your DNS
 
 ## Contact information
 
-The **Contact information** section shows the operational email addresses configured for
-your GitLab Dedicated instance. These email addresses receive notifications about your instance, including:
+The **Contact information** section shows the operational email addresses configured for your GitLab Dedicated instance. These email addresses receive notifications about your instance, including:
 
 - Emergency maintenance
 - Incidents
 - Other critical updates
 
-To update your operational email addresses,
-see [manage email addresses for operational contacts](configure_instance/users_notifications.md#manage-email-addresses-for-operational-contacts).
+To update your operational email addresses, see [manage email addresses for operational contacts](configure_instance/users_notifications.md#manage-email-addresses-for-operational-contacts).

@@ -14,7 +14,7 @@ To use Meet in Gmail, you need:
 - A supported operating system
 - A broadband internet connection
 - A built-in web camera or external USB camera
-  - For web browsers, give permission for Meet to [use your computer’s camera and microphone](/meet/answer/7317473#zippy=%2Callow-meet-to-use-your-camera-and-microphone).
+ - For web browsers, give permission for Meet to [use your computer’s camera and microphone](/meet/answer/7317473#zippy=%2Callow-meet-to-use-your-camera-and-microphone).
 
 ## Show or hide Meet in Gmail
 
@@ -65,7 +65,7 @@ In addition to Gmail, you can set up or join a meeting from:
 - [Meet](https://meet.google.com)
 - [Calendar](https://calendar.google.com)
 - [Chat](https://mail.google.com/chat)
-  - In Chat, you can also start a video call to someone else. When the other person receives the call, they hear a ring. [Learn how to start a video meeting or call someone in Chat](/chat/answer/7653283).
+ - In Chat, you can also start a video call to someone else. When the other person receives the call, they hear a ring. [Learn how to start a video meeting or call someone in Chat](/chat/answer/7653283).
 
 ## Related resources
 

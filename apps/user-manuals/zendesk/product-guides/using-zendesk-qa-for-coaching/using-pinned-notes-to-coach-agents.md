@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/7043759543194-Using-pinned
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Quality Assurance (QA) or Workforce Engagement Management (WEM) |
 
@@ -14,14 +14,11 @@ Verified AI summary ◀▼
 
 Use pinned notes to enhance coaching by marking conversations for future discussions. Pin conversations to highlight trends or topics for one-on-one sessions. Add private comments or tag team members for visibility. Access all pinned notes under Coaching, and view agent-specific pins on their performance panel. This feature helps you prepare effectively for coaching sessions and track important conversation insights.
 
-Location:  Zendesk QA > Coaching > Pins
+Location: Zendesk QA > Coaching > Pins
 
-Reviewers can pin and add notes to conversations in preparation for their coaching
-sessions.
+Reviewers can pin and add notes to conversations in preparation for their coaching sessions.
 
-Pin conversations whenever you spot trends or topics you want to discuss in your
-next one on one sessions. You can also come back to these notes later and use them in your
-coaching session with the agent.
+Pin conversations whenever you spot trends or topics you want to discuss in your next one on one sessions. You can also come back to these notes later and use them in your coaching session with the agent.
 
 This article contains the following topics:
 
@@ -43,9 +40,7 @@ Related articles:
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zqa_7043759543194_1.png)
 4. Select a user to pin the note under.
-5. Enter your comments. By default, your pins are private and only you can see
-   them. However, you can @mention team members on your pin who will then be able to see (but
-   not edit) them in their own pin board.
+5. Enter your comments. By default, your pins are private and only you can see them. However, you can @mention team members on your pin who will then be able to see (but not edit) them in their own pin board.
 
    You can also use a template. See [Creating and using templates in Zendesk QA](https://support.zendesk.com/hc/en-us/articles/7043747156506).
 6. Click **Pin conversation**.
@@ -65,5 +60,4 @@ You can view all your pinned notes under Coaching.
 
    ![](https://zen-marketing-documentation.s3.us-west-1.amazonaws.com/docs/en/zqa_pins_list.png)
 
-Tip: You can view all pins created for each agent on their performance panel
-under Sessions. See [Understanding coaching sessions](https://support.zendesk.com/hc/en-us/articles/7043747156506).
+Tip: You can view all pins created for each agent on their performance panel under Sessions. See [Understanding coaching sessions](https://support.zendesk.com/hc/en-us/articles/7043747156506).

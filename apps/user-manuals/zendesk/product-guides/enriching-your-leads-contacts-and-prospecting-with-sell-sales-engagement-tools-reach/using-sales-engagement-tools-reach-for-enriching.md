@@ -25,11 +25,11 @@ Related article:
 When you start using Sales Engagement Tools (Reach), you can use either prospecting credits or enrichment credits. The information you already know about the lead or contact determines the type of credit you'll use. You use one credit for each company or person that you prospect or enrich.
 
 - **Enrichment credits** – use to generate data about a lead or contact and build a more complete profile where you already have some information about the lead or contact. There is a minimum amount of data you need to use an enrichment credit.
-  - To use an enrichment credit for a company, you must know the company name and website
-  - To use an enrichment credit for a person, you must know their email address
+ - To use an enrichment credit for a company, you must know the company name and website
+ - To use an enrichment credit for a person, you must know their email address
 - **Prospecting credits** – use if you don’t have any information about a lead or contact, you will use a prospecting credit. Sales Engagement Tools generates brand new prospects or improves existing data about your current lead or contact.
 
-  For example, you might have a certain company in mind that you believe would be a good fit for your product or service. Use the **Prospect** option with sales engagement tools to uncover a point of contact you need to get in touch with, or use the **Enrich** option to retrieve key details around the company that could influence buyer behavior, such as company size or market capitalization (see [Using Sales Engagement Tools (Reach) for prospecting](https://support.zendesk.com/hc/en-us/articles/4408827003802)).
+ For example, you might have a certain company in mind that you believe would be a good fit for your product or service. Use the **Prospect** option with sales engagement tools to uncover a point of contact you need to get in touch with, or use the **Enrich** option to retrieve key details around the company that could influence buyer behavior, such as company size or market capitalization (see [Using Sales Engagement Tools (Reach) for prospecting](https://support.zendesk.com/hc/en-us/articles/4408827003802)).
 
 ## Enriching an existing lead or contact
 

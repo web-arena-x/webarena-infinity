@@ -17,10 +17,10 @@ Procore currently offers two separate plugin applications for Windows that can b
 - The Procore BIM plugins can only be used on Windows computers.
 - The following applications are currently supported:
 
-  - Navisworks® Manage (versions 2019-2025).
-  - Navisworks® Simulate (versions 2019-2025).
-  - Revit® (2019-2025).
-  - AutoCAD® products (2019-2025):
+ - Navisworks® Manage (versions 2019-2025).
+ - Navisworks® Simulate (versions 2019-2025).
+ - Revit® (2019-2025).
+ - AutoCAD® products (2019-2025):
     - AutoCAD Electrical
     - AutoCAD Mechanical
     - Architectural Desktop
@@ -44,22 +44,22 @@ See steps for the following:
 
 - [Documents Tool Plugin for Autodesk®](#Documents_Tool_Plugin_for_Autodesk "Download Procore BIM Plugins")
 - [VDC Plugin](#VDC_Plugin "Download Procore BIM Plugins")
-  - [For the Coordination Issues Tool](#for_the_Coordination_Issues_Tool "Download Procore BIM Plugins")
-  - [For the Models Tool](#for_the_Models_tool "Download Procore BIM Plugins")
-  - [For Importing Locations](#for_Importing_Locations "Download Procore BIM Plugins")
+ - [For the Coordination Issues Tool](#for_the_Coordination_Issues_Tool "Download Procore BIM Plugins")
+ - [For the Models Tool](#for_the_Models_tool "Download Procore BIM Plugins")
+ - [For Importing Locations](#for_Importing_Locations "Download Procore BIM Plugins")
 
 ### Documents Tool Plugin for Autodesk
 
-1. Click the **Download** **Now** link below to download the plugin application to your Windows computer.  
-   *Note:* You can also download the plugin from the Coordination Issues tool by clicking **Download Plugin** and selecting **Documents Plugin for Autodesk**.  
+1. Click the **Download** **Now** link below to download the plugin application to your Windows computer. 
+   *Note:* You can also download the plugin from the Coordination Issues tool by clicking **Download Plugin** and selecting **Documents Plugin for Autodesk**. 
      
    Download Now
 2. Click the downloaded .msi application file on your computer to begin setting up the plugin.
 3. Click **Run** or **Save.**
-4. Click **Yes**to allow Procore to make changes to your device.  
+4. Click **Yes**to allow Procore to make changes to your device. 
    *Note:* You will need Administrator rights to your computer.
 5. Log in to Procore using your login credentials.
-6. Open Navisworks®, Revit®, or AutoCAD® applications on your computer.  
+6. Open Navisworks®, Revit®, or AutoCAD® applications on your computer. 
    A 'Procore' tab will be viewable in the application.
 
 ### VDC Plugin
@@ -76,57 +76,57 @@ You only need to download the VDC plugin once, but the setup may differ dependin
 
 #### for the Coordination Issues Tool
 
-1. Click the **Download Now** link belowto download the plugin application to your computer.  
+1. Click the **Download Now** link belowto download the plugin application to your computer. 
      
-   Download Now  
+   Download Now 
      
-   *Note:* You can also download the plugin directly from the Coordination Issues tool in Procore by clicking **Download Plugin**.   
+   *Note:* You can also download the plugin directly from the Coordination Issues tool in Procore by clicking **Download Plugin**.  
    ![]()
 2. Click the downloaded .exe application file to begin setting up the plugin.
 3. Click **Accept** to accept the Terms and Conditions.
 4. Click **Run** or **Save.**
-5. Click **Yes**to allow Procore to make changes to your device.  
+5. Click **Yes**to allow Procore to make changes to your device. 
    *Note:* You will need Administrator rights to your computer.
-6. Click **Accept** to accept the Terms and Conditions for the Procore plugin.  
+6. Click **Accept** to accept the Terms and Conditions for the Procore plugin. 
    *Note:* The application should automatically open. If not, look for the 'Procore VDC' application on your computer.
 7. Log in to Procore with your Procore credentials.
-8. Click **Install** next to the version you want to download.  
+8. Click **Install** next to the version you want to download. 
      
-   ![]()  
+   ![]() 
      
    *Note:* The year of your Navisworks® application and the Procore plugin should be the same.
-9. Open the Navisworks® application on your computer.  
+9. Open the Navisworks® application on your computer. 
    A Procore tab will be viewable in Navisworks®.
 
 #### for the Models tool
 
-1. Click the **Download Now** link belowto download the plugin application to your Windows computer.  
+1. Click the **Download Now** link belowto download the plugin application to your Windows computer. 
      
-   Download Now  
+   Download Now 
      
    *Note:* You can also download the plugin directly from the Models tool in Procore by clicking **Download Plugin**.
 2. Click the downloaded .exe application file to begin setting up the plugin.
-3. Allow Procore to make changes to your device.  
+3. Allow Procore to make changes to your device. 
    *Note:* You will need Administrator rights to your computer.
 4. Log into Procore with your Procore credentials.
-5. Click **Install** next to the version you want to download.  
+5. Click **Install** next to the version you want to download. 
    *Note:* The year of your Navisworks® application and the Procore plugin should be the same.
-6. Open the Navisworks® application on your computer.  
+6. Open the Navisworks® application on your computer. 
    A Procore tab will be viewable in Navisworks®.
 
 #### for Importing Locations
 
-1. Click the **Download Now** link belowto download the plugin application to your computer.  
+1. Click the **Download Now** link belowto download the plugin application to your computer. 
      
-   Download Now  
+   Download Now 
      
    *Note:* You can also download the plugin directly from the Locations page of the Admin tool in Procore by clicking **Download Plugin**.
 2. Click the downloaded .exe application file to begin setting up the plugin.
-3. Allow Procore to make changes to your device.  
+3. Allow Procore to make changes to your device. 
    **Note*:* You will need Administrator rights to your computer.
 4. Log into Procore with your Procore credentials.
 5. Click ****Install**** next to the version of Revit you want to download.
-6. Open the Revit® application on your computer.  
+6. Open the Revit® application on your computer. 
    A Procore tab will be viewable in Revit®.
 
 ## See Also

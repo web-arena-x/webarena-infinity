@@ -5,13 +5,11 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Development seed files
 ---
 
-Development seed files are listed under `gitlab/db/fixtures/development/` and `gitlab/ee/db/fixtures/development/`
-folders. These files are used to populate the database with records to help verifying if feature functionalities, like charts, are working as expected on local host.
+Development seed files are listed under `gitlab/db/fixtures/development/` and `gitlab/ee/db/fixtures/development/` folders. These files are used to populate the database with records to help verifying if feature functionalities, like charts, are working as expected on local host.
 
 The task `rake db:seed_fu` can be used to run all development seeds with the exception of the ones under a flag which is usually passed as an environment variable.
 
-The following table summarizes the seeds and tasks that can be used to generate
-data for features.
+The following table summarizes the seeds and tasks that can be used to generate data for features.
 
 | Feature                                                                                                           | Command                                                                                                       | Seed                                                                                                                                                |
 |-------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|

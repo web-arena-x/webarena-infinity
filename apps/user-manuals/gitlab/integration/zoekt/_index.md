@@ -45,12 +45,11 @@ Prerequisites:
 
 - Be an administrator of the instance.
 
-To [enable exact code search](#enable-exact-code-search) in GitLab,
-you must have at least one Zoekt node connected to the instance.
+To [enable exact code search](#enable-exact-code-search) in GitLab, you must have at least one Zoekt node connected to the instance.
 The following installation methods are supported for Zoekt:
 
 - [Zoekt chart](https://docs.gitlab.com/charts/charts/gitlab/gitlab-zoekt/)
-  (as a standalone chart or subchart of the GitLab Helm chart)
+ (as a standalone chart or subchart of the GitLab Helm chart)
 - [GitLab Operator](https://docs.gitlab.com/operator/) (with `gitlab-zoekt.install=true`)
 
 The following installation methods are available for testing, not for production use:
@@ -154,22 +153,22 @@ Storage reserved / usable:    71.1 MiB / 124 GiB (0.06%)
 Storage indexed / reserved:   42.7 MiB / 71.1 MiB (60.0%)
 Storage used / total:         797 GiB / 921 GiB (86.54%)
 Online node watermark levels: 2
-  - low: 2
+ - low: 2
 
 Indexing status
 Group count:                      8
 # Number of enabled namespaces and their status
 EnabledNamespace count:           8 (without indices: 0, rollout blocked: 0, with search disabled: 0)
 Replicas count:                   8
-  - ready: 8
+ - ready: 8
 Indices count:                    8
-  - ready: 8
+ - ready: 8
 Indices watermark levels:         8
-  - healthy: 8
+ - healthy: 8
 Repositories count:               10
-  - ready: 10
+ - ready: 10
 Tasks count:                      10
-  - done: 10
+ - done: 10
 Tasks pending/processing by type: (none)
 
 Feature Flags (Non-Default Values)
@@ -180,20 +179,20 @@ Feature Flags (Default Values)
 
 Node Details
 Node 1 - test-zoekt-hostname-1:
-  Status:                       Online
-  Last seen at:                 2025-11-21 22:58:09 UTC (less than a minute ago)
-  Disk utilization:             86.54%
-  Unclaimed storage:            62 GiB
-  # Zoekt build version on the node. Must match GitLab version.
-  Zoekt version:                2025.11.20-v1.7.6-28-gb9a0fd8
-  Schema version:               2531
+ Status:                       Online
+ Last seen at:                 2025-11-21 22:58:09 UTC (less than a minute ago)
+ Disk utilization:             86.54%
+ Unclaimed storage:            62 GiB
+ # Zoekt build version on the node. Must match GitLab version.
+ Zoekt version:                2025.11.20-v1.7.6-28-gb9a0fd8
+ Schema version:               2531
 Node 2 - test-zoekt-hostname-2:
-  Status:                       Online
-  Last seen at:                 2025-11-21 22:58:09 UTC (less than a minute ago)
-  Disk utilization:             86.54%
-  Unclaimed storage:            62 GiB
-  Zoekt version:                2025.11.20-v1.7.6-28-gb9a0fd8
-  Schema version:               2531
+ Status:                       Online
+ Last seen at:                 2025-11-21 22:58:09 UTC (less than a minute ago)
+ Disk utilization:             86.54%
+ Unclaimed storage:            62 GiB
+ Zoekt version:                2025.11.20-v1.7.6-28-gb9a0fd8
+ Schema version:               2531
 ```
 
 ## Run a health check
@@ -329,8 +328,7 @@ Prerequisites:
 
 You can set the number of concurrent indexing tasks for a Zoekt node relative to its CPU capacity.
 
-A higher multiplier means more tasks can run concurrently, which would
-improve indexing throughput at the cost of increased CPU usage.
+A higher multiplier means more tasks can run concurrently, which would improve indexing throughput at the cost of increased CPU usage.
 The default value is `1.0` (one task per CPU core).
 
 You can adjust this value based on the node's performance and workload.
@@ -341,8 +339,7 @@ To set the number of concurrent indexing tasks:
 1. Expand **Exact code search**.
 1. In the **Indexing CPU to tasks multiplier** text box, enter a value.
 
-   For example, if a Zoekt node has `4` CPU cores and the multiplier is `1.5`,
-   the number of concurrent tasks for the node is `6`.
+   For example, if a Zoekt node has `4` CPU cores and the multiplier is `1.5`, the number of concurrent tasks for the node is `6`.
 
 1. Select **Save changes**.
 
@@ -393,8 +390,7 @@ To set the number of namespaces per indexing rollout:
 1. In the upper-right corner, select **Admin**.
 1. Select **Settings** > **Search**.
 1. Expand **Exact code search**.
-1. In the **Number of namespaces per indexing rollout** text box,
-   enter a number greater than zero.
+1. In the **Number of namespaces per indexing rollout** text box, enter a number greater than zero.
 1. Select **Save changes**.
 
 ## Define when offline nodes are automatically deleted
@@ -410,8 +406,7 @@ Prerequisites:
 
 - You must have administrator access to the instance.
 
-You can delete offline Zoekt nodes automatically after a specific period of time
-along with their related indices, repositories, and tasks.
+You can delete offline Zoekt nodes automatically after a specific period of time along with their related indices, repositories, and tasks.
 The default value is `12h` (12 hours).
 
 Use this setting to manage your Zoekt infrastructure and prevent orphaned resources.
@@ -420,8 +415,7 @@ To define when offline nodes are automatically deleted:
 1. In the upper-right corner, select **Admin**.
 1. Select **Settings** > **Search**.
 1. Expand **Exact code search**.
-1. In the **Offline nodes automatically deleted after** text box, enter a value
-   (for example, `30m` (30 minutes), `2h` (two hours), or `1d` (one day)).
+1. In the **Offline nodes automatically deleted after** text box, enter a value (for example, `30m` (30 minutes), `2h` (two hours), or `1d` (one day)).
    To disable automatic deletion, set to `0`.
 1. Select **Save changes**.
 
@@ -445,8 +439,7 @@ To define the indexing timeout for a project:
 1. In the upper-right corner, select **Admin**.
 1. Select **Settings** > **Search**.
 1. Expand **Exact code search**.
-1. In the **Indexing timeout per project** text box, enter a value
-   (for example, `30m` (30 minutes), `2h` (two hours), or `1d` (one day)).
+1. In the **Indexing timeout per project** text box, enter a value (for example, `30m` (30 minutes), `2h` (two hours), or `1d` (one day)).
 1. Select **Save changes**.
 
 ## Set the maximum number of files in a project to be indexed
@@ -497,8 +490,7 @@ To set maximum file size for indexing:
 1. In the upper-right corner, select **Admin**.
 1. Select **Settings** > **Search**.
 1. Expand **Exact code search**.
-1. In the **Maximum file size for indexing** text box, enter a value
-   (for example, `512B`, `50KB`, `2MB`, or `1GB`).
+1. In the **Maximum file size for indexing** text box, enter a value (for example, `512B`, `50KB`, `2MB`, or `1GB`).
    The value can also be in lowercase.
 1. Select **Save changes**.
 
@@ -550,8 +542,7 @@ To define the retry interval for failed namespaces:
 1. In the upper-right corner, select **Admin**.
 1. Select **Settings** > **Search**.
 1. Expand **Exact code search**.
-1. In the **Retry interval for failed namespaces** text box, enter a value
-   (for example, `30m` (30 minutes), `2h` (two hours), or `1d` (one day)).
+1. In the **Retry interval for failed namespaces** text box, enter a value (for example, `30m` (30 minutes), `2h` (two hours), or `1d` (one day)).
 1. Select **Save changes**.
 
 ## Set the number of replicas per namespace
@@ -569,8 +560,7 @@ Prerequisites:
 You can set the number of replicas per namespace.
 The default value is `1` (one replica per namespace).
 
-Increasing the number of replicas per namespace improves search availability
-by distributing the load across multiple Zoekt nodes.
+Increasing the number of replicas per namespace improves search availability by distributing the load across multiple Zoekt nodes.
 More replicas increase storage requirements.
 
 To set the number of replicas per namespace:
@@ -578,8 +568,7 @@ To set the number of replicas per namespace:
 1. In the upper-right corner, select **Admin**.
 1. Select **Settings** > **Search**.
 1. Expand **Exact code search**.
-1. In the **Number of replicas per namespace** text box,
-   enter a number greater than zero.
+1. In the **Number of replicas per namespace** text box, enter a number greater than zero.
 1. Select **Save changes**.
 
 ## Run Zoekt on a separate server
@@ -618,64 +607,56 @@ Adjust resources based on your specific workload characteristics, including:
 ### Nodes
 
 For optimal performance, proper sizing of Zoekt nodes is crucial.
-Sizing recommendations differ between Kubernetes and VM deployments
-due to how resources are allocated and managed.
+Sizing recommendations differ between Kubernetes and VM deployments due to how resources are allocated and managed.
 
 #### Kubernetes deployments
 
-The following table shows recommended resources for Kubernetes deployments
-based on index storage requirements:
+The following table shows recommended resources for Kubernetes deployments based on index storage requirements:
 
-| Disk   | Webserver CPU | Webserver memory  | Indexer CPU | Indexer memory |
+| Disk   | Webserver CPU | Webserver memory | Indexer CPU | Indexer memory |
 |--------|---------------|-------------------|-------------|----------------|
-| 128 GB | 1             | 16 GiB            | 1           | 6 GiB  |
-| 256 GB | 1.5           | 32 GiB            | 1           | 8 GiB  |
+| 128 GB | 1             | 16 GiB            | 1           | 6 GiB |
+| 256 GB | 1.5           | 32 GiB            | 1           | 8 GiB |
 | 512 GB | 2             | 64 GiB            | 1           | 12 GiB |
 | 1 TB   | 3             | 128 GiB           | 1.5         | 24 GiB |
 | 2 TB   | 4             | 256 GiB           | 2           | 32 GiB |
 
-To manage resources more granularly, you can allocate
-CPU and memory separately to different containers.
+To manage resources more granularly, you can allocate CPU and memory separately to different containers.
 
 For Kubernetes deployments:
 
 - Do not set CPU limits for Zoekt containers.
-  CPU limits might cause unnecessary throttling during indexing bursts,
-  which would significantly impact performance.
-  Instead, rely on resource requests to guarantee minimum CPU availability
-  and ensure containers use additional CPU when available and needed.
-- Set appropriate memory limits to prevent resource contention
-  and out-of-memory conditions.
+ CPU limits might cause unnecessary throttling during indexing bursts, which would significantly impact performance.
+ Instead, rely on resource requests to guarantee minimum CPU availability and ensure containers use additional CPU when available and needed.
+- Set appropriate memory limits to prevent resource contention and out-of-memory conditions.
 - Use high-performance storage classes for better indexing performance.
-  GitLab.com uses `pd-balanced` on GCP, which balances performance and cost.
-  Equivalent options include `gp3` on AWS and `Premium_LRS` on Azure.
+ GitLab.com uses `pd-balanced` on GCP, which balances performance and cost.
+ Equivalent options include `gp3` on AWS and `Premium_LRS` on Azure.
 
 #### VM and bare metal deployments
 
-The following table shows recommended resources for VM and bare metal deployments
-based on index storage requirements:
+The following table shows recommended resources for VM and bare metal deployments based on index storage requirements:
 
-| Disk   | VM size  | Total CPU | Total memory | AWS          | GCP             | Azure |
+| Disk   | VM size | Total CPU | Total memory | AWS          | GCP             | Azure |
 |--------|----------|-----------|--------------|--------------|-----------------|-------|
-| 128 GB | Small    | 2 cores   | 16 GB        | `r5.large`   | `n1-highmem-2`  | `Standard_E2s_v3`  |
-| 256 GB | Medium   | 4 cores   | 32 GB        | `r5.xlarge`  | `n1-highmem-4`  | `Standard_E4s_v3`  |
-| 512 GB | Large    | 4 cores   | 64 GB        | `r5.2xlarge` | `n1-highmem-8`  | `Standard_E8s_v3`  |
-| 1 TB   | X-Large  | 8 cores   | 128 GB       | `r5.4xlarge` | `n1-highmem-16` | `Standard_E16s_v3` |
-| 2 TB   | 2X-Large | 16 cores  | 256 GB       | `r5.8xlarge` | `n1-highmem-32` | `Standard_E32s_v3` |
+| 128 GB | Small    | 2 cores   | 16 GB        | `r5.large`   | `n1-highmem-2` | `Standard_E2s_v3` |
+| 256 GB | Medium   | 4 cores   | 32 GB        | `r5.xlarge` | `n1-highmem-4` | `Standard_E4s_v3` |
+| 512 GB | Large    | 4 cores   | 64 GB        | `r5.2xlarge` | `n1-highmem-8` | `Standard_E8s_v3` |
+| 1 TB   | X-Large | 8 cores   | 128 GB       | `r5.4xlarge` | `n1-highmem-16` | `Standard_E16s_v3` |
+| 2 TB   | 2X-Large | 16 cores | 256 GB       | `r5.8xlarge` | `n1-highmem-32` | `Standard_E32s_v3` |
 
 You can allocate these resources only to the entire node.
 
 For VM and bare metal deployments:
 
 - Monitor CPU, memory, and disk usage to identify bottlenecks.
-  Both webserver and indexer processes share the same CPU and memory resources.
+ Both webserver and indexer processes share the same CPU and memory resources.
 - Consider using SSD storage for better indexing performance.
 - Ensure adequate network bandwidth for data transfer between GitLab and Zoekt nodes.
 
 ### Storage
 
-Storage requirements for Zoekt vary significantly based on repository characteristics,
-including the number of large and binary files.
+Storage requirements for Zoekt vary significantly based on repository characteristics, including the number of large and binary files.
 
 As a starting point, you can estimate your Zoekt storage to be half your Gitaly storage.
 For example, if your Gitaly storage is 1 TB, you might need approximately 500 GB of Zoekt storage.
@@ -685,8 +666,7 @@ If namespaces are not being indexed due to low disk space, consider adding or sc
 
 ## Security and authentication
 
-Zoekt implements a multi-layered authentication system to secure communication
-between GitLab, Zoekt indexer, and Zoekt webserver components.
+Zoekt implements a multi-layered authentication system to secure communication between GitLab, Zoekt indexer, and Zoekt webserver components.
 Authentication is enforced across all communication channels.
 
 All authentication methods use the GitLab Shell secret.
@@ -704,8 +684,7 @@ Endpoints include:
 - `GET /internal/search/zoekt/:uuid/heartbeat` for task retrieval
 - `POST /internal/search/zoekt/:uuid/callback` for status updates
 
-This method ensures secure polling for task distribution and
-status reporting between Zoekt indexer nodes and GitLab.
+This method ensures secure polling for task distribution and status reporting between Zoekt indexer nodes and GitLab.
 
 ### GitLab to the Zoekt webserver
 
@@ -719,22 +698,18 @@ status reporting between Zoekt indexer nodes and GitLab.
 
 GitLab authenticates to the Zoekt webserver with JSON web tokens (JWT)
 to execute search queries.
-JWT tokens provide time-limited, cryptographically signed authentication
-consistent with other GitLab authentication patterns.
+JWT tokens provide time-limited, cryptographically signed authentication consistent with other GitLab authentication patterns.
 
 This method uses `Gitlab::Shell.secret_token` and the HS256 algorithm (HMAC with SHA-256).
-Tokens are sent in the `Authorization: Bearer <jwt_token>` header
-and expire in five minutes to limit exposure.
+Tokens are sent in the `Authorization: Bearer <jwt_token>` header and expire in five minutes to limit exposure.
 
 Endpoints include `/webserver/api/search` and `/webserver/api/v2/search`.
 JWT claims are the issuer (`gitlab`) and the audience (`gitlab-zoekt`).
 
 #### Basic authentication
 
-GitLab authenticates to the Zoekt webserver with HTTP basic authentication
-through NGINX to execute search queries.
+GitLab authenticates to the Zoekt webserver with HTTP basic authentication through NGINX to execute search queries.
 Basic authentication is used primarily in GitLab Helm chart and Kubernetes deployments.
 
 This method uses the username and password configured in Kubernetes secrets.
-Endpoints include `/webserver/api/search` and `/webserver/api/v2/search`
-on the Zoekt webserver.
+Endpoints include `/webserver/api/search` and `/webserver/api/v2/search` on the Zoekt webserver.

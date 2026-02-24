@@ -44,9 +44,7 @@ This paragraph carries the `hardbreaks` option.
 Notice how line breaks are now preserved.
 ```
 
-An indented (literal) paragraph disables text formatting,
-preserves spaces and line breaks, and is displayed in a
-fixed-width font:
+An indented (literal) paragraph disables text formatting, preserves spaces and line breaks, and is displayed in a fixed-width font:
 
 ```plaintext
  This literal paragraph is indented with one space.
@@ -63,41 +61,41 @@ Admonition paragraphs grab the reader's attention:
 
 - Constrained (applied at word boundaries):
 
-  ```plaintext
-  *strong importance* (aka bold)
-  _stress emphasis_ (aka italic)
-  `monospaced` (aka typewriter text)
-  "`double`" and '`single`' typographic quotes
-  +passthrough text+ (substitutions disabled)
-  `+literal text+` (monospaced with substitutions disabled)
-  ```
+ ```plaintext
+ *strong importance* (aka bold)
+ _stress emphasis_ (aka italic)
+ `monospaced` (aka typewriter text)
+ "`double`" and '`single`' typographic quotes
+ +passthrough text+ (substitutions disabled)
+ `+literal text+` (monospaced with substitutions disabled)
+ ```
 
 - Unconstrained (applied anywhere):
 
-  ```plaintext
-  **C**reate+**R**ead+**U**pdate+**D**elete
-  fan__freakin__tastic
-  ``mono``culture
-  ```
+ ```plaintext
+ **C**reate+**R**ead+**U**pdate+**D**elete
+ fan__freakin__tastic
+ ``mono``culture
+ ```
 
 - Replacements:
 
-  ```plaintext
-  A long time ago in a galaxy far, far away...
-  (C) 1976 Arty Artisan
-  I believe I shall--no, actually I won't.
-  ```
+ ```plaintext
+ A long time ago in a galaxy far, far away...
+ (C) 1976 Arty Artisan
+ I believe I shall--no, actually I won't.
+ ```
 
 - Macros:
 
-  ```plaintext
-  // where c=specialchars, q=quotes, a=attributes, r=replacements, m=macros, p=post_replacements
-  The European icon:flag[role=blue] is blue & contains pass:[************] arranged in a icon:circle-o[role=yellow].
-  The pass:c[->] operator is often referred to as the stabby lambda.
-  Since `pass:[++]` has strong priority in AsciiDoc, you can rewrite pass:c,a,r[C++ => C{pp}].
-  // activate stem support by adding `:stem:` to the document header
-  stem:[sqrt(4) = 2]
-  ```
+ ```plaintext
+ // where c=specialchars, q=quotes, a=attributes, r=replacements, m=macros, p=post_replacements
+ The European icon:flag[role=blue] is blue & contains pass:[************] arranged in a icon:circle-o[role=yellow].
+ The pass:c[->] operator is often referred to as the stabby lambda.
+ Since `pass:[++]` has strong priority in AsciiDoc, you can rewrite pass:c,a,r[C++ => C{pp}].
+ // activate stem support by adding `:stem:` to the document header
+ stem:[sqrt(4) = 2]
+ ```
 
 ## Links
 
@@ -209,9 +207,7 @@ v1.0, 2019-01-01
 
 {{< alert type="note" >}}
 
-[Wiki pages](project/wiki/_index.md#create-a-new-wiki-page) created with the AsciiDoc
-format are saved with the file extension `.asciidoc`. When working with AsciiDoc wiki
-pages, change the filename from `.adoc` to `.asciidoc`.
+[Wiki pages](project/wiki/_index.md#create-a-new-wiki-page) created with the AsciiDoc format are saved with the file extension `.asciidoc`. When working with AsciiDoc wiki pages, change the filename from `.adoc` to `.asciidoc`.
 
 {{< /alert >}}
 
@@ -227,22 +223,15 @@ include::my_code_file.language[]
 ----
 ```
 
-To guarantee good system performance and prevent malicious documents from causing
-problems, GitLab enforces a maximum limit on the number of include directives
-processed in any one document. By default, a document can have up to 32 include directives, which is
-inclusive of transitive dependencies. To customize the number of processed includes directives, change
-the application setting `asciidoc_max_includes` with the
-[application settings API](../api/settings.md#available-settings).
+To guarantee good system performance and prevent malicious documents from causing problems, GitLab enforces a maximum limit on the number of include directives processed in any one document. By default, a document can have up to 32 include directives, which is inclusive of transitive dependencies. To customize the number of processed includes directives, change the application setting `asciidoc_max_includes` with the [application settings API](../api/settings.md#available-settings).
 
 {{< alert type="note" >}}
 
-The current maximum allowed value for `asciidoc_max_includes` is 64. If the value is
-too high, it might cause performance issues in some situations.
+The current maximum allowed value for `asciidoc_max_includes` is 64. If the value is too high, it might cause performance issues in some situations.
 
 {{< /alert >}}
 
-To use includes from separate pages or external URLs, enable the `allow-uri-read`
-in [application settings](../administration/wikis/_index.md#allow-uri-includes-for-asciidoc).
+To use includes from separate pages or external URLs, enable the `allow-uri-read` in [application settings](../administration/wikis/_index.md#allow-uri-includes-for-asciidoc).
 
 ```plaintext
 // define application setting allow-uri-read to true to allow content to be read from URI
@@ -446,15 +435,12 @@ A matrix can be written as stem:[[[a,b\],[c,d\]\]((n),(k))].
 
 ## Diagrams and flowcharts
 
-It's possible to generate diagrams and flowcharts from text in GitLab using
-[Mermaid](https://mermaidjs.github.io/) or [PlantUML](https://plantuml.com).
+It's possible to generate diagrams and flowcharts from text in GitLab using [Mermaid](https://mermaidjs.github.io/) or [PlantUML](https://plantuml.com).
 
 ### Mermaid
 
 Visit the [official page](https://mermaidjs.github.io/) for more details.
-If you're new to using Mermaid or need help identifying issues in your Mermaid code,
-the [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/) is a helpful tool
-for creating and resolving issues in Mermaid diagrams.
+If you're new to using Mermaid or need help identifying issues in your Mermaid code, the [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/) is a helpful tool for creating and resolving issues in Mermaid diagrams.
 
 To generate a diagram or flowchart, enter your text in a `mermaid` block:
 
@@ -480,29 +466,25 @@ Here's an example using a GraphViz diagram:
 
 - AsciiDoc:
 
-  ```plaintext
-  [graphviz]
-  ....
-  digraph G {
+ ```plaintext
+ [graphviz]
+ ....
+ digraph G {
     Hello->World
-  }
-  ....
-  ```
+ }
+ ....
+ ```
 
 - Markdown:
 
-  ````markdown
-  ```graphviz
-  digraph G {
-    Hello->World
-  }
-  ```
-  ````
+ ````markdown
+ ```graphviz digraph G { Hello->World }
+ ```
+ ````
 
 ### PlantUML
 
-PlantUML integration is enabled on GitLab.com. To make PlantUML available in GitLab Self-Managed
-installation of GitLab, a GitLab administrator [must enable it](../administration/integration/plantuml.md).
+PlantUML integration is enabled on GitLab.com. To make PlantUML available in GitLab Self-Managed installation of GitLab, a GitLab administrator [must enable it](../administration/integration/plantuml.md).
 
 After PlantUML is enabled, enter your text in a `plantuml` block:
 

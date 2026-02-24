@@ -25,10 +25,10 @@ Private teams are helpful in cases where:
 
 ![Pop-up when an admin attempts to join a private team](https://webassets.linear.app/images/ornj730p/production/1fb4d5a858c6cbd4313e4b17c057bab9c325610f-1014x960.png?q=95&auto=format&dpr=2)
 
-**Issues:** Those who are not a member of the private team will not be able to see issues associated with the team. You cannot @ mention a member in an issue in the private team if they are not already a member of the private team. See specific exceptions under _Share issues from a private team._  
-  
+**Issues:** Those who are not a member of the private team will not be able to see issues associated with the team. You cannot @ mention a member in an issue in the private team if they are not already a member of the private team. See specific exceptions under _Share issues from a private team._ 
+ 
 **Projects created under public teams:** Projects created under public teams can also be shared with private teams. Only private team members will be able to see that the project has been associated with their team. Similarly, project issues related to the private team will only be visible to members of that team.   
-  
+ 
 If all public teams are removed from the project, it will become private and only visible to members of the private team from then on. 
 
 **Projects created under private teams:** Projects created under private teams are visible to the private team members only. If the project is shared with a public team later on, the project will become visible to others. The name of the private team or issues from that team do not become visible to non-members.
@@ -90,12 +90,5 @@ The API, webhooks, and integrations such as Zapier can expose a user's private t
 
 Some existing integrations have limitations to account for private data, while others will have more complete access to all workspace contents.
 
-GitHub and GitLab | Private issues will be posted as linkbacks on PRs or MRs with the issue ID and link only
---- | ---
-Google Sheets | Issue data from private teams is not accessible
-Intercom | You cannot create or link issues in private teams
-Sentry | You cannot create or link issues in private teams
-Zapier | See our note above on API and webhooks
-Zendesk | You cannot create or link issues in private teams
-Front | If you have access to a private team, you can create and link to issues in that private team.
+GitHub and GitLab | Private issues will be posted as linkbacks on PRs or MRs with the issue ID and link only --- | --- Google Sheets | Issue data from private teams is not accessible Intercom | You cannot create or link issues in private teams Sentry | You cannot create or link issues in private teams Zapier | See our note above on API and webhooks Zendesk | You cannot create or link issues in private teams Front | If you have access to a private team, you can create and link to issues in that private team.
 Airbyte | Information from all public and private teams will be loaded in Airbyte

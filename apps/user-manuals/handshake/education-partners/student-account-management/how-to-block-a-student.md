@@ -4,7 +4,7 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/219133287-How-to-Blo
 
 ---
 
-Blocking a student is available in Handshake if you need to temporarily suspend a student's access to Handshake due to misuse of the system or a late bill payment.  
+Blocking a student is available in Handshake if you need to temporarily suspend a student's access to Handshake due to misuse of the system or a late bill payment. 
    
  If you need to block a student, you can follow these steps:
 

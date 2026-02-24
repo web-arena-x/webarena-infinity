@@ -104,7 +104,7 @@ You can filter annotations by category, making it even easier to find the detail
 
 All annotations on a Figma Design file are visible in Dev Mode by default. To hide annotations:
 
-1. Click  Main menu in the toolbar.
+1. Click Main menu in the toolbar.
 2. Hover over **View** in the dropdown.
 3. Deselect **Annotations**.
 

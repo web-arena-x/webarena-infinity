@@ -25,21 +25,21 @@ The reports included in this dashboard, along with the fields that you can filte
 ### Reports:
 
 - Jobs Posted by Locations
-  - Date Range = *postings responded on month*
+ - Date Range = *postings responded on month*
 - Approved and Expired Jobs by Month
-  - Date Range = *postings responded on month*
+ - Date Range = *postings responded on month*
 - Job Types
 - School Year Qualifications
 - Top Job Functions for Job Postings
-  - Date Range = *posting responded on date*
+ - Date Range = *posting responded on date*
 - Interview Rooms
 - Interview Schedules Count 
-  - Date Range = *interview date*
+ - Date Range = *interview date*
 - Total Approved and Expired Jobs 
-  - Date Range = *posting responded on date*
+ - Date Range = *posting responded on date*
 - Interview Schedules by Week
 - Interview Slots Unfilled
-  - Date Range = *interview date*
+ - Date Range = *interview date*
 - Interview Schedule Applications
 - Interview Application Status
-  - Date Range = *application created date*
+ - Date Range = *application created date*

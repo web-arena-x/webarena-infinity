@@ -15,7 +15,7 @@ To search for bidders to add to a bid form.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.
+ - 'Admin' level permissions on the project's Bidding tool.
 
 ## Prerequisites
 
@@ -45,7 +45,7 @@ You can search for bidders while creating a bid form by clicking **Save and Add 
    - **Directory**: Select if you want to search existing companies in the Company level Directory tool.
    - **Construction Network**: Select if you want to expand your network and search through business profiles on the Procore Construction Network.
 7. Click the **Search** bar.
-8. Enter a search term, such as the company or vendor name.  
+8. Enter a search term, such as the company or vendor name. 
    *Note:* When searching the Procore Construction Network, you can search by office address.
 9. To clear your search, click the x in the search bar.
 
@@ -60,11 +60,10 @@ This search is supported by Natural Language Filtering to more easily find contr
 
 1. Navigate to the project's **Bidding** tool.
 2. Open the bid package.
-3. Across from the bid form you want to add bidders to, click the **plus** ![icon-plus-2.png](https://support.procore.com/@api/deki/files/341368/icon-plus-2.png?revision=1&size=bestfit&width=18&height=19) icon.  
+3. Across from the bid form you want to add bidders to, click the **plus** ![icon-plus-2.png](https://support.procore.com/@api/deki/files/341368/icon-plus-2.png?revision=1&size=bestfit&width=18&height=19) icon. 
    ![single contractor plus.png](https://support.procore.com/@api/deki/files/514058/single_contractor_plus.png?revision=1)
 4. Click the **search bar**.
-5. Enter a vendor name, office address, or characteristics about the company as your search term. For example, 'electrical contractors with a good rating that work in commercial.’  
-   Filters are automatically applied based on your search terms, such as trade, rating, and market sector.
+5. Enter a vendor name, office address, or characteristics about the company as your search term. For example, 'electrical contractors with a good rating that work in commercial.’ Filters are automatically applied based on your search terms, such as trade, rating, and market sector.
 
 ### Sort Companies
 

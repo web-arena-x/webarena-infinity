@@ -14,23 +14,17 @@ title: Deprecated API rate limits
 
 {{< /details >}}
 
-Deprecated API endpoints have been replaced with alternative features, but they can't be removed
-without breaking backward compatibility. To encourage users to switch to the alternative, set a
-restrictive rate limit on deprecated endpoints.
+Deprecated API endpoints have been replaced with alternative features, but they can't be removed without breaking backward compatibility. To encourage users to switch to the alternative, set a restrictive rate limit on deprecated endpoints.
 
 ## Deprecated API endpoints
 
-This rate limit does not include all deprecated API endpoints, just the ones that are likely to
-affect performance:
+This rate limit does not include all deprecated API endpoints, just the ones that are likely to affect performance:
 
 - [`GET /groups/:id`](../../api/groups.md#get-a-single-group) without the `with_projects=0` query parameter.
 
 ## Define deprecated API rate limits
 
-Rate limits for deprecated API endpoints are disabled by default. When enabled, they supersede
-the general user and IP rate limits for requests to deprecated endpoints. You can keep any general user
-and IP rate limits already in place, and increase or decrease the rate limits
-for deprecated API endpoints. No other new features are provided by this override.
+Rate limits for deprecated API endpoints are disabled by default. When enabled, they supersede the general user and IP rate limits for requests to deprecated endpoints. You can keep any general user and IP rate limits already in place, and increase or decrease the rate limits for deprecated API endpoints. No other new features are provided by this override.
 
 Prerequisites:
 

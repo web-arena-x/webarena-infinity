@@ -15,21 +15,21 @@ Add a drawing area to manage and separate drawings for different buildings.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Drawings tool.
+ - 'Admin' level permissions on the project's Drawings tool.
 - **Additional Information:**
-  - Before you can add drawing areas to a project, you must first enable the Drawing Areas setting. See [Enable or Disable Drawing Areas](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/enable-or-disable-drawing-areas "Enable or Disable Drawing Areas").
-  - If you previously uploaded drawings to a project before the drawings by area feature was enabled for the project, the existing drawings will be added to a drawing area called 'Area 01' by default. However, you can then edit the area's name and add additional drawing areas as necessary.
-  - Users who subscribe to drawings will receive email notifications for all drawings across all drawing areas.
+ - Before you can add drawing areas to a project, you must first enable the Drawing Areas setting. See [Enable or Disable Drawing Areas](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/enable-or-disable-drawing-areas "Enable or Disable Drawing Areas").
+ - If you previously uploaded drawings to a project before the drawings by area feature was enabled for the project, the existing drawings will be added to a drawing area called 'Area 01' by default. However, you can then edit the area's name and add additional drawing areas as necessary.
+ - Users who subscribe to drawings will receive email notifications for all drawings across all drawing areas.
 
 ## Steps
 
 1. Navigate to your project's **Drawings** tool.
-2. Click the **Drawings Area** link.  
+2. Click the **Drawings Area** link. 
      
    ![drawing-areas-link.png](https://support.procore.com/@api/deki/files/71512/drawing-areas-link.png?revision=1)
-3. Click the **+ Add Drawing Area** button.  
+3. Click the **+ Add Drawing Area** button. 
    ![add-drawing-area.png](https://support.procore.com/@api/deki/files/86948/add-drawing-area.png?revision=1)
-4. Enter a name for the new drawing area.  
+4. Enter a name for the new drawing area. 
    *Note:* It's recommended that you name the drawing area so that it matches the name of the related building/structure.
 5. Click **Create**.
 6. *Optional:*Upload drawings into the correct drawing area.

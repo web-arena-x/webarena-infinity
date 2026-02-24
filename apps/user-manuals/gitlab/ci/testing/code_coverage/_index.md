@@ -61,8 +61,7 @@ Test the regex patterns carefully. Tool output formats can change over time, and
 Verify regex patterns carefully, especially patterns containing the pipe (`|`) character.
 To use `|` in the text of a table cell (not as cell delimiters), you must escape it with a backslash (`\|`).
 Verify all tables render as expected both in GitLab and on docs.gitlab.com.
-See: https://docs.gitlab.com/user/markdown/#tables
--->
+See: https://docs.gitlab.com/user/markdown/#tables -->
 
 {{< tabs >}}
 
@@ -71,7 +70,7 @@ See: https://docs.gitlab.com/user/markdown/#tables
 | Tool       | Language | Command        | Regex pattern |
 |------------|----------|----------------|---------------|
 | pytest-cov | Python   | `pytest --cov` | `/TOTAL.*? (100(?:\.0+)?\%\|[1-9]?\d(?:\.\d+)?\%)$/` |
-| Simplecov-html  | Ruby     | `rspec spec`   | `/Line\sCoverage:\s\d+\.\d+%/` |
+| Simplecov-html | Ruby     | `rspec spec`   | `/Line\sCoverage:\s\d+\.\d+%/` |
 
 {{< /tab >}}
 
@@ -88,7 +87,7 @@ See: https://docs.gitlab.com/user/markdown/#tables
 
 | Tool      | Language    | Command                            | Regex pattern |
 |-----------|-------------|------------------------------------|---------------|
-| JaCoCo    | Java/Kotlin | `./gradlew test jacocoTestReport`  | `/Total.*?([0-9]{1,3})%/` |
+| JaCoCo    | Java/Kotlin | `./gradlew test jacocoTestReport` | `/Total.*?([0-9]{1,3})%/` |
 | Scoverage | Scala       | `sbt coverage test coverageReport` | `/(?i)total.*? (100(?:\.0+)?\%\|[1-9]?\d(?:\.\d+)?\%)$/` |
 
 {{< /tab >}}
@@ -117,7 +116,7 @@ See: https://docs.gitlab.com/user/markdown/#tables
 
 | Tool              | Command          | Regex pattern |
 |-------------------|------------------|---------------|
-| go test (single)  | `go test -cover` | `/coverage: \d+.\d+% of statements/` |
+| go test (single) | `go test -cover` | `/coverage: \d+.\d+% of statements/` |
 | go test (project) | `go test -coverprofile=cover.profile && go tool cover -func cover.profile` | `/total:\s+\(statements\)\s+\d+.\d+%/` |
 
 {{< /tab >}}
@@ -162,8 +161,7 @@ Coverage visualization uses [artifacts reports](../../yaml/_index.md#artifactsre
 1. Combine the coverage information from all reports.
 1. Display the combined results in merge request diffs.
 
-Coverage files are parsed in a background job, so there might be a delay between
-pipeline completion and the visualization appearing in the merge request.
+Coverage files are parsed in a background job, so there might be a delay between pipeline completion and the visualization appearing in the merge request.
 
 By default, coverage visualization data expires one week after creation.
 
@@ -181,7 +179,7 @@ To configure coverage visualization:
      artifacts:
        reports:
          coverage_report:
-           coverage_format: cobertura  # or jacoco
+           coverage_format: cobertura # or jacoco
            path: coverage/coverage.xml
    ```
 
@@ -195,8 +193,7 @@ For language-specific configuration details see:
 Coverage reports for child pipelines appear in merge request diff annotations.
 However, parent pipelines cannot access these coverage reports for use in their own jobs.
 
-Support for parent pipelines to fetch coverage reports for child pipelines is proposed in
-[issue 285100](https://gitlab.com/gitlab-org/gitlab/-/issues/285100).
+Support for parent pipelines to fetch coverage reports for child pipelines is proposed in [issue 285100](https://gitlab.com/gitlab-org/gitlab/-/issues/285100).
 
 ## Add a coverage check approval rule
 
@@ -232,7 +229,7 @@ After a pipeline runs successfully, you can view code coverage results in:
 
 - Merge request widget: See the coverage percentage and changes compared to the target branch.
 
-  ![Merge request widget showing code coverage percentage](img/pipelines_test_coverage_mr_widget_v17_3.png)
+ ![Merge request widget showing code coverage percentage](img/pipelines_test_coverage_mr_widget_v17_3.png)
 
 - Merge request diff: Review which lines are covered by tests. Available with Cobertura and JaCoCo reports.
 - Pipeline jobs: Monitor coverage results for individual jobs.
@@ -274,12 +271,9 @@ To add a coverage badge to your project, see [test coverage report badges](../..
 
 ### Remove color codes from code coverage
 
-Some test coverage tools output with ANSI color codes that aren't
-parsed correctly by the regular expression. This causes coverage
-parsing to fail.
+Some test coverage tools output with ANSI color codes that aren't parsed correctly by the regular expression. This causes coverage parsing to fail.
 
-Some coverage tools do not provide an option to disable color
-codes in the output. If so, pipe the output of the coverage tool through a one-line script that strips the color codes.
+Some coverage tools do not provide an option to disable color codes in the output. If so, pipe the output of the coverage tool through a one-line script that strips the color codes.
 
 For example:
 

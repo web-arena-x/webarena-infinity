@@ -9,10 +9,10 @@ There may be cases where you will want to post a job on behalf of an employer or
 Topics:
 
 - [Prior to posting a job for an employer](#h_01J67MYVDN20G0QYRPWA3N070A)
-  - Check if the employer is approved by your institution
-  - Verify with the employer that you have permissions to post a job on their behalf
+ - Check if the employer is approved by your institution
+ - Verify with the employer that you have permissions to post a job on their behalf
 - [Posting a job for an employer](#h_01J684MG8512D4GBZN7ATDBR53)
-  - Tips and suggesitons
+ - Tips and suggesitons
 - [After posting a job](#h_01J6CQ76CF2HMCMG4Q9YXBBHBG)
 - [What if I can't get permissions to post a job for an employer?](#h_01J6D9NT3W6A615MKBJ7GPXJR1)
 
@@ -50,7 +50,7 @@ The steps to post a job on behalf of an employer are the same steps an employer 
 
 - You can choose from the list, which will give you specific options for how involved you want this contact to be. They can be made available for candidate messages. Alternatively, they can choose to only receive summary emails, or other notifications regarding applicants.
 
-  ![Job owner specific options.png](https://support.joinhandshake.com/hc/article_attachments/25996988788759)
+ ![Job owner specific options.png](https://support.joinhandshake.com/hc/article_attachments/25996988788759)
 
 ## After posting a job
 

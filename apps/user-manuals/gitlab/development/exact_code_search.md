@@ -7,8 +7,7 @@ title: Exact code search development guidelines
 
 This page includes information about developing and working with exact code search, which is powered by Zoekt.
 
-For how to enable exact code search and perform the initial indexing, see the
-[integration documentation](../integration/zoekt/_index.md#enable-exact-code-search).
+For how to enable exact code search and perform the initial indexing, see the [integration documentation](../integration/zoekt/_index.md#enable-exact-code-search).
 
 ## Set up your development environment
 
@@ -29,21 +28,17 @@ To set up your development environment:
 
 ## Rake tasks
 
-- `gitlab:zoekt:info`: outputs information about exact code search, Zoekt nodes, indexing status,
-  and feature flag status. Use this task to debug issues with nodes or indexing.
-- `bin/rake "gitlab:zoekt:info[10]"`: runs the task in watch mode. Use this task during initial indexing to monitor
-  progress.
+- `gitlab:zoekt:info`: outputs information about exact code search, Zoekt nodes, indexing status, and feature flag status. Use this task to debug issues with nodes or indexing.
+- `bin/rake "gitlab:zoekt:info[10]"`: runs the task in watch mode. Use this task during initial indexing to monitor progress.
 
 ## Debugging and troubleshooting
 
 ### Debug Zoekt queries
 
-The `ZOEKT_CLIENT_DEBUG` environment variable enables
-the [debug option for the Zoekt client](https://gitlab.com/gitlab-org/gitlab/-/blob/b9ec9fd2d035feb667fd14055b03972c828dcf3a/ee/lib/gitlab/search/zoekt/client.rb#L207)
+The `ZOEKT_CLIENT_DEBUG` environment variable enables the [debug option for the Zoekt client](https://gitlab.com/gitlab-org/gitlab/-/blob/b9ec9fd2d035feb667fd14055b03972c828dcf3a/ee/lib/gitlab/search/zoekt/client.rb#L207)
 in development or test environments.
 The requests are logged in the `log/zoekt.log` file.
-To debug HTTP queries generated from code or tests for the Zoekt webserver
-before running specs or starting the Rails console:
+To debug HTTP queries generated from code or tests for the Zoekt webserver before running specs or starting the Rails console:
 
 ```console
 ZOEKT_CLIENT_DEBUG=1 bundle exec rspec ee/spec/services/ee/search/group_service_blob_and_commit_visibility_spec.rb
@@ -57,8 +52,7 @@ rails console
 In development, two indexer (ports `6080` and `6081`) and two webserver (ports `6090` and `6091`) processes are started.
 You can send search requests directly to any webserver (including the test webserver) by using either port:
 
-1. Open the Rails console and generate a JWT that does not expire
-   (this should never be done in a production or test environment):
+1. Open the Rails console and generate a JWT that does not expire (this should never be done in a production or test environment):
 
 ```shell
 ::Search::Zoekt::JwtAuth::ZOEKT_JWT_SKIP_EXPIRY=true; ::Search::Zoekt::JwtAuth.authorization_header
@@ -81,10 +75,10 @@ You can send search requests directly to any webserver (including the test webse
 
 ```shell
 curl --request POST \
-  --url "http://127.0.0.1:6090/webserver/api/v2/search" \
-  --header 'Content-Type: application/json' \
-  --header 'Gitlab-Zoekt-Api-Request: Bearer YOUR_JWT' \
-  --data '{
+ --url "http://127.0.0.1:6090/webserver/api/v2/search" \
+ --header 'Content-Type: application/json' \
+ --header 'Gitlab-Zoekt-Api-Request: Bearer YOUR_JWT' \
+ --data '{
     "version": 2,
     "timeout": "120s",
     "num_context_lines": 1,
@@ -151,5 +145,5 @@ curl --request POST \
         "endpoint": "http://127.0.0.1:6070"
       }
     ]
-  }'
+ }'
 ```

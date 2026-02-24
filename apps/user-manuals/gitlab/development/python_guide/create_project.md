@@ -13,11 +13,9 @@ When creating a new Python repository, some guidelines help keep our code standa
 
 - [`pytest`](https://docs.pytest.org/): Primary testing framework for writing and running tests.
 - [`pytest-cov`](https://pytest-cov.readthedocs.io/): Test coverage reporting plugin for `pytest`.
-- [`black`](https://black.readthedocs.io/): Opinionated code formatter that ensures consistent code
-  style.
+- [`black`](https://black.readthedocs.io/): Opinionated code formatter that ensures consistent code style.
 - [`flake8`](https://flake8.pycqa.org/): Linter for style enforcement.
-- [`pylint`](https://pylint.pycqa.org/): Comprehensive linter for error detection and quality
-  enforcement.
+- [`pylint`](https://pylint.pycqa.org/): Comprehensive linter for error detection and quality enforcement.
 - [`mypy`](https://mypy.readthedocs.io/): Static type checker.
 - [`isort`](https://pycqa.github.io/isort/): Utility to sort imports.
 
@@ -29,10 +27,8 @@ When creating a new Python repository, some guidelines help keep our code standa
 
 - [`typer`](https://typer.tiangolo.com/): Library for building CLI applications.
 - [`python-dotenv`](https://saurabh-kumar.com/python-dotenv/): Environment variable management.
-- [`pydantic`](https://docs.pydantic.dev/latest/): Data validation and settings management using
-  Python type annotations.
-- [`fastapi`](https://fastapi.tiangolo.com): Modern, high-performance web framework for building
-  APIs.
+- [`pydantic`](https://docs.pydantic.dev/latest/): Data validation and settings management using Python type annotations.
+- [`fastapi`](https://fastapi.tiangolo.com): Modern, high-performance web framework for building APIs.
 - [`structlog`](https://www.structlog.org/): Structured logging library.
 - [`httpx`](https://docs.pydantic.dev/latest/): Asynchronous and performant HTTP client.
 - [`rich`](https://rich.readthedocs.io/en/latest/): Terminal formatting library for rich text.
@@ -41,8 +37,7 @@ When creating a new Python repository, some guidelines help keep our code standa
 
 ## Recommended folder structure
 
-Depending on the type of project, for example, API service, CLI application or library, the folder
-structure can be varied. The following structure is for a standard CLI application.
+Depending on the type of project, for example, API service, CLI application or library, the folder structure can be varied. The following structure is for a standard CLI application.
 
 ```plaintext
 project_name/
@@ -88,12 +83,12 @@ ignore_missing_imports = true
 [tool.pylint.main]
 jobs = 0
 load-plugins = [
-  # custom plugins
+ # custom plugins
 ]
 
 [tool.pylint.messages_control]
 enable = [
-  # custom plugins
+ # custom plugins
 ]
 
 [tool.pylint.reports]
@@ -182,67 +177,67 @@ test-coverage: install-test-deps
 image: python:3.13
 
 stages:
-  - lint
-  - test
+ - lint
+ - test
 
 variables:
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
-  POETRY_CACHE_DIR: "$CI_PROJECT_DIR/.cache/poetry"
-  POETRY_VERSION: "2.1.2"
+ PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+ POETRY_CACHE_DIR: "$CI_PROJECT_DIR/.cache/poetry"
+ POETRY_VERSION: "2.1.2"
 
 cache:
-  key: ${CI_COMMIT_REF_SLUG}
-  paths:
+ key: ${CI_COMMIT_REF_SLUG}
+ paths:
     - $PIP_CACHE_DIR
     - $POETRY_CACHE_DIR
     - .venv/
 
 # Base template for Python jobs
 .poetry:
-  before_script:
+ before_script:
     - pip install poetry==${POETRY_VERSION}
     - poetry config virtualenvs.in-project true
     - poetry add --dev black isort flake8 pylint mypy pytest pytest-cov
 
 # Linting jobs
 black:
-  extends: .poetry
-  stage: lint
-  script:
+ extends: .poetry
+ stage: lint
+ script:
     - poetry run black --check ${CI_PROJECT_DIR}
 
 isort:
-  extends: .poetry
-  stage: lint
-  script:
+ extends: .poetry
+ stage: lint
+ script:
     - poetry run isort --check-only ${CI_PROJECT_DIR}
 
 flake8:
-  extends: .poetry
-  stage: lint
-  script:
+ extends: .poetry
+ stage: lint
+ script:
     - poetry run flake8 ${CI_PROJECT_DIR}
 
 pylint:
-  extends: .poetry
-  stage: lint
-  script:
+ extends: .poetry
+ stage: lint
+ script:
     - poetry run pylint ${CI_PROJECT_DIR}
 
 mypy:
-  extends: .poetry
-  stage: lint
-  script:
+ extends: .poetry
+ stage: lint
+ script:
     - poetry run mypy ${CI_PROJECT_DIR}
 
 # Testing jobs
 test:
-  extends: .poetry
-  stage: test
-  script:
+ extends: .poetry
+ stage: test
+ script:
     - poetry run pytest --cov=duo_workflow_service --cov-report=term --cov-report=xml:coverage.xml --junitxml=junit.xml
-  coverage: '/TOTAL.+?(\d+\%)/'
-  artifacts:
+ coverage: '/TOTAL.+?(\d+\%)/'
+ artifacts:
     when: always
     reports:
       junit: junit.xml
@@ -253,15 +248,11 @@ test:
 
 ## Adding reviewer roulette
 
-We recommend reviewer roulette to distribute review workload across reviewers and maintainers. A pool of Python Reviewers is available
-for small Python projects and can be configured following [these steps](maintainership.md#how-to-set-up-a-python-code-review-process).
+We recommend reviewer roulette to distribute review workload across reviewers and maintainers. A pool of Python Reviewers is available for small Python projects and can be configured following [these steps](maintainership.md#how-to-set-up-a-python-code-review-process).
 
 To create a pool of reviewers specific to a project:
 
-1. Follow the
-   [GitLab Dangerfiles instructions](https://gitlab.com/gitlab-org/ruby/gems/gitlab-dangerfiles/-/blob/master/README.md#simple_roulette)
+1. Follow the [GitLab Dangerfiles instructions](https://gitlab.com/gitlab-org/ruby/gems/gitlab-dangerfiles/-/blob/master/README.md#simple_roulette)
    to add the configuration to your project.
 
-1. Implement the
-   [Danger Reviewer component](https://gitlab.com/gitlab-org/components/danger-review#example) in
-   your GitLab CI pipeline to automatically trigger the roulette.
+1. Implement the [Danger Reviewer component](https://gitlab.com/gitlab-org/components/danger-review#example) in your GitLab CI pipeline to automatically trigger the roulette.

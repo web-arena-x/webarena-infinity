@@ -17,8 +17,7 @@ Source: https://www.buildium.com/blog/author/lmega
 
 #### Laurie Mega
 
-117
-Posts
+117 Posts
 
 Laurie Mega has planned, written, and edited content on a variety of subjects. Her work has been published by HomeandGarden.com, The Economist, Philips Lifeline, and FamilyEducation, among others. She lives in the Greater Boston Area with her husband and two boys.
 
@@ -130,13 +129,11 @@ Read through this guide of what you’ll need to do before you open your busines
 
 [Growth](/blog/category/growth/)
 
-1
-[2](https://www.buildium.com/author/lmega/page/2/)
+1 [2](https://www.buildium.com/author/lmega/page/2/)
 [3](https://www.buildium.com/author/lmega/page/3/)
 [4](https://www.buildium.com/author/lmega/page/4/)
 [5](https://www.buildium.com/author/lmega/page/5/)
-…
-[13](https://www.buildium.com/author/lmega/page/13/)
+… [13](https://www.buildium.com/author/lmega/page/13/)
 [Next](https://www.buildium.com/author/lmega/page/2/)
 
 ![Scheduling](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjwvc3ZnPg==)

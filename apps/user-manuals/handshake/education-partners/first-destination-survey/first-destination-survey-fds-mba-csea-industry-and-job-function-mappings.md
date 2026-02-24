@@ -16,9 +16,9 @@ Individual FDS responses are available as a .csv download by following the steps
 Topics:
 
 - [Professional Functions to Job Function Mappings](#h_01FVAYF28WKPJ7QSCXMG2Q9S9Q)
-  - Full Time specific mappings
-  - Part Time specific mappings
-  - Specialty Masters specific mappings
+ - Full Time specific mappings
+ - Part Time specific mappings
+ - Specialty Masters specific mappings
 - [Industries to Employer Industry Mappings](#h_01FVAYFC30M4D74157W93J6X4X)
 
 ## Professional Functions to Job Function Mappings
@@ -34,47 +34,47 @@ In the individual responses file, "Accepted Job Offer Job Function" is column AL
 The mappings below apply to all MBA CSEA FDS types. Aggregate Professional Functions are bolded in the list, and sub-bullets are individual response Job Functions.
 
 - **Consulting**
-  - Consulting
+ - Consulting
 - **General Management**
-  - Administration
-  - Business Development
-  - Entrepreneurship
-  - General Management
-  - Hotel / Restaurant / Hospitality
-  - Military & Protective Services
-  - Political Organizing / Lobbying
-  - Product / Project Management
+ - Administration
+ - Business Development
+ - Entrepreneurship
+ - General Management
+ - Hotel / Restaurant / Hospitality
+ - Military & Protective Services
+ - Political Organizing / Lobbying
+ - Product / Project Management
 - **Human Resources**
-  - Fundraising & Event Management
-  - Human Resources
+ - Fundraising & Event Management
+ - Human Resources
 - **Marketing/Sales**
-  - Advertising, Media & PR
-  - Marketing - Brand Management
-  - Marketing - General
-  - Sales
+ - Advertising, Media & PR
+ - Marketing - Brand Management
+ - Marketing - General
+ - Sales
 - **Information Technology**
-  - Customer/Technical Support
-  - Engineering - Civil / Mechanical / Other
-  - Engineering - Web / Software
-  - Information Technology
-  - Quality Assurance
+ - Customer/Technical Support
+ - Engineering - Civil / Mechanical / Other
+ - Engineering - Web / Software
+ - Information Technology
+ - Quality Assurance
 - **Operations/Logistics**
-  - Architecture & Planning
-  - Logistics & Supply Chain
-  - Operations / Production
-  - Purchasing
+ - Architecture & Planning
+ - Logistics & Supply Chain
+ - Operations / Production
+ - Purchasing
 - **Other**
-  - Community & Social Services
-  - Construction / Contracting
-  - Design / Art
-  - Education / Teaching / Training
-  - Environmental / Sustainability Mgmt
-  - Healthcare Services
-  - Legal
-  - Other
-  - Research
-  - Veterinary / Animal Care
-  - Writing / Editing
+ - Community & Social Services
+ - Construction / Contracting
+ - Design / Art
+ - Education / Teaching / Training
+ - Environmental / Sustainability Mgmt
+ - Healthcare Services
+ - Legal
+ - Other
+ - Research
+ - Veterinary / Animal Care
+ - Writing / Editing
 
 ### Full-time MBA specific mappings:
 
@@ -83,11 +83,11 @@ Professional Functions are viewable in the aggregate download via Table 4.B, and
 Aggregate Professional Functions are bolded in the list, and sub-bullets are individual response Job Functions.
 
 - **Finance/Accounting**
-  - Accounting
-  - Actuary
-  - Finance
+ - Accounting
+ - Actuary
+ - Finance
 - **Information Technology**
-  - Data & Analytics
+ - Data & Analytics
 
 ### Part-time MBA specific mappings
 
@@ -96,13 +96,13 @@ Professional Functions are viewable in the aggregate download via Tables 2.A (In
 Aggregate Professional Functions are bolded in the list, and sub-bullets are individual response Job Functions.
 
 - **Accounting**
-  - Accounting
-  - Actuary
+ - Accounting
+ - Actuary
 - **Finance**
-  - Finance
-  - Real Estate
+ - Finance
+ - Real Estate
 - **Information Technology**
-  - Data & Analytics
+ - Data & Analytics
 
 ### Specialty Masters specific mappings:
 
@@ -111,13 +111,13 @@ Professional Functions are viewable in the aggregate download via Table 4.C, and
 Aggregate Professional Functions are bolded in the list, and sub-bullets are individual response Job Functions.
 
 - **Accounting**
-  - Accounting
-  - Actuary
+ - Accounting
+ - Actuary
 - **Business/Data Analytics**
-  - Data & Analytics
+ - Data & Analytics
 - **Finance**
-  - Finance
-  - Real Estate
+ - Finance
+ - Real Estate
 
 ## Industries to Employer Industry
 
@@ -132,78 +132,78 @@ In the individual responses file, "Accepted Job Offer Employer Industry" is colu
 The mappings below apply to all MBA CSEA FDS types. Aggregate industries are bolded in the list, and sub-bullets are individual response industries.
 
 - **Consulting**
-  - Management Consulting
+ - Management Consulting
 - **Consumer Packaged Goods**
-  - CPG - Consumer Packaged Goods
+ - CPG - Consumer Packaged Goods
 - **Energy**
-  - Environmental Services
-  - Natural Resources
-  - Oil & Gas
-  - Utilities and Renewable Energy
+ - Environmental Services
+ - Natural Resources
+ - Oil & Gas
+ - Utilities and Renewable Energy
 - **Financial Services**
-  - Accounting
-  - Commercial Banking & Credit
-  - Insurance
-  - Investment Banking
-  - Investment / Portfolio Management
+ - Accounting
+ - Commercial Banking & Credit
+ - Insurance
+ - Investment Banking
+ - Investment / Portfolio Management
 - **Government**
-  - Government - Local, State & Federal
-  - Higher Education
-  - International Affairs
-  - K-12 Education
-  - Legal & Law Enforcement
-  - Politics
+ - Government - Local, State & Federal
+ - Higher Education
+ - International Affairs
+ - K-12 Education
+ - Legal & Law Enforcement
+ - Politics
 - **Healthcare**
-  - Healthcare
-  - Medical Devices
-  - Pharmaceuticals
+ - Healthcare
+ - Medical Devices
+ - Pharmaceuticals
 - **Hospitality**
-  - Food & Beverage
-  - Hotels & Accommodation
-  - Restaurants & Food Service
-  - Tourism
+ - Food & Beverage
+ - Hotels & Accommodation
+ - Restaurants & Food Service
+ - Tourism
 - **Manufacturing**
-  - Aerospace
-  - Electronic & Computer Hardware
-  - Manufacturing - Other
+ - Aerospace
+ - Electronic & Computer Hardware
+ - Manufacturing - Other
 - **Media/Entertainment**
-  - Advertising, PR & Marketing
-  - Design
-  - Fashion
-  - Interior Design
-  - Journalism, Media & Publishing
-  - Movies, TV, Music
-  - Performing and Fine Arts
-  - Sports & Leisure
-  - Telecommunications
+ - Advertising, PR & Marketing
+ - Design
+ - Fashion
+ - Interior Design
+ - Journalism, Media & Publishing
+ - Movies, TV, Music
+ - Performing and Fine Arts
+ - Sports & Leisure
+ - Telecommunications
 - **Non-Profit**
-  - Non-Profit - Other
-  - Social Assistance
+ - Non-Profit - Other
+ - Social Assistance
 - **Real Estate**
-  - Architecture and Planning
-  - Real Estate
+ - Architecture and Planning
+ - Real Estate
 - **Retail**
-  - Retail Stores
+ - Retail Stores
 - **Technology**
-  - Biotech & Life Sciences
-  - Civil Engineering
-  - Computer Networking
-  - Internet & Software
-  - Scientific and Technical Consulting
+ - Biotech & Life Sciences
+ - Civil Engineering
+ - Computer Networking
+ - Internet & Software
+ - Scientific and Technical Consulting
 - **Transportation & Logistics Services**
-  - Automotive
-  - Construction
-  - Transportation & Logistics
+ - Automotive
+ - Construction
+ - Transportation & Logistics
 - **Other**
-  - Animal & Wildlife
-  - Defense
-  - Farming, Ranching and Fishing
-  - Forestry
-  - Human Resources
-  - NGO
-  - Other Agriculture
-  - Other Education
-  - Other Industries
-  - Religious Work
-  - Research
-  - Veterinary
+ - Animal & Wildlife
+ - Defense
+ - Farming, Ranching and Fishing
+ - Forestry
+ - Human Resources
+ - NGO
+ - Other Agriculture
+ - Other Education
+ - Other Industries
+ - Religious Work
+ - Research
+ - Veterinary

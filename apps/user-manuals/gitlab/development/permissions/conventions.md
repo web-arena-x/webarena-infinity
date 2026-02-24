@@ -101,8 +101,8 @@ Examples:
 
 ```ruby
 rule { is_author }.policy do
-  enable :read_note
-  enable :update_note
-  enable :delete_note
+ enable :read_note
+ enable :update_note
+ enable :delete_note
 end
 ```

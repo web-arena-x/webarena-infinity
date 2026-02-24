@@ -15,16 +15,16 @@ To view a bid form for a bid package.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.
+ - 'Admin' level permissions on the project's Bidding tool.
 
 ## Steps
 
 1. Navigate to the project's **Bidding** tool.
-2. Open the bid package.  
+2. Open the bid package. 
    This opens the Bidding tab.
-3. Click **View Bid Forms**.  
+3. Click **View Bid Forms**. 
    All bid forms are shown in the left side panel.![view-bid-forms.png](https://support.procore.com/@api/deki/files/446344/view-bid-forms.png?revision=1)
-4. Click the bid form that you want to view.  
+4. Click the bid form that you want to view. 
    The details of the bid form are shown on the 'Bid Form' tab.
 5. The following actions are also available:
    - To adjust a column width, hover over the line between columns and click and drag to resize.

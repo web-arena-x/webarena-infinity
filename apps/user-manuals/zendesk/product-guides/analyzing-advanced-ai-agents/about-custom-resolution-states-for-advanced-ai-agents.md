@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357756466586-About-custom
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -23,9 +23,9 @@ This article contains the following topics:
 - [About resolutions](#h_01GHTMQJWCNAM5NQBSMAXZGFFS)
 - [Setting custom resolution states](#h_01GHTMQXN0Q4SVXW86HA7273H0)
 - [Recommendations](#h_01GNY5V2G4HNW5Y997A92HSTZX)
-  - [Structuring your resolutions](#h_01GNY5VGR67YG5A464R6VPSHSB)
-  - [Using the informed state](#h_01GNVCDV9VQ7GXME85YPNE9KXJ)
-  - [How to use the unresolved state](#h_01GNY5W2SGCE137T9KE8CZN0BY)
+ - [Structuring your resolutions](#h_01GNY5VGR67YG5A464R6VPSHSB)
+ - [Using the informed state](#h_01GNVCDV9VQ7GXME85YPNE9KXJ)
+ - [How to use the unresolved state](#h_01GNY5W2SGCE137T9KE8CZN0BY)
 - [Resolutions in analytics](#h_01GHTMR3M6FYATX6CBQCD665G8)
 - [Resolutions in conversations logs](#h_01GHTMRKRV96DG1E8K3CFWJ6R9)
 - [FAQ](#h_01GHTMRXMA7926CCXWAZ0BFK04)
@@ -34,7 +34,7 @@ This article contains the following topics:
 
 The table below describes the available custom resolution states.
 
-|  |  |
+| | |
 | --- | --- |
 | **Custom resolution state** | **Definition** |
 | Undefined | AI agent conversations that ended without a custom resolution state, often due to drop-off or use cases missing a custom resolution state. |
@@ -50,16 +50,16 @@ From the dialogue builder, you can add the applicable states to any message bloc
 
 **To set a custom resolution state**
 
-1. Navigate to an Intent or Template Reply  
+1. Navigate to an Intent or Template Reply 
    ![DLB_Intent_1.gif](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/bots_8524316429202.png)
-2. Select the block you would like to apply the state to  
+2. Select the block you would like to apply the state to 
    ![DLB_note_2.gif](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/bots_8524316434834.png)
-3. On the details tab, scroll to Resolutions and select the appropriate state from the drop-down  
+3. On the details tab, scroll to Resolutions and select the appropriate state from the drop-down 
      
    ![DLB_resolutions.gif](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/bots_8513921437714.png)
 4. Press **Save Draft** or **Publish**to save your changes.
 
-An important thing to note is that each block can only have one custom resolution state associated with it as when a user passes that block that custom resolution state will be applied. The resolution of a conversation will stay the same after passing the selected block until a new resolution is set. Therefore there is no need to cover all the following blocks with the same resolution type.  
+An important thing to note is that each block can only have one custom resolution state associated with it as when a user passes that block that custom resolution state will be applied. The resolution of a conversation will stay the same after passing the selected block until a new resolution is set. Therefore there is no need to cover all the following blocks with the same resolution type. 
 Recommendations
 
 ### Structuring your resolutions

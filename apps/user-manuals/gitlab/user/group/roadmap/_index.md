@@ -13,11 +13,9 @@ description: Epic progress, timelines, milestones, and goals.
 
 {{< /details >}}
 
-Epics in a group containing a start date or due date can be visualized in a form
-of a timeline.
+Epics in a group containing a start date or due date can be visualized in a form of a timeline.
 
-The roadmap in GitLab provides a high-level overview of the planned work and progress of epics and
-milestones in a timeline view (that is, a Gantt chart).
+The roadmap in GitLab provides a high-level overview of the planned work and progress of epics and milestones in a timeline view (that is, a Gantt chart).
 Use the roadmap to visualize and communicate the strategic direction and dependencies of your projects.
 
 The epic roadmap offers the following benefits:
@@ -35,21 +33,15 @@ To view the roadmap in a group:
 1. On the top bar, select **Search or go to** and find your group.
 1. Select **Plan** > **Roadmap**.
 
-The roadmap shows the epics and milestones in a
-group, one of its subgroups, or a project in one of the groups.
+The roadmap shows the epics and milestones in a group, one of its subgroups, or a project in one of the groups.
 
 On the epic bars, you can see each epic's title, progress, and completed weight percentage.
-When you hover over an epic bar, a popover appears with the epic's title, start date, due date, and
-weight completed.
+When you hover over an epic bar, a popover appears with the epic's title, start date, due date, and weight completed.
 
 You can expand epics that contain child epics to show their child epics in the roadmap.
-You can select the chevron ({{< icon name="chevron-down" >}}) next to the epic title to expand and collapse the
-child epics.
+You can select the chevron ({{< icon name="chevron-down" >}}) next to the epic title to expand and collapse the child epics.
 
-On top of the milestone bars, you can see their title. When you point to a
-milestone bar or title, a popover appears with its title, start date, and due
-date. You can also select the chevron ({{< icon name="chevron-down" >}}) next to the **Milestones**
-heading to toggle the list of the milestone bars.
+On top of the milestone bars, you can see their title. When you point to a milestone bar or title, a popover appears with its title, start date, and due date. You can also select the chevron ({{< icon name="chevron-down" >}}) next to the **Milestones** heading to toggle the list of the milestone bars.
 
 ![The roadmap view with epics and milestones.](img/roadmap_view_v14_3.png)
 
@@ -67,8 +59,7 @@ From an epic, you can also [view the roadmap filtered to this epic's descendants
 > [!note]
 > Filtering roadmaps by milestone might not be available to you. Be sure to review this section's history for details.
 
-When you want to explore a roadmap, there are several ways to make it easier by sorting epics or
-filtering them by what's important for you.
+When you want to explore a roadmap, there are several ways to make it easier by sorting epics or filtering them by what's important for you.
 
 In the Roadmap view, you can sort epics by:
 
@@ -78,9 +69,7 @@ In the Roadmap view, you can sort epics by:
 - Created date
 - Last updated date
 
-Each option contains a button that toggles the sort order between **ascending**
-and **descending**. The sort option and order persist when browsing epics, including
-the [epics list view](../epics/_index.md).
+Each option contains a button that toggles the sort order between **ascending** and **descending**. The sort option and order persist when browsing epics, including the [epics list view](../epics/_index.md).
 
 In the Roadmap view, you can also filter by the epics':
 
@@ -99,13 +88,11 @@ From an epic, you can also [view the roadmap filtered to this epic's descendants
 ### Improve the performance of the roadmap
 
 If your group contains a lot of epics, using filters can reduce the time your roadmap takes to load.
-Filtering the roadmap reduces the amount of data the roadmap contains. Reducing
-the data in the roadmap can also make it easier for you to find the information you're looking for.
+Filtering the roadmap reduces the amount of data the roadmap contains. Reducing the data in the roadmap can also make it easier for you to find the information you're looking for.
 
 In particular, filtering based on labels can result in a significant performance improvement.
 
-After you set the filters you want to apply, you can save the URL as bookmark in your
-browser.
+After you set the filters you want to apply, you can save the URL as bookmark in your browser.
 In the future, you can quickly load the filtered roadmap using the bookmark.
 
 ### Roadmap settings
@@ -121,15 +108,12 @@ When you enable the roadmap settings sidebar, you can use it to refine epics sho
 You can configure the following:
 
 - Select date range.
-- Turn milestones on or off, and select whether to show all, group, subgroup, or
-  project milestones.
+- Turn milestones on or off, and select whether to show all, group, subgroup, or project milestones.
 - Show all, open, or closed epics.
-- Turn progress tracking for child issues on or off and select whether
-  to use issue weights or counts to calculate progress.
+- Turn progress tracking for child issues on or off and select whether to use issue weights or counts to calculate progress.
 - Turn labels on or off.
 
-The roadmap configuration settings aren't saved in user preferences, but are saved or
-shared using URL parameters.
+The roadmap configuration settings aren't saved in user preferences, but are saved or shared using URL parameters.
 
 ## Timeline duration
 
@@ -145,13 +129,11 @@ Roadmap provides these date range options, each with a predetermined timeline du
 
 - **This quarter**: Includes the weeks present in the current quarter.
 - **This year**: Includes the weeks or months present in the current year.
-- **Within 3 years**: Includes the weeks, months, or quarters present both in
-  the previous 18 months and the upcoming 18 months (three years in total).
+- **Within 3 years**: Includes the weeks, months, or quarters present both in the previous 18 months and the upcoming 18 months (three years in total).
 
 ### Layout presets
 
-Depending on selected [date range preset](#date-range-presets), the roadmap supports
-these layout presets:
+Depending on selected [date range preset](#date-range-presets), the roadmap supports these layout presets:
 
 - **Quarters**: Available only when the **Within 3 years** date range is selected.
 - **Months**: Available when either **This year** or **Within 3 years** date range is selected.
@@ -161,35 +143,23 @@ these layout presets:
 
 ![Timeline header showing quarters and months for 6 quarters, highlighting the time scale.](img/roadmap_timeline_quarters_v11_10.png)
 
-In the **Quarters** preset, roadmap shows epics and milestones which have start or due dates
-**falling within** currently selected date range preset,
-where **today**
-is shown by the vertical red line in the timeline. The sub-headers underneath the quarter name on
-the timeline header represent the month of the quarter.
+In the **Quarters** preset, roadmap shows epics and milestones which have start or due dates **falling within** currently selected date range preset, where **today** is shown by the vertical red line in the timeline. The sub-headers underneath the quarter name on the timeline header represent the month of the quarter.
 
 ### Months
 
 ![Timeline header showing months with weekly date markers beneath each month.](img/roadmap_timeline_months_v11_10.png)
 
-In the **Months** preset, roadmap shows epics and milestones which have start or
-due dates **falling within** or **going through** currently selected date range
-preset, where **today** is shown by the vertical red line in the timeline. The
-sub-headers underneath the month name on the timeline header represent the date
-on the start day (Sunday) of the week. This preset is selected by default.
+In the **Months** preset, roadmap shows epics and milestones which have start or due dates **falling within** or **going through** currently selected date range preset, where **today** is shown by the vertical red line in the timeline. The sub-headers underneath the month name on the timeline header represent the date on the start day (Sunday) of the week. This preset is selected by default.
 
 ### Weeks
 
 ![roadmap date range in weeks](img/roadmap_timeline_weeks_v11_11.png)
 
-In the **Weeks** preset, roadmap shows epics and milestones which have start or due dates **falling
-within** or **going through** currently selected date range preset, where **today**
-is shown by the vertical red line in the timeline. The sub-headers underneath the week name on
-the timeline header represent the days of the week.
+In the **Weeks** preset, roadmap shows epics and milestones which have start or due dates **falling within** or **going through** currently selected date range preset, where **today** is shown by the vertical red line in the timeline. The sub-headers underneath the week name on the timeline header represent the days of the week.
 
 ## Roadmap timeline bar
 
-The timeline bar indicates the approximate position of an epic or milestone based on its start and
-due dates.
+The timeline bar indicates the approximate position of an epic or milestone based on its start and due dates.
 
 ## Blocked epics
 

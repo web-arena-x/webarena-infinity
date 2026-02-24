@@ -17,8 +17,7 @@ Use this API to interact with the [Ruby gems and Bundler package manager clients
 {{< alert type="warning" >}}
 
 This API is used by the [Ruby gems and Bundler package manager clients](https://maven.apache.org/)
-and is generally not meant for manual consumption. This API is under development and is not ready
-for production use due to limited functionality.
+and is generally not meant for manual consumption. This API is under development and is not ready for production use due to limited functionality.
 
 {{< /alert >}}
 {{< alert type="note" >}}
@@ -31,8 +30,7 @@ for details on which headers and token types are supported. Undocumented authent
 
 ## Enable the Ruby gems API
 
-The Ruby gems API for GitLab is behind a feature flag that is disabled by default. GitLab
-administrators with access to the GitLab Rails console can enable this API for your instance.
+The Ruby gems API for GitLab is behind a feature flag that is disabled by default. GitLab administrators with access to the GitLab Rails console can enable this API for your instance.
 
 To enable it:
 
@@ -64,11 +62,11 @@ GET projects/:id/packages/rubygems/gems/:file_name
 | Attribute    | Type   | Required | Description |
 | ------------ | ------ | -------- | ----------- |
 | `id`         | string | yes      | The ID or full path of the project. |
-| `file_name`  | string | yes      | The name of the `.gem` file. |
+| `file_name` | string | yes      | The name of the `.gem` file. |
 
 ```shell
 curl --header "Authorization:<personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/rubygems/gems/my_gem-1.0.0.gem"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/rubygems/gems/my_gem-1.0.0.gem"
 ```
 
 Write the output to file:
@@ -97,39 +95,36 @@ GET projects/:id/packages/rubygems/api/v1/dependencies
 
 ```shell
 curl --header "Authorization:<personal_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/packages/rubygems/api/v1/dependencies?gems=my_gem,foo"
+ --url "https://gitlab.example.com/api/v4/projects/1/packages/rubygems/api/v1/dependencies?gems=my_gem,foo"
 ```
 
-If Ruby is installed, you can use the following
-Ruby command to read the response. For this to work, you must
-either [set your credentials in `~/.gem/credentials`](../../user/packages/rubygems_registry/_index.md#authenticate-to-the-package-registry),
-or pass your access token to the request:
+If Ruby is installed, you can use the following Ruby command to read the response. For this to work, you must either [set your credentials in `~/.gem/credentials`](../../user/packages/rubygems_registry/_index.md#authenticate-to-the-package-registry), or pass your access token to the request:
 
 ```shell
 $ ruby -ropen-uri -rpp -e \
-  'pp Marshal.load(URI.open("https://gitlab.example.com/api/v4/projects/1/packages/rubygems/api/v1/dependencies?gems=my_gem,rails,foo", "Authorization" => <personal_access_token>))'
+ 'pp Marshal.load(URI.open("https://gitlab.example.com/api/v4/projects/1/packages/rubygems/api/v1/dependencies?gems=my_gem,rails,foo", "Authorization" => <personal_access_token>))'
 
 [{:name=>"my_gem", :number=>"0.0.1", :platform=>"ruby", :dependencies=>[]},
  {:name=>"my_gem",
-  :number=>"0.0.3",
-  :platform=>"ruby",
-  :dependencies=>
+ :number=>"0.0.3",
+ :platform=>"ruby",
+ :dependencies=>
    [["dependency_1", "~> 1.2.3"],
     ["dependency_2", "= 3.0.0"],
     ["dependency_3", ">= 1.0.0"],
     ["dependency_4", ">= 0"]]},
  {:name=>"my_gem",
-  :number=>"0.0.2",
-  :platform=>"ruby",
-  :dependencies=>
+ :number=>"0.0.2",
+ :platform=>"ruby",
+ :dependencies=>
    [["dependency_1", "~> 1.2.3"],
     ["dependency_2", "= 3.0.0"],
     ["dependency_3", ">= 1.0.0"],
     ["dependency_4", ">= 0"]]},
  {:name=>"foo",
-  :number=>"0.0.2",
-  :platform=>"ruby",
-  :dependencies=>
+ :number=>"0.0.2",
+ :platform=>"ruby",
+ :dependencies=>
     ["dependency_2", "= 3.0.0"],
     ["dependency_4", ">= 0"]]}]
 ```

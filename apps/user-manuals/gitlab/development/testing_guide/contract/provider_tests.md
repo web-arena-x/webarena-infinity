@@ -21,11 +21,11 @@ The `service_provider` block is where the provider test is defined. For this blo
 require_relative '../../../spec_helper'
 
 module Provider
-  module DiscussionsHelper
+ module DiscussionsHelper
     Pact.service_provider 'GET discussions' do
 
     end
-  end
+ end
 end
 ```
 
@@ -37,13 +37,13 @@ The `honours_pact_with` block describes which consumer this provider test is add
 require_relative '../../../spec_helper'
 
 module Provider
-  module DiscussionsHelper
+ module DiscussionsHelper
     Pact.service_provider 'GET discussions' do
       honours_pact_with 'MergeRequests#show' do
 
       end
     end
-  end
+ end
 end
 ```
 
@@ -57,7 +57,7 @@ For the provider tests to verify the contracts, you must hook it up to a test ap
 require_relative '../../../spec_helper'
 
 module Provider
-  module DiscussionsHelper
+ module DiscussionsHelper
     Pact.service_provider 'GET discussions' do
       app { Environment::Test.app }
 
@@ -65,7 +65,7 @@ module Provider
 
       end
     end
-  end
+ end
 end
 ```
 
@@ -77,7 +77,7 @@ Now that the test app is configured, all that is left is to define which contrac
 require_relative '../../../spec_helper'
 
 module Provider
-  module DiscussionsHelper
+ module DiscussionsHelper
     Pact.service_provider 'GET discussions' do
       app { Environment::Test.app }
 
@@ -85,7 +85,7 @@ module Provider
         pact_uri '../contracts/project/merge_requests/show/mergerequests#show-merge_request_discussions_endpoint.json'
       end
     end
-  end
+ end
 end
 ```
 
@@ -97,13 +97,13 @@ Under the `contracts:merge_requests` namespace, introduce the Rake task to run t
 
 ```ruby
 Pact::VerificationTask.new(:get_discussions) do |pact|
-  provider = File.expand_path('../../../spec/contracts/provider', __dir__)
-  pact_helper_location = "pact_helpers/project/merge_requests/show/get_discussions_helper.rb"
+ provider = File.expand_path('../../../spec/contracts/provider', __dir__)
+ pact_helper_location = "pact_helpers/project/merge_requests/show/get_discussions_helper.rb"
 
-  pact.uri(
+ pact.uri(
     Provider::ContractSourceHelper.contract_location(:rake, pact_helper_location),
     pact_helper: "#{provider}/#{pact_helper_location}"
-  )
+ )
 end
 ```
 
@@ -125,16 +125,16 @@ Before you create the test data, a default user is created in the [`spec_helper`
 
 ```ruby
 RSpec.configure do |config|
-  config.include Devise::Test::IntegrationHelpers
-  config.include FactoryBot::Syntax::Methods
+ config.include Devise::Test::IntegrationHelpers
+ config.include FactoryBot::Syntax::Methods
 
-  config.before do
+ config.before do
     user = create(:user, name: Provider::UsersHelper::CONTRACT_USER_NAME).tap do |user|
       user.current_sign_in_at = Time.current
     end
 
     sign_in user
-  end
+ end
 end
 ```
 
@@ -155,9 +155,9 @@ In the `provider_states_for` block, you then define the state the test data is f
 
 ```ruby
 Pact.provider_states_for "MergeRequests#show" do
-  provider_state "a merge request with discussions exists" do
+ provider_state "a merge request with discussions exists" do
 
-  end
+ end
 end
 ```
 
@@ -167,7 +167,7 @@ This is where you define the test data creation steps. Use `FactoryBot` to creat
 
 ```ruby
 Pact.provider_states_for "MergeRequests#show" do
-  provider_state "a merge request with discussions exists" do
+ provider_state "a merge request with discussions exists" do
     set_up do
       user = User.find_by(name: Provider::UsersHelper::CONTRACT_USER_NAME)
       namespace = create(:namespace, name: 'gitlab-org')
@@ -179,7 +179,7 @@ Pact.provider_states_for "MergeRequests#show" do
 
       create(:discussion_note_on_merge_request, noteable: merge_request, project: project, author: user)
     end
-  end
+ end
 end
 ```
 
@@ -194,7 +194,7 @@ require_relative '../../../spec_helper'
 require_relative '../../../states/project/merge_requests/show_state'
 
 module Provider
-  module DiscussionsHelper
+ module DiscussionsHelper
     Pact.service_provider "GET discussions" do
       app { Environments::Test.app }
 
@@ -202,7 +202,7 @@ module Provider
         pact_uri '../contracts/project/merge_requests/show/mergerequests#show-merge_request_discussions_endpoint.json'
       end
     end
-  end
+ end
 end
 ```
 

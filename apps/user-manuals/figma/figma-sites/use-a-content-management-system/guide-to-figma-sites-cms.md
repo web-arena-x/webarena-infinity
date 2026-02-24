@@ -52,7 +52,7 @@ A **CMS list** can display recent articles on your homepage, with a link to disp
 
 ## Create a CMS collection and add content
 
-Click  **CMS** in the left navigation bar of a Figma Sites file. From there, you can create, edit, and connect content to your site’s design.
+Click **CMS** in the left navigation bar of a Figma Sites file. From there, you can create, edit, and connect content to your site’s design.
 
 ### Create a CMS collection
 
@@ -60,7 +60,7 @@ A collection defines the structure of your data—the fields and items that powe
 
 [Learn how to create a CMS collection.](https://help.figma.com/hc/en-us/articles/36165345510551)
 
-**Tip:** You can start with a sample data set to get up and running quickly if you don’t have content yet. Click  **CMS** in the left navigation bar of a sites file, then choose one of the starter collections.
+**Tip:** You can start with a sample data set to get up and running quickly if you don’t have content yet. Click **CMS** in the left navigation bar of a sites file, then choose one of the starter collections.
 
 ### Import a CMS collection
 
@@ -72,7 +72,7 @@ If you already have content in a CSV file, you can import it directly to CMS to 
 
 Each item in a collection represents one piece of content—an article, a case study, or a product.
 
-Quickly edit an item’s fields—such as its title, image, or description—from the  **CMS** section in the left navigation bar, or by double-clicking connected content on the canvas. As you make changes, updates appear instantly, letting you see exactly how your content looks in context.
+Quickly edit an item’s fields—such as its title, image, or description—from the **CMS** section in the left navigation bar, or by double-clicking connected content on the canvas. As you make changes, updates appear instantly, letting you see exactly how your content looks in context.
 
 [Learn more about adding and editing CMS items.](https://help.figma.com/hc/en-us/articles/36165363290519)
 

@@ -15,15 +15,15 @@ The Bulk Actions menu in the Submittals tool lets you perform the same action on
 ## Things to Consider
 
 - **Required User Permissions**:
-  - 'Admin' level users can perform bulk actions on submittals.
-- **Supported Views**:  
-  The menu commands are supported in these views:
-  - Bulk Actions > Apply Workflow: *Items*, *Packages*, *Spec Sections*, and *Ball In Court*
-  - Bulk Actions > Edit: *Items*, *Packages*, *Spec Sections*, and *Ball In Court*
-  - Bulk Actions > Delete: *Items*
-  - Bulk Actions > Retrieve: *Recycle Bin*
+ - 'Admin' level users can perform bulk actions on submittals.
+- **Supported Views**: 
+ The menu commands are supported in these views:
+ - Bulk Actions > Apply Workflow: *Items*, *Packages*, *Spec Sections*, and *Ball In Court*
+ - Bulk Actions > Edit: *Items*, *Packages*, *Spec Sections*, and *Ball In Court*
+ - Bulk Actions > Delete: *Items*
+ - Bulk Actions > Retrieve: *Recycle Bin*
 - **Limitations**:
-  - Automatic email notifications are not sent for submittal updates made using Bulk Actions. To learn more about automatic email notifications for the project's Submittals tool, see [Who receives an email when a submittal is created or updated?](https://support.procore.com/faq/who-receives-an-email-when-a-submittal-is-created-or-updated "Who receives an email when a submittal is created or updated?")
+ - Automatic email notifications are not sent for submittal updates made using Bulk Actions. To learn more about automatic email notifications for the project's Submittals tool, see [Who receives an email when a submittal is created or updated?](https://support.procore.com/faq/who-receives-an-email-when-a-submittal-is-created-or-updated "Who receives an email when a submittal is created or updated?")
 
 ## Tasks
 

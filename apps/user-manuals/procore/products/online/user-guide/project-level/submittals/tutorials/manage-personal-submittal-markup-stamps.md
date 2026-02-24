@@ -15,11 +15,11 @@ If you review submittal PDF attachments and apply markups to the attachments in 
 ## Things to Consider
 
 - **Required User Permissions:**
-  - You must have the current Ball In Court (BIC) responsibility for a submittal.
+ - You must have the current Ball In Court (BIC) responsibility for a submittal.
 - **Additional Information:**
-  - Personal stamps can only be used by the user who uploaded them.
-  - After they are uploaded to Procore, personal stamps can only be renamed or deleted and cannot be otherwise edited.
-  - We recommend that you do not upload JPEG files with a CMYK color profile to use as personal stamps. JPEG files with a CYMK color profile may not always load properly.
+ - Personal stamps can only be used by the user who uploaded them.
+ - After they are uploaded to Procore, personal stamps can only be renamed or deleted and cannot be otherwise edited.
+ - We recommend that you do not upload JPEG files with a CMYK color profile to use as personal stamps. JPEG files with a CYMK color profile may not always load properly.
 
 ## Steps
 
@@ -37,12 +37,11 @@ Follow these steps if you want to upload a new personal stamp.
 2. Click **View** next to a submittal that you have the current the Ball In Court responsibility for.
 3. In the 'Submittal Workflow' table, click **Open** next to a PDF attachment.
 4. Click the![icon-markup-stamp.png](https://support.procore.com/@api/deki/files/82472/icon-markup-stamp.png?revision=4&size=bestfit&width=30&height=30) icon or press S on your keyboard.
-5. If this is your first stamp on the project, the 'Add Submittal Stamps' window opens automatically.  
-   OR  
-   If you have uploaded stamps on the project before, click **+New** to open the 'Add Submittal Stamps' window.  
+5. If this is your first stamp on the project, the 'Add Submittal Stamps' window opens automatically. 
+   OR If you have uploaded stamps on the project before, click **+New** to open the 'Add Submittal Stamps' window.
      
    ![submittals-markup-new-stamp.png](https://support.procore.com/@api/deki/files/142064/submittals-markup-new-stamp.png?revision=2)
-6. In the 'Add Submittal Stamps' window, upload the file for the stamp by clicking **Attach File(s)** or dragging and dropping the file from your computer.  
+6. In the 'Add Submittal Stamps' window, upload the file for the stamp by clicking **Attach File(s)** or dragging and dropping the file from your computer. 
    *Notes:*
    - The file must be in JPG or PNG format.
    - The minimum dimensions for the file are 500 by 500 pixels.​​
@@ -58,10 +57,10 @@ Follow these steps if you want to rename an existing personal stamp.
 1. Navigate to the project's **Submittals** tool.
 2. Click **View** next to a submittal that you have the current the Ball In Court responsibility for.
 3. In the 'Submittal Workflow' table, click **Open** next to a PDF attachment.
-4. Click the ![icon-markup-stamp.png](https://support.procore.com/@api/deki/files/82472/icon-markup-stamp.png?revision=4&size=bestfit&width=30&height=30) icon or press S on your keyboard and click **Edit**.  
+4. Click the ![icon-markup-stamp.png](https://support.procore.com/@api/deki/files/82472/icon-markup-stamp.png?revision=4&size=bestfit&width=30&height=30) icon or press S on your keyboard and click **Edit**. 
      
    ![submittals-edit-stamp.png](https://support.procore.com/@api/deki/files/147532/submittals-edit-stamp.png?revision=2)
-5. Click in the box with the stamp's name that you want to edit.  
+5. Click in the box with the stamp's name that you want to edit. 
      
    ![submittals-rename-stamp.png](https://support.procore.com/@api/deki/files/147538/submittals-rename-stamp.png?revision=2)
 6. Enter a new name for the stamp.
@@ -74,11 +73,11 @@ Follow these steps if you want to delete an existing personal stamp.
 1. Navigate to the project's **Submittals** tool.
 2. Click **View** next to a submittal that you have the current the Ball In Court responsibility for.
 3. In the 'Submittal Workflow' table, click **Open** next to a PDF attachment.
-4. Click the ![icon-markup-stamp.png](https://support.procore.com/@api/deki/files/82472/icon-markup-stamp.png?revision=4&size=bestfit&width=30&height=30)icon or press S on your keyboard and click **Edit**.  
+4. Click the ![icon-markup-stamp.png](https://support.procore.com/@api/deki/files/82472/icon-markup-stamp.png?revision=4&size=bestfit&width=30&height=30)icon or press S on your keyboard and click **Edit**. 
      
    ![submittals-edit-stamp.png](https://support.procore.com/@api/deki/files/147532/submittals-edit-stamp.png?revision=2)
-5. Click the ![icon-delete-trash4.png](https://support.procore.com/@api/deki/files/105888/icon-delete-trash4.png?revision=1&size=bestfit&width=15&height=15) icon on the stamp you want to delete.  
-   *Note:* Deleting a stamp only removes it from your list of stamps and does NOT remove it from submittal attachments where the stamp was used previously.  
+5. Click the ![icon-delete-trash4.png](https://support.procore.com/@api/deki/files/105888/icon-delete-trash4.png?revision=1&size=bestfit&width=15&height=15) icon on the stamp you want to delete. 
+   *Note:* Deleting a stamp only removes it from your list of stamps and does NOT remove it from submittal attachments where the stamp was used previously. 
      
    ![submittals-delete-stamp.png](https://support.procore.com/@api/deki/files/147533/submittals-delete-stamp.png?revision=2)
 6. Click **Done**.

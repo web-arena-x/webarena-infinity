@@ -79,8 +79,7 @@ To create a blank project:
 To track issue status during stand-ups, you need workflow labels.
 
 Create these labels in your `Paperclip Software Factory` group rather than the project.
-Group-level labels are available to all projects in the group, which helps establish consistent
-workflows across teams.
+Group-level labels are available to all projects in the group, which helps establish consistent workflows across teams.
 
 To create a workflow label:
 

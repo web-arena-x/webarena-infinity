@@ -27,8 +27,7 @@ Use functions with [GitLab Query Language (GLQL)](_index.md) to create dynamic q
 
 ## Functions inside query
 
-To make a query context-specific, use functions inside a [query](_index.md#query-syntax), for example,
-by filtering by a current user or a date.
+To make a query context-specific, use functions inside a [query](_index.md#query-syntax), for example, by filtering by a current user or a date.
 
 ### Current user
 
@@ -48,15 +47,15 @@ by filtering by a current user or a date.
 
 - List all issues where the current authenticated user is the assignee:
 
-  ```plaintext
-  assignee = currentUser()
-  ```
+ ```plaintext
+ assignee = currentUser()
+ ```
 
 - List all merge requests where the current authenticated user is the assignee but not the author:
 
-  ```plaintext
-  type = MergeRequest and assignee = currentUser() and author != currentUser()
-  ```
+ ```plaintext
+ type = MergeRequest and assignee = currentUser() and author != currentUser()
+ ```
 
 ### Today
 
@@ -76,20 +75,19 @@ by filtering by a current user or a date.
 
 - List all issues created today:
 
-  ```plaintext
-  created = today()
-  ```
+ ```plaintext
+ created = today()
+ ```
 
 - List all merge requests merged today:
 
-  ```plaintext
-  type = MergeRequest and merged = today()
-  ```
+ ```plaintext
+ type = MergeRequest and merged = today()
+ ```
 
 ## Functions in embedded views
 
-To derive a new column from an existing field of an [embedded view](_index.md#embedded-views), include
-functions in the `fields` parameter.
+To derive a new column from an existing field of an [embedded view](_index.md#embedded-views), include functions in the `fields` parameter.
 
 ### Extract labels into a new column
 
@@ -101,15 +99,13 @@ functions in the `fields` parameter.
 
 **Description**:
 
-The `labels` function takes one or more label name string values as parameter,
-and creates a filtered column with only those labels on issues.
-The function also works as an extractor, so if a label has been extracted, it no longer shows up
-in the regular `labels` column, if you choose to display that column as well.
+The `labels` function takes one or more label name string values as parameter, and creates a filtered column with only those labels on issues.
+The function also works as an extractor, so if a label has been extracted, it no longer shows up in the regular `labels` column, if you choose to display that column as well.
 
 **Additional details**:
 
 - By default, this function looks for an exact match to the label name.
-  A wildcard character (`*`) in the string to match any character.
+ A wildcard character (`*`) in the string to match any character.
 - A minimum of 1 and maximum of 100 label names can be passed to the `labels` function.
 - Label names passed to this function are case-insensitive. For example, `Deliverable` and `deliverable` are equivalent.
 
@@ -117,29 +113,26 @@ in the regular `labels` column, if you choose to display that column as well.
 
 - Include all `workflow` scoped labels in the column:
 
-  ```plaintext
-  labels("workflow::*")
-  ```
+ ```plaintext
+ labels("workflow::*")
+ ```
 
 - Include labels `Deliverable`, `Stretch`, and `Spike`:
 
-  ```plaintext
-  labels("Deliverable", "Stretch", "Spike")
-  ```
+ ```plaintext
+ labels("Deliverable", "Stretch", "Spike")
+ ```
 
 - Include all labels like `backend`, `frontend`, and others that end with `end`:
 
-  ```plaintext
-  labels("*end")
-  ```
+ ```plaintext
+ labels("*end")
+ ```
 
 To include the `labels` function in an embedded view:
 
 ````markdown
 ```glql
-display: list
-fields: title, health, due, labels("workflow::*"), labels
-limit: 5
-query: project = "gitlab-org/gitlab" AND assignee = currentUser() AND state = opened
+display: list fields: title, health, due, labels("workflow::*"), labels limit: 5 query: project = "gitlab-org/gitlab" AND assignee = currentUser() AND state = opened
 ```
 ````

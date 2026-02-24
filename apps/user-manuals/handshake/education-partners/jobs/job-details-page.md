@@ -9,15 +9,15 @@ The Job Details page provides information and actions you can take related to a 
 Table of Contents:
 
 - [Lefthand Fields](#h_01H94ECS60ZGQ9BD17VACFNXB3)
-  - Employer, Expiration, Applicants
-  - Social Media
-  - Label
-  - Preview Link
-  - Actions
-  - Attachments
+ - Employer, Expiration, Applicants
+ - Social Media
+ - Label
+ - Preview Link
+ - Actions
+ - Attachments
 - [Center Fields](#h_01H94ECS6047AG3V2NW92G8S5R)
-  - Approval status, Apply Start, and Expiration Date
-  - Job information fields
+ - Approval status, Apply Start, and Expiration Date
+ - Job information fields
     - Exceptions for schools
       - Federal Work Study
       - Hiring Team

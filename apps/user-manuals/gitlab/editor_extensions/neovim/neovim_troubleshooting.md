@@ -6,17 +6,13 @@ description: Connect and use GitLab Duo in Neovim.
 title: Troubleshooting Neovim
 ---
 
-When troubleshooting the GitLab plugin for Neovim, you should confirm that the issue occurs
-in isolation from other Neovim plugins and settings. First, run the Neovim [testing steps](#test-your-neovim-configuration),
-then the [troubleshooting steps for GitLab Duo Code Suggestions](../../user/project/repository/code_suggestions/troubleshooting.md).
+When troubleshooting the GitLab plugin for Neovim, you should confirm that the issue occurs in isolation from other Neovim plugins and settings. First, run the Neovim [testing steps](#test-your-neovim-configuration), then the [troubleshooting steps for GitLab Duo Code Suggestions](../../user/project/repository/code_suggestions/troubleshooting.md).
 
-If the steps on this page don't solve your problem, check the
-[list of open issues](https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim/-/issues/?sort=created_date&state=opened&first_page_size=100)
+If the steps on this page don't solve your problem, check the [list of open issues](https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim/-/issues/?sort=created_date&state=opened&first_page_size=100)
 in the Neovim plugin's project. If an issue matches your problem, update the issue.
 If no issues match your problem, [create a new issue](https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim/-/issues/new).
 
-For troubleshooting the extension for GitLab Duo Code Suggestions,
-see [Troubleshooting Code Suggestions](../../user/project/repository/code_suggestions/troubleshooting.md#neovim-troubleshooting).
+For troubleshooting the extension for GitLab Duo Code Suggestions, see [Troubleshooting Code Suggestions](../../user/project/repository/code_suggestions/troubleshooting.md#neovim-troubleshooting).
 
 ## Test your Neovim configuration
 
@@ -33,8 +29,8 @@ If you see the error `E149: Sorry, no help for gitlab.txt`, you need to generate
 To resolve this issue:
 
 - Run either of these commands:
-  - `:helptags ALL`
-  - `:helptags doc/` from the root directory of the plugin.
+ - `:helptags ALL`
+ - `:helptags doc/` from the root directory of the plugin.
 
 ### Run `:checkhealth`
 
@@ -43,23 +39,19 @@ These checks help you identify and resolve configuration issues on your own.
 
 ## Enable debug logs
 
-Enable debug logs to capture more information about problems. Debug logs can
-contain sensitive workspace configuration, so review the output before sharing
-it with others.
+Enable debug logs to capture more information about problems. Debug logs can contain sensitive workspace configuration, so review the output before sharing it with others.
 
 To enable extra logging:
 
 - Set the `vim.lsp` log level in your current buffer:
 
-  ```lua
-  :lua vim.lsp.set_log_level('debug')
-  ```
+ ```lua
+ :lua vim.lsp.set_log_level('debug')
+ ```
 
 ## Reproduce the problem in a minimal project
 
-To help project maintainers understand and resolve your issue, create a sample
-configuration or project that reproduces your issue. For example, when troubleshooting
-a problem with Code Suggestions:
+To help project maintainers understand and resolve your issue, create a sample configuration or project that reproduces your issue. For example, when troubleshooting a problem with Code Suggestions:
 
 1. Create a sample project:
 
@@ -100,5 +92,4 @@ a problem with Code Suggestions:
 
 This error happens when your local project has not set a remote in `.git/config`.
 
-To resolve this issue: add a Git remote in your local project using
-[`git remote add`](../../topics/git/commands.md#git-remote-add).
+To resolve this issue: add a Git remote in your local project using [`git remote add`](../../topics/git/commands.md#git-remote-add).

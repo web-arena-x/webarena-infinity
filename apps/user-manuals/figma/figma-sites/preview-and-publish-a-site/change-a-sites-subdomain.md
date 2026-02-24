@@ -24,8 +24,8 @@ Custom subdomains must meet the following requirements:
 
 Your site will be accessible at the new subdomain immediately after you update it.
 
-1. From the site file, click  **Settings** in the left navigation bar.
-2. Click  **Domains** in the left sidebar.
+1. From the site file, click **Settings** in the left navigation bar.
+2. Click **Domains** in the left sidebar.
 3. Click **Edit domain**.
 4. Enter a new subdomain and press **Save**.
 
@@ -41,9 +41,9 @@ You can’t restore a previous subdomain, but you may be able to switch back to 
 
 Yes. You can generate a new random subdomain if you no longer want to use your custom one:
 
-1. From the site file, click  **Settings** in the left navigation bar.
-2. Click  **Domains** in the left sidebar.
+1. From the site file, click **Settings** in the left navigation bar.
+2. Click **Domains** in the left sidebar.
 3. Click **Edit domain**.
-4. Click  **Generate a new subdomain** and press **Save**.
+4. Click **Generate a new subdomain** and press **Save**.
 
 **Tip:** You can also [unpublish your site](https://help.figma.com/hc/en-us/articles/31242845959703) if you don’t want it to be available on the web any more.

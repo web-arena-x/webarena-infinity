@@ -65,7 +65,7 @@ PUT /projects/:id/packages/terraform/modules/:module-name/:module-system/:module
 
 | Attribute          | Type            | Required | Description                                                                                                                      |
 | -------------------| --------------- | ---------| -------------------------------------------------------------------------------------------------------------------------------- |
-| `id`               | integer/string  | yes      | The ID or [URL-encoded path of the project](../../../api/rest/_index.md#namespaced-paths).                                    |
+| `id`               | integer/string | yes      | The ID or [URL-encoded path of the project](../../../api/rest/_index.md#namespaced-paths).                                    |
 | `module-name`      | string          | yes      | The module name. Supported syntax: 1 to 64 ASCII characters, including lowercase letters (a-z) and digits (0-9). |
 | `module-system`    | string          | yes      | The module system. Supported syntax: 1 to 64 ASCII characters, including lowercase letters (a-z) and digits (0-9). For more information, see [Module Registry Protocol](https://opentofu.org/docs/internals/module-registry-protocol/). |
 | `module-version`   | string          | yes      | The module version. Should follow the [semantic versioning specification](https://semver.org/). |
@@ -107,7 +107,7 @@ Example response:
 
 ```json
 {
-  "message":"201 Created"
+ "message":"201 Created"
 }
 ```
 
@@ -125,7 +125,7 @@ CI/CD template to publish a Terraform module to the GitLab Terraform Module Regi
 
 ```yaml
 include:
-  template: Terraform-Module.gitlab-ci.yml
+ template: Terraform-Module.gitlab-ci.yml
 ```
 
 The pipeline contains the following jobs:
@@ -140,45 +140,43 @@ Configure the pipeline with the following variables:
 
 | Variable                   | Default              | Description                                                                                     |
 |----------------------------|----------------------|-------------------------------------------------------------------------------------------------|
-| `TERRAFORM_MODULE_DIR`     | `${CI_PROJECT_DIR}`  | The relative path to the root directory of the Terraform project.                               |
+| `TERRAFORM_MODULE_DIR`     | `${CI_PROJECT_DIR}` | The relative path to the root directory of the Terraform project.                               |
 | `TERRAFORM_MODULE_NAME`    | `${CI_PROJECT_NAME}` | The module name. Must not contain any spaces or underscores.                  |
-| `TERRAFORM_MODULE_SYSTEM`  | `local`              | The system or provider of your module targets. For example, `local`, `aws`, or `google`. |
+| `TERRAFORM_MODULE_SYSTEM` | `local`              | The system or provider of your module targets. For example, `local`, `aws`, or `google`. |
 | `TERRAFORM_MODULE_VERSION` | `${CI_COMMIT_TAG}`   | The module version. Should follow the [semantic versioning specification](https://semver.org/).          |
 
 ### Configure CI/CD manually
 
-To work with Terraform modules in [GitLab CI/CD](../../../ci/_index.md), use a
-`CI_JOB_TOKEN` in place of the personal access token in your commands.
+To work with Terraform modules in [GitLab CI/CD](../../../ci/_index.md), use a `CI_JOB_TOKEN` in place of the personal access token in your commands.
 
 For example, this job uploads a new module for the `local` [system provider](https://registry.terraform.io/browse/providers)
 and uses the module version from the Git commit tag:
 
 ```yaml
 stages:
-  - deploy
+ - deploy
 
 upload:
-  stage: deploy
-  image: curlimages/curl:latest
-  variables:
+ stage: deploy
+ image: curlimages/curl:latest
+ variables:
     TERRAFORM_MODULE_DIR: ${CI_PROJECT_DIR}    # The relative path to the root directory of the Terraform project.
-    TERRAFORM_MODULE_NAME: ${CI_PROJECT_NAME}  # The name of your Terraform module, must not have any spaces or underscores (will be translated to hyphens).
+    TERRAFORM_MODULE_NAME: ${CI_PROJECT_NAME} # The name of your Terraform module, must not have any spaces or underscores (will be translated to hyphens).
     TERRAFORM_MODULE_SYSTEM: local             # The system or provider your Terraform module targets (ex. local, aws, google).
     TERRAFORM_MODULE_VERSION: ${CI_COMMIT_TAG} # The version - it's recommended to follow SemVer for Terraform Module Versioning.
-  script:
+ script:
     - TERRAFORM_MODULE_NAME=$(echo "${TERRAFORM_MODULE_NAME}" | tr " _" -) # module-name must not have spaces or underscores, so translate them to hyphens
     - tar -vczf /tmp/${TERRAFORM_MODULE_NAME}-${TERRAFORM_MODULE_SYSTEM}-${TERRAFORM_MODULE_VERSION}.tgz -C ${TERRAFORM_MODULE_DIR} --exclude=./.git .
     - 'curl --fail-with-body --location --header "JOB-TOKEN: ${CI_JOB_TOKEN}"
          --upload-file /tmp/${TERRAFORM_MODULE_NAME}-${TERRAFORM_MODULE_SYSTEM}-${TERRAFORM_MODULE_VERSION}.tgz
          ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/terraform/modules/${TERRAFORM_MODULE_NAME}/${TERRAFORM_MODULE_SYSTEM}/${TERRAFORM_MODULE_VERSION}/file'
-  rules:
+ rules:
     - if: $CI_COMMIT_TAG
 ```
 
 To trigger this upload job, add a Git tag to your commit.
 Ensure the tag follows the required [semantic versioning specification](https://semver.org/) for Terraform.
-The `rules:if: $CI_COMMIT_TAG` ensures
-that only tagged commits to your repository trigger the module upload job.
+The `rules:if: $CI_COMMIT_TAG` ensures that only tagged commits to your repository trigger the module upload job.
 
 For other ways to control jobs in your CI/CD pipeline, see the [CI/CD YAML syntax reference](../../../ci/yaml/_index.md).
 
@@ -206,13 +204,12 @@ For example, if:
 - The Terraform module is `my-infra-package`.
 
 If duplicates are allowed, `my-infra-package` is a valid module.
-If duplicates are not allowed, the module name must be unique in all
-projects in all groups under `parent-group`.
+If duplicates are not allowed, the module name must be unique in all projects in all groups under `parent-group`.
 
 When you name a module, keep these naming conventions in mind:
 
 - Your project and group names must not include a dot (`.`).
-  For example, `source = "gitlab.example.com/my.group/project.name"` is invalid.
+ For example, `source = "gitlab.example.com/my.group/project.name"` is invalid.
 - Module versions should follow the [semantic versioning specification](https://semver.org/).
 
 ### Allow duplicate Terraform modules
@@ -246,8 +243,7 @@ To allow duplicates with specific names:
 1. Use `terraform_module_duplicate_exception_regex` to define a regex pattern for the module names you want to allow duplicates for.
 
 The top-level namespace setting takes precedence over the child namespace settings.
-For example, if you enable `terraform_module_duplicates_allowed` for a group, and disable it for a subgroup,
-duplicates are allowed for all projects in the group and its subgroups.
+For example, if you enable `terraform_module_duplicates_allowed` for a group, and disable it for a subgroup, duplicates are allowed for all projects in the group and its subgroups.
 
 For more information on module resolution, see [module resolution workflow](#module-resolution-workflow)
 
@@ -288,30 +284,27 @@ For example, the value of a variable named `TF_TOKEN_gitlab_com` is used as a de
 export TF_TOKEN_gitlab_com='glpat-<deploy_token>'
 ```
 
-This method is preferred for enterprise implementations. For local or temporary environments,
-you might want to create a `~/.terraformrc` or `%APPDATA%/terraform.rc` file:
+This method is preferred for enterprise implementations. For local or temporary environments, you might want to create a `~/.terraformrc` or `%APPDATA%/terraform.rc` file:
 
 ```terraform
 credentials "<gitlab.com>" {
-  token = "<TOKEN>"
+ token = "<TOKEN>"
 }
 ```
 
-Where `gitlab.com` can be replaced with the hostname of
-your GitLab Self-Managed instance.
+Where `gitlab.com` can be replaced with the hostname of your GitLab Self-Managed instance.
 
 You can then refer to your Terraform module from a downstream Terraform project:
 
 ```terraform
 module "<module>" {
-  source = "gitlab.com/<namespace>/<module-name>/<module-system>"
+ source = "gitlab.com/<namespace>/<module-name>/<module-system>"
 }
 ```
 
 ### From a project
 
-To reference a Terraform module using a project source,
-use the [fetching archives over HTTP](https://developer.hashicorp.com/terraform/language/modules/sources#fetching-archives-over-http) source type provided by Terraform.
+To reference a Terraform module using a project source, use the [fetching archives over HTTP](https://developer.hashicorp.com/terraform/language/modules/sources#fetching-archives-over-http) source type provided by Terraform.
 
 You can provide authentication tokens (job tokens, personal access tokens, or deploy tokens) for `terraform` in your `~/.netrc` file:
 
@@ -321,14 +314,13 @@ login <USERNAME>
 password <TOKEN>
 ```
 
-Where `gitlab.com` can be replaced with the hostname of your GitLab Self-Managed instance,
-and `<USERNAME>` is your token username.
+Where `gitlab.com` can be replaced with the hostname of your GitLab Self-Managed instance, and `<USERNAME>` is your token username.
 
 You can refer to your Terraform module from a downstream Terraform project:
 
 ```terraform
 module "<module>" {
-  source = "https://gitlab.com/api/v4/projects/<project-id>/packages/terraform/modules/<module-name>/<module-system>/<module-version>"
+ source = "https://gitlab.com/api/v4/projects/<project-id>/packages/terraform/modules/<module-name>/<module-system>/<module-version>"
 }
 ```
 
@@ -346,8 +338,7 @@ To download a Terraform module:
 
 ## Delete a Terraform module
 
-You cannot edit a Terraform module after you publish it in the Terraform Module Registry. Instead, you
-must delete and recreate it.
+You cannot edit a Terraform module after you publish it in the Terraform Module Registry. Instead, you must delete and recreate it.
 
 You can delete modules by using [the packages API](../../../api/packages.md#delete-a-project-package) or the UI.
 
@@ -363,9 +354,7 @@ The package is permanently deleted.
 
 The Terraform Module Registry is automatically enabled.
 
-For GitLab Self-Managed instances, a GitLab administrator can
-[disable](../../../administration/packages/_index.md#enable-or-disable-the-package-registry) **Packages and registries**,
-which removes this menu item from the sidebar.
+For GitLab Self-Managed instances, a GitLab administrator can [disable](../../../administration/packages/_index.md#enable-or-disable-the-package-registry) **Packages and registries**, which removes this menu item from the sidebar.
 
 You can also remove the Terraform Module Registry for a specific project:
 

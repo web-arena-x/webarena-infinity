@@ -13,13 +13,10 @@ title: Authenticated user rate limits
 
 {{< /details >}}
 
-GitLab Dedicated automatically enforces authenticated user rate limits to ensure
-system stability and help maintain performance for all users on your instance.
-Rate limits prevent any single user or service account from generating
-excessive alerts or causing widespread instance degradation.
+GitLab Dedicated automatically enforces authenticated user rate limits to ensure system stability and help maintain performance for all users on your instance.
+Rate limits prevent any single user or service account from generating excessive alerts or causing widespread instance degradation.
 
-When a user exceeds their rate limit, GitLab returns a `429 Too Many Requests`
-HTTP status code with a plain-text response of `Retry later`.
+When a user exceeds their rate limit, GitLab returns a `429 Too Many Requests` HTTP status code with a plain-text response of `Retry later`.
 
 Rate limits are automatically configured and managed by GitLab. You cannot:
 
@@ -57,8 +54,7 @@ For more information, see [reference architectures](../reference_architectures/_
 GitLab includes rate limit information in response headers for all requests.
 You can use these headers to monitor your current usage and remaining quota.
 
-For more information about which rate limits include response headers and the available headers, see
-[multiple rate limiting systems](../../administration/settings/user_and_ip_rate_limits.md#multiple-rate-limiting-systems).
+For more information about which rate limits include response headers and the available headers, see [multiple rate limiting systems](../../administration/settings/user_and_ip_rate_limits.md#multiple-rate-limiting-systems).
 
 ## Improve request efficiency
 

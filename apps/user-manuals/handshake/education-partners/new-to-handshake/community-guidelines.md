@@ -56,9 +56,9 @@ On the form that loads, enter the following information:
 
 - **Title**: an overview of your inquiry
 - **Details** *(optional)*: any additional information that supports your inquiry
-  - *Tip: format your information to emphazie any points, or add images and hyperlinks*
+ - *Tip: format your information to emphazie any points, or add images and hyperlinks*
 - **Topic**
-  - *select a relevant topic from the dropdown for your inquiry to be posted under*
+ - *select a relevant topic from the dropdown for your inquiry to be posted under*
     - Alumni in Handshake
     - Appointments
     - Career Fairs, Kiosks, & Payments

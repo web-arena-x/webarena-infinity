@@ -30,7 +30,7 @@ GitLab does not allow requests to localhost or the local network by default. Whe
    - **Allow requests to the local network from webhooks and integrations**
    - **Allow requests to the local network from system hooks**
 
-  For more details about GitLab webhooks, see [Webhooks and insecure internal web services](../../security/webhooks.md).
+ For more details about GitLab webhooks, see [Webhooks and insecure internal web services](../../security/webhooks.md).
 
 Jenkins uses the GitLab API and needs an access token.
 
@@ -41,13 +41,11 @@ Jenkins uses the GitLab API and needs an access token.
 
 ## Configure Jenkins
 
-To configure your GitLab API connection in Jenkins, read
-[Configure the Jenkins server](../../integration/jenkins.md#configure-the-jenkins-server).
+To configure your GitLab API connection in Jenkins, read [Configure the Jenkins server](../../integration/jenkins.md#configure-the-jenkins-server).
 
 ## Configure Jenkins Project
 
-To set up the Jenkins project you intend to run your build on, read
-[Configure the Jenkins project](../../integration/jenkins.md#configure-the-jenkins-project).
+To set up the Jenkins project you intend to run your build on, read [Configure the Jenkins project](../../integration/jenkins.md#configure-the-jenkins-project).
 
 ## Configure your GitLab project
 

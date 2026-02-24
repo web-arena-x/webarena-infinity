@@ -24,8 +24,7 @@ Gets details on the current application statistics.
 
 {{< alert type="note" >}}
 
-For values less than 10,000, this endpoint returns an exact count. For values of 10,000 and greater, this endpoint only returns approximate data when
-[TablesampleCountStrategy](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/database/count/tablesample_count_strategy.rb?ref_type=heads#L16)
+For values less than 10,000, this endpoint returns an exact count. For values of 10,000 and greater, this endpoint only returns approximate data when [TablesampleCountStrategy](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/database/count/tablesample_count_strategy.rb?ref_type=heads#L16)
 and [ReltuplesCountStrategy](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/database/count/reltuples_count_strategy.rb?ref_type=heads)
 strategies are used for calculations.
 
@@ -37,8 +36,8 @@ GET /application/statistics
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/application/statistics"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/application/statistics"
 ```
 
 Example response:

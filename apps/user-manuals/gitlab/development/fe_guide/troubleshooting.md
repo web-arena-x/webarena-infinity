@@ -17,9 +17,7 @@ If you run into a Frontend development issue that is not in this guide, consider
 
 ### ``Property or method `nodeType` is not defined`` but you're not using `nodeType` anywhere
 
-This issue can happen in Vue component tests, when an expectation fails, but there is an error thrown when
-Jest tries to pretty print the diff in the console. It's been noted that using `toEqual` with an array as a
-property might also be a contributing factor.
+This issue can happen in Vue component tests, when an expectation fails, but there is an error thrown when Jest tries to pretty print the diff in the console. It's been noted that using `toEqual` with an array as a property might also be a contributing factor.
 
 See [this video](https://youtu.be/-BkEhghP-kM) for an in-depth overview and investigation.
 
@@ -43,9 +41,7 @@ See [this video](https://youtu.be/-BkEhghP-kM) for an in-depth overview and inve
 
 ## `core-js` errors when running scripts within the GitLab repository
 
-The following command assumes you've set up the GitLab repository in the
-`~/workspace/gdk` directory. When running scripts within the GitLab repository,
-such as code transformations, you might run into issues with `core-js` like this:
+The following command assumes you've set up the GitLab repository in the `~/workspace/gdk` directory. When running scripts within the GitLab repository, such as code transformations, you might run into issues with `core-js` like this:
 
 ```shell
 ~/workspace/gdk/gitlab/node_modules/core-js/modules/es.global-this.js:7
@@ -83,13 +79,13 @@ See this [closed MR](https://gitlab.com/gitlab-org/gitlab-ui/-/merge_requests/20
 VueApollo will skip manually running `provide()` if it sees that an `apolloProvider` is provided in the `$options`.
 
 ```diff
-  new Vue(
+ new Vue(
     el,
 +   apolloProvider: {},
     render(h) {
       return h(App);
     },
-  );
+ );
 ```
 
 ## Troubleshooting Apollo Client issues
@@ -108,11 +104,11 @@ To debug this, follow the below steps
 
 ```shell
 Missing field 'description' while writing result {
-  "type": "DESCRIPTION",
-  "lastEditedAt": null,
-  "lastEditedBy": null,
-  "taskCompletionStatus": null,
-  "__typename": "WorkItemWidgetDescription"
+ "type": "DESCRIPTION",
+ "lastEditedAt": null,
+ "lastEditedBy": null,
+ "taskCompletionStatus": null,
+ "__typename": "WorkItemWidgetDescription"
 }
 ```
 
@@ -143,7 +139,7 @@ For example: in the first query you have a couple of fields that were not reques
 
 ```graphql
 query workItemTreeQuery($id: WorkItemID!, $pageSize: Int = 100, $endCursor: String) {
-  workItem(id: $id) {
+ workItem(id: $id) {
     namespace {
       id
     }
@@ -151,13 +147,13 @@ query workItemTreeQuery($id: WorkItemID!, $pageSize: Int = 100, $endCursor: Stri
       deleteWorkItem
       updateWorkItem
     }
-  }
+ }
 }
 ```
 
 ```diff
 query workItemTreeQuery($id: WorkItemID!, $pageSize: Int = 100, $endCursor: String) {
-  workItem(id: $id) {
+ workItem(id: $id) {
     namespace {
       id
 +     fullPath
@@ -170,7 +166,7 @@ query workItemTreeQuery($id: WorkItemID!, $pageSize: Int = 100, $endCursor: Stri
 +     createNote
 +     adminWorkItemLink
     }
-  }
+ }
 }
 ```
 

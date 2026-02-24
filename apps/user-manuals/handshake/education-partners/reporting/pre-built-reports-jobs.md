@@ -43,8 +43,8 @@ The below reports were built using our legacy reporting system, so they are not 
 **[Top employment types for approved jobs](https://app.joinhandshake.com/analytics/explore_embed?insights_page=ZXhwbG9yZS9nZW5lcmF0ZWRfaGFuZHNoYWtlX3Byb2R1Y3Rpb24vam9icz9lbWJlZF9kb21haW49aHR0cHM6JTJGJTJGYXBwLmpvaW5oYW5kc2hha2UuY29tJnFpZD1vczRNSWptd2ZSTDM4WDZNTkhnNkNUJnRvZ2dsZT1maWwsdmlz)**(full-time, part-time, or seasonal)
 
 - **Best Practice**: do you need more part time or seasonal jobs on campus?
-  - **[Who is posting part time jobs?](https://app.joinhandshake.com/analytics/explore_embed?insights_page=ZXhwbG9yZS9nZW5lcmF0ZWRfaGFuZHNoYWtlX3Byb2R1Y3Rpb24vam9icz9lbWJlZF9kb21haW49aHR0cHM6JTJGJTJGYXBwLmpvaW5oYW5kc2hha2UuY29tJnFpZD1JdXViRnRDc3ROT3RSRndINFNwT1pXJnRvZ2dsZT1maWwsdmlz)**
-  - **[What are these part time jobs?](https://app.joinhandshake.com/analytics/explore_embed?insights_page=ZXhwbG9yZS9nZW5lcmF0ZWRfaGFuZHNoYWtlX3Byb2R1Y3Rpb24vam9icz9lbWJlZF9kb21haW49aHR0cHM6JTJGJTJGYXBwLmpvaW5oYW5kc2hha2UuY29tJnFpZD1Zbm5VZmpYRTJ5TTN1cWVpVWc4QUxRJnRvZ2dsZT1maWwsdmlz)**
+ - **[Who is posting part time jobs?](https://app.joinhandshake.com/analytics/explore_embed?insights_page=ZXhwbG9yZS9nZW5lcmF0ZWRfaGFuZHNoYWtlX3Byb2R1Y3Rpb24vam9icz9lbWJlZF9kb21haW49aHR0cHM6JTJGJTJGYXBwLmpvaW5oYW5kc2hha2UuY29tJnFpZD1JdXViRnRDc3ROT3RSRndINFNwT1pXJnRvZ2dsZT1maWwsdmlz)**
+ - **[What are these part time jobs?](https://app.joinhandshake.com/analytics/explore_embed?insights_page=ZXhwbG9yZS9nZW5lcmF0ZWRfaGFuZHNoYWtlX3Byb2R1Y3Rpb24vam9icz9lbWJlZF9kb21haW49aHR0cHM6JTJGJTJGYXBwLmpvaW5oYW5kc2hha2UuY29tJnFpZD1Zbm5VZmpYRTJ5TTN1cWVpVWc4QUxRJnRvZ2dsZT1maWwsdmlz)**
 
 ### Job Reviews
 

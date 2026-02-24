@@ -19,12 +19,9 @@ title: Client-side secret detection
 
 {{< /history >}}
 
-When you create an issue, add a description to a merge request, or write a comment, you might accidentally post a
-secret. For example, you might paste in the details of an API request or an environment variable
-that contains an authentication token. If a secret is leaked, an adversary can use it to impersonate a legitimate user.
+When you create an issue, add a description to a merge request, or write a comment, you might accidentally post a secret. For example, you might paste in the details of an API request or an environment variable that contains an authentication token. If a secret is leaked, an adversary can use it to impersonate a legitimate user.
 
-Client-side secret detection helps minimize the risk of accidental secret exposure. When you edit a
-description, or comment in an issue or merge request, GitLab automatically scans the content for secrets.
+Client-side secret detection helps minimize the risk of accidental secret exposure. When you edit a description, or comment in an issue or merge request, GitLab automatically scans the content for secrets.
 
 ## Secret detection workflow
 

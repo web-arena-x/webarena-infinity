@@ -14,7 +14,7 @@ Because Handshake hosts webinars through Zoom, it's important to allow access fo
 
 List of IP addresses
 
-|  |
+| |
 | --- |
 | 149.72.21.92 |
 | 149.72.32.163 |

@@ -14,8 +14,7 @@ title: Troubleshooting Elasticsearch migrations
 
 When working with Elasticsearch migrations, you might encounter the following issues.
 
-If [`elasticsearch.log`](../../../administration/logs/_index.md#elasticsearchlog) contains errors
-and retrying failed migrations does not work, contact GitLab Support.
+If [`elasticsearch.log`](../../../administration/logs/_index.md#elasticsearchlog) contains errors and retrying failed migrations does not work, contact GitLab Support.
 For more information, see [advanced search migrations](../../advanced_search/elasticsearch.md#advanced-search-migrations).
 
 ## Error: `Elasticsearch::Transport::Transport::Errors::BadRequest`
@@ -25,8 +24,7 @@ You can also check the version automatically by using the `sudo gitlab-rake gitl
 
 ## Error: `Faraday::TimeoutError (execution expired)`
 
-When you use a proxy, set a custom `gitlab_rails['env']` environment variable
-named [`no_proxy`](https://docs.gitlab.com/omnibus/settings/environment-variables.html)
+When you use a proxy, set a custom `gitlab_rails['env']` environment variable named [`no_proxy`](https://docs.gitlab.com/omnibus/settings/environment-variables.html)
 with the IP address of your Elasticsearch host.
 
 ## Single-node Elasticsearch cluster status never goes from yellow to green
@@ -60,11 +58,9 @@ After you have corrected the formatting of the URL, [delete the index](../../adv
 
 ## Elasticsearch does not work with some third-party plugins
 
-Certain third-party plugins might introduce bugs in your cluster or
-be incompatible with the integration.
+Certain third-party plugins might introduce bugs in your cluster or be incompatible with the integration.
 
-If your Elasticsearch cluster has third-party plugins and the integration is not working,
-try to disable the plugins.
+If your Elasticsearch cluster has third-party plugins and the integration is not working, try to disable the plugins.
 
 ## Elasticsearch workers overload Sidekiq
 
@@ -78,18 +74,17 @@ These errors are logged in [`gitlab-rails/elasticsearch.log`](../../../administr
 ```shell
 $ jq --raw-output 'select(.severity == "ERROR") | [.error_class, .error_message] | @tsv' \
     gitlab-rails/elasticsearch.log |
-  sort | uniq -c
+ sort | uniq -c
 ```
 
-`Elastic` workers and [Sidekiq jobs](../../../administration/admin_area.md#background-jobs) could also appear much more often
-because Elasticsearch frequently attempts to reindex if a previous job fails.
+`Elastic` workers and [Sidekiq jobs](../../../administration/admin_area.md#background-jobs) could also appear much more often because Elasticsearch frequently attempts to reindex if a previous job fails.
 You can use [`fast-stats`](https://gitlab.com/gitlab-com/support/toolbox/fast-stats#usage)
 or `jq` to count workers in the [Sidekiq logs](../../../administration/logs/_index.md#sidekiq-logs):
 
 ```shell
 $ fast-stats --print-fields=count,score sidekiq/current
 WORKER                            COUNT   SCORE
-ElasticIndexBulkCronWorker          234  123456
+ElasticIndexBulkCronWorker          234 123456
 ElasticIndexInitialBulkCronWorker   345   12345
 Some::OtherWorker                    12     123
 ...
@@ -97,12 +92,11 @@ Some::OtherWorker                    12     123
 $ jq '.class' sidekiq/current | sort | uniq -c | sort -nr
  234 "ElasticIndexInitialBulkCronWorker"
  345 "ElasticIndexBulkCronWorker"
-  12 "Some::OtherWorker"
+ 12 "Some::OtherWorker"
 ...
 ```
 
-In this case, `free -m` on the overloaded GitLab node would also show
-unexpectedly high `buff/cache` usage.
+In this case, `free -m` on the overloaded GitLab node would also show unexpectedly high `buff/cache` usage.
 
 ## Error: `Couldn't load task status`
 

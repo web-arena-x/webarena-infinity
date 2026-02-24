@@ -22,10 +22,10 @@ Student-submitted reviews for jobs and interviews are stored in the **Reviews** 
 3. Click on the review to see the details, including:
 
 - - What the student liked
-  - What they wish had been different
-  - Advice
-  - Interview process
-  - Interview questions
+ - What they wish had been different
+ - Advice
+ - Interview process
+ - Interview questions
 
 **Analytics**
 

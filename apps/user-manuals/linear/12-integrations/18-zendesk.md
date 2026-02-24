@@ -21,7 +21,7 @@ After you install the Linear add-on, it will show up in the right sidebar when v
 
 ### **Requirements**
 
-Our integration requires that each Zendesk agent who installs Linear  also has a Linear account, since the linked issues will be created in their name. This also allows agents to open the Linear issue to update it or add more information. This integration is available on our Business and Enterprise plans.
+Our integration requires that each Zendesk agent who installs Linear also has a Linear account, since the linked issues will be created in their name. This also allows agents to open the Linear issue to update it or add more information. This integration is available on our Business and Enterprise plans.
 
 ## Basics
 
@@ -68,7 +68,7 @@ In the integration settings page, you can automate the reopening of the linked i
 
 Sometimes customers will write in with multiple requests at one time. You can link as many Zendesk tickets to a Linear issue as you like.
 
-### ,  
+### , 
 ,Link Zendesk tickets in Linear issues
 
 #### Mouse

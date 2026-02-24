@@ -6,7 +6,7 @@ Source: https://help.figma.com/hc/en-us/articles/4410786053911-Invite-visitors-t
 
 Who can use this feature
 
-- Supported on  [Professional, Education, Organization, and Enterprise plans](https://help.figma.com/hc/en-us/articles/360040328273-Choose-a-Figma-Plan)
+- Supported on [Professional, Education, Organization, and Enterprise plans](https://help.figma.com/hc/en-us/articles/360040328273-Choose-a-Figma-Plan)
 - Anyone with **can edit** access in a FigJam file can start an open session
 - Inviting visitors to an open session does not affect team billing
 - [FigJam AI features](https://help.figma.com/hc/en-us/articles/16822138920343) are not available during an open session
@@ -61,7 +61,7 @@ Need a crash course in FigJam? [Read the ultimate guide to FigJam →](https://h
 
 ## Visitor permissions
 
-|  |  |
+| | |
 | --- | --- |
 | **Action** | Open session visitor |
 | Edit objects on the board | ✓ |
@@ -106,4 +106,4 @@ Anyone with view access can continue to view the file and copy its contents, bu
 
 Inviting visitors to an open session does not affect team billing, as a visitor is a temporary user on the file with limited permissions. During the open session, anyone with a link to the file will temporarily be able to edit the board even if they don’t have a Figma account, however, you won’t be charged for these users in an open session.
 
-If you decide to [invite participants](https://help.figma.com/hc/en-us/articles/360039481034)  after the open session ends, your account bill will be affected and charged as usual depending on the [seat type](https://help.figma.com/hc/en-us/articles/360039960434-Roles-in-Figma) they are given.
+If you decide to [invite participants](https://help.figma.com/hc/en-us/articles/360039481034) after the open session ends, your account bill will be affected and charged as usual depending on the [seat type](https://help.figma.com/hc/en-us/articles/360039960434-Roles-in-Figma) they are given.

@@ -28,11 +28,11 @@ Add personality and artistic flare to your designs with Figma Draw. Figma Draw l
 
 ## Enter Figma Draw
 
-Figma Draw is a set of visual design tools within the Figma Design editor. To open Figma Draw, click  **Draw** in the toolbar. If you don't see the **Draw** option in the toolbar, make sure you have `can edit` access to the design file.
+Figma Draw is a set of visual design tools within the Figma Design editor. To open Figma Draw, click **Draw** in the toolbar. If you don't see the **Draw** option in the toolbar, make sure you have `can edit` access to the design file.
 
 ![An animation showing how to open Figma Make using the toolbar toggle.](https://help.figma.com/hc/article_attachments/31881656541207)
 
-**Note:** Some Figma Design features, including auto layout and prototyping, are not available while in Figma Draw. Switch the toolbar toggle to  **Design** to access all Figma Design features.
+**Note:** Some Figma Design features, including auto layout and prototyping, are not available while in Figma Draw. Switch the toolbar toggle to **Design** to access all Figma Design features.
 
 ## Navigate Figma Draw
 

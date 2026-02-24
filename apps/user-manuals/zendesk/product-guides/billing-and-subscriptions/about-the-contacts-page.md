@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/7195297612058-About-the-Co
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > Account > Billing > Contacts.
+Location: Admin Center > Account > Billing > Contacts.
 
 The Contacts page in Admin Center provides a list of all team members who are *account contacts*. This includes the account owner and all billing admins in the account.
 

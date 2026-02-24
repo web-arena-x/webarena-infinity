@@ -27,9 +27,9 @@ To support agents, we’re introducing some new primitives to allow apps and age
 
 ```undefined
 query Me {
-  viewer {
+ viewer {
     id
-  }
+ }
 }
 ```
 
@@ -47,13 +47,13 @@ The received webhook payload will have the following shape:
 
 ```json
 {
-  type: "AppUserNotification",
-  action: NotificationType,
-  createdAt: string,
-  organizationId: string,
-  oauthClientId: string,
-  appUserId: string,
-  notification: Notification,
+ type: "AppUserNotification",
+ action: NotificationType,
+ createdAt: string,
+ organizationId: string,
+ oauthClientId: string,
+ appUserId: string,
+ notification: Notification,
 }
 ```
 
@@ -61,120 +61,120 @@ The `action` key will be one of the following:
 
 ```typescript
 export enum NotificationType {
-  issueMention = "issueMention",
-  issueAddedToTriage = "issueAddedToTriage",
-  issueAssignedToYou = "issueAssignedToYou",
-  issueAddedToView = "issueAddedToView",
-  issueUnassignedFromYou = "issueUnassignedFromYou",
-  issueNewComment = "issueNewComment",
-  issueCommentMention = "issueCommentMention",
-  issueCommentReaction = "issueCommentReaction",
-  issueThreadResolved = "issueThreadResolved",
-  issueEmojiReaction = "issueEmojiReaction",
-  issuePriorityUrgent = "issuePriorityUrgent",
-  issueSubscribed = "issueSubscribed",
-  issueUnsubscribed = "issueUnsubscribed",
-  issueBlocking = "issueBlocking",
-  issueUnblocked = "issueUnblocked",
-  issueReminder = "issueReminder",
-  issueStatusChanged = "issueStatusChanged",
-  issueStatusChangedAll = "issueStatusChangedAll",
-  issueReopened = "issueReopened",
-  issueDue = "issueDue",
-  oauthClientApprovalCreated = "oauthClientApprovalCreated",
-  triageResponsibilityIssueAddedToTriage = "triageResponsibilityIssueAddedToTriage",
+ issueMention = "issueMention",
+ issueAddedToTriage = "issueAddedToTriage",
+ issueAssignedToYou = "issueAssignedToYou",
+ issueAddedToView = "issueAddedToView",
+ issueUnassignedFromYou = "issueUnassignedFromYou",
+ issueNewComment = "issueNewComment",
+ issueCommentMention = "issueCommentMention",
+ issueCommentReaction = "issueCommentReaction",
+ issueThreadResolved = "issueThreadResolved",
+ issueEmojiReaction = "issueEmojiReaction",
+ issuePriorityUrgent = "issuePriorityUrgent",
+ issueSubscribed = "issueSubscribed",
+ issueUnsubscribed = "issueUnsubscribed",
+ issueBlocking = "issueBlocking",
+ issueUnblocked = "issueUnblocked",
+ issueReminder = "issueReminder",
+ issueStatusChanged = "issueStatusChanged",
+ issueStatusChangedAll = "issueStatusChangedAll",
+ issueReopened = "issueReopened",
+ issueDue = "issueDue",
+ oauthClientApprovalCreated = "oauthClientApprovalCreated",
+ triageResponsibilityIssueAddedToTriage = "triageResponsibilityIssueAddedToTriage",
 
-  // issue SLA
-  issueSlaHighRisk = "issueSlaHighRisk",
-  issueSlaBreached = "issueSlaBreached",
+ // issue SLA
+ issueSlaHighRisk = "issueSlaHighRisk",
+ issueSlaBreached = "issueSlaBreached",
 
-  // initiatives
-  initiativeAddedAsOwner = "initiativeAddedAsOwner",
-  initiativeCommentMention = "initiativeCommentMention",
-  initiativeNewComment = "initiativeNewComment",
-  initiativeThreadResolved = "initiativeThreadResolved",
-  initiativeCommentReaction = "initiativeCommentReaction",
-  initiativeMention = "initiativeMention",
-  initiativeDescriptionContentChange = "initiativeDescriptionContentChange",
-  initiativeReminder = "initiativeReminder",
+ // initiatives
+ initiativeAddedAsOwner = "initiativeAddedAsOwner",
+ initiativeCommentMention = "initiativeCommentMention",
+ initiativeNewComment = "initiativeNewComment",
+ initiativeThreadResolved = "initiativeThreadResolved",
+ initiativeCommentReaction = "initiativeCommentReaction",
+ initiativeMention = "initiativeMention",
+ initiativeDescriptionContentChange = "initiativeDescriptionContentChange",
+ initiativeReminder = "initiativeReminder",
 
-  // projects
-  projectAddedAsMember = "projectAddedAsMember",
-  projectAddedAsLead = "projectAddedAsLead",
-  projectCommentMention = "projectCommentMention",
-  projectNewComment = "projectNewComment",
-  projectThreadResolved = "projectThreadResolved",
-  projectCommentReaction = "projectCommentReaction",
-  projectMention = "projectMention",
-  projectReminder = "projectReminder",
-  projectDescriptionContentChange = "projectDescriptionContentChange",
+ // projects
+ projectAddedAsMember = "projectAddedAsMember",
+ projectAddedAsLead = "projectAddedAsLead",
+ projectCommentMention = "projectCommentMention",
+ projectNewComment = "projectNewComment",
+ projectThreadResolved = "projectThreadResolved",
+ projectCommentReaction = "projectCommentReaction",
+ projectMention = "projectMention",
+ projectReminder = "projectReminder",
+ projectDescriptionContentChange = "projectDescriptionContentChange",
 
-  // milestone
-  projectMilestoneCommentMention = "projectMilestoneCommentMention",
-  projectMilestoneNewComment = "projectMilestoneNewComment",
-  projectMilestoneThreadResolved = "projectMilestoneThreadResolved",
-  projectMilestoneCommentReaction = "projectMilestoneCommentReaction",
-  projectMilestoneMention = "projectMilestoneMention",
-  projectMilestoneDescriptionContentChange = "projectMilestoneDescriptionContentChange",
+ // milestone
+ projectMilestoneCommentMention = "projectMilestoneCommentMention",
+ projectMilestoneNewComment = "projectMilestoneNewComment",
+ projectMilestoneThreadResolved = "projectMilestoneThreadResolved",
+ projectMilestoneCommentReaction = "projectMilestoneCommentReaction",
+ projectMilestoneMention = "projectMilestoneMention",
+ projectMilestoneDescriptionContentChange = "projectMilestoneDescriptionContentChange",
 
-  // documents
-  documentMention = "documentMention",
-  documentCommentMention = "documentCommentMention",
-  documentNewComment = "documentNewComment",
-  documentThreadResolved = "documentThreadResolved",
-  documentCommentReaction = "documentCommentReaction",
-  documentReminder = "documentReminder",
-  documentMoved = "documentMoved",
-  documentDeleted = "documentDeleted",
-  documentRestored = "documentRestored",
-  documentSubscribed = "documentSubscribed",
-  documentUnsubscribed = "documentUnsubscribed",
-  documentContentChange = "documentContentChange",
+ // documents
+ documentMention = "documentMention",
+ documentCommentMention = "documentCommentMention",
+ documentNewComment = "documentNewComment",
+ documentThreadResolved = "documentThreadResolved",
+ documentCommentReaction = "documentCommentReaction",
+ documentReminder = "documentReminder",
+ documentMoved = "documentMoved",
+ documentDeleted = "documentDeleted",
+ documentRestored = "documentRestored",
+ documentSubscribed = "documentSubscribed",
+ documentUnsubscribed = "documentUnsubscribed",
+ documentContentChange = "documentContentChange",
 
-  // project updates
-  projectUpdateCreated = "projectUpdateCreated",
-  projectUpdatePrompt = "projectUpdatePrompt",
-  projectUpdateMention = "projectUpdateMentionPrompt",
-  projectUpdateReaction = "projectUpdateReaction",
-  // project update comments
-  projectUpdateNewComment = "projectUpdateNewComment",
-  projectUpdateCommentMention = "projectUpdateCommentMention",
-  projectUpdateCommentReaction = "projectUpdateCommentReaction",
+ // project updates
+ projectUpdateCreated = "projectUpdateCreated",
+ projectUpdatePrompt = "projectUpdatePrompt",
+ projectUpdateMention = "projectUpdateMentionPrompt",
+ projectUpdateReaction = "projectUpdateReaction",
+ // project update comments
+ projectUpdateNewComment = "projectUpdateNewComment",
+ projectUpdateCommentMention = "projectUpdateCommentMention",
+ projectUpdateCommentReaction = "projectUpdateCommentReaction",
 
-  // initiative updates
-  initiativeUpdateCreated = "initiativeUpdateCreated",
-  initiativeUpdatePrompt = "initiativeUpdatePrompt",
-  initiativeUpdateReaction = "initiativeUpdateReaction",
-  initiativeUpdateMention = "initiativeUpdateMention",
-  // initiative update comments
-  initiativeUpdateNewComment = "initiativeUpdateNewComment",
-  initiativeUpdateCommentMention = "initiativeUpdateCommentMention",
-  initiativeUpdateCommentReaction = "initiativeUpdateCommentReaction",
+ // initiative updates
+ initiativeUpdateCreated = "initiativeUpdateCreated",
+ initiativeUpdatePrompt = "initiativeUpdatePrompt",
+ initiativeUpdateReaction = "initiativeUpdateReaction",
+ initiativeUpdateMention = "initiativeUpdateMention",
+ // initiative update comments
+ initiativeUpdateNewComment = "initiativeUpdateNewComment",
+ initiativeUpdateCommentMention = "initiativeUpdateCommentMention",
+ initiativeUpdateCommentReaction = "initiativeUpdateCommentReaction",
 
-  // team updates
-  teamUpdateNewComment = "teamUpdateNewComment",
-  teamUpdateCommentMention = "teamUpdateCommentMention",
-  teamUpdateCommentReaction = "teamUpdateCommentReaction",
-  teamUpdateReaction = "teamUpdateReaction",
-  teamUpdateCreated = "teamUpdateCreated",
-  teamUpdateMention = "teamUpdateMention",
+ // team updates
+ teamUpdateNewComment = "teamUpdateNewComment",
+ teamUpdateCommentMention = "teamUpdateCommentMention",
+ teamUpdateCommentReaction = "teamUpdateCommentReaction",
+ teamUpdateReaction = "teamUpdateReaction",
+ teamUpdateCreated = "teamUpdateCreated",
+ teamUpdateMention = "teamUpdateMention",
 
-  // feed
-  feedSummaryGenerated = "feedSummaryGenerated",
+ // feed
+ feedSummaryGenerated = "feedSummaryGenerated",
 
-  // pull requests
-  pullRequestReviewRequested = "pullRequestReviewRequested",
-  pullRequestReviewRerequested = "pullRequestReviewRerequested",
-  pullRequestApproved = "pullRequestApproved",
-  pullRequestChangesRequested = "pullRequestChangesRequested",
-  pullRequestCommented = "pullRequestCommented",
-  pullRequestChecksFailed = "pullRequestChecksFailed",
-  pullRequestMention = "pullRequestMention",
-  pullRequestCommentMention = "pullRequestCommentMention",
-  pullRequestRemovedFromMergeQueue = "pullRequestRemovedFromMergeQueue",
+ // pull requests
+ pullRequestReviewRequested = "pullRequestReviewRequested",
+ pullRequestReviewRerequested = "pullRequestReviewRerequested",
+ pullRequestApproved = "pullRequestApproved",
+ pullRequestChangesRequested = "pullRequestChangesRequested",
+ pullRequestCommented = "pullRequestCommented",
+ pullRequestChecksFailed = "pullRequestChecksFailed",
+ pullRequestMention = "pullRequestMention",
+ pullRequestCommentMention = "pullRequestCommentMention",
+ pullRequestRemovedFromMergeQueue = "pullRequestRemovedFromMergeQueue",
 
-  // customer needs (requests)
-  customerNeedCreated = "customerNeedCreated",
+ // customer needs (requests)
+ customerNeedCreated = "customerNeedCreated",
 }
 ```
 

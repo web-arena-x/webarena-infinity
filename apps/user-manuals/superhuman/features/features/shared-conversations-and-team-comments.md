@@ -55,12 +55,12 @@ You can share a conversation to give folks visibility to all the messages you se
 #### **Desktop**
 
 - From your inbox:
-  - **Cmd+K** or **Ctrl+K** **→ Share Conversation**or **Cmd+S** or **Ctrl+S.**
+ - **Cmd+K** or **Ctrl+K** **→ Share Conversation**or **Cmd+S** or **Ctrl+S.**
 
 - From the message list:
-  - Add a comment to start sharing instantly!
-  - **Cmd+K** or **Ctrl+K → Share Conversation**.
-  - Hit **Cmd+S** or **Ctrl+S** to open the Share modal:
+ - Add a comment to start sharing instantly!
+ - **Cmd+K** or **Ctrl+K → Share Conversation**.
+ - Hit **Cmd+S** or **Ctrl+S** to open the Share modal:
 
     ![](https://help.superhuman.com/hc/article_attachments/39470045225619)
 
@@ -83,9 +83,9 @@ If you're using Mail individually and share a conversation, guest collaborators 
 #### **Mobile**
 
 - From the inbox:
-  - **Two-finger tap** on a message, then select **Share Conversation** in the modal that appears.
+ - **Two-finger tap** on a message, then select **Share Conversation** in the modal that appears.
 - From the message list:
-  - **Pull down** from the top of the message or **two-finger tap**, then select **Share Conversation** in the modal that appears.
+ - **Pull down** from the top of the message or **two-finger tap**, then select **Share Conversation** in the modal that appears.
 
 ## View the Publisher and participants
 
@@ -104,7 +104,7 @@ Click on the avatar stack to open the Share modal, where you’ll also be able t
 - Hit **Cmd+K** or **Ctrl+K → Stop Sharing Conversation**.
 - Hit the **Stop Sharing** button in the Share modal:
 
-  ![](https://help.superhuman.com/hc/article_attachments/39469997633427)
+ ![](https://help.superhuman.com/hc/article_attachments/39469997633427)
 
 #### **Mobile**
 
@@ -137,17 +137,17 @@ Anyone on Superhuman Mail can share a conversation. Whoever starts sharing the c
 - All past and future messages and comments the Publisher has in their version of the thread will be shared.
 - Any subthreads in the Publisher’s view will be visible to all participants.
 
-  *A subthread is a reply that spawns off a message from the original thread (i.e. if the Publisher replies and excludes certain recipients).*
+ *A subthread is a reply that spawns off a message from the original thread (i.e. if the Publisher replies and excludes certain recipients).*
 - Subthreads where the Publisher is not a recipient will not be included (e.g. if a recipient has a message only between them and an external recipient, it will not be shown).
 
 ## Who can view a Shared Conversation and add comments?
 
 - Once a comment is added or a conversation is shared, Superhuman Mail teammates who are recipients of the messages or added as participants will see the shared conversation. They can reply directly to the messages in the thread and add comments.
 - Superhuman Mail teammates who are recipients on the thread and anyone shared on the conversation, will continue to see all messages and comments in the Publisher's view even if they are removed from the to, from, and cc fields.
-  - Superhuman Mail will show a risk warning for new messages when a recipient is removed.
+ - Superhuman Mail will show a risk warning for new messages when a recipient is removed.
 
     ![](https://help.superhuman.com/hc/article_attachments/39469983297299)
-  - When adding a comment, all participants will be listed above the comment bar.
+ - When adding a comment, all participants will be listed above the comment bar.
 
     ![](https://help.superhuman.com/hc/article_attachments/39470015086995)
 - You’ll also be able to view all the participants in the avatar stack button to the right of the subject line.
@@ -167,14 +167,14 @@ No, guest collaborators can only view the conversation and add comments.
 
 - Shared conversations will have a share indicator in the thread list:
 
-  ![](https://help.superhuman.com/hc/article_attachments/39470048478355)
+ ![](https://help.superhuman.com/hc/article_attachments/39470048478355)
 - In the message list, you’ll see the avatar stack to the right of the subject:
 
 ![](https://help.superhuman.com/hc/article_attachments/39469998963603)
 
 - You'll also see a **Sharing started** timestamp in the message list:
 
-  ![](https://help.superhuman.com/hc/article_attachments/39470048934291)
+ ![](https://help.superhuman.com/hc/article_attachments/39470048934291)
 
 ## Can non-Superhuman Mail users see who the conversation is shared with?
 
@@ -186,7 +186,7 @@ Yes, they’ll be able to see view the participants when they attempt to post a 
 
 - There isn’t a way to remove participants quite yet, but this is a feature enhancement we’re looking to add.
 - In the meantime, folks can hit **Shift+M** to mute the conversation, or the Publisher can stop sharing the conversation if they don’t want participants to receive updates.
-  - It's worth noting, Superhuman Mail for Outlook and our Android app doesn't have the ability to mute conversations at the moment.
+ - It's worth noting, Superhuman Mail for Outlook and our Android app doesn't have the ability to mute conversations at the moment.
 
 ## Can comments be edited or deleted?
 

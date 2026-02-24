@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357749611802-About-benchm
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -32,17 +32,17 @@ We offer different industry models specific to different languages. Our industry
 
 ### Current Industry Models
 
-|  |  |  |  |  |  |
+| | | | | | |
 | --- | --- | --- | --- | --- | --- |
-| **Industries /**  **Languages** | **Airlines** | **Gaming** | **Telecommunication** | **Banking** | **e-Commerce** |
-| EN | ✔️ | ✔️ |  | ✔️ | ✔️ |
-| DE |  |  | ✔️ | ✔️ | ✔️ |
-| ES |  |  |  |  | ✔️ |
-| FI | ✔️ |  | ✔️ | ✔️ | ✔️ |
-| FR |  |  |  |  | ✔️ |
-| IT |  |  |  |  | ✔️ |
-| NL |  |  |  |  | ✔️ |
-| SE |  | ✔️ |  |  |  |
+| **Industries /** **Languages** | **Airlines** | **Gaming** | **Telecommunication** | **Banking** | **e-Commerce** |
+| EN | ✔️ | ✔️ | | ✔️ | ✔️ |
+| DE | | | ✔️ | ✔️ | ✔️ |
+| ES | | | | | ✔️ |
+| FI | ✔️ | | ✔️ | ✔️ | ✔️ |
+| FR | | | | | ✔️ |
+| IT | | | | | ✔️ |
+| NL | | | | | ✔️ |
+| SE | | ✔️ | | | |
 
 We're constantly working on improving these models and adding support for more languages and industries. If you don't see one of these options in your model selection, please let us know by [submitting a request](https://support.ultimate.ai/hc/en-us/requests/new).
 

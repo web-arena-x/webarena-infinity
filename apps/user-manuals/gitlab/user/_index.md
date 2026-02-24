@@ -6,8 +6,7 @@ title: Use GitLab
 description: Get to know the GitLab end-to-end workflow.
 ---
 
-Get to know the GitLab end-to-end workflow. Configure permissions,
-organize your work, create and secure your application, and analyze its performance. Report on team productivity throughout the process.
+Get to know the GitLab end-to-end workflow. Configure permissions, organize your work, create and secure your application, and analyze its performance. Report on team productivity throughout the process.
 
 {{< cards >}}
 

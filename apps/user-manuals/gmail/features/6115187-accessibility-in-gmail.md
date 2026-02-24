@@ -99,17 +99,17 @@ To minimize your mouse or keyboard input, you can enable and use these Gmail fea
 If you have a motor disorder or dexterity impairment, you can benefit from various platform features, like:
 
 - Add a physical keyboard with:
-  - Sticky keys
-  - Filter keys
-  - Bounce keys
+ - Sticky keys
+ - Filter keys
+ - Bounce keys
 
 - An on-screen keyboard, optionally with a switch device
 - Mouse keys
 - Eye or face tracking for mouse input
 - Voice input for:
-  - Command
-  - Control
-  - Dictation
+ - Command
+ - Control
+ - Dictation
 
 To learn more about these features, refer to your platform’s [related resources](/accessibility/answer/6115187?co=GENIE.Platform%3DDesktop&oco=1#resources).
 

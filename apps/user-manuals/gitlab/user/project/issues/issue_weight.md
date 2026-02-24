@@ -20,8 +20,7 @@ title: Issue weight
 {{< /history >}}
 
 When you have a lot of issues, it can be hard to get an overview.
-With weighted issues, you can get a better idea of how much time,
-value, or complexity a given issue has or costs. You can also [sort by weight](sorting_issue_lists.md#sorting-by-weight)
+With weighted issues, you can get a better idea of how much time, value, or complexity a given issue has or costs. You can also [sort by weight](sorting_issue_lists.md#sorting-by-weight)
 to see which issues need to be prioritized.
 
 ## View the issue weight
@@ -53,8 +52,7 @@ When you change the weight of an issue, the new value overwrites the previous va
 
 ### When you create an issue
 
-To set the issue weight when you [create an issue](create_issues.md), enter a
-number under **Weight**.
+To set the issue weight when you [create an issue](create_issues.md), enter a number under **Weight**.
 
 ### From an existing issue
 
@@ -87,5 +85,4 @@ Prerequisites:
 
 - You must have at least the Planner role for the project.
 
-To remove the issue weight, follow the same steps as when you [set the issue weight](#set-the-issue-weight),
-and select **remove weight**.
+To remove the issue weight, follow the same steps as when you [set the issue weight](#set-the-issue-weight), and select **remove weight**.

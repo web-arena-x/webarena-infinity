@@ -37,7 +37,7 @@ Tip: Use the **Plugin / file cover** preset from the Figma Community frame templ
 
 ![Context menu open on a frame in Figma canvas with "Set as thumbnail" option highlighted.](https://help.figma.com/hc/article_attachments/20628242713495)
 
-Figma will update the file's thumbnail and show the  **custom thumbnail** icon next to the frame.
+Figma will update the file's thumbnail and show the **custom thumbnail** icon next to the frame.
 
 **Want to remove the frame from the thumbnail?** Right-click on the frame in the canvas and select **Restore default thumbnail**. Figma will use the contents of the first page in your file as the default thumbnail.
 

@@ -15,8 +15,8 @@ To obtain your profile link, follow the steps below based on whether your profil
 
 *For more information about your profile privacy options, refer to* [Profile Privacy Options in Handshake](../privacy-safety/profile-privacy-options-in-handshake.md).
 
-*To learn more about public profiles on Handshake, check out* [How to Make Your Handshake Profile Public and Share Your Profile Link](https://support.joinhandshake.com/hc/en-us/articles/29072179022743-Cool-title-for-public-profiles-article-students).  
-  
+*To learn more about public profiles on Handshake, check out* [How to Make Your Handshake Profile Public and Share Your Profile Link](https://support.joinhandshake.com/hc/en-us/articles/29072179022743-Cool-title-for-public-profiles-article-students). 
+ 
 *To create a custom profile link, refer to* [Create a Custom Profile URL on Handshake](https://support.joinhandshake.com/hc/en-us/articles/34160734624023).
 
 ### Public profile
@@ -36,7 +36,7 @@ If you've chosen to make your profile public and shareable, Handshake offers a c
 - **Copy profile link**: Copies your profile link to your clipboard so you can paste it wherever you want to share it!
 - **Share via email**: Launches the email feature on your device, allowing you to copy and paste content into the body of an email for sending.
 - **Create email signature**: Provides a custom email signature with a link to your Handshake profile. Your Handshake signature includes your profile image, primary education, end date, and major (if added to your profile).
-  - **Tip**: paste the link directly into your email signature settings. Not sure how to update your email signature? Check out these help articles for [Gmail](https://support.google.com/mail/answer/8395?hl=en&co=GENIE.Platform%3DDesktop) and [Outlook](https://support.microsoft.com/en-us/office/change-an-email-signature-86597769-e4df-4320-b219-39d6e1a9e87b).
+ - **Tip**: paste the link directly into your email signature settings. Not sure how to update your email signature? Check out these help articles for [Gmail](https://support.google.com/mail/answer/8395?hl=en&co=GENIE.Platform%3DDesktop) and [Outlook](https://support.microsoft.com/en-us/office/change-an-email-signature-86597769-e4df-4320-b219-39d6e1a9e87b).
 
 ![email signature.png](https://support.joinhandshake.com/hc/article_attachments/29261001003799)
 

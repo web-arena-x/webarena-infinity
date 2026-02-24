@@ -12,38 +12,33 @@ title: Using Redis
 
 {{< /details >}}
 
-As many applications depend on Redis as their key-value store, you
-have to use it to run your tests.
+As many applications depend on Redis as their key-value store, you have to use it to run your tests.
 
 ## Use Redis with the Docker executor
 
-If you are using [GitLab Runner](../runners/_index.md) with the Docker executor
-you basically have everything set up already.
+If you are using [GitLab Runner](../runners/_index.md) with the Docker executor you basically have everything set up already.
 
 First, in your `.gitlab-ci.yml` add:
 
 ```yaml
 services:
-  - redis:latest
+ - redis:latest
 ```
 
-Then you need to configure your application to use the Redis database, for
-example:
+Then you need to configure your application to use the Redis database, for example:
 
 ```yaml
 Host: redis
 ```
 
-And that's it. Redis is now available to be used in your testing
-framework.
+And that's it. Redis is now available to be used in your testing framework.
 
 You can also use any other Docker image available on [Docker Hub](https://hub.docker.com/_/redis).
 For example, to use Redis 6.0 the service becomes `redis:6.0`.
 
 ## Use Redis with the Shell executor
 
-Redis can also be used on manually configured servers that are using GitLab
-Runner with the Shell executor.
+Redis can also be used on manually configured servers that are using GitLab Runner with the Shell executor.
 
 In your build machine install the Redis server:
 
@@ -69,9 +64,6 @@ Host: localhost
 
 ## Example project
 
-We have set up an [Example Redis Project](https://gitlab.com/gitlab-examples/redis) for your convenience
-that runs on [GitLab.com](https://gitlab.com) using our publicly available
-[instance runners](../runners/_index.md).
+We have set up an [Example Redis Project](https://gitlab.com/gitlab-examples/redis) for your convenience that runs on [GitLab.com](https://gitlab.com) using our publicly available [instance runners](../runners/_index.md).
 
-Want to hack on it? Fork it, commit and push your changes. In a few
-moments the changes are picked by a public runner and the job begins.
+Want to hack on it? Fork it, commit and push your changes. In a few moments the changes are picked by a public runner and the job begins.

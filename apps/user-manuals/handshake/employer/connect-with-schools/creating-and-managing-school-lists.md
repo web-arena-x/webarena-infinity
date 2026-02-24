@@ -68,8 +68,8 @@ The **Explorer** module helps Premium partners identify schools based on student
 
 - To create a **new list** with the selected schools:
 
-  - Click **More** from the header bar.
-  - Select **New List from selected** from the dropdown.
+ - Click **More** from the header bar.
+ - Select **New List from selected** from the dropdown.
 
 ![New list from selected from more dropdown.png](https://support.joinhandshake.com/hc/article_attachments/35437919299351)
 

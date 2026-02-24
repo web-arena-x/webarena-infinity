@@ -7,7 +7,7 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/14795552792215-Schoo
 If you've tried to sign up for a Handshake account, and couldn't find your school, it's possible:
 
 - **You're using an email address other than your school-provided one**
-  - *You'll need to sign up with your .edu email address to connect you with the proper school. We recommend double-checking the email you're signing up with.*
+ - *You'll need to sign up with your .edu email address to connect you with the proper school. We recommend double-checking the email you're signing up with.*
 - **Your school is currently in implementation, and hidden at the moment**
 - **Your school isn't partnered with Handshake**
 

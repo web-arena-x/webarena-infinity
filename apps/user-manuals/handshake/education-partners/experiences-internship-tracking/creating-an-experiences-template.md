@@ -27,7 +27,7 @@ Details
 
 - **Template name**: The unique title for this template that will help students and other staff determine which template this is.
 - **Applicable terms**: Choose either all terms or custom terms
-  - If custom terms are selected, a box will appear for you to add specific terms for this template. To access your school’s terms or add new terms, refer to: [School Settings: Terms](https://support.joinhandshake.com/hc/en-us/articles/360021197633)
+ - If custom terms are selected, a box will appear for you to add specific terms for this template. To access your school’s terms or add new terms, refer to: [School Settings: Terms](https://support.joinhandshake.com/hc/en-us/articles/360021197633)
 - **Reviewer response time (days)**: Enter a number to specify how many days a reviewer has to respond to an approval or evaluation request.
 
 ![Experiences](https://support.joinhandshake.com/hc/article_attachments/25997611172503)
@@ -43,7 +43,7 @@ Evaluations (optional)
 Add reviewers in the order that they should approve the experience. *Reviewers are contacts that may not have Handshake accounts that are a part of the approval or evaluation process.*
 
 - **Mid-term evaluations**
-  - Enable mid-term evaluations
+ - Enable mid-term evaluations
     - **Mid-term evaluation request send date**: Enter how many business days prior to the mid-term date the evaluations should be sent out. Mid-term dates are editable in your school settings, please refer to [School Settings: Terms](https://support.joinhandshake.com/hc/en-us/articles/360021197633)
     - **Reviewer mid-term email prompt**: Type out the email that you’d like to be sent to reviewers when the mid-term evaluation request begins.
     - **Reviewer mid-term survey**: Select a survey for reviewers to complete in the mid-term.
@@ -54,7 +54,7 @@ Add reviewers in the order that they should approve the experience. *Reviewers a
 ***Note:** You will be redirected to our Surveys module if you click Create Survey. Learn more about Surveys here:* [*Creating and Testing Surveys*](https://support.joinhandshake.com/hc/en-us/articles/218693548)
 
 - **Final Evaluations**
-  - Enable final evaluations
+ - Enable final evaluations
     - **Final evaluation request send date**: Enter how many business days prior to the final evaluation date the request should be sent out. Final evaluation dates are editable in your school settings, please refer to [School Settings: Terms](https://support.joinhandshake.com/hc/en-us/articles/360021197633)
     - **Reviewer final email prompt**: Type out the email that you’d like to be sent to reviewers when the final evaluation request begins.
     - **Reviewer final survey**: Select a survey for reviewers to complete in the mid-term.
@@ -69,18 +69,18 @@ Add reviewers in the order that they should approve the experience. *Reviewers a
 Reviewers
 
 - **Title:** The position of the first individual that will be reviewing the experience.
-  - Examples: Faculty Department Head, Dean, Registrar Contact
+ - Examples: Faculty Department Head, Dean, Registrar Contact
 - **Contact Info:** Select from the following options
-  - **Student will provide reviewer’s contact email:** The student will provide this information when completing the Experience form on their end
-  - **Reviewer is a contact in Handshake**: Selecting this will prompt a new field to appear:
+ - **Student will provide reviewer’s contact email:** The student will provide this information when completing the Experience form on their end
+ - **Reviewer is a contact in Handshake**: Selecting this will prompt a new field to appear:
     - **Choose Contact:** You can select the contact, contacts are listed alphabetically with their email addresses included.
     - **Note:** If you aren't able to find a reviewer you'd like to add to this template, they likely do not have a contact in Handshake. Learn about creating new contacts here: [Add a Contact](https://support.joinhandshake.com/hc/en-us/articles/218692778)
 - **Permissions:** Select from the following options
-  - **Approve experience submissions:** If this is selected, a new field will be made available
+ - **Approve experience submissions:** If this is selected, a new field will be made available
     - **Approver survey (optional)**: Select a survey for the approver to complete
-  - **Evaluate experiences:** Select this and the reviewer listed will complete evaluations that were set up in the prior step
-  - **Save:** Save the information for this reviewer. This must be selected in order to add another reviewer.
-  - **Add another reviewer:** Select this to add another reviewer, and fill out the above information for that reviewer.
+ - **Evaluate experiences:** Select this and the reviewer listed will complete evaluations that were set up in the prior step
+ - **Save:** Save the information for this reviewer. This must be selected in order to add another reviewer.
+ - **Add another reviewer:** Select this to add another reviewer, and fill out the above information for that reviewer.
 
 ![Experiences](https://support.joinhandshake.com/hc/article_attachments/25997597510295)
 
@@ -103,24 +103,24 @@ Student form (optional)
 Some fields like “Template” and “Term” will remain required in the student submission form. With this update, you can now indicate which additional standard fields should be included for each template and can determine whether each field is required or optional.
 
 - **The following fields are always required, these cannot be changed:**
-  - Experiment template
-  - Term
-  - Organization
-  - Experience
-  - Reviewers Email
+ - Experiment template
+ - Term
+ - Organization
+ - Experience
+ - Reviewers Email
 - **The follow fields can be included, and marked as required for student completion:**
-  - Location
-  - Industry
-  - Phone Number
-  - Email
-  - Department
-  - Dates
-  - Experience type
-  - Employment type
-  - Salary
-  - Offer date
-  - Offer accepted
-  - Additional survey - Use the bar to search for a survey or create a new survey for this template
+ - Location
+ - Industry
+ - Phone Number
+ - Email
+ - Department
+ - Dates
+ - Experience type
+ - Employment type
+ - Salary
+ - Offer date
+ - Offer accepted
+ - Additional survey - Use the bar to search for a survey or create a new survey for this template
 
 ![Experiences](https://support.joinhandshake.com/hc/article_attachments/25997597514647)
 

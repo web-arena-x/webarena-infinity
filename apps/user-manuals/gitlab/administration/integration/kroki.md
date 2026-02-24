@@ -13,8 +13,7 @@ title: Kroki
 
 {{< /details >}}
 
-With the [Kroki](https://kroki.io) integration,
-you can create diagrams-as-code within AsciiDoc, Markdown, reStructuredText, and Textile.
+With the [Kroki](https://kroki.io) integration, you can create diagrams-as-code within AsciiDoc, Markdown, reStructuredText, and Textile.
 
 ## Enable Kroki in GitLab
 
@@ -47,8 +46,7 @@ docker run -d --name kroki -p 8080:8000 yuzutech/kroki
 
 The **Kroki URL** is the hostname of the server running the container.
 
-The [`yuzutech/kroki`](https://hub.docker.com/r/yuzutech/kroki) Docker image supports most diagram
-types out of the box. For a complete list, see the [Kroki installation docs](https://docs.kroki.io/kroki/setup/install/#_the_kroki_container).
+The [`yuzutech/kroki`](https://hub.docker.com/r/yuzutech/kroki) Docker image supports most diagram types out of the box. For a complete list, see the [Kroki installation docs](https://docs.kroki.io/kroki/setup/install/#_the_kroki_container).
 
 Supported diagram types include:
 
@@ -62,7 +60,7 @@ Supported diagram types include:
 - [GraphViz](https://www.graphviz.org/)
 - [Nomnoml](https://github.com/skanaar/nomnoml)
 - [PlantUML](https://github.com/plantuml/plantuml)
-  - [C4 model](https://github.com/RicardoNiepel/C4-PlantUML) (with PlantUML)
+ - [C4 model](https://github.com/RicardoNiepel/C4-PlantUML) (with PlantUML)
 - [Structurizr](https://structurizr.com/) (great for C4 Model diagrams)
 - [Svgbob](https://github.com/ivanceras/svgbob)
 - [UMlet](https://github.com/umlet/umlet)
@@ -72,52 +70,46 @@ Supported diagram types include:
 
 <!-- vale gitlab_base.Spelling = YES -->
 
-If you want to use additional diagram libraries,
-read the [Kroki installation](https://docs.kroki.io/kroki/setup/install/#_images) to learn how to start Kroki companion containers.
+If you want to use additional diagram libraries, read the [Kroki installation](https://docs.kroki.io/kroki/setup/install/#_images) to learn how to start Kroki companion containers.
 
 ## Create diagrams
 
-With Kroki integration enabled and configured, you can start adding diagrams to
-your AsciiDoc or Markdown documentation using delimited blocks:
+With Kroki integration enabled and configured, you can start adding diagrams to your AsciiDoc or Markdown documentation using delimited blocks:
 
 - **Markdown**
 
-  ````markdown
-  ```plantuml
-  Bob -> Alice : hello
-  Alice -> Bob : hi
-  ```
-  ````
+ ````markdown
+ ```plantuml Bob -> Alice : hello Alice -> Bob : hi
+ ```
+ ````
 
 - **AsciiDoc**
 
-  ```plaintext
-  [plantuml]
-  ....
-  Bob->Alice : hello
-  Alice -> Bob : hi
-  ....
-  ```
+ ```plaintext
+ [plantuml]
+ ....
+ Bob->Alice : hello
+ Alice -> Bob : hi
+ ....
+ ```
 
 - **reStructuredText**
 
-  ```plaintext
-  .. code-block:: plantuml
+ ```plaintext
+ .. code-block:: plantuml
 
     Bob->Alice : hello
     Alice -> Bob : hi
-  ```
+ ```
 
 - **Textile**
 
-  ```plaintext
-  bc[plantuml]. Bob->Alice : hello
-  Alice -> Bob : hi
-  ```
+ ```plaintext
+ bc[plantuml]. Bob->Alice : hello
+ Alice -> Bob : hi
+ ```
 
-The delimited blocks are converted to an HTML image tag with source pointing to the
-Kroki instance. If the Kroki server is correctly configured, this should
-render a nice diagram instead of the block:
+The delimited blocks are converted to an HTML image tag with source pointing to the Kroki instance. If the Kroki server is correctly configured, this should render a nice diagram instead of the block:
 
 ![A PlantUML diagram rendered from example code.](img/kroki_plantuml_diagram_v13_7.png)
 
@@ -129,23 +121,23 @@ Kroki supports more than a dozen diagram libraries. Here's a few examples for As
 [graphviz]
 ....
 digraph finite_state_machine {
-  rankdir=LR;
-  node [shape = doublecircle]; LR_0 LR_3 LR_4 LR_8;
-  node [shape = circle];
-  LR_0 -> LR_2 [ label = "SS(B)" ];
-  LR_0 -> LR_1 [ label = "SS(S)" ];
-  LR_1 -> LR_3 [ label = "S($end)" ];
-  LR_2 -> LR_6 [ label = "SS(b)" ];
-  LR_2 -> LR_5 [ label = "SS(a)" ];
-  LR_2 -> LR_4 [ label = "S(A)" ];
-  LR_5 -> LR_7 [ label = "S(b)" ];
-  LR_5 -> LR_5 [ label = "S(a)" ];
-  LR_6 -> LR_6 [ label = "S(b)" ];
-  LR_6 -> LR_5 [ label = "S(a)" ];
-  LR_7 -> LR_8 [ label = "S(b)" ];
-  LR_7 -> LR_5 [ label = "S(a)" ];
-  LR_8 -> LR_6 [ label = "S(b)" ];
-  LR_8 -> LR_5 [ label = "S(a)" ];
+ rankdir=LR;
+ node [shape = doublecircle]; LR_0 LR_3 LR_4 LR_8;
+ node [shape = circle];
+ LR_0 -> LR_2 [ label = "SS(B)" ];
+ LR_0 -> LR_1 [ label = "SS(S)" ];
+ LR_1 -> LR_3 [ label = "S($end)" ];
+ LR_2 -> LR_6 [ label = "SS(b)" ];
+ LR_2 -> LR_5 [ label = "SS(a)" ];
+ LR_2 -> LR_4 [ label = "S(A)" ];
+ LR_5 -> LR_7 [ label = "S(b)" ];
+ LR_5 -> LR_5 [ label = "S(a)" ];
+ LR_6 -> LR_6 [ label = "S(b)" ];
+ LR_6 -> LR_5 [ label = "S(a)" ];
+ LR_7 -> LR_8 [ label = "S(b)" ];
+ LR_7 -> LR_5 [ label = "S(a)" ];
+ LR_8 -> LR_6 [ label = "S(b)" ];
+ LR_8 -> LR_5 [ label = "S(a)" ];
 }
 ....
 ```
@@ -188,8 +180,8 @@ Rel(banking_system, mainframe, "Uses")
 [nomnoml]
 ....
 [Pirate|eyeCount: Int|raid();pillage()|
-  [beard]--[parrot]
-  [beard]-:>[foul mouth]
+ [beard]--[parrot]
+ [beard]-:>[foul mouth]
 ]
 
 [<abstract>Marauder]<:--[Pirate]

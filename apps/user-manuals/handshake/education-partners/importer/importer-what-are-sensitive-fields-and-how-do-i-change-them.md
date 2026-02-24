@@ -13,7 +13,7 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/223411787-Importer-W
 
 - **email\_address and card\_id are no longer considered sensitive fields in data imports!**
 - **AWS/Automated upload will automatically update emails if <10% of total rows have email address changes.  If >10%, no emails will be updated during that sync.**
-  1. ex: 1000 rows in your AWS upload/sync file, 100 rows have new emails: No emails will be updated during that import. (If only 99 rows have new emails, these will update!)
+ 1. ex: 1000 rows in your AWS upload/sync file, 100 rows have new emails: No emails will be updated during that import. (If only 99 rows have new emails, these will update!)
 - **auth\_identifier and username can no longer be changed via automatic/AWS syncs**
 
 If your AWS upload/automatic sync has enough email\_address updates to exceed the 10% limit, or you've changed username or auth\_identifier for any students, instead of processing these individual rows successfully and updating the email\_address/auth\_identifier/username in Handshake, these specific rows will be "failed" on your importer job and you will have to process this change by downloading these failures and manually uploading a file with 'This job changes identifier data' selected (Please see below for manual steps!).
@@ -59,7 +59,7 @@ In order to identify the rows in your student file upload that failed because of
 - If these fields are not unique to the student, please contact your Handshake Relationship Manager immediately to go over alternatives for handling this situation
 
 - If sensitive field is associated ("already taken") to another account, this is generally due to the user having multiple Handshake accounts
-  - The undesired account is then archived
+ - The undesired account is then archived
 
 - e.g. User signed up with personal email address but associated their school username and auth\_identifier to their account
 - When school attempts to sync this user with their school email, username, auth\_id, that user will fail due to this information being associated with another account

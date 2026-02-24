@@ -34,7 +34,7 @@ After you add an attachment, you can remove it. To the right of the attachment n
 2. Click **Compose**.
 3. Click Attach ![Attach](//lh3.googleusercontent.com/w_jqUPgJETLJ3Q777cUvqvKbS9OgjHhFIEG2t6jzqH2PSsP85_71UKW9FaFF1eVFrCo=w18).
 4. Choose the files you want to upload.
-5. In the bottom right of the window, click Turn on confidential mode ![](//storage.googleapis.com/support-kms-prod/tz1opdCrjkJFyNOJd9648X1w7Qij9UjaQfRZ).  
+5. In the bottom right of the window, click Turn on confidential mode ![](//storage.googleapis.com/support-kms-prod/tz1opdCrjkJFyNOJd9648X1w7Qij9UjaQfRZ). 
    **Tip**: If you've already turned on confidential mode for an email, go to the bottom of the email, then click **Edit**.
 6. Set an expiration date and passcode. These settings impact both the message text and any attachments.
    - **If you choose "No SMS passcode,"** recipients using the Gmail app will be able to open it directly. Recipients who don't use Gmail will get emailed a passcode.

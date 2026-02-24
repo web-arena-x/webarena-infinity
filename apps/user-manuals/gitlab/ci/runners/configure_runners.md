@@ -15,14 +15,11 @@ title: Configuring runners
 
 This document describes how to configure runners in the GitLab UI.
 
-If you need to configure runners on the machine where you installed GitLab Runner, see
-[the GitLab Runner documentation](https://docs.gitlab.com/runner/configuration/).
+If you need to configure runners on the machine where you installed GitLab Runner, see [the GitLab Runner documentation](https://docs.gitlab.com/runner/configuration/).
 
 ## Set the maximum job timeout
 
-You can specify a maximum job timeout for each runner to prevent projects
-with longer job timeouts from using the runner. The maximum job timeout is
-used if it is shorter than the job timeout defined in the project.
+You can specify a maximum job timeout for each runner to prevent projects with longer job timeouts from using the runner. The maximum job timeout is used if it is shorter than the job timeout defined in the project.
 
 To set a runner's maximum timeout, set the `maximum_timeout` parameter in the REST API endpoint [`PUT /runners/:id`](../../api/runners.md#update-runners-details).
 
@@ -106,8 +103,7 @@ To set the maximum job timeout:
 
 To control the amount of time `script` and `after_script` runs before it terminates, specify a timeout value in the `.gitlab-ci.yml` file.
 
-For example, you can specify a timeout to terminate a long-running `script` early. This ensures artifacts and caches can still be uploaded
-before the [job timeout](../pipelines/settings.md#set-a-limit-for-how-long-jobs-can-run) is exceeded.
+For example, you can specify a timeout to terminate a long-running `script` early. This ensures artifacts and caches can still be uploaded before the [job timeout](../pipelines/settings.md#set-a-limit-for-how-long-jobs-can-run) is exceeded.
 The timeout values for `script` and `after_script` must be less than the job timeout.
 
 - To set a timeout for `script`, use the job variable `RUNNER_SCRIPT_TIMEOUT`.
@@ -119,22 +115,22 @@ For example:
 
 ```yaml
 job-with-script-timeouts:
-  variables:
+ variables:
     RUNNER_SCRIPT_TIMEOUT: 15m
     RUNNER_AFTER_SCRIPT_TIMEOUT: 10m
-  script:
+ script:
     - "I am allowed to run for min(15m, remaining job timeout)."
-  after_script:
+ after_script:
     - "I am allowed to run for min(10m, remaining job timeout)."
 
 job-artifact-upload-on-timeout:
-  timeout: 1h                           # set job timeout to 1 hour
-  variables:
+ timeout: 1h                           # set job timeout to 1 hour
+ variables:
      RUNNER_SCRIPT_TIMEOUT: 50m         # only allow script to run for 50 minutes
-  script:
+ script:
     - long-running-process > output.txt # will be terminated after 50m
 
-  artifacts: # artifacts will have roughly ~10m to upload
+ artifacts: # artifacts will have roughly ~10m to upload
     paths:
       - output.txt
     when: on_failure # on_failure because script termination after a timeout is treated as a failure
@@ -142,36 +138,33 @@ job-artifact-upload-on-timeout:
 
 ### Ensuring `after_script` execution
 
-For `after_script` to run successfully, the total of `RUNNER_SCRIPT_TIMEOUT` +
-`RUNNER_AFTER_SCRIPT_TIMEOUT` must not exceed the job's configured timeout.
+For `after_script` to run successfully, the total of `RUNNER_SCRIPT_TIMEOUT` + `RUNNER_AFTER_SCRIPT_TIMEOUT` must not exceed the job's configured timeout.
 
 The following example shows how to configure timeouts to ensure `after_script` runs even when the main script times out:
 
 ```yaml
 job-with-script-timeouts:
-  timeout: 5m
-  variables:
+ timeout: 5m
+ variables:
     RUNNER_SCRIPT_TIMEOUT: 1m
     RUNNER_AFTER_SCRIPT_TIMEOUT: 1m
-  script:
+ script:
     - echo "Starting build..."
     - sleep 120 # Wait 2 minutes to trigger timeout. Script aborts after 1 minute due to RUNNER_SCRIPT_TIMEOUT.
     - echo "Build finished."
-  after_script:
+ after_script:
     - echo "Starting Clean-up..."
     - sleep 15 # Wait just a few seconds. Runs successfully because it's within RUNNER_AFTER_SCRIPT_TIMEOUT.
     - echo "Clean-up finished."
 ```
 
-The `script` is canceled by `RUNNER_SCRIPT_TIMEOUT`, but the `after_script` runs successfully because it takes 15 seconds,
-which is less than both `RUNNER_AFTER_SCRIPT_TIMEOUT` and the job's `timeout` value.
+The `script` is canceled by `RUNNER_SCRIPT_TIMEOUT`, but the `after_script` runs successfully because it takes 15 seconds, which is less than both `RUNNER_AFTER_SCRIPT_TIMEOUT` and the job's `timeout` value.
 
 ## Protecting sensitive information
 
 The security risks are greater when using instance runners as they are available by default to all groups and projects in a GitLab instance.
 The runner executor and file system configuration affects security. Users with access to the runner host environment can view the code that runner executed and the runner authentication.
-For example, users with access to the runner authentication token can clone
-a runner and submit false jobs in a vector attack. For more information, see [Security Considerations](https://docs.gitlab.com/runner/security/).
+For example, users with access to the runner authentication token can clone a runner and submit false jobs in a vector attack. For more information, see [Security Considerations](https://docs.gitlab.com/runner/security/).
 
 ## Configuring long polling
 
@@ -179,11 +172,9 @@ To reduce job queueing times and load on your GitLab server, configure [long pol
 
 ## Using instance runners in forked projects
 
-When a project is forked, the job settings related to jobs are copied. If you have instance runners
-configured for a project and a user forks that project, the instance runners serve jobs of this project.
+When a project is forked, the job settings related to jobs are copied. If you have instance runners configured for a project and a user forks that project, the instance runners serve jobs of this project.
 
-Due to a [known issue](https://gitlab.com/gitlab-org/gitlab/-/issues/364303), if the runner settings
-of the forked project does not match the new project namespace, the following message displays:
+Due to a [known issue](https://gitlab.com/gitlab-org/gitlab/-/issues/364303), if the runner settings of the forked project does not match the new project namespace, the following message displays:
 `An error occurred while forking the project. Please try again.`.
 
 To work around this issue, ensure that the instance runner settings are consistent in the forked project and the new namespace.
@@ -195,18 +186,14 @@ To work around this issue, ensure that the instance runner settings are consiste
 
 {{< alert type="warning" >}}
 
-The option to pass runner registration tokens and support for certain configuration arguments is considered legacy
-and is not recommended.
+The option to pass runner registration tokens and support for certain configuration arguments is considered legacy and is not recommended.
 Use the [runner creation workflow](https://docs.gitlab.com/runner/register/#register-with-a-runner-authentication-token)
-to generate an authentication token to register runners. This process provides full
-traceability of runner ownership and enhances your runner fleet's security.
-For more information, see
-[Migrating to the new runner registration workflow](new_creation_workflow.md).
+to generate an authentication token to register runners. This process provides full traceability of runner ownership and enhances your runner fleet's security.
+For more information, see [Migrating to the new runner registration workflow](new_creation_workflow.md).
 
 {{< /alert >}}
 
-If you think that a registration token for a project was revealed, you should
-reset it. A registration token can be used to register another runner for the project.
+If you think that a registration token for a project was revealed, you should reset it. A registration token can be used to register another runner for the project.
 That new runner may then be used to obtain the values of secret variables or to clone project code.
 
 To reset the registration token:
@@ -218,9 +205,7 @@ To reset the registration token:
 1. Select **Reset registration token**.
 1. Select **Reset token**.
 
-After you reset the registration token, it is no longer valid and does not register
-any new runners to the project. You should also update the registration token in tools
-you use to provision and register new values.
+After you reset the registration token, it is no longer valid and does not register any new runners to the project. You should also update the registration token in tools you use to provision and register new values.
 
 ## Authentication token security
 
@@ -234,16 +219,12 @@ you use to provision and register new values.
 Each runner uses a [runner authentication token](../../api/runners.md#registration-and-authentication-tokens)
 to connect to and authenticate with a GitLab instance.
 
-To help prevent the token from being compromised, you can have the
-token rotate automatically at specified intervals. When the tokens are rotated,
-they are updated for each runner, regardless of the runner's status (`online` or `offline`).
+To help prevent the token from being compromised, you can have the token rotate automatically at specified intervals. When the tokens are rotated, they are updated for each runner, regardless of the runner's status (`online` or `offline`).
 
 No manual intervention should be required, and no running jobs should be affected.
-For more information about token rotation, see
-[Runner authentication token does not update when rotated](new_creation_workflow.md#runner-authentication-token-does-not-update-when-rotated).
+For more information about token rotation, see [Runner authentication token does not update when rotated](new_creation_workflow.md#runner-authentication-token-does-not-update-when-rotated).
 
-If you need to manually update the runner authentication token, you can run a
-command to [reset the token](https://docs.gitlab.com/runner/commands/#gitlab-runner-reset-token).
+If you need to manually update the runner authentication token, you can run a command to [reset the token](https://docs.gitlab.com/runner/commands/#gitlab-runner-reset-token).
 
 ### Reset the runner configuration authentication token
 
@@ -282,16 +263,13 @@ To automatically rotate runner authentication tokens:
 1. Select **Save changes**.
 
 Before the interval expires, runners automatically request a new runner authentication token.
-For more information about token rotation, see
-[Runner authentication token does not update when rotated](new_creation_workflow.md#runner-authentication-token-does-not-update-when-rotated).
+For more information about token rotation, see [Runner authentication token does not update when rotated](new_creation_workflow.md#runner-authentication-token-does-not-update-when-rotated).
 
 ## Prevent runners from revealing sensitive information
 
-To ensure runners don't reveal sensitive information, you can configure them to only run jobs
-on [protected branches](../../user/project/repository/branches/protected.md), or jobs that have [protected tags](../../user/project/protected_tags.md).
+To ensure runners don't reveal sensitive information, you can configure them to only run jobs on [protected branches](../../user/project/repository/branches/protected.md), or jobs that have [protected tags](../../user/project/protected_tags.md).
 
-Runners configured to run jobs on protected branches can
-[optionally run jobs in merge request pipelines](../pipelines/merge_request_pipelines.md#control-access-to-protected-variables-and-runners).
+Runners configured to run jobs on protected branches can [optionally run jobs in merge request pipelines](../pipelines/merge_request_pipelines.md#control-access-to-protected-variables-and-runners).
 
 ### For an instance runner
 
@@ -333,8 +311,7 @@ Prerequisites:
 ## Control jobs that a runner can run
 
 You can use [tags](../yaml/_index.md#tags) to control the jobs a runner can run.
-For example, you can specify the `rails` tag for runners that have the dependencies to run
-Rails test suites.
+For example, you can specify the `rails` tag for runners that have the dependencies to run Rails test suites.
 
 GitLab CI/CD tags are different to Git tags. GitLab CI/CD tags are associated with runners.
 Git tags are associated with commits.
@@ -392,8 +369,7 @@ To control the jobs that a project runner can run:
 
 #### Runner runs only tagged jobs
 
-The following examples illustrate the potential impact of the runner being set
-to run only tagged jobs.
+The following examples illustrate the potential impact of the runner being set to run only tagged jobs.
 
 Example 1:
 
@@ -412,8 +388,7 @@ Example 3:
 
 #### Runner is allowed to run untagged jobs
 
-The following examples illustrate the potential impact of the runner being set
-to run tagged and untagged jobs.
+The following examples illustrate the potential impact of the runner being set to run tagged and untagged jobs.
 
 Example 1:
 
@@ -429,11 +404,9 @@ Example 2:
 
 #### A runner and a job have multiple tags
 
-The selection logic that matches the job and runner is based on the list of `tags`
-defined in the job.
+The selection logic that matches the job and runner is based on the list of `tags` defined in the job.
 
-The following examples illustrate the impact of a runner and a job having multiple tags. For a runner to be
-selected to run a job, it must have all of the tags defined in the job script block.
+The following examples illustrate the impact of a runner and a job having multiple tags. For a runner to be selected to run a job, it must have all of the tags defined in the job script block.
 
 Example 1:
 
@@ -452,25 +425,23 @@ Example 3:
 
 ### Use tags to run jobs on different platforms
 
-You can use tags to run different jobs on different platforms. For
-example, if you have an OS X runner with tag `osx` and a Windows runner with tag
-`windows`, you can run a job on each platform.
+You can use tags to run different jobs on different platforms. For example, if you have an OS X runner with tag `osx` and a Windows runner with tag `windows`, you can run a job on each platform.
 
 Update the `tags` field in the `.gitlab-ci.yml`:
 
 ```yaml
 windows job:
-  stage: build
-  tags:
+ stage: build
+ tags:
     - windows
-  script:
+ script:
     - echo Hello, %USERNAME%!
 
 osx job:
-  stage: build
-  tags:
+ stage: build
+ tags:
     - osx
-  script:
+ script:
     - echo "Hello, $USER!"
 ```
 
@@ -480,9 +451,9 @@ In the `.gitlab-ci.yml` file, use [CI/CD variables](../variables/_index.md) with
 
 ```yaml
 variables:
-  KUBERNETES_RUNNER: kubernetes
+ KUBERNETES_RUNNER: kubernetes
 
-  job:
+ job:
     tags:
       - docker
       - $KUBERNETES_RUNNER
@@ -492,8 +463,7 @@ variables:
 
 ## Configure runner behavior with variables
 
-You can use [CI/CD variables](../variables/_index.md) to configure runner Git behavior
-globally or for individual jobs:
+You can use [CI/CD variables](../variables/_index.md) to configure runner Git behavior globally or for individual jobs:
 
 - [`GIT_STRATEGY`](#git-strategy)
 - [`GIT_SUBMODULE_STRATEGY`](#git-submodule-strategy)
@@ -514,57 +484,39 @@ globally or for individual jobs:
 - [`RUNNER_AFTER_SCRIPT_TIMEOUT`](#set-script-and-after_script-timeouts)
 - [`AFTER_SCRIPT_IGNORE_ERRORS`](#ignore-errors-in-after_script)
 
-You can also use variables to configure how many times a runner
-[attempts certain stages of job execution](#job-stages-attempts).
+You can also use variables to configure how many times a runner [attempts certain stages of job execution](#job-stages-attempts).
 
-When using the Kubernetes executor, you can use variables to
-[override Kubernetes CPU and memory allocations for requests and limits](https://docs.gitlab.com/runner/executors/kubernetes/#overwrite-container-resources).
+When using the Kubernetes executor, you can use variables to [override Kubernetes CPU and memory allocations for requests and limits](https://docs.gitlab.com/runner/executors/kubernetes/#overwrite-container-resources).
 
-[Runner feature flags](https://docs.gitlab.com/runner/configuration/feature-flags/#available-feature-flags) are also accepted as
-[job and pipeline variables](https://docs.gitlab.com/runner/configuration/feature-flags/#enable-feature-flag-in-pipeline-configuration).
+[Runner feature flags](https://docs.gitlab.com/runner/configuration/feature-flags/#available-feature-flags) are also accepted as [job and pipeline variables](https://docs.gitlab.com/runner/configuration/feature-flags/#enable-feature-flag-in-pipeline-configuration).
 
 ### Git strategy
 
-The `GIT_STRATEGY` variable configures how the build directory is prepared and
-repository content is fetched. You can set this variable globally or per job
-in the [`variables`](../yaml/_index.md#variables) section.
+The `GIT_STRATEGY` variable configures how the build directory is prepared and repository content is fetched. You can set this variable globally or per job in the [`variables`](../yaml/_index.md#variables) section.
 
 ```yaml
 variables:
-  GIT_STRATEGY: clone
+ GIT_STRATEGY: clone
 ```
 
-Possible values are `clone`, `fetch`, `none`, and `empty`. If you do not specify a value,
-jobs use the [project's pipeline setting](../pipelines/settings.md#choose-the-default-git-strategy).
+Possible values are `clone`, `fetch`, `none`, and `empty`. If you do not specify a value, jobs use the [project's pipeline setting](../pipelines/settings.md#choose-the-default-git-strategy).
 
-`clone` is the slowest option. It clones the repository from scratch for every
-job, ensuring that the local working copy is always pristine.
+`clone` is the slowest option. It clones the repository from scratch for every job, ensuring that the local working copy is always pristine.
 If an existing worktree is found, it is removed before cloning.
 
-`fetch` is faster as it re-uses the local working copy (falling back to `clone`
-if it does not exist). `git clean` is used to undo any changes made by the last
-job, and `git fetch` is used to retrieve commits made after the last job ran.
+`fetch` is faster as it re-uses the local working copy (falling back to `clone` if it does not exist). `git clean` is used to undo any changes made by the last job, and `git fetch` is used to retrieve commits made after the last job ran.
 
-However, `fetch` does require access to the previous worktree. This works
-well when using the `shell` or `docker` executor because these
-try to preserve worktrees and try to re-use them by default.
+However, `fetch` does require access to the previous worktree. This works well when using the `shell` or `docker` executor because these try to preserve worktrees and try to re-use them by default.
 
 This has limitations when using the [Docker Machine executor](https://docs.gitlab.com/runner/executors/docker_machine.html).
 
-A Git strategy of `none` also re-uses the local working copy, but skips all Git
-operations usually done by GitLab. GitLab Runner pre-clone scripts are also skipped,
-if present. This strategy could mean you need to add `fetch` and `checkout` commands
-to [your `.gitlab-ci.yml` script](../yaml/_index.md#script).
+A Git strategy of `none` also re-uses the local working copy, but skips all Git operations usually done by GitLab. GitLab Runner pre-clone scripts are also skipped, if present. This strategy could mean you need to add `fetch` and `checkout` commands to [your `.gitlab-ci.yml` script](../yaml/_index.md#script).
 
 It can be used for jobs that operate exclusively on artifacts, like a deployment job.
-Git repository data may be present, but it's likely out of date. You should only
-rely on files brought into the local working copy from cache or artifacts. Be
-aware that cache and artifact files from previous pipelines might still be present.
+Git repository data may be present, but it's likely out of date. You should only rely on files brought into the local working copy from cache or artifacts. Be aware that cache and artifact files from previous pipelines might still be present.
 
-Unlike `none`, the `empty` Git strategy deletes and then re-creates
-a dedicated build directory before downloading cache or artifact files.
-With this strategy, the GitLab Runner hook scripts are still run
-(if provided) to allow for further behavior customization.
+Unlike `none`, the `empty` Git strategy deletes and then re-creates a dedicated build directory before downloading cache or artifact files.
+With this strategy, the GitLab Runner hook scripts are still run (if provided) to allow for further behavior customization.
 Use the `empty` Git strategy when:
 
 - You do not need the repository data to be present.
@@ -572,74 +524,58 @@ Use the `empty` Git strategy when:
 
 ### Git submodule strategy
 
-The `GIT_SUBMODULE_STRATEGY` variable is used to control if / how
-[Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) are included when fetching the code before a build. You can set them
-globally or per-job in the [`variables`](../yaml/_index.md#variables) section.
+The `GIT_SUBMODULE_STRATEGY` variable is used to control if / how [Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) are included when fetching the code before a build. You can set them globally or per-job in the [`variables`](../yaml/_index.md#variables) section.
 
 The three possible values are `none`, `normal`, and `recursive`:
 
-- `none` means that submodules are not included when fetching the project
-  code. This setting matches the default behavior in versions before 1.10.
+- `none` means that submodules are not included when fetching the project code. This setting matches the default behavior in versions before 1.10.
 
-- `normal` means that only the top-level submodules are included. It's
-  equivalent to:
+- `normal` means that only the top-level submodules are included. It's equivalent to:
 
-  ```shell
-  git submodule sync
-  git submodule update --init
-  ```
+ ```shell
+ git submodule sync
+ git submodule update --init
+ ```
 
 - `recursive` means that all submodules (including submodules of submodules)
-  are included. This feature needs Git v1.8.1 and later. When using a
-  GitLab Runner with an executor not based on Docker, make sure the Git version
-  meets that requirement. It's equivalent to:
+ are included. This feature needs Git v1.8.1 and later. When using a GitLab Runner with an executor not based on Docker, make sure the Git version meets that requirement. It's equivalent to:
 
-  ```shell
-  git submodule sync --recursive
-  git submodule update --init --recursive
-  ```
+ ```shell
+ git submodule sync --recursive
+ git submodule update --init --recursive
+ ```
 
-For this feature to work correctly, the submodules must be configured
-(in `.gitmodules`) with either:
+For this feature to work correctly, the submodules must be configured (in `.gitmodules`) with either:
 
 - the HTTP(S) URL of a publicly-accessible repository, or
-- a relative path to another repository on the same GitLab server. See the
-  [Git submodules](git_submodules.md) documentation.
+- a relative path to another repository on the same GitLab server. See the [Git submodules](git_submodules.md) documentation.
 
 You can provide additional flags to control advanced behavior using [`GIT_SUBMODULE_UPDATE_FLAGS`](#git-submodule-update-flags).
 
 ### Git checkout
 
-The `GIT_CHECKOUT` variable can be used when the `GIT_STRATEGY` is set to either
-`clone` or `fetch` to specify whether a `git checkout` should be run. If not
-specified, it defaults to true. You can set them globally or per-job in the
-[`variables`](../yaml/_index.md#variables) section.
+The `GIT_CHECKOUT` variable can be used when the `GIT_STRATEGY` is set to either `clone` or `fetch` to specify whether a `git checkout` should be run. If not specified, it defaults to true. You can set them globally or per-job in the [`variables`](../yaml/_index.md#variables) section.
 
 If set to `false`, the runner:
 
-- when doing `fetch` - updates the repository and leaves the working copy on
-  the current revision,
-- when doing `clone` - clones the repository and leaves the working copy on the
-  default branch.
+- when doing `fetch` - updates the repository and leaves the working copy on the current revision,
+- when doing `clone` - clones the repository and leaves the working copy on the default branch.
 
 If `GIT_CHECKOUT` is set to `true`, both `clone` and `fetch` work the same way.
-The runner checks out the working copy of a revision related
-to the CI pipeline:
+The runner checks out the working copy of a revision related to the CI pipeline:
 
 ```yaml
 variables:
-  GIT_STRATEGY: clone
-  GIT_CHECKOUT: "false"
+ GIT_STRATEGY: clone
+ GIT_CHECKOUT: "false"
 script:
-  - git checkout -B master origin/master
-  - git merge $CI_COMMIT_SHA
+ - git checkout -B master origin/master
+ - git merge $CI_COMMIT_SHA
 ```
 
 ### Git clean flags
 
-The `GIT_CLEAN_FLAGS` variable is used to control the default behavior of
-`git clean` after checking out the sources. You can set it globally or per-job in the
-[`variables`](../yaml/_index.md#variables) section.
+The `GIT_CLEAN_FLAGS` variable is used to control the default behavior of `git clean` after checking out the sources. You can set it globally or per-job in the [`variables`](../yaml/_index.md#variables) section.
 
 `GIT_CLEAN_FLAGS` accepts all possible options of the [`git clean`](https://git-scm.com/docs/git-clean)
 command.
@@ -655,15 +591,14 @@ For example:
 
 ```yaml
 variables:
-  GIT_CLEAN_FLAGS: -ffdx -e cache/
+ GIT_CLEAN_FLAGS: -ffdx -e cache/
 script:
-  - ls -al cache/
+ - ls -al cache/
 ```
 
 ### Git fetch extra flags
 
-Use the `GIT_FETCH_EXTRA_FLAGS` variable to control the behavior of
-`git fetch`. You can set it globally or per-job in the [`variables`](../yaml/_index.md#variables) section.
+Use the `GIT_FETCH_EXTRA_FLAGS` variable to control the behavior of `git fetch`. You can set it globally or per-job in the [`variables`](../yaml/_index.md#variables) section.
 
 `GIT_FETCH_EXTRA_FLAGS` accepts all options of the [`git fetch`](https://git-scm.com/docs/git-fetch) command. However, `GIT_FETCH_EXTRA_FLAGS` flags are appended after the default flags that can't be modified.
 
@@ -682,15 +617,15 @@ For example, the default flags are `--prune --quiet`, so you can make `git fetch
 
 ```yaml
 variables:
-  GIT_FETCH_EXTRA_FLAGS: --prune
+ GIT_FETCH_EXTRA_FLAGS: --prune
 script:
-  - ls -al cache/
+ - ls -al cache/
 ```
 
 The previous configuration results in `git fetch` being called this way:
 
 ```shell
-git fetch origin $REFSPECS --depth 20  --prune
+git fetch origin $REFSPECS --depth 20 --prune
 ```
 
 Where `$REFSPECS` is a value provided to the runner internally by GitLab.
@@ -704,21 +639,18 @@ To use `GIT_CLONE_EXTRA_FLAGS`:
 
 - Set `FF_USE_GIT_NATIVE_CLONE` to `true` to enable the native `git clone` functionality.
 - Set `GIT_STRATEGY` to `clone` to use the clone strategy instead of fetch.
-- The Git client must be at least version 2.49. This condition is met automatically if the
-  [helper image](https://docs.gitlab.com/runner/configuration/advanced-configuration/#helper-image)
-  is a Linux-flavored image, version 18.1 or later.
+- The Git client must be at least version 2.49. This condition is met automatically if the [helper image](https://docs.gitlab.com/runner/configuration/advanced-configuration/#helper-image)
+ is a Linux-flavored image, version 18.1 or later.
 
-`GIT_CLONE_EXTRA_FLAGS` accepts all options of the `git clone` command. The flags are appended to the native
-`git clone` command to provide flexibility for advanced use cases, including referencing alternate repositories
-or optimizing clone performance.
+`GIT_CLONE_EXTRA_FLAGS` accepts all options of the `git clone` command. The flags are appended to the native `git clone` command to provide flexibility for advanced use cases, including referencing alternate repositories or optimizing clone performance.
 
 For example, you can optimize clone performance by using a reference repository:
 
 ```yaml
 variables:
-  FF_USE_GIT_NATIVE_CLONE: true
-  GIT_STRATEGY: clone
-  GIT_CLONE_EXTRA_FLAGS: "--reference-if-available /tmp/test"
+ FF_USE_GIT_NATIVE_CLONE: true
+ GIT_STRATEGY: clone
+ GIT_CLONE_EXTRA_FLAGS: "--reference-if-available /tmp/test"
 ```
 
 If `GIT_CLONE_EXTRA_FLAGS` is not specified, `git clone` uses only the default flags.
@@ -732,58 +664,49 @@ The path syntax is the same as [`git submodule`](https://git-scm.com/docs/git-su
 
 - To sync and update specific paths:
 
-  ```yaml
-  variables:
+ ```yaml
+ variables:
      GIT_SUBMODULE_PATHS: submoduleA submoduleB
-  ```
+ ```
 
 - To exclude specific paths:
 
-  ```yaml
-  variables:
+ ```yaml
+ variables:
      GIT_SUBMODULE_PATHS: ":(exclude)submoduleA :(exclude)submoduleB"
-  ```
+ ```
 
 {{< alert type="warning" >}}
 
-Git ignores nested paths. To ignore a nested submodule, exclude
-the parent submodule and then manually clone it in the job's scripts. For example,
- `git clone <repo> --recurse-submodules=':(exclude)nested-submodule'`. Make sure
-to wrap the string in single quotes so the YAML can be parsed successfully.
+Git ignores nested paths. To ignore a nested submodule, exclude the parent submodule and then manually clone it in the job's scripts. For example, `git clone <repo> --recurse-submodules=':(exclude)nested-submodule'`. Make sure to wrap the string in single quotes so the YAML can be parsed successfully.
 
 {{< /alert >}}
 
 ### Git submodule update flags
 
-Use the `GIT_SUBMODULE_UPDATE_FLAGS` variable to control the behavior of `git submodule update`
-when [`GIT_SUBMODULE_STRATEGY`](#git-submodule-strategy) is set to either `normal` or `recursive`.
+Use the `GIT_SUBMODULE_UPDATE_FLAGS` variable to control the behavior of `git submodule update` when [`GIT_SUBMODULE_STRATEGY`](#git-submodule-strategy) is set to either `normal` or `recursive`.
 You can set it globally or per-job in the [`variables`](../yaml/_index.md#variables) section.
 
-`GIT_SUBMODULE_UPDATE_FLAGS` accepts all options of the
-[`git submodule update`](https://git-scm.com/docs/git-submodule#Documentation/git-submodule.txt-update--init--remote-N--no-fetch--no-recommend-shallow-f--force--checkout--rebase--merge--referenceltrepositorygt--depthltdepthgt--recursive--jobsltngt--no-single-branch--ltpathgt82308203)
+`GIT_SUBMODULE_UPDATE_FLAGS` accepts all options of the [`git submodule update`](https://git-scm.com/docs/git-submodule#Documentation/git-submodule.txt-update--init--remote-N--no-fetch--no-recommend-shallow-f--force--checkout--rebase--merge--referenceltrepositorygt--depthltdepthgt--recursive--jobsltngt--no-single-branch--ltpathgt82308203)
 subcommand. However, `GIT_SUBMODULE_UPDATE_FLAGS` flags are appended after a few default flags:
 
 - `--init`, if [`GIT_SUBMODULE_STRATEGY`](#git-submodule-strategy) was set to `normal` or `recursive`.
 - `--recursive`, if [`GIT_SUBMODULE_STRATEGY`](#git-submodule-strategy) was set to `recursive`.
 - `GIT_DEPTH`. See the default value in the [shallow cloning](#shallow-cloning) section.
 
-Git honors the last occurrence of a flag in the list of arguments, so manually
-providing them in `GIT_SUBMODULE_UPDATE_FLAGS` overrides these default flags.
+Git honors the last occurrence of a flag in the list of arguments, so manually providing them in `GIT_SUBMODULE_UPDATE_FLAGS` overrides these default flags.
 
 For example, you can use this variable to:
 
-- Fetch the latest remote `HEAD` instead of the tracked commit in the
-  repository (default) to automatically update all submodules with the
-  `--remote` flag.
-- Speed up the checkout by fetching submodules in multiple parallel jobs with
-  the `--jobs 4` flag.
+- Fetch the latest remote `HEAD` instead of the tracked commit in the repository (default) to automatically update all submodules with the `--remote` flag.
+- Speed up the checkout by fetching submodules in multiple parallel jobs with the `--jobs 4` flag.
 
 ```yaml
 variables:
-  GIT_SUBMODULE_STRATEGY: recursive
-  GIT_SUBMODULE_UPDATE_FLAGS: --remote --jobs 4
+ GIT_SUBMODULE_STRATEGY: recursive
+ GIT_SUBMODULE_UPDATE_FLAGS: --remote --jobs 4
 script:
-  - ls -al .git/modules/
+ - ls -al .git/modules/
 ```
 
 The previous configuration results in `git submodule update` being called this way:
@@ -794,34 +717,24 @@ git submodule update --init --depth 20 --recursive --remote --jobs 4
 
 {{< alert type="warning" >}}
 
-You should be aware of the implications for the security, stability, and
-reproducibility of your builds when using the `--remote` flag. In most cases,
-it is better to explicitly track submodule commits as designed, and update them
-using an auto-remediation/dependency bot.
+You should be aware of the implications for the security, stability, and reproducibility of your builds when using the `--remote` flag. In most cases, it is better to explicitly track submodule commits as designed, and update them using an auto-remediation/dependency bot.
 
-The `--remote` flag is not required to check out submodules at their committed
-revisions. Use this flag only when you want to automatically update submodules
-to their latest remote versions.
+The `--remote` flag is not required to check out submodules at their committed revisions. Use this flag only when you want to automatically update submodules to their latest remote versions.
 
 {{< /alert >}}
 
 The behavior of `--remote` depends on your Git version.
-If the branch specified in your superproject's `.gitmodules` file is different from the
-default branch of the submodule repository, some Git versions will fail with this error:
+If the branch specified in your superproject's `.gitmodules` file is different from the default branch of the submodule repository, some Git versions will fail with this error:
 
 `fatal: Unable to find refs/remotes/origin/<branch> revision in submodule path '<submodule-path>'`
 
-The runner implements a "best effort" fallback that attempts to
-pull remote refs when the submodule update fails.
+The runner implements a "best effort" fallback that attempts to pull remote refs when the submodule update fails.
 
-If this fallback does not work with your Git version, try one of the following
-workarounds:
+If this fallback does not work with your Git version, try one of the following workarounds:
 
-- Update the submodule repository's default branch to match the branch set in
-  `.gitmodules` in the superproject.
+- Update the submodule repository's default branch to match the branch set in `.gitmodules` in the superproject.
 - Set `GIT_SUBMODULE_DEPTH` to `0`.
-- Update the submodules separately and remove the `--remote` flag from
-  `GIT_SUBMODULE_UPDATE_FLAGS`.
+- Update the submodules separately and remove the `--remote` flag from `GIT_SUBMODULE_UPDATE_FLAGS`.
 
 ### Rewrite submodule URLs to HTTPS
 
@@ -832,13 +745,12 @@ workarounds:
 {{< /history >}}
 
 Use the `GIT_SUBMODULE_FORCE_HTTPS` variable to force a rewrite of all Git and SSH submodule URLs to HTTPS.
-You can clone submodules that use absolute URLs on the same GitLab instance, even if they were
-configured with a Git or SSH protocol.
+You can clone submodules that use absolute URLs on the same GitLab instance, even if they were configured with a Git or SSH protocol.
 
 ```yaml
 variables:
-  GIT_SUBMODULE_STRATEGY: recursive
-  GIT_SUBMODULE_FORCE_HTTPS: "true"
+ GIT_SUBMODULE_STRATEGY: recursive
+ GIT_SUBMODULE_FORCE_HTTPS: "true"
 ```
 
 When enabled, GitLab Runner uses a [CI/CD job token](../jobs/ci_job_token.md) to clone the submodules.
@@ -848,30 +760,21 @@ The token uses the permissions of the user executing the job and does not requir
 
 You can specify the depth of fetching and cloning using `GIT_DEPTH`.
 `GIT_DEPTH` does a shallow clone of the repository and can significantly speed up cloning.
-It can be helpful for repositories with a large number of commits or old, large binaries. The value is
-passed to `git fetch` and `git clone`.
+It can be helpful for repositories with a large number of commits or old, large binaries. The value is passed to `git fetch` and `git clone`.
 
-Newly-created projects automatically have a
-[default `git depth` value of `20`](../pipelines/settings.md#limit-the-number-of-changes-fetched-during-clone).
+Newly-created projects automatically have a [default `git depth` value of `20`](../pipelines/settings.md#limit-the-number-of-changes-fetched-during-clone).
 
-If you use a depth of `1` and have a queue of jobs or retry
-jobs, jobs may fail.
+If you use a depth of `1` and have a queue of jobs or retry jobs, jobs may fail.
 
-Git fetching and cloning is based on a ref, such as a branch name, so runners
-can't clone a specific commit SHA. If multiple jobs are in the queue, or
-you retry an old job, the commit to be tested must be in the cloned
-Git history. Setting too small a value for `GIT_DEPTH` can make
-it impossible to run these old commits and `unresolved reference` is displayed in
-job logs. You should then reconsider changing `GIT_DEPTH` to a higher value.
+Git fetching and cloning is based on a ref, such as a branch name, so runners can't clone a specific commit SHA. If multiple jobs are in the queue, or you retry an old job, the commit to be tested must be in the cloned Git history. Setting too small a value for `GIT_DEPTH` can make it impossible to run these old commits and `unresolved reference` is displayed in job logs. You should then reconsider changing `GIT_DEPTH` to a higher value.
 
-Jobs that rely on `git describe` may not work correctly when `GIT_DEPTH` is
-set because only part of the Git history is present.
+Jobs that rely on `git describe` may not work correctly when `GIT_DEPTH` is set because only part of the Git history is present.
 
 To fetch or clone only the last 3 commits:
 
 ```yaml
 variables:
-  GIT_DEPTH: "3"
+ GIT_DEPTH: "3"
 ```
 
 You can set it globally or per-job in the [`variables`](../yaml/_index.md#variables) section.
@@ -884,68 +787,55 @@ You can set it globally or per-job in the [`variables`](../yaml/_index.md#variab
 
 {{< /history >}}
 
-Use the `GIT_SUBMODULE_DEPTH` variable to specify the depth of fetching and cloning submodules
-when [`GIT_SUBMODULE_STRATEGY`](#git-submodule-strategy) is set to either `normal` or `recursive`.
+Use the `GIT_SUBMODULE_DEPTH` variable to specify the depth of fetching and cloning submodules when [`GIT_SUBMODULE_STRATEGY`](#git-submodule-strategy) is set to either `normal` or `recursive`.
 You can set it globally or for a specific job in the [`variables`](../yaml/_index.md#variables) section.
 
-When you set the `GIT_SUBMODULE_DEPTH` variable, it overwrites the [`GIT_DEPTH`](#shallow-cloning) setting
-for the submodules only.
+When you set the `GIT_SUBMODULE_DEPTH` variable, it overwrites the [`GIT_DEPTH`](#shallow-cloning) setting for the submodules only.
 
 To fetch or clone only the last 3 commits:
 
 ```yaml
 variables:
-  GIT_SUBMODULE_DEPTH: 3
+ GIT_SUBMODULE_DEPTH: 3
 ```
 
 ### Custom build directories
 
-By default, GitLab Runner clones the repository in a unique subpath of the
-`$CI_BUILDS_DIR` directory. However, your project might require the code in a
-specific directory (Go projects, for example). In that case, you can specify
-the `GIT_CLONE_PATH` variable to tell the runner the directory to clone the
-repository in:
+By default, GitLab Runner clones the repository in a unique subpath of the `$CI_BUILDS_DIR` directory. However, your project might require the code in a specific directory (Go projects, for example). In that case, you can specify the `GIT_CLONE_PATH` variable to tell the runner the directory to clone the repository in:
 
 ```yaml
 variables:
-  GIT_CLONE_PATH: $CI_BUILDS_DIR/project-name
+ GIT_CLONE_PATH: $CI_BUILDS_DIR/project-name
 
 test:
-  script:
+ script:
     - pwd
 ```
 
-The `GIT_CLONE_PATH` must always be inside `$CI_BUILDS_DIR`. The directory set in `$CI_BUILDS_DIR`
-is dependent on executor and configuration of [runners.builds_dir](https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-runners-section)
+The `GIT_CLONE_PATH` must always be inside `$CI_BUILDS_DIR`. The directory set in `$CI_BUILDS_DIR` is dependent on executor and configuration of [runners.builds_dir](https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-runners-section)
 setting.
 
-This can only be used when `custom_build_dir` is enabled in the
-[runner's configuration](https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-runnerscustom_build_dir-section).
+This can only be used when `custom_build_dir` is enabled in the [runner's configuration](https://docs.gitlab.com/runner/configuration/advanced-configuration.html#the-runnerscustom_build_dir-section).
 
 #### Handling concurrency
 
-An executor that uses a concurrency greater than `1` might lead
-to failures. Multiple jobs might be working on the same directory if the `builds_dir`
-is shared between jobs.
+An executor that uses a concurrency greater than `1` might lead to failures. Multiple jobs might be working on the same directory if the `builds_dir` is shared between jobs.
 
-The runner does not try to prevent this situation. It's up to the administrator
-and developers to comply with the requirements of runner configuration.
+The runner does not try to prevent this situation. It's up to the administrator and developers to comply with the requirements of runner configuration.
 
-To avoid this scenario, you can use a unique path in `$CI_BUILDS_DIR`, because runner
-exposes two additional variables that provide a unique `ID` of concurrency:
+To avoid this scenario, you can use a unique path in `$CI_BUILDS_DIR`, because runner exposes two additional variables that provide a unique `ID` of concurrency:
 
 - `$CI_CONCURRENT_ID`: Unique ID for all jobs running in the given executor.
 - `$CI_CONCURRENT_PROJECT_ID`: Unique ID for all jobs running in the given executor and project.
 
-The most stable configuration that should work well in any scenario and on any executor
-is to use `$CI_CONCURRENT_ID` in the `GIT_CLONE_PATH`. For example:
+The most stable configuration that should work well in any scenario and on any executor is to use `$CI_CONCURRENT_ID` in the `GIT_CLONE_PATH`. For example:
 
 ```yaml
 variables:
-  GIT_CLONE_PATH: $CI_BUILDS_DIR/$CI_CONCURRENT_ID/project-name
+ GIT_CLONE_PATH: $CI_BUILDS_DIR/$CI_CONCURRENT_ID/project-name
 
 test:
-  script:
+ script:
     - pwd -P
 ```
 
@@ -955,50 +845,42 @@ For example:
 
 ```yaml
 variables:
-  GIT_CLONE_PATH: $CI_BUILDS_DIR/$CI_CONCURRENT_ID/$CI_PROJECT_PATH
+ GIT_CLONE_PATH: $CI_BUILDS_DIR/$CI_CONCURRENT_ID/$CI_PROJECT_PATH
 
 test:
-  script:
+ script:
     - pwd -P
 ```
 
 #### Nested paths
 
-The value of `GIT_CLONE_PATH` expands once. You cannot nest variables
-in this value.
+The value of `GIT_CLONE_PATH` expands once. You cannot nest variables in this value.
 
-For example, you define the following variables in your
-`.gitlab-ci.yml` file:
+For example, you define the following variables in your `.gitlab-ci.yml` file:
 
 ```yaml
 variables:
-  GOPATH: $CI_BUILDS_DIR/go
-  GIT_CLONE_PATH: $GOPATH/src/namespace/project
+ GOPATH: $CI_BUILDS_DIR/go
+ GIT_CLONE_PATH: $GOPATH/src/namespace/project
 ```
 
-The value of `GIT_CLONE_PATH` is expanded once into
-`$CI_BUILDS_DIR/go/src/namespace/project`, and results in failure
-because `$CI_BUILDS_DIR` is not expanded.
+The value of `GIT_CLONE_PATH` is expanded once into `$CI_BUILDS_DIR/go/src/namespace/project`, and results in failure because `$CI_BUILDS_DIR` is not expanded.
 
 ### Ignore errors in `after_script`
 
-You can use [`after_script`](../yaml/_index.md#after_script) in a job to define an array of commands
-that should run after the job's `before_script` and `script` sections. The `after_script` commands
-run regardless of the script termination status (failure or success).
+You can use [`after_script`](../yaml/_index.md#after_script) in a job to define an array of commands that should run after the job's `before_script` and `script` sections. The `after_script` commands run regardless of the script termination status (failure or success).
 
 By default, GitLab Runner ignores any errors that happen when `after_script` runs.
-To set the job to fail immediately on errors when `after_script` runs, set the
-`AFTER_SCRIPT_IGNORE_ERRORS` CI/CD variable to `false`. For example:
+To set the job to fail immediately on errors when `after_script` runs, set the `AFTER_SCRIPT_IGNORE_ERRORS` CI/CD variable to `false`. For example:
 
 ```yaml
 variables:
-  AFTER_SCRIPT_IGNORE_ERRORS: false
+ AFTER_SCRIPT_IGNORE_ERRORS: false
 ```
 
 ### Job stages attempts
 
-You can set the number of attempts that the running job tries to execute
-the following stages:
+You can set the number of attempts that the running job tries to execute the following stages:
 
 | Variable                        | Description |
 |---------------------------------|-------------|
@@ -1013,7 +895,7 @@ Example:
 
 ```yaml
 variables:
-  GET_SOURCES_ATTEMPTS: 3
+ GET_SOURCES_ATTEMPTS: 3
 ```
 
 You can set them globally or per-job in the [`variables`](../yaml/_index.md#variables) section.
@@ -1030,10 +912,7 @@ Use these settings to specify the size of the archive produced by a job.
 - On a slow network, uploads might be faster for smaller archives.
 - On a fast network where bandwidth and storage are not a concern, uploads might be faster using the fastest compression ratio, despite the archive produced being larger.
 
-For [GitLab Pages](../../user/project/pages/_index.md) to serve
-[HTTP Range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests), artifacts
-should use the `ARTIFACT_COMPRESSION_LEVEL: fastest` setting, as only uncompressed zip archives
-support this feature.
+For [GitLab Pages](../../user/project/pages/_index.md) to serve [HTTP Range requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Range_requests), artifacts should use the `ARTIFACT_COMPRESSION_LEVEL: fastest` setting, as only uncompressed zip archives support this feature.
 
 A meter can be enabled to provide the rate of transfer for uploads and downloads.
 
@@ -1042,17 +921,17 @@ Use this setting when slow cache uploads substantially increase the duration of 
 
 ```yaml
 variables:
-  # output upload and download progress every 2 seconds
-  TRANSFER_METER_FREQUENCY: "2s"
+ # output upload and download progress every 2 seconds
+ TRANSFER_METER_FREQUENCY: "2s"
 
-  # Use fast compression for artifacts, resulting in larger archives
-  ARTIFACT_COMPRESSION_LEVEL: "fast"
+ # Use fast compression for artifacts, resulting in larger archives
+ ARTIFACT_COMPRESSION_LEVEL: "fast"
 
-  # Use no compression for caches
-  CACHE_COMPRESSION_LEVEL: "fastest"
+ # Use no compression for caches
+ CACHE_COMPRESSION_LEVEL: "fastest"
 
-  # Set maximum duration of cache upload and download
-  CACHE_REQUEST_TIMEOUT: 5
+ # Set maximum duration of cache upload and download
+ CACHE_REQUEST_TIMEOUT: 5
 ```
 
 | Variable                     | Description |
@@ -1075,28 +954,23 @@ and produce an [SLSA Statement](https://slsa.dev/spec/v1.0/attestation-model#mod
 that binds the provenance to all build artifacts.
 The statement is called artifact provenance metadata.
 
-To enable artifact provenance metadata, set the `RUNNER_GENERATE_ARTIFACTS_METADATA` environment
-variable to `true`. You can set the variable globally or for individual jobs:
+To enable artifact provenance metadata, set the `RUNNER_GENERATE_ARTIFACTS_METADATA` environment variable to `true`. You can set the variable globally or for individual jobs:
 
 ```yaml
 variables:
-  RUNNER_GENERATE_ARTIFACTS_METADATA: "true"
+ RUNNER_GENERATE_ARTIFACTS_METADATA: "true"
 
 job1:
-  variables:
+ variables:
     RUNNER_GENERATE_ARTIFACTS_METADATA: "true"
 ```
 
-The metadata renders in a plain text `.json` file stored with the artifact. The
-filename is `{ARTIFACT_NAME}-metadata.json`. `ARTIFACT_NAME` is the
-[name for the artifact](../jobs/job_artifacts.md#with-an-explicitly-defined-artifact-name)
-defined in the `.gitlab-ci.yml` file. If the name is not defined, the default filename is
-`artifacts-metadata.json`.
+The metadata renders in a plain text `.json` file stored with the artifact. The filename is `{ARTIFACT_NAME}-metadata.json`. `ARTIFACT_NAME` is the [name for the artifact](../jobs/job_artifacts.md#with-an-explicitly-defined-artifact-name)
+defined in the `.gitlab-ci.yml` file. If the name is not defined, the default filename is `artifacts-metadata.json`.
 
 ### Provenance metadata format
 
-The artifact provenance metadata is generated in the
-[in-toto v0.1 Statement](https://github.com/in-toto/attestation/tree/v0.1.0/spec#statement) format.
+The artifact provenance metadata is generated in the [in-toto v0.1 Statement](https://github.com/in-toto/attestation/tree/v0.1.0/spec#statement) format.
 It contains a provenance predicate generated in the [SLSA 1.0 Provenance](https://slsa.dev/spec/v1.0/provenance) format.
 
 These fields are populated by default:
@@ -1130,21 +1004,21 @@ A provenance statement should look similar to this example:
  "_type": "https://in-toto.io/Statement/v0.1",
  "predicateType": "https://slsa.dev/provenance/v1",
  "subject": [
-  {
+ {
    "name": "x.txt",
    "digest": {
     "sha256": "ac097997b6ec7de591d4f11315e4aa112e515bb5d3c52160d0c571298196ea8b"
    }
-  },
-  {
+ },
+ {
    "name": "y.txt",
    "digest": {
     "sha256": "9eb634f80da849d828fcf42740d823568c49e8d7b532886134f9086246b1fdf3"
    }
-  }
+ }
  ],
  "predicate": {
-  "buildDefinition": {
+ "buildDefinition": {
    "buildType": "https://gitlab.com/gitlab-org/gitlab-runner/-/blob/2147fb44/PROVENANCE.md",
    "externalParameters": {
     "CI": "",
@@ -1173,8 +1047,8 @@ A provenance statement should look similar to this example:
      }
     }
    ]
-  },
-  "runDetails": {
+ },
+ "runDetails": {
    "builder": {
     "id": "https://gitlab.com/my-group/my-project/test-runner-generated-slsa-statement/-/runners/12270857",
     "version": {
@@ -1186,7 +1060,7 @@ A provenance statement should look similar to this example:
     "startedOn": "2025-06-13T07:25:13Z",
     "finishedOn": "2025-06-13T07:25:40Z"
    }
-  }
+ }
  }
 }
 ```
@@ -1206,8 +1080,7 @@ If you use a fast disk for the directory location, it can also improve performan
 
 To change the directory, set `ARCHIVER_STAGING_DIR` as a variable in your CI job, or use a runner variable when you register the runner (`gitlab register --env ARCHIVER_STAGING_DIR=<dir>`).
 
-The directory you specify is used as the location for downloading artifacts prior to extraction. If the `fastzip` archiver is
-used, this location is also used as scratch space when archiving.
+The directory you specify is used as the location for downloading artifacts prior to extraction. If the `fastzip` archiver is used, this location is also used as scratch space when archiving.
 
 ## Configure `fastzip` to improve performance
 
@@ -1222,24 +1095,16 @@ Then use any of the following environment variables.
 
 | Variable                        | Description |
 |---------------------------------|-------------|
-| `FASTZIP_ARCHIVER_CONCURRENCY`  | The number of files to be concurrently compressed. Default is the number of CPUs available. |
-| `FASTZIP_ARCHIVER_BUFFER_SIZE`  | The buffer size allocated per concurrency for each file. Data exceeding this number moves to scratch space. Default is 2 MiB. |
+| `FASTZIP_ARCHIVER_CONCURRENCY` | The number of files to be concurrently compressed. Default is the number of CPUs available. |
+| `FASTZIP_ARCHIVER_BUFFER_SIZE` | The buffer size allocated per concurrency for each file. Data exceeding this number moves to scratch space. Default is 2 MiB. |
 | `FASTZIP_EXTRACTOR_CONCURRENCY` | The number of files to be concurrency decompressed. Default is the number of CPUs available. |
 
-Files in a zip archive are appended sequentially. This makes concurrent compression challenging. `fastzip` works around
-this limitation by compressing files concurrently to disk first, and then copying the result back to zip archive
-sequentially.
+Files in a zip archive are appended sequentially. This makes concurrent compression challenging. `fastzip` works around this limitation by compressing files concurrently to disk first, and then copying the result back to zip archive sequentially.
 
-To avoid writing to disk and reading the contents back for smaller files, a small buffer per concurrency is used. This setting
-can be controlled with `FASTZIP_ARCHIVER_BUFFER_SIZE`. The default size for this buffer is 2 MiB, therefore, a
-concurrency of 16 allocates 32 MiB. Data that exceeds the buffer size is written to and read back from disk.
+To avoid writing to disk and reading the contents back for smaller files, a small buffer per concurrency is used. This setting can be controlled with `FASTZIP_ARCHIVER_BUFFER_SIZE`. The default size for this buffer is 2 MiB, therefore, a concurrency of 16 allocates 32 MiB. Data that exceeds the buffer size is written to and read back from disk.
 Therefore, using no buffer, `FASTZIP_ARCHIVER_BUFFER_SIZE: 0`, and only scratch space is a valid option.
 
-`FASTZIP_ARCHIVER_CONCURRENCY` controls how many files are compressed concurrency. As previously mentioned, this setting
-therefore can increase how much memory is being used. It can also increase the temporary data written to the scratch space.
-The default is the number of CPUs available, but given the memory ramifications, this may not always be the best
-setting.
+`FASTZIP_ARCHIVER_CONCURRENCY` controls how many files are compressed concurrency. As previously mentioned, this setting therefore can increase how much memory is being used. It can also increase the temporary data written to the scratch space.
+The default is the number of CPUs available, but given the memory ramifications, this may not always be the best setting.
 
-`FASTZIP_EXTRACTOR_CONCURRENCY` controls how many files are decompressed at once. Files from a zip archive can natively
-be read from concurrency, so no additional memory is allocated in addition to what the extractor requires. This
-defaults to the number of CPUs available.
+`FASTZIP_EXTRACTOR_CONCURRENCY` controls how many files are decompressed at once. Files from a zip archive can natively be read from concurrency, so no additional memory is allocated in addition to what the extractor requires. This defaults to the number of CPUs available.

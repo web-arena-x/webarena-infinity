@@ -143,7 +143,7 @@ By default, only threads you follow are bolded and moved to the top of your conv
 Turn notifications on or off for a direct message
 
 1. On your computer, open [Google Chat](https://chat.google.com).
-2. Next to the direct message or group DM, click More options  ![](//lh3.googleusercontent.com/WvTaGA1eYiCGTaFnwJLLYYBCOhlrcbyPLTT1_pbl8k61osZq4frh7hyCgF-ISKXqccQ=h36) ![and then](//lh3.googleusercontent.com/3_l97rr0GvhSP2XV5OoCkV2ZDTIisAOczrSdzNCBxhIKWrjXjHucxNwocghoUa39gw=h36) **Notifications**.
+2. Next to the direct message or group DM, click More options ![](//lh3.googleusercontent.com/WvTaGA1eYiCGTaFnwJLLYYBCOhlrcbyPLTT1_pbl8k61osZq4frh7hyCgF-ISKXqccQ=h36) ![and then](//lh3.googleusercontent.com/3_l97rr0GvhSP2XV5OoCkV2ZDTIisAOczrSdzNCBxhIKWrjXjHucxNwocghoUa39gw=h36) **Notifications**.
    - For group DMs, you can select to get notifications for:
      - **All:** All new messages
      - **For you:** Only @mentions

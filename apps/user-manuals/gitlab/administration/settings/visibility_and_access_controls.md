@@ -36,12 +36,10 @@ To access the visibility and access control options:
 
 ## Define which roles can create projects
 
-You can add project creation protections to your instance. These protections define which roles can
-[add projects to a group](../../user/group/_index.md#specify-who-can-add-projects-to-a-group)
+You can add project creation protections to your instance. These protections define which roles can [add projects to a group](../../user/group/_index.md#specify-who-can-add-projects-to-a-group)
 on the instance.
 
-When you configure the **Default minimum role required to create projects** setting, you set the
-default for new groups. Existing groups retain their current permissions.
+When you configure the **Default minimum role required to create projects** setting, you set the default for new groups. Existing groups retain their current permissions.
 
 Prerequisites:
 
@@ -112,8 +110,7 @@ Deletion protection prevents accidental deletion of groups and projects on your 
 
 ### Retention period
 
-Groups and projects remain restorable during the retention period you define. By default,
-the retention period is 30 days, but you can change it to a value between `1` and `90` days.
+Groups and projects remain restorable during the retention period you define. By default, the retention period is 30 days, but you can change it to a value between `1` and `90` days.
 
 Prerequisites:
 
@@ -142,8 +139,7 @@ For more information, see the history.
 
 {{< /alert >}}
 
-By default, immediate deletion is turned on for groups and projects scheduled for deletion. This way, users
-can bypass the configured retention period and delete groups or projects immediately.
+By default, immediate deletion is turned on for groups and projects scheduled for deletion. This way, users can bypass the configured retention period and delete groups or projects immediately.
 
 To disable immediate deletion:
 
@@ -164,8 +160,7 @@ Administrators can always immediately delete groups and projects through the Adm
 To override the delay, and immediately delete a project marked for removal:
 
 1. [Restore the project](../../user/project/working_with_projects.md#restore-a-project).
-1. Delete the project as described in the
-   [Administering Projects page](../admin_area.md#administering-projects).
+1. Delete the project as described in the [Administering Projects page](../admin_area.md#administering-projects).
 
 ## Configure project visibility defaults
 
@@ -179,8 +174,7 @@ Prerequisites:
 1. Select **Settings** > **General**.
 1. Expand **Visibility and access controls**.
 1. Select the desired default project visibility:
-   - **Private** - Grant project access explicitly to each user. If this
-     project is part of a group, grants access to members of the group.
+   - **Private** - Grant project access explicitly to each user. If this project is part of a group, grants access to members of the group.
    - **Internal** - Any authenticated user, except external users, can access the project.
    - **Public** - Any user can access the project without any authentication.
 1. Select **Save changes**.
@@ -199,8 +193,7 @@ Prerequisites:
 1. For **Default snippet visibility**, select your desired visibility level:
    - **Private**.
    - **Internal**. This setting is disabled for new projects, groups, and snippets on GitLab.com.
-     Existing snippets using the `Internal` visibility setting keep this setting. To learn more
-     about this change, see [issue 12388](https://gitlab.com/gitlab-org/gitlab/-/issues/12388).
+     Existing snippets using the `Internal` visibility setting keep this setting. To learn more about this change, see [issue 12388](https://gitlab.com/gitlab-org/gitlab/-/issues/12388).
    - **Public**.
 1. Select **Save changes**.
 
@@ -221,8 +214,7 @@ Prerequisites:
    - **Public** - Authentication is not required to view the group and any public projects.
 1. Select **Save changes**.
 
-For more details on group visibility, see
-[Group visibility](../../user/group/_index.md#group-visibility).
+For more details on group visibility, see [Group visibility](../../user/group/_index.md#group-visibility).
 
 ## Restrict visibility levels
 
@@ -234,13 +226,10 @@ For more details on group visibility, see
 
 {{< /history >}}
 
-When restricting visibility levels, consider how these restrictions interact
-with permissions for subgroups and projects that inherit their visibility from
-the item you're changing.
+When restricting visibility levels, consider how these restrictions interact with permissions for subgroups and projects that inherit their visibility from the item you're changing.
 
 This setting does not apply to projects created under a personal namespace.
-There is a [feature request](https://gitlab.com/gitlab-org/gitlab/-/issues/382749) to extend this
-functionality to [enterprise users](../../user/enterprise_user/_index.md).
+There is a [feature request](https://gitlab.com/gitlab-org/gitlab/-/issues/382749) to extend this functionality to [enterprise users](../../user/enterprise_user/_index.md).
 
 To restrict visibility levels for groups, projects, snippets, and selected pages:
 
@@ -271,16 +260,13 @@ Conversely, you cannot set a restricted visibility level as the default for new 
 
 ## Configure enabled Git access protocols
 
-With GitLab access restrictions, you can select the protocols users can use to
-communicate with GitLab. Disabling an access protocol does not block port access to the
-server itself. The ports used for the protocol, SSH or HTTP(S), are still accessible.
+With GitLab access restrictions, you can select the protocols users can use to communicate with GitLab. Disabling an access protocol does not block port access to the server itself. The ports used for the protocol, SSH or HTTP(S), are still accessible.
 The GitLab restrictions apply at the application level.
 
 GitLab allows Git actions only for the protocols you select:
 
 - If you enable both SSH and HTTP(S), users can choose either protocol.
-- If you enable only one protocol, project pages show only the allowed protocol's
-  URL, with no option to change it.
+- If you enable only one protocol, project pages show only the allowed protocol's URL, with no option to change it.
 
 To specify the enabled Git access protocols for all projects on your instance:
 
@@ -313,16 +299,12 @@ This happens even if you select **Only SSH**, because GitLab Runner and CI/CD jo
 
 {{< /details >}}
 
-You can customize project Git clone URLs for HTTP(S), which affects the clone
-panel shown to users on a project's page. For example, if:
+You can customize project Git clone URLs for HTTP(S), which affects the clone panel shown to users on a project's page. For example, if:
 
-- Your GitLab instance is at `https://example.com`, then project clone URLs are like
-  `https://example.com/foo/bar.git`.
-- You want clone URLs that look like `https://git.example.com/gitlab/foo/bar.git` instead,
-  you can set this setting to `https://git.example.com/gitlab/`.
+- Your GitLab instance is at `https://example.com`, then project clone URLs are like `https://example.com/foo/bar.git`.
+- You want clone URLs that look like `https://git.example.com/gitlab/foo/bar.git` instead, you can set this setting to `https://git.example.com/gitlab/`.
 
-To specify a custom Git clone URL for HTTP(S) in `gitlab.rb`, set a new value for
-`gitlab_rails['gitlab_ssh_host']`. To specify a new value from the GitLab UI:
+To specify a custom Git clone URL for HTTP(S) in `gitlab.rb`, set a new value for `gitlab_rails['gitlab_ssh_host']`. To specify a new value from the GitLab UI:
 
 Prerequisites:
 
@@ -354,10 +336,7 @@ To specify a restriction for each key type:
 
 ## Enable project mirroring
 
-GitLab enables project mirroring by default. If you disable it, both
-[pull mirroring](../../user/project/repository/mirror/pull.md) and
-[push mirroring](../../user/project/repository/mirror/push.md) no longer
-work in every repository. They can only be re-enabled by an administrator user on a per-project basis.
+GitLab enables project mirroring by default. If you disable it, both [pull mirroring](../../user/project/repository/mirror/pull.md) and [push mirroring](../../user/project/repository/mirror/push.md) no longer work in every repository. They can only be re-enabled by an administrator user on a per-project basis.
 
 To allow project maintainers on your instance to configure mirroring per project:
 
@@ -373,14 +352,11 @@ Prerequisites:
 
 ## Configure globally-allowed IP address ranges
 
-Administrators can combine IP address ranges with
-[IP restrictions per group](../../user/group/access_and_permissions.md#restrict-group-access-by-ip-address).
-Globally-allowed IP addresses enable aspects of the GitLab installation to work properly, even when
-groups set their own IP address restrictions.
+Administrators can combine IP address ranges with [IP restrictions per group](../../user/group/access_and_permissions.md#restrict-group-access-by-ip-address).
+Globally-allowed IP addresses enable aspects of the GitLab installation to work properly, even when groups set their own IP address restrictions.
 
 For example, if the GitLab Pages daemon runs on the `10.0.0.0/24` range, globally allow that range.
-GitLab Pages can still fetch artifacts from pipelines, even if IP address restrictions for the group don't
-include the `10.0.0.0/24` range.
+GitLab Pages can still fetch artifacts from pipelines, even if IP address restrictions for the group don't include the `10.0.0.0/24` range.
 
 To add a IP address range to the allowlist for a group:
 
@@ -393,8 +369,7 @@ Prerequisites:
 1. Expand **Visibility and access controls**.
 1. In **Globally-allowed IP ranges**, provide a list of IP address ranges. This list:
    - Has no limit on the number of IP address ranges.
-   - Applies to both SSH or HTTP authorized IP address ranges. You cannot split
-     this list by authorization type.
+   - Applies to both SSH or HTTP authorized IP address ranges. You cannot split this list by authorization type.
 1. Select **Save changes**.
 
 ## Prevent invitations to groups and projects
@@ -430,9 +405,7 @@ To prevent invitations:
 
 {{< history >}}
 
-- Instance setting to allow the display of user data
-  [introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/214538) in GitLab 18.7
-  [with a flag](../feature_flags/_index.md) named `usage_billing_dev`.
+- Instance setting to allow the display of user data [introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/214538) in GitLab 18.7 [with a flag](../feature_flags/_index.md) named `usage_billing_dev`.
 
 {{< /history >}}
 

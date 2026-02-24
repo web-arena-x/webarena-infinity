@@ -25,9 +25,7 @@ title: Merge request approval policies
 
 You can use merge request approval policies for multiple purposes, including:
 
-- Detect results from security and license scanners to enforce approval rules. For example, one type of merge request
-  policy is a security approval policy that allows approval to be required based on the
-  findings of one or more security scan jobs. Merge request approval policies are evaluated after a CI scanning job is fully executed and both vulnerability and license type policies are evaluated based on the job artifact reports that are published in the completed pipeline.
+- Detect results from security and license scanners to enforce approval rules. For example, one type of merge request policy is a security approval policy that allows approval to be required based on the findings of one or more security scan jobs. Merge request approval policies are evaluated after a CI scanning job is fully executed and both vulnerability and license type policies are evaluated based on the job artifact reports that are published in the completed pipeline.
 - Enforce approval rules on all merge requests that meet certain conditions. For example, enforce that MRs are reviewed by multiple users with Developer and Maintainer roles for all MRs that target default branches.
 - Enforce settings for security and compliance on a project. For example, prevent users who have authored or committed changes to an MR from approving the MR. Or prevent users from pushing or force pushing to the default branch to ensure all changes go through an MR.
 
@@ -37,50 +35,36 @@ You can use merge request approval policies for multiple purposes, including:
 The following video gives you an overview of GitLab merge request approval policies (previously scan result policies):
 
 <div class="video-fallback">
-  See the video: <a href="https://youtu.be/w5I9gcUgr9U">Overview of GitLab Scan Result Policies</a>.
+ See the video: <a href="https://youtu.be/w5I9gcUgr9U">Overview of GitLab Scan Result Policies</a>.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/w5I9gcUgr9U" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/w5I9gcUgr9U" frameborder="0" allowfullscreen> </iframe>
 </figure>
 
 ## Restrictions
 
 - You can enforce merge request approval policies only on [protected](../../project/repository/branches/protected.md)
-  target branches.
+ target branches.
 - You can assign a maximum of five rules to each policy.
 - You can assign a maximum of five merge request approval policies to each security policy project.
-- Policies created for a group or subgroup can take some time to apply to all the merge requests in
-  the group. The time it takes is determined by the number of projects and the number of merge requests
-  in those projects. Typically, the time taken is a matter of seconds. From previous observations,
-  the process can take several minutes for groups with many thousands of projects and merge requests.
-- Merge request approval policies do not check the integrity or authenticity of the scan results
-  generated in the artifact reports.
-- A merge request approval policy is evaluated according to its rules. By default, if the rules are
-  invalid, or can't be evaluated, approval is required. You can change this behavior with the
-  [`fallback_behavior` field](#fallback_behavior).
+- Policies created for a group or subgroup can take some time to apply to all the merge requests in the group. The time it takes is determined by the number of projects and the number of merge requests in those projects. Typically, the time taken is a matter of seconds. From previous observations, the process can take several minutes for groups with many thousands of projects and merge requests.
+- Merge request approval policies do not check the integrity or authenticity of the scan results generated in the artifact reports.
+- A merge request approval policy is evaluated according to its rules. By default, if the rules are invalid, or can't be evaluated, approval is required. You can change this behavior with the [`fallback_behavior` field](#fallback_behavior).
 
 ## Pipeline requirements
 
-A merge request approval policy is enforced according to the outcome of the pipeline. Consider the
-following when implementing a merge request approval policy:
+A merge request approval policy is enforced according to the outcome of the pipeline. Consider the following when implementing a merge request approval policy:
 
-- A merge request approval policy evaluates completed pipeline jobs, ignoring manual jobs. When the
-  manual jobs are run, the policy re-evaluates the merge request's jobs.
-- For a merge request approval policy that evaluates the results of security scanners, all specified
-  scanners must have output a security report. If not, approvals are enforced to minimize the risk
-  of vulnerabilities being introduced. This behavior can affect:
-  - New projects where security scans are not yet established.
-  - Branches created before the security scans were configured.
-  - Projects with inconsistent scanner configurations between branches.
-- The pipeline must produce artifacts for all enabled scanners, for both the source and target
-  branches. If not, there's no basis for comparison and so the policy can't be evaluated reliably.
-  See [Missing security scans](#missing-security-scans) for more information.
-  You should use a scan execution policy to enforce this requirement.
-- Policy evaluation depends on a successful and completed merge base pipeline. If the merge base
-  pipeline is skipped, merge requests with the merge base pipeline are blocked.
-- Security scanners specified in a policy must be configured and enabled in the projects on which
-  the policy is enforced. If not, the merge request approval policy cannot be evaluated and the
-  corresponding approvals are required.
+- A merge request approval policy evaluates completed pipeline jobs, ignoring manual jobs. When the manual jobs are run, the policy re-evaluates the merge request's jobs.
+- For a merge request approval policy that evaluates the results of security scanners, all specified scanners must have output a security report. If not, approvals are enforced to minimize the risk of vulnerabilities being introduced. This behavior can affect:
+ - New projects where security scans are not yet established.
+ - Branches created before the security scans were configured.
+ - Projects with inconsistent scanner configurations between branches.
+- The pipeline must produce artifacts for all enabled scanners, for both the source and target branches. If not, there's no basis for comparison and so the policy can't be evaluated reliably.
+ See [Missing security scans](#missing-security-scans) for more information.
+ You should use a scan execution policy to enforce this requirement.
+- Policy evaluation depends on a successful and completed merge base pipeline. If the merge base pipeline is skipped, merge requests with the merge base pipeline are blocked.
+- Security scanners specified in a policy must be configured and enabled in the projects on which the policy is enforced. If not, the merge request approval policy cannot be evaluated and the corresponding approvals are required.
 
 ## Best practices for using security scanners with merge request approval policies
 
@@ -126,14 +110,11 @@ To create and verify your security scanners and merge request approval policies 
 
 {{< /history >}}
 
-A project can have multiple pipeline types configured. A single commit can initiate multiple
-pipelines, each of which may contain a security scan.
+A project can have multiple pipeline types configured. A single commit can initiate multiple pipelines, each of which may contain a security scan.
 
-- In GitLab 16.3 and later, the results of all completed pipelines for the latest commit in
-  the merge request's source and target branch are evaluated and used to enforce the merge request approval policy.
-  On-demand DAST pipelines are not considered.
-- In GitLab 16.2 and earlier, only the results of the latest completed pipeline were evaluated
-  when enforcing merge request approval policies.
+- In GitLab 16.3 and later, the results of all completed pipelines for the latest commit in the merge request's source and target branch are evaluated and used to enforce the merge request approval policy.
+ On-demand DAST pipelines are not considered.
+- In GitLab 16.2 and earlier, only the results of the latest completed pipeline were evaluated when enforcing merge request approval policies.
 
 If a project uses [merge request pipelines](../../../ci/pipelines/merge_request_pipelines.md), you must set the CI/CD variable `AST_ENABLE_MR_PIPELINES` to `"true"` for the security scanning jobs to be present in the pipeline.
 For more information see [Use security scanning tools with merge request pipelines](../detect/security_configuration.md#use-security-scanning-tools-with-merge-request-pipelines).
@@ -157,15 +138,11 @@ to select Security Policy Project.
 
 {{< /alert >}}
 
-Once your policy is complete, save it by selecting **Configure with a merge request** at the bottom of the
-editor. This redirects you to the merge request on the project's configured security policy project.
+Once your policy is complete, save it by selecting **Configure with a merge request** at the bottom of the editor. This redirects you to the merge request on the project's configured security policy project.
 If a security policy project doesn't link to your project, GitLab creates such a project for you.
-Existing policies can also be removed from the editor interface by selecting **Delete policy** at
-the bottom of the editor.
+Existing policies can also be removed from the editor interface by selecting **Delete policy** at the bottom of the editor.
 
-Most policy changes take effect as soon as the merge request is merged. Any changes that
-do not go through a merge request and are committed directly to the default branch may require up to 10 minutes
-before the policy changes take effect.
+Most policy changes take effect as soon as the merge request is merged. Any changes that do not go through a merge request and are committed directly to the default branch may require up to 10 minutes before the policy changes take effect.
 
 The [policy editor](_index.md#policy-editor) supports YAML mode and rule mode.
 
@@ -174,19 +151,16 @@ The [policy editor](_index.md#policy-editor) supports YAML mode and rule mode.
 
 ## Merge request approval policies schema
 
-The YAML file with merge request approval policies consists of an array of objects matching the merge request approval
-policy schema nested under the `approval_policy` key. You can configure a maximum of five policies under the `approval_policy` key.
+The YAML file with merge request approval policies consists of an array of objects matching the merge request approval policy schema nested under the `approval_policy` key. You can configure a maximum of five policies under the `approval_policy` key.
 
 {{< alert type="note" >}}
 
-Merge request approval policies were defined under the `scan_result_policy` key. Until GitLab 17.0, policies can be
-defined under both keys. Starting from GitLab 17.0, only `approval_policy` key is supported.
+Merge request approval policies were defined under the `scan_result_policy` key. Until GitLab 17.0, policies can be defined under both keys. Starting from GitLab 17.0, only `approval_policy` key is supported.
 
 {{< /alert >}}
 
 When you save a new policy, GitLab validates its contents against [this JSON schema](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/app/validators/json_schemas/security_orchestration_policy.json).
-If you're not familiar with how to read [JSON schemas](https://json-schema.org/),
-the following sections and tables provide an alternative.
+If you're not familiar with how to read [JSON schemas](https://json-schema.org/), the following sections and tables provide an alternative.
 
 | Field             | Type                                     | Required | Description                                          |
 |-------------------|------------------------------------------|----------|------------------------------------------------------|
@@ -214,10 +188,10 @@ the following sections and tables provide an alternative.
 | `actions`           | `array` of actions | false    |                 | List of actions that the policy enforces.                |
 | `approval_settings` | `object`           | false    |                 | Project settings that the policy overrides.              |
 | `fallback_behavior` | `object`           | false    |                 | Settings that affect invalid or unenforceable rules.     |
-| `policy_scope`      | `object` of [`policy_scope`](_index.md#configure-the-policy-scope) | false |  | Defines the scope of the policy based on the projects, groups, or compliance framework labels you specify. |
+| `policy_scope`      | `object` of [`policy_scope`](_index.md#configure-the-policy-scope) | false | | Defines the scope of the policy based on the projects, groups, or compliance framework labels you specify. |
 | `policy_tuning`     | `object`           | false    |                 | (Experimental) Settings that affect policy comparison logic.     |
 | `bypass_settings`   | `object`           | false    |                 | Settings that affect when certain branches, tokens, or accounts can bypass a policy .     |
-| `enforcement_type`  | `string`           | false    | `enforce`, `warn` | Defines how the policy is enforced. The default value (if not specified) is `enforce`, which blocks merge requests when violations are detected. The value `warn` allows merge requests to proceed but shows warnings and bot comments. |
+| `enforcement_type` | `string`           | false    | `enforce`, `warn` | Defines how the policy is enforced. The default value (if not specified) is `enforce`, which blocks merge requests when violations are detected. The value `warn` allows merge requests to proceed but shows warnings and bot comments. |
 
 ## `scan_finding` rule type
 
@@ -239,7 +213,7 @@ This rule enforces the defined actions based on security scan findings.
 | `branch_type`              | `string`            | true if `branches` field does not exist    | `default` or `protected`                                                                                           | The types of protected branches the given policy applies to. Cannot be used with the `branches` field. Default branches must also be `protected`. |
 | `branch_exceptions`        | `array` of `string` | false                                      | Names of branches                                                                                                  | Target branches to exclude from this rule. |
 | `scanners`                 | `array` of `string` | true                                       | `[]` or `sast`, `secret_detection`, `dependency_scanning`, `container_scanning`, `dast`, `coverage_fuzzing`, `api_fuzzing` | The security scanners for this rule to consider. `sast` includes results from both SAST and SAST IaC scanners. An empty array, `[]`, applies the rule to all security scanners.|
-| `vulnerabilities_allowed`  | `integer`           | true                                       | Greater than or equal to zero                                                                                      | Number of vulnerabilities allowed before this rule is considered. |
+| `vulnerabilities_allowed` | `integer`           | true                                       | Greater than or equal to zero                                                                                      | Number of vulnerabilities allowed before this rule is considered. |
 | `severity_levels`          | `array` of `string` | true                                       | `info`, `unknown`, `low`, `medium`, `high`, `critical`                                                             | The severity levels for this rule to consider. |
 | `vulnerability_states`     | `array` of `string` | true                                       | `[]` or `detected`, `confirmed`, `resolved`, `dismissed`, `new_needs_triage`, `new_dismissed`                      | All vulnerabilities fall into two categories:<br><br>**Newly Detected Vulnerabilities** - Vulnerabilities identified in the merge request branch itself but that do not currently exist on the MR's target branch. This policy option requires a pipeline to complete before the rule is evaluated so that it knows whether vulnerabilities are newly detected or not. Merge requests are blocked until the pipeline and necessary security scans are complete. The `new_needs_triage` option considers the status<br><br> • Detected<br><br> The `new_dismissed` option considers the status<br><br> • Dismissed<br><br>**Pre-Existing Vulnerabilities** - these policy options are evaluated immediately and do not require a pipeline complete as they consider only vulnerabilities previously detected in the default branch.<br><br> • `Detected` - the policy looks for vulnerabilities in the detected state.<br> • `Confirmed` - the policy looks for vulnerabilities in the confirmed state.<br> • `Dismissed` - the policy looks for vulnerabilities in the dismissed state.<br> • `Resolved` - the policy looks for vulnerabilities in the resolved state. <br><br>An empty array, `[]`, covers the same statuses as `['new_needs_triage', 'new_dismissed']`. |
 | `vulnerability_attributes` | `object`            | false                                      | `{false_positive: boolean, fix_available: boolean}`                                                                | All vulnerability findings are considered by default. But filters can be applied for attributes to consider only vulnerability findings: <br><br> • With a fix available (`fix_available: true`)<br><br> • With no fix available (`fix_available: false`)<br> • That are false positive (`false_positive: true`)<br> • That are not false positive (`false_positive: false`)<br> • Or a combination of both. For example (`fix_available: true, false_positive: false`) |
@@ -262,7 +236,7 @@ This rule enforces the defined actions based on license findings.
 |----------------|----------|-----------------------------------------------|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `type`         | `string` | true                                          | `license_finding`            | The rule's type.                                                                                                                                                                                                    |
 | `branches`     | `array` of `string` | true if `branch_type` field does not exist    | `[]` or the branch's name    | Applicable only to protected target branches. An empty array, `[]`, applies the rule to all protected target branches. Cannot be used with the `branch_type` field.                                                 |
-| `branch_type`  | `string` | true if `branches` field does not exist       | `default` or `protected`     | The types of protected branches the given policy applies to. Cannot be used with the `branches` field. Default branches must also be `protected`.                                                                   |
+| `branch_type` | `string` | true if `branches` field does not exist       | `default` or `protected`     | The types of protected branches the given policy applies to. Cannot be used with the `branches` field. Default branches must also be `protected`.                                                                   |
 | `branch_exceptions` | `array` of `string` | false                                         | Names of branches            | Target branches to exclude from this rule.                                                                                                                                                                                 |
 | `match_on_inclusion_license` | `boolean` | true if `licenses` field does not exists      | `true`, `false`              | Whether the rule matches inclusion or exclusion of licenses listed in `license_types`.                                                                                                                              |
 | `license_types` | `array` of `string` | true if `licenses` field does not exists      | license types                | [SPDX license names](https://spdx.org/licenses) to match on, for example `Affero General Public License v1.0` or `MIT License`.                                                                                     |
@@ -273,19 +247,19 @@ This rule enforces the defined actions based on license findings.
 
 | Field     | Type     | Required                                | Possible values                                      | Description                                                |
 |-----------|----------|-----------------------------------------|------------------------------------------------------|------------------------------------------------------------|
-| `denied`  | `object` | true if `allowed` field does not exist | `array` of `licenses_with_package_exclusion` objects  | The list of denied licenses including package exceptions.  |
-| `allowed` | `object` | true if `denied` field does not exist  | `array` of `licenses_with_package_exclusion` objects  | The list of allowed licenses including package exceptions. |
+| `denied` | `object` | true if `allowed` field does not exist | `array` of `licenses_with_package_exclusion` objects | The list of denied licenses including package exceptions. |
+| `allowed` | `object` | true if `denied` field does not exist | `array` of `licenses_with_package_exclusion` objects | The list of allowed licenses including package exceptions. |
 
 ### `licenses_with_package_exclusion` object
 
-| Field  | Type     | Required | Possible values   | Description                                        |
+| Field | Type     | Required | Possible values   | Description                                        |
 |--------|----------|----------|-------------------|----------------------------------------------------|
 | `name` | `string` | true     | SPDX license name | [SPDX license name](https://spdx.org/licenses).    |
 | `packages` | `object` | false    | `packages` object | List of packages exceptions for the given license. |
 
 ### `packages` object
 
-| Field  | Type     | Required | Possible values                                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Field | Type     | Required | Possible values                                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |--------|----------|----------|-------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `excluding` | `object` | true     | {purls: `array` of `strings` using the `uri` format} | List of package exceptions for the given license. Define the list of packages exceptions using the [`purl`](https://github.com/package-url/purl-spec?tab=readme-ov-file#purl) components `scheme:type/name@version`. The `scheme:type/name` components are required. The `@` and `version` are optional. If a version is specified, only that version is considered an exception. If no version is specified and the `@` character is added at the end of the `purl`, only packages with the exact name is considered a match. If the `@` character is not added to the package name, all packages with the same prefix for the given license are matches. For example, a purl `pkg:gem/bundler` matches the `bundler` and `bundler-stats` packages because both packages use the same license. Defining a `purl` `pkg:gem/bundler@` matches only the `bundler` package. |
 
@@ -304,7 +278,7 @@ This rule enforces the defined actions for any merge request based on the commit
 |---------------------|---------------------|--------------------------------------------|---------------------------|-------------|
 | `type`              | `string`            | true                                       | `any_merge_request`       | The rule's type. |
 | `branches`          | `array` of `string` | true if `branch_type` field does not exist | `[]` or the branch's name | Applicable only to protected target branches. An empty array, `[]`, applies the rule to all protected target branches. Cannot be used with the `branch_type` field. |
-| `branch_type`       | `string`            | true if `branches` field does not exist    | `default` or `protected`  | The types of protected branches the given policy applies to. Cannot be used with the `branches` field. Default branches must also be `protected`. |
+| `branch_type`       | `string`            | true if `branches` field does not exist    | `default` or `protected` | The types of protected branches the given policy applies to. Cannot be used with the `branches` field. Default branches must also be `protected`. |
 | `branch_exceptions` | `array` of `string` | false                                      | Names of branches         | Target branches to exclude from this rule. |
 | `commits`           | `string`            | true                                       | `any`, `unsigned`         | Whether the rule matches for any commits, or only if unsigned commits are detected in the merge request. |
 
@@ -319,8 +293,7 @@ This rule enforces the defined actions for any merge request based on the commit
 
 {{< /history >}}
 
-This action makes an approval rule required when the conditions are met for at least one rule in
-the defined policy.
+This action makes an approval rule required when the conditions are met for at least one rule in the defined policy.
 
 If you specify multiple approvers in the same `require_approval` block, any of the eligible approvers can satisfy the approval requirement. For example, if you specify two `group_approvers` and `approvals_required` as `2`, both of the approvals can come from the same group. To require multiple approvals from unique approver types, use multiple `require_approval` actions.
 
@@ -344,7 +317,7 @@ If you specify multiple approvers in the same `require_approval` block, any of t
 
 ```yaml
 actions:
-  - type: require_approval
+ - type: require_approval
     approvals_required: 2
     user_approvers:
       - alice
@@ -355,7 +328,7 @@ actions:
 
 ```yaml
 actions:
-  - type: require_approval
+ - type: require_approval
     approvals_required: 1
     group_approvers:
       - security-team
@@ -365,7 +338,7 @@ actions:
 
 ```yaml
 actions:
-  - type: require_approval
+ - type: require_approval
     approvals_required: 1
     role_approvers:
       - maintainer
@@ -375,7 +348,7 @@ actions:
 
 ```yaml
 actions:
-  - type: require_approval
+ - type: require_approval
     approvals_required: 2
     user_approvers:
       - alice
@@ -391,7 +364,7 @@ actions:
 
 ```yaml
 actions:
-  - type: require_approval
+ - type: require_approval
     approvals_required: 2
     # ERROR: At least one approver field must be specified
     # This configuration will fail validation
@@ -411,8 +384,7 @@ actions:
 {{< /history >}}
 
 This action enables configuration of the bot message in merge requests when policy violations are detected.
-If the action is not specified, the bot message is enabled by default. If there are multiple policies defined,
-the bot message is sent as long as at least one of those policies has the `send_bot_message` action is enabled.
+If the action is not specified, the bot message is enabled by default. If there are multiple policies defined, the bot message is sent as long as at least one of those policies has the `send_bot_message` action is enabled.
 
 | Field | Type | Required | Possible values | Description |
 |-------|------|----------|-----------------|-------------|
@@ -455,7 +427,7 @@ To enable warn mode for a merge request approval policy, set the `enforcement_ty
 
 ```yaml
 approval_policy:
-  - name: Warn mode policy
+ - name: Warn mode policy
     description: ''
     enabled: true
     enforcement_type: warn
@@ -509,10 +481,10 @@ The settings set in the policy overwrite settings in the project.
 |-------------------------------------|-----------------------|----------|---------------------------------------------------------------|----------------------|-------------|
 | `block_branch_modification`         | `boolean`             | false    | `true`, `false`                                               | All                  | When enabled, prevents a user from removing a branch from the protected branches list, deleting a protected branch, or changing the default branch if that branch is included in the security policy. This ensures users cannot remove protection status from a branch to merge vulnerable code. Enforced based on `branches`, `branch_type` and `policy_scope` and regardless of detected vulnerabilities. |
 | `block_group_branch_modification`   | `boolean` or `object` | false    | `true`, `false`, `{ enabled: boolean, exceptions: [{ id: Integer}] }` | All                  | When enabled, prevents a user from removing group-level protected branches on every group the policy applies to. If `block_branch_modification` is `true`, implicitly defaults to `true`. Add top-level groups that support [group-level protected branches](../../project/repository/branches/protected.md#in-a-group) as `exceptions` |
-| `prevent_approval_by_author`        | `boolean`             | false    | `true`, `false`                                               | `Any merge request`  | When enabled, merge request authors cannot approve their own MRs. This ensures code authors cannot introduce vulnerabilities and approve code to merge. |
-| `prevent_approval_by_commit_author` | `boolean`             | false    | `true`, `false`                                               | `Any merge request`  | When enabled, users who have contributed code to the MR are ineligible for approval. This ensures code committers cannot introduce vulnerabilities and approve code to merge. |
-| `remove_approvals_with_new_commit`  | `boolean`             | false    | `true`, `false`                                               | `Any merge request`  | When enabled, if an MR receives all necessary approvals to merge, but then a new commit is added, new approvals are required. This ensures new commits that may include vulnerabilities cannot be introduced. |
-| `require_password_to_approve`       | `boolean`             | false    | `true`, `false`                                               | `Any merge request`  | When enabled, there will be password confirmation on approvals. Password confirmation adds an extra layer of security. |
+| `prevent_approval_by_author`        | `boolean`             | false    | `true`, `false`                                               | `Any merge request` | When enabled, merge request authors cannot approve their own MRs. This ensures code authors cannot introduce vulnerabilities and approve code to merge. |
+| `prevent_approval_by_commit_author` | `boolean`             | false    | `true`, `false`                                               | `Any merge request` | When enabled, users who have contributed code to the MR are ineligible for approval. This ensures code committers cannot introduce vulnerabilities and approve code to merge. |
+| `remove_approvals_with_new_commit` | `boolean`             | false    | `true`, `false`                                               | `Any merge request` | When enabled, if an MR receives all necessary approvals to merge, but then a new commit is added, new approvals are required. This ensures new commits that may include vulnerabilities cannot be introduced. |
+| `require_password_to_approve`       | `boolean`             | false    | `true`, `false`                                               | `Any merge request` | When enabled, there will be password confirmation on approvals. Password confirmation adds an extra layer of security. |
 | `prevent_pushing_and_force_pushing` | `boolean`             | false    | `true`, `false`                                               | All                  | When enabled, prevents users from pushing and force pushing to a protected branch if that branch is included in the security policy. This ensures users do not bypass the merge request process to add vulnerable code to a branch. |
 
 ## `fallback_behavior`
@@ -527,7 +499,7 @@ The settings set in the policy overwrite settings in the project.
 > [!flag]
 > On GitLab Self-Managed, by default the `fallback_behavior` field is available. To hide the feature, an administrator can [disable the feature flag](../../../administration/feature_flags/_index.md) named `security_scan_result_policies_unblock_fail_open_approval_rules`. On GitLab.com and GitLab Dedicated, this feature is available.
 
-| Field  | Type     | Required | Possible values    | Description                                                                                                          |
+| Field | Type     | Required | Possible values    | Description                                                                                                          |
 |--------|----------|----------|--------------------|----------------------------------------------------------------------------------------------------------------------|
 | `fail` | `string` | false    | `open` or `closed` | `closed` (default): Invalid or unenforceable rules of a policy require approval. `open`: Invalid or unenforceable rules of a policy do not require approval. |
 
@@ -542,7 +514,7 @@ The settings set in the policy overwrite settings in the project.
 
 {{< /history >}}
 
-| Field  | Type     | Required | Possible values    | Description                                                                                                          |
+| Field | Type     | Required | Possible values    | Description                                                                                                          |
 |--------|----------|----------|--------------------|----------------------------------------------------------------------------------------------------------------------|
 | `unblock_rules_using_execution_policies` | `boolean` | false    | `true`, `false` | When enabled, approval rules do not block merge requests when a scan is required by a scan execution policy or a pipeline execution policy but a required scan artifact is missing from the target branch. This option only works when the project or group has an existing scan execution policy or pipeline execution policy with matching scanners. |
 
@@ -552,47 +524,46 @@ You can only exclude [license finding rules](#license_finding-rule-type) if they
 
 ##### Example of `policy_tuning` with a scan execution policy
 
-You can use this example in a `.gitlab/security-policies/policy.yml` file stored in a
-[security policy project](enforcement/security_policy_projects.md):
+You can use this example in a `.gitlab/security-policies/policy.yml` file stored in a [security policy project](enforcement/security_policy_projects.md):
 
 ```yaml
 scan_execution_policy:
 - name: Enforce dependency scanning
-  description: ''
-  enabled: true
-  policy_scope:
+ description: ''
+ enabled: true
+ policy_scope:
     projects:
       excluding: []
-  rules:
-  - type: pipeline
+ rules:
+ - type: pipeline
     branch_type: all
-  actions:
-  - scan: dependency_scanning
+ actions:
+ - scan: dependency_scanning
 approval_policy:
 - name: Dependency scanning approvals
-  description: ''
-  enabled: true
-  policy_scope:
+ description: ''
+ enabled: true
+ policy_scope:
     projects:
       excluding: []
-  rules:
-  - type: scan_finding
+ rules:
+ - type: scan_finding
     scanners:
     - dependency_scanning
     vulnerabilities_allowed: 0
     severity_levels: []
     vulnerability_states: []
     branch_type: protected
-  actions:
-  - type: require_approval
+ actions:
+ - type: require_approval
     approvals_required: 1
     role_approvers:
     - developer
-  - type: send_bot_message
+ - type: send_bot_message
     enabled: true
-  fallback_behavior:
+ fallback_behavior:
     fail: closed
-  policy_tuning:
+ policy_tuning:
     unblock_rules_using_execution_policies: true
 ```
 
@@ -606,17 +577,16 @@ For more information, see [Recreate pipeline execution policies created before G
 
 {{< /alert >}}
 
-You can use this example in a `.gitlab/security-policies/policy.yml` file stored in a
-[security policy project](enforcement/security_policy_projects.md):
+You can use this example in a `.gitlab/security-policies/policy.yml` file stored in a [security policy project](enforcement/security_policy_projects.md):
 
 ```yaml
 ---
 pipeline_execution_policy:
 - name: Enforce dependency scanning
-  description: ''
-  enabled: true
-  pipeline_config_strategy: inject_policy
-  content:
+ description: ''
+ enabled: true
+ pipeline_config_strategy: inject_policy
+ content:
     include:
     - project: my-group/pipeline-execution-ci-project
       file: policy-ci.yml
@@ -627,14 +597,12 @@ The linked pipeline execution policy CI/CD configuration in `policy-ci.yml`:
 
 ```yaml
 include:
-  - template: Jobs/Dependency-Scanning.gitlab-ci.yml
+ - template: Jobs/Dependency-Scanning.gitlab-ci.yml
 ```
 
 ###### Recreate pipeline execution policies created before GitLab 17.10
 
-Pipeline execution policies created before GitLab 17.10 do not contain the data required
-to use the `policy_tuning` feature. To use this feature with older pipeline execution policies,
-copy and delete the old policies, then recreate them.
+Pipeline execution policies created before GitLab 17.10 do not contain the data required to use the `policy_tuning` feature. To use this feature with older pipeline execution policies, copy and delete the old policies, then recreate them.
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
 For a video walkthrough, see [Security policies: Recreate a pipeline execution policy for use with `policy_tuning`](https://youtu.be/XN0jCQWlk1A).
@@ -668,15 +636,13 @@ To recreate a pipeline execution policy:
 
 In busy projects, the most recent pipeline may not have completed security scans available right away, which blocks security report comparisons. Use the `security_report_time_window` setting to security reports from recently completed pipelines instead. The security reports cannot be older than the time window, specified in minutes prior to the creation of the target branch pipeline. This setting does not apply if the selected pipeline already has completed security reports.
 
-| Field  | Type     | Required | Possible values    | Description                                                                                                          |
+| Field | Type     | Required | Possible values    | Description                                                                                                          |
 |--------|----------|----------|--------------------|----------------------------------------------------------------------------------------------------------------------|
 | `security_report_time_window` | `integer` | false    | 1 to 10080 (7 days) | Specifies the time window in minutes for choosing the target pipeline for the security report comparison. |
 
 ## Policy scope schema
 
-To customize policy enforcement, you can define a policy's scope to either include or exclude
-specified projects, groups, or compliance framework labels. For more details, see
-[Scope](_index.md#configure-the-policy-scope).
+To customize policy enforcement, you can define a policy's scope to either include or exclude specified projects, groups, or compliance framework labels. For more details, see [Scope](_index.md#configure-the-policy-scope).
 
 ## `bypass_settings`
 
@@ -721,7 +687,7 @@ With access token and service account exceptions, you can designate specific ser
 
 | Field | Type    | Required | Description                                    |
 |-------|---------|----------|------------------------------------------------|
-| `id`  | integer | true     | The ID of the access token or service account. |
+| `id` | integer | true     | The ID of the access token or service account. |
 
 ### Allowing users to bypass security policies
 
@@ -746,39 +712,38 @@ Users who have these exceptions can bypass at two levels:
 
 ```yaml
 bypass_settings:
-  access_tokens:
+ access_tokens:
     - id: 123
     - id: 456
-  service_accounts:
+ service_accounts:
     - id: 789
     - id: 1011
-  users:
+ users:
     - id: 123
     - id: 456
-  groups:
+ groups:
     - id: 789
     - id: 1011
-  roles:
+ roles:
     - maintainer
     - developer
-  custom_roles:
+ custom_roles:
     - id: 789
     - id: 1011
 ```
 
 ## Example `policy.yml` in a security policy project
 
-You can use this example in a `.gitlab/security-policies/policy.yml` file stored in a
-[security policy project](enforcement/security_policy_projects.md):
+You can use this example in a `.gitlab/security-policies/policy.yml` file stored in a [security policy project](enforcement/security_policy_projects.md):
 
 ```yaml
 ---
 approval_policy:
 - name: critical vulnerability CS approvals
-  description: critical severity level only for container scanning
-  enabled: true
-  rules:
-  - type: scan_finding
+ description: critical severity level only for container scanning
+ enabled: true
+ rules:
+ - type: scan_finding
     branches:
     - main
     scanners:
@@ -790,16 +755,16 @@ approval_policy:
     vulnerability_attributes:
       false_positive: true
       fix_available: true
-  actions:
-  - type: require_approval
+ actions:
+ - type: require_approval
     approvals_required: 1
     user_approvers:
     - adalberto.dare
 - name: secondary CS approvals
-  description: secondary only for container scanning
-  enabled: true
-  rules:
-  - type: scan_finding
+ description: secondary only for container scanning
+ enabled: true
+ rules:
+ - type: scan_finding
     branches:
     - main
     scanners:
@@ -814,18 +779,18 @@ approval_policy:
       operator: greater_than
       value: 30
       interval: day
-  actions:
-  - type: require_approval
+ actions:
+ - type: require_approval
     approvals_required: 1
     role_approvers:
     - owner
     - 1002816 # Example custom role identifier called "AppSec Engineer"
 - name: critical vulnerability CS approvals
-  description: high/critical severity level only for SAST scanning
-  enabled: true
-  enforcement_type: warn
-  rules:
-  - type: scan_finding
+ description: high/critical severity level only for SAST scanning
+ enabled: true
+ enforcement_type: warn
+ rules:
+ - type: scan_finding
     branch_type: default
     scanners:
     - sast
@@ -834,8 +799,8 @@ approval_policy:
     - critical
     - high
     vulnerability_states: []
-  actions:
-  - type: require_approval
+ actions:
+ - type: require_approval
     approvals_required: 1
     role_approvers:
     - maintainer
@@ -843,10 +808,8 @@ approval_policy:
 
 In this example:
 
-- Every MR that contains new `critical` vulnerabilities identified by container scanning requires
-  one approval from `alberto.dare`.
-- Every merge request that contains more than one preexisting `low` or `unknown` vulnerability older than 30 days identified by
-  container scanning requires one approval from either a project member with the Owner role or a user with the custom role `AppSec Engineer`.
+- Every MR that contains new `critical` vulnerabilities identified by container scanning requires one approval from `alberto.dare`.
+- Every merge request that contains more than one preexisting `low` or `unknown` vulnerability older than 30 days identified by container scanning requires one approval from either a project member with the Owner role or a user with the custom role `AppSec Engineer`.
 - Every merge request that contains new `critical` or `high` severity vulnerabilities, identified by SAST scanning, triggers the warn mode policy. Warn mode generates a bot comment and blocks the merge request. A developer can then bypass the policy violation. Optionally, a maintainer can also approve the merge request.
 
 ## Example for Merge Request Approval Policy editor
@@ -861,19 +824,19 @@ description: critical severity level only for container scanning
 enabled: true
 rules:
 - type: scan_finding
-  branches:
-  - main
-  scanners:
-  - container_scanning
-  vulnerabilities_allowed: 1
-  severity_levels:
-  - critical
-  vulnerability_states: []
+ branches:
+ - main
+ scanners:
+ - container_scanning
+ vulnerabilities_allowed: 1
+ severity_levels:
+ - critical
+ vulnerability_states: []
 actions:
 - type: require_approval
-  approvals_required: 1
-  user_approvers:
-  - adalberto.dare
+ approvals_required: 1
+ user_approvers:
+ - adalberto.dare
 ```
 
 ## Understanding merge request approval policy approvals
@@ -911,16 +874,10 @@ When using license approval policies, the combination of project, component (dep
 
 Merge request approval policies require an additional approval step in some situations. For example:
 
-- The number of security jobs is reduced in the working branch and no longer matches the number of
-  security jobs in the target branch. Users can't skip the Scanning Result Policies by removing
-  scanning jobs from the CI/CD configuration. Only the security scans that are configured in the
-  merge request approval policy rules are checked for removal.
+- The number of security jobs is reduced in the working branch and no longer matches the number of security jobs in the target branch. Users can't skip the Scanning Result Policies by removing scanning jobs from the CI/CD configuration. Only the security scans that are configured in the merge request approval policy rules are checked for removal.
 
-  For example, consider a situation where the default branch pipeline has four security scans:
-  `sast`, `secret_detection`, `container_scanning`, and `dependency_scanning`. A merge request approval
-  policy enforces two scanners: `container_scanning` and `dependency_scanning`. If an MR removes a
-  scan that is configured in merge request approval policy, `container_scanning` for example, an additional
-  approval is required.
+ For example, consider a situation where the default branch pipeline has four security scans:
+ `sast`, `secret_detection`, `container_scanning`, and `dependency_scanning`. A merge request approval policy enforces two scanners: `container_scanning` and `dependency_scanning`. If an MR removes a scan that is configured in merge request approval policy, `container_scanning` for example, an additional approval is required.
 - Someone stops a pipeline security job, and users can't skip the security scan.
 - A job in a merge request fails and is configured with `allow_failure: false`. As a result, the pipeline is in a blocked state.
 - A pipeline has a manual job that must run successfully for the entire pipeline to pass.
@@ -955,17 +912,11 @@ The **False Positive** attribute only applies to findings detected by the Vulner
 
 ### Policy evaluation and vulnerability state changes
 
-When a user changes the status of a vulnerability (for example, dismisses the vulnerability
-in the vulnerability details page), GitLab does not automatically reevaluate merge request
-approval policies due to performance reasons. To retrieve updated data from vulnerability
-reports, update your merge request or rerun the related pipelines.
+When a user changes the status of a vulnerability (for example, dismisses the vulnerability in the vulnerability details page), GitLab does not automatically reevaluate merge request approval policies due to performance reasons. To retrieve updated data from vulnerability reports, update your merge request or rerun the related pipelines.
 
-This behavior ensures optimal system performance and maintains security policy
-enforcement. The policy evaluation occurs during the next pipeline run or when the
-merge request is updated, but not immediately when the vulnerability state changes.
+This behavior ensures optimal system performance and maintains security policy enforcement. The policy evaluation occurs during the next pipeline run or when the merge request is updated, but not immediately when the vulnerability state changes.
 
-To reflect vulnerability state changes in the policies immediately
-manually run the pipeline or push a new commit to the merge request.
+To reflect vulnerability state changes in the policies immediately manually run the pipeline or push a new commit to the merge request.
 
 ## Understanding security widget and policy bot discrepancies
 
@@ -1014,20 +965,20 @@ To remove all invalid merge request approval policy rules from a GitLab instance
 
 ```ruby
 Project.joins(:approval_rules).where(approval_rules: { report_type: %i[scan_finding license_scanning] }).where.not(approval_rules: { security_orchestration_policy_configuration_id: nil }).find_in_batches.flat_map do |batch|
-  batch.map do |project|
+ batch.map do |project|
     # Get projects and their configuration_ids for applicable project rules
     [project, project.approval_rules.where(report_type: %i[scan_finding license_scanning]).pluck(:security_orchestration_policy_configuration_id).uniq]
-  end.uniq.map do |project, configuration_ids| # Take only unique combinations of project + configuration_ids
+ end.uniq.map do |project, configuration_ids| # Take only unique combinations of project + configuration_ids
     # If you find more configurations than what is available for the project, take records with the extra configurations
     [project, configuration_ids - project.all_security_orchestration_policy_configurations.pluck(:id)]
-  end.select { |_project, configuration_ids| configuration_ids.any? }
+ end.select { |_project, configuration_ids| configuration_ids.any? }
 end.each do |project, configuration_ids|
-  # For each found pair project + ghost configuration, remove these rules for a given project
-  Security::OrchestrationPolicyConfiguration.where(id: configuration_ids).each do |configuration|
+ # For each found pair project + ghost configuration, remove these rules for a given project
+ Security::OrchestrationPolicyConfiguration.where(id: configuration_ids).each do |configuration|
     configuration.delete_scan_finding_rules_for_project(project.id)
-  end
-  # Ensure you sync any potential rules from new group's policy
-  Security::ScanResultPolicies::SyncProjectWorker.perform_async(project.id)
+ end
+ # Ensure you sync any potential rules from new group's policy
+ Security::ScanResultPolicies::SyncProjectWorker.perform_async(project.id)
 end
 ```
 
@@ -1037,10 +988,7 @@ When using `new_needs_triage` and `new_dismissed`, some findings may require app
 
 ### Policies still have effect after `policy.yml` was manually invalidated
 
-In GitLab 17.2 and earlier, you may find that policies defined in a `policy.yml` file are enforced,
-even though the file was manually edited and no longer validates
-against the [policy schema](#merge-request-approval-policies-schema). This issue occurs because of
-a bug in the policy synchronization logic.
+In GitLab 17.2 and earlier, you may find that policies defined in a `policy.yml` file are enforced, even though the file was manually edited and no longer validates against the [policy schema](#merge-request-approval-policies-schema). This issue occurs because of a bug in the policy synchronization logic.
 
 Potential symptoms include:
 
@@ -1060,19 +1008,19 @@ Example scenarios:
 
 - Missing scans on source branches
 
-  If security scans are missing on the source branch, GitLab cannot effectively evaluate whether the merge request is introducing new vulnerabilities. In such cases, approval is required as a precautionary measure.
+ If security scans are missing on the source branch, GitLab cannot effectively evaluate whether the merge request is introducing new vulnerabilities. In such cases, approval is required as a precautionary measure.
 
 - Missing scans on target branches
 
-  If security scans are missing on the target branch, GitLab cannot effectively compare the vulnerabilities detected on the source branch. In such cases, any detected vulnerabilities are reported as new.
+ If security scans are missing on the target branch, GitLab cannot effectively compare the vulnerabilities detected on the source branch. In such cases, any detected vulnerabilities are reported as new.
 
 - Projects with no files to scan
 
-  Even in projects that contain no files relevant to the selected security scans, the approval requirement is still enforced. This maintains consistent security practices across all projects.
+ Even in projects that contain no files relevant to the selected security scans, the approval requirement is still enforced. This maintains consistent security practices across all projects.
 
 - First merge request
 
-  The very first merge request in a new project may be blocked if the default branch doesn't have a security scan, even if the source branch has no vulnerabilities.
+ The very first merge request in a new project may be blocked if the default branch doesn't have a security scan, even if the source branch has no vulnerabilities.
 
 To resolve these issues:
 
@@ -1118,13 +1066,13 @@ Support teams will investigate [logs](https://log.gprd.gitlab.net/) (`pubsub-sid
 
 ```json
 "json": {
-  "project_path": "group-path/project-path",
-  "merge_request_iid": 2,
-  "missing_scans": [
+ "project_path": "group-path/project-path",
+ "merge_request_iid": 2,
+ "missing_scans": [
     "api_fuzzing"
-  ],
-  "reason": "Scanner removed by MR",
-  "event": "update_approvals",
+ ],
+ "reason": "Scanner removed by MR",
+ "event": "update_approvals",
 }
 ```
 
@@ -1155,49 +1103,33 @@ If you continue to experience issues with merge request approval policies after 
 
 ### Merge requests that fix a detected vulnerability require approval
 
-If your policy configuration includes the `detected` state, merge requests that
-fix previously detected vulnerabilities still require approval. The merge request
-approval policy evaluates based on vulnerabilities that existed before the changes
-in the merge request, which adds an additional layer of review for any changes that affect
-known vulnerabilities.
+If your policy configuration includes the `detected` state, merge requests that fix previously detected vulnerabilities still require approval. The merge request approval policy evaluates based on vulnerabilities that existed before the changes in the merge request, which adds an additional layer of review for any changes that affect known vulnerabilities.
 
-If you want to allow merge requests that fix vulnerabilities to proceed without
-any additional approvals due to a detected vulnerability, consider removing the
-`detected` state from your policy configuration.
+If you want to allow merge requests that fix vulnerabilities to proceed without any additional approvals due to a detected vulnerability, consider removing the `detected` state from your policy configuration.
 
 ### Inconsistent policy evaluation between merged results pipelines and branch pipelines
 
 When a project has [merged results pipelines](../../../ci/pipelines/merged_results_pipelines.md)
-enabled and also runs branch pipelines with security scans, you might experience
-inconsistencies in the way that merge request approval policies are evaluated in the different pipelines. Consider the following example:
+enabled and also runs branch pipelines with security scans, you might experience inconsistencies in the way that merge request approval policies are evaluated in the different pipelines. Consider the following example:
 
 1. Both a merged results pipeline and a branch pipeline run security scans for the same merge request.
 1. The branch pipeline completes after the merged results pipeline.
 1. The policy evaluation selects the branch pipeline for comparison instead of the merged results pipeline.
 
-Merge request approval policies evaluate completed pipelines
-for the latest commit, and the pipeline that completes last is selected for
-comparison. When the branch pipeline completes after the merged results pipeline,
-the policy uses the branch pipeline for evaluation.
+Merge request approval policies evaluate completed pipelines for the latest commit, and the pipeline that completes last is selected for comparison. When the branch pipeline completes after the merged results pipeline, the policy uses the branch pipeline for evaluation.
 
 To avoid this issue:
 
-- Run security scans only in merged results pipelines: Configure your security
-  scanning jobs to run only in merge request pipelines when merged results
-  pipelines are enabled. Use [`rules`](../../../ci/jobs/job_rules.md) to control
-  when security jobs run:
+- Run security scans only in merged results pipelines: Configure your security scanning jobs to run only in merge request pipelines when merged results pipelines are enabled. Use [`rules`](../../../ci/jobs/job_rules.md) to control when security jobs run:
 
-  ```yaml
-  sast:
+ ```yaml
+ sast:
     rules:
       - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-  ```
+ ```
 
-- Avoid duplicate pipelines: Follow the guidance in
-  [avoid duplicate pipelines](../../../ci/jobs/job_rules.md#avoid-duplicate-pipelines)
-  to ensure security scans run in only one pipeline type per commit.
-- Use consistent scanner configurations: Run the same scanners with the same
-  pipeline type for both source and target branches.
+- Avoid duplicate pipelines: Follow the guidance in [avoid duplicate pipelines](../../../ci/jobs/job_rules.md#avoid-duplicate-pipelines)
+ to ensure security scans run in only one pipeline type per commit.
+- Use consistent scanner configurations: Run the same scanners with the same pipeline type for both source and target branches.
 
-For more information about duplicate pipelines, see
-[two pipelines when pushing to a branch](../../../ci/pipelines/mr_pipeline_troubleshooting.md#two-pipelines-when-pushing-to-a-branch).
+For more information about duplicate pipelines, see [two pipelines when pushing to a branch](../../../ci/pipelines/mr_pipeline_troubleshooting.md#two-pipelines-when-pushing-to-a-branch).

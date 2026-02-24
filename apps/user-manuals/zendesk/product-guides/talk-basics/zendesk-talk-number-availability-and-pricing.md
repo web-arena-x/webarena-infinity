@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408846483482-Zendesk-Talk
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Talk Team, Professional, or Enterprise |
 
@@ -52,8 +52,7 @@ United States
 
 My agent answers calls using a
 
-browser
-phone
+browser phone
 
 in
 
@@ -87,15 +86,13 @@ $0.013
 
 per minute1
 
-Post call  
-transcription
+Post call transcription
 
 $0.01
 
 per minute
 
-Live call  
-transcription
+Live call transcription
 
 $0.027
 
@@ -127,8 +124,7 @@ Outbound prices from mobile devices might differ from those shown below.
 
 I call a customer using the
 
-browser
-phone
+browser phone
 
 from
 

@@ -9,8 +9,7 @@ Some CI/CD keywords are deprecated and no longer recommended for use.
 
 {{< alert type="warning" >}}
 
-These keywords are still usable to ensure backwards compatibility,
-but could be scheduled for removal in a future major milestone.
+These keywords are still usable to ensure backwards compatibility, but could be scheduled for removal in a future major milestone.
 
 {{< /alert >}}
 
@@ -23,15 +22,15 @@ For example:
 
 ```yaml
 default:
-  image: ruby:3.0
-  services:
+ image: ruby:3.0
+ services:
     - docker:dind
-  cache:
+ cache:
     paths: [vendor/]
-  before_script:
+ before_script:
     - bundle config set path vendor/bundle
     - bundle install
-  after_script:
+ after_script:
     - rm -rf tmp/
 ```
 
@@ -49,13 +48,11 @@ You can use `only` and `except` to control when to add jobs to pipelines.
 
 {{< alert type="note" >}}
 
-`only:refs` and `except:refs` are deprecated. To use refs, regular expressions, or variables
-to control when to add jobs to pipelines, use [`rules:if`](_index.md#rulesif) instead.
+`only:refs` and `except:refs` are deprecated. To use refs, regular expressions, or variables to control when to add jobs to pipelines, use [`rules:if`](_index.md#rulesif) instead.
 
 {{< /alert >}}
 
-You can use the `only:refs` and `except:refs` keywords to control when to add jobs to a
-pipeline based on branch names or pipeline types.
+You can use the `only:refs` and `except:refs` keywords to control when to add jobs to a pipeline based on branch names or pipeline types.
 
 **Keyword type**: Job keyword. You can use it only as part of a job.
 
@@ -65,34 +62,34 @@ pipeline based on branch names or pipeline types.
 - Regular expressions that match against branch names, for example `/^feature-.*/`.
 - The following keywords:
 
-  | **Value**                | **Description** |
-  | -------------------------|-----------------|
-  | `api`                    | For pipelines triggered by the [pipelines API](../../api/pipelines.md#create-a-new-pipeline). |
-  | `branches`               | When the Git reference for a pipeline is a branch. |
-  | `chat`                   | For pipelines created by using a [GitLab ChatOps](../chatops/_index.md) command. |
-  | `external`               | When you use CI services other than GitLab. |
-  | `external_pull_requests` | When an external pull request on GitHub is created or updated (See [Pipelines for external pull requests](../ci_cd_for_external_repos/_index.md#pipelines-for-external-pull-requests)). |
-  | `merge_requests`         | For pipelines created when a merge request is created or updated. Enables [merge request pipelines](../pipelines/merge_request_pipelines.md), [merged results pipelines](../pipelines/merged_results_pipelines.md), and [merge trains](../pipelines/merge_trains.md). |
-  | `pipelines`              | For [multi-project pipelines](../pipelines/downstream_pipelines.md#multi-project-pipelines) created by [using the API with `CI_JOB_TOKEN`](../pipelines/downstream_pipelines.md#trigger-a-multi-project-pipeline-by-using-the-api), or the [`trigger`](_index.md#trigger) keyword. |
-  | `pushes`                 | For pipelines triggered by a `git push` event, including for branches and tags. |
-  | `schedules`              | For [scheduled pipelines](../pipelines/schedules.md). |
-  | `tags`                   | When the Git reference for a pipeline is a tag. |
-  | `triggers`               | For pipelines created by using a [trigger token](../triggers/_index.md#configure-cicd-jobs-to-run-in-triggered-pipelines). |
-  | `web`                    | For pipelines created by selecting **New pipeline** in the GitLab UI, from the project's **Build** > **Pipelines** section. |
+ | **Value**                | **Description** |
+ | -------------------------|-----------------|
+ | `api`                    | For pipelines triggered by the [pipelines API](../../api/pipelines.md#create-a-new-pipeline). |
+ | `branches`               | When the Git reference for a pipeline is a branch. |
+ | `chat`                   | For pipelines created by using a [GitLab ChatOps](../chatops/_index.md) command. |
+ | `external`               | When you use CI services other than GitLab. |
+ | `external_pull_requests` | When an external pull request on GitHub is created or updated (See [Pipelines for external pull requests](../ci_cd_for_external_repos/_index.md#pipelines-for-external-pull-requests)). |
+ | `merge_requests`         | For pipelines created when a merge request is created or updated. Enables [merge request pipelines](../pipelines/merge_request_pipelines.md), [merged results pipelines](../pipelines/merged_results_pipelines.md), and [merge trains](../pipelines/merge_trains.md). |
+ | `pipelines`              | For [multi-project pipelines](../pipelines/downstream_pipelines.md#multi-project-pipelines) created by [using the API with `CI_JOB_TOKEN`](../pipelines/downstream_pipelines.md#trigger-a-multi-project-pipeline-by-using-the-api), or the [`trigger`](_index.md#trigger) keyword. |
+ | `pushes`                 | For pipelines triggered by a `git push` event, including for branches and tags. |
+ | `schedules`              | For [scheduled pipelines](../pipelines/schedules.md). |
+ | `tags`                   | When the Git reference for a pipeline is a tag. |
+ | `triggers`               | For pipelines created by using a [trigger token](../triggers/_index.md#configure-cicd-jobs-to-run-in-triggered-pipelines). |
+ | `web`                    | For pipelines created by selecting **New pipeline** in the GitLab UI, from the project's **Build** > **Pipelines** section. |
 
 **Example of `only:refs` and `except:refs`**:
 
 ```yaml
 job1:
-  script: echo
-  only:
+ script: echo
+ only:
     - main
     - /^issue-.*$/
     - merge_requests
 
 job2:
-  script: echo
-  except:
+ script: echo
+ except:
     - main
     - /^stable-branch.*$/
     - schedules
@@ -100,53 +97,46 @@ job2:
 
 **Additional details**:
 
-- Scheduled pipelines run on specific branches, so jobs configured with `only: branches`
-  run on scheduled pipelines too. Add `except: schedules` to prevent jobs with `only: branches`
-  from running on scheduled pipelines.
-- `only` or `except` used without any other keywords are equivalent to `only: refs`
-  or `except: refs`. For example, the following two jobs configurations have the same
-  behavior:
+- Scheduled pipelines run on specific branches, so jobs configured with `only: branches` run on scheduled pipelines too. Add `except: schedules` to prevent jobs with `only: branches` from running on scheduled pipelines.
+- `only` or `except` used without any other keywords are equivalent to `only: refs` or `except: refs`. For example, the following two jobs configurations have the same behavior:
 
-  ```yaml
-  job1:
+ ```yaml
+ job1:
     script: echo
     only:
       - branches
 
-  job2:
+ job2:
     script: echo
     only:
       refs:
         - branches
-  ```
+ ```
 
-- If a job does not use `only`, `except`, or [`rules`](_index.md#rules), then `only` is set to `branches`
-  and `tags` by default.
+- If a job does not use `only`, `except`, or [`rules`](_index.md#rules), then `only` is set to `branches` and `tags` by default.
 
-  For example, `job1` and `job2` are equivalent:
+ For example, `job1` and `job2` are equivalent:
 
-  ```yaml
-  job1:
+ ```yaml
+ job1:
     script: echo "test"
 
-  job2:
+ job2:
     script: echo "test"
     only:
       - branches
       - tags
-  ```
+ ```
 
 ### `only:variables` / `except:variables`
 
 {{< alert type="note" >}}
 
-`only:variables` and `except:variables` are deprecated. To use refs, regular expressions, or variables
-to control when to add jobs to pipelines, use [`rules:if`](_index.md#rulesif) instead.
+`only:variables` and `except:variables` are deprecated. To use refs, regular expressions, or variables to control when to add jobs to pipelines, use [`rules:if`](_index.md#rulesif) instead.
 
 {{< /alert >}}
 
-You can use the `only:variables` or `except:variables` keywords to control when to add jobs
-to a pipeline, based on the status of [CI/CD variables](../variables/_index.md).
+You can use the `only:variables` or `except:variables` keywords to control when to add jobs to a pipeline, based on the status of [CI/CD variables](../variables/_index.md).
 
 **Keyword type**: Job keyword. You can use it only as part of a job.
 
@@ -158,8 +148,8 @@ to a pipeline, based on the status of [CI/CD variables](../variables/_index.md).
 
 ```yaml
 deploy:
-  script: cap staging deploy
-  only:
+ script: cap staging deploy
+ only:
     variables:
       - $RELEASE == "staging"
       - $STAGING
@@ -169,13 +159,11 @@ deploy:
 
 {{< alert type="note" >}}
 
-`only:changes` and `except:changes` are deprecated. To use changed files to control
-when to add a job to a pipeline, use [`rules:changes`](_index.md#ruleschanges) instead.
+`only:changes` and `except:changes` are deprecated. To use changed files to control when to add a job to a pipeline, use [`rules:changes`](_index.md#ruleschanges) instead.
 
 {{< /alert >}}
 
-Use the `changes` keyword with `only` to run a job, or with `except` to skip a job,
-when a Git push event modifies a file.
+Use the `changes` keyword with `only` to run a job, or with `except` to skip a job, when a Git push event modifies a file.
 
 Use `changes` in pipelines with the following refs:
 
@@ -189,19 +177,18 @@ Use `changes` in pipelines with the following refs:
 
 - Paths to files.
 - Wildcard paths for:
-  - Single directories, for example `path/to/directory/*`.
-  - A directory and all its subdirectories, for example `path/to/directory/**/*`.
-- Wildcard [glob](https://en.wikipedia.org/wiki/Glob_(programming)) paths for all files
-  with the same extension or multiple extensions, for example `*.md` or `path/to/directory/*.{rb,py,sh}`.
+ - Single directories, for example `path/to/directory/*`.
+ - A directory and all its subdirectories, for example `path/to/directory/**/*`.
+- Wildcard [glob](https://en.wikipedia.org/wiki/Glob_(programming)) paths for all files with the same extension or multiple extensions, for example `*.md` or `path/to/directory/*.{rb,py,sh}`.
 - Wildcard paths to files in the root directory, or all directories, wrapped in double quotes.
-  For example `"*.json"` or `"**/*.json"`.
+ For example `"*.json"` or `"**/*.json"`.
 
 **Example of `only:changes`**:
 
 ```yaml
 docker build:
-  script: docker build -t my-image:$CI_COMMIT_REF_SLUG .
-  only:
+ script: docker build -t my-image:$CI_COMMIT_REF_SLUG .
+ only:
     refs:
       - branches
     changes:
@@ -216,10 +203,9 @@ docker build:
 
 - `changes` resolves to `true` if any of the matching files are changed (an `OR` operation).
 - Glob patterns are interpreted with Ruby's [`File.fnmatch`](https://docs.ruby-lang.org/en/master/File.html#method-c-fnmatch)
-  with the [flags](https://docs.ruby-lang.org/en/master/File/Constants.html#module-File::Constants-label-Filename+Globbing+Constants+-28File-3A-3AFNM_-2A-29)
-  `File::FNM_PATHNAME | File::FNM_DOTMATCH | File::FNM_EXTGLOB`.
-- If you use refs other than `branches`, `external_pull_requests`, or `merge_requests`,
-  `changes` can't determine if a given file is new or old and always returns `true`.
+ with the [flags](https://docs.ruby-lang.org/en/master/File/Constants.html#module-File::Constants-label-Filename+Globbing+Constants+-28File-3A-3AFNM_-2A-29)
+ `File::FNM_PATHNAME | File::FNM_DOTMATCH | File::FNM_EXTGLOB`.
+- If you use refs other than `branches`, `external_pull_requests`, or `merge_requests`, `changes` can't determine if a given file is new or old and always returns `true`.
 - If you use `only: changes` with other refs, jobs ignore the changes and always run.
 - If you use `except: changes` with other refs, jobs ignore the changes and never run.
 
@@ -231,14 +217,11 @@ docker build:
 
 {{< alert type="note" >}}
 
-`only:kubernetes` and `except:kubernetes` are deprecated. To control if jobs are added to the pipeline
-when the Kubernetes service is active in the project, use [`rules:if`](_index.md#rulesif) with the
-[`CI_KUBERNETES_ACTIVE`](../variables/predefined_variables.md) predefined CI/CD variable instead.
+`only:kubernetes` and `except:kubernetes` are deprecated. To control if jobs are added to the pipeline when the Kubernetes service is active in the project, use [`rules:if`](_index.md#rulesif) with the [`CI_KUBERNETES_ACTIVE`](../variables/predefined_variables.md) predefined CI/CD variable instead.
 
 {{< /alert >}}
 
-Use `only:kubernetes` or `except:kubernetes` to control if jobs are added to the pipeline
-when the Kubernetes service is active in the project.
+Use `only:kubernetes` or `except:kubernetes` to control if jobs are added to the pipeline when the Kubernetes service is active in the project.
 
 **Keyword type**: Job-specific. You can use it only as part of a job.
 
@@ -250,12 +233,11 @@ when the Kubernetes service is active in the project.
 
 ```yaml
 deploy:
-  only:
+ only:
     kubernetes: active
 ```
 
-In this example, the `deploy` job runs only when the Kubernetes service is active
-in the project.
+In this example, the `deploy` job runs only when the Kubernetes service is active in the project.
 
 ## `publish` keyword and `pages` job name for GitLab Pages
 
@@ -268,15 +250,11 @@ keywords instead.
 
 {{< alert type="note" >}}
 
-`environment:kubernetes:namespace` and `environment:kubernetes:flux_resource_path` are deprecated
-when used directly under `kubernetes`. To configure dashboard settings use `environment:kubernetes:dashboard:namespace` and `environment:kubernetes:dashboard:flux_resource_path`
-instead. For more information, see [`environment:kubernetes`](_index.md#environmentkubernetes).
+`environment:kubernetes:namespace` and `environment:kubernetes:flux_resource_path` are deprecated when used directly under `kubernetes`. To configure dashboard settings use `environment:kubernetes:dashboard:namespace` and `environment:kubernetes:dashboard:flux_resource_path` instead. For more information, see [`environment:kubernetes`](_index.md#environmentkubernetes).
 
 {{< /alert >}}
 
-You can use `environment:kubernetes:namespace` and `environment:kubernetes:flux_resource_path`
-to configure Kubernetes dashboard settings, but using them directly under the `kubernetes`
-section is deprecated.
+You can use `environment:kubernetes:namespace` and `environment:kubernetes:flux_resource_path` to configure Kubernetes dashboard settings, but using them directly under the `kubernetes` section is deprecated.
 
 **Keyword type**: Job keyword. You can use it only as part of a job.
 
@@ -284,7 +262,7 @@ section is deprecated.
 
 ```yaml
 deploy:
-  environment:
+ environment:
     name: production
     kubernetes:
       agent: path/to/agent/project:agent-name
@@ -296,7 +274,7 @@ deploy:
 
 ```yaml
 deploy:
-  environment:
+ environment:
     name: production
     kubernetes:
       agent: path/to/agent/project:agent-name

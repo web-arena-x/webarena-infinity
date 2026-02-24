@@ -12,13 +12,9 @@ title: Federated Learning of Cohorts (FLoC)
 
 {{< /details >}}
 
-Federated Learning of Cohorts (FLoC) was a proposed feature
-for Google Chrome that categorized users into different cohorts for interest-based
-advertising. FLoC has been replaced by the [Topics API](https://patcg-individual-drafts.github.io/topics/),
-which provides similar functionality to help advertisers target and track users.
+Federated Learning of Cohorts (FLoC) was a proposed feature for Google Chrome that categorized users into different cohorts for interest-based advertising. FLoC has been replaced by the [Topics API](https://patcg-individual-drafts.github.io/topics/), which provides similar functionality to help advertisers target and track users.
 
-By default, GitLab opts out of user tracking for interest-based advertising
-by sending the following header:
+By default, GitLab opts out of user tracking for interest-based advertising by sending the following header:
 
 ```plaintext
 Permissions-Policy: interest-cohort=()

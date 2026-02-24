@@ -5,10 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Geo (development)
 ---
 
-Geo connects GitLab instances together. One GitLab instance is
-designated as a **primary** site and can be run with multiple
-**secondary** sites. Geo orchestrates quite a few components that can be seen on
-the diagram below and are described in more detail in this document.
+Geo connects GitLab instances together. One GitLab instance is designated as a **primary** site and can be run with multiple **secondary** sites. Geo orchestrates quite a few components that can be seen on the diagram below and are described in more detail in this document.
 
 ![Geo Architecture Diagram](img/geo_architecture_v13_8.png)
 
@@ -18,11 +15,9 @@ Geo handles replication for different components:
 
 - [Database](#database-replication): includes the entire application, except cache and jobs.
 - [Git repositories](#repository-replication): includes both projects and wikis.
-- [Blobs](#blob-replication): includes anything from images attached on issues
-  to raw logs and assets from CI.
+- [Blobs](#blob-replication): includes anything from images attached on issues to raw logs and assets from CI.
 
-With the exception of the Database replication, on a *secondary* site, everything is coordinated
-by the [Geo Log Cursor](#geo-log-cursor-daemon).
+With the exception of the Database replication, on a *secondary* site, everything is coordinated by the [Geo Log Cursor](#geo-log-cursor-daemon).
 
 ### Replication states
 
@@ -40,40 +35,27 @@ stateDiagram-v2
 
 ### Geo Log Cursor daemon
 
-The [Geo Log Cursor daemon](#geo-log-cursor-daemon) is a separate process running on
-each **secondary** site. It monitors the [Geo Event Log](#geo-event-log)
+The [Geo Log Cursor daemon](#geo-log-cursor-daemon) is a separate process running on each **secondary** site. It monitors the [Geo Event Log](#geo-event-log)
 for new events and creates background jobs for each specific event type.
 
-For example when a repository is updated, the Geo **primary** site creates
-a Geo event with an associated repository updated event. The Geo Log Cursor daemon
-picks the event up and schedules a `Geo::ProjectSyncWorker` job which
-uses the `Geo::RepositorySyncService` to update the repository.
+For example when a repository is updated, the Geo **primary** site creates a Geo event with an associated repository updated event. The Geo Log Cursor daemon picks the event up and schedules a `Geo::ProjectSyncWorker` job which uses the `Geo::RepositorySyncService` to update the repository.
 
 The Geo Log Cursor daemon can operate in High Availability mode automatically.
-The daemon tries to acquire a lock from time to time and once acquired, it
-behaves as the *active* daemon.
+The daemon tries to acquire a lock from time to time and once acquired, it behaves as the *active* daemon.
 
-Any additional running daemons on the same site, is in standby
-mode, ready to resume work if the *active* daemon releases its lock.
+Any additional running daemons on the same site, is in standby mode, ready to resume work if the *active* daemon releases its lock.
 
-We use the [`ExclusiveLease`](https://www.rubydoc.info/github/gitlabhq/gitlabhq/Gitlab/ExclusiveLease) lock type with a small TTL, that is renewed at every
-pooling cycle. That allows us to implement this global lock with a timeout.
+We use the [`ExclusiveLease`](https://www.rubydoc.info/github/gitlabhq/gitlabhq/Gitlab/ExclusiveLease) lock type with a small TTL, that is renewed at every pooling cycle. That allows us to implement this global lock with a timeout.
 
-At the end of the pooling cycle, if the daemon can't renew and/or reacquire
-the lock, it switches to standby mode.
+At the end of the pooling cycle, if the daemon can't renew and/or reacquire the lock, it switches to standby mode.
 
 ### Database replication
 
-Geo uses [streaming replication](#streaming-replication) to replicate
-the database from the **primary** to the **secondary** sites. This
-replication gives the **secondary** sites access to all the data saved
-in the database, so users can sign in to the **secondary** site and read,
-for example, all the issues and merge requests.
+Geo uses [streaming replication](#streaming-replication) to replicate the database from the **primary** to the **secondary** sites. This replication gives the **secondary** sites access to all the data saved in the database, so users can sign in to the **secondary** site and read, for example, all the issues and merge requests.
 
 ### Repository replication
 
-Geo also replicates repositories. Each **secondary** site keeps track of
-the state of every repository in the [tracking database](#tracking-database).
+Geo also replicates repositories. Each **secondary** site keeps track of the state of every repository in the [tracking database](#tracking-database).
 
 There are a few ways a repository gets replicated by the:
 
@@ -82,9 +64,7 @@ There are a few ways a repository gets replicated by the:
 
 #### Project Repository Registry
 
-The `Geo::ProjectRepositoryRegistry` class defines the model used to track the
-state of repository replication. For each project in the main
-database, one record in the tracking database is kept.
+The `Geo::ProjectRepositoryRegistry` class defines the model used to track the state of repository replication. For each project in the main database, one record in the tracking database is kept.
 
 It records the following about repositories:
 
@@ -99,22 +79,13 @@ It also stores these attributes for project wikis in dedicated columns.
 
 #### Repository Registry Sync worker
 
-The `Geo::RepositoryRegistrySyncWorker` class runs periodically in the
-background and it searches the `Geo::ProjectRepositoryRegistry` model for
-projects that need updating. Those projects can be:
+The `Geo::RepositoryRegistrySyncWorker` class runs periodically in the background and it searches the `Geo::ProjectRepositoryRegistry` model for projects that need updating. Those projects can be:
 
-- Unsynced: Projects that have never been synced on the **secondary**
-  site and so do not exist yet.
-- Updated recently: Projects that have a `last_repository_updated_at`
-  timestamp that is more recent than the `last_repository_successful_sync_at`
-  timestamp in the `Geo::ProjectRepositoryRegistry` model.
-- Manual: The administrator can manually flag a repository to resync in the
-  [Geo **Admin** area](../administration/geo_sites.md).
+- Unsynced: Projects that have never been synced on the **secondary** site and so do not exist yet.
+- Updated recently: Projects that have a `last_repository_updated_at` timestamp that is more recent than the `last_repository_successful_sync_at` timestamp in the `Geo::ProjectRepositoryRegistry` model.
+- Manual: The administrator can manually flag a repository to resync in the [Geo **Admin** area](../administration/geo_sites.md).
 
-When we fail to fetch a repository on the secondary `RETRIES_BEFORE_REDOWNLOAD`
-times, Geo does a so-called _re-download_. It will do a clean clone
-into the `@geo-temporary` directory in the root of the storage. When
-it's successful, we replace the main repository with the newly cloned one.
+When we fail to fetch a repository on the secondary `RETRIES_BEFORE_REDOWNLOAD` times, Geo does a so-called _re-download_. It will do a clean clone into the `@geo-temporary` directory in the root of the storage. When it's successful, we replace the main repository with the newly cloned one.
 
 ### Blob replication
 
@@ -130,15 +101,15 @@ Primary site:
 
 ```mermaid
 sequenceDiagram
-  participant R as Runner
-  participant P as Puma
-  participant DB as PostgreSQL
-  participant SsP as Secondary site PostgreSQL
-  R->>P: Upload artifact
-  P->>DB: Insert `ci_job_artifacts` row
-  P->>DB: Insert `geo_events` row
-  P->>DB: Insert `geo_event_log` row
-  DB->>SsP: Replicate rows
+ participant R as Runner
+ participant P as Puma
+ participant DB as PostgreSQL
+ participant SsP as Secondary site PostgreSQL
+ R->>P: Upload artifact
+ P->>DB: Insert `ci_job_artifacts` row
+ P->>DB: Insert `geo_events` row
+ P->>DB: Insert `geo_event_log` row
+ DB->>SsP: Replicate rows
 ```
 
 - A [Runner](https://docs.gitlab.com/runner/) uploads an artifact
@@ -151,28 +122,28 @@ Secondary site, after the PostgreSQL DB rows have been replicated:
 
 ```mermaid
 sequenceDiagram
-  participant DB as PostgreSQL
-  participant GLC as Geo Log Cursor
-  participant R as Redis
-  participant S as Sidekiq
-  participant TDB as PostgreSQL Tracking DB
-  participant PP as Primary site Puma
-  GLC->>DB: Query `geo_event_log`
-  GLC->>DB: Query `geo_events`
-  GLC->>R: Enqueue `Geo::EventWorker`
-  S->>R: Pick up `Geo::EventWorker`
-  S->>TDB: Insert to `job_artifact_registry`, "starting sync"
-  S->>PP: GET <primary site internal URL>/geo/retrieve/job_artifact/123
-  S->>TDB: Update `job_artifact_registry`, "synced"
+ participant DB as PostgreSQL
+ participant GLC as Geo Log Cursor
+ participant R as Redis
+ participant S as Sidekiq
+ participant TDB as PostgreSQL Tracking DB
+ participant PP as Primary site Puma
+ GLC->>DB: Query `geo_event_log`
+ GLC->>DB: Query `geo_events`
+ GLC->>R: Enqueue `Geo::EventWorker`
+ S->>R: Pick up `Geo::EventWorker`
+ S->>TDB: Insert to `job_artifact_registry`, "starting sync"
+ S->>PP: GET <primary site internal URL>/geo/retrieve/job_artifact/123
+ S->>TDB: Update `job_artifact_registry`, "synced"
 ```
 
 - [Geo Log Cursor](#geo-log-cursor-daemon) loop finds the new `geo_event_log` row
 - Geo Log Cursor processes the `geo_events` row
-  - Geo Log Cursor enqueues `Geo::EventWorker` job passing through the `geo_events` row data
+ - Geo Log Cursor enqueues `Geo::EventWorker` job passing through the `geo_events` row data
 - [Sidekiq](architecture.md#sidekiq) picks up `Geo::EventWorker` job
-  - Sidekiq inserts `job_artifact_registry` row in the [PostgreSQL Geo Tracking Database](#tracking-database) because it doesn't exist, and marks it "started sync"
-  - Sidekiq does a GET request on an API endpoint at the primary Geo site and downloads the file
-  - Sidekiq marks the `job_artifact_registry` row as "synced" and "pending verification"
+ - Sidekiq inserts `job_artifact_registry` row in the [PostgreSQL Geo Tracking Database](#tracking-database) because it doesn't exist, and marks it "started sync"
+ - Sidekiq does a GET request on an API endpoint at the primary Geo site and downloads the file
+ - Sidekiq marks the `job_artifact_registry` row as "synced" and "pending verification"
 
 ##### Backfilling existing job artifacts
 
@@ -186,53 +157,53 @@ There are two cronjobs running every minute: `Geo::Secondary::RegistryConsistenc
 
 ```mermaid
 sequenceDiagram
-  participant SC as Sidekiq-cron
-  participant R as Redis
-  participant S as Sidekiq
-  participant DB as PostgreSQL
-  participant TDB as PostgreSQL Tracking DB
-  SC->>R: Enqueue `Geo::Secondary::RegistryConsistencyWorker`
-  S->>R: Pick up `Geo::Secondary::RegistryConsistencyWorker`
-  S->>DB: Query `ci_job_artifacts`
-  S->>TDB: Query `job_artifact_registry`
-  S->>TDB: Insert to `job_artifact_registry`
+ participant SC as Sidekiq-cron
+ participant R as Redis
+ participant S as Sidekiq
+ participant DB as PostgreSQL
+ participant TDB as PostgreSQL Tracking DB
+ SC->>R: Enqueue `Geo::Secondary::RegistryConsistencyWorker`
+ S->>R: Pick up `Geo::Secondary::RegistryConsistencyWorker`
+ S->>DB: Query `ci_job_artifacts`
+ S->>TDB: Query `job_artifact_registry`
+ S->>TDB: Insert to `job_artifact_registry`
 ```
 
 - [Sidekiq-cron](https://github.com/sidekiq-cron/sidekiq-cron) enqueues a `Geo::Secondary::RegistryConsistencyWorker` job every minute. As long as it is actively doing work (creating and deleting rows), this job immediately re-enqueues itself. This job uses an exclusive lease to prevent multiple instances of itself from running simultaneously.
 - [Sidekiq](architecture.md#sidekiq) picks up `Geo::Secondary::RegistryConsistencyWorker` job
-  - Sidekiq queries `ci_job_artifacts` table for up to 10000 rows
-  - Sidekiq queries `job_artifact_registry` table for up to 10000 rows
-  - Sidekiq inserts a `job_artifact_registry` row in the [PostgreSQL Geo Tracking Database](#tracking-database) corresponding to the existing Job Artifact
+ - Sidekiq queries `ci_job_artifacts` table for up to 10000 rows
+ - Sidekiq queries `job_artifact_registry` table for up to 10000 rows
+ - Sidekiq inserts a `job_artifact_registry` row in the [PostgreSQL Geo Tracking Database](#tracking-database) corresponding to the existing Job Artifact
 
 ```mermaid
 sequenceDiagram
-  participant SC as Sidekiq-cron
-  participant R as Redis
-  participant S as Sidekiq
-  participant DB as PostgreSQL
-  participant TDB as PostgreSQL Tracking DB
-  participant PP as Primary site Puma
-  SC->>R: Enqueue `Geo::RegistrySyncWorker`
-  S->>R: Pick up `Geo::RegistrySyncWorker`
-  S->>TDB: Query `*_registry` tables
-  S->>R: Enqueue `Geo::EventWorker`s
-  S->>R: Pick up `Geo::EventWorker`
-  S->>TDB: Insert to `job_artifact_registry`, "starting sync"
-  S->>PP: GET <primary site internal URL>/geo/retrieve/job_artifact/123
-  S->>TDB: Update `job_artifact_registry`, "synced"
+ participant SC as Sidekiq-cron
+ participant R as Redis
+ participant S as Sidekiq
+ participant DB as PostgreSQL
+ participant TDB as PostgreSQL Tracking DB
+ participant PP as Primary site Puma
+ SC->>R: Enqueue `Geo::RegistrySyncWorker`
+ S->>R: Pick up `Geo::RegistrySyncWorker`
+ S->>TDB: Query `*_registry` tables
+ S->>R: Enqueue `Geo::EventWorker`s
+ S->>R: Pick up `Geo::EventWorker`
+ S->>TDB: Insert to `job_artifact_registry`, "starting sync"
+ S->>PP: GET <primary site internal URL>/geo/retrieve/job_artifact/123
+ S->>TDB: Update `job_artifact_registry`, "synced"
 ```
 
 - [Sidekiq-cron](https://github.com/ondrejbartas/sidekiq-cron) enqueues a `Geo::RegistrySyncWorker` job every minute. As long as it is actively doing work, this job loops for up to an hour scheduling sync jobs. This job uses an exclusive lease to prevent multiple instances of itself from running simultaneously.
 - [Sidekiq](architecture.md#sidekiq) picks up `Geo::RegistrySyncWorker` job
-  - Sidekiq queries all `registry` tables in the [PostgreSQL Geo Tracking Database](#tracking-database) for "never attempted sync" rows. It interleaves rows from each table and adds them to an in-memory queue.
-  - If the previous step yielded less than 1000 rows, then Sidekiq queries all `registry` tables for "failed sync and ready to retry" rows and interleaves those and adds them to the in-memory queue.
-  - Sidekiq enqueues `Geo::EventWorker` jobs with arguments like "Job Artifact with ID 123 was updated" for each item in the queue, and tracks the enqueued Sidekiq job IDs.
-  - Sidekiq stops enqueuing `Geo::EventWorker` jobs when "maximum concurrency limit" settings are reached
-  - Sidekiq loops doing this kind of work until it has no more to do
+ - Sidekiq queries all `registry` tables in the [PostgreSQL Geo Tracking Database](#tracking-database) for "never attempted sync" rows. It interleaves rows from each table and adds them to an in-memory queue.
+ - If the previous step yielded less than 1000 rows, then Sidekiq queries all `registry` tables for "failed sync and ready to retry" rows and interleaves those and adds them to the in-memory queue.
+ - Sidekiq enqueues `Geo::EventWorker` jobs with arguments like "Job Artifact with ID 123 was updated" for each item in the queue, and tracks the enqueued Sidekiq job IDs.
+ - Sidekiq stops enqueuing `Geo::EventWorker` jobs when "maximum concurrency limit" settings are reached
+ - Sidekiq loops doing this kind of work until it has no more to do
 - Sidekiq picks up `Geo::EventWorker` job
-  - Sidekiq marks the `job_artifact_registry` row as "started sync"
-  - Sidekiq does a GET request on an API endpoint at the primary Geo site and downloads the file
-  - Sidekiq marks the `job_artifact_registry` row as "synced" and "pending verification"
+ - Sidekiq marks the `job_artifact_registry` row as "started sync"
+ - Sidekiq does a GET request on an API endpoint at the primary Geo site and downloads the file
+ - Sidekiq marks the `job_artifact_registry` row as "synced" and "pending verification"
 
 ##### Verifying a new job artifact
 
@@ -240,39 +211,39 @@ Primary site:
 
 ```mermaid
 sequenceDiagram
-  participant Ru as Runner
-  participant P as Puma
-  participant DB as PostgreSQL
-  participant SC as Sidekiq-cron
-  participant Rd as Redis
-  participant S as Sidekiq
-  participant F as Filesystem
-  Ru->>P: Upload artifact
-  P->>DB: Insert `ci_job_artifacts`
-  P->>DB: Insert `ci_job_artifact_states`
-  SC->>Rd: Enqueue `Geo::VerificationCronWorker`
-  S->>Rd: Pick up `Geo::VerificationCronWorker`
-  S->>DB: Query `ci_job_artifact_states`
-  S->>Rd: Enqueue `Geo::VerificationBatchWorker`
-  S->>Rd: Pick up `Geo::VerificationBatchWorker`
-  S->>DB: Query `ci_job_artifact_states`
-  S->>DB: Update `ci_job_artifact_states` row, "started"
-  S->>F: Checksum file
-  S->>DB: Update `ci_job_artifact_states` row, "succeeded"
+ participant Ru as Runner
+ participant P as Puma
+ participant DB as PostgreSQL
+ participant SC as Sidekiq-cron
+ participant Rd as Redis
+ participant S as Sidekiq
+ participant F as Filesystem
+ Ru->>P: Upload artifact
+ P->>DB: Insert `ci_job_artifacts`
+ P->>DB: Insert `ci_job_artifact_states`
+ SC->>Rd: Enqueue `Geo::VerificationCronWorker`
+ S->>Rd: Pick up `Geo::VerificationCronWorker`
+ S->>DB: Query `ci_job_artifact_states`
+ S->>Rd: Enqueue `Geo::VerificationBatchWorker`
+ S->>Rd: Pick up `Geo::VerificationBatchWorker`
+ S->>DB: Query `ci_job_artifact_states`
+ S->>DB: Update `ci_job_artifact_states` row, "started"
+ S->>F: Checksum file
+ S->>DB: Update `ci_job_artifact_states` row, "succeeded"
 ```
 
 - A [Runner](https://docs.gitlab.com/runner/) uploads an artifact
 - [Puma](architecture.md#puma) creates a `ci_job_artifacts` row
 - Puma creates a `ci_job_artifact_states` row to store verification state.
-  - The row is marked "pending verification"
+ - The row is marked "pending verification"
 - [Sidekiq-cron](https://github.com/ondrejbartas/sidekiq-cron) enqueues a `Geo::VerificationCronWorker` job every minute
 - [Sidekiq](architecture.md#sidekiq) picks up the `Geo::VerificationCronWorker` job
-  - Sidekiq queries `ci_job_artifact_states` for the number of rows marked "pending verification" or "failed verification and ready to retry"
-  - Sidekiq enqueues one or more `Geo::VerificationBatchWorker` jobs, limited by the "maximum verification concurrency" setting
+ - Sidekiq queries `ci_job_artifact_states` for the number of rows marked "pending verification" or "failed verification and ready to retry"
+ - Sidekiq enqueues one or more `Geo::VerificationBatchWorker` jobs, limited by the "maximum verification concurrency" setting
 - Sidekiq picks up `Geo::VerificationBatchWorker` job
-  - Sidekiq queries `ci_job_artifact_states` for rows marked "pending verification"
-  - If the previous step yielded less than 10 rows, then Sidekiq queries `ci_job_artifact_states` for rows marked "failed verification and ready to retry"
-  - For each row
+ - Sidekiq queries `ci_job_artifact_states` for rows marked "pending verification"
+ - If the previous step yielded less than 10 rows, then Sidekiq queries `ci_job_artifact_states` for rows marked "failed verification and ready to retry"
+ - For each row
     - Sidekiq marks it "started verification"
     - Sidekiq gets the SHA256 checksum of the file
     - Sidekiq saves the checksum in the row and marks it "succeeded verification"
@@ -282,33 +253,33 @@ Secondary site:
 
 ```mermaid
 sequenceDiagram
-  participant SC as Sidekiq-cron
-  participant R as Redis
-  participant S as Sidekiq
-  participant TDB as PostgreSQL Tracking DB
-  participant F as Filesystem
-  participant DB as PostgreSQL
-  SC->>R: Enqueue `Geo::VerificationCronWorker`
-  S->>R: Pick up `Geo::VerificationCronWorker`
-  S->>TDB: Query `job_artifact_registry`
-  S->>R: Enqueue `Geo::VerificationBatchWorker`
-  S->>R: Pick up `Geo::VerificationBatchWorker`
-  S->>TDB: Query `job_artifact_registry`
-  S->>TDB: Update `job_artifact_registry` row, "started"
-  S->>F: Checksum file
-  S->>DB: Query `ci_job_artifact_states`
-  S->>TDB: Update `job_artifact_registry` row, "succeeded"
+ participant SC as Sidekiq-cron
+ participant R as Redis
+ participant S as Sidekiq
+ participant TDB as PostgreSQL Tracking DB
+ participant F as Filesystem
+ participant DB as PostgreSQL
+ SC->>R: Enqueue `Geo::VerificationCronWorker`
+ S->>R: Pick up `Geo::VerificationCronWorker`
+ S->>TDB: Query `job_artifact_registry`
+ S->>R: Enqueue `Geo::VerificationBatchWorker`
+ S->>R: Pick up `Geo::VerificationBatchWorker`
+ S->>TDB: Query `job_artifact_registry`
+ S->>TDB: Update `job_artifact_registry` row, "started"
+ S->>F: Checksum file
+ S->>DB: Query `ci_job_artifact_states`
+ S->>TDB: Update `job_artifact_registry` row, "succeeded"
 ```
 
 - After the artifact is successfully synced, it becomes "pending verification"
 - [Sidekiq-cron](https://github.com/ondrejbartas/sidekiq-cron) enqueues a `Geo::VerificationCronWorker` job every minute
 - [Sidekiq](architecture.md#sidekiq) picks up the `Geo::VerificationCronWorker` job
-  - Sidekiq queries `job_artifact_registry` in the [PostgreSQL Geo Tracking Database](#tracking-database) for the number of rows marked "pending verification" or "failed verification and ready to retry"
-  - Sidekiq enqueues one or more `Geo::VerificationBatchWorker` jobs, limited by the "maximum verification concurrency" setting
+ - Sidekiq queries `job_artifact_registry` in the [PostgreSQL Geo Tracking Database](#tracking-database) for the number of rows marked "pending verification" or "failed verification and ready to retry"
+ - Sidekiq enqueues one or more `Geo::VerificationBatchWorker` jobs, limited by the "maximum verification concurrency" setting
 - Sidekiq picks up `Geo::VerificationBatchWorker` job
-  - Sidekiq queries `job_artifact_registry` in the PostgreSQL Geo Tracking Database for rows marked "pending verification"
-  - If the previous step yielded less than 10 rows, then Sidekiq queries `job_artifact_registry` for rows marked "failed verification and ready to retry"
-  - For each row
+ - Sidekiq queries `job_artifact_registry` in the PostgreSQL Geo Tracking Database for rows marked "pending verification"
+ - If the previous step yielded less than 10 rows, then Sidekiq queries `job_artifact_registry` for rows marked "failed verification and ready to retry"
+ - For each row
     - Sidekiq marks it "started verification"
     - Sidekiq gets the SHA256 checksum of the file
     - Sidekiq saves the checksum in the row
@@ -330,41 +301,27 @@ The **secondary** site authorizes HTTP requests with the `Authorization` header:
 Authorization: GL-Geo <access_key>:<JWT payload>
 ```
 
-The **primary** site uses the `access_key` field to look up the corresponding
-**secondary** site and decrypts the JWT payload.
+The **primary** site uses the `access_key` field to look up the corresponding **secondary** site and decrypts the JWT payload.
 
 {{< alert type="note" >}}
 
-JWT requires synchronized clocks between the machines involved, otherwise the
-**primary** site may reject the request.
+JWT requires synchronized clocks between the machines involved, otherwise the **primary** site may reject the request.
 
 {{< /alert >}}
 
 ### File transfers
 
-When the **secondary** site wishes to download a file, the JWT payload
-contains additional information to identify the file
-request. This ensures that the **secondary** site downloads the right
-file for the right database ID. For example, for an LFS object, the
-request must also include the SHA256 sum of the file. An example JWT
-payload looks like:
+When the **secondary** site wishes to download a file, the JWT payload contains additional information to identify the file request. This ensures that the **secondary** site downloads the right file for the right database ID. For example, for an LFS object, the request must also include the SHA256 sum of the file. An example JWT payload looks like:
 
 ```json
 {"data": {"sha256": "31806bb23580caab78040f8c45d329f5016b0115"}, "iat": "1234567890"}
 ```
 
-If the requested file matches the requested SHA256 sum, then the Geo
-**primary** site sends data via the X-Sendfile
-feature, which allows NGINX to handle the file transfer without tying
-up Rails or Workhorse.
+If the requested file matches the requested SHA256 sum, then the Geo **primary** site sends data via the X-Sendfile feature, which allows NGINX to handle the file transfer without tying up Rails or Workhorse.
 
 ### Git transfers
 
-When the **secondary** site wishes to clone or fetch a Git repository from the
-**primary** site, the JWT payload contains additional information to identify
-the Git repository request. This ensures that the **secondary** site downloads
-the right Git repository for the right database ID. An example JWT
-payload looks like:
+When the **secondary** site wishes to clone or fetch a Git repository from the **primary** site, the JWT payload contains additional information to identify the Git repository request. This ensures that the **secondary** site downloads the right Git repository for the right database ID. An example JWT payload looks like:
 
 ```json
 {"data": {"scope": "mygroup/myproject"}, "iat": "1234567890"}
@@ -373,34 +330,26 @@ payload looks like:
 ## Git Push to Geo secondary
 
 The Git Push Proxy exists as a functionality built inside the `gitlab-shell` component.
-It is active on a **secondary** site only. It allows the user that has cloned a repository
-from the secondary site to push to the same URL.
+It is active on a **secondary** site only. It allows the user that has cloned a repository from the secondary site to push to the same URL.
 
-Git `push` requests directed to a **secondary** site will be sent over to the **primary** site,
-while `pull` requests will continue to be served by the **secondary** site for maximum efficiency.
+Git `push` requests directed to a **secondary** site will be sent over to the **primary** site, while `pull` requests will continue to be served by the **secondary** site for maximum efficiency.
 
 HTTPS and SSH requests are handled differently:
 
 - With HTTPS, we will give the user a `HTTP 302 Redirect` pointing to the project on the **primary** site.
-  The Git client is wise enough to understand that status code and process the redirection.
+ The Git client is wise enough to understand that status code and process the redirection.
 - With SSH, because there is no equivalent way to perform a redirect, we have to proxy the request.
-  This is done inside [`gitlab-shell`](https://gitlab.com/gitlab-org/gitlab-shell), by first translating the request
-  to the HTTP protocol, and then proxying it to the **primary** site.
+ This is done inside [`gitlab-shell`](https://gitlab.com/gitlab-org/gitlab-shell), by first translating the request to the HTTP protocol, and then proxying it to the **primary** site.
 
-The [`gitlab-shell`](https://gitlab.com/gitlab-org/gitlab-shell) daemon knows when to proxy based on the response
-from `/api/v4/allowed`. A special `HTTP 300` status code is returned and we execute a "custom action",
-specified in the response body. The response contains additional data that allows the proxied `push` operation
-to happen on the **primary** site.
+The [`gitlab-shell`](https://gitlab.com/gitlab-org/gitlab-shell) daemon knows when to proxy based on the response from `/api/v4/allowed`. A special `HTTP 300` status code is returned and we execute a "custom action", specified in the response body. The response contains additional data that allows the proxied `push` operation to happen on the **primary** site.
 
 ## Using the Tracking Database
 
-Along with the main database that is replicated, a Geo **secondary**
-site has its own separate [Tracking database](#tracking-database).
+Along with the main database that is replicated, a Geo **secondary** site has its own separate [Tracking database](#tracking-database).
 
 The tracking database contains the state of the **secondary** site.
 
-Any database migration that needs to be run as part of an upgrade
-needs to be applied to the tracking database on each **secondary** site.
+Any database migration that needs to be run as part of an upgrade needs to be applied to the tracking database on each **secondary** site.
 
 ### Configuration
 
@@ -422,23 +371,17 @@ bundle exec rake db:migrate:geo
 
 ## Finders
 
-Geo uses [Finders](https://gitlab.com/gitlab-org/gitlab/-/tree/master/app/finders),
-which are classes take care of the heavy lifting of looking up
-projects/attachments/ and so on, in the tracking database and main database.
+Geo uses [Finders](https://gitlab.com/gitlab-org/gitlab/-/tree/master/app/finders), which are classes take care of the heavy lifting of looking up projects/attachments/ and so on, in the tracking database and main database.
 
 ## Redis
 
-Redis on the **secondary** site works the same as on the **primary**
-site. It is used for caching, storing sessions, and other persistent
-data.
+Redis on the **secondary** site works the same as on the **primary** site. It is used for caching, storing sessions, and other persistent data.
 
-Redis data replication between **primary** and **secondary** site is
-not used, so sessions and so on, aren't shared between sites.
+Redis data replication between **primary** and **secondary** site is not used, so sessions and so on, aren't shared between sites.
 
 ## Object Storage
 
-GitLab can optionally use Object Storage to store data it would
-otherwise store on disk. For example:
+GitLab can optionally use Object Storage to store data it would otherwise store on disk. For example:
 
 - LFS Objects
 - CI Job Artifacts
@@ -474,14 +417,9 @@ stateDiagram-v2
 
 Repositories are verified with a checksum.
 
-The **primary** site calculates a checksum on the repository. It
-basically hashes all Git refs together and stores that hash in the
-`project_repository_states` table of the database.
+The **primary** site calculates a checksum on the repository. It basically hashes all Git refs together and stores that hash in the `project_repository_states` table of the database.
 
-The **secondary** site does the same to calculate the hash of its
-clone, and compares the hash with the value the **primary** site
-calculated. If there is a mismatch, Geo will mark this as a mismatch
-and the administrator can see this in the [Geo **Admin** area](../administration/geo_sites.md).
+The **secondary** site does the same to calculate the hash of its clone, and compares the hash with the value the **primary** site calculated. If there is a mismatch, Geo will mark this as a mismatch and the administrator can see this in the [Geo **Admin** area](../administration/geo_sites.md).
 
 ## Geo proxying
 
@@ -496,40 +434,29 @@ Geo uses the external [API](geo/api.md) to facilitate communication between vari
 
 ### Primary site
 
-A **primary** site is the single site in a Geo setup that read-write
-capabilities. It's the single source of truth and the Geo
-**secondary** sites replicate their data from there.
+A **primary** site is the single site in a Geo setup that read-write capabilities. It's the single source of truth and the Geo **secondary** sites replicate their data from there.
 
-In a Geo setup, there can only be one **primary** site. All
-**secondary** sites connect to that **primary**.
+In a Geo setup, there can only be one **primary** site. All **secondary** sites connect to that **primary**.
 
 ### Secondary site
 
-A **secondary** site is a read-only replica of the **primary** site
-running in a different geographical location.
+A **secondary** site is a read-only replica of the **primary** site running in a different geographical location.
 
 ### Streaming replication
 
-Geo depends on the streaming replication feature of PostgreSQL. It
-completely replicates the database data and the database schema. The
-database replica is a read-only copy.
+Geo depends on the streaming replication feature of PostgreSQL. It completely replicates the database data and the database schema. The database replica is a read-only copy.
 
-Streaming replication depends on the Write Ahead Logs, or WAL. Those
-logs are copied over to the replica and replayed there.
+Streaming replication depends on the Write Ahead Logs, or WAL. Those logs are copied over to the replica and replayed there.
 
-Since streaming replication also replicates the schema, the database
-migration do not need to run on the secondary sites.
+Since streaming replication also replicates the schema, the database migration do not need to run on the secondary sites.
 
 ### Tracking database
 
-A database on each Geo **secondary** site that keeps state for the site
-on which it resides. Read more in [Using the Tracking database](#using-the-tracking-database).
+A database on each Geo **secondary** site that keeps state for the site on which it resides. Read more in [Using the Tracking database](#using-the-tracking-database).
 
 ## Geo Event Log
 
-The Geo **primary** stores events in the `geo_event_log` table. Each
-entry in the log contains a specific type of event. These type of
-events include:
+The Geo **primary** stores events in the `geo_event_log` table. Each entry in the log contains a specific type of event. These type of events include:
 
 - Repository Deleted event
 - Repository Renamed event
@@ -547,46 +474,30 @@ See [Geo Log Cursor daemon](#geo-log-cursor-daemon).
 
 ### `Gitlab::Geo` utilities
 
-Small utility methods related to Geo go into the
-[`ee/lib/gitlab/geo.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/gitlab/geo.rb)
+Small utility methods related to Geo go into the [`ee/lib/gitlab/geo.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/gitlab/geo.rb)
 file.
 
-Many of these methods are cached using the `RequestStore` class, to
-reduce the performance impact of using the methods throughout the
-codebase.
+Many of these methods are cached using the `RequestStore` class, to reduce the performance impact of using the methods throughout the codebase.
 
 #### Current site
 
-The class method `.current_node` returns the `GeoNode` record for the
-current site.
+The class method `.current_node` returns the `GeoNode` record for the current site.
 
-We use the `host`, `port`, and `relative_url_root` values from
-`gitlab.yml` and search in the database to identify which site we are
-in (see `GeoNode.current_node`).
+We use the `host`, `port`, and `relative_url_root` values from `gitlab.yml` and search in the database to identify which site we are in (see `GeoNode.current_node`).
 
 #### Primary or secondary
 
-To determine whether the current site is a **primary** site or a
-**secondary** site use the `.primary?` and `.secondary?` class
-methods.
+To determine whether the current site is a **primary** site or a **secondary** site use the `.primary?` and `.secondary?` class methods.
 
-It is possible for these methods to both return `false` on a site when
-the site is not enabled. See [Enablement](#enablement).
+It is possible for these methods to both return `false` on a site when the site is not enabled. See [Enablement](#enablement).
 
 #### Geo Database configured?
 
-There is also an additional gotcha when dealing with things that
-happen during initialization time. In a few places, we use the
-`Gitlab::Geo.geo_database_configured?` method to check if the site has
-the tracking database, which only exists on the **secondary**
-site. This overcomes race conditions that could happen during
-bootstrapping of a new site.
+There is also an additional gotcha when dealing with things that happen during initialization time. In a few places, we use the `Gitlab::Geo.geo_database_configured?` method to check if the site has the tracking database, which only exists on the **secondary** site. This overcomes race conditions that could happen during bootstrapping of a new site.
 
 #### Enablement
 
-We consider Geo feature enabled when the user has a valid license with the
-feature included, and they have at least one site defined at the Geo Nodes
-screen.
+We consider Geo feature enabled when the user has a valid license with the feature included, and they have at least one site defined at the Geo Nodes screen.
 
 See `Gitlab::Geo.enabled?` and `Gitlab::Geo.license_allows?` methods.
 
@@ -595,16 +506,11 @@ See `Gitlab::Geo.enabled?` and `Gitlab::Geo.license_allows?` methods.
 All Geo **secondary** sites are read-only.
 
 The general principle of a [read-only database](database/verifying_database_capabilities.md#read-only-database)
-applies to all Geo **secondary** sites. So the
-`Gitlab::Database.read_only?` method will always return `true` on a
-**secondary** site.
+applies to all Geo **secondary** sites. So the `Gitlab::Database.read_only?` method will always return `true` on a **secondary** site.
 
-When some write actions are not allowed because the site is a
-**secondary**, consider adding the `Gitlab::Database.read_only?` or
-`Gitlab::Database.read_write?` guard, instead of `Gitlab::Geo.secondary?`.
+When some write actions are not allowed because the site is a **secondary**, consider adding the `Gitlab::Database.read_only?` or `Gitlab::Database.read_write?` guard, instead of `Gitlab::Geo.secondary?`.
 
-The database itself will already be read-only in a replicated setup,
-so we don't need to take any extra step for that.
+The database itself will already be read-only in a replicated setup, so we don't need to take any extra step for that.
 
 ## Ensuring a new feature has Geo support
 
@@ -625,12 +531,12 @@ This example diagram illustrates GitLab data that is replicated. GitLab environm
 ```mermaid
 ---
 config:
-  layout: elk
+ layout: elk
 ---
 graph TB
-  Users((Users))
+ Users((Users))
 
-  subgraph GitLab Primary Site
+ subgraph GitLab Primary Site
     Gitaly("Gitaly<br>• Git repositories")
     GitLabApp("GitLab Application")
     PostgreSQL("PostgreSQL<br>• Group metadata<br>• Project metadata<br>• OpenBao data")
@@ -648,9 +554,9 @@ graph TB
 
     Registry --> PostgreSQL2
     Registry --> ObjectStorage2
-  end
+ end
 
-  subgraph GitLab Secondary Site
+ subgraph GitLab Secondary Site
     2Gitaly(Gitaly<br>• Git repositories)
     2GitLabApp("GitLab Application")
     2PostgreSQL("PostgreSQL<br>(read-only replica)<br>• Group metadata<br>• Project metadata<br>• OpenBao data")
@@ -670,16 +576,16 @@ graph TB
 
     2Registry --> 2PostgreSQL2
     2Registry --> 2ObjectStorage2
-  end
+ end
 
-  Users --> 2GitLabApp
-  Users --> GitLabApp
-  Users --> Registry
+ Users --> 2GitLabApp
+ Users --> GitLabApp
+ Users --> Registry
 
-  2GitLabApp -.-> |Download files<br>• Managed by Geo SSF<br>• LFS objects<br>• Job artifacts<br>• Attachments<br>• MR diffs| GitLabApp
-  2GitLabApp -.-> |Pull registry tags<br>• Managed by Geo SSF| Registry
-  PostgreSQL -.-> |Streaming replication<br>• Configured by sysadmin| 2PostgreSQL
-  2Gitaly -.-> |Git fetch<br>• Managed by Geo SSF| GitLabApp
+ 2GitLabApp -.-> |Download files<br>• Managed by Geo SSF<br>• LFS objects<br>• Job artifacts<br>• Attachments<br>• MR diffs| GitLabApp
+ 2GitLabApp -.-> |Pull registry tags<br>• Managed by Geo SSF| Registry
+ PostgreSQL -.-> |Streaming replication<br>• Configured by sysadmin| 2PostgreSQL
+ 2Gitaly -.-> |Git fetch<br>• Managed by Geo SSF| GitLabApp
 ```
 
 #### Not-replicated data
@@ -688,9 +594,9 @@ This example diagram illustrates GitLab data that is **not replicated**. GitLab 
 
 ```mermaid
 graph TB
-  Users((Users))
+ Users((Users))
 
-  subgraph GitLab Secondary Site
+ subgraph GitLab Secondary Site
     2GitLabApp("GitLab Application")
     2Redis("Redis<br>• CI job trace chunks<br>• User sessions<br>• Background job queues<br>• Temporary caches")
     2Elasticsearch("Elasticsearch")
@@ -701,9 +607,9 @@ graph TB
     2GitLabApp --> 2Elasticsearch
     2GitLabApp --> 2Clickhouse
     2GitLabApp --> 2Prometheus
-  end
+ end
 
-  subgraph GitLab Primary Site
+ subgraph GitLab Primary Site
     GitLabApp("GitLab Application")
     Redis("Redis<br>• CI job trace chunks<br>• User sessions<br>• Background job queues<br>• Temporary caches")
     Elasticsearch("Elasticsearch")
@@ -716,11 +622,11 @@ graph TB
     GitLabApp --> Clickhouse
     GitLabApp --> IAMService
     GitLabApp --> Prometheus
-  end
+ end
 
-  Users --> 2GitLabApp
-  Users --> GitLabApp
-  Users --> IAMService
+ Users --> 2GitLabApp
+ Users --> GitLabApp
+ Users --> IAMService
 ```
 
 ### Git repositories
@@ -759,8 +665,7 @@ As an example, container registry data does not easily fit into the above catego
 
 ## Self-service framework
 
-If you want to add easy Geo replication of a resource you're working
-on, check out our [self-service framework](geo/framework.md).
+If you want to add easy Geo replication of a resource you're working on, check out our [self-service framework](geo/framework.md).
 
 ## Geo development workflow
 
@@ -774,16 +679,12 @@ After triggering a successful [`e2e:test-on-omnibus-ee`](testing_guide/end_to_en
 1. Select `trigger-omnibus` to view the [Omnibus GitLab Mirror](https://gitlab.com/gitlab-org/build/omnibus-gitlab-mirror) pipeline corresponding to the merge request.
 1. The `GET:Geo` job can be found and triggered under the `trigger-qa` stage.
 
-This pipeline uses [GET](https://gitlab.com/gitlab-org/gitlab-environment-toolkit) to spin up a
-[20 RPS / 1k users](../administration/reference_architectures/1k_users.md) Geo installation,
-and run the [`gitlab-qa`](https://gitlab.com/gitlab-org/gitlab-qa) Geo scenario against the instance.
+This pipeline uses [GET](https://gitlab.com/gitlab-org/gitlab-environment-toolkit) to spin up a [20 RPS / 1k users](../administration/reference_architectures/1k_users.md) Geo installation, and run the [`gitlab-qa`](https://gitlab.com/gitlab-org/gitlab-qa) Geo scenario against the instance.
 When working on Geo features, it is a good idea to ensure the `qa-geo` job passes in a triggered `GET:Geo pipeline`.
 
-The pipelines that control the provisioning and teardown of the instance are included in The GitLab Environment Toolkit Configs
-[Geo subproject](https://gitlab.com/gitlab-org/quality/gitlab-environment-toolkit-configs/Geo).
+The pipelines that control the provisioning and teardown of the instance are included in The GitLab Environment Toolkit Configs [Geo subproject](https://gitlab.com/gitlab-org/quality/gitlab-environment-toolkit-configs/Geo).
 
-When adding new functionality, consider adding new tests to verify the behavior. For steps,
-see the [QA documentation](https://gitlab.com/gitlab-org/gitlab/-/tree/master/qa#writing-tests).
+When adding new functionality, consider adding new tests to verify the behavior. For steps, see the [QA documentation](https://gitlab.com/gitlab-org/gitlab/-/tree/master/qa#writing-tests).
 
 #### Architecture
 
@@ -797,17 +698,17 @@ The pipeline involves the interaction of multiple different projects:
 
 ```mermaid
 flowchart TD;
-  GET:Geo-->getcg
-  Provision-->Terraform
-  Configure-->Ansible
-  Geo-->Ansible
-  QA-->gagq
+ GET:Geo-->getcg
+ Provision-->Terraform
+ Configure-->Ansible
+ Geo-->Ansible
+ QA-->gagq
 
-  subgraph "omnibus-gitlab-mirror"
+ subgraph "omnibus-gitlab-mirror"
     GET:Geo
-  end
+ end
 
-  subgraph getcg [GitLab-environment-toolkit-configs/Geo]
+ subgraph getcg [GitLab-environment-toolkit-configs/Geo]
     direction LR
     Generate-terraform-config-->Provision
     Provision-->Generate-ansible-config
@@ -815,14 +716,14 @@ flowchart TD;
     Configure-->Geo
     Geo-->QA
     QA-->Destroy-geo
-  end
+ end
 
-  subgraph get [GitLab Environment Toolkit]
+ subgraph get [GitLab Environment Toolkit]
     Terraform
     Ansible
-  end
+ end
 
-  subgraph GitLab QA
+ subgraph GitLab QA
      gagq[GitLab QA Geo Scenario]
-  end
+ end
 ```

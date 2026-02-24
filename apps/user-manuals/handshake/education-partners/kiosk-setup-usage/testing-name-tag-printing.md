@@ -25,7 +25,7 @@ The following steps should be completed prior to testing:
 2. Make sure you're familiar with how to launch and manage a check-in kiosk.
 
 - If you're using card swipe to check-in, make sure the correctly formatted card\_id is on the student profile.
-  - - *Check out [How to Enable Card Swipe Check In for Students](https://support.joinhandshake.com/hc/en-us/articles/218693498-How-to-Enable-Card-Swipe-Check-In-for-Students) for more information.*
+ - - *Check out [How to Enable Card Swipe Check In for Students](https://support.joinhandshake.com/hc/en-us/articles/218693498-How-to-Enable-Card-Swipe-Check-In-for-Students) for more information.*
 
 3. If you haven't already done so, run through our [Name Tag Printing Configuration Guide](https://support.joinhandshake.com/hc/en-us/articles/360007656093).
 

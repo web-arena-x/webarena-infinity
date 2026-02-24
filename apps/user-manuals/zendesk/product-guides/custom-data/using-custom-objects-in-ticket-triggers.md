@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/5928347565082-Using-custom
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Enterprise |
 
-Location:  Admin Center > Objects and rules > Business rules > Triggers
+Location: Admin Center > Objects and rules > Business rules > Triggers
 
 Admins can [create](https://support.zendesk.com/hc/en-us/articles/5392409465370) [custom objects](https://support.zendesk.com/hc/en-us/articles/5914453843994) to capture data that doesn't fit into Zendesk's standard objects (tickets, users, and organizations). Then, agents can add that information to Zendesk by creating custom object records. To use custom objects and their records with ticket triggers, a ticket must have a defined lookup relationship field that points to a custom object.
 

@@ -41,7 +41,7 @@ To view their profile, click the blue card, then their hyperlinked name. *Learn 
 The Candidates tab displays a table of candidates added or invited to a schedule with details such as:
 
 - **Student** (name)
-  - *To view the student's profile, click on their name. Their profile will open in a new tab*.
+ - *To view the student's profile, click on their name. Their profile will open in a new tab*.
 - **Major**
 - **School year**
 - **Grad date**

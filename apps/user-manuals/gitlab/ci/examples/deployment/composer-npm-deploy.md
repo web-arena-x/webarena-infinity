@@ -24,21 +24,21 @@ The next step is to install zip/unzip packages and make composer available. Plac
 
 ```yaml
 before_script:
-  - apt-get update
-  - apt-get install zip unzip
-  - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-  - php composer-setup.php
-  - php -r "unlink('composer-setup.php');"
+ - apt-get update
+ - apt-get install zip unzip
+ - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+ - php composer-setup.php
+ - php -r "unlink('composer-setup.php');"
 ```
 
 This ensures all requirements are ready. Next, run `composer install` to fetch all PHP dependencies and `npm install` to load Node.js packages. Then run the `npm` script. Append the commands to the `before_script` section:
 
 ```yaml
 before_script:
-  # ...
-  - php composer.phar install
-  - npm install
-  - npm run deploy
+ # ...
+ - php composer.phar install
+ - npm install
+ - npm run deploy
 ```
 
 In this particular case, the `npm deploy` script is a Gulp script that does the following:
@@ -64,11 +64,11 @@ After you create that variable, make sure that key is added to the Docker contai
 
 ```yaml
 before_script:
-  # - ....
-  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
-  - mkdir -p ~/.ssh
-  - eval $(ssh-agent -s)
-  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+ # - ....
+ - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+ - mkdir -p ~/.ssh
+ - eval $(ssh-agent -s)
+ - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 ```
 
 This script performs the following actions:
@@ -86,12 +86,12 @@ To deploy the `build` folder from the Docker image to your server, create a new 
 
 ```yaml
 stage_deploy:
-  artifacts:
+ artifacts:
     paths:
       - build/
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == "dev"
-  script:
+ script:
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
     - ssh -p22 server_user@server_host "mkdir htdocs/wp-content/themes/_tmp"
     - scp -P22 -r build/* server_user@server_host:htdocs/wp-content/themes/_tmp
@@ -137,13 +137,13 @@ The final `.gitlab-ci.yml` looks like this:
 
 ```yaml
 stage_deploy:
-  image: tetraweb/php
-  artifacts:
+ image: tetraweb/php
+ artifacts:
     paths:
       - build/
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == "dev"
-  before_script:
+ before_script:
     - apt-get update
     - apt-get install zip unzip
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -156,7 +156,7 @@ stage_deploy:
     - mkdir -p ~/.ssh
     - eval $(ssh-agent -s)
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-  script:
+ script:
     - ssh-add <(echo "$STAGING_PRIVATE_KEY")
     - ssh -p22 server_user@server_host "mkdir htdocs/wp-content/themes/_tmp"
     - scp -P22 -r build/* server_user@server_host:htdocs/wp-content/themes/_tmp

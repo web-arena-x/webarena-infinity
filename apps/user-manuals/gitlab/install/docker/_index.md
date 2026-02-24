@@ -12,8 +12,7 @@ title: Install GitLab in a Docker container
 
 {{< /details >}}
 
-To run GitLab in a Docker container, use a GitLab image, which contains all of the
-necessary services in a single container.
+To run GitLab in a Docker container, use a GitLab image, which contains all of the necessary services in a single container.
 
 Find the GitLab official Docker images at:
 

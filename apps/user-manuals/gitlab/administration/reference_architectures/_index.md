@@ -43,8 +43,7 @@ The right architecture size depends primarily on your environment's expected pea
 
 Each architecture is designed to handle specific RPS targets for different types of requests (API, Web, Git). These details are described in the "Testing Methodology" section on each page.
 
-For comprehensive RPS analysis and data-driven sizing decisions, see [reference architecture sizing](sizing.md), which
-provides:
+For comprehensive RPS analysis and data-driven sizing decisions, see [reference architecture sizing](sizing.md), which provides:
 
 - Detailed PromQL queries for extracting peak and sustained RPS metrics.
 - Workload pattern analysis to identify component-specific adjustments.
@@ -54,12 +53,12 @@ For quick RPS estimation, some potential options include:
 
 - [Prometheus](../monitoring/prometheus/_index.md#sample-prometheus-queries) queries, such as:
 
-  ```prometheus
-  sum(irate(gitlab_transaction_duration_seconds_count{controller!~'HealthController|MetricsController'}[1m])) by (controller, action)
-  ```
+ ```prometheus
+ sum(irate(gitlab_transaction_duration_seconds_count{controller!~'HealthController|MetricsController'}[1m])) by (controller, action)
+ ```
 
 - [`get-rps` script](https://gitlab.com/gitlab-com/support/toolbox/dotfiles/-/blob/main/scripts/get-rps.rb?ref_type=heads)
-  from GitLab support.
+ from GitLab support.
 - Other monitoring solutions.
 - Load balancer statistics.
 
@@ -93,13 +92,13 @@ Before you select an initial architecture, review this section thoroughly. Consi
 
 The following is the list of Linux package based reference architectures:
 
-| Size                     | Users  | API RPS | Web RPS | Git (Pull) RPS | Git (Push) RPS |
+| Size                     | Users | API RPS | Web RPS | Git (Pull) RPS | Git (Push) RPS |
 |--------------------------|--------|---------|---------|----------------|----------------|
-| [X Small](1k_users.md)   | 1,000  | 20      | 2       | 2              | 1              |
-| [Small](2k_users.md)     | 2,000  | 40      | 4       | 4              | 1              |
-| [Medium](3k_users.md)    | 3,000  | 60      | 6       | 6              | 1              |
-| [Large](5k_users.md)     | 5,000  | 100     | 10      | 10             | 2              |
-| [X Large](10k_users.md)  | 10,000 | 200     | 20      | 20             | 4              |
+| [X Small](1k_users.md)   | 1,000 | 20      | 2       | 2              | 1              |
+| [Small](2k_users.md)     | 2,000 | 40      | 4       | 4              | 1              |
+| [Medium](3k_users.md)    | 3,000 | 60      | 6       | 6              | 1              |
+| [Large](5k_users.md)     | 5,000 | 100     | 10      | 10             | 2              |
+| [X Large](10k_users.md) | 10,000 | 200     | 20      | 20             | 4              |
 | [2X Large](25k_users.md) | 25,000 | 500     | 50      | 50             | 10             |
 | [3X Large](50k_users.md) | 50,000 | 1000    | 100     | 100            | 20             |
 
@@ -107,12 +106,12 @@ The following is the list of Linux package based reference architectures:
 
 The following is a list of Cloud Native Hybrid reference architectures, where select recommended components can be run in Kubernetes:
 
-| Size                                                                                             | Users  | API RPS | Web RPS | Git (Pull) RPS | Git (Push) RPS |
+| Size                                                                                             | Users | API RPS | Web RPS | Git (Pull) RPS | Git (Push) RPS |
 |--------------------------------------------------------------------------------------------------|--------|---------|---------|----------------|----------------|
-| [Small](2k_users.md#cloud-native-hybrid-reference-architecture-with-helm-charts-alternative)     | 2,000  | 40      | 4       | 4              | 1              |
-| [Medium](3k_users.md#cloud-native-hybrid-reference-architecture-with-helm-charts-alternative)    | 3,000  | 60      | 6       | 6              | 1              |
-| [Large](5k_users.md#cloud-native-hybrid-reference-architecture-with-helm-charts-alternative)     | 5,000  | 100     | 10      | 10             | 2              |
-| [X Large](10k_users.md#cloud-native-hybrid-reference-architecture-with-helm-charts-alternative)  | 10,000 | 200     | 20      | 20             | 4              |
+| [Small](2k_users.md#cloud-native-hybrid-reference-architecture-with-helm-charts-alternative)     | 2,000 | 40      | 4       | 4              | 1              |
+| [Medium](3k_users.md#cloud-native-hybrid-reference-architecture-with-helm-charts-alternative)    | 3,000 | 60      | 6       | 6              | 1              |
+| [Large](5k_users.md#cloud-native-hybrid-reference-architecture-with-helm-charts-alternative)     | 5,000 | 100     | 10      | 10             | 2              |
+| [X Large](10k_users.md#cloud-native-hybrid-reference-architecture-with-helm-charts-alternative) | 10,000 | 200     | 20      | 20             | 4              |
 | [2X Large](25k_users.md#cloud-native-hybrid-reference-architecture-with-helm-charts-alternative) | 25,000 | 500     | 50      | 50             | 10             |
 | [3X Large](50k_users.md#cloud-native-hybrid-reference-architecture-with-helm-charts-alternative) | 50,000 | 1000    | 100     | 100            | 20             |
 
@@ -165,8 +164,7 @@ In most cases, the downtime required for doing an upgrade shouldn't be substanti
 
 ### Cloud Native Hybrid (Kubernetes HA)
 
-As an additional layer of HA resilience, you can deploy select components in Kubernetes, known as a Cloud Native Hybrid reference architecture. For stability
-reasons, stateful components such as Gitaly [cannot be deployed in Kubernetes](#stateful-components-in-kubernetes).
+As an additional layer of HA resilience, you can deploy select components in Kubernetes, known as a Cloud Native Hybrid reference architecture. For stability reasons, stateful components such as Gitaly [cannot be deployed in Kubernetes](#stateful-components-in-kubernetes).
 
 {{< alert type="note" >}}
 
@@ -177,9 +175,7 @@ Running services in Kubernetes is complex. Use this setup only if you have stron
 
 ### GitLab Geo (Cross Regional Distribution / Disaster Recovery)
 
-With [GitLab Geo](../geo/_index.md), you can achieve distributed environments in
-different regions with a full Disaster Recovery (DR) setup in place. GitLab Geo
-requires at least two separate environments:
+With [GitLab Geo](../geo/_index.md), you can achieve distributed environments in different regions with a full Disaster Recovery (DR) setup in place. GitLab Geo requires at least two separate environments:
 
 - One primary site.
 - One or more secondary sites that serve as replicas.
@@ -188,10 +184,7 @@ If the primary site becomes unavailable, you can fail over to one of the seconda
 
 {{< alert type="note" >}}
 
-Use this **advanced and complex** setup only if DR is
-a key requirement for your environment. You must also make additional decisions
-on how each site is configured. For example, if each secondary site would be the
-same architecture as the primary or if each site is configured for HA.
+Use this **advanced and complex** setup only if DR is a key requirement for your environment. You must also make additional decisions on how each site is configured. For example, if each secondary site would be the same architecture as the primary or if each site is configured for HA.
 
 {{< /alert >}}
 
@@ -301,8 +294,7 @@ Other disk types are expected to work with GitLab. Choose based on your requirem
 
 ### Supported infrastructure
 
-GitLab should run on most infrastructures such as reputable cloud providers (AWS, GCP, Azure) and
-their services, or self-managed (ESXi) that meet both:
+GitLab should run on most infrastructures such as reputable cloud providers (AWS, GCP, Azure) and their services, or self-managed (ESXi) that meet both:
 
 - The specifications detailed in each architecture.
 - Any requirements in this section.
@@ -355,20 +347,16 @@ If this applies to you, we strongly recommend you follow the linked documentatio
 
 {{< /alert >}}
 
-Large monorepos come with notable cost. If you have such a repository,
-follow these guidance to ensure good performance and to keep costs in check:
+Large monorepos come with notable cost. If you have such a repository, follow these guidance to ensure good performance and to keep costs in check:
 
-- [Optimize the large monorepo](../../user/project/repository/monorepos/_index.md). Using features such as
-  [LFS](../../user/project/repository/monorepos/_index.md#use-git-lfs-for-large-binary-files) to not store binaries, and other approaches for reducing repository size, can
-  dramatically improve performance and reduce costs.
+- [Optimize the large monorepo](../../user/project/repository/monorepos/_index.md). Using features such as [LFS](../../user/project/repository/monorepos/_index.md#use-git-lfs-for-large-binary-files) to not store binaries, and other approaches for reducing repository size, can dramatically improve performance and reduce costs.
 - Depending on the monorepo, increased environment specifications may be required to compensate. Gitaly might require additional resources along with Praefect, GitLab Rails, and Load Balancers. This depends on the monorepo itself and its usage.
 - When the monorepo is significantly large (20 gigabytes or more), further additional strategies may be required such as even further increased specifications or in some cases, a separate Gitaly backend for the monorepo alone.
 - Network and disk bandwidth is another potential consideration with large monorepos. In very heavy cases, bandwidth saturation is possible if there's a high amount of concurrent clones (such as with CI). [Reduce full clones wherever possible](../../user/project/repository/monorepos/_index.md#reduce-concurrent-clones-in-cicd) in this scenario. Otherwise, additional environment specifications may be required to increase bandwidth. This differs based on cloud providers.
 
 ### Additional workloads
 
-These architectures have been [designed and tested](#validation-and-test-results) for standard GitLab
-setups based on real data.
+These architectures have been [designed and tested](#validation-and-test-results) for standard GitLab setups based on real data.
 
 However, additional workloads can multiply the impact of operations by triggering follow-up actions.
 You might have to adjust the suggested specifications to compensate if you use:
@@ -380,8 +368,7 @@ You might have to adjust the suggested specifications to compensate if you use:
 - [Server hooks](../server_hooks.md).
 - [System hooks](../system_hooks.md).
 
-Generally, you should have robust monitoring in place to measure the impact of any additional workloads to
-inform any changes needed to be made. Reach out to your GitLab representative or our [Support team](https://about.gitlab.com/support/)
+Generally, you should have robust monitoring in place to measure the impact of any additional workloads to inform any changes needed to be made. Reach out to your GitLab representative or our [Support team](https://about.gitlab.com/support/)
 for further guidance.
 
 ### Load Balancers
@@ -391,8 +378,7 @@ The architectures make use of up to two load balancers depending on the class:
 - External load balancer - Serves traffic to any external facing components, primarily Rails.
 - Internal load balancer - Serves traffic to select internal components that are deployed in an HA fashion such as Praefect or PgBouncer.
 
-The specifics on which load balancer to use, or its exact configuration is beyond the scope of GitLab documentation. The most common options
-are to set up load balancers on machine nodes or to use a service such as one offered by cloud providers. If deploying a Cloud Native Hybrid environment, the charts can handle the external load balancer setup by using Kubernetes Ingress.
+The specifics on which load balancer to use, or its exact configuration is beyond the scope of GitLab documentation. The most common options are to set up load balancers on machine nodes or to use a service such as one offered by cloud providers. If deploying a Cloud Native Hybrid environment, the charts can handle the external load balancer setup by using Kubernetes Ingress.
 
 Each architecture class includes a recommended base machine size to deploy directly on machines. However, they may need adjustment based on factors such as the chosen load balancer and expected workload. Of note machines can have varying [network bandwidth](#network-bandwidth) that should also be taken into consideration.
 
@@ -412,15 +398,13 @@ The required network bandwidth for your load balancers depends on factors such a
 
 ### No swap
 
-Swap is not recommended in the reference architectures. It's a failsafe that impacts performance greatly. The
-architectures are designed to have enough memory in most cases to avoid the need for swap.
+Swap is not recommended in the reference architectures. It's a failsafe that impacts performance greatly. The architectures are designed to have enough memory in most cases to avoid the need for swap.
 
 ### Praefect PostgreSQL
 
 [Praefect requires its own database server](../gitaly/praefect/configure.md#postgresql). To achieve full HA, a third-party PostgreSQL database solution is required.
 
-We hope to offer a built-in solution for these restrictions in the future. In the meantime, a non-HA PostgreSQL server
-can be set up using the Linux package as the specifications reflect. For more details, see the following issues:
+We hope to offer a built-in solution for these restrictions in the future. In the meantime, a non-HA PostgreSQL server can be set up using the Linux package as the specifications reflect. For more details, see the following issues:
 
 - [`omnibus-gitlab#7292`](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues/7292).
 - [`gitaly#3398`](https://gitlab.com/gitlab-org/gitaly/-/issues/3398).
@@ -429,24 +413,22 @@ can be set up using the Linux package as the specifications reflect. For more de
 
 {{< alert type="note" >}}
 
-The following lists are non-exhaustive. Other cloud providers not listed
-here may work with the same specifications, but they have not been validated.
-For the cloud provider services not listed here,
-use caution because each implementation can be notably different.
+The following lists are non-exhaustive. Other cloud providers not listed here may work with the same specifications, but they have not been validated.
+For the cloud provider services not listed here, use caution because each implementation can be notably different.
 Test thoroughly before using them in production.
 
 {{< /alert >}}
 
 The following architectures are recommended for the following cloud providers based on testing and real life usage:
 
-| Reference Architecture | GCP         | AWS         | Azure                    | Bare Metal  |
+| Reference Architecture | GCP         | AWS         | Azure                    | Bare Metal |
 |------------------------|-------------|-------------|--------------------------|-------------|
 | Linux package          | {{< Yes >}} | {{< Yes >}} | {{< Yes >}} <sup>1</sup> | {{< Yes >}} |
 | Cloud Native Hybrid    | {{< Yes >}} | {{< Yes >}} |                          |             |
 
 Additionally, the following cloud provider services are recommended for use as part of the architectures:
 
-| Cloud Service  | GCP                                                    | AWS                                                | Azure                                                                                                   | Bare Metal               |
+| Cloud Service | GCP                                                    | AWS                                                | Azure                                                                                                   | Bare Metal               |
 |----------------|--------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------------------------------------------|--------------------------|
 | Object Storage | [Cloud Storage](https://cloud.google.com/storage)      | [S3](https://aws.amazon.com/s3/)                   | [Azure Blob Storage](https://azure.microsoft.com/en-gb/products/storage/blobs)                          | [MinIO](https://min.io/) |
 | Database       | [Cloud SQL](https://cloud.google.com/sql) <sup>2</sup> | [RDS](https://aws.amazon.com/rds/)                 | [Azure Database for PostgreSQL Flexible Server](https://azure.microsoft.com/en-gb/products/postgresql/) |                          |
@@ -455,15 +437,13 @@ Additionally, the following cloud provider services are recommended for use as p
 <!-- Disable ordered list rule https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md029---ordered-list-item-prefix -->
 <!-- markdownlint-disable MD029 -->
 1. To ensure good performance, deploy the [Premium tier of Azure Cache for Redis](https://learn.microsoft.com/en-us/azure/azure-cache-for-redis/cache-overview#service-tiers).
-2. For optimal performance, especially in larger environments (500 RPS / 25k users or higher),
-   use the [Enterprise Plus edition](https://cloud.google.com/sql/docs/editions-intro) for GCP Cloud SQL.
+2. For optimal performance, especially in larger environments (500 RPS / 25k users or higher), use the [Enterprise Plus edition](https://cloud.google.com/sql/docs/editions-intro) for GCP Cloud SQL.
    You might have to adjust the maximum connections higher than the service's defaults, depending on your workload.
 <!-- markdownlint-enable MD029 -->
 
 ### Best practices for the database services
 
-Instead of the Linux package-bundled PostgreSQL, PgBouncer, and Consul service discovery components, you can use a
-[third-party external service for PostgreSQL](../postgresql/external.md).
+Instead of the Linux package-bundled PostgreSQL, PgBouncer, and Consul service discovery components, you can use a [third-party external service for PostgreSQL](../postgresql/external.md).
 
 Use a reputable provider that runs a [supported PostgreSQL version](../../install/requirements.md#postgresql). These services are known to work well:
 
@@ -472,13 +452,10 @@ Use a reputable provider that runs a [supported PostgreSQL version](../../instal
 
 Consider the following when using external database services:
 
-- For optimal performance, enable [database load balancing](../postgresql/database_load_balancing.md) with read replicas. Match the node counts to those used in standard
-  Linux package deployments. This approach is particularly important for larger environments (more than 200 requests per second or 10,000+ users).
+- For optimal performance, enable [database load balancing](../postgresql/database_load_balancing.md) with read replicas. Match the node counts to those used in standard Linux package deployments. This approach is particularly important for larger environments (more than 200 requests per second or 10,000+ users).
 - Database connection poolers are not required because options vary per service. You might need to adjust connection count configuration depending on your environment size.
-  If pooling is desired, explore third-party options because the GitLab-bundled PgBouncer only works with the bundled PostgreSQL.
-  [Database Load Balancing](../postgresql/database_load_balancing.md) can also spread load accordingly. Ensure any cloud provider pooler can handle total load without
-  bottlenecks. For example, Azure Database for PostgreSQL flexible server can optionally deploy PgBouncer, but because PgBouncer is single-threaded, it might bottleneck under
-  heavy load. Use database load balancing across multiple nodes to mitigate this.
+ If pooling is desired, explore third-party options because the GitLab-bundled PgBouncer only works with the bundled PostgreSQL.
+ [Database Load Balancing](../postgresql/database_load_balancing.md) can also spread load accordingly. Ensure any cloud provider pooler can handle total load without bottlenecks. For example, Azure Database for PostgreSQL flexible server can optionally deploy PgBouncer, but because PgBouncer is single-threaded, it might bottleneck under heavy load. Use database load balancing across multiple nodes to mitigate this.
 - High availability node requirements might vary by service and differ from Linux package installations.
 - For [GitLab Geo](../geo/_index.md), ensure the service supports cross-region replication.
 
@@ -488,7 +465,7 @@ The following database cloud provider services are not recommended due to lack o
 
 - [Amazon Aurora](https://aws.amazon.com/rds/aurora/) is incompatible and not supported. For more details, see [14.4.0](https://archives.docs.gitlab.com/17.3/ee/update/versions/gitlab_14_changes/#1440).
 - [Google AlloyDB](https://cloud.google.com/alloydb) and [Amazon RDS Multi-AZ DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) are not tested and are not recommended. Both solutions are not expected to work with GitLab Geo.
-  - [Amazon RDS Multi-AZ DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.html) is a separate product and is supported.
+ - [Amazon RDS Multi-AZ DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.MultiAZSingleStandby.html) is a separate product and is supported.
 
 ### Best practices for Redis services
 
@@ -514,16 +491,9 @@ Use a reputable solution that has full S3 compatibility.
 
 ## Deviating from the suggested reference architectures
 
-The further away you move from the reference architectures,
-the harder it is to get support. With each deviation, you introduce
-a layer of complexity that complicates troubleshooting potential
-issues.
+The further away you move from the reference architectures, the harder it is to get support. With each deviation, you introduce a layer of complexity that complicates troubleshooting potential issues.
 
-These architectures use the official Linux packages or [Helm Charts](https://docs.gitlab.com/charts/) to
-install and configure the various components. The components are
-installed on separate machines (virtualized or Bare Metal). Machine hardware
-requirements listed in the "Configuration" columns on specific reference architecture pages. Equivalent VM standard sizes are listed
-in the GCP/AWS/Azure columns of each [available architecture](#available-reference-architectures).
+These architectures use the official Linux packages or [Helm Charts](https://docs.gitlab.com/charts/) to install and configure the various components. The components are installed on separate machines (virtualized or Bare Metal). Machine hardware requirements listed in the "Configuration" columns on specific reference architecture pages. Equivalent VM standard sizes are listed in the GCP/AWS/Azure columns of each [available architecture](#available-reference-architectures).
 
 You can run GitLab components on Docker, including Docker Compose. Docker is well supported and provides consistent specifications across environments.
 However, it is still an additional layer and might add some support complexities. For example, not being able to run `strace` in containers.
@@ -542,13 +512,11 @@ Individual Gitaly nodes can be deployed on Kubernetes in [limited availability](
 
 #### Autoscaling of stateful nodes
 
-As a general guidance, only stateless components of GitLab can be run in autoscaling groups, namely GitLab Rails
-and Sidekiq. Other components that have state, such as Gitaly, are not supported in this fashion. For more information, see [issue 2997](https://gitlab.com/gitlab-org/gitaly/-/issues/2997).
+As a general guidance, only stateless components of GitLab can be run in autoscaling groups, namely GitLab Rails and Sidekiq. Other components that have state, such as Gitaly, are not supported in this fashion. For more information, see [issue 2997](https://gitlab.com/gitlab-org/gitaly/-/issues/2997).
 
 This applies to stateful components such as Postgres and Redis. You can use other supported cloud provider services, unless specifically called out as unsupported.
 
-[Cloud Native Hybrid setups](#cloud-native-hybrid) are generally preferred over autoscaling groups. Kubernetes better handles components that can only run on one node,
-such as database migrations and [Mailroom](../incoming_email.md).
+[Cloud Native Hybrid setups](#cloud-native-hybrid) are generally preferred over autoscaling groups. Kubernetes better handles components that can only run on one node, such as database migrations and [Mailroom](../incoming_email.md).
 
 #### Deploying one environment over multiple regions
 
@@ -562,9 +530,7 @@ For deploying GitLab over multiple data centers or regions, we offer [GitLab Geo
 
 ## Validation and test results
 
-GitLab
-does regular smoke and performance tests for these architectures to ensure they
-remain compliant.
+GitLab does regular smoke and performance tests for these architectures to ensure they remain compliant.
 
 ### How we perform the tests
 
@@ -637,14 +603,13 @@ The architectures have been designed to have elasticity to accommodate an upstre
 The following components can impact others when they have been significantly scaled:
 
 - Puma and Sidekiq - Notable scale ups of either Puma or Sidekiq workers will result in higher concurrent connections to the internal load balancer, PostgreSQL (via PgBouncer if present), Gitaly (via Praefect if present) and Redis.
-  - Redis is primarily single-threaded. In some cases, you might have to split Redis into separate instances (for example, cache and persistent) if the increased throughput causes CPU exhaustion in a combined cluster.
-  - PgBouncer is also single threaded but a scale out might result in a new pool being added that in turn might increase the total connections to Postgres. It's strongly recommended to only do this if you have experience in managing Postgres connections and to seek assistance if in doubt.
+ - Redis is primarily single-threaded. In some cases, you might have to split Redis into separate instances (for example, cache and persistent) if the increased throughput causes CPU exhaustion in a combined cluster.
+ - PgBouncer is also single threaded but a scale out might result in a new pool being added that in turn might increase the total connections to Postgres. It's strongly recommended to only do this if you have experience in managing Postgres connections and to seek assistance if in doubt.
 - Gitaly Cluster (Praefect)/PostgreSQL - A notable scale out of additional nodes can have a detrimental effect on the HA system and performance due to increased replication calls to the primary node.
 
 #### Scaling from a non-HA to an HA architecture
 
-In most cases, vertical scaling is only required to increase an environment's resources. However, if you are moving to an HA environment,
-additional steps are required for the following components to switch over to their HA forms.
+In most cases, vertical scaling is only required to increase an environment's resources. However, if you are moving to an HA environment, additional steps are required for the following components to switch over to their HA forms.
 
 For more information, see the following documentation:
 
@@ -654,8 +619,7 @@ For more information, see the following documentation:
 
 ### Upgrades
 
-Upgrading a reference architecture environment is the same as any other GitLab environment. For more information, see
-[upgrade GitLab](../../update/_index.md). [Zero-downtime upgrades](#zero-downtime-upgrades) are also available.
+Upgrading a reference architecture environment is the same as any other GitLab environment. For more information, see [upgrade GitLab](../../update/_index.md). [Zero-downtime upgrades](#zero-downtime-upgrades) are also available.
 
 {{< alert type="note" >}}
 

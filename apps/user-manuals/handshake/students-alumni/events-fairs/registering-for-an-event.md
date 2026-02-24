@@ -39,7 +39,7 @@ If the event is hosted virtually and your profile is set to Private or Employers
 *For more information on privacy settings, please refer to [Profile Privacy Options in Handshake](https://support.joinhandshake.com/hc/en-us/articles/115007281988).*
 
 - **Join Waitlist**: click this to join the fair waitlist. A waitlist indicates the school has set a limit for the number of students that can attend, and this number has been met.
-  - If you have joined the waitlist and space becomes available, you'll receive an email confirmation when you are registered for the fair successfully.
+ - If you have joined the waitlist and space becomes available, you'll receive an email confirmation when you are registered for the fair successfully.
 
 **Note**: some employers may choose to have you register outside of Handshake — if this is the case, the blue button **Register** will include an icon with a square and an arrow, which indicates that you're being directed to an external registration link.
 
@@ -89,8 +89,7 @@ To add this event and others in Handshake to your calendar, import the following
 
 *calendar url*
 
-Thank you,  
-*EVENT HOST NAME*
+Thank you, *EVENT HOST NAME*
 
 Email example:
 

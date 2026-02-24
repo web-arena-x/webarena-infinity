@@ -21,27 +21,27 @@ If you've recently requested an experience and need to edit the details, you can
 4. The following information can be updated on your experience:
 
 - **Details**
-  - Term
+ - Term
 - **Employer**
-  - Employer
-  - Location
-  - Industry
-  - Employer Phone Number
-  - Employer Email Address
+ - Employer
+ - Location
+ - Industry
+ - Employer Phone Number
+ - Employer Email Address
 - **Job**
-  - Job
-  - Department
-  - Date
-  - Job Type
-  - Employment Type
-  - Salary
-  - Pay Period
-  - Offer Date
-  - Offer Accepted
-  - Add Experience to profile?
-  - Date Offer Accepted
+ - Job
+ - Department
+ - Date
+ - Job Type
+ - Employment Type
+ - Salary
+ - Pay Period
+ - Offer Date
+ - Offer Accepted
+ - Add Experience to profile?
+ - Date Offer Accepted
 - **General**
-  - Survey questions included on the request
+ - Survey questions included on the request
 
 ![Edit_Experience_Image.png](https://support.joinhandshake.com/hc/article_attachments/25998878067607)
 

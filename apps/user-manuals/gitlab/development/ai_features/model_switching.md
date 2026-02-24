@@ -10,7 +10,7 @@ The Model Switching Framework in the GitLab AI Gateway allows customers to choos
 This feature is available for GitLab SaaS and self-managed instances using the cloud-connected AI Gateway.
 
 - On GitLab SaaS, this feature is available at the namespace level, allowing groups to choose between different models for their namespace.
-  - If the namespace has not decided to "pin" a model, the default model will be used. This will also allow users to change the model themselves for specific features, like Agentic chat. This feature is termed as "User model selection".
+ - If the namespace has not decided to "pin" a model, the default model will be used. This will also allow users to change the model themselves for specific features, like Agentic chat. This feature is termed as "User model selection".
 - On self-managed instances using the cloud-connected AI Gateway, this feature is available at the instance level.
 
 This guide explains how to add new models to make them selectable by users on both SaaS and self-managed instances.
@@ -51,7 +51,7 @@ Add your model definition to `ai_gateway/model_selection/models.yml`. Each model
 ```yaml
 # ai_gateway/model_selection/models.yml
 models:
-  - name: "OpenAI GPT-5-Mini"
+ - name: "OpenAI GPT-5-Mini"
     gitlab_identifier: "gpt_5_mini"
     family:
       - gpt_5
@@ -87,7 +87,7 @@ After defining the model, add it to the appropriate feature's `selectable_models
 ```yaml
 # ai_gateway/model_selection/unit_primitives.yml
 configurable_unit_primitives:
-  - feature_setting: "duo_agent_platform"
+ - feature_setting: "duo_agent_platform"
     unit_primitives:
       - "duo_agent_platform"
     default_model: "claude_sonnet_4_20250514"

@@ -1,4 +1,4 @@
-# Allow  Users To Delete Published Markups - Procore
+# Allow Users To Delete Published Markups - Procore
 
 Source: https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/allow-users-to-delete-published-markups
 
@@ -15,15 +15,15 @@ By default, users with 'Standard' level permissions do not have the ability to d
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' on the project's Drawings tool.
+ - 'Admin' on the project's Drawings tool.
 - **Additional Information**:
-  - After the setting is enabled, users with 'Standard' level permission will be able to delete ANY published markups for drawings in the project (whether they created them or not).
+ - After the setting is enabled, users with 'Standard' level permission will be able to delete ANY published markups for drawings in the project (whether they created them or not).
 
 ## Steps
 
 1. Navigate to the project's **Drawings** tool.
 2. Click the **Configure settings** ****![icons-settings-gear.png](https://support.procore.com/@api/deki/files/89566/icons-settings-gear.png?revision=2&size=bestfit&width=15&height=15)**** icon.
-3. Mark the checkbox next to 'Allow standard level users to delete published markup'.  
+3. Mark the checkbox next to 'Allow standard level users to delete published markup'. 
      
    ![allow-standard2015-07-10_14-36-06.png](https://support.procore.com/@api/deki/files/2930/allow-standard2015-07-10_14-36-06.png?revision=1&size=bestfit&width=700&height=227)
 4. Click **Update**.

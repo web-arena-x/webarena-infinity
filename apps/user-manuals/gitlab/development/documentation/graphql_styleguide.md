@@ -6,25 +6,17 @@ description: Writing styles, markup, formatting, and other standards for GraphQL
 title: Creating a GraphQL example page
 ---
 
-GraphQL APIs are different from [RESTful APIs](restful_api_styleguide.md). Reference
-information is generated in our [GraphQL API resources](../../api/graphql/reference/_index.md) page.
+GraphQL APIs are different from [RESTful APIs](restful_api_styleguide.md). Reference information is generated in our [GraphQL API resources](../../api/graphql/reference/_index.md) page.
 
-However, it's helpful to include examples for how to use GraphQL for different
-use cases, with samples that readers can use directly in the GraphQL explorer, called
-[GraphiQL](../api_graphql_styleguide.md#graphiql).
+However, it's helpful to include examples for how to use GraphQL for different use cases, with samples that readers can use directly in the GraphQL explorer, called [GraphiQL](../api_graphql_styleguide.md#graphiql).
 
-This section describes the steps required to add your GraphQL examples to
-GitLab documentation.
+This section describes the steps required to add your GraphQL examples to GitLab documentation.
 
-For information about adding a resource to the
-[GraphQL API resources](../../api/graphql/reference/_index.md) page,
-see the [description style guide](../api_graphql_styleguide.md#description-style-guide).
+For information about adding a resource to the [GraphQL API resources](../../api/graphql/reference/_index.md) page, see the [description style guide](../api_graphql_styleguide.md#description-style-guide).
 
 ## Add a dedicated GraphQL page
 
-To create a dedicated GraphQL page, create a new `.md` file in the
-`doc/api/graphql/` directory. Give the file a functional name, like
-`import_from_specific_location.md`.
+To create a dedicated GraphQL page, create a new `.md` file in the `doc/api/graphql/` directory. Give the file a functional name, like `import_from_specific_location.md`.
 
 ## Add metadata
 
@@ -50,8 +42,7 @@ For help editing this content for your use case, ask a technical writer.
 
 ## Add content
 
-Now add the body text. You can use this content as a starting point
-and replace the text with your own information.
+Now add the body text. You can use this content as a starting point and replace the text with your own information.
 
 ```markdown
 You can query for branch rules in a given project by using:
@@ -79,20 +70,12 @@ You can use GraphiQL to list the branch rules for a project.
 
 ## Add the GraphQL example to the global navigation
 
-Include a link to your new document in the global navigation (the list on the
-left side of the documentation website). To do so, open a second MR, against the
-[GitLab documentation repository](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/).
+Include a link to your new document in the global navigation (the list on the left side of the documentation website). To do so, open a second MR, against the [GitLab documentation repository](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/).
 
-The global navigation is set in the
-[`navigation.yaml`](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/data/en-us/navigation.yaml) file,
-in the `content/data/en-us` subdirectory. You can find the GraphQL section under the
-following line:
+The global navigation is set in the [`navigation.yaml`](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/data/en-us/navigation.yaml) file, in the `content/data/en-us` subdirectory. You can find the GraphQL section under the following line:
 
 ```yaml
 - title: GraphQL
 ```
 
-Be aware that CI tests for that second MR will fail with a bad link until the
-main MR that adds the new GraphQL page is merged. Therefore, only merge the MR against the
-[`docs-gitlab-com`](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/) repository after the content has
-been merged and live on `docs.gitlab.com`.
+Be aware that CI tests for that second MR will fail with a bad link until the main MR that adds the new GraphQL page is merged. Therefore, only merge the MR against the [`docs-gitlab-com`](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/) repository after the content has been merged and live on `docs.gitlab.com`.

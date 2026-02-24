@@ -6,8 +6,7 @@ description: Analyze security vulnerabilities and prioritize fixes based on busi
 title: Analyze security vulnerabilities and prioritize fixes
 ---
 
-Follow these guidelines when you need to evaluate multiple security vulnerabilities
-and determine which ones require immediate attention.
+Follow these guidelines when you need to evaluate multiple security vulnerabilities and determine which ones require immediate attention.
 
 - Time estimate: 15-25 minutes
 - Level: Intermediate
@@ -15,13 +14,11 @@ and determine which ones require immediate attention.
 
 ## The challenge
 
-Security scans often generate numerous vulnerability alerts, making it difficult
-to identify false positives and determine which issues pose the greatest business risk.
+Security scans often generate numerous vulnerability alerts, making it difficult to identify false positives and determine which issues pose the greatest business risk.
 
 ## The approach
 
-Analyze vulnerabilities, assess business impact, and create prioritized remediation plans
-by using GitLab Duo Chat, Vulnerability Explanation, and Vulnerability Resolution.
+Analyze vulnerabilities, assess business impact, and create prioritized remediation plans by using GitLab Duo Chat, Vulnerability Explanation, and Vulnerability Resolution.
 
 ### Step 1: Explain vulnerabilities
 

@@ -7,22 +7,15 @@ title: Arkose Protect
 
 {{< alert type="warning" >}}
 
-Arkose Protect is used on GitLab.com and is not supported for GitLab Self-Managed
-instances. The following documents the internal requirements for maintaining
-Arkose Protect on GitLab.com. While this feature is theoretically usable in GitLab Self-Managed instances, it
-is not recommended at the moment.
+Arkose Protect is used on GitLab.com and is not supported for GitLab Self-Managed instances. The following documents the internal requirements for maintaining Arkose Protect on GitLab.com. While this feature is theoretically usable in GitLab Self-Managed instances, it is not recommended at the moment.
 
 {{< /alert >}}
 
-GitLab integrates [Arkose Protect](https://www.arkoselabs.com/platform/) to guard against
-malicious users from creating accounts.
+GitLab integrates [Arkose Protect](https://www.arkoselabs.com/platform/) to guard against malicious users from creating accounts.
 
 ## How does it work?
 
-If Arkose Protect determines that the user is suspicious, it presents an interactive challenge below
-the `Sign in` button. The challenge needs to be completed to proceed with the sign-in
-attempt. If Arkose Protect trusts the user, the challenge runs in transparent mode, meaning that the
-user doesn't need to take any additional action and can sign in as usual.
+If Arkose Protect determines that the user is suspicious, it presents an interactive challenge below the `Sign in` button. The challenge needs to be completed to proceed with the sign-in attempt. If Arkose Protect trusts the user, the challenge runs in transparent mode, meaning that the user doesn't need to take any additional action and can sign in as usual.
 
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
@@ -94,13 +87,10 @@ You can triage and debug issues raised by ArkoseLabs with:
 
 ### Analysing Arkose Labs dashboard
 
-- GitLab regularly sends session data to the Arkose team, which is used to apply custom
-  telltales to prevent malicious users from signing up.
-- When functioning normally, less than 10% of users should be classified as `high` risk
-  and over 90% of sessions should be verified.
-- If the percentage of `high` risk users or verified sessions is significantly different
-  from the expected percentages, contact the [`#ext-gitlab-arkose`](https://gitlab.slack.com/archives/C02SGF6RLPQ)
-  Slack channel.
+- GitLab regularly sends session data to the Arkose team, which is used to apply custom telltales to prevent malicious users from signing up.
+- When functioning normally, less than 10% of users should be classified as `high` risk and over 90% of sessions should be verified.
+- If the percentage of `high` risk users or verified sessions is significantly different from the expected percentages, contact the [`#ext-gitlab-arkose`](https://gitlab.slack.com/archives/C02SGF6RLPQ)
+ Slack channel.
 
 ### View ArkoseLabs Verify API response for a user session
 

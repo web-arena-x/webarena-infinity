@@ -33,18 +33,18 @@ Click on your name in the upper-right corner of the page, then select **Template
 You can filter templates by the following criteria:
 
 - **Keyword search**
-  - Search template by name
+ - Search template by name
 - **Created by**
-  - Created by anyone
-  - Created by you
+ - Created by anyone
+ - Created by you
 - **Status**
-  - Active
-  - Archived
+ - Active
+ - Archived
 - **Sort by**
-  - Sort by newest
-  - Sort by oldest
-  - Sort by last update
-  - Sort alphabetical
+ - Sort by newest
+ - Sort by oldest
+ - Sort by last update
+ - Sort alphabetical
 
 ![6.png](https://support.joinhandshake.com/hc/article_attachments/25998585572375)
 
@@ -97,8 +97,8 @@ Select the message you want to duplicate, then click the duplicate icon (two ove
 In the pop-up modal, enter the following details:
 
 - Template name (*maximum 50 characters*)
-  - The template name will contain "Copy [name of original template]
-  - Edit the name as needed.
+ - The template name will contain "Copy [name of original template]
+ - Edit the name as needed.
 - Subject line (*optional*)
 - Message
 

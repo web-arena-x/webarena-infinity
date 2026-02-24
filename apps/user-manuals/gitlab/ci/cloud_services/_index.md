@@ -25,11 +25,8 @@ and are scheduled to be removed in GitLab 17.0. Use [ID tokens](../secrets/id_to
 
 {{< /alert >}}
 
-GitLab CI/CD supports [OpenID Connect (OIDC)](https://openid.net/developers/how-connect-works/) to
-give your build and deployment jobs access to cloud credentials and services.
-Historically, teams stored secrets in projects or applied permissions on the GitLab Runner
-instance to build and deploy. OIDC capable [ID tokens](../secrets/id_token_authentication.md) are configurable
-in the CI/CD job allowing you to follow a scalable and least-privilege security approach.
+GitLab CI/CD supports [OpenID Connect (OIDC)](https://openid.net/developers/how-connect-works/) to give your build and deployment jobs access to cloud credentials and services.
+Historically, teams stored secrets in projects or applied permissions on the GitLab Runner instance to build and deploy. OIDC capable [ID tokens](../secrets/id_token_authentication.md) are configurable in the CI/CD job allowing you to follow a scalable and least-privilege security approach.
 
 In GitLab 15.6 and earlier, you must use `CI_JOB_JWT_V2` instead of an ID token, but it is not customizable.
 
@@ -48,9 +45,7 @@ ID tokens support cloud providers with OIDC, including:
 {{< alert type="note" >}}
 
 Configuring OIDC enables JWT token access to the target environments for all pipelines.
-When you configure OIDC for a pipeline, you should complete a software supply chain security
-review for the pipeline, focusing on the additional access. For more information about supply chain attacks, see
-[How a DevOps Platform helps protect against supply chain attacks](https://about.gitlab.com/blog/2021/04/28/devops-platform-supply-chain-attacks/).
+When you configure OIDC for a pipeline, you should complete a software supply chain security review for the pipeline, focusing on the additional access. For more information about supply chain attacks, see [How a DevOps Platform helps protect against supply chain attacks](https://about.gitlab.com/blog/2021/04/28/devops-platform-supply-chain-attacks/).
 
 {{< /alert >}}
 
@@ -100,17 +95,17 @@ The condition is validated against the JWT to create a trust specifically agains
 
 - Audience or `aud`: Configured as part of the ID token:
 
-  ```yaml
-  job_needing_oidc_auth:
+ ```yaml
+ job_needing_oidc_auth:
     id_tokens:
       OIDC_TOKEN:
         aud: https://oidc.provider.com
     script:
       - echo $OIDC_TOKEN
-  ```
+ ```
 
 - Subject or `sub`: A concatenation of metadata describing the GitLab CI/CD workflow including the group, project, branch, and tag. The `sub` field is in the following format:
-  - `project_path:{group}/{project}:ref_type:{type}:ref:{branch_name}`
+ - `project_path:{group}/{project}:ref_type:{type}:ref:{branch_name}`
 
 | Filter type                                        | Example |
 |----------------------------------------------------|---------|

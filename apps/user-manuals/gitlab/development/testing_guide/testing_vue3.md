@@ -32,10 +32,10 @@ Consider the following demo composable:
 
 ```javascript
 export const useCounter = () => {
-  const counter = ref(1)
-  const increase = () => { counter.value += 1 }
+ const counter = ref(1)
+ const increase = () => { counter.value += 1 }
 
-  return { counter, increase }
+ return { counter, increase }
 }
 ```
 
@@ -49,8 +49,8 @@ const { counter, increase } = useCounter()
 </script>
 
 <template>
-  <p>Super useful counter: {{ counter }}</p>
-  <button @click="increase">+</button>
+ <p>Super useful counter: {{ counter }}</p>
+ <button @click="increase">+</button>
 </template>
 ```
 
@@ -61,31 +61,31 @@ import { useCounter } from '~/composables/useCounter'
 jest.mock('~/composables/useCounter')
 
 describe('MyComponent', () => {
-  const increaseMock = jest.fn()
-  const counter = ref(1)
+ const increaseMock = jest.fn()
+ const counter = ref(1)
 
-  beforeEach(() => {
+ beforeEach(() => {
     useCounter.mockReturnValue({
       increase: increaseMock,
       counter
     })
-  })
+ })
 
-  describe('When the counter is 2', () => {
+ describe('When the counter is 2', () => {
     beforeEach(() => {
       counter.value = 2
       createComponent()
     })
 
     it('...', () => {})
-  })
+ })
 
-  it('should default to 1', () => {
+ it('should default to 1', () => {
     createComponent()
 
     expect(findSuperUsefulCounter().text()).toBe(1)
     // failure
-  })
+ })
 })
 ```
 
@@ -102,87 +102,73 @@ import { useCounter } from '~/composables/useCounter'
 jest.mock('~/composables/useCounter')
 
 describe('MyComponent', () => {
-  const increaseMock = jest.fn()
+ const increaseMock = jest.fn()
 
-  // We can initialize to `undefined` to be extra careful
-  const counter = ref(undefined)
+ // We can initialize to `undefined` to be extra careful
+ const counter = ref(undefined)
 
-  beforeEach(() => {
+ beforeEach(() => {
     counter.value = 1
     useCounter.mockReturnValue({
       increase: increaseMock,
       counter
     })
-  })
+ })
 
-  describe('When the counter is 2', () => {
+ describe('When the counter is 2', () => {
     beforeEach(() => {
       counter.value = 2
       createComponent()
     })
 
     it('...', () => {})
-  })
+ })
 
-  it('should default to 1', () => {
+ it('should default to 1', () => {
     createComponent()
 
     expect(findSuperUsefulCounter().text()).toBe(1)
     // pass
-  })
+ })
 })
 ```
 
 ### Vue router
 
-If you are testing a Vue Router configuration using a real (not mocked) `VueRouter` object, read the following
-[guidelines](https://test-utils.vuejs.org/guide/advanced/vue-router.html#Using-a-Real-Router). A
-source of failure is that Vue Router 4 handles routing asynchronously, therefore we should
-`await` for the routing operations to be completed. You can use the `waitForPromises` utility to
-wait until all promises are flushed.
+If you are testing a Vue Router configuration using a real (not mocked) `VueRouter` object, read the following [guidelines](https://test-utils.vuejs.org/guide/advanced/vue-router.html#Using-a-Real-Router). A source of failure is that Vue Router 4 handles routing asynchronously, therefore we should `await` for the routing operations to be completed. You can use the `waitForPromises` utility to wait until all promises are flushed.
 
-In the following example, a test asserts that VueRouter navigated to a page after clicking a button. If
-`waitForPromises` is not invoked after clicking the button, the assertion would fail because the router's
-state hasn't transitioned to the target page.
+In the following example, a test asserts that VueRouter navigated to a page after clicking a button. If `waitForPromises` is not invoked after clicking the button, the assertion would fail because the router's state hasn't transitioned to the target page.
 
 ```javascript
 it('navigates to /create when clicking New workspace button', async () => {
-  expect(findWorkspacesListPage().exists()).toBe(true);
+ expect(findWorkspacesListPage().exists()).toBe(true);
 
-  await findNewWorkspaceButton().trigger('click');
-  await waitForPromises();
+ await findNewWorkspaceButton().trigger('click');
+ await waitForPromises();
 
-  expect(findCreateWorkspacePage().exists()).toBe(true);
+ expect(findCreateWorkspacePage().exists()).toBe(true);
 });
 ```
 
 ### Vue Apollo troubleshooting
 
-You might encounter some unit test failures on components that execute Apollo mutations and
-update the in-memory query cache, for example:
+You might encounter some unit test failures on components that execute Apollo mutations and update the in-memory query cache, for example:
 
 ```shell
 ApolloError: 'get' on proxy: property '[property]' is a read-only and non-configurable data property on the proxy target but the proxy did not return its actual value (expected '#<Object>' but got '#<Object>')
 ```
 
 This error happens because Apollo tries to modify a [Vue reactive object](https://vuejs.org/guide/essentials/reactivity-fundamentals.html)
-when we call the `writeQuery` or `updateQuery` methods. Avoid using objects passed through a component's
-property in operations that update Apollo's cache. You should always rely on constructing new objects or
-data that already exists in the Apollo's cache. As a last resort, use the `cloneDeep` utility to remove
-the Vue's reactivity proxy from the target object.
+when we call the `writeQuery` or `updateQuery` methods. Avoid using objects passed through a component's property in operations that update Apollo's cache. You should always rely on constructing new objects or data that already exists in the Apollo's cache. As a last resort, use the `cloneDeep` utility to remove the Vue's reactivity proxy from the target object.
 
-In the following example, the component updates the Apollo's in-memory cache after the mutation succeeds
-by swapping the `agent` object between two arrays. The `agent` object is also available in the `agent`
-property, but it is reactive object. The incorrect approach references the `agent` object passed to
-the component as a property which causes the proxy error. The correct approach finds the `agent`
-object that is already stored in the Apollo's cache.
+In the following example, the component updates the Apollo's in-memory cache after the mutation succeeds by swapping the `agent` object between two arrays. The `agent` object is also available in the `agent` property, but it is reactive object. The incorrect approach references the `agent` object passed to the component as a property which causes the proxy error. The correct approach finds the `agent` object that is already stored in the Apollo's cache.
 
 ```html
 <script>
 import { toRaw } from 'vue';
 
 export default {
-  props: {
+ props: {
     namespace: {
       type: String,
       required: true,
@@ -191,9 +177,9 @@ export default {
       type: Object,
       required: true,
     },
-  },
+ },
 
-  methods: {
+ methods: {
     async execute() {
       try {
         await this.$apollo.mutate({
@@ -241,7 +227,7 @@ export default {
         this.$emit('error', e);
       }
     },
-  },
+ },
 };
 </script>
 
@@ -286,17 +272,17 @@ Consider the following component:
 ```html
 <script>
 export default {
-  methods: {
+ methods: {
     nextPage() {
       this.$router.push({
         path: 'some path'
       })
     }
-  }
+ }
 }
 </script>
 <template>
-  <gl-keyset-pagination @push="nextPage" />
+ <gl-keyset-pagination @push="nextPage" />
 </template>
 ```
 
@@ -342,7 +328,7 @@ In order to better understand what Vue router needs, use `jest.fn()` to override
 console.warn = jest.fn()
 
 afterEach(() => {
-  console.log(console.warn.mock.calls)
+ console.log(console.warn.mock.calls)
 })
 ```
 

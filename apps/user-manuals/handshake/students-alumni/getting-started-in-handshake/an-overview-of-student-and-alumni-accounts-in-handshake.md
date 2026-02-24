@@ -9,10 +9,10 @@ Both current students and alumni can access Handshake with a Student account. Ho
 The features available to your account will depend on:
 
 - **Your account's connection with a school instance**
-  - You may need to be approved by the school to access all of their offerings.
+ - You may need to be approved by the school to access all of their offerings.
 - **Your school's partnership status with Handshake**
-  - A school is considered a Handshake partner if the Career Services Center has chosen to manage your school's instance and use Handshake for additional features, such as managing Appointments, internships (via Experiences), First Destination Surveys, and more.
-  - Schools that haven't yet partnered with us may still have a school instance as part of the Handshake Open Network. Read more about our goals for [Expanding Our Efforts to Help All Students Find Opportunity](https://joinhandshake.com/blog/our-team/expanding-our-efforts-to-help-all-students-find-opportunity/).
+ - A school is considered a Handshake partner if the Career Services Center has chosen to manage your school's instance and use Handshake for additional features, such as managing Appointments, internships (via Experiences), First Destination Surveys, and more.
+ - Schools that haven't yet partnered with us may still have a school instance as part of the Handshake Open Network. Read more about our goals for [Expanding Our Efforts to Help All Students Find Opportunity](https://joinhandshake.com/blog/our-team/expanding-our-efforts-to-help-all-students-find-opportunity/).
 
 To use Handshake as a current student or alum, you'll need a Student account. For more information on creating a student account, check out [Getting Started with Handshake](getting-started-with-handshake.md)!
 

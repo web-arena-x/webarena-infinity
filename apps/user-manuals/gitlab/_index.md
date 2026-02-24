@@ -6,8 +6,7 @@ description: Learn how to use and administer GitLab, the most scalable Git-based
 title: GitLab Docs
 ---
 
-Visit <https://docs.gitlab.com> for the latest version of this help information with enhanced navigation,
-formatting, and search.
+Visit <https://docs.gitlab.com> for the latest version of this help information with enhanced navigation, formatting, and search.
 
 Explore the different areas of the documentation:
 
@@ -70,5 +69,5 @@ To contribute to GitLab:
 
 | Topic                                                       | Description |
 |:------------------------------------------------------------|:------------|
-| [Contribute to GitLab development](development/_index.md).  | Contribute to GitLab development. |
+| [Contribute to GitLab development](development/_index.md). | Contribute to GitLab development. |
 | [Contribute to the documentation](development/documentation/_index.md) | Contribute to GitLab documentation. |

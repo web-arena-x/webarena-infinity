@@ -20,8 +20,7 @@ title: Emoji reactions
 
 {{< /history >}}
 
-When you're collaborating online, you get fewer opportunities for high-fives
-and thumbs-ups. React with emoji on:
+When you're collaborating online, you get fewer opportunities for high-fives and thumbs-ups. React with emoji on:
 
 - [Issues](project/issues/_index.md).
 - [Tasks](tasks.md).
@@ -32,18 +31,15 @@ and thumbs-ups. React with emoji on:
 
 ![Emoji reaction picker with various categories, including search box.](img/award_emoji_select_v14_6.png)
 
-Emoji reactions make it much easier to give and receive feedback without a long
-comment thread.
+Emoji reactions make it much easier to give and receive feedback without a long comment thread.
 
-"Thumbs up" and "thumbs down" emoji are used to calculate an issue or merge request's position when
-[sorting by popularity](project/issues/sorting_issue_lists.md#sorting-by-popularity).
+"Thumbs up" and "thumbs down" emoji are used to calculate an issue or merge request's position when [sorting by popularity](project/issues/sorting_issue_lists.md#sorting-by-popularity).
 
 For information on the relevant API, see [Emoji reactions API](../api/emoji_reactions.md).
 
 ## Emoji reactions for comments
 
-Emoji reactions can also be applied to individual comments when you want to
-celebrate an accomplishment or agree with an opinion.
+Emoji reactions can also be applied to individual comments when you want to celebrate an accomplishment or agree with an opinion.
 
 To add an emoji reaction:
 

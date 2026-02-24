@@ -15,15 +15,11 @@ The CI/CD specs include informal integration specs for the core CI/CD processes.
 
 #### Linting
 
-Integration specs for linting are kept in `spec/lib/gitlab/ci/yaml_processor_spec.rb` and
-`spec/lib/gitlab/ci/yaml_processor/test_cases/`. Add any new specs to the
-`test_cases/` directory.
+Integration specs for linting are kept in `spec/lib/gitlab/ci/yaml_processor_spec.rb` and `spec/lib/gitlab/ci/yaml_processor/test_cases/`. Add any new specs to the `test_cases/` directory.
 
 #### Pipeline creation
 
-Integration specs for pipeline creation are kept in `spec/services/ci/create_pipeline_service_spec.rb` and
-`spec/services/ci/create_pipeline_service/`. Add new specs to the
-`create_pipeline_service/` directory.
+Integration specs for pipeline creation are kept in `spec/services/ci/create_pipeline_service_spec.rb` and `spec/services/ci/create_pipeline_service/`. Add new specs to the `create_pipeline_service/` directory.
 
 #### Pipeline processing
 

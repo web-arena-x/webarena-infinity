@@ -14,8 +14,7 @@ Setting SSO up on Handshake is self-service! After your career services admin ha
 
 \*\*This process can take up to 5-7 days from time of request, so please submit this request as soon as you've confirmed your LDAP server host.
 
-**Additional Notes:**  
--We can unblock multiple IP's on the backend if necessary, but these must align with the single "Host" value in your Handshake SSO Preferences (Screenshot below).
+**Additional Notes:** -We can unblock multiple IP's on the backend if necessary, but these must align with the single "Host" value in your Handshake SSO Preferences (Screenshot below).
 
 -If you have multiple IP's for your LDAP server, please provide a hostname that uses all of these, or narrow down your configuration to a **single IP**.
 
@@ -27,8 +26,7 @@ Setting SSO up on Handshake is self-service! After your career services admin ha
 
 ### You should also unblock both of Handshake's IPs on your end for this to align:
 
-**54.88.136.216**  
-**54.84.188.199**
+**54.88.136.216** **54.84.188.199**
 
 # More Questions?
 

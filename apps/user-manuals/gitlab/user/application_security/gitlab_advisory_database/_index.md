@@ -14,8 +14,7 @@ A free and open-source version of the GitLab advisory database is also available
 
 ## Standardization
 
-GitLab advisories use standardized practices to communicate vulnerabilities and their
-impact.
+GitLab advisories use standardized practices to communicate vulnerabilities and their impact.
 
 - [CVE](../terminology/_index.md#cve)
 - [CVSS](../terminology/_index.md#cvss)
@@ -58,8 +57,7 @@ The open-source version is a time-delayed clone of the GitLab advisory database,
 
 ### How the database can be used
 
-The following example uses the database as a source for an advisory ingestion process
-as part of continuous vulnerability scans.
+The following example uses the database as a source for an advisory ingestion process as part of continuous vulnerability scans.
 
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%

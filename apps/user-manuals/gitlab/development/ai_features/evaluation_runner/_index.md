@@ -8,24 +8,22 @@ title: Evaluation runner
 Evaluation runner (`evaluation-runner`) allows GitLab employees to run evaluations on specific GitLab AI features with one click.
 
 - You can run the evaluation on GitLab.com and GitLab-supported self-hosted models.
-- To view the AI features that are currently supported, see
-  [Evaluation pipelines](https://gitlab.com/gitlab-org/modelops/ai-model-validation-and-research/ai-evaluation/evaluation-runner#evaluation-pipelines).
+- To view the AI features that are currently supported, see [Evaluation pipelines](https://gitlab.com/gitlab-org/modelops/ai-model-validation-and-research/ai-evaluation/evaluation-runner#evaluation-pipelines).
 
 Evaluation runner spins up a new GDK instance on a remote environment, runs an evaluation, and reports the result.
 
-For more details, view the
-[`evaluation-runner` repository](https://gitlab.com/gitlab-org/modelops/ai-model-validation-and-research/ai-evaluation/evaluation-runner).
+For more details, view the [`evaluation-runner` repository](https://gitlab.com/gitlab-org/modelops/ai-model-validation-and-research/ai-evaluation/evaluation-runner).
 
 ## Architecture
 
 ```mermaid
 flowchart LR
-  subgraph EV["Evaluators"]
+ subgraph EV["Evaluators"]
     PL(["PromptLibrary/ELI5"])
     DSIN(["Input Dataset"])
-  end
+ end
 
-  subgraph ER["EvaluationRunner"]
+ subgraph ER["EvaluationRunner"]
     CI["CI/CD pipelines"]
     subgraph GDKS["Remote GDKs"]
         subgraph GDKM["GDK-master"]
@@ -37,14 +35,14 @@ flowchart LR
           fi2["fixtures (Issue,MR,etc)"]
         end
     end
-  end
+ end
 
-  subgraph MR["MergeRequests"]
+ subgraph MR["MergeRequests"]
     GRMR["GitLab-Rails MR"]
     GRAI["AI Gateway MR"]
-  end
+ end
 
-  MR -- [1] trigger --- CI
-  CI -- [2] spins up --- GDKS
-  PL -- [3] get responses and evaluate --- GDKS
+ MR -- [1] trigger --- CI
+ CI -- [2] spins up --- GDKS
+ PL -- [3] get responses and evaluate --- GDKS
 ```

@@ -30,8 +30,7 @@ website, or host your own diagrams.net site in offline environments.
 
 To set up the integration:
 
-1. Choose to integrate with the free diagrams.net website or
-   [configure your diagrams.net server](#configure-your-diagramsnet-server).
+1. Choose to integrate with the free diagrams.net website or [configure your diagrams.net server](#configure-your-diagramsnet-server).
 1. [Enable the integration](#enable-diagramsnet-integration).
 
 After completing the integration, the diagrams.net editor opens with the URL you provided.
@@ -48,8 +47,7 @@ For example, to run a diagrams.net container in Docker, run the following comman
 docker run -it --rm --name="draw" -p 8080:8080 -p 8443:8443 jgraph/drawio
 ```
 
-Make note of the hostname of the server running the container, to be used as the diagrams.net URL
-when you enable the integration.
+Make note of the hostname of the server running the container, to be used as the diagrams.net URL when you enable the integration.
 
 For more information, see [Run your own diagrams.net server with Docker](https://www.drawio.com/blog/diagrams-docker-app).
 

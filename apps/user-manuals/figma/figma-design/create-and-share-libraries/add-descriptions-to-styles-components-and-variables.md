@@ -39,12 +39,12 @@ Add a description and any links to your main components. You’ll need edit acce
 - Main components, including those with component properties
 - Entire component sets and individual variants in a component set
 
-1. Open the file where your component library lives. If you have an instance selected, you can select  **Go to main component in library** to view the component in the library file.
+1. Open the file where your component library lives. If you have an instance selected, you can select **Go to main component in library** to view the component in the library file.
 2. Select main component, component set or a specific variant within the component set.
-3. Click  to open the **Component configuration** details: ![Component configuration panel showing fields for description and documentation link entries.](https://help.figma.com/hc/article_attachments/26967232720151)
+3. Click to open the **Component configuration** details: ![Component configuration panel showing fields for description and documentation link entries.](https://help.figma.com/hc/article_attachments/26967232720151)
 4. Add a **description** for this component. Figma will look at this description when searching for components, so you can use this field to tag relevant keywords.
 5. Add a **link** to external documentation, or another file with further explanations or guidance.
-6. Click  or anywhere outside the modal to apply changes.
+6. Click or anywhere outside the modal to apply changes.
 
 Figma will show descriptions and links in common style and component locations in files. [**View component descriptions and links ↓**](#view-descriptions)
 
@@ -62,14 +62,14 @@ Add a description to the style definition in the library file. You need to [crea
 
 1. Click an empty spot in the canvas.
 2. In the **Design** panel, view any style definitions in the file.
-3. Hover over the style and click  when it appears:![Edit color style window with a purple color swatch, showing name and description fields, alongside a list of local styles.](https://help.figma.com/hc/article_attachments/26967232721559)
+3. Hover over the style and click when it appears:![Edit color style window with a purple color swatch, showing name and description fields, alongside a list of local styles.](https://help.figma.com/hc/article_attachments/26967232721559)
 4. In the **Edit style** menu add a **Description** using the field.
-5. Click outside the menu or use the  to close the menu.
+5. Click outside the menu or use the to close the menu.
 
 **Tip!** You can find and open the style definition from any layer that uses that style:
 
 1. Select a layer that supports that style.
-2. Click  to open the style picker.
+2. Click to open the style picker.
 3. Right-click the style and select **Edit style**.
 
 ## Variables
@@ -109,8 +109,8 @@ You can view descriptions and links when interacting with styles and components 
 View component details in the instance section of the **Design** panel in the right sidebar. You need **edit** access to the file to access the **Design** panel.
 
 1. Figma shows a preview of the description underneath the component / instance name.
-2. Click **Show more** to view the full description and link in the documentation window. Click outside of the modal or use the  button to close.
-3. Collaborators can also click  to view the original library file. This is great if you have additional guidance for how to use components.
+2. Click **Show more** to view the full description and link in the documentation window. Click outside of the modal or use the button to close.
+3. Collaborators can also click to view the original library file. This is great if you have additional guidance for how to use components.
 
 ![Two card components labeled "time" with descriptions. Right card is selected; details are in sidebar panel.](https://help.figma.com/hc/article_attachments/26967232722839)
 

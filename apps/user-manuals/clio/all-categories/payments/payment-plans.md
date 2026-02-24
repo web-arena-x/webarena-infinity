@@ -16,7 +16,7 @@ With payment plans, you can receive regular credit card payments toward a client
 - An active payment plan toward an outstanding balance will continue to debit payment until all due bills are fully paid, regardless of whether a payment fails or is voided, or until the plan is manually stopped.
 - An active ongoing payment plan will continue until the plan is manually stopped.
 - When payment is processed or fails, both you and the client will be notified via email.
-  - If the payment plan is toward an outstanding balance, the payment confirmation email will include the remaining outstanding balance.
+ - If the payment plan is toward an outstanding balance, the payment confirmation email will include the remaining outstanding balance.
 
     **Note:** If a payment fails due to invalid card details, a canceled or expired card, or another reason, you can [stop the payment plan](payment-plans.md#h_01HBBPSK79W0GNSJ9Q1QFSKNXA) and [create a new one](payment-plans.md#h_01HBBPSK7864Y50SB770W0W8CV) with a valid payment method or you can [edit the existing payment plan](payment-plans.md#h_01HBBPSK78TJB1Q9WQ4MA88K0C) by requesting your client to save a new payment method.
 - Payments on trust fund payment plans will remain on the client-level, not on the matter-level.

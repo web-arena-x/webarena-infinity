@@ -25,7 +25,7 @@ You can use Activity Feed for a general overview to track events in many areas, 
 - Completed tasks
 - Appointments and visits
 
-  Note: Unlike other activities in your Activity Feed, you will only see your appointment information (you will not see appointments for other users on the account in the Activity Feed).
+ Note: Unlike other activities in your Activity Feed, you will only see your appointment information (you will not see appointments for other users on the account in the Activity Feed).
 - Collaborations
 - Depending on your configuration, key activities in integrated products
 
@@ -52,7 +52,7 @@ Use the following filters to see only the information that you are interested in
 - **Email conversations visible**: the contact or lead owner can set whether email conversations are visible to anyone that can view this record.
 - **All activity**: filter by the type of activity. Check one or more boxes to choose from notes, emails, calls, messages, status changes, completed tasks, appointments and visits, or collaborations.
 
-  Note: Filter options differ slightly depending on which object type you are viewing.
+ Note: Filter options differ slightly depending on which object type you are viewing.
 - **By everyone**: filter by users, teams, or groups. As you start to type, users, teams, or groups that match your search are displayed. Add as many users, teams, or groups as you like.
 - **Tagged all**: filter using predefined tags. Tagging is only available for notes.
 - **Star**: filter by starred items. Starring is available for all messages (including email, SMS, and notes).

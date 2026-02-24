@@ -16,13 +16,13 @@ Custom fields allow you to add extra, specialized information fields to many Pro
 
 - **Company Level Custom Fields**:
 
-  - Created in the Company Admin Tool.
-  - Allow you to add the same custom fields across all projects that use a specific tool.
-  - **This FAQ focuses on Company Level custom fields.**
+ - Created in the Company Admin Tool.
+ - Allow you to add the same custom fields across all projects that use a specific tool.
+ - **This FAQ focuses on Company Level custom fields.**
 - **Project-Specific Custom Fields**:
 
-  - Created directly in the configuration settings of specific Procore tools on a specific project.
-  - Only apply to the single project they were created in.
+ - Created directly in the configuration settings of specific Procore tools on a specific project.
+ - Only apply to the single project they were created in.
 
 When you create a Company Level Custom Field, you must define two (2) main properties:
 
@@ -43,30 +43,30 @@ Company Administrators can create custom fields for these Procore tools. For ins
 
 | ******Procore Tool****** | ****Fieldset(s)**** | ****Field Limit**** | ****Notes**** |
 | --- | --- | --- | --- |
-| ******Admin (Project)****** | Project | 15 | One (1) global fieldset for all new and existing projects.  Some fields display on Bid Board. |
-| ******Action Plans******  ****icon-mindtouch-table-mobile.png**** | Action Plan Type | 10 | One (1) fieldset per Action Plan Type. |
+| ******Admin (Project)****** | Project | 15 | One (1) global fieldset for all new and existing projects. Some fields display on Bid Board. |
+| ******Action Plans****** ****icon-mindtouch-table-mobile.png**** | Action Plan Type | 10 | One (1) fieldset per Action Plan Type. |
 | ******Change Events****** | Change Events | 10 | Requires Change Management. One (1) fieldset for the Change Events tool. |
 | ******Change Orders****** | Change Order | 10 | Requires Change Management. Works with Commitments & Prime Contracts. |
 | ******Commitments****** | Purchase Orders, Subcontracts | 30 | One (1) fieldset for each Commitment Type. |
 | ******Coordination Issues****** | Procore Default | 10 | One (1) fieldset for the Coordination Issues tool. |
-| ******Correspondence******  ****icon-mindtouch-table-mobile.png**** | Correspondence Type | 15 | One (1) fieldset per Correspondence Type. |
-| ******Daily Log******  ****icon-mindtouch-table-mobile.png**** | Accident Log, Call Log Daily, Construction Report, Delay Log, Delivery Log, Dumpster Log, Equipment Log, Inspection Log, Manpower Log, Notes Log, Observed Weather Conditions, Plan Revision Log, Productivity Log, Quantity Log, Safety Violation Log, Visitors Log, Waste Log, Work Log | 10 | One (1) fieldset per Daily Log Type. |
-| ******Document Management****** | All Fieldsets | 20 |  |
-| ******Documents (Project)******  ****icon-mindtouch-table-mobile.png**** | Documents | 10 | Custom fields are always optional (cannot be marked as required). |
+| ******Correspondence****** ****icon-mindtouch-table-mobile.png**** | Correspondence Type | 15 | One (1) fieldset per Correspondence Type. |
+| ******Daily Log****** ****icon-mindtouch-table-mobile.png**** | Accident Log, Call Log Daily, Construction Report, Delay Log, Delivery Log, Dumpster Log, Equipment Log, Inspection Log, Manpower Log, Notes Log, Observed Weather Conditions, Plan Revision Log, Productivity Log, Quantity Log, Safety Violation Log, Visitors Log, Waste Log, Work Log | 10 | One (1) fieldset per Daily Log Type. |
+| ******Document Management****** | All Fieldsets | 20 | |
+| ******Documents (Project)****** ****icon-mindtouch-table-mobile.png**** | Documents | 10 | Custom fields are always optional (cannot be marked as required). |
 | ******Drawings****** | Drawing Revisions | 10 | Data entry is revision-specific. Entries do not carry over to new revisions. |
 | ******Equipment****** | Equipment Category | 10 | One (1) fieldset per Equipment Category. |
-| ******Incidents******  ****icon-mindtouch-table-mobile.png**** | Incident, Injury/Illness, Property Damage, Environmental, Near Miss, Witness Statement, Action | 15 | One (1) fieldset per Incident Type. |
-| ******Inspections******  ****icon-mindtouch-table-mobile.png**** | Unassociated, Quality, Safety, Commissioning, Environmental | 10 | One (1) fieldset per Inspection Type. |
+| ******Incidents****** ****icon-mindtouch-table-mobile.png**** | Incident, Injury/Illness, Property Damage, Environmental, Near Miss, Witness Statement, Action | 15 | One (1) fieldset per Incident Type. |
+| ******Inspections****** ****icon-mindtouch-table-mobile.png**** | Unassociated, Quality, Safety, Commissioning, Environmental | 10 | One (1) fieldset per Inspection Type. |
 | ******Invoicing / Progress Billings****** | Subcontractor Invoices or Progress Billings | 30 | Tool name may vary by company. See [What tool names and terms are different in Procore for general contractors, owners and specialty contractors?](https://support.procore.com/faq/what-tool-names-and-terms-are-different-in-procore-for-general-contractors-owners-and-specialty-contractors "What tool names and terms are different in Procore for general contractors, owners, and specialty contractors?") |
-| ******My Time******  ****icon-mindtouch-table-mobile.png**** | General Information | 10 | One (1) fieldset for the My Time app. |
-| ******Observations******  ****icon-mindtouch-table-mobile.png**** | Commissioning, Environmental, Quality, Safety, Warranty, Work to Complete | 10 | One (1) fieldset per Observation Type. |
+| ******My Time****** ****icon-mindtouch-table-mobile.png**** | General Information | 10 | One (1) fieldset for the My Time app. |
+| ******Observations****** ****icon-mindtouch-table-mobile.png**** | Commissioning, Environmental, Quality, Safety, Warranty, Work to Complete | 10 | One (1) fieldset per Observation Type. |
 | ******Prime Contracts / Client Contracts / Funding****** | Client Contracts, Fundings, or Prime Contracts | 30 | Tool name may vary by company. See [What tool names and terms are different in Procore for general contractors, owners and specialty contractors?](https://support.procore.com/faq/what-tool-names-and-terms-are-different-in-procore-for-general-contractors-owners-and-specialty-contractors "What tool names and terms are different in Procore for general contractors, owners, and specialty contractors?") |
-| ******Punch List******  ****icon-mindtouch-table-mobile.png**** | Punch Item | 10 | One (1) fieldset for the Punch List tool. |
-| ******RFIs******  ****icon-mindtouch-table-mobile.png**** | RFI | 10 | One (1) fieldset for the RFIs tool |
+| ******Punch List****** ****icon-mindtouch-table-mobile.png**** | Punch Item | 10 | One (1) fieldset for the Punch List tool. |
+| ******RFIs****** ****icon-mindtouch-table-mobile.png**** | RFI | 10 | One (1) fieldset for the RFIs tool |
 | ******Specifications****** | Specification Section Revision | 10 | One (1) fieldset for the Specifications tool. |
-| ******Submittals******  ****icon-mindtouch-table-mobile.png**** | Submittal Log | 10 | One (1) fieldset for the Submittals tool. |
-| ******T&M Tickets******  ****icon-mindtouch-table-mobile.png**** | General Information, Labor, Materials, Equipment, Subcontractors | 10 | One (1) fieldset for each listed section. |
-| ******Timesheets******  ****icon-mindtouch-table-mobile.png**** | General Information | 10 | One (1) fieldset for the Timesheets tool. |
+| ******Submittals****** ****icon-mindtouch-table-mobile.png**** | Submittal Log | 10 | One (1) fieldset for the Submittals tool. |
+| ******T&M Tickets****** ****icon-mindtouch-table-mobile.png**** | General Information, Labor, Materials, Equipment, Subcontractors | 10 | One (1) fieldset for each listed section. |
+| ******Timesheets****** ****icon-mindtouch-table-mobile.png**** | General Information | 10 | One (1) fieldset for the Timesheets tool. |
 
 ## See Also
 

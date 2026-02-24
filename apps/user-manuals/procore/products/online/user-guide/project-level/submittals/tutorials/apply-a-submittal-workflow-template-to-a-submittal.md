@@ -15,19 +15,19 @@ A user with 'Admin' level permission to your project's Submittals tool can creat
 ## Things to Consider
 
 - **Required User Permissions**:
-  - 'Admin' level permissions on the Submittals tool.   
+ - 'Admin' level permissions on the Submittals tool.  
     OR
-  - 'Read Only' level permissions on the Submittals tool and both the 'Create Submittal' AND 'Apply Submittal Workflow Template' granular permissions.  
+ - 'Read Only' level permissions on the Submittals tool and both the 'Create Submittal' AND 'Apply Submittal Workflow Template' granular permissions. 
     OR
-  - 'Standard' level permissions on the Submittals tool with the 'Apply Submittal Workflow Template' granular permission.
+ - 'Standard' level permissions on the Submittals tool with the 'Apply Submittal Workflow Template' granular permission.
 - **Prerequisites**:
-  - Create at least one (1) submittal workflow template. See [Manage Submittal Workflow Templates](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/manage-submittal-workflow-templates "Manage Submittal Workflow Templates").
+ - Create at least one (1) submittal workflow template. See [Manage Submittal Workflow Templates](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/manage-submittal-workflow-templates "Manage Submittal Workflow Templates").
 
 ## Steps
 
 1. Follow the steps in [Create a Submittal](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/create-a-submittal "Create a Submittal") or [Edit a Submittal](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/edit-a-submittal "Edit a Submittal").
 2. Under ********Submittal Workflow********, do the following:
-   1. ********Select a Template********. Select a workflow template from the drop-down list.   
+   1. ********Select a Template********. Select a workflow template from the drop-down list.  
       ****Notes****:
       - This drop-down list is only visible and available to users with sufficient permissions on the Submittals tool.
       - This action applies the person(s) named on the submittal workflow template to your submittal.

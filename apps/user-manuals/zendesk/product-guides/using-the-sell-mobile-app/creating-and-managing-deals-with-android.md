@@ -10,9 +10,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408844085146-Creating-and
 
 ![Available on all Sell plans](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/plan_available_sell_all.png)
 
-With the Sell mobile app you can create deals on the go. Managing your deals directly
-from your mobile enables you to capture activities in real-time, providing you data
-insights such as the duration of a stage in a deal and conversion rates.
+With the Sell mobile app you can create deals on the go. Managing your deals directly from your mobile enables you to capture activities in real-time, providing you data insights such as the duration of a stage in a deal and conversion rates.
 
 This article covers the following topics
 
@@ -24,13 +22,11 @@ This article covers the following topics
 
 ## Converting a lead into a deal
 
-If you have reached the next stage with your lead and you want to start a pipeline,
-you can covert your lead into a deal.
+If you have reached the next stage with your lead and you want to start a pipeline, you can covert your lead into a deal.
 
 **To convert a lead**
 
-1. Click **Leads**, then click to open the specific lead you want to
-   convert.
+1. Click **Leads**, then click to open the specific lead you want to convert.
 2. Click **Convert Lead**.
 3. Toggle the the **Create a Deal from Lead** field to "on".
 4. Enter a name for the deal and choose the pipeline.
@@ -59,13 +55,11 @@ You can create a deal directly from your dashboard (the Today page).
 
 ## Moving a deal through stages
 
-Using the Sell mobile app for Android, you can move a deal through the various stages
-of your sales pipeline.
+Using the Sell mobile app for Android, you can move a deal through the various stages of your sales pipeline.
 
 **To move a deal through the pipeline stages**
 
-1. Click **Deals**, and click the deal you want to move to the next
-   stage.
+1. Click **Deals**, and click the deal you want to move to the next stage.
 2. Click the **Info** tab.
 3. Click on your **Current Stage** to open the dropdown menu.
 4. Click the next stage in the menu to change to a different stage.
@@ -81,8 +75,7 @@ You can easily add contacts to a deal from the Deals page.
 1. Click **Deals**.
 2. On the **Deals** page, click **Contacts**.
 3. Click the **Add** icon (**+**).
-4. In the **Search** field, find the contact you want to add to the
-   deal.
+4. In the **Search** field, find the contact you want to add to the deal.
 5. Click on the contact name.
 
 **To remove an associated contact from the deal**

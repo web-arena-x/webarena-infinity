@@ -10,8 +10,8 @@ Access to Google Workspace with Gemini is available with:
 
 - **A work or school Google Account:** You can get AI-powered features with an eligible Google Workspace plan.
 - **A personal Google Account:**
-  - Some AI-powered features in Gmail are available with a personal Google Account at no charge in the US.
-  - To get access to more AI-powered features across Workspace apps, sign up for a [Google AI plan](https://gemini.google/subscriptions/).
+ - Some AI-powered features in Gmail are available with a personal Google Account at no charge in the US.
+ - To get access to more AI-powered features across Workspace apps, sign up for a [Google AI plan](https://gemini.google/subscriptions/).
 
 ## Learn about Google Workspace with Gemini features
 
@@ -77,12 +77,12 @@ Google Vids
 
 - Google Vids is an AI-powered video creation app for work. Use Vids to create, write, produce, edit, collaborate, and share your videos. [Learn more about Google Vids](/docs/answer/15082958).
 - You can use Google Vids to:
-  - Create AI avatars
-  - Generate voiceovers
-  - Plan your video
-  - Generate images
-  - Edit images
-  - Generate and edit video clips
+ - Create AI avatars
+ - Generate voiceovers
+ - Plan your video
+ - Generate images
+ - Edit images
+ - Generate and edit video clips
 
 Google Forms
 
@@ -95,9 +95,9 @@ Google Forms
 Gemini app
 
 - You can chat with the Gemini web app at [gemini.google.com](https://gemini.google.com/) or the [Gemini mobile app](/a/answer/14571493?hl=en&co=DASHER._Family%3DBusiness-Enterprise&oco=#mobile) on Android and iOS. You can use the Gemini app to:
-  - Brainstorm ideas, develop a plan, or find different ways to get things done.
-  - Get a quick summary of more complex topics.
-  - Create first drafts of outlines, emails, blog posts, and more.
+ - Brainstorm ideas, develop a plan, or find different ways to get things done.
+ - Get a quick summary of more complex topics.
+ - Create first drafts of outlines, emails, blog posts, and more.
 - Work or school accounts with a [Google Workspace with Gemini add-on](/a/answer/13623623) or [qualifying Workspace edition](https://support.google.com/a/answer/14571493#offerings) get access to the Gemini app, including custom Gems, priority access to new features, access to Google’s most capable AI models, and more. [Learn how to use Gemini Apps with a work or school account](/gemini/answer/14620100).
 
 NotebookLM
@@ -131,47 +131,47 @@ Check available Gemini features in:
 
 Google Workspace Business plans
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-|  | **Business Starter** | **Business Standard** | **Business Plus** |
+| | **Business Starter** | **Business Standard** | **Business Plus** |
 | **Gmail** | | | |
 | [Side panel](/mail/answer/14355636) | blue check mark | blue check mark | blue check mark |
 | [Help me write](/mail/answer/13955415) | blue check mark | blue check mark | blue check mark |
 | [Suggested Replies](/mail/answer/15464729) | blue check mark | blue check mark | blue check mark |
 | [AI Overview for email threads](/mail/answer/16561387) | blue check mark | blue check mark | blue check mark |
-| [Help me schedule](/mail/answer/13469141#suggest_times_gemini) |  | blue check mark | blue check mark |
-| [Salesforce for Gemini](/mail/answer/15976055) |  | blue check mark | blue check mark |
+| [Help me schedule](/mail/answer/13469141#suggest_times_gemini) | | blue check mark | blue check mark |
+| [Salesforce for Gemini](/mail/answer/15976055) | | blue check mark | blue check mark |
 | **Google Calendar** | | | |
-| [Help me schedule](/calendar/answer/16690875) |  | blue check mark | blue check mark |
+| [Help me schedule](/calendar/answer/16690875) | | blue check mark | blue check mark |
 | **Google Docs** | | | |
-| [Side panel](/docs/answer/14355406) |  | blue check mark | blue check mark |
-| [Help me write](/docs/answer/13951448) |  | blue check mark | blue check mark |
-| [Generate an image](/docs/answer/15559738) |  | blue check mark | blue check mark |
-| [Help me create](/docs/answer/15541387) |  | blue check mark | blue check mark |
-| [Summarize a document](/docs/answer/15628121) |  | blue check mark | blue check mark |
+| [Side panel](/docs/answer/14355406) | | blue check mark | blue check mark |
+| [Help me write](/docs/answer/13951448) | | blue check mark | blue check mark |
+| [Generate an image](/docs/answer/15559738) | | blue check mark | blue check mark |
+| [Help me create](/docs/answer/15541387) | | blue check mark | blue check mark |
+| [Summarize a document](/docs/answer/15628121) | | blue check mark | blue check mark |
 | **Google Drive** | | | |
-| [Side panel](/drive/answer/14356148) |  | blue check mark | blue check mark |
-| [Analyze PDFs](/drive/answer/15141241) |  | blue check mark | blue check mark |
+| [Side panel](/drive/answer/14356148) | | blue check mark | blue check mark |
+| [Analyze PDFs](/drive/answer/15141241) | | blue check mark | blue check mark |
 | **Google Sheets** | | | |
-| [Side panel](/docs/answer/14356410?hl=en) |  | blue check mark | blue check mark |
-| [AI function](/docs/answer/15877199) |  | blue check mark | blue check mark |
-| [Enhanced Smart Fill](/docs/answer/14226603?hl=en) |  | blue check mark | blue check mark |
+| [Side panel](/docs/answer/14356410?hl=en) | | blue check mark | blue check mark |
+| [AI function](/docs/answer/15877199) | | blue check mark | blue check mark |
+| [Enhanced Smart Fill](/docs/answer/14226603?hl=en) | | blue check mark | blue check mark |
 | **Google Slides** | | | |
-| [Side panel](/docs/answer/14355071) |  | blue check mark | blue check mark |
-| [Generate an image](/docs/answer/13951829) |  | blue check mark | blue check mark |
-| [Remove image backgrounds](/docs/answer/14665097) |  | blue check mark | blue check mark |
-| [Refine writing](/docs/answer/16488002) |  | blue check mark | blue check mark |
+| [Side panel](/docs/answer/14355071) | | blue check mark | blue check mark |
+| [Generate an image](/docs/answer/13951829) | | blue check mark | blue check mark |
+| [Remove image backgrounds](/docs/answer/14665097) | | blue check mark | blue check mark |
+| [Refine writing](/docs/answer/16488002) | | blue check mark | blue check mark |
 | **Google Meet** | | | |
-| [Take notes for me](/meet/answer/14754931) |  | blue check mark | blue check mark |
-| [Ask Gemini in Meet](/meet/answer/16024610) |  | blue check mark | blue check mark |
-| [Translated captions](/meet/answer/10964115) |  | blue check mark | blue check mark |
-| [Adaptive audio](/meet/answer/14263133) |  | blue check mark | blue check mark |
-| [Generate a background](/meet/answer/13954947) |  | blue check mark | blue check mark |
-| [Studio sound, studio look, and studio lighting](/meet/answer/14441737) |  | blue check mark | blue check mark |
+| [Take notes for me](/meet/answer/14754931) | | blue check mark | blue check mark |
+| [Ask Gemini in Meet](/meet/answer/16024610) | | blue check mark | blue check mark |
+| [Translated captions](/meet/answer/10964115) | | blue check mark | blue check mark |
+| [Adaptive audio](/meet/answer/14263133) | | blue check mark | blue check mark |
+| [Generate a background](/meet/answer/13954947) | | blue check mark | blue check mark |
+| [Studio sound, studio look, and studio lighting](/meet/answer/14441737) | | blue check mark | blue check mark |
 | **Google Chat** | | | |
-| [Side panel](/chat/answer/15345722) |  | blue check mark | blue check mark |
-| [Summarize conversations](/chat/answer/12918975#use-Gemini-summaries) |  | blue check mark | blue check mark |
-| [Automatic Translation](/chat/answer/15711193) |  | blue check mark | blue check mark |
+| [Side panel](/chat/answer/15345722) | | blue check mark | blue check mark |
+| [Summarize conversations](/chat/answer/12918975#use-Gemini-summaries) | | blue check mark | blue check mark |
+| [Automatic Translation](/chat/answer/15711193) | | blue check mark | blue check mark |
 | **Google Vids** | | | |
 | [AI avatars](/docs/answer/16334946) | blue check mark\*\*\* | blue check mark | blue check mark |
 | [AI video clips](/docs/answer/16143507) | blue check mark\*\*\* | blue check mark | blue check mark |
@@ -179,23 +179,23 @@ Google Workspace Business plans
 | [AI voiceover](/docs/answer/15070345) | blue check mark\*\*\* | blue check mark | blue check mark |
 | [Image generation](/docs/answer/16091479) | blue check mark\*\*\* | blue check mark | blue check mark |
 | **Google Forms** | | | |
-| [Help me create a form](/docs/answer/16346789) |  | blue check mark | blue check mark |
-| [Summarize responses](/docs/answer/16231981) |  | blue check mark | blue check mark |
-| [Generate questions](/docs/answer/16363314) |  | blue check mark | blue check mark |
+| [Help me create a form](/docs/answer/16346789) | | blue check mark | blue check mark |
+| [Summarize responses](/docs/answer/16231981) | | blue check mark | blue check mark |
+| [Generate questions](/docs/answer/16363314) | | blue check mark | blue check mark |
 | **Gemini app** | | | |
 | Enterprise-grade security & privacy | blue check mark | blue check mark | blue check mark |
 | [Google Workspace apps](/gemini/answer/14959807)\* | blue check mark | blue check mark | blue check mark |
-| [Gemini Advanced](/a/answer/13623623#gemini_features) |  | blue check mark | blue check mark |
+| [Gemini Advanced](/a/answer/13623623#gemini_features) | | blue check mark | blue check mark |
 | [Deep research](/gemini/answer/15719111) | blue check mark\*\* | blue check mark | blue check mark |
 | [Gems](/gemini/answer/15146780) | blue check mark | blue check mark | blue check mark |
-| [Edit and run code](/gemini/answer/13275745#zippy=%2Cgemini-advanced-examples%2Cmore-examples:~:text=want%20to%20review.-,Edit%20%26%20run%20code,-in%20the%20Gemini) |  | blue check mark | blue check mark |
+| [Edit and run code](/gemini/answer/13275745#zippy=%2Cgemini-advanced-examples%2Cmore-examples:~:text=want%20to%20review.-,Edit%20%26%20run%20code,-in%20the%20Gemini) | | blue check mark | blue check mark |
 | [File upload and advanced data analysis](/gemini/answer/14903178) | blue check mark† | blue check mark | blue check mark |
 | [Image generation with people](/gemini/answer/14286560) | blue check mark | blue check mark | blue check mark |
 | [Canvas](/gemini/answer/16047321) | blue check mark | blue check mark | blue check mark |
 | [Audio Overviews](/gemini/answer/16047321) | blue check mark | blue check mark | blue check mark |
 | **NotebookLM** | | | |
 | Upload sources, create summaries and Audio Overviews, and Q&A | blue check mark | blue check mark | blue check mark |
-| [NotebookLM Plus](/notebooklm/answer/15678219) |  | blue check mark | blue check mark |
+| [NotebookLM Plus](/notebooklm/answer/15678219) | | blue check mark | blue check mark |
 
 \* This feature is not available to customers who have [email-verified accounts](/a/answer/13445055).
 
@@ -207,45 +207,45 @@ Google Workspace Business plans
 
 Google Workspace Enterprise plans
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-|  | **Enterprise Starter** | **Enterprise Standard** | **Enterprise Plus** |
+| | **Enterprise Starter** | **Enterprise Standard** | **Enterprise Plus** |
 | **Gmail** | | | |
 | [Side panel](/mail/answer/14355636) | blue check mark | blue check mark | blue check mark |
 | [Help me write](/mail/answer/13955415) | blue check mark | blue check mark | blue check mark |
 | [Suggested Replies](/mail/answer/15464729) | blue check mark | blue check mark | blue check mark |
 | [AI Overview for email threads](/mail/answer/16561387) | blue check mark | blue check mark | blue check mark |
 | [Help me schedule](/mail/answer/13469141#suggest_times_gemini) | blue check mark | blue check mark | blue check mark |
-| [Salesforce for Gemini](/mail/answer/15976055) |  | blue check mark | blue check mark |
+| [Salesforce for Gemini](/mail/answer/15976055) | | blue check mark | blue check mark |
 | **Google Calendar** | | | |
-| [Help me schedule](/calendar/answer/16690875) |  | blue check mark | blue check mark |
+| [Help me schedule](/calendar/answer/16690875) | | blue check mark | blue check mark |
 | **Google Docs** | | | |
-| [Side panel](/docs/answer/14355406) |  | blue check mark | blue check mark |
-| [Help me write](/docs/answer/13951448) |  | blue check mark | blue check mark |
-| [Generate an image](/docs/answer/15559738) |  | blue check mark | blue check mark |
-| [Help me create](/docs/answer/15541387) |  | blue check mark | blue check mark |
-| [Summarize a document](/docs/answer/15628121) |  | blue check mark | blue check mark |
+| [Side panel](/docs/answer/14355406) | | blue check mark | blue check mark |
+| [Help me write](/docs/answer/13951448) | | blue check mark | blue check mark |
+| [Generate an image](/docs/answer/15559738) | | blue check mark | blue check mark |
+| [Help me create](/docs/answer/15541387) | | blue check mark | blue check mark |
+| [Summarize a document](/docs/answer/15628121) | | blue check mark | blue check mark |
 | **Google Drive** | | | |
-| [Side panel](/drive/answer/14356148) |  | blue check mark | blue check mark |
-| [Analyze PDFs](/drive/answer/15141241) |  | blue check mark | blue check mark |
+| [Side panel](/drive/answer/14356148) | | blue check mark | blue check mark |
+| [Analyze PDFs](/drive/answer/15141241) | | blue check mark | blue check mark |
 | **Google Sheets** | | | |
-| [Side panel](/docs/answer/14356410?hl=en) |  | blue check mark | blue check mark |
-| [AI function](/docs/answer/15877199) |  | blue check mark | blue check mark |
-| [Enhanced Smart Fill](/docs/answer/14226603?hl=en) |  | blue check mark | blue check mark |
+| [Side panel](/docs/answer/14356410?hl=en) | | blue check mark | blue check mark |
+| [AI function](/docs/answer/15877199) | | blue check mark | blue check mark |
+| [Enhanced Smart Fill](/docs/answer/14226603?hl=en) | | blue check mark | blue check mark |
 | **Google Slides** | | | |
-| [Side panel](/docs/answer/14355071) |  | blue check mark | blue check mark |
-| [Generate an image](/docs/answer/13951829) |  | blue check mark | blue check mark |
-| [Remove image backgrounds](/docs/answer/14665097) |  | blue check mark | blue check mark |
+| [Side panel](/docs/answer/14355071) | | blue check mark | blue check mark |
+| [Generate an image](/docs/answer/13951829) | | blue check mark | blue check mark |
+| [Remove image backgrounds](/docs/answer/14665097) | | blue check mark | blue check mark |
 | **Google Meet** | | | |
-| [Take notes for me](/meet/answer/14754931) |  | blue check mark | blue check mark |
-| [Translated captions](/meet/answer/10964115) |  | blue check mark | blue check mark |
-| [Adaptive audio](/meet/answer/14263133) |  | blue check mark | blue check mark |
-| [Generate a background](/meet/answer/13954947) |  | blue check mark | blue check mark |
-| [Studio sound, studio look, and studio lighting](/meet/answer/14441737) |  | blue check mark | blue check mark |
+| [Take notes for me](/meet/answer/14754931) | | blue check mark | blue check mark |
+| [Translated captions](/meet/answer/10964115) | | blue check mark | blue check mark |
+| [Adaptive audio](/meet/answer/14263133) | | blue check mark | blue check mark |
+| [Generate a background](/meet/answer/13954947) | | blue check mark | blue check mark |
+| [Studio sound, studio look, and studio lighting](/meet/answer/14441737) | | blue check mark | blue check mark |
 | **Google Chat** | | | |
-| [Side panel](/chat/answer/15345722) |  | blue check mark | blue check mark |
-| [Summarize conversations](/chat/answer/12918975#use-Gemini-summaries) |  | blue check mark | blue check mark |
-| [Automatic Translation](/chat/answer/15711193) |  | blue check mark | blue check mark |
+| [Side panel](/chat/answer/15345722) | | blue check mark | blue check mark |
+| [Summarize conversations](/chat/answer/12918975#use-Gemini-summaries) | | blue check mark | blue check mark |
+| [Automatic Translation](/chat/answer/15711193) | | blue check mark | blue check mark |
 | **Google Vids** | | | |
 | [AI avatars](/docs/answer/16334946) | blue check mark\*\*\* | blue check mark | blue check mark |
 | [AI video clips](/docs/answer/16143507) | blue check mark\*\*\* | blue check mark | blue check mark |
@@ -253,21 +253,21 @@ Google Workspace Enterprise plans
 | [AI voiceover](/docs/answer/15070345) | blue check mark\*\*\* | blue check mark | blue check mark |
 | [Image generation](/docs/answer/16091479) | blue check mark\*\*\* | blue check mark | blue check mark |
 | **Google Forms** | | | |
-| [Help me create a form](/docs/answer/16346789) |  | blue check mark | blue check mark |
+| [Help me create a form](/docs/answer/16346789) | | blue check mark | blue check mark |
 | **Gemini app** | | | |
 | Enterprise-grade security & privacy | blue check mark | blue check mark | blue check mark |
 | [Google Workspace apps](/gemini/answer/14959807)\* | blue check mark | blue check mark | blue check mark |
-| [Gemini Advanced](/a/answer/13623623#gemini_features) |  | blue check mark | blue check mark |
+| [Gemini Advanced](/a/answer/13623623#gemini_features) | | blue check mark | blue check mark |
 | [Deep research](/gemini/answer/15719111) | blue check mark\*\* | blue check mark | blue check mark |
 | [Gems](/gemini/answer/15146780) | blue check mark | blue check mark | blue check mark |
-| [Edit and run code](/gemini/answer/13275745#zippy=%2Cgemini-advanced-examples%2Cmore-examples:~:text=want%20to%20review.-,Edit%20%26%20run%20code,-in%20the%20Gemini) |  | blue check mark | blue check mark |
+| [Edit and run code](/gemini/answer/13275745#zippy=%2Cgemini-advanced-examples%2Cmore-examples:~:text=want%20to%20review.-,Edit%20%26%20run%20code,-in%20the%20Gemini) | | blue check mark | blue check mark |
 | [File upload and advanced data analysis](/gemini/answer/14903178) | blue check mark† | blue check mark | blue check mark |
 | [Image generation with people](/gemini/answer/14286560) | blue check mark | blue check mark | blue check mark |
 | [Canvas](/gemini/answer/16047321) | blue check mark | blue check mark | blue check mark |
 | [Audio Overviews](/gemini/answer/16047321) | blue check mark | blue check mark | blue check mark |
 | **NotebookLM** | | | |
 | Upload sources, create summaries and Audio Overviews, and Q&A | blue check mark | blue check mark | blue check mark |
-| [NotebookLM Plus](/notebooklm/answer/15678219) |  | blue check mark | blue check mark |
+| [NotebookLM Plus](/notebooklm/answer/15678219) | | blue check mark | blue check mark |
 
 \* This feature is not available to customers who have [email-verified accounts](/a/answer/13445055).
 
@@ -279,35 +279,35 @@ Google Workspace Enterprise plans
 
 Google Workspace Frontline plans
 
-|  |  |
+| | |
 | --- | --- |
-|  | **Frontline Plus** |
+| | **Frontline Plus** |
 | **Gmail** | | | |
 | [Side panel](/mail/answer/14355636) | blue check mark |
 | [Help me write](/mail/answer/13955415) | blue check mark |
 | [Suggested Replies](/mail/answer/15464729) | blue check mark |
-| [AI Overview for email threads](/mail/answer/16561387) |  |
+| [AI Overview for email threads](/mail/answer/16561387) | |
 | [Help me schedule](/mail/answer/13469141#suggest_times_gemini) | blue check mark |
-| [Salesforce for Gemini](/mail/answer/15976055) |  |
+| [Salesforce for Gemini](/mail/answer/15976055) | |
 | **Google Calendar** | |
-| [Help me schedule](/calendar/answer/16690875) |  |
+| [Help me schedule](/calendar/answer/16690875) | |
 | **Google Docs** | | | |
-| [Side panel](/docs/answer/14355406) |  |
-| [Help me write](/docs/answer/13951448) |  |
-| [Generate an image](/docs/answer/15559738) |  |
-| [Help me create](/docs/answer/15541387) |  |
-| [Summarize a document](/docs/answer/15628121) |  |
+| [Side panel](/docs/answer/14355406) | |
+| [Help me write](/docs/answer/13951448) | |
+| [Generate an image](/docs/answer/15559738) | |
+| [Help me create](/docs/answer/15541387) | |
+| [Summarize a document](/docs/answer/15628121) | |
 | **Google Drive** | | | |
-| [Side panel](/drive/answer/14356148) |  |
-| [Analyze PDFs](/drive/answer/15141241) |  |
+| [Side panel](/drive/answer/14356148) | |
+| [Analyze PDFs](/drive/answer/15141241) | |
 | **Google Sheets** | | | |
-| [Side panel](/docs/answer/14356410?hl=en) |  |
-| [AI function](/docs/answer/15877199) |  |
-| [Enhanced Smart Fill](/docs/answer/14226603?hl=en) |  |
+| [Side panel](/docs/answer/14356410?hl=en) | |
+| [AI function](/docs/answer/15877199) | |
+| [Enhanced Smart Fill](/docs/answer/14226603?hl=en) | |
 | **Google Slides** | | | |
-| [Side panel](/docs/answer/14355071) |  |
-| [Generate an image](/docs/answer/13951829) |  |
-| [Remove image backgrounds](/docs/answer/14665097) |  |
+| [Side panel](/docs/answer/14355071) | |
+| [Generate an image](/docs/answer/13951829) | |
+| [Remove image backgrounds](/docs/answer/14665097) | |
 | **Google Meet** | | | |
 | [Take notes for me](/meet/answer/14754931) | blue check mark |
 | [Translated captions](/meet/answer/10964115) | blue check mark |
@@ -319,25 +319,25 @@ Google Workspace Frontline plans
 | [Summarize conversations](/chat/answer/12918975#use-Gemini-summaries) | blue check mark |
 | [Automatic Translation](/chat/answer/15711193) | blue check mark |
 | **Google Vids** | | | |
-| [AI avatars](/docs/answer/16334946) |  |
-| [AI video clips](/docs/answer/16143507) |  |
-| [Help me create](/docs/answer/15067819) |  |
-| [AI voiceover](/docs/answer/15070345) |  |
-| [Image generation](/docs/answer/16091479) |  |
+| [AI avatars](/docs/answer/16334946) | |
+| [AI video clips](/docs/answer/16143507) | |
+| [Help me create](/docs/answer/15067819) | |
+| [AI voiceover](/docs/answer/15070345) | |
+| [Image generation](/docs/answer/16091479) | |
 | **Gemini app** | | | |
 | Enterprise-grade security & privacy | blue check mark |
 | [Google Workspace apps](/gemini/answer/14959807) | blue check mark |
-| [Gemini Advanced](/a/answer/13623623#gemini_features) |  |
+| [Gemini Advanced](/a/answer/13623623#gemini_features) | |
 | [Deep research](/gemini/answer/15719111)\* | blue check mark |
 | [Gems](/gemini/answer/15146780) | blue check mark |
-| [Edit and run code](/gemini/answer/13275745#zippy=%2Cgemini-advanced-examples%2Cmore-examples:~:text=want%20to%20review.-,Edit%20%26%20run%20code,-in%20the%20Gemini) |  |
+| [Edit and run code](/gemini/answer/13275745#zippy=%2Cgemini-advanced-examples%2Cmore-examples:~:text=want%20to%20review.-,Edit%20%26%20run%20code,-in%20the%20Gemini) | |
 | [File upload and advanced data analysis](/gemini/answer/14903178)\*\* | blue check mark |
 | [Image generation with people](/gemini/answer/14286560) | blue check mark |
 | [Canvas](/gemini/answer/16047321) | blue check mark |
 | [Audio Overviews](/gemini/answer/16047321) | blue check mark |
 | **NotebookLM** | | | |
 | Upload sources, create summaries and Audio Overviews, and Q&A | blue check mark |
-| [NotebookLM Plus](/notebooklm/answer/15678219) |  |
+| [NotebookLM Plus](/notebooklm/answer/15678219) | |
 
 \* Subject to limits on the number of requests per day and on the number of requests you can run at the same time.
 
@@ -347,39 +347,39 @@ Gemini in Workspace apps add-ons
 
 **Important**: Gemini in Workspace apps add-ons are no longer available for sale. If your organization previously purchased an add-on, you can continue to use Gemini features in Google Workspace products.
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
-|  | **Gemini Business - Legacy** | **Gemini Enterprise - Legacy** | **AI Meetings and Messaging** |
+| | **Gemini Business - Legacy** | **Gemini Enterprise - Legacy** | **AI Meetings and Messaging** |
 | **Gmail** | | | |
-| [Side panel](/mail/answer/14355636) | blue check mark | blue check mark |  |
-| [Help me write](/mail/answer/13955415) | blue check mark | blue check mark |  |
-| [Suggested Replies](/mail/answer/15464729) | blue check mark | blue check mark |  |
-| [AI Overview for email threads](/mail/answer/16561387) | blue check mark | blue check mark |  |
-| [Help me schedule](/mail/answer/13469141#suggest_times_gemini) | blue check mark | blue check mark |  |
-| [Salesforce for Gemini](/mail/answer/15976055) | blue check mark | blue check mark |  |
+| [Side panel](/mail/answer/14355636) | blue check mark | blue check mark | |
+| [Help me write](/mail/answer/13955415) | blue check mark | blue check mark | |
+| [Suggested Replies](/mail/answer/15464729) | blue check mark | blue check mark | |
+| [AI Overview for email threads](/mail/answer/16561387) | blue check mark | blue check mark | |
+| [Help me schedule](/mail/answer/13469141#suggest_times_gemini) | blue check mark | blue check mark | |
+| [Salesforce for Gemini](/mail/answer/15976055) | blue check mark | blue check mark | |
 | **Google Calendar** | | | |
-| [Help me schedule](/calendar/answer/16690875) | blue check mark | blue check mark |  |
+| [Help me schedule](/calendar/answer/16690875) | blue check mark | blue check mark | |
 | **Google Docs** | | | |
-| [Side panel](/docs/answer/14355406) | blue check mark | blue check mark |  |
-| [Help me write](/docs/answer/13951448) | blue check mark | blue check mark |  |
-| [Help me create an image](/docs/answer/15559738) | blue check mark | blue check mark |  |
-| [Help me create](/docs/answer/15541387) | blue check mark | blue check mark |  |
-| [Summarize a document](/docs/answer/15628121) | blue check mark | blue check mark |  |
-| [Proofread](https://support.google.com/docs/answer/57859) | blue check mark | blue check mark |  |
+| [Side panel](/docs/answer/14355406) | blue check mark | blue check mark | |
+| [Help me write](/docs/answer/13951448) | blue check mark | blue check mark | |
+| [Help me create an image](/docs/answer/15559738) | blue check mark | blue check mark | |
+| [Help me create](/docs/answer/15541387) | blue check mark | blue check mark | |
+| [Summarize a document](/docs/answer/15628121) | blue check mark | blue check mark | |
+| [Proofread](https://support.google.com/docs/answer/57859) | blue check mark | blue check mark | |
 | **Google Drive** | | | |
-| [Side panel](/drive/answer/14356148) | blue check mark | blue check mark |  |
-| [Analyze PDFs](/drive/answer/15141241) | blue check mark | blue check mark |  |
+| [Side panel](/drive/answer/14356148) | blue check mark | blue check mark | |
+| [Analyze PDFs](/drive/answer/15141241) | blue check mark | blue check mark | |
 | **Google Sheets** | | | |
-| [Side panel](/docs/answer/14356410?hl=en) | blue check mark | blue check mark |  |
-| [AI function](/docs/answer/15877199) | blue check mark | blue check mark |  |
-| [Enhanced Smart Fill](/docs/answer/14226603?hl=en) | blue check mark | blue check mark |  |
+| [Side panel](/docs/answer/14356410?hl=en) | blue check mark | blue check mark | |
+| [AI function](/docs/answer/15877199) | blue check mark | blue check mark | |
+| [Enhanced Smart Fill](/docs/answer/14226603?hl=en) | blue check mark | blue check mark | |
 | **Google Slides** | | | |
-| [Side panel](/docs/answer/14355071) | blue check mark | blue check mark |  |
-| [Help me create an image](/docs/answer/13951829) | blue check mark | blue check mark |  |
-| [Remove image backgrounds](/docs/answer/14665097) | blue check mark | blue check mark |  |
+| [Side panel](/docs/answer/14355071) | blue check mark | blue check mark | |
+| [Help me create an image](/docs/answer/13951829) | blue check mark | blue check mark | |
+| [Remove image backgrounds](/docs/answer/14665097) | blue check mark | blue check mark | |
 | **Google Meet** | | | |
-| [Take notes for me](/meet/answer/14754931) |  | blue check mark | blue check mark |
-| [Translated captions](/meet/answer/10964115) |  | blue check mark | blue check mark |
+| [Take notes for me](/meet/answer/14754931) | | blue check mark | blue check mark |
+| [Translated captions](/meet/answer/10964115) | | blue check mark | blue check mark |
 | [Adaptive audio](/meet/answer/14263133) | blue check mark | blue check mark | blue check mark |
 | [Generate a background](/meet/answer/13954947) | blue check mark | blue check mark | blue check mark |
 | [Studio sound, studio look, and studio lighting](/meet/answer/14441737) | blue check mark | blue check mark | blue check mark |
@@ -388,28 +388,28 @@ Gemini in Workspace apps add-ons
 | [Summarize conversations](/chat/answer/12918975#use-Gemini-summaries) | blue check mark | blue check mark | blue check mark |
 | [Automatic Translation](/chat/answer/15711193) | blue check mark | blue check mark | blue check mark |
 | **Google Vids** | | | |
-| [AI avatars](/docs/answer/16334946) | blue check mark | blue check mark |  |
-| [AI video clips](/docs/answer/16143507) | blue check mark | blue check mark |  |
-| [Help me create](/docs/answer/15067819) | blue check mark | blue check mark |  |
-| [AI voiceover](/docs/answer/15070345) | blue check mark | blue check mark |  |
-| [Image generation](/docs/answer/16091479) | blue check mark | blue check mark |  |
+| [AI avatars](/docs/answer/16334946) | blue check mark | blue check mark | |
+| [AI video clips](/docs/answer/16143507) | blue check mark | blue check mark | |
+| [Help me create](/docs/answer/15067819) | blue check mark | blue check mark | |
+| [AI voiceover](/docs/answer/15070345) | blue check mark | blue check mark | |
+| [Image generation](/docs/answer/16091479) | blue check mark | blue check mark | |
 | **Google Forms** | | | |
-| [Help me create a form](/docs/answer/16346789) | blue check mark | blue check mark |  |
-| [Summarize responses](/docs/answer/16231981) | blue check mark | blue check mark |  |
+| [Help me create a form](/docs/answer/16346789) | blue check mark | blue check mark | |
+| [Summarize responses](/docs/answer/16231981) | blue check mark | blue check mark | |
 | **Gemini app** | | | |
-| Enterprise-grade security & privacy | blue check mark | blue check mark |  |
-| [Google Workspace apps](/gemini/answer/14959807) | blue check mark | blue check mark |  |
-| [Gemini Advanced](/a/answer/13623623#gemini_features) | blue check mark | blue check mark |  |
-| [Deep research](/gemini/answer/15719111) | blue check mark | blue check mark |  |
-| [Gems](/gemini/answer/15146780) | blue check mark | blue check mark |  |
-| [Edit and run code](/gemini/answer/13275745#zippy=%2Cgemini-advanced-examples%2Cmore-examples:~:text=want%20to%20review.-,Edit%20%26%20run%20code,-in%20the%20Gemini) | blue check mark | blue check mark |  |
-| [File upload and advanced data analysis](/gemini/answer/14903178) | blue check mark | blue check mark |  |
-| [Image generation with people](/gemini/answer/14286560) | blue check mark | blue check mark |  |
-| [Canvas](/gemini/answer/16047321) | blue check mark | blue check mark |  |
-| [Audio Overviews](/gemini/answer/16047321) | blue check mark | blue check mark |  |
+| Enterprise-grade security & privacy | blue check mark | blue check mark | |
+| [Google Workspace apps](/gemini/answer/14959807) | blue check mark | blue check mark | |
+| [Gemini Advanced](/a/answer/13623623#gemini_features) | blue check mark | blue check mark | |
+| [Deep research](/gemini/answer/15719111) | blue check mark | blue check mark | |
+| [Gems](/gemini/answer/15146780) | blue check mark | blue check mark | |
+| [Edit and run code](/gemini/answer/13275745#zippy=%2Cgemini-advanced-examples%2Cmore-examples:~:text=want%20to%20review.-,Edit%20%26%20run%20code,-in%20the%20Gemini) | blue check mark | blue check mark | |
+| [File upload and advanced data analysis](/gemini/answer/14903178) | blue check mark | blue check mark | |
+| [Image generation with people](/gemini/answer/14286560) | blue check mark | blue check mark | |
+| [Canvas](/gemini/answer/16047321) | blue check mark | blue check mark | |
+| [Audio Overviews](/gemini/answer/16047321) | blue check mark | blue check mark | |
 | **NotebookLM** | | | |
-| Upload sources, create summaries and Audio Overviews, and Q&A | blue check mark | blue check mark |  |
-| [NotebookLM Plus](/notebooklm/answer/15678219) | blue check mark | blue check mark |  |
+| Upload sources, create summaries and Audio Overviews, and Q&A | blue check mark | blue check mark | |
+| [NotebookLM Plus](/notebooklm/answer/15678219) | blue check mark | blue check mark | |
 
 ## Use Gemini in Gmail, Docs & more with a Google AI plan
 

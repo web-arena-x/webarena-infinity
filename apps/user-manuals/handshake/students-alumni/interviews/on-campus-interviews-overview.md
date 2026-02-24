@@ -91,9 +91,9 @@ Your application and interview status are displayed, along with which schools ar
 - **Employer**
 - **Interview Name**
 - **Interview Schedule Type** (Open / Preselect / Room Only)
-  - Open interview schedules allow you to take a slot as soon as you apply when you match all of the employer's preferences. If you do not match all of the preferences, the employer can review your application and mark you as Primary if they'd like to meet with you.
-  - Preselect schedules have a defined application period, followed by the employer review period. Applicants selected to interview are set to Primary or Alternate. If selected, notifications are sent in Handshake and via email to alert you of signups.
-  - Room Only schedules are not managed through Handshake–the employer typically has a separate method of organizing interview times and will followup with you.
+ - Open interview schedules allow you to take a slot as soon as you apply when you match all of the employer's preferences. If you do not match all of the preferences, the employer can review your application and mark you as Primary if they'd like to meet with you.
+ - Preselect schedules have a defined application period, followed by the employer review period. Applicants selected to interview are set to Primary or Alternate. If selected, notifications are sent in Handshake and via email to alert you of signups.
+ - Room Only schedules are not managed through Handshake–the employer typically has a separate method of organizing interview times and will followup with you.
 - **Allow Multiple Applications?** (Yes / No)
 - **Timeline Section** *includes current status and key dates*
 - **Label**

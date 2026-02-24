@@ -23,8 +23,7 @@ Use this API to interact with the GitLab Service Ping process.
 {{< /history >}}
 
 Exports the JSON payload collected in Service Ping. If no payload data is available in the application cache, it returns empty response.
-If payload data is empty, make sure the [Service Ping feature is enabled](../administration/settings/usage_statistics.md#enable-or-disable-service-ping) and
-wait for the cron job to be executed, or generate payload data manually.
+If payload data is empty, make sure the [Service Ping feature is enabled](../administration/settings/usage_statistics.md#enable-or-disable-service-ping) and wait for the cron job to be executed, or generate payload data manually.
 
 Prerequisites:
 
@@ -38,16 +37,16 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/usage_data/service_ping"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/usage_data/service_ping"
 ```
 
 Example response:
 
 ```json
-  "recorded_at": "2024-01-15T23:33:50.387Z",
-  "license": {},
-  "counts": {
+ "recorded_at": "2024-01-15T23:33:50.387Z",
+ "license": {},
+ "counts": {
     "assignee_lists": 0,
     "ci_builds": 463,
     "ci_external_pipelines": 0,
@@ -62,9 +61,7 @@ Example response:
 
 The Service Ping JSON payload includes `schema_inconsistencies_metric`. Database schema inconsistencies are expected, and are unlikely to indicate a problem with your instance.
 
-This metric is designed only for troubleshooting ongoing issues, and shouldn't be used as a regular health check. The metric should only be interpreted with
-the guidance of GitLab Support. The metric reports the same database schema inconsistencies as the
-[database schema checker Rake task](../administration/raketasks/maintenance.md#check-the-database-for-schema-inconsistencies).
+This metric is designed only for troubleshooting ongoing issues, and shouldn't be used as a regular health check. The metric should only be interpreted with the guidance of GitLab Support. The metric reports the same database schema inconsistencies as the [database schema checker Rake task](../administration/raketasks/maintenance.md#check-the-database-for-schema-inconsistencies).
 
 For more information, see [issue 467544](https://gitlab.com/gitlab-org/gitlab/-/issues/467544).
 
@@ -80,7 +77,7 @@ Example request:
 
 ```shell
 curl --request GET \
-  --url "https://gitlab.example.com/api/v4/usage_data/metric_definitions"
+ --url "https://gitlab.example.com/api/v4/usage_data/metric_definitions"
 ```
 
 Example response:
@@ -88,16 +85,16 @@ Example response:
 ```yaml
 ---
 - key_path: redis_hll_counters.search.i_search_paid_monthly
-  description: Calculated unique users to perform a search with a paid license enabled
+ description: Calculated unique users to perform a search with a paid license enabled
     by month
-  product_group: global_search
-  value_type: number
-  status: active
-  time_frame: 28d
-  data_source: redis_hll
-  tier:
-  - premium
-  - ultimate
+ product_group: global_search
+ value_type: number
+ status: active
+ time_frame: 28d
+ data_source: redis_hll
+ tier:
+ - premium
+ - ultimate
 ...
 ```
 
@@ -110,9 +107,7 @@ Example response:
 
 {{< /history >}}
 
-Return all of the raw SQL queries used to compute Service Ping. This action is behind the
-`usage_data_queries_api` feature flag and is available only for the GitLab instance
-[Administrator](../user/permissions.md) users.
+Return all of the raw SQL queries used to compute Service Ping. This action is behind the `usage_data_queries_api` feature flag and is available only for the GitLab instance [Administrator](../user/permissions.md) users.
 
 ```plaintext
 GET /usage_data/queries
@@ -122,44 +117,44 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/usage_data/queries"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/usage_data/queries"
 ```
 
 Example response:
 
 ```json
 {
-  "recorded_at": "2021-03-23T06:31:21.267Z",
-  "uuid": null,
-  "hostname": "localhost",
-  "version": "13.11.0-pre",
-  "installation_type": "gitlab-development-kit",
-  "active_user_count": "SELECT COUNT(\"users\".\"id\") FROM \"users\" WHERE (\"users\".\"state\" IN ('active')) AND (\"users\".\"user_type\" IS NULL OR \"users\".\"user_type\" IN (NULL, 6, 4))",
-  "edition": "EE",
-  "license_md5": "c701acc03844c45366dd175ef7a4e19c",
-  "license_sha256": "366dd175ef7a4e19cc701acc03844c45366dd175ef7a4e19cc701acc03844c45",
-  "license_id": null,
-  "historical_max_users": 0,
-  "licensee": {
+ "recorded_at": "2021-03-23T06:31:21.267Z",
+ "uuid": null,
+ "hostname": "localhost",
+ "version": "13.11.0-pre",
+ "installation_type": "gitlab-development-kit",
+ "active_user_count": "SELECT COUNT(\"users\".\"id\") FROM \"users\" WHERE (\"users\".\"state\" IN ('active')) AND (\"users\".\"user_type\" IS NULL OR \"users\".\"user_type\" IN (NULL, 6, 4))",
+ "edition": "EE",
+ "license_md5": "c701acc03844c45366dd175ef7a4e19c",
+ "license_sha256": "366dd175ef7a4e19cc701acc03844c45366dd175ef7a4e19cc701acc03844c45",
+ "license_id": null,
+ "historical_max_users": 0,
+ "licensee": {
     "Name": "John Doe1"
-  },
-  "license_user_count": null,
-  "license_starts_at": "1970-01-01",
-  "license_expires_at": "2022-02-23",
-  "license_plan": "starter",
-  "license_add_ons": {
+ },
+ "license_user_count": null,
+ "license_starts_at": "1970-01-01",
+ "license_expires_at": "2022-02-23",
+ "license_plan": "starter",
+ "license_add_ons": {
     "GitLab_FileLocks": 1,
     "GitLab_Auditor_User": 1
-  },
-  "license_trial": null,
-  "license_subscription_id": "0000",
-  "license": {},
-  "settings": {
+ },
+ "license_trial": null,
+ "license_subscription_id": "0000",
+ "license": {},
+ "settings": {
     "ldap_encrypted_secrets_enabled": false,
     "operating_system": "mac_os_x-11.2.2"
-  },
-  "counts": {
+ },
+ "counts": {
     "assignee_lists": "SELECT COUNT(\"lists\".\"id\") FROM \"lists\" WHERE \"lists\".\"list_type\" = 3",
     "boards": "SELECT COUNT(\"boards\".\"id\") FROM \"boards\"",
     "ci_builds": "SELECT COUNT(\"ci_builds\".\"id\") FROM \"ci_builds\" WHERE \"ci_builds\".\"type\" = 'Ci::Build'",
@@ -180,9 +175,7 @@ Example response:
 
 {{< /history >}}
 
-Lists all non-SQL metrics data used in the Service ping. This action is behind the
-`usage_data_non_sql_metrics` feature flag and is available only for the GitLab instance
-[Administrator](../user/permissions.md) users.
+Lists all non-SQL metrics data used in the Service ping. This action is behind the `usage_data_non_sql_metrics` feature flag and is available only for the GitLab instance [Administrator](../user/permissions.md) users.
 
 ```plaintext
 GET /usage_data/non_sql_metrics
@@ -192,43 +185,43 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/usage_data/non_sql_metrics"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/usage_data/non_sql_metrics"
 ```
 
 Sample response:
 
 ```json
 {
-  "recorded_at": "2021-03-26T07:04:03.724Z",
-  "uuid": null,
-  "hostname": "localhost",
-  "version": "13.11.0-pre",
-  "installation_type": "gitlab-development-kit",
-  "active_user_count": -3,
-  "edition": "EE",
-  "license_md5": "bb8cd0d8a6d9569ff3f70b8927a1f949",
-  "license_sha256": "366dd175ef7a4e19cc701acc03844c45366dd175ef7a4e19cc701acc03844c45",
-  "license_id": null,
-  "historical_max_users": 0,
-  "licensee": {
+ "recorded_at": "2021-03-26T07:04:03.724Z",
+ "uuid": null,
+ "hostname": "localhost",
+ "version": "13.11.0-pre",
+ "installation_type": "gitlab-development-kit",
+ "active_user_count": -3,
+ "edition": "EE",
+ "license_md5": "bb8cd0d8a6d9569ff3f70b8927a1f949",
+ "license_sha256": "366dd175ef7a4e19cc701acc03844c45366dd175ef7a4e19cc701acc03844c45",
+ "license_id": null,
+ "historical_max_users": 0,
+ "licensee": {
     "Name": "John Doe1"
-  },
-  "license_user_count": null,
-  "license_starts_at": "1970-01-01",
-  "license_expires_at": "2022-02-26",
-  "license_plan": "starter",
-  "license_add_ons": {
+ },
+ "license_user_count": null,
+ "license_starts_at": "1970-01-01",
+ "license_expires_at": "2022-02-26",
+ "license_plan": "starter",
+ "license_add_ons": {
     "GitLab_FileLocks": 1,
     "GitLab_Auditor_User": 1
-  },
-  "license_trial": null,
-  "license_subscription_id": "0000",
-  "license": {},
-  "settings": {
+ },
+ "license_trial": null,
+ "license_subscription_id": "0000",
+ "license": {},
+ "settings": {
     "ldap_encrypted_secrets_enabled": false,
     "operating_system": "mac_os_x-11.2.2"
-  },
+ },
 ...
 ```
 

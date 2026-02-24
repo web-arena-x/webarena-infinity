@@ -14,7 +14,7 @@ Users on [any team or plan](https://help.figma.com/hc/en-us/articles/36004032827
 
 Users with can edit access can create prototypes.
 
-New to Prototyping? Check out our  [Getting Started with Prototyping](guide-to-prototyping-in-figma.md) guide.
+New to Prototyping? Check out our [Getting Started with Prototyping](guide-to-prototyping-in-figma.md) guide.
 
 All prototypes start with a single interaction. Each interaction has a **trigger** and an **action**.
 

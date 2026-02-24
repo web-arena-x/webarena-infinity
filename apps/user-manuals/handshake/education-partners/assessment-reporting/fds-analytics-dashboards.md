@@ -50,7 +50,7 @@ Click the vertical three dots menu in the upper-right corner of the page, then c
 In the popup that appears, select your download options:
 
 - Format: **CSV** or **PDF**
-  - If PDF is selected, additional options appear:
+ - If PDF is selected, additional options appear:
     - choose an option for Paper Size
     - Expand tables to show all rows *(checkbox)*
     - Arrange dashboard tiles in a single column *(checkbox)*
@@ -68,9 +68,9 @@ In the popup that appears, select your download options:
 - **Format** *(dropdown menu)*: TXT / Excel Spreadsheet 2007 or later / CSV / JSON / HTML / Markdown / PNG
 - Advanced data options:
 
-  - Results: **With visualizations options applied** OR **As displayed in the data table**
-  - Data values: **Formatted** OR **Unformatted (no rounding, special characters, etc.)**
-  - Number of rows to include: **Current result table** OR **Custom**
+ - Results: **With visualizations options applied** OR **As displayed in the data table**
+ - Data values: **Formatted** OR **Unformatted (no rounding, special characters, etc.)**
+ - Number of rows to include: **Current result table** OR **Custom**
 
 Click **Open in Browser** or **Download** to proceed. A new browser tab will open while the download generates and the download will occur automatically. 
 
@@ -80,9 +80,9 @@ Dashboards have unique areas of focus, across outcome types, demographics, emplo
 
 All dashboards include filters for college, major, gender, ethnicity, labels and more.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
-|  | Title (link to internal) | Description |
+| | Title (link to internal) | Description |
 | 1 | [Overview](https://app.joinhandshake.com/edu/analytics/fds_dashboard?dashboard_name=fds_overview&preferred_viewer=dashboards-next) | Summary of data to provide a high level overview of student outcomes, responses by location, outcomes by major, outcomes by degree level, recent outcomes, and compensation breakdown |
 | 2 | [Working](https://app.joinhandshake.com/edu/analytics/fds_dashboard?dashboard_name=fds_working&preferred_viewer=dashboards-next) | Summary of all "Working" outcome responses, with a deep dive on student salaries and hiring trends |
 | 3 | [Volunteering](https://app.joinhandshake.com/edu/analytics/fds_dashboard?dashboard_name=volunteering&preferred_viewer=dashboards-next) | Summary of all "Volunteering" outcome responses with standard breakouts like major, employer and function |

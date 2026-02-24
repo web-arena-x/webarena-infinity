@@ -14,26 +14,26 @@ Use the filters at the top of the page to narrow down the results displayed in t
 
 - **Status**
 - **Labels**
-  - These are labels applied to the Contact entry. Use **Employer Label** to filter on labels on the company profile instead.
+ - These are labels applied to the Contact entry. Use **Employer Label** to filter on labels on the company profile instead.
 - **Employer**
 
 Select Filters to display additional options on the right side of the screen:
 
 - **Keywords**
 - **[Employer Status]**
-  - **Approved**
-  - **Pending**
-  - **Declined**
-  - **In Progress**
-  - **Not Yet Connected**
+ - **Approved**
+ - **Pending**
+ - **Declined**
+ - **In Progress**
+ - **Not Yet Connected**
 - **Labels**
 - **Employer**
 - **Last Login Start Date - Last Login End Date**
 - **[Recruiting Activity]**
-  - **Posted Job**
-  - **Posted Event**
-  - **Registered for Fair**
-  - **Posted Interview**
+ - **Posted Job**
+ - **Posted Event**
+ - **Registered for Fair**
+ - **Posted Interview**
 - **Access Level**
 - **Industry**
 - **Major Group**
@@ -48,7 +48,7 @@ There are five columns in the table, which display the following information:
 - **Employer and Title** - The company they are connected to in Handshake and their job title
 - **Last Activity** - If the user has interacted with your institution, their most recent activity will be listed, with their last login date below.
 - **Employer Status** - The company's approval status with your institution
-  - **Best Practice**: *look for employers that are currently pending or haven't yet connected with your institution!*
+ - **Best Practice**: *look for employers that are currently pending or haven't yet connected with your institution!*
 - **Labels** - Any labels applied to their contact entry to-date
 
 ![Alumni Hub page.png](https://support.joinhandshake.com/hc/article_attachments/36018253251991)

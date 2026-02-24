@@ -15,13 +15,11 @@ title: Billing for seat overages
 
 When your GitLab subscription has more billable users than purchased seats, you are charged for the additional seats.
 
-In accordance with [the GitLab Subscription Agreement](https://about.gitlab.com/terms/),
-GitLab reviews your seat usage and sends you an invoice for overages
-either quarterly (quarterly reconciliation process) or annually (annual true-up process).
+In accordance with [the GitLab Subscription Agreement](https://about.gitlab.com/terms/), GitLab reviews your seat usage and sends you an invoice for overages either quarterly (quarterly reconciliation process) or annually (annual true-up process).
 
 - **Quarterly reconciliation**: You are billed per quarter on a prorated basis for the remaining portion of the subscription term.
-  You pay for the maximum number of seats you used during the quarter.
-  You pay less annually, which can result in substantial savings.
+ You pay for the maximum number of seats you used during the quarter.
+ You pay less annually, which can result in substantial savings.
 - **Annual true-up**: You pay the full annual subscription fee for users added at any time during the year.
 
 Learn more about:
@@ -46,12 +44,12 @@ The following chart illustrates the number of users during the year, per month a
 If you are billed quarterly:
 
 - In Q1 you had 110 users. 10 users over subscription x $25 per user x 3 quarters = $750.
-  You now pay a license for 110 users.
+ You now pay a license for 110 users.
 - In Q2 you had 105 users. You did not go over 110 users, so you are not charged.
 - In Q3 you had 120 users. 10 users over subscription x $25 per user x 1 remaining quarter = $250.
-  You now pay a license for 120 users.
+ You now pay a license for 120 users.
 - In Q4 you had 120 users. You did not exceed the number of users from Q3, so you are not charged.
-  However, even if you exceeded the number you would not be charged, because in Q4 there are no charges for exceeding the number.
+ However, even if you exceeded the number you would not be charged, because in Q4 there are no charges for exceeding the number.
 - The annual total cost is $1000.
 
 If you are billed annually:
@@ -76,8 +74,7 @@ You are excluded from quarterly reconciliation if you:
 - Purchased an [Enterprise Agile Planning](manage_subscription.md#enterprise-agile-planning) product.
 - Are a public sector customer.
 - Have an offline environment and used a license file to activate your subscription.
-- Are enrolled in a program that provides a Free tier such as the GitLab for Education,
-  GitLab for Open Source Program, or GitLab for Startups.
+- Are enrolled in a program that provides a Free tier such as the GitLab for Education, GitLab for Open Source Program, or GitLab for Startups.
 
 If you are excluded from quarterly reconciliation and not on a Free tier, your true-ups are reconciled annually.
 Alternatively, you can reconcile any overages by [purchasing additional seats](manage_users_and_seats.md#buy-more-seats).
@@ -93,8 +90,7 @@ The date you're notified about the overage is not the same as the date you are b
    - On GitLab.com: On the reconciliation date, to group owners and billing account managers.
    - On GitLab Self-Managed: Six days after the reconciliation date, to billing account managers.
 
-1. Seven days after the email notification, the subscription is updated to include the additional seats,
-   and an invoice is generated for a prorated amount.
+1. Seven days after the email notification, the subscription is updated to include the additional seats, and an invoice is generated for a prorated amount.
    If a credit card is on file, the payment applies automatically.
    Otherwise, you receive an invoice, which is subject to your payment terms.
 

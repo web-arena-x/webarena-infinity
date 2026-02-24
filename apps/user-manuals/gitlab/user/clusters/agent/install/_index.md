@@ -19,16 +19,16 @@ To connect a Kubernetes cluster to GitLab, you must install an agent in your clu
 Before you can install the agent in your cluster, you need:
 
 - An existing [Kubernetes cluster that you can connect to from your local terminal](https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/). If you don't have a cluster, you can create one on a cloud provider, like:
-  - [Amazon Elastic Kubernetes Service (EKS)](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html)
-  - [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/what-is-aks)
-  - [Digital Ocean](https://docs.digitalocean.com/products/kubernetes/getting-started/quickstart/)
-  - [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine/docs/deploy-app-cluster)
-  - You should use [Infrastructure as Code techniques](../../../infrastructure/iac/_index.md) for managing infrastructure resources at scale.
+ - [Amazon Elastic Kubernetes Service (EKS)](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html)
+ - [Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/what-is-aks)
+ - [Digital Ocean](https://docs.digitalocean.com/products/kubernetes/getting-started/quickstart/)
+ - [Google Kubernetes Engine (GKE)](https://cloud.google.com/kubernetes-engine/docs/deploy-app-cluster)
+ - You should use [Infrastructure as Code techniques](../../../infrastructure/iac/_index.md) for managing infrastructure resources at scale.
 - Access to an agent server:
-  - On GitLab.com, the agent server is available at `wss://kas.gitlab.com`.
-  - On GitLab Self-Managed, a GitLab administrator must set up the [agent server](../../../../administration/clusters/kas.md).
+ - On GitLab.com, the agent server is available at `wss://kas.gitlab.com`.
+ - On GitLab Self-Managed, a GitLab administrator must set up the [agent server](../../../../administration/clusters/kas.md).
     Then it is available by default at `wss://gitlab.example.com/-/kubernetes-agent/`.
-  - On GitLab Dedicated, the agent server is available at `wss://kas.<instance-domain>`, for example `wss://kas.example.gitlab-dedicated.com`. If you use a [custom domain](../../../../administration/dedicated/configure_instance/network_security.md#custom-domains) for your GitLab Dedicated instance, you can also use a custom domain for the KAS service.
+ - On GitLab Dedicated, the agent server is available at `wss://kas.<instance-domain>`, for example `wss://kas.example.gitlab-dedicated.com`. If you use a [custom domain](../../../../administration/dedicated/configure_instance/network_security.md#custom-domains) for your GitLab Dedicated instance, you can also use a custom domain for the KAS service.
 
 ## Bootstrap the agent with Flux support (recommended)
 
@@ -37,28 +37,26 @@ You can install the agent by bootstrapping it with the [GitLab CLI (`glab`)](../
 Prerequisites:
 
 - You have the following command-line tools installed:
-  - `glab`
-  - `kubectl`
-  - `flux`
+ - `glab`
+ - `kubectl`
+ - `flux`
 - You have a local cluster connection that works with `kubectl` and `flux`.
 - You [bootstrapped Flux](https://fluxcd.io/flux/installation/bootstrap/gitlab/) into the cluster with `flux bootstrap`.
-  - Make sure to bootstrap Flux and the agent in compatible directories. If you bootstrapped Flux
-    with the `--path` option, you must pass the same value to the `--manifest-path` option of the
-    `glab cluster agent bootstrap` command.
+ - Make sure to bootstrap Flux and the agent in compatible directories. If you bootstrapped Flux with the `--path` option, you must pass the same value to the `--manifest-path` option of the `glab cluster agent bootstrap` command.
 
 To install the agent, either:
 
 - Run `glab cluster agent bootstrap` within the directory of your Git repository of your target project:
 
-  ```shell
-  glab cluster agent bootstrap <agent-name> --manifest-path <same_path_used_in_flux_bootstrap>
-  ```
+ ```shell
+ glab cluster agent bootstrap <agent-name> --manifest-path <same_path_used_in_flux_bootstrap>
+ ```
 
 - Run `glab -R path-with-namespace cluster agent bootstrap` if you must run the command outside of the Git repo of your target project:
 
-  ```shell
-  glab -R <full/path/to/project> cluster agent bootstrap <agent-name> --manifest-path <same_path_used_in_flux_bootstrap>
-  ```
+ ```shell
+ glab -R <full/path/to/project> cluster agent bootstrap <agent-name> --manifest-path <same_path_used_in_flux_bootstrap>
+ ```
 
 By default, the command:
 
@@ -92,8 +90,7 @@ For configuration settings, the agent uses a YAML file in the GitLab project. Ad
 
 To create an agent configuration file:
 
-1. Choose a name for your agent. The agent name follows the
-   [DNS label standard from RFC 1123](https://www.rfc-editor.org/rfc/rfc1123). The name must:
+1. Choose a name for your agent. The agent name follows the [DNS label standard from RFC 1123](https://www.rfc-editor.org/rfc/rfc1123). The name must:
 
    - Be unique in the project.
    - Contain at most 63 characters.
@@ -119,16 +116,14 @@ The agent can be registered without creating an agent configuration file.
 You must register an agent before you can install the agent in your cluster. To register an agent:
 
 1. On the top bar, select **Search or go to** and find your project.
-   If you have an [agent configuration file](#create-an-agent-configuration-file),
-   it must be in this project. Your cluster manifest files should also be in this project.
+   If you have an [agent configuration file](#create-an-agent-configuration-file), it must be in this project. Your cluster manifest files should also be in this project.
 1. Select **Operate** > **Kubernetes clusters**.
 1. Select **Connect a cluster (agent)**.
 1. In the **Name of new agent** field, enter a unique name for your agent.
    - If an [agent configuration file](#create-an-agent-configuration-file) with this name already exists, it is used.
    - If no configuration exists for this name, a new agent is created with the default configuration.
 1. Select **Create and register**.
-1. GitLab generates an access token for the agent. You need this token to install the agent
-   in your cluster.
+1. GitLab generates an access token for the agent. You need this token to install the agent in your cluster.
 
    {{< alert type="warning" >}}
 
@@ -136,8 +131,7 @@ You must register an agent before you can install the agent in your cluster. To 
 
    {{< /alert >}}
 
-1. Copy the command under **Recommended installation method**. You need it when you use
-   the one-liner installation method to install the agent in your cluster.
+1. Copy the command under **Recommended installation method**. You need it when you use the one-liner installation method to install the agent in your cluster.
 
 #### Option 2: GitLab connects to agent (receptive agent)
 
@@ -158,13 +152,11 @@ You must register an agent before you can install the agent in your cluster. To 
 
 The GitLab Agent Helm Chart release does not fully support mTLS authentication.
 You should authenticate with the JWT method instead.
-Support for mTLS is tracked in
-[issue 64](https://gitlab.com/gitlab-org/charts/gitlab-agent/-/issues/64).
+Support for mTLS is tracked in [issue 64](https://gitlab.com/gitlab-org/charts/gitlab-agent/-/issues/64).
 
 {{< /alert >}}
 
-[Receptive agents](../_index.md#receptive-agents) allow GitLab to integrate with Kubernetes clusters that
-cannot establish a network connection to the GitLab instance, but can be connected to by GitLab.
+[Receptive agents](../_index.md#receptive-agents) allow GitLab to integrate with Kubernetes clusters that cannot establish a network connection to the GitLab instance, but can be connected to by GitLab.
 
 1. Follow the steps in option 1 to register an agent in your cluster.
    Save the agent token and install command for later, but don't install the agent yet.
@@ -232,9 +224,9 @@ By default, the Helm installation command generated by GitLab:
 
 - Creates a namespace `gitlab-agent` for the deployment (`--namespace gitlab-agent`). You can skip creating the namespace by omitting the `--create-namespace` flag.
 - Sets up a service account for the agent and assigns it the `cluster-admin` role. You can:
-  - Skip creating the service account by adding `--set serviceAccount.create=false` to the `helm install` command. In this case, you must set `serviceAccount.name` to a pre-existing service account.
-  - Customize the role assigned to the service account by adding `--set rbac.useExistingRole <your role name>` to the `helm install` command. In this case, you should have a pre-created role with restricted permissions that can be used by the service account.
-  - Skip role assignment altogether by adding `--set rbac.create=false` to your `helm install` command. In this case, you must create `ClusterRoleBinding` manually.
+ - Skip creating the service account by adding `--set serviceAccount.create=false` to the `helm install` command. In this case, you must set `serviceAccount.name` to a pre-existing service account.
+ - Customize the role assigned to the service account by adding `--set rbac.useExistingRole <your role name>` to the `helm install` command. In this case, you should have a pre-created role with restricted permissions that can be used by the service account.
+ - Skip role assignment altogether by adding `--set rbac.create=false` to your `helm install` command. In this case, you must create `ClusterRoleBinding` manually.
 - Creates a `Secret` resource for the agent's access token. To instead bring your own secret with a token, omit the token (`--set token=...`) and instead use `--set config.secretName=<your secret name>`.
 - Creates a `Deployment` resource for the `agentk` pod.
 
@@ -242,20 +234,16 @@ To see the full list of customizations available, see the Helm chart's [README](
 
 ##### Use the agent when KAS is behind a self-signed certificate
 
-When [KAS](../../../../administration/clusters/kas.md) is behind a self-signed certificate,
-you can set the value of `config.kasCaCert` to the certificate. For example:
+When [KAS](../../../../administration/clusters/kas.md) is behind a self-signed certificate, you can set the value of `config.kasCaCert` to the certificate. For example:
 
 ```shell
 helm upgrade --install gitlab-agent gitlab/gitlab-agent \
-  --set-file config.kasCaCert=my-custom-ca.pem
+ --set-file config.kasCaCert=my-custom-ca.pem
 ```
 
-In this example, `my-custom-ca.pem` is the path to a local file that contains
-the CA certificate used by KAS. The certificate is automatically stored in a
-config map and mounted in the `agentk` pod.
+In this example, `my-custom-ca.pem` is the path to a local file that contains the CA certificate used by KAS. The certificate is automatically stored in a config map and mounted in the `agentk` pod.
 
-If KAS is installed with the GitLab chart, and the chart is configured to provide
-an [auto-generated self-signed wildcard certificate](https://docs.gitlab.com/charts/installation/tls.html#option-4-use-auto-generated-self-signed-wildcard-certificate), you can extract the CA certificate from the `RELEASE-wildcard-tls-ca` secret.
+If KAS is installed with the GitLab chart, and the chart is configured to provide an [auto-generated self-signed wildcard certificate](https://docs.gitlab.com/charts/installation/tls.html#option-4-use-auto-generated-self-signed-wildcard-certificate), you can extract the CA certificate from the `RELEASE-wildcard-tls-ca` secret.
 
 ##### Use the agent behind an HTTP proxy
 
@@ -265,23 +253,21 @@ an [auto-generated self-signed wildcard certificate](https://docs.gitlab.com/cha
 
 {{< /history >}}
 
-To configure an HTTP proxy when using the Helm chart, you can use the environment variables `HTTP_PROXY`, `HTTPS_PROXY`,
-and `NO_PROXY`. Upper and lowercase are both acceptable.
+To configure an HTTP proxy when using the Helm chart, you can use the environment variables `HTTP_PROXY`, `HTTPS_PROXY`, and `NO_PROXY`. Upper and lowercase are both acceptable.
 
 You can set these variables by using the `extraEnv` value, as a list of objects with keys `name` and `value`.
 For example, to set only the environment variable `HTTPS_PROXY` to the value `https://example.com/proxy`, you can run:
 
 ```shell
 helm upgrade --install gitlab-agent gitlab/gitlab-agent \
-  --set extraEnv[0].name=HTTPS_PROXY \
-  --set extraEnv[0].value=https://example.com/proxy \
-  ...
+ --set extraEnv[0].name=HTTPS_PROXY \
+ --set extraEnv[0].value=https://example.com/proxy \
+ ...
 ```
 
 {{< alert type="note" >}}
 
-DNS rebind protection is disabled when either the `HTTP_PROXY` or the `HTTPS_PROXY` environment variable is set,
-and the domain DNS can't be resolved.
+DNS rebind protection is disabled when either the `HTTP_PROXY` or the `HTTPS_PROXY` environment variable is set, and the domain DNS can't be resolved.
 
 {{< /alert >}}
 
@@ -294,20 +280,19 @@ To install a second agent in your cluster, you can follow the [previous steps](#
 
 - Use a different release name for the agent, for example, `second-gitlab-agent`:
 
-  ```shell
-  helm upgrade --install second-gitlab-agent gitlab/gitlab-agent ...
-  ```
+ ```shell
+ helm upgrade --install second-gitlab-agent gitlab/gitlab-agent ...
+ ```
 
 - Or, install the agent in a different namespace, for example, `different-namespace`:
 
-  ```shell
-  helm upgrade --install gitlab-agent gitlab/gitlab-agent \
+ ```shell
+ helm upgrade --install gitlab-agent gitlab/gitlab-agent \
     --namespace different-namespace \
     ...
-  ```
+ ```
 
-Because each agent in a cluster runs independently, reconciliations are triggered
-by every agent with the Flux module enabled.
+Because each agent in a cluster runs independently, reconciliations are triggered by every agent with the Flux module enabled.
 [Issue 357516](https://gitlab.com/gitlab-org/gitlab/-/issues/357516) proposes to change this behavior.
 
 As a workaround, you can:
@@ -346,15 +331,15 @@ To update the agent to the latest version, you can run:
 ```shell
 helm repo update
 helm upgrade --install gitlab-agent gitlab/gitlab-agent \
-  --namespace gitlab-agent
+ --namespace gitlab-agent
 ```
 
 To set a specific version, you can override the `image.tag` value. For example, to install version `v14.9.1`, run:
 
 ```shell
 helm upgrade gitlab-agent gitlab/gitlab-agent \
-  --namespace gitlab-agent \
-  --set image.tag=v14.9.1
+ --namespace gitlab-agent \
+ --set image.tag=v14.9.1
 ```
 
 The Helm chart is updated separately from the agent for Kubernetes, and might occasionally lag behind the latest version of the agent. If you run `helm repo update` and don't specify an image tag, your agent runs the version specified in the chart.
@@ -376,15 +361,12 @@ When you install the agent for Kubernetes, you might encounter the following iss
 
 ### Error: `failed to reconcile the GitLab Agent`
 
-If the `glab cluster agent bootstrap` command fails with the message `failed to reconcile the GitLab Agent`,
-it means `glab` couldn't reconcile the agent with Flux.
+If the `glab cluster agent bootstrap` command fails with the message `failed to reconcile the GitLab Agent`, it means `glab` couldn't reconcile the agent with Flux.
 
 This error might be because:
 
 - The Flux setup doesn't point to the directory where `glab` put the Flux manifests for the agent.
-  If you bootstrapped Flux with the `--path` option, you must pass the same value to the `--manifest-path` option of the
-  `glab cluster agent bootstrap` command.
+ If you bootstrapped Flux with the `--path` option, you must pass the same value to the `--manifest-path` option of the `glab cluster agent bootstrap` command.
 - Flux points to the root directory of a project without a `kustomization.yaml`, which causes Flux to traverse subdirectories looking for YAML files.
-  To use the agent, you must have an agent configuration file at `.gitlab/agents/<agent-name>/config.yaml`,
-  which is not a valid Kubernetes manifest. Flux fails to apply this file, which causes an error.
-  To resolve, you should point Flux at a subdirectory instead of the root.
+ To use the agent, you must have an agent configuration file at `.gitlab/agents/<agent-name>/config.yaml`, which is not a valid Kubernetes manifest. Flux fails to apply this file, which causes an error.
+ To resolve, you should point Flux at a subdirectory instead of the root.

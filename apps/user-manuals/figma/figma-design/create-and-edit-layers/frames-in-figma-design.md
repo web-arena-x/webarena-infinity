@@ -22,13 +22,13 @@ Similar to other layer types, you can [adjust the properties of a frame](#h_01J1
 
 Frames also give you access to other features including [layout guides](https://help.figma.com/hc/en-us/articles/360040450513), [auto layout](https://help.figma.com/hc/en-us/articles/360040451373), [constraints](https://help.figma.com/hc/en-us/articles/360039957734), and [prototyping](https://help.figma.com/hc/en-us/articles/360040314193).
 
-You can identify frames in the **Layers** panel of the left sidebar by the  frame icon.
+You can identify frames in the **Layers** panel of the left sidebar by the frame icon.
 
 ![Image showing a frame in the Layers panel with a grid-like icon](https://help.figma.com/hc/article_attachments/26978254616727)
 
 ## Select the frame tool
 
-Enable the  Frame tool by selecting it in the toolbar, or by using one of the keyboard shortcuts: `F` or `A`.
+Enable the Frame tool by selecting it in the toolbar, or by using one of the keyboard shortcuts: `F` or `A`.
 
 ![Location of the frame tool as the second option in the Figma toolbar.](https://help.figma.com/hc/article_attachments/24793898578711)
 
@@ -215,8 +215,8 @@ It's not possible to **multiply** a width or height by a **percentage**, for 
 You can resize a frame so that it shrinks or grows to fit its child objects. This will redraw the frame around the outermost bounds of the objects within it.
 
 - Use the keyboard shortcut:
-  - Mac: `⌥ Option` `Shift` `⌘ Command` `R`
-  - Windows: `Alt` `Shift` `Control` `R`
+ - Mac: `⌥ Option` `Shift` `⌘ Command` `R`
+ - Windows: `Alt` `Shift` `Control` `R`
 - Click in the **Layout** section of the right sidebar![Image showing the location of the resize to fit icon in the top-right corner of the Design tab in the right sidebar.](https://help.figma.com/hc/article_attachments/24436878068247)
 
 ## Ungroup a frame

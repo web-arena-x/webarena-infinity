@@ -6,50 +6,38 @@ Source: https://support.zendesk.com/hc/en-us/articles/5407034434842-Exporting-te
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > People > Team > Team members
+Location: Admin Center > People > Team > Team members
 
-The [Team members](https://support.zendesk.com/hc/en-us/articles/4408843830938) page in Zendesk Admin Center
-provides a central place for administrators to add and manage team members (your staff,
-agents, and admins). This article describes how admins can export team-member data to a
-CSV file.
+The [Team members](https://support.zendesk.com/hc/en-us/articles/4408843830938) page in Zendesk Admin Center provides a central place for administrators to add and manage team members (your staff, agents, and admins). This article describes how admins can export team-member data to a CSV file.
 
-Exporting team-member data to a CSV file allows you to manage your team members in a
-common format used by many other systems. You might want to use this information to
-reconcile your agent seat usage and team structure, or manage licenses.
+Exporting team-member data to a CSV file allows you to manage your team members in a common format used by many other systems. You might want to use this information to reconcile your agent seat usage and team structure, or manage licenses.
 
 Activating data exports isn’t required to export team-member data.
 
-Note: Other types of data can be exported if data exports are activated. See [Exporting ticket, user, or organization data from your
-account](https://support.zendesk.com/hc/en-us/articles/4408886165402).
+Note: Other types of data can be exported if data exports are activated. See [Exporting ticket, user, or organization data from your account](https://support.zendesk.com/hc/en-us/articles/4408886165402).
 
 This article includes the following sections:
 
-- [Generating an export of team
-  members](#topic_ncb_lql_nwb)
-- [Team member data included in CSV
-  file](#topic_rnz_brl_nwb)
+- [Generating an export of team members](#topic_ncb_lql_nwb)
+- [Team member data included in CSV file](#topic_rnz_brl_nwb)
 
 ## Generating an export of team members
 
-You can generate an export of all team members’ data from the Team members page in
-Admin Center.
+You can generate an export of all team members’ data from the Team members page in Admin Center.
 
 **To generate an export of team members**
 
-1. In [Admin
-   Center](https://support.zendesk.com/hc/en-us/articles/4581766374554#topic_hfg_dyz_1hb), click ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ac_people_icon.png)
-   **People** in the sidebar, then select **Team > Team
-   members**.
-2. Click the **Actions** menu, then select **Export team
-   members**.
+1. In [Admin Center](https://support.zendesk.com/hc/en-us/articles/4581766374554#topic_hfg_dyz_1hb), click ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ac_people_icon.png)
+   **People** in the sidebar, then select **Team > Team members**.
+2. Click the **Actions** menu, then select **Export team members**.
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/team_mbr_export_menu_1.png)
 
@@ -57,12 +45,9 @@ Admin Center.
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Export_tm_mmbr_generate_msg.png)
 
-You can continue to work in your account while it generates. Zendesk sends you an
-email with a link to download your CSV file when the export is complete.
+You can continue to work in your account while it generates. Zendesk sends you an email with a link to download your CSV file when the export is complete.
 
-The length of time to generate the export varies based on the number of team members
-in your account and other data in their profiles, such as the length of their names
-and email addresses.
+The length of time to generate the export varies based on the number of team members in your account and other data in their profiles, such as the length of their names and email addresses.
 
 ## Team member data included in CSV file
 

@@ -48,8 +48,8 @@ There are various reasons the estimated audience is **0** or lower than expected
 
 - Prior to sending the campaign, confirm that all the schools in your segment have approved the job, event, or fair registration because if they are not, the campaign will exclude them and result in a smaller audience.
 - Be sure to review the exclusions applied, particularly the exclusion that prevents students from receiving a message from your company within a specific time frame, and modify as necessary.
-  - For example, you create a campaign for a career fair or event, and then send a job campaign immediately after. This can cause students to be excluded from the job campaign due to the default 48-hour exclusion, **and** if the "Received a message from" exclusion is not disabled.
+ - For example, you create a campaign for a career fair or event, and then send a job campaign immediately after. This can cause students to be excluded from the job campaign due to the default 48-hour exclusion, **and** if the "Received a message from" exclusion is not disabled.
 - Do not send campaigns that utilize the same segment within 48 hours. The automated 48-hour exclusion will exclude students who have received a message from the user in the past 48 hours.
 - If multiple exclusions are to be removed, allow the audience size to load after removing each exclusion. This will allow Handshake time to process each removed exclusion and recalculate the estimated audience size.
 - Minimize the impact of overlapping audience segments by carefully reviewing and refining the segment criteria.
-  - For example, instead of grouping cities together based on their physical proximity, consider other characteristics such as organizations, extracurricular activities, or job role interests to ensure that they are unique and distinct from each other.
+ - For example, instead of grouping cities together based on their physical proximity, consider other characteristics such as organizations, extracurricular activities, or job role interests to ensure that they are unique and distinct from each other.

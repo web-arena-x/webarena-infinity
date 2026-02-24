@@ -18,11 +18,9 @@ Edit Rule - Transform to Name ID
 
 Edit Rule - UPN
 
-[![c:[Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"]
-=> issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.6", Value = c.Value, Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:nameid-format:transient");](https://files.readme.io/460e8e0-handshake_claims2.png)](https://files.readme.io/460e8e0-handshake_claims2.png)
+[![c:[Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.6", Value = c.Value, Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:nameid-format:transient");](https://files.readme.io/460e8e0-handshake_claims2.png)](https://files.readme.io/460e8e0-handshake_claims2.png)
 
-*c:[Type == "<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn>"]*  
-*=> issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.6", Value = c.Value, Properties["<http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename>"] = "urn:oasis:names:tc:SAML:2.0:nameid-format:transient");*
+*c:[Type == "<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn>"]* *=> issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.6", Value = c.Value, Properties["<http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename>"] = "urn:oasis:names:tc:SAML:2.0:nameid-format:transient");*
 
 Edit Rule - E-mail Address from UPN
 

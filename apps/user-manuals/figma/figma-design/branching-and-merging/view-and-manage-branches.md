@@ -14,7 +14,7 @@ This article covers one step in the branching process:
 
 [Create](https://help.figma.com/hc/en-us/articles/360063144053) → [Share](https://help.figma.com/hc/en-us/articles/5665697002263) → [Update](https://help.figma.com/hc/en-us/articles/5665728006423) → [Request](https://help.figma.com/hc/en-us/articles/5691414603543) → [Review](https://help.figma.com/hc/en-us/articles/5693123873687) → [Merge](https://help.figma.com/hc/en-us/articles/5691189138839) → [Manage](https://help.figma.com/hc/en-us/articles/5668839659415)
 
-View and manage branches of a Figma Design file from the branches modal. You can identify design files with branches using the  icon.
+View and manage branches of a Figma Design file from the branches modal. You can identify design files with branches using the icon.
 
 ## View branches
 
@@ -22,7 +22,7 @@ You can view a file's branches from the main file, a branch, or from the file br
 
 ### From a file
 
-1. Click the  next to the file/branch name in the toolbar.
+1. Click the next to the file/branch name in the toolbar.
 2. Select **See all branches** to open the branches modal.
 3. If you have **can edit** access to the main file, you can take further action on branches from the file name menu:
    - Select **Duplicate as new file** to create a new file from the branch. This will create a separate file, so you won't be able to apply any changes from that file back to the main file.
@@ -65,7 +65,7 @@ You can open, view, and explore any active or archived branches. You can view an
 Archive any historic, abandoned, or incomplete branches.
 
 1. Find the branch you want to archive.
-2. Click  to open the menu.
+2. Click to open the menu.
 3. Select **Archive** to move the branch to the **Archived** tab.
 
 ### Copy link to branch
@@ -73,7 +73,7 @@ Archive any historic, abandoned, or incomplete branches.
 Copy a link to the branch to share the file URL with a co-worker or collaborator.
 
 1. Open the branches modal.
-2. Next to the branch you want to share, click  to open the menu.
+2. Next to the branch you want to share, click to open the menu.
 3. Select **Copy link** to add the URL for the branch to your clipboard.
 
 ![Branches panel in Figma showing options to archive, copy link, or rename a branch.](https://help.figma.com/hc/article_attachments/31401614297623)
@@ -81,7 +81,7 @@ Copy a link to the branch to share the file URL with a co-worker or collaborator
 ### Rename branch
 
 1. Open the branches modal.
-2. Next to the branch you want to share, click  to open the menu.
+2. Next to the branch you want to share, click to open the menu.
 3. Select **Rename** from the options.
 4. The branch name will now be an editable field. Enter the new name in the field provided.
 5. Press `Enter` or click outside the field to apply your changes.
@@ -92,5 +92,5 @@ Restore an archived branch. This allows you to continue to edit the file, as wel
 
 1. Select the **Archived** tab.
 2. Find the archived branch.
-3. Click  to open the menu.
+3. Click to open the menu.
 4. Select **Restore** to continue to edit the branch.

@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408837984026-Using-the-Sh
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -45,7 +45,7 @@ Note: If you see one or more **Shopify order ID** fields on your ticket form, yo
 
 1. In Support or Chat, click the app sidebar. The Shopify app displays order summary information and a list of orders by order number.
 2. Click the accordion next to the order number to display order information including the order date and value, customer notes, payment status, fulfilment status, and shipment tracking numbers.   
-   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/shopify_v3_app1.png)  
+   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/shopify_v3_app1.png) 
    The Support app also shows if the order can be cancelled or refunded. This feature is enabled in Admin Center.
 3. In the order, click **Order details** to view more details including line items, order notes, and payment breakdown.   
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/shopify_v3_app2.png)
@@ -66,7 +66,7 @@ A Shopify order can be refunded in the app for unfulfilled or fulfilled orders. 
    - Full refund - Click **Full refund** which selects all line items and shipping costs for refund, and returns all items to the stock inventory
    - Partial refund - Select the quantity in the drop-down list for each line item
    - **Restock {x} items checkbox** - Select the checkbox to return items to the stock inventory
-   - **Shipping checkbox** - Select the checkbox to refund shipping costs  
+   - **Shipping checkbox** - Select the checkbox to refund shipping costs 
      ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/shopify_v3_refund.png)
 6. Click **Review refund** to review your refund.
 7. Click **Confirm refund** to send the refund details to Shopify, then click **Close**.
@@ -102,7 +102,7 @@ Note: These instructions apply to viewing customer context in the Zendesk Agent 
 **To view a Shopify profile in a ticket**
 
 1. In a ticket, in the upper-right of the screen, click the User icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/icon_omnipanel_user.png)) in the [context panel](https://support.zendesk.com/hc/en-us/articles/4408836526362).
-2. Click the **Profiles** menu icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/profiles_menu_icon.png)) and select the name of the Shopify connection.  
+2. Click the **Profiles** menu icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/profiles_menu_icon.png)) and select the name of the Shopify connection. 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/shopify_v3_profiles.png)
 
 **To filter Shopify events in a ticket**
@@ -113,7 +113,7 @@ Note: These instructions apply to viewing customer context in the Zendesk Agent 
    By default all user events appear in the interaction history.
 3. To filter the events, click the filter icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/interactions_filter_icon.png)).
 4. Select the events you want to view.   
-   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/shopify_v3_profiles_interactions.png)  
+   ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/shopify_v3_profiles_interactions.png) 
 
    You can view:
    - All events for all applications

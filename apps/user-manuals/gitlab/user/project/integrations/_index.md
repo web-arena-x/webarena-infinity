@@ -53,26 +53,19 @@ This may affect all or most of the subgroups and projects belonging to the group
 
 If this is the first time you are setting up group settings for an integration:
 
-- The integration is enabled for all subgroups and projects belonging to the group that don't already have
-  this integration configured, if you have the **Enable integration** toggle turned on in the group settings.
-- Subgroups and projects that already have the integration configured are not affected, but can choose to use
-  the inherited settings at any time.
+- The integration is enabled for all subgroups and projects belonging to the group that don't already have this integration configured, if you have the **Enable integration** toggle turned on in the group settings.
+- Subgroups and projects that already have the integration configured are not affected, but can choose to use the inherited settings at any time.
 
 When you make further changes to the group defaults:
 
-- They are immediately applied to all subgroups and projects belonging to the group that have the integration
-  set to use default settings.
-- They are immediately applied to newer subgroups and projects, even those created after you last saved defaults for the
-  integration. If your group default setting has the **Enable integration** toggle turned on,
-  the integration is automatically enabled for all such subgroups and projects.
-- Subgroups and projects with custom settings selected for the integration are not immediately affected and
-  may choose to use the latest defaults at any time.
+- They are immediately applied to all subgroups and projects belonging to the group that have the integration set to use default settings.
+- They are immediately applied to newer subgroups and projects, even those created after you last saved defaults for the integration. If your group default setting has the **Enable integration** toggle turned on, the integration is automatically enabled for all such subgroups and projects.
+- Subgroups and projects with custom settings selected for the integration are not immediately affected and may choose to use the latest defaults at any time.
 
 If [instance settings](../../../administration/settings/project_integration_management.md#configure-default-settings-for-an-integration)
 have also been configured for the same integration, projects in the group inherit settings from the group.
 
-Only the entire settings for an integration can be inherited. Per-field inheritance
-is proposed in [epic 2137](https://gitlab.com/groups/gitlab-org/-/epics/2137).
+Only the entire settings for an integration can be inherited. Per-field inheritance is proposed in [epic 2137](https://gitlab.com/groups/gitlab-org/-/epics/2137).
 
 ### Remove a group default setting
 
@@ -125,8 +118,7 @@ To use custom settings for a project or group integration:
 ## Available integrations
 
 The following integrations can be available on a GitLab instance.
-If an instance administrator has configured an [integration allowlist](../../../administration/settings/project_integration_management.md#integration-allowlist),
-only those integrations are available.
+If an instance administrator has configured an [integration allowlist](../../../administration/settings/project_integration_management.md#integration-allowlist), only those integrations are available.
 
 ### CI/CD
 
@@ -171,15 +163,15 @@ None of these integrations have integration hooks.
 The following integrations add links to [external issue trackers](../../../integration/external-issue-tracker.md) on the left sidebar in your project.
 None of these integrations have integration hooks.
 
-| Integration                                     | Description                                             | Issue sync  | Can create new issues |
+| Integration                                     | Description                                             | Issue sync | Can create new issues |
 |-------------------------------------------------|---------------------------------------------------------|-------------|-----------------------|
-| [Bugzilla](bugzilla.md)                         | Use Bugzilla as an issue tracker.                       | {{< no >}}  | {{< yes >}}           |
-| [ClickUp](clickup.md)                           | Use ClickUp as an issue tracker.                        | {{< no >}}  | {{< no >}}            |
-| [Custom issue tracker](custom_issue_tracker.md) | Use a custom issue tracker.                             | {{< no >}}  | {{< no >}}            |
-| [Engineering Workflow Management (EWM)](ewm.md) | Use EWM as an issue tracker.                            | {{< no >}}  | {{< yes >}}           |
-| [Linear](linear.md)                             | Use Linear as an issue tracker.                         | {{< no >}}  | {{< no >}}            |
-| [Phorge](phorge.md)                             | Use Phorge as an issue tracker.                         | {{< no >}}  | {{< yes >}}           |
-| [Redmine](redmine.md)                           | Use Redmine as an issue tracker.                        | {{< no >}}  | {{< yes >}}           |
+| [Bugzilla](bugzilla.md)                         | Use Bugzilla as an issue tracker.                       | {{< no >}} | {{< yes >}}           |
+| [ClickUp](clickup.md)                           | Use ClickUp as an issue tracker.                        | {{< no >}} | {{< no >}}            |
+| [Custom issue tracker](custom_issue_tracker.md) | Use a custom issue tracker.                             | {{< no >}} | {{< no >}}            |
+| [Engineering Workflow Management (EWM)](ewm.md) | Use EWM as an issue tracker.                            | {{< no >}} | {{< yes >}}           |
+| [Linear](linear.md)                             | Use Linear as an issue tracker.                         | {{< no >}} | {{< no >}}            |
+| [Phorge](phorge.md)                             | Use Phorge as an issue tracker.                         | {{< no >}} | {{< yes >}}           |
+| [Redmine](redmine.md)                           | Use Redmine as an issue tracker.                        | {{< no >}} | {{< yes >}}           |
 | [YouTrack](youtrack.md)                         | Use JetBrains YouTrack as your project's issue tracker. | {{< yes >}} | {{< no >}}            |
 
 ### External wikis
@@ -205,7 +197,7 @@ None of these integrations have integration hooks.
 | [GitGuardian](git_guardian.md)                               | Reject commits based on GitGuardian policies.                                            | {{< no >}} |
 | [GitHub](github.md)                                          | Receive statuses for commits and pull requests.                                          | {{< no >}} |
 | [GitLab for Slack app](gitlab_slack_application.md)          | Use the native Slack app to receive notifications and run commands.                      | {{< no >}} |
-| [Google Artifact Management](google_artifact_management.md)  | Manage your artifacts in Google Artifact Registry.                                       | {{< no >}} |
+| [Google Artifact Management](google_artifact_management.md) | Manage your artifacts in Google Artifact Registry.                                       | {{< no >}} |
 | [Google Cloud IAM](../../../integration/google_cloud_iam.md) | Manage permissions for Google Cloud resources with Identity and Access Management (IAM). | {{< no >}} |
 | [Jira](../../../integration/jira/_index.md)                  | Use Jira as an issue tracker.                                                            | {{< no >}} |
 | [Mattermost slash commands](mattermost_slash_commands.md)    | Run slash commands from a Mattermost chat environment.                                   | {{< no >}} |
@@ -218,28 +210,21 @@ None of these integrations have integration hooks.
 
 Some integrations use [webhooks](webhooks.md) for external applications.
 
-You can configure a project webhook to listen for specific events
-like pushes, issues, or merge requests. When the webhook is triggered,
-GitLab sends a POST request with data to a specified webhook URL.
+You can configure a project webhook to listen for specific events like pushes, issues, or merge requests. When the webhook is triggered, GitLab sends a POST request with data to a specified webhook URL.
 
 For a list of integrations that use webhooks, see [Available integrations](#available-integrations).
 
 ## Push hook limit
 
-If a single push includes changes to more than three branches or tags, integrations
-supported by `push_hooks` and `tag_push_hooks` events are not executed.
+If a single push includes changes to more than three branches or tags, integrations supported by `push_hooks` and `tag_push_hooks` events are not executed.
 
-To change the number of supported branches or tags, configure the
-[`push_event_hooks_limit` setting](../../../api/settings.md#available-settings).
+To change the number of supported branches or tags, configure the [`push_event_hooks_limit` setting](../../../api/settings.md#available-settings).
 
 ## SSL verification
 
-By default, the SSL certificate for outgoing HTTP requests is verified based on
-an internal list of certificate authorities. The SSL certificate cannot
-be self-signed.
+By default, the SSL certificate for outgoing HTTP requests is verified based on an internal list of certificate authorities. The SSL certificate cannot be self-signed.
 
-You can disable SSL verification when you configure
-[webhooks](webhooks.md#configure-webhooks) and some integrations.
+You can disable SSL verification when you configure [webhooks](webhooks.md#configure-webhooks) and some integrations.
 
 ## Related topics
 

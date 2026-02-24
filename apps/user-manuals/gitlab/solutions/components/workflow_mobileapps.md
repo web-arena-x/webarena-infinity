@@ -32,30 +32,30 @@ Follow the steps below on how to use this React Native Mobile App sample project
 
 - The Mobile App solution component from the Product Accelerator marketplace has been downloaded. In the solution pack, it includes the mobile app sample project with the CI/CD files.
 - Create a new GitLab CI/CD catalog project to host the Snyk component in your environment. In the mobile app solution pack, it includes the Snyk CI/CD component project files which allow you to set up the Snyk CI/CD catalog project.
-  1. Create a new GitLab project to host this Snyk CI/CD catalog project
-  1. Copy the provided files into your project
-  1. Configure the required CI/CD variables in your project settings
-  1. Make sure the project is marked as a CI/CD catalog project. For more information, see [publish a component project](../../ci/components/_index.md#publish-a-component-project).
+ 1. Create a new GitLab project to host this Snyk CI/CD catalog project
+ 1. Copy the provided files into your project
+ 1. Configure the required CI/CD variables in your project settings
+ 1. Make sure the project is marked as a CI/CD catalog project. For more information, see [publish a component project](../../ci/components/_index.md#publish-a-component-project).
 
-  {{< alert type="note" >}}
+ {{< alert type="note" >}}
 
-  There is a public GitLab Snyk component on GitLab.com, if you are on SaaS, and you are able to access the public GitLab Snyk component, to set up your own Snyk CI/CD catalog project is not needed, and you can follow the documentation in the public GitLab Snyk component on GitLab.com to use the component directly.
+ There is a public GitLab Snyk component on GitLab.com, if you are on SaaS, and you are able to access the public GitLab Snyk component, to set up your own Snyk CI/CD catalog project is not needed, and you can follow the documentation in the public GitLab Snyk component on GitLab.com to use the component directly.
 
-  {{< /alert >}}
+ {{< /alert >}}
 
 - Use the Change Control Workflow with ServiceNow solution pack to configure the DevOps Change Velocity integration with GitLab to automate change request creation in ServiceNow for deployments require change controls. See the documentation for the [change control workflow with ServiceNow solution component](../../solutions/components/integrated_servicenow.md), and work with your account team to get an access code to download the Change Control Workflow with ServiceNow solution package.
 - Copy the CI YAML files into your project:
-  - `.gitlab-ci.yml`
-  - `build-android.yml` in the pipelines directory. You will need to update the file path in `.gitlab-ci.yml` if the `build-android.yml` file is put in a different location other than /pipeline because the main `.gitlab-ci.yml` file references the `build-android.yml` file for the build job.
-  - `build-ios.yml` in the pipelines directory. You will need to update the file path in `.gitlab-ci.yml` if the `build-ios.yml` file is put in a different location other than /pipeline because the main `.gitlab-ci.yml` file references the `build-ios.yml` file for the build job.
+ - `.gitlab-ci.yml`
+ - `build-android.yml` in the pipelines directory. You will need to update the file path in `.gitlab-ci.yml` if the `build-android.yml` file is put in a different location other than /pipeline because the main `.gitlab-ci.yml` file references the `build-android.yml` file for the build job.
+ - `build-ios.yml` in the pipelines directory. You will need to update the file path in `.gitlab-ci.yml` if the `build-ios.yml` file is put in a different location other than /pipeline because the main `.gitlab-ci.yml` file references the `build-ios.yml` file for the build job.
 
    ```yaml
    include:
-  - local: "pipelines/build-ios.yml"
+ - local: "pipelines/build-ios.yml"
     inputs:
       image: macos-15-xcode-16
       tag: saas-macos-medium-m1
-  - local: "pipelines/build-android.yml"
+ - local: "pipelines/build-android.yml"
     inputs:
       image: reactnativecommunity/react-native-android
    ```
@@ -68,8 +68,7 @@ This pipeline is designed for a React Native project, handling both iOS and Andr
 
 This project includes a simple reactCounter demo app for React Native build for both iOS and Android. This version does not sign the artifacts yet, so we cannot upload to TestFlight or the Play Store.
 
-Each change uses a component for semantic versioning bumps, which has that version stored as an ephemeral variable used to commit
-generic packages to the package registry.
+Each change uses a component for semantic versioning bumps, which has that version stored as an ephemeral variable used to commit generic packages to the package registry.
 
 ## Pipeline Structure
 
@@ -137,7 +136,7 @@ This mobile app demo project CI/CD is integrated with Sauce Labs for automated f
 | Variable | Description | Example Value |
 |----------|-------------|---------------|
 | `SAUCE_USERNAME` | Sauce Labs username| `rz` |
-| `SAUCE_ACCESS_KEY` | API key to access Sauce Labs  | `9f5wewwc-xxxxxxx` |
+| `SAUCE_ACCESS_KEY` | API key to access Sauce Labs | `9f5wewwc-xxxxxxx` |
 | `APP_FILE_PATH_IOS` | file path to find the build artifacts | `ios/build/reactCounter.ipa` |
 | `APP_FILE_PATH_ANDROID` | file path to find the build artifacts | `android/app/build/outputs/apk/release/app-release.apk` |
 
@@ -170,7 +169,7 @@ In order for the pipeline to communicate with ServiceNow, the webhook integratio
 | Variable | Description | Example Value |
 |----------|-------------|---------------|
 | `SNOW_URL` | URL of your ServiceNow instance| `https://<SNOW_INSTANCE>.com/` |
-| `SNOW_TOOLID` | ServiceNow instance ID  | `3b5w345629212105c5ddaccwonworw2` |
+| `SNOW_TOOLID` | ServiceNow instance ID | `3b5w345629212105c5ddaccwonworw2` |
 | `SNOW_TOKEN` | API token to access ServiceNow| `Oxxxxxxxxxx` |
 
 ## Included Files and Components

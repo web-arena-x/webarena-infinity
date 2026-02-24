@@ -13,17 +13,17 @@ All role types can access the Post Composer to post on their own behalf. With th
 **Topics**:
 
 - [Access the Post Composer](#h_01HVH290BSK6KM3YNDCE5PPR7H)
-  - [Posting on your own behalf or on behalf of your company](#h_01J6HSDRFFJSE1DGARQ24J222Z)
+ - [Posting on your own behalf or on behalf of your company](#h_01J6HSDRFFJSE1DGARQ24J222Z)
 - [Create and post content](#h_01J6HSJ96T9MCDBH7TA5XFT4JC)
-  - [Text](#h_01HVH290BSFEAREMQNRJSRMBM1)
-  - [Adding links](#h_01HVH290BSTT837EBJASD8VR7E)
-  - [Photos and videos](#h_01HVH290BSSFPASZFFASNH8QFA)
-  - [Alternative text](#h_01JFB61NVYQBE1R1BEV45ASKKM)
-  - [Audio description](#h_01JV34WG8HXNKEW073DANABVWP)
-  - [Closed captions (CC)](#h_01JV536Q96049M61V6BSC76PMS)
+ - [Text](#h_01HVH290BSFEAREMQNRJSRMBM1)
+ - [Adding links](#h_01HVH290BSTT837EBJASD8VR7E)
+ - [Photos and videos](#h_01HVH290BSSFPASZFFASNH8QFA)
+ - [Alternative text](#h_01JFB61NVYQBE1R1BEV45ASKKM)
+ - [Audio description](#h_01JV34WG8HXNKEW073DANABVWP)
+ - [Closed captions (CC)](#h_01JV536Q96049M61V6BSC76PMS)
 - [Manage the Post Composer](#h_01HVH290BSXN4ZT19X5MX3G8S0)
-  - [Delete post](#h_01HVH290BSHV177RQ1TDK68DMM)
-  - **\***[Feature a post](#h_01JV2QA56GHD6HM5RMXFKD3AC9)
+ - [Delete post](#h_01HVH290BSHV177RQ1TDK68DMM)
+ - **\***[Feature a post](#h_01JV2QA56GHD6HM5RMXFKD3AC9)
 - [Post analytics](#h_01HVH3DY1SYV5ZXWC3B4DJJAHY)
 
 ### 
@@ -50,8 +50,8 @@ To create a post, either on your own behalf or on behalf of your company, click 
 
 - For **Basic** and **Plus** employers, only the **owner** can post on behalf of their company.
 - For **Premium** partners:
-  - The **owner** can post on behalf of the company.
-  - Users with other roles can post on behalf of the company *only* if granted the relevant permission by the owner or an admin.
+ - The **owner** can post on behalf of the company.
+ - Users with other roles can post on behalf of the company *only* if granted the relevant permission by the owner or an admin.
 
 ![Choose file or write text post.png](https://support.joinhandshake.com/hc/article_attachments/26021448718103)
 
@@ -113,25 +113,25 @@ To share content in photo or video format, click into the text field, then click
 **Video**
 
 - **Size:**
-  - 1080 x 1920 (portrait)
-  - 1080 x 1350 (portrait)
-  - 1920 x 1080 (landscape)
-  - 1080 x 1080 (square)
+ - 1080 x 1920 (portrait)
+ - 1080 x 1350 (portrait)
+ - 1920 x 1080 (landscape)
+ - 1080 x 1080 (square)
 - **Aspect Ratio:**
-  - 9:16 (portrait)
-  - 4:5 (portrait)
-  - 16:9 (landscape)
-  - 1:1 (square)
+ - 9:16 (portrait)
+ - 4:5 (portrait)
+ - 16:9 (landscape)
+ - 1:1 (square)
 - **Resolution:** HD or 1080p
 - **Format:** All video formats
 
 **Photos**
 
 - **Aspect Ratio:**
-  - 4:5 aspect ratio is the safest (1080x1350)
+ - 4:5 aspect ratio is the safest (1080x1350)
 - **Format:**
-  - JPG
-  - PNG
+ - JPG
+ - PNG
 
 **Tip**: When you record videos in HDR, Cloudflare automatically converts them to SDR for compatibility, which can make colors look less vibrant. To keep your video looking its best, export it directly to SDR in your video editing app before uploading, so you can avoid Cloudflare's automatic conversion.
 
@@ -185,7 +185,7 @@ When videos are uploaded to the Feed, closed captions are automatically generate
 
 - You cannot edit auto-generated captions or upload your own caption (subtitle) files.
 - If your video contains embedded captions (burned-in text), they will be visible in the video.
-  - However, Handshake's auto-generated captions will still be applied and take precedence in the Feed's CC display.
+ - However, Handshake's auto-generated captions will still be applied and take precedence in the Feed's CC display.
 
 ![CC toggle.png](https://support.joinhandshake.com/hc/article_attachments/32071149081111)
 

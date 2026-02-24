@@ -15,9 +15,9 @@ Topics:
 - [How to use External Email Logging](#h_01JMJWB3B7BV7H61JG2WMKGM4D)
 - [How to read logged emails in Handshake](#h_01JMJWB3BCEF8PA2RPRSMG8NXK)
 - [Emails that are not listed on the Employer page](#h_01JMJWB3BEEJV4A1A92HQ5NN5Q)
-  - [Unresolved email addresses](#h_01JMJWB3BFVN41DCVZPW1WXKJN)
-  - [Add a contact](#h_01JMJWB3BKEX7T56YRWHVBNK4F)
-  - [All emails](#h_01JMZMNQTAZ3EZX93NFFDN9C9F)
+ - [Unresolved email addresses](#h_01JMJWB3BFVN41DCVZPW1WXKJN)
+ - [Add a contact](#h_01JMJWB3BKEX7T56YRWHVBNK4F)
+ - [All emails](#h_01JMZMNQTAZ3EZX93NFFDN9C9F)
 - [FAQs](#h_01JMZMNQTAZ3EZX93NFFDN9C9F)
 
 ## How to use External Email Logging
@@ -120,14 +120,10 @@ The **All emails** tab lists emails that had the BCC link included when they wer
 
 **Can I send an email using the BCC email address with HTML formatting and/or including attachments?** Yes, both HTML formatting and attachments can be used in emails where you include a BCC link.
 
-**How can I use the BCC email address with an email that was** ***sent to me*****?**  
-Simply forward the email you received to the BCC email address. If the email was originally sent to you and many other recipients, the email details will be logged in Handshake accordingly.
+**How can I use the BCC email address with an email that was** ***sent to me*****?** Simply forward the email you received to the BCC email address. If the email was originally sent to you and many other recipients, the email details will be logged in Handshake accordingly.
 
-**What will** ***not*** **get tracked when using BCC email tracking?**  
-We do not associate tracked emails with student users. If a recipient has multiple user account types, if one of those types is a student, then that recipient will be filtered out. If there are additional recipients that are not students, the email will be associated with those users only. If all of the recipients on a tracked email have student accounts, the email will not be logged at all.
+**What will** ***not*** **get tracked when using BCC email tracking?** We do not associate tracked emails with student users. If a recipient has multiple user account types, if one of those types is a student, then that recipient will be filtered out. If there are additional recipients that are not students, the email will be associated with those users only. If all of the recipients on a tracked email have student accounts, the email will not be logged at all.
 
-**What if I send an email and forget to add the BCC email address?**  
-No worries! You can simply forward the email you sent to the BCC email address. This will capture the information in Handshake.
+**What if I send an email and forget to add the BCC email address?** No worries! You can simply forward the email you sent to the BCC email address. This will capture the information in Handshake.
 
-**Is there a way to make this process automated?**  
-Many email clients and systems have features such as “Auto-BCC” rules. Check your specific email provider to see if such a feature exists. Oftentimes they can be configured to Auto-BCC only when sending emails outside of your work domain.
+**Is there a way to make this process automated?** Many email clients and systems have features such as “Auto-BCC” rules. Check your specific email provider to see if such a feature exists. Oftentimes they can be configured to Auto-BCC only when sending emails outside of your work domain.

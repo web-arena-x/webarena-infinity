@@ -22,7 +22,7 @@ For example, you might create a custom template for:
 
 ![Template published banner in FigJam](https://help.figma.com/hc/article_attachments/31405848991255)
 
-Template files are identified with a  template icon in the file browser. Consider keeping all of your team’s template files in one project so you can easily find and manage them in one place.
+Template files are identified with a template icon in the file browser. Consider keeping all of your team’s template files in one project so you can easily find and manage them in one place.
 
 Tip
 
@@ -72,7 +72,7 @@ You can also unpublish a template by moving the file back to your Drafts. [Learn
 
 To browse and use custom templates:
 
-1. Click  in the right sidebar to open the template picker.
+1. Click in the right sidebar to open the template picker.
 2. Select the tab labeled with your organization’s name.
 3. Hover over the template thumbnail image, then click **Add template**.
 

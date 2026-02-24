@@ -25,22 +25,22 @@ Topics:
 3. Click the radio button to select the desired email recipients in the popup that appears.
 
 - If the event hasn't occurred, or was less than 30 days ago, you'll have the option to email:
-  - All Invited or Registered or Checked In
-  - All Invited
-  - All Registered
-  - All Checked In
-  - Registered and Checked In
-  - Invited but not Registered or Checked In
-  - Registered and not Checked In
+ - All Invited or Registered or Checked In
+ - All Invited
+ - All Registered
+ - All Checked In
+ - Registered and Checked In
+ - Invited but not Registered or Checked In
+ - Registered and not Checked In
 
 ![Email_pop_up_for_students_attending_an_event.png](https://support.joinhandshake.com/hc/article_attachments/25995548602135)
 
 - If the event occurred more than 30 days ago, you'll have the option to email:
-  - All Registered
-  - All Checked In
-  - Registered or Checked In
-  - Registered and Checked In
-  - Registered and not Checked In
+ - All Registered
+ - All Checked In
+ - Registered or Checked In
+ - Registered and Checked In
+ - Registered and not Checked In
 
 ![Email_Attendees_After_30_days_Image.png](https://support.joinhandshake.com/hc/article_attachments/25995548600087)
 
@@ -59,14 +59,14 @@ Topics:
 3. Click the radio button to select the desired email recipients in the popup that appears.
 
 - If the fair hasn't occurred, or was less than 30 days ago, you'll have the option to email:
-  - All Invited or Registered or Checked In
-  - All Invited
-  - All Registered
-  - All Checked In
-  - Registered and Checked In
-  - Invited but not Registered or Checked In
-  - Registered and not Checked In
-  - Registered and no sessions
+ - All Invited or Registered or Checked In
+ - All Invited
+ - All Registered
+ - All Checked In
+ - Registered and Checked In
+ - Invited but not Registered or Checked In
+ - Registered and not Checked In
+ - Registered and no sessions
     - this option is only available for virtual fairs
     - **Tip:** use this selection to encourage session signups!
 
@@ -75,12 +75,12 @@ Topics:
 ![Email_pop_up_for_students_attending_a_career_fair.png](https://support.joinhandshake.com/hc/article_attachments/25995548603287)
 
 - If the event occurred more than 30 days ago, you'll have the option to email:
-  - All Registered
-  - All Checked In
-  - Registered or Checked In
-  - Registered and Checked In
-  - Registered and not Checked In
-  - Registered and no sessions 
+ - All Registered
+ - All Checked In
+ - Registered or Checked In
+ - Registered and Checked In
+ - Registered and not Checked In
+ - Registered and no sessions 
     - this option is only available for virtual fairs
 
 ![Email_Fair_Attendess_30_day_Past_Image.png](https://support.joinhandshake.com/hc/article_attachments/25995551334935)

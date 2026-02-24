@@ -72,14 +72,14 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "group_id": 5,
     "name": "my-virtual-registry",
     "description": "My virtual registry",
     "created_at": "2024-05-30T12:28:27.855Z",
     "updated_at": "2024-05-30T12:28:27.855Z"
-  }
+ }
 ]
 ```
 
@@ -112,12 +112,12 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "group_id": 5,
-  "name": "my-virtual-registry",
-  "description": "My virtual registry",
-  "created_at": "2024-05-30T12:28:27.855Z",
-  "updated_at": "2024-05-30T12:28:27.855Z"
+ "id": 1,
+ "group_id": 5,
+ "name": "my-virtual-registry",
+ "description": "My virtual registry",
+ "created_at": "2024-05-30T12:28:27.855Z",
+ "updated_at": "2024-05-30T12:28:27.855Z"
 }
 ```
 
@@ -147,12 +147,12 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "group_id": 5,
-  "name": "my-virtual-registry",
-  "description": "My virtual registry",
-  "created_at": "2024-05-30T12:28:27.855Z",
-  "updated_at": "2024-05-30T12:28:27.855Z"
+ "id": 1,
+ "group_id": 5,
+ "name": "my-virtual-registry",
+ "description": "My virtual registry",
+ "created_at": "2024-05-30T12:28:27.855Z",
+ "updated_at": "2024-05-30T12:28:27.855Z"
 }
 ```
 
@@ -274,7 +274,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "group_id": 5,
     "url": "https://repo.maven.apache.org/maven2",
@@ -285,7 +285,7 @@ Example response:
     "username": "user",
     "created_at": "2024-05-30T12:28:27.855Z",
     "updated_at": "2024-05-30T12:28:27.855Z"
-  }
+ }
 ]
 ```
 
@@ -341,7 +341,7 @@ Example response:
 
 ```json
 {
-  "success": true
+ "success": true
 }
 ```
 
@@ -371,7 +371,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "group_id": 5,
     "url": "https://repo.maven.apache.org/maven2",
@@ -387,7 +387,7 @@ Example response:
       "registry_id": 1,
       "position": 1
     }
-  }
+ }
 ]
 ```
 
@@ -439,21 +439,21 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "group_id": 5,
-  "url": "https://repo.maven.apache.org/maven2",
-  "name": "Maven Central",
-  "description": "Maven Central repository",
-  "cache_validity_hours": 48,
-  "metadata_cache_validity_hours": 1,
-  "username": "user",
-  "created_at": "2024-05-30T12:28:27.855Z",
-  "updated_at": "2024-05-30T12:28:27.855Z",
-  "registry_upstream": {
+ "id": 1,
+ "group_id": 5,
+ "url": "https://repo.maven.apache.org/maven2",
+ "name": "Maven Central",
+ "description": "Maven Central repository",
+ "cache_validity_hours": 48,
+ "metadata_cache_validity_hours": 1,
+ "username": "user",
+ "created_at": "2024-05-30T12:28:27.855Z",
+ "updated_at": "2024-05-30T12:28:27.855Z",
+ "registry_upstream": {
     "id": 1,
     "registry_id": 1,
     "position": 1
-  }
+ }
 }
 ```
 
@@ -483,23 +483,23 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "group_id": 5,
-  "url": "https://repo.maven.apache.org/maven2",
-  "name": "Maven Central",
-  "description": "Maven Central repository",
-  "cache_validity_hours": 24,
-  "metadata_cache_validity_hours": 24,
-  "username": "user",
-  "created_at": "2024-05-30T12:28:27.855Z",
-  "updated_at": "2024-05-30T12:28:27.855Z",
-  "registry_upstreams": [
+ "id": 1,
+ "group_id": 5,
+ "url": "https://repo.maven.apache.org/maven2",
+ "name": "Maven Central",
+ "description": "Maven Central repository",
+ "cache_validity_hours": 24,
+ "metadata_cache_validity_hours": 24,
+ "username": "user",
+ "created_at": "2024-05-30T12:28:27.855Z",
+ "updated_at": "2024-05-30T12:28:27.855Z",
+ "registry_upstreams": [
     {
       "id": 1,
       "registry_id": 1,
       "position": 1
     }
-  ]
+ ]
 }
 ```
 
@@ -628,10 +628,10 @@ Example response:
 
 ```json
 {
-  "id": 5,
-  "registry_id": 1,
-  "upstream_id": 2,
-  "position": 2
+ "id": 5,
+ "registry_id": 1,
+ "upstream_id": 2,
+ "position": 2
 }
 ```
 
@@ -736,7 +736,7 @@ Example response:
 
 ```json
 {
-  "success": true
+ "success": true
 }
 ```
 
@@ -767,10 +767,8 @@ Supported attributes:
 
 #### How the test works
 
-The endpoint performs a HEAD request to the upstream URL
-using the test path to validate connectivity and authentication.
-If the upstream has a cached artifact, the relative path of the
-upstream is used for testing. Otherwise, a placeholder path is used.
+The endpoint performs a HEAD request to the upstream URL using the test path to validate connectivity and authentication.
+If the upstream has a cached artifact, the relative path of the upstream is used for testing. Otherwise, a placeholder path is used.
 
 The test behavior depends on the parameters provided:
 
@@ -835,7 +833,7 @@ Example response:
 
 ```json
 {
-  "success": true
+ "success": true
 }
 ```
 
@@ -872,7 +870,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": "MTUgZm9vL2Jhci9teXBrZy8xLjAtU05BUFNIT1QvbXlwa2ctMS4wLVNOQVBTSE9ULmphcg==",
     "group_id": 5,
     "upstream_id": 1,
@@ -887,7 +885,7 @@ Example response:
     "updated_at": "2024-05-30T12:28:27.855Z",
     "downloads_count": 6,
     "downloaded_at": "2024-06-05T14:58:32.855Z"
-  }
+ }
 ]
 ```
 
@@ -923,8 +921,7 @@ Use the following endpoints to manage package operations for a Maven virtual reg
 {{< alert type="note" >}}
 
 These endpoints do not adhere to the [REST API authentication methods](rest/authentication.md).
-For more information on which headers and token types are supported,
-see [Maven virtual registry](../user/packages/virtual_registry/maven/_index.md). Undocumented authentication methods might be removed in the future.
+For more information on which headers and token types are supported, see [Maven virtual registry](../user/packages/virtual_registry/maven/_index.md). Undocumented authentication methods might be removed in the future.
 
 {{< /alert >}}
 
@@ -951,8 +948,7 @@ curl --header "PRIVATE-TOKEN: <your_access_token>" \
      --output mypkg-1.0-SNAPSHOT.jar
 ```
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and
-the following response headers:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response headers:
 
 - `x-checksum-sha1`: SHA1 checksum of the file
 - `x-checksum-md5`: MD5 checksum of the file

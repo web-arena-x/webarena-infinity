@@ -6,14 +6,14 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/218693488-Legacy-Vie
 
 After a student's experience has been approved by the necessary faculty and supervisors, you may want to send an evaluation survey to approver and students. This article will walk through how to send these evaluations individually or in bulk.
 
-If you're using the new experiences view, check out [Managing Experience Evaluations](https://support.joinhandshake.com/hc/en-us/articles/360021259273) instead!  
+If you're using the new experiences view, check out [Managing Experience Evaluations](https://support.joinhandshake.com/hc/en-us/articles/360021259273) instead! 
    
 **Send the evaluations individually**
 
 1. Click Experiences on the left hand navigation bar
 2. Select an experience from the list by clicking on the student’s name
-3. Click Request Evaluations under the Actions section   
-   ![](https://support.joinhandshake.com/hc/article_attachments/115018370828/mceclip0.png)  
+3. Click Request Evaluations under the Actions section  
+   ![](https://support.joinhandshake.com/hc/article_attachments/115018370828/mceclip0.png) 
    You will see a New Evaluation Request box where you can write a unique message to the faculty / staff that will be responsible for approving the experience![](https://support.joinhandshake.com/hc/article_attachments/115018370868/mceclip1.png)
 4. Choose who would like to send the evaluations to from this page
 5. Select the survey you would like to attach to this experience evaluation
@@ -32,8 +32,8 @@ If you're using the new experiences view, check out [Managing Experience Evaluat
 3. Select Request Evaluations, choose the recipients, the survey you'd like to send, enter any desired custom messages, and click next to confirm sending the request:![Screen_Shot_2019-10-24_at_3.05.54_PM.png](https://support.joinhandshake.com/hc/article_attachments/360049920393/Screen_Shot_2019-10-24_at_3.05.54_PM.png)![Screen_Shot_2019-10-24_at_3.06.14_PM.png](https://support.joinhandshake.com/hc/article_attachments/360049033934/Screen_Shot_2019-10-24_at_3.06.14_PM.png)
 4. The contacts that you send this evaluation to will receive the following email:
 
-![](https://support.joinhandshake.com/hc/article_attachments/206776047/56392820160503-3-9slz8l)  
- When the contacts click Complete Evaluation they will see the following page which will list Handshake’s default evaluation and any extra questions that you have attached to the evaluation. View this article to learn more about how to create a custom evaluation: [How to create a custom evaluation for an experience?](https://support.joinhandshake.com/hc/en-us/articles/218693478-How-do-I-create-a-custom-evaluation-survey-for-an-experiences-evaluation-)  
+![](https://support.joinhandshake.com/hc/article_attachments/206776047/56392820160503-3-9slz8l) 
+ When the contacts click Complete Evaluation they will see the following page which will list Handshake’s default evaluation and any extra questions that you have attached to the evaluation. View this article to learn more about how to create a custom evaluation: [How to create a custom evaluation for an experience?](https://support.joinhandshake.com/hc/en-us/articles/218693478-How-do-I-create-a-custom-evaluation-survey-for-an-experiences-evaluation-) 
    
  ![](https://support.joinhandshake.com/hc/article_attachments/206733028/56392920160503-3-lt9pin)
 

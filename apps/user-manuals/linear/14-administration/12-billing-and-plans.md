@@ -57,13 +57,11 @@ Your annual plan starts on **February 10** and renews the following year.
 
 
 
-Date | Event | Result
---- | --- | ---
-February 10 | Upgrade with 12 active users | You’re charged for 12 users for the full subscription year (Feb 10 → Feb 10).
+Date | Event | Result --- | --- | --- February 10 | Upgrade with 12 active users | You’re charged for 12 users for the full subscription year (Feb 10 → Feb 10).
 April 18 | Add 3 users | Linear calculates a pro-rated charge for those 3 users covering Apr 18 → Feb 10 next year. This appears on your next monthly billing cycle (May 10).
 May 15 | Suspend 2 users | Linear calculates a pro-rated credit for those 2 users covering May 15 → Feb 10 next year. This credit appears on your next monthly billing cycle (June 10).
 
-  
+ 
 Each change — adding or suspending users — is billed or credited based on the exact date it happens. Invoices only ever reflect past activity, and **we don’t edit or cancel them once issued.**
 
 

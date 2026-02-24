@@ -29,8 +29,7 @@ that provides [line coverage](https://www.eclemma.org/jacoco/trunk/doc/counters.
 
 The JaCoCo coverage reports visualization supports:
 
-- [Instructions (C0 Coverage)](https://www.eclemma.org/jacoco/trunk/doc/counters.html),
-  `ci` (covered instructions) in reports.
+- [Instructions (C0 Coverage)](https://www.eclemma.org/jacoco/trunk/doc/counters.html), `ci` (covered instructions) in reports.
 
 Coverage information displays in the merge request diff view with these indicators:
 
@@ -56,16 +55,15 @@ In this example, lines 83-86 show red bars for uncovered code, line 88 shows a g
 
 ## Add JaCoCo coverage job
 
-To configure your pipeline to generate the coverage reports, add a job to your
-`.gitlab-ci.yml` file. For example:
+To configure your pipeline to generate the coverage reports, add a job to your `.gitlab-ci.yml` file. For example:
 
 ```yaml
 test-jdk11:
-  stage: test
-  image: maven:3.6.3-jdk-11
-  script:
+ stage: test
+ image: maven:3.6.3-jdk-11
+ script:
     - mvn $MAVEN_CLI_OPTS clean org.jacoco:jacoco-maven-plugin:prepare-agent test jacoco:report
-  artifacts:
+ artifacts:
     reports:
       coverage_report:
         coverage_format: jacoco
@@ -77,16 +75,13 @@ In this example:
 - The `mvn` command generates the JaCoCo coverage report.
 - The `path` points to the generated report.
 
-If the job generates multiple reports,
-use a [wildcard in the artifact path](../../jobs/job_artifacts.md#with-wildcards).
+If the job generates multiple reports, use a [wildcard in the artifact path](../../jobs/job_artifacts.md#with-wildcards).
 
 ## Relative file path correction
 
 ## File path conversion
 
-JaCoCo reports provide relative file paths but coverage report visualizations require
-absolute paths. GitLab attempts to convert the relative paths to absolute paths, using
-data from the related merge requests.
+JaCoCo reports provide relative file paths but coverage report visualizations require absolute paths. GitLab attempts to convert the relative paths to absolute paths, using data from the related merge requests.
 
 The path matching process is:
 
@@ -98,8 +93,7 @@ This process might not always be able to find a suitable matching absolute path.
 
 ### Multiple modules or source directories
 
-With identical file names for multiple modules or source directories, it might not be
-possible to find the absolute path by default.
+With identical file names for multiple modules or source directories, it might not be possible to find the absolute path by default.
 
 For example, GitLab cannot find the absolute paths if these files are changed in a merge request:
 
@@ -111,19 +105,19 @@ For example, you can change one of the file or directory names:
 
 - Change the filename:
 
-  ```diff
-  src/main/java/org/acme/DemoExample.java
-  - src/main/other-module/org/acme/DemoExample.java
-  + src/main/other-module/org/acme/OtherDemoExample.java
-  ```
+ ```diff
+ src/main/java/org/acme/DemoExample.java
+ - src/main/other-module/org/acme/DemoExample.java
+ + src/main/other-module/org/acme/OtherDemoExample.java
+ ```
 
 - Change the path:
 
-  ```diff
-  src/main/java/org/acme/DemoExample.java
-  - src/main/other-module/org/acme/DemoExample.java
-  + src/main/other-module/org/other-acme/DemoExample.java
-  ```
+ ```diff
+ src/main/java/org/acme/DemoExample.java
+ - src/main/other-module/org/acme/DemoExample.java
+ + src/main/other-module/org/other-acme/DemoExample.java
+ ```
 
 You can also add a new directory, as long as the complete relative path is unique.
 
@@ -131,12 +125,9 @@ You can also add a new directory, as long as the complete relative path is uniqu
 
 ### Metrics do not display for all changed files
 
-Metrics might not display correctly if you create a new merge request from the same source branch,
-but with a different target branch.
+Metrics might not display correctly if you create a new merge request from the same source branch, but with a different target branch.
 
-The job doesn't consider the diffs from the new merge request and doesn't
-display any metrics for files not contained in the diff of the other merge request.
+The job doesn't consider the diffs from the new merge request and doesn't display any metrics for files not contained in the diff of the other merge request.
 This happens even when the generated coverage report contain metrics for the specified file.
 
-To fix this issue, wait until the new merge request is created, then rerun your pipeline
-or start a new one. Then the new merge request is taken into account.
+To fix this issue, wait until the new merge request is created, then rerun your pipeline or start a new one. Then the new merge request is taken into account.

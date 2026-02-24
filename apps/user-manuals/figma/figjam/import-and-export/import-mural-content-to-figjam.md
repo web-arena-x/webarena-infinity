@@ -50,7 +50,7 @@ After exporting content from Mural, you can:
 ### Import into an existing FigJam file
 
 1. Open a FigJam file.
-2. Click the  Figma icon at the top left of the file.
+2. Click the Figma icon at the top left of the file.
 3. Navigate to **File > Import.**
 4. Select Mural on the Where are your files from? screen and click Confirm.
 5. Select one or more Mural PDF files.
@@ -61,7 +61,7 @@ After exporting content from Mural, you can:
 
 The following table explains how a Mural object gets imported into FigJam.
 
-|  |  |
+| | |
 | --- | --- |
 | Mural object | FigJam |
 | Sticky note | Shape with text |

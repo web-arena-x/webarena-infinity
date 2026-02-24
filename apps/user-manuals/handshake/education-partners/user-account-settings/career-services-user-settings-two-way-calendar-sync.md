@@ -53,10 +53,10 @@ You'll also need to review and agree to Cronofy's [Terms of Service](https://doc
 ![icloud.png](https://support.joinhandshake.com/hc/article_attachments/25997656044951)
 
 - Exchange includes the same basic prompts, as well as prompts for the following:
-  - Email address (required)
-  - Password (required)
-  - Exchange Server URL (optional)
-  - Username (optional)
+ - Email address (required)
+ - Password (required)
+ - Exchange Server URL (optional)
+ - Username (optional)
 
 ![exchange.png](https://support.joinhandshake.com/hc/article_attachments/25997656046231)
 
@@ -96,7 +96,7 @@ Also, any calendar events that you respond to as *Maybe* or *Tentative* will sho
 
 #### How does two-way calendar sync work in Handshake?
 
-|  |  |
+| | |
 | --- | --- |
 | **Action in Handshake or your university calendar** | **Update in Handshake or your institution calendar** |
 | Requested appointment in Handshake | Busy event on institution calendar |

@@ -57,8 +57,7 @@ To import issues:
    - The project has no issues: in the middle of the page, select **Import CSV**.
 1. Select the file you want to import, and then select **Import issues**.
 
-The file is processed in the background, and a notification email is sent
-to you if any errors are detected or after the import is complete.
+The file is processed in the background, and a notification email is sent to you if any errors are detected or after the import is complete.
 
 ## CSV file format
 
@@ -78,8 +77,7 @@ For information about CSV parsing requirements that can affect how imported file
 | double-quote character | The double-quote (`"`) character is used to quote fields, enabling the use of the column separator in a field (see the third line in the sample CSV data below). To insert a double-quote (`"`) in a quoted field use two double-quote characters in succession (`""`). |
 | data rows              | After the header row, following rows must use the same column order. The issue title is required, but the description is optional. |
 
-If you have special characters (for example, `,` or `\n`) or multiple lines in a field (for example,
-when using [quick actions](../quick_actions.md)), surround the characters with double quotes (`"`).
+If you have special characters (for example, `,` or `\n`) or multiple lines in a field (for example, when using [quick actions](../quick_actions.md)), surround the characters with double quotes (`"`).
 
 Also when using [quick actions](../quick_actions.md):
 

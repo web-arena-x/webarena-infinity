@@ -34,8 +34,7 @@ Prerequisites:
 - The Owner role for group enablement.
 - The Maintainer or Owner role for project enablement.
 
-After you have a webhook URL for your Webex Teams space, you can configure GitLab to send
-notifications:
+After you have a webhook URL for your Webex Teams space, you can configure GitLab to send notifications:
 
 1. To enable integration:
    - At the project or group level:

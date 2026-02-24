@@ -20,8 +20,7 @@ title: Event data
 
 ## Data tracking for product usage at event level
 
-For more information about changes to product usage data collection, read the blog post
-[More granular product usage insights for GitLab Self-Managed and Dedicated](https://about.gitlab.com/blog/2025/03/26/more-granular-product-usage-insights-for-gitlab-self-managed-and-dedicated/).
+For more information about changes to product usage data collection, read the blog post [More granular product usage insights for GitLab Self-Managed and Dedicated](https://about.gitlab.com/blog/2025/03/26/more-granular-product-usage-insights-for-gitlab-self-managed-and-dedicated/).
 
 ### Event data
 

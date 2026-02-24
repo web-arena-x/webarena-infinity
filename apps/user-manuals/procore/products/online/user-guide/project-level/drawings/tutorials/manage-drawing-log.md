@@ -15,7 +15,7 @@ The Drawing Log allows you to see key information about your projects' drawings 
 ## Things to Consider
 
 - Required User Permissions:
-  - To view the drawings log, 'Read Only' level permissions or higher to the project's Drawing tool.
+ - To view the drawings log, 'Read Only' level permissions or higher to the project's Drawing tool.
 
 ## Steps
 

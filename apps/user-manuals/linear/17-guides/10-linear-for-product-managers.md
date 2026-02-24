@@ -59,45 +59,34 @@ Product managers typically spend hours collecting scattered information and tran
 
 Linear gives you visibility into product development at every level of precision - from high-level roadmap planning down to individual issue blockers.
 
-**See the big picture**  
-Visualize your entire product roadmap with [timeline views](https://linear.app/docs/timeline). See exactly how your project fits alongside other planned work, gain visibility into what's shipping and when, identify dependencies between teams, and align on launch timings with go-to-market.
+**See the big picture** Visualize your entire product roadmap with [timeline views](https://linear.app/docs/timeline). See exactly how your project fits alongside other planned work, gain visibility into what's shipping and when, identify dependencies between teams, and align on launch timings with go-to-market.
 
 ![Project timeline](https://webassets.linear.app/images/ornj730p/production/6a5478c3bc2de4eae7b848954548c9ddb2b0f53c-4460x2868.png?q=95&auto=format&dpr=2)
 
-**Stay on top of multiple projects**  
-Create [custom views](https://linear.app/docs/custom-views) using filters to display only the issues or projects you want to see. Save, share, and favorite these views for quick access to your portfolio of work.
+**Stay on top of multiple projects** Create [custom views](https://linear.app/docs/custom-views) using filters to display only the issues or projects you want to see. Save, share, and favorite these views for quick access to your portfolio of work.
 
-**Visualize completion trends**  
-Built-in [Project Graphs](https://linear.app/docs/project-graph) show your team's journey toward completion and provide estimates for when you can expect to finish, helping you identify if your project is on track or at risk.
+**Visualize completion trends** Built-in [Project Graphs](https://linear.app/docs/project-graph) show your team's journey toward completion and provide estimates for when you can expect to finish, helping you identify if your project is on track or at risk.
 
 ![Project graph](https://webassets.linear.app/images/ornj730p/production/1583151e675c8ebcd8b2fd926362a15f4f407ea7-2880x1928.tif?q=95&auto=format&dpr=2)
 
-**Track milestone completion**  
-Monitor progress towards the [milestones](https://linear.app/docs/project-milestones) you identified on the project overview. As your team completes issues, Linear automatically updates milestone completion percentages, giving you real-time visibility into which features will make your next release and when you'll be ready for customer testing. Since customer feedback lives attached to projects, you can easily identify potential beta testers as you hit these milestones.
+**Track milestone completion** Monitor progress towards the [milestones](https://linear.app/docs/project-milestones) you identified on the project overview. As your team completes issues, Linear automatically updates milestone completion percentages, giving you real-time visibility into which features will make your next release and when you'll be ready for customer testing. Since customer feedback lives attached to projects, you can easily identify potential beta testers as you hit these milestones.
 
-**Identify blockers quickly**  
-[Insights](https://linear.app/docs/insights) come attached to every issue view, turning raw data into visual reports that highlight trends, bottlenecks, and dependencies across your workspace. If you need to discuss blockers with the team, you can add comments directly on an issue. Comments automatically trigger alerts to the issue owner and sync with Slack.
+**Identify blockers quickly** [Insights](https://linear.app/docs/insights) come attached to every issue view, turning raw data into visual reports that highlight trends, bottlenecks, and dependencies across your workspace. If you need to discuss blockers with the team, you can add comments directly on an issue. Comments automatically trigger alerts to the issue owner and sync with Slack.
 
 ### Communicating updates
 
-**Set a project status**  
-As Projects advance, you can move them through [statuses](https://linear.app/docs/project-status), designed to give others a quick snapshot into that where things stand.
+**Set a project status** As Projects advance, you can move them through [statuses](https://linear.app/docs/project-status), designed to give others a quick snapshot into that where things stand.
 
 ![Project statuses](https://webassets.linear.app/images/ornj730p/production/42b6cd5957a5374626fbbd7106bf0833e28280f6-3312x1820.tif?q=95&auto=format&dpr=2)
 
-**Update on a schedule**  
-Projects include an [updates feature](https://linear.app/docs/project-updates) that reminds leads to provide progress reports at regular intervals. No more starting from scratch each time you need to update stakeholders.
+**Update on a schedule** Projects include an [updates feature](https://linear.app/docs/project-updates) that reminds leads to provide progress reports at regular intervals. No more starting from scratch each time you need to update stakeholders.
 
-**Write once, share everywhere**  
-When you publish an update, Linear automatically distributes it to all stakeholders. Updates are posted to [Slack](https://linear.app/docs/slack) with bi-directional comment syncing, sent to project subscribers, and permanently stored on the project.
+**Write once, share everywhere** When you publish an update, Linear automatically distributes it to all stakeholders. Updates are posted to [Slack](https://linear.app/docs/slack) with bi-directional comment syncing, sent to project subscribers, and permanently stored on the project.
 
-**Prevent last-minute redirections**  
-Regular, transparent updates keep stakeholders informed throughout the development process, preventing the "whiplash" that comes from late-stage feedback. By bringing everyone along on the journey, you avoid having to walk back work or make costly pivots just before shipping.
+**Prevent last-minute redirections** Regular, transparent updates keep stakeholders informed throughout the development process, preventing the "whiplash" that comes from late-stage feedback. By bringing everyone along on the journey, you avoid having to walk back work or make costly pivots just before shipping.
 
-**Create a single source of truth**  
-All updates live permanently on the project as a chronological log, so anyone can view the history of progress without interrupting you for information. Leaders can self-serve the status information they need.
+**Create a single source of truth** All updates live permanently on the project as a chronological log, so anyone can view the history of progress without interrupting you for information. Leaders can self-serve the status information they need.
 
-**Consolidate multi-project updates**  
-Custom project views feature an updates button that provides a consolidated feed of all updates related to the projects in that view — perfect for reporting on your entire portfolio to leadership.
+**Consolidate multi-project updates** Custom project views feature an updates button that provides a consolidated feed of all updates related to the projects in that view — perfect for reporting on your entire portfolio to leadership.
 
 ![Project display options](https://webassets.linear.app/images/ornj730p/production/1c71fc127aa8f0e3991b34148bf8089b2c6c4ff8-2880x1175.tif?q=95&auto=format&dpr=2)

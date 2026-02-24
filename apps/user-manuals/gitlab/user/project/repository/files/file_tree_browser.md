@@ -26,9 +26,7 @@ For more information, see the history.
 
 {{< /alert >}}
 
-The file tree browser is a drawer that displays your repository's files and directories in
-a collapsible tree structure. Use it to navigate your repository without scrolling
-through long file listings.
+The file tree browser is a drawer that displays your repository's files and directories in a collapsible tree structure. Use it to navigate your repository without scrolling through long file listings.
 
 The file tree browser helps you:
 
@@ -48,8 +46,7 @@ You can also press <kbd>Shift</kbd>+<kbd>F</kbd> to toggle the file tree browser
 
 ## Navigate files and directories
 
-The file tree browser displays your repository's structure with files and directories you can
-expand and collapse.
+The file tree browser displays your repository's structure with files and directories you can expand and collapse.
 
 To navigate in the file tree browser:
 
@@ -61,8 +58,7 @@ To navigate in the file tree browser:
 1. To expand a directory, select {{< icon name="chevron-right" >}} next to the directory name.
 1. To view a file, select the filename.
 
-When you navigate directly to a nested file, the file tree browser automatically expands parent
-directories and highlights the current file.
+When you navigate directly to a nested file, the file tree browser automatically expands parent directories and highlights the current file.
 
 ## Search files
 

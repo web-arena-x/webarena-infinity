@@ -31,12 +31,6 @@ When you move an issue to a new team, we generate a new _issue ID_ and unique UR
 
 ### Changes in issue properties
 
-Issue property | Effect | Workaround
---- | --- | ---
-Cycle | Removed | Create a temporary label (e.g. Cycle 1) before moving issues if you'd like to retain the grouping when assigning issues to the new team's cycles
-Team Labels | Removed | Create a label in the new team with the same name.
+Issue property | Effect | Workaround --- | --- | --- Cycle | Removed | Create a temporary label (e.g. Cycle 1) before moving issues if you'd like to retain the grouping when assigning issues to the new team's cycles Team Labels | Removed | Create a label in the new team with the same name.
 Projects | Removed | Add the new team to the current team's project before moving the issue.
-Relations | Remain
-Priority | Remain
-Issue ID | Changed | A new issue ID will be created in the new team. Old issue URLs will redirect and searches for the old ID will bring up the issue
-Status | Changed | If the same status name exists, it will be matched. Otherwise, it'll be assigned the first status in the same category.
+Relations | Remain Priority | Remain Issue ID | Changed | A new issue ID will be created in the new team. Old issue URLs will redirect and searches for the old ID will bring up the issue Status | Changed | If the same status name exists, it will be matched. Otherwise, it'll be assigned the first status in the same category.

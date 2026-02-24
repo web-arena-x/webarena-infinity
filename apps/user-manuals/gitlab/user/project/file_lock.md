@@ -5,18 +5,13 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: File locking
 ---
 
-File locking prevents multiple people from editing the same file simultaneously, which helps avoid
-merge conflicts. File locking is especially valuable for binary files that cannot be merged like
-design files, videos, and other non-text content.
+File locking prevents multiple people from editing the same file simultaneously, which helps avoid merge conflicts. File locking is especially valuable for binary files that cannot be merged like design files, videos, and other non-text content.
 
 GitLab supports two different types of file locking:
 
-- Exclusive file locks: Applied through the command line with Git LFS and
-  [`.gitattributes`](repository/files/git_attributes.md). These locks prevent modifications to
-  locked files on any branch. Available on Free, Premium, and Ultimate tiers.
-  For more information, see [Exclusive file locks](../../topics/git/file_management.md#exclusive-file-locks).
-- Default branch file and directory locks: Applied through the GitLab UI. These locks prevent
-  modifications to files and directories on the default branch only.
+- Exclusive file locks: Applied through the command line with Git LFS and [`.gitattributes`](repository/files/git_attributes.md). These locks prevent modifications to locked files on any branch. Available on Free, Premium, and Ultimate tiers.
+ For more information, see [Exclusive file locks](../../topics/git/file_management.md#exclusive-file-locks).
+- Default branch file and directory locks: Applied through the GitLab UI. These locks prevent modifications to files and directories on the default branch only.
 
 ## Default branch file and directory locks
 
@@ -27,9 +22,7 @@ GitLab supports two different types of file locking:
 
 {{< /details >}}
 
-Default branch locks apply only to the [default branch](repository/branches/default.md) set in your
-project's settings. These locks help maintain stability in your default branch without blocking
-collaborator workflows in other branches.
+Default branch locks apply only to the [default branch](repository/branches/default.md) set in your project's settings. These locks help maintain stability in your default branch without blocking collaborator workflows in other branches.
 
 When a file or directory is locked by a user:
 
@@ -41,19 +34,16 @@ When a file or directory is locked by a user:
 {{< alert type="note" >}}
 
 On non-default branches, all users can still modify locked files and directories.
-A **Lock** status is visible on these files and directories. This helps team members
-to be aware of in-flight work without restricting their workflow on other branches.
+A **Lock** status is visible on these files and directories. This helps team members to be aware of in-flight work without restricting their workflow on other branches.
 
 File locking is also bypassed during fork synchronization.
-When you [update a fork](repository/forking_workflow.md#update-your-fork) from its upstream
-project, locked files in the fork can be overwritten with changes from the upstream project.
+When you [update a fork](repository/forking_workflow.md#update-your-fork) from its upstream project, locked files in the fork can be overwritten with changes from the upstream project.
 
 {{< /alert >}}
 
 ### Permissions
 
-You must have at least the Developer role for the project to create, view, or manage
-default branch locks. For more information, see [Roles and permissions](../permissions.md).
+You must have at least the Developer role for the project to create, view, or manage default branch locks. For more information, see [Roles and permissions](../permissions.md).
 
 ### Lock a file or directory
 
@@ -106,8 +96,8 @@ The **Locked files** page displays all files locked with either Git LFS exclusiv
 Prerequisites:
 
 - You must either:
-  - Be the user who created the lock.
-  - Have at least the Maintainer role for the project.
+ - Be the user who created the lock.
+ - Have at least the Maintainer role for the project.
 
 To remove a lock:
 
@@ -133,26 +123,21 @@ To remove a lock:
 
 {{< /tabs >}}
 
-To remove an exclusive file lock, see
-[Lock and unlock files](../../topics/git/file_management.md#lock-and-unlock-files).
+To remove an exclusive file lock, see [Lock and unlock files](../../topics/git/file_management.md#lock-and-unlock-files).
 
 ## Merge request checks and lock ownership
 
-When a merge request, that includes changes to locked files or directories, is set to merge,
-GitLab checks if the merge request author is the lock owner.
+When a merge request, that includes changes to locked files or directories, is set to merge, GitLab checks if the merge request author is the lock owner.
 GitLab does not check individual commit authors.
 
 For example:
 
-- If the merge request author is the same user who locked the file or directory, the merge
-  request can be merged.
+- If the merge request author is the same user who locked the file or directory, the merge request can be merged.
 - If the merge request author is different from the lock owner, the merge request is blocked.
 
 {{< alert type="note" >}}
 
-Users other than the merge request author can push changes to the merge request branch that
-update or change locked files or directories. The lock check only considers the merge request
-author, so the merge request is not blocked.
+Users other than the merge request author can push changes to the merge request branch that update or change locked files or directories. The lock check only considers the merge request author, so the merge request is not blocked.
 
 {{< /alert >}}
 

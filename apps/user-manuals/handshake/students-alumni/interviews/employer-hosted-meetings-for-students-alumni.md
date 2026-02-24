@@ -15,9 +15,9 @@ This article provides examples of the types of email notifications you can expec
 **Example Emails**:
 
 - - Employer invites you to a meeting
-  - You sign up for a meeting
-  - Employer-hosted meeting canceled by employer
-  - Scheduled notifications
+ - You sign up for a meeting
+ - Employer-hosted meeting canceled by employer
+ - Scheduled notifications
     - 1-day reminder
     - 15-minute reminder
 
@@ -28,10 +28,10 @@ If an employer invites you to a meeting and schedules a specific time for you, y
 - Subject: "You are invited to a Handshake [MEETING TYPE]"
 - From: Handshake <[handshake@notifications.joinhandshake.com](mailto:handshake@notifications.joinhandshake.com)>
 - Content:
-  - Header: "You're invited to a meeting"
-  - Time: DAY, DATE, TIME, TIMEZONE
-  - Invited by: EMPLOYER NAME, JOB TITLE
-  - Body: "You have been added to meet with [COMPANY NAME] for this slot. You don't need to take any action on this invite."
+ - Header: "You're invited to a meeting"
+ - Time: DAY, DATE, TIME, TIMEZONE
+ - Invited by: EMPLOYER NAME, JOB TITLE
+ - Body: "You have been added to meet with [COMPANY NAME] for this slot. You don't need to take any action on this invite."
 
     - \*If the employer includes a custom message, it will be included below the default body.
     - "If you cannot make this meeting time, you can cancel this Session in My Meetings."
@@ -46,10 +46,10 @@ If you sign up for a meeting, you'll receive a notification confirming your meet
 - Subject: "Your meeting with [COMPANY] is scheduled"
 - From: Handshake <[handshake@notifications.joinhandshake.com](mailto:handshake@notifications.joinhandshake.com)>
 - Content:
-  - Header: "Your meeting with [COMPANY] is scheduled"
-  - Time: DAY, DATE, TIME, TIMEZONE
-  - Description: [MEETING DETAILS]
-  - Body: "Your meeting has been scheduled."
+ - Header: "Your meeting with [COMPANY] is scheduled"
+ - Time: DAY, DATE, TIME, TIMEZONE
+ - Description: [MEETING DETAILS]
+ - Body: "Your meeting has been scheduled."
 
     - *[view session] button*
 
@@ -62,9 +62,9 @@ If the employer has to cancel the session, you'll receive a notification letting
 - Subject: "Meeting canceled — [MEETING NAME] with [EMPLOYER NAME]"
 - From: Handshake <[handshake@notifications.joinhandshake.com](mailto:handshake@notifications.joinhandshake.com)>
 - Content:
-  - Header: "One of your meetings has been canceled"
-  - Time: DAY, DATE, TIME, TIMEZONE
-  - Body: "Want to reschedule? Message [EMPLOYER NAME] to find another time that works"
+ - Header: "One of your meetings has been canceled"
+ - Time: DAY, DATE, TIME, TIMEZONE
+ - Body: "Want to reschedule? Message [EMPLOYER NAME] to find another time that works"
 
 ![Meeting Canceled email.png](https://support.joinhandshake.com/hc/article_attachments/25135464988567)
 
@@ -78,10 +78,10 @@ Both emails are sent from: Handshake <[handshake@notifications.joinhandshake.com
 
 - Subject: "Your meeting with [COMPANY NAME] is coming up"
 - Content:
-  - Header: "Your meeting with [COMPANY NAME] is coming up"
-  - Details: MEETING HOST, MEETING TYPE
-  - Time: DAY, DATE, TIME, TIMEZONE
-  - Body: "Get ready for you [MEETING NAME] A video link will be available 5 minutes before start time in **My Meetings** on Handshake. Make a great first impression by being on time. Good luck today!"
+ - Header: "Your meeting with [COMPANY NAME] is coming up"
+ - Details: MEETING HOST, MEETING TYPE
+ - Time: DAY, DATE, TIME, TIMEZONE
+ - Body: "Get ready for you [MEETING NAME] A video link will be available 5 minutes before start time in **My Meetings** on Handshake. Make a great first impression by being on time. Good luck today!"
 
     - *[View more details] button*
 
@@ -91,10 +91,10 @@ Both emails are sent from: Handshake <[handshake@notifications.joinhandshake.com
 
 - Subject: "Your meeting with [COMPANY NAME] is starting soon!"
 - Content:
-  - Header: "Your meeting with [COMPANY NAME] is starting soon!"
-  - Details: MEETING HOST NAME, MEETING TYPE
-  - Time: DAY, DATE, TIME TIMEZONE
-  - Body: "Get ready for you [MEETING NAME] A video link will be available 5 minutes before start time in **My Meetings** on Handshake. Make a great first impression by being on time. Good luck today!"
+ - Header: "Your meeting with [COMPANY NAME] is starting soon!"
+ - Details: MEETING HOST NAME, MEETING TYPE
+ - Time: DAY, DATE, TIME TIMEZONE
+ - Body: "Get ready for you [MEETING NAME] A video link will be available 5 minutes before start time in **My Meetings** on Handshake. Make a great first impression by being on time. Good luck today!"
 
     - *[View more details] button*
 

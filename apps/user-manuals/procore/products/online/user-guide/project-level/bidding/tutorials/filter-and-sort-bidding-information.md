@@ -15,14 +15,14 @@ From the Bidding tab of a bid package, you can find the information you need by 
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.
+ - 'Admin' level permissions on the project's Bidding tool.
 
 ## Steps
 
 1. Navigate to the project's **Bidding** tool.
-2. Open the bid package.  
-   This opens the **Bidding** tab.   
-   ![bidding-tab.png](https://support.procore.com/@api/deki/files/445141/bidding-tab.png?revision=1)  
+2. Open the bid package. 
+   This opens the **Bidding** tab.  
+   ![bidding-tab.png](https://support.procore.com/@api/deki/files/445141/bidding-tab.png?revision=1) 
    The following actions are available:
    - [Search Bidders](#Search_Bidders "Filter and Sort Bidding Information")
    - [Filter Information](#Filter_Information "Filter and Sort Bidding Information")
@@ -32,7 +32,7 @@ From the Bidding tab of a bid package, you can find the information you need by 
 ### Search Bidders
 
 1. Click into the search bar.
-2. Enter the name of the company or bid recipient that you want to find.   
+2. Enter the name of the company or bid recipient that you want to find.  
    Matching results show automatically as you type.
 3. To clear the search, click the **x** on the search bar.
 

@@ -22,12 +22,12 @@ Prerequisites:
 
 - For groups, you must have the Owner role for the group.
 - For projects:
-  - You must have the Owner or Maintainer role for the project.
-  - [Group membership lock]( ../user/group/access_and_permissions.md#prevent-members-from-being-added-to-projects-in-a-group) must be disabled.
+ - You must have the Owner or Maintainer role for the project.
+ - [Group membership lock]( ../user/group/access_and_permissions.md#prevent-members-from-being-added-to-projects-in-a-group) must be disabled.
 - For GitLab Self-Managed instances:
-  - If [new sign-ups are disabled](../administration/settings/sign_up_restrictions.md#disable-new-sign-ups), an administrator must add the user.
-  - If [user invitations are not allowed](../administration/settings/visibility_and_access_controls.md#prevent-invitations-to-groups-and-projects), an administrator must add the user.
-  - If [administrator approval for role promotions is enabled](../administration/settings/sign_up_restrictions.md#turn-on-administrator-approval-for-role-promotions), an administrator must approve the invitation.
+ - If [new sign-ups are disabled](../administration/settings/sign_up_restrictions.md#disable-new-sign-ups), an administrator must add the user.
+ - If [user invitations are not allowed](../administration/settings/visibility_and_access_controls.md#prevent-invitations-to-groups-and-projects), an administrator must add the user.
+ - If [administrator approval for role promotions is enabled](../administration/settings/sign_up_restrictions.md#turn-on-administrator-approval-for-role-promotions), an administrator must approve the invitation.
 
 ```plaintext
 POST /groups/:id/invitations
@@ -41,18 +41,18 @@ POST /projects/:id/invitations
 | `user_id`        | integer or string | yes (if `email` isn't provided)   | The ID of the new member or multiple IDs separated by commas. |
 | `access_level`   | integer           | yes                               | A valid [access level](../user/permissions.md#default-roles) Possible values: `0` (No access), `5` (Minimal access), `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), or `50` (Owner). Default: `30`. |
 | `expires_at`     | string            | no                                | A date string in the format `YEAR-MONTH-DAY` |
-| `invite_source`  | string            | no                                | The source of the invitation that starts the member creation process. |
+| `invite_source` | string            | no                                | The source of the invitation that starts the member creation process. |
 | `member_role_id` | integer           | no                                | Assigns the new member to the provided custom role. ([Introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/134100)) in GitLab 16.6. Ultimate only. |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/invitations" \
-  --data "email=test@example.com&user_id=1&access_level=30"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/:id/invitations" \
+ --data "email=test@example.com&user_id=1&access_level=30"
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/:id/invitations" \
-  --data "email=test@example.com&user_id=1&access_level=30"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/:id/invitations" \
+ --data "email=test@example.com&user_id=1&access_level=30"
 ```
 
 Example responses:
@@ -60,15 +60,15 @@ Example responses:
 When all emails were successfully sent:
 
 ```json
-{  "status":  "success"  }
+{ "status": "success" }
 ```
 
 When there was any error sending the email:
 
 ```json
 {
-  "status": "error",
-  "message": {
+ "status": "error",
+ "message": {
                "test@example.com": "Invite email has already been taken",
                "test2@example.com": "User already exists in source",
                "test_username": "Access level is not included in the list"
@@ -76,17 +76,16 @@ When there was any error sending the email:
 }
 ```
 
-To enable **Manage non-billable promotions**,
-you must first enable the `enable_member_promotion_management` application setting.
+To enable **Manage non-billable promotions**, you must first enable the `enable_member_promotion_management` application setting.
 
 Example response:
 
 ```json
 {
-  "queued_users": {
+ "queued_users": {
     "username_1": "Request queued for administrator approval."
-  },
-  "status": "success"
+ },
+ "status": "success"
 }
 ```
 
@@ -102,7 +101,7 @@ GET /groups/:id/invitations
 GET /projects/:id/invitations
 ```
 
-| Attribute  | Type           | Required | Description |
+| Attribute | Type           | Required | Description |
 |------------|----------------|----------|-------------|
 | `id`       | integer or string | yes      | The ID or [URL-encoded path of the project or group](rest/_index.md#namespaced-paths) |
 | `page`     | integer        | no       | Page to retrieve |
@@ -111,9 +110,9 @@ GET /projects/:id/invitations
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/invitations?query=member@example.org"
+ --url "https://gitlab.example.com/api/v4/groups/:id/invitations?query=member@example.org"
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/:id/invitations?query=member@example.org"
+ --url "https://gitlab.example.com/api/v4/projects/:id/invitations?query=member@example.org"
 ```
 
 Example response:
@@ -150,19 +149,19 @@ PUT /projects/:id/invitations/:email
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/55/invitations/email@example.org?access_level=40"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/55/invitations/email@example.org?access_level=40"
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/55/invitations/email@example.org?access_level=40"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/55/invitations/email@example.org?access_level=40"
 ```
 
 Example response:
 
 ```json
 {
-  "expires_at": "2012-10-22T14:13:35Z",
-  "access_level": 40,
+ "expires_at": "2012-10-22T14:13:35Z",
+ "access_level": 40,
 }
 ```
 
@@ -182,11 +181,11 @@ DELETE /projects/:id/invitations/:email
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/55/invitations/email@example.org"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/55/invitations/email@example.org"
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/55/invitations/email@example.org"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/55/invitations/email@example.org"
 ```
 
 - Returns `204` and no content on success.

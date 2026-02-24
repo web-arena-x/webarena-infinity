@@ -19,33 +19,24 @@ title: Pull from a remote repository
 
 {{< /history >}}
 
-You can use the GitLab interface to browse the content and activity of a repository,
-even if it isn't hosted on GitLab. Create a pull [mirror](_index.md) to copy the
-branches, tags, and commits from an upstream repository to yours.
+You can use the GitLab interface to browse the content and activity of a repository, even if it isn't hosted on GitLab. Create a pull [mirror](_index.md) to copy the branches, tags, and commits from an upstream repository to yours.
 
 Unlike [push mirrors](push.md), pull mirrors retrieve changes from an upstream (remote)
-repository on a scheduled basis. To prevent the mirror from diverging from the upstream
-repository, don't push commits directly to the downstream mirror. Push commits to
-the upstream repository instead. Changes in the remote repository are pulled into the GitLab repository:
+repository on a scheduled basis. To prevent the mirror from diverging from the upstream repository, don't push commits directly to the downstream mirror. Push commits to the upstream repository instead. Changes in the remote repository are pulled into the GitLab repository:
 
 - Automatically, 30 minutes after a previous pull. This cannot be disabled.
 - When an administrator [force-updates the mirror](_index.md#force-an-update).
 - When an [API call triggers an update](#trigger-an-update-by-using-the-api).
 
-UI and API updates are subject to default
-[pull mirroring intervals](../../../../administration/instance_limits.md#pull-mirroring-interval)
+UI and API updates are subject to default [pull mirroring intervals](../../../../administration/instance_limits.md#pull-mirroring-interval)
 of 5 minutes. This interval can be configured on GitLab Self-Managed instances.
 
-By default, if any branch or tag on the downstream pull mirror diverges from the
-local repository, GitLab stops updating the branch. This prevents data loss.
-Deleted branches and tags in the upstream repository are not reflected in the
-downstream repository.
+By default, if any branch or tag on the downstream pull mirror diverges from the local repository, GitLab stops updating the branch. This prevents data loss.
+Deleted branches and tags in the upstream repository are not reflected in the downstream repository.
 
 {{< alert type="note" >}}
 
-Items deleted from the downstream pull mirror repository, but still in the upstream repository,
-are restored upon the next pull. For example: a branch deleted only in the mirrored repository
-reappears after the next pull.
+Items deleted from the downstream pull mirror repository, but still in the upstream repository, are restored upon the next pull. For example: a branch deleted only in the mirrored repository reappears after the next pull.
 
 {{< /alert >}}
 
@@ -55,27 +46,18 @@ After you configure a GitLab repository as a pull mirror:
 
 1. GitLab adds the repository to a queue.
 1. Once per minute, a Sidekiq cron job schedules repository mirrors to update, based on:
-   - Available capacity, determined by Sidekiq settings. For GitLab.com, read
-     [GitLab.com Sidekiq settings](../../../gitlab_com/_index.md#sidekiq).
-   - How many mirrors are already in the queue and due for updates. Being due depends
-     on when the repository mirror was last updated, and how many times updates have been retried.
+   - Available capacity, determined by Sidekiq settings. For GitLab.com, read [GitLab.com Sidekiq settings](../../../gitlab_com/_index.md#sidekiq).
+   - How many mirrors are already in the queue and due for updates. Being due depends on when the repository mirror was last updated, and how many times updates have been retried.
 1. Sidekiq becomes available to process updates, mirrors are updated. If the update process:
    - Succeeds: An update is enqueued again with at least a 30 minute wait.
-   - Fails: The update is attempted again later. After 14 failures, a mirror is marked as a
-     [hard failure](#fix-hard-failures-when-mirroring) and is no longer enqueued for updates. A branch diverging
-     from its upstream counterpart can cause failures. To prevent branches from
-     diverging, configure [Overwrite diverged branches](#overwrite-diverged-branches) when
-     you create your mirror.
+   - Fails: The update is attempted again later. After 14 failures, a mirror is marked as a [hard failure](#fix-hard-failures-when-mirroring) and is no longer enqueued for updates. A branch diverging from its upstream counterpart can cause failures. To prevent branches from diverging, configure [Overwrite diverged branches](#overwrite-diverged-branches) when you create your mirror.
 
 ## Configure pull mirroring
 
 Prerequisites:
 
-- If your remote repository is on GitHub and you have
-  [two-factor authentication (2FA) configured](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa),
-  create a [personal access token for GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
-  with the `repo` scope. If 2FA is enabled, this personal access
-  token serves as your GitHub password.
+- If your remote repository is on GitHub and you have [two-factor authentication (2FA) configured](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa), create a [personal access token for GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+ with the `repo` scope. If 2FA is enabled, this personal access token serves as your GitHub password.
 - [GitLab Silent Mode](../../../../administration/silent_mode/_index.md) is not enabled.
 
 1. On the top bar, select **Search or go to** and find your project.
@@ -85,14 +67,12 @@ Prerequisites:
 
    {{< alert type="note" >}}
 
-   To mirror the `gitlab` repository, use `gitlab.com:gitlab-org/gitlab.git`
-   or `https://gitlab.com/gitlab-org/gitlab.git`.
+   To mirror the `gitlab` repository, use `gitlab.com:gitlab-org/gitlab.git` or `https://gitlab.com/gitlab-org/gitlab.git`.
 
    {{< /alert >}}
 
 1. In **Mirror direction**, select **Pull**.
-1. In **Authentication method**, select your authentication method. For more information, see
-   [Authentication methods for mirrors](_index.md#authentication-methods-for-mirrors).
+1. In **Authentication method**, select your authentication method. For more information, see [Authentication methods for mirrors](_index.md#authentication-methods-for-mirrors).
 1. Select any of the options you need:
    - [**Overwrite diverged branches**](#overwrite-diverged-branches)
    - [**Trigger pipelines for mirror updates**](#trigger-pipelines-for-mirror-updates)
@@ -107,9 +87,7 @@ Prerequisites:
 
 {{< /history >}}
 
-To always update your local branches with remote versions, even if they have
-diverged from the remote, select **Overwrite diverged branches** when you
-create a mirror.
+To always update your local branches with remote versions, even if they have diverged from the remote, select **Overwrite diverged branches** when you create a mirror.
 
 {{< alert type="warning" >}}
 
@@ -125,13 +103,12 @@ For mirrored branches, enabling this option results in the loss of local changes
 
 {{< /history >}}
 
-You can configure your mirror to automatically trigger pipelines when
-the remote repository updates branches or tags. Before you enable this feature:
+You can configure your mirror to automatically trigger pipelines when the remote repository updates branches or tags. Before you enable this feature:
 
 - Ensure your CI runners can handle the additional load from the remote repository activity.
 - Consider the security risks, because the pipelines use the credentials of the user that set up the pull mirroring. For example, a malicious maintainer could:
-  - Make an update to the remote repository that attempts to fetch stored CI/CD variable values when the pipeline runs.
-  - Could push commits to your mirrored project if the [**Allow Git push requests to the repository**](../../../../ci/jobs/ci_job_token.md#allow-git-push-requests-to-your-project-repository) setting is enabled.
+ - Make an update to the remote repository that attempts to fetch stored CI/CD variable values when the pipeline runs.
+ - Could push commits to your mirrored project if the [**Allow Git push requests to the repository**](../../../../ci/jobs/ci_job_token.md#allow-git-push-requests-to-your-project-repository) setting is enabled.
 
 {{< alert type="warning" >}}
 
@@ -147,13 +124,9 @@ Only enable this feature for your own projects or those with trusted maintainers
 
 {{< /history >}}
 
-Pull mirroring uses polling to detect new branches and commits added upstream,
-often minutes afterwards. You can notify GitLab using an
-[API call](../../../../api/project_pull_mirroring.md#start-the-pull-mirroring-process-for-a-project),
-but the [minimum interval for pull mirroring limits](_index.md#force-an-update) is still enforced.
+Pull mirroring uses polling to detect new branches and commits added upstream, often minutes afterwards. You can notify GitLab using an [API call](../../../../api/project_pull_mirroring.md#start-the-pull-mirroring-process-for-a-project), but the [minimum interval for pull mirroring limits](_index.md#force-an-update) is still enforced.
 
-For more information, read
-[Start the pull mirroring process for a project](../../../../api/project_pull_mirroring.md#start-the-pull-mirroring-process-for-a-project).
+For more information, read [Start the pull mirroring process for a project](../../../../api/project_pull_mirroring.md#start-the-pull-mirroring-process-for-a-project).
 
 ## Fix hard failures when mirroring
 
@@ -163,26 +136,24 @@ For more information, read
 
 {{< /history >}}
 
-After 14 consecutive unsuccessful retries, the mirroring process is marked as a hard failure
-and mirroring attempts stop. This failure is visible in either the:
+After 14 consecutive unsuccessful retries, the mirroring process is marked as a hard failure and mirroring attempts stop. This failure is visible in either the:
 
 - Project's main dashboard.
 - Pull mirror settings page.
 
 To resume project mirroring, [force an update](_index.md#force-an-update).
 
-If multiple projects are affected by this problem, such as after a long network or
-server outage, you can use the [Rails console](../../../../administration/operations/rails_console.md)
+If multiple projects are affected by this problem, such as after a long network or server outage, you can use the [Rails console](../../../../administration/operations/rails_console.md)
 to identify and update all affected projects with this command:
 
 ```ruby
 Project.find_each do |p|
-  if p.import_state && p.import_state.retry_count >= 14
+ if p.import_state && p.import_state.retry_count >= 14
     puts "Resetting mirroring operation for #{p.full_path}"
     p.import_state.reset_retry_count
     p.import_state.set_next_execution_to_now(prioritized: true)
     p.import_state.save!
-  end
+ end
 end
 ```
 

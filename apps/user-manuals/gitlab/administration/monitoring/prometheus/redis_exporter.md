@@ -12,9 +12,7 @@ title: Redis exporter
 
 {{< /details >}}
 
-The [Redis exporter](https://github.com/oliver006/redis_exporter) enables you to measure
-various [Redis](https://redis.io) metrics. For more information on what is exported,
-[read the upstream documentation](https://github.com/oliver006/redis_exporter/blob/master/README.md#whats-exported).
+The [Redis exporter](https://github.com/oliver006/redis_exporter) enables you to measure various [Redis](https://redis.io) metrics. For more information on what is exported, [read the upstream documentation](https://github.com/oliver006/redis_exporter/blob/master/README.md#whats-exported).
 
 For self-compiled installations, you must install and configure it yourself.
 
@@ -31,13 +29,11 @@ To enable the Redis exporter:
 1. Save the file and [reconfigure GitLab](../../restart_gitlab.md#reconfigure-a-linux-package-installation)
    for the changes to take effect.
 
-Prometheus begins collecting performance data from
-the Redis exporter exposed at `localhost:9121`.
+Prometheus begins collecting performance data from the Redis exporter exposed at `localhost:9121`.
 
 ## Configure the Redis exporter flags
 
-You can use the `redis_exporter['flags']` setting to pass
-[command-line flags](https://github.com/oliver006/redis_exporter/blob/master/README.md#command-line-flags)
+You can use the `redis_exporter['flags']` setting to pass [command-line flags](https://github.com/oliver006/redis_exporter/blob/master/README.md#command-line-flags)
 and customize the Redis exporter's behavior according to your monitoring requirements.
 
 > [!note]

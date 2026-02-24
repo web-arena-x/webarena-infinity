@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408835089050-Viewing-and-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -39,7 +39,7 @@ If an agent's permission to delete tickets, or to view deleted tickets, is remov
 
 - Click the **Views** icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/views_icon.png)) in the sidebar, then click **Deleted tickets** in the Views list.
 
-  The deleted tickets appear in the main window.
+ The deleted tickets appear in the main window.
 
 You cannot open tickets directly from the Deleted tickets view. To view a previously-deleted ticket you'll need to restore it. Restoring a ticket returns it to its original view, exactly as it was before it was deleted.
 

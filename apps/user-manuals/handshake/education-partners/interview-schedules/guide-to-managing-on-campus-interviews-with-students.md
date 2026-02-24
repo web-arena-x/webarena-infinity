@@ -55,13 +55,13 @@ Bulk actions with applicants include: 
 - Download applicant packages
 - Send email to applicants
 - Under the option **More**
-  - Add label
-  - Remove label
-  - Download applicant packages zip
-  - Add students to interview group
-  - Mark applications as primary
-  - Mark applications as hired
-  - Mark applications as declined
+ - Add label
+ - Remove label
+ - Download applicant packages zip
+ - Add students to interview group
+ - Mark applications as primary
+ - Mark applications as hired
+ - Mark applications as declined
 
 ![OCI_applicant_bulk_actions.png](https://support.joinhandshake.com/hc/article_attachments/26001283359383)
 

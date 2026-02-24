@@ -20,12 +20,9 @@ title: Provision runners in Google Cloud Compute Engine
 {{< /history >}}
 
 You can create a project or group runner for GitLab.com and provision it on your Google Cloud project.
-When you create a runner, the GitLab UI provides on-screen instructions and scripts to automatically provision the runner
-in your Google Cloud project.
+When you create a runner, the GitLab UI provides on-screen instructions and scripts to automatically provision the runner in your Google Cloud project.
 
-A runner authentication token is assigned to your runner when you create it. A [GRIT](https://gitlab.com/gitlab-org/ci-cd/runner-tools/grit) Terraform script uses this token to
-register the runner. The runner then uses the token to authenticate with GitLab when it picks up jobs
-from the job queue.
+A runner authentication token is assigned to your runner when you create it. A [GRIT](https://gitlab.com/gitlab-org/ci-cd/runner-tools/grit) Terraform script uses this token to register the runner. The runner then uses the token to authenticate with GitLab when it picks up jobs from the job queue.
 
 After provisioning, an autoscaling fleet of runners is ready to run CI/CD jobs in Google Cloud.
 The runner manager creates temporary runners automatically.
@@ -36,9 +33,8 @@ Prerequisites:
 - For project runners: Maintainer role for the project.
 - For your Google Cloud Platform project: [Owner](https://cloud.google.com/iam/docs/understanding-roles#owner) IAM role.
 - [Billing enabled](https://cloud.google.com/billing/docs/how-to/verify-billing-enabled#confirm_billing_is_enabled_on_a_project)
-  for your Google Cloud Platform project.
-- A working [`gcloud` CLI tool](https://cloud.google.com/sdk/docs/install) authenticated with the
-  IAM role on the Google Cloud project.
+ for your Google Cloud Platform project.
+- A working [`gcloud` CLI tool](https://cloud.google.com/sdk/docs/install) authenticated with the IAM role on the Google Cloud project.
 - [Terraform v1.5 or later](https://releases.hashicorp.com/terraform/1.5.7/) and [Terraform CLI tool](https://developer.hashicorp.com/terraform/install).
 - A terminal with Bash installed.
 
@@ -67,5 +63,4 @@ To create a group or project runner and provision it on Google Cloud:
       The script uses the [GitLab Runner Infrastructure Toolkit](https://gitlab.com/gitlab-org/ci-cd/runner-tools/grit/-/blob/main/docs/scenarios/google/linux/docker-autoscaler-default/index.md)
       (GRIT) to provision the infrastructure on the Google Cloud project to execute your runner manager.
 
-After you execute the scripts, a runner manager connects with the runner authentication token. The runner manager might
-take up to one minute to show as online and start receiving jobs.
+After you execute the scripts, a runner manager connects with the runner authentication token. The runner manager might take up to one minute to show as online and start receiving jobs.

@@ -74,11 +74,11 @@ Depending on their permissions, users can perform the following actions on data:
 - View: the user has read-only access, (this is the most restrictive permission type and a user can't comment on or amend a record in any way)
 - Add: the user can enter a new lead, contact, or deal to Sell
 - Update: the user can perform a large range of actions, including the ability to:
-  - Edit fields
-  - Move deals through stages, move leads to statuses
-  - Add notes, add log activities, set up appointments
-  - Communicate, (send emails, make calls, send text messages)
-  - Add and remove documents, add and remove products
+ - Edit fields
+ - Move deals through stages, move leads to statuses
+ - Add notes, add log activities, set up appointments
+ - Communicate, (send emails, make calls, send text messages)
+ - Add and remove documents, add and remove products
 - Reassign ownership: the user can, for example, move a deal from one owner to another. They can also convert leads to contacts.
 - Delete: the user has delete access. Use caution when granting delete access. Deals, for example, can't be recovered if they have been deleted.
 

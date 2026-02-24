@@ -39,9 +39,8 @@ Before you can interact with the package registry, you must authenticate to it.
 To do this, you can use:
 
 - A [personal access token](../../profile/personal_access_tokens.md)
-  with the scope set to `api`.
-- A [deploy token](../../project/deploy_tokens/_index.md) with the scope set to
-  `read_package_registry`, `write_package_registry`, or both.
+ with the scope set to `api`.
+- A [deploy token](../../project/deploy_tokens/_index.md) with the scope set to `read_package_registry`, `write_package_registry`, or both.
 - A [CI/CD job token](../../../ci/jobs/ci_job_token.md).
 
 For example:
@@ -54,10 +53,10 @@ To authenticate with an access token:
 
 - Create or edit your `~/.gem/credentials` file, and add:
 
-  ```ini
-  ---
-  https://gitlab.example.com/api/v4/projects/<project_id>/packages/rubygems: '<token>'
-  ```
+ ```ini
+ ---
+ https://gitlab.example.com/api/v4/projects/<project_id>/packages/rubygems: '<token>'
+ ```
 
 In this example:
 
@@ -72,11 +71,11 @@ To authenticate with a CI/CD job token:
 
 - Create or edit your `.gitlab-ci.yml` file, and add:
 
-  ```yaml
-  # assuming a my_gem.gemspec file is present in the repository with the version currently set to 0.0.1
-  image: ruby
+ ```yaml
+ # assuming a my_gem.gemspec file is present in the repository with the version currently set to 0.0.1
+ image: ruby
 
-  run:
+ run:
     before_script:
       - mkdir ~/.gem
       - echo "---" > ~/.gem/credentials
@@ -86,14 +85,14 @@ To authenticate with a CI/CD job token:
     script:
       - gem build my_gem
       - gem push my_gem-0.0.1.gem --host ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/rubygems
-  ```
+ ```
 
-  You can also use `CI_JOB_TOKEN` in a `~/.gem/credentials` file you check in to GitLab:
+ You can also use `CI_JOB_TOKEN` in a `~/.gem/credentials` file you check in to GitLab:
 
-  ```ini
-  ---
-  https://gitlab.example.com/api/v4/projects/${env.CI_PROJECT_ID}/packages/rubygems: '${env.CI_JOB_TOKEN}'
-  ```
+ ```ini
+ ---
+ https://gitlab.example.com/api/v4/projects/${env.CI_PROJECT_ID}/packages/rubygems: '${env.CI_JOB_TOKEN}'
+ ```
 
 {{< /tab >}}
 
@@ -110,15 +109,15 @@ To do this:
 
 - Run a command like:
 
-  ```shell
-  gem push my_gem-0.0.1.gem --host <host>
-  ```
+ ```shell
+ gem push my_gem-0.0.1.gem --host <host>
+ ```
 
-  In this example, `<host>` is the URL you used when setting up authentication. For example:
+ In this example, `<host>` is the URL you used when setting up authentication. For example:
 
-  ```shell
-  gem push my_gem-0.0.1.gem --host https://gitlab.example.com/api/v4/projects/1/packages/rubygems
-  ```
+ ```shell
+ gem push my_gem-0.0.1.gem --host https://gitlab.example.com/api/v4/projects/1/packages/rubygems
+ ```
 
 When a gem is published successfully, a message like this is displayed:
 
@@ -141,8 +140,7 @@ Prerequisites:
 
 - You must have at least the Maintainer role.
 
-Before you delete a package, make sure you understand
-the [associated security risks](../package_registry/supported_functionality.md#deleting-packages).
+Before you delete a package, make sure you understand the [associated security risks](../package_registry/supported_functionality.md#deleting-packages).
 
 To delete a package, you can either:
 

@@ -19,9 +19,9 @@ Regardless of who created your account, if your institution is partnered with Ha
 **Topics**: 
 
 - What does each profile privacy option allow me to do?
-  - [Community](#h_01F01K5HHV8CB5XHPM08CNHHCQ)
-  - [Employers](#h_01HK86XJB4C7WBZX34AS3JP9CA)
-  - [Private](#h_01HK86XJB4SRGC8ZMK3ZSAXGBK)
+ - [Community](#h_01F01K5HHV8CB5XHPM08CNHHCQ)
+ - [Employers](#h_01HK86XJB4C7WBZX34AS3JP9CA)
+ - [Private](#h_01HK86XJB4SRGC8ZMK3ZSAXGBK)
 
 ### What does each profile privacy option allow me to do?
 
@@ -109,16 +109,16 @@ This ensures you're set up to fully engage in the virtual fair experience.
 
 **Virtual event registration prompt**: When registering for a virtual event in Handshake, you may be prompted to update your profile visibility depending on how the event is hosted:
 
-- **Events hosted outside of Handshake** (e.g., via Zoom):  
-  The minimum required privacy setting is **Employers**.
+- **Events hosted outside of Handshake** (e.g., via Zoom): 
+ The minimum required privacy setting is **Employers**.
 
-  - If your profile is set to **Private**, you’ll be prompted to update it.
-  - If you’re already set to **Employers** or **Community**, you can register as usual.
-- **Events hosted within Handshake** (using Handshake’s video platform):  
-  The required privacy setting is **Community**.
+ - If your profile is set to **Private**, you’ll be prompted to update it.
+ - If you’re already set to **Employers** or **Community**, you can register as usual.
+- **Events hosted within Handshake** (using Handshake’s video platform): 
+ The required privacy setting is **Community**.
 
-  - If your profile is set to **Private** or **Employers**, you’ll be prompted to update it.
-  - If you're already set to **Community**, you can register without making changes.
+ - If your profile is set to **Private** or **Employers**, you’ll be prompted to update it.
+ - If you're already set to **Community**, you can register without making changes.
 
 The prompt you'll receive includes the following message: **"In order to participate in a virtual event on Handshake, you will need to change your visibility."**
 

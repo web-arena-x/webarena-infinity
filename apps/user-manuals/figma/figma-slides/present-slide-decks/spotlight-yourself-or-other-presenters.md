@@ -14,7 +14,7 @@ Available on [any plan](https://help.figma.com/hc/en-us/articles/360040328273-Ch
 
 Anyone with `can view` or `can edit` access to a slide deck can use spotlight
 
-Spotlight lets you share your view of a slide deck on the canvas or while presenting. This allows others to follow your progress through a presentation or find where you’re working on the deck in the editor. Spotlight does not share your actions in the toolbar, sidebars, or anything outside of the canvas.  
+Spotlight lets you share your view of a slide deck on the canvas or while presenting. This allows others to follow your progress through a presentation or find where you’re working on the deck in the editor. Spotlight does not share your actions in the toolbar, sidebars, or anything outside of the canvas. 
 Learn more about [presenting in Figma Slides →](present-a-slide-deck.md)
 
 Combine spotlight with other features like [audio](https://help.figma.com/hc/en-us/articles/1500004414622) and [cursor chat](https://help.figma.com/hc/en-us/articles/4403130802199) to facilitate team collaboration without relying on an external meeting tool.

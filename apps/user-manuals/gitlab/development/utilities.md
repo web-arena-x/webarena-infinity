@@ -13,19 +13,19 @@ Refer to [`merge_hash.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/li
 
 - Deep merges an array of elements which can be hashes, arrays, or other objects:
 
-  ```ruby
-  Gitlab::Utils::MergeHash.merge(
+ ```ruby
+ Gitlab::Utils::MergeHash.merge(
     [{ hello: ["world"] },
      { hello: "Everyone" },
      { hello: { greetings: ['Bonjour', 'Hello', 'Hallo', 'Dzien dobry'] } },
       "Goodbye", "Hallo"]
-  )
-  ```
+ )
+ ```
 
-  Gives:
+ Gives:
 
-  ```ruby
-  [
+ ```ruby
+ [
     {
       hello:
         [
@@ -35,36 +35,32 @@ Refer to [`merge_hash.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/li
         ]
     },
     "Goodbye"
-  ]
-  ```
+ ]
+ ```
 
 - Extracts all keys and values from a hash into an array:
 
-  ```ruby
-  Gitlab::Utils::MergeHash.crush(
+ ```ruby
+ Gitlab::Utils::MergeHash.crush(
     { hello: "world", this: { crushes: ["an entire", "hash"] } }
-  )
-  ```
+ )
+ ```
 
-  Gives:
+ Gives:
 
-  ```ruby
-  [:hello, "world", :this, :crushes, "an entire", "hash"]
-  ```
+ ```ruby
+ [:hello, "world", :this, :crushes, "an entire", "hash"]
+ ```
 
 ## `Override`
 
 Refer to [`override.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/utils/override.rb):
 
-- This utility can help you check if one method would override
-  another or not. It is the same concept as Java's `@Override` annotation
-  or Scala's `override` keyword. However, we only run this check when
-  `ENV['STATIC_VERIFICATION']` is set to avoid production runtime overhead.
-  This is useful for checking:
+- This utility can help you check if one method would override another or not. It is the same concept as Java's `@Override` annotation or Scala's `override` keyword. However, we only run this check when `ENV['STATIC_VERIFICATION']` is set to avoid production runtime overhead.
+ This is useful for checking:
 
-  - If you have typos in overriding methods.
-  - If you renamed the overridden methods, which make the original override methods
-    irrelevant.
+ - If you have typos in overriding methods.
+ - If you renamed the overridden methods, which make the original override methods irrelevant.
 
     Here's a simple example:
 
@@ -102,42 +98,34 @@ Refer to [`override.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/
     Note that the check only happens when either:
 
     - The overriding method is defined in a class, or:
-    - The overriding method is defined in a module, and it's prepended to
-      a class or a module.
+    - The overriding method is defined in a module, and it's prepended to a class or a module.
 
     Because only a class or prepended module can actually override a method.
     Including or extending a module into another cannot override anything.
 
 ### Interactions with `ActiveSupport::Concern`, `prepend`, and `class_methods`
 
-When you use `ActiveSupport::Concern` that includes class methods, you do not
-get expected results because `ActiveSupport::Concern` doesn't work like a
-regular Ruby module.
+When you use `ActiveSupport::Concern` that includes class methods, you do not get expected results because `ActiveSupport::Concern` doesn't work like a regular Ruby module.
 
-Since we already have `Prependable` as a patch for `ActiveSupport::Concern`
-to enable `prepend`, it has consequences with how it would interact with
-`override` and `class_methods`. As a workaround, `extend` `ClassMethods`
-into the defining `Prependable` module.
+Since we already have `Prependable` as a patch for `ActiveSupport::Concern` to enable `prepend`, it has consequences with how it would interact with `override` and `class_methods`. As a workaround, `extend` `ClassMethods` into the defining `Prependable` module.
 
-This allows us to use `override` to verify `class_methods` used in the
-context mentioned above. This workaround only applies when we run the
-verification, not when running the application itself.
+This allows us to use `override` to verify `class_methods` used in the context mentioned above. This workaround only applies when we run the verification, not when running the application itself.
 
 Here are example code blocks that demonstrate the effect of this workaround:
 following codes:
 
 ```ruby
 module Base
-  extend ActiveSupport::Concern
+ extend ActiveSupport::Concern
 
-  class_methods do
+ class_methods do
     def f
     end
-  end
+ end
 end
 
 module Derived
-  include Base
+ include Base
 end
 
 # Without the workaround
@@ -155,28 +143,26 @@ Refer to [`strong_memoize.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/maste
 
 - Memoize the value even if it is `nil` or `false`.
 
-  We often do `@value ||= compute`. However, this doesn't work well if
-  `compute` might eventually give `nil` and you don't want to compute again.
-  Instead you could use `defined?` to check if the value is set or not.
-  It's tedious to write such pattern, and `StrongMemoize` would
-  help you use such pattern.
+ We often do `@value ||= compute`. However, this doesn't work well if `compute` might eventually give `nil` and you don't want to compute again.
+ Instead you could use `defined?` to check if the value is set or not.
+ It's tedious to write such pattern, and `StrongMemoize` would help you use such pattern.
 
-  Instead of writing patterns like this:
+ Instead of writing patterns like this:
 
-  ```ruby
-  class Find
+ ```ruby
+ class Find
     def result
       return @result if defined?(@result)
 
       @result = search
     end
-  end
-  ```
+ end
+ ```
 
-  You could write it like:
+ You could write it like:
 
-  ```ruby
-  class Find
+ ```ruby
+ class Find
     include Gitlab::Utils::StrongMemoize
 
     def result
@@ -188,35 +174,34 @@ Refer to [`strong_memoize.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/maste
       Feature.enabled?(:some_feature)
     end
     strong_memoize_attr :enabled?
-  end
-  ```
+ end
+ ```
 
-  Using `strong_memoize_attr` on methods with parameters is not supported.
-  It does not work when combined with [`override`](#override) and might memoize wrong results.
+ Using `strong_memoize_attr` on methods with parameters is not supported.
+ It does not work when combined with [`override`](#override) and might memoize wrong results.
 
-  Use `strong_memoize_with` instead.
+ Use `strong_memoize_with` instead.
 
-  ```ruby
-  # bad
-  def expensive_method(arg)
+ ```ruby
+ # bad
+ def expensive_method(arg)
     # ...
-  end
-  strong_memoize_attr :expensive_method
+ end
+ strong_memoize_attr :expensive_method
 
-  # good
-  def expensive_method(arg)
+ # good
+ def expensive_method(arg)
     strong_memoize_with(:expensive_method, arg) do
       # ...
     end
-  end
-  ```
+ end
+ ```
 
-  There's also `strong_memoize_with` to help memoize methods that take arguments.
-  This should be used for methods that have a low number of possible values
-  as arguments or with consistent repeating arguments in a loop.
+ There's also `strong_memoize_with` to help memoize methods that take arguments.
+ This should be used for methods that have a low number of possible values as arguments or with consistent repeating arguments in a loop.
 
-  ```ruby
-  class Find
+ ```ruby
+ class Find
     include Gitlab::Utils::StrongMemoize
 
     def result(basic: true)
@@ -224,59 +209,53 @@ Refer to [`strong_memoize.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/maste
         search(basic)
       end
     end
-  end
-  ```
+ end
+ ```
 
 - Clear memoization
 
-  ```ruby
-  class Find
+ ```ruby
+ class Find
     include Gitlab::Utils::StrongMemoize
-  end
+ end
 
-  Find.new.clear_memoization(:result)
-  ```
+ Find.new.clear_memoization(:result)
+ ```
 
 ## `RequestCache`
 
 Refer to [`request_cache.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/cache/request_cache.rb).
 
-This module provides a simple way to cache values in RequestStore,
-and the cache key would be based on the class name, method name,
-optionally customized instance level values, optionally customized
-method level values, and optional method arguments.
+This module provides a simple way to cache values in RequestStore, and the cache key would be based on the class name, method name, optionally customized instance level values, optionally customized method level values, and optional method arguments.
 
 A simple example that only uses the instance level customized values is:
 
 ```ruby
 class UserAccess
-  extend Gitlab::Cache::RequestCache
+ extend Gitlab::Cache::RequestCache
 
-  request_cache_key do
+ request_cache_key do
     [user&.id, project&.id]
-  end
+ end
 
-  request_cache def can_push_to_branch?(ref)
+ request_cache def can_push_to_branch?(ref)
     # ...
-  end
+ end
 end
 ```
 
-This way, the result of `can_push_to_branch?` would be cached in
-`RequestStore.store` based on the cache key. If `RequestStore` is not
-currently active, then it would be stored in a hash, and saved in an
-instance variable so the cache logic would be the same.
+This way, the result of `can_push_to_branch?` would be cached in `RequestStore.store` based on the cache key. If `RequestStore` is not currently active, then it would be stored in a hash, and saved in an instance variable so the cache logic would be the same.
 
 We can also set different strategies for different methods:
 
 ```ruby
 class Commit
-  extend Gitlab::Cache::RequestCache
+ extend Gitlab::Cache::RequestCache
 
-  def author
+ def author
     User.find_by_any_email(author_email)
-  end
-  request_cache(:author) { author_email }
+ end
+ request_cache(:author) { author_email }
 end
 ```
 
@@ -301,13 +280,13 @@ To use the CircuitBreaker wrapper:
 
 ```ruby
 class MyService
-  def call_external_service
+ def call_external_service
     Gitlab::CircuitBreaker.run_with_circuit('ServiceName') do
       # Code that interacts with external service goes here
 
       raise Gitlab::CircuitBreaker::InternalServerError # if there is an issue
     end
-  end
+ end
 end
 ```
 
@@ -315,8 +294,7 @@ The `call_external_service` method is an example method that interacts with an e
 By wrapping the code that interacts with the external service with `run_with_circuit`, the method is executed within the circuit breaker.
 
 The method should raise an `InternalServerError` error, which will be counted towards the error threshold if raised during the execution of the code block.
-The circuit breaker tracks the number of errors and the rate of requests,
-and opens the circuit if it reaches the configured error threshold or volume threshold.
+The circuit breaker tracks the number of errors and the rate of requests, and opens the circuit if it reaches the configured error threshold or volume threshold.
 If the circuit is open, subsequent requests fail fast without executing the code block, and the circuit breaker periodically allows a small number of requests through to test the service's availability before closing the circuit again.
 
 ### Configuration
@@ -327,7 +305,7 @@ The circuit breaker has defaults that can be overridden per circuit, for example
 
 ```ruby
 Gitlab::CircuitBreaker.run_with_circuit('ServiceName', options = { volume_threshold: 5 }) do
-  ...
+ ...
 end
 ```
 

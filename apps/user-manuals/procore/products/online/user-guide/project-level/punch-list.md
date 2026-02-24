@@ -221,7 +221,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Close a Punch List Item (Mobile)
 
-|  |
+| |
 
 |
 
@@ -231,7 +231,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Close a Punch List Item (Mobile)
 
-|  |
+| |
 
 ### OUTDATED VIDEOS - Removed from Support Site and Certifications
 
@@ -249,7 +249,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Close a Punch List Item (Mobile)
 
-|  |
+| |
 
 |
 
@@ -259,7 +259,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Close a Punch List Item (Mobile)
 
-|  |
+| |
 
 ### OUTDATED VIDEOS - Removed from Support Site and Certifications
 
@@ -275,7 +275,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Configure Punch List Settings
 
-|  |
+| |
 
 ### Mobile
 
@@ -287,7 +287,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Close a Punch List Item (Mobile)
 
-|  |
+| |
 
 ### OUTDATED VIDEOS - Removed from Support Site and Certifications
 
@@ -309,7 +309,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Close a Punch List Item (Mobile)
 
-|  |
+| |
 
 ### OUTDATED VIDEOS - Removed from Support Site and Certifications
 
@@ -335,7 +335,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Close a Punch List Item (Mobile)
 
-|  |
+| |
 
 |
 
@@ -345,7 +345,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Close a Punch List Item (Mobile)
 
-|  |
+| |
 
 ### Web
 
@@ -510,32 +510,32 @@ The following table highlights which user permissions are required to perform th
 
 | Task | None | Read Only | Standard | Admin |
 | --- | --- | --- | --- | --- |
-| [Add Attachments to a Punch List Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/create-a-punch-list-item "Create a Punch List Item") |  |  | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| [Add Comments to Punch List Items](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/add-comments-to-punch-list-items "Add Comments to Punch List Items") |  |  | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| [Assign a Punch List Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/create-a-punch-list-item "Create a Punch List Item") 2  icon-mindtouch-table-mobile.png |  |  | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| [Close Punch List](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/close-a-punch-list-item "Close a Punch List Item") [Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/close-a-punch-list-item "Close a Punch List Item") 3 icon-mindtouch-table-mobile.png |  |  | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| [Configure Advanced Settings: Punch List](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/configure-advanced-settings-punch-list "Configure Advanced Settings: Punch List") |  |  |  | icon-mindtouch-table-check.png |
-| [Customize the Column Display in the Punch List Tool](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/customize-the-column-display-in-the-punch-list-tool "Customize the Column Display in the Punch List Tool") |  | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| [Create a Project Level Punch Item Template](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/create-a-project-level-punch-item-template "Create a Project Level Punch Item Template") |  |  |  | icon-mindtouch-table-check.png |
-| [Create a Punch List](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/create-a-punch-list-item "Create a Punch List Item") [Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/create-a-punch-list-item "Create a Punch List Item") 2  icon-mindtouch-table-mobile.png |  |  | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| [Create a Punch Item Template Category at the Project Level](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/create-a-punch-item-template-category-at-the-project-level "Create a Punch Item Template Category at the Project Level") |  |  |  | icon-mindtouch-table-check.png |
-| [Deactivate a Punch Item Template on a Project](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/deactivate-a-punch-item-template-on-a-project "Deactivate a Punch Item Template on a Project") |  |  |  | icon-mindtouch-table-check.png |
-| [Delete a Punch Item Template Category at the Project Level](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/delete-a-punch-item-template-category-at-the-project-level "Delete a Punch Item Template Category at the Project Level") |  |  |  | icon-mindtouch-table-check.png |
-| [Delete a Punch Item Template from a Project](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/delete-a-punch-item-template-from-a-project "Delete a Punch Item Template from a Project") |  |  |  | icon-mindtouch-table-check.png |
-| [Delete a Punch List Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/delete-a-punch-list-item "Delete a Punch List Item") |  |  |  | icon-mindtouch-table-check.png |
-| [Edit a Punch List](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/edit-a-punch-list-item "(missing links)Edit a Punch List Item") [Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/edit-a-punch-list-item "(missing links)Edit a Punch List Item") 6  icon-mindtouch-table-mobile.png |  |  | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| [Edit a Punch Item Template Category at the Project Level](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/edit-a-punch-item-template-category-at-the-project-level "Edit a Punch Item Template Category at the Project Level") |  |  |  | icon-mindtouch-table-check.png |
-| [Export Punch List Log as a PDF](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/export-a-punch-list-item-as-a-pdf "Export a Punch List Item as a PDF") |  | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| [Export the Punch List Log as a CSV](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/export-the-punch-list-log-as-a-csv "Export the Punch List Log as a CSV") |  | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| [Export the Punch List Log as a PDF](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/export-the-punch-list-log "Export the Punch List Log as a PDF") |  | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| [Import Punch List](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/import-punch-list-items "Import Punch List Items") [Items](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/import-punch-list-items "Import Punch List Items") 7 |  |  |  | icon-mindtouch-table-check.png |
-| [Respond to a Punch List](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/respond-to-a-punch-list-item "Respond to a Punch List Item") [Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/respond-to-a-punch-list-item "Respond to a Punch List Item") 4, 1 |  | icon-mindtouch-table-check.png+ | icon-mindtouch-table-check.png+ | icon-mindtouch-table-check.png |
-| [Retrieve Deleted Punch Item from Recycle Bin](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/retrieve-deleted-punch-list-items-from-the-recycle-bin "Retrieve Deleted Punch Item from Recycle Bin") |  |  |  | icon-mindtouch-table-check.png |
-| [Search and Filter the Punch List](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/search-and-filter-the-punch-list "Search the Punch List")  icon-mindtouch-table-mobile.png |  | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| [Notify Assignees of Punch List Items](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/notify-assignees-of-punch-list-items "Notify Assignees of Punch List Items")  icon-mindtouch-table-mobile.png |  |  |  | icon-mindtouch-table-check.png |
-| [View a Punch List](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/view-a-punch-list-item "View a Punch List Item") [Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/view-a-punch-list-item "View a Punch List Item") 5  icon-mindtouch-table-mobile.png |  | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
-| [View Change History of a Single Punch List Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/view-change-history-of-a-single-punch-list-item "View Change History of a Single Punch List Item") |  |  |  | icon-mindtouch-table-check.png |
-| *View Private Punch Items Assigned to User Within the Same Company* |  | icon-mindtouch-table-check.png+ | icon-mindtouch-table-check.png+ | icon-mindtouch-table-check.png |
+| [Add Attachments to a Punch List Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/create-a-punch-list-item "Create a Punch List Item") | | | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
+| [Add Comments to Punch List Items](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/add-comments-to-punch-list-items "Add Comments to Punch List Items") | | | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
+| [Assign a Punch List Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/create-a-punch-list-item "Create a Punch List Item") 2  icon-mindtouch-table-mobile.png | | | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
+| [Close Punch List](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/close-a-punch-list-item "Close a Punch List Item") [Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/close-a-punch-list-item "Close a Punch List Item") 3 icon-mindtouch-table-mobile.png | | | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
+| [Configure Advanced Settings: Punch List](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/configure-advanced-settings-punch-list "Configure Advanced Settings: Punch List") | | | | icon-mindtouch-table-check.png |
+| [Customize the Column Display in the Punch List Tool](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/customize-the-column-display-in-the-punch-list-tool "Customize the Column Display in the Punch List Tool") | | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
+| [Create a Project Level Punch Item Template](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/create-a-project-level-punch-item-template "Create a Project Level Punch Item Template") | | | | icon-mindtouch-table-check.png |
+| [Create a Punch List](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/create-a-punch-list-item "Create a Punch List Item") [Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/create-a-punch-list-item "Create a Punch List Item") 2  icon-mindtouch-table-mobile.png | | | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
+| [Create a Punch Item Template Category at the Project Level](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/create-a-punch-item-template-category-at-the-project-level "Create a Punch Item Template Category at the Project Level") | | | | icon-mindtouch-table-check.png |
+| [Deactivate a Punch Item Template on a Project](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/deactivate-a-punch-item-template-on-a-project "Deactivate a Punch Item Template on a Project") | | | | icon-mindtouch-table-check.png |
+| [Delete a Punch Item Template Category at the Project Level](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/delete-a-punch-item-template-category-at-the-project-level "Delete a Punch Item Template Category at the Project Level") | | | | icon-mindtouch-table-check.png |
+| [Delete a Punch Item Template from a Project](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/delete-a-punch-item-template-from-a-project "Delete a Punch Item Template from a Project") | | | | icon-mindtouch-table-check.png |
+| [Delete a Punch List Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/delete-a-punch-list-item "Delete a Punch List Item") | | | | icon-mindtouch-table-check.png |
+| [Edit a Punch List](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/edit-a-punch-list-item "(missing links)Edit a Punch List Item") [Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/edit-a-punch-list-item "(missing links)Edit a Punch List Item") 6  icon-mindtouch-table-mobile.png | | | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
+| [Edit a Punch Item Template Category at the Project Level](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/edit-a-punch-item-template-category-at-the-project-level "Edit a Punch Item Template Category at the Project Level") | | | | icon-mindtouch-table-check.png |
+| [Export Punch List Log as a PDF](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/export-a-punch-list-item-as-a-pdf "Export a Punch List Item as a PDF") | | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
+| [Export the Punch List Log as a CSV](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/export-the-punch-list-log-as-a-csv "Export the Punch List Log as a CSV") | | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
+| [Export the Punch List Log as a PDF](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/export-the-punch-list-log "Export the Punch List Log as a PDF") | | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
+| [Import Punch List](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/import-punch-list-items "Import Punch List Items") [Items](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/import-punch-list-items "Import Punch List Items") 7 | | | | icon-mindtouch-table-check.png |
+| [Respond to a Punch List](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/respond-to-a-punch-list-item "Respond to a Punch List Item") [Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/respond-to-a-punch-list-item "Respond to a Punch List Item") 4, 1 | | icon-mindtouch-table-check.png+ | icon-mindtouch-table-check.png+ | icon-mindtouch-table-check.png |
+| [Retrieve Deleted Punch Item from Recycle Bin](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/retrieve-deleted-punch-list-items-from-the-recycle-bin "Retrieve Deleted Punch Item from Recycle Bin") | | | | icon-mindtouch-table-check.png |
+| [Search and Filter the Punch List](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/search-and-filter-the-punch-list "Search the Punch List")  icon-mindtouch-table-mobile.png | | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
+| [Notify Assignees of Punch List Items](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/notify-assignees-of-punch-list-items "Notify Assignees of Punch List Items")  icon-mindtouch-table-mobile.png | | | | icon-mindtouch-table-check.png |
+| [View a Punch List](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/view-a-punch-list-item "View a Punch List Item") [Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/view-a-punch-list-item "View a Punch List Item") 5  icon-mindtouch-table-mobile.png | | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png | icon-mindtouch-table-check.png |
+| [View Change History of a Single Punch List Item](https://support.procore.com/products/online/user-guide/project-level/punch-list/tutorials/view-change-history-of-a-single-punch-list-item "View Change History of a Single Punch List Item") | | | | icon-mindtouch-table-check.png |
+| *View Private Punch Items Assigned to User Within the Same Company* | | icon-mindtouch-table-check.png+ | icon-mindtouch-table-check.png+ | icon-mindtouch-table-check.png |
 
 1Users with 'Standard' level permissions can perform this action if they are listed as the item's Punch Item Manager, Assignee, or Final Approver, or if they have been granted the granular permission "Respond to Punch Items Assigned to Users within the Same Company."
 

@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408823788314-Getting-star
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Talk Team, Professional, or Enterprise |
 
@@ -24,7 +24,7 @@ Note: Text messaging is not available for trial accounts or sandbox environments
 
 - Text messages can be up to the standard 160 character limitation in length.
 
-  If you type a longer message, it will be split into multiple messages, each 153 characters in length. For example, if you type a message of 161 characters, it will be split into two messages; one of 153 characters, and one of 8 characters.
+ If you type a longer message, it will be split into multiple messages, each 153 characters in length. For example, if you type a message of 161 characters, it will be split into two messages; one of 153 characters, and one of 8 characters.
 - You can send up to 250 simultaneous text messages from the same number. If you exceed this, messages will no longer be sent, and you'll see a warning that the message was rejected by the provider.
 - Text does not support short codes or alphanumeric sender ID
 - You can receive inbound MMS messages on US local numbers, but Text does not currently support outbound MMS messages.

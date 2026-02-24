@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/8002974915482-Best-practic
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Explore Professional or Enterprise |
 
@@ -45,9 +45,9 @@ The Explore documentation primarily reflects the new dashboard builder. If you�
 [Explore’s dashboard library](https://support.zendesk.com/hc/en-us/articles/4408831595418) contains the following information to help you decide which dashboards you want to migrate to the new dashboard builder:
 
 - **Migration recommendation:** Start here to see the current migration status of each dashboard. Possible values include:
-  - **Start migration:** This will initiate the dashboard’s migration to the new dashboard builder. A copy of the original dashboard is added to the new dashboard builder.
-  - **Share:** After the dashboard is migrated, you’ll need to replicate your sharing settings on the new version. When you click **Share**, you can either select each recipient again or import the recipients from the legacy dashboard.
-  - **Delete:** When you migrate a dashboard to the new builder, the legacy version is not automatically deleted. Once you've migrated a dashboard, this option will appear for the legacy dashboard.
+ - **Start migration:** This will initiate the dashboard’s migration to the new dashboard builder. A copy of the original dashboard is added to the new dashboard builder.
+ - **Share:** After the dashboard is migrated, you’ll need to replicate your sharing settings on the new version. When you click **Share**, you can either select each recipient again or import the recipients from the legacy dashboard.
+ - **Delete:** When you migrate a dashboard to the new builder, the legacy version is not automatically deleted. Once you've migrated a dashboard, this option will appear for the legacy dashboard.
 - **Views:** Displays dashboard views from the past six months. This helps you discover which dashboards are not being used and might not need to be migrated.
 - **Schedules:** Displays how many scheduled deliveries of the dashboard have been set up.
 

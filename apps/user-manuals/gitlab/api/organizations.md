@@ -63,13 +63,13 @@ Example response:
 
 ```json
 {
-  "id": 42,
-  "name": "New Organization",
-  "path": "new-org",
-  "description": "A new organization",
-  "created_at": "2024-09-18T02:35:15.371Z",
-  "updated_at": "2024-09-18T02:35:15.371Z",
-  "web_url": "https://gitlab.example.com/-/organizations/new-org",
-  "avatar_url": "https://gitlab.example.com/uploads/-/system/organizations/organization_detail/avatar/42/avatar.png"
+ "id": 42,
+ "name": "New Organization",
+ "path": "new-org",
+ "description": "A new organization",
+ "created_at": "2024-09-18T02:35:15.371Z",
+ "updated_at": "2024-09-18T02:35:15.371Z",
+ "web_url": "https://gitlab.example.com/-/organizations/new-org",
+ "avatar_url": "https://gitlab.example.com/uploads/-/system/organizations/organization_detail/avatar/42/avatar.png"
 }
 ```

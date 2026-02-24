@@ -13,8 +13,7 @@ They are responsible for running your builds, tests, deployments, and other CI/C
 
 The following is a basic workflow of how runners work:
 
-1. A runner must first be [registered](https://docs.gitlab.com/runner/register/) with GitLab,
-   which establishes a persistent connection between the runner and GitLab.
+1. A runner must first be [registered](https://docs.gitlab.com/runner/register/) with GitLab, which establishes a persistent connection between the runner and GitLab.
 1. When a pipeline is triggered, GitLab makes the jobs available to the registered runners.
 1. Matching runners pick up jobs, one job per runner, and execute them.
 1. Results are reported back to GitLab in real-time.

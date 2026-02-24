@@ -17,22 +17,17 @@ Uploads represent all user data that may be sent to GitLab as a single file. For
 
 {{< alert type="note" >}}
 
-Attachments added to comments or descriptions are deleted **only** when the parent project or group
-is deleted. Attachments remain in file storage even when the comment or resource (like issue, merge
-request, epic) where they were uploaded is deleted.
+Attachments added to comments or descriptions are deleted **only** when the parent project or group is deleted. Attachments remain in file storage even when the comment or resource (like issue, merge request, epic) where they were uploaded is deleted.
 
 {{< /alert >}}
 
 ## Using local storage
 
-This is the default configuration. To change the location where the uploads are
-stored locally, use the steps in this section based on your installation method:
+This is the default configuration. To change the location where the uploads are stored locally, use the steps in this section based on your installation method:
 
 {{< alert type="note" >}}
 
-For historical reasons, uploads for the whole instance (for example the [favicon](appearance.md#customize-the-favicon)) are stored in a base directory,
-which by default is `uploads/-/system`. Changing the base
-directory on an existing GitLab installation is strongly discouraged.
+For historical reasons, uploads for the whole instance (for example the [favicon](appearance.md#customize-the-favicon)) are stored in a base directory, which by default is `uploads/-/system`. Changing the base directory on an existing GitLab installation is strongly discouraged.
 
 {{< /alert >}}
 
@@ -40,8 +35,7 @@ For Linux package installations:
 
 _The uploads are stored by default in `/var/opt/gitlab/gitlab-rails/uploads`._
 
-1. To change the storage path, for example to `/mnt/storage/uploads`, edit
-   `/etc/gitlab/gitlab.rb` and add the following line:
+1. To change the storage path, for example to `/mnt/storage/uploads`, edit `/etc/gitlab/gitlab.rb` and add the following line:
 
    ```ruby
    gitlab_rails['uploads_directory'] = "/mnt/storage/uploads"
@@ -53,11 +47,9 @@ _The uploads are stored by default in `/var/opt/gitlab/gitlab-rails/uploads`._
 
 For self-compiled installations:
 
-_The uploads are stored by default in
-`/home/git/gitlab/public/uploads`._
+_The uploads are stored by default in `/home/git/gitlab/public/uploads`._
 
-1. To change the storage path, for example to `/mnt/storage/uploads`, edit
-   `/home/git/gitlab/config/gitlab.yml` and add or amend the following lines:
+1. To change the storage path, for example to `/mnt/storage/uploads`, edit `/home/git/gitlab/config/gitlab.yml` and add or amend the following lines:
 
    ```yaml
    uploads:
@@ -76,8 +68,7 @@ _The uploads are stored by default in
 
 {{< /details >}}
 
-If you don't want to use the local disk where GitLab is installed to store the
-uploads, you can use an object storage provider like AWS S3 instead.
+If you don't want to use the local disk where GitLab is installed to store the uploads, you can use an object storage provider like AWS S3 instead.
 This configuration relies on valid AWS credentials to be configured already.
 
 [Read more about using object storage with GitLab](object_storage.md).
@@ -85,11 +76,9 @@ This configuration relies on valid AWS credentials to be configured already.
 ### Object Storage Settings
 
 This section describes the storage-specific configuration format.
-You should use the
-[consolidated object storage settings](object_storage.md#configure-a-single-storage-connection-for-all-object-types-consolidated-form) instead.
+You should use the [consolidated object storage settings](object_storage.md#configure-a-single-storage-connection-for-all-object-types-consolidated-form) instead.
 
-For self-compiled installations, the following settings are nested under `uploads:` and then `object_store:`. On Linux
-package installations, they are prefixed by `uploads_object_store_`.
+For self-compiled installations, the following settings are nested under `uploads:` and then `object_store:`. On Linux package installations, they are prefixed by `uploads_object_store_`.
 
 | Setting | Description | Default |
 |---------|-------------|---------|
@@ -104,11 +93,9 @@ See [the available connection settings for different providers](object_storage.m
 
 For Linux package installations:
 
-_The uploads are stored by default in
-`/var/opt/gitlab/gitlab-rails/uploads`._
+_The uploads are stored by default in `/var/opt/gitlab/gitlab-rails/uploads`._
 
-1. Edit `/etc/gitlab/gitlab.rb` and add the following lines by replacing with
-   the values you want:
+1. Edit `/etc/gitlab/gitlab.rb` and add the following lines by replacing with the values you want:
 
    ```ruby
    gitlab_rails['uploads_object_store_enabled'] = true
@@ -136,11 +123,9 @@ _The uploads are stored by default in
 
 For self-compiled installations:
 
-_The uploads are stored by default in
-`/home/git/gitlab/public/uploads`._
+_The uploads are stored by default in `/home/git/gitlab/public/uploads`._
 
-1. Edit `/home/git/gitlab/config/gitlab.yml` and add or amend the following
-   lines, making sure to use the [appropriate ones for your provider](object_storage.md#configure-the-connection-settings):
+1. Edit `/home/git/gitlab/config/gitlab.yml` and add or amend the following lines, making sure to use the [appropriate ones for your provider](object_storage.md#configure-the-connection-settings):
 
    ```yaml
    uploads:

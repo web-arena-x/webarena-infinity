@@ -6,17 +6,13 @@ title: Service Ping development guidelines
 ---
 
 Service Ping is a GitLab process that collects and sends a weekly payload to GitLab.
-The payload provides important high-level data that helps our product, support,
-and sales teams understand how GitLab is used. The data helps to:
+The payload provides important high-level data that helps our product, support, and sales teams understand how GitLab is used. The data helps to:
 
-- Compare counts month over month (or week over week) to get a rough sense for how an instance uses
-  different product features.
+- Compare counts month over month (or week over week) to get a rough sense for how an instance uses different product features.
 - Collect other facts that help us classify and understand GitLab installations.
-- Calculate our stage monthly active users (SMAU), which helps to measure the success of our stages
-  and features.
+- Calculate our stage monthly active users (SMAU), which helps to measure the success of our stages and features.
 
-Service Ping information is not anonymous. It's linked to the instance's hostname, but does
-not contain project names, usernames, or any other specific data.
+Service Ping information is not anonymous. It's linked to the instance's hostname, but does not contain project names, usernames, or any other specific data.
 
 Service Ping is enabled by default. However, you can [disable](../../../administration/settings/usage_statistics.md#enable-or-disable-service-ping) certain metrics on any GitLab Self-Managed instance. When Service Ping is enabled, GitLab gathers data from the other instances and can show your instance's usage statistics to your users.
 
@@ -26,9 +22,8 @@ We use the following terminology to describe the Service Ping components:
 
 - **Service Ping**: the process that collects and generates a JSON payload.
 - **Service Data**: the contents of the Service Ping JSON payload. This includes metrics.
-- **Metrics**: primarily made up of row counts for different tables in an instance's database. Each
-  metric has a corresponding [metric definition](../metrics/metrics_dictionary.md#metrics-definition-and-validation)
-  in a YAML file.
+- **Metrics**: primarily made up of row counts for different tables in an instance's database. Each metric has a corresponding [metric definition](../metrics/metrics_dictionary.md#metrics-definition-and-validation)
+ in a YAML file.
 - **MAU**: monthly active users.
 - **WAU**: weekly active users.
 
@@ -59,7 +54,7 @@ sequenceDiagram
     loop Process data for Salesforce
         Versions Application-xLicenses Application: Request Zuora subscription id
         Licenses Application-xVersions Application: Zuora subscription id
-        Versions Application-xSalesforce: Request Zuora account id  by Zuora subscription id
+        Versions Application-xSalesforce: Request Zuora account id by Zuora subscription id
         Salesforce-xVersions Application: Zuora account id
         Versions Application-xSalesforce: Usage data for the Zuora account
     end
@@ -77,9 +72,7 @@ sequenceDiagram
 1. `Gitlab::Usage::ServicePingReport.for(output: :all_metrics_values)` [cascades down](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/usage_data.rb) to ~400+ other counter method calls.
 1. The response of all methods calls are [merged together](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/usage_data.rb#L68) into a single JSON payload.
 1. The JSON payload is then [posted to the Versions application](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/services/service_ping/submit_service.rb#L20)
-   If a firewall exception is needed, the required URL depends on several things. If
-   the hostname is `version.gitlab.com`, the protocol is `TCP`, and the port number is `443`,
-   the required URL is <https://version.gitlab.com/>.
+   If a firewall exception is needed, the required URL depends on several things. If the hostname is `version.gitlab.com`, the protocol is `TCP`, and the port number is `443`, the required URL is <https://version.gitlab.com/>.
 1. In case of an error, it will be reported to the Version application along with following pieces of information:
 
    - `uuid` - GitLab instance unique identifier
@@ -94,7 +87,7 @@ sequenceDiagram
        "hostname"=>"127.0.0.1",
        "version"=>"14.7.0-pre",
        "elapsed"=>0.006946,
-       "message"=>'PG::UndefinedColumn: ERROR:  column \"non_existent_attribute\" does not exist\nLINE 1: SELECT COUNT(non_existent_attribute) FROM \"issues\" /*applica...'
+       "message"=>'PG::UndefinedColumn: ERROR: column \"non_existent_attribute\" does not exist\nLINE 1: SELECT COUNT(non_existent_attribute) FROM \"issues\" /*applica...'
      }
      ```
 
@@ -150,88 +143,88 @@ The following is example content of the Service Ping payload.
 
 ```json
 {
-  "uuid": "0000000-0000-0000-0000-000000000000",
-  "hostname": "example.com",
-  "version": "12.10.0-pre",
-  "installation_type": "omnibus-gitlab",
-  "active_user_count": 999,
-  "recorded_at": "2020-04-17T07:43:54.162+00:00",
-  "edition": "EEU",
-  "license_md5": "00000000000000000000000000000000",
-  "license_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-  "license_id": null,
-  "historical_max_users": 999,
-  "licensee": {
+ "uuid": "0000000-0000-0000-0000-000000000000",
+ "hostname": "example.com",
+ "version": "12.10.0-pre",
+ "installation_type": "omnibus-gitlab",
+ "active_user_count": 999,
+ "recorded_at": "2020-04-17T07:43:54.162+00:00",
+ "edition": "EEU",
+ "license_md5": "00000000000000000000000000000000",
+ "license_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+ "license_id": null,
+ "historical_max_users": 999,
+ "licensee": {
     "Name": "ABC, Inc.",
     "Email": "email@example.com",
     "Company": "ABC, Inc."
-  },
-  "license_user_count": 999,
-  "license_starts_at": "2020-01-01",
-  "license_expires_at": "2021-01-01",
-  "license_plan": "ultimate",
-  "license_add_ons": {
-  },
-  "license_trial": false,
-  "counts": {
+ },
+ "license_user_count": 999,
+ "license_starts_at": "2020-01-01",
+ "license_expires_at": "2021-01-01",
+ "license_plan": "ultimate",
+ "license_add_ons": {
+ },
+ "license_trial": false,
+ "counts": {
     "assignee_lists": 999,
     "boards": 999,
     "ci_builds": 999,
     ...
-  },
-  "container_registry_enabled": true,
-  "dependency_proxy_enabled": false,
-  "gitlab_shared_runners_enabled": true,
-  "gravatar_enabled": true,
-  "influxdb_metrics_enabled": true,
-  "ldap_enabled": false,
-  "mattermost_enabled": false,
-  "omniauth_enabled": true,
-  "prometheus_enabled": false,
-  "prometheus_metrics_enabled": false,
-  "reply_by_email_enabled": "incoming+%{key}@incoming.gitlab.com",
-  "signup_enabled": true,
-  "projects_with_expiration_policy_disabled": 999,
-  "projects_with_expiration_policy_enabled": 999,
-  ...
-  "elasticsearch_enabled": true,
-  "license_trial_ends_on": null,
-  "geo_enabled": false,
-  "git": {
+ },
+ "container_registry_enabled": true,
+ "dependency_proxy_enabled": false,
+ "gitlab_shared_runners_enabled": true,
+ "gravatar_enabled": true,
+ "influxdb_metrics_enabled": true,
+ "ldap_enabled": false,
+ "mattermost_enabled": false,
+ "omniauth_enabled": true,
+ "prometheus_enabled": false,
+ "prometheus_metrics_enabled": false,
+ "reply_by_email_enabled": "incoming+%{key}@incoming.gitlab.com",
+ "signup_enabled": true,
+ "projects_with_expiration_policy_disabled": 999,
+ "projects_with_expiration_policy_enabled": 999,
+ ...
+ "elasticsearch_enabled": true,
+ "license_trial_ends_on": null,
+ "geo_enabled": false,
+ "git": {
     "version": {
       "major": 2,
       "minor": 26,
       "patch": 1
     }
-  },
-  "gitaly": {
+ },
+ "gitaly": {
     "version": "12.10.0-rc1-93-g40980d40",
     "servers": 56,
     "clusters": 14,
     "filesystems": [
       "EXT_2_3_4"
     ]
-  },
-  "gitlab_pages": {
+ },
+ "gitlab_pages": {
     "enabled": true,
     "version": "1.17.0"
-  },
-  "container_registry_server": {
+ },
+ "container_registry_server": {
     "vendor": "gitlab",
     "version": "2.9.1-gitlab",
     "db_enabled": false
-  },
-  "database": {
+ },
+ "database": {
     "adapter": "postgresql",
     "version": "9.6.15",
     "pg_system_id": 6842684531675334351,
     "flavor": "Cloud SQL for PostgreSQL"
-  },
-  "analytics_unique_visits": {
+ },
+ "analytics_unique_visits": {
     "g_analytics_contribution": 999,
     ...
-  },
-  "usage_activity_by_stage": {
+ },
+ "usage_activity_by_stage": {
     "configure": {
       "project_clusters_enabled": 999,
       ...
@@ -267,8 +260,8 @@ The following is example content of the Service Ping payload.
       "ci_builds": 999,
       ...
     }
-  },
-  "usage_activity_by_stage_monthly": {
+ },
+ "usage_activity_by_stage_monthly": {
     "configure": {
       "project_clusters_enabled": 999,
       ...
@@ -304,8 +297,8 @@ The following is example content of the Service Ping payload.
       "ci_builds": 999,
       ...
     }
-  },
-  "topology": {
+ },
+ "topology": {
     "duration_s": 0.013836685999194742,
     "application_requests_per_hour": 4224,
     "query_apdex_weekly_average": 0.996,
@@ -343,7 +336,7 @@ The following is example content of the Service Ping payload.
       },
       ...
     ]
-  }
+ }
 }
 ```
 
@@ -378,7 +371,7 @@ We return fallback values in these cases:
 | Case                        | Value |
 |-----------------------------|-------|
 | Deprecated Metric ([Removed with version 14.3](https://gitlab.com/gitlab-org/gitlab/-/issues/335894)) | -1000 |
-| Timeouts, general failures  | -1    |
+| Timeouts, general failures | -1    |
 | Standard errors in counters | -2    |
 | Histogram metrics failure   | { '-1' => -1 } |
 

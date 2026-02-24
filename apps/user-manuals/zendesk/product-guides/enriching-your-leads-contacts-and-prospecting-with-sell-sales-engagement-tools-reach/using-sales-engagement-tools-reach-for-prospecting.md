@@ -27,10 +27,10 @@ When you start using Sales Engagement Tools (Reach), you can use either prospect
 You only use one credit for each company or person that you prospect or enrich.
 
 - **Enrichment credits** – use to generate data about a lead or contact and build a more complete profile where you already have some information about the lead or contact. There's a minimum amount of data you need before you can use an enrichment credit.
-  - To use an enrichment credit for a company, you must know the company name and website
-  - To use an enrichment credit for a person, you must know their email address
+ - To use an enrichment credit for a company, you must know the company name and website
+ - To use an enrichment credit for a person, you must know their email address
 
-  For more information see [Using Sales Engagement Tools (Reach) for enriching](https://support.zendesk.com/hc/en-us/articles/4408830786202).
+ For more information see [Using Sales Engagement Tools (Reach) for enriching](https://support.zendesk.com/hc/en-us/articles/4408830786202).
 - **Prospecting credits** – use if you don’t have any information about a lead or contact, you'll instead use a prospecting credit. Reach generates brand new prospects or improves existing data about your current lead or contact.
 
 ## Adding a new lead or contact with Sales Engagement Tools (Reach)

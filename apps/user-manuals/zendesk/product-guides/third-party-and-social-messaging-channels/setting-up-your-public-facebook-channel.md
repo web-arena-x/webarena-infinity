@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408819897242-Setting-up-y
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -18,16 +18,16 @@ Verified AI summary ◀▼
 
 Set up your public Facebook channel to convert Facebook Page posts and comments into tickets, allowing agents to manage them like any other ticket. You can add multiple Facebook Pages based on your plan, and configure settings for public and private messaging. Use business rules to manage Facebook tickets.
 
-Location:  Admin Center > Channels > Messaging and social > Facebook Pages
+Location: Admin Center > Channels > Messaging and social > Facebook Pages
 
 All Zendesk Suite and Zendesk Support customers can add at least one Facebook account so that public messages, such as Facebook Wall posts and comments, become tickets. Your agents will be able to see and respond to these tickets, just like any other ticket.
 
 Additionally, Zendesk Suite customers can add multiple Facebook Pages and receive public *and* private messages from those accounts. The number of Facebook Pages you can add depends on which version of the integration you're using.
 
-|  |  |
+| | |
 | --- | --- |
 | **Zendesk Support plans** | One Facebook Page with public messages only. Private messages are not supported. |
-| **Zendesk Suite plans** | V1 supports up to 15 Facebook Pages with public *and* private messages.  V2 supports up to 30 Facebook Pages with public *and* private messages. |
+| **Zendesk Suite plans** | V1 supports up to 15 Facebook Pages with public *and* private messages. V2 supports up to 30 Facebook Pages with public *and* private messages. |
 
 This article describes adding a Facebook channel for *public messaging* with your customers. You must be an administrator in both Zendesk and Facebook to set up your Facebook channel.
 
@@ -65,7 +65,7 @@ When a user posts to your wall, a ticket is created, and the following happens:
 - Comments received after the first week are not added to the ticket, and no new ticket is created.
 - If you post to your wall and the **Include Wall posts authored by the Page** setting is turned on, a ticket is created. Comments are recorded in the ticket for one year after the posting. However, if you close the ticket, comments will no longer be recorded.
 
-  The first time you post to your wall with the setting turned on, an end-user account is created for the Facebook Page. For example, if your Facebook Page is named Mondocam Enterprises, an end-user account is created with the name Mondocam Enterprises. This account is tied to the Facebook Page, and the role cannot be changed.
+ The first time you post to your wall with the setting turned on, an end-user account is created for the Facebook Page. For example, if your Facebook Page is named Mondocam Enterprises, an end-user account is created with the name Mondocam Enterprises. This account is tied to the Facebook Page, and the role cannot be changed.
 
 If the posting user is not already a user in your account, they become a new user in your account. If your channel has multiple Facebook Pages and a new user posts on more than one Page, a separate user account is created for each Page on which that user posts.
 
@@ -140,8 +140,8 @@ Also, keep in mind that if a new user posts on more than one Page, a separate us
 Just like with tickets from other Zendesk channels, you can set up business rules, like views, automations, and triggers, to manage your Facebook tickets. In addition to the actions and conditions available for all tickets, there are a few Facebook-specific options you can use:
 
 - **Ticket: Channel** values:
-  - **Facebook Post** returns tickets created from posts.
-  - **Facebook Private Message** returns tickets created from private messages.
+ - **Facebook Post** returns tickets created from posts.
+ - **Facebook Private Message** returns tickets created from private messages.
 - **Ticket: Integration account** lets you pick a specific Facebook account if you’ve added more than one. This condition also has options for X (formerly Twitter) and channel integrations like Google Play.
 
 For general information about setting up business rules, see these articles:

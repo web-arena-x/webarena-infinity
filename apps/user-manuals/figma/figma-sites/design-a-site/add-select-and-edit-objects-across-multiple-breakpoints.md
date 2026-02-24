@@ -63,7 +63,7 @@ Like adding an object, what happens when you select an object in a webpage depen
 
 When you select an object in the primary breakpoint, Figma automatically selects matching objects in all secondary breakpoints.
 
-**Tip**: If you want to select an object on the primary breakpoint without selecting its matching layers in other breakpoints, turn off  **Always select matching layers** at the top of the right sidebar. This limits your selection to the primary breakpoint only.
+**Tip**: If you want to select an object on the primary breakpoint without selecting its matching layers in other breakpoints, turn off **Always select matching layers** at the top of the right sidebar. This limits your selection to the primary breakpoint only.
 
 ![Cursor clicking on an object in the tablet layout; no selections in other breakpoints.](https://help.figma.com/hc/article_attachments/31918969287063)
 
@@ -71,7 +71,7 @@ When you select an object in the primary breakpoint, Figma automatically selects
 
 When you select an object in a secondary breakpoint, Figma only selects the object in that breakpoint.
 
-**Tip**: If you select an object on a secondary breakpoint and want to select its matching layers in other breakpoints, click  **Select matching layers** at the top of the right sidebar.
+**Tip**: If you select an object on a secondary breakpoint and want to select its matching layers in other breakpoints, click **Select matching layers** at the top of the right sidebar.
 
 ## Edit an object across breakpoints
 
@@ -101,6 +101,6 @@ Other changes to the frame—like adjusting its height in the primary breakpoint
 
 Behind the scenes, Figma tries to keep layer organization consistent between all the breakpoints. This means there are some extra restrictions to keep in mind when editing on a secondary breakpoint:
 
-- Deleting objects in a secondary breakpoint will just hide it. You can find hidden objects in the layers panel with the  **hidden** icon.
+- Deleting objects in a secondary breakpoint will just hide it. You can find hidden objects in the layers panel with the **hidden** icon.
 - It’s not possible to move a layer into or out of other layers from a secondary breakpoint. Grouping or framing objects is not supported from a secondary breakpoint.
 - You cannot move a layer out of the webpage from a secondary breakpoint.

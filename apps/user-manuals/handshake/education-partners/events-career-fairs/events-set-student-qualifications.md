@@ -26,10 +26,10 @@ Qualification logic is 'AND' across qualification types, and 'OR' within a parti
 
 - **School years**: select school years to limit registrations to only students with these school years. This is the education level on student profile. You may select as many as you like.
 - **Cumulative GPA Required**: check this box if you'd like registrations limited to students with a minimum gpa.
-  - **Cumulative GPA** *text box*: if marked required, enter the minimum gpa
+ - **Cumulative GPA** *text box*: if marked required, enter the minimum gpa
 - **Major Groups**: select specific majors groups to limit registrations to students with a qualifying major.
 - **Colleges**: enter the name(s) of colleges that students must be linked to in order to register for the fair.
 - **Required Labels**: enter any labels that students must have on their profile in order to register.
-  - **Note**: if more than one label is selected, students only have to have one of the labels to qualify.
+ - **Note**: if more than one label is selected, students only have to have one of the labels to qualify.
 
 **Note**: Students missing any of the required data on their profile won't be able to register. For example, if all school years are checked, but the student doesn't have a school year selected on their profile, they won't be able to register.

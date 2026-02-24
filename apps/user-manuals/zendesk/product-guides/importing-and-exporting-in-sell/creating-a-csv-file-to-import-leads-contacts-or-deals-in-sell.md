@@ -38,16 +38,16 @@ When you create a list of customers to import, you'll probably generate this lis
 - The file size of your import is reasonable: Do not exceed 3,000 contacts per import. For example, if you have 5,000 contacts in your CSV file, consider dividing it into two imports. There is no limit on the number of contacts you can upload, or the number of CSV files that you import.
 - If you want to assign a lead or contact to a user in your account, then you must include a column in your file labeled *Owner* that you will match to the *Owner* field in Sell. Owner indicates which user in your account owns a particular lead or contact.
 - If you are importing deals, and associate each deal with a contact, then the contact can be either a singular contact (person) or a company contact.
-  - If your deal is associated with a contact that is a person, then the contact must have a last name. If you are importing your contact's full name, the contact's name should be separated into two columns - first name and last name.
-  - If your deal's contact is already in your Sell account, Zendesk will merge your existing contact with the one in your CSV file and send you an email summary of your merged data.
-  - Each deal has a deal name and associated deal contact. If one or more of your deals do not have a stage listed, it will be placed in your initial pipeline stage by default.
-  - During import, do not assign deals to a user in your account. The imported data is assigned to the person who imports it. You can reassign the data once the import is complete.
+ - If your deal is associated with a contact that is a person, then the contact must have a last name. If you are importing your contact's full name, the contact's name should be separated into two columns - first name and last name.
+ - If your deal's contact is already in your Sell account, Zendesk will merge your existing contact with the one in your CSV file and send you an email summary of your merged data.
+ - Each deal has a deal name and associated deal contact. If one or more of your deals do not have a stage listed, it will be placed in your initial pipeline stage by default.
+ - During import, do not assign deals to a user in your account. The imported data is assigned to the person who imports it. You can reassign the data once the import is complete.
 - If you add a company name to your contact, two contact records will be created in your Sell Contacts list - one for the person and one for the company. For this reason, importing a company name with your contact is optional.
 - If you are importing deals - add a *Deal Added* column in your spreadsheet if you want to back-date Deal creation dates. This column is mapped to the *Date Added* field of your deals. If you don't include a Date Added column in your CSV, the date the deal was created will default to the day that your import is completed. Keep the following guidelines in mind when creating your Date Added column:
-  - If your account uses the American date format with a 12hr time format, Sell will only match the date when it is written as MM/DD/YYYY.
-  - If your account uses a European date format with a 24hr time format, Sell will only match the date when it is written as DD/MM/YYYY.
+ - If your account uses the American date format with a 12hr time format, Sell will only match the date when it is written as MM/DD/YYYY.
+ - If your account uses a European date format with a 24hr time format, Sell will only match the date when it is written as DD/MM/YYYY.
 
-  The following table lists examples of fields that you can include in the file.
+ The following table lists examples of fields that you can include in the file.
 
 Table 1. User import data
 

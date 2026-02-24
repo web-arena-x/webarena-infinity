@@ -12,8 +12,7 @@ Each topic on a page should be one of the following topic types:
 - [Reference](reference.md)
 - [Troubleshooting](troubleshooting.md)
 
-Even if a page is short, the page usually starts with a concept and then
-includes a task or reference topic.
+Even if a page is short, the page usually starts with a concept and then includes a task or reference topic.
 
 The tech writing team sometimes uses the acronym `CTRT` to refer to the topic types.
 The acronym refers to the first letter of each topic type.
@@ -37,11 +36,10 @@ In addition to the four primary topic types, you can use the following:
 
 You should avoid:
 
-- Pages that are exclusively links to other pages. The only exceptions are
-  top-level pages that aid with navigation.
+- Pages that are exclusively links to other pages. The only exceptions are top-level pages that aid with navigation.
 - Topics that have one or two sentences only. In these cases:
-  - Incorporate the information in another topic.
-  - If the sentence links to another page, use a [Related topics](#related-topics) link instead.
+ - Incorporate the information in another topic.
+ - If the sentence links to another page, use a [Related topics](#related-topics) link instead.
 
 ## Topic title guidelines
 
@@ -49,21 +47,19 @@ In general, for topic titles:
 
 - Be clear and direct. Make every word count.
 - Use fewer than 70 characters when possible. The [markdownlint](../testing/markdownlint.md) rule:
-  [`line-length` (MD013)](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.markdownlint-cli2.yaml)
+ [`line-length` (MD013)](https://gitlab.com/gitlab-org/gitlab/-/blob/master/.markdownlint-cli2.yaml)
 - Use articles and prepositions.
 - Follow [capitalization](../styleguide/_index.md#topic-titles) guidelines.
-- Do not repeat text from earlier topic titles. For example, if the page is about merge requests,
-  instead of `Troubleshooting merge requests`, use only `Troubleshooting`.
+- Do not repeat text from earlier topic titles. For example, if the page is about merge requests, instead of `Troubleshooting merge requests`, use only `Troubleshooting`.
 - Review the specific guidance for the topic type. For example, do not use `Overview` or `Introduction` for [concept topic titles](concept.md#concept-topic-titles).
 - Avoid using hyphens to separate information.
-  For example, instead of `Internal analytics - Architecture`, use `Internal analytics architecture` or `Architecture of internal analytics`.
+ For example, instead of `Internal analytics - Architecture`, use `Internal analytics architecture` or `Architecture of internal analytics`.
 
 See also [guidelines for heading levels in Markdown](../styleguide/_index.md#heading-levels-in-markdown).
 
 ## Related topics
 
-If inline links are not sufficient, you can create a section called **Related topics**
-and include an unordered list of related topics. This topic should be above the Troubleshooting section.
+If inline links are not sufficient, you can create a section called **Related topics** and include an unordered list of related topics. This topic should be above the Troubleshooting section.
 
 The link text should be brief and scannable.
 Use topic titles (not complete sentences) and do not end them with periods.

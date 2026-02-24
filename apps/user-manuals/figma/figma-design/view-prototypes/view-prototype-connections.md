@@ -46,13 +46,13 @@ View prototype flows in the [Properties tab of the right sidebar](../explore/des
 2. Select **Properties** in the right sidebar.
 3. View a list of any **Flows** on the current page.
 4. Prototype connections are hidden by default for anyone with view access.
-   - Select  to toggle visibility on.
-   - Select  to toggle visibility off.
+   - Select to toggle visibility on.
+   - Select to toggle visibility off.
 5. Hover over the flow to view the actions you can take:
 
-   - Select  **Select frame** to select the starting frame in the canvas. This will also allow you to view details in **Interaction** section of the sidebar
-   - Select  **Copy link** to copy link to clipboard
-   - Select  **Preview** to open the flow in [inline preview](play-your-prototypes.md)
+   - Select **Select frame** to select the starting frame in the canvas. This will also allow you to view details in **Interaction** section of the sidebar
+   - Select **Copy link** to copy link to clipboard
+   - Select **Preview** to open the flow in [inline preview](play-your-prototypes.md)
 
 ![](https://help.figma.com/hc/article_attachments/26978254346519)
 

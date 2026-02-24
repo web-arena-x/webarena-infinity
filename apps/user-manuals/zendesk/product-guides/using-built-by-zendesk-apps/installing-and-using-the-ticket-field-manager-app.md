@@ -42,32 +42,32 @@ In the settings, you can configure the ticket field behavior by updating the pro
 
 - **Required form fields**: Ticket fields that are required when creating or updating a ticket. For example:
 
-  ```
-  field1, field2, field3, 360015591993
-  ```
+ ```
+ field1, field2, field3, 360015591993
+ ```
 - **Read-only form fields**: Ticket fields that are shown to the user but are not editable. For example:
 
-  ```
-  field1, field2, field3, 360015591993
-  ```
+ ```
+ field1, field2, field3, 360015591993
+ ```
 - **Allowed groups for read-only form fields**: This is a list of IDs of groups that should not have the read-only restrictions applied.
 - **Hidden form fields**: Ticket fields that should be hidden from the agent when creating or updating a ticket. For example:
 
-  ```
-  field1, field2, field3, 360015591993
-  ```
+ ```
+ field1, field2, field3, 360015591993
+ ```
 - **Allowed groups for hidden form fields**: This is a list of IDs of groups that should not have the hidden field restrictions applied.
 - **Allowed groups for hidden drop-down options**: A comma separated list of group IDs that do not have any hidden options in drop-down applied.
 - **Hide drop-down form options**: Hide options for a given drop-down field. The format is `[{"name": "type", "value": "problem"}]`, or, for custom fields `[{"name": "custom_field_3600152073", "value": "brushed_silver"}]`
 
-Note: When setting your value, use the **Tag** of your drop-down option.  
+Note: When setting your value, use the **Tag** of your drop-down option. 
 ![Tag.png](https://support.zendesk.com/hc/article_attachments/7856386942234)
 
 To hide multiple drop-down values including those in the same field, use the format as shown in the example below.
 
 ```
- [{"name": "type", "value": "problem"},  
- {"name": "custom_field_360015592073", "value": "diamond"},  
+ [{"name": "type", "value": "problem"}, 
+ {"name": "custom_field_360015592073", "value": "diamond"}, 
  {"name": "custom_field_360015592073", "value": "nickel_plated"},
 ```
 

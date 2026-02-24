@@ -20,19 +20,19 @@ With employer-hosted schedules, Handshake Premium partners can organize meetings
 
 - **Name**
 - **Purpose** *(choose one)*
-  - Quick screen: Evaluate students or provide insights about a role
-  - Interview: Evaluating students to make a hire
-  - Office hours: Provide information at various stages of hiring
+ - Quick screen: Evaluate students or provide insights about a role
+ - Interview: Evaluating students to make a hire
+ - Office hours: Provide information at various stages of hiring
 - **Description** 
-  - Provide a summary of the purpose, content, or key details of the schedule.
+ - Provide a summary of the purpose, content, or key details of the schedule.
 - **Location** *(choose one)*
-  - Handshake video
+ - Handshake video
     - If you wish to record the meeting, toggle the **Record meetings** button.
-  - External video
-  - In-person
+ - External video
+ - In-person
     - Enter the meeting location address.
 - **Host visibility**
-  - Host name, role, and profile photo are hidden by default to students who are invited to book a meeting.
+ - Host name, role, and profile photo are hidden by default to students who are invited to book a meeting.
     - If you wish to show the host's name, role, and profile photo, toggle the **Display host information to students during booking** button.
 
 3. Click the blue button **Continue** in the lower-right corner of the form to proceed.
@@ -42,22 +42,22 @@ With employer-hosted schedules, Handshake Premium partners can organize meetings
 4. Complete the fields in the **Date and time** section of the form.
 
 - **Duration** (defaults to 30 minutes, and your local time zone)
-  - 15 minutes
-  - 30 minutes
-  - 45 minutes
-  - 60 minutes
+ - 15 minutes
+ - 30 minutes
+ - 45 minutes
+ - 60 minutes
 - **Date**
-  - Click into the **Date** field and enter the date in mm/dd/yyyy format, OR
-  - Select the date from the calendar modal, then click the blue button **Apply**.
+ - Click into the **Date** field and enter the date in mm/dd/yyyy format, OR
+ - Select the date from the calendar modal, then click the blue button **Apply**.
 - **Time**
-  - Click into the **AM** and **PM** fields, and choose a start and end time.
-  - Click into the **Timezone** field, and choose your local timezone.
+ - Click into the **AM** and **PM** fields, and choose a start and end time.
+ - Click into the **Timezone** field, and choose your local timezone.
 
 ![Date](https://support.joinhandshake.com/hc/article_attachments/25992957060119)
 
 - **Does this schedule repeat?** 
-  - If not, leave the button unselected.
-  - If yes, toggle the button.
+ - If not, leave the button unselected.
+ - If yes, toggle the button.
     - Select the frequency of repetition, then enter the schedule end date in the calendar picker.
 
 **Note**: schedules cannot repeat for more than 6 months.

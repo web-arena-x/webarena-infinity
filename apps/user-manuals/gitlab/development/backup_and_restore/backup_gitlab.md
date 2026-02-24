@@ -89,7 +89,7 @@ The system-wide GitLab configuration file, typically located at `/etc/gitlab/git
 | `backup_upload_connection`       |
 | `backup_upload_remote_directory` |
 | `backup_upload_storage_class`    |
-| `backup_upload_storage_options`  |
+| `backup_upload_storage_options` |
 
 Furthermore, each execution of a backup creation or restoration operation may set environmental variables to modify the backup algorithm, data access locations, or archive storage formatting. For the act of creating a backup archive, the Rake task supports the following environmental variable settings:
 

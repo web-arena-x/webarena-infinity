@@ -26,16 +26,16 @@ The reports included in this dashboard, along with the fields that you can filte
 ### Reports:
 
 - Employers by Location
-  - Date = *employer approval created date*
+ - Date = *employer approval created date*
 - Employers by Industry
-  - Date = *employer approval created date*
+ - Date = *employer approval created date*
 - Approved Employers
-  - Date = *employer approval created date*
+ - Date = *employer approval created date*
 - Employer Job Postings
-  - Date = *posting created at date*
+ - Date = *posting created at date*
 - Career Fair Registrations
-  - Date = *career fair session date*
+ - Date = *career fair session date*
 - Interview Schedules
-  - Date = *interview date*
+ - Date = *interview date*
 - Employer Approvals by Week
-  - Date = *employer approval created date*
+ - Date = *employer approval created date*

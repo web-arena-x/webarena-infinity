@@ -60,7 +60,7 @@ To apply a glass effect:
 
 1. Select a layer.
 2. Click the plus in the **Effects** section to add a new effect.
-3. Choose  **Glass** from the dropdown menu.
+3. Choose **Glass** from the dropdown menu.
 4. Open the **Effect settings** menu to configure the effect:
    - **Light angle:** The direction from which light is projected onto the object.
    - **Light intensity**: The brightness of the projected light.
@@ -144,7 +144,7 @@ You can apply shadow effects to frames, groups, components, or individual layers
 
 1. Select the layer or object from the canvas or **Layers** tab of the left sidebar.
 2. Click the **Effects** section in the right sidebar. The **Drop shadow** effect is selected by default. Use the dropdown to switch to **Inner shadow**.
-3. Click the  **Effect settings** icon to adjust the shadow's settings.
+3. Click the **Effect settings** icon to adjust the shadow's settings.
    - **X:** Offset the drop shadow along the x axis (horizontal). Use with Y offset to set the direction of the light source.
    - **Y:** Offset the drop shadow along the y axis (vertical). Use with X offset to set the direction of the light source.
    - **Fill**: Apply a paint using the color picker and set an opacity for the shadow
@@ -153,7 +153,7 @@ You can apply shadow effects to frames, groups, components, or individual layers
 
 **Tip**: You can copy a layer's effect settings to paste on another layer or object from the **Effects** section of the right sidebar.
 
-1. Click the  **Effect settings** icon, then press `Esc` to clear the field selection.
+1. Click the **Effect settings** icon, then press `Esc` to clear the field selection.
 2. Use the keyboard shortcut to copy the settings:
    - **Mac**: `⌘ Command` `C`
    - **Windows**: `⌃ Control` `C`
@@ -213,7 +213,7 @@ You can apply blur effects to frames, groups, components, or individual layers. 
 
 1. Select the layer or object from the canvas or **Layers** tab of the left sidebar.
 2. Click the **Effects** section in the right sidebar. The **Drop shadow** effect is selected by default. Use the dropdown to switch to **Layer Blur** or **Background** **Blur**.
-3. Click the  **Effect settings** icon to adjust the blur value.
+3. Click the **Effect settings** icon to adjust the blur value.
 4. Adjust the layer's fill opacity, if needed.
 
 You can also create Styles for shadow and blur effects. This allows you to save those settings and use them across your design files. Learn how to [create effect styles](https://help.figma.com/hc/en-us/articles/360038746534#Effects).
@@ -231,8 +231,8 @@ You can apply noise effects to any layer type. It’s only possible to add two n
 To apply a noise effect:
 
 1. Select the layer.
-2. Click the  plus in the **Effects** section to add a new effect.
-3. Choose  **Noise** from the dropdown menu.
+2. Click the plus in the **Effects** section to add a new effect.
+3. Choose **Noise** from the dropdown menu.
 4. Open the **Effect settings** menu to configure the effect:
    - **Number of colors:** Choose between **Mono** (one), **Duo** (two), or **Multi** (many) to determine how many colors will be included in the noise
    - **Noise size**: Adjust the scale of the noise pixels
@@ -253,12 +253,12 @@ You can apply texture effects to any layer type. It’s only possible to apply o
 To apply a texture effect:
 
 1. Select the layer.
-2. Click the  plus in the **Effects** section to add a new effect.
-3. Choose  **Texture** from the dropdown menu.
+2. Click the plus in the **Effects** section to add a new effect.
+3. Choose **Texture** from the dropdown menu.
 4. Open the **Effect settings** menu to configure the effect:
    - **Size:** Set the scale of the textured effect
    - **Radius**: Adjust to determine how far past the layer’s boundary the effect will spread
-   - **Clip to shape:** Enable this option to limit the texture effect to within the layer’s boundary. While the texture itself will be confined to the shape, drop shadows will still interact with the clipped texture, creating a textured shadow effect.  
+   - **Clip to shape:** Enable this option to limit the texture effect to within the layer’s boundary. While the texture itself will be confined to the shape, drop shadows will still interact with the clipped texture, creating a textured shadow effect. 
      ![An animation of adding texture effect to a Figma layer, showing settings for size and radius with "Clip to shape" option.](https://help.figma.com/hc/article_attachments/31937331272343)
 
 ## Reorder effects

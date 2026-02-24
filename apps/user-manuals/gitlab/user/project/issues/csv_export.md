@@ -18,26 +18,21 @@ title: Export issues to CSV
 
 {{< /history >}}
 
-You can export issues from GitLab to a plain-text CSV
-([comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values))
-file. The CSV file is attached to an email, and sent to your default
-notification email address.
+You can export issues from GitLab to a plain-text CSV ([comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values))
+file. The CSV file is attached to an email, and sent to your default notification email address.
 
 <!-- vale gitlab_base.Spelling = NO -->
 
-CSV files can be used with any plotter or spreadsheet-based program, like
-Microsoft Excel, OpenOffice Calc, or Google Sheets. Use a CSV list of issues to:
+CSV files can be used with any plotter or spreadsheet-based program, like Microsoft Excel, OpenOffice Calc, or Google Sheets. Use a CSV list of issues to:
 
 <!-- vale gitlab_base.Spelling = YES -->
 
-- Create a snapshot of issues for offline analysis, or to share with other
-  teams who might not be in GitLab.
+- Create a snapshot of issues for offline analysis, or to share with other teams who might not be in GitLab.
 - Create diagrams, graphs, and charts from the CSV data.
 - Convert the data to other formats for auditing or sharing.
 - Import the issues to a system outside of GitLab.
 - Analyze long-term trends with multiple snapshots created over time.
-- Use the long-term data to gather relevant feedback given in the issues, and
-  improve your product based on real metrics.
+- Use the long-term data to gather relevant feedback given in the issues, and improve your product based on real metrics.
 
 ## Select issues to export
 
@@ -51,8 +46,7 @@ Prerequisites:
 1. Select **Plan** > **Issues**.
 1. Above the list of issues, select **Search or filter results**.
 1. In the dropdown list that appears, select the attributes to filter by.
-   For more information about filter options, see
-   [Filter the list of issues](managing_issues.md#filter-the-list-of-issues).
+   For more information about filter options, see [Filter the list of issues](managing_issues.md#filter-the-list-of-issues).
 1. In the upper right, select **Actions** ({{< icon name="ellipsis_v" >}}) > **Export as CSV**.
 1. In the dialog, verify that the email address is correct, then select **Export issues**.
 
@@ -70,8 +64,7 @@ The CSV file has this format:
 
 {{< alert type="note" >}}
 
-For information about CSV parsing requirements that can affect how exported files display when viewed
-in GitLab, see [CSV parsing considerations](../repository/files/csv.md#csv-parsing-considerations).
+For information about CSV parsing requirements that can affect how exported files display when viewed in GitLab, see [CSV parsing considerations](../repository/files/csv.md#csv-parsing-considerations).
 
 {{< /alert >}}
 
@@ -81,7 +74,7 @@ The following columns are included in the CSV file.
 
 | Column            | Description |
 | ----------------- | ----------- |
-| ID                | Issue `id`  |
+| ID                | Issue `id` |
 | IID               | Issue `iid` |
 | Title             | Issue `title` |
 | Description       | Issue `description` |
@@ -96,8 +89,8 @@ The following columns are included in the CSV file.
 | Author Username   | Username of the author, with the `@` symbol omitted |
 | Assignee          | Full name of the issue assignee |
 | Assignee Username | Username of the assignee, with the `@` symbol omitted |
-| Created At (UTC)  | Formatted as `YYYY-MM-DD HH:MM:SS` |
-| Updated At (UTC)  | Formatted as `YYYY-MM-DD HH:MM:SS` |
+| Created At (UTC) | Formatted as `YYYY-MM-DD HH:MM:SS` |
+| Updated At (UTC) | Formatted as `YYYY-MM-DD HH:MM:SS` |
 | Closed At (UTC)   | Formatted as `YYYY-MM-DD HH:MM:SS` |
 | Due Date          | Formatted as `YYYY-MM-DD` |
 | Start Date        | Formatted as `YYYY-MM-DD` |
@@ -114,7 +107,4 @@ When working with exported issues, you might encounter the following issues.
 
 ### Size of export
 
-Issues are sent as an email attachment, with a 15 MB export limit to ensure
-successful delivery across a range of email providers. If you reach the limit,
-narrow your search before export. For example, consider exporting open and
-closed issues separately.
+Issues are sent as an email attachment, with a 15 MB export limit to ensure successful delivery across a range of email providers. If you reach the limit, narrow your search before export. For example, consider exporting open and closed issues separately.

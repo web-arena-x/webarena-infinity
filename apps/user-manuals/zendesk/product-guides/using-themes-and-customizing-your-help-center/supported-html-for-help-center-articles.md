@@ -6,89 +6,34 @@ Source: https://support.zendesk.com/hc/en-us/articles/6644509092378-Supported-HT
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Guide Professional or Enterprise |
 
-The
-[source code editor](https://support.zendesk.com/hc/en-us/articles/4408824584602)
+The [source code editor](https://support.zendesk.com/hc/en-us/articles/4408824584602)
 lets you edit the HTML source of articles and content blocks for the help center. This lets you customize and style help center content in ways that aren't possible using the standard WYSIWYG editor. To keep your help center secure and provide the best end-user experience, Zendesk limits the HTML you can use in articles and content blocks.
 
 The following sections list the HTML elements, attributes, and content supported in articles and content blocks. In addition to the listed attributes, the HTML elements in this section also support the following global attributes:
-`aria-*`, `class`, `data-*`,
-`dir`, `id`, `lang`,
-`tabindex`, `title`
+`aria-*`, `class`, `data-*`, `dir`, `id`, `lang`, `tabindex`, `title`
 
 All tags supports the following inline styles in addition to the inline styles listed in on the individual tags:
-`aspect-ratio`, `background`,
-`background-color`, `background-image`,
-`border`, `border-bottom`,
-`border-bottom-color`, `border-bottom-style`,
-`border-bottom-width`, `border-collapse`,
-`border-color`, `border-left`,
-`border-left-color`, `border-left-style`,
-`border-left-width`, `border-radius`,
-`border-right`, `border-right-color`,
-`border-right-style`, `border-right-width`,
-`border-spacing`, `border-style`,
-`border-top`, `border-top-color`,
-`border-top-style`, `border-top-width`,
-`border-width`, `box-sizing`,
-`color`, `display`, `font`,
-`font-family`, `font-size`,
-`font-style`, `font-variant`,
-`font-variant-caps`,
-`font-variant-ligatures`, `font-weight`,
-`height`, `letter-spacing`,
-`line-height`, `max-height`,
-`max-width`, `min-height`,
-`min-width`, `orphans`,
-`outline`, `padding`,
-`padding-bottom`, `padding-left`,
-`padding-right`, `padding-top`,
-`text-align`, `text-decoration`,
-`text-decoration-color`,
-`text-decoration-line`,
-`text-decoration-style`, `text-indent`,
-`text-transform`, `vertical-align`,
-`white-space`, `widows`,
-`width`, `word-spacing`
+`aspect-ratio`, `background`, `background-color`, `background-image`, `border`, `border-bottom`, `border-bottom-color`, `border-bottom-style`, `border-bottom-width`, `border-collapse`, `border-color`, `border-left`, `border-left-color`, `border-left-style`, `border-left-width`, `border-radius`, `border-right`, `border-right-color`, `border-right-style`, `border-right-width`, `border-spacing`, `border-style`, `border-top`, `border-top-color`, `border-top-style`, `border-top-width`, `border-width`, `box-sizing`, `color`, `display`, `font`, `font-family`, `font-size`, `font-style`, `font-variant`, `font-variant-caps`, `font-variant-ligatures`, `font-weight`, `height`, `letter-spacing`, `line-height`, `max-height`, `max-width`, `min-height`, `min-width`, `orphans`, `outline`, `padding`, `padding-bottom`, `padding-left`, `padding-right`, `padding-top`, `text-align`, `text-decoration`, `text-decoration-color`, `text-decoration-line`, `text-decoration-style`, `text-indent`, `text-transform`, `vertical-align`, `white-space`, `widows`, `width`, `word-spacing`
 
 In most cases, Zendesk recommends using CSS classes instead of inline styles to style help center content. See [Styling HTML in help articles](https://support.zendesk.com/hc/en-us/articles/4408824584602#topic_d2c_x4x_kxb).
 
 ## a
 
-**Attributes**: `href`, `name`,
-`rel`, `target`, `title`
+**Attributes**: `href`, `name`, `rel`, `target`, `title`
 
-**Allowed protocols for href**: `ftp`,
-`http`, `https`, `mailto`,
-`sftp`, `sms`, `tel`
+**Allowed protocols for href**: `ftp`, `http`, `https`, `mailto`, `sftp`, `sms`, `tel`
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `abbr`,
-`address`, `aside`, `audio`,
-`bdi`, `bdo`, `blockquote`,
-`br`, `cite`, `code`,
-`data`, `del`, `details`,
-`dfn`, `div`, `dl`,
-`em`, `figure`, `footer`,
-`h1`, `h2`, `h3`,
-`h4`, `h5`, `h6`,
-`header`, `hr`, `img`,
-`ins`, `kbd`, `mark`,
-`noscript`, `ol`, `p`,
-`pre`, `q`, `ruby`,
-`s`, `samp`, `section`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`table`, `time`, `ul`,
-`var`, `video`
+**Content**: `@text`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `footer`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `header`, `hr`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## abbr
 
@@ -96,17 +41,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## address
 
@@ -114,23 +49,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figure`,
-`footer`, `header`, `hr`,
-`iframe`, `img`, `ins`,
-`kbd`, `mark`, `noscript`,
-`ol`, `p`, `pre`,
-`q`, `ruby`, `s`,
-`samp`, `section`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `table`,
-`time`, `ul`, `var`,
-`video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `footer`, `header`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## article
 
@@ -138,25 +57,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figure`,
-`footer`, `h1`, `h2`,
-`h3`, `h4`, `h5`,
-`h6`, `header`, `hr`,
-`iframe`, `img`, `ins`,
-`kbd`, `mark`, `noscript`,
-`ol`, `p`, `pre`,
-`q`, `ruby`, `s`,
-`samp`, `section`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `table`,
-`time`, `ul`, `var`,
-`video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `footer`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `header`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## aside
 
@@ -164,48 +65,17 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figure`,
-`footer`, `h1`, `h2`,
-`h3`, `h4`, `h5`,
-`h6`, `header`, `hr`,
-`iframe`, `img`, `ins`,
-`kbd`, `mark`, `noscript`,
-`ol`, `p`, `pre`,
-`q`, `ruby`, `s`,
-`samp`, `section`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `table`,
-`time`, `ul`, `var`,
-`video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `footer`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `header`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## audio
 
-**Attributes**: `autoplay`, `controls`,
-`disableremoteplayback`, `loop`,
-`muted`, `preload`, `src`
+**Attributes**: `autoplay`, `controls`, `disableremoteplayback`, `loop`, `muted`, `preload`, `src`
 
-**Allowed protocols for src**: `blob`,
-`data`, `http`, `https`
+**Allowed protocols for src**: `blob`, `data`, `http`, `https`
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `bdi`, `bdo`,
-`br`, `cite`, `code`,
-`data`, `del`, `dfn`,
-`em`, `iframe`, `img`,
-`ins`, `kbd`, `mark`,
-`noscript`, `q`, `ruby`,
-`s`, `samp`, `small`,
-`source`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `track`, `var`
+**Content**: `@text`, `a`, `abbr`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `source`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `track`, `var`
 
 ## bdi
 
@@ -213,17 +83,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## bdo
 
@@ -231,17 +91,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## blockquote
 
@@ -249,25 +99,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figure`,
-`footer`, `h1`, `h2`,
-`h3`, `h4`, `h5`,
-`h6`, `header`, `hr`,
-`iframe`, `img`, `ins`,
-`kbd`, `mark`, `noscript`,
-`ol`, `p`, `pre`,
-`q`, `ruby`, `s`,
-`samp`, `section`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `table`,
-`time`, `ul`, `var`,
-`video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `footer`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `header`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## br
 
@@ -283,25 +115,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figure`,
-`footer`, `h1`, `h2`,
-`h3`, `h4`, `h5`,
-`h6`, `header`, `hr`,
-`iframe`, `img`, `ins`,
-`kbd`, `mark`, `noscript`,
-`ol`, `p`, `pre`,
-`q`, `ruby`, `s`,
-`samp`, `section`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `table`,
-`time`, `ul`, `var`,
-`video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `footer`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `header`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## cite
 
@@ -309,17 +123,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## code
 
@@ -327,17 +131,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## col
 
@@ -361,17 +155,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## dd
 
@@ -379,25 +163,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figure`,
-`footer`, `h1`, `h2`,
-`h3`, `h4`, `h5`,
-`h6`, `header`, `hr`,
-`iframe`, `img`, `ins`,
-`kbd`, `mark`, `noscript`,
-`ol`, `p`, `pre`,
-`q`, `ruby`, `s`,
-`samp`, `section`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `table`,
-`time`, `ul`, `var`,
-`video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `footer`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `header`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## del
 
@@ -405,17 +171,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## details
 
@@ -423,25 +179,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figure`,
-`footer`, `h1`, `h2`,
-`h3`, `h4`, `h5`,
-`h6`, `header`, `hr`,
-`iframe`, `img`, `ins`,
-`kbd`, `mark`, `noscript`,
-`ol`, `p`, `pre`,
-`q`, `ruby`, `s`,
-`samp`, `section`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `table`,
-`time`, `ul`, `var`,
-`video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `footer`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `header`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## dfn
 
@@ -449,17 +187,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`em`, `iframe`, `img`,
-`ins`, `kbd`, `mark`,
-`noscript`, `q`, `ruby`,
-`s`, `samp`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `time`,
-`var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## div
 
@@ -467,25 +195,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figure`,
-`footer`, `h1`, `h2`,
-`h3`, `h4`, `h5`,
-`h6`, `header`, `hr`,
-`iframe`, `img`, `ins`,
-`kbd`, `mark`, `noscript`,
-`ol`, `p`, `pre`,
-`q`, `ruby`, `s`,
-`samp`, `section`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `table`,
-`time`, `ul`, `var`,
-`video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `footer`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `header`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## dl
 
@@ -501,17 +211,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## em
 
@@ -519,17 +219,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## figcaption
 
@@ -537,25 +227,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figure`,
-`footer`, `h1`, `h2`,
-`h3`, `h4`, `h5`,
-`h6`, `header`, `hr`,
-`iframe`, `img`, `ins`,
-`kbd`, `mark`, `noscript`,
-`ol`, `p`, `pre`,
-`q`, `ruby`, `s`,
-`samp`, `section`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `table`,
-`time`, `ul`, `var`,
-`video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `footer`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `header`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## figure
 
@@ -563,25 +235,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: `float`
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figcaption`,
-`figure`, `footer`, `h1`,
-`h2`, `h3`, `h4`,
-`h5`, `h6`, `header`,
-`hr`, `iframe`, `img`,
-`ins`, `kbd`, `mark`,
-`noscript`, `ol`, `p`,
-`pre`, `q`, `ruby`,
-`s`, `samp`, `section`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`table`, `time`, `ul`,
-`var`, `video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figcaption`, `figure`, `footer`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `header`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## footer
 
@@ -589,24 +243,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figure`,
-`h1`, `h2`, `h3`,
-`h4`, `h5`, `h6`,
-`hr`, `iframe`, `img`,
-`ins`, `kbd`, `mark`,
-`noscript`, `ol`, `p`,
-`pre`, `q`, `ruby`,
-`s`, `samp`, `section`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`table`, `time`, `ul`,
-`var`, `video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## h1
 
@@ -614,17 +251,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## h2
 
@@ -632,17 +259,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## h3
 
@@ -650,17 +267,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## h4
 
@@ -668,17 +275,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## h5
 
@@ -686,17 +283,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## h6
 
@@ -704,17 +291,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## header
 
@@ -722,24 +299,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figure`,
-`h1`, `h2`, `h3`,
-`h4`, `h5`, `h6`,
-`hr`, `iframe`, `img`,
-`ins`, `kbd`, `mark`,
-`noscript`, `ol`, `p`,
-`pre`, `q`, `ruby`,
-`s`, `samp`, `section`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`table`, `time`, `ul`,
-`var`, `video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## hr
 
@@ -751,27 +311,12 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 ## iframe
 
-**Attributes**: `allow`,
-`allowfullscreen`, `frameborder`,
-`height`, `mozallowfullscreen`,
-`msallowfullscreen`, `name`,
-`oallowfullscreen`, `src`,
-`webkitallowfullscreen`, `width`
+**Attributes**: `allow`, `allowfullscreen`, `frameborder`, `height`, `mozallowfullscreen`, `msallowfullscreen`, `name`, `oallowfullscreen`, `src`, `webkitallowfullscreen`, `width`
 
-**Allowed protocols for src**: `blob`,
-`data`, `http`, `https`
+**Allowed protocols for src**: `blob`, `data`, `http`, `https`
 
 **Allowed domains for embeds**:
-`https://content.jwplatform.com/`,
-`https://fast.wistia.com/`,
-`https://play.vidyard.com/`,
-`https://player.vimeo.com/`,
-`https://players.brightcove.net/`,
-`https://web.microsoftstream.com/`,
-`https://www.loom.com/`,
-`https://www.microsoft.com/`,
-`https://www.youtube-nocookie.com/`,
-`https://www.youtube.com/`
+`https://content.jwplatform.com/`, `https://fast.wistia.com/`, `https://play.vidyard.com/`, `https://player.vimeo.com/`, `https://players.brightcove.net/`, `https://web.microsoftstream.com/`, `https://www.loom.com/`, `https://www.microsoft.com/`, `https://www.youtube-nocookie.com/`, `https://www.youtube.com/`
 
 **Allowed inline styles**: only global styles
 
@@ -779,11 +324,9 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 ## img
 
-**Attributes**: `alt`, `height`,
-`name`, `src`, `width`
+**Attributes**: `alt`, `height`, `name`, `src`, `width`
 
-**Allowed protocols for src**: `blob`,
-`data`, `http`, `https`
+**Allowed protocols for src**: `blob`, `data`, `http`, `https`
 
 **Allowed inline styles**: only global styles
 
@@ -795,17 +338,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## kbd
 
@@ -813,45 +346,15 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## li
 
 **Attributes**: only global attributes
 
-**Allowed inline styles**: `list-style`,
-`list-style-image`, `list-style-position`,
-`list-style-type`
+**Allowed inline styles**: `list-style`, `list-style-image`, `list-style-position`, `list-style-type`
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figure`,
-`footer`, `h1`, `h2`,
-`h3`, `h4`, `h5`,
-`h6`, `header`, `hr`,
-`iframe`, `img`, `ins`,
-`kbd`, `mark`, `noscript`,
-`ol`, `p`, `pre`,
-`q`, `ruby`, `s`,
-`samp`, `section`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `table`,
-`time`, `ul`, `var`,
-`video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `footer`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `header`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## mark
 
@@ -859,17 +362,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## nav
 
@@ -877,25 +370,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figure`,
-`footer`, `h1`, `h2`,
-`h3`, `h4`, `h5`,
-`h6`, `header`, `hr`,
-`iframe`, `img`, `ins`,
-`kbd`, `mark`, `noscript`,
-`ol`, `p`, `pre`,
-`q`, `ruby`, `s`,
-`samp`, `section`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `table`,
-`time`, `ul`, `var`,
-`video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `footer`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `header`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## noscript
 
@@ -903,26 +378,13 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `q`, `ruby`,
-`s`, `samp`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `time`,
-`var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## ol
 
-**Attributes**: `reversed`, `start`,
-`type`
+**Attributes**: `reversed`, `start`, `type`
 
-**Allowed inline styles**: `list-style`,
-`list-style-image`, `list-style-position`,
-`list-style-type`
+**Allowed inline styles**: `list-style`, `list-style-image`, `list-style-position`, `list-style-type`
 
 **Content**: `li`
 
@@ -932,17 +394,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## pre
 
@@ -950,17 +402,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## q
 
@@ -968,17 +410,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## rp
 
@@ -994,17 +426,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## ruby
 
@@ -1012,18 +434,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`rp`, `rt`, `ruby`,
-`s`, `samp`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `time`,
-`var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `rp`, `rt`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## s
 
@@ -1031,17 +442,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## samp
 
@@ -1049,17 +450,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## section
 
@@ -1067,25 +458,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figure`,
-`footer`, `h1`, `h2`,
-`h3`, `h4`, `h5`,
-`h6`, `header`, `hr`,
-`iframe`, `img`, `ins`,
-`kbd`, `mark`, `noscript`,
-`ol`, `p`, `pre`,
-`q`, `ruby`, `s`,
-`samp`, `section`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `table`,
-`time`, `ul`, `var`,
-`video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `footer`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `header`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## small
 
@@ -1093,24 +466,13 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## source
 
 **Attributes**: `src`, `type`
 
-**Allowed protocols for src**: `blob`,
-`data`, `http`, `https`
+**Allowed protocols for src**: `blob`, `data`, `http`, `https`
 
 **Allowed inline styles**: only global styles
 
@@ -1122,17 +484,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## strong
 
@@ -1140,17 +492,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## sub
 
@@ -1158,17 +500,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## summary
 
@@ -1176,19 +508,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `h1`,
-`h2`, `h3`, `h4`,
-`h5`, `h6`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## sup
 
@@ -1196,30 +516,15 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## table
 
-**Attributes**: `border`, `cellpadding`,
-`cellspacing`
+**Attributes**: `border`, `cellpadding`, `cellspacing`
 
-**Allowed inline styles**: `margin`,
-`margin-bottom`, `margin-left`,
-`margin-right`, `margin-top`
+**Allowed inline styles**: `margin`, `margin-bottom`, `margin-left`, `margin-right`, `margin-top`
 
-**Content**: `caption`, `colgroup`,
-`tbody`, `tfoot`, `thead`,
-`tr`
+**Content**: `caption`, `colgroup`, `tbody`, `tfoot`, `thead`, `tr`
 
 ## tbody
 
@@ -1235,25 +540,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figure`,
-`footer`, `h1`, `h2`,
-`h3`, `h4`, `h5`,
-`h6`, `header`, `hr`,
-`iframe`, `img`, `ins`,
-`kbd`, `mark`, `noscript`,
-`ol`, `p`, `pre`,
-`q`, `ruby`, `s`,
-`samp`, `section`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `table`,
-`time`, `ul`, `var`,
-`video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `footer`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `header`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## tfoot
 
@@ -1265,30 +552,11 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 ## th
 
-**Attributes**: `colspan`, `rowspan`,
-`scope`
+**Attributes**: `colspan`, `rowspan`, `scope`
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `address`, `aside`,
-`audio`, `bdi`, `bdo`,
-`blockquote`, `br`, `cite`,
-`code`, `data`, `del`,
-`details`, `dfn`, `div`,
-`dl`, `em`, `figure`,
-`footer`, `h1`, `h2`,
-`h3`, `h4`, `h5`,
-`h6`, `header`, `hr`,
-`iframe`, `img`, `ins`,
-`kbd`, `mark`, `noscript`,
-`ol`, `p`, `pre`,
-`q`, `ruby`, `s`,
-`samp`, `section`, `small`,
-`span`, `strong`, `sub`,
-`summary`, `sup`, `table`,
-`time`, `ul`, `var`,
-`video`
+**Content**: `@text`, `a`, `abbr`, `address`, `aside`, `audio`, `bdi`, `bdo`, `blockquote`, `br`, `cite`, `code`, `data`, `del`, `details`, `dfn`, `div`, `dl`, `em`, `figure`, `footer`, `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `header`, `hr`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `ol`, `p`, `pre`, `q`, `ruby`, `s`, `samp`, `section`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `table`, `time`, `ul`, `var`, `video`
 
 ## thead
 
@@ -1304,17 +572,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## tr
 
@@ -1326,11 +584,9 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 ## track
 
-**Attributes**: `default`, `kind`,
-`label`, `src`, `srclang`
+**Attributes**: `default`, `kind`, `label`, `src`, `srclang`
 
-**Allowed protocols for src**: `blob`,
-`data`, `http`, `https`
+**Allowed protocols for src**: `blob`, `data`, `http`, `https`
 
 **Allowed inline styles**: only global styles
 
@@ -1340,9 +596,7 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Attributes**: only global attributes
 
-**Allowed inline styles**: `list-style`,
-`list-style-image`, `list-style-position`,
-`list-style-type`
+**Allowed inline styles**: `list-style`, `list-style-image`, `list-style-position`, `list-style-type`
 
 **Content**: `li`
 
@@ -1352,26 +606,13 @@ In most cases, Zendesk recommends using CSS classes instead of inline styles to 
 
 **Allowed inline styles**: only global styles
 
-**Content**: `@text`, `a`,
-`abbr`, `audio`, `bdi`,
-`bdo`, `br`, `cite`,
-`code`, `data`, `del`,
-`dfn`, `em`, `iframe`,
-`img`, `ins`, `kbd`,
-`mark`, `noscript`, `q`,
-`ruby`, `s`, `samp`,
-`small`, `span`, `strong`,
-`sub`, `summary`, `sup`,
-`time`, `var`, `video`
+**Content**: `@text`, `a`, `abbr`, `audio`, `bdi`, `bdo`, `br`, `cite`, `code`, `data`, `del`, `dfn`, `em`, `iframe`, `img`, `ins`, `kbd`, `mark`, `noscript`, `q`, `ruby`, `s`, `samp`, `small`, `span`, `strong`, `sub`, `summary`, `sup`, `time`, `var`, `video`
 
 ## video
 
-**Attributes**: `controls`, `height`,
-`poster`, `preload`, `src`,
-`width`
+**Attributes**: `controls`, `height`, `poster`, `preload`, `src`, `width`
 
-**Allowed protocols for src**: `blob`,
-`data`, `http`, `https`
+**Allowed protocols for src**: `blob`, `data`, `http`, `https`
 
 **Allowed inline styles**: only global styles
 

@@ -21,8 +21,7 @@ title: Linked resources in incidents
 
 {{< /history >}}
 
-To help your team members find the important links without having to search through many comments,
-you can add linked resources to an incident issue.
+To help your team members find the important links without having to search through many comments, you can add linked resources to an incident issue.
 
 Resources you might want link to:
 

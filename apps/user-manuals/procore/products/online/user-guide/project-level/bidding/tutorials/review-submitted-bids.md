@@ -11,7 +11,7 @@ To review all submitted bids to decide who to award bids to.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.
+ - 'Admin' level permissions on the project's Bidding tool.
 
 ## Prerequisites
 
@@ -31,11 +31,11 @@ If your project has been updated to [Bid Management Enhanced Experience](https:/
 2. Click **View** next to the bid package you want to view submitted bids for.
 3. Click the **Bidders** tab.
 4. Click **Add Filter**.
-5. In the Add Filter drop-down list, click **Submission Status** and then mark the **Submitted** checkbox in the secondary list.   
+5. In the Add Filter drop-down list, click **Submission Status** and then mark the **Submitted** checkbox in the secondary list.  
      
-   ![submission status.jpg](https://support.procore.com/@api/deki/files/79205/submission_status.jpg?revision=1)  
+   ![submission status.jpg](https://support.procore.com/@api/deki/files/79205/submission_status.jpg?revision=1) 
      
-   You will then see all submitted bids and their bid amount.  
+   You will then see all submitted bids and their bid amount. 
    *Note:* If you enabled blind bidding, you will not be able to see the bid amount until the bidding period is over.
 
 ### View Bids Submitted by Email
@@ -45,18 +45,18 @@ If your project has been updated to [Bid Management Enhanced Experience](https:/
 If a bidder submitted their bid by replying to the invitation to bid email, you will need to review their submission in 'Attachments' section of their bidder response page.
 
 1. Navigate to the project's **Bidding** tool.
-2. Click the **Bidders** tab.  
-   Bids submitted by email are automatically shown with a status of 'Bid Submitted' and have 'Bid submitted via email' written in the Last Activity column of the Bidders tab.  
+2. Click the **Bidders** tab. 
+   Bids submitted by email are automatically shown with a status of 'Bid Submitted' and have 'Bid submitted via email' written in the Last Activity column of the Bidders tab. 
    ![bidding-submitted-by-email.png](https://support.procore.com/@api/deki/files/349430/bidding-submitted-by-email.png?revision=2)
 3. Click the bidder's name to view their response page.
 4. Scroll to the Attachments section to see any files that the bidder included in their email.
-5. Click on a filename to download and review the bid submission.  
+5. Click on a filename to download and review the bid submission. 
    ![bidding-download-emailed-attachment.png](https://support.procore.com/@api/deki/files/349428/bidding-download-emailed-attachment.png?revision=1)
 
 ## Next Steps
 
-- [Award a Winning Bid and Convert It Into a Subcontract](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/award-a-winning-bid-and-convert-it-into-a-subcontract "Award a Winning Bid and Convert it into a Commitment")  
-  OR
+- [Award a Winning Bid and Convert It Into a Subcontract](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/award-a-winning-bid-and-convert-it-into-a-subcontract "Award a Winning Bid and Convert it into a Commitment") 
+ OR
 - [Award a Winning Bid and Convert It Into a Purchase Order](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/award-a-winning-bid-and-convert-it-into-a-purchase-order "Award a Winning Bid and Convert it into a Purchase Order")
 
 ## See Also

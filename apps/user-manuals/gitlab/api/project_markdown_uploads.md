@@ -12,8 +12,7 @@ title: Markdown uploads API
 
 {{< /details >}}
 
-Use this API to manage [Markdown uploads](../security/user_file_uploads.md) that can be referenced
-in Markdown text in issues, merge requests, snippets, or wiki pages.
+Use this API to manage [Markdown uploads](../security/user_file_uploads.md) that can be referenced in Markdown text in issues, merge requests, snippets, or wiki pages.
 
 ## Upload a file
 
@@ -38,9 +37,7 @@ Supported attributes:
 | `file`    | string            | Yes      | File to be uploaded. |
 | `id`      | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 
-To upload a file from your file system, use the `--form` argument. This causes cURL to post data using the
-`Content-Type: multipart/form-data` header. The `file=` parameter must point to a file on your file system and be
-preceded by `@`.
+To upload a file from your file system, use the `--form` argument. This causes cURL to post data using the `Content-Type: multipart/form-data` header. The `file=` parameter must point to a file on your file system and be preceded by `@`.
 
 Example request:
 
@@ -53,11 +50,11 @@ Example response:
 
 ```json
 {
-  "id": 5,
-  "alt": "dk",
-  "url": "/uploads/66dbcd21ec5d24ed6ea225176098d52b/dk.png",
-  "full_path": "/-/project/1234/uploads/66dbcd21ec5d24ed6ea225176098d52b/dk.png",
-  "markdown": "![dk](/uploads/66dbcd21ec5d24ed6ea225176098d52b/dk.png)"
+ "id": 5,
+ "alt": "dk",
+ "url": "/uploads/66dbcd21ec5d24ed6ea225176098d52b/dk.png",
+ "full_path": "/-/project/1234/uploads/66dbcd21ec5d24ed6ea225176098d52b/dk.png",
+ "markdown": "![dk](/uploads/66dbcd21ec5d24ed6ea225176098d52b/dk.png)"
 }
 ```
 
@@ -100,7 +97,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "size": 1024,
     "filename": "image.png",
@@ -110,14 +107,14 @@ Example response:
       "name" : "Alexandra Bashirian",
       "username" : "eileen.lowe"
     }
-  },
-  {
+ },
+ {
     "id": 2,
     "size": 512,
     "filename": "other-image.png",
     "created_at":"2024-06-19T15:53:03.067Z",
     "uploaded_by": null
-  }
+ }
 ]
 ```
 
@@ -174,7 +171,7 @@ GET /projects/:id/uploads/:secret/:filename
 
 Supported attributes:
 
-| Attribute  | Type              | Required | Description |
+| Attribute | Type              | Required | Description |
 |:-----------|:------------------|:---------|:------------|
 | `id`       | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `secret`   | string            | Yes      | 32-character secret of the upload. |
@@ -241,7 +238,7 @@ DELETE /projects/:id/uploads/:secret/:filename
 
 Supported attributes:
 
-| Attribute  | Type              | Required | Description |
+| Attribute | Type              | Required | Description |
 |:-----------|:------------------|:---------|:------------|
 | `id`       | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `secret`   | string            | Yes      | 32-character secret of the upload. |

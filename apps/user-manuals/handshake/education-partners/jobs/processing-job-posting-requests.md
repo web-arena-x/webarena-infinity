@@ -20,12 +20,12 @@ To review job posting requests pending at your institution, click **Jobs** from 
 Job posting requests can be processed in the following ways:
 
 - [individually:](#h_01F2VJDFA9PE79BGM28DPZT6YQ)
-  - from the list of pending or in progress jobs
-  - from the job posting's overview page
+ - from the list of pending or in progress jobs
+ - from the job posting's overview page
 - [in bulk](#h_01F2VJDVWBEC9PZZ5WCRQ82YEE) from the list of pending or in progress jobs
 - [automatically](#h_01F2VJE446H1ZE5JGW9AFF4ZDJ) approved by the system
-  - [intuitively prompted](#h_01FFGJ2KX1ZGS8M2FV4Y115DFS)
-  - via [Employer Permissions](#h_01FFGJ2VHW8CNBSD4N5BHQ65YK)
+ - [intuitively prompted](#h_01FFGJ2KX1ZGS8M2FV4Y115DFS)
+ - via [Employer Permissions](#h_01FFGJ2VHW8CNBSD4N5BHQ65YK)
 - Second Request postings
 
 ## Process pending jobs individually
@@ -49,7 +49,7 @@ To approve an individual posting from the list of pending jobs, in the column to
 - **Approved**: Save will turn green and update to "Save Approved" or "Save Approved & View Next"![process_from_job_posting_overview.png](https://support.joinhandshake.com/hc/article_attachments/26001302050071)
 - **In Progress**: the buttons will remain blue and read "Save" or "Save & View Next" ![in_progress_from_overview.png](https://support.joinhandshake.com/hc/article_attachments/26001302052375)
 - **Declined**: Save will turn red and update to "Save Declined" or "Save Declined & View Next"
-  - **Note**: if you decline a job, you'll be prompted for more information. For more info on this prompt, check out [Using Job Decline Reasons](https://support.joinhandshake.com/hc/en-us/articles/4407079610903)! ![decline_from_overview.png](https://support.joinhandshake.com/hc/article_attachments/26001302053399)
+ - **Note**: if you decline a job, you'll be prompted for more information. For more info on this prompt, check out [Using Job Decline Reasons](https://support.joinhandshake.com/hc/en-us/articles/4407079610903)! ![decline_from_overview.png](https://support.joinhandshake.com/hc/article_attachments/26001302053399)
 
 ## Process pending jobs in bulk
 
@@ -60,15 +60,15 @@ To approve an individual posting from the list of pending jobs, in the column to
 2. To process the postings, in the column header row, click:
 
 - **Approve** to make the posting live to students
-  - **Note**: if the Apply Start date is in the future, the posting will be viewable to students, but they will not be able to apply till the specified start date. For the best experience, we recommend not approving jobs with an Apply Start date in the future and instead, leave them as "Pending" or "In Progress" till the specified date.
+ - **Note**: if the Apply Start date is in the future, the posting will be viewable to students, but they will not be able to apply till the specified start date. For the best experience, we recommend not approving jobs with an Apply Start date in the future and instead, leave them as "Pending" or "In Progress" till the specified date.
 - **Decline** to prevent the posting from being accessible to your students
-  - **Note**: if you decline a job, you'll be prompted for more information. For more info on this prompt, check out [Using Job Decline Reasons](https://support.joinhandshake.com/hc/en-us/articles/4407079610903)!
+ - **Note**: if you decline a job, you'll be prompted for more information. For more info on this prompt, check out [Using Job Decline Reasons](https://support.joinhandshake.com/hc/en-us/articles/4407079610903)!
 - The ellipsis button to select from more options:
-  - **Set to In Progress** to indicate the posting is under review or consideration.
-  - **Tip**: If you plan to approve at a later date, such as with the example for a future Apply Start date, you can also add a label to quickly identify the postings at that time!
-  - **Add label to job**to add a label to the job.
-  - **Remove label from job** to remove a label from the job.
-  - **Email contacts or creators** to open a targeted email draft so that you can contact the owner of the job posting with questions.
+ - **Set to In Progress** to indicate the posting is under review or consideration.
+ - **Tip**: If you plan to approve at a later date, such as with the example for a future Apply Start date, you can also add a label to quickly identify the postings at that time!
+ - **Add label to job**to add a label to the job.
+ - **Remove label from job** to remove a label from the job.
+ - **Email contacts or creators** to open a targeted email draft so that you can contact the owner of the job posting with questions.
 
 3. After approving, declining, or setting the job to in progress, the page will automatically refresh and save the changes.
 

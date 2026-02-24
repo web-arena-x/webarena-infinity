@@ -8,33 +8,33 @@ Table of Contents
 
 - [Overview](https://support.procore.com/#)
 - Company Admin 
-  - [Tutorials](https://support.procore.com/#)
-  - [FAQ](https://support.procore.com/#)
-  - [Permissions](https://support.procore.com/#)
+ - [Tutorials](https://support.procore.com/#)
+ - [FAQ](https://support.procore.com/#)
+ - [Permissions](https://support.procore.com/#)
 - Company Directory 
-  - [Tutorials](https://support.procore.com/#)
-  - [FAQ](https://support.procore.com/#)
-  - [Permissions](https://support.procore.com/#)
+ - [Tutorials](https://support.procore.com/#)
+ - [FAQ](https://support.procore.com/#)
+ - [Permissions](https://support.procore.com/#)
 - Project Admin 
-  - [Tutorials](https://support.procore.com/#)
-  - [FAQ](https://support.procore.com/#)
-  - [Permissions](https://support.procore.com/#)
+ - [Tutorials](https://support.procore.com/#)
+ - [FAQ](https://support.procore.com/#)
+ - [Permissions](https://support.procore.com/#)
 - Project Directory 
-  - [Tutorials](https://support.procore.com/#)
-  - [FAQ](https://support.procore.com/#)
-  - [Permissions](https://support.procore.com/#)
+ - [Tutorials](https://support.procore.com/#)
+ - [FAQ](https://support.procore.com/#)
+ - [Permissions](https://support.procore.com/#)
 - Project Schedule 
-  - [Tutorials](https://support.procore.com/#)
-  - [FAQ](https://support.procore.com/#)
-  - [Permissions](https://support.procore.com/#)
+ - [Tutorials](https://support.procore.com/#)
+ - [FAQ](https://support.procore.com/#)
+ - [Permissions](https://support.procore.com/#)
 - Project Punch List 
-  - [Tutorials](https://support.procore.com/#)
-  - [FAQ](https://support.procore.com/#)
-  - [Permissions](https://support.procore.com/#)
+ - [Tutorials](https://support.procore.com/#)
+ - [FAQ](https://support.procore.com/#)
+ - [Permissions](https://support.procore.com/#)
 - Project Submittals 
-  - [Tutorials](https://support.procore.com/#)
-  - [FAQ](https://support.procore.com/#)
-  - [Permissions](https://support.procore.com/#)
+ - [Tutorials](https://support.procore.com/#)
+ - [FAQ](https://support.procore.com/#)
+ - [Permissions](https://support.procore.com/#)
 - [Videos](https://support.procore.com/#)
 - [Release Notes](https://support.procore.com/#)
 
@@ -88,14 +88,14 @@ The WBS rollout was 100% complete on Friday, April 1, 2022. The legacy tutorial 
 
 ### Company Admin (Procore Imports)
 
-The following table highlights which user permissions are required to perform the described user action.  
+The following table highlights which user permissions are required to perform the described user action. 
 **Note*:* Granular Permissions are not supported in the Procore Imports application.
 
 | Task | None | Read Only | Standard | Admin |
 | --- | --- | --- | --- | --- |
-| LEGACY [Import Cost Codes into the Company Level Admin Tool](https://support.procore.com/products/procore-imports/company-admin/tutorials/import-cost-codes-into-your-company-level-admin-tool-procore-imports "Import Cost Codes into the Company Level Admin Tool (Procore Imports)") |  |  |  | icon-mindtouch-table-check.png |
-| NEW [Import Segment Items into your Company Level Admin Tool](https://support.procore.com/products/procore-imports/company-admin/tutorials/import-segment-items-into-your-company-level-admin-tool-procore-imports "Import Segment Items into your Company Level Admin Tool with Procore Imports") |  |  |  | icon-mindtouch-table-check.png |
-| [Prepare Cost Codes for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/company-admin/tutorials/prepare-cost-codes-for-import-to-the-procore-imports-app "Prepare Cost Codes for Import to the Procore Imports App") |  |  |  | icon-mindtouch-table-check.png |
+| LEGACY [Import Cost Codes into the Company Level Admin Tool](https://support.procore.com/products/procore-imports/company-admin/tutorials/import-cost-codes-into-your-company-level-admin-tool-procore-imports "Import Cost Codes into the Company Level Admin Tool (Procore Imports)") | | | | icon-mindtouch-table-check.png |
+| NEW [Import Segment Items into your Company Level Admin Tool](https://support.procore.com/products/procore-imports/company-admin/tutorials/import-segment-items-into-your-company-level-admin-tool-procore-imports "Import Segment Items into your Company Level Admin Tool with Procore Imports") | | | | icon-mindtouch-table-check.png |
+| [Prepare Cost Codes for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/company-admin/tutorials/prepare-cost-codes-for-import-to-the-procore-imports-app "Prepare Cost Codes for Import to the Procore Imports App") | | | | icon-mindtouch-table-check.png |
 
 - [Import Users & Vendors into your Company Level Directory Tool (Procore Imports)](https://support.procore.com/products/procore-imports/company-directory/tutorials/import-users-vendors-into-your-company-level-directory-tool-procore-imports "products/procore-imports/company-directory/tutorials/import-users-vendors-into-your-company-level-directory-tool-procore-imports")
 - [Prepare Company Users & Vendors for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/company-directory/tutorials/prepare-users-and-vendors-for-import-to-the-procore-imports-app "products/procore-imports/company-directory/tutorials/prepare-users-and-vendors-for-import-to-the-procore-imports-app")
@@ -107,14 +107,14 @@ The following table highlights which user permissions are required to perform th
 
 ### Company Directory (Procore Imports)
 
-The following table highlights which user permissions are required to perform the described user action.  
+The following table highlights which user permissions are required to perform the described user action. 
 **Note*:* Granular Permissions are not supported in the Procore Imports application.
 
 | Task | None | Read Only | Standard | Admin |
 | --- | --- | --- | --- | --- |
-| [Import Users & Vendors into your Company Level Directory Tool](https://support.procore.com/products/procore-imports/company-directory/tutorials/import-users-vendors-into-your-company-level-directory-tool-procore-imports "Import Users & Vendors into your Company Level Directory Tool (Procore Imports)") |  |  |  | icon-mindtouch-table-check.png |
-| [Prepare Users & Vendors for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/company-directory/tutorials/prepare-users-and-vendors-for-import-to-the-procore-imports-app "Prepare Users & Vendors for Import to the Procore Imports App") |  |  |  | icon-mindtouch-table-check.png |
-| [Update Users & Vendors in your Company Level Directory Tool](https://support.procore.com/products/procore-imports/company-directory/tutorials/update-users-vendors-in-your-company-level-directory-tool-procore-imports "Update Users & Vendors in your Company Level Directory Tool (Procore Imports)") |  |  |  | icon-mindtouch-table-check.png |
+| [Import Users & Vendors into your Company Level Directory Tool](https://support.procore.com/products/procore-imports/company-directory/tutorials/import-users-vendors-into-your-company-level-directory-tool-procore-imports "Import Users & Vendors into your Company Level Directory Tool (Procore Imports)") | | | | icon-mindtouch-table-check.png |
+| [Prepare Users & Vendors for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/company-directory/tutorials/prepare-users-and-vendors-for-import-to-the-procore-imports-app "Prepare Users & Vendors for Import to the Procore Imports App") | | | | icon-mindtouch-table-check.png |
+| [Update Users & Vendors in your Company Level Directory Tool](https://support.procore.com/products/procore-imports/company-directory/tutorials/update-users-vendors-in-your-company-level-directory-tool-procore-imports "Update Users & Vendors in your Company Level Directory Tool (Procore Imports)") | | | | icon-mindtouch-table-check.png |
 
 To import codes, cost types, sub jobs, custom segment items for [Work Breakdown Structure](https://support.procore.com/products/online/work-breakdown-structure "(Beta) Work Breakdown Structure"):
 
@@ -134,14 +134,14 @@ You can also upload multi-tiered location 1 data:
 
 ### Project Admin (Procore Imports)
 
-The following table highlights which user permissions are required to perform the described user action.  
+The following table highlights which user permissions are required to perform the described user action. 
 **Note*:* Granular Permissions are not supported in the Procore Imports application.
 
 | Task | None | Read Only | Standard | Admin |
 | --- | --- | --- | --- | --- |
-| [Import Locations into your Project Level Admin Tool](https://support.procore.com/products/procore-imports/project-admin/tutorials/import-locations-into-your-project-level-admin-tool-procore-imports "Import Locations into your Project Level Admin Tool (Procore Imports)") |  |  |  | icon-mindtouch-table-check.png |
-| [Import Segment Items into your Project Level Admin Tool](https://support.procore.com/products/procore-imports/project-admin/tutorials/import-segment-items-into-your-project-level-admin-tool-with-procore-imports "Import Segment Items into your Project Level Admin Tool (Procore Imports)") |  |  |  | icon-mindtouch-table-check.png |
-| [Prepare Segment Items for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/tutorials/prepare-segment-items-for-import-to-the-procore-imports-app "Prepare Segment Items for Import to the Procore Imports App") |  |  |  | icon-mindtouch-table-check.png |
+| [Import Locations into your Project Level Admin Tool](https://support.procore.com/products/procore-imports/project-admin/tutorials/import-locations-into-your-project-level-admin-tool-procore-imports "Import Locations into your Project Level Admin Tool (Procore Imports)") | | | | icon-mindtouch-table-check.png |
+| [Import Segment Items into your Project Level Admin Tool](https://support.procore.com/products/procore-imports/project-admin/tutorials/import-segment-items-into-your-project-level-admin-tool-with-procore-imports "Import Segment Items into your Project Level Admin Tool (Procore Imports)") | | | | icon-mindtouch-table-check.png |
+| [Prepare Segment Items for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/tutorials/prepare-segment-items-for-import-to-the-procore-imports-app "Prepare Segment Items for Import to the Procore Imports App") | | | | icon-mindtouch-table-check.png |
 
 - [Import Contacts into your Project Level Directory Tool (Procore Imports)](https://support.procore.com/products/procore-imports/project-directory/tutorials/import-contacts-into-your-project-level-directory-tool-procore-imports "products/procore-imports/project-directory/tutorials/import-contacts-into-your-project-level-directory-tool-procore-imports")
 - [Import Users & Vendors into your Project Level Directory Tool (Procore Imports)](https://support.procore.com/products/procore-imports/project-directory/tutorials/import-users-vendors-into-your-project-level-directory-tool-procore-imports "products/procore-imports/project-directory/tutorials/import-users-vendors-into-your-project-level-directory-tool-procore-imports")
@@ -155,14 +155,14 @@ The following table highlights which user permissions are required to perform th
 
 ### Project Directory (Procore Imports)
 
-The following table highlights which user permissions are required to perform the described user action.  
+The following table highlights which user permissions are required to perform the described user action. 
 **Note*:* Granular Permissions are not supported in the Procore Imports application.
 
 | Task | None | Read Only | Standard | Admin |
 | --- | --- | --- | --- | --- |
-| [Import Users & Vendors into your Project Level Directory Tool (Procore Imports)](https://support.procore.com/products/procore-imports/project-directory/tutorials/import-users-vendors-into-your-project-level-directory-tool-procore-imports "Import Users & Vendors into your Project Level Directory Tool (Procore Imports)") |  |  |  | icon-mindtouch-table-check.png1 |
-| [Prepare Users & Vendors for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/project-directory/tutorials/prepare-users-vendors-for-import-to-the-procore-imports-app "Prepare Users & Vendors for Import to the Procore Imports App") |  |  |  | icon-mindtouch-table-check.png1 |
-| [Update Users & Vendors in your Project Level Directory Tool (Procore Imports)](https://support.procore.com/products/procore-imports/project-directory/tutorials/update-users-vendors-in-your-project-level-directory-tool-procore-imports "Update Users & Vendors in your Project Level Directory Tool (Procore Imports)") |  |  |  | icon-mindtouch-table-check.png1 |
+| [Import Users & Vendors into your Project Level Directory Tool (Procore Imports)](https://support.procore.com/products/procore-imports/project-directory/tutorials/import-users-vendors-into-your-project-level-directory-tool-procore-imports "Import Users & Vendors into your Project Level Directory Tool (Procore Imports)") | | | | icon-mindtouch-table-check.png1 |
+| [Prepare Users & Vendors for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/project-directory/tutorials/prepare-users-vendors-for-import-to-the-procore-imports-app "Prepare Users & Vendors for Import to the Procore Imports App") | | | | icon-mindtouch-table-check.png1 |
+| [Update Users & Vendors in your Project Level Directory Tool (Procore Imports)](https://support.procore.com/products/procore-imports/project-directory/tutorials/update-users-vendors-in-your-project-level-directory-tool-procore-imports "Update Users & Vendors in your Project Level Directory Tool (Procore Imports)") | | | | icon-mindtouch-table-check.png1 |
 
 1'Admin' level permission is required on the Company level Directory tool to complete this function.
 
@@ -174,13 +174,13 @@ The following table highlights which user permissions are required to perform th
 
 ### Project Schedule (Procore Imports)
 
-The following table highlights which user permissions are required to perform the described user action.  
+The following table highlights which user permissions are required to perform the described user action. 
 **Note*:* Granular Permissions are not supported in the Procore Imports application.
 
 | Task | None | Read Only | Standard | Admin |
 | --- | --- | --- | --- | --- |
-| [Import Schedule Tasks into your Project Level Schedule Tool (Procore Imports)](https://support.procore.com/products/procore-imports/project-schedule/tutorials/import-schedule-tasks-into-your-project-level-schedule-tool-procore-imports "Import Schedule Tasks into your Project Level Schedule Tool (Procore Imports)") |  |  |  | icon-mindtouch-table-check.png 1 |
-| [Prepare Schedule Tasks for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/project-schedule/tutorials/prepare-schedule-tasks-for-import-to-the-procore-imports-app "Prepare Schedule Tasks for Import to the Procore Imports App") |  |  |  | icon-mindtouch-table-check.png |
+| [Import Schedule Tasks into your Project Level Schedule Tool (Procore Imports)](https://support.procore.com/products/procore-imports/project-schedule/tutorials/import-schedule-tasks-into-your-project-level-schedule-tool-procore-imports "Import Schedule Tasks into your Project Level Schedule Tool (Procore Imports)") | | | | icon-mindtouch-table-check.png 1 |
+| [Prepare Schedule Tasks for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/project-schedule/tutorials/prepare-schedule-tasks-for-import-to-the-procore-imports-app "Prepare Schedule Tasks for Import to the Procore Imports App") | | | | icon-mindtouch-table-check.png |
 
 *1 Also requires 'Admin' level permissions to the Project level Admin tool.*
 
@@ -191,13 +191,13 @@ There are currently no FAQs for this tool.
 
 ### Punch List (Procore Imports)
 
-The following table highlights which user permissions are required to perform the described user action.  
+The following table highlights which user permissions are required to perform the described user action. 
 *Note:* Granular Permissions are not supported in the Procore Imports application.
 
 | Task | None | Read Only | Standard | Admin |
 | --- | --- | --- | --- | --- |
-| [Import Punch List Items into your Project Level Punch List Tool](https://support.procore.com/products/procore-imports/punch-list/tutorials/import-punch-list-items-into-your-project-level-punch-list-tool-procore-imports "Import Punch List Items into your Project Level Punch List Tool (Procore Imports)") |  |  |  | icon-mindtouch-table-check.png1,2 |
-| [Prepare Punch List Items for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/punch-list/tutorials/prepare-punch-list-items-for-import-to-the-procore-imports-app "Prepare Punch List Items for Import to the Procore Imports App") |  |  |  | icon-mindtouch-table-check.png1,2 |
+| [Import Punch List Items into your Project Level Punch List Tool](https://support.procore.com/products/procore-imports/punch-list/tutorials/import-punch-list-items-into-your-project-level-punch-list-tool-procore-imports "Import Punch List Items into your Project Level Punch List Tool (Procore Imports)") | | | | icon-mindtouch-table-check.png1,2 |
+| [Prepare Punch List Items for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/punch-list/tutorials/prepare-punch-list-items-for-import-to-the-procore-imports-app "Prepare Punch List Items for Import to the Procore Imports App") | | | | icon-mindtouch-table-check.png1,2 |
 
 1'Admin' level permission is required on the Project level Admin tool to complete this function.
 
@@ -210,13 +210,13 @@ There are currently no FAQs for this tool.
 
 ### Submittals (Procore Imports)
 
-The following table highlights which user permissions are required to perform the described user action.  
+The following table highlights which user permissions are required to perform the described user action. 
 **Note*:* Granular Permissions are not supported in the Procore Imports application.
 
 | Task | None | Read Only | Standard | Admin |
 | --- | --- | --- | --- | --- |
-| [Import Submittals into your Project Level Submittals Tool (Procore Imports)](https://support.procore.com/products/procore-imports/submittals/tutorials/import-submittals-into-your-project-level-submittals-tool-procore-imports "Import Submittals into your Project Level Submittals Tool (Procore Imports)") |  |  |  | icon-mindtouch-table-check.png |
-| [Prepare Submittals for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/submittals/tutorials/prepare-submittals-for-import-to-the-procore-imports-app "Prepare Submittals for Import to the Procore Imports App") |  |  |  | icon-mindtouch-table-check.png |
+| [Import Submittals into your Project Level Submittals Tool (Procore Imports)](https://support.procore.com/products/procore-imports/submittals/tutorials/import-submittals-into-your-project-level-submittals-tool-procore-imports "Import Submittals into your Project Level Submittals Tool (Procore Imports)") | | | | icon-mindtouch-table-check.png |
+| [Prepare Submittals for Import to the Procore Imports App](https://support.procore.com/products/procore-imports/submittals/tutorials/prepare-submittals-for-import-to-the-procore-imports-app "Prepare Submittals for Import to the Procore Imports App") | | | | icon-mindtouch-table-check.png |
 
 ##### Tip
 
@@ -230,7 +230,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Import Users into the Company Level Directory Tool
 
-|  |
+| |
 |
 
 ##### Import Companies into the Company Level Directory Tool
@@ -277,7 +277,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Import Users into the Company Level Directory Tool
 
-|  |
+| |
 |
 
 ##### Import Companies into the Company Level Directory Tool
@@ -320,7 +320,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Import Users into the Company Level Directory Tool
 
-|  |
+| |
 |
 
 ##### Import Companies into the Company Level Directory Tool
@@ -337,67 +337,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Import Users into the Company Level Directory Tool
 
-|  |
-|
-
-##### Import Companies into the Company Level Directory Tool
-
-##### Import Submittals
-
-##### Import Punch Items
-
-### OUTDATED VIDEOS - Removed from Support Site and Certifications
-
-#### Import Cost Codes into the Admin Tool
-
-*Video content may not accurately reflect the current state of the system, and/or it may be out of date.*
-
-#### Import Locations into the Project Admin Tool
-
-*Video content may not accurately reflect the current state of the system, and/or it may be out of date.*
-
-#### Import Users into the Directory Tool
-
-*Video content may not accurately reflect the current state of the system, and/or it may be out of date.*
-
-#### Import Companies into the Directory Tool
-
-*Video content may not accurately reflect the current state of the system, and/or it may be out of date.*
-
-#### Import Submittals into the Project Submittals Tool
-
-*Video content may not accurately reflect the current state of the system, and/or it may be out of date.*
-
-#### Import Punch Items into the Project Punch List Tool
-
-*Video content may not accurately reflect the current state of the system, and/or it may be out of date.*
-
-|
-
-##### Import Segment Items into the Company Level Admin Tool
-
-##### Import Locations
-
-##### Import Users into the Company Level Directory Tool
-
-|  |
-|
-
-##### Import Companies into the Company Level Directory Tool
-
-##### Import Submittals
-
-##### Import Punch Items
-
-|
-
-##### Import Segment Items into the Company Level Admin Tool
-
-##### Import Locations
-
-##### Import Users into the Company Level Directory Tool
-
-|  |
+| |
 |
 
 ##### Import Companies into the Company Level Directory Tool
@@ -432,6 +372,66 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 *Video content may not accurately reflect the current state of the system, and/or it may be out of date.*
 
+|
+
+##### Import Segment Items into the Company Level Admin Tool
+
+##### Import Locations
+
+##### Import Users into the Company Level Directory Tool
+
+| |
+|
+
+##### Import Companies into the Company Level Directory Tool
+
+##### Import Submittals
+
+##### Import Punch Items
+
+|
+
+##### Import Segment Items into the Company Level Admin Tool
+
+##### Import Locations
+
+##### Import Users into the Company Level Directory Tool
+
+| |
+|
+
+##### Import Companies into the Company Level Directory Tool
+
+##### Import Submittals
+
+##### Import Punch Items
+
+### OUTDATED VIDEOS - Removed from Support Site and Certifications
+
+#### Import Cost Codes into the Admin Tool
+
+*Video content may not accurately reflect the current state of the system, and/or it may be out of date.*
+
+#### Import Locations into the Project Admin Tool
+
+*Video content may not accurately reflect the current state of the system, and/or it may be out of date.*
+
+#### Import Users into the Directory Tool
+
+*Video content may not accurately reflect the current state of the system, and/or it may be out of date.*
+
+#### Import Companies into the Directory Tool
+
+*Video content may not accurately reflect the current state of the system, and/or it may be out of date.*
+
+#### Import Submittals into the Project Submittals Tool
+
+*Video content may not accurately reflect the current state of the system, and/or it may be out of date.*
+
+#### Import Punch Items into the Project Punch List Tool
+
+*Video content may not accurately reflect the current state of the system, and/or it may be out of date.*
+
 ##### Import Submittals
 
 ### OUTDATED VIDEOS - Removed from Support Site and Certifications
@@ -444,7 +444,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Import Users into the Company Level Directory Tool
 
-|  |
+| |
 |
 
 ##### Import Companies into the Company Level Directory Tool
@@ -487,7 +487,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Import Users into the Company Level Directory Tool
 
-|  |
+| |
 |
 
 ##### Import Companies into the Company Level Directory Tool
@@ -504,7 +504,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Import Users into the Company Level Directory Tool
 
-|  |
+| |
 |
 
 ##### Import Companies into the Company Level Directory Tool
@@ -521,7 +521,7 @@ To browse and search all Procore training videos, [visit our video library](htt
 
 ##### Import Users into the Company Level Directory Tool
 
-|  |
+| |
 |
 
 ##### Import Companies into the Company Level Directory Tool

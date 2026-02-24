@@ -109,29 +109,29 @@ GitLab output:
 
 ```yaml
 stages:
-  - build
-  - test
-  - deploy
+ - build
+ - test
+ - deploy
 
 build:
-  stage: build
-  script:
+ stage: build
+ script:
     - npm install
     - npm build
-  artifacts:
+ artifacts:
     paths:
       - node_modules/
       - dist/
 
 test:
-  stage: test
-  script:
+ stage: test
+ script:
     - npm test
 
 deploy:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - ./deploy.sh
-  only:
+ only:
     - main
 ```

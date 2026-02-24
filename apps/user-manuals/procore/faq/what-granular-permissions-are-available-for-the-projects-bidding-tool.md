@@ -14,7 +14,7 @@ In Procore, the term granular permissions refers to task-based privileges that c
 | --- | --- |
 | Create Bid Notes | Grants users the privilege to create bid notes.  See [Add Notes to the Bid List](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/add-notes-to-the-bid-list "Add Notes to the Bid List"). |
 | Edit Bid Notes | Grants users the privilege to edit bid notes. |
-| Delete Bid Notes | Grants users the privilege to delete bid notes.  *Note:* Users with 'Standard' or 'Read Only' level permissions to the Bidding tool will also need to be added to the Bid Package's distribution list to see the bid package and perform the actions above. |
+| Delete Bid Notes | Grants users the privilege to delete bid notes. *Note:* Users with 'Standard' or 'Read Only' level permissions to the Bidding tool will also need to be added to the Bid Package's distribution list to see the bid package and perform the actions above. |
 
 ## See Also
 

@@ -147,10 +147,10 @@ For example, if the backup directory name is `1714053314_2024_04_25_17.0.0-pre`,
 
 ```json
 {
-  "metadata_version": 2,
-  "backup_id": "1714053314_2024_04_25_17.0.0-pre",
-  "created_at": "2024-04-25T13:55:14Z",
-  "gitlab_version": "17.0.0-pre"
+ "metadata_version": 2,
+ "backup_id": "1714053314_2024_04_25_17.0.0-pre",
+ "created_at": "2024-04-25T13:55:14Z",
+ "gitlab_version": "17.0.0-pre"
 }
 ```
 
@@ -170,9 +170,9 @@ To restore a backup of the current GitLab installation:
 
 - Run the following command:
 
-  ```shell
-  sudo gitlab-backup-cli restore all <backup_id>
-  ```
+ ```shell
+ sudo gitlab-backup-cli restore all <backup_id>
+ ```
 
 ### Restore object storage data
 
@@ -189,9 +189,9 @@ To restore object storage data:
 
 - Run the following command:
 
-  ```shell
-  sudo gitlab-backup restore <backup_id>
-  ```
+ ```shell
+ sudo gitlab-backup restore <backup_id>
+ ```
 
 The restore process:
 
@@ -199,8 +199,7 @@ The restore process:
 - Overwrites existing files with the same filenames in the destination bucket.
 - Might take a significant amount of time, depending on how much data is restored.
 
-Always monitor your system resources during a restore. Keep your original files
-until you verify the restoration was successful.
+Always monitor your system resources during a restore. Keep your original files until you verify the restoration was successful.
 
 ## Known issues
 

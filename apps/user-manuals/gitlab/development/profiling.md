@@ -5,29 +5,19 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Profiling
 ---
 
-To make it easier to track down performance problems GitLab comes with a set of
-profiling tools, some of these are available by default while others need to be
-explicitly enabled.
+To make it easier to track down performance problems GitLab comes with a set of profiling tools, some of these are available by default while others need to be explicitly enabled.
 
 ## Profiling a URL
 
-There is a `Gitlab::Profiler.profile` method, and corresponding
-`bin/profile-url` script, that enable profiling a GET or POST request to a
-specific URL, either as an anonymous user (the default) or as a specific user.
+There is a `Gitlab::Profiler.profile` method, and corresponding `bin/profile-url` script, that enable profiling a GET or POST request to a specific URL, either as an anonymous user (the default) or as a specific user.
 
-The first argument to the profiler is either a full URL
-(including the instance hostname) or an absolute path, including the
-leading slash.
+The first argument to the profiler is either a full URL (including the instance hostname) or an absolute path, including the leading slash.
 
-By default the report dump will be stored in a temporary file, which can be
-interacted with using the [Stackprof API](#reading-a-gitlabprofiler-report).
+By default the report dump will be stored in a temporary file, which can be interacted with using the [Stackprof API](#reading-a-gitlabprofiler-report).
 
-When using the script, command-line documentation is available by passing no
-arguments.
+When using the script, command-line documentation is available by passing no arguments.
 
-When using the method in an interactive console session, any changes to the
-application code within that console session is reflected in the profiler
-output.
+When using the method in an interactive console session, any changes to the application code within that console session is reflected in the profiler output.
 
 For example:
 
@@ -40,16 +30,13 @@ Gitlab::Profiler.profile('/my-user')
 # where 100 seconds is spent in UsersController#show
 ```
 
-For routes that require authorization you must provide a user to
-`Gitlab::Profiler`. You can do this like so:
+For routes that require authorization you must provide a user to `Gitlab::Profiler`. You can do this like so:
 
 ```ruby
 Gitlab::Profiler.profile('/gitlab-org/gitlab-test', user: User.first)
 ```
 
-Passing a `logger:` keyword argument to `Gitlab::Profiler.profile` sends
-ActiveRecord and ActionController log output to that logger. Further options are
-documented with the method source.
+Passing a `logger:` keyword argument to `Gitlab::Profiler.profile` sends ActiveRecord and ActionController log output to that logger. Further options are documented with the method source.
 
 ```ruby
 Gitlab::Profiler.profile('/gitlab-org/gitlab-test', user: User.first, logger: Logger.new($stdout))
@@ -73,13 +60,13 @@ Example sampling data:
 
 ```plaintext
 ==================================
-  Mode: wall(1000)
-  Samples: 8745 (6.92% miss rate)
-  GC: 1399 (16.00%)
+ Mode: wall(1000)
+ Samples: 8745 (6.92% miss rate)
+ GC: 1399 (16.00%)
 ==================================
      TOTAL    (pct)     SAMPLES    (pct)     FRAME
-      1022  (11.7%)        1022  (11.7%)     Sprockets::PathUtils#stat
-       957  (10.9%)         957  (10.9%)     (marking)
+      1022 (11.7%)        1022 (11.7%)     Sprockets::PathUtils#stat
+       957 (10.9%)         957 (10.9%)     (marking)
        493   (5.6%)         493   (5.6%)     Sprockets::PathUtils#entries
        576   (6.6%)         471   (5.4%)     Mustermann::AST::Translator#decorator_for
        439   (5.0%)         439   (5.0%)     (sweeping)
@@ -95,7 +82,7 @@ Example sampling data:
        109   (1.2%)         109   (1.2%)     block in <main>
        108   (1.2%)         108   (1.2%)     Gem::Version.new
        131   (1.5%)         105   (1.2%)     Sprockets::EncodingUtils#unmarshaled_deflated
-      1166  (13.3%)          82   (0.9%)     Mustermann::RegexpBased#initialize
+      1166 (13.3%)          82   (0.9%)     Mustermann::RegexpBased#initialize
         82   (0.9%)          78   (0.9%)     FileUtils.touch
         72   (0.8%)          72   (0.8%)     Sprockets::Manifest.compile_match_filter
         71   (0.8%)          70   (0.8%)     Grape::Router#compile!
@@ -103,7 +90,7 @@ Example sampling data:
         93   (1.1%)          64   (0.7%)     ActionDispatch::Journey::Path::Pattern::AnchoredRegexp#accept
         59   (0.7%)          59   (0.7%)     Mustermann::AST::Translator.dispatch_table
         62   (0.7%)          59   (0.7%)     Rails::BacktraceCleaner#initialize
-      2492  (28.5%)          49   (0.6%)     Sprockets::PathUtils#stat_directory
+      2492 (28.5%)          49   (0.6%)     Sprockets::PathUtils#stat_directory
        242   (2.8%)          49   (0.6%)     Gitlab::Instrumentation::RedisBase.add_call_details
         47   (0.5%)          47   (0.5%)     URI::RFC2396_Parser#escape
         46   (0.5%)          46   (0.5%)     #<Class:0x00000001090c2e70>#__setobj__
@@ -135,40 +122,32 @@ This is enabled for all users that can access the performance bar.
 
 ## Bullet
 
-Bullet is a Gem that can be used to track down N+1 query problems. It logs
-query problems to the Rails log and the browser console. The **Bullet** section is
-displayed on the [performance bar](../administration/monitoring/performance/performance_bar.md).
+Bullet is a Gem that can be used to track down N+1 query problems. It logs query problems to the Rails log and the browser console. The **Bullet** section is displayed on the [performance bar](../administration/monitoring/performance/performance_bar.md).
 
 ![Bullet](img/bullet_v13_0.png)
 
-Bullet is enabled only in development mode by default. However, logging is disabled,
-because Bullet logging is noisy. To configure Bullet and its logging:
+Bullet is enabled only in development mode by default. However, logging is disabled, because Bullet logging is noisy. To configure Bullet and its logging:
 
-- To manually enable or disable Bullet on an environment, add these lines to
-  `config/gitlab.yml`, changing the `enabled` value as needed:
+- To manually enable or disable Bullet on an environment, add these lines to `config/gitlab.yml`, changing the `enabled` value as needed:
 
-  ```yaml
-  bullet:
+ ```yaml
+ bullet:
     enabled: false
-  ```
+ ```
 
-- To enable Bullet logging, set the `ENABLE_BULLET` environment variable to a
-  non-empty value before starting GitLab:
+- To enable Bullet logging, set the `ENABLE_BULLET` environment variable to a non-empty value before starting GitLab:
 
-  ```shell
-  ENABLE_BULLET=true bundle exec rails s
-  ```
+ ```shell
+ ENABLE_BULLET=true bundle exec rails s
+ ```
 
-As a follow-up to finding `N+1` queries with Bullet, consider writing a
-[QueryRecoder test](database/query_recorder.md) to prevent a regression.
+As a follow-up to finding `N+1` queries with Bullet, consider writing a [QueryRecoder test](database/query_recorder.md) to prevent a regression.
 
 <!-- vale gitlab_base.SubstitutionWarning = YES -->
 
 ## System stats
 
-During or after profiling, you may want to get detailed information about the Ruby virtual machine process,
-such as memory consumption, time spent on CPU, or garbage collector statistics. These are easy to produce individually
-through various tools, but for convenience, a summary endpoint has been added that exports this data as a JSON payload:
+During or after profiling, you may want to get detailed information about the Ruby virtual machine process, such as memory consumption, time spent on CPU, or garbage collector statistics. These are easy to produce individually through various tools, but for convenience, a summary endpoint has been added that exports this data as a JSON payload:
 
 ```shell
 curl localhost:3000/-/metrics/system | jq
@@ -178,8 +157,8 @@ Example output:
 
 ```json
 {
-  "version": "ruby 2.7.2p137 (2020-10-01 revision a8323b79eb) [x86_64-linux-gnu]",
-  "gc_stat": {
+ "version": "ruby 2.7.2p137 (2020-10-01 revision a8323b79eb) [x86_64-linux-gnu]",
+ "gc_stat": {
     "count": 118,
     "heap_allocated_pages": 11503,
     "heap_sorted_length": 11503,
@@ -206,14 +185,14 @@ Example output:
     "old_objects_limit": 6370660,
     "oldmalloc_increase_bytes": 21838024,
     "oldmalloc_increase_bytes_limit": 119181499
-  },
-  "memory_rss": 1326501888,
-  "memory_uss": 1048563712,
-  "memory_pss": 1139554304,
-  "time_cputime": 82.885264633,
-  "time_realtime": 1610459445.5579069,
-  "time_monotonic": 24001.23145713,
-  "worker_id": "puma_0"
+ },
+ "memory_rss": 1326501888,
+ "memory_uss": 1048563712,
+ "memory_pss": 1139554304,
+ "time_cputime": 82.885264633,
+ "time_realtime": 1610459445.5579069,
+ "time_monotonic": 24001.23145713,
+ "worker_id": "puma_0"
 }
 ```
 
@@ -265,9 +244,7 @@ The following table lists these variables along with their default values.
 
 GitLab may decide to change these settings to speed up application performance, lower memory requirements, or both.
 
-You can see how each of these settings affect GC performance, memory use and application start-up time for an idle instance of
-GitLab by running the `scripts/perf/gc/collect_gc_stats.rb` script. It will output GC stats and general timing data to standard
-out as CSV.
+You can see how each of these settings affect GC performance, memory use and application start-up time for an idle instance of GitLab by running the `scripts/perf/gc/collect_gc_stats.rb` script. It will output GC stats and general timing data to standard out as CSV.
 
 ## An example of investigating performance issues
 
@@ -277,8 +254,7 @@ and a new method [`ruby-prof`](https://ruby-prof.github.io/).
 
 ### Using stackprof flamegraphs
 
-[Performance bar](../administration/monitoring/performance/performance_bar.md) is a great tool to get a stackprof report
-and see a flamegraph via a single click;
+[Performance bar](../administration/monitoring/performance/performance_bar.md) is a great tool to get a stackprof report and see a flamegraph via a single click;
 
 ![Performance Bar Flamegraph Link](img/performance_bar_flamegraph_link_v18_4.png)
 
@@ -287,17 +263,16 @@ However, it's not available for other than GET requests.
 To get a flamegraph for a POST request, we use the `performance_bar=flamegraph` parameter with the API request.
 In our case, we want to see the flamegraph for [the pipeline creation endpoint of a merge request](../api/merge_requests.md#create-merge-request-pipeline).
 
-Normally, we could use the following command to get a stackprof report as a JSON file but our user control
-of `Gitlab::PerformanceBar.allowed_for_user?(request.env['warden']&.user)` allows only users authenticated via the web interface.
+Normally, we could use the following command to get a stackprof report as a JSON file but our user control of `Gitlab::PerformanceBar.allowed_for_user?(request.env['warden']&.user)` allows only users authenticated via the web interface.
 
 ```shell
 # This will not work on production
 
 curl --request POST \
-  --output flamegraph.json \
-  --header 'Content-Type: application/json' \
-  --header 'PRIVATE-TOKEN: :token' \
-  "https://gitlab.example.com/api/v4/projects/:id/merge_requests/:iid/pipelines?performance_bar=flamegraph"
+ --output flamegraph.json \
+ --header 'Content-Type: application/json' \
+ --header 'PRIVATE-TOKEN: :token' \
+ "https://gitlab.example.com/api/v4/projects/:id/merge_requests/:iid/pipelines?performance_bar=flamegraph"
 ```
 
 To get around this, we copy the request as `curl` and use it in the terminal.
@@ -308,35 +283,34 @@ We'll have a `curl` command like this:
 
 ```shell
 curl "https://gitlab.com/api/v4/projects/:id/merge_requests/:iid/pipelines" \
-  -H 'accept: application/json, text/plain, */*' \
-  -H 'content-type: application/json' \
-  -H 'cookie: xyz' \
-  -H 'x-csrf-token: xyz' \
-  --data-raw '{"async":true}'
+ -H 'accept: application/json, text/plain, */*' \
+ -H 'content-type: application/json' \
+ -H 'cookie: xyz' \
+ -H 'x-csrf-token: xyz' \
+ --data-raw '{"async":true}'
 ```
 
 - Notice the `async` parameter in the request body.
-  We need to remove it to get the actual performance of the pipeline creation endpoint.
+ We need to remove it to get the actual performance of the pipeline creation endpoint.
 - We need to add the `performance_bar=flamegraph` parameter to the request.
 - We need to add the `--output flamegraph.json` parameter to save the JSON response to a file.
 - Lastly, we need to accept the JSON response only.
 
 ```shell
 curl "https://gitlab.com/api/v4/projects/:id/merge_requests/:iid/pipelines?performance_bar=flamegraph" \
-  -X POST \
-  -o flamegraph.json \
-  -H 'accept: application/json' \
-  -H 'content-type: application/json' \
-  -H 'cookie: xyz' \
-  -H 'x-csrf-token: xyz'
+ -X POST \
+ -o flamegraph.json \
+ -H 'accept: application/json' \
+ -H 'content-type: application/json' \
+ -H 'cookie: xyz' \
+ -H 'x-csrf-token: xyz'
 ```
 
 Then, we use the `flamegraph.json` file on the `https://www.speedscope.app/` website to see the flamegraph.
 
 ![Speedscope flamegraph example](img/performance_speedscope_example_v17_7.png)
 
-As an example, when investigating into this speedscope flamegraph, we saw that the `kubernetes_variables` method was
-taking a lot of time and created [an issue](https://gitlab.com/gitlab-org/gitlab/-/issues/498648).
+As an example, when investigating into this speedscope flamegraph, we saw that the `kubernetes_variables` method was taking a lot of time and created [an issue](https://gitlab.com/gitlab-org/gitlab/-/issues/498648).
 
 ![Speedscope flamegraph Kubernetes example](img/performance_speedscope_example_kubernetes_v17_7.png)
 
@@ -345,9 +319,7 @@ taking a lot of time and created [an issue](https://gitlab.com/gitlab-org/gitlab
 Another method to see where to spend most of the time is to use `ruby-prof`.
 It's not an included gem in the Gemfile, so we need to add it to the Gemfile and run `bundle install` first.
 
-To investigate the problem, we need to have a replica repository. To do this, we could mirror the repository
-from the production instance to the development instance. Then, we can run the `ruby-prof` profiler to see where
-the time is spent.
+To investigate the problem, we need to have a replica repository. To do this, we could mirror the repository from the production instance to the development instance. Then, we can run the `ruby-prof` profiler to see where the time is spent.
 
 ```ruby
 # RAILS_PROFILE=true GITALY_DISABLE_REQUEST_LIMITS=true rails console
@@ -365,7 +337,7 @@ profile.exclude_common_methods! # see https://github.com/ruby-prof/ruby-prof/blo
 profile.start
 
 Gitlab::SafeRequestStore.ensure_request_store do
-  Ci::CreatePipelineService
+ Ci::CreatePipelineService
     .new(project, user, ref: merge_request.source_branch)
     .execute(:merge_request_event, merge_request: merge_request)
     .payload
@@ -375,7 +347,7 @@ result = profile.stop
 
 callstack_printer = RubyProf::CallStackPrinter.new(result)
 File.open('tmp/ruby-prof-callstack-report.html', 'w') do |file|
-  callstack_printer.print(file)
+ callstack_printer.print(file)
 end
 
 ::Ci::DestroyPipelineService.new(project, user).execute(Ci::Pipeline.last)
@@ -395,12 +367,12 @@ As we did with `stackprof`, we could also use `curl` with the `performance_bar` 
 
 ```shell
 curl "https://gitlab.com/api/v4/projects/:id/merge_requests/:iid/pipelines?performance_bar=memory" \
-  -X POST \
-  -o flamegraph.json \
-  -H 'accept: application/json' \
-  -H 'content-type: application/json' \
-  -H 'cookie: xyz' \
-  -H 'x-csrf-token: xyz'
+ -X POST \
+ -o flamegraph.json \
+ -H 'accept: application/json' \
+ -H 'content-type: application/json' \
+ -H 'cookie: xyz' \
+ -H 'x-csrf-token: xyz'
 ```
 
 However, this will not work on production because we have 60-second timeouts for the requests.
@@ -419,15 +391,15 @@ merge_request = project.merge_requests.find_by_iid(1)
 
 # Warmup
 Ci::CreatePipelineService
-  .new(project, user, ref: merge_request.source_branch)
-  .execute(:merge_request_event, merge_request: merge_request); nil
+ .new(project, user, ref: merge_request.source_branch)
+ .execute(:merge_request_event, merge_request: merge_request); nil
 
 report = MemoryProfiler.report do
-  Gitlab::SafeRequestStore.ensure_request_store do
+ Gitlab::SafeRequestStore.ensure_request_store do
     Ci::CreatePipelineService
       .new(project, user, ref: merge_request.source_branch)
       .execute(:merge_request_event, merge_request: merge_request); nil
-  end
+ end
 end; nil
 
 output = File.open('tmp/memory-profile-report.txt', 'w')
@@ -443,41 +415,40 @@ Result;
 #
 
 Total allocated: 1.30 GB (12974240 objects)
-Total retained:  29.67 MB (335085 objects)
+Total retained: 29.67 MB (335085 objects)
 
 allocated memory by gem
 -----------------------------------
- 675.48 MB  gitlab/lib
+ 675.48 MB gitlab/lib
 
 ...
 
 allocated memory by file
 -----------------------------------
- 253.68 MB  gitlab/lib/gitlab/ci/variables/collection/item.rb
- 143.58 MB  gitlab/lib/gitlab/ci/variables/collection.rb
-  51.66 MB  gitlab/lib/gitlab/config/entry/configurable.rb
-  20.89 MB  gitlab/lib/gitlab/ci/pipeline/expression/lexeme/base.rb
+ 253.68 MB gitlab/lib/gitlab/ci/variables/collection/item.rb
+ 143.58 MB gitlab/lib/gitlab/ci/variables/collection.rb
+ 51.66 MB gitlab/lib/gitlab/config/entry/configurable.rb
+ 20.89 MB gitlab/lib/gitlab/ci/pipeline/expression/lexeme/base.rb
 
 ...
 
 allocated memory by location
 -----------------------------------
- 107.12 MB  gitlab/lib/gitlab/ci/variables/collection/item.rb:64
-  70.22 MB  gitlab/lib/gitlab/ci/variables/collection.rb:28
-  57.66 MB  gitlab/lib/gitlab/ci/variables/collection.rb:82
-  45.70 MB  gitlab/lib/gitlab/config/entry/configurable.rb:67
-  42.35 MB  gitlab/lib/gitlab/ci/variables/collection/item.rb:17
-  42.35 MB  gitlab/lib/gitlab/ci/variables/collection/item.rb:80
-  41.32 MB  gitlab/lib/gitlab/ci/variables/collection/item.rb:76
-  20.10 MB  gitlab/lib/gitlab/ci/variables/collection/item.rb:72
+ 107.12 MB gitlab/lib/gitlab/ci/variables/collection/item.rb:64
+ 70.22 MB gitlab/lib/gitlab/ci/variables/collection.rb:28
+ 57.66 MB gitlab/lib/gitlab/ci/variables/collection.rb:82
+ 45.70 MB gitlab/lib/gitlab/config/entry/configurable.rb:67
+ 42.35 MB gitlab/lib/gitlab/ci/variables/collection/item.rb:17
+ 42.35 MB gitlab/lib/gitlab/ci/variables/collection/item.rb:80
+ 41.32 MB gitlab/lib/gitlab/ci/variables/collection/item.rb:76
+ 20.10 MB gitlab/lib/gitlab/ci/variables/collection/item.rb:72
 
 ...
 ```
 
 In this example, we see where we can optimize the memory usage by looking at the allocated memory by file and location.
 
-And in [a recent work](https://gitlab.com/gitlab-org/gitlab/-/issues/499707),
-we [found a way](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/171387) to improve the memory usage and got this result;
+And in [a recent work](https://gitlab.com/gitlab-org/gitlab/-/issues/499707), we [found a way](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/171387) to improve the memory usage and got this result;
 
 ```plaintext
 #
@@ -486,20 +457,20 @@ we [found a way](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/171387) t
 #
 
 Total allocated: 1.08 GB (11171148 objects)
-Total retained:  29.67 MB (335082 objects)
+Total retained: 29.67 MB (335082 objects)
 
 allocated memory by gem
 -----------------------------------
- 495.88 MB  gitlab/lib
+ 495.88 MB gitlab/lib
 
 ...
 
 allocated memory by file
 -----------------------------------
- 112.44 MB  gitlab/lib/gitlab/ci/variables/collection.rb
- 105.24 MB  gitlab/lib/gitlab/ci/variables/collection/item.rb
-  51.66 MB  gitlab/lib/gitlab/config/entry/configurable.rb
-  20.89 MB  gitlab/lib/gitlab/ci/pipeline/expression/lexeme/base.rb
+ 112.44 MB gitlab/lib/gitlab/ci/variables/collection.rb
+ 105.24 MB gitlab/lib/gitlab/ci/variables/collection/item.rb
+ 51.66 MB gitlab/lib/gitlab/config/entry/configurable.rb
+ 20.89 MB gitlab/lib/gitlab/ci/pipeline/expression/lexeme/base.rb
 
 ...
 ```

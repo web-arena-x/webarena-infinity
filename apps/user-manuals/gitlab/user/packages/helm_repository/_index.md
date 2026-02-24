@@ -15,17 +15,13 @@ title: Helm charts in the package registry
 
 {{< alert type="warning" >}}
 
-The Helm chart registry for GitLab is under development and isn't ready for production use due to
-limited functionality. This [epic](https://gitlab.com/groups/gitlab-org/-/epics/6366) details the remaining
-work and timelines to make it production ready.
+The Helm chart registry for GitLab is under development and isn't ready for production use due to limited functionality. This [epic](https://gitlab.com/groups/gitlab-org/-/epics/6366) details the remaining work and timelines to make it production ready.
 
 {{< /alert >}}
 
-Publish Helm packages in your project's package registry. Then install the
-packages whenever you need to use them as a dependency.
+Publish Helm packages in your project's package registry. Then install the packages whenever you need to use them as a dependency.
 
-For documentation of the specific API endpoints that Helm package manager
-clients use, see the [Helm API documentation](../../../api/packages/helm.md).
+For documentation of the specific API endpoints that Helm package manager clients use, see the [Helm API documentation](../../../api/packages/helm.md).
 
 ## Build a Helm package
 
@@ -46,8 +42,7 @@ To authenticate to the Helm repository, you need either:
 
 {{< alert type="note" >}}
 
-You can publish Helm charts with duplicate names or versions. If duplicates exist, GitLab always
-returns the chart with the latest version.
+You can publish Helm charts with duplicate names or versions. If duplicates exist, GitLab always returns the chart with the latest version.
 
 {{< /alert >}}
 
@@ -55,30 +50,29 @@ Once built, a chart can be uploaded to the desired channel with `curl` or `helm 
 
 - With `curl`:
 
-  ```shell
-  curl --fail-with-body --request POST \
+ ```shell
+ curl --fail-with-body --request POST \
        --form 'chart=@mychart-0.1.0.tgz' \
        --user <username>:<access_token> \
        https://gitlab.example.com/api/v4/projects/<project_id>/packages/helm/api/<channel>/charts
-  ```
+ ```
 
-  - `<username>`: the GitLab username or the deploy token username.
-  - `<access_token>`: the personal access token or the deploy token.
-  - `<project_id>`: the project ID (like `42`) or the
-    [URL-encoded](../../../api/rest/_index.md#namespaced-paths) path of the project (like `group%2Fproject`).
-  - `<channel>`: the name of the channel (like `stable`).
+ - `<username>`: the GitLab username or the deploy token username.
+ - `<access_token>`: the personal access token or the deploy token.
+ - `<project_id>`: the project ID (like `42`) or the [URL-encoded](../../../api/rest/_index.md#namespaced-paths) path of the project (like `group%2Fproject`).
+ - `<channel>`: the name of the channel (like `stable`).
 
 - With the [`helm cm-push`](https://github.com/chartmuseum/helm-push/#readme) plugin:
 
-  ```shell
-  helm repo add --username <username> --password <access_token> project-1 https://gitlab.example.com/api/v4/projects/<project_id>/packages/helm/<channel>
-  helm cm-push mychart-0.1.0.tgz project-1
-  ```
+ ```shell
+ helm repo add --username <username> --password <access_token> project-1 https://gitlab.example.com/api/v4/projects/<project_id>/packages/helm/<channel>
+ helm cm-push mychart-0.1.0.tgz project-1
+ ```
 
-  - `<username>`: the GitLab username or the deploy token username.
-  - `<access_token>`: the personal access token or the deploy token.
-  - `<project_id>`: the project ID (like `42`).
-  - `<channel>`: the name of the channel (like `stable`).
+ - `<username>`: the GitLab username or the deploy token username.
+ - `<access_token>`: the personal access token or the deploy token.
+ - `<project_id>`: the project ID (like `42`).
+ - `<channel>`: the name of the channel (like `stable`).
 
 ### Release channels
 
@@ -87,19 +81,18 @@ For example, you can use `stable` and `devel` as channels to allow users to add 
 
 ## Use CI/CD to publish a Helm package
 
-To publish a Helm package automated through [GitLab CI/CD](../../../ci/_index.md), you can use
-`CI_JOB_TOKEN` in place of the personal access token in your commands.
+To publish a Helm package automated through [GitLab CI/CD](../../../ci/_index.md), you can use `CI_JOB_TOKEN` in place of the personal access token in your commands.
 
 For example:
 
 ```yaml
 stages:
-  - upload
+ - upload
 
 upload:
-  image: curlimages/curl:latest
-  stage: upload
-  script:
+ image: curlimages/curl:latest
+ stage: upload
+ script:
     - 'curl --fail-with-body --request POST --user gitlab-ci-token:$CI_JOB_TOKEN --form "chart=@mychart-0.1.0.tgz" "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/helm/api/<channel>/charts"'
 ```
 
@@ -140,8 +133,7 @@ Prerequisites:
 
 - You must have at least the Maintainer role.
 
-Before you delete a package, make sure you understand
-the [associated security risks](../package_registry/supported_functionality.md#deleting-packages).
+Before you delete a package, make sure you understand the [associated security risks](../package_registry/supported_functionality.md#deleting-packages).
 
 To delete a package, you can either:
 
@@ -153,12 +145,10 @@ To delete a package, you can either:
 ### The chart is not visible in the package registry after uploading
 
 Check the [Sidekiq log](../../../administration/logs/_index.md#sidekiqlog)
-for any related errors. If you see `Validation failed: Version is invalid`, it means that the
-version in your `Chart.yaml` file does not follow [Helm Chart versioning specifications](https://helm.sh/docs/topics/charts/#charts-and-versioning).
+for any related errors. If you see `Validation failed: Version is invalid`, it means that the version in your `Chart.yaml` file does not follow [Helm Chart versioning specifications](https://helm.sh/docs/topics/charts/#charts-and-versioning).
 To fix the error, use the correct version syntax and upload the chart again.
 
 ### `helm push` results in an error
 
-Helm 3.7 introduced a breaking change for the `helm-push` plugin. You can update the
-[Chart Museum plugin](https://github.com/chartmuseum/helm-push/#readme)
+Helm 3.7 introduced a breaking change for the `helm-push` plugin. You can update the [Chart Museum plugin](https://github.com/chartmuseum/helm-push/#readme)
 to use `helm cm-push`.

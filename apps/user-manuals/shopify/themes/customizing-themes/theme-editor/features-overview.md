@@ -42,18 +42,18 @@ The menu bar features information about your theme, menus to access more informa
 
 The menu bar displays the following additional information and navigation options:
 
-* Use the  button to return to your Shopify admin.
+* Use the button to return to your Shopify admin.
 * Review the name of your theme.
 * Review the status of your theme. Your published theme displays the **Live** status label. Unpublished themes display the **Draft** status label.
 
-Click the  menu to access the following additional options:
+Click the menu to access the following additional options:
 
-* Use  **Edit code** to open the [code editor](../edit-code/edit-theme-code.md).
-* Use  **Edit default theme content** to [edit the default wording in your theme](../language/change-wording.md#change-the-default-wording-in-your-theme).
-* Use  to [open a preview your theme](../../adding-themes.md#share-theme-preview).
-* Use  **View documentation** to open your theme's [documentation](../../theme-support/documentation.md).
-* Use  to review all the available [keyboard shortcuts](features-overview.md#keyboard-shortcuts) for the theme editor.
-* Use  **Get support** to [get support](../../theme-support.md).
+* Use **Edit code** to open the [code editor](../edit-code/edit-theme-code.md).
+* Use **Edit default theme content** to [edit the default wording in your theme](../language/change-wording.md#change-the-default-wording-in-your-theme).
+* Use to [open a preview your theme](../../adding-themes.md#share-theme-preview).
+* Use **View documentation** to open your theme's [documentation](../../theme-support/documentation.md).
+* Use to review all the available [keyboard shortcuts](features-overview.md#keyboard-shortcuts) for the theme editor.
+* Use **Get support** to [get support](../../theme-support.md).
 
 ### Market and template selection menus
 
@@ -100,13 +100,13 @@ Narrower browsers have only one sidebar to conserve space for the theme preview.
 
 You can preview your theme's layout in different screen sizes in your theme editor. You can change the theme editor to display desktop, mobile, or fullscreen sizes to ensure your theme edits are optimal for different screen sizes and to check alternate layouts for desktop and mobile. Click any of the following buttons in the menu bar to change the screen size:
 
-* Click the  button for desktop.
-* Click the  button for mobile.
-* Click the  button for fullscreen.
+* Click the button for desktop.
+* Click the button for mobile.
+* Click the button for fullscreen.
 
 ## Undoing and redoing unsaved changes
 
-You can use the  and  buttons to undo or redo unsaved customizations. After you save your changes, you can no longer redo or undo.
+You can use the and buttons to undo or redo unsaved customizations. After you save your changes, you can no longer redo or undo.
 
 ## Using keyboard shortcuts in the theme editor
 

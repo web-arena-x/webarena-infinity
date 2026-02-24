@@ -59,28 +59,28 @@ To set a compliance and security policy group:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --data '{"csp_namespace_id": 123456}' \
-  --url "https://gitlab.example.com/api/v4/admin/security/policy_settings"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --data '{"csp_namespace_id": 123456}' \
+ --url "https://gitlab.example.com/api/v4/admin/security/policy_settings"
 ```
 
 To clear the compliance and security policy group:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --data '{"csp_namespace_id": null}' \
-  --url "https://gitlab.example.com/api/v4/admin/security/policy_settings"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --data '{"csp_namespace_id": null}' \
+ --url "https://gitlab.example.com/api/v4/admin/security/policy_settings"
 ```
 
 To get the current compliance and security policy settings:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/admin/security/policy_settings"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/admin/security/policy_settings"
 ```
 
 For more information, see the [policy settings API documentation](../api/compliance_policy_settings.md).
@@ -153,8 +153,7 @@ Developers can:
 ## Automate your migration from security policy projects
 
 If you already use a security policy project to enforce policies across multiple groups, you can designate one of the linked groups as your compliance and security policy group.
-However, you should unlink the security policy project from all of the groups that are not the compliance and security policy group. Otherwise, the same policies
-are enforced twice in those groups. Once from the linked security policy group and again from the compliance and security policy group.
+However, you should unlink the security policy project from all of the groups that are not the compliance and security policy group. Otherwise, the same policies are enforced twice in those groups. Once from the linked security policy group and again from the compliance and security policy group.
 
 To automate the process of migrating your groups to a compliance and security policy group, you can use the following `csp_designation.rb` script.
 
@@ -190,15 +189,15 @@ For more information, see the [Rails Runner troubleshooting section](../administ
 
 ```ruby
 class CspDesignation
-  def initialize(csp_group_id, backup_filename)
+ def initialize(csp_group_id, backup_filename)
     @backup_filename = backup_filename
     @csp_group = Group.find_by_id(csp_group_id)
     @csp_configuration = @csp_group&.security_orchestration_policy_configuration
     @user = @csp_configuration&.policy_last_updated_by
     @spp = @csp_configuration&.security_policy_management_project
-  end
+ end
 
-  def assign
+ def assign
     check_spp!
 
     config_ids, group_ids = Security::OrchestrationPolicyConfiguration.for_management_project(@spp)
@@ -222,9 +221,9 @@ class CspDesignation
       end
     end
     puts "Done."
-  end
+ end
 
-  def unassign
+ def unassign
     check_spp!
 
     puts "Unassigning #{@csp_group.full_path} as CSP..."
@@ -242,13 +241,13 @@ class CspDesignation
         puts "Failed to assign policy project to #{namespace.full_path}: #{result[:message]}" if result.error?
       end
     end
-  end
+ end
 
-  private
+ private
 
-  def check_spp!
+ def check_spp!
     raise "CSP policy project doesn't exist" if @spp.blank?
-  end
+ end
 end
 
 SUPPORTED_ACTIONS = %w[assign unassign].freeze

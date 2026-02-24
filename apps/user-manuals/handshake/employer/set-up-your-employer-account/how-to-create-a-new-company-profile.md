@@ -29,27 +29,27 @@ To create a company profile, you must have a user account. *If you haven’t cre
 The following fields are required for registration:
 
 - **Company name**
-  - If your legal company name differs from your company name, check the box labeled **My legal company name is different from company name**, then enter your **Legal company name**.
-  - **Note**: All employers are required to disclose their company name as part of our commitment to transparency.
+ - If your legal company name differs from your company name, check the box labeled **My legal company name is different from company name**, then enter your **Legal company name**.
+ - **Note**: All employers are required to disclose their company name as part of our commitment to transparency.
 - **Industry**
 - **Website**
-  - Enter URL that starts with http:// or https://.
-  - If you receive the error "Please enter a URL that starts with http:// or https://," after entering it correctly, it may be due to a syntax issue. To resolve this, copy the URL directly from your browser's address bar and paste it into the form.
+ - Enter URL that starts with http:// or https://.
+ - If you receive the error "Please enter a URL that starts with http:// or https://," after entering it correctly, it may be due to a syntax issue. To resolve this, copy the URL directly from your browser's address bar and paste it into the form.
     - If you continue to experience issues, contact our Support team.
 - **Description** (a brief and engaging summary of the brand)
-  - Limit: 400 characters max.
+ - Limit: 400 characters max.
 - **Address**
-  - Enter the complete address **or** city, state, and country.
-  - **Note**: Entering your full address will accelerate the verification process.
+ - Enter the complete address **or** city, state, and country.
+ - **Note**: Entering your full address will accelerate the verification process.
 - **Company size**
 
 The following fields are optional:
 
 - **Company logo**
 - **Public phone number**
-  - This is used by our Handshake partner institutions for further verification.
+ - This is used by our Handshake partner institutions for further verification.
 - **Public company email**
-  - This is used by our Handshake partner institutions for further verification.
+ - This is used by our Handshake partner institutions for further verification.
 - **Company type**
 
 > **Note****:** If you make a mistake while completing registration (for example, selecting the wrong company type), you will not be able to go back to the previous page during onboarding. However, once your registration and verification are complete, you can edit these fields in your company profile settings at any time.
@@ -65,10 +65,10 @@ The following fields are optional:
 Please have the following information ready for automatic verification:
 
 - **Business registration number**
-  - You’ll need to provide a business registration number (e.g., BRN, EIN, TIN, or your local equivalent).
-  - Don't have a business registration number? Contact Support.
+ - You’ll need to provide a business registration number (e.g., BRN, EIN, TIN, or your local equivalent).
+ - Don't have a business registration number? Contact Support.
 - **Government ID**
-  - You’ll need to provide a picture of your government ID (e.g., driver's license, passport, visa).
+ - You’ll need to provide a picture of your government ID (e.g., driver's license, passport, visa).
 
 When ready, click the black button **Continue**. *Learn more about our* [*Employer Validation*](https://support.joinhandshake.com/hc/en-us/articles/8083511439127).
 

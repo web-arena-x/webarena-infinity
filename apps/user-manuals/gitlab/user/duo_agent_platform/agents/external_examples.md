@@ -24,8 +24,8 @@ Use the following examples to create your external agent configuration.
 These examples contain the following variables:
 
 - `AI_FLOW_CONTEXT`: the JSON-serialized parent object, including:
-  - In merge requests, the diff and comments (up to a limit)
-  - In issues or epics, the comments (up to a limit)
+ - In merge requests, the diff and comments (up to a limit)
+ - In issues or epics, the comments (up to a limit)
 - `$AI_FLOW_EVENT`: the type of trigger event (for example, `mention`)
 - `$AI_FLOW_INPUT`: the prompt the user enters as a comment in the merge request, issue, or epic
 
@@ -39,22 +39,22 @@ The following agents are integrated with GitLab and available on GitLab.com.
 injectGatewayToken: true
 image: node:22-slim
 commands:
-  - echo "Installing claude"
-  - npm install --global @anthropic-ai/claude-code
-  - echo "Installing glab"
-  - export GITLAB_TOKEN=$GITLAB_TOKEN_CLAUDE
-  - apt-get update --quiet && apt-get install --yes curl wget gpg git && rm --recursive --force /var/lib/apt/lists/*
-  - curl --silent --show-error --location "https://raw.githubusercontent.com/upciti/wakemeops/main/assets/install_repository" | bash
-  - apt-get install --yes glab
-  - echo "Configuring git"
-  - git config --global user.email "claudecode@gitlab.com"
-  - git config --global user.name "Claude Code"
-  - echo "Configuring claude"
-  - export ANTHROPIC_AUTH_TOKEN=$AI_FLOW_AI_GATEWAY_TOKEN
-  - export ANTHROPIC_CUSTOM_HEADERS=$AI_FLOW_AI_GATEWAY_HEADERS
-  - export ANTHROPIC_BASE_URL="https://cloud.gitlab.com/ai/v1/proxy/anthropic"
-  - echo "Running claude"
-  - |
+ - echo "Installing claude"
+ - npm install --global @anthropic-ai/claude-code
+ - echo "Installing glab"
+ - export GITLAB_TOKEN=$GITLAB_TOKEN_CLAUDE
+ - apt-get update --quiet && apt-get install --yes curl wget gpg git && rm --recursive --force /var/lib/apt/lists/*
+ - curl --silent --show-error --location "https://raw.githubusercontent.com/upciti/wakemeops/main/assets/install_repository" | bash
+ - apt-get install --yes glab
+ - echo "Configuring git"
+ - git config --global user.email "claudecode@gitlab.com"
+ - git config --global user.name "Claude Code"
+ - echo "Configuring claude"
+ - export ANTHROPIC_AUTH_TOKEN=$AI_FLOW_AI_GATEWAY_TOKEN
+ - export ANTHROPIC_CUSTOM_HEADERS=$AI_FLOW_AI_GATEWAY_HEADERS
+ - export ANTHROPIC_BASE_URL="https://cloud.gitlab.com/ai/v1/proxy/anthropic"
+ - echo "Running claude"
+ - |
     claude --debug --allowedTools="Bash(glab:*),Bash(git:*)" --permission-mode acceptEdits --verbose --output-format stream-json -p "
     You are an AI assistant helping with GitLab operations.
 
@@ -79,8 +79,8 @@ commands:
     </important>
     "
 variables:
-  - GITLAB_TOKEN_CLAUDE
-  - GITLAB_HOST
+ - GITLAB_TOKEN_CLAUDE
+ - GITLAB_HOST
 ```
 
 ### OpenAI Codex
@@ -89,19 +89,19 @@ variables:
 image: node:22-slim
 injectGatewayToken: true
 commands:
-  - echo "Installing codex"
-  - npm install --global @openai/codex
-  - echo "Installing glab"
-  - export OPENAI_API_KEY=$AI_FLOW_AI_GATEWAY_TOKEN
-  - export GITLAB_TOKEN=$GITLAB_TOKEN_CODEX
-  - apt-get update --quiet && apt-get install --yes curl wget gpg git && rm --recursive --force /var/lib/apt/lists/*
-  - curl --silent --show-error --location "https://raw.githubusercontent.com/upciti/wakemeops/main/assets/install_repository" | bash
-  - apt-get install --yes glab
-  - echo "Configuring git"
-  - git config --global user.email "codex@gitlab.com"
-  - git config --global user.name "OpenAI Codex"
-  - echo "Running Codex"
-  - |
+ - echo "Installing codex"
+ - npm install --global @openai/codex
+ - echo "Installing glab"
+ - export OPENAI_API_KEY=$AI_FLOW_AI_GATEWAY_TOKEN
+ - export GITLAB_TOKEN=$GITLAB_TOKEN_CODEX
+ - apt-get update --quiet && apt-get install --yes curl wget gpg git && rm --recursive --force /var/lib/apt/lists/*
+ - curl --silent --show-error --location "https://raw.githubusercontent.com/upciti/wakemeops/main/assets/install_repository" | bash
+ - apt-get install --yes glab
+ - echo "Configuring git"
+ - git config --global user.email "codex@gitlab.com"
+ - git config --global user.name "OpenAI Codex"
+ - echo "Running Codex"
+ - |
     # Parse AI_FLOW_AI_GATEWAY_HEADERS (newline-separated "Key: Value" pairs)
     header_str="{"
     first=true
@@ -151,6 +151,6 @@ commands:
     </important>
     "
 variables:
-  - GITLAB_TOKEN_CODEX
-  - GITLAB_HOST
+ - GITLAB_TOKEN_CODEX
+ - GITLAB_HOST
 ```

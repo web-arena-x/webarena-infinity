@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/5511218058650-Proactive-me
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
@@ -40,8 +40,8 @@ Choose from the condition fields in the table below to complete your condition.
 
 | Condition field | Object | Description | Operators | Value |
 | --- | --- | --- | --- | --- |
-| Page URL | Visitor | The URL of a web page, or screen name on a mobile device, the customer is currently on. The Page URL string is case insensitive. | Contains at least one of Doesn't contain  Is  Is not | `String` Enter all or part of the page or screen URL to be matched. |
-| Page title | Visitor | The title of the web page or mobile device screen the customer is currently on. The Page title string is case insensitive. | Contains at least one of Doesn't contain  Is  Is not | `String` Enter all or part of the page or screen title to be matched. |
+| Page URL | Visitor | The URL of a web page, or screen name on a mobile device, the customer is currently on. The Page URL string is case insensitive. | Contains at least one of Doesn't contain Is Is not | `String` Enter all or part of the page or screen URL to be matched. |
+| Page title | Visitor | The title of the web page or mobile device screen the customer is currently on. The Page title string is case insensitive. | Contains at least one of Doesn't contain Is Is not | `String` Enter all or part of the page or screen title to be matched. |
 | Visit history | Visitor | Customer visit history – are they coming to the website or app for the first time, or have they visited before? | Is | `Drop-down` Select **New user** or **Returning user**. |
 | Language | Device | Language or locale of the customer, as determined by the device's language settings. | Is Is not | `Drop-down` Select the language being matched or skipped. |
 

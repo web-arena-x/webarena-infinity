@@ -34,43 +34,26 @@ This can be done via ChatOps:
 
 {{< alert type="note" >}}
 
-We use the terms "enabled" and "disabled" here, even though it's against our
-[documentation style guide recommendations](../documentation/styleguide/word_list.md#enable)
+We use the terms "enabled" and "disabled" here, even though it's against our [documentation style guide recommendations](../documentation/styleguide/word_list.md#enable)
 because these are the terms that the feature flag documentation uses.
 
 {{< /alert >}}
 
-You may already be familiar with the concept of feature flags in GitLab, but using
-feature flags in experiments is a bit different. While in general terms, a feature flag
-is viewed as being either `on` or `off`, this isn't accurate for experiments.
+You may already be familiar with the concept of feature flags in GitLab, but using feature flags in experiments is a bit different. While in general terms, a feature flag is viewed as being either `on` or `off`, this isn't accurate for experiments.
 
-Generally, `off` means that when we ask if a feature flag is enabled, it always
-returns `false`, and `on` means that it always returns `true`. An interim state,
-considered `conditional`, also exists. We take advantage of this trinary state of
-feature flags. To understand this `conditional` aspect: consider that either of these
-settings puts a feature flag into this state:
+Generally, `off` means that when we ask if a feature flag is enabled, it always returns `false`, and `on` means that it always returns `true`. An interim state, considered `conditional`, also exists. We take advantage of this trinary state of feature flags. To understand this `conditional` aspect: consider that either of these settings puts a feature flag into this state:
 
 - Setting a `percentage_of_actors` of any percent greater than 0%.
 - Enabling it for a single user or group.
 
 Conditional means that it returns `true` in some situations, but not all situations.
 
-When a feature flag is disabled (meaning the state is `off`), the experiment is
-considered _inactive_. You can visualize this in the [decision tree diagram](https://gitlab.com/gitlab-org/ruby/gems/gitlab-experiment#how-it-works)
+When a feature flag is disabled (meaning the state is `off`), the experiment is considered _inactive_. You can visualize this in the [decision tree diagram](https://gitlab.com/gitlab-org/ruby/gems/gitlab-experiment#how-it-works)
 as reaching the first `Running?` node, and traversing the negative path.
 
-When a feature flag is rolled out to a `percentage_of_actors` or similar (meaning the
-state is `conditional`) the experiment is considered to be _running_
-where sometimes the control is assigned, and sometimes the candidate is assigned.
-We don't refer to this as being enabled, because that's a confusing and overloaded
-term here. In the experiment terms, our experiment is _running_, and the feature flag is
-`conditional`.
+When a feature flag is rolled out to a `percentage_of_actors` or similar (meaning the state is `conditional`) the experiment is considered to be _running_ where sometimes the control is assigned, and sometimes the candidate is assigned.
+We don't refer to this as being enabled, because that's a confusing and overloaded term here. In the experiment terms, our experiment is _running_, and the feature flag is `conditional`.
 
-When a feature flag is enabled (meaning the state is `on`), the candidate is always
-assigned.
+When a feature flag is enabled (meaning the state is `on`), the candidate is always assigned.
 
-We should try to be consistent with our terms, and so for experiments, we have an
-_inactive_ experiment until we set the feature flag to `conditional`. After which,
-our experiment is then considered _running_. If you choose to "enable" your feature flag,
-you should consider the experiment to be _resolved_, because everyone is assigned
-the candidate unless they've opted out of experimentation.
+We should try to be consistent with our terms, and so for experiments, we have an _inactive_ experiment until we set the feature flag to `conditional`. After which, our experiment is then considered _running_. If you choose to "enable" your feature flag, you should consider the experiment to be _resolved_, because everyone is assigned the candidate unless they've opted out of experimentation.

@@ -7,17 +7,16 @@ title: Local setup and debugging
 
 {{< alert type="note" >}}
 
-To track user interactions in the browser, browser settings, such as privacy filters (for example,
-AdBlock, uBlock) and Do-Not-Track (DNT). For more information, see [settings that affect tracking](https://snowplow.io/blog/how-many-of-your-visitors-block-your-snowplow-tracking).
+To track user interactions in the browser, browser settings, such as privacy filters (for example, AdBlock, uBlock) and Do-Not-Track (DNT). For more information, see [settings that affect tracking](https://snowplow.io/blog/how-many-of-your-visitors-block-your-snowplow-tracking).
 
 {{< /alert >}}
 
 Internal events are using a tool called Snowplow under the hood. To develop and test internal events, there are several tools to test frontend and backend events:
 
-| Testing Tool                                 | Frontend Tracking  | Backend Tracking    | Local Development Environment | Production Environment | Shows individual events |
+| Testing Tool                                 | Frontend Tracking | Backend Tracking    | Local Development Environment | Production Environment | Shows individual events |
 |----------------------------------------------|--------------------|---------------------|-------------------------------|------------------------|------------------------|
-| [Internal Events Monitor](#internal-events-monitor) | Yes | Yes | Yes  | Yes     | Yes    |
-| [Snowplow Micro](#snowplow-micro) | Yes | Yes  | Yes            | No    | Yes    |
+| [Internal Events Monitor](#internal-events-monitor) | Yes | Yes | Yes | Yes     | Yes    |
+| [Snowplow Micro](#snowplow-micro) | Yes | Yes | Yes            | No    | Yes    |
 | [Manual check in GDK](#manual-check-in-gdk) | Yes | Yes | Yes            | Yes     | No     |
 | [Snowplow Analytics Debugger Chrome Extension](#snowplow-analytics-debugger-chrome-extension) | Yes | No | Yes            | Yes     | Yes     |
 | [Remote event collector](#remote-event-collector) | Yes | No | Yes   | No     | Yes     |
@@ -27,14 +26,13 @@ For local development we recommend using the [internal events monitor](#internal
 ## Internal Events Monitor
 
 <div class="video-fallback">
-  Watch the demo video about the <a href="https://www.youtube.com/watch?v=R7vT-VEzZOI">Internal Events Tracking Monitor</a>
+ Watch the demo video about the <a href="https://www.youtube.com/watch?v=R7vT-VEzZOI">Internal Events Tracking Monitor</a>
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/R7vT-VEzZOI" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/R7vT-VEzZOI" frameborder="0" allowfullscreen> </iframe>
 </figure>
 
-To understand how events are triggered and metrics are updated while you use the GitLab application locally or `rails console`,
-you can use the monitor.
+To understand how events are triggered and metrics are updated while you use the GitLab application locally or `rails console`, you can use the monitor.
 
 Start the monitor and list one or more events that you would like to monitor. In this example we would like to monitor `i_code_review_user_create_mr`.
 
@@ -45,10 +43,10 @@ rails runner scripts/internal_events/monitor.rb i_code_review_user_create_mr
 The monitor can show two tables:
 
 - The `RELEVANT METRICS` table lists all the metrics that are defined on the `i_code_review_user_create_mr` event.
-  The second right-most column shows the value of each metric when the monitor was started and the right most column shows the current value of each metric.
+ The second right-most column shows the value of each metric when the monitor was started and the right most column shows the current value of each metric.
 
 - The `SNOWPLOW EVENTS` table lists a selection of properties from only Snowplow events fired after the monitor was started and those that match the event name.
-  For this table to be visible, you can either enable event tracking (**Admin area** > **Settings** > **Metrics and profiling** > **Event tracking**, then select "Enable event tracking" & save changes) or configure GDK to run with [Snowplow Micro](#snowplow-micro).
+ For this table to be visible, you can either enable event tracking (**Admin area** > **Settings** > **Metrics and profiling** > **Event tracking**, then select "Enable event tracking" & save changes) or configure GDK to run with [Snowplow Micro](#snowplow-micro).
 
 If a new `i_code_review_user_create_mr` event is fired, the metrics values get updated and a new event appears in the `SNOWPLOW EVENTS` table.
 
@@ -65,7 +63,7 @@ Monitored events: i_code_review_user_create_mr
 +-----------------------------------------------------------------------------+------------------------------+-----------------------+---------------+---------------+
 | counts_monthly.aggregated_metrics.code_review_category_monthly_active_users | i_code_review_user_create_mr | RedisHLLMetric        | 13            | 14            |
 | counts_monthly.aggregated_metrics.code_review_group_monthly_active_users    | i_code_review_user_create_mr | RedisHLLMetric        | 13            | 14            |
-| counts_weekly.aggregated_metrics.code_review_category_monthly_active_users  | i_code_review_user_create_mr | RedisHLLMetric        | 0             | 1             |
+| counts_weekly.aggregated_metrics.code_review_category_monthly_active_users | i_code_review_user_create_mr | RedisHLLMetric        | 0             | 1             |
 | counts_weekly.aggregated_metrics.code_review_group_monthly_active_users     | i_code_review_user_create_mr | RedisHLLMetric        | 0             | 1             |
 | redis_hll_counters.code_review.i_code_review_user_create_mr_monthly         | i_code_review_user_create_mr | RedisHLLMetric        | 8             | 9             |
 | redis_hll_counters.code_review.i_code_review_user_create_mr_weekly          | i_code_review_user_create_mr | RedisHLLMetric        | 0             | 1             |
@@ -120,10 +118,10 @@ By default, GitLab Self-Managed instances do not collect event data through Snow
 ### Introduction to Snowplow Micro UI and API
 
 <div class="video-fallback">
-  Watch the video about <a href="https://www.youtube.com/watch?v=netZ0TogNcA">Snowplow Micro</a>
+ Watch the video about <a href="https://www.youtube.com/watch?v=netZ0TogNcA">Snowplow Micro</a>
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/netZ0TogNcA" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/netZ0TogNcA" frameborder="0" allowfullscreen> </iframe>
 </figure>
 
 ## Manual check in GDK

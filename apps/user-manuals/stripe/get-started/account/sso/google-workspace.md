@@ -169,12 +169,12 @@ These instructions require changes in the [Google Workspace Admin console](https
 
 - On the **Service Provider Details** screen, configure the following:
 
-  | Setting | Value |
-  | --- | --- |
-  | ACS URL | `https://dashboard.stripe.com/login/saml/consume` |
-  | Entity ID | `https://dashboard.stripe.com/saml/metadata` |
-  | Name ID | `Basic Information` and `Primary Email` |
-  | Name ID Format | `EMAIL` |
+ | Setting | Value |
+ | --- | --- |
+ | ACS URL | `https://dashboard.stripe.com/login/saml/consume` |
+ | Entity ID | `https://dashboard.stripe.com/saml/metadata` |
+ | Name ID | `Basic Information` and `Primary Email` |
+ | Name ID Format | `EMAIL` |
 
 ![Custom SAML service provider details](https://b.stripecdn.com/docs-statics-srv/assets/step-3.a57d2f453981a3eef89a5e611da90f69.png)
 
@@ -204,8 +204,8 @@ To authenticate a team member to Stripe, configure Google Workspace with the rol
 ![Configure SAML attribute mapping](https://b.stripecdn.com/docs-statics-srv/assets/configure-attribute-mapping.04f876bd5c94c52b23d1109624398ccb.png)
 
 - Add a row for each Stripe account you want to authenticate your team to, and click **Save**.
-  - **Google Directory attributes** is the [custom field you configured](#google-workspace-custom-attribute-values).
-  - **App attribute** is the Stripe account to connect to. The format is `Stripe-Role-`. The account ID value is your currently logged in account, such as: .
+ - **Google Directory attributes** is the [custom field you configured](#google-workspace-custom-attribute-values).
+ - **App attribute** is the Stripe account to connect to. The format is `Stripe-Role-`. The account ID value is your currently logged in account, such as: .
 
 ![Configure SAML attribute mapping details](https://b.stripecdn.com/docs-statics-srv/assets/configure-attribute-add-attributes.242476cdf7fba4a2ac77c0d70d8d6d88.png)
 
@@ -348,8 +348,8 @@ Send Stripe an assertion from your identity provider to grant a team member acce
 
 ```
 <saml2:attribute name="Stripe-Role-STRIPE-ACCOUNT-ID" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic">
-  <saml2:attributevalue>none
-  </saml2:attributevalue>
+ <saml2:attributevalue>none
+ </saml2:attributevalue>
 </saml2:attribute>
 ```
 

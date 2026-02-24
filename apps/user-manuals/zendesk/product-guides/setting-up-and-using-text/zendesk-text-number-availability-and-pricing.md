@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408843672346-Zendesk-Text
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Talk Team, Professional, or Enterprise |
 
@@ -24,10 +24,7 @@ If you're looking for information about phone call charges for Talk, see [Zende
 
 My account is billed in
 
-USD
-GBP
-EURO
-BRL
+USD GBP EURO BRL
 
 ## Inbound Texts
 

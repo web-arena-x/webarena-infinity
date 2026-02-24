@@ -18,8 +18,7 @@ title: Hosted runners for GitLab Dedicated
 > To use this feature, you must purchase a subscription for Hosted Runners for GitLab Dedicated. To participate in the limited availability of Hosted Runners for Dedicated, reach out to your Customer Success Manager or Account representative.
 
 You can run your CI/CD jobs on GitLab-hosted [runners](../../ci/runners/_index.md). These runners are managed by GitLab and fully integrated with your GitLab Dedicated instance.
-GitLab-hosted runners for Dedicated are autoscaling [instance runners](../../ci/runners/runners_scope.md#instance-runners),
-running on AWS EC2 in the same region as the GitLab Dedicated instance.
+GitLab-hosted runners for Dedicated are autoscaling [instance runners](../../ci/runners/runners_scope.md#instance-runners), running on AWS EC2 in the same region as the GitLab Dedicated instance.
 
 When you use hosted runners:
 
@@ -39,10 +38,10 @@ The following machine types are available for hosted runners on Linux x86-64.
 | Size     | Runner Tag                    | vCPUs | Memory | Storage |
 |----------|-------------------------------|-------|--------|---------|
 | Small    | `linux-small-amd64` (default) | 2     | 8 GB   | 30 GB   |
-| Medium   | `linux-medium-amd64`          | 4     | 16 GB  | 50 GB   |
-| Large    | `linux-large-amd64`           | 8     | 32 GB  | 100 GB  |
-| X-Large  | `linux-xlarge-amd64`          | 16    | 64 GB  | 200 GB  |
-| 2X-Large | `linux-2xlarge-amd64`         | 32    | 128 GB | 200 GB  |
+| Medium   | `linux-medium-amd64`          | 4     | 16 GB | 50 GB   |
+| Large    | `linux-large-amd64`           | 8     | 32 GB | 100 GB |
+| X-Large | `linux-xlarge-amd64`          | 16    | 64 GB | 200 GB |
+| 2X-Large | `linux-2xlarge-amd64`         | 32    | 128 GB | 200 GB |
 
 ### Machine types for Linux - Arm64
 
@@ -51,10 +50,10 @@ The following machine types are available for hosted runners on Linux Arm64.
 | Size     | Runner Tag            | vCPUs | Memory | Storage |
 |----------|-----------------------|-------|--------|---------|
 | Small    | `linux-small-arm64`   | 2     | 8 GB   | 30 GB   |
-| Medium   | `linux-medium-arm64`  | 4     | 16 GB  | 50 GB   |
-| Large    | `linux-large-arm64`   | 8     | 32 GB  | 100 GB  |
-| X-Large  | `linux-xlarge-arm64`  | 16    | 64 GB  | 200 GB  |
-| 2X-Large | `linux-2xlarge-arm64` | 32    | 128 GB | 200 GB  |
+| Medium   | `linux-medium-arm64` | 4     | 16 GB | 50 GB   |
+| Large    | `linux-large-arm64`   | 8     | 32 GB | 100 GB |
+| X-Large | `linux-xlarge-arm64` | 16    | 64 GB | 200 GB |
+| 2X-Large | `linux-2xlarge-arm64` | 32    | 128 GB | 200 GB |
 
 > [!note]
 > The machine type and underlying processor type might change. Jobs optimized for a specific processor design might behave inconsistently.
@@ -186,8 +185,7 @@ Two outbound private links exist by default for all runners in the GitLab-manage
 
 These links are pre-configured and cannot be modified. The tenant's Prometheus instance is managed by GitLab and is not accessible to users.
 
-To use an outbound private link with other VPC services for hosted runners,
-[manual configuration is required with a support request](configure_instance/network_security.md#add-an-outbound-private-link-with-a-support-request).
+To use an outbound private link with other VPC services for hosted runners, [manual configuration is required with a support request](configure_instance/network_security.md#add-an-outbound-private-link-with-a-support-request).
 For more information, see [Outbound private link](configure_instance/network_security.md#outbound-private-link).
 
 ### IP ranges
@@ -198,15 +196,14 @@ IP ranges for hosted runners for GitLab Dedicated are available upon request. IP
 
 After you [create hosted runners in Switchboard](#create-hosted-runners-in-switchboard) and the runners are ready, you can use them.
 
-To use runners, adjust the [tags](../../ci/yaml/_index.md#tags) in your job configuration in the `.gitlab-ci.yml` file to match the hosted
-runner you want to use.
+To use runners, adjust the [tags](../../ci/yaml/_index.md#tags) in your job configuration in the `.gitlab-ci.yml` file to match the hosted runner you want to use.
 
 For the Linux medium x86-64 runner, configure your job like this:
 
    ```yaml
    job_name:
      tags:
-       - linux-medium-amd64  # Use the medium-sized Linux runner
+       - linux-medium-amd64 # Use the medium-sized Linux runner
    ```
 
 By default, untagged jobs are picked up by the small Linux x86-64 runner.

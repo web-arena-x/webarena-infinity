@@ -20,7 +20,7 @@ You must select a layer before you can move it, duplicate it, or update any prop
 
 ## Select individual layers
 
-The  **Move** tool lets you select and move layers on a slide. Select the **Move** tool in the toolbar or press `V` to enable it. Click on an layer on the canvas to select it.
+The **Move** tool lets you select and move layers on a slide. Select the **Move** tool in the toolbar or press `V` to enable it. Click on an layer on the canvas to select it.
 
 ![](https://help.figma.com/hc/article_attachments/27330547524503)
 
@@ -58,7 +58,7 @@ You can also select more than one layer at a time. This is great for when you wa
 
 ### From the canvas
 
-1. With the  **Move** tool enabled, select an layer on the canvas.
+1. With the **Move** tool enabled, select an layer on the canvas.
 2. Hold down Shift and click on another object. Repeat to select as many objects as you like.
 3. To remove a layer from the selection, hold down the Shift key and click on the layer again.
 
@@ -68,7 +68,7 @@ You can also select more than one layer at a time. This is great for when you wa
 
 The marquee tool allows you to select all objects in a specific area of the canvas.
 
-1. With the  **Move** tool enabled, click and drag the cursor across any objects you’d like to select.A blue box will appear around each object are in the selection.
+1. With the **Move** tool enabled, click and drag the cursor across any objects you’d like to select.A blue box will appear around each object are in the selection.
 2. To select nested layers, hold down the modifier key and drag the marquee across the objects:
    - Mac: `⌘ Command`
    - Windows: `Control`
@@ -121,7 +121,7 @@ If the layer is nested inside a parent frame, it must have the same position in 
 ### Select matching layers
 
 1. Select a layer inside a slide.
-2. Click  **Select matching layers** in the right sidebar or se the keyboard shortcut:
+2. Click **Select matching layers** in the right sidebar or se the keyboard shortcut:
    - Mac: `⌥ Option` `⌘ Command` `A`
    - Windows: `Alt` `Control` `A`
 
@@ -132,7 +132,7 @@ All selected layers are wrapped in a blue bounding box. You can then make edits 
 The **Edit** menu lets you select multiple layers based on their properties.
 
 1. Select a layer.
-2. Open the  **Main menu**, hover over **Edit**, and then hover over **Select all with**.
+2. Open the **Main menu**, hover over **Edit**, and then hover over **Select all with**.
 3. Choose to select all other layers that have the same:
    - Properties
    - Fill

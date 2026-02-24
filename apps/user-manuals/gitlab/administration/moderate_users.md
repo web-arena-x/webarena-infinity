@@ -29,8 +29,7 @@ This topic is specifically related to user moderation in GitLab Self-Managed. Fo
 
 {{< /history >}}
 
-Established GitLab instances can often have large numbers of human and bot users. You can filter the list of users
-to display only human or [bot users](internal_users.md).
+Established GitLab instances can often have large numbers of human and bot users. You can filter the list of users to display only human or [bot users](internal_users.md).
 
 To view users by type:
 
@@ -43,8 +42,7 @@ To view users by type:
 
 ## Users pending approval
 
-A user in a pending approval state requires action by an administrator. A user sign up can be in a
-pending approval state because an administrator has enabled any of the following options:
+A user in a pending approval state requires action by an administrator. A user sign up can be in a pending approval state because an administrator has enabled any of the following options:
 
 - [Require administrator approval for new sign-ups](settings/sign_up_restrictions.md#require-administrator-approval-for-new-sign-ups) setting.
 - [User cap](settings/sign_up_restrictions.md#user-cap).
@@ -64,8 +62,7 @@ A user pending approval:
 - Does not receive any notifications from GitLab.
 - Does not consume a [seat](../subscriptions/manage_users_and_seats.md#billable-users).
 
-An administrator must [approve their sign up](#approve-or-reject-a-user-sign-up) to allow them to
-sign in.
+An administrator must [approve their sign up](#approve-or-reject-a-user-sign-up) to allow them to sign in.
 
 ### View user sign ups pending approval
 
@@ -130,7 +127,7 @@ You should block a user when you don't want them to access the instance, but you
 A blocked user:
 
 - Cannot sign in or access any repositories.
-  - Any associated data remains in these repositories.
+ - Any associated data remains in these repositories.
 - Cannot use [slash commands in Slack](../user/project/integrations/gitlab_slack_application.md#slash-commands).
 - Does not occupy a [seat](../subscriptions/manage_users_and_seats.md#billable-users).
 
@@ -165,8 +162,7 @@ A blocked user can be unblocked from the **Admin** area. To do this:
 1. In the search box, filter by **State=Blocked** and press <kbd>Enter</kbd>.
 1. For the user you want to unblock, select the vertical ellipsis ({{< icon name="ellipsis_v" >}}), then **Unblock**.
 
-The user's state is set to active and they consume a
-[seat](../subscriptions/manage_users_and_seats.md#billable-users).
+The user's state is set to active and they consume a [seat](../subscriptions/manage_users_and_seats.md#billable-users).
 
 {{< alert type="note" >}}
 
@@ -174,8 +170,7 @@ Users can also be unblocked using the [GitLab API](../api/user_moderation.md#unb
 
 {{< /alert >}}
 
-The unblock option may be unavailable for LDAP users. To enable the unblock option,
-the LDAP identity first needs to be deleted:
+The unblock option may be unavailable for LDAP users. To enable the unblock option, the LDAP identity first needs to be deleted:
 
 1. In the upper-right corner, select **Admin**.
 1. Select **Overview** > **Users**.
@@ -192,7 +187,7 @@ You should deactivate a user if they have no recent activity, and you do not wan
 A deactivated user:
 
 - Can sign in to GitLab.
-  - If a deactivated user signs in, they are automatically reactivated.
+ - If a deactivated user signs in, they are automatically reactivated.
 - Cannot access repositories or the API.
 - Cannot use [slash commands in Slack](../user/project/integrations/gitlab_slack_application.md#slash-commands).
 - Does not occupy a seat. For more information, see [billable users](../subscriptions/manage_users_and_seats.md#billable-users).
@@ -217,8 +212,7 @@ For more information, see [user deactivation emails](settings/email.md#user-deac
 
 To deactivate users with the GitLab API, see [deactivate user](../api/user_moderation.md#deactivate-a-user). For information about permanent user restrictions, see [block and unblock users](#block-and-unblock-users).
 
-To remove a user from a GitLab.com subscription, see
-[Remove users from your subscription](../subscriptions/manage_users_and_seats.md#remove-users-from-subscription).
+To remove a user from a GitLab.com subscription, see [Remove users from your subscription](../subscriptions/manage_users_and_seats.md#remove-users-from-subscription).
 
 ### Automatically deactivate dormant users
 
@@ -312,8 +306,7 @@ To do this:
 1. In the search box, filter by **State=Deactivated** and press <kbd>Enter</kbd>.
 1. For the user you want to reactivate, select the vertical ellipsis ({{< icon name="ellipsis_v" >}}), then **Activate**.
 
-The user's state is set to active and they consume a
-[seat](../subscriptions/manage_users_and_seats.md#billable-users).
+The user's state is set to active and they consume a [seat](../subscriptions/manage_users_and_seats.md#billable-users).
 
 {{< alert type="note" >}}
 
@@ -339,7 +332,7 @@ You should ban a user when you want to block them and hide their activity from t
 A banned user:
 
 - Cannot sign in or access any repositories.
-  - Any associated projects, issues, merge requests, or comments are hidden.
+ - Any associated projects, issues, merge requests, or comments are hidden.
 - Cannot use [slash commands in Slack](../user/project/integrations/gitlab_slack_application.md#slash-commands).
 - Does not occupy a [seat](../subscriptions/manage_users_and_seats.md#billable-users).
 
@@ -370,8 +363,7 @@ To unban a user:
 1. Next to the member you want to ban, select the vertical ellipsis ({{< icon name="ellipsis_v" >}}).
 1. From the dropdown list, select **Unban member**.
 
-The user's state is set to active and they consume a
-[seat](../subscriptions/manage_users_and_seats.md#billable-users).
+The user's state is set to active and they consume a [seat](../subscriptions/manage_users_and_seats.md#billable-users).
 
 ## Delete a user
 
@@ -518,13 +510,13 @@ users.count
 # If that count looks sane:
 
 # You can either block the users:
-users.each { |user|  user.blocked? ? nil  : user.block! }
+users.each { |user| user.blocked? ? nil : user.block! }
 
 # Or you can delete them:
-  # need 'current user' (your user) for auditing purposes
+ # need 'current user' (your user) for auditing purposes
 current_user = User.find_by(username: '<your username>')
 
 users.each do |user|
-  DeleteUserWorker.perform_async(current_user.id, user.id)
+ DeleteUserWorker.perform_async(current_user.id, user.id)
 end
 ```

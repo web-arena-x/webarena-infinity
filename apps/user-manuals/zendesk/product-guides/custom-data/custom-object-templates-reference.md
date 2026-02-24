@@ -6,27 +6,18 @@ Source: https://support.zendesk.com/hc/en-us/articles/10134429187610-Custom-obje
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Enterprise |
 
-With
-[custom objects](https://support.zendesk.com/hc/en-us/articles/5914453843994),
-admins can create custom
-objects to capture data that doesn't fit into standard objects. To make
-it easier,
-Zendesk provides templates for the most common types of custom objects.
+With [custom objects](https://support.zendesk.com/hc/en-us/articles/5914453843994), admins can create custom objects to capture data that doesn't fit into standard objects. To make it easier, Zendesk provides templates for the most common types of custom objects.
 
-This article describes the templates you can use when creating custom
-objects. However,
-all of the predefined values and fields in the templates are customizable.
-For more
-information about creating new custom objects, see
-[Creating custom objects to integrate with custom data](https://support.zendesk.com/hc/en-us/articles/5392409465370).
+This article describes the templates you can use when creating custom objects. However, all of the predefined values and fields in the templates are customizable.
+For more information about creating new custom objects, see [Creating custom objects to integrate with custom data](https://support.zendesk.com/hc/en-us/articles/5392409465370).
 
 The following object templates are available:
 
@@ -38,10 +29,7 @@ The following object templates are available:
 
 ## Contracts template
 
-When using the contracts template, the object is automatically named
-*Contracts*
-and the following fields are automatically defined for the custom
-object:
+When using the contracts template, the object is automatically named *Contracts* and the following fields are automatically defined for the custom object:
 
 | Field name | Field type |
 | --- | --- |
@@ -58,9 +46,7 @@ object:
 
 ## Orders template
 
-When using the orders template, the object is automatically named
-*Orders* and
-the following fields are automatically defined for the custom object:
+When using the orders template, the object is automatically named *Orders* and the following fields are automatically defined for the custom object:
 
 | Field name | Field type |
 | --- | --- |
@@ -77,10 +63,7 @@ the following fields are automatically defined for the custom object:
 
 ## Products template
 
-When using the products template, the object is automatically named
-*Products*
-and the following fields are automatically defined for the custom
-object:
+When using the products template, the object is automatically named *Products* and the following fields are automatically defined for the custom object:
 
 | Field name | Field type |
 | --- | --- |
@@ -94,10 +77,7 @@ object:
 
 ## Projects template
 
-When using the projects template, the object is automatically named
-*Projects*
-and the following fields are automatically defined for the custom
-object:
+When using the projects template, the object is automatically named *Projects* and the following fields are automatically defined for the custom object:
 
 | Field name | Field type |
 | --- | --- |
@@ -111,11 +91,7 @@ object:
 
 ## Subscriptions template
 
-When using the subscriptions template, the object is automatically
-named
-*Subscriptions* and the following fields are
-automatically defined for the
-custom object:
+When using the subscriptions template, the object is automatically named *Subscriptions* and the following fields are automatically defined for the custom object:
 
 | Field name | Field type |
 | --- | --- |

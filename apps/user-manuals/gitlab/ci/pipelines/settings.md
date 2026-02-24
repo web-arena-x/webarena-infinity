@@ -37,10 +37,8 @@ To change the visibility of your pipelines and related features:
 
    When it is cleared:
 
-   - For **Public** projects, job logs, job artifacts, the pipeline security dashboard,
-     and the **CI/CD** menu items are visible only to project members (Reporter or higher).
-     Other users, including guest users, can only view the status of pipelines and jobs, and only
-     when viewing merge requests or commits.
+   - For **Public** projects, job logs, job artifacts, the pipeline security dashboard, and the **CI/CD** menu items are visible only to project members (Reporter or higher).
+     Other users, including guest users, can only view the status of pipelines and jobs, and only when viewing merge requests or commits.
    - For **Internal** projects, pipelines are visible to all authenticated users except [external users](../../administration/external_users.md).
      Related features are visible only to project members (Reporter or higher).
    - For **Private** projects, pipelines and related features are visible to project members (Reporter or higher) only.
@@ -51,8 +49,7 @@ You can control the visibility of pipelines for non-project members in [public p
 
 This setting has no effect when:
 
-- Project visibility is set to [**Internal** or **Private**](../../user/public_access.md),
-  because non-project members cannot access internal or private projects.
+- Project visibility is set to [**Internal** or **Private**](../../user/public_access.md), because non-project members cannot access internal or private projects.
 - The [**Project-based pipeline visibility**](#change-which-users-can-view-your-pipelines) setting is disabled.
 
 To change the pipeline visibility for non-project members:
@@ -66,8 +63,7 @@ To change the pipeline visibility for non-project members:
 1. Select **Save changes**.
 
 The [CI/CD permissions table](../../user/permissions.md#project-cicd)
-lists the pipeline features non-project members can access when **Everyone With Access**
-is selected.
+lists the pipeline features non-project members can access when **Everyone With Access** is selected.
 
 ## Auto-cancel redundant pipelines
 
@@ -79,17 +75,13 @@ You can set pending or running pipelines to cancel automatically when a pipeline
 1. Select the **Auto-cancel redundant pipelines** checkbox.
 1. Select **Save changes**.
 
-Use the [`interruptible`](../yaml/_index.md#interruptible) keyword to indicate if a
-running job can be canceled before it completes. After a job with
-`interruptible: false` starts, the entire pipeline is no longer considered interruptible.
+Use the [`interruptible`](../yaml/_index.md#interruptible) keyword to indicate if a running job can be canceled before it completes. After a job with `interruptible: false` starts, the entire pipeline is no longer considered interruptible.
 
 ## Prevent outdated deployment jobs
 
-Your project may have multiple concurrent deployment jobs that are
-scheduled to run in the same time frame.
+Your project may have multiple concurrent deployment jobs that are scheduled to run in the same time frame.
 
-This can lead to a situation where an older deployment job runs after a
-newer one, which may not be what you want.
+This can lead to a situation where an older deployment job runs after a newer one, which may not be what you want.
 
 To avoid this scenario:
 
@@ -120,8 +112,7 @@ For more information, see [Deployment safety](../environments/deployment_safety.
 You can customize which roles have permission to cancel pipelines or jobs.
 
 By default, users with at least the Developer role can cancel pipelines or jobs.
-You can restrict cancellation permission to only users with at least the Maintainer role,
-or completely prevent cancellation of any pipelines or jobs.
+You can restrict cancellation permission to only users with at least the Maintainer role, or completely prevent cancellation of any pipelines or jobs.
 
 To change the permissions to cancel pipelines or jobs:
 
@@ -133,8 +124,7 @@ To change the permissions to cancel pipelines or jobs:
 
 ## Specify a custom CI/CD configuration file
 
-GitLab expects to find the CI/CD configuration file (`.gitlab-ci.yml`) in the project's root
-directory. However, you can specify an alternate filename path, including locations outside the project.
+GitLab expects to find the CI/CD configuration file (`.gitlab-ci.yml`) in the project's root directory. However, you can specify an alternate filename path, including locations outside the project.
 
 To customize the path:
 
@@ -149,8 +139,7 @@ To customize the path:
 
 {{< alert type="note" >}}
 
-You cannot use your project's [pipeline editor](../pipeline_editor/_index.md) to
-edit CI/CD configuration files in other projects or on an external site.
+You cannot use your project's [pipeline editor](../pipeline_editor/_index.md) to edit CI/CD configuration files in other projects or on an external site.
 
 {{< /alert >}}
 
@@ -183,8 +172,7 @@ If the configuration file is in a separate project, you can set more granular pe
 - Create a public project to host the configuration file.
 - Give write permissions on the project only to users who are allowed to edit the file.
 
-Then other users and projects can access the configuration file without being
-able to edit it.
+Then other users and projects can access the configuration file without being able to edit it.
 
 ## Choose the default Git strategy
 
@@ -194,26 +182,21 @@ You can choose how your repository is fetched from GitLab when a job runs.
 1. Select **Settings** > **CI/CD**.
 1. Expand **General pipelines**.
 1. Under **Git strategy**, select an option:
-   - `git clone` is slower because it clones the repository from scratch
-     for every job. However, the local working copy is always pristine.
-   - `git fetch` is faster because it re-uses the local working copy (and falls
-     back to clone if it doesn't exist). This is recommended, especially for
-     [large repositories](../../user/project/repository/monorepos/_index.md#use-git-fetch-in-cicd-operations).
+   - `git clone` is slower because it clones the repository from scratch for every job. However, the local working copy is always pristine.
+   - `git fetch` is faster because it re-uses the local working copy (and falls back to clone if it doesn't exist). This is recommended, especially for [large repositories](../../user/project/repository/monorepos/_index.md#use-git-fetch-in-cicd-operations).
 
 The configured Git strategy can be overridden by the [`GIT_STRATEGY` variable](../runners/configure_runners.md#git-strategy)
 in the `.gitlab-ci.yml` file.
 
 ## Limit the number of changes fetched during clone
 
-You can limit the number of changes that GitLab CI/CD fetches when it clones
-a repository.
+You can limit the number of changes that GitLab CI/CD fetches when it clones a repository.
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Settings** > **CI/CD**.
 1. Expand **General pipelines**.
 1. Under **Git strategy**, under **Git shallow clone**, enter a value.
-   The maximum value is `1000`. To disable shallow clone and make GitLab CI/CD
-   fetch all branches and tags each time, keep the value empty or set to `0`.
+   The maximum value is `1000`. To disable shallow clone and make GitLab CI/CD fetch all branches and tags each time, keep the value empty or set to `0`.
 
 Newly created projects have a default `git depth` value of `20`.
 
@@ -240,13 +223,11 @@ Jobs without an output for one hour are dropped regardless of the timeout. To pr
 
 ## Pipeline badges
 
-You can use [pipeline badges](../../user/project/badges.md) to indicate the pipeline status and
-test coverage of your projects. These badges are determined by the latest successful pipeline.
+You can use [pipeline badges](../../user/project/badges.md) to indicate the pipeline status and test coverage of your projects. These badges are determined by the latest successful pipeline.
 
 ## Disable GitLab CI/CD pipelines
 
-GitLab CI/CD pipelines are enabled by default on all new projects. If you use an external CI/CD server like
-Jenkins or Drone CI, you can disable GitLab CI/CD to avoid conflicts with the commits status API.
+GitLab CI/CD pipelines are enabled by default on all new projects. If you use an external CI/CD server like Jenkins or Drone CI, you can disable GitLab CI/CD to avoid conflicts with the commits status API.
 
 You can disable GitLab CI/CD per project or [for all new projects on an instance](../../administration/cicd/_index.md).
 
@@ -293,5 +274,4 @@ The system automatically deletes pipelines that were created before the configur
    Empty by default.
 1. Select **Save changes**.
 
-For GitLab Self-Managed, administrators can increase the upper limit for
-[automatic pipeline cleanup](../../administration/instance_limits.md#maximum-config-value-for-automatic-pipeline-cleanup).
+For GitLab Self-Managed, administrators can increase the upper limit for [automatic pipeline cleanup](../../administration/instance_limits.md#maximum-config-value-for-automatic-pipeline-cleanup).

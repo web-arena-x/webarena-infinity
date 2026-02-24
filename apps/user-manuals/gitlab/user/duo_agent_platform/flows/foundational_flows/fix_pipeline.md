@@ -62,8 +62,7 @@ To fix the CI/CD pipeline in a merge request:
 
 1. To monitor progress, select **Automate** > **Sessions**.
 
-When the session is complete, a comment shows a link to a merge request that contains the fix,
-or a comment describes possible next steps.
+When the session is complete, a comment shows a link to a merge request that contains the fix, or a comment describes possible next steps.
 
 ## Fix other CI/CD pipelines
 

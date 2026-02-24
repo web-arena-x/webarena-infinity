@@ -20,7 +20,7 @@ Use shapes with text to enhance your presentations by adding diagrams, flowchart
 
 You can access the shapes with text tools from the toolbar while in slides mode. Unlike shapes added in design mode, shapes with text have a text layer built directly into the object.
 
-1. Click  **Shapes** in the toolbar.
+1. Click **Shapes** in the toolbar.
 2. Select the shape you want to add.
 3. Click on a slide to place the shape.
 

@@ -25,17 +25,17 @@ Expand each header to review the steps and key details for setting up your Hands
 - **First name**
 - **Last name**
 - **Work email**
-  - If you enter a personal email address, a yellow banner will appear with the message: 'It looks like you're using a personal email (@gmail, @yahoo, @hotmail, etc). Please use your work email so we can connect you with your company.
-  - Enter your email address ending in @edu. If you don’t have a work email, you can proceed with your personal email.
+ - If you enter a personal email address, a yellow banner will appear with the message: 'It looks like you're using a personal email (@gmail, @yahoo, @hotmail, etc). Please use your work email so we can connect you with your company.
+ - Enter your email address ending in @edu. If you don’t have a work email, you can proceed with your personal email.
 - **Password***(create new password)*
-  - Passwords on Handshake must:
+ - Passwords on Handshake must:
     - Contain eight characters, *or more*
     - Contain characters from **two** of the following **three** character classes:
       - Alphabetic (e.g., a-z, A-Z)
       - Numeric (i.e. 0–9)
       - Punctuation and other characters (e.g.,!@#$%^&\*()\_+|~-=\`{}[]:";'<>?,./)
-  - **Note****: Passwords are not encrypted.**
-  - **Tip**: Click the s**how password** icon (👁) to confirm that you have entered your password correctly.
+ - **Note****: Passwords are not encrypted.**
+ - **Tip**: Click the s**how password** icon (👁) to confirm that you have entered your password correctly.
 
 2.  Review Terms and Privacy Policy. By clicking **Create account**, you agree to Handshake's **Terms of Service** and confirm that you have read the **Privacy Policy**.
 
@@ -59,12 +59,12 @@ Expand each header to review the steps and key details for setting up your Hands
 - **Types of candidates you're looking for**
 - **Phone number**
 - **Education history** (*optional*)
-  - **School Name**
-  - **Graduation Year**
-  - If your school is not listed, check the box for **School not listed**.
-  - To add another school, click **Add another school**.
+ - **School Name**
+ - **Graduation Year**
+ - If your school is not listed, check the box for **School not listed**.
+ - To add another school, click **Add another school**.
 - **Third-Party Recruiter Status**
-  - Are you a third-party recruiter working on behalf of another company? (select **Yes** or **No**)
+ - Are you a third-party recruiter working on behalf of another company? (select **Yes** or **No**)
     - **According to Handshake, a third-party recruiter is**:
       - An employer who is hiring or posting jobs for a company other than the one they work for.
       - An employer who is hiring or posting jobs, but another company provides the pay/salary.
@@ -101,12 +101,9 @@ In this model, schools may have **multiple company profiles** for different depa
 
 **To connect**:
 
-1. **Search for your company**  
-   Use the search bar to locate the company associated with your department or school unit.
-2. **Send a request to join**  
-   Click the button **Request to join** in the lower-right corner of the company's profile.
-3. **Create a new company profile (if needed)**  
-   If no matching profile exists, you can create a new one. *Learn* [*How to Create a New Company Profile*](#).
+1. **Search for your company** Use the search bar to locate the company associated with your department or school unit.
+2. **Send a request to join** Click the button **Request to join** in the lower-right corner of the company's profile.
+3. **Create a new company profile (if needed)** If no matching profile exists, you can create a new one. *Learn* [*How to Create a New Company Profile*](#).
 
 **Tip:** Before creating a new profile, check with your school’s career center to see if they have a **preferred naming convention** for on-campus employers.
 

@@ -39,7 +39,7 @@ From **Settings > Connected Accounts**, you can connect your Linear account with
 
 * **Slack** - Connecting your Slack account allows you to receive real time notifications in Slack when changes occur in Linear, and be @mentioned in Slack comments or issue descriptions sent from Linear.
 * **GitHub** - Connect your GitHub account with Linear so you can be synced as the assignee on issues connected between both platforms. You can also enable [Pull Request Reviews](https://linear.app/docs/pull-request-reviews) to keep track of your GitHub PR activity directly in Linear.
-* **Google Calendar** - Sync your [Google Calendar](https://linear.app/integrations/google-calendar) to display your out of office status in Linear, so colleagues know when you will be unavailable for issue assignment.  
+* **Google Calendar** - Sync your [Google Calendar](https://linear.app/integrations/google-calendar) to display your out of office status in Linear, so colleagues know when you will be unavailable for issue assignment. 
 
 ## Practice keyboard shortcuts
 

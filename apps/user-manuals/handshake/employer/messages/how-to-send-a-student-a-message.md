@@ -12,13 +12,13 @@ Your ability to send messages depends on your account type and the part of Hands
 
 - **Matches** (*tab*)
 
-  - Message students who appear in the **Matches** tab of a job posting. *Learn more about* [*Job Matches*](https://support.joinhandshake.com/hc/en-us/articles/360046808653).
+ - Message students who appear in the **Matches** tab of a job posting. *Learn more about* [*Job Matches*](https://support.joinhandshake.com/hc/en-us/articles/360046808653).
 - **Candidates** (*tab*)
 
-  - Message students directly from the **Candidates** tab of an event or fair page after they RSVP. *Read more about* [*Messaging Event and Fair RSVPs*](https://support.joinhandshake.com/hc/en-us/articles/360001020627).
+ - Message students directly from the **Candidates** tab of an event or fair page after they RSVP. *Read more about* [*Messaging Event and Fair RSVPs*](https://support.joinhandshake.com/hc/en-us/articles/360001020627).
 - **\*Talent** (*page*)
 
-  - View and message students from the **Talent** page or directly from their profile. *Read* [*A Guide to Talent List*](https://support.joinhandshake.com/hc/en-us/articles/360047227294)*.*
+ - View and message students from the **Talent** page or directly from their profile. *Read* [*A Guide to Talent List*](https://support.joinhandshake.com/hc/en-us/articles/360047227294)*.*
 
     - **Note**: This feature is only available to Premium partners and on-campus employers.
 

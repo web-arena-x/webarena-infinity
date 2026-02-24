@@ -8,20 +8,15 @@ title: GitLab Testing Strategy
 
 ## Core Principles
 
-**Fast Feedback**
-Prioritize speed by running the most relevant tests first—fail fast, fix fast.
+**Fast Feedback** Prioritize speed by running the most relevant tests first—fail fast, fix fast.
 
-**Progressive Testing**
-Start narrow, expand wide. Build confidence through incremental coverage.
+**Progressive Testing** Start narrow, expand wide. Build confidence through incremental coverage.
 
-**Resource Efficiency**
-Every test should earn its keep. No duplication, no waste.
+**Resource Efficiency** Every test should earn its keep. No duplication, no waste.
 
-**Clear Ownership**
-Every test suite needs an owner. Undefined responsibility leads to decay.
+**Clear Ownership** Every test suite needs an owner. Undefined responsibility leads to decay.
 
-**Test Stability**
-If a test can't reliably block a merge, deployment, or release, it shouldn't exist. Fix it or delete it.
+**Test Stability** If a test can't reliably block a merge, deployment, or release, it shouldn't exist. Fix it or delete it.
 
 ## Test Suite Placement Guidelines
 
@@ -60,42 +55,33 @@ Please see [testing levels](testing_levels.md) for detailed information on the t
 
 | Pipeline Type | Frontend | Backend | Database | E2E |
 |---------------|----------|---------|----------|-----|
-| **Backport MRs** | Full Jest suite | Full RSpec unit/integration | Migration, DB schema check |  Full suite on Omnibus and GDK |
+| **Backport MRs** | Full Jest suite | Full RSpec unit/integration | Migration, DB schema check | Full suite on Omnibus and GDK |
 | **Stable/[Security Branches](https://gitlab.com/gitlab-org/security/gitlab)** (post-merge) | Jest unite/integration | RSpec unit/integration/system | Migration and background migration tests| None |
 
 ## Development Workflow
 
 ### Adding a New Test
 
-**Test Type Selection**
-Start at the lowest level possible: Unit → Integration → System → E2E.
+**Test Type Selection** Start at the lowest level possible: Unit → Integration → System → E2E.
 
-**Coverage Assessment**
-Scan existing tests before writing new ones. Don't test the same thing twice.
+**Coverage Assessment** Scan existing tests before writing new ones. Don't test the same thing twice.
 
-**Suite Placement**
-Match your test to the correct suite and stage. Follow established patterns.
+**Suite Placement** Match your test to the correct suite and stage. Follow established patterns.
 
-**Default to Blocking**
-New tests _block by default_. Non-blocking tests are the exception, not the rule.
+**Default to Blocking** New tests _block by default_. Non-blocking tests are the exception, not the rule.
 
 ### Modifying Test Execution in Pipeline
 
-**Shift Left**
-Move tests earlier in the pipeline whenever possible. Faster feedback saves time.
+**Shift Left** Move tests earlier in the pipeline whenever possible. Faster feedback saves time.
 
-**Preserve Blocking Status**
-Once a test blocks at the right stage, it stays blocking. Demotion requires strong justification.
+**Preserve Blocking Status** Once a test blocks at the right stage, it stays blocking. Demotion requires strong justification.
 
-**Document Impact**
-Every change to test execution patterns needs an impact assessment. No silent modifications.
+**Document Impact** Every change to test execution patterns needs an impact assessment. No silent modifications.
 
 ## Maintenance and Monitoring
 
 Teams should establish regular practices to maintain test suite health:
 
-**Flaky and quarantined tests**
-Review regularly, fix or remove immediately. See [unhealthy tests](unhealthy_tests.md) for details.
+**Flaky and quarantined tests** Review regularly, fix or remove immediately. See [unhealthy tests](unhealthy_tests.md) for details.
 
-**Test suite health**
-Periodically assess test suite performance and identify redundant coverage.
+**Test suite health** Periodically assess test suite performance and identify redundant coverage.

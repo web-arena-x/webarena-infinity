@@ -13,11 +13,8 @@ description: Releases, versioning, assets, tags, milestones, and evidence.
 
 {{< /details >}}
 
-Create a release to package your project at critical milestones. Releases combine code, binaries, documentation,
-and release notes into a complete snapshot of your project.
-When a release is created, GitLab automatically tags your code, archives a snapshot, and generates
-audit-ready evidence. This creates a permanent record that's perfect for compliance requirements and
-can give your users confidence in your development process.
+Create a release to package your project at critical milestones. Releases combine code, binaries, documentation, and release notes into a complete snapshot of your project.
+When a release is created, GitLab automatically tags your code, archives a snapshot, and generates audit-ready evidence. This creates a permanent record that's perfect for compliance requirements and can give your users confidence in your development process.
 
 Your users benefit from:
 
@@ -47,16 +44,14 @@ To view a list of releases:
 
 - On the project's overview page, if at least one release exists, select the number of releases.
 
-  ![Number of Releases](img/releases_count_v13_2.png "Incremental counter of Releases")
+ ![Number of Releases](img/releases_count_v13_2.png "Incremental counter of Releases")
 
-  - On public projects, this number is visible to all users.
-  - On private projects, this number is visible to users with at least the Reporter
-    [role](../../permissions.md#project-permissions).
+ - On public projects, this number is visible to all users.
+ - On private projects, this number is visible to users with at least the Reporter [role](../../permissions.md#project-permissions).
 
 ### Sort releases
 
-To sort releases by **Released date** or **Created date**, select from the sort order dropdown list. To
-switch between ascending or descending order, select **Sort order**.
+To sort releases by **Released date** or **Created date**, select from the sort order dropdown list. To switch between ascending or descending order, select **Sort order**.
 
 ![Sort releases dropdown list options](img/releases_sort_v13_6.png)
 
@@ -113,21 +108,17 @@ You can create a release:
 
 Prerequisites:
 
-- You must have at least the Developer role for a project. For more information, read
-  [Release permissions](#release-permissions).
+- You must have at least the Developer role for a project. For more information, read [Release permissions](#release-permissions).
 
 To create a release in the Releases page:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Deploy** > **Releases** and select **New release**.
 1. From the [**Tag name**](release_fields.md#tag-name) dropdown list, either:
-   - Select an existing Git tag. Selecting an existing tag that is already associated with a release
-     results in a validation error.
+   - Select an existing Git tag. Selecting an existing tag that is already associated with a release results in a validation error.
    - Enter a new Git tag name.
-     1. From the **Create tag** popover, select a branch or commit SHA to use when
-        creating the new tag.
-     1. Optional. In the **Set tag message** text box, enter a message to create an
-        [annotated tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_annotated_tags).
+     1. From the **Create tag** popover, select a branch or commit SHA to use when creating the new tag.
+     1. Optional. In the **Set tag message** text box, enter a message to create an [annotated tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_annotated_tags).
      1. Select **Save**.
 1. Optional. Enter additional information about the release, including:
    - [Title](release_fields.md#title).
@@ -139,12 +130,10 @@ To create a release in the Releases page:
 
 ### Creating a release by using a CI/CD job
 
-You can create a release directly as part of the GitLab CI/CD pipeline by using the
-[`release` keyword](../../../ci/yaml/_index.md#release) in the job definition.
+You can create a release directly as part of the GitLab CI/CD pipeline by using the [`release` keyword](../../../ci/yaml/_index.md#release) in the job definition.
 You should likely create a release as one of the last steps in your CI/CD pipeline.
 
-The release is created only if the job processes without error. If the API returns an error during
-release creation, the release job fails.
+The release is created only if the job processes without error. If the API returns an error during release creation, the release job fails.
 
 The following links show typical example configurations for creating a release using a CI/CD job:
 
@@ -154,33 +143,28 @@ The following links show typical example configurations for creating a release u
 
 ### Use a custom SSL CA certificate authority
 
-You can use the `ADDITIONAL_CA_CERT_BUNDLE` CI/CD variable to configure a custom SSL CA certificate authority,
-which is used to verify the peer when the `glab` CLI creates a release through the API using HTTPS with custom certificates.
-The `ADDITIONAL_CA_CERT_BUNDLE` value should contain the
-[text representation of the X.509 PEM public-key certificate](https://www.rfc-editor.org/rfc/rfc7468#section-5.1)
+You can use the `ADDITIONAL_CA_CERT_BUNDLE` CI/CD variable to configure a custom SSL CA certificate authority, which is used to verify the peer when the `glab` CLI creates a release through the API using HTTPS with custom certificates.
+The `ADDITIONAL_CA_CERT_BUNDLE` value should contain the [text representation of the X.509 PEM public-key certificate](https://www.rfc-editor.org/rfc/rfc7468#section-5.1)
 or the `path/to/file` containing the certificate authority.
 For example, to configure this value in the `.gitlab-ci.yml` file, use the following:
 
 ```yaml
 release:
-  variables:
+ variables:
     ADDITIONAL_CA_CERT_BUNDLE: |
         -----BEGIN CERTIFICATE-----
         MIIGqTCCBJGgAwIBAgIQI7AVxxVwg2kch4d56XNdDjANBgkqhkiG9w0BAQsFADCB
         ...
         jWgmPqF3vUbZE0EyScetPJquRFRKIesyJuBFMAs=
         -----END CERTIFICATE-----
-  script:
+ script:
     - echo "Create release"
-  release:
+ release:
     name: 'My awesome release'
     tag_name: '$CI_COMMIT_TAG'
 ```
 
-The `ADDITIONAL_CA_CERT_BUNDLE` value can also be configured as a
-[custom variable in the UI](../../../ci/variables/_index.md#for-a-project),
-either as a `file`, which requires the path to the certificate, or as a variable,
-which requires the text representation of the certificate.
+The `ADDITIONAL_CA_CERT_BUNDLE` value can also be configured as a [custom variable in the UI](../../../ci/variables/_index.md#for-a-project), either as a `file`, which requires the path to the certificate, or as a variable, which requires the text representation of the certificate.
 
 ### Create multiple releases in a single pipeline
 
@@ -188,16 +172,16 @@ A pipeline can have multiple `release` jobs, for example:
 
 ```yaml
 ios-release:
-  script:
+ script:
     - echo "iOS release job"
-  release:
+ release:
     tag_name: v1.0.0-ios
     description: 'iOS release v1.0.0'
 
 android-release:
-  script:
+ script:
     - echo "Android release job"
-  release:
+ release:
     tag_name: v1.0.0-android
     description: 'Android release v1.0.0'
 ```
@@ -231,8 +215,7 @@ To create a release with packaged assets:
 ## Upcoming releases
 
 You can create a release ahead of time by using the [Releases API](../../../api/releases/_index.md#upcoming-releases).
-When you set a future `released_at` date, an **Upcoming Release** badge is displayed next to the
-release tag. When the `released_at` date and time has passed, the badge is automatically removed.
+When you set a future `released_at` date, an **Upcoming Release** badge is displayed next to the release tag. When the `released_at` date and time has passed, the badge is automatically removed.
 
 ![An upcoming release](img/upcoming_release_v12_7.png)
 
@@ -244,16 +227,12 @@ release tag. When the `released_at` date and time has passed, the badge is autom
 
 {{< /history >}}
 
-You can create a release in the past using either the
-[Releases API](../../../api/releases/_index.md#historical-releases) or the UI. When you set
-a past `released_at` date, an **Historical release** badge is displayed next to
-the release tag. Due to being released in the past, [release evidence](release_evidence.md)
+You can create a release in the past using either the [Releases API](../../../api/releases/_index.md#historical-releases) or the UI. When you set a past `released_at` date, an **Historical release** badge is displayed next to the release tag. Due to being released in the past, [release evidence](release_evidence.md)
 is not available.
 
 ## Edit a release
 
-To edit the details of a release after it's created, you can use the
-[Update a release API](../../../api/releases/_index.md#update-a-release) or the UI.
+To edit the details of a release after it's created, you can use the [Update a release API](../../../api/releases/_index.md#update-a-release) or the UI.
 
 Prerequisites:
 
@@ -274,23 +253,20 @@ In the UI:
 
 {{< /history >}}
 
-When you delete a release, its assets are also deleted. However, the associated
-Git tag is not deleted.
+When you delete a release, its assets are also deleted. However, the associated Git tag is not deleted.
 Deleting a Git tag associated with a release also deletes the release.
 
 Prerequisites:
 
 - You must have at least the Developer role. Read more about [Release permissions](#release-permissions).
 
-To delete a release, use either the
-[Delete a release API](../../../api/releases/_index.md#delete-a-release) or the UI.
+To delete a release, use either the [Delete a release API](../../../api/releases/_index.md#delete-a-release) or the UI.
 
 In the UI:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Deploy** > **Releases**.
-1. In the upper-right corner of the release you want to delete, select **Edit this release**
-   ({{< icon name="pencil" >}}).
+1. In the upper-right corner of the release you want to delete, select **Edit this release** ({{< icon name="pencil" >}}).
 1. On the **Edit Release** page, select **Delete**.
 1. Select **Delete release**.
 
@@ -300,8 +276,7 @@ You can associate a release with one or more [project milestones](../milestones/
 
 [GitLab Premium](https://about.gitlab.com/pricing/) customers can specify [group milestones](../milestones/_index.md#project-milestones-and-group-milestones) to associate with a release.
 
-You can do this in the user interface, or by including a `milestones` array in your request to
-the [Releases API](../../../api/releases/_index.md#create-a-release).
+You can do this in the user interface, or by including a `milestones` array in your request to the [Releases API](../../../api/releases/_index.md#create-a-release).
 
 In the user interface, to associate milestones to a release:
 
@@ -310,13 +285,11 @@ In the user interface, to associate milestones to a release:
 1. From the **Milestones** list, select each milestone you want to associate. You can select multiple milestones.
 1. Select **Save changes**.
 
-On the **Deploy** > **Releases** page, the **Milestone** is listed in the top
-section, along with statistics about the issues in the milestones.
+On the **Deploy** > **Releases** page, the **Milestone** is listed in the top section, along with statistics about the issues in the milestones.
 
 ![A Release with one associated milestone](img/release_with_milestone_v12_9.png)
 
-Releases are also visible on the **Plan** > **Milestones** page, and when you select a milestone
-on this page.
+Releases are also visible on the **Plan** > **Milestones** page, and when you select a milestone on this page.
 
 Here is an example of milestones with no releases, one release, and two releases.
 
@@ -324,9 +297,7 @@ Here is an example of milestones with no releases, one release, and two releases
 
 {{< alert type="note" >}}
 
-A subgroup's project releases cannot be associated with a parent group's milestone. To learn
-more, read issue #328054,
-[Releases cannot be associated with a supergroup milestone](https://gitlab.com/gitlab-org/gitlab/-/issues/328054).
+A subgroup's project releases cannot be associated with a parent group's milestone. To learn more, read issue #328054, [Releases cannot be associated with a supergroup milestone](https://gitlab.com/gitlab-org/gitlab/-/issues/328054).
 
 {{< /alert >}}
 
@@ -344,27 +315,22 @@ To subscribe to notifications for releases:
 
 ## Prevent unintentional releases by setting a deploy freeze
 
-Prevent unintended production releases during a period of time you specify by
-setting a [*deploy freeze* period](../../../ci/environments/deployment_safety.md).
+Prevent unintended production releases during a period of time you specify by setting a [*deploy freeze* period](../../../ci/environments/deployment_safety.md).
 Deploy freezes help reduce uncertainty and risk when automating deployments.
 
-A maintainer can set a deploy freeze window in the user interface or by using the [Freeze Periods API](../../../api/freeze_periods.md) to set a `freeze_start` and a `freeze_end`, which
-are defined as [crontab](https://crontab.guru/) entries.
+A maintainer can set a deploy freeze window in the user interface or by using the [Freeze Periods API](../../../api/freeze_periods.md) to set a `freeze_start` and a `freeze_end`, which are defined as [crontab](https://crontab.guru/) entries.
 
-If the job that's executing is in a freeze period, GitLab CI/CD creates an environment
-variable named `$CI_DEPLOY_FREEZE`.
+If the job that's executing is in a freeze period, GitLab CI/CD creates an environment variable named `$CI_DEPLOY_FREEZE`.
 
-To prevent the deployment job from executing in multiple projects in a group,
-define the `.freezedeployment` job in a file shared across the group.
-Use the [`includes`](../../../ci/yaml/includes.md) keyword to incorporate the
-template in your project's `.gitlab-ci.yml` file:
+To prevent the deployment job from executing in multiple projects in a group, define the `.freezedeployment` job in a file shared across the group.
+Use the [`includes`](../../../ci/yaml/includes.md) keyword to incorporate the template in your project's `.gitlab-ci.yml` file:
 
 ```yaml
 .freezedeployment:
-  stage: deploy
-  before_script:
+ stage: deploy
+ before_script:
     - '[[ ! -z "$CI_DEPLOY_FREEZE" ]] && echo "INFRASTRUCTURE OUTAGE WINDOW" && exit 1; '
-  rules:
+ rules:
     - if: '$CI_DEPLOY_FREEZE'
       when: manual
       allow_failure: true
@@ -375,9 +341,9 @@ To prevent the deployment job from executing, use the [`extends`](../../../ci/ya
 
 ```yaml
 deploy_to_production:
-  extends: .freezedeployment
-  script: deploy_to_prod.sh
-  environment: production
+ extends: .freezedeployment
+ script: deploy_to_prod.sh
+ environment: production
 ```
 
 This configuration blocks deployment jobs conditionally and maintains pipeline continuity. When a freeze period is defined, the job fails and the pipeline can proceed without deployment. Manual deployment is possible after the freeze period.
@@ -397,8 +363,7 @@ To set a deploy freeze window in the UI, complete these steps:
 1. After the deploy freeze is saved, you can edit it by selecting the edit button ({{< icon name="pencil" >}}) and remove it by selecting the delete button ({{< icon name="remove" >}}).
    ![Deploy freeze modal for setting a deploy freeze period](img/deploy_freeze_v14_3.png)
 
-If a project contains multiple freeze periods, all periods apply. If they overlap, the freeze covers the
-complete overlapping period.
+If a project contains multiple freeze periods, all periods apply. If they overlap, the freeze covers the complete overlapping period.
 
 For more information, see [Deployment safety](../../../ci/environments/deployment_safety.md).
 
@@ -406,13 +371,10 @@ For more information, see [Deployment safety](../../../ci/environments/deploymen
 
 ### View a release and download assets
 
-- Users with at least the Reporter role
-  have read and download access to the project releases.
-- Users with the Guest role
-  have read and download access to the project releases.
-  This includes associated Git-tag-names, release description, author information of the releases.
-  However, other repository-related information, such as [source code](release_fields.md#source-code) and
-  [release evidence](release_evidence.md) are redacted.
+- Users with at least the Reporter role have read and download access to the project releases.
+- Users with the Guest role have read and download access to the project releases.
+ This includes associated Git-tag-names, release description, author information of the releases.
+ However, other repository-related information, such as [source code](release_fields.md#source-code) and [release evidence](release_evidence.md) are redacted.
 
 ### Publish releases without giving access to source code
 
@@ -422,8 +384,7 @@ For more information, see [Deployment safety](../../../ci/environments/deploymen
 
 {{< /history >}}
 
-You can make releases accessible to non-project members while keeping repository-related information, such as [source code](release_fields.md#source-code) and [release evidence](release_evidence.md), available only to project members. These settings are ideal for
-projects that use releases to give access to new versions of software, but do not want the source code to be publicly available.
+You can make releases accessible to non-project members while keeping repository-related information, such as [source code](release_fields.md#source-code) and [release evidence](release_evidence.md), available only to project members. These settings are ideal for projects that use releases to give access to new versions of software, but do not want the source code to be publicly available.
 
 To make releases available publicly, set the following [project settings](../settings/_index.md#configure-project-features-and-permissions):
 
@@ -433,15 +394,10 @@ To make releases available publicly, set the following [project settings](../set
 
 ### Create, update, and delete a release and its assets
 
-- Users with at least the Developer role
-  have write access to the project releases and assets.
-- If a release is associated with a [protected tag](../protected_tags.md),
-  the user must be [allowed to create the protected tag](../protected_tags.md#configure-protected-tags) too.
+- Users with at least the Developer role have write access to the project releases and assets.
+- If a release is associated with a [protected tag](../protected_tags.md), the user must be [allowed to create the protected tag](../protected_tags.md#configure-protected-tags) too.
 
-As an example of release permission control, you can allow only
-users with at least the Maintainer role
-to create, update, and delete releases by protecting the tag with a wildcard (`*`),
-and set **Maintainer** in the **Allowed to create** column.
+As an example of release permission control, you can allow only users with at least the Maintainer role to create, update, and delete releases by protecting the tag with a wildcard (`*`), and set **Maintainer** in the **Allowed to create** column.
 
 ## Release Metrics
 
@@ -480,14 +436,12 @@ You can copy the example project to your own group or instance for testing. More
 
 ### Errors when creating, updating or deleting releases and their assets
 
-If the release is associated with a [protected tag](../protected_tags.md),
-the UI/API request might result in an authorization failures, such as:
+If the release is associated with a [protected tag](../protected_tags.md), the UI/API request might result in an authorization failures, such as:
 
 - `403 Forbidden`
 - `Something went wrong while creating a new release`
 
-Make sure that the user or a service/bot account is allowed to
-[create the protected tag](../protected_tags.md#configure-protected-tags) too.
+Make sure that the user or a service/bot account is allowed to [create the protected tag](../protected_tags.md#configure-protected-tags) too.
 
 See [the release permissions](#release-permissions) for more information.
 
@@ -508,8 +462,5 @@ You must use GitLab CLI tool `v1.58.0` or higher, or you could receive one of th
 
 There are two ways to have the GitLab CLI tool:
 
-- If you use the `registry.gitlab.com/gitlab-org/release-cli:<version>` container image,
-  you can start using either `registry.gitlab.com/gitlab-org/cli:v1.58.0` or
-  `registry.gitlab.com/gitlab-org/release-cli:v0.24.0`, which contains `glab` `v1.58.0`.
-- If you manually installed the release-cli or GitLab CLI tool on your runners,
-  make sure the GitLab CLI version is at least `v1.58.0`.
+- If you use the `registry.gitlab.com/gitlab-org/release-cli:<version>` container image, you can start using either `registry.gitlab.com/gitlab-org/cli:v1.58.0` or `registry.gitlab.com/gitlab-org/release-cli:v0.24.0`, which contains `glab` `v1.58.0`.
+- If you manually installed the release-cli or GitLab CLI tool on your runners, make sure the GitLab CLI version is at least `v1.58.0`.

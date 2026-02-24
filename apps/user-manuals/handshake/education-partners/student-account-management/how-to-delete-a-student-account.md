@@ -25,7 +25,7 @@ For more information about handling duplicate student accounts, refer to [Managi
 ![cannot_delete_.png](https://support.joinhandshake.com/hc/article_attachments/25997655976215)
 
 - If the student doesn't have any historical data connected to their account, a pop-up will appear in the middle of the screen where you can confirm that you would like to delete the student's account by typing their email address into the text box and then clicking the red **Delete** button.
-  - *This account will be permanently deleted and the Handshake team can't recover the account.*
+ - *This account will be permanently deleted and the Handshake team can't recover the account.*
 
 ![delete_student.png](https://support.joinhandshake.com/hc/article_attachments/25997636208535)
 

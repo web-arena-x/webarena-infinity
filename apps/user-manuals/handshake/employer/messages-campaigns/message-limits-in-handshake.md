@@ -29,11 +29,11 @@ Employers can use all of their messages at once, or throughout the month.
 Per-send refers to the number of recipients selected for bulk messages and campaigns.
 
 - **Bulk messages**
-  - Messages are sent to candidates you manually select from areas where they appear, such as the **Matches** tab.
-  - Premium partners can send bulk messages to up to **500 recipients** at a time. Basic accounts are limited to **10 messages** per month. In these cases, the monthly limit overrides the per-send limit.
+ - Messages are sent to candidates you manually select from areas where they appear, such as the **Matches** tab.
+ - Premium partners can send bulk messages to up to **500 recipients** at a time. Basic accounts are limited to **10 messages** per month. In these cases, the monthly limit overrides the per-send limit.
 - **Campaigns**
-  - Large-scale outreach targeting a wide range of students based on a segment.
-  - All campaigns can reach a maximum audience of **5000 recipients**.
+ - Large-scale outreach targeting a wide range of students based on a segment.
+ - All campaigns can reach a maximum audience of **5000 recipients**.
     - *Learn more about* [*Segments & Campaigns*](https://support.joinhandshake.com/hc/en-us/sections/1500000816741-Segments-Campaigns).
 
 ### Messaging Limits

@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408824595354-Creating-new
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Enterprise or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Guide Enterprise |
 

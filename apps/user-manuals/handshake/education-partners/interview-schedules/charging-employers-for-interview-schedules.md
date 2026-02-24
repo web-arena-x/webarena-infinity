@@ -25,9 +25,9 @@ Depending on when your institution collects payments, you'll need to send the em
 3. A new invoice form will load:
 
 - **Recipients**: Choose your invoice recipients
-  - **Note**: if you’d like to send a “test invoice”, choose only yourself — you’ll be able to resend the invoice to the employer later.
-- **Invoice Number** and **Amount** are auto-generated and can not be modified.  
-  - The invoice amount is calculated based on the pricing your school defined when creating the fair and the fair options the employer selected.
+ - **Note**: if you’d like to send a “test invoice”, choose only yourself — you’ll be able to resend the invoice to the employer later.
+- **Invoice Number** and **Amount** are auto-generated and can not be modified. 
+ - The invoice amount is calculated based on the pricing your school defined when creating the fair and the fair options the employer selected.
     - If you need to change the invoice amount for some reason, you should edit the career fair registration to add a discount or add any extra items to help adjust the amount due, then generate a new invoice.
 - **Subject** is auto-generated based on the employer’s name and the fair’s name. You’re welcome to change it if needed.
 - **Custom Message** is populated with the default invoice message if one was configured for the fair. You can change the message just for this employer here on the invoice form, or you can change the message for all future invoices by editing the Default invoice message in the fair’s details.
@@ -68,7 +68,7 @@ If an employer pays by check or a method outside of Handshake, you can manually 
 
 - **Amount**: the amount paid by the employer.
 - **Private Notes**: take private notes that only other staff members will be able to access.
-  - Example: this may be the type of payment, like a check or the external platform used to collect the payment.
+ - Example: this may be the type of payment, like a check or the external platform used to collect the payment.
 - **Send Myself Receipt**: check this box if you would like to receive a copy of the receipt
 - **Custom Message**: include a custom message that will be shown in the receipt email.
 

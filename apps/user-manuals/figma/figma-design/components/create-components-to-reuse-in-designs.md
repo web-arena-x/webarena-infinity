@@ -21,14 +21,14 @@ Tip: Variants allow you to group and organize similar components into a single 
 To create a component:
 
 1. Select the layers you’d like to be included in the component.
-2. Do one of the following:  
-   - Click  **Create component** next to the selection's name in the right sidebar
+2. Do one of the following: 
+   - Click **Create component** next to the selection's name in the right sidebar
    - Right-click on your selection and choose **Create component**
    - Use the keyboard shortcut:
      - **Mac**: `Option` `Command` `K`
      - **Windows**: `Ctrl` `Alt` `K`
 
-Figma will nest the layers within a special component frame*.*Identify components in the **Layers** panel using the purple  Component icon. Once created, you can use the [Component configuration settings](../create-and-share-libraries/add-descriptions-to-styles-components-and-variables.md#components) to add a description and documentation link for collaborators.
+Figma will nest the layers within a special component frame*.*Identify components in the **Layers** panel using the purple Component icon. Once created, you can use the [Component configuration settings](../create-and-share-libraries/add-descriptions-to-styles-components-and-variables.md#components) to add a description and documentation link for collaborators.
 
 ## Create components in bulk
 
@@ -42,8 +42,8 @@ You can also create components in bulk. This allows you to select multiple layer
 Note: If you select more than one layer that isn't on one of the above configurations, Figma will create a component for each individual layer.
 
 1. Select the layers you want to create components from,
-2. Click  next to the selection's name in the right sidebar to open the **Create component options** menu.
-3. Select  **Create multiple components** from the options.
+2. Click next to the selection's name in the right sidebar to open the **Create component options** menu.
+3. Select **Create multiple components** from the options.
 4. Figma will create a component for each frame, group, boolean operation, or path.
 
 ![](https://help.figma.com/hc/article_attachments/26949853048471)

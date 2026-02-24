@@ -12,8 +12,8 @@ Are you interested in changing your email address or a student’s email in Hand
 
 **Change your Career Services email**
 
-If you need to update the email connected to your career services account, you can do this yourself in Handshake!   
-  
+If you need to update the email connected to your career services account, you can do this yourself in Handshake!  
+ 
 *If you have multiple accounts (staff, student, employer), you can only change the email on one of the existing accounts.*
 
 *We recommend updating the email address associated with your career services account, then creating a new student and employer account with the same email address.*

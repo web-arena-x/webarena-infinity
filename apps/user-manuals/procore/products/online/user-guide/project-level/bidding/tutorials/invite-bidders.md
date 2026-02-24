@@ -19,15 +19,15 @@ To send bid invitations to companies you've added to a bid form.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.
+ - 'Admin' level permissions on the project's Bidding tool.
 - **Additional Information**:
-  - Make sure companies have a bid recipient before sending an invitation. Companies without bid recipients will not receive an invitation to bid email. See [View and Manage Bidders on a Bid Form](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/view-and-manage-bidders-on-a-bid-form "View and Manage Bidders on a Bid Form (Beta)").
-  - After you send out a bid invitation to a company, anyone in that company that is on the Recipient List can log in to submit a bid.
-  - Users can only see a bid that they have been invited to.
+ - Make sure companies have a bid recipient before sending an invitation. Companies without bid recipients will not receive an invitation to bid email. See [View and Manage Bidders on a Bid Form](https://support.procore.com/products/online/user-guide/project-level/bidding/tutorials/view-and-manage-bidders-on-a-bid-form "View and Manage Bidders on a Bid Form (Beta)").
+ - After you send out a bid invitation to a company, anyone in that company that is on the Recipient List can log in to submit a bid.
+ - Users can only see a bid that they have been invited to.
 
 ## Video
 
-|  |
+| |
 | --- |
 | [Bidding](#s61972) |
 
@@ -40,7 +40,7 @@ To send bid invitations to companies you've added to a bid form.
 
 1. Navigate to the project's **Bidding** tool.
 2. Open the bid package.
-3. If you want to invite all outstanding bidders, click **Invite** and select **All Outstanding Bidders** or **Resend Invitations**.  
+3. If you want to invite all outstanding bidders, click **Invite** and select **All Outstanding Bidders** or **Resend Invitations**. 
    *Note:* You can also click **Invite** in the banner to send invitations to all outstanding bidders.  ![invite-bidders.png](https://support.procore.com/@api/deki/files/390790/invite-bidders.png?revision=1)
 4. If you want to invite an individual company, click the **Invite** button next to the company in the 'Bid Status' column.
 5. Select one or more bid recipients to send the invitation to, and then click **Send**.

@@ -10,15 +10,15 @@ You can choose between two setup modes depending on your development needs:
 
 - Agent for workspace (`agentw`):
 
-  - Simpler setup.
-  - Uses direct agent communication.
-  - Recommended for most development scenarios.
+ - Simpler setup.
+ - Uses direct agent communication.
+ - Recommended for most development scenarios.
 
 - GitLab Workspaces Proxy:
 
-  - More complex setup.
-  - Uses proxy for workspace communication.
-  - Required for testing proxy-specific features.
+ - More complex setup.
+ - Uses proxy for workspace communication.
+ - Required for testing proxy-specific features.
 
 ## Set up Kubernetes
 
@@ -53,8 +53,7 @@ You can choose between two setup modes depending on your development needs:
 1. [Set up an EE license](https://handbook.gitlab.com/handbook/engineering/developer-onboarding/#working-on-gitlab-ee-developer-licenses).
 1. Configure GDK to run on a local private IP address by following the [local network binding documentation](https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/main/doc/howto/local_network.md#local-network-binding).
 
-   For this setup, we assume the private IP address is `172.16.123.1`. If you use a different IP address,
-   substitute the correct value in later steps.
+   For this setup, we assume the private IP address is `172.16.123.1`. If you use a different IP address, substitute the correct value in later steps.
 
 1. Configure NGINX for GDK:
 
@@ -230,8 +229,8 @@ Use this configuration in the `.gitlab/agents/remotedev/config.yaml` file:
 
 ```yaml
 remote_development:
-  enabled: true
-  network_policy:
+ enabled: true
+ network_policy:
     enabled: true
     egress:
     - allow: '0.0.0.0/0'
@@ -240,12 +239,12 @@ remote_development:
       - '172.16.0.0/12'
       - '192.168.0.0/16'
     - allow: '172.16.123.1/32'
-  gitlab_workspaces_proxy:
+ gitlab_workspaces_proxy:
     http_enabled: false
     ssh_enabled: false
 
 observability:
-  logging:
+ logging:
     level: debug
     grpc_level: warn
 ```
@@ -256,9 +255,9 @@ Use this configuration in the `.gitlab/agents/remotedev/config.yaml` file:
 
 ```yaml
 remote_development:
-  enabled: true
-  dns_zone: workspaces.localtest.me
-  network_policy:
+ enabled: true
+ dns_zone: workspaces.localtest.me
+ network_policy:
     enabled: true
     egress:
     - allow: '0.0.0.0/0'
@@ -269,7 +268,7 @@ remote_development:
     - allow: '172.16.123.1/32'
 
 observability:
-  logging:
+ logging:
     level: debug
     grpc_level: warn
 ```
@@ -310,8 +309,7 @@ If you chose the GitLab Workspaces Proxy mode, complete these additional steps:
 
 1. Optional. Define a devfile for testing:
 
-   1. If you don't need to test specific configurations, skip this step in favor of using the
-      default Devfile in the next step.
+   1. If you don't need to test specific configurations, skip this step in favor of using the default Devfile in the next step.
    1. Go to the `gitlab-org/gitlab-shell` project at `http://gdk.test:3000/gitlab-org/gitlab-shell`.
    1. Create a file at `.devfile.yaml`:
 
@@ -341,8 +339,7 @@ If you chose the GitLab Workspaces Proxy mode, complete these additional steps:
 
       {{< alert type="note" >}}
 
-      If you get an error about a missing agent configuration, check your `agentk` debug logs to ensure
-      that your `agentk` successfully connects and reads your agent configuration file.
+      If you get an error about a missing agent configuration, check your `agentk` debug logs to ensure that your `agentk` successfully connects and reads your agent configuration file.
 
       {{< /alert >}}
 
@@ -357,13 +354,11 @@ If you chose the GitLab Workspaces Proxy mode, complete these additional steps:
    {{< alert type="note" >}}
 
    By default, the GitLab VS Code fork for Workspaces server uses [Open VSX](https://open-vsx.org/)
-   Extensions Marketplace. These settings are configured during a workspace startup in the `product.json`
-   file. This file is located in the `${GL_EDITOR_VOLUME_DIR}/code-server` directory.
+   Extensions Marketplace. These settings are configured during a workspace startup in the `product.json` file. This file is located in the `${GL_EDITOR_VOLUME_DIR}/code-server` directory.
 
    {{< /alert >}}
 
-   To customize the Extensions Marketplace configuration, these are the relevant properties in the
-   `product.json` file:
+   To customize the Extensions Marketplace configuration, these are the relevant properties in the `product.json` file:
 
       ```json
       {
@@ -381,19 +376,14 @@ To enable AI features in workspaces:
 
 1. Follow the instructions in [Set up GitLab Team Member License for GDK](../ai_features/ai_development_license.md#set-up-gitlab-team-member-license-for-gdk).
 
-   This page also lists other set up AI features options for local development. To provision a
-   GitLab Self-Managed Ultimate Subscription with GitLab Duo Pro add-on license yourself, follow the cloud license
-   with CustomersDot approach.
+   This page also lists other set up AI features options for local development. To provision a GitLab Self-Managed Ultimate Subscription with GitLab Duo Pro add-on license yourself, follow the cloud license with CustomersDot approach.
 
 1. Configure your instance to use the staging AI gateway (`https://cloud.staging.gitlab.com/ai`).
 
-For workspaces, you must enable GitLab Duo Chat features. They are only available with a GitLab Duo Enterprise
-license. You cannot provision this license for yourself through the staging Customers Portal.
-To upgrade your subscription from GitLab Duo Pro to GitLab Duo Enterprise, submit your request in the
-`#g_provision` Slack channel.
+For workspaces, you must enable GitLab Duo Chat features. They are only available with a GitLab Duo Enterprise license. You cannot provision this license for yourself through the staging Customers Portal.
+To upgrade your subscription from GitLab Duo Pro to GitLab Duo Enterprise, submit your request in the `#g_provision` Slack channel.
 
-If configured correctly, in the **Admin** > **GitLab Duo Pro** settings, the message,
-**No health problems detected.** is displayed.
+If configured correctly, in the **Admin** > **GitLab Duo Pro** settings, the message, **No health problems detected.** is displayed.
 
 {{< alert type="note" >}}
 
@@ -455,8 +445,7 @@ scripts/remote_development/run-smoke-test-suite.sh
 
 The test does not set up or teardown any of these components as a part of its execution.
 
-At present, the test is tagged with a `quarantine` label so it does not run as a part of CI/CD, because
-of complexities in spinning up KAS and `agentk` in the CI/CD environment. It must be run manually.
+At present, the test is tagged with a `quarantine` label so it does not run as a part of CI/CD, because of complexities in spinning up KAS and `agentk` in the CI/CD environment. It must be run manually.
 
 {{< /alert >}}
 
@@ -464,13 +453,11 @@ To run the test:
 
 1. Ensure that the test GitLab instance is up and running with the default KAS or `agentk` stopped.
 1. Ensure KAS with remote development code is up and running.
-1. By default, the E2E test assumes the existence of an agent with name `test-agent` under the group
-   `gitlab-org` in the GDK GitLab instance:
+1. By default, the E2E test assumes the existence of an agent with name `test-agent` under the group `gitlab-org` in the GDK GitLab instance:
 
    1. To work with the defaults, create an agent with the name `test-agent` in a project in `gitlab-org` group.
       The `gitlab-shell` project in the `gitlab-org` group is a candidate for where to create this agent.
-   1. Alternatively, to use a custom group/agent, override the group and agent name with the environment
-      variables `AGENTK_GROUP` and `AGENTK_NAME`.
+   1. Alternatively, to use a custom group/agent, override the group and agent name with the environment variables `AGENTK_GROUP` and `AGENTK_NAME`.
 
 1. Change the current working directory to `{GDK_ROOT}/gitlab`.
 1. Run the test with `scripts/remote_development/run-e2e-spec.sh`.
@@ -484,8 +471,7 @@ To run the test:
 Use the [example projects](https://gitlab.com/gitlab-org/workspaces/examples) to test GitLab Workspaces.
 These projects include devfiles and work out-of-the-box.
 
-1. Clone the example projects to your development machine and push them to your local GitLab installation
-   as **public** projects under the `gitlab-org` group.
+1. Clone the example projects to your development machine and push them to your local GitLab installation as **public** projects under the `gitlab-org` group.
 1. The projects appear in the project list when you create a workspace.
 1. Follow the `README` file in each project for specific usage instructions.
 
@@ -507,7 +493,7 @@ These dependencies are external repositories that Workspaces relies on:
 |-----------------------------------------------------------------------------------|-----------------------------------------------------------------|------------|---------|
 | [GitLab VS Code Fork](https://gitlab.com/gitlab-org/gitlab-web-ide-vscode-fork)   | GitLab fork of upstream VS Code OSS project                     | Script     | GitLab Workspaces Tools |
 | [GitLab VS Code Extension](https://gitlab.com/gitlab-org/gitlab-vscode-extension) | GitLab VS Code Extension                                        | TypeScript | GitLab Workspaces Tools |
-| [Devfile API](https://github.com/devfile/api)                                     | Upstream project defining Devfile Schema                        | Go         | GitLab  |
+| [Devfile API](https://github.com/devfile/api)                                     | Upstream project defining Devfile Schema                        | Go         | GitLab |
 | [Devfile Library](https://github.com/devfile/library)                             | Upstream project for converting Devfile to Kubernetes resources | Go         | Devfile Gem |
 
 ## Debugging
@@ -516,8 +502,7 @@ These dependencies are external repositories that Workspaces relies on:
 
 For tips on debugging under Ruby Mine, see [Using RubyMine debugger for GitLab running under GDK](https://handbook.gitlab.com/handbook/tools-and-tips/editors-and-ides/jetbrains-ides/individual-ides/rubymine/#using-rubymine-debugger-for-gitlab-running-under-gdk).
 
-KAS and `agentk` debugging also works under GoLand. If you need help to set up Run Configurations,
-reach out to one of the developers or engineers.
+KAS and `agentk` debugging also works under GoLand. If you need help to set up Run Configurations, reach out to one of the developers or engineers.
 
 ### Rails
 
@@ -625,8 +610,7 @@ PODNAME=$(kubectl get po -o name | cut -d/ -f2) && CONTAINER_NAME=$(kubectl get 
 
 {{< alert type="note" >}}
 
-These commands run in the current namespace. Use `kubens` to switch to the workspace namespace before
-running them.
+These commands run in the current namespace. Use `kubens` to switch to the workspace namespace before running them.
 
 {{< /alert >}}
 
@@ -658,5 +642,4 @@ This cleanup may take time. If it stalls, restart Rancher Desktop and try again.
 
 #### Additional resources
 
-For information about how localhost traffic reaches Kubernetes when using GitLab Workspaces Proxy,
-see [this comment](https://gitlab.com/gitlab-org/workspaces/gitlab-workspaces-proxy/-/merge_requests/7#note_2101447807).
+For information about how localhost traffic reaches Kubernetes when using GitLab Workspaces Proxy, see [this comment](https://gitlab.com/gitlab-org/workspaces/gitlab-workspaces-proxy/-/merge_requests/7#note_2101447807).

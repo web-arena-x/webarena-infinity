@@ -5,8 +5,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: GitLab Duo contextual awareness
 ---
 
-Depending on which GitLab Duo feature you are using and where you are using it,
-different information is available to help GitLab Duo make decisions and offer suggestions.
+Depending on which GitLab Duo feature you are using and where you are using it, different information is available to help GitLab Duo make decisions and offer suggestions.
 
 Information can be available:
 
@@ -30,8 +29,7 @@ The following context is available to GitLab Duo Chat.
 - General programming knowledge, best practices, and language specifics.
 - Content in the file you're viewing or editing, including code before and after your cursor.
 - When using Chat in the GitLab UI, the current page title and URL.
-- The `/refactor`, `/fix`, and `/tests` slash commands have access to the latest
-  [Repository X-Ray report](../project/repository/code_suggestions/repository_xray.md).
+- The `/refactor`, `/fix`, and `/tests` slash commands have access to the latest [Repository X-Ray report](../project/repository/code_suggestions/repository_xray.md).
 
 ### Based on location
 
@@ -45,8 +43,7 @@ When you have any of these resources open, GitLab Duo knows about them.
 
 {{< alert type="note" >}}
 
-In the IDEs, secrets and sensitive values that match known formats are redacted before
-they are sent to GitLab Duo Chat.
+In the IDEs, secrets and sensitive values that match known formats are redacted before they are sent to GitLab Duo Chat.
 
 {{< /alert >}}
 
@@ -58,8 +55,7 @@ In the UI, when you're in a merge request, GitLab Duo also knows about:
 
 ### When referenced explicitly
 
-All of the resources that are available based on your location
-are also available when you refer to them explicitly by their ID or URL.
+All of the resources that are available based on your location are also available when you refer to them explicitly by their ID or URL.
 
 ## Software development flow
 
@@ -90,26 +86,24 @@ The following context is available to Code Suggestions.
 ### Always available
 
 - General programming knowledge, best practices, and language specifics.
-- The name, extension, and content of the file you're viewing or editing,
-  including content before and after your cursor.
+- The name, extension, and content of the file you're viewing or editing, including content before and after your cursor.
 
 ### Based on location
 
 - Files you have open in tabs in the IDE. Optional, but on by default.
-  - These files provide GitLab Duo with information about the standards and practices in your project.
-  - Close files if you do not want them used for context.
-  - Code completion is aware of all [supported languages](../project/repository/code_suggestions/supported_extensions.md#supported-languages-by-ide).
-  - Code generation is aware of files in these languages only:
+ - These files provide GitLab Duo with information about the standards and practices in your project.
+ - Close files if you do not want them used for context.
+ - Code completion is aware of all [supported languages](../project/repository/code_suggestions/supported_extensions.md#supported-languages-by-ide).
+ - Code generation is aware of files in these languages only:
     Go, Java, JavaScript, Kotlin, Python, Ruby, Rust, TypeScript (`.ts` and `.tsx` files), Vue, and YAML.
 - Files imported in the file you're viewing or editing. Optional, and off by default.
-  - These files provide GitLab Duo with information about the classes and methods in your file.
+ - These files provide GitLab Duo with information about the classes and methods in your file.
 - Code selected in your editor.
 - [Repository X-Ray files](../project/repository/code_suggestions/repository_xray.md).
 
 {{< alert type="note" >}}
 
-Secrets and sensitive values that match known formats are redacted before
-they are used to generate code.
+Secrets and sensitive values that match known formats are redacted before they are used to generate code.
 This applies to files added by using `/include`.
 
 {{< /alert >}}
@@ -137,13 +131,12 @@ However, you can turn this setting off.
 
 Prerequisites:
 
-- GitLab 17.2 or later. Earlier GitLab versions that support Code Suggestions
-  cannot weigh the content of open tabs more heavily than other files in your project.
+- GitLab 17.2 or later. Earlier GitLab versions that support Code Suggestions cannot weigh the content of open tabs more heavily than other files in your project.
 - A supported extension:
-  - GitLab Workflow extension for VS Code 6.2.2 or later.
-  - GitLab plugin for JetBrains IDEs 3.6.5 or later.
-  - GitLab plugin for Neovim 1.1.0 or later.
-  - GitLab extension for Visual Studio 0.51.0 or later.
+ - GitLab Workflow extension for VS Code 6.2.2 or later.
+ - GitLab plugin for JetBrains IDEs 3.6.5 or later.
+ - GitLab plugin for Neovim 1.1.0 or later.
+ - GitLab extension for Visual Studio 0.51.0 or later.
 
 To change open files being used as context:
 
@@ -155,8 +148,7 @@ To change open files being used as context:
 1. Search for GitLab Workflow in the list, and select the gear icon.
 1. Select **Settings**.
 1. In your **User** settings, search for `open tabs`.
-1. Under **GitLab** > **Duo Code Suggestions: Open Tabs Context**,
-   select or clear **Use the contents of open tabs as context**.
+1. Under **GitLab** > **Duo Code Suggestions: Open Tabs Context**, select or clear **Use the contents of open tabs as context**.
 
 {{< /tab >}}
 
@@ -208,8 +200,7 @@ Use the imported files in your IDE to provide context about your code project. I
 You can control which project content is excluded as context for GitLab Duo.
 Use this feature to protect sensitive information, like password and configuration files.
 
-When you exclude content, all GitLab Duo features, with the exception of [GitLab Duo Chat (Classic)](../gitlab_duo_chat/_index.md),
-exclude this information as context.
+When you exclude content, all GitLab Duo features, with the exception of [GitLab Duo Chat (Classic)](../gitlab_duo_chat/_index.md), exclude this information as context.
 
 ### Manage GitLab Duo context exclusions
 

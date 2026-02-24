@@ -47,8 +47,7 @@ This applies to both existing projects and any new projects.
 To configure Auto DevOps for all projects in your instance:
 
 1. Select the **Default to Auto DevOps pipeline for all projects** checkbox.
-1. Optional. To use Auto Deploy and Auto Review Apps,
-   specify the [Auto DevOps base domain](../../topics/autodevops/requirements.md#auto-devops-base-domain).
+1. Optional. To use Auto Deploy and Auto Review Apps, specify the [Auto DevOps base domain](../../topics/autodevops/requirements.md#auto-devops-base-domain).
 1. Select **Save changes**.
 
 ### Instance runners
@@ -146,8 +145,7 @@ The syntax for duration is described in [`artifacts:expire_in`](../../ci/yaml/_i
 Individual job definitions can override this default value in the project's `.gitlab-ci.yml` file.
 
 Changes to this setting apply only to new artifacts. Existing artifacts keep their original expiration time.
-For information about manually expiring older artifacts,
-see the [troubleshooting documentation](../cicd/job_artifacts_troubleshooting.md#delete-old-builds-and-artifacts).
+For information about manually expiring older artifacts, see the [troubleshooting documentation](../cicd/job_artifacts_troubleshooting.md#delete-old-builds-and-artifacts).
 
 To set the default expiration time for job artifacts:
 
@@ -156,8 +154,7 @@ To set the default expiration time for job artifacts:
 
 #### Keep artifacts from latest successful pipelines
 
-Preserve artifacts from the most recent successful pipeline
-for each Git ref (branch or tag), regardless of their expiration time.
+Preserve artifacts from the most recent successful pipeline for each Git ref (branch or tag), regardless of their expiration time.
 
 By default, this setting is turned on.
 
@@ -169,8 +166,7 @@ A new successful pipeline must run on a branch before its artifacts can expire.
 
 {{< alert type="note" >}}
 
-All application settings have a [customizable cache expiry interval](../application_settings_cache.md),
-which can delay the effect of settings changes.
+All application settings have a [customizable cache expiry interval](../application_settings_cache.md), which can delay the effect of settings changes.
 
 {{< /alert >}}
 
@@ -229,8 +225,7 @@ When enabled, the setting defaults to **Developer** instead.
 
 {{< alert type="warning" >}}
 
-To keep the most secure defaults for new groups and projects, the recommendation is
-to set this setting to disabled.
+To keep the most secure defaults for new groups and projects, the recommendation is to set this setting to disabled.
 
 {{< /alert >}}
 
@@ -281,8 +276,7 @@ To set the maximum number of included files per pipeline:
 Restrict how many [downstream pipelines](../../ci/pipelines/downstream_pipelines.md)
 can be triggered per minute from a single source.
 
-The maximum downstream pipeline trigger rate limits how many downstream pipelines
-can be triggered per minute for a given combination of project, user, and commit.
+The maximum downstream pipeline trigger rate limits how many downstream pipelines can be triggered per minute for a given combination of project, user, and commit.
 The default value is `0`, which means there is no restriction.
 
 #### Pipeline limit per Git push
@@ -315,8 +309,7 @@ To set a custom default CI/CD configuration file path:
 1. Enter a value in the **Default CI/CD configuration file** field.
 1. Select **Save changes**.
 
-Individual projects can override this instance default by
-[specifying a custom CI/CD configuration file](../../ci/pipelines/settings.md#specify-a-custom-cicd-configuration-file).
+Individual projects can override this instance default by [specifying a custom CI/CD configuration file](../../ci/pipelines/settings.md#specify-a-custom-cicd-configuration-file).
 
 #### Display or hide the pipeline suggestion banner
 
@@ -339,8 +332,7 @@ The pipeline suggestion banner is displayed by default. To hide it:
 {{< /history >}}
 
 Control whether to display a banner encouraging migration from Jenkins to GitLab CI/CD.
-This banner appears in merge requests for projects that have the
-[Jenkins integration enabled](../../integration/jenkins.md).
+This banner appears in merge requests for projects that have the [Jenkins integration enabled](../../integration/jenkins.md).
 
 ![A banner prompting migration from Jenkins to GitLab CI](img/suggest_migrate_from_jenkins_v17_7.png)
 
@@ -400,8 +392,7 @@ To access these settings:
 
 Skip validation of the `projectUrl`, `iconUrl`, and `licenseUrl` metadata in NuGet packages.
 
-By default, GitLab validates these URLs. If your GitLab instance doesn't have internet access,
-this validation fails and prevents you from uploading NuGet packages.
+By default, GitLab validates these URLs. If your GitLab instance doesn't have internet access, this validation fails and prevents you from uploading NuGet packages.
 
 To skip NuGet package metadata URL validation:
 
@@ -479,8 +470,7 @@ To access these settings:
 
 ### Control runner version management
 
-Control whether your instance fetches official runner version data from GitLab.com
-to [determine if runners need upgrades](../../ci/runners/runners_scope.md#determine-which-runners-need-to-be-upgraded).
+Control whether your instance fetches official runner version data from GitLab.com to [determine if runners need upgrades](../../ci/runners/runners_scope.md#determine-which-runners-need-to-be-upgraded).
 
 By default, GitLab fetches runner version data. To stop fetching this data:
 
@@ -499,14 +489,11 @@ Control who can register runners and whether to allow registration tokens.
 
 {{< alert type="warning" >}}
 
-The option to pass runner registration tokens and support for certain configuration arguments is considered legacy
-and is not recommended.
+The option to pass runner registration tokens and support for certain configuration arguments is considered legacy and is not recommended.
 Use the [runner creation workflow](https://docs.gitlab.com/runner/register/#register-with-a-runner-authentication-token)
-to generate an authentication token to register runners. This process provides full
-traceability of runner ownership and enhances your runner fleet's security.
+to generate an authentication token to register runners. This process provides full traceability of runner ownership and enhances your runner fleet's security.
 
-For more information, see
-[Migrating to the new runner registration workflow](../../ci/runners/new_creation_workflow.md).
+For more information, see [Migrating to the new runner registration workflow](../../ci/runners/new_creation_workflow.md).
 
 {{< /alert >}}
 
@@ -521,9 +508,7 @@ To restrict runner registration:
 
 {{< alert type="note" >}}
 
-When you disable runner registration for project members, the registration
-token automatically rotates. The previous token becomes invalid and you must
-use the new registration token for the project.
+When you disable runner registration for project members, the registration token automatically rotates. The previous token becomes invalid and you must use the new registration token for the project.
 
 {{< /alert >}}
 
@@ -533,8 +518,7 @@ Control whether members of a specific group can register runners.
 
 Prerequisites:
 
-- The **Members of the group can create runners** checkbox
-  must be selected in the [runner registration settings](#control-runner-registration).
+- The **Members of the group can create runners** checkbox must be selected in the [runner registration settings](#control-runner-registration).
 
 To restrict runner registration for a specific group:
 
@@ -603,7 +587,7 @@ For more information, see [incremental logging](../cicd/job_logs.md#incremental-
 Prerequisites:
 
 - You must [configure object storage](../cicd/job_artifacts.md#using-object-storage)
-  for CI/CD artifacts, logs, and builds.
+ for CI/CD artifacts, logs, and builds.
 
 To turn on incremental logging for all projects:
 
@@ -650,8 +634,8 @@ You can define entries in the allowlist with:
 
 - Exact project paths, for example `my-group/my-project`.
 - Regular expressions: for example:
-  - `my-group/.*`: all projects in the group.
-  - `my-group/security-.*`: Projects starting with `security-`.
+ - `my-group/.*`: all projects in the group.
+ - `my-group/security-.*`: Projects starting with `security-`.
 
 To configure the CI/CD Catalog publishing allowlist:
 
@@ -682,31 +666,25 @@ Projects not in the allowlist receive a `not authorized to publish` error when a
 
 {{< alert type="warning" >}}
 
-This feature was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/389467) in GitLab 15.9
-and was removed in 17.0. From 17.4, it is available only behind the feature flag `required_pipelines`, disabled by default.
+This feature was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/389467) in GitLab 15.9 and was removed in 17.0. From 17.4, it is available only behind the feature flag `required_pipelines`, disabled by default.
 Use [compliance pipelines](../../user/compliance/compliance_pipelines.md) instead. This change is a breaking change.
 
 {{< /alert >}}
 
 You can set a [CI/CD template](../../ci/examples/_index.md#cicd-templates)
-as a required pipeline configuration for all projects on a GitLab instance. You can
-use a template from:
+as a required pipeline configuration for all projects on a GitLab instance. You can use a template from:
 
 - The default CI/CD templates.
 - A custom template stored in an [instance template repository](instance_template_repository.md).
 
-  {{< alert type="note" >}}
+ {{< alert type="note" >}}
 
-  When you use a configuration defined in an instance template repository,
-  nested [`include:`](../../ci/yaml/_index.md#include) keywords
-  (including `include:file`, `include:local`, `include:remote`, and `include:template`)
-  [do not work](https://gitlab.com/gitlab-org/gitlab/-/issues/35345).
+ When you use a configuration defined in an instance template repository, nested [`include:`](../../ci/yaml/_index.md#include) keywords (including `include:file`, `include:local`, `include:remote`, and `include:template`)
+ [do not work](https://gitlab.com/gitlab-org/gitlab/-/issues/35345).
 
-  {{< /alert >}}
+ {{< /alert >}}
 
-The project CI/CD configuration merges into the required pipeline configuration when
-a pipeline runs. The merged configuration is the same as if the required pipeline configuration
-added the project configuration with the [`include` keyword](../../ci/yaml/_index.md#include).
+The project CI/CD configuration merges into the required pipeline configuration when a pipeline runs. The merged configuration is the same as if the required pipeline configuration added the project configuration with the [`include` keyword](../../ci/yaml/_index.md#include).
 To view a project's full merged configuration, [View full configuration](../../ci/pipeline_editor/_index.md#view-full-configuration)
 in the pipeline editor.
 

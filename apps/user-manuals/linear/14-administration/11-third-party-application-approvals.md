@@ -23,6 +23,6 @@ When a workspace member tries to install a third-party app, Linear will display 
 
 ## Notifications
 
-Admins will receive an email and an in-app notification when an application has been requested for approval. This notification will contain a link to the workspace applications page so you can approve or deny the application swiftly.  
-  
+Admins will receive an email and an in-app notification when an application has been requested for approval. This notification will contain a link to the workspace applications page so you can approve or deny the application swiftly. 
+ 
 Once the application has been approved or denied, the member who requested the application will also receive an email and an in-app notification.

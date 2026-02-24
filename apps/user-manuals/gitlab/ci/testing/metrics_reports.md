@@ -13,8 +13,7 @@ title: Metrics reports
 
 {{< /details >}}
 
-Metrics reports display custom metrics in merge requests to track performance,
-memory usage, and other measurements between branches.
+Metrics reports display custom metrics in merge requests to track performance, memory usage, and other measurements between branches.
 
 Use metrics reports to:
 
@@ -25,11 +24,9 @@ Use metrics reports to:
 
 ## Metrics processing workflow
 
-When a pipeline runs, GitLab reads metrics from the report artifact and stores them as string values
-for comparison. The default filename is `metrics.txt`.
+When a pipeline runs, GitLab reads metrics from the report artifact and stores them as string values for comparison. The default filename is `metrics.txt`.
 
-For a merge request, GitLab compares the metrics from the feature branch to the values from the target
-branch and displays them in the merge request widget in this order:
+For a merge request, GitLab compares the metrics from the feature branch to the values from the target branch and displays them in the merge request widget in this order:
 
 - Existing metrics with changed values.
 - Metrics added by the merge request (marked with a **New** badge).
@@ -54,13 +51,13 @@ For example:
 
 ```yaml
 metrics:
-  stage: test
-  script:
+ stage: test
+ script:
     - echo 'memory_usage_bytes 2621440' > metrics.txt
     - echo 'response_time_seconds 0.234' >> metrics.txt
     - echo 'test_coverage_percent 87.5' >> metrics.txt
     - echo '# EOF' >> metrics.txt
-  artifacts:
+ artifacts:
     reports:
       metrics: metrics.txt
 ```
@@ -69,8 +66,7 @@ After the pipeline runs, the metrics reports display in the merge request widget
 
 ![Metrics report widget in a merge request displaying metric names and values.](img/metrics_report_v18_3.png)
 
-For additional format specifications and examples, see
-[Prometheus text format details](https://prometheus.io/docs/instrumenting/exposition_formats/#text-format-details).
+For additional format specifications and examples, see [Prometheus text format details](https://prometheus.io/docs/instrumenting/exposition_formats/#text-format-details).
 
 ## Troubleshooting
 

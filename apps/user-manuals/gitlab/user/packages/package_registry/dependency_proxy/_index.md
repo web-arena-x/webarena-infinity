@@ -31,8 +31,7 @@ This approach reduces the number of downloads from external sources and makes pa
 
 ## Enable the dependency proxy
 
-To use the dependency proxy for packages, ensure your project is configured properly,
-and that users who pull from the cache have the necessary authentication:
+To use the dependency proxy for packages, ensure your project is configured properly, and that users who pull from the cache have the necessary authentication:
 
 1. In the global configuration, if the following features are disabled, enable them:
    - The [`package` feature](../../../../administration/packages/_index.md#enable-or-disable-the-package-registry). Enabled by default.
@@ -49,18 +48,14 @@ and that users who pull from the cache have the necessary authentication:
 
 When possible, the dependency proxy for packages uses advanced caching to store packages in the project's package registry.
 
-Advanced caching verifies the coherence between the project's package registry
-and the upstream package registry. If the upstream registry has updated files,
-the dependency proxy uses them to update the cached files.
+Advanced caching verifies the coherence between the project's package registry and the upstream package registry. If the upstream registry has updated files, the dependency proxy uses them to update the cached files.
 
 When advanced caching is not supported, the dependency proxy falls back to the default behavior:
 
 - If the requested file is found in the project's package registry, it is returned.
 - If the file is not found, it is fetched from the upstream package registry.
 
-Advanced caching support depends on how the upstream package registry
-responds to dependency proxy requests, and on
-which package format you use.
+Advanced caching support depends on how the upstream package registry responds to dependency proxy requests, and on which package format you use.
 
 For Maven packages:
 
@@ -128,17 +123,16 @@ To configure the client:
 {{< tab title="mvn" >}}
 
 [Basic HTTP authentication](../../maven_repository/_index.md#basic-http-authentication) is accepted.
-However, you should use the [custom HTTP header authentication](../../maven_repository/_index.md#custom-http-header),
-so that `mvn` uses fewer network requests.
+However, you should use the [custom HTTP header authentication](../../maven_repository/_index.md#custom-http-header), so that `mvn` uses fewer network requests.
 
 In the `pom.xml` file add a `repository` element:
 
 ```xml
 <repositories>
-  <repository>
+ <repository>
     <id>gitlab-maven</id>
     <url>https://gitlab.example.com/api/v4/projects/<project_id>/dependency_proxy/packages/maven</url>
-  </repository>
+ </repository>
 </repositories>
 ```
 
@@ -158,8 +152,8 @@ Add a `repositories` section to your [`build.gradle`](https://docs.gradle.org/cu
 
 - In Groovy DSL:
 
-  ```groovy
-  repositories {
+ ```groovy
+ repositories {
       maven {
           url "https://gitlab.example.com/api/v4/projects/<project_id>/dependency_proxy/packages/maven"
           name "GitLab"
@@ -171,13 +165,13 @@ Add a `repositories` section to your [`build.gradle`](https://docs.gradle.org/cu
               basic(BasicAuthentication)
           }
       }
-  }
-  ```
+ }
+ ```
 
 - In Kotlin DSL:
 
-  ```kotlin
-  repositories {
+ ```kotlin
+ repositories {
       maven {
           url = uri("https://gitlab.example.com/api/v4/projects/<project_id>/dependency_proxy/packages/maven")
           name = "GitLab"
@@ -189,8 +183,8 @@ Add a `repositories` section to your [`build.gradle`](https://docs.gradle.org/cu
               create("basic", BasicAuthentication::class)
           }
       }
-  }
-  ```
+ }
+ ```
 
 In this example:
 
@@ -237,11 +231,9 @@ To set those parameters:
 
 {{< tab title="Maven" >}}
 
-Any Maven package registry can be connected to the dependency proxy. You can
-authorize the connection with the Maven package registry username and password.
+Any Maven package registry can be connected to the dependency proxy. You can authorize the connection with the Maven package registry username and password.
 
-To set or update the remote Maven package registry, update the following fields
-in the form:
+To set or update the remote Maven package registry, update the following fields in the form:
 
 - `URL` - The URL of the remote registry.
 - `Username` - Optional. The username to use with the remote registry.

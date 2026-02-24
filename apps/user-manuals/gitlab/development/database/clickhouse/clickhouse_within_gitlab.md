@@ -95,7 +95,7 @@ You can create a migration by creating a Ruby migration file in `db/click_house/
 # frozen_string_literal: true
 
 class CreateIssues < ClickHouse::Migration
-  def up
+ def up
     execute <<~SQL
       CREATE TABLE issues
       (
@@ -105,13 +105,13 @@ class CreateIssues < ClickHouse::Migration
       ENGINE = MergeTree
       PRIMARY KEY (id)
     SQL
-  end
+ end
 
-  def down
+ def down
     execute <<~SQL
       DROP TABLE sync_cursors
     SQL
-  end
+ end
 end
 ```
 
@@ -125,7 +125,7 @@ For example, here is how to create a dictionary to look up `traversal_path` for 
 
 ```ruby
 class DictTest < ClickHouse::Migration
-  def up
+ def up
     definition = <<~SQL
       CREATE DICTIONARY project_traversal_paths_dictionary
       (
@@ -154,11 +154,11 @@ class DictTest < ClickHouse::Migration
     SQL
 
     create_dictionary(definition, source_tables: ['project_namespace_traversal_paths'])
-  end
+ end
 
-  def down
+ def down
     execute('DROP DICTIONARY project_traversal_paths_dictionary')
-  end
+ end
 end
 ```
 
@@ -194,8 +194,7 @@ To generate a ClickHouse database post deployment migration execute:
 bundle exec rails generate gitlab:click_house:post_deployment_migration MIGRATION_CLASS_NAME
 ```
 
-These migrations will run by default together with regular migrations, but they can be skipped,
-for example, before deploying to production using `SKIP_POST_DEPLOYMENT_MIGRATIONS` environment variable, for example:
+These migrations will run by default together with regular migrations, but they can be skipped, for example, before deploying to production using `SKIP_POST_DEPLOYMENT_MIGRATIONS` environment variable, for example:
 
 ``` shell
 export SKIP_POST_DEPLOYMENT_MIGRATIONS=true
@@ -276,8 +275,8 @@ When working with complex forms where multiple filter conditions are present, bu
 builder = ClickHouse::Client::QueryBuilder.new('events')
 
 query = builder
-  .where(builder.table[:created_at].lteq(Date.today))
-  .where(id: [1,2,3])
+ .where(builder.table[:created_at].lteq(Date.today))
+ .where(id: [1,2,3])
 
 rows = ClickHouse::Client.select(query, :main)
 ```
@@ -308,13 +307,13 @@ iterator = Event.find_each
 
 # insert from events table using only the id and the target_type columns
 column_mapping = {
-  id: :id,
-  target_type: :target_type
+ id: :id,
+ target_type: :target_type
 }
 
 CsvBuilder::Gzip.new(iterator, column_mapping).render do |tempfile|
-  query = 'INSERT INTO events (id, target_type) FORMAT CSV'
-  ClickHouse::Client.insert_csv(query, File.open(tempfile.path), :main)
+ query = 'INSERT INTO events (id, target_type) FORMAT CSV'
+ ClickHouse::Client.insert_csv(query, File.open(tempfile.path), :main)
 end
 ```
 
@@ -342,7 +341,7 @@ builder = ClickHouse::Client::QueryBuilder.new('events')
 
 iterator = ClickHouse::Iterator.new(query_builder: builder, connection: connection)
 iterator.each_batch(column: :id, of: 100_000) do |scope|
-  records = connection.select(scope.to_sql)
+ records = connection.select(scope.to_sql)
 end
 ```
 
@@ -358,16 +357,15 @@ builder = builder.where(path: '96/97/') # points to a specific project
 
 iterator = ClickHouse::Iterator.new(query_builder: builder, connection: connection)
 iterator.each_batch(column: :id, of: 10) do |scope, min, max|
-  puts "processing range: #{min} - #{max}"
-  puts scope.to_sql
-  records = connection.select(scope.to_sql)
+ puts "processing range: #{min} - #{max}"
+ puts scope.to_sql
+ records = connection.select(scope.to_sql)
 end
 ```
 
 ### Min-max strategies
 
-As the first step, the iterator determines the data range which will be used as condition in the iteration database queries. The data range is
-determined using `MIN(column)` and `MAX(column)` aggregations. For some database tables this strategy causes inefficient database queries (full table scan). One example would be partitioned database tables.
+As the first step, the iterator determines the data range which will be used as condition in the iteration database queries. The data range is determined using `MIN(column)` and `MAX(column)` aggregations. For some database tables this strategy causes inefficient database queries (full table scan). One example would be partitioned database tables.
 
 Example query:
 
@@ -390,20 +388,19 @@ SELECT (SELECT id FROM events ORDER BY id ASC LIMIT 1) AS min, (SELECT id FROM e
 ## Implementing Sidekiq workers
 
 Sidekiq workers leveraging ClickHouse databases should include the `ClickHouseWorker` module.
-This ensures that the worker is paused while database migrations are running,
-and that migrations do not run while the worker is active.
+This ensures that the worker is paused while database migrations are running, and that migrations do not run while the worker is active.
 
 ```ruby
 # events_sync_worker.rb
 # frozen_string_literal: true
 
 module ClickHouse
-  class EventsSyncWorker
+ class EventsSyncWorker
     include ApplicationWorker
     include ClickHouseWorker
 
     ...
-  end
+ end
 end
 ```
 
@@ -418,7 +415,7 @@ The `tags` metadata field should be added to all workers that interact with Clic
 # frozen_string_literal: true
 
 module ClickHouse
-  class EventsSyncWorker
+ class EventsSyncWorker
     include ApplicationWorker
     include ClickHouseWorker
 
@@ -431,7 +428,7 @@ module ClickHouse
     def perform
       # Worker implementation
     end
-  end
+ end
 end
 ```
 
@@ -446,20 +443,17 @@ For more information about Sidekiq worker tagging and routing, see the [Sidekiq 
 
 ## GraphQL usage
 
-Use GraphQL to paginate ClickHouse queries with the same external interface as
-`ActiveRecord` queries (keyset pagination).
+Use GraphQL to paginate ClickHouse queries with the same external interface as `ActiveRecord` queries (keyset pagination).
 
 The pagination interface includes:
 
 - `PageInfo` for pagination-specific data (`endCursor` and `startCursor`).
 - `after`, `before`, `first`, `last` arguments for loading next or previous pages.
 
-To use GraphQL pagination with ClickHouse, ensure your queries meet these
-requirements:
+To use GraphQL pagination with ClickHouse, ensure your queries meet these requirements:
 
 - `ORDER BY` columns must be `NOT NULL`.
-- `ORDER BY` column values must identify exactly one row (requirement for
-  keyset pagination).
+- `ORDER BY` column values must identify exactly one row (requirement for keyset pagination).
 
 ### Resolver implementation example
 
@@ -467,39 +461,34 @@ The GraphQL resolver must return a `ClickHouse::Client::QueryBuilder` object:
 
 ```ruby
 def resolve
-  ClickHouse::Client::QueryBuilder
+ ClickHouse::Client::QueryBuilder
     .new('events')
     .order(:created_at, :asc)
     .order(:id, :asc)
 end
 ```
 
-The pagination library handles cursor encoding and decoding. The returned data
-matches the format you get from a direct ClickHouse query: an array of hashes.
-To format the data for GraphQL responses, implement formatting logic in your
-GraphQL types.
+The pagination library handles cursor encoding and decoding. The returned data matches the format you get from a direct ClickHouse query: an array of hashes.
+To format the data for GraphQL responses, implement formatting logic in your GraphQL types.
 
 ### Resolver implementation with a deduplicating query
 
-When you query a `ReplacingMergeTree` engine with `version` and `deleted` columns,
-you must deduplicate rows by the primary keys. Use a nested `SELECT` with
-`GROUP BY` and [`argMax`](https://clickhouse.com/docs/sql-reference/aggregate-functions/reference/argmax)
+When you query a `ReplacingMergeTree` engine with `version` and `deleted` columns, you must deduplicate rows by the primary keys. Use a nested `SELECT` with `GROUP BY` and [`argMax`](https://clickhouse.com/docs/sql-reference/aggregate-functions/reference/argmax)
 for deduplication logic.
 
-The following example lists issues filtered by `gitlab-org` group from the
-`hierarchy_work_items` materialized view table:
+The following example lists issues filtered by `gitlab-org` group from the `hierarchy_work_items` materialized view table:
 
 ```ruby
 def resolve
-  builder = ClickHouse::Client::QueryBuilder.new('hierarchy_work_items')
+ builder = ClickHouse::Client::QueryBuilder.new('hierarchy_work_items')
 
-  columns = %i[id title traversal_path work_item_type_id created_at]
-  deleted_column = :deleted
-  version_column = :version
-  group_by_columns = %i[traversal_path work_item_type_id id]
+ columns = %i[id title traversal_path work_item_type_id created_at]
+ deleted_column = :deleted
+ version_column = :version
+ group_by_columns = %i[traversal_path work_item_type_id id]
 
-  # Use argMax to determine the latest column value based on the version column.
-  inner_projections = columns.map do |column|
+ # Use argMax to determine the latest column value based on the version column.
+ inner_projections = columns.map do |column|
     if group_by_columns.include?(column)
       builder.table[column]
     else
@@ -508,22 +497,22 @@ def resolve
         builder.table[version_column]
       ]).as(column.to_s)
     end
-  end
+ end
 
-  # Add the deleted column to filter deleted rows later.
-  inner_projections << Arel::Nodes::NamedFunction.new('argMax', [
+ # Add the deleted column to filter deleted rows later.
+ inner_projections << Arel::Nodes::NamedFunction.new('argMax', [
     builder.table[deleted_column],
     builder.table[version_column]
-  ]).as(deleted_column.to_s)
+ ]).as(deleted_column.to_s)
 
-  # Select all issues within the gitlab-org group (9970).
-  inner_query = builder
+ # Select all issues within the gitlab-org group (9970).
+ inner_query = builder
     .select(*inner_projections)
     .where(Arel::Nodes::NamedFunction.new('startsWith', [builder.table[:traversal_path], Arel.sql("'1/9970/'")]))
     .where(work_item_type_id: 1)
     .group(*group_by_columns)
 
-  builder
+ builder
     .select(*columns)
     .from(inner_query, 'hierarchy_work_items')
     .where(deleted: false)
@@ -593,10 +582,10 @@ The `:click_house` tag ensures that the database schema is properly set up befor
 
 ```ruby
 RSpec.describe MyClickHouseFeature, :click_house do
-  it 'returns rows' do
+ it 'returns rows' do
     rows = ClickHouse::Client.select('SELECT 1', :main)
     expect(rows.size).to eq(1)
-  end
+ end
 end
 ```
 
@@ -608,13 +597,13 @@ Multi database configuration example:
 
 ```yaml
 development:
-  main:
+ main:
     database: gitlab_clickhouse_main_development
     url: 'http://localhost:8123'
     username: clickhouse
     password: clickhouse
 
-  user_analytics: # made up database
+ user_analytics: # made up database
     database: gitlab_clickhouse_user_analytics_development
     url: 'http://localhost:8123'
     username: clickhouse
@@ -627,7 +616,7 @@ All queries executed via the `ClickHouse::Client` library expose the query with 
 
 ```ruby
 ActiveSupport::Notifications.subscribe('sql.click_house') do |_, _, _, _, data|
-  puts data.inspect
+ puts data.inspect
 end
 ```
 
@@ -685,8 +674,7 @@ If you need further assistance, reach out to `#f_siphon` internally.
 
 ## Troubleshooting
 
-If you experience `MEMORY_LIMIT_EXCEEDED` errors when executing queries, increase the `clickhouse.max_memory_usage` and `clickhouse.max_server_memory_usage` settings
-in your `gdk.yml` file.
+If you experience `MEMORY_LIMIT_EXCEEDED` errors when executing queries, increase the `clickhouse.max_memory_usage` and `clickhouse.max_server_memory_usage` settings in your `gdk.yml` file.
 
 Consult the `gdk.example.yml` file for the default settings. You must reconfigure GDK for changes to take effect.
 

@@ -21,9 +21,9 @@ Click **Interviews** on the left navigation bar, then click the blue **Create In
 Provide the following information on the Basics tab:
 
 - **Employer**: select the company that will be conducting the interviews.
-  - **Note**: they must be approved at your institution and granted the permission "Post Interview Schedules". If either of these are missing, the company name will not be listed.
+ - **Note**: they must be approved at your institution and granted the permission "Post Interview Schedules". If either of these are missing, the company name will not be listed.
 - **Career Center**: **If you are part of a distributed campus and have configured two more Career Centers, choose the Career Center that will be hosting the on-campus interviews.**
-  - ***This will not appear if only one Career Center is configured in Handshake.***
+ - ***This will not appear if only one Career Center is configured in Handshake.***
 - **Employer Contacts**: add a contact from the company to receive email updates about the interview schedule. This is not designating the interviewers for the schedule.
 - **Interview Schedule Name**: enter a name to identify the interview schedule in Handshake.
 - **Interview Schedule Description**: provide any information students might use to prepare for the interview including the format, the number of interviewers that will be present, etc. If a skills test will be administered or if the student should bring work samples to the interview, share that information here.
@@ -40,19 +40,19 @@ Click the blue text Timeline or the blue button **Next** to continue to the Time
 On the Timeline tab, you'll need to select the interview date, desired timeline and slot template.
 
 - Select an interview schedule date from the weeks availability section by clicking on the desired date of the interview. Change displayed weekly ranges by:
-  - - clicking the dropdown arrow located on the **Week of [Day,Date]** button. Within the calendar, use the arrows to navigate to the desired week of the interviews, then click the date.
+ - - clicking the dropdown arrow located on the **Week of [Day,Date]** button. Within the calendar, use the arrows to navigate to the desired week of the interviews, then click the date.
     - clicking the arrows located to the right and left of the Week of [Date] button to . *![Week_Of_Calendar_Image.png](https://support.joinhandshake.com/hc/article_attachments/25995122273303)*
-  - In the pop-up that appears, provide the following, then click the blue button **Add Date**:
+ - In the pop-up that appears, provide the following, then click the blue button **Add Date**:
     - **Date**: confirm the selected date is correct
     - **Alternate Date**: enter an alternate date in case the date chosen is not available
     - **Reserved Room Count**: enter the number of rooms needed for the interview
     - **Details**: provide any additional details regarding the interview or rooms![Add_Date_Popup_Image.png](https://support.joinhandshake.com/hc/article_attachments/25995103681175)
 
 - Choose the preferred timeline by clicking the radio button to the left of your choice. ![Choose_Timeline_Image.png](https://support.joinhandshake.com/hc/article_attachments/25995103683607)
-  - Alternatively, you may choose to click Enter Dates Directly to manually input timeline details.
+ - Alternatively, you may choose to click Enter Dates Directly to manually input timeline details.
     - **Note**: Preselect Continuous is not recommended and only available to career services users when using this workflow.
-  - If you choose Room Only or Open, you will be required to confirm the Apply start and end dates associated with the Interview.
-  - If you choose Preselect, you will not only be required to confirm the Apply start and end dates, but will need to add dates to the following:
+ - If you choose Room Only or Open, you will be required to confirm the Apply start and end dates associated with the Interview.
+ - If you choose Preselect, you will not only be required to confirm the Apply start and end dates, but will need to add dates to the following:
     - **Employer deadline** - the date when all primary and alternate applicant selections should be made. You may leave this field blank if you do not have an employer deadline.
     - **Primary signup Start** - the date when students who are selected as Primary candidates may select interview slots.
     - **Alternate signup start** - the date when students who are selected as Alternate candidates may select interview slots.

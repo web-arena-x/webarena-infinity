@@ -18,8 +18,7 @@ In GitLab, you use groups to manage one or more related projects at the same tim
 You can use groups to communicate with all group members and manage permissions for your projects.
 If someone has access to the group, they get access to all the projects in the group.
 
-You can also view all of the issues and merge requests for the projects in the group,
-and analytics about the group's activity.
+You can also view all of the issues and merge requests for the projects in the group, and analytics about the group's activity.
 
 For larger organizations, you can also create [subgroups](subgroups/_index.md).
 
@@ -43,10 +42,10 @@ For example, in the following diagram:
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans", 'theme':'neutral' }}%%
 flowchart TD
-  accTitle: Group hierarchy
-  accDescr: Example of a group hierarchy in an organization
+ accTitle: Group hierarchy
+ accDescr: Example of a group hierarchy in an organization
 
-  subgraph Organization
+ subgraph Organization
     T[Group T] --> G[Group G]
     G --> A[Group A]
     G --> B[Group B]
@@ -72,13 +71,8 @@ The following table describes the most common models of structuring groups.
 {{< alert type="note" >}}
 
 On GitLab Self-Managed, if you want to see an overview of your entire organization, you should create one top-level group.
-For more information about efforts to create an organization view of all groups,
-[see epic 9266](https://gitlab.com/groups/gitlab-org/-/epics/9266).
-A top-level group offers insights in your entire organization through a complete
-[Security Dashboard and Center](../application_security/security_dashboard/_index.md),
-[Vulnerability report](../application_security/vulnerability_report/_index.md),
-[compliance center](../compliance/compliance_center/_index.md), and
-[value stream analytics](value_stream_analytics/_index.md).
+For more information about efforts to create an organization view of all groups, [see epic 9266](https://gitlab.com/groups/gitlab-org/-/epics/9266).
+A top-level group offers insights in your entire organization through a complete [Security Dashboard and Center](../application_security/security_dashboard/_index.md), [Vulnerability report](../application_security/vulnerability_report/_index.md), [compliance center](../compliance/compliance_center/_index.md), and [value stream analytics](value_stream_analytics/_index.md).
 
 {{< /alert >}}
 
@@ -91,11 +85,9 @@ Like projects, a group can be configured to be visible to:
 - Only explicit group members.
 
 The restriction for [visibility levels](../../administration/settings/visibility_and_access_controls.md#restrict-visibility-levels)
-on the application setting level also applies to groups. If set to internal, the explore page is
-empty for anonymous users. The group page has a visibility level icon.
+on the application setting level also applies to groups. If set to internal, the explore page is empty for anonymous users. The group page has a visibility level icon.
 
-Users cannot create a subgroup or project with a higher visibility level than that of
-the immediate parent group.
+Users cannot create a subgroup or project with a higher visibility level than that of the immediate parent group.
 
 ## View groups
 
@@ -141,15 +133,14 @@ To view all inactive groups:
 1. Select **View all my groups**.
 1. Select the **Inactive** tab.
 
-Each inactive group in the list displays a badge to indicate that the group is either
-archived or pending deletion.
+Each inactive group in the list displays a badge to indicate that the group is either archived or pending deletion.
 
 If the group is pending deletion, the list also shows:
 
 - The time the group is scheduled for final deletion.
 - A **Restore** action. When you restore a group:
-  - The **Pending deletion** label is removed. The group is no longer scheduled for deletion.
-  - The group is removed from the **Inactive** tab.
+ - The **Pending deletion** label is removed. The group is no longer scheduled for deletion.
+ - The group is removed from the **Inactive** tab.
 
 ## View a group
 
@@ -173,12 +164,10 @@ To view a group:
 
 - On the top bar, select **Search or go to** and find your group.
 
-You can search for the subgroups and projects of the group
-and sort them in ascending or descending order.
+You can search for the subgroups and projects of the group and sort them in ascending or descending order.
 
 You can access a group by using its ID instead of its name at `https://gitlab.example.com/-/g/<id>`.
-For example, if your group `example-group` has an ID `123456`, you can access the group either at
-`https://gitlab.example.com/example-group` or `https://gitlab.example.com/-/g/123456`.
+For example, if your group `example-group` has an ID `123456`, you can access the group either at `https://gitlab.example.com/example-group` or `https://gitlab.example.com/-/g/123456`.
 
 ## Find the Group ID
 
@@ -215,8 +204,7 @@ To create a group:
 
 1. In the upper-right corner, select **Create new** ({{< icon name="plus" >}}) and **New group**.
 1. Select **Create group**.
-1. In the **Group name** text box, enter the name of the group. For a list of words that cannot be used as group names, see
-   [reserved names](../reserved_names.md).
+1. In the **Group name** text box, enter the name of the group. For a list of words that cannot be used as group names, see [reserved names](../reserved_names.md).
 1. In the **Group URL** text box, enter the path for the group used for the [namespace](../namespace/_index.md).
 1. Select the [**Visibility level**](../public_access.md) of the group.
 1. Optional. To personalize your GitLab experience:
@@ -299,13 +287,11 @@ You can also delete a group from the groups dashboard:
 1. Select **Delete**.
 1. On the confirmation dialog, enter the group name and select **Confirm**.
 
-This action adds a background job to schedule a group for deletion. On GitLab.com, the group is deleted after 30 days. On GitLab Self-Managed,
-you can modify the retention period through the [instance settings](../../administration/settings/visibility_and_access_controls.md#deletion-protection).
+This action adds a background job to schedule a group for deletion. On GitLab.com, the group is deleted after 30 days. On GitLab Self-Managed, you can modify the retention period through the [instance settings](../../administration/settings/visibility_and_access_controls.md#deletion-protection).
 
 When a group is scheduled for deletion, scheduled CI/CD pipelines stop running.
 
-If the user who scheduled the group deletion loses access to the group (for example, by leaving the group, having their role downgraded, or being banned from the group) before the deletion occurs,
-the deletion job instead restores the group, and the group is no longer scheduled for deletion.
+If the user who scheduled the group deletion loses access to the group (for example, by leaving the group, having their role downgraded, or being banned from the group) before the deletion occurs, the deletion job instead restores the group, and the group is no longer scheduled for deletion.
 
 > [!warning]
 > If the user who scheduled the group deletion regains Owner role or administrator access before the job runs, then the job removes the group permanently.
@@ -355,8 +341,7 @@ To restore a group that is scheduled for deletion:
 
 ## Manage groups with the Actions menu
 
-You can view a list of all your groups
-and manage them with the **Actions** menu.
+You can view a list of all your groups and manage them with the **Actions** menu.
 
 Prerequisites:
 
@@ -389,8 +374,7 @@ As a user, you can request to be a member of a group, if an administrator allows
 Up to ten of the most recently active group owners receive an email with your request.
 Any group owner can approve or decline the request.
 
-If you change your mind before your request is approved, select
-**Withdraw Access Request**.
+If you change your mind before your request is approved, select **Withdraw Access Request**.
 
 ## View group members
 
@@ -403,11 +387,9 @@ A table displays the member's:
 
 - **Account** name and username.
 - **Source** of their [membership](../project/members/_index.md#membership-types).
-  For transparency, GitLab displays all membership sources of group members.
-  Members who have multiple membership sources are displayed and counted as separate members.
-  For example, if a member has been added to the group both directly and through inheritance,
-  the member is displayed twice in the **Members** table, with different sources,
-  and is counted as two individual members of the group.
+ For transparency, GitLab displays all membership sources of group members.
+ Members who have multiple membership sources are displayed and counted as separate members.
+ For example, if a member has been added to the group both directly and through inheritance, the member is displayed twice in the **Members** table, with different sources, and is counted as two individual members of the group.
 - [**Role**](../project/members/_index.md#which-roles-you-can-assign) in the group.
 - **Expiration** date of their group membership.
 - **Activity** related to their account.
@@ -457,10 +439,8 @@ You can sort members by **Account**, **Access granted**, **Role**, or **Last sig
 
 1. On the top bar, select **Search or go to** and find your group.
 1. Select **Manage** > **Members**.
-1. Above the list of members, in the upper-right corner, from the **Account** list, select
-   the criteria to filter by.
-1. To switch the sort between ascending and descending, to the right of the **Account** list, select the
-   arrow ({{< icon name="sort-lowest" >}} or {{< icon name="sort-highest" >}}).
+1. Above the list of members, in the upper-right corner, from the **Account** list, select the criteria to filter by.
+1. To switch the sort between ascending and descending, to the right of the **Account** list, select the arrow ({{< icon name="sort-lowest" >}} or {{< icon name="sort-highest" >}}).
 
 ## Add users to a group
 
@@ -477,9 +457,9 @@ Prerequisites:
 
 - You must have the Owner role for the group.
 - For GitLab Self-Managed instances:
-  - If [new sign-ups are disabled](../../administration/settings/sign_up_restrictions.md#disable-new-sign-ups), an administrator must add the user.
-  - If [user invitations are not allowed](../../administration/settings/visibility_and_access_controls.md#prevent-invitations-to-groups-and-projects), an administrator must add the user.
-  - If [administrator approval is enabled](../../administration/settings/sign_up_restrictions.md#turn-on-administrator-approval-for-role-promotions), an administrator must approve the invitation.
+ - If [new sign-ups are disabled](../../administration/settings/sign_up_restrictions.md#disable-new-sign-ups), an administrator must add the user.
+ - If [user invitations are not allowed](../../administration/settings/visibility_and_access_controls.md#prevent-invitations-to-groups-and-projects), an administrator must add the user.
+ - If [administrator approval is enabled](../../administration/settings/sign_up_restrictions.md#turn-on-administrator-approval-for-role-promotions), an administrator must approve the invitation.
 
 1. On the top bar, select **Search or go to** and find your group.
 1. Select **Manage** > **Members**.
@@ -493,13 +473,11 @@ Prerequisites:
 1. Optional. For **Access expiration date**, enter or select a date.
    From that date onward, the user can no longer access the project.
 
-   If you enter an access expiration date, the group member gets an email notification
-   seven days before their access expires.
+   If you enter an access expiration date, the group member gets an email notification seven days before their access expires.
 
    {{< alert type="warning" >}}
 
-   Maintainers have full permissions until their role expires, including the ability to
-   extend their own access expiration date.
+   Maintainers have full permissions until their role expires, including the ability to extend their own access expiration date.
 
    {{< /alert >}}
 
@@ -535,9 +513,7 @@ If the **Role promotions** tab is not displayed, the group has no pending promot
 Prerequisites:
 
 - You must have the Owner role.
-- The member must have direct membership in the group. If
-  membership is inherited from a parent group, then the member can be removed
-  from the parent group only.
+- The member must have direct membership in the group. If membership is inherited from a parent group, then the member can be removed from the parent group only.
 
 To remove a member from a group:
 
@@ -559,15 +535,14 @@ You can add a new project to a group in two ways:
 - Select a group, and then select **New project**. You can then continue [creating your project](../project/_index.md).
 - While you are creating a project, select a group from the dropdown list.
 
-  ![Select group](img/select_group_dropdown_v13_10.png)
+ ![Select group](img/select_group_dropdown_v13_10.png)
 
 ### Specify who can add projects to a group
 
 By default, users with at least the:
 
 - Developer role can create projects under a group. This default can be changed.
-- Maintainer role can fork projects into a group. This default prevents users with the Developer role from forking projects that
-  contain protected branches and cannot be changed.
+- Maintainer role can fork projects into a group. This default prevents users with the Developer role from forking projects that contain protected branches and cannot be changed.
 
 To specify which roles can create projects in a group:
 

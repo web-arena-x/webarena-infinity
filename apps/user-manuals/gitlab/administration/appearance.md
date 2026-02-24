@@ -226,13 +226,13 @@ To [change the default navigation theme](../user/profile/preferences.md#change-t
    These colors are available:
    <!-- The themes are defined in lib/gitlab/themes.rb -->
 
-   | Value | Color  |
-   | ----- | -----  |
+   | Value | Color |
+   | ----- | ----- |
    | 1     | Indigo |
    | 2     | Dark   |
-   | 3     | Light  |
+   | 3     | Light |
    | 4     | Blue   |
-   | 5     | Green  |
+   | 5     | Green |
    | 9     | Red    |
 
 1. [Reconfigure and restart GitLab](restart_gitlab.md#reconfigure-a-linux-package-installation).

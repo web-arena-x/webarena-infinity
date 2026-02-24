@@ -76,7 +76,7 @@ Learn how
 
 ### Start a video meeting
 
-1. Open [Gmail](https://mail.google.com) and in the sidebar, click **Meet**![and then](//storage.googleapis.com/support-kms-prod/Th2Tx0uwPMOhsMPn7nRXMUo3vs6J0pto2DTn)**New meeting**.  
+1. Open [Gmail](https://mail.google.com) and in the sidebar, click **Meet**![and then](//storage.googleapis.com/support-kms-prod/Th2Tx0uwPMOhsMPn7nRXMUo3vs6J0pto2DTn)**New meeting**. 
    **Note:** If you don't see Meet in Gmail, [check your Gmail settings](/mail/answer/9822902#show_hide).
 2. In the **Share your new meeting** window, click **Join now**.
 3. If you want to join using your computer’s camera for video and microphone for audio, click **Join now**.

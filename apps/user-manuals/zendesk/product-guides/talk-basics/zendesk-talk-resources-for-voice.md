@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408823838874-Zendesk-Talk
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Talk Team, Professional, or Enterprise |
 

@@ -26,7 +26,7 @@ There are two ways to access and install the Handshake Events app:
 
 - the App Store on your device
 - an invite link sent via email
-  - *Invites are sent automatically after one is added to an event in Handshake.*
+ - *Invites are sent automatically after one is added to an event in Handshake.*
 
 The app is available for download on iOS devices at any time. If you received an invitation via email, the link will direct you to the App Store for downloading.
 
@@ -62,9 +62,9 @@ From the list, tap on an event or fair to access the details overview page where
 - **Location**
 - **Host's name and email**
 - **Event Stats**
-  - RSVPs
-  - Check-ins
-  - Evaluations
+ - RSVPs
+ - Check-ins
+ - Evaluations
 - **View Students**
 
 ![Event_Details_Page_Mobile.png](https://support.joinhandshake.com/hc/article_attachments/25997430955415)
@@ -92,9 +92,9 @@ Once the information is entered, tap **Add** to save.
 To view a student's profile, tap on their name from the list. The information presented on their profile *may* include:
 
 - **Education**
-  - School
-  - Grad Year
-  - Major
+ - School
+ - Grad Year
+ - Major
 - **Work and volunteer experience**
 - **Organizations and extracurriculars**
 
@@ -111,14 +111,14 @@ Find the student in the list and tap their name. Then, select **Recommendation**
 Complete the following prompts:
 
 - **Recommendation** *(choose one)*
-  - Strong no
-  - No
-  - Yes
-  - Strong yes
+ - Strong no
+ - No
+ - Yes
+ - Strong yes
 - **Comments**
-  - Tap in the text box and add any comments you'd like to note.
+ - Tap in the text box and add any comments you'd like to note.
 - **Photos**
-  - Tap the camera icon to add photos of resumes and notes
+ - Tap the camera icon to add photos of resumes and notes
 
 **Note**: If custom questions are set up for the event, you must answer them as directed by your team.
 

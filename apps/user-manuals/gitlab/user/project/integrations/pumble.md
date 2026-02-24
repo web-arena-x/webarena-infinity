@@ -37,8 +37,7 @@ Prerequisites:
 - The Owner role for group enablement.
 - The Maintainer or Owner role for project enablement.
 
-After you have a webhook URL for your Pumble channel, configure GitLab to send
-notifications:
+After you have a webhook URL for your Pumble channel, configure GitLab to send notifications:
 
 1. To enable the integration for your group or project:
    1. In your group or project, on the left sidebar, select **Settings** > **Integrations**.

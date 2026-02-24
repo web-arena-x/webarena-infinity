@@ -39,14 +39,14 @@ Information displayed on the fair's overview page includes:
 5. To register for the event, click **Join Event** in the upper-right corner of the page. The button will automatically change to green and state **Registered**. This indicates you've registered successfully!
 
 - To leave the event or hide your attendance, click the green button **Registered**, then choose the action you'd like to take from the dropdown.
-  - **Note**: if you choose to hide your attendance and the fair is hosted by your school, your career services center will still be able to discover you as an attendee. This option only hides your attendance from other students and employers.
+ - **Note**: if you choose to hide your attendance and the fair is hosted by your school, your career services center will still be able to discover you as an attendee. This option only hides your attendance from other students and employers.
 
 ![Leave_Event_or_Hide_Image.png](https://support.joinhandshake.com/hc/article_attachments/25998867026327)
 
 If the fair is full, you'll have the following options:
 
 - **Join Waitlist**: click this to join the waitlist. A waitlist indicates the school has set a limit for the number of students that can attend, and this number has been met.
-  - If you have joined the waitlist and space becomes available, you'll receive an email confirmation when you are registered for the fair successfully.
+ - If you have joined the waitlist and space becomes available, you'll receive an email confirmation when you are registered for the fair successfully.
 - **Join Session**: click this to register for a particular session within the fair.
 
 ![registered_options.png](https://support.joinhandshake.com/hc/article_attachments/25998867024535)

@@ -5,8 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Sec section analyzer development
 ---
 
-Analyzers are shipped as Docker images to execute within a CI pipeline context. This guide describes development and testing
-practices across analyzers.
+Analyzers are shipped as Docker images to execute within a CI pipeline context. This guide describes development and testing practices across analyzers.
 
 ## Shared modules
 
@@ -19,12 +18,10 @@ There are a number of shared Go modules shared across analyzers for common behav
 
 ## How to use the analyzers
 
-Analyzers are shipped as Docker images. For example, to run the
-[Semgrep](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep) Docker image to scan the working directory:
+Analyzers are shipped as Docker images. For example, to run the [Semgrep](https://gitlab.com/gitlab-org/security-products/analyzers/semgrep) Docker image to scan the working directory:
 
 1. `cd` into the directory of the source code you want to scan.
-1. Run `docker login registry.gitlab.com` and provide username plus
-   [personal](../../user/profile/personal_access_tokens.md#create-a-personal-access-token)
+1. Run `docker login registry.gitlab.com` and provide username plus [personal](../../user/profile/personal_access_tokens.md#create-a-personal-access-token)
    or [project](../../user/project/settings/project_access_tokens.md#create-a-project-access-token)
    access token with at least the `read_registry` scope.
 1. Run the Docker image:
@@ -64,12 +61,9 @@ sh ./compare_reports.sh sd test/fixtures/gl-secret-detection-report.json test/ex
 rm compare_reports.sh
 ```
 
-You can also compile the binary for your own environment and run it locally
-but `analyze` and `run` probably won't work
-since the runtime dependencies of the analyzer are missing.
+You can also compile the binary for your own environment and run it locally but `analyze` and `run` probably won't work since the runtime dependencies of the analyzer are missing.
 
-Here's an example based on
-[SpotBugs](https://gitlab.com/gitlab-org/security-products/analyzers/spotbugs):
+Here's an example based on [SpotBugs](https://gitlab.com/gitlab-org/security-products/analyzers/spotbugs):
 
 ```shell
 go build -o analyzer
@@ -82,27 +76,27 @@ go build -o analyzer
 The secure stage is responsible for maintaining the following CI/CD Templates and Components:
 
 - [Composition Analysis](https://handbook.gitlab.com/handbook/engineering/development/sec/secure/composition-analysis)
-  - CI/CD Templates
+ - CI/CD Templates
     - [`Dependency-Scanning.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/Dependency-Scanning.gitlab-ci.yml)
     - [`Dependency-Scanning.latest.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/Dependency-Scanning.latest.gitlab-ci.yml)
     - [`Container-Scanning.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/Container-Scanning.gitlab-ci.yml)
     - [`Container-Scanning.latest.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/Container-Scanning.latest.gitlab-ci.yml)
-  - CI/CD Components
+ - CI/CD Components
     - [Dependency scanning](https://gitlab.com/components/dependency-scanning/-/blob/main/templates/main/template.yml)
     - [Container scanning](https://gitlab.com/components/container-scanning/-/blob/main/templates/container-scanning.yml)
 - [Static Analysis (SAST)](https://handbook.gitlab.com/handbook/engineering/development/sec/secure/static-analysis)
-  - CI/CD Templates
+ - CI/CD Templates
     - [`SAST.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/SAST.gitlab-ci.yml)
     - [`SAST.latest.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/SAST.latest.gitlab-ci.yml)
     - [`SAST-IaC.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/SAST-IaC.gitlab-ci.yml)
     - [`SAST-IaC.latest.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/SAST-IaC.latest.gitlab-ci.yml#L1-1)
-  - CI/CD Components
+ - CI/CD Components
     - [SAST](https://gitlab.com/components/sast/-/blob/main/templates/sast.yml)
 - [Secret detection](https://handbook.gitlab.com/handbook/engineering/development/sec/secure/secret-detection)
-  - CI/CD Templates
+ - CI/CD Templates
     - [`Secret-Detection.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/Secret-Detection.gitlab-ci.yml)
     - [`Secret-Detection.latest.gitlab-ci.yml`](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/Secret-Detection.latest.gitlab-ci.yml)
-  - CI/CD Components
+ - CI/CD Components
     - [Secret detection](https://gitlab.com/components/secret-detection/-/blob/main/templates/secret-detection.yml)
 
 Changes must always be made to both the CI/CD template and component for your group, and you must also determine if the changes need to be applied to the latest CI/CD template.
@@ -131,11 +125,8 @@ Video walkthrough of how dependency scanning analyzers are using [downstream pip
 
 ### Testing local changes
 
-To test local changes in the shared modules (such as `command` or `report`) for an analyzer
-you can use the
-[`go mod replace`](https://github.com/golang/go/wiki/Modules#when-should-i-use-the-replace-directive)
-directive to load `command` with your local changes instead of using the version of command that has been
-tagged remotely. For example:
+To test local changes in the shared modules (such as `command` or `report`) for an analyzer you can use the [`go mod replace`](https://github.com/golang/go/wiki/Modules#when-should-i-use-the-replace-directive)
+directive to load `command` with your local changes instead of using the version of command that has been tagged remotely. For example:
 
 ```shell
 go mod edit -replace gitlab.com/gitlab-org/security-products/analyzers/command/v3=/local/path/to/command
@@ -165,8 +156,7 @@ To use Docker with `replace` in the `go.mod` file:
 
 ### Testing container orchestration compatibility
 
-Users may use tools other than Docker to orchestrate their containers and run their analyzers,
-such as [containerd](https://containerd.io/), [Podman](https://podman.io/), or [skopeo](https://github.com/containers/skopeo).
+Users may use tools other than Docker to orchestrate their containers and run their analyzers, such as [containerd](https://containerd.io/), [Podman](https://podman.io/), or [skopeo](https://github.com/containers/skopeo).
 To ensure compatibility with these tools, we [periodicically test](https://gitlab.com/gitlab-org/security-products/tests/analyzer-containerization-support/-/blob/main/.gitlab-ci.yml?ref_type=heads)
 all analyzers using a scheduled pipeline. A Slack alert is raised if a test fails.
 
@@ -182,8 +172,7 @@ In addition to the periodic test, we ensure compatibility for users of the [`ci-
    specifies [`oci-mediatypes=true`](https://docs.docker.com/build/exporters/#oci-media-types) for the `docker buildx` command when building analyzer images.
    This builds images using [OCI](https://opencontainers.org/) media types rather than Docker proprietary media types.
 
-When creating a new analyzer, or changing the location of existing analyzer images,
-add it to the periodic test, or consider using the shared [`ci-templates`](https://gitlab.com/gitlab-org/security-products/ci-templates/) which includes an automated test.
+When creating a new analyzer, or changing the location of existing analyzer images, add it to the periodic test, or consider using the shared [`ci-templates`](https://gitlab.com/gitlab-org/security-products/ci-templates/) which includes an automated test.
 
 ## Analyzer scripts
 
@@ -203,8 +192,7 @@ The analyzers are released as Docker images following this scheme:
 - each push to any `awesome-feature` branch will generate a matching `awesome-feature` image tag
 - each Git tag will generate the corresponding `Major.Minor.Patch` image tag. A manual job allows to override the corresponding `Major` and the `latest` image tags to point to this `Major.Minor.Patch`.
 
-In most circumstances it is preferred to rely on the `MAJOR` image,
-which is automatically kept up to date with the latest advisories or patches to our tools.
+In most circumstances it is preferred to rely on the `MAJOR` image, which is automatically kept up to date with the latest advisories or patches to our tools.
 Our [included CI templates](https://gitlab.com/gitlab-org/gitlab/-/tree/master/lib/gitlab/ci/templates/Security) pin to major version but if preferred, users can override their version directly.
 
 To release a new analyzer Docker image, there are two different options:
@@ -233,10 +221,7 @@ A3[push to default branch]--> B3(run CI pipeline)
 B3 -->|build and tag edge| D3[edge]
 ```
 
-Per our Continuous Deployment flow, for new components that do not have a counterpart in the GitLab
-Rails application, the component can be released at any time. Until the components
-are integrated with the existing application, iteration should not be blocked by
-[our standard release cycle and process](https://handbook.gitlab.com/handbook/product/product-processes/).
+Per our Continuous Deployment flow, for new components that do not have a counterpart in the GitLab Rails application, the component can be released at any time. Until the components are integrated with the existing application, iteration should not be blocked by [our standard release cycle and process](https://handbook.gitlab.com/handbook/product/product-processes/).
 
 ### Manual release process
 
@@ -261,8 +246,7 @@ If the analyzer does not use the `analyzer.yml` template, you'll need to manuall
 1. After the pipeline has completed, it will be in a `blocked` state.
 1. Select the `Manual job` play button on the right hand side of the window and select `tag version` to tag and deploy a new version of the analyzer Docker image.
 
-Use your best judgment to decide when to create a Git tag, which will then trigger the release job. If you
-can't decide, then ask for other's input.
+Use your best judgment to decide when to create a Git tag, which will then trigger the release job. If you can't decide, then ask for other's input.
 
 ### Automatic release process
 
@@ -295,8 +279,7 @@ After the above steps have been completed, the automatic release process execute
 
 {{< alert type="warning" >}}
 
-Any changes to the service account's access token scopes or the `GITLAB_TOKEN`
-variable permissions should be announced in the section's Slack channel.
+Any changes to the service account's access token scopes or the `GITLAB_TOKEN` variable permissions should be announced in the section's Slack channel.
 
 {{< /alert >}}
 
@@ -346,8 +329,7 @@ The `GITLAB_TOKEN` for the [@gl-service-dev-secure-analyzers-automation](https:/
 
    > FYI I've just released `ANALYZER_NAME` `ANALYZER_VERSION`. `LINK_TO_RELEASE`
 
-**Never delete a Git tag that has been pushed** as there is a good
-chance that the tag will be used and/or cached by the Go package registry.
+**Never delete a Git tag that has been pushed** as there is a good chance that the tag will be used and/or cached by the Go package registry.
 
 ### Backporting a critical fix or patch
 
@@ -470,11 +452,9 @@ When images for all the `v{N+1}` analyzers are available under `registry.gitlab.
 ## Development of new analyzers
 
 We occasionally need to build out new analyzer projects to support new frameworks and tools.
-In doing so we should follow [our engineering Open Source guidelines](https://handbook.gitlab.com/handbook/engineering/open-source/),
-including licensing and [code standards](../go_guide/_index.md).
+In doing so we should follow [our engineering Open Source guidelines](https://handbook.gitlab.com/handbook/engineering/open-source/), including licensing and [code standards](../go_guide/_index.md).
 
-In addition, to write a custom analyzer that will integrate into the GitLab application
-a minimal feature set is required:
+In addition, to write a custom analyzer that will integrate into the GitLab application a minimal feature set is required:
 
 ### Checklist
 
@@ -490,10 +470,8 @@ Verify whether the underlying tool has:
 #### Dockerfile
 
 The `Dockerfile` should use an unprivileged user with the name `GitLab`.
-This is necessary to provide compatibility with Red Hat OpenShift instances,
-which don't allow containers to run as an admin (root) user.
-There are certain limitations to keep in mind when running a container as an unprivileged user,
-such as the fact that any files that need to be written on the Docker filesystem will require the appropriate permissions for the `GitLab` user.
+This is necessary to provide compatibility with Red Hat OpenShift instances, which don't allow containers to run as an admin (root) user.
+There are certain limitations to keep in mind when running a container as an unprivileged user, such as the fact that any files that need to be written on the Docker filesystem will require the appropriate permissions for the `GitLab` user.
 See the following merge request for more details:
 [Use GitLab user instead of root in Docker image](https://gitlab.com/gitlab-org/security-products/analyzers/gemnasium/-/merge_requests/130).
 
@@ -511,38 +489,25 @@ The [security-report-schema](https://gitlab.com/gitlab-org/security-products/sec
 
 #### Compatibility with report schema
 
-Security reports uploaded as artifacts to
-GitLab are [validated](../integrations/secure.md#report-validation) before being
-[ingested](security_report_ingestion_overview.md).
+Security reports uploaded as artifacts to GitLab are [validated](../integrations/secure.md#report-validation) before being [ingested](security_report_ingestion_overview.md).
 
-Security report schemas are versioned using SchemaVer: `MODEL-REVISION-ADDITION`. The Sec Section
-is responsible for the
-[`security-report-schemas` project](https://gitlab.com/gitlab-org/security-products/security-report-schemas),
-including the compatibility of GitLab and the schema versions. Schema changes must follow the
-product-wide [deprecation guidelines](../deprecation_guidelines/_index.md).
+Security report schemas are versioned using SchemaVer: `MODEL-REVISION-ADDITION`. The Sec Section is responsible for the [`security-report-schemas` project](https://gitlab.com/gitlab-org/security-products/security-report-schemas), including the compatibility of GitLab and the schema versions. Schema changes must follow the product-wide [deprecation guidelines](../deprecation_guidelines/_index.md).
 
-When a new `MODEL` version is introduced, analyzers that adopt the new schema are responsible for
-ensuring that GitLab deployments that do not vendor this new schema version continue to ingest
-security reports without errors or warnings.
+When a new `MODEL` version is introduced, analyzers that adopt the new schema are responsible for ensuring that GitLab deployments that do not vendor this new schema version continue to ingest security reports without errors or warnings.
 
 This can be accomplished in different ways:
 
-1. Implement support for multiple schema versions in the analyzer. Based on the GitLab version, the
-   analyzer emits a security report using the latest schema version supported by GitLab.
+1. Implement support for multiple schema versions in the analyzer. Based on the GitLab version, the analyzer emits a security report using the latest schema version supported by GitLab.
    - Pro: analyzer can decide at runtime what the best version to utilize is.
    - Con: implementation effort and increased complexity.
-1. Release a new analyzer major version. Instances that don't vendor the latest `MODEL` schema
-   version continue to use an analyzer version that emits reports using version `MODEL-1`.
+1. Release a new analyzer major version. Instances that don't vendor the latest `MODEL` schema version continue to use an analyzer version that emits reports using version `MODEL-1`.
    - Pro: keeps analyzer code simple.
    - Con: extra analyzer version to maintain.
-1. Delay use of new schema. This relies on `additionalProperties=true`, which allows a report to
-   include properties that are not present in the schema. A new analyzer major version would be
-   released at the usual cadence.
+1. Delay use of new schema. This relies on `additionalProperties=true`, which allows a report to include properties that are not present in the schema. A new analyzer major version would be released at the usual cadence.
    - Pro: no extra analyzer to maintain, keep analyzer code simple.
    - Con: increased risk and/or effort to mitigate the risk of not having the schema validated.
 
-If you are unsure which path to follow, reach-out to the
-[`security-report-schemas` maintainers](https://gitlab.com/groups/gitlab-org/maintainers/security-report-schemas/-/group_members?with_inherited_permissions=exclude).
+If you are unsure which path to follow, reach-out to the [`security-report-schemas` maintainers](https://gitlab.com/groups/gitlab-org/maintainers/security-report-schemas/-/group_members?with_inherited_permissions=exclude).
 
 ### Location of Container Images
 
@@ -550,15 +515,15 @@ Container images for secure analyzers are published in two places:
 
 - [Officially supported images](#officially-supported-images) in the `registry.gitlab.com/security-products` namespace, for example:
 
-  ```shell
-  registry.gitlab.com/security-products/semgrep:5
-  ```
+ ```shell
+ registry.gitlab.com/security-products/semgrep:5
+ ```
 
 - [Temporary development images](#temporary-development-images) in the project namespace, for example:
 
-  ```shell
-  registry.gitlab.com/gitlab-org/security-products/analyzers/semgrep/tmp:d27d44a9b33cacff0c54870a40515ec5f2698475
-  ```
+ ```shell
+ registry.gitlab.com/gitlab-org/security-products/analyzers/semgrep/tmp:d27d44a9b33cacff0c54870a40515ec5f2698475
+ ```
 
 #### Officially supported images
 
@@ -654,12 +619,10 @@ For example, one of the development images for the [`semgrep`](https://gitlab.co
 registry.gitlab.com/gitlab-org/security-products/analyzers/semgrep/tmp:7580d6b037d93646774de601be5f39c46707bf04
 ```
 
-In order to
-[restrict the number of people who have write access to the container registry](https://gitlab.com/gitlab-org/gitlab/-/issues/297525),
-the container registry in the development project must be [made private](https://gitlab.com/gitlab-org/gitlab/-/issues/470641) by configuring the following [project features and permissions](../../user/project/settings/_index.md) settings for the project located at `https://gitlab.com/gitlab-org/security-products/analyzers/<ANALYZER-NAME>`:
+In order to [restrict the number of people who have write access to the container registry](https://gitlab.com/gitlab-org/gitlab/-/issues/297525), the container registry in the development project must be [made private](https://gitlab.com/gitlab-org/gitlab/-/issues/470641) by configuring the following [project features and permissions](../../user/project/settings/_index.md) settings for the project located at `https://gitlab.com/gitlab-org/security-products/analyzers/<ANALYZER-NAME>`:
 
 - `Settings -> General -> Visibility, project features, permissions`
-  - `Container Registry`
+ - `Container Registry`
     - `Only Project Members`
 
 Each group in the Sec Section is responsible for:
@@ -739,13 +702,10 @@ These guidelines come from our experience adding PHP support to GLAS (see [issue
 
 The `Dockerfile` of the Secure analyzers implemented in Go must reference a `MAJOR` release of Go, and not a `MINOR` revision.
 This ensures that the version of Go used to compile the analyzer includes all the security fixes available at a given time.
-For example, the multi-stage Dockerfile of an analyzer must use the `golang:1.15-alpine` image
-to build the analyzer CLI, but not `golang:1.15.4-alpine`.
+For example, the multi-stage Dockerfile of an analyzer must use the `golang:1.15-alpine` image to build the analyzer CLI, but not `golang:1.15.4-alpine`.
 
-When a `MINOR` revision of Go is released, and when it includes security fixes,
-project maintainers must check whether the Secure analyzers need to be re-built.
-The version of Go used for the build should appear in the log of the `build` job corresponding to the release,
-and it can also be extracted from the Go binary using the [strings](https://en.wikipedia.org/wiki/Strings_(Unix)) command.
+When a `MINOR` revision of Go is released, and when it includes security fixes, project maintainers must check whether the Secure analyzers need to be re-built.
+The version of Go used for the build should appear in the log of the `build` job corresponding to the release, and it can also be extracted from the Go binary using the [strings](https://en.wikipedia.org/wiki/Strings_(Unix)) command.
 
 If the latest image of the analyzer was built with the affected version of Go, then it needs to be rebuilt.
 To rebuild the image, maintainers can either:
@@ -758,28 +718,21 @@ Either way a new Docker image is built, and it's published with the same image t
 
 This workflow assumes full compatibility between `MINOR` revisions of the same `MAJOR` release of Go.
 If there's a compatibility issue, the project pipeline will fail when running the tests.
-In that case, it might be necessary to reference a `MINOR` revision of Go in the Dockerfile
-and document that exception until the compatibility issue has been resolved.
+In that case, it might be necessary to reference a `MINOR` revision of Go in the Dockerfile and document that exception until the compatibility issue has been resolved.
 
 Since it is NOT referenced in the `Dockerfile`, the `MINOR` revision of Go is NOT mentioned in the project changelog.
 
-There may be times where it makes sense to use a build tag as the changes made are build related and don't
-require a changelog entry. For example, pushing Docker images to a new registry location.
+There may be times where it makes sense to use a build tag as the changes made are build related and don't require a changelog entry. For example, pushing Docker images to a new registry location.
 
 ### Git tag to rebuild
 
-When creating a new Git tag to rebuild the analyzer,
-the new tag has the same `MAJOR.MINOR.PATCH` version as before,
-but the `BUILD` number (as defined in [semver](https://semver.org/)) is incremented.
+When creating a new Git tag to rebuild the analyzer, the new tag has the same `MAJOR.MINOR.PATCH` version as before, but the `BUILD` number (as defined in [semver](https://semver.org/)) is incremented.
 
-For instance, if the latest release of the analyzer is `v1.2.3`,
-and if the corresponding Docker image was built using an affected version of Go,
-then maintainers create the Git tag `v1.2.3+1` to rebuild the image.
+For instance, if the latest release of the analyzer is `v1.2.3`, and if the corresponding Docker image was built using an affected version of Go, then maintainers create the Git tag `v1.2.3+1` to rebuild the image.
 If the latest release is `v1.2.3+1`, then they create `v1.2.3+2`.
 
 The build number is automatically removed from the image tag.
-To illustrate, creating a Git tag `v1.2.3+1` in the `gemnasium` project
-makes the pipeline rebuild the image, and push it as `gemnasium:1.2.3`.
+To illustrate, creating a Git tag `v1.2.3+1` in the `gemnasium` project makes the pipeline rebuild the image, and push it as `gemnasium:1.2.3`.
 
 The Git tag created to rebuild has a simple message that explains why the new build is needed.
 Example: `Rebuild with Go 1.15.6`.
@@ -810,18 +763,17 @@ First, create a new issue for a release with a script from this repo: `./scripts
 This issue will guide you through the whole release process. In general, you have to perform the following tasks:
 
 - Check the list of supported technologies in GitLab documentation.
-  - [Supported languages in SAST](../../user/application_security/sast/_index.md#supported-languages-and-frameworks)
-  - [Supported languages in DS](../../user/application_security/dependency_scanning/_index.md#supported-languages-and-package-managers)
-  - [Supported languages in LS](../../user/compliance/license_scanning_of_cyclonedx_files/_index.md#supported-languages-and-package-managers)
+ - [Supported languages in SAST](../../user/application_security/sast/_index.md#supported-languages-and-frameworks)
+ - [Supported languages in DS](../../user/application_security/dependency_scanning/_index.md#supported-languages-and-package-managers)
+ - [Supported languages in LS](../../user/compliance/license_scanning_of_cyclonedx_files/_index.md#supported-languages-and-package-managers)
 
 - Check that CI **_job definitions are still accurate_** in vendored CI/CD templates and **_all of the ENV vars are propagated_** to the Docker containers upon `docker run` per tool.
 
-  - [SAST vendored CI/CD template](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Security/SAST.gitlab-ci.yml)
-  - [Dependency scanning vendored CI/CD template](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Security/Dependency-Scanning.gitlab-ci.yml)
-  - [Container scanning CI/CD template](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Security/Container-Scanning.gitlab-ci.yml)
+ - [SAST vendored CI/CD template](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Security/SAST.gitlab-ci.yml)
+ - [Dependency scanning vendored CI/CD template](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Security/Dependency-Scanning.gitlab-ci.yml)
+ - [Container scanning CI/CD template](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Security/Container-Scanning.gitlab-ci.yml)
 
-  If needed, go to the pipeline corresponding to the last Git tag,
-  and trigger the manual job that controls the build of this image.
+ If needed, go to the pipeline corresponding to the last Git tag, and trigger the manual job that controls the build of this image.
 
 #### Dependency updates
 

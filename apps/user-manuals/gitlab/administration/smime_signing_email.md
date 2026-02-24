@@ -13,30 +13,23 @@ description: Configure S/MIME for outgoing email.
 
 {{< /details >}}
 
-Notification emails sent by GitLab can be signed with S/MIME for improved
-security.
+Notification emails sent by GitLab can be signed with S/MIME for improved security.
 
-Be aware that S/MIME certificates and TLS/SSL certificates are not the
-same and are used for different purposes: TLS creates a secure channel, whereas
-S/MIME signs and/or encrypts the message itself
+Be aware that S/MIME certificates and TLS/SSL certificates are not the same and are used for different purposes: TLS creates a secure channel, whereas S/MIME signs and/or encrypts the message itself
 
 ## Enable S/MIME signing
 
-This setting must be explicitly enabled and a single pair of key and certificate
-files must be provided:
+This setting must be explicitly enabled and a single pair of key and certificate files must be provided:
 
 - Both files must be PEM-encoded.
-- The key file must be unencrypted so that GitLab can read it without user
-  intervention.
+- The key file must be unencrypted so that GitLab can read it without user intervention.
 - Only RSA keys are supported.
 
-Optionally, you can also provide a bundle of CA certs (PEM-encoded) to be
-included on each signature. This is typically an intermediate CA.
+Optionally, you can also provide a bundle of CA certs (PEM-encoded) to be included on each signature. This is typically an intermediate CA.
 
 {{< alert type="warning" >}}
 
-Be mindful of the access levels for your private keys and visibility to
-third parties.
+Be mindful of the access levels for your private keys and visibility to third parties.
 
 {{< /alert >}}
 
@@ -81,15 +74,13 @@ The key must be readable by the GitLab system user (`git` by default).
 
 ### How to convert S/MIME PKCS #12 format to PEM encoding
 
-Typically S/MIME certificates are handled in binary Public Key Cryptography Standards (PKCS) #12 format
-(`.pfx` or `.p12` extensions), which contain the following in a single encrypted file:
+Typically S/MIME certificates are handled in binary Public Key Cryptography Standards (PKCS) #12 format (`.pfx` or `.p12` extensions), which contain the following in a single encrypted file:
 
 - Public certificate
 - Intermediate certificates (if any)
 - Private key
 
-To export the required files in PEM encoding from the PKCS #12 file, the
-`openssl` command can be used:
+To export the required files in PEM encoding from the PKCS #12 file, the `openssl` command can be used:
 
 ```shell
 #-- Extract private key in PEM encoding (no password, unencrypted)

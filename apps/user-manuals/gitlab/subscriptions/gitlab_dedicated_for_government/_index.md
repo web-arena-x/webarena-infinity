@@ -13,8 +13,7 @@ title: GitLab Dedicated for Government
 
 {{< /details >}}
 
-GitLab Dedicated for Government is a single-tenant SaaS solution designed for
-government agencies and organizations with government compliance requirements.
+GitLab Dedicated for Government is a single-tenant SaaS solution designed for government agencies and organizations with government compliance requirements.
 
 Key features include:
 
@@ -51,8 +50,7 @@ Managed operations:
 
 ### Data residency
 
-To meet US data residency requirements, GitLab Dedicated for Government is deployed
-on [AWS GovCloud](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/whatis.html) in the US-West region.
+To meet US data residency requirements, GitLab Dedicated for Government is deployed on [AWS GovCloud](https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/whatis.html) in the US-West region.
 
 All customer data, including repositories, databases, artifacts, and backups, remains within the AWS GovCloud boundary.
 
@@ -153,8 +151,8 @@ The following GitLab application features are not available:
 - Reply-by email
 - Service Desk
 - Some GitLab Duo AI capabilities
-  - View the [list of AI features to see which ones are supported](../../user/gitlab_duo/_index.md).
-  - For more information, see [category direction - GitLab Dedicated](https://about.gitlab.com/direction/gitlab_dedicated/#supporting-ai-features-on-gitlab-dedicated).
+ - View the [list of AI features to see which ones are supported](../../user/gitlab_duo/_index.md).
+ - For more information, see [category direction - GitLab Dedicated](https://about.gitlab.com/direction/gitlab_dedicated/#supporting-ai-features-on-gitlab-dedicated).
 - Features other than [available features](#available-features) that must be configured outside of the GitLab user interface
 - Any functionality or feature behind a Feature Flag that is toggled `off` by default.
 
@@ -162,7 +160,7 @@ The following features will not be supported:
 
 - Mattermost
 - [Server-side Git hooks](../../administration/server_hooks.md).
-  GitLab Dedicated for Government is a SaaS service, and access to the underlying infrastructure is only available to GitLab Inc. team members. Due to the nature of server side configuration, there is a possible security concern of running arbitrary code on Dedicated services, as well as the possible impact that can have on the service SLA. Use the alternative [push rules](../../user/project/repository/push_rules.md) or [webhooks](../../user/project/integrations/webhooks.md) instead.
+ GitLab Dedicated for Government is a SaaS service, and access to the underlying infrastructure is only available to GitLab Inc. team members. Due to the nature of server side configuration, there is a possible security concern of running arbitrary code on Dedicated services, as well as the possible impact that can have on the service SLA. Use the alternative [push rules](../../user/project/repository/push_rules.md) or [webhooks](../../user/project/integrations/webhooks.md) instead.
 
 ### Operational features
 
@@ -193,7 +191,7 @@ The following service level agreement (SLA) targets are defined for GitLab Dedic
 
 - Recovery point objective (RPO) target: 4 hours maximum data loss window in a disaster recovery scenario.
 - Recovery time objective (RTO) target: Service restoration is prioritized by incident severity and impact.
-  GitLab works to restore service as quickly as possible while ensuring data integrity and security.
+ GitLab works to restore service as quickly as possible while ensuring data integrity and security.
 - Service level objective (SLO) target: Specific availability targets are determined based on FedRAMP requirements and operational best practices.
 
 ## Contact sales

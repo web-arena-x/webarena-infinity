@@ -24,17 +24,17 @@ Open a main component in the file it lives in from any instance. You can do this
 
 - 1 
 
-  ### Canvas
+ ### Canvas
 
-  1. Select an instance in the current file.
-  2. Open the **Design** tab in the right sidebar.
-  3. Click  in the instance section to open the library file.
+ 1. Select an instance in the current file.
+ 2. Open the **Design** tab in the right sidebar.
+ 3. Click in the instance section to open the library file.
 - 2 
 
-  ### Assets panel
+ ### Assets panel
 
-  1. Right-click on the component in the Assets panel.
-  2. Select **Go to main component.**
+ 1. Right-click on the component in the Assets panel.
+ 2. Select **Go to main component.**
 
 Tip: If you haven't used the component in your file, you can temporarily add the component to your file, then use any of the **Go to main component** approaches above.
 

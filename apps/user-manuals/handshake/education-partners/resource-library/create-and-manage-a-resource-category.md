@@ -33,8 +33,8 @@ To access the Resource Library in Handshake, click **Resources** under the Commu
 4. The *Add Resources* page:
 
 - **Filters**:
-  - **All states**: This filter refers to whether the resource is published or in draft. Clicking this filter allows you to narrow the list of resources on this page to **Drafts** and **Published**.
-  - **All authors**: At default, this filter will provide resources published by any of your school staff. Clicking the filter allows you to narrow the list of resources on this page to a specific staff member.
+ - **All states**: This filter refers to whether the resource is published or in draft. Clicking this filter allows you to narrow the list of resources on this page to **Drafts** and **Published**.
+ - **All authors**: At default, this filter will provide resources published by any of your school staff. Clicking the filter allows you to narrow the list of resources on this page to a specific staff member.
 - Use the box on the upper-left of the list or by each individual resource to select which resources you’d like to add to this category.
 - Once you’ve select your resources, click the blue button **Create New Category** in the lower-right of the screen to proceed with creating the category.
 

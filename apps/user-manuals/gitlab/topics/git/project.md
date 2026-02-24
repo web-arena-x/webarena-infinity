@@ -12,32 +12,27 @@ title: Create a project with `git push`
 
 {{< /details >}}
 
-You can use `git push` to add a local project repository to GitLab. After you add a repository,
-GitLab creates your project in your chosen namespace.
+You can use `git push` to add a local project repository to GitLab. After you add a repository, GitLab creates your project in your chosen namespace.
 
 {{< alert type="note" >}}
 
-You cannot use `git push` to create projects with paths that were previously used or
-[renamed](../../user/project/working_with_projects.md#rename-a-repository).
-Previously used project paths have a redirect. Instead of creating a new project,
-the redirect causes push attempts to redirect requests to the renamed project location.
-To create a new project for a previously used or renamed project, use the UI
-or the [Projects API](../../api/projects.md#create-a-project).
+You cannot use `git push` to create projects with paths that were previously used or [renamed](../../user/project/working_with_projects.md#rename-a-repository).
+Previously used project paths have a redirect. Instead of creating a new project, the redirect causes push attempts to redirect requests to the renamed project location.
+To create a new project for a previously used or renamed project, use the UI or the [Projects API](../../api/projects.md#create-a-project).
 
 {{< /alert >}}
 
 Prerequisites:
 
-<!--- To push with SSH, you must have [an SSH key](../ssh.md) that is
-  [added to your GitLab account](../ssh.md#add-an-ssh-key-to-your-gitlab-account).
+<!--- To push with SSH, you must have [an SSH key](../ssh.md) that is [added to your GitLab account](../ssh.md#add-an-ssh-key-to-your-gitlab-account).
 -->
 - You must have permission to add new projects to a [namespace](../../user/namespace/_index.md).
-  To verify your permissions:
+ To verify your permissions:
 
-  1. On the top bar, select **Search or go to** and find your group.
-  1. In the upper-right corner, confirm that **New project** is visible.
+ 1. On the top bar, select **Search or go to** and find your group.
+ 1. In the upper-right corner, confirm that **New project** is visible.
 
-  If you do not have the necessary permission, contact your GitLab administrator.
+ If you do not have the necessary permission, contact your GitLab administrator.
 
 To create a project with `git push`:
 
@@ -69,8 +64,7 @@ To create a project with `git push`:
      - `namespace` with your [namespace](../../user/namespace/_index.md) name.
      - `myproject` with your project name.
      - If specifying a port, change `00` to your project's required port number.
-     - Optional. To export existing repository tags, append the `--tags` flag to
-       your `git push` command.
+     - Optional. To export existing repository tags, append the `--tags` flag to your `git push` command.
 
 1. Optional. Configure the remote:
 
@@ -85,8 +79,7 @@ remote: The private project namespace/myproject was created.
 ```
 
 To view your new project, go to `https://gitlab.example.com/namespace/myproject`.
-By default, your project's visibility is set to **Private**,
-but you can [change the project's visibility](../../user/public_access.md#change-project-visibility).
+By default, your project's visibility is set to **Private**, but you can [change the project's visibility](../../user/public_access.md#change-project-visibility).
 
 ## Related topics
 

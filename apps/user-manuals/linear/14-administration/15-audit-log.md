@@ -22,7 +22,7 @@ To perform complex queries based on type, actor, and other metadata, we recommen
 ```text
 # Simple query to get last 250 events
 query {
-  auditEntries(first: 250) {
+ auditEntries(first: 250) {
     nodes {
       id
       type
@@ -33,7 +33,7 @@ query {
       }
       metadata
     }
-  }
+ }
 }
 ```
 
@@ -43,7 +43,7 @@ You can utilize the advanced filtering capabilities of our API to narrow down yo
 # Get login events for an user
 query {
 	auditEntries(filter: {type: {eq: "login"}, actor: {email: {eq: "user@company.app"}}}) {
-	  nodes {
+	 nodes {
 	    id
 	    type
 	    createdAt
@@ -52,11 +52,11 @@ query {
 	    }
 			ip
 	    metadata
-	  }
-	  pageInfo {
+	 }
+	 pageInfo {
 	    endCursor
 	    hasNextPage
-	  }
+	 }
 	}
 }
 ```
@@ -65,10 +65,10 @@ You can also get the list of all the available log entry types from our API.
 
 ```text
 query {
-  auditEntryTypes {
+ auditEntryTypes {
     type
     description
-  }
+ }
 }
 ```
 
@@ -82,8 +82,8 @@ User joins a team:
 
 ```json
 {
-  "action": "create",
-  "actor":
+ "action": "create",
+ "actor":
     {
       "id": "8e03f2cf-e644-4d68-a7cc-f834ad2f43b4",
       "name": "Miha Rebernik",
@@ -91,8 +91,8 @@ User joins a team:
       "avatarUrl": "https://public.linear.dev/8e03f2cf-e644-4d68-a7cc-f834ad2f43b4/d3c0a4bf-51a7-41cc-ade7-0f61f9d4f886",
       "type": "user",
     },
-  "createdAt": "2025-03-28T19:46:01.382Z",
-  "data":
+ "createdAt": "2025-03-28T19:46:01.382Z",
+ "data":
     {
       "id": "4b0186dc-a464-4330-9d4b-f4fc8f01db5b",
       "createdAt": "2025-03-28T19:46:01.382Z",
@@ -108,10 +108,10 @@ User joins a team:
         },
       "requestInformation": {},
     },
-  "type": "AuditEntry",
-  "organizationId": "5a3b982d-8f04-4971-956c-fbcb2c68642a",
-  "webhookTimestamp": 1743191166416,
-  "webhookId": "f1d0caa0-a974-4604-a300-a4edbba66803",
+ "type": "AuditEntry",
+ "organizationId": "5a3b982d-8f04-4971-956c-fbcb2c68642a",
+ "webhookTimestamp": 1743191166416,
+ "webhookId": "f1d0caa0-a974-4604-a300-a4edbba66803",
 }
 ```
 
@@ -119,16 +119,16 @@ A webhook is created:
 
 ```json
 {
-  "action": "create",
-  "actor": {
+ "action": "create",
+ "actor": {
     "id": "8e03f2cf-e644-4d68-a7cc-f834ad2f43b4",
     "name": "Miha Rebernik",
     "email": "miha@linear.app",
     "avatarUrl": "https://public.linear.dev/8e03f2cf-e644-4d68-a7cc-f834ad2f43b4/d3c0a4bf-51a7-41cc-ade7-0f61f9d4f886",
     "type": "user"
-  },
-  "createdAt": "2025-03-28T19:46:18.441Z",
-  "data": {
+ },
+ "createdAt": "2025-03-28T19:46:18.441Z",
+ "data": {
     "id": "e78bfecd-53a6-4197-8a71-f614b187553a",
     "createdAt": "2025-03-28T19:46:18.441Z",
     "type": "webhookCreated",
@@ -148,10 +148,10 @@ A webhook is created:
       "authMethod": "jwt",
       "authService": "google"
     }
-  },
-  "type": "AuditEntry",
-  "organizationId": "5a3b982d-8f04-4971-956c-fbcb2c68642a",
-  "webhookTimestamp": 1743191178476,
-  "webhookId": "f1d0caa0-a974-4604-a300-a4edbba66803"
+ },
+ "type": "AuditEntry",
+ "organizationId": "5a3b982d-8f04-4971-956c-fbcb2c68642a",
+ "webhookTimestamp": 1743191178476,
+ "webhookId": "f1d0caa0-a974-4604-a300-a4edbba66803"
 }
 ```

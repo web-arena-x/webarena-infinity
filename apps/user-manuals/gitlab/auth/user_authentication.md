@@ -13,15 +13,10 @@ description: Passwords, two-factor authentication, SSH keys, access tokens, cred
 
 {{< /details >}}
 
-GitLab provides multiple authentication methods to secure how users can access their account and
-interact with repositories. Use passwords with optional two-factor authentication for web-based
-access, SSH keys for Git operations, and various types of access tokens for API interactions
-and automation.
+GitLab provides multiple authentication methods to secure how users can access their account and interact with repositories. Use passwords with optional two-factor authentication for web-based access, SSH keys for Git operations, and various types of access tokens for API interactions and automation.
 
-On GitLab Self-Managed and GitLab Dedicated, administrators can configure how authentication
-works, monitor credential usage, and implement security policies to protect their instance.
-Users can manage how they authenticate, review active sessions, and configure additional
-security measures like two-factor authentication.
+On GitLab Self-Managed and GitLab Dedicated, administrators can configure how authentication works, monitor credential usage, and implement security policies to protect their instance.
+Users can manage how they authenticate, review active sessions, and configure additional security measures like two-factor authentication.
 
 {{< cards >}}
 

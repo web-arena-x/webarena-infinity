@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408839402906-Using-averag
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Explore Professional or Enterprise |
 
@@ -20,13 +20,13 @@ It can be tricky to decide which aggregator to use, especially when it comes to 
 
 ### Average                                                       Median
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Definition** | The average is the arithmetic mean of a set of numbers. | The median is a numeric value that separates the higher half of a set from the lower half. |
 | **When is it applicable?** | The mean is used for normal number distributions, which have a low amount of outliers. | The median is generally used to return the central tendency for skewed number distributions. |
 | **How is it calculated?** | The average is calculated by adding up all the values and dividing the sum by the total number of values. | The median can be calculated by listing all numbers in ascending order and then locating the number in the centre of that distribution. |
-| **Example:** **Normal distribution** | 2, 3, 3, 5, 8, 10, 11  (2+3+3+5+8+10+11)/7= 6  **AVG = 6** | 2, 3, 3, **5**, 8, 10, 11    **MED = 5** |
-| **Example: Skewed distribution** | 2, 2, 3, 3, 5, 7, 8, 130  (2+2+3+3+5+7+8+130)/8= 20  **AVG = 20** | 2, 2, 3, **3**, **5**, 7, 8, 130  (3+5)/2=4  **MED = 4** |
+| **Example:** **Normal distribution** | 2, 3, 3, 5, 8, 10, 11 (2+3+3+5+8+10+11)/7= 6 **AVG = 6** | 2, 3, 3, **5**, 8, 10, 11    **MED = 5** |
+| **Example: Skewed distribution** | 2, 2, 3, 3, 5, 7, 8, 130 (2+2+3+3+5+7+8+130)/8= 20 **AVG = 20** | 2, 2, 3, **3**, **5**, 7, 8, 130 (3+5)/2=4 **MED = 4** |
 
 ## Conclusion
 

@@ -12,11 +12,9 @@ title: Jobs artifacts administration
 
 {{< /details >}}
 
-This is the administration documentation. To learn how to use job artifacts in your GitLab CI/CD pipeline,
-see the [job artifacts configuration documentation](../../ci/jobs/job_artifacts.md).
+This is the administration documentation. To learn how to use job artifacts in your GitLab CI/CD pipeline, see the [job artifacts configuration documentation](../../ci/jobs/job_artifacts.md).
 
-An artifact is a list of files and directories attached to a job after it
-finishes. This feature is enabled by default in all GitLab installations.
+An artifact is a list of files and directories attached to a job after it finishes. This feature is enabled by default in all GitLab installations.
 
 ## Disabling job artifacts
 
@@ -112,23 +110,18 @@ To disable artifacts site-wide:
 
 ## Storing job artifacts
 
-GitLab Runner can upload an archive containing the job artifacts to GitLab. By default,
-this is done when the job succeeds, but can also be done on failure, or always, with the
-[`artifacts:when`](../../ci/yaml/_index.md#artifactswhen) parameter.
+GitLab Runner can upload an archive containing the job artifacts to GitLab. By default, this is done when the job succeeds, but can also be done on failure, or always, with the [`artifacts:when`](../../ci/yaml/_index.md#artifactswhen) parameter.
 
-Most artifacts are compressed by GitLab Runner before being sent to the coordinator. The exception to this is
-[reports artifacts](../../ci/yaml/_index.md#artifactsreports), which are compressed after uploading.
+Most artifacts are compressed by GitLab Runner before being sent to the coordinator. The exception to this is [reports artifacts](../../ci/yaml/_index.md#artifactsreports), which are compressed after uploading.
 
 ### Using local storage
 
-If you're using the Linux package or have a self-compiled installation, you
-can change the location where the artifacts are stored locally.
+If you're using the Linux package or have a self-compiled installation, you can change the location where the artifacts are stored locally.
 
 {{< alert type="note" >}}
 
 For Docker installations, you can change the path where your data is mounted.
-For the Helm chart, use
-[object storage](https://docs.gitlab.com/charts/advanced/external-object-storage/).
+For the Helm chart, use [object storage](https://docs.gitlab.com/charts/advanced/external-object-storage/).
 
 {{< /alert >}}
 
@@ -138,8 +131,7 @@ For the Helm chart, use
 
 The artifacts are stored by default in `/var/opt/gitlab/gitlab-rails/shared/artifacts`.
 
-1. To change the storage path, for example to `/mnt/storage/artifacts`, edit
-   `/etc/gitlab/gitlab.rb` and add the following line:
+1. To change the storage path, for example to `/mnt/storage/artifacts`, edit `/etc/gitlab/gitlab.rb` and add the following line:
 
    ```ruby
    gitlab_rails['artifacts_path'] = "/mnt/storage/artifacts"
@@ -157,8 +149,7 @@ The artifacts are stored by default in `/var/opt/gitlab/gitlab-rails/shared/arti
 
 The artifacts are stored by default in `/home/git/gitlab/shared/artifacts`.
 
-1. To change the storage path, for example to `/mnt/storage/artifacts`, edit
-   `/home/git/gitlab/config/gitlab.yml` and add or amend the following lines:
+1. To change the storage path, for example to `/mnt/storage/artifacts`, edit `/home/git/gitlab/config/gitlab.yml` and add or amend the following lines:
 
    ```yaml
    production: &base
@@ -183,17 +174,14 @@ The artifacts are stored by default in `/home/git/gitlab/shared/artifacts`.
 
 ### Using object storage
 
-If you don't want to use the local disk where GitLab is installed to store the
-artifacts, you can use an object storage like AWS S3 instead.
+If you don't want to use the local disk where GitLab is installed to store the artifacts, you can use an object storage like AWS S3 instead.
 
-If you configure GitLab to store artifacts on object storage, you may also want to
-[eliminate local disk usage for job logs](job_logs.md#prevent-local-disk-usage).
+If you configure GitLab to store artifacts on object storage, you may also want to [eliminate local disk usage for job logs](job_logs.md#prevent-local-disk-usage).
 In both cases, job logs are archived and moved to object storage when the job completes.
 
 {{< alert type="warning" >}}
 
-In a multi-server setup you must use one of the options to
-[eliminate local disk usage for job logs](job_logs.md#prevent-local-disk-usage), or job logs could be lost.
+In a multi-server setup you must use one of the options to [eliminate local disk usage for job logs](job_logs.md#prevent-local-disk-usage), or job logs could be lost.
 
 {{< /alert >}}
 
@@ -201,8 +189,7 @@ You should use the [consolidated object storage settings](../object_storage.md#c
 
 ### Migrating to object storage
 
-You can migrate the job artifacts from local storage to object storage. The
-processing is done in a background worker and requires **no downtime**.
+You can migrate the job artifacts from local storage to object storage. The processing is done in a background worker and requires **no downtime**.
 
 1. [Configure the object storage](#using-object-storage).
 1. Migrate the artifacts:
@@ -235,8 +222,7 @@ processing is done in a background worker and requires **no downtime**.
 
    {{< /tabs >}}
 
-1. Optional. Track the progress and verify that all job artifacts migrated
-   successfully using the PostgreSQL console.
+1. Optional. Track the progress and verify that all job artifacts migrated successfully using the PostgreSQL console.
    1. Open a PostgreSQL console:
 
       {{< tabs >}}
@@ -268,8 +254,7 @@ processing is done in a background worker and requires **no downtime**.
 
       {{< /tabs >}}
 
-   1. Verify that all artifacts migrated to object storage with the following
-      SQL query. The number of `objectstg` should be the same as `total`:
+   1. Verify that all artifacts migrated to object storage with the following SQL query. The number of `objectstg` should be the same as `total`:
 
       ```shell
       gitlabhq_production=# SELECT count(*) AS total, sum(case when file_store = '1' then 1 else 0 end) AS filesystem, sum(case when file_store = '2' then 1 else 0 end) AS objectstg FROM p_ci_job_artifacts;
@@ -328,12 +313,10 @@ Before GitLab 18.6, a migration from remote to local storage could result in [ar
 
 ## Expiring artifacts
 
-If [`artifacts:expire_in`](../../ci/yaml/_index.md#artifactsexpire_in) is used to set
-an expiry for the artifacts, they are marked for deletion right after that date passes.
+If [`artifacts:expire_in`](../../ci/yaml/_index.md#artifactsexpire_in) is used to set an expiry for the artifacts, they are marked for deletion right after that date passes.
 Otherwise, they expire per the [default artifacts expiration setting](../settings/continuous_integration.md#set-default-artifacts-expiration).
 
-Artifacts are deleted by the `expire_build_artifacts_worker` cron job which Sidekiq
-runs every 7 minutes (`*/7 * * * *` in [Cron](../../topics/cron/_index.md) syntax).
+Artifacts are deleted by the `expire_build_artifacts_worker` cron job which Sidekiq runs every 7 minutes (`*/7 * * * *` in [Cron](../../topics/cron/_index.md) syntax).
 
 To change the default schedule on which expired artifacts are deleted:
 
@@ -341,9 +324,7 @@ To change the default schedule on which expired artifacts are deleted:
 
 {{< tab title="Linux package (Omnibus)" >}}
 
-1. Edit `/etc/gitlab/gitlab.rb` and add the following line (or uncomment it if
-   it already exists and is commented out), substituting your schedule in cron
-   syntax:
+1. Edit `/etc/gitlab/gitlab.rb` and add the following line (or uncomment it if it already exists and is commented out), substituting your schedule in cron syntax:
 
    ```ruby
    gitlab_rails['expire_build_artifacts_worker_cron'] = "*/7 * * * *"
@@ -431,8 +412,7 @@ To change the default schedule on which expired artifacts are deleted:
 
 ## Set the maximum file size of the artifacts
 
-If artifacts are enabled, you can change the maximum file size of the
-artifacts through the [**Admin** area settings](../settings/continuous_integration.md#set-maximum-artifacts-size).
+If artifacts are enabled, you can change the maximum file size of the artifacts through the [**Admin** area settings](../settings/continuous_integration.md#set-maximum-artifacts-size).
 
 ## Storage statistics
 
@@ -443,16 +423,9 @@ You can see the total storage used for job artifacts for groups and projects in:
 
 ## Implementation details
 
-When GitLab receives an artifacts archive, an archive metadata file is also
-generated by [GitLab Workhorse](https://gitlab.com/gitlab-org/gitlab-workhorse). This metadata file describes all the entries
-that are located in the artifacts archive itself.
+When GitLab receives an artifacts archive, an archive metadata file is also generated by [GitLab Workhorse](https://gitlab.com/gitlab-org/gitlab-workhorse). This metadata file describes all the entries that are located in the artifacts archive itself.
 The metadata file is in a binary format, with additional Gzip compression.
 
-GitLab doesn't extract the artifacts archive to save space, memory, and disk
-I/O. It instead inspects the metadata file which contains all the relevant
-information. This is especially important when there is a lot of artifacts, or
-an archive is a very large file.
+GitLab doesn't extract the artifacts archive to save space, memory, and disk I/O. It instead inspects the metadata file which contains all the relevant information. This is especially important when there is a lot of artifacts, or an archive is a very large file.
 
-When selecting a specific file, [GitLab Workhorse](https://gitlab.com/gitlab-org/gitlab-workhorse) extracts it
-from the archive and the download begins. This implementation saves space,
-memory and disk I/O.
+When selecting a specific file, [GitLab Workhorse](https://gitlab.com/gitlab-org/gitlab-workhorse) extracts it from the archive and the download begins. This implementation saves space, memory and disk I/O.

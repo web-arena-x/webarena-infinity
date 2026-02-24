@@ -33,16 +33,16 @@ Public apps for Sell are available across a range of areas. For example:
 
 - Marketing apps like [Mailchimp](https://www.zendesk.com/apps/sell/mailchimp-for-sell/?source=app_directory), [HubSpot](https://www.zendesk.com/apps/sell/hubspot-for-sell/), and [GetResponse](https://www.zendesk.com/apps/sell/getresponse-for-zendesk-sell/?source=app_directory):
 
-  Work with marketing activity and email campaigns with contacts and leads, and subscribe to or unsubscribe from app mailing lists within Sell
+ Work with marketing activity and email campaigns with contacts and leads, and subscribe to or unsubscribe from app mailing lists within Sell
 - Document Storage apps like [Google Drive](https://www.zendesk.com/apps/sell/google-drive-for-sell/?source=app_directory), [Box](https://www.zendesk.com/apps/sell/box-for-sell/?source=app_directory), and [Dropbox](https://www.zendesk.com/apps/sell/dropbox-for-sell/?source=app_directory):
 
-  Create, view, and share app folders and files relating to deals directly from Sell
+ Create, view, and share app folders and files relating to deals directly from Sell
 - Accounting and invoicing apps like [FreshBooks](https://www.zendesk.com/apps/sell/freshbooks-for-sell/?source=app_directory) and [PandaDoc](https://www.zendesk.com/apps/sell/pandadoc-for-sell/?source=app_directory):
 
-  Create and view app invoices, estimates, and documents directly from Sell
+ Create and view app invoices, estimates, and documents directly from Sell
 - E-commerce apps:
 
-  View orders, order status, and payment details from leads and contacts in Sell
+ View orders, order status, and payment details from leads and contacts in Sell
 
 See the Sell [App Directory](https://www.zendesk.com/apps/directory/?q=&idx=appsIndex&p=0&hFR%5Bproducts%5D%5B0%5D=sell) for a full list.
 
@@ -68,7 +68,7 @@ An admin can also remove Marketplace apps from your Sell account and disconnect 
 
 **To remove Marketplace apps**
 
-1. On the Sell sidebar, click the **Settings**  (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/guide_icon_settings.png)) icon, then click **[Integrations > Apps](https://app.futuresimple.com/settings/apps)**.
+1. On the Sell sidebar, click the **Settings** (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/guide_icon_settings.png)) icon, then click **[Integrations > Apps](https://app.futuresimple.com/settings/apps)**.
 2. Hover over the app you want to remove, in the lower right corner click the **Settings** (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/guide_icon_settings.png)) dropdown menu.
 3. Click **Uninstall**.
 

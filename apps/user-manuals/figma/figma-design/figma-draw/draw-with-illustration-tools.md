@@ -24,7 +24,7 @@ Drawing with the Pencil and Brush tools involves creating [vector networks](../d
 
 ## Draw with the Pencil or Brush tool
 
-1. In Figma Design, click  **Draw** in the toolbar to open Figma Draw.
+1. In Figma Design, click **Draw** in the toolbar to open Figma Draw.
 2. Select the **Pencil** or **Brush** tool from the toolbar.
 3. Use the secondary toolbar to set the stroke’s color, size, and style.
 4. Click and drag your cursor to begin drawing. To draw a straight line, hold `Shift` as you move your cursor.

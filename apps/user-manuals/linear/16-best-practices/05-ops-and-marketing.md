@@ -21,7 +21,7 @@ Linear has powerful [filters](https://linear.app/docs/filters) that you can use 
 ### Recurring issues
 
 Use the in-built recurring issues feature in Linear to create issues automatically at a regular cadence. You can turn templates and existing issues into recurring issues from the [steps mentioned here](https://linear.app/docs/creating-issues#create-recurring-issues).   
-  
+ 
 Alternatively, you can use [Schedule by Zapier](https://zapier.com/apps/schedule/integrations/linear) to create recurring issues in Linear. Follow the steps in Zapier or the video below to create a template for the recurring issue. It'll show up in your Linear issue list at the scheduled time.
 
 ![Video](https://webassets.linear.app/files/ornj730p/production/a53ed886446e6fdd795338d7de9fc6aa4224a654.mp4)

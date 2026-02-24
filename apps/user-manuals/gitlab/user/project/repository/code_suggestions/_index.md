@@ -44,8 +44,8 @@ title: Code Suggestions
 Use GitLab Duo Code Suggestions to write code more efficiently by using generative AI to suggest code while you're developing.
 
 - <i class="fa-youtube-play" aria-hidden="true"></i>
-  [View a click-through demo](https://gitlab.navattic.com/code-suggestions).
-  <!-- Video published on 2023-12-09 --> <!-- Demo published on 2024-02-01 -->
+ [View a click-through demo](https://gitlab.navattic.com/code-suggestions).
+ <!-- Video published on 2023-12-09 --> <!-- Demo published on 2024-02-01 -->
 - <i class="fa-youtube-play" aria-hidden="true"></i> [Watch an overview](https://youtu.be/ds7SG1wgcVM)
 
 ## Prerequisites
@@ -57,8 +57,7 @@ To use Code Suggestions:
 
 {{< alert type="note" >}}
 
-GitLab Duo requires GitLab 17.2 or later. For GitLab Duo Core access, and for the best user experience and results,
-[upgrade to GitLab 18.0 or later](../../../../update/_index.md). Earlier versions might continue to work, however the experience might be degraded.
+GitLab Duo requires GitLab 17.2 or later. For GitLab Duo Core access, and for the best user experience and results, [upgrade to GitLab 18.0 or later](../../../../update/_index.md). Earlier versions might continue to work, however the experience might be degraded.
 
 {{< /alert >}}
 
@@ -67,12 +66,10 @@ GitLab Duo requires GitLab 17.2 or later. For GitLab Duo Core access, and for th
 To use Code Suggestions:
 
 1. Open your Git project in a [supported IDE](supported_extensions.md#supported-editor-extensions).
-1. Add the project as a remote of your local repository using
-   [`git remote add`](../../../../topics/git/commands.md#git-remote-add).
+1. Add the project as a remote of your local repository using [`git remote add`](../../../../topics/git/commands.md#git-remote-add).
 1. Add your project directory, including the hidden `.git/` folder, to your IDE workspace or project.
 1. Author your code.
-   As you type, suggestions are displayed. Code Suggestions provides code snippets
-   or completes the current line, depending on the cursor position.
+   As you type, suggestions are displayed. Code Suggestions provides code snippets or completes the current line, depending on the cursor position.
 
 1. Describe the requirements in natural language.
    Code Suggestions generates functions and code snippets based on the context provided.
@@ -91,16 +88,13 @@ To use Code Suggestions:
 
 {{< /history >}}
 
-For a code completion suggestion in VS Code, multiple suggestion options
-might be available. To view all available suggestions:
+For a code completion suggestion in VS Code, multiple suggestion options might be available. To view all available suggestions:
 
 1. Hover over the code completion suggestion.
 1. Scroll through the alternatives. Either:
    - Use keyboard shortcuts:
-     - On a Mac, press <kbd>Option</kbd>+<kbd>\[</kbd> to view the previous suggestion,
-       and press <kbd>Option</kbd>+<kbd>]</kbd> to view the next suggestion.
-     - On Linux and Windows, press <kbd>Alt</kbd>+<kbd>\[</kbd> to view the previous suggestion,
-       and press <kbd>Alt</kbd>+<kbd>]</kbd> to view the next suggestion.
+     - On a Mac, press <kbd>Option</kbd>+<kbd>\[</kbd> to view the previous suggestion, and press <kbd>Option</kbd>+<kbd>]</kbd> to view the next suggestion.
+     - On Linux and Windows, press <kbd>Alt</kbd>+<kbd>\[</kbd> to view the previous suggestion, and press <kbd>Alt</kbd>+<kbd>]</kbd> to view the next suggestion.
    - On the dialog that's displayed, select the right or left arrow to see next or previous options.
 1. Press <kbd>Tab</kbd> to apply the suggestion you prefer.
 
@@ -108,17 +102,16 @@ might be available. To view all available suggestions:
 
 Code Suggestions uses code completion and code generation:
 
-|  | Code completion | Code generation |
+| | Code completion | Code generation |
 | :---- | :---- | :---- |
-| Purpose | Provides suggestions for completing the current line of code.  | Generates new code based on a natural language comment. |
-| Trigger | Triggers when typing, usually with a short delay.  | Triggers when pressing <kbd>Enter</kbd> after writing a comment that includes specific keywords. |
-| Scope | Limited to the current line or small block of code.  | Can generate entire methods, functions, or even classes based on the context. |
-| Accuracy | More accurate for small tasks and short blocks of code.  | Is more accurate for complex tasks and large blocks of code because a bigger large language model (LLM) is used, additional context is sent in the request (for example, the libraries used by the project), and your instructions are passed to the LLM. |
+| Purpose | Provides suggestions for completing the current line of code. | Generates new code based on a natural language comment. |
+| Trigger | Triggers when typing, usually with a short delay. | Triggers when pressing <kbd>Enter</kbd> after writing a comment that includes specific keywords. |
+| Scope | Limited to the current line or small block of code. | Can generate entire methods, functions, or even classes based on the context. |
+| Accuracy | More accurate for small tasks and short blocks of code. | Is more accurate for complex tasks and large blocks of code because a bigger large language model (LLM) is used, additional context is sent in the request (for example, the libraries used by the project), and your instructions are passed to the LLM. |
 | How to use | Code completion automatically suggests completions to the line you are typing. | You write a comment and press <kbd>Enter</kbd>, or you enter an empty function or method. |
 | When to use | Use code completion to quickly complete one or a few lines of code. | Use code generation for more complex tasks, larger codebases, when you want to write new code from scratch based on a natural language description, or when the file you're editing has fewer than five lines of code. |
 
-Code Suggestions always uses both of these features. You cannot use only code
-generation or only code completion.
+Code Suggestions always uses both of these features. You cannot use only code generation or only code completion.
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
 [View a code completion vs. code generation comparison demo](https://www.youtube.com/watch?v=9dsyqMt9yg4).
@@ -130,14 +123,13 @@ To get the best results from code generation:
 
 - Be as specific as possible while remaining concise.
 - State the outcome you want to generate (for example, a function)
-  and provide details on what you want to achieve.
+ and provide details on what you want to achieve.
 - Add additional information, like the framework or library you want to use.
 - Add a space or new line after each comment.
-  This space tells the code generator that you have completed your instructions.
+ This space tells the code generator that you have completed your instructions.
 - Review and adjust the [context available to Code Suggestions](../../../gitlab_duo/context.md#code-suggestions).
 
-For example, to create a Python web service with some specific requirements,
-you might write something like:
+For example, to create a Python web service with some specific requirements, you might write something like:
 
 ```plaintext
 # Create a web service using Tornado that allows a user to sign in, run a security scan, and review the scan results.
@@ -152,23 +144,18 @@ For use cases and best practices, follow the [GitLab Duo examples documentation]
 
 ## Truncation of file content
 
-Because of LLM limits and performance reasons, the content of the currently
-opened file is truncated:
+Because of LLM limits and performance reasons, the content of the currently opened file is truncated:
 
 - For code completion: to 32,000 tokens (roughly 128,000 characters).
 - For code generation: to 80,000 tokens (roughly 320,000 characters).
 
-Content above the cursor is prioritized over content below the cursor. The content
-above the cursor is truncated from the left side, and content below the cursor
-is truncated from the right side. These numbers represent the maximum input context
-size for Code Suggestions.
+Content above the cursor is prioritized over content below the cursor. The content above the cursor is truncated from the left side, and content below the cursor is truncated from the right side. These numbers represent the maximum input context size for Code Suggestions.
 
 Support for increasing the code generation limit is proposed in [issue 585841](https://gitlab.com/gitlab-org/gitlab/-/issues/585841).
 
 ## Output length
 
-Because of LLM limits and for performance reasons, the output of Code Suggestions
-is limited:
+Because of LLM limits and for performance reasons, the output of Code Suggestions is limited:
 
 - For code completion: to 64 tokens (roughly 256 characters).
 - For code generation: to 2048 tokens (roughly 7168 characters).
@@ -192,21 +179,19 @@ Different language models can be the source for Code Suggestions.
 
 - On GitLab.com: GitLab hosts the models and connects to them through the cloud-based AI gateway.
 - On GitLab Self-Managed, two options exist:
-  - GitLab can [host the models and connects to them through the cloud-based AI gateway](set_up.md).
-  - Your organization can [use GitLab Duo Self-Hosted](../../../../administration/gitlab_duo_self_hosted/_index.md),
-    which means you host the AI gateway and language models. You can use GitLab AI vendor models,
-    other supported language models, or to bring your own compatible model.
+ - GitLab can [host the models and connects to them through the cloud-based AI gateway](set_up.md).
+ - Your organization can [use GitLab Duo Self-Hosted](../../../../administration/gitlab_duo_self_hosted/_index.md), which means you host the AI gateway and language models. You can use GitLab AI vendor models, other supported language models, or to bring your own compatible model.
 
 ## How the prompt is built
 
 To learn about the code that builds the prompt, see these files:
 
 - Code generation:
-  [`ee/lib/api/code_suggestions.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/api/code_suggestions.rb#L76)
-  in the `gitlab` repository.
+ [`ee/lib/api/code_suggestions.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/api/code_suggestions.rb#L76)
+ in the `gitlab` repository.
 - Code completion:
-  [`ai_gateway/code_suggestions/processing/completions.py`](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/-/blob/fcb3f485a8f047a86a8166aad81f93b6d82106a7/ai_gateway/code_suggestions/processing/completions.py#L273)
-  in the `modelops` repository.
+ [`ai_gateway/code_suggestions/processing/completions.py`](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/-/blob/fcb3f485a8f047a86a8166aad81f93b6d82106a7/ai_gateway/code_suggestions/processing/completions.py#L273)
+ in the `modelops` repository.
 
 ## Prompt caching
 
@@ -255,8 +240,7 @@ This API connection securely transmits a context window from your IDE/editor to 
 
 ### Streaming
 
-Streaming of code generation responses is supported in JetBrains and Visual Studio, leading to
-perceived faster response times.
+Streaming of code generation responses is supported in JetBrains and Visual Studio, leading to perceived faster response times.
 Other supported IDEs will return the generated code in a single block.
 
 Streaming is not enabled for code completion.
@@ -270,10 +254,7 @@ Streaming is not enabled for code completion.
 {{< /history >}}
 
 By default, code completion requests are sent from the IDE directly to the AI gateway to minimize the latency.
-For this direct connection to work, the IDE must be able to connect to `https://cloud.gitlab.com:443`. If this is not
-possible (for example, because of network restrictions), you can disable direct connections for all users. If you do this,
-code completion requests are sent indirectly through the GitLab Self-Managed instance, which in turn sends the requests
-to the AI gateway. This might result in your requests having higher latency.
+For this direct connection to work, the IDE must be able to connect to `https://cloud.gitlab.com:443`. If this is not possible (for example, because of network restrictions), you can disable direct connections for all users. If you do this, code completion requests are sent indirectly through the GitLab Self-Managed instance, which in turn sends the requests to the AI gateway. This might result in your requests having higher latency.
 
 #### Configure direct or indirect connections
 

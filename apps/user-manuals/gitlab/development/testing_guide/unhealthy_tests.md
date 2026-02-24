@@ -10,8 +10,7 @@ title: Unhealthy tests
 
 ### What's a flaky test?
 
-It's a test that sometimes fails, but if you retry it enough times, it passes,
-eventually.
+It's a test that sometimes fails, but if you retry it enough times, it passes, eventually.
 
 ### What are the potential cause for a test to be flaky?
 
@@ -23,46 +22,28 @@ eventually.
 
 **Difficulty to reproduce**: Moderate. Usually, running the same spec files until the one that's failing reproduces the problem.
 
-**Resolution**: Fix the previous tests and/or places where the test data or environment is modified, so that
-it's reset to a pristine test after each test.
+**Resolution**: Fix the previous tests and/or places where the test data or environment is modified, so that it's reset to a pristine test after each test.
 
 **Examples**:
 
-- [Example 1](https://gitlab.com/gitlab-org/gitlab/-/issues/402915): State leakage can result from
-  data records created with `let_it_be` shared between test examples, while some test modifies the model
-  either deliberately or unwillingly causing out-of-sync data in test examples. This can result in `PG::QueryCanceled: ERROR` in the subsequent test examples or retries.
-  For more information about state leakages and resolution options, see [GitLab testing best practices](best_practices.md#lets-talk-about-let).
-- [Example 2](https://gitlab.com/gitlab-org/gitlab/-/issues/378414#note_1142026988): A migration
-  test might roll-back the database, perform its testing, and then roll-up the database in an
-  inconsistent state, so that following tests might not know about certain columns.
-- [Example 3](https://gitlab.com/gitlab-org/gitlab/-/issues/368500): A test modifies data that is
-  used by a following test.
-- [Example 4](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/103434#note_1172316521): A test for a database query passes in a fresh database, but in a
-  CI/CD pipeline where the database is used to process previous test sequences, the test fails. This likely
-  means that the query itself needs to be updated to work in a non-clean database.
-- [Example 5](https://gitlab.com/gitlab-org/gitlab/-/issues/416663#note_1457867234): Unrelated database connections
-  in asynchronous requests checked back in, causing the tests to accidentally
-  use these unrelated database connections. The failure was resolved in this
-  [merge request](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/125742).
-- [Example 6](https://gitlab.com/gitlab-org/gitlab/-/issues/418757#note_1502138269): The maximum time to live
-  for a database connection causes these connections to be disconnected, which
-  in turn causes tests that rely on the transactions on these connections to
-  in turn causes tests that rely on the transactions on these connections to
-  fail. The issue was fixed in this [merge request](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/128567).
+- [Example 1](https://gitlab.com/gitlab-org/gitlab/-/issues/402915): State leakage can result from data records created with `let_it_be` shared between test examples, while some test modifies the model either deliberately or unwillingly causing out-of-sync data in test examples. This can result in `PG::QueryCanceled: ERROR` in the subsequent test examples or retries.
+ For more information about state leakages and resolution options, see [GitLab testing best practices](best_practices.md#lets-talk-about-let).
+- [Example 2](https://gitlab.com/gitlab-org/gitlab/-/issues/378414#note_1142026988): A migration test might roll-back the database, perform its testing, and then roll-up the database in an inconsistent state, so that following tests might not know about certain columns.
+- [Example 3](https://gitlab.com/gitlab-org/gitlab/-/issues/368500): A test modifies data that is used by a following test.
+- [Example 4](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/103434#note_1172316521): A test for a database query passes in a fresh database, but in a CI/CD pipeline where the database is used to process previous test sequences, the test fails. This likely means that the query itself needs to be updated to work in a non-clean database.
+- [Example 5](https://gitlab.com/gitlab-org/gitlab/-/issues/416663#note_1457867234): Unrelated database connections in asynchronous requests checked back in, causing the tests to accidentally use these unrelated database connections. The failure was resolved in this [merge request](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/125742).
+- [Example 6](https://gitlab.com/gitlab-org/gitlab/-/issues/418757#note_1502138269): The maximum time to live for a database connection causes these connections to be disconnected, which in turn causes tests that rely on the transactions on these connections to in turn causes tests that rely on the transactions on these connections to fail. The issue was fixed in this [merge request](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/128567).
 - [Example 7](https://gitlab.com/gitlab-org/quality/engineering-productivity/master-broken-incidents/-/issues/3389#note_1534827164):
-  A TCP socket used in a test was not closed before the next test, which also used
-  the same port with another TCP socket.
-  [Example 8](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/179302#note_2324238692): A `let_it_be` depended on a stub defined in a `before` block. `let_it_be` executes during `before(:all)`, so the stub was not yet set. This exposed the tests to the actual method call, which happened to use a method cache.
+ A TCP socket used in a test was not closed before the next test, which also used the same port with another TCP socket.
+ [Example 8](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/179302#note_2324238692): A `let_it_be` depended on a stub defined in a `before` block. `let_it_be` executes during `before(:all)`, so the stub was not yet set. This exposed the tests to the actual method call, which happened to use a method cache.
 
 #### Dataset-specific
 
 **Label**: `flaky-test::dataset-specific`
 
-**Description**: The test assumes the dataset is in a particular (usually limited) state or order, which
-might not be true depending on when the test run during the test suite.
+**Description**: The test assumes the dataset is in a particular (usually limited) state or order, which might not be true depending on when the test run during the test suite.
 
-**Difficulty to reproduce**: Moderate, as the amount of data needed to reproduce the issue might be
-difficult to achieve locally. Ordering issues are easier to reproduce by repeatedly running the tests several times.
+**Difficulty to reproduce**: Moderate, as the amount of data needed to reproduce the issue might be difficult to achieve locally. Ordering issues are easier to reproduce by repeatedly running the tests several times.
 
 **Resolution**:
 
@@ -73,18 +54,9 @@ difficult to achieve locally. Ordering issues are easier to reproduce by repeate
 
 **Examples**:
 
-- [Example 1](https://gitlab.com/gitlab-org/gitlab/-/issues/378381): The database is recreated when
-  any table has more than 500 columns. It could pass in the merge request, but fail later in
-  `master` if the order of tests changes.
-- [Example 2](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/91016/diffs): A test asserts
-  that trying to find a record with a nonexistent ID returns an error message. The test uses an
-  hardcoded ID that's supposed to not exist (for example, `42`). If the test is run early in the test
-  suite, it might pass as not enough records were created before it, but as soon as it would run
-  later in the suite, there could be a record that actually has the ID `42`, hence the test would
-  start to fail.
-- [Example 3](https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/10148/diffs): Without
-  specifying `ORDER BY`, database is not given deterministic ordering, or data race can happen
-  in the tests.
+- [Example 1](https://gitlab.com/gitlab-org/gitlab/-/issues/378381): The database is recreated when any table has more than 500 columns. It could pass in the merge request, but fail later in `master` if the order of tests changes.
+- [Example 2](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/91016/diffs): A test asserts that trying to find a record with a nonexistent ID returns an error message. The test uses an hardcoded ID that's supposed to not exist (for example, `42`). If the test is run early in the test suite, it might pass as not enough records were created before it, but as soon as it would run later in the suite, there could be a record that actually has the ID `42`, hence the test would start to fail.
+- [Example 3](https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/10148/diffs): Without specifying `ORDER BY`, database is not given deterministic ordering, or data race can happen in the tests.
 - [Example 4](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/106936/diffs).
 
 #### Too Many SQL queries
@@ -103,11 +75,9 @@ difficult to achieve locally. Ordering issues are easier to reproduce by repeate
 
 **Description**: The test use random values, that sometimes match the expectations, and sometimes not.
 
-**Difficulty to reproduce**: Easy, as the test can be modified locally to use the "random value"
-used at the time the test failed
+**Difficulty to reproduce**: Easy, as the test can be modified locally to use the "random value" used at the time the test failed
 
-**Resolution**: Once the problem is reproduced, it should be easy to debug and fix either the test
-or the app.
+**Resolution**: Once the problem is reproduced, it should be easy to debug and fix either the test or the app.
 
 **Examples**:
 
@@ -126,13 +96,9 @@ Adding a delay in API or controller could help reproducing the issue.
 
 **Examples**:
 
-- [Example 1](https://gitlab.com/gitlab-org/gitlab/-/issues/338341): A non-unique CSS selector
-  matching more than one element, or a non-waiting selector method that does not allow rendering
-  time before throwing an `element not found` error.
-- [Example 2](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/101728/diffs): A CSS selector
-  only appears after a GraphQL requests has finished, and the UI has updated.
-- [Example 3](https://gitlab.com/gitlab-org/gitlab/-/issues/408215): A false-positive test, Capybara immediately returns true after
-  page visit and page is not fully loaded, or if the element is not detectable by webdriver (such as being rendered outside the viewport or behind other elements).
+- [Example 1](https://gitlab.com/gitlab-org/gitlab/-/issues/338341): A non-unique CSS selector matching more than one element, or a non-waiting selector method that does not allow rendering time before throwing an `element not found` error.
+- [Example 2](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/101728/diffs): A CSS selector only appears after a GraphQL requests has finished, and the UI has updated.
+- [Example 3](https://gitlab.com/gitlab-org/gitlab/-/issues/408215): A false-positive test, Capybara immediately returns true after page visit and page is not fully loaded, or if the element is not detectable by webdriver (such as being rendered outside the viewport or behind other elements).
 
 #### Datetime-sensitive
 
@@ -155,11 +121,9 @@ Adding a delay in API or controller could help reproducing the issue.
 
 **Description**: The test fails from time to time due to infrastructure issues.
 
-**Difficulty to reproduce**: Hard. It's really hard to reproduce CI infrastructure issues. It might
-be possible by using containers locally.
+**Difficulty to reproduce**: Hard. It's really hard to reproduce CI infrastructure issues. It might be possible by using containers locally.
 
-**Resolution**: Starting a conversation with the Infrastructure department in a dedicated issue is
-usually a good idea.
+**Resolution**: Starting a conversation with the Infrastructure department in a dedicated issue is usually a good idea.
 
 **Examples**:
 
@@ -174,8 +138,7 @@ usually a good idea.
 These issues may stem from shortcomings in the test logic, the system under test, or their interaction.
 While tests can sometimes address these issues through improved synchronization, they may also reveal underlying system bugs that require resolution.
 
-**Difficulty to reproduce**: Moderate. It can be reproduced, for example, in feature tests by attempting to reference an
-element on a page that is not yet rendered, or in unit tests by failing to wait for an asynchronous operation to complete.
+**Difficulty to reproduce**: Moderate. It can be reproduced, for example, in feature tests by attempting to reference an element on a page that is not yet rendered, or in unit tests by failing to wait for an asynchronous operation to complete.
 
 **Resolution**: In the end-to-end test suite, using [an eventually matcher](end_to_end/best_practices/_index.md#use-eventually_-matchers-for-expectations-that-require-waiting).
 
@@ -189,8 +152,7 @@ element on a page that is not yet rendered, or in unit tests by failing to wait 
 1. Reproduce the failure locally
    - Find RSpec `seed` from the CI job log
    - OR Run `while :; do bin/rspec <spec> || break; done` in a loop to find a `seed`
-1. Reduce the examples by bisecting the spec failure with
-   `bin/rspec --seed <previously found> --require ./config/initializers/macos.rb --bisect <spec>`
+1. Reduce the examples by bisecting the spec failure with `bin/rspec --seed <previously found> --require ./config/initializers/macos.rb --bisect <spec>`
 1. Look at the remaining examples and watch for state leakage
    - For example, updating records created with `let_it_be` is a common source of problems
 1. Once fixed, rerun the specs with `seed`
@@ -203,8 +165,7 @@ When we have a flaky test in `master`:
 
 1. Create [a ~"failure::flaky-test" issue](https://handbook.gitlab.com/handbook/engineering/workflow/#broken-master) in the [Test Failure Issues](https://gitlab.com/gitlab-org/quality/test-failure-issues/-/issues/new) project with the relevant group label.
 1. Quarantine the test after the first failure.
-   If the test cannot be fixed in a timely fashion, there is an impact on the
-   productivity of all the developers, so it should be quarantined.
+   If the test cannot be fixed in a timely fashion, there is an impact on the productivity of all the developers, so it should be quarantined.
 
 For the complete quarantine process, including when to use fast vs long-term quarantine, timeline expectations, and ownership responsibilities, see the [Test Quarantine Process handbook page](https://handbook.gitlab.com/handbook/engineering/testing/quarantine-process/).
 
@@ -232,18 +193,17 @@ Once a test is fast-quarantined, you can proceed with the long-term quarantining
 
 First, ensure the test file has a [`feature_category` metadata](../feature_categorization/_index.md#rspec-examples), to ensure correct attribution of the test file.
 
-Then, you can use the `quarantine: '<issue url>'` metadata with the URL of the
-~"failure::flaky-test" issue you created previously.
+Then, you can use the `quarantine: '<issue url>'` metadata with the URL of the ~"failure::flaky-test" issue you created previously.
 
 ```ruby
 # Quarantine a single spec
 it 'succeeds', quarantine: 'https://gitlab.com/gitlab-org/gitlab/-/issues/12345' do
-  expect(response).to have_gitlab_http_status(:ok)
+ expect(response).to have_gitlab_http_status(:ok)
 end
 
 # Quarantine a describe/context block
 describe '#flaky-method', quarantine: 'https://gitlab.com/gitlab-org/gitlab/-/issues/12345' do
-  [...]
+ [...]
 end
 ```
 
@@ -269,7 +229,7 @@ Note that we [should not quarantine a shared example/context](https://gitlab.com
 ```ruby
 # Will be flagged by Rubocop
 shared_examples 'loads all the users when opened', quarantine: 'https://gitlab.com/gitlab-org/gitlab/-/issues/12345' do
-  [...]
+ [...]
 end
 
 # Does not work
@@ -299,7 +259,7 @@ For Jest specs, you can use the `.skip` method along with the `eslint-disable-ne
 // quarantine: https://gitlab.com/gitlab-org/gitlab/-/issues/56789
 // eslint-disable-next-line jest/no-disabled-tests
 it.skip('should throw an error', () => {
-  expect(response).toThrowError(expected_error)
+ expect(response).toThrowError(expected_error)
 });
 ```
 
@@ -321,18 +281,14 @@ Once a test is in quarantine, there are 3 choices:
 
 - Fix the test (that is, get rid of its flakiness).
 - Move the test to a lower level of testing.
-- Remove the test entirely (for example, because there's already a
-  lower-level test, or it's duplicating another same-level test, or it's testing
-  too much etc.).
+- Remove the test entirely (for example, because there's already a lower-level test, or it's duplicating another same-level test, or it's testing too much etc.).
 
 ### Automatic retries and flaky tests detection
 
-On our CI, we use [`RSpec::Retry`](https://github.com/NoRedInk/rspec-retry) to automatically retry a failing example a few
-times (see [`spec/spec_helper.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/spec/spec_helper.rb) for the precise retries count).
+On our CI, we use [`RSpec::Retry`](https://github.com/NoRedInk/rspec-retry) to automatically retry a failing example a few times (see [`spec/spec_helper.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/spec/spec_helper.rb) for the precise retries count).
 
 We also use a custom [`Gitlab::RspecFlaky::Listener`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/gems/gitlab-rspec_flaky/lib/gitlab/rspec_flaky/listener.rb).
-This listener runs in the `update-tests-metadata` job in `maintenance` scheduled pipelines
-on the `master` branch, and saves flaky examples to `rspec/flaky/report-suite.json`.
+This listener runs in the `update-tests-metadata` job in `maintenance` scheduled pipelines on the `master` branch, and saves flaky examples to `rspec/flaky/report-suite.json`.
 The report file is then retrieved by the `retrieve-tests-metadata` job in all pipelines.
 
 This was originally implemented in: <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/13021>.
@@ -345,45 +301,39 @@ For example, `FLAKY_RSPEC_GENERATE_REPORT=1 bin/rspec ...`.
 
 #### Usage of the `rspec/flaky/report-suite.json` report
 
-The `rspec/flaky/report-suite.json` report is
-[imported into Snowflake](https://gitlab.com/gitlab-data/analytics/-/blob/7085bea51bb2f8f823e073393934ba5f97259459/extract/gitlab_flaky_tests/upload.py#L19)
-once per day, for monitoring with the
-[internal dashboard](https://app.periscopedata.com/app/gitlab/888968/EP---Flaky-tests).
+The `rspec/flaky/report-suite.json` report is [imported into Snowflake](https://gitlab.com/gitlab-data/analytics/-/blob/7085bea51bb2f8f823e073393934ba5f97259459/extract/gitlab_flaky_tests/upload.py#L19)
+once per day, for monitoring with the [internal dashboard](https://app.periscopedata.com/app/gitlab/888968/EP---Flaky-tests).
 
 ### Problems we had in the past at GitLab
 
 - [`rspec-retry` is biting us when some API specs fail](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/29242): <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/9825>
 - [Sporadic RSpec failures due to `PG::UniqueViolation`](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/28307#note_24958837): <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/9846>
-  - Follow-up: <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/10688>
-  - [Capybara.reset_session! should be called before requests are blocked](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/33779): <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/12224>
+ - Follow-up: <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/10688>
+ - [Capybara.reset_session! should be called before requests are blocked](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/33779): <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/12224>
 - ffaker generates funky data that tests are not ready to handle (and tests should be predictable so that's bad!):
-  - [Make `spec/mailers/notify_spec.rb` more robust](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/20121): <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/10015>
-  - [Transient failure in `spec/requests/api/commits_spec.rb`](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/27988#note_25342521): <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/9944>
-  - [Replace ffaker factory data with sequences](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/29643): <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/10184>
-  - [Transient failure in spec/finders/issues_finder_spec.rb](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/30211#note_26707685): <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/10404>
+ - [Make `spec/mailers/notify_spec.rb` more robust](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/20121): <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/10015>
+ - [Transient failure in `spec/requests/api/commits_spec.rb`](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/27988#note_25342521): <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/9944>
+ - [Replace ffaker factory data with sequences](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/29643): <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/10184>
+ - [Transient failure in spec/finders/issues_finder_spec.rb](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/30211#note_26707685): <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/10404>
 
 #### Order-dependent flaky tests
 
-To identify ordering issues in a single file read about
-[how to reproduce a flaky test locally](#how-to-reproduce-a-flaky-test-locally).
+To identify ordering issues in a single file read about [how to reproduce a flaky test locally](#how-to-reproduce-a-flaky-test-locally).
 
 Some flaky tests can fail depending on the order they run with other tests. For example:
 
 - <https://gitlab.com/gitlab-org/gitlab/-/issues/327668>
 
-To identify the ordering issues across different files, you can use `scripts/rspec_bisect_flaky`,
-which would give us the minimal test combination to reproduce the failure:
+To identify the ordering issues across different files, you can use `scripts/rspec_bisect_flaky`, which would give us the minimal test combination to reproduce the failure:
 
-1. First obtain the list of specs that ran before the flaky test. You can search
-   for the list under `Knapsack node specs:` in the CI job output log.
+1. First obtain the list of specs that ran before the flaky test. You can search for the list under `Knapsack node specs:` in the CI job output log.
 1. Save the list of specs as a file, and run:
 
    ```shell
    cat knapsack_specs.txt | xargs scripts/rspec_bisect_flaky
    ```
 
-If there is an order-dependency issue, the script above will print the minimal
-reproduction.
+If there is an order-dependency issue, the script above will print the minimal reproduction.
 
 #### Time-sensitive flaky tests
 
@@ -401,8 +351,8 @@ reproduction.
 - [Bis](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/34698#note_34276286): <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/12664>
 - [Assert against the underlying database state instead of against a page's content](https://gitlab.com/gitlab-org/gitlab-foss/-/issues/31437): <https://gitlab.com/gitlab-org/gitlab-foss/-/merge_requests/10934>
 - In JS tests, shifting elements can cause Capybara to mis-click when the element moves at the exact time Capybara sends the click
-  - [Dropdowns rendering upward or downward due to window size and scroll position](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/17660)
-  - [Lazy loaded images can cause Capybara to mis-click](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/18713)
+ - [Dropdowns rendering upward or downward due to window size and scroll position](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/17660)
+ - [Lazy loaded images can cause Capybara to mis-click](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/18713)
 - [Triggering JS events before the event handlers are set up](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/18742)
 - [Wait for the image to be lazy-loaded when asserting on a Markdown image's `src` attribute](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/25408)
 - [Avoid asserting against flash notice banners](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/79432)
@@ -422,11 +372,9 @@ reproduction.
 
 #### Hanging specs
 
-If a spec hangs, or times out in CI, it might be caused by a
-[LoadInterlockAwareMonitor deadlock bug in Rails](https://github.com/rails/rails/issues/45994).
+If a spec hangs, or times out in CI, it might be caused by a [LoadInterlockAwareMonitor deadlock bug in Rails](https://github.com/rails/rails/issues/45994).
 
-To diagnose, you can use
-[sigdump](https://github.com/fluent/sigdump/blob/master/README.md#usage)
+To diagnose, you can use [sigdump](https://github.com/fluent/sigdump/blob/master/README.md#usage)
 to print the Ruby thread dump :
 
 1. Run the hanging spec locally.
@@ -447,8 +395,7 @@ If you see lines with `load_interlock_aware_monitor.rb`, this is likely related:
 /builds/gitlab-org/gitlab/vendor/ruby/3.2.0/gems/activesupport-7.0.8.4/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
 ```
 
-See examples where we worked around by creating the factories before making
-requests:
+See examples where we worked around by creating the factories before making requests:
 
 - <https://gitlab.com/gitlab-org/gitlab/-/merge_requests/81112>
 - <https://gitlab.com/gitlab-org/gitlab/-/merge_requests/158890>
@@ -500,7 +447,7 @@ For tests that are above the thresholds, we automatically report slowness occurr
 
 For tests that are slow for a legitimate reason and to skip issue creation, add `allowed_to_be_slow: true`.
 
-|    Date    | Feature tests | Controllers and Requests tests | Unit  |     Other     | Method |
+|    Date    | Feature tests | Controllers and Requests tests | Unit |     Other     | Method |
 |:----------:|:-------------:|:------------------------------:|:-----:|:-------------:|:------:|
 | 2023-02-15 | 67.42 seconds |         44.66 seconds          |   -   | 76.86 seconds | Top slow test eliminating the maximum |
 | 2023-06-15 | 50.13 seconds |         19.20 seconds          | 27.12 | 45.40 seconds | Avg for top 100 slow tests |

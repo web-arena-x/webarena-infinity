@@ -17,15 +17,15 @@ Granular permissions can be granted to users with 'Read Only' or 'Standard' leve
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the company's Permissions tool.
+ - 'Admin' level permissions on the company's Permissions tool.
 - **Additional Information:**
-  - Procore's permission levels (*None*, *Read Only*, *Standard*, and *Admin*) define what actions users can perform and what information they can view in each Procore tool. See [User Permissions Matrix - Web](https://support.procore.com/references/user-permissions-matrix-web "User Permissions Matrix - Web") and [User Permission Matrix - Mobile](https://support.procore.com/references/user-permission-matrix-mobile "User Permission Matrix - Mobile").
-  - Granular permissions are available to add when 'Read Only' or 'Standard' level permissions are assigned to a template on a supported tool. See [Which Procore tools support granular permissions?](https://support.procore.com/faq/which-procore-tools-support-granular-permissions "Which Procore tools support granular permissions?")
+ - Procore's permission levels (*None*, *Read Only*, *Standard*, and *Admin*) define what actions users can perform and what information they can view in each Procore tool. See [User Permissions Matrix - Web](https://support.procore.com/references/user-permissions-matrix-web "User Permissions Matrix - Web") and [User Permission Matrix - Mobile](https://support.procore.com/references/user-permission-matrix-mobile "User Permission Matrix - Mobile").
+ - Granular permissions are available to add when 'Read Only' or 'Standard' level permissions are assigned to a template on a supported tool. See [Which Procore tools support granular permissions?](https://support.procore.com/faq/which-procore-tools-support-granular-permissions "Which Procore tools support granular permissions?")
 
 ## Prerequisites
 
-- [Create a Project Permissions Template](https://support.procore.com/products/online/user-guide/company-level/permissions/tutorials/create-a-project-permissions-template "Create a Project Permissions Template")  
-  OR
+- [Create a Project Permissions Template](https://support.procore.com/products/online/user-guide/company-level/permissions/tutorials/create-a-project-permissions-template "Create a Project Permissions Template") 
+ OR
 - [Create a Project Specific Permissions Template from the Project Directory](https://support.procore.com/products/online/user-guide/project-level/directory/tutorials/create-a-project-specific-permissions-template-from-the-project-directory "Create a Project Specific Permissions Template from the Project Directory")
 
 ## Steps
@@ -38,12 +38,11 @@ Granular permissions can be granted to users with 'Read Only' or 'Standard' leve
    ##### Tip
 
    See [User Permissions Matrix - Web](https://support.procore.com/references/user-permissions-matrix-web "User Permissions Matrix - Web") and [User Permission Matrix - Mobile](https://support.procore.com/references/user-permission-matrix-mobile "User Permission Matrix - Mobile") for more information about the different actions that can be performed by users with the permission level you select.
-5. Click the angle bracket > icon to open or close the granular permissions menu for each supported tool.  
+5. Click the angle bracket > icon to open or close the granular permissions menu for each supported tool. 
    *Note:* This icon only displays when the button for **Read Only** or **Standard** is selected.
-6. Mark the 'Turn ALL ON' checkbox to enable all of a supported tool's granular permissions on the permissions template.  
-   *Note**:*This checkbox name changes to 'Turn ALL OFF' if all of a supported tool's granular permissions are enabled.  
-   OR  
-   Mark the checkbox for each granular permission you want to enable on the permissions template for one or more of the available tools. See [Which Procore tools support granular permissions?](https://support.procore.com/faq/which-procore-tools-support-granular-permissions "Which Procore tools support granular permissions?")
+6. Mark the 'Turn ALL ON' checkbox to enable all of a supported tool's granular permissions on the permissions template. 
+   *Note**:*This checkbox name changes to 'Turn ALL OFF' if all of a supported tool's granular permissions are enabled. 
+   OR Mark the checkbox for each granular permission you want to enable on the permissions template for one or more of the available tools. See [Which Procore tools support granular permissions?](https://support.procore.com/faq/which-procore-tools-support-granular-permissions "Which Procore tools support granular permissions?")
 7. Click **Save**.
 
 ## Next Steps

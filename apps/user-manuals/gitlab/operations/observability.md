@@ -131,9 +131,9 @@ Observability data is collected in a separate application outside of your GitLab
 Prerequisites:
 
 - You must have an EC2 instance or similar virtual machine with:
-  - Minimum: t3.large (2 vCPU, 8 GB RAM).
-  - Recommended: t3.xlarge (4 vCPU, 16 GB RAM) for production use.
-  - At least 100 GB storage space.
+ - Minimum: t3.large (2 vCPU, 8 GB RAM).
+ - Recommended: t3.xlarge (4 vCPU, 16 GB RAM) for production use.
+ - At least 100 GB storage space.
 - Docker and Docker Compose must be installed.
 - Your GitLab version must be 18.1 or later
 - Your GitLab instance must be connected to the Observability instance.
@@ -150,7 +150,7 @@ For AWS EC2:
 
 ```shell
 sudo mkdir -p /mnt/data
-sudo mount /dev/xvdbb /mnt/data  # Replace xvdbb with your volume name
+sudo mount /dev/xvdbb /mnt/data # Replace xvdbb with your volume name
 sudo chown -R $(whoami):$(whoami) /mnt/data
 ```
 
@@ -194,7 +194,7 @@ newgrp docker
 sudo mkdir -p /mnt/data/docker
 sudo bash -c 'cat > /etc/docker/daemon.json << EOF
 {
-  "data-root": "/mnt/data/docker"
+ "data-root": "/mnt/data/docker"
 }
 EOF'
 sudo systemctl restart docker
@@ -227,8 +227,7 @@ If you'd prefer, you can use your own ClickHouse database.
 
 Prerequisites:
 
-- Ensure your external ClickHouse instance is accessible and properly configured with
-  any required authentication credentials.
+- Ensure your external ClickHouse instance is accessible and properly configured with any required authentication credentials.
 
 Before you run `docker-compose up -d`, complete the following steps:
 
@@ -314,8 +313,7 @@ After you have configured GitLab O11y, to access the dashboard embedded in GitLa
 1. On the top bar, select **Search or go to** and find your group where the feature flag is enabled.
 1. On the left sidebar, select **Observability**.
 
-If **Observability** isn't displayed on the left sidebar,
-go directly to `http://<gitlab_instance>/groups/<group_path>/-/observability/services`.
+If **Observability** isn't displayed on the left sidebar, go directly to `http://<gitlab_instance>/groups/<group_path>/-/observability/services`.
 
 ![GitLab Experimental Observability example](img/gitLab_o11y_example_v18_1.png "GitLab Observability Example")
 
@@ -328,9 +326,9 @@ Prerequisites:
 - Ruby installed on your local machine
 - Required gems:
 
-  ```shell
-  gem install opentelemetry-sdk opentelemetry-exporter-otlp
-  ```
+ ```shell
+ gem install opentelemetry-sdk opentelemetry-exporter-otlp
+ ```
 
 ### Create a basic test script
 
@@ -341,22 +339,22 @@ require 'opentelemetry/sdk'
 require 'opentelemetry/exporter/otlp'
 
 OpenTelemetry::SDK.configure do |c|
-  # Define service information
-  resource = OpenTelemetry::SDK::Resources::Resource.create({
+ # Define service information
+ resource = OpenTelemetry::SDK::Resources::Resource.create({
     'service.name' => 'test-service',
     'service.version' => '1.0.0',
     'deployment.environment' => 'production'
-  })
-  c.resource = resource
+ })
+ c.resource = resource
 
-  # Configure OTLP exporter to send to GitLab O11y
-  c.add_span_processor(
+ # Configure OTLP exporter to send to GitLab O11y
+ c.add_span_processor(
     OpenTelemetry::SDK::Trace::Export::BatchSpanProcessor.new(
       OpenTelemetry::Exporter::OTLP::Exporter.new(
         endpoint: 'http://[your-o11y-instance-ip]:4318/v1/traces'
       )
     )
-  )
+ )
 end
 
 # Get tracer and create spans
@@ -364,15 +362,15 @@ tracer = OpenTelemetry.tracer_provider.tracer('basic-demo')
 
 # Create parent span
 tracer.in_span('parent-operation') do |parent|
-  parent.set_attribute('custom.attribute', 'test-value')
-  puts "Created parent span: #{parent.context.hex_span_id}"
+ parent.set_attribute('custom.attribute', 'test-value')
+ puts "Created parent span: #{parent.context.hex_span_id}"
 
-  # Create child span
-  tracer.in_span('child-operation') do |child|
+ # Create child span
+ tracer.in_span('child-operation') do |child|
     child.set_attribute('custom.child', 'child-value')
     puts "Created child span: #{child.context.hex_span_id}"
     sleep(1)
-  end
+ end
 end
 
 puts "Waiting for export..."

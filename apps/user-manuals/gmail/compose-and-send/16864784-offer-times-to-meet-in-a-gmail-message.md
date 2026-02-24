@@ -14,11 +14,11 @@ To schedule meetings, you can send your available times in a Gmail message. Afte
 ## Learn about scheduling meetings
 
 - You can use this for 1:1 meetings. If your email has multiple recipients, only the first person who books can join the event.
-  - You must add additional participants separately.
+ - You must add additional participants separately.
 - When you offer time slots you're available to meet, others can book them for 30 days through the booking page.
 - By default, Calendar sets the meeting's permissions to "See guest list." You can modify guest permissions after the recipient confirms the event.
 - The proposed times in the Gmail message are shown in the event creator's timezone. The proposed times in the recipient’s Gmail message are shown in their timezone.
-  - Once created, the event shows on Calendar in the local timezone. Confirmation emails with event details show in the participant's timezone.
+ - Once created, the event shows on Calendar in the local timezone. Confirmation emails with event details show in the participant's timezone.
 - You can only schedule meeting times on your primary calendar.
 
 ## Insert your availability in a Gmail message

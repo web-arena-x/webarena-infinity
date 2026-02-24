@@ -15,11 +15,11 @@ Once a submittal has been distributed, you may need to redistribute it again at 
 ## Things to Consider
 
 - **Required User Permission**:
-  - 'Admin' level permissions on the project's Submittals tool.
+ - 'Admin' level permissions on the project's Submittals tool.
 - **Prerequisite**:
-  - Complete the steps in [Distribute a Submittal](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/distribute-a-submittal "https://procore-prod.mindtouch.us/products/online/user-guide/project-level/submittals/tutorials/distribute-a-submittal").
+ - Complete the steps in [Distribute a Submittal](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/distribute-a-submittal "https://procore-prod.mindtouch.us/products/online/user-guide/project-level/submittals/tutorials/distribute-a-submittal").
 - **Additional Information**:
-  - When a submittal is redistributed, it is sent by email to the people designated in the Submittal's tool configuration settings.
+ - When a submittal is redistributed, it is sent by email to the people designated in the Submittal's tool configuration settings.
 
     ##### **PROCORE SUPPORT: INTERNAL NOTES**
 
@@ -33,13 +33,13 @@ Once a submittal has been distributed, you may need to redistribute it again at 
 
    ##### Tip
 
-   To quickly locate submittals that have been distributed, you can click on the 'Distributed Date' column to sort the Submittal Items list by their distributed date.  
+   To quickly locate submittals that have been distributed, you can click on the 'Distributed Date' column to sort the Submittal Items list by their distributed date. 
      
    ![submittals-sort-by-distributed-date.png](https://support.procore.com/@api/deki/files/159989/submittals-sort-by-distributed-date.png?revision=1)
-4. To view a summary of the submittal's distribution history, click **Info** on the blue banner at the top of the submittal's page.  
+4. To view a summary of the submittal's distribution history, click **Info** on the blue banner at the top of the submittal's page. 
      
    ![view-submittal-distribution-history.png](https://support.procore.com/@api/deki/files/160823/view-submittal-distribution-history.png?revision=1)
-5. Click ﻿**Redistribute﻿﻿**.  
+5. Click ﻿**Redistribute﻿﻿**. 
    The remaining steps are identical to those described in [Distribute a Submittal](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/distribute-a-submittal "Distribute a Submittal").
 
 ## See Also

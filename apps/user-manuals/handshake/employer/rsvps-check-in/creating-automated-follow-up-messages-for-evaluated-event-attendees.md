@@ -23,7 +23,7 @@ This feature is available to Premium partners with the Handshake Events module. 
 On the message setup page, complete the following fields:
 
 - **Who do you want to send this message to?** (*select one or more evaluation statuses*)
-  - Select attendees based on their evaluation outcome:
+ - Select attendees based on their evaluation outcome:
     - **All evaluated as a...**
       - *Includes all evaluated attendees, regardless of specific rating*.
     - **Strong yes**
@@ -32,14 +32,14 @@ On the message setup page, complete the following fields:
     - **Strong no**
 
 - **Time trigger**
-  - Choose when the message should be sent:
+ - Choose when the message should be sent:
     - **When event ends** — Sends immediately after the event concludes.
     - **A day after event** — Sends 24 hours after the event ends.
 
 - **Enter message**
-  - Write a tailored message relevant to the selected evaluation group.
-  - **Tip**: Use this space to thank attendees, provide next steps, or invite them to future events or interview.
-  - You can customize your message and include:
+ - Write a tailored message relevant to the selected evaluation group.
+ - **Tip**: Use this space to thank attendees, provide next steps, or invite them to future events or interview.
+ - You can customize your message and include:
     - **Attachments**
       - *Learn how to* [*Attach a job to the message*](#h_01JVYRKBEXBR83EJC976P0VHX7)*.*
     - **Formatting options**
@@ -70,9 +70,9 @@ In the **Event communications** table, click the three-dot menu icon next to the
 **On the message setup page**:
 
 - To preview your message, review the content shown on the screen.
-  - To return without making changes, click **Close**.
+ - To return without making changes, click **Close**.
 - To update the message, click **Edit message**.
-  - After editing the message, click **Update**.
+ - After editing the message, click **Update**.
 
 ![Preview message.png](https://support.joinhandshake.com/hc/article_attachments/32295489732247)
 

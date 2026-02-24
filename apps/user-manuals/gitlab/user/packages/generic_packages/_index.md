@@ -142,8 +142,8 @@ With HTTP headers:
 
 ```yaml
 publish:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - |
       curl --location --header "JOB-TOKEN: ${CI_JOB_TOKEN}" \
            --upload-file path/to/file.txt \
@@ -154,8 +154,8 @@ With HTTP Basic authentication:
 
 ```yaml
 publish:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - |
       curl --location --user "gitlab-ci-token:${CI_JOB_TOKEN}" \
            --upload-file path/to/file.txt \
@@ -218,8 +218,8 @@ For automated uploads in your CI/CD pipeline, you can iterate through your files
 
 ```yaml
 upload_package:
-  stage: publish
-  script:
+ stage: publish
+ script:
     - |
       for file in ./build/*; do
         if [ -f "$file" ]; then
@@ -355,8 +355,8 @@ With HTTP headers:
 
 ```yaml
 download:
-  stage: test
-  script:
+ stage: test
+ script:
     - |
       curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" \
            --location \
@@ -368,8 +368,8 @@ With HTTP Basic authentication:
 
 ```yaml
 download:
-  stage: test
-  script:
+ stage: test
+ script:
     - |
       curl --user "gitlab-ci-token:${CI_JOB_TOKEN}" \
            --location \
@@ -438,8 +438,8 @@ For automated downloads in your CI/CD pipeline:
 
 ```yaml
 download_package:
-  stage: build
-  script:
+ stage: build
+ script:
     - |
       FILES=("file1.txt" "file2.txt" "subdirectory/file3.txt")
       for file in "${FILES[@]}"; do
@@ -518,8 +518,7 @@ echo "Package download complete"
 
 ## Delete a package
 
-Before you delete a package, make sure you understand
-the [associated security risks](../package_registry/supported_functionality.md#deleting-packages).
+Before you delete a package, make sure you understand the [associated security risks](../package_registry/supported_functionality.md#deleting-packages).
 
 To delete a package, you can either:
 
@@ -546,10 +545,7 @@ To get checksums in response headers, you must either:
 
 - Disable object storage so files are stored locally.
 - Enable object storage, but disable direct download
-(files are served through GitLab Workhorse). When object
-storage direct download is enabled, files are redirected
-to the object storage provider, and custom headers like
-`X-Checksum-SHA256` cannot be included in the redirect response.
+(files are served through GitLab Workhorse). When object storage direct download is enabled, files are redirected to the object storage provider, and custom headers like `X-Checksum-SHA256` cannot be included in the redirect response.
 
 ```shell
 # Download a file and get the checksum from the response header
@@ -598,15 +594,12 @@ To verify checksums in CI/CD pipelines, you must either:
 
 - Disable object storage so files are stored locally.
 - Enable object storage, but disable direct download
-(files are served through GitLab Workhorse). When object
-storage direct download is enabled, files are redirected
-to the object storage provider, and custom headers like
-`X-Checksum-SHA256` cannot be included in the redirect response.
+(files are served through GitLab Workhorse). When object storage direct download is enabled, files are redirected to the object storage provider, and custom headers like `X-Checksum-SHA256` cannot be included in the redirect response.
 
 ```yaml
 verify_download:
-  stage: test
-  script:
+ stage: test
+ script:
     - |
       # Download file and get checksum from header
       curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" \
@@ -705,13 +698,13 @@ If you are receiving `HTTP 500: Internal Server Error` responses when publishing
 ```ruby
 # Consolidated Object Storage settings
 gitlab_rails['object_store']['connection'] = {
-  # Other connection settings
-  'aws_signature_version' => '4'
+ # Other connection settings
+ 'aws_signature_version' => '4'
 }
 # OR
 # Storage-specific form settings
 gitlab_rails['packages_object_store_connection'] = {
-  # Other connection settings
-  'aws_signature_version' => '4'
+ # Other connection settings
+ 'aws_signature_version' => '4'
 }
 ```

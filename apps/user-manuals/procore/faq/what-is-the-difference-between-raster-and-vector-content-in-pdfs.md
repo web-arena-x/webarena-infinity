@@ -26,16 +26,16 @@ If you've received a raster-based PDF, contact the creator of the file and ask t
 
 - Open the file and try to highlight text with your mouse.
 
-  - If you can NOT highlight the text, the content is raster.
-  - If you CAN highlight the text, the content is vector.
-  - If you can't highlight only some of the text, the content might be a mix of raster and vector.
+ - If you can NOT highlight the text, the content is raster.
+ - If you CAN highlight the text, the content is vector.
+ - If you can't highlight only some of the text, the content might be a mix of raster and vector.
 - Zoom in on the PDF.
 
-  - If the image or text gets blurry or pixilated, it is a raster file.
-  - If the image and text remain sharp, it is a vector file.
+ - If the image or text gets blurry or pixilated, it is a raster file.
+ - If the image and text remain sharp, it is a vector file.
 - Was the file scanned to your computer?
 
-  - Scanned files are always raster files.
+ - Scanned files are always raster files.
 
 ## See Also
 

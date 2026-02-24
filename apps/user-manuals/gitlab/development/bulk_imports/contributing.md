@@ -23,19 +23,15 @@ To mitigate the risk of introducing bugs and performance issues, newly added rel
 
 There are a few types of relations we export:
 
-- ActiveRecord associations. Read from `import_export.yml` file, serialized to JSON, written to a NDJSON file. Each relation is exported to either a `.gz` file, or `.tar.gz`
-  file if a collection, uploaded, and served using the REST API of destination instance of GitLab to download and import.
+- ActiveRecord associations. Read from `import_export.yml` file, serialized to JSON, written to a NDJSON file. Each relation is exported to either a `.gz` file, or `.tar.gz` file if a collection, uploaded, and served using the REST API of destination instance of GitLab to download and import.
 - Binary files. For example, uploads or LFS objects.
 - A handful of relations that are not exported but are read from the GraphQL API directly during import.
 
-For ActiveRecord associations, you should use NDJSON over GraphQL API for performance reasons. Heavily-nested associations can produce a lot of network
-requests which can slow down the overall migration.
+For ActiveRecord associations, you should use NDJSON over GraphQL API for performance reasons. Heavily-nested associations can produce a lot of network requests which can slow down the overall migration.
 
 ### Exporting an ActiveRecord relation
 
-The direct transfer importer's underlying behavior is heavily based on file-based importer,
-which uses the [`import_export.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/import_export/project/import_export.yml) file that
-describes a list of `Project` associations to be included in the export.
+The direct transfer importer's underlying behavior is heavily based on file-based importer, which uses the [`import_export.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/import_export/project/import_export.yml) file that describes a list of `Project` associations to be included in the export.
 A similar [`import_export.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/import_export/group/import_export.yml) is available for `Group`.
 
 For example, to add import support for a new `Project` association called `documents`, you must:
@@ -48,8 +44,7 @@ For example, to add import support for a new `Project` association called `docum
 
 {{< alert type="note" >}}
 
-Associations listed in this file are imported from top to bottom. If you have an association that is order-dependent, put the dependencies before the
-associations that require them. For example, documents must be imported before merge requests, otherwise they are not valid.
+Associations listed in this file are imported from top to bottom. If you have an association that is order-dependent, put the dependencies before the associations that require them. For example, documents must be imported before merge requests, otherwise they are not valid.
 
 {{< /alert >}}
 
@@ -71,14 +66,11 @@ associations that require them. For example, documents must be imported before m
 
    {{< alert type="note" >}}
 
-   If your association is relates to an Enterprise Edition-only feature, add it to the `ee.tree.project` tree at the end of the file so that it is only exported
-   and imported in Enterprise Edition instances of GitLab.
+   If your association is relates to an Enterprise Edition-only feature, add it to the `ee.tree.project` tree at the end of the file so that it is only exported and imported in Enterprise Edition instances of GitLab.
 
    {{< /alert >}}
 
-   If your association doesn't need to include any sub-relations, then this is enough. But if it needs more sub-relations to be included (for example, notes),
-   you must list them out. For example, documents can have notes (with award emojis on notes) and award emojis (on documents), which we want to migrate. In this
-   case, our relation becomes the following:
+   If your association doesn't need to include any sub-relations, then this is enough. But if it needs more sub-relations to be included (for example, notes), you must list them out. For example, documents can have notes (with award emojis on notes) and award emojis (on documents), which we want to migrate. In this case, our relation becomes the following:
 
    ```diff
    diff --git a/lib/gitlab/import_export/project/import_export.yml b/lib/gitlab/import_export/project/import_export.yml
@@ -97,8 +89,7 @@ associations that require them. For example, documents must be imported before m
         - :user
    ```
 
-1. Add `included_attributes` of the relation. By default, any relation attribute that is not listed in `included_attributes` of the YAML file are filtered
-   out on both export and import. To include the attributes you need, you must add them to `included_attributes` list as following:
+1. Add `included_attributes` of the relation. By default, any relation attribute that is not listed in `included_attributes` of the YAML file are filtered out on both export and import. To include the attributes you need, you must add them to `included_attributes` list as following:
 
    ```diff
    diff --git a/lib/gitlab/import_export/project/import_export.yml b/lib/gitlab/import_export/project/import_export.yml
@@ -109,7 +100,7 @@ associations that require them. For example, documents must be imported before m
 
     # Only include the following attributes for the models specified.
     included_attributes:
-   +  documents:
+   + documents:
    +    - :title
    +    - :description
       user:
@@ -117,9 +108,7 @@ associations that require them. For example, documents must be imported before m
         - :public_email
    ```
 
-1. Add `excluded_attributes` of the relation. We also have `excluded_attributes` list present in the file. You don't need to add excluded attributes for
-   `Project`, but you do still need to do it for `Group`. This list represent attributes that should not be included in the export and should be ignored
-   on import. These attributes usually are:
+1. Add `excluded_attributes` of the relation. We also have `excluded_attributes` list present in the file. You don't need to add excluded attributes for `Project`, but you do still need to do it for `Group`. This list represent attributes that should not be included in the export and should be ignored on import. These attributes usually are:
 
    - Anything that ends on `_id` or `_ids`
    - Anything that includes `attributes` (except `custom_attributes`)
@@ -131,13 +120,11 @@ associations that require them. For example, documents must be imported before m
 1. Add `methods` of the relation. If your relation has a method (for example, `document.signature`) that must also be exported, you can add it in the `methods` section.
    The exported value will be present in the export and you can do something with it on import. For example, assigning it to a field.
 
-For example, we export return value of `note_diff_file.diff_export` [method](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/import_export/project/import_export.yml#L1161-1161) and on import
-[set `note_diff_file.diff`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/import_export/project/relation_factory.rb#L149-151) to the exported value of this method.
+For example, we export return value of `note_diff_file.diff_export` [method](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/import_export/project/import_export.yml#L1161-1161) and on import [set `note_diff_file.diff`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/import_export/project/relation_factory.rb#L149-151) to the exported value of this method.
 
 #### Add test coverage for new relation
 
-Because the direct transfer uses the file-based importer under the hood, we must add test coverage for a new relation with tests in the scope of the file-based
-importer, which also covers the export side of the direct transfer importer. Add tests to:
+Because the direct transfer uses the file-based importer under the hood, we must add test coverage for a new relation with tests in the scope of the file-based importer, which also covers the export side of the direct transfer importer. Add tests to:
 
 1. `spec/lib/gitlab/import_export/project/tree_saver_spec.rb`. A similar file is available for `Group`.
 1. `ee/spec/lib/ee/gitlab/import_export/project/tree_saver_spec.rb` for EE-specific relations.
@@ -150,19 +137,15 @@ Any newly-added relation specified in `import_export.yml` is automatically added
 
 Once the relation is added and tests are added, we can manually check that the relation is exported. It should automatically be included in both:
 
-- File-based imports and exports. Use the [project export functionality](../../user/project/settings/import_export.md#export-a-project-and-its-data) to export,
-  download, and inspect the exported data.
-- Direct transfer exports. Use the [`export_relations` API](../../api/project_relations_export.md) to export, download, and inspect exported relations
-  (it might be exported in batches).
+- File-based imports and exports. Use the [project export functionality](../../user/project/settings/import_export.md#export-a-project-and-its-data) to export, download, and inspect the exported data.
+- Direct transfer exports. Use the [`export_relations` API](../../api/project_relations_export.md) to export, download, and inspect exported relations (it might be exported in batches).
 
 ### Export a binary relation
 
 If adding support for a binary relation:
 
-1. Create a new export service that performs export on disk. See example
-   [`BulkImports::LfsObjectsExportService`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/services/bulk_imports/lfs_objects_export_service.rb).
-1. Add the relation to the
-   [list of `file_relations`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/models/bulk_imports/file_transfer/project_config.rb).
+1. Create a new export service that performs export on disk. See example [`BulkImports::LfsObjectsExportService`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/services/bulk_imports/lfs_objects_export_service.rb).
+1. Add the relation to the [list of `file_relations`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/models/bulk_imports/file_transfer/project_config.rb).
 1. Add the relation to `BulkImports::FileExportService`.
 
 [Example](https://gitlab.com/gitlab-org/gitlab/-/commit/7867db2c22fb9c9850e1dcb49f26fa2b89a665c6)
@@ -186,7 +169,7 @@ No matter what type of relation is being imported, the Pipeline class structure 
 
 ```ruby
 module BulkImports
-  module Common
+ module Common
     module Pipelines
       class DocumentsPipeline
         include Pipeline
@@ -204,7 +187,7 @@ module BulkImports
         end
       end
     end
-  end
+ end
 end
 ```
 
@@ -220,7 +203,7 @@ From the previous example, our `documents` relation is exported to NDJSON file, 
 Each step of the ETL pipeline can be defined as a method or a class.
 
 ```ruby
-  class DocumentsPipeline
+ class DocumentsPipeline
     include NdjsonPipeline
 
     relation_name 'documents'
@@ -237,8 +220,7 @@ This new pipeline will now:
 
 A pipeline can be placed under either:
 
-- The `BulkImports::Common::Pipelines` namespace if it's shared and to be used in both Group and Project migrations. For example, `LabelsPipeline` is a common
-  pipeline and is referenced in both Group and Project stage lists.
+- The `BulkImports::Common::Pipelines` namespace if it's shared and to be used in both Group and Project migrations. For example, `LabelsPipeline` is a common pipeline and is referenced in both Group and Project stage lists.
 - The `BulkImports::Projects::Pipelines` namespace if a pipeline belongs to a Project migration.
 - The `BulkImports::Groups::Pipelines` namespace if a pipeline belongs to a Group migration.
 
@@ -258,7 +240,7 @@ Let's add our pipeline to the `Project` stage:
 
 ```ruby
 module BulkImports
-  module Projects
+ module Projects
     class Stage < ::BulkImports::Stage
       private
 
@@ -280,15 +262,14 @@ module BulkImports
           }
        end
     end
-  end
+ end
 end
 ```
 
 We specified:
 
 - `stage: 2`, so project and repository stages must complete first before our pipeline is run in stage 2.
-- `minimum_source_version: '16.11.0'`. Because we introduced `documents` relation for exports in this milestone, it's not available in previous GitLab versions. Therefore
-  so this pipeline only runs if source version is 16.11 or later.
+- `minimum_source_version: '16.11.0'`. Because we introduced `documents` relation for exports in this milestone, it's not available in previous GitLab versions. Therefore so this pipeline only runs if source version is 16.11 or later.
 
 {{< alert type="note" >}}
 
@@ -298,8 +279,7 @@ If a relation is deprecated and need only to run the pipeline up to a certain ve
 
 #### Covering a pipeline with tests
 
-Because we already covered the export side with tests, we must do the same for the import side. For the direct transfer importer, each pipeline has a separate spec
-file that would look something like [this example](https://gitlab.com/gitlab-org/gitlab/-/blob/master/spec/lib/bulk_imports/common/pipelines/milestones_pipeline_spec.rb).
+Because we already covered the export side with tests, we must do the same for the import side. For the direct transfer importer, each pipeline has a separate spec file that would look something like [this example](https://gitlab.com/gitlab-org/gitlab/-/blob/master/spec/lib/bulk_imports/common/pipelines/milestones_pipeline_spec.rb).
 
 [Example](https://gitlab.com/gitlab-org/gitlab/-/blob/master/spec/lib/bulk_imports/common/pipelines/milestones_pipeline_spec.rb)
 
@@ -309,20 +289,17 @@ Associations exist that do not match their ActiveRecord class names. For example
 
 ```ruby
 class Release
-  has_many :links, class_name: 'Releases::Link'
+ has_many :links, class_name: 'Releases::Link'
 end
 ```
 
-An association like this is exported under `links` in `releases.ndjson`. However, on import, whenever we constantize a relation class, we can't constantize
-`links` because the class does not exist. The class should be `Releases::Link`.
+An association like this is exported under `links` in `releases.ndjson`. However, on import, whenever we constantize a relation class, we can't constantize `links` because the class does not exist. The class should be `Releases::Link`.
 
-In this case, we must add this association name to the
-[`OVERRIDES`](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/import_export/project/relation_factory.rb#L7) hash, which represents a map of
-associations and their corresponding ActiveRecord classes so that the importer knows how to constantize them correctly.
+In this case, we must add this association name to the [`OVERRIDES`](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/import_export/project/relation_factory.rb#L7) hash, which represents a map of associations and their corresponding ActiveRecord classes so that the importer knows how to constantize them correctly.
 
 ```ruby
 module Gitlab
-  module ImportExport
+ module ImportExport
     module Project
       class RelationFactory < Base::RelationFactory
         OVERRIDES = {
@@ -330,7 +307,7 @@ module Gitlab
         }
       end
     end
-  end
+ end
 end
 ```
 
@@ -340,30 +317,22 @@ This way, the importer maps each exported `link` to the corresponding `Releases:
 
 If relations are referenced across multiple associations (or within a single association across multiple records), we won't want to import duplicates.
 
-For example, consider a label that is applied on a number of different issues and merge requests. Whenever we export issues and merge requests, the exported
-label is contained within each of the records as its subrelation. When we import exported issues and merge requests, we want to import the label only once
-and reuse it across all of the records. Otherwise, we end up with duplicates (multiple labels with the same name).
+For example, consider a label that is applied on a number of different issues and merge requests. Whenever we export issues and merge requests, the exported label is contained within each of the records as its subrelation. When we import exported issues and merge requests, we want to import the label only once and reuse it across all of the records. Otherwise, we end up with duplicates (multiple labels with the same name).
 
 To import an object like this only once and reuse it in multiple places, we must define the object as an existing object relation.
 
-First, we must add the label association to
-[`EXISTING_OBJECT_RELATIONS`](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/import_export/project/relation_factory.rb#L54-54). After the
-relation is added to the list of existing object relations, the importer knows that such a relation must be treated differently from the others and goes
-through a different import flow. Instead of importing such a relation by using the regular route, it uses an
-[`ObjectBuilder`](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/import_export/base/relation_factory.rb#L280).
+First, we must add the label association to [`EXISTING_OBJECT_RELATIONS`](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/import_export/project/relation_factory.rb#L54-54). After the relation is added to the list of existing object relations, the importer knows that such a relation must be treated differently from the others and goes through a different import flow. Instead of importing such a relation by using the regular route, it uses an [`ObjectBuilder`](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/import_export/base/relation_factory.rb#L280).
 
 `ObjectBuilder` attempts to either:
 
-- [Find an existing object](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/import_export/base/object_builder.rb#L32-36) in the database based on
-  the parameters you define and returns it.
+- [Find an existing object](https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/import_export/base/object_builder.rb#L32-36) in the database based on the parameters you define and returns it.
 - Create a new one if it doesn't exist.
 
 To add a new relation to the ObjectBuilder, you must:
 
 1. Add your relation to `EXISTING_OBJECT_RELATIONS` as mentioned above.
 1. Update either Group or Project `ObjectBuilder`, depending whether it's a project or group association.
-1. Define which attributes should be used to perform an existing object lookup. For example, for labels, we want to search by `title`, `description`, and
-   `created_at`. If a label with defined parameters exists in the project, reuse it and do not create a new one.
+1. Define which attributes should be used to perform an existing object lookup. For example, for labels, we want to search by `title`, `description`, and `created_at`. If a label with defined parameters exists in the project, reuse it and do not create a new one.
 
 ### Importing a relation from GraphQL API
 
@@ -373,7 +342,7 @@ If your relation is available through GraphQL API, you can use `GraphQlExtractor
 
 ```ruby
 module BulkImports
-  module Common
+ module Common
     module Pipelines
       class MembersPipeline
         include Pipeline
@@ -399,7 +368,7 @@ module BulkImports
         end
       end
     end
-  end
+ end
 end
 
 ```
@@ -414,7 +383,7 @@ A binary relation pipeline has the same structure as other pipelines, all you ne
 
 ```ruby
 module BulkImports
-  module Common
+ module Common
     module Pipelines
       class LfsObjectsPipeline
         include Pipeline
@@ -436,7 +405,7 @@ module BulkImports
         end
       end
     end
-  end
+ end
 end
 ```
 
@@ -463,7 +432,7 @@ index 439f453cd9d3..d6b4119a0af9 100644
    service_desk_setting: __('Service Desk'),
    vulnerabilities: __('Vulnerabilities'),
    commit_notes: __('Commit notes'),
-+  documents: __('Documents')
++ documents: __('Documents')
  };
 
  const STATISTIC_ITEMS = {

@@ -13,8 +13,7 @@ title: Rate limits on Git SSH operations
 
 {{< /details >}}
 
-GitLab applies rate limits to Git operations that use SSH by user account and project. When a user
-exceeds the rate limit, GitLab rejects further connection requests from that user for the project.
+GitLab applies rate limits to Git operations that use SSH by user account and project. When a user exceeds the rate limit, GitLab rejects further connection requests from that user for the project.
 
 The rate limit applies at the Git command ([plumbing](https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain)) level.
 Each command has a rate limit of 600 per minute. For example:

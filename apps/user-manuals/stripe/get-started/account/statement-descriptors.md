@@ -179,15 +179,15 @@ No results
 
 ```
 curl https://api.stripe.com/v1/payment_intents \
-  -u "
+ -u "
 
 sk_test_BQokikJOvBiI2HlWgH4olfQ2
 
 :" \
-  -d amount=1099 \
-  -d currency=usd \
-  -d "payment_method_types[]"=card \
-  -d statement_descriptor_suffix="example descriptor"
+ -d amount=1099 \
+ -d currency=usd \
+ -d "payment_method_types[]"=card \
+ -d statement_descriptor_suffix="example descriptor"
 ```
 
 ## Set the statement descriptor on non-card charges
@@ -232,24 +232,24 @@ No results
 
 ```
 curl https://api.stripe.com/v1/payment_intents \
-  -u "
+ -u "
 
 sk_test_BQokikJOvBiI2HlWgH4olfQ2
 
 :" \
-  -d amount=1000 \
-  -d currency=jpy \
-  -d "payment_method_types[]"=card \
-  -d statement_descriptor_suffix="example descriptor" \
-  -d "payment_method_options[card][statement_descriptor_suffix_kanji]"="漢字サフィックス" \
-  -d "payment_method_options[card][statement_descriptor_suffix_kana]"="カナサフィックス"
+ -d amount=1000 \
+ -d currency=jpy \
+ -d "payment_method_types[]"=card \
+ -d statement_descriptor_suffix="example descriptor" \
+ -d "payment_method_options[card][statement_descriptor_suffix_kanji]"="漢字サフィックス" \
+ -d "payment_method_options[card][statement_descriptor_suffix_kana]"="カナサフィックス"
 ```
 
 ### Requirements
 
 While Japanese statement descriptors share some requirements with [English requirements](/get-started/account/statement-descriptors#requirements), the following table shows additional requirements for kanji and kana descriptors.
 
-|  | Kanji | Kana |
+| | Kanji | Kana |
 | --- | --- | --- |
 | Maximum total length | 17 | 22 |
 | Minimum prefix length | 1 | 2 |

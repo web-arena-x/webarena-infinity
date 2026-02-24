@@ -33,15 +33,13 @@ If you cancel your daily subscription before the 7 day billing cycle ends, you w
 
 Charges accrue each day during the cycle, and the total posts on the final day of the 7 day period.
 
-**Example**  
-If your job is upgraded for 3 days and you cancel before the cycle ends, you will only be billed for those 3 days. The total charge will appear on the final day of your 7 day billing cycle.
+**Example** If your job is upgraded for 3 days and you cancel before the cycle ends, you will only be billed for those 3 days. The total charge will appear on the final day of your 7 day billing cycle.
 
 ### Canceling a monthly subscription
 
 If you downgrade your monthly subscription before your next billing date, your subscription remains active through the end of the current billing cycle. You will not be billed again once the next monthly date arrives.
 
-**Example**  
-If your billing date is the 10th of each month and you downgrade on the 20th, your subscription stays active until the next billing date. No additional charges will be billed after that date.
+**Example** If your billing date is the 10th of each month and you downgrade on the 20th, your subscription stays active until the next billing date. No additional charges will be billed after that date.
 
 ### How Plus charges are processed
 

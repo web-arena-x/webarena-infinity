@@ -10,7 +10,7 @@ Your ability to delete attachments depends on your employer account type and whe
 
 - **Basic employers:** **Owners** and **Recruiters** can delete attachments only from job postings they have personally created. Jobs created by teammates are **view-only** and cannot be modified.
 
-  - To delete attachments from jobs you did not create, you must upgrade to an eligible paid plan.
+ - To delete attachments from jobs you did not create, you must upgrade to an eligible paid plan.
 - **On-campus employers, Plus, Pro, Essentials and TES customers**:All users, except **Representatives**, can delete attachments from any job posting, whether created by themselves or a teammate, provided they have the appropriate permissions.
 
 *To learn how to add a new attachment instead, refer to* [*Add an Attachment to a Job*](https://support.joinhandshake.com/hc/en-us/articles/115009218167)*.*

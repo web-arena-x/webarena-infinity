@@ -26,10 +26,10 @@ You can scale any object, with the exception of [locked layers](https://help.fig
 
 To resize an object using the scale tool:
 
-1. Activate the scale tool by pressing `K`**,** or by clicking  in the toolbar and selecting  **Scale**.
+1. Activate the scale tool by pressing `K`**,** or by clicking in the toolbar and selecting **Scale**.
 2. Select an object.
 3. Scale the object by doing one of the following:
-   - **Click and drag**: Hover over the object’s bounding box to make the  cursor appear. Then, click-and-drag to resize.
+   - **Click and drag**: Hover over the object’s bounding box to make the cursor appear. Then, click-and-drag to resize.
    - **Scale multiplier**: Use the scale multiplier, in the **Scale** panel of the right sidebar. Open the dropdown to select a multiplier, or type a multiplier in the text field and press `Enter` / `Return` to apply.
    - **Dimensions fields:** Use either the width or height fields, in the **Scale** panel of the right sidebar. Type a number in either field and press `Enter` / `Return` to apply. The other dimension field will automatically update.
 

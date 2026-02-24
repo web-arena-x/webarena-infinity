@@ -27,12 +27,12 @@ Manage which libraries are available in your drafts from your account settings. 
    - Access styles and components from organization-wide libraries.
    - [UI kits](https://help.figma.com/hc/en-us/articles/24037724065943) that you have access to.
 5. Click the library name to view the styles and components in that library.
-6. Click **Off**  next to the library.
+6. Click **Off** next to the library.
 7. Choose which files to make the library available in:
    - Design files
    - FigJam files
    - All files
-8. To remove a library from your files, click  next to the current setting and select **Off**.
+8. To remove a library from your files, click next to the current setting and select **Off**.
 
 ![Library modal for a person's drafts. Both published styles from drafts and libraries from teams are available](https://help.figma.com/hc/article_attachments/1500013367921)
 
@@ -42,9 +42,9 @@ Manage which libraries are available in your drafts from your account settings. 
 
 When you make a library available in a design file, you can:
 
-- Find and apply styles using the  style pickers in the right sidebar. **[Apply styles to layers in Figma Design →](https://help.figma.com/hc/en-us/articles/360040316193)**
+- Find and apply styles using the style pickers in the right sidebar. **[Apply styles to layers in Figma Design →](https://help.figma.com/hc/en-us/articles/360040316193)**
 - Drag components into the canvas from the **Assets** panel in the left sidebar. **[Add components to your designs →](https://help.figma.com/hc/en-us/articles/360039150173)**
 
 ### FigJam files
 
-Access components, along with stickers curated by Figma, from the  **library** tool. **[Use stickers and components from libraries →](https://help.figma.com/hc/en-us/articles/1500004290841)**
+Access components, along with stickers curated by Figma, from the **library** tool. **[Use stickers and components from libraries →](https://help.figma.com/hc/en-us/articles/1500004290841)**

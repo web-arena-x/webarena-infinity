@@ -43,9 +43,9 @@ Basic information like your username, email and password:
 - **Username:** your Handshake unique username user
 - **Auth identifier:** used only if you are using Single Sign On for your account
 - **Email Address:** your school provided email address used for Handshake login and the option to change your email 
-  - Learn about the [Email Change Request Process](https://support.joinhandshake.com/hc/en-us/articles/235760768).
+ - Learn about the [Email Change Request Process](https://support.joinhandshake.com/hc/en-us/articles/235760768).
 - **Password: password that you use to login to your Handshake account and the option to change your password.**
-  - ****Note**: if your institution uses SSO, your SSO password is still managed through your IT department. The password for Handshake is separate and unique to Handshake.**
+ - ****Note**: if your institution uses SSO, your SSO password is still managed through your IT department. The password for Handshake is separate and unique to Handshake.**
 
 ![cs_user_account_settings.png](https://support.joinhandshake.com/hc/article_attachments/25998866604311)
 

@@ -12,15 +12,13 @@ title: External issue trackers
 
 {{< /details >}}
 
-GitLab has its own [issue tracker](../user/project/issues/_index.md),
-but you can also configure an external issue tracker per GitLab project.
+GitLab has its own [issue tracker](../user/project/issues/_index.md), but you can also configure an external issue tracker per GitLab project.
 You can then use:
 
 - The external issue tracker with the GitLab issue tracker
 - The external issue tracker only
 
-With an external tracker, you can use the format `CODE-123` to mention
-external issues in GitLab merge requests, commits, and comments where:
+With an external tracker, you can use the format `CODE-123` to mention external issues in GitLab merge requests, commits, and comments where:
 
 - `CODE` is a unique code for the tracker.
 - `123` is the issue number in the tracker.
@@ -39,8 +37,7 @@ To disable the GitLab issue tracker for a project:
 
 After you disable the GitLab issue tracker:
 
-- If an [external issue tracker is configured](#configure-an-external-issue-tracker),
-  **Issues** is visible on the left sidebar but redirects to the external issue tracker.
+- If an [external issue tracker is configured](#configure-an-external-issue-tracker), **Issues** is visible on the left sidebar but redirects to the external issue tracker.
 - If no external issue tracker is configured, **Issues** is not visible on the left sidebar.
 
 ## Configure an external issue tracker

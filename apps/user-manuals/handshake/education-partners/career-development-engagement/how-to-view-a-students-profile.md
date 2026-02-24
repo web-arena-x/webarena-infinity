@@ -27,12 +27,12 @@ As a career services user you have access to the following information on the st
 - **Courses**
 - **Projects**
 - **Personal information**
-  - Institution Email Address
-  - Primary Email Address
-  - Pronouns
+ - Institution Email Address
+ - Primary Email Address
+ - Pronouns
 - **Labels**
 - **Actions**
-  - For more information about the specific actions that can be taken on a students profile, refer to[About Actions in the Student Profile](https://support.joinhandshake.com/hc/en-us/articles/219133307-Actions-in-the-student-profile).
+ - For more information about the specific actions that can be taken on a students profile, refer to[About Actions in the Student Profile](https://support.joinhandshake.com/hc/en-us/articles/219133307-Actions-in-the-student-profile).
 - **Get to know Me** (bio added by student)
 - **Skills**
 - **Documents**

@@ -21,8 +21,8 @@ Emails will be sent out once an hour if new sketches or drawing revisions are ad
 ## Things to Consider
 
 - **Required User Permissions:**
-  - *To subscribe to the Drawings log,*'Read Only' or higher permissions.
-  - *To add others to the subscription list,*'Admin' level permissions.
+ - *To subscribe to the Drawings log,*'Read Only' or higher permissions.
+ - *To add others to the subscription list,*'Admin' level permissions.
 
 ## Steps
 
@@ -32,7 +32,7 @@ Emails will be sent out once an hour if new sketches or drawing revisions are ad
 ### Unsubscribe Yourself
 
 1. Navigate to your project's **Drawings**tool.
-2. Next to 'Subscribe' move the toggle ![icon-toggle-off.png](https://support.procore.com/@api/deki/files/93010/icon-toggle-off.png?revision=1&size=bestfit&width=25&height=25) to the OFF position.  
+2. Next to 'Subscribe' move the toggle ![icon-toggle-off.png](https://support.procore.com/@api/deki/files/93010/icon-toggle-off.png?revision=1&size=bestfit&width=25&height=25) to the OFF position. 
    ![drawings-unsubscribe.png](https://support.procore.com/@api/deki/files/528929/drawings-unsubscribe.png?revision=1)
 
 ### Unsubscribe Members of Your Team

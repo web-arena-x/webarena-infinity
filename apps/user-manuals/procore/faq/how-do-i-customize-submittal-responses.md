@@ -12,12 +12,12 @@ Users with ‘Admin’ level permission to the project’s Submittals tool can c
 
 There are a variety of reasons an organization might want to customize their submittal responses. For example:
 
-- **To match specific contract language**.  
-  Some organizations use the term ‘REVIEWED’ in place of ‘APPROVED or ‘REVIEWED AS NOTED’ in place of ‘APPROVED AS NOTED.’
-- **To match the actions on the submittals review rubber stamp that your company traditionally used to process hard-copy submittals**.  
-  Some organizations may prefer to use ‘FURNISH AS NOTED’ and ‘NO EXCEPTIONS TAKEN’ in place of ‘APPROVED AS NOTED’.
-- **To use commonly understood acronyms instead of spelled words**.  
-  Some organizations may prefer reviewers to use specific acronyms such as: A (in place of ‘APPROVED’), AAN (in place of ‘APPROVED AS NOTED’), R&R (in place of ‘REVISE AND RESUBMIT).
+- **To match specific contract language**. 
+ Some organizations use the term ‘REVIEWED’ in place of ‘APPROVED or ‘REVIEWED AS NOTED’ in place of ‘APPROVED AS NOTED.’
+- **To match the actions on the submittals review rubber stamp that your company traditionally used to process hard-copy submittals**. 
+ Some organizations may prefer to use ‘FURNISH AS NOTED’ and ‘NO EXCEPTIONS TAKEN’ in place of ‘APPROVED AS NOTED’.
+- **To use commonly understood acronyms instead of spelled words**. 
+ Some organizations may prefer reviewers to use specific acronyms such as: A (in place of ‘APPROVED’), AAN (in place of ‘APPROVED AS NOTED’), R&R (in place of ‘REVISE AND RESUBMIT).
 
 ## Next Steps
 

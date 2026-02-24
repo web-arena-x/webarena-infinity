@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357749798682-Integration-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -36,8 +36,8 @@ Dynamic Cards & Carousels can be populated with incoming API data. They’re a g
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/bots_ml5zBEYOxVSaCS9qpgu-x6A8Yrr08V7-yw2R8w7_jz4UApssv04saQXwPBWFAtT3kfppdCJs_sZL3VhzqxSKrbHIlK-0cjxXy8STroSnmRTDHK_FFbMaUaOwIFHKCMOwROsVHCoE1NMlFnaUz_EczMM.png)![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/bots_c-1jz3B-Mz-9UMSdKlwKnqSdHkrNqyv6JLuKZxIhQCTH1iRoEdt73D8YhNR_13TtfEQYEK9Sr-w_MG5Tb-Qhm1740WLv4VOBvqanaTrTVMxdEVoNIw30dBX_YrBcqVJkJpiicoHzQFuePW_ZozlpZR8.png)
 
-Specifically for Cards & Carousels, consider carefully how you want to populate the following fields. All of them can be dynamic API content, static text / URLs or a combination of both.  
-  
+Specifically for Cards & Carousels, consider carefully how you want to populate the following fields. All of them can be dynamic API content, static text / URLs or a combination of both. 
+ 
 Card data: Image URL, Card Title, and Description.
 
 Card button: Button Text.

@@ -105,7 +105,7 @@ Locate the fair in Handshake for which you want to download resumes, then click 
 - **All resumes combined** (PDF)
 - **All resumes individually** (ZIP)
 - **\*All resumes and photos individually** (ZIP)
-  - *This option is available only to Premium partners with the Events module. The file includes both uploaded resumes and photos taken with the Events app*.
+ - *This option is available only to Premium partners with the Events module. The file includes both uploaded resumes and photos taken with the Events app*.
 
 ![More button .png](https://support.joinhandshake.com/hc/article_attachments/29963664641303)
 

@@ -19,14 +19,14 @@ Typically, after creating a submittal item and adding members to the workflow, a
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Standard' level permissions or higher on the project's Submittals tool and the current [Ball In Court](../../../../../../references/construction-management/glossary-of-terms.md#BIC "references/construction-management/glossary-of-terms#BIC") for the submittal.
+ - 'Standard' level permissions or higher on the project's Submittals tool and the current [Ball In Court](../../../../../../references/construction-management/glossary-of-terms.md#BIC "references/construction-management/glossary-of-terms#BIC") for the submittal.
 - **Prerequisites:**
-  - The 'Allow Approvers to Add Reviewers to Their Step in the Workflow' configuration setting must be enabled. This setting is enabled by default in Procore. See [Configure Advanced Settings: Submittals Tool](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/configure-settings-submittals-tool "Configure Advanced Settings: Submittals Tool").
+ - The 'Allow Approvers to Add Reviewers to Their Step in the Workflow' configuration setting must be enabled. This setting is enabled by default in Procore. See [Configure Advanced Settings: Submittals Tool](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/configure-settings-submittals-tool "Configure Advanced Settings: Submittals Tool").
 - **Additional Information:**
-  - The submittal's status must be 'Open'.
-  - If a user has already been added to the submittal's workflow, you will not be able to forward the submittal to that user. They can respond to the submittal in the order specified by the submittal's workflow.
-  - If you forward a submittal to another user, you must wait for them to submit their response before you can respond. After they respond, the BIC will be shifted back to you and you will have the option to either (1) respond to the submittal or (2) forward it to another user for their review.
-  - If a submittal is forwarded to you by a member of the submittal's workflow, you cannot forward the submittal to another user.
+ - The submittal's status must be 'Open'.
+ - If a user has already been added to the submittal's workflow, you will not be able to forward the submittal to that user. They can respond to the submittal in the order specified by the submittal's workflow.
+ - If you forward a submittal to another user, you must wait for them to submit their response before you can respond. After they respond, the BIC will be shifted back to you and you will have the option to either (1) respond to the submittal or (2) forward it to another user for their review.
+ - If a submittal is forwarded to you by a member of the submittal's workflow, you cannot forward the submittal to another user.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Typically, after creating a submittal item and adding members to the workflow, a
    ##### Note
 
    Any PDF attachments that you added markups to in Procore are with your response automatically. See [Review Submittal PDF Attachments](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/review-submittal-pdf-attachments "Review Submittal PDF Attachments").
-4. Under **Submittal Workflow**, click **Respond**.  
+4. Under **Submittal Workflow**, click **Respond**. 
      
    ![submittal-workflow-respond.png](https://support.procore.com/@api/deki/files/481074/submittal-workflow-respond.png?revision=2)
 5. *Optional.* Click **Attach Files** to open the Attach Files window. If the corresponding tool (\*) is enabled on the project, choose from these options:
@@ -52,33 +52,33 @@ Typically, after creating a submittal item and adding members to the workflow, a
 
      ##### Example
 
-     This example shows the My Computer page of the Attach Files window.   
+     This example shows the My Computer page of the Attach Files window.  
      ![upload-files.png](https://support.procore.com/@api/deki/files/481206/upload-files.png?revision=1)
-6. Click **Attach**.  
-   The attachments appear in the **Attach Files to Send to the Next Reviewer** window.  
+6. Click **Attach**. 
+   The attachments appear in the **Attach Files to Send to the Next Reviewer** window. 
    ![attach-files-to-send-to-next-reviewer.png](https://support.procore.com/@api/deki/files/481207/attach-files-to-send-to-next-reviewer.png?revision=1)
 7. Click **Next**.
-8. In the **Respond** window, click **Forward for Review**. This link is only visible if you are the [Ball In Court](../../../../../../references/construction-management/glossary-of-terms.md#Ball_In_Court "Glossary of Terms") reviewer.   
+8. In the **Respond** window, click **Forward for Review**. This link is only visible if you are the [Ball In Court](../../../../../../references/construction-management/glossary-of-terms.md#Ball_In_Court "Glossary of Terms") reviewer.  
      
    ![forward-for-review.png](https://support.procore.com/@api/deki/files/481208/forward-for-review.png?revision=1)
 9. Add the following information:
-   - **Forward To**. Select the user you want to forward the submittal to.  
+   - **Forward To**. Select the user you want to forward the submittal to. 
      *Note:* To appear as a selection in the list, the user must be added to the Project level Directory tool. See [Add a User Account to the Project Directory](https://support.procore.com/products/online/user-guide/project-level/directory/tutorials/add-user-account-to-project-directory "Add a User Account to the Project Directory").
-   - **Return By**. Select the date by which the reviewer must respond to the submittal.  
+   - **Return By**. Select the date by which the reviewer must respond to the submittal. 
      *Note:* The date you select must be on or before the due date for your response.
    - **Comments**. *Optional*. Enter any comments you want to send to the reviewer.
-   - **Attach Files**. *Optional*. Add any files you want to send to the reviewer.  
+   - **Attach Files**. *Optional*. Add any files you want to send to the reviewer. 
        
      ![respond.png](https://support.procore.com/@api/deki/files/481210/respond.png?revision=1)
 10. Click **Preview** to review the information.
 11. Click one of the following options:
     - Click Forwardto forward the submittal to the user you selected.
     - Click **Back** if you need to change any information you added.
-    - Click **Cancel** to close the window and return to the submittal's page. *Note:* Any information you added before closing the window won't be saved.  
+    - Click **Cancel** to close the window and return to the submittal's page. *Note:* Any information you added before closing the window won't be saved. 
         
       ![preview-and-respond.png](https://support.procore.com/@api/deki/files/481211/preview-and-respond.png?revision=1)
 
-The system automatically adds the user to the 'Submittal Workflow' table and sets them as the Ball In Court. Their name will be added to the same workflow step as the approver who forwarded the submittal to them.  
+The system automatically adds the user to the 'Submittal Workflow' table and sets them as the Ball In Court. Their name will be added to the same workflow step as the approver who forwarded the submittal to them. 
 *Notes:*
 
 - The reviewer will receive an email notification from Procore letting them know action is required.

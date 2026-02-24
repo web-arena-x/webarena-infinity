@@ -9,13 +9,11 @@ The [GitLab Web IDE](../../../user/project/web_ide/_index.md) is a built-in adva
 
 {{< alert type="warning" >}}
 
-This tutorial is designed to be a general introduction to contributing to the GitLab project
-and is not an example of a change that should be submitted for review.
+This tutorial is designed to be a general introduction to contributing to the GitLab project and is not an example of a change that should be submitted for review.
 
 {{< /alert >}}
 
-The example in this section shows how to modify a line of code as part of a community contribution
-to GitLab code using the Web IDE.
+The example in this section shows how to modify a line of code as part of a community contribution to GitLab code using the Web IDE.
 
 1. Go to the [GitLab community fork](https://gitlab.com/gitlab-community/gitlab-org/gitlab).
 
@@ -25,8 +23,7 @@ to GitLab code using the Web IDE.
    1. On the top bar, select **Search or go to**.
    1. Enter the search string `"Syntax highlighting"`.
 
-1. Select the filename
-   [from the results](https://gitlab.com/search?search=Syntax+highlighting&nav_source=navbar&project_id=41372369&group_id=60717473&search_code=true).
+1. Select the filename [from the results](https://gitlab.com/search?search=Syntax+highlighting&nav_source=navbar&project_id=41372369&group_id=60717473&search_code=true).
    In this case, `app/views/profiles/preferences/show.html.haml`.
 
 1. Open the file in Web IDE. Select **Edit** > **Open in Web IDE**.
@@ -50,8 +47,7 @@ to GitLab code using the Web IDE.
    that each area uses consistent language.
    ```
 
-   Follow the GitLab
-   [commit message guidelines](../merge_request_workflow.md#commit-messages-guidelines).
+   Follow the GitLab [commit message guidelines](../merge_request_workflow.md#commit-messages-guidelines).
 
 1. Select **Commit to new branch** from the **Commit to** dropdown list, and enter `1st-contrib-example`.
 

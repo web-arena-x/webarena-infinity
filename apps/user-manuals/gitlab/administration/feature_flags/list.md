@@ -15,18 +15,16 @@ layout: feature_flags
 {{< /details >}}
 
 GitLab provides feature flags to turn specific features on or off.
-This page contains a list of all feature flags provided by GitLab. In GitLab Self-Managed,
-GitLab administrators can [change the state of these feature flags](_index.md).
+This page contains a list of all feature flags provided by GitLab. In GitLab Self-Managed, GitLab administrators can [change the state of these feature flags](_index.md).
 
-For help developing custom feature flags, see
-[Create a feature flag](../../operations/feature_flags.md#create-a-feature-flag).
+For help developing custom feature flags, see [Create a feature flag](../../operations/feature_flags.md#create-a-feature-flag).
 
 <!-- markdownlint-disable MD044 -->
 <!-- MD044/proper-names test disabled after this line to make page compatible with markdownlint-cli 0.29.0. -->
 <!-- See https://docs.gitlab.com/ee/development/documentation/testing/markdownlint.html#disable-markdownlint-tests -->
 
 <div class="d-none">
-  <strong>If you don't see the feature flag tables below, view them at <a href="https://docs.gitlab.com/administration/feature_flags/list/">docs.gitlab.com</a>.</strong>
+ <strong>If you don't see the feature flag tables below, view them at <a href="https://docs.gitlab.com/administration/feature_flags/list/">docs.gitlab.com</a>.</strong>
 </div>
 <!-- the div tag will not display on the docs site but will display on /help -->
 

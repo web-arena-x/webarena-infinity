@@ -7,20 +7,16 @@ title: Customizing analyzer settings
 
 ## Authentication
 
-Authentication is handled by providing the authentication token as a header or cookie. You can
-provide a script that performs an authentication flow or calculates the token.
+Authentication is handled by providing the authentication token as a header or cookie. You can provide a script that performs an authentication flow or calculates the token.
 
 ### HTTP Basic Authentication
 
 [HTTP basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication)
-is an authentication method built into the HTTP protocol and used in conjunction with
-[transport layer security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security).
+is an authentication method built into the HTTP protocol and used in conjunction with [transport layer security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security).
 
 Create a [CI/CD variable](../../../../ci/variables/_index.md#for-a-project)
-for the password (for example, `TEST_API_PASSWORD`), and set it to be masked. You can create CI/CD
-variables from the GitLab project's page at **Settings** > **CI/CD**, in the **Variables** section.
-Because of the [limitations on masked variables](../../../../ci/variables/_index.md#mask-a-cicd-variable),
-you should Base64-encode the password before adding it as a variable.
+for the password (for example, `TEST_API_PASSWORD`), and set it to be masked. You can create CI/CD variables from the GitLab project's page at **Settings** > **CI/CD**, in the **Variables** section.
+Because of the [limitations on masked variables](../../../../ci/variables/_index.md#mask-a-cicd-variable), you should Base64-encode the password before adding it as a variable.
 
 Finally, add two CI/CD variables to your `.gitlab-ci.yml` file:
 
@@ -29,17 +25,17 @@ Finally, add two CI/CD variables to your `.gitlab-ci.yml` file:
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_PROFILE: Quick
-  APISEC_HAR: test-api-recording.har
-  APISEC_TARGET_URL: http://test-deployment/
-  APISEC_HTTP_USERNAME: testuser
-  APISEC_HTTP_PASSWORD_BASE64: $TEST_API_PASSWORD
+ APISEC_PROFILE: Quick
+ APISEC_HAR: test-api-recording.har
+ APISEC_TARGET_URL: http://test-deployment/
+ APISEC_HTTP_USERNAME: testuser
+ APISEC_HTTP_PASSWORD_BASE64: $TEST_API_PASSWORD
 ```
 
 #### Raw password
@@ -48,9 +44,7 @@ If you do not want to Base64-encode the password (or if you are using GitLab 15.
 
 ### Bearer tokens
 
-Bearer tokens are used by several different authentication mechanisms, including OAuth2 and JSON Web
-Tokens (JWT). Bearer tokens are transmitted using the `Authorization` HTTP header. To use Bearer
-tokens with API security testing, you need one of the following:
+Bearer tokens are used by several different authentication mechanisms, including OAuth2 and JSON Web Tokens (JWT). Bearer tokens are transmitted using the `Authorization` HTTP header. To use Bearer tokens with API security testing, you need one of the following:
 
 - A token that doesn't expire.
 - A way to generate a token that lasts the length of testing.
@@ -58,19 +52,13 @@ tokens with API security testing, you need one of the following:
 
 #### Token doesn't expire
 
-If the Bearer token doesn't expire, use the `APISEC_OVERRIDES_ENV` variable to provide it. This
-variable's content is a JSON snippet that provides headers and cookies to add to outgoing HTTP requests for API security testing.
+If the Bearer token doesn't expire, use the `APISEC_OVERRIDES_ENV` variable to provide it. This variable's content is a JSON snippet that provides headers and cookies to add to outgoing HTTP requests for API security testing.
 
 Follow these steps to provide the Bearer token with `APISEC_OVERRIDES_ENV`:
 
-1. [Create a CI/CD variable](../../../../ci/variables/_index.md#for-a-project),
-   for example `TEST_API_BEARERAUTH`, with the value
-   `{"headers":{"Authorization":"Bearer dXNlcm5hbWU6cGFzc3dvcmQ="}}` (substitute your token). You
-   can create CI/CD variables from the GitLab projects page at **Settings** > **CI/CD**, in the
-   **Variables** section.
+1. [Create a CI/CD variable](../../../../ci/variables/_index.md#for-a-project), for example `TEST_API_BEARERAUTH`, with the value `{"headers":{"Authorization":"Bearer dXNlcm5hbWU6cGFzc3dvcmQ="}}` (substitute your token). You can create CI/CD variables from the GitLab projects page at **Settings** > **CI/CD**, in the **Variables** section.
    Due to the format of `TEST_API_BEARERAUTH` it's not possible to mask the variable.
-   To mask the token's value, you can create a second variable with the token values, and define
-   `TEST_API_BEARERAUTH` with the value `{"headers":{"Authorization":"Bearer $MASKED_VARIABLE"}}`.
+   To mask the token's value, you can create a second variable with the token values, and define `TEST_API_BEARERAUTH` with the value `{"headers":{"Authorization":"Bearer $MASKED_VARIABLE"}}`.
 
 1. In your `.gitlab-ci.yml` file, set `APISEC_OVERRIDES_ENV` to the variable you just created:
 
@@ -88,60 +76,53 @@ Follow these steps to provide the Bearer token with `APISEC_OVERRIDES_ENV`:
      APISEC_OVERRIDES_ENV: $TEST_API_BEARERAUTH
    ```
 
-1. To validate that authentication is working, run API security testing and review the job logs
-   and the test APIs application logs.
+1. To validate that authentication is working, run API security testing and review the job logs and the test APIs application logs.
 
 #### Token generated at test runtime
 
-If the Bearer token must be generated and doesn't expire during testing, you can provide API security testing with a file that has the token. A prior stage and job, or part of the API security testing job, can
-generate this file.
+If the Bearer token must be generated and doesn't expire during testing, you can provide API security testing with a file that has the token. A prior stage and job, or part of the API security testing job, can generate this file.
 
 API security testing expects to receive a JSON file with the following structure:
 
 ```json
 {
-  "headers" : {
+ "headers" : {
     "Authorization" : "Bearer dXNlcm5hbWU6cGFzc3dvcmQ="
-  }
+ }
 }
 ```
 
-This file can be generated by a prior stage and provided to API security testing through the
-`APISEC_OVERRIDES_FILE` CI/CD variable.
+This file can be generated by a prior stage and provided to API security testing through the `APISEC_OVERRIDES_FILE` CI/CD variable.
 
 Set `APISEC_OVERRIDES_FILE` in your `.gitlab-ci.yml` file:
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_PROFILE: Quick
-  APISEC_OPENAPI: test-api-specification.json
-  APISEC_TARGET_URL: http://test-deployment/
-  APISEC_OVERRIDES_FILE: dast-api-overrides.json
+ APISEC_PROFILE: Quick
+ APISEC_OPENAPI: test-api-specification.json
+ APISEC_TARGET_URL: http://test-deployment/
+ APISEC_OVERRIDES_FILE: dast-api-overrides.json
 ```
 
-To validate that authentication is working, run API security testing and review the job logs and
-the test APIs application logs.
+To validate that authentication is working, run API security testing and review the job logs and the test APIs application logs.
 
 #### Token has short expiration
 
-If the Bearer token must be generated and expires prior to the scan's completion, you can provide a
-program or script for the API security testing scanner to execute on a provided interval. The provided script runs in
-an Alpine Linux container that has Python 3 and Bash installed. If the Python script requires
-additional packages, it must detect this and install the packages at runtime.
+If the Bearer token must be generated and expires prior to the scan's completion, you can provide a program or script for the API security testing scanner to execute on a provided interval. The provided script runs in an Alpine Linux container that has Python 3 and Bash installed. If the Python script requires additional packages, it must detect this and install the packages at runtime.
 
 The script must create a JSON file containing the Bearer token in a specific format:
 
 ```json
 {
-  "headers" : {
+ "headers" : {
     "Authorization" : "Bearer dXNlcm5hbWU6cGFzc3dvcmQ="
-  }
+ }
 }
 ```
 
@@ -155,18 +136,18 @@ For example:
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_PROFILE: Quick
-  APISEC_OPENAPI: test-api-specification.json
-  APISEC_TARGET_URL: http://test-deployment/
-  APISEC_OVERRIDES_FILE: dast-api-overrides.json
-  APISEC_OVERRIDES_CMD: renew_token.py
-  APISEC_OVERRIDES_INTERVAL: 300
+ APISEC_PROFILE: Quick
+ APISEC_OPENAPI: test-api-specification.json
+ APISEC_TARGET_URL: http://test-deployment/
+ APISEC_OVERRIDES_FILE: dast-api-overrides.json
+ APISEC_OVERRIDES_CMD: renew_token.py
+ APISEC_OVERRIDES_INTERVAL: 300
 ```
 
 To validate that authentication is working, run API security testing and review the job logs and the test APIs application logs. See the [overrides section](#overrides) for more information about override commands.
@@ -182,37 +163,36 @@ API security testing provides a method to add or override specific items in your
 - JSON nodes
 - XML nodes
 
-You can use this to inject semantic version headers, authentication, and so on. The
-[authentication section](#authentication) includes examples of using overrides for that purpose.
+You can use this to inject semantic version headers, authentication, and so on. The [authentication section](#authentication) includes examples of using overrides for that purpose.
 
 Overrides use a JSON document, where each type of override is represented by a JSON object:
 
 ```json
 {
-  "headers": {
+ "headers": {
     "header1": "value",
     "header2": "value"
-  },
-  "cookies": {
+ },
+ "cookies": {
     "cookie1": "value",
     "cookie2": "value"
-  },
-  "query":      {
+ },
+ "query":      {
     "query-string1": "value",
     "query-string2": "value"
-  },
-  "body-form":  {
+ },
+ "body-form": {
     "form-param1": "value",
     "form-param2": "value"
-  },
-  "body-json":  {
+ },
+ "body-json": {
     "json-path1": "value",
     "json-path2": "value"
-  },
-  "body-xml" :  {
+ },
+ "body-xml" : {
     "xpath1":    "value",
     "xpath2":    "value"
-  }
+ }
 }
 ```
 
@@ -220,9 +200,9 @@ Example of setting a single header:
 
 ```json
 {
-  "headers": {
+ "headers": {
     "Authorization": "Bearer dXNlcm5hbWU6cGFzc3dvcmQ="
-  }
+ }
 }
 ```
 
@@ -230,12 +210,12 @@ Example of setting both a header and cookie:
 
 ```json
 {
-  "headers": {
+ "headers": {
     "Authorization": "Bearer dXNlcm5hbWU6cGFzc3dvcmQ="
-  },
-  "cookies": {
+ },
+ "cookies": {
     "flags": "677"
-  }
+ }
 }
 ```
 
@@ -243,9 +223,9 @@ Example usage for setting a `body-form` override:
 
 ```json
 {
-  "body-form":  {
+ "body-form": {
     "username": "john.doe"
-  }
+ }
 }
 ```
 
@@ -255,16 +235,14 @@ Example usage for setting a `body-json` override:
 
 ```json
 {
-  "body-json":  {
+ "body-json": {
     "$.credentials.access-token": "iddqd!42.$"
-  }
+ }
 }
 ```
 
 Each JSON property name in the object `body-json` is set to a [JSON Path](https://goessner.net/articles/JsonPath/)
-expression. The JSON Path expression `$.credentials.access-token` identifies the node to be
-overridden with the value `iddqd!42.$`. The override engine uses `body-json` when the request body
-has only [JSON](https://www.json.org/json-en.html) content.
+expression. The JSON Path expression `$.credentials.access-token` identifies the node to be overridden with the value `iddqd!42.$`. The override engine uses `body-json` when the request body has only [JSON](https://www.json.org/json-en.html) content.
 
 For example, if the body is set to the following JSON:
 
@@ -288,32 +266,27 @@ It is changed to:
 }
 ```
 
-Here's an example for setting a `body-xml` override. The first entry overrides an XML attribute and
-the second entry overrides an XML element:
+Here's an example for setting a `body-xml` override. The first entry overrides an XML attribute and the second entry overrides an XML element:
 
 ```json
 {
-  "body-xml" :  {
+ "body-xml" : {
     "/credentials/@isEnabled": "true",
     "/credentials/access-token/text()" : "iddqd!42.$"
-  }
+ }
 }
 ```
 
-Each JSON property name in the object `body-xml` is set to an
-[XPath v2](https://www.w3.org/TR/xpath20/)
-expression. The XPath expression `/credentials/@isEnabled` identifies the attribute node to override
-with the value `true`. The XPath expression `/credentials/access-token/text()` identifies the
-element node to override with the value `iddqd!42.$`. The override engine uses `body-xml` when the
-request body has only [XML](https://www.w3.org/XML/)
+Each JSON property name in the object `body-xml` is set to an [XPath v2](https://www.w3.org/TR/xpath20/)
+expression. The XPath expression `/credentials/@isEnabled` identifies the attribute node to override with the value `true`. The XPath expression `/credentials/access-token/text()` identifies the element node to override with the value `iddqd!42.$`. The override engine uses `body-xml` when the request body has only [XML](https://www.w3.org/XML/)
 content.
 
 For example, if the body is set to the following XML:
 
 ```xml
 <credentials isEnabled="false">
-  <username>john.doe</username>
-  <access-token>non-valid-password</access-token>
+ <username>john.doe</username>
+ <access-token>non-valid-password</access-token>
 </credentials>
 ```
 
@@ -321,13 +294,12 @@ It is changed to:
 
 ```xml
 <credentials isEnabled="true">
-  <username>john.doe</username>
-  <access-token>iddqd!42.$</access-token>
+ <username>john.doe</username>
+ <access-token>iddqd!42.$</access-token>
 </credentials>
 ```
 
-You can provide this JSON document as a file or environment variable. You may also provide a command
-to generate the JSON document. The command can run at intervals to support values that expire.
+You can provide this JSON document as a file or environment variable. You may also provide a command to generate the JSON document. The command can run at intervals to support values that expire.
 
 ### Using a file
 
@@ -337,16 +309,16 @@ Here's an example `.gitlab-ci.yml`:
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_PROFILE: Quick
-  APISEC_OPENAPI: test-api-specification.json
-  APISEC_TARGET_URL: http://test-deployment/
-  APISEC_OVERRIDES_FILE: dast-api-overrides.json
+ APISEC_PROFILE: Quick
+ APISEC_OPENAPI: test-api-specification.json
+ APISEC_TARGET_URL: http://test-deployment/
+ APISEC_OVERRIDES_FILE: dast-api-overrides.json
 ```
 
 ### Using a CI/CD variable
@@ -358,43 +330,39 @@ In this example `.gitlab-ci.yml`, the `APISEC_OVERRIDES_ENV` variable is set dir
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_PROFILE: Quick
-  APISEC_OPENAPI: test-api-specification.json
-  APISEC_TARGET_URL: http://test-deployment/
-  APISEC_OVERRIDES_ENV: '{"headers":{"X-API-Version":"2"}}'
+ APISEC_PROFILE: Quick
+ APISEC_OPENAPI: test-api-specification.json
+ APISEC_TARGET_URL: http://test-deployment/
+ APISEC_OVERRIDES_ENV: '{"headers":{"X-API-Version":"2"}}'
 ```
 
-In this example `.gitlab-ci.yml`, the `SECRET_OVERRIDES` variable provides the JSON. This is a
-[group or instance CI/CD variable defined in the UI](../../../../ci/variables/_index.md#define-a-cicd-variable-in-the-ui):
+In this example `.gitlab-ci.yml`, the `SECRET_OVERRIDES` variable provides the JSON. This is a [group or instance CI/CD variable defined in the UI](../../../../ci/variables/_index.md#define-a-cicd-variable-in-the-ui):
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_PROFILE: Quick
-  APISEC_OPENAPI: test-api-specification.json
-  APISEC_TARGET_URL: http://test-deployment/
-  APISEC_OVERRIDES_ENV: $SECRET_OVERRIDES
+ APISEC_PROFILE: Quick
+ APISEC_OPENAPI: test-api-specification.json
+ APISEC_TARGET_URL: http://test-deployment/
+ APISEC_OVERRIDES_ENV: $SECRET_OVERRIDES
 ```
 
 ### Using a command
 
-If the value must be generated or regenerated on expiration, you can provide a program or script for
-the API security testing scanner to execute on a specified interval. The provided command runs in an Alpine Linux
-container that has Python 3 and Bash installed.
+If the value must be generated or regenerated on expiration, you can provide a program or script for the API security testing scanner to execute on a specified interval. The provided command runs in an Alpine Linux container that has Python 3 and Bash installed.
 
-You have to set the environment variable `APISEC_OVERRIDES_CMD` to the program or script you would like
-to execute. The provided command creates the overrides JSON file as defined previously.
+You have to set the environment variable `APISEC_OVERRIDES_CMD` to the program or script you would like to execute. The provided command creates the overrides JSON file as defined previously.
 
 You might want to install other scripting runtimes like NodeJS or Ruby, or maybe you need to install a dependency for your overrides command. In this case, you should set the `APISEC_PRE_SCRIPT` to the file path of a script which provides those prerequisites. The script provided by `APISEC_PRE_SCRIPT` is executed once before the analyzer starts.
 
@@ -422,18 +390,18 @@ Optionally:
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_PROFILE: Quick
-  APISEC_OPENAPI: test-api-specification.json
-  APISEC_TARGET_URL: http://test-deployment/
-  APISEC_OVERRIDES_FILE: dast-api-overrides.json
-  APISEC_OVERRIDES_CMD: renew_token.py
-  APISEC_OVERRIDES_INTERVAL: 300
+ APISEC_PROFILE: Quick
+ APISEC_OPENAPI: test-api-specification.json
+ APISEC_TARGET_URL: http://test-deployment/
+ APISEC_OVERRIDES_FILE: dast-api-overrides.json
+ APISEC_OVERRIDES_CMD: renew_token.py
+ APISEC_OVERRIDES_INTERVAL: 300
 ```
 
 ### Debugging overrides
@@ -455,7 +423,7 @@ The example provides `renew_token.py` in the environment variable `APISEC_OVERRI
 # Example of an overrides command
 
 # Override commands can update the overrides json file
-# with new values to be used.  This is a great way to
+# with new values to be used. This is a great way to
 # update an authentication token that will expire
 # during testing.
 
@@ -513,7 +481,7 @@ except json.JSONDecodeError as json_decode_error:
     logging.error(f'Error, failed while decoding JSON response. Error message: {json_decode_error}')
     raise
 except requests.exceptions.RequestException as requests_error:
-    # logs  exceptions  related to `Requests`
+    # logs exceptions related to `Requests`
     logging.error(f'Error, failed while performing HTTP request. Error message: {requests_error}')
     raise
 except Exception as e:
@@ -574,24 +542,22 @@ You have to update your configuration to set the `APISEC_PRE_SCRIPT` to the new 
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_PROFILE: Quick
-  APISEC_OPENAPI: test-api-specification.json
-  APISEC_TARGET_URL: http://test-deployment/
-  APISEC_PRE_SCRIPT: ./user-pre-scan-set-up.sh
-  APISEC_OVERRIDES_FILE: dast-api-overrides.json
-  APISEC_OVERRIDES_CMD: renew_token.py
-  APISEC_OVERRIDES_INTERVAL: 300
+ APISEC_PROFILE: Quick
+ APISEC_OPENAPI: test-api-specification.json
+ APISEC_TARGET_URL: http://test-deployment/
+ APISEC_PRE_SCRIPT: ./user-pre-scan-set-up.sh
+ APISEC_OVERRIDES_FILE: dast-api-overrides.json
+ APISEC_OVERRIDES_CMD: renew_token.py
+ APISEC_OVERRIDES_INTERVAL: 300
 ```
 
-In the previous sample, you can use the script `user-pre-scan-set-up.sh` to install new
-runtimes or applications. Then use those runtimes or applications in the overrides
-command.
+In the previous sample, you can use the script `user-pre-scan-set-up.sh` to install new runtimes or applications. Then use those runtimes or applications in the overrides command.
 
 ## Request Headers
 
@@ -616,16 +582,16 @@ In the following example of a `.gitlab-ci.yml`, `APISEC_REQUEST_HEADERS` configu
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_PROFILE: Quick
-  APISEC_OPENAPI: test-api-specification.json
-  APISEC_TARGET_URL: http://test-deployment/
-  APISEC_REQUEST_HEADERS: 'Cache-control: no-cache, Save-Data: on'
+ APISEC_PROFILE: Quick
+ APISEC_OPENAPI: test-api-specification.json
+ APISEC_TARGET_URL: http://test-deployment/
+ APISEC_REQUEST_HEADERS: 'Cache-control: no-cache, Save-Data: on'
 ```
 
 ### Example: Using a masked CI/CD variable
@@ -634,16 +600,16 @@ The following `.gitlab-ci.yml` sample assumes the [masked variable](../../../../
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_PROFILE: Quick
-  APISEC_OPENAPI: test-api-specification.json
-  APISEC_TARGET_URL: http://test-deployment/
-  APISEC_REQUEST_HEADERS_BASE64: $SECRET_REQUEST_HEADERS_BASE64
+ APISEC_PROFILE: Quick
+ APISEC_OPENAPI: test-api-specification.json
+ APISEC_TARGET_URL: http://test-deployment/
+ APISEC_REQUEST_HEADERS_BASE64: $SECRET_REQUEST_HEADERS_BASE64
 ```
 
 Consider using `APISEC_REQUEST_HEADERS_BASE64` when storing secret header values in a [masked variable](../../../../ci/variables/_index.md#mask-a-cicd-variable), which has character set restrictions.
@@ -670,28 +636,24 @@ This example excludes the `/auth` resource. This does not exclude child resource
 
 ```yaml
 variables:
-  APISEC_EXCLUDE_PATHS: /auth
+ APISEC_EXCLUDE_PATHS: /auth
 ```
 
 To exclude `/auth`, and child resources (`/auth/child`), use a wildcard.
 
 ```yaml
 variables:
-  APISEC_EXCLUDE_PATHS: /auth*
+ APISEC_EXCLUDE_PATHS: /auth*
 ```
 
-To exclude multiple paths, use the `;` character. The following example
-excludes `/auth*` and `/v1/*`.
+To exclude multiple paths, use the `;` character. The following example excludes `/auth*` and `/v1/*`.
 
 ```yaml
 variables:
-  APISEC_EXCLUDE_PATHS: /auth*;/v1/*
+ APISEC_EXCLUDE_PATHS: /auth*;/v1/*
 ```
 
-To exclude one or more nested levels within a path, use `**`. The following example tests
-`/api/v1/` and `/api/v2/` API endpoints with a data query requesting `mass`,
-`brightness`, and `coordinates` data for `planet`, `moon`, `star`, and `satellite`
-objects. Example paths that could be scanned include:
+To exclude one or more nested levels within a path, use `**`. The following example tests `/api/v1/` and `/api/v2/` API endpoints with a data query requesting `mass`, `brightness`, and `coordinates` data for `planet`, `moon`, `star`, and `satellite` objects. Example paths that could be scanned include:
 
 - `/api/v2/planet/coordinates`
 - `/api/v1/star/mass`
@@ -701,7 +663,7 @@ This example tests the `brightness` endpoint only:
 
 ```yaml
 variables:
-  APISEC_EXCLUDE_PATHS: /api/**/mass;/api/**/coordinates
+ APISEC_EXCLUDE_PATHS: /api/**/mass;/api/**/coordinates
 ```
 
 ### Exclude parameters
@@ -726,30 +688,30 @@ Thus, the following JSON document is an example of the expected structure to exc
 
 ```json
 {
-  "headers": [
+ "headers": [
     "header1",
     "header2"
-  ],
-  "cookies": [
+ ],
+ "cookies": [
     "cookie1",
     "cookie2"
-  ],
-  "query": [
+ ],
+ "query": [
     "query-string1",
     "query-string2"
-  ],
-  "body-form": [
+ ],
+ "body-form": [
     "form-param1",
     "form-param2"
-  ],
-  "body-json": [
+ ],
+ "body-json": [
     "json-path-expression-1",
     "json-path-expression-2"
-  ],
-  "body-xml" : [
+ ],
+ "body-xml" : [
     "xpath-expression-1",
     "xpath-expression-2"
-  ]
+ ]
 }
 ```
 
@@ -761,7 +723,7 @@ To exclude the header `Upgrade-Insecure-Requests`, set the `header` property's v
 
 ```json
 {
-  "headers": [ "Upgrade-Insecure-Requests" ]
+ "headers": [ "Upgrade-Insecure-Requests" ]
 }
 ```
 
@@ -773,8 +735,8 @@ To exclude the header `Authorization`, and the cookies `PHPSESSID` and `csrftoke
 
 ```json
 {
-  "headers": [ "Authorization" ],
-  "cookies": [ "PHPSESSID", "csrftoken" ]
+ "headers": [ "Authorization" ],
+ "cookies": [ "PHPSESSID", "csrftoken" ]
 }
 ```
 
@@ -784,7 +746,7 @@ To exclude the `password` field in a request that uses `application/x-www-form-u
 
 ```json
 {
-  "body-form":  [ "password" ]
+ "body-form": [ "password" ]
 }
 ```
 
@@ -799,7 +761,7 @@ For instance, the JSON document looks like this:
 
 ```json
 {
-  "body-json": [ "$.schema" ]
+ "body-json": [ "$.schema" ]
 }
 ```
 
@@ -815,7 +777,7 @@ For instance, the JSON document looks like this:
 
 ```json
 {
-  "body-json": [ "$.users[*].password" ]
+ "body-json": [ "$.users[*].password" ]
 }
 ```
 
@@ -831,9 +793,9 @@ For instance, the JSON document looks like this:
 
 ```json
 {
-  "body-xml": [
+ "body-xml": [
     "/credentials/@isEnabled"
-  ]
+ ]
 }
 ```
 
@@ -849,9 +811,9 @@ For instance, the JSON document looks like this:
 
 ```json
 {
-  "body-xml": [
+ "body-xml": [
     "/credentials/username/text()"
-  ]
+ ]
 }
 ```
 
@@ -867,9 +829,9 @@ For instance, the JSON document looks like this:
 
 ```json
 {
-  "body-xml": [
+ "body-xml": [
     "/credentials/username"
-  ]
+ ]
 }
 ```
 
@@ -885,9 +847,9 @@ The namespace name should have been defined in the XML document which is part of
 
 ```json
 {
-  "body-xml": [
+ "body-xml": [
     "/credentials/s:login"
-  ]
+ ]
 }
 ```
 
@@ -899,16 +861,16 @@ To provide the exclusion JSON document set the variable `APISEC_EXCLUDE_PARAMETE
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_PROFILE: Quick
-  APISEC_OPENAPI: test-api-specification.json
-  APISEC_TARGET_URL: http://test-deployment/
-  APISEC_EXCLUDE_PARAMETER_ENV: '{ "headers": [ "Upgrade-Insecure-Requests" ] }'
+ APISEC_PROFILE: Quick
+ APISEC_OPENAPI: test-api-specification.json
+ APISEC_TARGET_URL: http://test-deployment/
+ APISEC_EXCLUDE_PARAMETER_ENV: '{ "headers": [ "Upgrade-Insecure-Requests" ] }'
 ```
 
 #### Using a file
@@ -917,16 +879,16 @@ To provide the exclusion JSON document set the variable `APISEC_EXCLUDE_PARAMETE
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_PROFILE: Quick
-  APISEC_OPENAPI: test-api-specification.json
-  APISEC_TARGET_URL: http://test-deployment/
-  APISEC_EXCLUDE_PARAMETER_FILE: dast-api-exclude-parameters.json
+ APISEC_PROFILE: Quick
+ APISEC_OPENAPI: test-api-specification.json
+ APISEC_TARGET_URL: http://test-deployment/
+ APISEC_EXCLUDE_PARAMETER_FILE: dast-api-exclude-parameters.json
 ```
 
 The `dast-api-exclude-parameters.json` is a JSON document that follows the structure of [exclude parameters document](#exclude-parameters-using-a-json-document).
@@ -958,15 +920,15 @@ The following example excludes the URL `http://target/api/auth` and its child re
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_TARGET_URL: http://target/
-  APISEC_OPENAPI: test-api-specification.json
-  APISEC_EXCLUDE_URLS: http://target/api/auth
+ APISEC_TARGET_URL: http://target/
+ APISEC_OPENAPI: test-api-specification.json
+ APISEC_EXCLUDE_URLS: http://target/api/auth
 ```
 
 ##### Excluding two URLs and allow their child resources
@@ -975,15 +937,15 @@ To exclude the URLs `http://target/api/buy` and `http://target/api/sell` but all
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_TARGET_URL: http://target/
-  APISEC_OPENAPI: test-api-specification.json
-  APISEC_EXCLUDE_URLS: http://target/api/buy/$,http://target/api/sell/$
+ APISEC_TARGET_URL: http://target/
+ APISEC_OPENAPI: test-api-specification.json
+ APISEC_EXCLUDE_URLS: http://target/api/buy/$,http://target/api/sell/$
 ```
 
 ##### Excluding two URLs and their child resources
@@ -992,34 +954,30 @@ To exclude the URLs: `http://target/api/buy` and `http://target/api/sell`, and t
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_TARGET_URL: http://target/
-  APISEC_OPENAPI: test-api-specification.json
-  APISEC_EXCLUDE_URLS: http://target/api/buy,http://target/api/sell
+ APISEC_TARGET_URL: http://target/
+ APISEC_OPENAPI: test-api-specification.json
+ APISEC_EXCLUDE_URLS: http://target/api/buy,http://target/api/sell
 ```
 
 ##### Excluding URL using regular expressions
 
-To exclude exactly `https://target/api/v1/user/create` and
-`https://target/api/v2/user/create` or any other version (`v3`, `v4`, and so on), use
-`https://target/api/v.*/user/create$`. In the regular expression, `.` indicates any
-character and `*` indicates zero or more times. The `$` indicates that the URL should
-end there.
+To exclude exactly `https://target/api/v1/user/create` and `https://target/api/v2/user/create` or any other version (`v3`, `v4`, and so on), use `https://target/api/v.*/user/create$`. In the regular expression, `.` indicates any character and `*` indicates zero or more times. The `$` indicates that the URL should end there.
 
 ```yaml
 stages:
-  - dast
+ - dast
 
 include:
-  - template: API-Security.gitlab-ci.yml
+ - template: API-Security.gitlab-ci.yml
 
 variables:
-  APISEC_TARGET_URL: http://target/
-  APISEC_OPENAPI: test-api-specification.json
-  APISEC_EXCLUDE_URLS: https://target/api/v.*/user/create$
+ APISEC_TARGET_URL: http://target/
+ APISEC_OPENAPI: test-api-specification.json
+ APISEC_EXCLUDE_URLS: https://target/api/v.*/user/create$
 ```

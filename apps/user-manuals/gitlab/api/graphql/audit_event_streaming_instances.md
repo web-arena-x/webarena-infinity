@@ -37,12 +37,11 @@ Prerequisites:
 
 - Administrator access on the instance.
 
-To enable streaming and add a destination, use the
-`instanceExternalAuditEventDestinationCreate` mutation in the GraphQL API.
+To enable streaming and add a destination, use the `instanceExternalAuditEventDestinationCreate` mutation in the GraphQL API.
 
 ```graphql
 mutation {
-  instanceExternalAuditEventDestinationCreate(input: { destinationUrl: "https://mydomain.io/endpoint/ingest"}) {
+ instanceExternalAuditEventDestinationCreate(input: { destinationUrl: "https://mydomain.io/endpoint/ingest"}) {
     errors
     instanceExternalAuditEventDestination {
       destinationUrl
@@ -50,7 +49,7 @@ mutation {
       name
       verificationToken
     }
-  }
+ }
 }
 ```
 
@@ -59,13 +58,11 @@ Event streaming is enabled if:
 - The returned `errors` object is empty.
 - The API responds with `200 OK`.
 
-You can optionally specify your own destination name (instead of the default GitLab-generated one) using the GraphQL
-`instanceExternalAuditEventDestinationCreate`
-mutation. Name length must not exceed 72 characters and trailing whitespace are not trimmed. This value should be unique. For example:
+You can optionally specify your own destination name (instead of the default GitLab-generated one) using the GraphQL `instanceExternalAuditEventDestinationCreate` mutation. Name length must not exceed 72 characters and trailing whitespace are not trimmed. This value should be unique. For example:
 
 ```graphql
 mutation {
-  instanceExternalAuditEventDestinationCreate(input: { destinationUrl: "https://mydomain.io/endpoint/ingest", name: "destination-name-here"}) {
+ instanceExternalAuditEventDestinationCreate(input: { destinationUrl: "https://mydomain.io/endpoint/ingest", name: "destination-name-here"}) {
     errors
     instanceExternalAuditEventDestination {
       destinationUrl
@@ -73,16 +70,15 @@ mutation {
       name
       verificationToken
     }
-  }
+ }
 }
 ```
 
-Instance administrators can add an HTTP header using the GraphQL `auditEventsStreamingInstanceHeadersCreate` mutation. You can retrieve the destination ID
-by [listing all the streaming destinations](#list-streaming-destinations) for the instance or from the previous mutation.
+Instance administrators can add an HTTP header using the GraphQL `auditEventsStreamingInstanceHeadersCreate` mutation. You can retrieve the destination ID by [listing all the streaming destinations](#list-streaming-destinations) for the instance or from the previous mutation.
 
 ```graphql
 mutation {
-  auditEventsStreamingInstanceHeadersCreate(input:
+ auditEventsStreamingInstanceHeadersCreate(input:
     {
       destinationId: "gid://gitlab/AuditEvents::InstanceExternalAuditEventDestination/42",
       key: "foo",
@@ -96,7 +92,7 @@ mutation {
       value
       active
     }
-  }
+ }
 }
 ```
 
@@ -110,12 +106,11 @@ Prerequisites:
 
 - Administrator access on the instance.
 
-To view a list of streaming destinations for an instance, use the
-`instanceExternalAuditEventDestinations` query type.
+To view a list of streaming destinations for an instance, use the `instanceExternalAuditEventDestinations` query type.
 
 ```graphql
 query {
-  instanceExternalAuditEventDestinations {
+ instanceExternalAuditEventDestinations {
     nodes {
       id
       name
@@ -131,7 +126,7 @@ query {
       }
       eventTypeFilters
     }
-  }
+ }
 }
 ```
 
@@ -147,13 +142,11 @@ Prerequisites:
 
 - Administrator access on the instance.
 
-To update streaming destinations for an instance, use the
-`instanceExternalAuditEventDestinationUpdate` mutation type. You can retrieve the destination ID
-by [listing all the external destinations](#list-streaming-destinations) for the instance.
+To update streaming destinations for an instance, use the `instanceExternalAuditEventDestinationUpdate` mutation type. You can retrieve the destination ID by [listing all the external destinations](#list-streaming-destinations) for the instance.
 
 ```graphql
 mutation {
-  instanceExternalAuditEventDestinationUpdate(input: {
+ instanceExternalAuditEventDestinationUpdate(input: {
     id: "gid://gitlab/AuditEvents::InstanceExternalAuditEventDestination/1",
     destinationUrl: "https://www.new-domain.com/webhook",
     name: "destination-name"}) {
@@ -164,7 +157,7 @@ mutation {
       name
       verificationToken
     }
-  }
+ }
 }
 ```
 
@@ -173,13 +166,11 @@ Streaming destination is updated if:
 - The returned `errors` object is empty.
 - The API responds with `200 OK`.
 
-Instance administrators can update streaming destinations custom HTTP headers using the
-`auditEventsStreamingInstanceHeadersUpdate` mutation type. You can retrieve the custom HTTP headers ID
-by [listing all the custom HTTP headers](#list-streaming-destinations) for the instance.
+Instance administrators can update streaming destinations custom HTTP headers using the `auditEventsStreamingInstanceHeadersUpdate` mutation type. You can retrieve the custom HTTP headers ID by [listing all the custom HTTP headers](#list-streaming-destinations) for the instance.
 
 ```graphql
 mutation {
-  auditEventsStreamingInstanceHeadersUpdate(input: { headerId: "gid://gitlab/AuditEvents::Streaming::InstanceHeader/2", key: "new-key", value: "new-value", active: false }) {
+ auditEventsStreamingInstanceHeadersUpdate(input: { headerId: "gid://gitlab/AuditEvents::Streaming::InstanceHeader/2", key: "new-key", value: "new-value", active: false }) {
     errors
     header {
       id
@@ -187,7 +178,7 @@ mutation {
       value
       active
     }
-  }
+ }
 }
 ```
 
@@ -203,15 +194,13 @@ Prerequisites:
 
 - Administrator access on the instance.
 
-To delete streaming destinations, use the
-`instanceExternalAuditEventDestinationDestroy` mutation type. You can retrieve the destinations ID
-by [listing all the streaming destinations](#list-streaming-destinations) for the instance.
+To delete streaming destinations, use the `instanceExternalAuditEventDestinationDestroy` mutation type. You can retrieve the destinations ID by [listing all the streaming destinations](#list-streaming-destinations) for the instance.
 
 ```graphql
 mutation {
-  instanceExternalAuditEventDestinationDestroy(input: { id: "gid://gitlab/AuditEvents::InstanceExternalAuditEventDestination/1" }) {
+ instanceExternalAuditEventDestinationDestroy(input: { id: "gid://gitlab/AuditEvents::InstanceExternalAuditEventDestination/1" }) {
     errors
-  }
+ }
 }
 ```
 
@@ -221,14 +210,13 @@ Streaming destination is deleted if:
 - The API responds with `200 OK`.
 
 To remove an HTTP header, use the GraphQL `auditEventsStreamingInstanceHeadersDestroy` mutation.
-To retrieve the header ID,
-[list all the custom HTTP headers](#list-streaming-destinations) for the instance.
+To retrieve the header ID, [list all the custom HTTP headers](#list-streaming-destinations) for the instance.
 
 ```graphql
 mutation {
-  auditEventsStreamingInstanceHeadersDestroy(input: { headerId: "gid://gitlab/AuditEvents::Streaming::InstanceHeader/<id>" }) {
+ auditEventsStreamingInstanceHeadersDestroy(input: { headerId: "gid://gitlab/AuditEvents::Streaming::InstanceHeader/<id>" }) {
     errors
-  }
+ }
 }
 ```
 
@@ -284,9 +272,9 @@ mutation {
     auditEventsStreamingDestinationInstanceEventsRemove(input: {
     destinationId: "gid://gitlab/AuditEvents::InstanceExternalAuditEventDestination/1",
     eventTypeFilters: ["list of event type filters"]
-  }){
+ }){
     errors
-  }
+ }
 }
 ```
 
@@ -316,12 +304,11 @@ Prerequisites:
 - You have administrator access to the instance.
 - You have a Google Cloud project with the necessary permissions to create service accounts and enable Google Cloud Logging.
 
-To enable streaming and add a configuration, use the
-`instanceGoogleCloudLoggingConfigurationCreate` mutation in the GraphQL API.
+To enable streaming and add a configuration, use the `instanceGoogleCloudLoggingConfigurationCreate` mutation in the GraphQL API.
 
 ```graphql
 mutation {
-  instanceGoogleCloudLoggingConfigurationCreate(input: { googleProjectIdName: "my-google-project", clientEmail: "my-email@my-google-project.iam.gservice.account.com", privateKey: "YOUR_PRIVATE_KEY", logIdName: "audit-events", name: "destination-name" } ) {
+ instanceGoogleCloudLoggingConfigurationCreate(input: { googleProjectIdName: "my-google-project", clientEmail: "my-email@my-google-project.iam.gservice.account.com", privateKey: "YOUR_PRIVATE_KEY", logIdName: "audit-events", name: "destination-name" } ) {
     errors
     googleCloudLoggingConfiguration {
       id
@@ -331,7 +318,7 @@ mutation {
       name
     }
     errors
-  }
+ }
 }
 ```
 
@@ -348,12 +335,11 @@ Prerequisites:
 
 - You have administrator access to the instance.
 
-You can view a list of streaming configurations for an instance using the `instanceGoogleCloudLoggingConfigurations` query
-type.
+You can view a list of streaming configurations for an instance using the `instanceGoogleCloudLoggingConfigurations` query type.
 
 ```graphql
 query {
-  instanceGoogleCloudLoggingConfigurations {
+ instanceGoogleCloudLoggingConfigurations {
     nodes {
       id
       logIdName
@@ -361,7 +347,7 @@ query {
       clientEmail
       name
     }
-  }
+ }
 }
 ```
 
@@ -377,15 +363,13 @@ Prerequisites:
 
 - You have administrator access to the instance.
 
-To update streaming configuration for an instance, use the
-`instanceGoogleCloudLoggingConfigurationUpdate` mutation type. You can retrieve the configuration ID
-by [listing all the external destinations](#list-google-cloud-logging-configurations).
+To update streaming configuration for an instance, use the `instanceGoogleCloudLoggingConfigurationUpdate` mutation type. You can retrieve the configuration ID by [listing all the external destinations](#list-google-cloud-logging-configurations).
 
 ```graphql
 mutation {
-  instanceGoogleCloudLoggingConfigurationUpdate(
+ instanceGoogleCloudLoggingConfigurationUpdate(
     input: {id: "gid://gitlab/AuditEvents::Instance::GoogleCloudLoggingConfiguration/1", googleProjectIdName: "updated-google-id", clientEmail: "updated@my-google-project.iam.gservice.account.com", privateKey: "YOUR_PRIVATE_KEY", logIdName: "audit-events", name: "updated name"}
-  ) {
+ ) {
     errors
     instanceGoogleCloudLoggingConfiguration {
       id
@@ -394,7 +378,7 @@ mutation {
       clientEmail
       name
     }
-  }
+ }
 }
 ```
 
@@ -413,15 +397,13 @@ Prerequisites:
 
 - You have administrator access to the instance.
 
-To delete streaming configurations, use the
-`instanceGoogleCloudLoggingConfigurationDestroy` mutation type. You can retrieve the configurations ID
-by [listing all the streaming destinations](#list-google-cloud-logging-configurations) for the instance.
+To delete streaming configurations, use the `instanceGoogleCloudLoggingConfigurationDestroy` mutation type. You can retrieve the configurations ID by [listing all the streaming destinations](#list-google-cloud-logging-configurations) for the instance.
 
 ```graphql
 mutation {
-  instanceGoogleCloudLoggingConfigurationDestroy(input: { id: "gid://gitlab/AuditEvents::Instance::GoogleCloudLoggingConfiguration/1" }) {
+ instanceGoogleCloudLoggingConfigurationDestroy(input: { id: "gid://gitlab/AuditEvents::Instance::GoogleCloudLoggingConfiguration/1" }) {
     errors
-  }
+ }
 }
 ```
 

@@ -11,7 +11,7 @@ To link related drawing sheets to each other.
 ## Things to Consider​
 
 - **Required User Permissions:**
-  - 'Read Only' or higher permissions on the project's Drawings tool.
+ - 'Read Only' or higher permissions on the project's Drawings tool.
 
 ## Steps
 

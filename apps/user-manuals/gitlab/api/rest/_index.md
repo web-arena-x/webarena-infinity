@@ -20,48 +20,39 @@ Automate your workflows and build integrations with the GitLab REST API:
 - Manage CI/CD processes across multiple projects with precision.
 - Control user access programmatically to maintain consistent permissions across your organization.
 
-The REST API uses standard HTTP methods and JSON data formats
-for compatibility with your existing tools and systems.
+The REST API uses standard HTTP methods and JSON data formats for compatibility with your existing tools and systems.
 
 ## Make a REST API request
 
 To make a REST API request:
 
 - Submit a request to an API endpoint by using a REST API client.
-- The GitLab instance responds to the request. It returns a status code and if applicable, the
-  requested data. The status code indicates the outcome of the request and is useful when
-  [troubleshooting](troubleshooting.md).
+- The GitLab instance responds to the request. It returns a status code and if applicable, the requested data. The status code indicates the outcome of the request and is useful when [troubleshooting](troubleshooting.md).
 
 A REST API request must start with the root endpoint and the path.
 
 - The root endpoint is the GitLab host name.
 - The path must start with `/api/v4` (`v4` represents the API version).
 
-In the following example, the API request retrieves the list of all projects on GitLab host
-`gitlab.example.com`:
+In the following example, the API request retrieves the list of all projects on GitLab host `gitlab.example.com`:
 
 ```shell
 curl --request GET \
-  --url "https://gitlab.example.com/api/v4/projects"
+ --url "https://gitlab.example.com/api/v4/projects"
 ```
 
-Access to some endpoints require authentication. For more information, see
-[Authentication](authentication.md).
+Access to some endpoints require authentication. For more information, see [Authentication](authentication.md).
 
 ## Rate limits
 
-REST API requests are subject to rate limit settings. These settings reduce the risk of a GitLab
-instance being overloaded.
+REST API requests are subject to rate limit settings. These settings reduce the risk of a GitLab instance being overloaded.
 
 - For details, see [Rate limits](../../security/rate_limits.md).
-- For details of the rate limit settings used by GitLab.com, see
-  [GitLab.com-specific rate limits](../../user/gitlab_com/_index.md#rate-limits-on-gitlabcom).
+- For details of the rate limit settings used by GitLab.com, see [GitLab.com-specific rate limits](../../user/gitlab_com/_index.md#rate-limits-on-gitlabcom).
 
 ## Response format
 
-REST API responses are returned in JSON format. Some API endpoints also support
-plain text format. To confirm which content type an endpoint supports, see the
-[REST API resources](../api_resources.md).
+REST API responses are returned in JSON format. Some API endpoints also support plain text format. To confirm which content type an endpoint supports, see the [REST API resources](../api_resources.md).
 
 ## Request requirements
 
@@ -71,32 +62,28 @@ Some REST API requests have specific requirements, including the data format and
 
 API requests can use parameters sent as [query strings](https://en.wikipedia.org/wiki/Query_string)
 or as a [payload body](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-p3-payload-14#section-3.2).
-GET requests usually send a query string, while PUT or POST requests usually
-send the payload body:
+GET requests usually send a query string, while PUT or POST requests usually send the payload body:
 
 - Query string:
 
-  ```shell
-  curl --request POST \
+ ```shell
+ curl --request POST \
     --url "https://gitlab.example.com/api/v4/projects?name=<example-name>&description=<example-description>"
-  ```
+ ```
 
 - Request payload (JSON):
 
-  ```shell
-  curl --request POST \
+ ```shell
+ curl --request POST \
     --header "Content-Type: application/json" \
     --data '{"name":"<example-name>", "description":"<example-description>"}' "https://gitlab.example.com/api/v4/projects"
-  ```
+ ```
 
-URL-encoded query strings have a length limitation. Requests that are too large
-result in a `414 Request-URI Too Large` error message. This can be resolved by
-using a payload body instead.
+URL-encoded query strings have a length limitation. Requests that are too large result in a `414 Request-URI Too Large` error message. This can be resolved by using a payload body instead.
 
 ### Path parameters
 
-If an endpoint has path parameters, the documentation displays them with a
-preceding colon.
+If an endpoint has path parameters, the documentation displays them with a preceding colon.
 
 For example:
 
@@ -104,54 +91,42 @@ For example:
 DELETE /projects/:id/share/:group_id
 ```
 
-The `:id` path parameter needs to be replaced with the project ID, and the
-`:group_id` needs to be replaced with the ID of the group. The colons `:`
-shouldn't be included.
+The `:id` path parameter needs to be replaced with the project ID, and the `:group_id` needs to be replaced with the ID of the group. The colons `:` shouldn't be included.
 
 The resulting cURL request for a project with ID `5` and a group ID of `17` is then:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/5/share/17"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/5/share/17"
 ```
 
-Path parameters that are required to be URL-encoded must be followed. If not,
-it doesn't match an API endpoint and responds with a 404. If there's
-something in front of the API (for example, Apache), ensure that it doesn't decode
-the URL-encoded path parameters.
+Path parameters that are required to be URL-encoded must be followed. If not, it doesn't match an API endpoint and responds with a 404. If there's something in front of the API (for example, Apache), ensure that it doesn't decode the URL-encoded path parameters.
 
 ### `id` vs `iid`
 
-Some API resources have two similarly-named fields. For example, [issues](../issues.md),
-[merge requests](../merge_requests.md), and [project milestones](../milestones.md).
+Some API resources have two similarly-named fields. For example, [issues](../issues.md), [merge requests](../merge_requests.md), and [project milestones](../milestones.md).
 The fields are:
 
 - `id`: ID that is unique across all projects.
-- `iid`: Additional, internal ID (displayed in the web UI) that's unique in the
-  scope of a single project.
+- `iid`: Additional, internal ID (displayed in the web UI) that's unique in the scope of a single project.
 
-If a resource has both the `iid` field and the `id` field, the `iid` field is
-usually used instead of `id` to fetch the resource.
+If a resource has both the `iid` field and the `id` field, the `iid` field is usually used instead of `id` to fetch the resource.
 
-For example, suppose a project with `id: 42` has an issue with `id: 46` and
-`iid: 5`. In this case:
+For example, suppose a project with `id: 42` has an issue with `id: 46` and `iid: 5`. In this case:
 
 - A valid API request to retrieve the issue is `GET /projects/42/issues/5`.
 - An invalid API request to retrieve the issue is `GET /projects/42/issues/46`.
 
-Not all resources with the `iid` field are fetched by `iid`. For guidance
-regarding which field to use, see the documentation for the specific resource.
+Not all resources with the `iid` field are fetched by `iid`. For guidance regarding which field to use, see the documentation for the specific resource.
 
 ### Encoding
 
-When making a REST API request, some content must be encoded to account for special characters and
-data structures.
+When making a REST API request, some content must be encoded to account for special characters and data structures.
 
 #### Namespaced paths
 
-If using namespaced API requests, make sure that the `NAMESPACE/PROJECT_PATH` is
-URL-encoded.
+If using namespaced API requests, make sure that the `NAMESPACE/PROJECT_PATH` is URL-encoded.
 
 For example, `/` is represented by `%2F`:
 
@@ -159,9 +134,7 @@ For example, `/` is represented by `%2F`:
 GET /api/v4/projects/diaspora%2Fdiaspora
 ```
 
-A project's path isn't necessarily the same as its name. A project's path is
-found in the project's URL or in the project's settings, under
-**General** > **Advanced** > **Change path**.
+A project's path isn't necessarily the same as its name. A project's path is found in the project's URL or in the project's settings, under **General** > **Advanced** > **Change path**.
 
 #### File path, branches, and tags name
 
@@ -185,10 +158,10 @@ You can request the API with `array` and `hash` types parameters:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  -d "import_sources[]=github" \
-  -d "import_sources[]=bitbucket" \
-  --url "https://gitlab.example.com/api/v4/some_endpoint"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ -d "import_sources[]=github" \
+ -d "import_sources[]=bitbucket" \
+ --url "https://gitlab.example.com/api/v4/some_endpoint"
 ```
 
 ##### `hash`
@@ -197,38 +170,35 @@ curl --request POST \
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --form "namespace=email" \
-  --form "path=impapi" \
-  --form "file=@/path/to/somefile.txt" \
-  --form "override_params[visibility]=private" \
-  --form "override_params[some_other_param]=some_value" \
-  --url "https://gitlab.example.com/api/v4/projects/import"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --form "namespace=email" \
+ --form "path=impapi" \
+ --form "file=@/path/to/somefile.txt" \
+ --form "override_params[visibility]=private" \
+ --form "override_params[some_other_param]=some_value" \
+ --url "https://gitlab.example.com/api/v4/projects/import"
 ```
 
 ##### Array of hashes
 
-`variables` is a parameter of type `array` containing hash key/value pairs
-`[{ 'key': 'UPLOAD_TO_S3', 'value': 'true' }]`:
+`variables` is a parameter of type `array` containing hash key/value pairs `[{ 'key': 'UPLOAD_TO_S3', 'value': 'true' }]`:
 
 ```shell
 curl --globoff --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/169/pipeline?ref=master&variables[0][key]=VAR1&variables[0][value]=hello&variables[1][key]=VAR2&variables[1][value]=world"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/169/pipeline?ref=master&variables[0][key]=VAR1&variables[0][value]=hello&variables[1][key]=VAR2&variables[1][value]=world"
 
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --data '{ "ref": "master", "variables": [ {"key": "VAR1", "value": "hello"}, {"key": "VAR2", "value": "world"} ] }' \
-  --url "https://gitlab.example.com/api/v4/projects/169/pipeline"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --data '{ "ref": "master", "variables": [ {"key": "VAR1", "value": "hello"}, {"key": "VAR2", "value": "world"} ] }' \
+ --url "https://gitlab.example.com/api/v4/projects/169/pipeline"
 ```
 
 #### Encoding `+` in ISO 8601 dates
 
-If you need to include a `+` in a query parameter, you may need to use `%2B`
-instead, due to a [W3 recommendation](https://www.w3.org/Addressing/URL/4_URI_Recommentations.html)
-that causes a `+` to be interpreted as a space. For example, in an ISO 8601 date,
-you may want to include a specific time in ISO 8601 format, such as:
+If you need to include a `+` in a query parameter, you may need to use `%2B` instead, due to a [W3 recommendation](https://www.w3.org/Addressing/URL/4_URI_Recommentations.html)
+that causes a `+` to be interpreted as a space. For example, in an ISO 8601 date, you may want to include a specific time in ISO 8601 format, such as:
 
 ```plaintext
 2017-10-17T23:11:13.000+05:30
@@ -242,9 +212,7 @@ The correct encoding for the query parameter would be:
 
 ## Evaluating a response
 
-In some circumstances the API response may not be as you expect. Issues can include null values and
-redirection. If you receive a numeric status code in the response, see
-[Status codes](troubleshooting.md#status-codes).
+In some circumstances the API response may not be as you expect. Issues can include null values and redirection. If you receive a numeric status code in the response, see [Status codes](troubleshooting.md#status-codes).
 
 ### `null` vs `false`
 
@@ -263,16 +231,14 @@ In boolean arguments, you should only set `true` or `false` values (not `null`).
 
 {{< /history >}}
 
-After [path changes](../../user/project/repository/_index.md#repository-path-changes) the
-REST API might respond with a message noting that the endpoint has moved. When this happens, use
-the endpoint specified in the `Location` header.
+After [path changes](../../user/project/repository/_index.md#repository-path-changes) the REST API might respond with a message noting that the endpoint has moved. When this happens, use the endpoint specified in the `Location` header.
 
 Example of a project moved to a different path:
 
 ```shell
 curl --request GET \
-  --verbose \
-  --url "https://gitlab.example.com/api/v4/projects/gitlab-org%2Fold-path-project"
+ --verbose \
+ --url "https://gitlab.example.com/api/v4/projects/gitlab-org%2Fold-path-project"
 ```
 
 The response is:
@@ -288,13 +254,10 @@ This resource has been moved permanently to https://gitlab.example.com/api/v4/pr
 
 GitLab supports the following pagination methods:
 
-- Offset-based pagination. The default method and available on all endpoints except,
-  in GitLab 16.5 and later, the `users` endpoint.
-- Keyset-based pagination. Added to selected endpoints but being
-  [progressively rolled out](https://gitlab.com/groups/gitlab-org/-/epics/2039).
+- Offset-based pagination. The default method and available on all endpoints except, in GitLab 16.5 and later, the `users` endpoint.
+- Keyset-based pagination. Added to selected endpoints but being [progressively rolled out](https://gitlab.com/groups/gitlab-org/-/epics/2039).
 
-For large collections, you should use keyset pagination
-(when available) instead of offset pagination, for performance reasons.
+For large collections, you should use keyset pagination (when available) instead of offset pagination, for performance reasons.
 
 ### Offset-based pagination
 
@@ -305,10 +268,9 @@ For large collections, you should use keyset pagination
 
 {{< /history >}}
 
-Sometimes, the returned result spans many pages. When listing resources, you can
-pass the following parameters:
+Sometimes, the returned result spans many pages. When listing resources, you can pass the following parameters:
 
-| Parameter  | Description                                                   |
+| Parameter | Description                                                   |
 |:-----------|:--------------------------------------------------------------|
 | `page`     | Page number (default: `1`).                                   |
 | `per_page` | Number of items to list per page (default: `20`, max: `100`). |
@@ -317,8 +279,8 @@ The following example lists 50 [namespaces](../namespaces.md) per page:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/namespaces?per_page=50"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/namespaces?per_page=50"
 ```
 
 > [!note]
@@ -326,21 +288,18 @@ curl --request GET \
 
 #### Pagination `Link` header
 
-[`Link` headers](https://www.w3.org/wiki/LinkHeader) are returned with each
-response. They have `rel` set to `prev`, `next`, `first`, or `last` and contain
-the relevant URL. Be sure to use these links instead of generating your own URLs.
+[`Link` headers](https://www.w3.org/wiki/LinkHeader) are returned with each response. They have `rel` set to `prev`, `next`, `first`, or `last` and contain the relevant URL. Be sure to use these links instead of generating your own URLs.
 
 For GitLab.com users, [some pagination headers may not be returned](../../user/gitlab_com/_index.md#pagination-response-headers).
 
-The following cURL example limits the output to three items per page
-(`per_page=3`), and requests the second page (`page=2`) of [comments](../notes.md)
+The following cURL example limits the output to three items per page (`per_page=3`), and requests the second page (`page=2`) of [comments](../notes.md)
 of the issue with ID `8` which belongs to the project with ID `9`:
 
 ```shell
 curl --request GET \
-  --head \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/9/issues/8/notes?per_page=3&page=2"
+ --head \
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/9/issues/8/notes?per_page=3&page=2"
 ```
 
 The response is:
@@ -381,9 +340,7 @@ For GitLab.com users, [some pagination headers may not be returned](../../user/g
 
 ### Keyset-based pagination
 
-Keyset-pagination allows for more efficient retrieval of pages and - in contrast
-to offset-based pagination - runtime is independent of the size of the
-collection.
+Keyset-pagination allows for more efficient retrieval of pages and - in contrast to offset-based pagination - runtime is independent of the size of the collection.
 
 This method is controlled by the following parameters. `order_by` and `sort` are both mandatory.
 
@@ -394,13 +351,12 @@ This method is controlled by the following parameters. `order_by` and `sort` are
 | `order_by`   | yes      | Column by which to order by. |
 | `sort`       | yes      | Sort order (`asc` or `desc`) |
 
-The following example lists 50 [projects](../projects.md) per page, ordered
-by `id` ascending.
+The following example lists 50 [projects](../projects.md) per page, ordered by `id` ascending.
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects?pagination=keyset&per_page=50&order_by=id&sort=asc"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects?pagination=keyset&per_page=50&order_by=id&sort=asc"
 ```
 
 The response header includes a link to the next page. For example:
@@ -413,16 +369,14 @@ Status: 200 OK
 ...
 ```
 
-The link to the next page contains an additional filter `id_after=42` that
-excludes already-retrieved records.
+The link to the next page contains an additional filter `id_after=42` that excludes already-retrieved records.
 
-As another example, the following request lists 50 [groups](../groups.md) per page ordered
-by `name` ascending using keyset pagination:
+As another example, the following request lists 50 [groups](../groups.md) per page ordered by `name` ascending using keyset pagination:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups?pagination=keyset&per_page=50&order_by=name&sort=asc"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups?pagination=keyset&per_page=50&order_by=name&sort=asc"
 ```
 
 The response header includes a link to the next page:
@@ -435,36 +389,25 @@ Status: 200 OK
 ...
 ```
 
-The link to the next page contains an additional filter `cursor=eyJuYW1lIjoiRmxpZ2h0anMiLCJpZCI6IjI2IiwiX2tkIjoibiJ9` that
-excludes already-retrieved records.
+The link to the next page contains an additional filter `cursor=eyJuYW1lIjoiRmxpZ2h0anMiLCJpZCI6IjI2IiwiX2tkIjoibiJ9` that excludes already-retrieved records.
 
-The `X-NEXT-CURSOR` header contains the cursor value for retrieving the next page's records,
-while the `X-PREV-CURSOR` header contains the cursor value for retrieving the previous page's,
-when available.
+The `X-NEXT-CURSOR` header contains the cursor value for retrieving the next page's records, while the `X-PREV-CURSOR` header contains the cursor value for retrieving the previous page's, when available.
 
-The type of filter depends on the
-`order_by` option used, and you can have more than one additional filter.
+The type of filter depends on the `order_by` option used, and you can have more than one additional filter.
 
 {{< alert type="warning" >}}
 
-The `Links` header was removed to be aligned with the
-[W3C `Link` specification](https://www.w3.org/wiki/LinkHeader). The `Link`
-header should be used instead.
+The `Links` header was removed to be aligned with the [W3C `Link` specification](https://www.w3.org/wiki/LinkHeader). The `Link` header should be used instead.
 
 {{< /alert >}}
 
-When the end of the collection is reached and there are no additional
-records to retrieve, the `Link` header is absent and the resulting array is
-empty.
+When the end of the collection is reached and there are no additional records to retrieve, the `Link` header is absent and the resulting array is empty.
 
-You should use only the given link to retrieve the next page instead of
-building your own URL. Apart from the headers shown, no additional pagination headers
-are exposed.
+You should use only the given link to retrieve the next page instead of building your own URL. Apart from the headers shown, no additional pagination headers are exposed.
 
 #### Supported resources
 
-Keyset-based pagination is supported only for selected resources and ordering
-options:
+Keyset-based pagination is supported only for selected resources and ordering options:
 
 | Resource                                                                       | Options                                                                                                                                                                               | Availability |
 | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
@@ -475,15 +418,14 @@ options:
 | [Project jobs](../jobs.md#list-project-jobs)                                   | `order_by=id`, `sort=desc` only                                                                                                                                                       | Authenticated users only. |
 | [Project audit events](../audit_events.md#retrieve-all-project-audit-events)   | `order_by=id`, `sort=desc` only                                                                                                                                                       | Authenticated users only. |
 | [Projects](../projects.md)                                                     | `order_by=id` only                                                                                                                                                                    | Authenticated and unauthenticated users. |
-| [Users](../users.md)                                                           | `order_by=id`, `order_by=name`, `order_by=username`, `order_by=created_at`, or `order_by=updated_at`.                                                                                 | Authenticated and unauthenticated users.  [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/419556) in GitLab 16.5. |
+| [Users](../users.md)                                                           | `order_by=id`, `order_by=name`, `order_by=username`, `order_by=created_at`, or `order_by=updated_at`.                                                                                 | Authenticated and unauthenticated users. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/419556) in GitLab 16.5. |
 | [Registry Repository Tags](../container_registry.md)                           | `order_by=name`, `sort=asc`, or `sort=desc` only.                                                                                                                                     | Authenticated users only. |
 | [List repository tree](../repositories.md#list-repository-tree)                | N/A                                                                                                                                                                                   | Authenticated and unauthenticated users. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/154897) in GitLab 17.1. |
 | [Project issues](../issues.md#list-project-issues)                             | `order_by=created_at`, `order_by=updated_at`, `order_by=title`, `order_by=id`, `order_by=weight`, `order_by=due_date`, `order_by=relative_position`, `sort=asc`, or `sort=desc` only. | Authenticated and unauthenticated users. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/199887/) in GitLab 18.3. |
 
 ### Pagination response headers
 
-For performance reasons, if a query returns more than 10,000 records, GitLab
-doesn't return the following headers:
+For performance reasons, if a query returns more than 10,000 records, GitLab doesn't return the following headers:
 
 - `x-total`.
 - `x-total-pages`.
@@ -491,20 +433,16 @@ doesn't return the following headers:
 
 ## Versioning and deprecations
 
-The REST API version complies with the semantic versioning specification. The major version number
-is `4`. Backward-incompatible changes require this version number to change.
+The REST API version complies with the semantic versioning specification. The major version number is `4`. Backward-incompatible changes require this version number to change.
 
 - The minor version isn't explicit, which allows for a stable API endpoint.
 - New features are added to the API in the same version number.
-- Major API version changes, and removal of entire API versions,
-  are done in tandem with major GitLab releases.
+- Major API version changes, and removal of entire API versions, are done in tandem with major GitLab releases.
 - All deprecations and changes between versions are noted in the documentation.
 
-The following are excluded from the deprecation process and can be removed at any time without
-notice:
+The following are excluded from the deprecation process and can be removed at any time without notice:
 
-- Elements labeled in the [REST API resources](../api_resources.md) as
-  [experimental or beta](../../policy/development_stages_support.md).
+- Elements labeled in the [REST API resources](../api_resources.md) as [experimental or beta](../../policy/development_stages_support.md).
 - Fields behind a feature flag and disabled by default.
 
 For GitLab Self-Managed, [reverting](../../update/convert_to_ee/revert.md) from an EE instance to CE causes breaking changes.

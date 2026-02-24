@@ -23,9 +23,9 @@ This guide offers resources on requesting, hosting, and managing events in Hands
 **Promote an event**
 
 - Create a campaign to invite students to RSVP to your employer-hosted events.
-  - *Read more about* [*Campaigns: Create an Event, Fair or Branding Campaign*](https://support.joinhandshake.com/hc/en-us/articles/360034459273).
+ - *Read more about* [*Campaigns: Create an Event, Fair or Branding Campaign*](https://support.joinhandshake.com/hc/en-us/articles/360034459273).
 - Promote your events to students, including those without a Handshake account, and manage the event directly on Handshake.
-  - *Learn more about* [*Sharing an Event with Students*](https://support.joinhandshake.com/hc/en-us/articles/23158464655255).
+ - *Learn more about* [*Sharing an Event with Students*](https://support.joinhandshake.com/hc/en-us/articles/23158464655255).
 
 **Host an event**
 

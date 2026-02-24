@@ -19,14 +19,14 @@ Creating a change event allows you to prepare for the cost of a change before it
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Standard' level permissions or higher on the project's Change Events tool.  
+ - 'Standard' level permissions or higher on the project's Change Events tool. 
     AND
-  - 'Standard' level permissions or higher on the project's RFIs tool.
+ - 'Standard' level permissions or higher on the project's RFIs tool.
 - ****Additional Information:****
-  - The ****+Create Change Event**** button is only visible and available when viewing an RFI. It is NOT available when an RFI is in edit mode.
+ - The ****+Create Change Event**** button is only visible and available when viewing an RFI. It is NOT available when an RFI is in edit mode.
 - **Alternate ways to create change events**:
 
-  - To learn how to use other Procore platforms and tools to create a change event, see [Which Procore tools can I use to create a change event?](https://support.procore.com/faq/which-procore-tools-can-i-use-to-create-a-change-event "Which Procore tools can I use to create a change event?")
+ - To learn how to use other Procore platforms and tools to create a change event, see [Which Procore tools can I use to create a change event?](https://support.procore.com/faq/which-procore-tools-can-i-use-to-create-a-change-event "Which Procore tools can I use to create a change event?")
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ Creating a change event allows you to prepare for the cost of a change before it
 1. Navigate to your project's **RFIs** tool.
 2. Click the **Items** tab.
 3. Locate the RFI that you want to create a change event for. Then, click **View**.
-4. Click  **+ Create Change Event**.  
+4. Click  **+ Create Change Event**. 
    ![create-change-event-from-rfi.png](https://support.procore.com/@api/deki/files/73643/create-change-event-from-rfi.png?revision=2)
 5. Continue with the steps in [Create a Change Event](https://support.procore.com/products/online/user-guide/project-level/change-events/tutorials/create-a-change-event "Create a Change Event").
 

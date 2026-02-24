@@ -39,10 +39,10 @@ Creates a new issue in a GitLab project.
 |----------------|-------------------|----------|-------------|
 | `id`           | string            | Yes      | ID or URL-encoded path of the project. |
 | `title`        | string            | Yes      | Title of the issue. |
-| `description`  | string            | No       | Description of the issue. |
+| `description` | string            | No       | Description of the issue. |
 | `assignee_ids` | array of integers | No       | Array of IDs of assigned users. |
 | `milestone_id` | integer           | No       | ID of the milestone. |
-| `labels`       | array of strings  | No       | Array of label names. |
+| `labels`       | array of strings | No       | Array of label names. |
 | `confidential` | boolean           | No       | Sets the issue to confidential. Default is `false`. |
 | `epic_id`      | integer           | No       | ID of the linked epic. |
 
@@ -59,7 +59,7 @@ Retrieves detailed information about a specific GitLab issue.
 
 | Parameter   | Type    | Required | Description |
 |-------------|---------|----------|-------------|
-| `id`        | string  | Yes      | ID or URL-encoded path of the project. |
+| `id`        | string | Yes      | ID or URL-encoded path of the project. |
 | `issue_iid` | integer | Yes      | Internal ID of the issue. |
 
 Example:
@@ -89,7 +89,7 @@ Creates a merge request in a GitLab project.
 | `assignee_ids`      | array of integers | No       | Array of IDs of merge request assignees. Set to `0` or an empty value to unassign all assignees. |
 | `reviewer_ids`      | array of integers | No       | Array of IDs of merge request reviewers. Set to `0` or an empty value to unassign all reviewers. |
 | `description`       | string            | No       | Description of the merge request. |
-| `labels`            | array of strings  | No       | Array of label names. Set to an empty string to unassign all labels. |
+| `labels`            | array of strings | No       | Array of label names. Set to an empty string to unassign all labels. |
 | `milestone_id`      | integer           | No       | ID of the milestone. |
 
 Example:
@@ -105,7 +105,7 @@ Retrieves detailed information about a specific GitLab merge request.
 
 | Parameter           | Type    | Required | Description |
 |---------------------|---------|----------|-------------|
-| `id`                | string  | Yes      | ID or URL-encoded path of the project. |
+| `id`                | string | Yes      | ID or URL-encoded path of the project. |
 | `merge_request_iid` | integer | Yes      | Internal ID of the merge request. |
 
 Example:
@@ -120,7 +120,7 @@ Retrieves the list of commits in a specific GitLab merge request.
 
 | Parameter           | Type    | Required | Description |
 |---------------------|---------|----------|-------------|
-| `id`                | string  | Yes      | ID or URL-encoded path of the project. |
+| `id`                | string | Yes      | ID or URL-encoded path of the project. |
 | `merge_request_iid` | integer | Yes      | Internal ID of the merge request. |
 | `per_page`          | integer | No       | Number of commits per page. |
 | `page`              | integer | No       | Current page number. |
@@ -137,7 +137,7 @@ Retrieves the diffs for a specific GitLab merge request.
 
 | Parameter           | Type    | Required | Description |
 |---------------------|---------|----------|-------------|
-| `id`                | string  | Yes      | ID or URL-encoded path of the project. |
+| `id`                | string | Yes      | ID or URL-encoded path of the project. |
 | `merge_request_iid` | integer | Yes      | Internal ID of the merge request. |
 | `per_page`          | integer | No       | Number of diffs per page. |
 | `page`              | integer | No       | Current page number. |
@@ -154,7 +154,7 @@ Retrieves the pipelines for a specific GitLab merge request.
 
 | Parameter           | Type    | Required | Description |
 |---------------------|---------|----------|-------------|
-| `id`                | string  | Yes      | ID or URL-encoded path of the project. |
+| `id`                | string | Yes      | ID or URL-encoded path of the project. |
 | `merge_request_iid` | integer | Yes      | Internal ID of the merge request. |
 
 Example:
@@ -169,7 +169,7 @@ Retrieves the jobs for a specific GitLab CI/CD pipeline.
 
 | Parameter     | Type    | Required | Description |
 |---------------|---------|----------|-------------|
-| `id`          | string  | Yes      | ID or URL-encoded path of the project. |
+| `id`          | string | Yes      | ID or URL-encoded path of the project. |
 | `pipeline_id` | integer | Yes      | ID of the pipeline. |
 | `per_page`    | integer | No       | Number of jobs per page. |
 | `page`        | integer | No       | Current page number. |
@@ -192,13 +192,13 @@ Creates a new note (comment) on a GitLab work item.
 
 | Parameter       | Type    | Required | Description |
 |-----------------|---------|----------|-------------|
-| `body`          | string  | Yes      | Content of the note. |
-| `url`           | string  | No       | URL for the work item. Required if `group_id` or `project_id` and `work_item_iid` are missing. |
-| `group_id`      | string  | No       | ID or path of the group. Required if `url` and `project_id` are missing. |
-| `project_id`    | string  | No       | ID or path of the project. Required if `url` and `group_id` are missing. |
+| `body`          | string | Yes      | Content of the note. |
+| `url`           | string | No       | URL for the work item. Required if `group_id` or `project_id` and `work_item_iid` are missing. |
+| `group_id`      | string | No       | ID or path of the group. Required if `url` and `project_id` are missing. |
+| `project_id`    | string | No       | ID or path of the project. Required if `url` and `group_id` are missing. |
 | `work_item_iid` | integer | No       | Internal ID of the work item. Required if `url` is missing. |
 | `internal`      | boolean | No       | Marks the note as internal (visible only to users with at least the Reporter role for the project). Default is `false`. |
-| `discussion_id` | string  | No       | Global ID of the discussion to reply to (in the format `gid://gitlab/Discussion/<id>`). |
+| `discussion_id` | string | No       | Global ID of the discussion to reply to (in the format `gid://gitlab/Discussion/<id>`). |
 
 Example:
 
@@ -218,12 +218,12 @@ Retrieves all notes (comments) for a specific GitLab work item.
 
 | Parameter       | Type    | Required | Description |
 |-----------------|---------|----------|-------------|
-| `url`           | string  | No       | URL for the work item. Required if `group_id` or `project_id` and `work_item_iid` are missing. |
-| `group_id`      | string  | No       | ID or path of the group. Required if `url` and `project_id` are missing. |
-| `project_id`    | string  | No       | ID or path of the project. Required if `url` and `group_id` are missing. |
+| `url`           | string | No       | URL for the work item. Required if `group_id` or `project_id` and `work_item_iid` are missing. |
+| `group_id`      | string | No       | ID or path of the group. Required if `url` and `project_id` are missing. |
+| `project_id`    | string | No       | ID or path of the project. Required if `url` and `group_id` are missing. |
 | `work_item_iid` | integer | No       | Internal ID of the work item. Required if `url` is missing. |
-| `after`         | string  | No       | Cursor for forward pagination. |
-| `before`        | string  | No       | Cursor for backward pagination. |
+| `after`         | string | No       | Cursor for forward pagination. |
+| `before`        | string | No       | Cursor for backward pagination. |
 | `first`         | integer | No       | Number of notes to return for forward pagination. |
 | `last`          | integer | No       | Number of notes to return for backward pagination. |
 
@@ -283,14 +283,13 @@ For more information, see [semantic code search](../semantic_code_search.md).
 
 | Parameter        | Type    | Required | Description |
 |------------------|---------|----------|-------------|
-| `semantic_query` | string  | Yes      | Search query for the code. |
-| `project_id`     | string  | Yes      | ID or path of the project. |
-| `directory_path` | string  | No       | Path of the directory (for example, `app/services/`). |
+| `semantic_query` | string | Yes      | Search query for the code. |
+| `project_id`     | string | Yes      | ID or path of the project. |
+| `directory_path` | string | No       | Path of the directory (for example, `app/services/`). |
 | `knn`            | integer | No       | Number of nearest neighbors used to find similar code snippets. Default is `64`. |
 | `limit`          | integer | No       | Maximum number of results to return. Default is `20`. |
 
-For best results, describe the functionality or behavior you're interested in
-rather than using generic keywords or specific function or variable names.
+For best results, describe the functionality or behavior you're interested in rather than using generic keywords or specific function or variable names.
 
 Example:
 

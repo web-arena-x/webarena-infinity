@@ -9,8 +9,8 @@ title: Install and set up the GitLab plugin for Neovim
 Prerequisites:
 
 - For both GitLab.com and GitLab Self-Managed, you have GitLab version 16.1 or later.
-  While many extension features might work with earlier versions, they are unsupported.
-  - The GitLab Duo Code Suggestions feature requires GitLab version 16.8 or later.
+ While many extension features might work with earlier versions, they are unsupported.
+ - The GitLab Duo Code Suggestions feature requires GitLab version 16.8 or later.
 - You have [Neovim](https://neovim.io/) version 0.9 or later.
 - You have [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed. NPM is required for the Code Suggestions install.
 
@@ -20,8 +20,7 @@ To install the extension, follow the installation steps for your chosen plugin m
 
 {{< tab title="No plugin manager" >}}
 
-Run this command to include this project with
-[`packadd`](https://neovim.io/doc/user/repeat.html#%3Apackadd) on startup:
+Run this command to include this project with [`packadd`](https://neovim.io/doc/user/repeat.html#%3Apackadd) on startup:
 
 ```shell
 git clone https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim.git ~/.local/share/nvim/site/pack/gitlab/start/gitlab.vim
@@ -35,23 +34,23 @@ Add this plugin to your [lazy.nvim](https://github.com/folke/lazy.nvim) configur
 
 ```lua
 {
-  'https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim.git',
-  -- Activate when a file is created/opened
-  event = { 'BufReadPre', 'BufNewFile' },
-  -- Activate when a supported filetype is open
-  ft = { 'go', 'javascript', 'python', 'ruby' },
-  cond = function()
+ 'https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim.git',
+ -- Activate when a file is created/opened
+ event = { 'BufReadPre', 'BufNewFile' },
+ -- Activate when a supported filetype is open
+ ft = { 'go', 'javascript', 'python', 'ruby' },
+ cond = function()
     -- Only activate if token is present in environment variable.
     -- Remove this line to use the interactive workflow.
     return vim.env.GITLAB_TOKEN ~= nil and vim.env.GITLAB_TOKEN ~= ''
-  end,
-  opts = {
+ end,
+ opts = {
     statusline = {
       -- Hook into the built-in statusline to indicate the status
       -- of the GitLab Duo Code Suggestions integration
       enabled = true,
     },
-  },
+ },
 }
 ```
 
@@ -63,7 +62,7 @@ Declare the plugin in your [packer.nvim](https://github.com/wbthomason/packer.nv
 
 ```lua
 use {
-  "git@gitlab.com:gitlab-org/editor-extensions/gitlab.vim.git",
+ "git@gitlab.com:gitlab-org/editor-extensions/gitlab.vim.git",
 }
 ```
 
@@ -80,8 +79,7 @@ To connect this extension to your GitLab account, configure your environment var
 | `GITLAB_TOKEN`       | not applicable       | The default GitLab personal access token to use for authenticated requests. If provided, skips interactive authentication. |
 | `GITLAB_VIM_URL`     | `https://gitlab.com` | Override the GitLab instance to connect with. Defaults to `https://gitlab.com`. |
 
-A full list of environment variables is available in the extension's help text at
-[`doc/gitlab.txt`](https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim/-/blob/main/doc/gitlab.txt).
+A full list of environment variables is available in the extension's help text at [`doc/gitlab.txt`](https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim/-/blob/main/doc/gitlab.txt).
 
 ## Configure the extension
 
@@ -112,8 +110,7 @@ To configure this extension:
 
 1. [Configure Omni Completion](#configure-omni-completion) to set up the key mapping to trigger Code Suggestions.
 1. Optional. [Configure `<Plug>` key mappings](#configure-plug-key-mappings).
-1. Optional. Set up helptags using `:helptags ALL` for access to
-   [`:help gitlab.txt`](https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim/-/blob/main/doc/gitlab.txt).
+1. Optional. Set up helptags using `:helptags ALL` for access to [`:help gitlab.txt`](https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim/-/blob/main/doc/gitlab.txt).
 
 ### Configure Omni Completion
 
@@ -135,8 +132,7 @@ then <kbd>Control</kbd>+<kbd>o</kbd>.
 
 ## Configure `<Plug>` key mappings
 
-For convenience, this plugin provides `<Plug>` key mappings. To use the `<Plug>(GitLab...)` key mapping,
-you must include your own key mapping that references it:
+For convenience, this plugin provides `<Plug>` key mappings. To use the `<Plug>(GitLab...)` key mapping, you must include your own key mapping that references it:
 
 ```lua
 -- Toggle Code Suggestions on/off with Control-G in normal mode:

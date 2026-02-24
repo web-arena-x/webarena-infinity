@@ -13,8 +13,7 @@ title: Supported Geo data types
 
 {{< /details >}}
 
-A Geo data type is a specific class of data that is required by one or more GitLab features to
-store relevant information.
+A Geo data type is a specific class of data that is required by one or more GitLab features to store relevant information.
 
 To replicate data produced by these features with Geo, we use several strategies to access, transfer, and verify them.
 
@@ -27,8 +26,7 @@ We distinguish between the following different data types:
 - [Blobs](#blobs)
 - [Databases](#databases)
 
-See the list below of each feature or component we replicate, its corresponding data type, replication, and
-verification methods:
+See the list below of each feature or component we replicate, its corresponding data type, replication, and verification methods:
 
 | Type                 | Feature / component                             | Replication method                           | Verification method           |
 |:---------------------|:------------------------------------------------|:---------------------------------------------|:------------------------------|
@@ -44,57 +42,53 @@ verification methods:
 | Git                  | Personal Snippets                               | Geo with Gitaly                              | Gitaly Checksum               |
 | Git                  | Group wiki repository                           | Geo with Gitaly                              | Gitaly Checksum               |
 | Blob                 | User uploads _(file system)_                    | Geo with API                                 | SHA256 checksum               |
-| Blob                 | User uploads _(object storage)_                 | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup>  |
+| Blob                 | User uploads _(object storage)_                 | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup> |
 | Blob                 | LFS objects _(file system)_                     | Geo with API                                 | SHA256 checksum               |
-| Blob                 | LFS objects _(object storage)_                  | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup>  |
+| Blob                 | LFS objects _(object storage)_                  | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup> |
 | Blob                 | CI job artifacts _(file system)_                | Geo with API                                 | SHA256 checksum               |
-| Blob                 | CI job artifacts _(object storage)_             | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup>  |
+| Blob                 | CI job artifacts _(object storage)_             | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup> |
 | Blob                 | Archived CI build traces _(file system)_        | Geo with API                                 | Not implemented             |
-| Blob                 | Archived CI build traces _(object storage)_     | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup>  |
+| Blob                 | Archived CI build traces _(object storage)_     | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup> |
 | Blob                 | Container registry _(file system)_              | Geo with API/Docker API                      | SHA256 checksum               |
-| Blob                 | Container registry _(object storage)_           | Geo with API/Managed/Docker API <sup>2</sup> | SHA256 checksum <sup>3</sup>  |
+| Blob                 | Container registry _(object storage)_           | Geo with API/Managed/Docker API <sup>2</sup> | SHA256 checksum <sup>3</sup> |
 | Blob                 | Package registry _(file system)_                | Geo with API                                 | SHA256 checksum               |
-| Blob                 | Package registry _(object storage)_             | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup>  |
+| Blob                 | Package registry _(object storage)_             | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup> |
 | Blob                 | Terraform Module Registry _(file system)_       | Geo with API                                 | SHA256 checksum               |
-| Blob                 | Terraform Module Registry _(object storage)_    | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup>  |
+| Blob                 | Terraform Module Registry _(object storage)_    | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup> |
 | Blob                 | Versioned Terraform State _(file system)_       | Geo with API                                 | SHA256 checksum               |
-| Blob                 | Versioned Terraform State _(object storage)_    | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup>  |
+| Blob                 | Versioned Terraform State _(object storage)_    | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup> |
 | Blob                 | External merge request diffs _(file system)_    | Geo with API                                 | SHA256 checksum               |
-| Blob                 | External merge request diffs _(object storage)_ | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup>  |
+| Blob                 | External merge request diffs _(object storage)_ | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup> |
 | Blob                 | Pipeline artifacts _(file system)_              | Geo with API                                 | SHA256 checksum               |
-| Blob                 | Pipeline artifacts _(object storage)_           | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup>  |
+| Blob                 | Pipeline artifacts _(object storage)_           | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup> |
 | Blob                 | Pages _(file system)_                           | Geo with API                                 | SHA256 checksum               |
-| Blob                 | Pages _(object storage)_                        | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup>  |
+| Blob                 | Pages _(object storage)_                        | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup> |
 | Blob                 | CI Secure Files _(file system)_                 | Geo with API                                 | SHA256 checksum               |
-| Blob                 | CI Secure Files _(object storage)_              | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup>  |
+| Blob                 | CI Secure Files _(object storage)_              | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup> |
 | Blob                 | Incident Metric Images _(file system)_          | Geo with API/Managed                         | SHA256 checksum               |
-| Blob                 | Incident Metric Images _(object storage)_       | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup>  |
+| Blob                 | Incident Metric Images _(object storage)_       | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup> |
 | Blob                 | Alert Metric Images _(file system)_             | Geo with API                                 | SHA256 checksum               |
-| Blob                 | Alert Metric Images _(object storage)_          | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup>  |
+| Blob                 | Alert Metric Images _(object storage)_          | Geo with API/Managed <sup>2</sup>            | SHA256 checksum <sup>3</sup> |
 | Blob                 | Dependency Proxy Images _(file system)_         | Geo with API                                 | SHA256 checksum               |
-| Blob                 | Dependency Proxy Images _(object storage)_      | Geo with API/managed <sup>2</sup>            | SHA256 checksum <sup>3</sup>  |
+| Blob                 | Dependency Proxy Images _(object storage)_      | Geo with API/managed <sup>2</sup>            | SHA256 checksum <sup>3</sup> |
 | Container Repository | Container registry _(file system)_              | Geo with API/Docker API                      | SHA256 checksum               |
-| Container Repository | Container registry _(object storage)_           | Geo with API/Managed/Docker API <sup>2</sup> | SHA256 checksum <sup>3</sup>  |
+| Container Repository | Container registry _(object storage)_           | Geo with API/Managed/Docker API <sup>2</sup> | SHA256 checksum <sup>3</sup> |
 
 **Footnotes**:
 
 1. Redis replication can be used as part of HA with Redis sentinel. It's not used between Geo sites.
-1. Object storage replication can be performed by Geo or by your object storage provider/appliance
-   native replication feature.
+1. Object storage replication can be performed by Geo or by your object storage provider/appliance native replication feature.
 1. Object Storage verification is behind a [feature flag](../../feature_flags/_index.md), `geo_object_storage_verification`, [introduced in 16.4](https://gitlab.com/groups/gitlab-org/-/epics/8056) and enabled by default. It uses a checksum of the file size to verify the files.
 
 ### Git repositories
 
-A GitLab instance can have one or more repository shards. Each shard has a Gitaly instance that
-is responsible for allowing access and operations on the locally stored Git repositories. It can run
-on a machine:
+A GitLab instance can have one or more repository shards. Each shard has a Gitaly instance that is responsible for allowing access and operations on the locally stored Git repositories. It can run on a machine:
 
 - With a single disk.
 - With multiple disks mounted as a single mount-point (like with a RAID array).
 - Using LVM.
 
-GitLab does not require a special file system and can work with a mounted Storage Appliance. However, there can be
-performance limitations and consistency issues when using a remote file system.
+GitLab does not require a special file system and can work with a mounted Storage Appliance. However, there can be performance limitations and consistency issues when using a remote file system.
 
 Geo triggers garbage collection in Gitaly to deduplicate forked repositories on Geo secondary sites.
 
@@ -110,16 +104,14 @@ Each project can have at most 3 different repositories:
 - A wiki repository, where the wiki content is stored.
 - A design repository, where design artifacts are indexed (assets are actually in LFS).
 
-They all live in the same shard and share the same base name with a `-wiki` and `-design` suffix
-for Wiki and Design Repository cases.
+They all live in the same shard and share the same base name with a `-wiki` and `-design` suffix for Wiki and Design Repository cases.
 
 Besides that, there are snippet repositories. They can be connected to a project or to some specific user.
 Both types are synced to a secondary site.
 
 ### Container repositories
 
-Container repositories are stored in the container registry. They are a
-GitLab-specific concept built on top of a container registry as the datastore.
+Container repositories are stored in the container registry. They are a GitLab-specific concept built on top of a container registry as the datastore.
 
 ### Blobs
 
@@ -127,36 +119,32 @@ GitLab stores files and blobs such as Issue attachments or LFS objects into eith
 
 - The file system in a specific location.
 - An [Object Storage](../../object_storage.md) solution. Object Storage solutions can be:
-  - Cloud based like Amazon S3 and Google Cloud Storage.
-  - Hosted by you (like MinIO).
-  - A Storage Appliance that exposes an Object Storage-compatible API.
+ - Cloud based like Amazon S3 and Google Cloud Storage.
+ - Hosted by you (like MinIO).
+ - A Storage Appliance that exposes an Object Storage-compatible API.
 
-When using the file system store instead of Object Storage, use network mounted file systems
-to run GitLab when using more than one node.
+When using the file system store instead of Object Storage, use network mounted file systems to run GitLab when using more than one node.
 
 With respect to replication and verification:
 
 - We transfer files and blobs using an internal API request.
 - With Object Storage, you can either:
-  - Use a cloud provider replication functionality.
-  - Have GitLab replicate it for you.
+ - Use a cloud provider replication functionality.
+ - Have GitLab replicate it for you.
 
 ### Databases
 
 GitLab relies on data stored in multiple databases, for different use-cases.
-PostgreSQL is the single point of truth for user-generated content in the Web interface, like issues content, comments
-as well as permissions and credentials.
+PostgreSQL is the single point of truth for user-generated content in the Web interface, like issues content, comments as well as permissions and credentials.
 
 PostgreSQL can also hold some level of cached data like HTML-rendered Markdown and cached merge-requests diff.
 This can also be configured to be offloaded to object storage.
 
 We use PostgreSQL's own replication functionality to replicate data from the **primary** to **secondary** sites.
 
-We use Redis both as a cache store and to hold persistent data for our background jobs system. Because both
-use-cases have data that are exclusive to the same Geo site, we don't replicate it between sites.
+We use Redis both as a cache store and to hold persistent data for our background jobs system. Because both use-cases have data that are exclusive to the same Geo site, we don't replicate it between sites.
 
-Elasticsearch is an optional database for advanced search. It can improve search
-in both source-code level, and user generated content in issues, merge requests, and discussions.
+Elasticsearch is an optional database for advanced search. It can improve search in both source-code level, and user generated content in issues, merge requests, and discussions.
 Elasticsearch is not supported in Geo.
 
 ## Replicated data types
@@ -199,11 +187,8 @@ Feature.enable(:geo_package_file_replication)
 
 {{< alert type="warning" >}}
 
-Features not on this list, or with **No** in the **Replicated** column,
-are not replicated to a **secondary** site. Failing over without manually
-replicating data from those features causes the data to be **lost**.
-To use those features on a **secondary** site, or to execute a failover
-successfully, you must replicate their data using some other means.
+Features not on this list, or with **No** in the **Replicated** column, are not replicated to a **secondary** site. Failing over without manually replicating data from those features causes the data to be **lost**.
+To use those features on a **secondary** site, or to execute a failover successfully, you must replicate their data using some other means.
 
 {{< /alert >}}
 

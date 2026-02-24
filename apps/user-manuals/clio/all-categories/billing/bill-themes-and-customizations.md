@@ -63,46 +63,33 @@ Edit bill themes Delete bill themes
 
 Clio offers over 150 bill theme customization configurations. Below is a summary of each bill theme customization category that you see when editing a bill theme:
 
-**Page Setup:**
-:   In this section, you can change the left, right, top, and bottom margins of the bill invoice page, select the font type, size, and color of the bill theme, and make your bill theme envelope friendly in terms of how content fits within the page margins. You can add more content to your bill theme by decreasing margins and font size.
+**Page Setup:** :   In this section, you can change the left, right, top, and bottom margins of the bill invoice page, select the font type, size, and color of the bill theme, and make your bill theme envelope friendly in terms of how content fits within the page margins. You can add more content to your bill theme by decreasing margins and font size.
 
-**Localization:**
-:   In this section, you can change the name for every heading on your bill theme to terms that are more relevant to your workflow or to your own language. By default, Clio supports Unicode encoded characters for all fields, which means you can enter details in any language.
+**Localization:** :   In this section, you can change the name for every heading on your bill theme to terms that are more relevant to your workflow or to your own language. By default, Clio supports Unicode encoded characters for all fields, which means you can enter details in any language.
 
-**Watermark:**
-:   In this section, you can choose to show or hide watermarks on draft and void bills. If these options are selected, all bills will show a "DRAFT" watermark on each page, and all voided bills will display how a "VOID" watermark on each page.
+**Watermark:** :   In this section, you can choose to show or hide watermarks on draft and void bills. If these options are selected, all bills will show a "DRAFT" watermark on each page, and all voided bills will display how a "VOID" watermark on each page.
 
-**Header:**
-:   In this section, you can show or hide the bill matter number, bill number, and the bill's issue date in the bill theme's header. You can also choose to show or hide the header when downloading a bill preview in PDF format.
+**Header:** :   In this section, you can show or hide the bill matter number, bill number, and the bill's issue date in the bill theme's header. You can also choose to show or hide the header when downloading a bill preview in PDF format.
 
-**Invoice Information:**
-:   In this section, you can configure the appearance of the invoice section, including the font name, size, and color, and whether the title is displayed or hidden. You can change the invoice title in **Localization** > **Invoice Information** > **Title.** You can also choose to show or hide what information appears in this section, including bill number, subject, bill issue date, bill due date, and purchase order.
+**Invoice Information:** :   In this section, you can configure the appearance of the invoice section, including the font name, size, and color, and whether the title is displayed or hidden. You can change the invoice title in **Localization** > **Invoice Information** > **Title.** You can also choose to show or hide what information appears in this section, including bill number, subject, bill issue date, bill due date, and purchase order.
 
-**Firm Information:**
-:   In this section, you can configure how your firm information appears on the bill theme, including the title (your firm's name), the background around the title, and the spacing between the title and your firm contact information. You can also show or hide your logo and change where and how it appears, show or hide your firm address and contact information, and change how the firm address and contact information appear.
+**Firm Information:** :   In this section, you can configure how your firm information appears on the bill theme, including the title (your firm's name), the background around the title, and the spacing between the title and your firm contact information. You can also show or hide your logo and change where and how it appears, show or hide your firm address and contact information, and change how the firm address and contact information appear.
 
-**Client Information:**
-:   In this section, you can configure how client information appears on the bill theme, including the spacing between the client's information and the first bill invoice line, the font name, size, and color of the client's information, whether the client's address and phone number are hidden or visible, and how the client information is aligned (center, left, or right).
+**Client Information:** :   In this section, you can configure how client information appears on the bill theme, including the spacing between the client's information and the first bill invoice line, the font name, size, and color of the client's information, whether the client's address and phone number are hidden or visible, and how the client information is aligned (center, left, or right).
 
-**Table Configuration:**
-:   In this section, you can configure settings for the tables that show services and expenses, including the font name, size, color, background color, and border of the title (the matter name and number) and table headings. You can also change the color and appearance of the rows containing the bill line items.
+**Table Configuration:** :   In this section, you can configure settings for the tables that show services and expenses, including the font name, size, color, background color, and border of the title (the matter name and number) and table headings. You can also change the color and appearance of the rows containing the bill line items.
 
-**Matter:**
-:   In this section, you can configure how matter information appears in the line item tables. This includes the appearance and orientation of the title (matter name and number), table headings (column titles), line items (services, products, and trust transactions), the firm user who created the bill, and any payments on the bill.
+**Matter:** :   In this section, you can configure how matter information appears in the line item tables. This includes the appearance and orientation of the title (matter name and number), table headings (column titles), line items (services, products, and trust transactions), the firm user who created the bill, and any payments on the bill.
 
-**Interest:**
-:   This section will only be visible if you previously created a [payment profile](https://help.clio.com/hc/en-us/articles/9285717159707). In this section, you can configure the appearance of the interest table, including how line items and columns on the table appear, and whether the interest table should show an interest subtotal below the table. You can change the name of the table title and table headings in **Localization** > **Interest**.
+**Interest:** :   This section will only be visible if you previously created a [payment profile](https://help.clio.com/hc/en-us/articles/9285717159707). In this section, you can configure the appearance of the interest table, including how line items and columns on the table appear, and whether the interest table should show an interest subtotal below the table. You can change the name of the table title and table headings in **Localization** > **Interest**.
 
-**Statement of Accounts:**
-:   In this section, you can choose to show or hide tables containing the account balance and any outstanding balances. If you show either of these tables (statement of account, detailed statement of account, trust, or client account), you can change their font name and color, change the background and border colors, and select the orientation of the table information.
+**Statement of Accounts:** :   In this section, you can choose to show or hide tables containing the account balance and any outstanding balances. If you show either of these tables (statement of account, detailed statement of account, trust, or client account), you can change their font name and color, change the background and border colors, and select the orientation of the table information.
 
-**Footer:**
-:   In this section, you can choose what information appears in the footer of the bill theme, and how this information appears. This includes adjustments to page numbers, custom text for the payable statement, bill memos, payment profile information like grace periods, discounts, and interest, and whether to add a signature to the bill.
+**Footer:** :   In this section, you can choose what information appears in the footer of the bill theme, and how this information appears. This includes adjustments to page numbers, custom text for the payable statement, bill memos, payment profile information like grace periods, discounts, and interest, and whether to add a signature to the bill.
 
     The signature of the responsible attorney to the matter will be used as the default signature once you generated the bill. While viewing the bill, you can remove a signature or add any firm member’s signature.
 
-**Remittance Slip:**
-:   In this section, you can add a remittance slip to your bill theme and choose to include information for checks and wire transfers.
+**Remittance Slip:** :   In this section, you can add a remittance slip to your bill theme and choose to include information for checks and wire transfers.
 
 ## Set up common customizations
 

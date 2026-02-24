@@ -55,8 +55,7 @@ For details, see [the Google style guide](https://developers.google.com/style/he
 
 Avoid these topic titles:
 
-- `Overview` or `Introduction`. Instead, use a more specific
-  noun or phrase that someone would search for.
+- `Overview` or `Introduction`. Instead, use a more specific noun or phrase that someone would search for.
 - `Use cases`. Instead, incorporate the information as part of the concept.
 - `How it works`. Instead, use a noun followed by `workflow`. For example, `Merge request workflow`.
 
@@ -64,8 +63,7 @@ Avoid these topic titles:
 
 ### Before
 
-The following topic was trying to be all things to all people. It provided information about groups
-and where to find them. It reiterated what was visible in the UI.
+The following topic was trying to be all things to all people. It provided information about groups and where to find them. It reiterated what was visible in the UI.
 
 ![An example concept and task](img/example_1_v17_10.png)
 

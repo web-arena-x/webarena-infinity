@@ -54,7 +54,7 @@ View and update video fills in the **Fill** section of the right sidebar. From
 
 ![Video of capybaras in a Figma canvas, displaying video fill options with preview and scrubber in the sidebar.](https://help.figma.com/hc/article_attachments/31619751191447)
 
-You can also identify layers with video fills in the Layers panel in the left sidebar. Objects with video fills are represented on the layers panel with the  icon.
+You can also identify layers with video fills in the Layers panel in the left sidebar. Objects with video fills are represented on the layers panel with the icon.
 
 ## Edit video
 
@@ -78,8 +78,8 @@ Once you add video to a frame, switch over to the **Prototype** of the right si
 When you select a video, there is a **Video** section available on the Prototype tab. This section lets you set a video’s behavior when navigating to its frame in a prototype.
 
 - Check the box to **autoplay** video
-- Click the **Loop** icon  to loop video
-- Click the **Sound** icon  to turn the video’s default sound setting on or off
+- Click the **Loop** icon to loop video
+- Click the **Sound** icon to turn the video’s default sound setting on or off
 
 ### Video interactions
 

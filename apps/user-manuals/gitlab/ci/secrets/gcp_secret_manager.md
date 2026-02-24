@@ -56,7 +56,7 @@ The principal is used to authorize access to the Secret Manager resources:
    | Attribute (on Google)         | Assertion (from GitLab) |
    |-------------------------------|-------------------------|
    | `google.subject`              | `assertion.sub`         |
-   | `attribute.gitlab_project_id` | `assertion.project_id`  |
+   | `attribute.gitlab_project_id` | `assertion.project_id` |
 
 ## Grant access to GCP IAM principal
 
@@ -73,36 +73,32 @@ After setting up WIF, you must grant the WIF principal access to the secrets in 
 
    In this example:
 
-   - `PROJECT_NUMBER`: Your Google Cloud project number (not ID) which can be found in the
-     [Project's dashboard](https://console.cloud.google.com/home/dashboard).
-   - `POOL_ID`: The ID (not name) of the workload identity pool created in the first section,
-     for example `gitlab-pool`.
+   - `PROJECT_NUMBER`: Your Google Cloud project number (not ID) which can be found in the [Project's dashboard](https://console.cloud.google.com/home/dashboard).
+   - `POOL_ID`: The ID (not name) of the workload identity pool created in the first section, for example `gitlab-pool`.
    - `GITLAB_PROJECT_ID`: The GitLab project ID found on the [project overview page](../../user/project/working_with_projects.md#find-the-project-id).
 
 1. Assign the role **Secret Manager Secret Accessor**.
 
 ## Configure GitLab CI/CD to use GCP Secret Manager secrets
 
-You must [add these CI/CD variables](../variables/_index.md#for-a-project) to provide details about
-your GCP Secret Manager:
+You must [add these CI/CD variables](../variables/_index.md#for-a-project) to provide details about your GCP Secret Manager:
 
 - `GCP_PROJECT_NUMBER`: The GCP [Project Number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
 - `GCP_WORKLOAD_IDENTITY_FEDERATION_POOL_ID`: The WIF Pool ID, for example `gitlab-pool`.
 - `GCP_WORKLOAD_IDENTITY_FEDERATION_PROVIDER_ID`: The WIF Provider ID, for example `gitlab-provider`.
 
-Then you can use secrets stored in GCP Secret Manager in CI/CD jobs by defining them
-with the `gcp_secret_manager` keyword:
+Then you can use secrets stored in GCP Secret Manager in CI/CD jobs by defining them with the `gcp_secret_manager` keyword:
 
 ```yaml
 job_using_gcp_sm:
-  id_tokens:
+ id_tokens:
     GCP_ID_TOKEN:
       # `aud` must match the audience defined in the WIF Identity Pool.
       aud: https://iam.googleapis.com/projects/${GCP_PROJECT_NUMBER}/locations/global/workloadIdentityPools/${GCP_WORKLOAD_IDENTITY_FEDERATION_POOL_ID}/providers/${GCP_WORKLOAD_IDENTITY_FEDERATION_PROVIDER_ID}
-  secrets:
+ secrets:
     DATABASE_PASSWORD:
       gcp_secret_manager:
-        name: my-project-secret  # This is the name of the secret defined in GCP Secret Manager
+        name: my-project-secret # This is the name of the secret defined in GCP Secret Manager
         version: 1               # optional: default to `latest`.
       token: $GCP_ID_TOKEN
 ```
@@ -115,22 +111,19 @@ job_using_gcp_sm:
 
 {{< /history >}}
 
-Secret names in GCP are per-project. By default the secret named in `gcp_secret_manager:name`
-is read from the project specified in `GCP_PROJECT_NUMBER`.
+Secret names in GCP are per-project. By default the secret named in `gcp_secret_manager:name` is read from the project specified in `GCP_PROJECT_NUMBER`.
 
-To read a secret from a different project than the project containing the WIF pool, use the
-fully-qualified secret name formatted as `projects/<project-number>/secrets/<secret-name>`.
+To read a secret from a different project than the project containing the WIF pool, use the fully-qualified secret name formatted as `projects/<project-number>/secrets/<secret-name>`.
 
-For example, if `my-project-secret` is in the GCP project number `123456789`,
-then you can access the secret with:
+For example, if `my-project-secret` is in the GCP project number `123456789`, then you can access the secret with:
 
 ```yaml
 job_using_gcp_sm:
-  # ... as previously configured ...
-  secrets:
+ # ... as previously configured ...
+ secrets:
     DATABASE_PASSWORD:
       gcp_secret_manager:
-        name: projects/123456789/secrets/my-project-secret  # fully-qualified name of the secret defined in GCP Secret Manager
+        name: projects/123456789/secrets/my-project-secret # fully-qualified name of the secret defined in GCP Secret Manager
         version: 1                                          # optional: defaults to `latest`.
       token: $GCP_ID_TOKEN
 ```
@@ -139,8 +132,7 @@ job_using_gcp_sm:
 
 ### Error: The size of mapped attribute `google.subject` exceeds the 127 bytes limit
 
-Long branch paths can cause a job to fail with this error, because the
-[`assertion.sub` attribute](id_token_authentication.md#token-payload) becomes longer than 127 characters:
+Long branch paths can cause a job to fail with this error, because the [`assertion.sub` attribute](id_token_authentication.md#token-payload) becomes longer than 127 characters:
 
 ```plaintext
 ERROR: Job failed (system failure): resolving secrets: failed to exchange sts token: googleapi: got HTTP response code 400 with body:
@@ -157,8 +149,7 @@ For example, for a `gitlab-org/gitlab` branch, the payload is `project_path:gitl
 For the string to remain shorter than 127 characters, the branch name must be 76 characters or fewer.
 This limit is imposed by Google Cloud IAM, tracked in [Google issue #264362370](https://issuetracker.google.com/issues/264362370?pli=1).
 
-The only fix for this issue is to use shorter names
-[for your branch and repository](https://github.com/google-github-actions/auth/blob/main/docs/TROUBLESHOOTING.md#subject-exceeds-the-127-byte-limit).
+The only fix for this issue is to use shorter names [for your branch and repository](https://github.com/google-github-actions/auth/blob/main/docs/TROUBLESHOOTING.md#subject-exceeds-the-127-byte-limit).
 
 ### `The secrets provider can not be found. Check your CI/CD variables and try again.` message
 
@@ -180,5 +171,4 @@ The Google Cloud Secret Manager integration requires at least GitLab 16.8 and Gi
 This warning appears if the job is executed by a runner using a version earlier than 16.8.
 
 On GitLab.com, there is a [known issue](https://gitlab.com/gitlab-org/ci-cd/shared-runners/infrastructure/-/issues/176)
-causing SaaS runners to run an older version. As a workaround until this issue is fixed,
-you can register your own GitLab Runner with version 16.8 or later.
+causing SaaS runners to run an older version. As a workaround until this issue is fixed, you can register your own GitLab Runner with version 16.8 or later.

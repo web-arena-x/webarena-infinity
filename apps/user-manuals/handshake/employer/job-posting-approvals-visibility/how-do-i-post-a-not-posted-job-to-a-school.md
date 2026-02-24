@@ -10,7 +10,7 @@ Your ability to post a non-posted job depends on your employer account type and 
 
 - **Basic employers:** **Owners** and **Recruiters** can only post non-posted jobs they have personally created. Jobs created by teammates will appear as view-only and cannot be posted.
 
-  - To post jobs you did not create, you must upgrade to an eligible paid plan.
+ - To post jobs you did not create, you must upgrade to an eligible paid plan.
 - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**, can post non-posted jobs created by themselves or teammates, provided they have the appropriate permissions.
 
 Features marked with an asterisk (\*) are available only to Premium partners.*For more information, please check out this*[*resource*](https://www.joinhandshake.com/employers-premium/)*.*
@@ -35,9 +35,9 @@ Features marked with an asterisk (\*) are available only to Premium partners.*Fo
 
 - Click into the textbox to search for the school by name or location.
 - **\***Click the **Lists** button to the right of the textbox to select a school list to post your job to.
-  - *Learn more about* [*Creating and Managing School Lists*](https://support.joinhandshake.com/hc/en-us/articles/360033920474).
+ - *Learn more about* [*Creating and Managing School Lists*](https://support.joinhandshake.com/hc/en-us/articles/360033920474).
 - If your employer has access to the Open Network and you have not yet posted the job to schools on the Open Network, select the **Post to full network** checkbox.
-  - If you have already posted the job to the schools, the checkbox will be disabled.
+ - If you have already posted the job to the schools, the checkbox will be disabled.
 - To remove a school selected, click the **X** to the right of the school name.
 
 5. Once the school(s) are added, click the blue button **Post** to the right of the section title.

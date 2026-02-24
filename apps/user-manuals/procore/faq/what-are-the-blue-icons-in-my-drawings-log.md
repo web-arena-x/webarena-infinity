@@ -8,7 +8,7 @@ Source: https://support.procore.com/faq/what-are-the-blue-icons-in-my-drawings-l
 
 You may have noticed that some of your drawings have icons next to them in the log page on both the Procore app on your mobile device and Procore on your computer. These icons are meant to give you more insight into the information in your drawings.
 
-|  |  |
+| | |
 | --- | --- |
 | icon-drawing-sketches.png | This icon means that sketches have been uploaded to the drawing. Hover your cursor over the icon to see how many sketches are attached, and click the icon to be taken to the page where you can view and download the sketches attached to that particular drawing. You can also [View All Sketches](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/view-the-all-sketches-report "View All Sketches") as a report. |
 | icon-drawing-markups.png | This icon means that the drawing has markups attached to the drawing. Click the icon to be taken to the Fullscreen view of the drawing where you can view all personal and published markups. |

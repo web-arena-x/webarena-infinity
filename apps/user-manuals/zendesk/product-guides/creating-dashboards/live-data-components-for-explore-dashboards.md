@@ -6,22 +6,17 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408843357210-Live-data-co
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Enterprise or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Explore Enterprise |
 
-With Explore, you can add live data components to your dashboards. The data in these
-components updates in near-real time. Use this article to learn about the available
-components. For more information about how to use these components, see [Adding live data and live filter components to
-dashboards](https://support.zendesk.com/hc/en-us/articles/4408846742042).
+With Explore, you can add live data components to your dashboards. The data in these components updates in near-real time. Use this article to learn about the available components. For more information about how to use these components, see [Adding live data and live filter components to dashboards](https://support.zendesk.com/hc/en-us/articles/4408846742042).
 
-Tip: Zendesk now offers [real-time monitoring](https://support.zendesk.com/hc/en-us/articles/9757124462234), which enhances your reporting by
-focusing on use cases, offering immediate decision-making insights, and tracking
-trends for up to seven days.
+Tip: Zendesk now offers [real-time monitoring](https://support.zendesk.com/hc/en-us/articles/9757124462234), which enhances your reporting by focusing on use cases, offering immediate decision-making insights, and tracking trends for up to seven days.
 
 This article lists live data components in the following sections:
 
@@ -38,20 +33,20 @@ This article lists live data components in the following sections:
 
 The following live data components are available for Zendesk Support:
 
-|  |  |
+| | |
 | --- | --- |
 | Agents online | Agents with **Online** status You can [drill into this metric](https://support.zendesk.com/hc/en-us/articles/4422485166746#topic_rsp_zhc_psb) to see which agents are in this status and what their workloads are. |
 | Agents offline | Agents with **Offline** status You can [drill into this metric](https://support.zendesk.com/hc/en-us/articles/4422485166746#topic_rsp_zhc_psb) to see which agents are in this status and what their workloads are. |
 | New tickets (60min) | Tickets that changed to **New** status in the last 60 minutes |
 | Change in new tickets (60min) | Difference in tickets with **New** status compared to the previous 60 minutes |
-| New tickets (30min) | Tickets that changed to **New** status in the last 30  minutes |
+| New tickets (30min) | Tickets that changed to **New** status in the last 30 minutes |
 | Change in new tickets (30min) | Difference in tickets with **New** status compared to the previous 30 minutes |
 | Open tickets (60min) | Tickets that changed to **Open** status in the last 60 minutes |
 | Open tickets (30min) | Tickets that changed to **Open** status in the last 30 minutes |
 | Change in open tickets (30min) | Difference in tickets with **Open** status compared to the previous 30 minutes |
 | Change in open tickets (60min) | Difference in tickets with **Open** status compared to the previous 60 minutes |
 | Pending tickets (30min) | Tickets that changed to **Pending** status in the last 30 minutes |
-| Pending tickets (60min) | Tickets that changed to **Pending** status in the last 6  0 minutes |
+| Pending tickets (60min) | Tickets that changed to **Pending** status in the last 6 0 minutes |
 | Change in pending tickets (30min) | Difference in tickets with **Pending** status compared to the previous 30 minutes |
 | Change in pending tickets (60min) | Difference in tickets with **Pending** status compared to the previous 60 minutes |
 | On-hold tickets (60min) | Tickets that changed to **On-hold** status in the last 60 minutes |
@@ -67,7 +62,7 @@ The following live data components are available for Zendesk Support:
 
 The following live data components are available for Zendesk Chat:
 
-|  |  |
+| | |
 | --- | --- |
 | Chats in queue | New chats created during current business hours and waiting for a response |
 | Active chats | Chats that have at least 1 message sent by the agent or the end user in the last 10 minutes |
@@ -93,7 +88,7 @@ The following live data components are available for Zendesk Chat:
 
 The following live data components are available for Zendesk Voice:
 
-|  |  |
+| | |
 | --- | --- |
 | Calls in queue | All calls waiting for a response |
 | Ongoing calls | All calls currently in progress |
@@ -109,10 +104,9 @@ The following live data components are available for Zendesk Voice:
 
 The following live data components are available for messaging:
 
-Note: These metrics will not be computed for any ticket after the messaging session has
-ended.
+Note: These metrics will not be computed for any ticket after the messaging session has ended.
 
-|  |  |
+| | |
 | --- | --- |
 | Active conversations in queue | New conversations waiting for an agent to respond |
 | Active assigned conversations | Ongoing conversations (related to tickets with Open status) that have a new message from the end user or agent |
@@ -130,11 +124,8 @@ ended.
 | Longest time in queue for active conversations | The longest time spent for new conversations waiting for an agent to respond |
 
 - Conversations per hour: Conversations created in each hour for the last 8 hours.
-  See [Explore recipe: Conversations created each
-  hour for the last eight hours](https://support.zendesk.com/hc/en-us/articles/4408839132954).
-- Satisfaction today: Resolved conversations rated as Good today. For
-  instructions, see [Explore recipe: Resolved conversations rated
-  as Good satisfaction today](https://support.zendesk.com/hc/en-us/articles/4408835506074).
+ See [Explore recipe: Conversations created each hour for the last eight hours](https://support.zendesk.com/hc/en-us/articles/4408839132954).
+- Satisfaction today: Resolved conversations rated as Good today. For instructions, see [Explore recipe: Resolved conversations rated as Good satisfaction today](https://support.zendesk.com/hc/en-us/articles/4408835506074).
 
 ## Omnichannel
 
@@ -142,11 +133,9 @@ Note: These metrics are available only in the [new dashboard builder](https://su
 
 ### Unified agent statuses
 
-If you’ve [turned on omnichannel routing](https://support.zendesk.com/hc/en-us/articles/5866925319962), you
-have access to unified agent status live metrics that are not filtered by any
-channels by default.
+If you’ve [turned on omnichannel routing](https://support.zendesk.com/hc/en-us/articles/5866925319962), you have access to unified agent status live metrics that are not filtered by any channels by default.
 
-|  |  |
+| | |
 | --- | --- |
 | Agents online | Agents in the **Online** unified agent status |
 | Agents away | Agents in the **Away** unified agent status |
@@ -155,35 +144,24 @@ channels by default.
 
 ### Custom agent statuses
 
-If you’ve [turned on omnichannel routing](https://support.zendesk.com/hc/en-us/articles/5866925319962) and
-[created custom agent statuses](https://support.zendesk.com/hc/en-us/articles/4410525357594), Explore
-includes live data components for each custom status you created. To access
-them, expand the **Other agent statuses** folder when [adding a live metric](https://support.zendesk.com/hc/en-us/articles/4408846742042).
+If you’ve [turned on omnichannel routing](https://support.zendesk.com/hc/en-us/articles/5866925319962) and [created custom agent statuses](https://support.zendesk.com/hc/en-us/articles/4410525357594), Explore includes live data components for each custom status you created. To access them, expand the **Other agent statuses** folder when [adding a live metric](https://support.zendesk.com/hc/en-us/articles/4408846742042).
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_live_metrics_custom_statuses_folder.png)
 
-If you use omnichannel routing, hover your mouse over a custom status to see
-which default statuses it corresponds to for each channel.
+If you use omnichannel routing, hover your mouse over a custom status to see which default statuses it corresponds to for each channel.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/explore_live_metric_hover_custom_status.png)
 
-You can [drill into a custom agent status
-metric](https://support.zendesk.com/hc/en-us/articles/4422485166746#topic_rsp_zhc_psb) to see which agents are in that status and what their
-workloads are.
+You can [drill into a custom agent status metric](https://support.zendesk.com/hc/en-us/articles/4422485166746#topic_rsp_zhc_psb) to see which agents are in that status and what their workloads are.
 
 ### Queues
 
-If you’ve [turned on omnichannel routing](https://support.zendesk.com/hc/en-us/articles/5866925319962) and
-[created custom queues](https://support.zendesk.com/hc/en-us/articles/6716530152858), you have access
-to a component that shows you the live performance of your custom queues. Learn
-more about how to access and customize this component at [Explore recipe: Reporting on custom
-omnichannel queue performance](https://support.zendesk.com/hc/en-us/articles/7217081202714).
+If you’ve [turned on omnichannel routing](https://support.zendesk.com/hc/en-us/articles/5866925319962) and [created custom queues](https://support.zendesk.com/hc/en-us/articles/6716530152858), you have access to a component that shows you the live performance of your custom queues. Learn more about how to access and customize this component at [Explore recipe: Reporting on custom omnichannel queue performance](https://support.zendesk.com/hc/en-us/articles/7217081202714).
 
 Note: Customers who are using [omnichannel routing for calls](https://support.zendesk.com/hc/en-us/articles/4954060248858)
-cannot currently report about how call tickets are being routed through
-their queues.
+cannot currently report about how call tickets are being routed through their queues.
 
-|  |  |
+| | |
 | --- | --- |
 | Order | The order of the queue. Queues are checked for matching conditions from top to bottom on the [Queues page in Admin Center](https://support.zendesk.com/hc/en-us/articles/6716541571994#topic_kkb_g43_j1c), and work flows into the first queue that matches. |
 | Name | The name of the queue. |
@@ -202,10 +180,9 @@ The following live data filter components are currently available.
 
 ### Channel filters
 
-These following filters are channel-specific and don't apply to the live data
-components for unified agent statuses.
+These following filters are channel-specific and don't apply to the live data components for unified agent statuses.
 
-|  |  |
+| | |
 | --- | --- |
 | Support - Ticket group | Filter live Support data by individual groups |
 | Chat - Department | Filter live chat data by individual departments |
@@ -216,11 +193,9 @@ components for unified agent statuses.
 
 ### Omnichannel routing queue filters
 
-The following live data filters apply only to the Queues - List live data
-component. See [Explore recipe: Reporting on custom
-omnichannel queue performance](https://support.zendesk.com/hc/en-us/articles/7217081202714).
+The following live data filters apply only to the Queues - List live data component. See [Explore recipe: Reporting on custom omnichannel queue performance](https://support.zendesk.com/hc/en-us/articles/7217081202714).
 
-|  |  |
+| | |
 | --- | --- |
 | Queues - Group | Filter live omnichannel routing custom queues data by primary group |
 | Queues - Queue name | Filter live omnichannel routing custom queues data by queue name |

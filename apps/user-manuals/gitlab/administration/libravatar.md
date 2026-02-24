@@ -14,16 +14,11 @@ title: Using the Libravatar service with GitLab
 
 GitLab by default supports the [Gravatar](https://gravatar.com) avatar service.
 
-Libravatar is another service that delivers your avatar (profile picture) to
-other websites. The Libravatar API is
-[heavily based on Gravatar](https://wiki.libravatar.org/api/), so you can
-switch to the Libravatar avatar service or even your own Libravatar
-server.
+Libravatar is another service that delivers your avatar (profile picture) to other websites. The Libravatar API is [heavily based on Gravatar](https://wiki.libravatar.org/api/), so you can switch to the Libravatar avatar service or even your own Libravatar server.
 
 ## Change the Libravatar service to your own service
 
-In the [`gitlab.yml` gravatar section](https://gitlab.com/gitlab-org/gitlab/-/blob/68dac188ec6b1b03d53365e7579422f44cbe7a1c/config/gitlab.yml.example#L469-476), set
-the configuration options as follows:
+In the [`gitlab.yml` gravatar section](https://gitlab.com/gitlab-org/gitlab/-/blob/68dac188ec6b1b03d53365e7579422f44cbe7a1c/config/gitlab.yml.example#L469-476), set the configuration options as follows:
 
 For Linux package installations:
 
@@ -96,30 +91,22 @@ For self-compiled installations:
 
 ### Your own Libravatar server
 
-If you are [running your own Libravatar service](https://wiki.libravatar.org/running_your_own/),
-the URL is different in the configuration, but you must provide the same
-placeholders so GitLab can parse the URL correctly.
+If you are [running your own Libravatar service](https://wiki.libravatar.org/running_your_own/), the URL is different in the configuration, but you must provide the same placeholders so GitLab can parse the URL correctly.
 
-For example, you host a service on `https://libravatar.example.com` and the
-`ssl_url` you must supply in `gitlab.yml` is:
+For example, you host a service on `https://libravatar.example.com` and the `ssl_url` you must supply in `gitlab.yml` is:
 
 `https://libravatar.example.com/avatar/%{hash}?s=%{size}&d=identicon`
 
 ## Default URL for missing images
 
-[Libravatar supports different sets](https://wiki.libravatar.org/api/) of
-missing images for user email addresses that are not found on the Libravatar
-service.
+[Libravatar supports different sets](https://wiki.libravatar.org/api/) of missing images for user email addresses that are not found on the Libravatar service.
 
-To use a set other than `identicon`, replace the `&d=identicon` portion of the
-URL with another supported set. For example, you can use the `retro` set, in
-which case the URL would look like: `ssl_url: "https://seccdn.libravatar.org/avatar/%{hash}?s=%{size}&d=retro"`
+To use a set other than `identicon`, replace the `&d=identicon` portion of the URL with another supported set. For example, you can use the `retro` set, in which case the URL would look like: `ssl_url: "https://seccdn.libravatar.org/avatar/%{hash}?s=%{size}&d=retro"`
 
 ## Usage examples for Microsoft Office 365
 
 If your users are Office 365 users, the `GetPersonaPhoto` service can be used.
-This service requires a login, so this use case is most useful in a
-corporate installation where all users have access to Office 365.
+This service requires a login, so this use case is most useful in a corporate installation where all users have access to Office 365.
 
 ```ruby
 gitlab_rails['gravatar_plain_url'] = 'http://outlook.office.com/owa/service.svc/s/GetPersonaPhoto?email=%{email}&size=HR120x120'

@@ -5,18 +5,14 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Frontend testing standards and style guidelines
 ---
 
-There are two types of test suites encountered while developing frontend code
-at GitLab. We use Jest for JavaScript unit and integration testing,
-and RSpec feature tests with Capybara for e2e (end-to-end) integration testing.
+There are two types of test suites encountered while developing frontend code at GitLab. We use Jest for JavaScript unit and integration testing, and RSpec feature tests with Capybara for e2e (end-to-end) integration testing.
 
 Unit and feature tests need to be written for all new features.
 Most of the time, you should use [RSpec](https://github.com/rspec/rspec-rails#feature-specs) for your feature tests. For more information on how to get started with feature tests, see [get started with feature tests](#get-started-with-feature-tests)
 
-Regression tests should be written for bug fixes to prevent them from recurring
-in the future.
+Regression tests should be written for bug fixes to prevent them from recurring in the future.
 
-See the [Testing Standards and Style Guidelines](_index.md) page for more
-information on general testing practices at GitLab.
+See the [Testing Standards and Style Guidelines](_index.md) page for more information on general testing practices at GitLab.
 
 ## Vue.js testing
 
@@ -46,21 +42,19 @@ Running `yarn jest-debug` runs Jest in debug mode, allowing you to debug/inspect
 
 ### Timeout error
 
-The default timeout for Jest is set in
-[`/jest.config.base.js`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/jest.config.base.js).
+The default timeout for Jest is set in [`/jest.config.base.js`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/jest.config.base.js).
 
 If your test exceeds that time, it fails.
 
-If you cannot improve the performance of the tests, you can increase the timeout
-for the whole suite using [`jest.setTimeout`](https://jestjs.io/docs/next/jest-object#jestsettimeouttimeout)
+If you cannot improve the performance of the tests, you can increase the timeout for the whole suite using [`jest.setTimeout`](https://jestjs.io/docs/next/jest-object#jestsettimeouttimeout)
 
 ```javascript
 jest.setTimeout(500);
 
 describe('Component', () => {
-  it('does something amazing', () => {
+ it('does something amazing', () => {
     // ...
-  });
+ });
 });
 ```
 
@@ -68,9 +62,9 @@ or for a specific test by providing a third argument to [`it`](https://jestjs.io
 
 ```javascript
 describe('Component', () => {
-  it('does something amazing', () => {
+ it('does something amazing', () => {
     // ...
-  }, 500)
+ }, 500)
 })
 ```
 
@@ -98,7 +92,7 @@ A general example could be something like this
 import { convertToFahrenheit } from 'temperatureLibrary'
 
 function getFahrenheit(celsius) {
-  return convertToFahrenheit(celsius)
+ return convertToFahrenheit(celsius)
 }
 ```
 
@@ -109,7 +103,7 @@ Let's take a short look into Vue land. Vue is a critical part of the GitLab Java
 ```javascript
 // Component script
 {
-  computed: {
+ computed: {
     hasMetricTypes() {
       return this.metricTypes.length;
     },
@@ -119,9 +113,9 @@ Let's take a short look into Vue land. Vue is a critical part of the GitLab Java
 ```html
 <!-- Component template -->
 <template>
-  <gl-dropdown v-if="hasMetricTypes">
+ <gl-dropdown v-if="hasMetricTypes">
     <!-- Dropdown content -->
-  </gl-dropdown>
+ </gl-dropdown>
 </template>
 ```
 
@@ -130,7 +124,7 @@ Testing the `hasMetricTypes` computed prop would seem like a given here. But to 
 ```javascript
 // Bad
 describe('computed', () => {
-  describe('hasMetricTypes', () => {
+ describe('hasMetricTypes', () => {
     it('returns true if metricTypes exist', () => {
       factory({ metricTypes });
       expect(wrapper.vm.hasMetricTypes).toBe(2);
@@ -140,18 +134,18 @@ describe('computed', () => {
       factory();
       expect(wrapper.vm.hasMetricTypes).toBe(0);
     });
-  });
+ });
 });
 
 // Good
 it('displays a dropdown if metricTypes exist', () => {
-  factory({ metricTypes });
-  expect(wrapper.findComponent(GlDropdown).exists()).toBe(true);
+ factory({ metricTypes });
+ expect(wrapper.findComponent(GlDropdown).exists()).toBe(true);
 });
 
 it('does not display a dropdown if no metricTypes exist', () => {
-  factory();
-  expect(wrapper.findComponent(GlDropdown).exists()).toBe(false);
+ factory();
+ expect(wrapper.findComponent(GlDropdown).exists()).toBe(false);
 });
 ```
 
@@ -183,12 +177,12 @@ Prefer literal values in assertions rather than importing constants. This makes 
 import { MY_CONSTANT } from '../constants';
 
 it('returns the correct value', () => {
-  expect(ding()).toBe(MY_CONSTANT);
+ expect(ding()).toBe(MY_CONSTANT);
 });
 
 // Good: explicit value is asserted
 it('returns the correct value', () => {
-  expect(ding()).toBe('expected literal value');
+ expect(ding()).toBe('expected literal value');
 });
 ```
 
@@ -207,22 +201,18 @@ These some general common practices included as part of our test suite. Should y
 
 ### How to query DOM elements
 
-When it comes to querying DOM elements in your tests, it is best to uniquely and semantically target
-the element.
+When it comes to querying DOM elements in your tests, it is best to uniquely and semantically target the element.
 
 Preferentially, this is done by targeting what the user actually sees using [DOM Testing Library](https://testing-library.com/docs/dom-testing-library/intro/).
-When selecting by text it is best to use the [`byRole`](https://testing-library.com/docs/queries/byrole/) query
-as it helps enforce accessibility best practices. `findByRole` and the other [DOM Testing Library queries](https://testing-library.com/docs/queries/about/) are available when using [`shallowMountExtended` or `mountExtended`](#shallowmountextended-and-mountextended).
+When selecting by text it is best to use the [`byRole`](https://testing-library.com/docs/queries/byrole/) query as it helps enforce accessibility best practices. `findByRole` and the other [DOM Testing Library queries](https://testing-library.com/docs/queries/about/) are available when using [`shallowMountExtended` or `mountExtended`](#shallowmountextended-and-mountextended).
 
-When writing Vue component unit tests, it can be wise to query children by component, so that the unit test can focus on comprehensive value coverage
-rather than dealing with the complexity of a child component's behavior.
+When writing Vue component unit tests, it can be wise to query children by component, so that the unit test can focus on comprehensive value coverage rather than dealing with the complexity of a child component's behavior.
 
-Sometimes, neither of the above are feasible. In these cases, adding test attributes to simplify the selectors might be the best option. A list of
-possible selectors include:
+Sometimes, neither of the above are feasible. In these cases, adding test attributes to simplify the selectors might be the best option. A list of possible selectors include:
 
 - A semantic attribute like `name` (also verifies that `name` was setup properly)
 - A `data-testid` attribute ([recommended by maintainers of `@vue/test-utils`](https://github.com/vuejs/vue-test-utils/issues/1498#issuecomment-610133465))
-  optionally combined with [`shallowMountExtended` or `mountExtended`](#shallowmountextended-and-mountextended)
+ optionally combined with [`shallowMountExtended` or `mountExtended`](#shallowmountextended-and-mountextended)
 
 ```javascript
 import { shallowMountExtended } from 'helpers/vue_test_utils_helper'
@@ -230,22 +220,22 @@ import { shallowMountExtended } from 'helpers/vue_test_utils_helper'
 const wrapper = shallowMountExtended(ExampleComponent);
 
 it('exists', () => {
-  // Best (especially for integration tests)
-  wrapper.findByRole('link', { name: /Click Me/i })
-  wrapper.findByRole('link', { name: 'Click Me' })
-  wrapper.findByText('Click Me')
-  wrapper.findByText(/Click Me/i)
+ // Best (especially for integration tests)
+ wrapper.findByRole('link', { name: /Click Me/i })
+ wrapper.findByRole('link', { name: 'Click Me' })
+ wrapper.findByText('Click Me')
+ wrapper.findByText(/Click Me/i)
 
-  // Good (especially for unit tests)
-  wrapper.findComponent(FooComponent);
-  wrapper.find('input[name=foo]');
-  wrapper.find('[data-testid="my-foo-id"]');
-  wrapper.findByTestId('my-foo-id'); // with shallowMountExtended or mountExtended, check below
+ // Good (especially for unit tests)
+ wrapper.findComponent(FooComponent);
+ wrapper.find('input[name=foo]');
+ wrapper.find('[data-testid="my-foo-id"]');
+ wrapper.findByTestId('my-foo-id'); // with shallowMountExtended or mountExtended, check below
 
-  // Bad
-  wrapper.find({ ref: 'foo'});
-  wrapper.find('.js-foo');
-  wrapper.find('.gl-button');
+ // Bad
+ wrapper.find({ ref: 'foo'});
+ wrapper.find('.js-foo');
+ wrapper.find('.gl-button');
 });
 ```
 
@@ -256,17 +246,13 @@ Avoid using Vue template refs to query DOM elements in tests because they're an 
 
 ### Querying for child components
 
-When testing Vue components with `@vue/test-utils` another possible approach is querying for child
-components instead of querying for DOM nodes. This assumes that implementation details of behavior
-under test should be covered by that component's individual unit test. There is no strong preference
-in writing DOM or component queries as long as your tests reliably cover expected behavior for the
-component under test.
+When testing Vue components with `@vue/test-utils` another possible approach is querying for child components instead of querying for DOM nodes. This assumes that implementation details of behavior under test should be covered by that component's individual unit test. There is no strong preference in writing DOM or component queries as long as your tests reliably cover expected behavior for the component under test.
 
 Example:
 
 ```javascript
 it('exists', () => {
-  wrapper.findComponent(FooComponent);
+ wrapper.findComponent(FooComponent);
 });
 ```
 
@@ -282,22 +268,21 @@ For Example:
 
 ### Describe block naming
 
-When writing describe test blocks to test specific functions/methods,
-use the method name as the describe block name.
+When writing describe test blocks to test specific functions/methods, use the method name as the describe block name.
 
 **Bad**:
 
 ```javascript
 describe('#methodName', () => {
-  it('passes', () => {
+ it('passes', () => {
     expect(true).toEqual(true);
-  });
+ });
 });
 
 describe('.methodName', () => {
-  it('passes', () => {
+ it('passes', () => {
     expect(true).toEqual(true);
-  });
+ });
 });
 ```
 
@@ -305,9 +290,9 @@ describe('.methodName', () => {
 
 ```javascript
 describe('methodName', () => {
-  it('passes', () => {
+ it('passes', () => {
     expect(true).toEqual(true);
-  });
+ });
 });
 ```
 
@@ -317,33 +302,32 @@ When testing Promises you should always make sure that the test is asynchronous 
 
 ```javascript
 it('tests a promise', async () => {
-  const users = await fetchUsers()
-  expect(users.length).toBe(42)
+ const users = await fetchUsers()
+ expect(users.length).toBe(42)
 });
 
 it('tests a promise rejection', async () => {
-  await expect(user.getUserName(1)).rejects.toThrow('User with 1 not found.');
+ await expect(user.getUserName(1)).rejects.toThrow('User with 1 not found.');
 });
 ```
 
 You can also return a promise from the test function.
 
-Using the `done` and `done.fail` callbacks is discouraged when working with
-promises. They should not be used.
+Using the `done` and `done.fail` callbacks is discouraged when working with promises. They should not be used.
 
 **Bad**:
 
 ```javascript
 // missing return
 it('tests a promise', () => {
-  promise.then(data => {
+ promise.then(data => {
     expect(data).toBe(asExpected);
-  });
+ });
 });
 
 // uses done/done.fail
 it('tests a promise', done => {
-  promise
+ promise
     .then(data => {
       expect(data).toBe(asExpected);
     })
@@ -357,7 +341,7 @@ it('tests a promise', done => {
 ```javascript
 // verifying a resolved promise
 it('tests a promise', () => {
-  return promise
+ return promise
     .then(data => {
       expect(data).toBe(asExpected);
     });
@@ -365,12 +349,12 @@ it('tests a promise', () => {
 
 // verifying a resolved promise using Jest's `resolves` matcher
 it('tests a promise', () => {
-  return expect(promise).resolves.toBe(asExpected);
+ return expect(promise).resolves.toBe(asExpected);
 });
 
 // verifying a rejected promise using Jest's `rejects` matcher
 it('tests a promise rejection', () => {
-  return expect(promise).rejects.toThrow(expectedError);
+ return expect(promise).rejects.toThrow(expectedError);
 });
 ```
 
@@ -380,15 +364,14 @@ Sometimes we have to test time-sensitive code. For example, recurring events tha
 
 #### `setTimeout()` / `setInterval()` in application
 
-If the application itself is waiting for some time, mock await the waiting. In Jest this is already
-[done by default](https://gitlab.com/gitlab-org/gitlab/-/blob/a2128edfee799e49a8732bfa235e2c5e14949c68/jest.config.js#L47)
+If the application itself is waiting for some time, mock await the waiting. In Jest this is already [done by default](https://gitlab.com/gitlab-org/gitlab/-/blob/a2128edfee799e49a8732bfa235e2c5e14949c68/jest.config.js#L47)
 (see also [Jest Timer Mocks](https://jestjs.io/docs/timer-mocks)).
 
 ```javascript
 const doSomethingLater = () => {
-  setTimeout(() => {
+ setTimeout(() => {
     // do something
-  }, 4000);
+ }, 4000);
 };
 ```
 
@@ -396,10 +379,10 @@ const doSomethingLater = () => {
 
 ```javascript
 it('does something', () => {
-  doSomethingLater();
-  jest.runAllTimers();
+ doSomethingLater();
+ jest.runAllTimers();
 
-  expect(something).toBe('done');
+ expect(something).toBe('done');
 });
 ```
 
@@ -407,41 +390,37 @@ it('does something', () => {
 
 {{< alert type="note" >}}
 
-The value of `window.location.href` is reset before every test to avoid earlier
-tests affecting later ones.
+The value of `window.location.href` is reset before every test to avoid earlier tests affecting later ones.
 
 {{< /alert >}}
 
-If your tests require `window.location.href` to take a particular value, use
-the `setWindowLocation` helper:
+If your tests require `window.location.href` to take a particular value, use the `setWindowLocation` helper:
 
 ```javascript
 import setWindowLocation from 'helpers/set_window_location_helper';
 
 it('passes', () => {
-  setWindowLocation('https://gitlab.test/foo?bar=true');
+ setWindowLocation('https://gitlab.test/foo?bar=true');
 
-  expect(window.location).toMatchObject({
+ expect(window.location).toMatchObject({
     hostname: 'gitlab.test',
     pathname: '/foo',
     search: '?bar=true',
-  });
+ });
 });
 ```
 
-To modify only the hash, use either the `setWindowLocation` helper, or assign
-directly to `window.location.hash`, for example:
+To modify only the hash, use either the `setWindowLocation` helper, or assign directly to `window.location.hash`, for example:
 
 ```javascript
 it('passes', () => {
-  window.location.hash = '#foo';
+ window.location.hash = '#foo';
 
-  expect(window.location.href).toBe('http://test.host/#foo');
+ expect(window.location.href).toBe('http://test.host/#foo');
 });
 ```
 
-If your tests need to assert that certain `window.location` methods were
-called, use the `useMockLocationHelper` helper:
+If your tests need to assert that certain `window.location` methods were called, use the `useMockLocationHelper` helper:
 
 ```javascript
 import { useMockLocationHelper } from 'helpers/mock_window_location_helper';
@@ -449,9 +428,9 @@ import { useMockLocationHelper } from 'helpers/mock_window_location_helper';
 useMockLocationHelper();
 
 it('passes', () => {
-  window.location.reload();
+ window.location.reload();
 
-  expect(window.location.reload).toHaveBeenCalled();
+ expect(window.location.reload).toHaveBeenCalled();
 });
 ```
 
@@ -463,8 +442,8 @@ Consider the following example:
 
 ```javascript
 beforeDestroy() {
-  removeEventListener('keydown', someListener)
-  clearTimeout(timeoutPointer)
+ removeEventListener('keydown', someListener)
+ clearTimeout(timeoutPointer)
 }
 ```
 
@@ -474,23 +453,23 @@ Let's take a look at the relevant tests.
 
 ```javascript
 describe('Cleanup before destroy', () => {
-  beforeEach(() => {
+ beforeEach(() => {
     createComponent()
 
     // Destroy the component immediately to invoke the `beforeDestroy` hook
     wrapper.destroy()
-  })
+ })
 
-  it('removes the event listener', () => {
+ it('removes the event listener', () => {
     const spy = jest.spyOn(window, 'removeEventListener')
     expect(spy).toHaveBeenCalledTimes(1)
     expect(spy).toHaveBeenCalledWith('keydown', expect.any(Function))
-  })
+ })
 
-  it('clears the pending timeouts', () => {
+ it('clears the pending timeouts', () => {
     const spy = jest.spyOn(window, 'clearTimeout')
     expect(spy).toHaveBeenCalledTimes(1)
-  })
+ })
 })
 ```
 
@@ -513,7 +492,7 @@ Register handler functions to wait for the `Promise` to be resolved.
 
 ```javascript
 const askTheServer = () => {
-  return axios
+ return axios
     .get('/endpoint')
     .then(response => {
       // do something
@@ -528,8 +507,8 @@ const askTheServer = () => {
 
 ```javascript
 it('waits for an Ajax call', async () => {
-  await askTheServer()
-  expect(something).toBe('done');
+ await askTheServer()
+ expect(something).toBe('done');
 });
 ```
 
@@ -539,18 +518,17 @@ If you cannot register handlers to the `Promise`, for example because it is exec
 
 ```javascript
 it('waits for an Ajax call', async () => {
-  synchronousFunction();
+ synchronousFunction();
 
-  await waitForPromises();
+ await waitForPromises();
 
-  expect(something).toBe('done');
+ expect(something).toBe('done');
 });
 ```
 
 #### Vue rendering
 
-Use [`nextTick()`](https://v2.vuejs.org/v2/api/#Vue-nextTick) to wait until a Vue component is
-re-rendered.
+Use [`nextTick()`](https://v2.vuejs.org/v2/api/#Vue-nextTick) to wait until a Vue component is re-rendered.
 
 **In Jest**:
 
@@ -560,31 +538,30 @@ import { nextTick } from 'vue';
 // ...
 
 it('renders something', async () => {
-  wrapper.setProps({ value: 'new value' });
+ wrapper.setProps({ value: 'new value' });
 
-  await nextTick();
+ await nextTick();
 
-  expect(wrapper.text()).toBe('new value');
+ expect(wrapper.text()).toBe('new value');
 });
 ```
 
 #### Events
 
-If the application triggers an event that you need to wait for in your test, register an event handler which contains
-the assertions:
+If the application triggers an event that you need to wait for in your test, register an event handler which contains the assertions:
 
 ```javascript
 it('waits for an event', () => {
-  eventHub.$once('someEvent', eventHandler);
+ eventHub.$once('someEvent', eventHandler);
 
-  someFunction();
+ someFunction();
 
-  return new Promise((resolve) => {
+ return new Promise((resolve) => {
     function expectEventHandler() {
       expect(something).toBe('done');
       resolve();
     }
-  });
+ });
 });
 ```
 
@@ -592,30 +569,29 @@ In Jest you can also use a `Promise` for this:
 
 ```javascript
 it('waits for an event', () => {
-  const eventTriggered = new Promise(resolve => eventHub.$once('someEvent', resolve));
+ const eventTriggered = new Promise(resolve => eventHub.$once('someEvent', resolve));
 
-  someFunction();
+ someFunction();
 
-  return eventTriggered.then(() => {
+ return eventTriggered.then(() => {
     expect(something).toBe('done');
-  });
+ });
 });
 ```
 
 ### Manipulate `gon` object
 
-`gon` (or `window.gon`) is a global object used to pass data from the backend. If your test depends
-on its value you can directly modify it:
+`gon` (or `window.gon`) is a global object used to pass data from the backend. If your test depends on its value you can directly modify it:
 
 ```javascript
 describe('when logged in', () => {
-  beforeEach(() => {
+ beforeEach(() => {
     gon.current_user_id = 1;
-  });
+ });
 
-  it('shows message', () => {
+ it('shows message', () => {
     expect(wrapper.text()).toBe('Logged in!');
-  });
+ });
 })
 ```
 
@@ -628,11 +604,11 @@ Tests are typically architected in a pattern which requires a recurring setup of
 Example
 
 ```javascript
-  let wrapper;
+ let wrapper;
 
-  beforeEach(() => {
+ beforeEach(() => {
     wrapper = mount(Component);
-  });
+ });
 ```
 
 With [enableAutoDestroy](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/100389), it is no longer necessary to manually call `wrapper.destroy()`.
@@ -641,12 +617,12 @@ However, some mocks, spies, and fixtures do need to be torn down, and we can lev
 Example
 
 ```javascript
-  let wrapper;
+ let wrapper;
 
-  afterEach(() => {
+ afterEach(() => {
     fakeApollo = null;
     store = null;
-  });
+ });
 ```
 
 ### Testing local-only Apollo queries and mutations
@@ -655,10 +631,10 @@ To add a new query or mutation before it is added to the backend, we can use the
 
 ```graphql
 mutation setActiveBoardItemEE($boardItem: LocalBoardItem, $isIssue: Boolean = true) {
-  setActiveBoardItem(boardItem: $boardItem) @client {
+ setActiveBoardItem(boardItem: $boardItem) @client {
     ...Issue @include(if: $isIssue)
     ...EpicDetailed @skip(if: $isIssue)
-  }
+ }
 }
 ```
 
@@ -700,13 +676,10 @@ it('calls setActiveBoardItemMutation on close', async () => {
 
 #### Prefer `toBe` over `toEqual` when comparing primitive values
 
-Jest has [`toBe`](https://jestjs.io/docs/expect#tobevalue) and
-[`toEqual`](https://jestjs.io/docs/expect#toequalvalue) matchers.
-As [`toBe`](https://jestjs.io/docs/expect#tobevalue) uses
-[`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)
+Jest has [`toBe`](https://jestjs.io/docs/expect#tobevalue) and [`toEqual`](https://jestjs.io/docs/expect#toequalvalue) matchers.
+As [`toBe`](https://jestjs.io/docs/expect#tobevalue) uses [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is)
 to compare values, it's faster (by default) than using `toEqual`.
-While the latter eventually falls back to leverage [`Object.is`](https://github.com/facebook/jest/blob/master/packages/expect/src/jasmineUtils.ts#L91),
-for primitive values, it should only be used when complex objects need a comparison.
+While the latter eventually falls back to leverage [`Object.is`](https://github.com/facebook/jest/blob/master/packages/expect/src/jasmineUtils.ts#L91), for primitive values, it should only be used when complex objects need a comparison.
 
 Examples:
 
@@ -722,9 +695,7 @@ expect(foo).toBe(1);
 
 #### Prefer more befitting matchers
 
-Jest provides useful matchers like `toHaveLength` or `toBeUndefined` to make your tests more
-readable and to produce more understandable error messages. Check their docs for the
-[full list of matchers](https://jestjs.io/docs/expect#methods).
+Jest provides useful matchers like `toHaveLength` or `toBeUndefined` to make your tests more readable and to produce more understandable error messages. Check their docs for the [full list of matchers](https://jestjs.io/docs/expect#methods).
 
 Examples:
 
@@ -757,16 +728,13 @@ expect(foo).toBeUndefined();
 
 #### Avoid using `toBeTruthy` or `toBeFalsy`
 
-Jest also provides following matchers: `toBeTruthy` and `toBeFalsy`. We should not use them because
-they make tests weaker and produce false-positive results.
+Jest also provides following matchers: `toBeTruthy` and `toBeFalsy`. We should not use them because they make tests weaker and produce false-positive results.
 
-For example, `expect(someBoolean).toBeFalsy()` passes when `someBoolean === null`, and when
-`someBoolean === false`.
+For example, `expect(someBoolean).toBeFalsy()` passes when `someBoolean === null`, and when `someBoolean === false`.
 
 #### Tricky `toBeDefined` matcher
 
-Jest has the tricky `toBeDefined` matcher that can produce false positive test. Because it
-[validates](https://github.com/facebook/jest/blob/master/packages/expect/src/matchers.ts#L204)
+Jest has the tricky `toBeDefined` matcher that can produce false positive test. Because it [validates](https://github.com/facebook/jest/blob/master/packages/expect/src/matchers.ts#L204)
 the given value for `undefined` only.
 
 ```javascript
@@ -779,9 +747,7 @@ expect(wrapper.find('foo').exists()).toBe(true);
 
 #### Avoid using `setImmediate`
 
-Try to avoid using `setImmediate`. `setImmediate` is an ad-hoc solution to run your callback after
-the I/O completes. And it's not part of the Web API, hence, we target NodeJS environments in our
-unit tests.
+Try to avoid using `setImmediate`. `setImmediate` is an ad-hoc solution to run your callback after the I/O completes. And it's not part of the Web API, hence, we target NodeJS environments in our unit tests.
 
 Instead of `setImmediate`, use `jest.runAllTimers` or `jest.runOnlyPendingTimers` to run pending timers.
 The latter is useful when you have `setInterval` in the code. **Remember**: our Jest configuration uses fake timers.
@@ -797,28 +763,27 @@ Non-determinism is the breeding ground for flaky and brittle specs. Such specs e
 
 `Date` is faked by default in our Jest environment. This means every call to `Date()` or `Date.now()` returns a fixed deterministic value.
 
-If you really need to change the default fake date, you can call `useFakeDate` within any `describe` block, and
-the date will be replaced for that specs within that `describe` context only:
+If you really need to change the default fake date, you can call `useFakeDate` within any `describe` block, and the date will be replaced for that specs within that `describe` context only:
 
 ```javascript
 import { useFakeDate } from 'helpers/fake_date';
 
 describe('cool/component', () => {
-  // Default fake `Date`
-  const TODAY = new Date();
+ // Default fake `Date`
+ const TODAY = new Date();
 
-  // NOTE: `useFakeDate` cannot be called during test execution (that is, inside `it`, `beforeEach`, `beforeAll`, etc.).
-  describe("on Ada Lovelace's Birthday", () => {
+ // NOTE: `useFakeDate` cannot be called during test execution (that is, inside `it`, `beforeEach`, `beforeAll`, etc.).
+ describe("on Ada Lovelace's Birthday", () => {
     useFakeDate(1815, 11, 10)
 
     it('Date is no longer default', () => {
       expect(new Date()).not.toEqual(TODAY);
     });
-  });
+ });
 
-  it('Date is still default in this scope', () => {
+ it('Date is still default in this scope', () => {
     expect(new Date()).toEqual(TODAY)
-  });
+ });
 })
 ```
 
@@ -829,7 +794,7 @@ import { useRealDate } from 'helpers/fake_date';
 
 // NOTE: `useRealDate` cannot be called during test execution (that is, inside `it`, `beforeEach`, `beforeAll`, etc.).
 describe('with real date', () => {
-  useRealDate();
+ useRealDate();
 });
 ```
 
@@ -839,39 +804,33 @@ Consider replacing `Math.random` with a fake when the test subject depends on it
 
 ```javascript
 beforeEach(() => {
-  // https://xkcd.com/221/
-  jest.spyOn(Math, 'random').mockReturnValue(0.4);
+ // https://xkcd.com/221/
+ jest.spyOn(Math, 'random').mockReturnValue(0.4);
 });
 ```
 
 ## Console warnings and errors in tests
 
 Unexpected console warnings and errors are indicative of problems in our production code.
-We want our test environment to be strict, so your tests should fail when unexpected
-`console.error` or `console.warn` calls are made.
+We want our test environment to be strict, so your tests should fail when unexpected `console.error` or `console.warn` calls are made.
 
 ### Ignoring console messages from watcher
 
-Since there's a lot of code outside of our control, there are some console messages that
-are ignored by default and will **not** fail a test if used. This list of ignored
-messages can be maintained where we call `setupConsoleWatcher`. Example:
+Since there's a lot of code outside of our control, there are some console messages that are ignored by default and will **not** fail a test if used. This list of ignored messages can be maintained where we call `setupConsoleWatcher`. Example:
 
 ```javascript
 setupConsoleWatcher({
-  ignores: [
+ ignores: [
     ...,
     // Any call to `console.error('Foo bar')` or `console.warn('Foo bar')` will be ignored by our console watcher.
     'Foo bar',
     // Use regex to allow for flexible message matching.
     /Lorem ipsum/,
-  ]
+ ]
 });
 ```
 
-If a specific test needs to ignore a specific message for a `describe` block, use the
-`ignoreConsoleMessages` helper near the top of the `describe`. This automatically
-calls `beforeAll` and `afterAll` to set up/teardown this set of ignored for the test
-context.
+If a specific test needs to ignore a specific message for a `describe` block, use the `ignoreConsoleMessages` helper near the top of the `describe`. This automatically calls `beforeAll` and `afterAll` to set up/teardown this set of ignored for the test context.
 
 Use this sparingly and only if absolutely necessary for test maintainability. Example:
 
@@ -879,16 +838,16 @@ Use this sparingly and only if absolutely necessary for test maintainability. Ex
 import { ignoreConsoleMessages } from 'helpers/console_watcher';
 
 describe('foos/components/foo.vue', () => {
-  describe('when blooped', () => {
+ describe('when blooped', () => {
     // Will not fail a test if `console.warn('Lorem ipsum')` is called
     ignoreConsoleMessages([
       /^Lorem ipsum/
     ]);
-  });
+ });
 
-  describe('default', () => {
+ describe('default', () => {
     // Will fail a test if `console.warn('Lorem ipsum')` is called
-  });
+ });
 });
 ```
 
@@ -906,8 +865,7 @@ The more challenging part are mocks, which can be used for functions or even dep
 
 ### Manual module mocks
 
-Manual mocks are used to mock modules across the entire Jest environment. This is a very powerful testing tool that helps simplify
-unit testing by mocking out modules that cannot be easily consumed in our test environment.
+Manual mocks are used to mock modules across the entire Jest environment. This is a very powerful testing tool that helps simplify unit testing by mocking out modules that cannot be easily consumed in our test environment.
 
 {{< alert type="warning" >}}
 
@@ -919,15 +877,11 @@ Instead, consider using [`jest.mock(..)`](https://jestjs.io/docs/jest-object#jes
 
 #### Where should you put manual mocks?
 
-Jest supports [manual module mocks](https://jestjs.io/docs/manual-mocks) by placing a mock in a `__mocks__/` directory next to the source module
-(for example, `app/assets/javascripts/ide/__mocks__`). **Don't do this.** We want to keep all of our test-related code in one place (the `spec/` folder).
+Jest supports [manual module mocks](https://jestjs.io/docs/manual-mocks) by placing a mock in a `__mocks__/` directory next to the source module (for example, `app/assets/javascripts/ide/__mocks__`). **Don't do this.** We want to keep all of our test-related code in one place (the `spec/` folder).
 
-If a manual mock is needed for a `node_modules` package, use the `spec/frontend/__mocks__` folder. Here's an example of
-a [Jest mock for the package `monaco-editor`](https://gitlab.com/gitlab-org/gitlab/-/blob/b7f914cddec9fc5971238cdf12766e79fa1629d7/spec/frontend/__mocks__/monaco-editor/index.js#L1).
+If a manual mock is needed for a `node_modules` package, use the `spec/frontend/__mocks__` folder. Here's an example of a [Jest mock for the package `monaco-editor`](https://gitlab.com/gitlab-org/gitlab/-/blob/b7f914cddec9fc5971238cdf12766e79fa1629d7/spec/frontend/__mocks__/monaco-editor/index.js#L1).
 
-If a manual mock is needed for a CE module, place the implementation in
-`spec/frontend/__helpers__/mocks` and add a line to the `frontend/test_setup`
-(or the `frontend/shared_test_setup`) that looks something like:
+If a manual mock is needed for a CE module, place the implementation in `spec/frontend/__helpers__/mocks` and add a line to the `frontend/test_setup` (or the `frontend/shared_test_setup`) that looks something like:
 
 ```javascript
 // "~/lib/utils/axios_utils" is the path to the real module
@@ -937,14 +891,9 @@ jest.mock('~/lib/utils/axios_utils', () => jest.requireActual('helpers/mocks/axi
 
 #### Manual mock examples
 
-- [`__helpers__/mocks/axios_utils`](https://gitlab.com/gitlab-org/gitlab/-/blob/a50edd12b3b1531389624086b6381a042c8143ef/spec/frontend/__helpers__/mocks/axios_utils.js#L1) -
-  This mock is helpful because we don't want any unmocked requests to pass any tests. Also, we are able to inject some test helpers such as `axios.waitForAll`.
-- [`__mocks__/mousetrap/index.js`](https://gitlab.com/gitlab-org/gitlab/-/blob/cd4c086d894226445be9d18294a060ba46572435/spec/frontend/__mocks__/mousetrap/index.js#L1) -
-  This mock is helpful because the module itself uses AMD format which webpack understands, but is incompatible with the jest environment. This mock doesn't remove
-  any behavior, only provides a nice es6 compatible wrapper.
-- [`__mocks__/monaco-editor/index.js`](https://gitlab.com/gitlab-org/gitlab/-/blob/b7f914cddec9fc5971238cdf12766e79fa1629d7/spec/frontend/__mocks__/monaco-editor/index.js) -
-  This mock is helpful because the Monaco package is completely incompatible in a Jest environment. In fact, webpack requires a special loader to make it work. This mock
-  makes this package consumable by Jest.
+- [`__helpers__/mocks/axios_utils`](https://gitlab.com/gitlab-org/gitlab/-/blob/a50edd12b3b1531389624086b6381a042c8143ef/spec/frontend/__helpers__/mocks/axios_utils.js#L1) - This mock is helpful because we don't want any unmocked requests to pass any tests. Also, we are able to inject some test helpers such as `axios.waitForAll`.
+- [`__mocks__/mousetrap/index.js`](https://gitlab.com/gitlab-org/gitlab/-/blob/cd4c086d894226445be9d18294a060ba46572435/spec/frontend/__mocks__/mousetrap/index.js#L1) - This mock is helpful because the module itself uses AMD format which webpack understands, but is incompatible with the jest environment. This mock doesn't remove any behavior, only provides a nice es6 compatible wrapper.
+- [`__mocks__/monaco-editor/index.js`](https://gitlab.com/gitlab-org/gitlab/-/blob/b7f914cddec9fc5971238cdf12766e79fa1629d7/spec/frontend/__mocks__/monaco-editor/index.js) - This mock is helpful because the Monaco package is completely incompatible in a Jest environment. In fact, webpack requires a special loader to make it work. This mock makes this package consumable by Jest.
 
 ### Keep mocks light
 
@@ -963,8 +912,7 @@ Before generating fixtures, make sure you have a running GDK instance.
 
 For running the frontend tests, you need the following commands:
 
-- `rake frontend:fixtures` (re-)generates [fixtures](#frontend-test-fixtures). Make sure that
-  fixtures are up-to-date before running tests that require them.
+- `rake frontend:fixtures` (re-)generates [fixtures](#frontend-test-fixtures). Make sure that fixtures are up-to-date before running tests that require them.
 - `yarn jest` runs Jest tests.
 
 ### Running CE and EE tests
@@ -998,9 +946,7 @@ yarn jest term
 
 ## Frontend test fixtures
 
-Frontend fixtures are files containing responses from backend controllers. These responses can be either HTML
-generated from HAML templates or JSON payloads. Frontend tests that rely on these responses are
-often using fixtures to validate correct integration with the backend code.
+Frontend fixtures are files containing responses from backend controllers. These responses can be either HTML generated from HAML templates or JSON payloads. Frontend tests that rely on these responses are often using fixtures to validate correct integration with the backend code.
 
 ### Use fixtures
 
@@ -1010,11 +956,11 @@ To import a JSON or HTML fixture, `import` it using the `test_fixtures` alias.
 import responseBody from 'test_fixtures/some/fixture.json' // loads tmp/tests/frontend/fixtures-ee/some/fixture.json
 
 it('makes a request', () => {
-  axiosMock.onGet(endpoint).reply(200, responseBody);
+ axiosMock.onGet(endpoint).reply(200, responseBody);
 
-  myButton.click();
+ myButton.click();
 
-  // ...
+ // ...
 });
 ```
 
@@ -1067,52 +1013,45 @@ $ scripts/frontend/download_fixtures.sh --branch master
 #### Creating new fixtures
 
 For each fixture, you can find the content of the `response` variable in the output file.
-For example, a test named `"merge_requests/diff_discussion.json"` in `spec/frontend/fixtures/merge_requests.rb`
-produces an output file `tmp/tests/frontend/fixtures-ee/merge_requests/diff_discussion.json`.
+For example, a test named `"merge_requests/diff_discussion.json"` in `spec/frontend/fixtures/merge_requests.rb` produces an output file `tmp/tests/frontend/fixtures-ee/merge_requests/diff_discussion.json`.
 The `response` variable gets automatically set if the test is marked as `type: :request` or `type: :controller`.
 
-When creating a new fixture, it often makes sense to take a look at the corresponding tests for the
-endpoint in `(ee/)spec/controllers/` or `(ee/)spec/requests/`.
+When creating a new fixture, it often makes sense to take a look at the corresponding tests for the endpoint in `(ee/)spec/controllers/` or `(ee/)spec/requests/`.
 
 ##### GraphQL query fixtures
 
-You can create a fixture that represents the result of a GraphQL query using the `get_graphql_query_as_string`
-helper method. For example:
+You can create a fixture that represents the result of a GraphQL query using the `get_graphql_query_as_string` helper method. For example:
 
 ```ruby
 # spec/frontend/fixtures/releases.rb
 
 describe GraphQL::Query, type: :request do
-  include GraphqlHelpers
+ include GraphqlHelpers
 
-  all_releases_query_path = 'releases/graphql/queries/all_releases.query.graphql'
+ all_releases_query_path = 'releases/graphql/queries/all_releases.query.graphql'
 
-  it "graphql/#{all_releases_query_path}.json" do
+ it "graphql/#{all_releases_query_path}.json" do
     query = get_graphql_query_as_string(all_releases_query_path)
 
     post_graphql(query, current_user: admin, variables: { fullPath: project.full_path })
 
     expect_graphql_errors_to_be_empty
-  end
+ end
 end
 ```
 
-This will create a new fixture located at
-`tmp/tests/frontend/fixtures-ee/graphql/releases/graphql/queries/all_releases.query.graphql.json`.
+This will create a new fixture located at `tmp/tests/frontend/fixtures-ee/graphql/releases/graphql/queries/all_releases.query.graphql.json`.
 
-You can import the JSON fixture in a Jest test using the `test_fixtures` alias
-[as described previously](#use-fixtures).
+You can import the JSON fixture in a Jest test using the `test_fixtures` alias [as described previously](#use-fixtures).
 
 ## Data-driven tests
 
-Similar to [RSpec's parameterized tests](best_practices.md#table-based--parameterized-tests),
-Jest supports data-driven tests for:
+Similar to [RSpec's parameterized tests](best_practices.md#table-based--parameterized-tests), Jest supports data-driven tests for:
 
 - Individual tests using [`test.each`](https://jestjs.io/docs/api#testeachtable-name-fn-timeout) (aliased to `it.each`).
 - Groups of tests using [`describe.each`](https://jestjs.io/docs/api#describeeachtable-name-fn-timeout).
 
-These can be useful for reducing repetition within tests. Each option can take an array of
-data values or a tagged template literal.
+These can be useful for reducing repetition within tests. Each option can take an array of data values or a tagged template literal.
 
 For example:
 
@@ -1147,7 +1086,7 @@ it.each`
     ${''} | ${{ issue: { users: { nodes: [] } } }}
     ${'search term'} | ${{ issue: { other: { nested: [] } } }}
 `('when search term is $searchTerm, it returns $expected', ({ searchTerm, expected }) => {
-  expect(search(searchTerm)).toEqual(expected)
+ expect(search(searchTerm)).toEqual(expected)
 });
 
 // good
@@ -1167,7 +1106,7 @@ it.each([
 describe.each`
     status   | icon                 | message
     ${false} | ${'pipeline-failed'} | ${'Pipeline failed - boo-urns'}
-    ${true}  | ${'pipeline-passed'} | ${'Pipeline succeeded - win!'}
+    ${true} | ${'pipeline-passed'} | ${'Pipeline succeeded - win!'}
 `('pipeline component', ({ status, icon, message }) => {
     it(`returns icon ${icon} with status ${status}`, () => {
         expect(icon(status)).toEqual(message)
@@ -1183,40 +1122,33 @@ describe.each`
 
 ### RSpec errors due to JavaScript
 
-By default RSpec unit tests don't run JavaScript in the headless browser
-and rely on inspecting the HTML generated by rails.
+By default RSpec unit tests don't run JavaScript in the headless browser and rely on inspecting the HTML generated by rails.
 
-If an integration test depends on JavaScript to run correctly, you need to make
-sure the spec is configured to enable JavaScript when the tests are run. If you
-don't do this, the spec runner displays vague error messages.
+If an integration test depends on JavaScript to run correctly, you need to make sure the spec is configured to enable JavaScript when the tests are run. If you don't do this, the spec runner displays vague error messages.
 
-To enable a JavaScript driver in an `RSpec` test, add `:js` to the
-individual spec or the context block containing multiple specs that need
-JavaScript enabled:
+To enable a JavaScript driver in an `RSpec` test, add `:js` to the individual spec or the context block containing multiple specs that need JavaScript enabled:
 
 ```ruby
 # For one spec
 it 'presents information about abuse report', :js do
-  # assertions...
+ # assertions...
 end
 
 describe "Admin::AbuseReports", :js do
-  it 'presents information about abuse report' do
+ it 'presents information about abuse report' do
     # assertions...
-  end
-  it 'shows buttons for adding to abuse report' do
+ end
+ it 'shows buttons for adding to abuse report' do
     # assertions...
-  end
+ end
 end
 ```
 
 ### Jest test timeout due to asynchronous imports
 
-If a module asynchronously imports some other modules at runtime, these modules must be
-transpiled by the Jest loaders at runtime. It's possible that this can cause [Jest to timeout](https://gitlab.com/gitlab-org/gitlab/-/issues/280809).
+If a module asynchronously imports some other modules at runtime, these modules must be transpiled by the Jest loaders at runtime. It's possible that this can cause [Jest to timeout](https://gitlab.com/gitlab-org/gitlab/-/issues/280809).
 
-If you run into this issue, consider eager importing the module so that Jest compiles
-and caches it at compile-time, fixing the runtime timeout.
+If you run into this issue, consider eager importing the module so that Jest compiles and caches it at compile-time, fixing the runtime timeout.
 
 Consider the following example:
 
@@ -1224,16 +1156,14 @@ Consider the following example:
 // the_subject.js
 
 export default {
-  components: {
+ components: {
     // Async import Thing because it is large and isn't always needed.
     Thing: () => import(/* webpackChunkName: 'thing' */ './path/to/thing.vue'),
-  }
+ }
 };
 ```
 
-Jest doesn't automatically transpile the `thing.vue` module, and depending on its size, could
-cause Jest to time out. We can force Jest to transpile and cache this module by eagerly importing
-it like so:
+Jest doesn't automatically transpile the `thing.vue` module, and depending on its size, could cause Jest to time out. We can force Jest to transpile and cache this module by eagerly importing it like so:
 
 ```javascript
 // the_subject_spec.js
@@ -1247,9 +1177,7 @@ import _Thing from '~/feature/path/to/thing.vue';
 
 {{< alert type="note" >}}
 
-Do not disregard test timeouts. This could be a sign that there's
-actually a production problem. Use this opportunity to analyze the production webpack bundles and
-chunks and confirm that there is not a production issue with the asynchronous imports.
+Do not disregard test timeouts. This could be a sign that there's actually a production problem. Use this opportunity to analyze the production webpack bundles and chunks and confirm that there is not a production issue with the asynchronous imports.
 
 {{< /alert >}}
 
@@ -1280,27 +1208,27 @@ We have a helper available to make testing actions easier, as per [official docu
 ```javascript
 // prefer using like this, a single object argument so parameters are obvious from reading the test
 await testAction({
-  action: actions.actionName,
-  payload: { deleteListId: 1 },
-  state: { lists: [1, 2, 3] },
-  expectedMutations: [ { type: types.MUTATION} ],
-  expectedActions: [],
+ action: actions.actionName,
+ payload: { deleteListId: 1 },
+ state: { lists: [1, 2, 3] },
+ expectedMutations: [ { type: types.MUTATION} ],
+ expectedActions: [],
 });
 
 // old way, don't do this for new tests
 testAction(
-  actions.actionName, // action
-  { }, // params to be passed to action
-  state, // state
-  [
+ actions.actionName, // action
+ { }, // params to be passed to action
+ state, // state
+ [
     { type: types.MUTATION},
     { type: types.MUTATION_1, payload: {}},
-  ], // mutations committed
-  [
+ ], // mutations committed
+ [
     { type: 'actionName', payload: {}},
     { type: 'actionName1', payload: {}},
-  ] // actions dispatched
-  done,
+ ] // actions dispatched
+ done,
 );
 ```
 
@@ -1320,15 +1248,14 @@ Both functions run `callback` on the next tick after the requests finish (using 
 
 ### `shallowMountExtended` and `mountExtended`
 
-The `shallowMountExtended` and `mountExtended` utilities provide you with the ability to perform
-any of the available [DOM Testing Library queries](https://testing-library.com/docs/queries/about/)
+The `shallowMountExtended` and `mountExtended` utilities provide you with the ability to perform any of the available [DOM Testing Library queries](https://testing-library.com/docs/queries/about/)
 by prefixing them with `find` or `findAll`.
 
 ```javascript
 import { shallowMountExtended } from 'helpers/vue_test_utils_helper';
 
 describe('FooComponent', () => {
-  const wrapper = shallowMountExtended({
+ const wrapper = shallowMountExtended({
     template: `
       <div data-testid="gitlab-frontend-stack">
         <p>GitLab frontend stack</p>
@@ -1339,20 +1266,20 @@ describe('FooComponent', () => {
         </div>
       </div>
     `,
-  });
+ });
 
-  it('finds elements with `findByTestId`', () => {
+ it('finds elements with `findByTestId`', () => {
     expect(wrapper.findByTestId('gitlab-frontend-stack').exists()).toBe(true);
-  });
+ });
 
-  it('finds elements with `findByText`', () => {
+ it('finds elements with `findByText`', () => {
     expect(wrapper.findByText('GitLab frontend stack').exists()).toBe(true);
     expect(wrapper.findByText('TypeScript').exists()).toBe(false);
-  });
+ });
 
-  it('finds elements with `findAllByRole`', () => {
+ it('finds elements with `findAllByRole`', () => {
     expect(wrapper.findAllByRole('tab').length).toBe(3);
-  });
+ });
 });
 ```
 
@@ -1366,8 +1293,7 @@ Some regressions only affect a specific browser version. We can install and test
 
 [BrowserStack](https://www.browserstack.com/) allows you to test more than 1200 mobile devices and browsers.
 You can use it directly through the [live app](https://www.browserstack.com/live) or you can install the [chrome extension](https://chromewebstore.google.com/detail/browserstack/nkihdmlheodkdfojglpcjjmioefjahjb) for easy access.
-Sign in to BrowserStack with the credentials saved in the **Engineering** vault of the GitLab
-[shared 1Password account](https://handbook.gitlab.com/handbook/security/password-guidelines/#1password-for-teams).
+Sign in to BrowserStack with the credentials saved in the **Engineering** vault of the GitLab [shared 1Password account](https://handbook.gitlab.com/handbook/security/password-guidelines/#1password-for-teams).
 
 ### Firefox
 
@@ -1438,8 +1364,7 @@ Find all the details in Jests official documentation [https://jestjs.io/docs/sna
 
 ### Examples
 
-As you can see, the cons of snapshot tests far outweigh the pros in general. To illustrate this better, this section will show a few examples of when you might be tempted to
-use snapshot testing and why they are not good patterns.
+As you can see, the cons of snapshot tests far outweigh the pros in general. To illustrate this better, this section will show a few examples of when you might be tempted to use snapshot testing and why they are not good patterns.
 
 #### Example #1 - Element visibility
 
@@ -1447,7 +1372,7 @@ When testing elements visibility, favour using `vue-tests-utils (VTU)` to find a
 
 ```vue
 <template>
-  <my-component v-if="isVisible" />
+ <my-component v-if="isVisible" />
 </template>
 ```
 
@@ -1455,15 +1380,15 @@ Bad:
 
 ```javascript
 it('hides the component', () => {
-  createComponent({ props: { isVisible: false }})
+ createComponent({ props: { isVisible: false }})
 
-  expect(wrapper.element).toMatchSnapshot()
+ expect(wrapper.element).toMatchSnapshot()
 })
 
 it('shows the component', () => {
-  createComponent({ props: { isVisible: true }})
+ createComponent({ props: { isVisible: true }})
 
-  expect(wrapper.element).toMatchSnapshot()
+ expect(wrapper.element).toMatchSnapshot()
 })
 ```
 
@@ -1471,15 +1396,15 @@ Good:
 
 ```javascript
 it('hides the component', () => {
-  createComponent({ props: { isVisible: false }})
+ createComponent({ props: { isVisible: false }})
 
-  expect(findMyComponent().exists()).toBe(false)
+ expect(findMyComponent().exists()).toBe(false)
 })
 
 it('shows the component', () => {
-  createComponent({ props: { isVisible: true }})
+ createComponent({ props: { isVisible: true }})
 
-  expect(findMyComponent().exists()).toBe(true)
+ expect(findMyComponent().exists()).toBe(true)
 })
 ```
 
@@ -1493,12 +1418,12 @@ In these instances, it is better to assert each string individually and make mul
 
 ```vue
 <template>
-  <gl-sprintf :message="my-message">
+ <gl-sprintf :message="my-message">
     <template #code="{ content }">
       <code>{{ content }}</code>
     </template>
-  </gl-sprintf>
-  <p> My second message </p>
+ </gl-sprintf>
+ <p> My second message </p>
 </template>
 ```
 
@@ -1506,7 +1431,7 @@ Bad:
 
 ```javascript
 it('renders the text as I expect', () => {
-  expect(wrapper.text()).toMatchSnapshot()
+ expect(wrapper.text()).toMatchSnapshot()
 })
 ```
 
@@ -1514,11 +1439,11 @@ Good:
 
 ```javascript
 it('renders the code snippet', () => {
-  expect(findCodeTag().text()).toContain("myFunction()")
+ expect(findCodeTag().text()).toContain("myFunction()")
 })
 
 it('renders the paragraph text', () => {
-  expect(findOtherText().text()).toBe("My second message")
+ expect(findOtherText().text()).toBe("My second message")
 })
 ```
 
@@ -1530,7 +1455,7 @@ A good example of a complex HTML output is `GlTable`. Snapshot testing might fee
 
 ```vue
 <template>
-  <gl-table ...all-them-props />
+ <gl-table ...all-them-props />
 </template>
 ```
 
@@ -1538,7 +1463,7 @@ Bad:
 
 ```javascript
 it('renders GlTable as I expect', () => {
-  expect(findGlTable().element).toMatchSnapshot()
+ expect(findGlTable().element).toMatchSnapshot()
 })
 ```
 
@@ -1546,15 +1471,15 @@ Good:
 
 ```javascript
 it('renders the right number of rows', () => {
-  expect(findGlTable().findAllRows()).toHaveLength(expectedLength)
+ expect(findGlTable().findAllRows()).toHaveLength(expectedLength)
 })
 
 it('renders the special icon that only appears on a full moon', () => {
-  expect(findGlTable().findMoonIcon().exists()).toBe(true)
+ expect(findGlTable().findMoonIcon().exists()).toBe(true)
 })
 
 it('renders the correct email format', () => {
-  expect(findGlTable().text()).toContain('my_strange_email@shaddyprovide.com')
+ expect(findGlTable().text()).toContain('my_strange_email@shaddyprovide.com')
 })
 ```
 
@@ -1564,7 +1489,7 @@ Although more verbose, this now means that our tests are not going to break if `
 
 ```javascript
 it('makes the name look pretty', () => {
-  expect(prettifyName('Homer Simpson')).toMatchSnapshot()
+ expect(prettifyName('Homer Simpson')).toMatchSnapshot()
 })
 ```
 
@@ -1583,8 +1508,8 @@ The same can be done for `wrappers` or `elements`
 
 ```javascript
 it('renders the component correctly', () => {
-  expect(wrapper).toMatchSnapshot()
-  expect(wrapper.element).toMatchSnapshot();
+ expect(wrapper).toMatchSnapshot()
+ expect(wrapper.element).toMatchSnapshot();
 })
 ```
 
@@ -1631,8 +1556,8 @@ You should use a unit test if:
 Also, if a behavior in your new code needs multiple components to work together, you should consider testing your behavior higher in the component tree. For example, consider a component called `ParentComponent` with the code:
 
 ```vue
-  <script>
-  export default{
+ <script>
+ export default{
     name: ParentComponent,
     data(){
       return {
@@ -1644,14 +1569,14 @@ Also, if a behavior in your new code needs multiple components to work together,
         this.internalData = newVal
       }
      }
-  }
-  </script>
-  <template>
+ }
+ </script>
+ <template>
    <div>
     <child-component-1 @child-event="changeSomeInternalData" />
     <child-component-2 :parent-data="internalData" />
    </div>
-  </template>
+ </template>
 ```
 
 In this example:
@@ -1721,7 +1646,7 @@ Then, you need to create the very first `RSpec` scope.
 
 ```ruby
 RSpec.describe 'Pipeline', :js do
-  ...
+ ...
 end
 ```
 
@@ -1729,8 +1654,8 @@ What is different though, is that just like everything in Ruby, this is actually
 
 ```ruby
 RSpec.describe 'Pipeline', :js do
-  include RoutesHelpers
-  ...
+ include RoutesHelpers
+ ...
 end
 ```
 
@@ -1742,7 +1667,7 @@ After all of this implementation, we have a file that looks something like this:
 require 'spec_helper'
 
 RSpec.describe 'Pipeline', :js do
-  include RoutesHelpers
+ include RoutesHelpers
 end
 ```
 
@@ -1753,7 +1678,7 @@ Each test is in its own environment and so you must use a factory to seed the re
 Most feature tests at least require you to create a user, because you want to be signed in. You can skip this step if you don't have to be signed in, but as a general rule, you should **always create a user unless you are specifically testing a feature looked at by an anonymous user**. This makes sure that you explicitly set a level of permission that you can edit in the test as needed to change or test a new level of permission as the section changes. To create a user:
 
 ```ruby
-  let(:user) { create(:user) }
+ let(:user) { create(:user) }
 ```
 
 This creates a variable that holds the newly created user and we can use `create` because we imported the `spec_helper`.
@@ -1761,11 +1686,11 @@ This creates a variable that holds the newly created user and we can use `create
 However, we have not done anything with this user yet because it's just a variable. So, in the `before do` block of the spec, we could sign in with the user so that every spec starts with an authenticated user.
 
 ```ruby
-  let(:user) { create(:user) }
+ let(:user) { create(:user) }
 
-  before do
+ before do
     sign_in(user)
-  end
+ end
 ```
 
 Now that we have a user, we should look at what else we'd need before asserting anything on a pipeline page. If you look at the route `/namespace/project/-/pipelines/:id/` we can determine we need a project and a pipeline.
@@ -1773,15 +1698,15 @@ Now that we have a user, we should look at what else we'd need before asserting 
 So we'd create a project and pipeline, and link them together. Usually in factories, the child element requires its parent as an argument. In this case, a pipeline is a child of a project. So we can create the project first, and then when we create the pipeline, we are pass the project as an argument which "binds" the pipeline to the project. A pipeline is also owned by a user, so we need the user as well. For example, this creates a project and a pipeline:
 
 ```ruby
-  let(:user) { create(:user) }
-  let(:project) { create(:project, :repository) }
-  let(:pipeline) { create(:ci_pipeline, project: project, ref: 'master', sha: project.commit.id, user: user) }
+ let(:user) { create(:user) }
+ let(:project) { create(:project, :repository) }
+ let(:pipeline) { create(:ci_pipeline, project: project, ref: 'master', sha: project.commit.id, user: user) }
 ```
 
 In the same spirit, you could then create a job (build) by using the build factory and passing the parent pipeline:
 
 ```ruby
-  create(:ci_build, pipeline: pipeline, stage_idx: 10, stage: 'publish', name: 'CentOS')
+ create(:ci_build, pipeline: pipeline, stage_idx: 10, stage: 'publish', name: 'CentOS')
 ```
 
 There are many factories that already exists, so make sure to look at other existing files to see if what you need is available.
@@ -1791,7 +1716,7 @@ There are many factories that already exists, so make sure to look at other exis
 You can go to a page by using the `visit` method and passing the path as an argument. Rails automatically generates helper paths, so make sure to use these instead of a hardcoded string. They are generated using the route model, so if we want to go to a pipeline, we'd use:
 
 ```ruby
-  visit project_pipeline_path(project, pipeline)
+ visit project_pipeline_path(project, pipeline)
 ```
 
 Before executing any page interaction when navigating or making asynchronous call through the UI, make sure to use `wait_for_requests` before proceeding with further instructions.
@@ -1804,19 +1729,19 @@ For best practises, refer to the [UI testing](best_practices.md#ui-testing) sect
 To click a button, use `click_button` with the string of text found in the button:
 
 ```ruby
-  click_button 'Text inside the button element'
+ click_button 'Text inside the button element'
 ```
 
 If you want to follow a link, then there is `click_link`:
 
 ```ruby
-  click_link 'Text inside the link tag'
+ click_link 'Text inside the link tag'
 ```
 
 You can use `fill_in` to fill input / form elements. The first argument is the selector, the second is `with:` which is the value to pass in.
 
 ```ruby
-  fill_in 'current_password', with: '123devops'
+ fill_in 'current_password', with: '123devops'
 ```
 
 Alternatively, you can use the `find` selector paired with `send_keys` to add keys in a field without removing previous text, or `set` which completely replaces the value of the input element.
@@ -1828,46 +1753,46 @@ You can find a more comprehensive list of actions in the [feature tests actions]
 To assert anything in a page, you can always access `page` variable, which is automatically defines and actually means the page document. This means you can expect the `page` to have certain components like selectors or content. Here are a few examples:
 
 ```ruby
-  # Finding a button
-  expect(page).to have_button('Submit review')
+ # Finding a button
+ expect(page).to have_button('Submit review')
 ```
 
 ```ruby
-  # Finding by text
-  expect(page).to have_text('build')
+ # Finding by text
+ expect(page).to have_text('build')
 ```
 
 ```ruby
-  # Finding by `href` value
-  expect(page).to have_link(pipeline.ref)
+ # Finding by `href` value
+ expect(page).to have_link(pipeline.ref)
 ```
 
 ```ruby
-  # Find by data-testid
-  # Like CSS selector, this is acceptable when there isn't a specific matcher available.
-  expect(page).to have_css('[data-testid="pipeline-multi-actions-dropdown"]')
+ # Find by data-testid
+ # Like CSS selector, this is acceptable when there isn't a specific matcher available.
+ expect(page).to have_css('[data-testid="pipeline-multi-actions-dropdown"]')
 ```
 
 ```ruby
-  # Finding by CSS selector. This is a last resort.
-  # For example, when you cannot add attributes on the desired element.
-  expect(page).to have_css('.js-icon-retry')
+ # Finding by CSS selector. This is a last resort.
+ # For example, when you cannot add attributes on the desired element.
+ expect(page).to have_css('.js-icon-retry')
 ```
 
 ```ruby
-  # You can combine any of these selectors with `not_to` instead
-  expect(page).not_to have_button('Submit review')
+ # You can combine any of these selectors with `not_to` instead
+ expect(page).not_to have_button('Submit review')
 ```
 
 ```ruby
-  # When a test case has back to back expectations,
-  # it is recommended to group them using `:aggregate_failures`
-  it 'shows the issue description and design references', :aggregate_failures do
+ # When a test case has back to back expectations,
+ # it is recommended to group them using `:aggregate_failures`
+ it 'shows the issue description and design references', :aggregate_failures do
     expect(page).to have_text('The designs I mentioned')
     expect(page).to have_link(design_tab_ref)
     expect(page).to have_link(design_ref_a)
     expect(page).to have_link(design_ref_b)
-  end
+ end
 ```
 
 You can also create a sub-block to look into, to:
@@ -1876,9 +1801,9 @@ You can also create a sub-block to look into, to:
 - Make sure an element is found within the right boundaries.
 
 ```ruby
-  page.within('[data-testid="pipeline-multi-actions-dropdown"]') do
+ page.within('[data-testid="pipeline-multi-actions-dropdown"]') do
     ...
-  end
+ end
 ```
 
 You can find a more comprehensive list of matchers in the [feature tests matchers](best_practices.md#matchers) documentation.
@@ -1888,59 +1813,53 @@ You can find a more comprehensive list of matchers in the [feature tests matcher
 By default, every feature flag is enabled **regardless of the YAML definition or the flags you've set manually in your GDK**. To test when a feature flag is disabled, you must manually stub the flag, ideally in a `before do` block.
 
 ```ruby
-  stub_feature_flags(my_feature_flag: false)
+ stub_feature_flags(my_feature_flag: false)
 ```
 
 If you are stubbing an `ee` feature flag, then use:
 
 ```ruby
-  stub_licensed_features(my_feature_flag: false)
+ stub_licensed_features(my_feature_flag: false)
 ```
 
 #### Asserting browser console errors
 
-By default, feature specs won't fail if a browser console error is found. Sometimes we want to cover that there are not
-unexpected console errors which could indicate an integration problem.
+By default, feature specs won't fail if a browser console error is found. Sometimes we want to cover that there are not unexpected console errors which could indicate an integration problem.
 
-To set a feature spec to fail if it encounters browser console errors, use `expect_page_to_have_no_console_errors` from
-the `BrowserConsoleHelpers` support module:
+To set a feature spec to fail if it encounters browser console errors, use `expect_page_to_have_no_console_errors` from the `BrowserConsoleHelpers` support module:
 
 ```ruby
 RSpec.describe 'Pipeline', :js do
-  after do
+ after do
     expect_page_to_have_no_console_errors
-  end
+ end
 
-  # ...
+ # ...
 end
 ```
 
 {{< alert type="note" >}}
 
-`expect_page_to_have_no_console_errors` will not work on `WEBDRIVER=firefox`. Logs are only captured when
-using the Chrome driver.
+`expect_page_to_have_no_console_errors` will not work on `WEBDRIVER=firefox`. Logs are only captured when using the Chrome driver.
 
 {{< /alert >}}
 
-Sometimes, there are known console errors that we want to ignore. To ignore a set of messages, such that the test
-**will not** fail if the message is observed, you can pass an `allow:` parameter to
-`expect_page_to_have_no_console_errors`:
+Sometimes, there are known console errors that we want to ignore. To ignore a set of messages, such that the test **will not** fail if the message is observed, you can pass an `allow:` parameter to `expect_page_to_have_no_console_errors`:
 
 ```ruby
 RSpec.describe 'Pipeline', :js do
-  after do
+ after do
     expect_page_to_have_no_console_errors(allow: [
       "Blow up!",
       /Foo.*happens/
     ])
-  end
+ end
 
-  # ...
+ # ...
 end
 ```
 
-Update the `BROWSER_CONSOLE_ERROR_FILTER` constant in `spec/support/helpers/browser_console_helpers.rb` to change
-the list of console errors that should be globally ignored.
+Update the `BROWSER_CONSOLE_ERROR_FILTER` constant in `spec/support/helpers/browser_console_helpers.rb` to change the list of console errors that should be globally ignored.
 
 ### Debugging
 

@@ -35,8 +35,8 @@ An interaction is created by selecting a hotspot, or starting point.
 1. Navigate to the **Prototype** tab of the right sidebar.
 2. Select a layer or object for the interaction's hotspot.
 3. Create the interaction by doing one of the following:
-   - Hover over the object, and drag the  plus icon to the destination frame
-   - Click the  **Add** in the **Interactions** section of the **Prototype** panel.
+   - Hover over the object, and drag the plus icon to the destination frame
+   - Click the **Add** in the **Interactions** section of the **Prototype** panel.
 4. Once the interaction has been made, use the [**Interaction details**](https://help.figma.com/hc/en-us/articles/360040315773#Interaction_details) panel to set the interaction trigger, action, and destination.
 
 Tip: If you haven’t yet interacted with the **Interaction details** panel, you can press and hold `Shift` to hide it from the canvas.
@@ -49,8 +49,8 @@ You can create interactions from multiple objects at once. This can help you sav
    - Select an initial object, then hold down `Shift` while clicking additional objects
    - Drag your cursor across any objects you want to select
 2. Create the interactions by doing one of the following:
-   - Hover over one of the selected objects, then click and drag the  plus icon to the destination frame
-   - Click the  plus icon in the **Interactions** section of the **Prototype** panel, and use the Interaction details panel to set the trigger, action, and animation details
+   - Hover over one of the selected objects, then click and drag the plus icon to the destination frame
+   - Click the plus icon in the **Interactions** section of the **Prototype** panel, and use the Interaction details panel to set the trigger, action, and animation details
 
 Tip: You can also add interactions in bulk if you’re working with a main component. Learn how to [add prototyping connections for components](https://help.figma.com/hc/en-us/articles/4404380377367-Add-prototype-connections-to-components).
 
@@ -75,19 +75,19 @@ A single object can have multiple interactions, each with its own trigger. For e
 A single object can have:
 
 - Any number of the following triggers:
-  - Key/Gamepad
-  - On drag
-  - When video hits
+ - Key/Gamepad
+ - On drag
+ - When video hits
 - One of each of the following triggers:
-  - On click / On tap
-  - While hovering
-  - While pressing
-  - Mouse enter
-  - Mouse leave
-  - Mouse down / Touch press
-  - Mouse up / Touch release
-  - After delay
-  - When video ends
+ - On click / On tap
+ - While hovering
+ - While pressing
+ - Mouse enter
+ - Mouse leave
+ - Mouse down / Touch press
+ - Mouse up / Touch release
+ - After delay
+ - When video ends
 
 Note: You're not able to combine **On click / On tap** with **While hovering**. Instead, consider using **Mouse enter** and **Mouse leave** triggers in place of **While hovering**.
 
@@ -122,7 +122,7 @@ Tip: Figma makes it easy to identify matching objects—when you hover over an o
 To select matching interactions:
 
 1. Select an interaction.
-2. On the **Interaction details** modal, click  **Select matching interactions**.
+2. On the **Interaction details** modal, click **Select matching interactions**.
 
 ![The Interaction details modal, with a mouse hovering over the Select matching interactions icon.](https://help.figma.com/hc/article_attachments/15940981804567)
 

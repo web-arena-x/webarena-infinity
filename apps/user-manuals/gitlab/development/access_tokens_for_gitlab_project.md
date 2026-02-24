@@ -46,7 +46,7 @@ flowchart TD
     
     style D fill:#d4f6d4
     style F fill:#d4f6d4
-    style G fill:#d4f6d4  
+    style G fill:#d4f6d4 
     style J fill:#d4f6d4
     style K fill:#d4f6d4
     style N fill:#d4f6d4

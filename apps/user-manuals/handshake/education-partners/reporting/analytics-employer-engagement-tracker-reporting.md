@@ -30,7 +30,7 @@ Follow the steps in the **Directions** spreadsheet tab to get started!
 
 The below reports were built using our legacy reporting system, so they are not saved in Handshake. If you'd like to save the report, click Save Report in the upper-right corner, then fill out the Report Name, Description (optional), and Sharing settings.
 
-|  |  |
+| | |
 | --- | --- |
 | Employer List | [Download Report](https://app.joinhandshake.com/edu/analytics/reports/new?looker_explore_name=employers&qid=B5MTbtElF1tLDEQvKvIiTS) |
 | Approved & Expired Postings | [Download Report](https://app.joinhandshake.com/edu/analytics/reports/new?looker_explore_name=jobs&qid=wpKp0CSfWF8tP3RV58UOmw) |

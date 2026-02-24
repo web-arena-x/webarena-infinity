@@ -6,12 +6,10 @@ description: Build, track, and deliver the code for your project.
 title: Get started managing code
 ---
 
-GitLab provides tools for the full software development lifecycle,
-from code creation to delivery.
+GitLab provides tools for the full software development lifecycle, from code creation to delivery.
 
 Learn more about creating and managing code in GitLab.
-The process includes authoring your code, having it reviewed,
-committing it with version control, and updating it over time.
+The process includes authoring your code, having it reviewed, committing it with version control, and updating it over time.
 
 This process is part of a larger workflow:
 
@@ -19,15 +17,12 @@ This process is part of a larger workflow:
 
 ## Step 1: Create a repository
 
-A project is a centralized location where you collaborate with others, track issues,
-manage merge requests, and automate CI/CD pipelines, among many other things.
+A project is a centralized location where you collaborate with others, track issues, manage merge requests, and automate CI/CD pipelines, among many other things.
 
-Each project contains a repository, where you can store your code, documentation,
-and other files related to your software development work.
+Each project contains a repository, where you can store your code, documentation, and other files related to your software development work.
 Changes made to files in the repository are tracked, so you can view a history.
 
-While a repository focuses on version control for source code,
-a project provides a comprehensive environment for the entire development lifecycle.
+While a repository focuses on version control for source code, a project provides a comprehensive environment for the entire development lifecycle.
 
 For details, see:
 
@@ -43,16 +38,14 @@ You have two options:
 - The plain text editor, called the Web Editor, which you can use to edit a single file.
 - A more full-featured editor, called the Web IDE, which you can use to edit multiple files.
 
-Prefer to work locally? Use Git to clone the repository to your computer,
-and develop in the IDE of your choice.
+Prefer to work locally? Use Git to clone the repository to your computer, and develop in the IDE of your choice.
 Then you can use one of the GitLab editor extensions to assist in interacting with GitLab.
 
 Don't want to use either of the first two options?
 Launch a remote development environment, and work from the cloud.
 
 You can further split your development environment by creating separate workspaces.
-Workspaces are separate development environments you use to ensure different projects
-don't interfere with one another.
+Workspaces are separate development environments you use to ensure different projects don't interfere with one another.
 
 For details, see:
 
@@ -64,8 +57,7 @@ For details, see:
 
 ## Step 3: Save changes and push to GitLab
 
-When your changes are ready, you should commit them to GitLab,
-where you can share them with others on your team.
+When your changes are ready, you should commit them to GitLab, where you can share them with others on your team.
 
 To commit your changes, first copy them:
 
@@ -74,8 +66,7 @@ To commit your changes, first copy them:
 
 To copy files between branches, you create a merge request.
 How you do this depends on where you authored the code and the tools you use to create it.
-But the idea is to create a merge request that takes the contents of your source branch
-and proposes combining it into the target branch.
+But the idea is to create a merge request that takes the contents of your source branch and proposes combining it into the target branch.
 
 For details, see:
 
@@ -84,13 +75,11 @@ For details, see:
 
 ## Step 4: Have the code reviewed
 
-After you create a merge request that proposes changes to the codebase,
-you can have your proposal reviewed.
+After you create a merge request that proposes changes to the codebase, you can have your proposal reviewed.
 Code reviews help maintain code quality and consistency.
 It's also an opportunity for knowledge sharing among team members.
 
-The merge request shows the difference between the proposed changes
-and the branch you want to merge into.
+The merge request shows the difference between the proposed changes and the branch you want to merge into.
 
 Reviewers can see the changes and leave comments on specific lines of code.
 Reviewers can also suggest changes directly in the diff.
@@ -98,10 +87,7 @@ Reviewers can also suggest changes directly in the diff.
 Reviewers can approve the changes or request additional changes before merging.
 GitLab tracks the review status and prevents merging until necessary approvals are obtained.
 
-Your organization might have protection rules that require specific approvals
-or prevent certain actions. For example, you might need approval from a code owner
-for files you're changing, or your merge request might need a certain number of approvals
-before it can be merged.
+Your organization might have protection rules that require specific approvals or prevent certain actions. For example, you might need approval from a code owner for files you're changing, or your merge request might need a certain number of approvals before it can be merged.
 
 For more information, see:
 
@@ -112,19 +98,14 @@ For more information, see:
 
 ## Step 5: Merge the merge request
 
-Before your changes can be merged, the merge request usually needs to be approved by other people,
-and to have a passing CI/CD pipeline. The requirements are custom to your organization, but
-usually they include ensuring:
+Before your changes can be merged, the merge request usually needs to be approved by other people, and to have a passing CI/CD pipeline. The requirements are custom to your organization, but usually they include ensuring:
 
 - The code changes adhere to your organization's guidelines.
 - The commit messages are clear, and link to related issues.
 
-Protected branches and other repository protection measures might prevent you from
-merging directly or require additional steps. If you can't merge your changes,
-check with your team about the protection rules in place.
+Protected branches and other repository protection measures might prevent you from merging directly or require additional steps. If you can't merge your changes, check with your team about the protection rules in place.
 
-Merge conflicts can occur if someone else edits a file after you created your branch,
-but before you merged it into the target branch. You must resolve any conflicts before you can merge.
+Merge conflicts can occur if someone else edits a file after you created your branch, but before you merged it into the target branch. You must resolve any conflicts before you can merge.
 
 For more information, see:
 

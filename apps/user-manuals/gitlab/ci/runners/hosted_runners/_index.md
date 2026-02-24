@@ -40,7 +40,7 @@ When you use hosted runners:
 - Each of your jobs runs in a newly provisioned VM, which is dedicated to the specific job.
 - The virtual machine where your job runs has `sudo` access with no password.
 - The storage is shared by the operating system, the container image with pre-installed software, and a copy of your cloned repository.
-  This means that the available free disk space for your jobs to use is reduced.
+ This means that the available free disk space for your jobs to use is reduced.
 - [Untagged](../../yaml/_index.md#tags) jobs run on the `small` Linux x86-64 runner.
 
 > [!note]
@@ -87,8 +87,7 @@ For more information about the security of hosted runners for GitLab.com, see:
 ### Caching on hosted runners for GitLab.com
 
 The hosted runners share a [distributed cache](https://docs.gitlab.com/runner/configuration/autoscale.html#distributed-runners-caching)
-stored in a Google Cloud Storage (GCS) bucket. Cache contents not updated in the last 14 days are automatically
-removed, based on the [object lifecycle management policy](https://cloud.google.com/storage/docs/lifecycle).
+stored in a Google Cloud Storage (GCS) bucket. Cache contents not updated in the last 14 days are automatically removed, based on the [object lifecycle management policy](https://cloud.google.com/storage/docs/lifecycle).
 The maximum size of an uploaded cache artifact can be 5 GB after the cache becomes a compressed archive.
 
 For more information about how caching works, see [Architecture diagram of hosted runners for GitLab.com](#architecture-diagram-of-hosted-runners-for-gitlabcom), and [Caching in GitLab CI/CD](../../caching/_index.md).
@@ -115,8 +114,7 @@ You can find all GitLab Runner breaking changes under [Deprecations and removals
 
 {{< /details >}}
 
-If you want to [contribute to GitLab](https://about.gitlab.com/community/contribute/), jobs are picked up by the
-`gitlab-shared-runners-manager-X.gitlab.com` fleet of runners, dedicated for GitLab projects and related community forks.
+If you want to [contribute to GitLab](https://about.gitlab.com/community/contribute/), jobs are picked up by the `gitlab-shared-runners-manager-X.gitlab.com` fleet of runners, dedicated for GitLab projects and related community forks.
 
 These runners are backed by the same machine type as our `small` Linux x86-64 runners.
 Unlike hosted runners for GitLab.com, hosted runners for GitLab community contributions are re-used up to 40 times.
@@ -157,10 +155,8 @@ Jobs that run on generally available images are covered by the defined service-l
 
 ### Deprecated
 
-A maximum of two generally available images are supported at a time. After a new generally available image is released,
-the oldest generally available image becomes deprecated. A deprecated image is no longer updated and is deleted after 3 months.
+A maximum of two generally available images are supported at a time. After a new generally available image is released, the oldest generally available image becomes deprecated. A deprecated image is no longer updated and is deleted after 3 months.
 
 ## Usage data
 
-You can [view an estimate](../../pipelines/dedicated_hosted_runner_compute_minutes.md) of
-GitLab-hosted Runner usage of Compute minutes on GitLab Dedicated.
+You can [view an estimate](../../pipelines/dedicated_hosted_runner_compute_minutes.md) of GitLab-hosted Runner usage of Compute minutes on GitLab Dedicated.

@@ -21,11 +21,8 @@ There are certain situations in which you might want to disable an index before 
 - The index is on a large table and rebuilding it in the case of a revert would take a long time.
 - It is uncertain whether or not the index is being used in ways that are not fully visible.
 
-In such situations, the index was disabled in a coordinated manner with
-the infrastructure team and the database team
-by opening a [production infrastructure issue](https://gitlab.com/gitlab-com/gl-infra/production/-/issues/new)
-with the "Production Change" template and
-then running the following commands:
+In such situations, the index was disabled in a coordinated manner with the infrastructure team and the database team by opening a [production infrastructure issue](https://gitlab.com/gitlab-com/gl-infra/production/-/issues/new)
+with the "Production Change" template and then running the following commands:
 
 ```sql
 -- Disable the index then run an EXPLAIN command known to use the index:

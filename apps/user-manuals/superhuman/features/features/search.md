@@ -59,8 +59,4 @@ Use a hyphen (-) to exclude a certain term.
 
 ![](https://help.superhuman.com/hc/article_attachments/48082428793875)
 
-Ready to take searching to the next level? If you’re on the Business or Enterprise
-Plan,
-try [Ask AI](ask-ai.md) to
-get instant, intelligent results
-✨
+Ready to take searching to the next level? If you’re on the Business or Enterprise Plan, try [Ask AI](ask-ai.md) to get instant, intelligent results ✨

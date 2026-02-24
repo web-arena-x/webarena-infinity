@@ -36,8 +36,7 @@ For more information, see the history.
 
 {{< /alert >}}
 
-Custom flows are AI-powered workflows you create and configure to
-automate complex, multi-step tasks across your GitLab projects.
+Custom flows are AI-powered workflows you create and configure to automate complex, multi-step tasks across your GitLab projects.
 
 ## Flow visibility
 
@@ -117,8 +116,7 @@ To enable a flow in a top-level group:
 
 The flow appears in the group's **Automate** > **Flows** page.
 
-A service account is created in the group. The name of the account
-follows this naming convention: `ai-<flow>-<group>`.
+A service account is created in the group. The name of the account follows this naming convention: `ai-<flow>-<group>`.
 
 ### Enable in a project
 
@@ -134,12 +132,9 @@ To enable a flow in a project:
 1. In the upper-right corner, select **Enable flow from group**.
 1. From the dropdown list, select the flow you want to enable.
 1. For **Add triggers**, select which events trigger the flow:
-   - **Mention**: When the service account user is mentioned
-     in a comment on an issue or merge request.
-   - **Assign**: When the service account user is assigned
-     to an issue or merge request.
-   - **Assign reviewer**: When the service account user is assigned
-     as a reviewer to a merge request.
+   - **Mention**: When the service account user is mentioned in a comment on an issue or merge request.
+   - **Assign**: When the service account user is assigned to an issue or merge request.
+   - **Assign reviewer**: When the service account user is assigned as a reviewer to a merge request.
 1. Select **Enable**.
 
 The flow appears in the project's **Automate** > **Flows** list.
@@ -167,8 +162,7 @@ The flow no longer appears in the project or group, and can't be run. Any servic
 
 You must now [create a trigger](../triggers/_index.md), which determines when the flow runs.
 
-For example, you can specify the flow to be triggered when you mention the flow service account user in a discussion,
-or when you assign the service account as a reviewer.
+For example, you can specify the flow to be triggered when you mention the flow service account user in a discussion, or when you assign the service account as a reviewer.
 
 When you enable a flow in a project, you also create triggers.
 
@@ -240,7 +234,6 @@ When you enable a flow in a group, a related service account is automatically cr
 
 {{< alert type="note" >}}
 
-Sharing flow service accounts across multiple top-level groups can create unintended access
-permissions and security risks.
+Sharing flow service accounts across multiple top-level groups can create unintended access permissions and security risks.
 
 {{< /alert >}}

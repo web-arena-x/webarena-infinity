@@ -109,5 +109,5 @@ You can also adjust colors by inputting the values directly in the available fie
 - RGB, HSL, and HSB color models have a separate percentage field for alpha values
 - The CSS model must include an alpha value as a number between 0.0 and 1.0
 - For Hex, you can either:
-  - Input a 6-digit hex code and use the separate percentage field for adjusting the alpha value
-  - Input an 8-digit hex code that includes the alpha value as the last two digits
+ - Input a 6-digit hex code and use the separate percentage field for adjusting the alpha value
+ - Input an 8-digit hex code that includes the alpha value as the last two digits

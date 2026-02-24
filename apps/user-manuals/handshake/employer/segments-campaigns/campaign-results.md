@@ -23,16 +23,16 @@ You may use the filters above the campaigns table to narrow and customize your s
 You can filter campaigns by:
 
 - **Owner**
-  - All campaigns
-  - Your campaigns
+ - All campaigns
+ - Your campaigns
 - **Type**
-  - All
-  - Job
-  - Event
-  - Career fair
-  - Other
+ - All
+ - Job
+ - Event
+ - Career fair
+ - Other
 - **Advocates**
-  - **Note**: The Advocates tab in Analytics is part of the Advocate module — if you do not currently have this package, check with your Customer Success Manager for more information.
+ - **Note**: The Advocates tab in Analytics is part of the Advocate module — if you do not currently have this package, check with your Customer Success Manager for more information.
     - All campaigns
     - Campaigns with advocates
 
@@ -43,46 +43,46 @@ You can filter campaigns by:
 At the top of the page, you’ll find a summary of key metrics for each campaign:
 
 - **Sent**
-  - The number of campaigns that have been completed or are currently in progress.
+ - The number of campaigns that have been completed or are currently in progress.
 - **Open rate**
-  - The percentage of recipients who opened the campaign, either via email or in-app notification.
+ - The percentage of recipients who opened the campaign, either via email or in-app notification.
 - **Engagement**
-  - The percentage of recipients who clicked a link within the campaign message.
+ - The percentage of recipients who clicked a link within the campaign message.
 - **Career Fair RSVPs**
-  - The number of recipients who registered for career fairs through career fair campaigns.
+ - The number of recipients who registered for career fairs through career fair campaigns.
 - **Event RSVPs**
-  - The number of recipients who registered for events through event campaigns.
+ - The number of recipients who registered for events through event campaigns.
 - **Applicants**
-  - The number of recipients who applied for jobs through job campaigns, including external job campaigns.
+ - The number of recipients who applied for jobs through job campaigns, including external job campaigns.
 - **Sourced**
-  - The total number of candidates sourced across all campaigns.
+ - The total number of candidates sourced across all campaigns.
 
 Below the summary metrics, a detailed table provides specific information for each campaign:
 
 - **Status**
-  - The current state of the campaign (e.g., sent, in progress, completed).
+ - The current state of the campaign (e.g., sent, in progress, completed).
 - **Send date**
-  - The date when the campaign was sent or scheduled.
+ - The date when the campaign was sent or scheduled.
 - **Campaign name**
-  - The title of the campaign.
+ - The title of the campaign.
 - **Type**
-  - The category of the campaign (e.g., job campaign, event campaign).
+ - The category of the campaign (e.g., job campaign, event campaign).
 - **Recipients**
-  - The number of people who received the campaign.
+ - The number of people who received the campaign.
 - **Open rate**
-  - The percentage of recipients who opened the campaign.
+ - The percentage of recipients who opened the campaign.
 - **Engagement**
-  - The percentage of recipients who clicked on email notifications and in-app messages.
+ - The percentage of recipients who clicked on email notifications and in-app messages.
 - **Sourced**
-  - **Job campaign**
+ - **Job campaign**
     - The count of recipients who created a job application.
-  - **External job campaign**
+ - **External job campaign**
     - The count of recipients who clicked through to an external job application URL.
-  - **Event campaign**
+ - **Event campaign**
     - The count of recipients who registered for an event.
-  - **External event campaign**
+ - **External event campaign**
     - The count of recipients who clicked through to an external event URL.
-  - **Career fair campaign**
+ - **Career fair campaign**
     - The number of recipients who registered for a Handshake in-person or virtual fair.
 - **Owner** *(creator of campaign)*
 

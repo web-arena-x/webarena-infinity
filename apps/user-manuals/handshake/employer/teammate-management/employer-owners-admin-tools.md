@@ -20,37 +20,37 @@ Owners have all available permissions enabled by default, depending on their com
 **All Owners (for Basic employers and Premium partners) have the following permissions**:
 
 - **Posts**
-  - Post content as your company
-  - Post content
+ - Post content as your company
+ - Post content
 - **Jobs**
-  - View jobs
-  - Manage jobs
-  - Manage job applicants
+ - View jobs
+ - Manage jobs
+ - Manage job applicants
 - **On-Campus Interviews**
-  - View on-campus interviews
-  - Manage on-campus interviews
-  - Manage on-campus interviews applicants
+ - View on-campus interviews
+ - Manage on-campus interviews
+ - Manage on-campus interviews applicants
 - **Events**
-  - Attend events
-  - Manage events
-  - Manage event attendees
+ - Attend events
+ - Manage events
+ - Manage event attendees
 - **Career Fairs**
-  - Attend Fairs
-  - Manage Fairs
-  - Manage Fair Attendees
+ - Attend Fairs
+ - Manage Fairs
+ - Manage Fair Attendees
 - **1:1 Schedules (Limited)**
-  - Attend 1:1 schedules (Limited)
-  - Manage 1:1 schedules (Limited)
-  - Manage 1:1 schedule attendees
+ - Attend 1:1 schedules (Limited)
+ - Manage 1:1 schedules (Limited)
+ - Manage 1:1 schedule attendees
 - **Schools & Contacts**
-  - View schools
-  - Manage schools
-  - Manage contact list
+ - View schools
+ - Manage schools
+ - Manage contact list
 - **Candidate Sourcing (1:1, Limited)**
 - **Administration**
-  - Manage team
-  - Manage employer settings
-  - Edit employer brand page
+ - Manage team
+ - Manage employer settings
+ - Edit employer brand page
 
 **Permissions with Essentials**
 
@@ -64,7 +64,7 @@ Owners have all available permissions enabled by default, depending on their com
 **Permissions enabled for Owners when Essentials + Campaign add-on is added**:
 
 - **Candidate sourcing (Advanced)**
-  - Manage Campaigns
+ - Manage Campaigns
 - **Manage candidate segments**
 
 **Permissions with Talent Engagement Suite (TES)**
@@ -72,19 +72,19 @@ Owners have all available permissions enabled by default, depending on their com
 **TES-based permissions enabled**:
 
 - **Candidate Sourcing (Advanced)**
-  - View Candidate Engagement
-  - Talent List
-  - Tagged in Message Intros**\*** 
+ - View Candidate Engagement
+ - Talent List
+ - Tagged in Message Intros**\*** 
     - **Note**: This permission is available to owners but is not enabled by default. Contact your CSM for more information.
-  - Candidate Sourcing (Bulk Messaging)
-  - Message Introductions
-  - Manage Campaigns
+ - Candidate Sourcing (Bulk Messaging)
+ - Message Introductions
+ - Manage Campaigns
 - **Schools & Contacts**
-  - Manage Your School Lists
-  - Manage Your Teammates’ School Lists
+ - Manage Your School Lists
+ - Manage Your Teammates’ School Lists
 - **Analytics & Reporting**
-  - Analytics (Standard)
-  - Insights (Standard)
+ - Analytics (Standard)
+ - Insights (Standard)
 - **Limited Branding**
 - **Create Multi-school Events**
 - **View as Student (Brand Page)**
@@ -97,8 +97,8 @@ Owners have all available permissions enabled by default, depending on their com
 
 - **Check-in Kiosk**
 - **1:1 Schedules (Advanced)**
-  - Attend 1:1 Schedules (Advanced)
-  - Manage 1:1 Schedules (Advanced)
+ - Attend 1:1 Schedules (Advanced)
+ - Manage 1:1 Schedules (Advanced)
 
 **Permissions with School Explorer**
 

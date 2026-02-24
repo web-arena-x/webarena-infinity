@@ -36,7 +36,7 @@ You’ll log into your domain provider’s management console in this step, so y
 
 1. In the **Verify your domain** window, copy the text in the **TXT record** field.
 2. Log into your domain provider and add the copied text to your domain’s DNS records. For detailed steps, visit [Verify your domain (host-specific steps)](/a/topic/1409901).
-3. Return to the **Verify your domain** window and click **Verify**.  
+3. Return to the **Verify your domain** window and click **Verify**. 
    Typically domains are verified right away but it might take up to 10 minutes before your domain’s verification status is updated.
 
 After you click **Verify** or **Not now**, the domain appears on the Postmaster Tools domains page.
@@ -63,9 +63,9 @@ Here are recommended actions for issues that might occur during Postmaster Tools
 
 | Issue | Possible causes | Recommended actions |
 | --- | --- | --- |
-| I can’t verify a domain. | Postmaster Tools couldn’t connect to the DNS server for the domain.  The verification DNS CNAME record was not found for your domain. | Wait a few minutes to let Google get your changes to the CNAME records.  Check that the domain verification string is correct in the DNS records for the domain.  Try to verify the domain again, with a new string. |
+| I can’t verify a domain. | Postmaster Tools couldn’t connect to the DNS server for the domain. The verification DNS CNAME record was not found for your domain. | Wait a few minutes to let Google get your changes to the CNAME records. Check that the domain verification string is correct in the DNS records for the domain. Try to verify the domain again, with a new string. |
 | I can’t give people access to my domain. | The person doesn’t have a Google account. | Make sure the person you’re trying to add has a Google account and you’re using the email address associated with that account. |
-| I don’t see the expected data for my domain in one or more dashboards. | Data might be missing if the total number of messages for a given day is too low. This is to protect users' privacy. | Check the dashboards again when your email sending volume increases enough to populate the dashboards.  Follow these best practices for sending email:   - Send email only to recipients who want to get messages from you. - Make sure recipients opt in to get messages from you. - Confirm each recipient's email address before subscribing them. - Periodically send messages to confirm that recipients want to stay subscribed. - Consider unsubscribing recipients who don’t open or read your messages. - Make it easy to unsubscribe. - Use the feedback ID to identify the types of message that are most often marked as spam by recipients. |
+| I don’t see the expected data for my domain in one or more dashboards. | Data might be missing if the total number of messages for a given day is too low. This is to protect users' privacy. | Check the dashboards again when your email sending volume increases enough to populate the dashboards. Follow these best practices for sending email:   - Send email only to recipients who want to get messages from you. - Make sure recipients opt in to get messages from you. - Confirm each recipient's email address before subscribing them. - Periodically send messages to confirm that recipients want to stay subscribed. - Consider unsubscribing recipients who don’t open or read your messages. - Make it easy to unsubscribe. - Use the feedback ID to identify the types of message that are most often marked as spam by recipients. |
 
 ## Was this helpful?
 

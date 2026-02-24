@@ -18,8 +18,8 @@ If you accidentally delete an issue, the fastest way to restore it is to use `Cm
 
 ![Auto-close automations settings](https://webassets.linear.app/images/ornj730p/production/e3ab2a2dcae1e075aa611591cc07d4281723f239-1342x810.png?q=95&auto=format&dpr=2)
 
-Linear offers an option to close issues that have not been updated after a certain time period. This can be configured in _Team settings > Workflows_. When auto-closed, an issue is marked with one of the Closed statuses, we publish a history item to its Activity feed, and notify subscribers. You can re-open an auto-closed issue anytime by changing its status.  
-  
+Linear offers an option to close issues that have not been updated after a certain time period. This can be configured in _Team settings > Workflows_. When auto-closed, an issue is marked with one of the Closed statuses, we publish a history item to its Activity feed, and notify subscribers. You can re-open an auto-closed issue anytime by changing its status. 
+ 
 Issues will not be auto-closed until the associated cycle and project are completed.
 
 ## Auto-archive

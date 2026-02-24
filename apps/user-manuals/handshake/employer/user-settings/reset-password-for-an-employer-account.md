@@ -12,9 +12,9 @@ If you've forgotten your account password, or would like to update it, you can d
 
 - Contain eight characters *or more*
 - Contain characters from *two* of the following *three* character classes:
-  - Alphabetic (e.g., a-z, A-Z)
-  - Numeric (i.e. 0–9)
-  - Punctuation and other characters (e.g.,!@#$%^&\*()\_+|~-=\`{}[]:";'<>?,./)
+ - Alphabetic (e.g., a-z, A-Z)
+ - Numeric (i.e. 0–9)
+ - Punctuation and other characters (e.g.,!@#$%^&\*()\_+|~-=\`{}[]:";'<>?,./)
 - **Note****: Passwords are not encrypted.**
 
 To begin, select your current login status to follow the proper steps to reset your password:
@@ -68,8 +68,7 @@ You can log in with your new password.
 
 If you did not change your password recently, please contact our support team and they’ll be happy to help you out.
 
-Thank you,  
-The Handshake Team"
+Thank you, The Handshake Team"
 
 ### Handshake_email_notification_.png
 
@@ -116,9 +115,9 @@ The Handshake Team"
 If you're not receiving the password reset email, we recommend taking the steps below: 
 
 - **Check your spam or junk folders.** Since this is an automated email, some providers may filter it out of your inbox. If you're using one of the following email clients, refer to the linked resources for additional guidance:
-  - [Gmail](https://support.google.com/mail/answer/7015314?hl=en&co=GENIE.Platform%3DAndroid)
-  - [Outlook](https://support.microsoft.com/en-us/office/overview-of-the-junk-email-filter-5ae3ea8e-cf41-4fa0-b02a-3b96e21de089)
-  - [Yahoo](https://help.yahoo.com/kb/SLN28056.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAIcnrulCiE9Y09Gm5VE_NC2-KgedxWjxw8oWJTOzOZppH6Z7onKxUqbCDyOr_43TepYg5w2mtOC4WoObSkUI9f3EUY-Jhra_1Gt4RdR5OPnsHD7QyfatDNm6OS_4ULk6wYEOSR-TKr9fycR-Cedm3_2YNKONJ3UcmFrigL63x7cV)
+ - [Gmail](https://support.google.com/mail/answer/7015314?hl=en&co=GENIE.Platform%3DAndroid)
+ - [Outlook](https://support.microsoft.com/en-us/office/overview-of-the-junk-email-filter-5ae3ea8e-cf41-4fa0-b02a-3b96e21de089)
+ - [Yahoo](https://help.yahoo.com/kb/SLN28056.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAIcnrulCiE9Y09Gm5VE_NC2-KgedxWjxw8oWJTOzOZppH6Z7onKxUqbCDyOr_43TepYg5w2mtOC4WoObSkUI9f3EUY-Jhra_1Gt4RdR5OPnsHD7QyfatDNm6OS_4ULk6wYEOSR-TKr9fycR-Cedm3_2YNKONJ3UcmFrigL63x7cV)
 - **Search your entire mailbox** using the subject line **"Password Reset Request"**. This may help surface the message if it landed in an unexpected folder.
 - **Add Handshake to your address book**. Add "handshake@m.joinhandshake.com" as a trusted sender, then return to Handshake and request the password reset again.
 - **Check your email subscription status.** If you have previously unsubscribed or if there is a delivery issue (known as email suppression), you may not receive the message. If you have completed the steps above and still have not received the email, contact Support.

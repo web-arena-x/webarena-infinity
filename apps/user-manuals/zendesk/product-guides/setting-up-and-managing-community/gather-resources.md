@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408882751514-Gather-resou
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
@@ -28,17 +28,17 @@ This article contains the following sections:
 | Getting started |
 | --- |
 
-|  |  |
+| | |
 | --- | --- |
 | - [Getting started with Gather for your community](https://support.zendesk.com/hc/en-us/articles/4408882689306) - [About Gather badges](https://support.zendesk.com/hc/en-us/articles/4408834628506) | - [About Gather plan types](https://support.zendesk.com/hc/en-us/articles/4408893896090) |
 
 ---
 
-|  |
+| |
 | --- |
 | Setting up |
 
-|  |  |
+| | |
 | --- | --- |
 | - [Configuring Gather community settings](https://support.zendesk.com/hc/en-us/articles/4408882951706) - [Enabling aliases for users in your help center](https://support.zendesk.com/hc/en-us/articles/4408883623322) - [Disabling your help center community](https://support.zendesk.com/hc/en-us/articles/4408821744026) | - [Creating Gather badges](https://support.zendesk.com/hc/en-us/articles/4408889227162) - [Enabling Gather badges](https://support.zendesk.com/hc/en-us/articles/4408821759386) |
 
@@ -49,7 +49,7 @@ This article contains the following sections:
 
 ### Moderating content
 
-|  |  |
+| | |
 | --- | --- |
 | - [Moderating end-user content](https://support.zendesk.com/hc/en-us/articles/4408894193562) - [Creating community moderator groups](https://support.zendesk.com/hc/en-us/articles/4408882973338) | - [Managing community moderator groups](https://support.zendesk.com/hc/en-us/articles/4408886650010) - [Viewing Gather badges for users](https://support.zendesk.com/hc/en-us/articles/4408883086234) |
 
@@ -57,7 +57,7 @@ This article contains the following sections:
 
 ### Managing your community
 
-|  |  |
+| | |
 | --- | --- |
 | - [Managing community discussion topics](https://support.zendesk.com/hc/en-us/articles/4408833845786) - [Managing community posts](https://support.zendesk.com/hc/en-us/articles/4408823846170) - [Viewing community moderator activity](https://support.zendesk.com/hc/en-us/articles/4408887478554) - [Allowing agents to edit and delete posts in the community](https://support.zendesk.com/hc/en-us/articles/4408821305498) | - [Applying user segments to restrict viewing access to community content](https://support.zendesk.com/hc/en-us/articles/4408845814170) - [Customizing status icons for community posts](https://support.zendesk.com/hc/en-us/articles/4408834617114) - [Awarding Gather badges](https://support.zendesk.com/hc/en-us/articles/4408882080026) |
 
@@ -65,7 +65,7 @@ This article contains the following sections:
 
 ### End-user guidance
 
-|  |  |
+| | |
 | --- | --- |
 | - [Help Center guide for end-users](https://support.zendesk.com/hc/en-us/articles/4408837910426-Help-Center-guide-for-end-users) - [Adding or editing your help center alias](https://support.zendesk.com/hc/en-us/articles/4408820367642) - [Viewing your Help Center activity for articles, posts, and comments in your Support profile](https://support.zendesk.com/hc/en-us/articles/4408832823962) | - [Submitting and tracking support requests in Help Center](https://support.zendesk.com/hc/en-us/articles/4408846805530) |
 
@@ -73,7 +73,7 @@ This article contains the following sections:
 
 ### Spam prevention
 
-|  |  |
+| | |
 | --- | --- |
 | - [About Help Center spam prevention](https://support.zendesk.com/hc/en-us/articles/4408883183770) - [Filtering spam posts in Help Center](https://support.zendesk.com/hc/en-us/articles/4408888801690-Filtering-spam-posts-in-Help-Center) | - [Marking content as spam and removing it from Help Center](https://support.zendesk.com/hc/en-us/articles/4408838281882) |
 
@@ -81,7 +81,7 @@ This article contains the following sections:
 
 Reporting
 
-|  |  |
+| | |
 | --- | --- |
 | - [Analyzing community activity](https://support.zendesk.com/hc/en-us/articles/4408885925402) | - [Enabling Google Analytics for your Help Center](https://support.zendesk.com/hc/en-us/articles/4408828643098) |
 
@@ -89,34 +89,34 @@ Reporting
 
 ### Best practices
 
-|  |  |
+| | |
 | --- | --- |
-| - [Best practices: Six things to think about before setting up a community](https://support.zendesk.com/hc/en-us/articles/4408843676314) - [Best practices for managing your Gather community](https://support.zendesk.com/hc/en-us/articles/4408830945306) |  |
+| - [Best practices: Six things to think about before setting up a community](https://support.zendesk.com/hc/en-us/articles/4408843676314) - [Best practices for managing your Gather community](https://support.zendesk.com/hc/en-us/articles/4408830945306) | |
 
 ---
 
 | Advice and troubleshooting |
 | --- |
 
-|  |  |
+| | |
 | --- | --- |
-| - [Gather advice and troubleshooting](https://support.zendesk.com/hc/en-us/sections/4405298864410) |  |
+| - [Gather advice and troubleshooting](https://support.zendesk.com/hc/en-us/sections/4405298864410) | |
 
 ---
 
 | Developer resources |
 | --- |
 
-|  |  |
+| | |
 | --- | --- |
-| - [Gather product limits for your help center](https://support.zendesk.com/hc/en-us/articles/4408887070234) |  |
+| - [Gather product limits for your help center](https://support.zendesk.com/hc/en-us/articles/4408887070234) | |
 
 ---
 
 | Community content |
 | --- |
 
-|  |  |
+| | |
 | --- | --- |
 | - [Fine Tuning: Two ways to launch your Help Center community](https://support.zendesk.com/hc/en-us/articles/4408829470618) - [Cultivate community for a better customer experience](https://www.zendesk.com/blog/cultivate-community-customer-experience/) (blog) | - [Providing richer, scalable customer support in the Zendesk Community](https://www.zendesk.com/blog/many-many-providing-richer-scalable-customer-support-zendesk-community/)(blog) - [Example badges you can use in your community](https://support.zendesk.com/hc/en-us/articles/4408824306458) |
 

@@ -21,7 +21,7 @@ Loading all group IDs for the `gitlab-org` group, including itself and its desce
 
 ```sql
 SELECT "namespaces"."id" FROM UNNEST(
-  COALESCE(
+ COALESCE(
     (
       SELECT ids FROM (
         SELECT "namespace_descendants"."self_and_descendant_group_ids" AS ids
@@ -42,27 +42,27 @@ SELECT "namespaces"."id" FROM UNNEST(
         ) namespaces
       ) consistent_query
     )
-  )
+ )
 ) AS namespaces(id)
 ```
 
 ```plaintext
- Function Scan on unnest namespaces  (cost=1296.82..1296.92 rows=10 width=8) (actual time=0.193..0.236 rows=GROUP_COUNT loops=1)
+ Function Scan on unnest namespaces (cost=1296.82..1296.92 rows=10 width=8) (actual time=0.193..0.236 rows=GROUP_COUNT loops=1)
    Buffers: shared hit=42
    I/O Timings: read=0.000 write=0.000
    InitPlan 1 (returns $0)
-     ->  Index Scan using namespace_descendants_12_pkey on gitlab_partitions_static.namespace_descendants_12 namespace_descendants  (cost=0.14..3.16 rows=1 width=769) (actual time=0.022..0.023 rows=1 loops=1)
+     -> Index Scan using namespace_descendants_12_pkey on gitlab_partitions_static.namespace_descendants_12 namespace_descendants (cost=0.14..3.16 rows=1 width=769) (actual time=0.022..0.023 rows=1 loops=1)
            Index Cond: (namespace_descendants.namespace_id = 9970)
            Filter: (namespace_descendants.outdated_at IS NULL)
            Rows Removed by Filter: 0
            Buffers: shared hit=5
            I/O Timings: read=0.000 write=0.000
    InitPlan 2 (returns $1)
-     ->  Aggregate  (cost=1293.62..1293.63 rows=1 width=32) (actual time=0.000..0.000 rows=0 loops=0)
+     -> Aggregate (cost=1293.62..1293.63 rows=1 width=32) (actual time=0.000..0.000 rows=0 loops=0)
            I/O Timings: read=0.000 write=0.000
-           ->  Bitmap Heap Scan on public.namespaces namespaces_1  (cost=62.00..1289.72 rows=781 width=28) (actual time=0.000..0.000 rows=0 loops=0)
+           -> Bitmap Heap Scan on public.namespaces namespaces_1 (cost=62.00..1289.72 rows=781 width=28) (actual time=0.000..0.000 rows=0 loops=0)
                  I/O Timings: read=0.000 write=0.000
-                 ->  Bitmap Index Scan using index_namespaces_on_traversal_ids_for_groups  (cost=0.00..61.81 rows=781 width=0) (actual time=0.000..0.000 rows=0 loops=0)
+                 -> Bitmap Index Scan using index_namespaces_on_traversal_ids_for_groups (cost=0.00..61.81 rows=781 width=0) (actual time=0.000..0.000 rows=0 loops=0)
                        Index Cond: (namespaces_1.traversal_ids @> '{9970}'::integer[])
                        I/O Timings: read=0.000 write=0.000
 Settings: seq_page_cost = '4', effective_cache_size = '472585MB', jit = 'off', work_mem = '100MB', random_page_cost = '1.5'
@@ -82,10 +82,10 @@ WHERE "namespaces"."type" = 'Group' AND
 ```
 
 ```plaintext
- Bitmap Heap Scan on public.namespaces  (cost=62.00..1291.67 rows=781 width=4) (actual time=0.670..2.273 rows=GROUP_COUNT loops=1)
+ Bitmap Heap Scan on public.namespaces (cost=62.00..1291.67 rows=781 width=4) (actual time=0.670..2.273 rows=GROUP_COUNT loops=1)
    Buffers: shared hit=1037
    I/O Timings: read=0.000 write=0.000
-   ->  Bitmap Index Scan using index_namespaces_on_traversal_ids_for_groups  (cost=0.00..61.81 rows=781 width=0) (actual time=0.561..0.561 rows=1154 loops=1)
+   -> Bitmap Index Scan using index_namespaces_on_traversal_ids_for_groups (cost=0.00..61.81 rows=781 width=0) (actual time=0.561..0.561 rows=1154 loops=1)
          Index Cond: (namespaces.traversal_ids @> '{9970}'::integer[])
          Buffers: shared hit=34
          I/O Timings: read=0.000 write=0.000
@@ -130,9 +130,9 @@ For simplification, this is how we would implement the lookup in Ruby:
 
 ```ruby
 if cached? && cache_up_to_date?
-  return cached_project_ids
+ return cached_project_ids
 else
-  return Project.where(...).pluck(:id)
+ return Project.where(...).pluck(:id)
 end
 ```
 
@@ -140,8 +140,8 @@ In `SQL`, we leverage the `COALESCE` function, which returns the first non-NULL 
 
 ```sql
 SELECT COALESCE(
-  (SELECT 1), -- cached query
-  (SELECT 2 FROM pg_sleep(5)) -- non-cached query
+ (SELECT 1), -- cached query
+ (SELECT 2 FROM pg_sleep(5)) -- non-cached query
 )
 ```
 
@@ -149,8 +149,8 @@ The query above returns immediately however, if the first subquery returns null,
 
 ```sql
 SELECT COALESCE(
-  (SELECT NULL), -- cached query
-  (SELECT 2 FROM pg_sleep(5)) -- non-cached query
+ (SELECT NULL), -- cached query
+ (SELECT 2 FROM pg_sleep(5)) -- non-cached query
 )
 ```
 
@@ -176,10 +176,10 @@ Cached query:
 ```sql
 SELECT ids -- One row, array of ids
 FROM (
-  SELECT "namespace_descendants"."self_and_descendant_group_ids" AS ids
-  FROM "namespace_descendants"
-  WHERE "namespace_descendants"."outdated_at" IS NULL AND
-  "namespace_descendants"."namespace_id" = 22
+ SELECT "namespace_descendants"."self_and_descendant_group_ids" AS ids
+ FROM "namespace_descendants"
+ WHERE "namespace_descendants"."outdated_at" IS NULL AND
+ "namespace_descendants"."namespace_id" = 22
 ) cached_query
 ```
 
@@ -190,13 +190,13 @@ Fallback query, based on the `traversal_ids` lookup:
 ```sql
 SELECT ids -- One row, array of ids
 FROM (
-  SELECT ARRAY_AGG("namespaces"."id") AS ids
-  FROM (
+ SELECT ARRAY_AGG("namespaces"."id") AS ids
+ FROM (
     SELECT namespaces.traversal_ids[array_length(namespaces.traversal_ids, 1)] AS id
     FROM "namespaces"
     WHERE "namespaces"."type" = 'Group' AND
     (traversal_ids @> ('{22}'))
-  ) namespaces
+ ) namespaces
 )
 ```
 
@@ -204,7 +204,7 @@ Final query, combining the queries into one:
 
 ```sql
 SELECT "namespaces"."id" FROM UNNEST(
-  COALESCE(
+ COALESCE(
     (
       SELECT ids FROM (
         SELECT "namespace_descendants"."self_and_descendant_group_ids" AS ids
@@ -225,6 +225,6 @@ SELECT "namespaces"."id" FROM UNNEST(
         ) namespaces
       ) consistent_query
     )
-  )
+ )
 ) AS namespaces(id)
 ```

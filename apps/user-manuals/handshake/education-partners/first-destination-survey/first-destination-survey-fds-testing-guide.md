@@ -9,10 +9,10 @@ If you've recently created a First Destination Survey in Handshake, and would li
 To efficiently test the FDS, you'll need:
 
 - A student account in Handshake
-  - If you don't have one already, refer to [Create a Student Account Associated with Your Career Services Account](https://support.joinhandshake.com/hc/en-us/articles/219132677).
+ - If you don't have one already, refer to [Create a Student Account Associated with Your Career Services Account](https://support.joinhandshake.com/hc/en-us/articles/219132677).
 - A published FDS to test
-  - Make sure that no actual students have been invited before testing.
-  - If you need to create a FDS, refer to [Create a New First Destination Survey](https://support.joinhandshake.com/hc/en-us/articles/219133387).
+ - Make sure that no actual students have been invited before testing.
+ - If you need to create a FDS, refer to [Create a New First Destination Survey](https://support.joinhandshake.com/hc/en-us/articles/219133387).
 
 For more information regarding First Destination Survey's, refer to [FAQs: First Destination Survey](faqs-first-destination-survey.md).
 

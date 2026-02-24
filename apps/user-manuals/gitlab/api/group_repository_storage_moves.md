@@ -14,14 +14,10 @@ title: Group repository storage moves API
 {{< /details >}}
 
 Use this API to manage [group repository storage moves](../administration/operations/moving_repositories.md).
-This API can help you, for example,
-[migrate to Gitaly Cluster (Praefect)](../administration/gitaly/praefect/_index.md#migrate-to-gitaly-cluster-praefect)
-or migrate a [group wiki](../user/project/wiki/group.md). This API does not manage
-project repositories in a group. To schedule project moves, use the
-[project repository storage moves API](project_repository_storage_moves.md).
+This API can help you, for example, [migrate to Gitaly Cluster (Praefect)](../administration/gitaly/praefect/_index.md#migrate-to-gitaly-cluster-praefect)
+or migrate a [group wiki](../user/project/wiki/group.md). This API does not manage project repositories in a group. To schedule project moves, use the [project repository storage moves API](project_repository_storage_moves.md).
 
-As GitLab processes a group repository storage move, it transitions through different states. Values
-of `state` are:
+As GitLab processes a group repository storage move, it transitions through different states. Values of `state` are:
 
 - `initial`: The record has been created, but the background job has not yet been scheduled.
 - `scheduled`: The background job has been scheduled.
@@ -31,9 +27,7 @@ of `state` are:
 - `finished`: The group has been moved, and the repositories on the source storage have been deleted.
 - `cleanup failed`: The group has been moved, but the repositories on the source storage could not be deleted.
 
-To ensure data integrity, GitLab places groups in a temporary read-only state for the
-duration of the move. During this time, users receive this message if they try to
-push new commits:
+To ensure data integrity, GitLab places groups in a temporary read-only state for the duration of the move. During this time, users receive this message if they try to push new commits:
 
 ```plaintext
 The repository is temporarily read-only. Please try again later.
@@ -52,21 +46,20 @@ APIs are also available to move other types of repositories:
 GET /group_repository_storage_moves
 ```
 
-By default, `GET` requests return 20 results at a time, because the API results
-are [paginated](rest/_index.md#pagination).
+By default, `GET` requests return 20 results at a time, because the API results are [paginated](rest/_index.md#pagination).
 
 Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/group_repository_storage_moves"
+ --url "https://gitlab.example.com/api/v4/group_repository_storage_moves"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "created_at": "2020-05-07T04:27:17.234Z",
     "state": "scheduled",
@@ -77,7 +70,7 @@ Example response:
       "web_url": "https://gitlab.example.com/groups/testgroup",
       "name": "testgroup"
     }
-  }
+ }
 ]
 ```
 
@@ -89,8 +82,7 @@ To retrieve all the repository storage moves for a single group you can use the 
 GET /groups/:group_id/repository_storage_moves
 ```
 
-By default, `GET` requests return 20 results at a time, because the API results
-are [paginated](rest/_index.md#pagination).
+By default, `GET` requests return 20 results at a time, because the API results are [paginated](rest/_index.md#pagination).
 
 Supported attributes:
 
@@ -102,14 +94,14 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/repository_storage_moves"
+ --url "https://gitlab.example.com/api/v4/groups/1/repository_storage_moves"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "created_at": "2020-05-07T04:27:17.234Z",
     "state": "scheduled",
@@ -120,14 +112,13 @@ Example response:
       "web_url": "https://gitlab.example.com/groups/testgroup",
       "name": "testgroup"
     }
-  }
+ }
 ]
 ```
 
 ## Get a single group repository storage move
 
-To retrieve a single repository storage move throughout all the existing repository
-storage moves, you can use the following endpoint:
+To retrieve a single repository storage move throughout all the existing repository storage moves, you can use the following endpoint:
 
 ```plaintext
 GET /group_repository_storage_moves/:repository_storage_id
@@ -143,30 +134,29 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/group_repository_storage_moves/1"
+ --url "https://gitlab.example.com/api/v4/group_repository_storage_moves/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "created_at": "2020-05-07T04:27:17.234Z",
-  "state": "scheduled",
-  "source_storage_name": "default",
-  "destination_storage_name": "storage2",
-  "group": {
+ "id": 1,
+ "created_at": "2020-05-07T04:27:17.234Z",
+ "state": "scheduled",
+ "source_storage_name": "default",
+ "destination_storage_name": "storage2",
+ "group": {
     "id": 283,
     "web_url": "https://gitlab.example.com/groups/testgroup",
     "name": "testgroup"
-  }
+ }
 }
 ```
 
 ## Get a single repository storage move for a group
 
-Given a group, you can retrieve a specific repository storage move for that group,
-through the following endpoint:
+Given a group, you can retrieve a specific repository storage move for that group, through the following endpoint:
 
 ```plaintext
 GET /groups/:group_id/repository_storage_moves/:repository_storage_id
@@ -183,23 +173,23 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/repository_storage_moves/1"
+ --url "https://gitlab.example.com/api/v4/groups/1/repository_storage_moves/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "created_at": "2020-05-07T04:27:17.234Z",
-  "state": "scheduled",
-  "source_storage_name": "default",
-  "destination_storage_name": "storage2",
-  "group": {
+ "id": 1,
+ "created_at": "2020-05-07T04:27:17.234Z",
+ "state": "scheduled",
+ "source_storage_name": "default",
+ "destination_storage_name": "storage2",
+ "group": {
     "id": 283,
     "web_url": "https://gitlab.example.com/groups/testgroup",
     "name": "testgroup"
-  }
+ }
 }
 ```
 
@@ -234,16 +224,16 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "created_at": "2020-05-07T04:27:17.234Z",
-  "state": "scheduled",
-  "source_storage_name": "default",
-  "destination_storage_name": "storage2",
-  "group": {
+ "id": 1,
+ "created_at": "2020-05-07T04:27:17.234Z",
+ "state": "scheduled",
+ "source_storage_name": "default",
+ "destination_storage_name": "storage2",
+ "group": {
     "id": 283,
     "web_url": "https://gitlab.example.com/groups/testgroup",
     "name": "testgroup"
-  }
+ }
 }
 ```
 
@@ -276,7 +266,7 @@ Example response:
 
 ```json
 {
-  "message": "202 Accepted"
+ "message": "202 Accepted"
 }
 ```
 

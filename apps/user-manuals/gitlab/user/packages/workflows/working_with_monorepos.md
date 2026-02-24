@@ -23,18 +23,17 @@ The following example shows you how to publish packages for a project and its ch
 Prerequisites:
 
 - A [personal access token](../../profile/personal_access_tokens.md)
-  with the scope set to `api`.
+ with the scope set to `api`.
 - A test project.
 
-In this example, `MyProject` is the parent project. It contains a child project called `ChildProject` in the
-`components` directory:
+In this example, `MyProject` is the parent project. It contains a child project called `ChildProject` in the `components` directory:
 
 ```plaintext
 MyProject/
-  |- src/
-  |   |- components/
-  |       |- ChildProject/
-  |- package.json
+ |- src/
+ |   |- components/
+ |       |- ChildProject/
+ |- package.json
 ```
 
 To publish a package for `MyProject`:
@@ -56,8 +55,7 @@ To publish a package for `MyProject`:
 
 {{< alert type="warning" >}}
 
-Never hardcode GitLab tokens (or any tokens) directly in `.npmrc` files or any other files that can
-be committed to a repository.
+Never hardcode GitLab tokens (or any tokens) directly in `.npmrc` files or any other files that can be committed to a repository.
 
 {{< /alert >}}
 
@@ -69,8 +67,7 @@ After you publish the package for `ChildProject`, you should see the package in 
 
 ## Publishing packages to other projects
 
-A package is associated with a project on GitLab. But, a package is not associated
-with the code in that project.
+A package is associated with a project on GitLab. But, a package is not associated with the code in that project.
 
 For example, when configuring a package for npm or Maven, the `project_id` sets the registry URL that the package publishes to.
 

@@ -29,13 +29,13 @@ Topics:
 5. Within the pop-up, enter the following:
 
 - **Term Name**
-  - Choose a name to identify the term in Handshake.
+ - Choose a name to identify the term in Handshake.
 - **Start Date**
-  - Use the calendar icon to choose the first day of the term
+ - Use the calendar icon to choose the first day of the term
 - **End Date**
-  - Use the calendar icon to choose the last day of the term
+ - Use the calendar icon to choose the last day of the term
 - **Mid-Term Date (Optional)**
-  - Use the calendar icon to choose a Mid-Term date
+ - Use the calendar icon to choose a Mid-Term date
 
 ***The dates in which the Mid-Term and Final Evaluations are sent, are determined by the dates selected within the term. If the Mid-Term date is not specified, a Friday halfway between the start and end will be used — The Final Evaluation will be sent on the end date.***
 

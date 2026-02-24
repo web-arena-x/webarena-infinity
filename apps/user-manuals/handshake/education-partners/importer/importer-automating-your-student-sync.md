@@ -88,11 +88,9 @@ If you wish to send over a test upload, simply send a file that includes 'test' 
 
 Here are some common problems you might've encountered if you do not see the file:
 
-The file is not a true CSV  
-**Fix**: Double check that the file you are trying to upload can be uploaded manually to the importer and processed successfully
+The file is not a true CSV **Fix**: Double check that the file you are trying to upload can be uploaded manually to the importer and processed successfully
 
-The script you're running isn't successfully uploading the file to your S3 bucket  
-**Fix**: Double check your script path and ensure it is returning successfully and giving you back the path of the uploaded object
+The script you're running isn't successfully uploading the file to your S3 bucket **Fix**: Double check your script path and ensure it is returning successfully and giving you back the path of the uploaded object
 
 1. Ensure the data being uploaded passes all the analyzers, if it does not you'll have to make adjustments to your extract script before we can turn on auto run for you.
 2. If your file has passed all analyzer checks, **please reach out to our [Technical Support Team](https://support.joinhandshake.com/hc/en-us/requests/new) with the associated Importer job URL** so that we can process it and check for errors. Pending a successful upload, we will enable autorun for your institution!
@@ -105,18 +103,18 @@ Pick a weekly, monthly, or semesterly date to do your upload (dependent on your 
 
 ```
  +---------------- minute (0 - 59)
- |  +------------- hour (0 - 23)
- |  |  +---------- day of month (1 - 31)
- |  |  |  +------- month (1 - 12)
- |  |  |  |  +---- day of week (0 - 6) (Sunday=0 or 7)
- |  |  |  |  |
- *  *  *  *  *  command to be executed
+ | +------------- hour (0 - 23)
+ | | +---------- day of month (1 - 31)
+ | | | +------- month (1 - 12)
+ | | | | +---- day of week (0 - 6) (Sunday=0 or 7)
+ | | | | |
+ * * * * * command to be executed
 ```
 
 Example:
 
 ```
-5 8 * * Sat   aws s3 cp users.csv s3://handshake-importer-uploads/importer-production-hudson_university/`date +"%Y-%m-%d"`_users.csv  >/dev/null 2>&1
+5 8 * * Sat   aws s3 cp users.csv s3://handshake-importer-uploads/importer-production-hudson_university/`date +"%Y-%m-%d"`_users.csv >/dev/null 2>&1
 ```
 
 # Troubleshooting AWS Errors

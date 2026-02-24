@@ -17,12 +17,8 @@ You can install GitLab on a [Google Cloud Platform (GCP)](https://cloud.google.c
 
 {{< alert type="note" >}}
 
-To deploy production-ready GitLab on
-Google Kubernetes Engine,
-you can follow Google Cloud Platform's
-[`Click to Deploy` steps](https://github.com/GoogleCloudPlatform/click-to-deploy/blob/master/k8s/gitlab/README.md)
-It's an alternative to using a GCP VM, and uses
-the [Cloud native GitLab Helm chart](https://docs.gitlab.com/charts/).
+To deploy production-ready GitLab on Google Kubernetes Engine, you can follow Google Cloud Platform's [`Click to Deploy` steps](https://github.com/GoogleCloudPlatform/click-to-deploy/blob/master/k8s/gitlab/README.md)
+It's an alternative to using a GCP VM, and uses the [Cloud native GitLab Helm chart](https://docs.gitlab.com/charts/).
 
 {{< /alert >}}
 
@@ -31,8 +27,7 @@ the [Cloud native GitLab Helm chart](https://docs.gitlab.com/charts/).
 There are two prerequisites to install GitLab on GCP:
 
 1. You must have a Google account.
-1. You must sign up for the GCP program. If this is your first time, Google
-   gives you [$300 credit for free](https://console.cloud.google.com/freetrial) to consume over a 60-day period.
+1. You must sign up for the GCP program. If this is your first time, Google gives you [$300 credit for free](https://console.cloud.google.com/freetrial) to consume over a 60-day period.
 
 After you have performed those two steps, you can [create a VM](#creating-the-vm).
 
@@ -45,14 +40,12 @@ To deploy GitLab on GCP you must create a virtual machine:
 
    ![Select "Create" to create an instance.](img/launch_vm_v10_6.png)
 
-1. On the next page, you can select the type of VM as well as the
-   estimated costs. Provide the name of the instance, desired data center, and machine type.
+1. On the next page, you can select the type of VM as well as the estimated costs. Provide the name of the instance, desired data center, and machine type.
    Note our [hardware requirements for different user base sizes](../requirements.md).
 
    ![Configure your instance.](img/vm_details_v13_1.png)
 
-1. To select the size, type, and desired [operating system](../../install/package/_index.md),
-   select **Change** under `Boot disk`. select **Select** when finished.
+1. To select the size, type, and desired [operating system](../../install/package/_index.md), select **Change** under `Boot disk`. select **Select** when finished.
 
 1. Required for paid licenses. Under **Labels**, add resource labels based on how you procured your GitLab license:
    - For Google Cloud Marketplace procurement, add:
@@ -93,24 +86,19 @@ After a few seconds, the instance is created and available to sign in. The next 
 
 ## Next steps
 
-These are the most important next steps to take after you installed GitLab for
-the first time.
+These are the most important next steps to take after you installed GitLab for the first time.
 
 ### Assigning a static IP
 
-By default, Google assigns an ephemeral IP to your instance. If you use GitLab in a production
-environment with a domain name, you should assign a static IP.
+By default, Google assigns an ephemeral IP to your instance. If you use GitLab in a production environment with a domain name, you should assign a static IP.
 
 For more information, see [Promote an ephemeral external IP address](https://cloud.google.com/vpc/docs/reserve-static-external-ip-address#promote_ephemeral_ip).
 
 ### Using a domain name
 
-Assuming you have a domain name in your possession and you have correctly
-set up DNS to point to the static IP you configured in the previous step,
-here's how you configure GitLab to be aware of the change:
+Assuming you have a domain name in your possession and you have correctly set up DNS to point to the static IP you configured in the previous step, here's how you configure GitLab to be aware of the change:
 
-1. SSH into the VM. You can select **SSH** in the Google console
-   and a new window pops up.
+1. SSH into the VM. You can select **SSH** in the Google console and a new window pops up.
 
    ![Instance details with an SSH button to log into it.](img/vm_created_v10_6.png)
 
@@ -123,8 +111,7 @@ here's how you configure GitLab to be aware of the change:
    sudo vim /etc/gitlab/gitlab.rb
    ```
 
-1. Set the `external_url` value to the domain name you wish GitLab to have
-   **without** `https`:
+1. Set the `external_url` value to the domain name you wish GitLab to have **without** `https`:
 
    ```ruby
    external_url 'http://gitlab.example.com'
@@ -142,8 +129,7 @@ here's how you configure GitLab to be aware of the change:
 
 ### Configuring HTTPS with the domain name
 
-Although not needed, it's strongly recommended to secure GitLab with a
-[TLS certificate](https://docs.gitlab.com/omnibus/settings/ssl/).
+Although not needed, it's strongly recommended to secure GitLab with a [TLS certificate](https://docs.gitlab.com/omnibus/settings/ssl/).
 
 ### Configuring the email SMTP settings
 
@@ -152,8 +138,7 @@ Check the [Linux package documentation](https://docs.gitlab.com/omnibus/settings
 
 ## Further reading
 
-GitLab can be configured to authenticate with other OAuth providers, like LDAP,
-SAML, and Kerberos. Here are some documents you might be interested in reading:
+GitLab can be configured to authenticate with other OAuth providers, like LDAP, SAML, and Kerberos. Here are some documents you might be interested in reading:
 
 - [Linux package documentation](https://docs.gitlab.com/omnibus/)
 - [Integration documentation](../../integration/_index.md)

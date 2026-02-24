@@ -29,9 +29,8 @@ After you have generated your locations hierarchy from your drawings, you can v
 
 ## Steps
 
-1. Navigate to the Project level **Admin** tool.  
-   OR  
-   Navigate to the Project level **Drawings** tool.
+1. Navigate to the Project level **Admin** tool. 
+   OR Navigate to the Project level **Drawings** tool.
 2. Click **Locations**.
 3. Click **View Location Status**.
 4. Click a **location** to see the heat map.
@@ -39,7 +38,7 @@ After you have generated your locations hierarchy from your drawings, you can v
    ##### Tip
 
    - The heat map reflects your current filters, and can be reflect the total items in a location or all open items in a location. See [Filter Locations](https://support.procore.com/products/online/user-guide/project-level/admin/tutorials/filter-locations "Search and Filter Locations").
-   - You must have the 'Drawing View' selected.  
+   - You must have the 'Drawing View' selected. 
      ![clipboard_ee65a208dcfe3cc4a5fa6d94879f4449e.png](https://support.procore.com/@api/deki/files/487944/clipboard_ee65a208dcfe3cc4a5fa6d94879f4449e.png?revision=1)
 
 ![locations-heat-map.png](https://support.procore.com/@api/deki/files/487945/locations-heat-map.png?revision=1)

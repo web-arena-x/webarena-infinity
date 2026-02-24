@@ -6,17 +6,13 @@ Source: https://support.zendesk.com/hc/en-us/articles/7274654710042-Creating-aut
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Workforce Management (WFM) or Workforce Engagement Management (WEM) |
 
-Workforce management (WFM) admins and [team members in a custom role with permission](https://support.zendesk.com/hc/en-us/articles/6443374440090) can create time off
-rules that automatically approve agent time off requests. For an agent's time off request to
-be automatically approved, it must meet all the criteria defined in your rules. You can create
-and [manage](https://support.zendesk.com/hc/en-us/articles/9730423133210) these rules on the [Time off management page](https://support.zendesk.com/hc/en-us/articles/6443393050394).
+Workforce management (WFM) admins and [team members in a custom role with permission](https://support.zendesk.com/hc/en-us/articles/6443374440090) can create time off rules that automatically approve agent time off requests. For an agent's time off request to be automatically approved, it must meet all the criteria defined in your rules. You can create and [manage](https://support.zendesk.com/hc/en-us/articles/9730423133210) these rules on the [Time off management page](https://support.zendesk.com/hc/en-us/articles/6443393050394).
 
-Creating rules to automatically approve agents' time off requests helps you save time by not
-having to manually approve every time off request.
+Creating rules to automatically approve agents' time off requests helps you save time by not having to manually approve every time off request.
 
 **To create a time off auto approval rule**
 
@@ -25,8 +21,7 @@ having to manually approve every time off request.
 2. Click the settings icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/wfm_settings_icon.png)).
 3. In the Time off settings dialog, click **+Add rule**.
 
-   A rule is added immediately
-   with a placeholder name.
+   A rule is added immediately with a placeholder name.
 
    ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/ts_timeoff_autoapproval.png)
 4. (Optional) Rename the rule by clicking the name and entering a new name.

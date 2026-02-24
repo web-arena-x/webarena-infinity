@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408844028954-Privacy-and-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Team, Professional, or Enterprise |
 

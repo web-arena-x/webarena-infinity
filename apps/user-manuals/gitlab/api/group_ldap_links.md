@@ -39,20 +39,20 @@ Example response:
 
 ```json
 [
-  {
+ {
     "cn": "group1",
     "group_access": 40,
     "provider": "ldapmain",
     "filter": null,
     "member_role_id": null
-  },
-  {
+ },
+ {
     "cn": "group2",
     "group_access": 10,
     "provider": "ldapmain",
     "filter": null,
     "member_role_id": null
-  }
+ }
 ]
 ```
 
@@ -72,7 +72,7 @@ Supported attributes:
 | `group_access` | integer   | yes      | The default access level for members of the LDAP group. Possible values: `0` (No access), `5` (Minimal access), `10` (Guest), `15` (Planner), `20` (Reporter), `30` (Developer), `40` (Maintainer), `50` (Owner). |
 | `provider` | string        | yes      | LDAP provider ID for the LDAP group link. |
 | `cn`      | string         | yes/no   | The CN of an LDAP group. Provide either a `cn` or a `filter`, but not both. |
-| `filter`  | string         | yes/no   | The LDAP filter for the group. Provide either a `cn` or a `filter`, but not both. |
+| `filter` | string         | yes/no   | The LDAP filter for the group. Provide either a `cn` or a `filter`, but not both. |
 | `member_role_id` | integer | no       | The ID of the [member role](member_roles.md). Ultimate only. |
 
 Example request:
@@ -89,11 +89,11 @@ Example response:
 
 ```json
 {
-  "cn": "group2",
-  "group_access": 40,
-  "provider": "main",
-  "filter": null,
-  "member_role_id": null
+ "cn": "group2",
+ "group_access": 40,
+ "provider": "main",
+ "filter": null,
+ "member_role_id": null
 }
 ```
 
@@ -112,7 +112,7 @@ Supported attributes:
 | `id`      | integer or string | yes      | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
 | `provider` | string        | yes      | LDAP provider ID for the LDAP group link. |
 | `cn`      | string         | yes/no   | The CN of an LDAP group. Provide either a `cn` or a `filter`, but not both. |
-| `filter`  | string         | yes/no   | The LDAP filter for the group. Provide either a `cn` or a `filter`, but not both. |
+| `filter` | string         | yes/no   | The LDAP filter for the group. Provide either a `cn` or a `filter`, but not both. |
 
 Example request:
 

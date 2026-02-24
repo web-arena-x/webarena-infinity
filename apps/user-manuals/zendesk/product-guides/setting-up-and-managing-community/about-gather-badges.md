@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408834628506-About-Gather
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
@@ -30,10 +30,10 @@ The two built-in Gather badge categories are:
 
 - **Titles**: represented as a text label next to the user's profile that denotes the role of the user.
 
-  An example title might be Community Manager, or Developer.
+ An example title might be Community Manager, or Developer.
 - **Achievements**: represented with an icon next to the user's profile that denotes what the user has done.
 
-  An example achievement might be for a certification, such as Certified Administrator, or for participating in a beta or early access program, such as Key Tester.
+ An example achievement might be for a certification, such as Certified Administrator, or for participating in a beta or early access program, such as Key Tester.
 
 For more ideas in these categories, see [Examples of badges for your community](https://support.zendesk.com/hc/en-us/articles/4408824306458).
 
@@ -46,13 +46,13 @@ Consider these guidelines when you create your new badges:
 - Think about what you are trying to achieve with your badges - do you want to encourage people to contribute, to help test, or to reward your most active members? When you know what you want to reward, you can plan your badges around your model.
 - Plan the initial set of badges that you think you'll need, rather than creating them one at a time.
 
-  That way you can use consistent language and create a consistent set of icons.
+ That way you can use consistent language and create a consistent set of icons.
 - If you are planning to award badges based on milestones, consider the range of badges that you want to create before you start awarding them.
 
-  For example, you might want to award a badge when a user has created their first 5 posts, another badge when they've created 20 posts or comments, and so on. When you have your set, you can start awarding the badges based on the criteria.
+ For example, you might want to award a badge when a user has created their first 5 posts, another badge when they've created 20 posts or comments, and so on. When you have your set, you can start awarding the badges based on the criteria.
 - Keep the badges simple.
 
-  Add a meaningful name and description to each badge so that users know why they are receiving them, and make it obvious what each one means.
+ Add a meaningful name and description to each badge so that users know why they are receiving them, and make it obvious what each one means.
 - Take the time to create consistent and professional icons for achievements.
 
-  Achievement badges sit next to one another in the user profile, so using a specific palette of colors and style is important.
+ Achievement badges sit next to one another in the user profile, so using a specific palette of colors and style is important.

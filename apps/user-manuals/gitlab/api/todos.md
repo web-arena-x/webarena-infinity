@@ -16,9 +16,7 @@ Use this API to interact with [to-do items](../user/todos.md).
 
 ## Get a list of to-do items
 
-Returns a list of to-do items. When no filter is applied, it
-returns all pending to-do items for the current user. Different filters allow the
-user to refine the request.
+Returns a list of to-do items. When no filter is applied, it returns all pending to-do items for the current user. Different filters allow the user to refine the request.
 
 ```plaintext
 GET /todos
@@ -33,19 +31,19 @@ Parameters:
 | `project_id` | integer | no | The ID of a project                                                                                                                                                                                |
 | `group_id` | integer | no | The ID of a group                                                                                                                                                                                  |
 | `state` | string | no | The state of the to-do item. Can be either `pending` or `done`                                                                                                                                     |
-| `type` | string | no | The type of to-do item. Can be either `Issue`, `MergeRequest`, `Commit`, `Epic`, `DesignManagement::Design`, `AlertManagement::Alert`, `Project`, `Namespace`, `Vulnerability` or `WikiPage::Meta`  |
+| `type` | string | no | The type of to-do item. Can be either `Issue`, `MergeRequest`, `Commit`, `Epic`, `DesignManagement::Design`, `AlertManagement::Alert`, `Project`, `Namespace`, `Vulnerability` or `WikiPage::Meta` |
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/todos"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/todos"
 ```
 
 Example Response:
 
 ```json
 [
-  {
+ {
     "id": 102,
     "project": {
       "id": 2,
@@ -118,8 +116,8 @@ Example Response:
     "state": "pending",
     "created_at": "2016-06-17T07:52:35.225Z",
     "updated_at": "2016-06-17T07:52:35.225Z"
-  },
-  {
+ },
+ {
     "id": 98,
     "project": {
       "id": 2,
@@ -192,14 +190,13 @@ Example Response:
     "state": "pending",
     "created_at": "2016-06-17T07:49:24.624Z",
     "updated_at": "2016-06-17T07:49:24.624Z"
-  }
+ }
 ]
 ```
 
 ## Mark a to-do item as done
 
-Marks a single pending to-do item given by its ID for the current user as done. The
-to-do item marked as done is returned in the response.
+Marks a single pending to-do item given by its ID for the current user as done. The to-do item marked as done is returned in the response.
 
 ```plaintext
 POST /todos/:id/mark_as_done
@@ -213,8 +210,8 @@ Parameters:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/todos/130/mark_as_done"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/todos/130/mark_as_done"
 ```
 
 Example Response:
@@ -307,6 +304,6 @@ POST /todos/mark_as_done
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/todos/mark_as_done"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/todos/mark_as_done"
 ```

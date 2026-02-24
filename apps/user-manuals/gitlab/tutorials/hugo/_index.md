@@ -91,7 +91,7 @@ languageCode = 'en-us'
 title = 'Hugo on GitLab'
 [module]
 [[module.imports]]
-  path = 'github.com/adityatelange/hugo-PaperMod'
+ path = 'github.com/adityatelange/hugo-PaperMod'
 ```
 
 ### Add your GitLab configuration options
@@ -110,38 +110,34 @@ Let's take a closer look at what's happening in this `.gitlab-ci.yml` file.
 
 ```yaml
 default:
-  image: "hugomods/hugo:exts"
+ image: "hugomods/hugo:exts"
 
 variables:
-  GIT_SUBMODULE_STRATEGY: recursive
-  THEME_URL: "github.com/adityatelange/hugo-PaperMod"
+ GIT_SUBMODULE_STRATEGY: recursive
+ THEME_URL: "github.com/adityatelange/hugo-PaperMod"
 
-test:  # builds and tests your site
-  script:
+test: # builds and tests your site
+ script:
     - hugo
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
 
-create-pages:  # a user-defined job that builds your pages and saves them to the specified path.
-  script:
+create-pages: # a user-defined job that builds your pages and saves them to the specified path.
+ script:
     - hugo
-  pages: true  # specifies that this is a Pages job
-  artifacts:
+ pages: true # specifies that this is a Pages job
+ artifacts:
     paths:
       - public
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  environment: production
+ environment: production
 ```
 
 - `image` specifies an image from the GitLab Registry that contains Hugo. This image is used to create the environment where your site is built.
 - The `GIT_SUBMODULE_STRATEGY` variable ensures GitLab also looks at your Git submodules, which are sometimes used for Hugo themes.
 - `test` is a job where you can run tests on your Hugo site before it's deployed. The test job runs in all cases, except if you're committing a change to your default branch. You place any commands under `script`. The command in this job - `hugo`- builds your site so it can be tested.
-- `create-pages` is a user-defined job for creating pages from Static Site Generators. Again, this job uses
-  [user-defined job names](../../user/project/pages/_index.md#user-defined-job-names) and runs the `hugo` command to
-  build your site. Then `pages: true` specifies that this is a Pages job and `artifacts` specifies that those resulting pages are added to a directory called `public`. With
-  `rules`, you're checking that this commit was made on the default branch. Typically, you wouldn't want to build and
-  deploy the live site from another branch.
+- `create-pages` is a user-defined job for creating pages from Static Site Generators. Again, this job uses [user-defined job names](../../user/project/pages/_index.md#user-defined-job-names) and runs the `hugo` command to build your site. Then `pages: true` specifies that this is a Pages job and `artifacts` specifies that those resulting pages are added to a directory called `public`. With `rules`, you're checking that this commit was made on the default branch. Typically, you wouldn't want to build and deploy the live site from another branch.
 
 You don't need to add anything else to this file. When you're ready, select **Commit changes** at the top of the page.
 

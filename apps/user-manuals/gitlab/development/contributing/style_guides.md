@@ -7,18 +7,13 @@ title: Development style guides
 
 ## Editor/IDE styling standardization
 
-We use [EditorConfig](https://editorconfig.org/) to automatically apply certain styling standards before files are saved
-locally. Some editors and IDEs honor the `.editorconfig` settings [automatically by default](https://editorconfig.org/#pre-installed).
+We use [EditorConfig](https://editorconfig.org/) to automatically apply certain styling standards before files are saved locally. Some editors and IDEs honor the `.editorconfig` settings [automatically by default](https://editorconfig.org/#pre-installed).
 
-If your editor or IDE does not automatically support `.editorconfig`, we suggest investigating to
-[see if a plugin exists](https://editorconfig.org/#download). For example, a
-[plugin for vim](https://github.com/editorconfig/editorconfig-vim).
+If your editor or IDE does not automatically support `.editorconfig`, we suggest investigating to [see if a plugin exists](https://editorconfig.org/#download). For example, a [plugin for vim](https://github.com/editorconfig/editorconfig-vim).
 
 ## Pre-commit and pre-push static analysis with Lefthook
 
-[Lefthook](https://github.com/evilmartians/lefthook) is a Git hooks manager that allows
-custom logic to be executed prior to Git committing or pushing. GitLab comes with
-Lefthook configuration (`lefthook.yml`), but it must be installed.
+[Lefthook](https://github.com/evilmartians/lefthook) is a Git hooks manager that allows custom logic to be executed prior to Git committing or pushing. GitLab comes with Lefthook configuration (`lefthook.yml`), but it must be installed.
 
 We have a `lefthook.yml` checked in but it is ignored until Lefthook is installed.
 
@@ -29,8 +24,7 @@ We were using Overcommit prior to Lefthook, so you may want to uninstall it firs
 ### Install Lefthook
 
 1. You can install lefthook in [different ways](https://github.com/evilmartians/lefthook/blob/master/docs/install.md#install-lefthook).
-   If you do not choose to install it globally (for example, via Homebrew or package managers), and only want to use it for the GitLab project,
-   you can install the Ruby gem via:
+   If you do not choose to install it globally (for example, via Homebrew or package managers), and only want to use it for the GitLab project, you can install the Ruby gem via:
 
    ```shell
    bundle install
@@ -65,8 +59,7 @@ Lefthook is configured with a combination of:
 
 ### Lefthook auto-fixing files
 
-We have a custom lefthook target to run all the linters with auto-fix capabilities,
-but just on the files which changed in your branch.
+We have a custom lefthook target to run all the linters with auto-fix capabilities, but just on the files which changed in your branch.
 
 ```shell
 # If installed globally
@@ -105,7 +98,7 @@ As an alternative, you can create `lefthook-local.yml` with this structure:
 
 ```yaml
 pre-push:
-  exclude_tags:
+ exclude_tags:
     - frontend
     - documentation
 ```
@@ -114,13 +107,11 @@ For more information, check out [Lefthook documentation](https://github.com/evil
 
 ### Skip or enable a specific Lefthook check
 
-To skip or enable a check based on its name when pushing, you can add `skip: true`
-or `skip: false` to the `lefthook-local.yml` section for that hook. For instance,
-you might want to enable the gettext check to detect issues with `locale/gitlab.pot`:
+To skip or enable a check based on its name when pushing, you can add `skip: true` or `skip: false` to the `lefthook-local.yml` section for that hook. For instance, you might want to enable the gettext check to detect issues with `locale/gitlab.pot`:
 
 ```yaml
 pre-push:
-  commands:
+ commands:
     gettext:
       skip: false
 ```
@@ -173,29 +164,17 @@ See the dedicated [Documentation Style Guide](../documentation/styleguide/_index
 
 ### Guidelines for good practices
 
-Good practice examples demonstrate encouraged ways of writing code while
-comparing with examples of practices to avoid. These examples are labeled as
-"Bad" or "Good". In GitLab development guidelines, when presenting the cases,
-it's recommended to follow a "first-bad-then-good" strategy. First demonstrate
-the "Bad" practice (how things *could* be done, which is often still working
-code), and then how things *should* be done better, using a "Good" example. This
-is typically an improved example of the same code.
+Good practice examples demonstrate encouraged ways of writing code while comparing with examples of practices to avoid. These examples are labeled as "Bad" or "Good". In GitLab development guidelines, when presenting the cases, it's recommended to follow a "first-bad-then-good" strategy. First demonstrate the "Bad" practice (how things *could* be done, which is often still working code), and then how things *should* be done better, using a "Good" example. This is typically an improved example of the same code.
 
 Consider the following guidelines when offering examples:
 
 - First, offer the "Bad" example, and then the "Good" one.
 - When only one bad case and one good case is given, use the same code block.
-- When more than one bad case or one good case is offered, use separated code
-  blocks for each. With many examples being presented, a clear separation helps
-  the reader to go directly to the good part. Consider offering an explanation
-  (for example, a comment, or a link to a resource) on why something is bad
-  practice.
+- When more than one bad case or one good case is offered, use separated code blocks for each. With many examples being presented, a clear separation helps the reader to go directly to the good part. Consider offering an explanation (for example, a comment, or a link to a resource) on why something is bad practice.
 - Better and best cases can be considered part of the good cases' code block.
-  In the same code block, precede each with comments: `# Better` and `# Best`.
+ In the same code block, precede each with comments: `# Better` and `# Best`.
 
-Although the bad-then-good approach is acceptable for the GitLab development
-guidelines, do not use it for user documentation. For user documentation, use
-*Do* and *Don't*. For examples, see the [Pajamas Design System](https://design.gitlab.com/content/punctuation/).
+Although the bad-then-good approach is acceptable for the GitLab development guidelines, do not use it for user documentation. For user documentation, use *Do* and *Don't*. For examples, see the [Pajamas Design System](https://design.gitlab.com/content/punctuation/).
 
 ## Python
 

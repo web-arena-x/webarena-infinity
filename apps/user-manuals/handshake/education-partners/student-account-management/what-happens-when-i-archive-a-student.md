@@ -35,7 +35,7 @@ You can also archive student accounts in bulk: [Importer: Bulk Archiving Student
 - The student is disconnected from your school in Handshake
 - The student still has access to Handshake as an unaffiliated job seeker
 - Upon logging in, the student is asked if they wish to connect to your school again. That option will always be available for them as displayed in the Student article: [Connect to Your School for Full Handshake Access](https://support.joinhandshake.com/hc/en-us/articles/219133217)
-  - They will need to be approved by your school before they are reconnected to your school again, similar to the steps in [Processing Student & Alumni Connection Requests](https://support.joinhandshake.com/hc/en-us/articles/222262007)
+ - They will need to be approved by your school before they are reconnected to your school again, similar to the steps in [Processing Student & Alumni Connection Requests](https://support.joinhandshake.com/hc/en-us/articles/222262007)
 - The student's historic data will exist in the Analytics and the FDS module but data for activity after they become unaffiliated will not be available on the Manage students page
 
 ### Is there a way to prevent a student from using Handshake, but keep them connected to my school?

@@ -125,11 +125,9 @@ If you previously added other currencies, you can remove them from your firm’s
 
 Clio Manage has two options for time rounding when creating time entries and generating bills to suit your firm’s needs.
 
-Decimal rounding
-:   This option rounds all time entries to the nearest two decimal places. For example, if you create a time entry for 0.248 hours, the time entry will appear as 0.25 hours in the **Activities** table and on the bill.
+Decimal rounding :   This option rounds all time entries to the nearest two decimal places. For example, if you create a time entry for 0.248 hours, the time entry will appear as 0.25 hours in the **Activities** table and on the bill.
 
-Time rounding
-:   This option rounds all time entries up to the nearest minute increment of your choice. For example, if you set your minute increment to 5 and create a time entry for 22 minutes, the time entry will be rounded up to the nearest interval of 5 minutes, which is 25 minutes. If you set your time entry in hours, such as 1.20 hours, the time entry is calculated as 72 minutes and then gets rounded to the nearest 5 minute increment, which is 75 minutes or 1.25 hours.
+Time rounding :   This option rounds all time entries up to the nearest minute increment of your choice. For example, if you set your minute increment to 5 and create a time entry for 22 minutes, the time entry will be rounded up to the nearest interval of 5 minutes, which is 25 minutes. If you set your time entry in hours, such as 1.20 hours, the time entry is calculated as 72 minutes and then gets rounded to the nearest 5 minute increment, which is 75 minutes or 1.25 hours.
 
 **Important:** When you change time and decimal rounding settings, *all* time entries are affected for *all* users at the firm. This includes activities that have already been created and activities that have already been generated on bills.
 

@@ -51,8 +51,7 @@ Hello YOUR NAME,
 
 You have a new message from STUDENT NAME.
 
-*Student's full message displayed*  
-View the Message and Reply (RED BUTTON)
+*Student's full message displayed* View the Message and Reply (RED BUTTON)
 
 **You can also reply directly from this email**
 
@@ -60,8 +59,7 @@ Respond to this message by simply replying to this email any time within 6 month
 
 Note: Candidates will receive a plain text version of your response. For security purposes any images, links, fonts, and other such formatting will be removed.
 
-Thank you,  
-The Handshake Team"
+Thank you, The Handshake Team"
 
 ![You_have_a_new_notification_.png](https://support.joinhandshake.com/hc/article_attachments/25998585239191)
 

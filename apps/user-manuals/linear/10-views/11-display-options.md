@@ -43,13 +43,13 @@ Every view in Linear is slightly different and will display different display op
 
 #### Layout
 
-If a board is available for your view, you'll see the option and can toggle between lists and boards.  `Cmd/Ctrl` `B` will also toggle the layout.
+If a board is available for your view, you'll see the option and can toggle between lists and boards. `Cmd/Ctrl` `B` will also toggle the layout.
 
 #### Grouping
 
-Grouping is allowed in most list views and lets you group issues by Status, Assignee, Project, Priority, Cycle or Focus*. No grouping removes all categorization and is especially useful when applying ordering and filters. Grouping settings will affect whether you can order issues manually.  
-  
-Beside each group in board or list view, you will see either the total number of issues in the group or the total estimate of all issues in the group. You can click this to toggle between either option.  
+Grouping is allowed in most list views and lets you group issues by Status, Assignee, Project, Priority, Cycle or Focus*. No grouping removes all categorization and is especially useful when applying ordering and filters. Grouping settings will affect whether you can order issues manually. 
+ 
+Beside each group in board or list view, you will see either the total number of issues in the group or the total estimate of all issues in the group. You can click this to toggle between either option. 
 
 
 *Focus is available in the _My Issue_s view. Focus is a unique grouping that attempts to organize issues assigned to you in order of what you'd want to work on first.
@@ -59,8 +59,8 @@ Beside each group in board or list view, you will see either the total number of
 Sub-grouping is available in lists and boards (as rows).   
 In board view having rows helps for a swim-lane style structure common in project management.
 
-The grouping header will remain sticky as you scroll down so it's clear what grouping and sub-grouping you have in these views.  
-  
+The grouping header will remain sticky as you scroll down so it's clear what grouping and sub-grouping you have in these views. 
+ 
 You can drag and drop issues between each grouping and it will automatically
 
  adopt the properties of that grouping.
@@ -68,7 +68,7 @@ You can drag and drop issues between each grouping and it will automatically
 #### Ordering
 
 Ordering is allowed in most list views and lets you order issues within their groupings by a number of properties, including Status, Manual, Priority, Last created, Last updated, Due date, and Link count.   
-  
+ 
 You can also reverse the sort order of your issues, except when sorting manually.
 
 > [!NOTE]

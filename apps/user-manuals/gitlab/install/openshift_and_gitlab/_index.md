@@ -14,18 +14,15 @@ OpenShift helps you to develop, deploy, and manage container-based applications.
 
 ## Use OpenShift to run GitLab Self-Managed
 
-You can run GitLab in an OpenShift cluster with the GitLab Operator. For more information about
-setting up GitLab on OpenShift, see [GitLab Operator](https://docs.gitlab.com/operator/).
+You can run GitLab in an OpenShift cluster with the GitLab Operator. For more information about setting up GitLab on OpenShift, see [GitLab Operator](https://docs.gitlab.com/operator/).
 
 ## Use OpenShift to run a GitLab Runner Fleet
 
-The GitLab Operator does not include the GitLab Runner. To install and manage a GitLab Runner fleet in an OpenShift cluster, use the
-[GitLab Runner Operator](https://gitlab.com/gitlab-org/gl-openshift/gitlab-runner-operator).
+The GitLab Operator does not include the GitLab Runner. To install and manage a GitLab Runner fleet in an OpenShift cluster, use the [GitLab Runner Operator](https://gitlab.com/gitlab-org/gl-openshift/gitlab-runner-operator).
 
 ### Deploy to and integrate with OpenShift from GitLab
 
-Deploying custom or COTS applications on top of OpenShift from GitLab is supported using the
-[GitLab agent for Kubernetes](../../user/clusters/agent/_index.md).
+Deploying custom or COTS applications on top of OpenShift from GitLab is supported using the [GitLab agent for Kubernetes](../../user/clusters/agent/_index.md).
 
 ### Unsupported GitLab features
 

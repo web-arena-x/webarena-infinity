@@ -7,12 +7,9 @@ title: GitLab Workflow extension for VS Code
 ---
 
 The [GitLab Workflow extension](https://marketplace.visualstudio.com/items?itemName=GitLab.gitlab-workflow)
-for Visual Studio Code integrates GitLab Duo and other GitLab features directly into your IDE. It adds a
-GitLab Workflow panel to the VS Code sidebar where you can view issues, merge requests, and pipelines,
-and extend your view with [custom queries](custom_queries.md).
+for Visual Studio Code integrates GitLab Duo and other GitLab features directly into your IDE. It adds a GitLab Workflow panel to the VS Code sidebar where you can view issues, merge requests, and pipelines, and extend your view with [custom queries](custom_queries.md).
 
-To get started, [install and configure the extension](setup.md). For added security, you can set up
-the extension in a Visual Studio Code Dev Container.
+To get started, [install and configure the extension](setup.md). For added security, you can set up the extension in a Visual Studio Code Dev Container.
 
 When configured, this extension brings the GitLab features you use every day directly into your VS Code environment:
 
@@ -28,39 +25,31 @@ When configured, this extension brings the GitLab features you use every day dir
 
 The GitLab Workflow extension also streamlines your VS Code workflow with AI-assisted features:
 
-- [GitLab Duo Chat (Agentic)](../../user/gitlab_duo_chat/agentic_chat.md) and
-  [GitLab Duo Chat (Classic)](../../user/gitlab_duo_chat/_index.md): Interact with an AI assistant
-  directly in VS Code.
+- [GitLab Duo Chat (Agentic)](../../user/gitlab_duo_chat/agentic_chat.md) and [GitLab Duo Chat (Classic)](../../user/gitlab_duo_chat/_index.md): Interact with an AI assistant directly in VS Code.
 - [GitLab Duo Code Suggestions](../../user/project/repository/code_suggestions/_index.md):
-  Suggest completions to your current line of code, or write natural-language code comments to get
-  more substantive suggestions.
+ Suggest completions to your current line of code, or write natural-language code comments to get more substantive suggestions.
 
 When you view a GitLab project in VS Code, the extension shows you information about your current branch:
 
 - The status of the branch's most recent CI/CD pipeline.
 - A link to the merge request for this branch.
-- If the merge request includes an [issue closing pattern](../../user/project/issues/managing_issues.md#closing-issues-automatically),
-  a link to the issue.
+- If the merge request includes an [issue closing pattern](../../user/project/issues/managing_issues.md#closing-issues-automatically), a link to the issue.
 
 ## GitLab extension panels
 
 After you install and set up the extension, you can access the following features:
 
 - GitLab Workflow: On the left sidebar, select **GitLab Workflow** ({{< icon name="tanuki" >}}).
-- GitLab Duo Chat (Agentic): On the left sidebar, select **GitLab Duo Agent Platform**
-  ({{< icon name="duo-agentic-chat" >}}).
-- GitLab Duo Chat (Classic): On the left sidebar, select **GitLab Duo Chat**
-  ({{< icon name="duo-chat" >}}).
+- GitLab Duo Chat (Agentic): On the left sidebar, select **GitLab Duo Agent Platform** ({{< icon name="duo-agentic-chat" >}}).
+- GitLab Duo Chat (Classic): On the left sidebar, select **GitLab Duo Chat** ({{< icon name="duo-chat" >}}).
 - GitLab Duo Code Suggestions: In the status bar, select **Duo** ({{< icon name="tanuki-ai" >}}).
-  The icon will change based on the [feature status](../../user/project/repository/code_suggestions/set_up.md#verify-that-code-suggestions-is-on).
+ The icon will change based on the [feature status](../../user/project/repository/code_suggestions/set_up.md#verify-that-code-suggestions-is-on).
 
 If these features do not appear, see [troubleshooting](troubleshooting.md#gitlab-duo-features-do-not-appear) for guidance.
 
 ## Switch GitLab accounts in VS Code
 
-The GitLab Workflow extension uses one account for each
-[VS Code Workspace](https://code.visualstudio.com/docs/editor/workspaces) (window). The extension
-automatically selects the account when:
+The GitLab Workflow extension uses one account for each [VS Code Workspace](https://code.visualstudio.com/docs/editor/workspaces) (window). The extension automatically selects the account when:
 
 - You have added only one GitLab account to the extension.
 - All workspaces in your VS Code window use the same GitLab account, based on the `git remote` configuration.
@@ -70,10 +59,8 @@ What the extension shows in the status bar depends on your account setup:
 ![Status bar for a user with multiple GitLab accounts, with one preselected.](img/preselected_account_v17_11.png)
 
 - If only one GitLab account exists, the status bar shows no information.
-- If multiple GitLab accounts exist, and the extension can determine which account to use,
-  the status bar shows the account name next to the tanuki ({{< icon name="tanuki" >}}) icon.
-- If multiple GitLab accounts exist, and the extension can't determine which account to use,
-  the status bar shows **Multiple GitLab Accounts** ({{< icon name="question-o" >}}).
+- If multiple GitLab accounts exist, and the extension can determine which account to use, the status bar shows the account name next to the tanuki ({{< icon name="tanuki" >}}) icon.
+- If multiple GitLab accounts exist, and the extension can't determine which account to use, the status bar shows **Multiple GitLab Accounts** ({{< icon name="question-o" >}}).
 
 To select a GitLab account for the active VS Code window, select the status bar item, or:
 
@@ -85,8 +72,7 @@ To select a GitLab account for the active VS Code window, select the status bar 
 
 ## Select your GitLab project
 
-When your Git repository can be associated with multiple GitLab projects, the extension cannot
-determine which account to use. This can happen when you have multiple remotes, for example:
+When your Git repository can be associated with multiple GitLab projects, the extension cannot determine which account to use. This can happen when you have multiple remotes, for example:
 
 - `origin`: `git@gitlab.com:gitlab-org/gitlab-vscode-extension.git`
 - `personal-fork`: `git@gitlab.com:myusername/gitlab-vscode-extension.git`
@@ -149,16 +135,13 @@ When you review a merge request, create a snippet patch when you want to suggest
 1. Open the Command Palette:
    - For macOS, press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
    - For Windows or Linux, press <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
-1. In the Command Palette, enter `GitLab: Create snippet patch`, and select it. This command runs a
-   `git diff` command and creates a GitLab snippet in your project.
-1. Enter a **Patch name** and press <kbd>Enter</kbd>. GitLab uses this name as the
-   snippet title, and converts it into a filename appended with `.patch`.
+1. In the Command Palette, enter `GitLab: Create snippet patch`, and select it. This command runs a `git diff` command and creates a GitLab snippet in your project.
+1. Enter a **Patch name** and press <kbd>Enter</kbd>. GitLab uses this name as the snippet title, and converts it into a filename appended with `.patch`.
 1. Select the snippet's privacy level:
    - **Private** snippets are visible only to project members.
    - **Public** snippets are visible to everyone.
 
-VS Code opens the snippet patch in a new browser tab. The snippet patch's
-description contains instructions on how to apply the patch.
+VS Code opens the snippet patch in a new browser tab. The snippet patch's description contains instructions on how to apply the patch.
 
 ### Insert a snippet
 
@@ -198,21 +181,18 @@ To create an issue in the current project:
 1. Open the Command Palette:
    - For macOS, press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
    - For Windows or Linux, press <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
-1. In the Command Palette, search for **GitLab: Create new issue on current project**
-   and press <kbd>Enter</kbd>.
+1. In the Command Palette, search for **GitLab: Create new issue on current project** and press <kbd>Enter</kbd>.
 
 GitLab opens the **New issue** page in your default browser.
 
 ## Create a merge request
 
-To create a merge request in the current project, on the bottom status bar, select
-**Create MR** ({{< icon name="merge-request-open" >}}) or:
+To create a merge request in the current project, on the bottom status bar, select **Create MR** ({{< icon name="merge-request-open" >}}) or:
 
 1. Open the Command Palette:
    - For macOS, press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
    - For Windows or Linux, press <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
-1. In the Command Palette, search for **GitLab: Create new merge request from current project**
-   and press <kbd>Enter</kbd>.
+1. In the Command Palette, search for **GitLab: Create new merge request from current project** and press <kbd>Enter</kbd>.
 
 GitLab opens the **New merge request** page in your default browser.
 
@@ -245,8 +225,7 @@ To compare your branch with your project's default branch, without creating a me
    - For Windows or Linux, press <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.
 1. In the Command Palette, search for **GitLab: Compare current branch with master** and press <kbd>Enter</kbd>.
 
-The extension opens a new browser tab. It shows a diff between the most recent commit on your branch, and
-the most recent commit on your project's default branch.
+The extension opens a new browser tab. It shows a diff between the most recent commit on your branch, and the most recent commit on your project's default branch.
 
 <!-- vale gitlab_base.InclusiveLanguage = YES -->
 
@@ -273,9 +252,7 @@ To open a file from your current GitLab project in the GitLab UI, with specific 
 Prerequisites:
 
 - You're using GitLab Workflow version 3.74.0 or later.
-- Your project includes [Security Risk Management](https://about.gitlab.com/features/?stage=secure) features, such as
-  static application security testing (SAST), dynamic application security testing (DAST),
-  container scanning, or dependency scanning.
+- Your project includes [Security Risk Management](https://about.gitlab.com/features/?stage=secure) features, such as static application security testing (SAST), dynamic application security testing (DAST), container scanning, or dependency scanning.
 - You configured the [security risk management](../../user/application_security/secure_your_application.md) features.
 
 To view security findings:
@@ -303,15 +280,12 @@ To view security findings:
 {{< /history >}}
 
 Static application security testing (SAST) in VS Code detects vulnerabilities in the active file.
-With early detection, you can remediate vulnerabilities before you merge your changes into the
-default branch.
+With early detection, you can remediate vulnerabilities before you merge your changes into the default branch.
 
-When you trigger a SAST scan, the content of the active file is passed to GitLab and checked against
-SAST vulnerability rules. GitLab shows scan results in the primary side bar.
+When you trigger a SAST scan, the content of the active file is passed to GitLab and checked against SAST vulnerability rules. GitLab shows scan results in the primary side bar.
 
 <i class="fa-youtube-play" aria-hidden="true"></i>
-To learn about setting up SAST scanning, see
-[SAST scanning in VS Code](https://www.youtube.com/watch?v=s-qOSQO0i-8) on GitLab Unfiltered.
+To learn about setting up SAST scanning, see [SAST scanning in VS Code](https://www.youtube.com/watch?v=s-qOSQO0i-8) on GitLab Unfiltered.
 <!-- Video published on 2025-02-10 -->
 
 Prerequisites:
@@ -338,16 +312,13 @@ To perform SAST scanning of a file in VS Code:
    1. Select GitLab Workflow ({{< icon name="tanuki" >}}) to display the extension sidebar.
    1. Expand the **GITLAB REMOTE SCAN (SAST)** section.
 
-   The results of the SAST scan are listed in descending order by severity. To see details of a
-   finding, select it in the **GITLAB REMOTE SCAN (SAST)** section of the extension sidebar.
+   The results of the SAST scan are listed in descending order by severity. To see details of a finding, select it in the **GITLAB REMOTE SCAN (SAST)** section of the extension sidebar.
 
 <!-- markdownlint-enable MD044 -->
 
 ## Search issues and merge requests
 
-To search your project's issues and merge requests directly from VS Code, use filtered search or
-[Advanced Search](../../integration/advanced_search/elasticsearch.md). With filtered search,
-you use predefined tokens to refine your search results.
+To search your project's issues and merge requests directly from VS Code, use filtered search or [Advanced Search](../../integration/advanced_search/elasticsearch.md). With filtered search, you use predefined tokens to refine your search results.
 Advanced Search provides faster, more efficient search across the entire GitLab instance.
 
 Prerequisites:
@@ -369,12 +340,11 @@ GitLab opens the results in a browser tab.
 
 ### Filter searches with tokens
 
-Searches in large projects return better results when you add filters. The extension supports these tokens
-for filtering merge requests and issues:
+Searches in large projects return better results when you add filters. The extension supports these tokens for filtering merge requests and issues:
 
 | Token     | Example                                                            | Description |
 |-----------|--------------------------------------------------------------------|-------------|
-| assignee  | `assignee: timzallmann`                                            | Username of the assignee, without `@`. |
+| assignee | `assignee: timzallmann`                                            | Username of the assignee, without `@`. |
 | author    | `author: fatihacet`                                                | Username of the author, without `@`. |
 | label     | `label: frontend` or `label:frontend label: Discussion`            | A single label. Usable more than once, and can be used in the same query as `labels`. |
 | labels    | `labels: frontend, Discussion, performance`                        | Multiple labels in a comma-separated list. Can be used in the same query as `label`. |
@@ -385,12 +355,12 @@ for filtering merge requests and issues:
 Token syntax and guidelines:
 
 - Each token name requires a colon (`:`) after it, like `label:`.
-  - A leading space for the colon (`label :`) is invalid and returns a parse error.
-  - A space after the token name is optional. Both `label: frontend` and `label:frontend` are valid.
+ - A leading space for the colon (`label :`) is invalid and returns a parse error.
+ - A space after the token name is optional. Both `label: frontend` and `label:frontend` are valid.
 - You can use the `label` and `labels` tokens multiple times and together. These queries return the same results:
-  - `labels: frontend discussion label: performance`
-  - `label: frontend label: discussion label: performance`
-  - `labels: frontend discussion performance` (the resulting, combined query)
+ - `labels: frontend discussion label: performance`
+ - `label: frontend label: discussion label: performance`
+ - `labels: frontend discussion performance` (the resulting, combined query)
 
 You can combine multiple tokens in a single search query. For example:
 
@@ -408,13 +378,11 @@ This search query looks for:
 
 ## Customize keyboard shortcuts
 
-You can assign different keyboard shortcuts for **Accept Inline Suggestion**, **Accept Next Word Of Inline Suggestion**,
-or **Accept Next Line Of Inline Suggestion**:
+You can assign different keyboard shortcuts for **Accept Inline Suggestion**, **Accept Next Word Of Inline Suggestion**, or **Accept Next Line Of Inline Suggestion**:
 
 1. In VS Code, run the `Preferences: Open Keyboard Shortcuts` command.
 1. Find the shortcut you want to edit, and select **Change keybinding** ({{< icon name="pencil" >}}).
-1. Assign your preferred shortcuts to **Accept Inline Suggestion**, **Accept Next Word Of Inline Suggestion**,
-   or **Accept Next Line Of Inline Suggestion**.
+1. Assign your preferred shortcuts to **Accept Inline Suggestion**, **Accept Next Word Of Inline Suggestion**, or **Accept Next Line Of Inline Suggestion**.
 1. Press <kbd>Enter</kbd> to save your changes.
 
 ## Update the extension
@@ -429,15 +397,13 @@ To update your extension to the latest version:
 ## Check status
 
 1. In Visual Studio Code, on the bottom status bar, select the GitLab icon ({{< icon name="tanuki" >}}).
-1. A menu opens under the VS Code search box, and the GitLab Workflow extension shows the status
-   of the extension. Any errors are displayed next to **Status:**.
+1. A menu opens under the VS Code search box, and the GitLab Workflow extension shows the status of the extension. Any errors are displayed next to **Status:**.
 
 For GitLab Duo Chat (Classic), you can also check the [status of Chat](../../user/gitlab_duo_chat/_index.md#check-the-status-of-chat).
 
 ## Enable telemetry
 
-GitLab Workflow extension uses the telemetry settings in Visual Studio Code to send usage and error
-information to GitLab. To enable or customize telemetry in Visual Studio Code:
+GitLab Workflow extension uses the telemetry settings in Visual Studio Code to send usage and error information to GitLab. To enable or customize telemetry in Visual Studio Code:
 
 1. In Visual Studio Code, go to **File** > **Preferences** > **Settings** (on Windows/Linux) or **Code** > **Settings** > **Settings** (on macOS).
 1. In the search bar, search for `Telemetry`.

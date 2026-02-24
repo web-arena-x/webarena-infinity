@@ -5,8 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Accessibility
 ---
 
-Accessibility is important for users who use screen readers or rely on keyboard-only functionality
-to ensure they have an equivalent experience to sighted mouse users.
+Accessibility is important for users who use screen readers or rely on keyboard-only functionality to ensure they have an equivalent experience to sighted mouse users.
 
 [We aim to conform to level AA of the World Wide Web Consortium (W3C) Web Content Accessibility Guidelines 2.1](https://design.gitlab.com/accessibility/a11y).
 

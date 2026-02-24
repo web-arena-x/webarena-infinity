@@ -5,8 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Python development guidelines
 ---
 
-This document describes conventions and practices we adopt at GitLab when developing Python code. While GitLab is built
-primarily on Ruby on Rails, we use Python when needed to leverage the ecosystem.
+This document describes conventions and practices we adopt at GitLab when developing Python code. While GitLab is built primarily on Ruby on Rails, we use Python when needed to leverage the ecosystem.
 
 Some examples of Python in our codebase:
 
@@ -26,9 +25,7 @@ This documentation does not cover guidelines for Python usage on Data Science pr
 
 ## When should I consider Python for development
 
-Ruby should always be the first choice for development at GitLab, as we have a larger community, better support, and easier deployment. However, there are occasions where using Python is worth breaking the pattern. For example,
-when working with AI and ML, most of the open source uses Python, and using Ruby would require building and maintaining
-large codebases.
+Ruby should always be the first choice for development at GitLab, as we have a larger community, better support, and easier deployment. However, there are occasions where using Python is worth breaking the pattern. For example, when working with AI and ML, most of the open source uses Python, and using Ruby would require building and maintaining large codebases.
 
 ## Learning Python
 

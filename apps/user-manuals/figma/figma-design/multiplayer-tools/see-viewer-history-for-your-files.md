@@ -25,7 +25,7 @@ Tip: If you want to prevent logged-out users or people outside your team or orga
 
 ## See viewer history
 
-To see who has viewed your file, click your avatar in the right sidebar. The dropdown will show you who is **Currently viewing** your file and anyone who **Previously viewed** your file. Hover over a person’s name and click the  ellipsis to view their profile.
+To see who has viewed your file, click your avatar in the right sidebar. The dropdown will show you who is **Currently viewing** your file and anyone who **Previously viewed** your file. Hover over a person’s name and click the ellipsis to view their profile.
 
 ![A cursor has clicked on the avatars in a file to see who is looking at the file. The viewer history view shows current and previous viewers. Three users are currently looking at the file, and their avatars and names are listed under a label "Currently viewing." Previous viewers of the file can be seen as greyed out avatars, with time stamps revealing the last time they viewed the file.](https://help.figma.com/hc/article_attachments/30209895127831)
 

@@ -14,8 +14,7 @@ The Cloud Connector **JWT** contains a custom claim, which represents the list o
 
 ## Unit Primitives and Configuration
 
-According to the [Architecture Decision Record (ADR) PROV-001](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/cloud_connector/fulfillment/decisions/prov_001_unit_primitives/),
-this configuration of unit primitives is maintained in the [`gitlab-cloud-connector`](https://gitlab.com/gitlab-org/cloud-connector/gitlab-cloud-connector) library.
+According to the [Architecture Decision Record (ADR) PROV-001](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/cloud_connector/fulfillment/decisions/prov_001_unit_primitives/), this configuration of unit primitives is maintained in the [`gitlab-cloud-connector`](https://gitlab.com/gitlab-org/cloud-connector/gitlab-cloud-connector) library.
 This library serves as the Single Source of Truth (SSoT) for all Cloud Connector configurations and is available as both a Ruby gem and a Python package.
 
 ### Browsing the Catalog
@@ -35,19 +34,19 @@ The configuration in `gitlab-cloud-connector` follows this structure:
 
 ```shell
 config
-  ├─ unit_primitives/
-  │  ├─ duo_chat.yml
-  │  └─ ...
-  ├─ backend_services/
-  │  ├─ ai_gateway.yml
-  │  └─ ...
-  ├─ add_ons/
-  │  ├─ duo_pro.yml
-  │  └─ ...
-  ├─ services/
-  │  ├─ duo_chat.yml
-  │  └─ ...
-  └─ license_types/
+ ├─ unit_primitives/
+ │ ├─ duo_chat.yml
+ │ └─ ...
+ ├─ backend_services/
+ │ ├─ ai_gateway.yml
+ │ └─ ...
+ ├─ add_ons/
+ │ ├─ duo_pro.yml
+ │ └─ ...
+ ├─ services/
+ │ ├─ duo_chat.yml
+ │ └─ ...
+ └─ license_types/
      ├─ premium.yml
      └─ ...
 ```
@@ -64,16 +63,16 @@ The configuration for each unit primitive adhere to the following schema.
 | `name`              | string | Unit primitive name in `snake_case` format (lowercase letters, numbers, underscores). Should follow `$VERB_$NOUN` pattern (for example, `explain_vulnerability`). |
 | `description`       | string | Description of the unit primitive's purpose and functionality. |
 | `group`             | string | Engineering group that owns the unit primitive (for example, `group::duo chat`). |
-| `feature_category`  | string | Feature category classification (see [categories](https://gitlab.com/gitlab-com/www-gitlab-com/-/blob/master/data/categories.yml)). |
+| `feature_category` | string | Feature category classification (see [categories](https://gitlab.com/gitlab-com/www-gitlab-com/-/blob/master/data/categories.yml)). |
 | `documentation_url` | string | URL to the unit primitive's documentation. |
 
 ##### Optional Fields
 
 | Field | Type | Description                                          |
 |-------|------|------------------------------------------------------|
-| `milestone` | string | GitLab milestone that introduced the unit primitive.  |
+| `milestone` | string | GitLab milestone that introduced the unit primitive. |
 | `introduced_by_url` | string | Merge request URL that introduced the unit primitive. |
-| `unit_primitive_issue_url` | string | Issue URL proposing the unit primitive introduction.  |
+| `unit_primitive_issue_url` | string | Issue URL proposing the unit primitive introduction. |
 | `deprecated_by_url` | string | Merge request URL that deprecated the unit primitive. |
 | `deprecation_message` | string | Explanation of deprecation context and reasons.       |
 | `cut_off_date` | datetime | UTC timestamp when free access ends (if applicable). **NOTE:** If you do not define a cut-off date, the `add_ons` element is not enforced and the feature remains in free access. |
@@ -95,20 +94,20 @@ Example unit primitive configuration:
 ---
 name: new_feature
 description: Description of the new feature
-cut_off_date: 2024-10-17T00:00:00+00:00  # Optional; always set for paid features
+cut_off_date: 2024-10-17T00:00:00+00:00 # Optional; always set for paid features
 min_gitlab_version: '16.9'
 min_gitlab_version_for_free_access: '16.8'
 group: group::your_group
 feature_category: your_category
 documentation_url: https://docs.gitlab.com/ee/path/to/docs
 backend_services:
-  - ai_gateway
+ - ai_gateway
 add_ons:
-  - duo_pro
-  - duo_enterprise
+ - duo_pro
+ - duo_enterprise
 license_types:
-  - premium
-  - ultimate
+ - premium
+ - ultimate
 ```
 
 According to this definition, the feature:
@@ -117,15 +116,12 @@ According to this definition, the feature:
 - Is available in beta (free of charge) starting with GitLab 16.8.
 - It is only available via paid add-ons on GitLab versions 16.9 or newer.
 - It transitions from free access to paid access on October 17, 2024 at midnight UTC. Beyond this point, you must have either GitLab Duo Pro or GitLab Duo Enterprise, and a Premium or Ultimate subscription.
-- If the above listed conditions hold true, a Cloud Connector token will carry this feature
-  in its `scopes` claim, allowing backend services to verify access accordingly.
-- This feature is only relevant for requests to the AI gateway. The corresponding entry in `scopes` does not need to be present
-  in `scopes` when a token is attached to requests sent to other backend services.
+- If the above listed conditions hold true, a Cloud Connector token will carry this feature in its `scopes` claim, allowing backend services to verify access accordingly.
+- This feature is only relevant for requests to the AI gateway. The corresponding entry in `scopes` does not need to be present in `scopes` when a token is attached to requests sent to other backend services.
 
 {{< alert type="note" >}}
 
-Not setting any `cut_off_date` implies a feature remains freely available, regardless of what
-`add_ons` are defined.
+Not setting any `cut_off_date` implies a feature remains freely available, regardless of what `add_ons` are defined.
 
 {{< /alert >}}
 
@@ -166,15 +162,14 @@ name: premium
 
 ### Backward compatibility
 
-To support backward compatibility for customers running older GitLab versions and with the old [legacy structure](#legacy-structure), we provide a mapping from the new to old format,
-and soon to be deprecated "service" abstraction.
+To support backward compatibility for customers running older GitLab versions and with the old [legacy structure](#legacy-structure), we provide a mapping from the new to old format, and soon to be deprecated "service" abstraction.
 
 #### Service configuration
 
 | Field | Type | Description                                                                                                                                                                                                                                               |
 |-------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name` | string | The unique name of the service, consisting of lowercase alphanumeric characters and underscores.                                                                                                                                                          |
-| `basic_unit_primitive` | string | The most fundamental unit primitive representing key configuration values like `cut_off_date` and `min_gitlab_version`. If not set, the first unit primitive in the `unit_primitives` list is used. Used to derive these shared properties across the service.  |
+| `basic_unit_primitive` | string | The most fundamental unit primitive representing key configuration values like `cut_off_date` and `min_gitlab_version`. If not set, the first unit primitive in the `unit_primitives` list is used. Used to derive these shared properties across the service. |
 | `gitlab_realm` | array[string] | An array of environments where the service is available. Possible values: `gitlab-com`, `self-managed`.                                                                                                                                                   |
 | `description` | string | A brief description of the service.                                                                                                                                                                                                                       |
 | `unit_primitives` | array[string] | An array of unit primitives associated with the service.                                                                                                                                                                                                  |
@@ -187,28 +182,28 @@ Example of a new service mapping configuration:
 name: duo_chat
 basic_unit_primitive: duo_chat
 gitlab_realm:
-  - gitlab-com
-  - self-managed
+ - gitlab-com
+ - self-managed
 unit_primitives:
-  - ask_build
-  - ask_commit
-  - ask_epic
-  - ask_issue
-  - ask_merge_request
-  - documentation_search
-  - duo_chat
-  - explain_code
-  - fix_code
-  - include_dependency_context
-  - include_file_context
-  - include_issue_context
-  - include_local_git_context
-  - include_merge_request_context
-  - include_snippet_context
-  - include_terminal_context
-  - include_repository_context
-  - refactor_code
-  - write_tests
+ - ask_build
+ - ask_commit
+ - ask_epic
+ - ask_issue
+ - ask_merge_request
+ - documentation_search
+ - duo_chat
+ - explain_code
+ - fix_code
+ - include_dependency_context
+ - include_file_context
+ - include_issue_context
+ - include_local_git_context
+ - include_merge_request_context
+ - include_snippet_context
+ - include_terminal_context
+ - include_repository_context
+ - refactor_code
+ - write_tests
 ```
 
 ### Legacy structure
@@ -217,7 +212,7 @@ The information about how paid features are bundled into GitLab tiers and add-on
 
 ```yaml
 services:
-  code_suggestions:
+ code_suggestions:
     backend: 'gitlab-ai-gateway'
     cut_off_date: 2024-02-15 00:00:00 UTC
     min_gitlab_version: '16.8'
@@ -225,7 +220,7 @@ services:
       duo_pro:
         unit_primitives:
           - code_suggestions
-  duo_chat:
+ duo_chat:
     backend: 'gitlab-ai-gateway'
     min_gitlab_version_for_beta: '16.8'
     min_gitlab_version: '16.9'

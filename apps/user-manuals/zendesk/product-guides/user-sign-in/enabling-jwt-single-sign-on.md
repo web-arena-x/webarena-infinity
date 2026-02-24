@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408845838874-Enabling-JWT
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Location:  Admin Center > Account > Security > Single sign-on
+Location: Admin Center > Account > Security > Single sign-on
 
 Single sign-on is a mechanism that allows you to authenticate users in your systems and subsequently tell Zendesk that the user has been authenticated. If you use single sign-on with JSON Web Token (JWT), a user is automatically verified with the identity provider when they sign in. The user is then allowed to access Zendesk without being prompted to enter separate sign-in credentials.
 
@@ -211,8 +211,8 @@ Specify HS256 as the JWT algorithm in the header of your JWT payload:
 
 ```
 {
-  "typ":"JWT",
-  "alg":"HS256"
+ "typ":"JWT",
+ "alg":"HS256"
 }
 ```
 
@@ -267,14 +267,14 @@ Attribute names are case sensitive, so you must match the exact casing shown in 
 | --- | --- | --- |
 | external\_id | string | If your users are uniquely identified by something other than an email address, and their email addresses are subject to change, send the unique id from your system. Specify the id as a string. |
 | locale (for end-users) locale\_id (for agents) | integer | The locale in Zendesk Support, specified as a number. |
-| organization | string | The name of an organization to add the user to. If the organization doesn't exist in Zendesk, it won't be created. The user will still be created, but they won't be added to any organization. If [**Allow users to belong to multiple organizations**](https://support.zendesk.com/hc/en-us/articles/4408838140314) is turned on, additional organizations append the original organization and are considered secondary organizations. This does not delete the existing memberships.  If you'd like to pass multiple organization names at the same time, use the **organizations** attribute instead. Using the organizations attribute overwrites the existing list of organizations. The organization names must be passed in a string, separated by commas. |
-| organization\_id | integer | The organization's [external ID](https://developer.zendesk.com/api-reference/ticketing/organizations/organizations/) in the Zendesk API. If both organization and organization\_id are supplied, organization is ignored. If the organization doesn't exist in Zendesk, it won't be created. The user will still be created, but they won't be added to any organization. If [**Allow users to belong to multiple organizations**](https://support.zendesk.com/hc/en-us/articles/4408838140314) is turned on, additional organizations append the original organization and are considered secondary organizations. This does not delete the existing memberships.  If you'd like to pass multiple organization IDs at the same time, use the **organization\_ids** attribute instead. Using the organization\_ids attribute overwrites the existing list of organizations. The organization IDs must be passed in a string, separated by commas. |
-| phone | string | A phone number, specified as a string. The phone number should comply with the E.164 international [telephone numbering plan](https://en.wikipedia.org/wiki/E.164). Example: +15551234567.  E164 numbers are international numbers with a country dial prefix, usually an area code and a subscriber number. A valid E.164 phone number must include a [country calling code](https://en.wikipedia.org/wiki/List_of_country_calling_codes). |
+| organization | string | The name of an organization to add the user to. If the organization doesn't exist in Zendesk, it won't be created. The user will still be created, but they won't be added to any organization. If [**Allow users to belong to multiple organizations**](https://support.zendesk.com/hc/en-us/articles/4408838140314) is turned on, additional organizations append the original organization and are considered secondary organizations. This does not delete the existing memberships. If you'd like to pass multiple organization names at the same time, use the **organizations** attribute instead. Using the organizations attribute overwrites the existing list of organizations. The organization names must be passed in a string, separated by commas. |
+| organization\_id | integer | The organization's [external ID](https://developer.zendesk.com/api-reference/ticketing/organizations/organizations/) in the Zendesk API. If both organization and organization\_id are supplied, organization is ignored. If the organization doesn't exist in Zendesk, it won't be created. The user will still be created, but they won't be added to any organization. If [**Allow users to belong to multiple organizations**](https://support.zendesk.com/hc/en-us/articles/4408838140314) is turned on, additional organizations append the original organization and are considered secondary organizations. This does not delete the existing memberships. If you'd like to pass multiple organization IDs at the same time, use the **organization\_ids** attribute instead. Using the organization\_ids attribute overwrites the existing list of organizations. The organization IDs must be passed in a string, separated by commas. |
+| phone | string | A phone number, specified as a string. The phone number should comply with the E.164 international [telephone numbering plan](https://en.wikipedia.org/wiki/E.164). Example: +15551234567. E164 numbers are international numbers with a country dial prefix, usually an area code and a subscriber number. A valid E.164 phone number must include a [country calling code](https://en.wikipedia.org/wiki/List_of_country_calling_codes). |
 | tags | array | This is a JSON array of tags to set on the user. These tags will *replace* any other tags that may exist in the user's profile. |
 | remote\_photo\_url | string | URL for a photo to set on the user profile. |
 | role | string | The user's role. This value can be set to **end\_user**, **agent**, or **admin**. The default is **end\_user**. If the user's role differs from the one in Zendesk Support, the role is changed in Zendesk Support. |
 | custom\_role\_id | integer | Applicable only if the role of the user is agent. |
-| user\_fields | object | A JSON hash of custom user field key and values to set on the user. The custom user field must exist in order to set the field value. Each custom user field is identified by its field key found in the user fields admin settings. The format of date values is yyyy-mm-dd.  If a custom user field key or value is invalid, updating the field will fail silently and the user will still log in successfully. For more information about custom user fields, see [Adding custom fields to users](https://support.zendesk.com/hc/en-us/articles/4408822051866). Note: Sending null values in the the user\_fields attribute will remove any existing values in the corresponding fields. |
+| user\_fields | object | A JSON hash of custom user field key and values to set on the user. The custom user field must exist in order to set the field value. Each custom user field is identified by its field key found in the user fields admin settings. The format of date values is yyyy-mm-dd. If a custom user field key or value is invalid, updating the field will fail silently and the user will still log in successfully. For more information about custom user fields, see [Adding custom fields to users](https://support.zendesk.com/hc/en-us/articles/4408822051866). Note: Sending null values in the the user\_fields attribute will remove any existing values in the corresponding fields. |
 
 ### Remote login URL parameter (return\_to)
 

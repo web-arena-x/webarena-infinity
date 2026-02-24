@@ -11,13 +11,13 @@ To export a bid package's bid files.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.  
+ - 'Admin' level permissions on the project's Bidding tool. 
     OR
-  - You created the bid package.  
+ - You created the bid package. 
     OR
-  - You are a user cc'd on the bid package.  
+ - You are a user cc'd on the bid package. 
     OR
-  - You are the Bid Package Manager.
+ - You are the Bid Package Manager.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ To export a bid package's bid files.
 2. Click **View** next to the bid package you want to export bid files for.
 3. Click the **Files** tab.
 4. Click **Export**.
-5. Select from the following:  
+5. Select from the following: 
    *Note:* Each log will export as a PDF file.
    - **Export Drawing Log**
    - **Export Specification Log**

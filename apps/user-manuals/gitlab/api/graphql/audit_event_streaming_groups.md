@@ -46,7 +46,7 @@ To enable streaming and add a destination to a top-level group, use the `externa
 
 ```graphql
 mutation {
-  externalAuditEventDestinationCreate(input: { destinationUrl: "https://mydomain.io/endpoint/ingest", groupPath: "my-group" } ) {
+ externalAuditEventDestinationCreate(input: { destinationUrl: "https://mydomain.io/endpoint/ingest", groupPath: "my-group" } ) {
     errors
     externalAuditEventDestination {
       id
@@ -57,18 +57,15 @@ mutation {
         name
       }
     }
-  }
+ }
 }
 ```
 
-You can optionally specify your own verification token (instead of the default GitLab-generated one) using the GraphQL
-`externalAuditEventDestinationCreate`
-mutation. Verification token length must be within 16 to 24 characters and trailing whitespace are not trimmed. You
-should set a cryptographically random and unique value. For example:
+You can optionally specify your own verification token (instead of the default GitLab-generated one) using the GraphQL `externalAuditEventDestinationCreate` mutation. Verification token length must be within 16 to 24 characters and trailing whitespace are not trimmed. You should set a cryptographically random and unique value. For example:
 
 ```graphql
 mutation {
-  externalAuditEventDestinationCreate(input: { destinationUrl: "https://mydomain.io/endpoint/ingest", groupPath: "my-group", verificationToken: "unique-random-verification-token-here" } ) {
+ externalAuditEventDestinationCreate(input: { destinationUrl: "https://mydomain.io/endpoint/ingest", groupPath: "my-group", verificationToken: "unique-random-verification-token-here" } ) {
     errors
     externalAuditEventDestination {
       id
@@ -79,17 +76,15 @@ mutation {
         name
       }
     }
-  }
+ }
 }
 ```
 
-You can optionally specify your own destination name (instead of the default GitLab-generated one) using the GraphQL
-`externalAuditEventDestinationCreate`
-mutation. Name length must not exceed 72 characters and trailing whitespace are not trimmed. This value should be unique scoped to a group. For example:
+You can optionally specify your own destination name (instead of the default GitLab-generated one) using the GraphQL `externalAuditEventDestinationCreate` mutation. Name length must not exceed 72 characters and trailing whitespace are not trimmed. This value should be unique scoped to a group. For example:
 
 ```graphql
 mutation {
-  externalAuditEventDestinationCreate(input: { destinationUrl: "https://mydomain.io/endpoint/ingest", name: "destination-name-here", groupPath: "my-group" }) {
+ externalAuditEventDestinationCreate(input: { destinationUrl: "https://mydomain.io/endpoint/ingest", name: "destination-name-here", groupPath: "my-group" }) {
     errors
     externalAuditEventDestination {
       id
@@ -100,7 +95,7 @@ mutation {
         name
       }
     }
-  }
+ }
 }
 ```
 
@@ -109,18 +104,16 @@ Event streaming is enabled if:
 - The returned `errors` object is empty.
 - The API responds with `200 OK`.
 
-You can add an HTTP header using the GraphQL `auditEventsStreamingHeadersCreate` mutation. You can retrieve the
-destination ID by [listing all the streaming destinations](#list-streaming-destinations) for the group or from the
-mutation above.
+You can add an HTTP header using the GraphQL `auditEventsStreamingHeadersCreate` mutation. You can retrieve the destination ID by [listing all the streaming destinations](#list-streaming-destinations) for the group or from the mutation above.
 
 ```graphql
 mutation {
-  auditEventsStreamingHeadersCreate(input: {
+ auditEventsStreamingHeadersCreate(input: {
     destinationId: "gid://gitlab/AuditEvents::ExternalAuditEventDestination/1",
      key: "foo",
      value: "bar",
      active: false
-  }) {
+ }) {
     errors
     header {
       id
@@ -128,7 +121,7 @@ mutation {
       value
       active
     }
-  }
+ }
 }
 ```
 
@@ -142,12 +135,11 @@ Prerequisites:
 
 - Owner role for a top-level group.
 
-You can view a list of streaming destinations for a top-level group using the `externalAuditEventDestinations` query
-type.
+You can view a list of streaming destinations for a top-level group using the `externalAuditEventDestinations` query type.
 
 ```graphql
 query {
-  group(fullPath: "my-group") {
+ group(fullPath: "my-group") {
     id
     externalAuditEventDestinations {
       nodes {
@@ -174,7 +166,7 @@ query {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -188,12 +180,11 @@ Prerequisites:
 
 - Owner role for a top-level group.
 
-To update streaming destinations for a group, use the `externalAuditEventDestinationUpdate` mutation type. You can retrieve the destinations ID
-by [listing all the streaming destinations](#list-streaming-destinations) for the group.
+To update streaming destinations for a group, use the `externalAuditEventDestinationUpdate` mutation type. You can retrieve the destinations ID by [listing all the streaming destinations](#list-streaming-destinations) for the group.
 
 ```graphql
 mutation {
-  externalAuditEventDestinationUpdate(input: {
+ externalAuditEventDestinationUpdate(input: {
     id:"gid://gitlab/AuditEvents::ExternalAuditEventDestination/1",
     destinationUrl: "https://www.new-domain.com/webhook",
     name: "destination-name"} ) {
@@ -207,7 +198,7 @@ mutation {
         name
       }
     }
-  }
+ }
 }
 ```
 
@@ -216,13 +207,11 @@ Streaming destination is updated if:
 - The returned `errors` object is empty.
 - The API responds with `200 OK`.
 
-Users with the Owner role for a group can update streaming destinations' custom HTTP headers using the
-`auditEventsStreamingHeadersUpdate` mutation type. You can retrieve the custom HTTP headers ID
-by [listing all the custom HTTP headers](#list-streaming-destinations) for the group.
+Users with the Owner role for a group can update streaming destinations' custom HTTP headers using the `auditEventsStreamingHeadersUpdate` mutation type. You can retrieve the custom HTTP headers ID by [listing all the custom HTTP headers](#list-streaming-destinations) for the group.
 
 ```graphql
 mutation {
-  auditEventsStreamingHeadersUpdate(input: { headerId: "gid://gitlab/AuditEvents::Streaming::Header/2", key: "new-key", value: "new-value", active: false }) {
+ auditEventsStreamingHeadersUpdate(input: { headerId: "gid://gitlab/AuditEvents::Streaming::Header/2", key: "new-key", value: "new-value", active: false }) {
     errors
     header {
       id
@@ -230,18 +219,17 @@ mutation {
       value
       active
     }
-  }
+ }
 }
 ```
 
-Group owners can remove an HTTP header using the GraphQL `auditEventsStreamingHeadersDestroy` mutation. You can retrieve the header ID
-by [listing all the custom HTTP headers](#list-streaming-destinations) for the group.
+Group owners can remove an HTTP header using the GraphQL `auditEventsStreamingHeadersDestroy` mutation. You can retrieve the header ID by [listing all the custom HTTP headers](#list-streaming-destinations) for the group.
 
 ```graphql
 mutation {
-  auditEventsStreamingHeadersDestroy(input: { headerId: "gid://gitlab/AuditEvents::Streaming::Header/1" }) {
+ auditEventsStreamingHeadersDestroy(input: { headerId: "gid://gitlab/AuditEvents::Streaming::Header/1" }) {
     errors
-  }
+ }
 }
 ```
 
@@ -257,15 +245,13 @@ Prerequisites:
 
 - Owner role for a top-level group.
 
-Users with the Owner role for a group can delete streaming destinations using the
-`externalAuditEventDestinationDestroy` mutation type. You can retrieve the destinations ID
-by [listing all the streaming destinations](#list-streaming-destinations) for the group.
+Users with the Owner role for a group can delete streaming destinations using the `externalAuditEventDestinationDestroy` mutation type. You can retrieve the destinations ID by [listing all the streaming destinations](#list-streaming-destinations) for the group.
 
 ```graphql
 mutation {
-  externalAuditEventDestinationDestroy(input: { id: destination }) {
+ externalAuditEventDestinationDestroy(input: { id: destination }) {
     errors
-  }
+ }
 }
 ```
 
@@ -274,14 +260,13 @@ Streaming destination is deleted if:
 - The returned `errors` object is empty.
 - The API responds with `200 OK`.
 
-Group owners can remove an HTTP header using the GraphQL `auditEventsStreamingHeadersDestroy` mutation. You can retrieve the header ID
-by [listing all the custom HTTP headers](#list-streaming-destinations) for the group.
+Group owners can remove an HTTP header using the GraphQL `auditEventsStreamingHeadersDestroy` mutation. You can retrieve the header ID by [listing all the custom HTTP headers](#list-streaming-destinations) for the group.
 
 ```graphql
 mutation {
-  auditEventsStreamingHeadersDestroy(input: { headerId: "gid://gitlab/AuditEvents::Streaming::Header/1" }) {
+ auditEventsStreamingHeadersDestroy(input: { headerId: "gid://gitlab/AuditEvents::Streaming::Header/1" }) {
     errors
-  }
+ }
 }
 ```
 
@@ -337,9 +322,9 @@ mutation {
     auditEventsStreamingDestinationEventsRemove(input: {
     destinationId: "gid://gitlab/AuditEvents::ExternalAuditEventDestination/1",
     eventTypeFilters: ["list of event type filters"]
-  }){
+ }){
     errors
-  }
+ }
 }
 ```
 
@@ -356,8 +341,7 @@ Event type filters are removed if:
 
 {{< /history >}}
 
-When you apply a namespace filter to a group, users can filter streamed audit events per destination for a specific subgroup or project of the group. Otherwise, the
-destination receives all audit events.
+When you apply a namespace filter to a group, users can filter streamed audit events per destination for a specific subgroup or project of the group. Otherwise, the destination receives all audit events.
 
 A streaming destination that has a namespace filter set has a **filtered** ({{< icon name="filter" >}}) label.
 
@@ -378,10 +362,10 @@ The namespace filter is added if:
 
 ```graphql
 mutation auditEventsStreamingHttpNamespaceFiltersAdd {
-  auditEventsStreamingHttpNamespaceFiltersAdd(input: {
+ auditEventsStreamingHttpNamespaceFiltersAdd(input: {
     destinationId: "gid://gitlab/AuditEvents::ExternalAuditEventDestination/1",
     groupPath: "path/to/subgroup"
-  }) {
+ }) {
     errors
     namespaceFilter {
       id
@@ -391,7 +375,7 @@ mutation auditEventsStreamingHttpNamespaceFiltersAdd {
         fullName
       }
     }
-  }
+ }
 }
 ```
 
@@ -399,10 +383,10 @@ mutation auditEventsStreamingHttpNamespaceFiltersAdd {
 
 ```graphql
 mutation auditEventsStreamingHttpNamespaceFiltersAdd {
-  auditEventsStreamingHttpNamespaceFiltersAdd(input: {
+ auditEventsStreamingHttpNamespaceFiltersAdd(input: {
     destinationId: "gid://gitlab/AuditEvents::ExternalAuditEventDestination/1",
     projectPath: "path/to/project"
-  }) {
+ }) {
     errors
     namespaceFilter {
       id
@@ -412,7 +396,7 @@ mutation auditEventsStreamingHttpNamespaceFiltersAdd {
         fullName
       }
     }
-  }
+ }
 }
 ```
 
@@ -426,11 +410,11 @@ You can remove a namespace filter by using the `auditEventsStreamingHttpNamespac
 
 ```graphql
 mutation auditEventsStreamingHttpNamespaceFiltersDelete {
-  auditEventsStreamingHttpNamespaceFiltersDelete(input: {
+ auditEventsStreamingHttpNamespaceFiltersDelete(input: {
     namespaceFilterId: "gid://gitlab/AuditEvents::Streaming::HTTP::NamespaceFilter/5"
-  }) {
+ }) {
     errors
-  }
+ }
 }
 ```
 
@@ -460,12 +444,11 @@ Prerequisites:
 - Owner role for a top-level group.
 - A Google Cloud project with the necessary permissions to create service accounts and enable Google Cloud Logging.
 
-To enable streaming and add a configuration, use the
-`googleCloudLoggingConfigurationCreate` mutation in the GraphQL API.
+To enable streaming and add a configuration, use the `googleCloudLoggingConfigurationCreate` mutation in the GraphQL API.
 
 ```graphql
 mutation {
-  googleCloudLoggingConfigurationCreate(input: { groupPath: "my-group", googleProjectIdName: "my-google-project", clientEmail: "my-email@my-google-project.iam.gservice.account.com", privateKey: "YOUR_PRIVATE_KEY", logIdName: "audit-events", name: "destination-name" } ) {
+ googleCloudLoggingConfigurationCreate(input: { groupPath: "my-group", googleProjectIdName: "my-google-project", clientEmail: "my-email@my-google-project.iam.gservice.account.com", privateKey: "YOUR_PRIVATE_KEY", logIdName: "audit-events", name: "destination-name" } ) {
     errors
     googleCloudLoggingConfiguration {
       id
@@ -475,7 +458,7 @@ mutation {
       name
     }
     errors
-  }
+ }
 }
 ```
 
@@ -492,12 +475,11 @@ Prerequisites:
 
 - Owner role for a top-level group.
 
-You can view a list of streaming configurations for a top-level group using the `googleCloudLoggingConfigurations` query
-type.
+You can view a list of streaming configurations for a top-level group using the `googleCloudLoggingConfigurations` query type.
 
 ```graphql
 query {
-  group(fullPath: "my-group") {
+ group(fullPath: "my-group") {
     id
     googleCloudLoggingConfigurations {
       nodes {
@@ -508,7 +490,7 @@ query {
         name
       }
     }
-  }
+ }
 }
 ```
 
@@ -524,15 +506,13 @@ Prerequisites:
 
 - Owner role for a top-level group.
 
-To update streaming configuration for a top-level group, use the
-`googleCloudLoggingConfigurationUpdate` mutation type. You can retrieve the configuration ID
-by [listing all the external destinations](#list-google-cloud-logging-configurations).
+To update streaming configuration for a top-level group, use the `googleCloudLoggingConfigurationUpdate` mutation type. You can retrieve the configuration ID by [listing all the external destinations](#list-google-cloud-logging-configurations).
 
 ```graphql
 mutation {
-  googleCloudLoggingConfigurationUpdate(
+ googleCloudLoggingConfigurationUpdate(
     input: {id: "gid://gitlab/AuditEvents::GoogleCloudLoggingConfiguration/1", googleProjectIdName: "my-google-project", clientEmail: "my-email@my-google-project.iam.gservice.account.com", privateKey: "YOUR_PRIVATE_KEY", logIdName: "audit-events", name: "updated-destination-name" }
-  ) {
+ ) {
     errors
     googleCloudLoggingConfiguration {
       id
@@ -541,7 +521,7 @@ mutation {
       clientEmail
       name
     }
-  }
+ }
 }
 ```
 
@@ -560,15 +540,13 @@ Prerequisites:
 
 - Owner role for a top-level group.
 
-Users with the Owner role for a group can delete streaming configurations using the
-`googleCloudLoggingConfigurationDestroy` mutation type. You can retrieve the configurations ID
-by [listing all the streaming destinations](#list-google-cloud-logging-configurations) for the group.
+Users with the Owner role for a group can delete streaming configurations using the `googleCloudLoggingConfigurationDestroy` mutation type. You can retrieve the configurations ID by [listing all the streaming destinations](#list-google-cloud-logging-configurations) for the group.
 
 ```graphql
 mutation {
-  googleCloudLoggingConfigurationDestroy(input: { id: "gid://gitlab/AuditEvents::GoogleCloudLoggingConfiguration/1" }) {
+ googleCloudLoggingConfigurationDestroy(input: { id: "gid://gitlab/AuditEvents::GoogleCloudLoggingConfiguration/1" }) {
     errors
-  }
+ }
 }
 ```
 

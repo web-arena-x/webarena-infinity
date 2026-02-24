@@ -63,8 +63,7 @@ For example, `Create an issue`.
 ## When a task has only one step
 
 If you need to write a task that has only one step, make that step an unordered list item.
-This format helps the step stand out, while keeping it consistent with the rules
-for lists.
+This format helps the step stand out, while keeping it consistent with the rules for lists.
 
 For example:
 
@@ -79,8 +78,7 @@ To create a merge request:
 
 ### When more than one way exists to perform a task
 
-If more than one way exists to perform a task in the UI, you should
-document the primary way only.
+If more than one way exists to perform a task in the UI, you should document the primary way only.
 
 However, sometimes you must document multiple ways to perform a task.
 When this situation occurs:
@@ -88,8 +86,7 @@ When this situation occurs:
 - Introduce the task as usual. Then, for each way of performing the task, add a topic title.
 - Nest the topic titles one level below the task topic title.
 - List the tasks in descending order, with the most likely method first.
-- Make the task titles as brief as possible. When possible,
-  use `infinitive` + `noun`.
+- Make the task titles as brief as possible. When possible, use `infinitive` + `noun`.
 
 Here is an example.
 
@@ -130,20 +127,15 @@ Usually an API exists to perform the same task that you perform in the UI.
 When this situation occurs:
 
 - Do not use a separate heading for a one-sentence link to the API.
-- Do not include API examples in the **Use GitLab** documentation. API examples
-  belong in the API documentation. If you have GraphQL examples, put them on
-  their own page, because the API documentation might move some day.
-- Do not mention the API if you do not need to. Users can search for
-  the API documentation, and extra linking adds clutter.
-- If someone feels strongly that you mention the API, at the end
-  of the UI task, add this sentence:
+- Do not include API examples in the **Use GitLab** documentation. API examples belong in the API documentation. If you have GraphQL examples, put them on their own page, because the API documentation might move some day.
+- Do not mention the API if you do not need to. Users can search for the API documentation, and extra linking adds clutter.
+- If someone feels strongly that you mention the API, at the end of the UI task, add this sentence:
 
-  `To create an issue, you can also [use the API](link.md).`
+ `To create an issue, you can also [use the API](link.md).`
 
 ## Task introductions
 
-To start the task topic, use the structure `active verb` + `noun`, and
-provide context about the action.
+To start the task topic, use the structure `active verb` + `noun`, and provide context about the action.
 For example, `Create an issue when you want to track bugs or future work`.
 
 To start the task steps, use a succinct action followed by a colon.
@@ -151,19 +143,15 @@ For example, `To create an issue:`
 
 ## Task prerequisites
 
-If the task requires the user to have a role other than Guest,
-list all applicable roles in the prerequisites. See [the Word list](../styleguide/word_list.md) for
-how to write the phrase for each role.
+If the task requires the user to have a role other than Guest, list all applicable roles in the prerequisites. See [the Word list](../styleguide/word_list.md) for how to write the phrase for each role.
 
 If the task can only be performed by an administrator, put `Administrator access.` in the prerequisites.
 
 `Prerequisites` must always be plural, even if the list includes only one item.
 
-Do not list subscriptions or add-ons in the prerequisites. These should only be included
-in the [product availability details](../styleguide/availability_details.md).
+Do not list subscriptions or add-ons in the prerequisites. These should only be included in the [product availability details](../styleguide/availability_details.md).
 
-If several tasks on a page share prerequisites, you can create a separate
-topic with the title `Prerequisites`.
+If several tasks on a page share prerequisites, you can create a separate topic with the title `Prerequisites`.
 
 ### Writing prerequisite statements
 

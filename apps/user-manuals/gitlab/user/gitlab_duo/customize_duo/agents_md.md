@@ -21,12 +21,9 @@ title: AGENTS.md customization files
 
 {{< /history >}}
 
-GitLab Duo supports the [`AGENTS.md` specification](https://agents.md/), an emerging standard for
-providing context and instructions to AI coding assistants.
+GitLab Duo supports the [`AGENTS.md` specification](https://agents.md/), an emerging standard for providing context and instructions to AI coding assistants.
 
-Use `AGENTS.md` files to document your repository structure, coding conventions, style guidelines,
-build and testing instructions, and project context. When you specify an `AGENTS.md` file, these
-details are available for GitLab Duo and any other AI tool that supports the specification.
+Use `AGENTS.md` files to document your repository structure, coding conventions, style guidelines, build and testing instructions, and project context. When you specify an `AGENTS.md` file, these details are available for GitLab Duo and any other AI tool that supports the specification.
 
 Specify `AGENTS.md` files for GitLab Duo to use with:
 
@@ -39,12 +36,9 @@ You can create `AGENTS.md` files at multiple levels:
 
 - User-level: Apply to all of your projects and workspaces.
 - Workspace-level: Apply only to a specific project or workspace.
-- Subdirectory-level: Apply only to a specific project within a monorepo
-  or within a project with distinct components.
+- Subdirectory-level: Apply only to a specific project within a monorepo or within a project with distinct components.
 
-GitLab Duo Chat combines available instructions from user-level and workspace-level `AGENTS.md`
-files for all conversations. If a task requires working with files in a directory that contains an
-additional `AGENTS.md` file, Chat applies those instructions as well.
+GitLab Duo Chat combines available instructions from user-level and workspace-level `AGENTS.md` files for all conversations. If a task requires working with files in a directory that contains an additional `AGENTS.md` file, Chat applies those instructions as well.
 
 ## Use `AGENTS.md` with GitLab Duo
 
@@ -56,25 +50,24 @@ instructions. Previously existing conversations do not.
 
 - For GitLab Duo Chat in your IDE, install the supported extensions:
 
-  - For VS Code, [install and configure the GitLab Workflow extension for VS Code](../../../editor_extensions/visual_studio_code/setup.md) 6.60 or later.
-  - For a JetBrains IDE, [install and configure the GitLab plugin for JetBrains](../../../editor_extensions/jetbrains_ide/setup.md) 3.26.0 or later.
+ - For VS Code, [install and configure the GitLab Workflow extension for VS Code](../../../editor_extensions/visual_studio_code/setup.md) 6.60 or later.
+ - For a JetBrains IDE, [install and configure the GitLab plugin for JetBrains](../../../editor_extensions/jetbrains_ide/setup.md) 3.26.0 or later.
 
-- For custom flows, update the flow's configuration file to access the `user_rule` context passed
-  from the executor:
+- For custom flows, update the flow's configuration file to access the `user_rule` context passed from the executor:
 
-  ```yaml
-  components:
-  - name: "my_agent"
+ ```yaml
+ components:
+ - name: "my_agent"
      type: AgentComponent
      prompt_id: "my_prompt"
      inputs:
      - from: "context:inputs.user_rule"
         as: "agents_dot_md"
       optional: true
-  ```
+ ```
 
-  By setting `optional: true`, the flow gracefully handles cases where no `AGENTS.md` file exists.
-  The agent works with or without additional context.
+ By setting `optional: true`, the flow gracefully handles cases where no `AGENTS.md` file exists.
+ The agent works with or without additional context.
 
 ### Create user-level `AGENTS.md` files
 
@@ -148,8 +141,7 @@ User-level `AGENTS.md` files apply to all of your projects and workspaces.
    {{< /tabs >}}
 
 1. Save the file.
-1. To apply the instructions, start a new conversation or flow. You must do this every time you
-   change the `AGENTS.md` file.
+1. To apply the instructions, start a new conversation or flow. You must do this every time you change the `AGENTS.md` file.
 
 ### Create workspace-level `AGENTS.md` files
 
@@ -168,23 +160,20 @@ Workspace-level `AGENTS.md` files apply only to a specific project or workspace.
    ```
 
 1. Save the file.
-1. To apply the instructions, start a new conversation or flow. You must do this every time you
-   change the `AGENTS.md` file.
+1. To apply the instructions, start a new conversation or flow. You must do this every time you change the `AGENTS.md` file.
 
 ### Create `AGENTS.md` files in monorepos and subdirectories
 
-For monorepos or projects with distinct components, you can place `AGENTS.md` files in
-subdirectories to provide context-specific instructions for different parts of your codebase.
+For monorepos or projects with distinct components, you can place `AGENTS.md` files in subdirectories to provide context-specific instructions for different parts of your codebase.
 
-When GitLab Duo Chat discovers additional `AGENTS.md` files in subdirectories, it reads the relevant
-file before editing files in that directory. For example:
+When GitLab Duo Chat discovers additional `AGENTS.md` files in subdirectories, it reads the relevant file before editing files in that directory. For example:
 
 ```plaintext
 /my-project
-  AGENTS.md              # Root instructions (included in all conversations)
-  /frontend
+ AGENTS.md              # Root instructions (included in all conversations)
+ /frontend
     AGENTS.md            # Frontend-specific instructions
-  /backend
+ /backend
     AGENTS.md            # Backend-specific instructions
 ```
 
@@ -194,8 +183,7 @@ In this example:
 - When GitLab Duo edits files in `/frontend`, it reads `/frontend/AGENTS.md` first.
 - When GitLab Duo edits files in `/backend`, it reads `/backend/AGENTS.md` first.
 
-This approach helps ensure GitLab Duo follows the appropriate conventions for each part of your
-project.
+This approach helps ensure GitLab Duo follows the appropriate conventions for each part of your project.
 
 To use `AGENTS.md` in a subdirectory:
 
@@ -212,8 +200,7 @@ To use `AGENTS.md` in a subdirectory:
    ```
 
 1. Save the file.
-1. To apply the instructions, start a new conversation that involves files in that directory. You
-   must do this every time you change the `AGENTS.md` file.
+1. To apply the instructions, start a new conversation that involves files in that directory. You must do this every time you change the `AGENTS.md` file.
 
 ## Related topics
 

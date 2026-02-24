@@ -19,11 +19,11 @@ As an example you might create 5 issues in between counts, which would cause the
 
 ```ruby
 it "avoids N+1 database queries", :request_store, :use_sql_query_cache do
-  visit_some_page # warm-up
+ visit_some_page # warm-up
 
-  control = ActiveRecord::QueryRecorder.new(skip_cached: false) { visit_some_page }
-  create_list(:issue, 5)
-  expect { visit_some_page }.to issue_same_number_of_queries_as(control)
+ control = ActiveRecord::QueryRecorder.new(skip_cached: false) { visit_some_page }
+ create_list(:issue, 5)
+ expect { visit_some_page }.to issue_same_number_of_queries_as(control)
 end
 ```
 
@@ -31,23 +31,20 @@ You can also have both the expectation and the control as `QueryRecorder` instan
 
 ```ruby
 it "avoids N+1 database queries", :request_store, :use_sql_query_cache do
-  visit_some_page # warm-up
+ visit_some_page # warm-up
 
-  control = ActiveRecord::QueryRecorder.new(skip_cached: false) { visit_some_page }
-  create_list(:issue, 5)
-  action = ActiveRecord::QueryRecorder.new(skip_cached: false) { visit_some_page }
+ control = ActiveRecord::QueryRecorder.new(skip_cached: false) { visit_some_page }
+ create_list(:issue, 5)
+ action = ActiveRecord::QueryRecorder.new(skip_cached: false) { visit_some_page }
 
-  expect(action).to issue_same_number_of_queries_as(control)
+ expect(action).to issue_same_number_of_queries_as(control)
 end
 ```
 
 In some cases, the query count might change slightly between runs for unrelated reasons.
-In this case you might need to test `issue_same_number_of_queries_as(control_count + acceptable_change)`,
-but this should be avoided if possible.
+In this case you might need to test `issue_same_number_of_queries_as(control_count + acceptable_change)`, but this should be avoided if possible.
 
-If this test fails, and the control was passed as a `QueryRecorder`, then the
-failure message indicates where the extra queries are by matching queries on
-the longest common prefix, grouping similar queries together.
+If this test fails, and the control was passed as a `QueryRecorder`, then the failure message indicates where the extra queries are by matching queries on the longest common prefix, grouping similar queries together.
 
 ## Recommended pattern
 
@@ -55,19 +52,19 @@ The recommended pattern for N+1 query tests includes important components to ens
 
 ```ruby
 it "avoids N+1 database queries", :request_store, :use_sql_query_cache do
-  visit_some_page # warm-up
+ visit_some_page # warm-up
 
-  control = ActiveRecord::QueryRecorder.new(skip_cached: false) { visit_some_page }
-  create_list(:issue, 5)
-  expect { visit_some_page }.to issue_same_number_of_queries_as(control)
+ control = ActiveRecord::QueryRecorder.new(skip_cached: false) { visit_some_page }
+ create_list(:issue, 5)
+ expect { visit_some_page }.to issue_same_number_of_queries_as(control)
 end
 ```
 
 Each component serves a specific purpose:
 
 - `:request_store`: Enables `Gitlab::SafeRequestStore`, which caches data in memory for the duration of a request.
-  This is enabled in production but disabled by default in tests.
-  Without it, you may get false results.
+ This is enabled in production but disabled by default in tests.
+ Without it, you may get false results.
 - `:use_sql_query_cache`: Enables the SQL query cache that is already active in production.
 - `skip_cached: false`: Counts ALL queries including cached ones. This catches N+1 queries that might be masked by caching.
 - `issue_same_number_of_queries_as`: Fails if the query count increases OR decreases unexpectedly (bidirectional).
@@ -75,14 +72,10 @@ Each component serves a specific purpose:
 
 ### Why use `issue_same_number_of_queries_as` over `exceed_query_limit`
 
-Prefer `issue_same_number_of_queries_as` over `exceed_query_limit` because it is **bidirectional**;
-it fails if the query count increases OR decreases unexpectedly.
-This helps catch unintended changes in either direction,
-such as when a refactor accidentally removes necessary queries
-or when dead code is being executed.
+Prefer `issue_same_number_of_queries_as` over `exceed_query_limit` because it is **bidirectional**; it fails if the query count increases OR decreases unexpectedly.
+This helps catch unintended changes in either direction, such as when a refactor accidentally removes necessary queries or when dead code is being executed.
 
-In contrast, `exceed_query_limit` only fails when queries exceed the expected count, so it does not alert you
-if queries unexpectedly decrease.
+In contrast, `exceed_query_limit` only fails when queries exceed the expected count, so it does not alert you if queries unexpectedly decrease.
 
 ### Use request specs instead of controller specs
 
@@ -108,37 +101,34 @@ To verify your test:
 There are multiple ways to find the source of queries.
 
 - Inspect the `QueryRecorder` `data` attribute. It stores queries by `file_name:line_number:method_name`.
-  Each entry is a `hash` with the following fields:
+ Each entry is a `hash` with the following fields:
 
-  - `count`: the number of times a query from this `file_name:line_number:method_name` was called
-  - `occurrences`: the actual `SQL` of each call
-  - `backtrace`: the stack trace of each call (if either of the two following options were enabled)
+ - `count`: the number of times a query from this `file_name:line_number:method_name` was called
+ - `occurrences`: the actual `SQL` of each call
+ - `backtrace`: the stack trace of each call (if either of the two following options were enabled)
 
-  `QueryRecorder#find_query` allows filtering queries by their `file_name:line_number:method_name` and
-  `count` attributes. For example:
+ `QueryRecorder#find_query` allows filtering queries by their `file_name:line_number:method_name` and `count` attributes. For example:
 
-  ```ruby
-  control = ActiveRecord::QueryRecorder.new(skip_cached: false) { visit_some_page }
-  control.find_query(/.*note.rb.*/, 0, first_only: true)
-  ```
+ ```ruby
+ control = ActiveRecord::QueryRecorder.new(skip_cached: false) { visit_some_page }
+ control.find_query(/.*note.rb.*/, 0, first_only: true)
+ ```
 
-  `QueryRecorder#occurrences_by_line_method` returns a sorted array based on `data`, sorted by `count`.
+ `QueryRecorder#occurrences_by_line_method` returns a sorted array based on `data`, sorted by `count`.
 
-- View the call backtrace for the specific `QueryRecorder` instance you want
-  by using `ActiveRecord::QueryRecorder.new(query_recorder_debug: true)`. The output
-  is stored in file `test.log`.
+- View the call backtrace for the specific `QueryRecorder` instance you want by using `ActiveRecord::QueryRecorder.new(query_recorder_debug: true)`. The output is stored in file `test.log`.
 
 - Enable the call backtrace for all tests using the `QUERY_RECORDER_DEBUG` environment variable.
 
-  To enable this, run the specs with the `QUERY_RECORDER_DEBUG` environment variable set. For example:
+ To enable this, run the specs with the `QUERY_RECORDER_DEBUG` environment variable set. For example:
 
-  ```shell
-  QUERY_RECORDER_DEBUG=1 bundle exec rspec spec/requests/api/projects_spec.rb
-  ```
+ ```shell
+ QUERY_RECORDER_DEBUG=1 bundle exec rspec spec/requests/api/projects_spec.rb
+ ```
 
-  This logs calls to QueryRecorder into the `test.log` file. For example:
+ This logs calls to QueryRecorder into the `test.log` file. For example:
 
-  ```sql
+ ```sql
    QueryRecorder SQL: SELECT COUNT(*) FROM "issues" WHERE "issues"."deleted_at" IS NULL AND "issues"."project_id" = $1 AND ("issues"."state" IN ('opened')) AND "issues"."confidential" = $2
       --> /home/user/gitlab/gdk/gitlab/spec/support/query_recorder.rb:19:in `callback'
       --> /home/user/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/activesupport-4.2.8/lib/active_support/notifications/fanout.rb:127:in `finish'
@@ -171,7 +161,7 @@ There are multiple ways to find the source of queries.
       --> /home/user/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/activesupport-4.2.8/lib/active_support/cache.rb:299:in `fetch'
       --> /home/user/gitlab/gdk/gitlab/app/services/base_count_service.rb:12:in `count'
       --> /home/user/gitlab/gdk/gitlab/app/models/project.rb:1296:in `open_issues_count'
-  ```
+ ```
 
 ## Testing query counts in the Rails console
 
@@ -195,7 +185,7 @@ package_files = Packages::PackageFile.limit(5)
 
 # Create a helper to count queries
 query_counter = proc do |&query_block|
-  ActiveRecord::QueryRecorder.new(&query_block).data.map { |_, v| v[:count] }.reduce(&:+)
+ ActiveRecord::QueryRecorder.new(&query_block).data.map { |_, v| v[:count] }.reduce(&:+)
 end
 
 # Test different approaches

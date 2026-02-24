@@ -52,8 +52,7 @@ The rate limits:
 
 Requests over the rate limit are logged into the `auth.log` file.
 
-For example, if you set a limit of 400 for `GET /groups/:id`, requests to the API endpoint that
-exceed a rate of 400 per minute are blocked. Access to the endpoint is restored after one minute.
+For example, if you set a limit of 400 for `GET /groups/:id`, requests to the API endpoint that exceed a rate of 400 per minute are blocked. Access to the endpoint is restored after one minute.
 
 ## Rate limit on listing group members
 
@@ -72,9 +71,7 @@ The rate limit:
 
 Requests over the rate limit are logged into the `auth.log` file.
 
-For example, requests to the API endpoint that
-exceed a rate of 200 requests per minute
-are blocked. Access to the endpoint resumes after one minute.
+For example, requests to the API endpoint that exceed a rate of 200 requests per minute are blocked. Access to the endpoint resumes after one minute.
 
 ## Configure rate limits on group archiving and unarchiving
 
@@ -98,8 +95,7 @@ This feature is available for testing, but not ready for production use.
 
 {{< /alert >}}
 
-Configure a rate limit on requests to the following
-group archiving endpoints:
+Configure a rate limit on requests to the following group archiving endpoints:
 
 ```plaintext
 POST /groups/:id/archive
@@ -126,12 +122,9 @@ The rate limit:
 
 Requests over the rate limit are logged into the `auth.log` file.
 
-For example, if you set a limit of 60, requests to the API endpoint that
-exceed a rate of 60 requests per minute
-are blocked. Access to the endpoint resumes after one minute.
+For example, if you set a limit of 60, requests to the API endpoint that exceed a rate of 60 requests per minute are blocked. Access to the endpoint resumes after one minute.
 
-For more information on group archiving endpoints,
-see [Archive a group](../../api/groups.md#archive-a-group).
+For more information on group archiving endpoints, see [Archive a group](../../api/groups.md#archive-a-group).
 
 ## Configure rate limits on deleting group members
 
@@ -141,8 +134,7 @@ see [Archive a group](../../api/groups.md#archive-a-group).
 
 {{< /history >}}
 
-Configure the rate limit for each group and user for requests to the
-[delete members endpoint](../../api/group_members.md#remove-a-member-from-a-group).
+Configure the rate limit for each group and user for requests to the [delete members endpoint](../../api/group_members.md#remove-a-member-from-a-group).
 
 Prerequisites:
 
@@ -164,6 +156,4 @@ The rate limit:
 
 Requests over the rate limit are logged into the `auth.log` file.
 
-For example, if you set a limit of 60, requests to the API endpoint that exceed
-a rate of 60 requests per a minute are blocked. Access to the endpoint is
-restored after one minute.
+For example, if you set a limit of 60, requests to the API endpoint that exceed a rate of 60 requests per a minute are blocked. Access to the endpoint is restored after one minute.

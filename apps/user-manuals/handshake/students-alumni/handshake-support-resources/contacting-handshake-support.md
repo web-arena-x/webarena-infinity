@@ -22,7 +22,7 @@ Select your role below to find detailed instructions for contacting Handshake su
 
 - **Tip**: Type out your question similarly to how you'd describe it in a new ticket.
 - The chatbot recommends steps and relevant articles based on your query. The more specific your question is, the more accurate the response will be.
-  - If the response isn't quite what was expected, you can reply to correct the chatbot or provide clarification.
+ - If the response isn't quite what was expected, you can reply to correct the chatbot or provide clarification.
     - For example, we index employer and student-facing articles for our EDU partners to help you answer questions you may get from them.
       - Depending on how your question is phrased, sometimes the bot may respond as if you are a student or employer.
       - In this case, you can correct it by saying something like, "but I'm a Career Services user, not an employer" or similar, and that will help prioritize the most relevant workflow for our EDU partners.
@@ -32,7 +32,7 @@ For more helpful tips, check out [Best Practices: Leveraging the Help Center Cha
 3. In the event that a support ticket is needed, a mini-form will appear in the window with optional fields for cc'ing someone, sharing a URL, and adding an attachment. You will need to click **Submit** in order to create the ticket. *If you click Close instead, the ticket will not be created and the conversation remains open.*
 
 - Once your ticket is submitted, you will receive a copy of your chat transcript via email. Our Support team will review your ticket and respond in the order it was received.
-  - *For more information, refer to* [*Handshake Support Ticket Urgency and Classification*](https://support.joinhandshake.com/hc/en-us/articles/115011286367)*.*
+ - *For more information, refer to* [*Handshake Support Ticket Urgency and Classification*](https://support.joinhandshake.com/hc/en-us/articles/115011286367)*.*
 
 **Note**: Career services can also contact our team by phone. The phone number is listed in the **Help** dropdown menu.
 
@@ -53,7 +53,7 @@ For more helpful tips, check out [Best Practices: Leveraging the Help Center Cha
 - If you confirm, a ticket will be automatically generated, and the chat transcript will be submitted to our support team, who will review and respond in the order received.
 - You will receive a copy of the chat transcript via email once your ticket is submitted.
 
-  *For more information, refer to* [*Handshake Support Ticket Urgency and Classification*](https://support.joinhandshake.com/hc/en-us/articles/115011286367).
+ *For more information, refer to* [*Handshake Support Ticket Urgency and Classification*](https://support.joinhandshake.com/hc/en-us/articles/115011286367).
 
 **Phone support**
 
@@ -77,7 +77,7 @@ For more helpful tips, check out [Best Practices: Leveraging the Help Center Cha
 - If you confirm, a ticket will be automatically generated, and the chat transcript will be submitted to our support team, who will review and respond in the order received.
 - You will receive a copy of the chat transcript via email once your ticket is submitted.
 
-  *For more information, refer to* [*Handshake Support Ticket Urgency and Classification*](https://support.joinhandshake.com/hc/en-us/articles/115011286367).
+ *For more information, refer to* [*Handshake Support Ticket Urgency and Classification*](https://support.joinhandshake.com/hc/en-us/articles/115011286367).
 
 #### 
 

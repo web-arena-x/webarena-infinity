@@ -26,8 +26,7 @@ This page contains user documentation for the GitLab for Slack app. For administ
 {{< /alert >}}
 
 The GitLab for Slack app is a native Slack app that provides [slash commands](#slash-commands) and [notifications](#slack-notifications)
-in your Slack workspace. GitLab links your Slack user with your GitLab user so that any command
-you run in Slack is run by your linked GitLab user.
+in your Slack workspace. GitLab links your Slack user with your GitLab user so that any command you run in Slack is run by your linked GitLab user.
 
 ## Install the GitLab for Slack app
 
@@ -36,8 +35,7 @@ Prerequisites:
 - You must have the [appropriate permissions to add apps to your Slack workspace](https://slack.com/help/articles/202035138-Add-apps-to-your-Slack-workspace).
 - On GitLab Self-Managed, an administrator must [enable the integration](../../../administration/settings/slack_app.md).
 
-In GitLab 15.0 and later, the GitLab for Slack app uses
-[granular permissions](https://medium.com/slack-developer-blog/more-precision-less-restrictions-a3550006f9c3).
+In GitLab 15.0 and later, the GitLab for Slack app uses [granular permissions](https://medium.com/slack-developer-blog/more-precision-less-restrictions-a3550006f9c3).
 Although functionality has not changed, you should [reinstall the app](#reinstall-the-gitlab-for-slack-app).
 
 ### From the project or group settings
@@ -57,10 +55,8 @@ To install the GitLab for Slack app from the project or group settings:
 1. Select **GitLab for Slack app**.
 1. Select **Install GitLab for Slack app**. You're redirected to the Slack confirmation page.
 1. On the Slack confirmation page:
-   1. Optional. If you're signed in to more than one Slack workspace, in the upper right,
-      from the dropdown list, select the workspace you want to install the app in.
-      On GitLab Self-Managed and GitLab Dedicated, an administrator must first
-      [enable support for multiple workspaces](../../../administration/settings/slack_app.md#enable-support-for-multiple-workspaces) for the dropdown list to appear.
+   1. Optional. If you're signed in to more than one Slack workspace, in the upper right, from the dropdown list, select the workspace you want to install the app in.
+      On GitLab Self-Managed and GitLab Dedicated, an administrator must first [enable support for multiple workspaces](../../../administration/settings/slack_app.md#enable-support-for-multiple-workspaces) for the dropdown list to appear.
    1. Select **Allow**.
 
 ### From the Slack App Directory
@@ -72,8 +68,7 @@ To install the GitLab for Slack app from the project or group settings:
 
 {{< /details >}}
 
-On GitLab.com, you can also install the GitLab for Slack app from the
-[Slack App Directory](https://slack-platform.slack.com/apps/A676ADMV5-gitlab).
+On GitLab.com, you can also install the GitLab for Slack app from the [Slack App Directory](https://slack-platform.slack.com/apps/A676ADMV5-gitlab).
 
 To install the GitLab for Slack app from the Slack App Directory:
 
@@ -91,10 +86,8 @@ To reinstall the GitLab for Slack app:
 1. Select **GitLab for Slack app**.
 1. Select **Install GitLab for Slack app**. You're redirected to the Slack confirmation page.
 1. On the Slack confirmation page:
-   1. Optional. If you're signed in to more than one Slack workspace, in the upper right,
-      from the dropdown list, select the workspace you want to reinstall the app in.
-      On GitLab Self-Managed and GitLab Dedicated, an administrator must first
-      [enable support for multiple workspaces](../../../administration/settings/slack_app.md#enable-support-for-multiple-workspaces) for the dropdown list to appear.
+   1. Optional. If you're signed in to more than one Slack workspace, in the upper right, from the dropdown list, select the workspace you want to reinstall the app in.
+      On GitLab Self-Managed and GitLab Dedicated, an administrator must first [enable support for multiple workspaces](../../../administration/settings/slack_app.md#enable-support-for-multiple-workspaces) for the dropdown list to appear.
    1. Select **Allow**.
 
 The GitLab for Slack app is updated for all projects that use the integration.
@@ -108,11 +101,9 @@ You can use slash commands to run common GitLab operations.
 For the GitLab for Slack app:
 
 - You must authorize your Slack user when you run your first slash command.
-- You can replace `<project>` with a project full path or
-  [create a project alias](#create-a-project-alias) for slash commands.
+- You can replace `<project>` with a project full path or [create a project alias](#create-a-project-alias) for slash commands.
 
-If you use [Slack slash commands](slack_slash_commands.md) or
-[Mattermost slash commands](mattermost_slash_commands.md) instead:
+If you use [Slack slash commands](slack_slash_commands.md) or [Mattermost slash commands](mattermost_slash_commands.md) instead:
 
 - Replace `/gitlab` with the trigger name you've configured for these integrations.
 - Remove `<project>`.
@@ -137,8 +128,7 @@ The following slash commands are available for GitLab:
 To deploy to an environment, GitLab tries to find a manual deployment action in the pipeline.
 
 If only one deployment action is defined for an environment, that action is triggered.
-If more than one deployment action is defined, GitLab tries to find an action name
-that matches the environment name.
+If more than one deployment action is defined, GitLab tries to find an action name that matches the environment name.
 
 The command returns an error if GitLab cannot find a matching deployment action.
 
@@ -155,8 +145,7 @@ To create a project alias for slash commands in the GitLab for Slack app:
 1. Next to the project path or alias, select **Edit**.
 1. Enter the new alias and select **Save changes**.
 
-If an alias collision occurs in a Slack workspace (for example, multiple projects or groups attempt to use the same alias), GitLab automatically assigns a fallback alias
-in the following format:
+If an alias collision occurs in a Slack workspace (for example, multiple projects or groups attempt to use the same alias), GitLab automatically assigns a fallback alias in the following format:
 
 - For projects: `p-<project_id>` (for example, `p-12345`)
 - For groups: `g-<group_id>` (for example, `g-67890`)
@@ -192,18 +181,14 @@ To configure Slack notifications:
      {{< /alert >}}
 
 1. Optional. In the **Notification settings** section:
-   - Select the **Notify only broken pipelines** checkbox
-     to receive notifications for failed pipelines only.
-   - From the **Branches for which notifications are to be sent** dropdown list,
-     select the branches you want to receive notifications for.
+   - Select the **Notify only broken pipelines** checkbox to receive notifications for failed pipelines only.
+   - From the **Branches for which notifications are to be sent** dropdown list, select the branches you want to receive notifications for.
 
      Notifications are also sent for pipelines triggered by tags created from these branches.
 
-     Notifications for vulnerabilities are only triggered by the default branch,
-     regardless of the selected branches.
+     Notifications for vulnerabilities are only triggered by the default branch, regardless of the selected branches.
      For more details, see [issue 469373](https://gitlab.com/gitlab-org/gitlab/-/issues/469373).
-   - For **Labels to be notified**, enter any or all of the labels a GitLab
-     issue, merge request, or comment must have to receive notifications for.
+   - For **Labels to be notified**, enter any or all of the labels a GitLab issue, merge request, or comment must have to receive notifications for.
      Leave blank to receive notifications for all events.
 1. Optional. Select **Test settings**.
 1. Select **Save changes**.
@@ -231,10 +216,10 @@ The following GitLab events can trigger notifications in Slack:
 | Pipeline                                                              | A pipeline status changes.                                    |
 | Wiki page                                                             | A wiki page is created or updated.                            |
 | Deployment                                                            | A deployment is started or finished.                          |
-| [Group mention](#trigger-notifications-for-group-mentions) in public  | A group is mentioned in a public channel.                     |
+| [Group mention](#trigger-notifications-for-group-mentions) in public | A group is mentioned in a public channel.                     |
 | [Group mention](#trigger-notifications-for-group-mentions) in private | A group is mentioned in a private channel.                    |
 | [Incident](../../../operations/incident_management/slack.md)          | An incident is created, closed, or reopened.                  |
-| [Vulnerability](../../application_security/vulnerabilities/_index.md)  | A new, unique vulnerability is recorded on the default branch.|
+| [Vulnerability](../../application_security/vulnerabilities/_index.md) | A new, unique vulnerability is recorded on the default branch.|
 | Alert                                                                 | A new, unique alert is recorded.                              |
 
 ### Trigger notifications for group mentions

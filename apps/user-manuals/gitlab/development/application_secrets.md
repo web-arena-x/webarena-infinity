@@ -16,17 +16,14 @@ Broadly speaking, there are two classes of secrets:
 <!-- vale gitlab_base.SubstitutionWarning = NO -->
 
 1. **Application secrets.** The GitLab application uses these to implement a particular feature or function.
-   An example would be access tokens or private keys to create cryptographic signatures. We store
-   these secrets in the database in encrypted columns.
+   An example would be access tokens or private keys to create cryptographic signatures. We store these secrets in the database in encrypted columns.
    See [Secure Coding Guidelines: At rest](secure_coding_guidelines/_index.md#at-rest).
-1. **Operational secrets.** Used to read and store other secrets or bootstrap the application. For this reason,
-   they cannot be stored in the database.
+1. **Operational secrets.** Used to read and store other secrets or bootstrap the application. For this reason, they cannot be stored in the database.
    These secrets are stored as [Rails credentials](https://guides.rubyonrails.org/security.html#environmental-security)
    in the `config/secrets.yml` file:
 
    - Directly for self-compiled installations.
-   - Through an installer like Omnibus or Helm (where actual secrets can be stored in an external secrets container like
-     [Kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/) or [Vault](https://www.vaultproject.io/)).
+   - Through an installer like Omnibus or Helm (where actual secrets can be stored in an external secrets container like [Kubernetes secrets](https://kubernetes.io/docs/concepts/configuration/secret/) or [Vault](https://www.vaultproject.io/)).
 
 <!-- vale gitlab_base.SubstitutionWarning = YES -->
 
@@ -36,27 +33,22 @@ Application secrets should be stored in PostgreSQL using `ActiveRecord::Encrypti
 
 ```ruby
 class MyModel < ApplicationRecord
-  encrypts :my_secret
+ encrypts :my_secret
 end
 ```
 
 {{< alert type="note" >}}
-Until recently, we used `attr_encrypted` instead of `ActiveRecord::Encryption`. We are in the process of
-migrating all columns to use the new Rails-native encryption framework (see [epic 15420](https://gitlab.com/groups/gitlab-org/-/epics/15420)).
+Until recently, we used `attr_encrypted` instead of `ActiveRecord::Encryption`. We are in the process of migrating all columns to use the new Rails-native encryption framework (see [epic 15420](https://gitlab.com/groups/gitlab-org/-/epics/15420)).
 For guidance on migrating existing `attr_encrypted` attributes, see [Migrating from `attr_encrypted` to `ActiveRecord::Encryption`](#migrating-from-attr_encrypted-to-activerecordencryption).
 {{< /alert >}}
 
 {{< alert type="note" >}}
 Despite there being precedent, application secrets should not be stored as an `ApplicationSetting`.
-This can lead to the entire application malfunctioning if this secret fails to decode. To reduce
-coupling to other features, isolate secrets into dedicated tables.
+This can lead to the entire application malfunctioning if this secret fails to decode. To reduce coupling to other features, isolate secrets into dedicated tables.
 {{< /alert >}}
 
 {{< alert type="note" >}}
-In some cases, it can be undesirable to store secrets in the database. For example, if the secret is needed
-to bootstrap the Rails application, it may have to access the database in an initializer, which can lead to
-initialization races as the database connection itself may not yet be ready. In this case, store the secret
-as an operational secret instead.
+In some cases, it can be undesirable to store secrets in the database. For example, if the secret is needed to bootstrap the Rails application, it may have to access the database in an initializer, which can lead to initialization races as the database connection itself may not yet be ready. In this case, store the secret as an operational secret instead.
 {{< /alert >}}
 
 ### Migrating from `attr_encrypted` to `ActiveRecord::Encryption`
@@ -71,11 +63,11 @@ The `migrate_to_encrypts` method provides a seamless migration path from `attr_e
 
 ```ruby
 class MyModel < ApplicationRecord
-  include Gitlab::EncryptedAttribute
+ include Gitlab::EncryptedAttribute
 
-  # Replace attr_encrypted with migrate_to_encrypts
-  # Keep the same encryption options (mode, key, algorithm etc.) during migration
-  migrate_to_encrypts :my_secret_attribute,
+ # Replace attr_encrypted with migrate_to_encrypts
+ # Keep the same encryption options (mode, key, algorithm etc.) during migration
+ migrate_to_encrypts :my_secret_attribute,
     mode: :per_attribute_iv,
     key: :db_key_base_truncated,
     algorithm: 'aes-256-cbc',
@@ -195,12 +187,12 @@ Use the provided shared example to test that attributes are properly encrypted w
 
 ```ruby
 RSpec.describe MyModel, feature_category: :my_feature do
-  let(:record) { build(:my_model) }
+ let(:record) { build(:my_model) }
 
-  it_behaves_like 'encrypted attribute being migrated to the new encryption framework',
+ it_behaves_like 'encrypted attribute being migrated to the new encryption framework',
     :secret_key do
     let(:record) { build(:my_model) }
-  end
+ end
 end
 ```
 
@@ -229,10 +221,8 @@ See the complete implementation example in:
 
 ## Operational secrets
 
-We maintain a number of operational secrets in `config/secrets.yml`, primarily to manage other secrets. Historically, GitLab
-used this approach for all secrets, including application secrets, but has meanwhile moved most of these into postgres.
-The only exception is `openid_connect_signing_key` since it needs to be accessed from a Rails initializer before
-the database may be ready.
+We maintain a number of operational secrets in `config/secrets.yml`, primarily to manage other secrets. Historically, GitLab used this approach for all secrets, including application secrets, but has meanwhile moved most of these into postgres.
+The only exception is `openid_connect_signing_key` since it needs to be accessed from a Rails initializer before the database may be ready.
 
 ### Secret entries
 
@@ -259,12 +249,9 @@ the database may be ready.
 
 #### Add support to Omnibus GitLab and the Cloud Native GitLab charts
 
-Before adding a new secret to
-[`config/initializers/01_secret_token.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/config/initializers/01_secret_token.rb),
-ensure you also update the GitLab Linux package and the Cloud Native GitLab charts, or the update will fail.
+Before adding a new secret to [`config/initializers/01_secret_token.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/config/initializers/01_secret_token.rb), ensure you also update the GitLab Linux package and the Cloud Native GitLab charts, or the update will fail.
 Both installation methods are responsible for writing the `config/secrets.yml` file.
-If if they don't know about a secret, Rails attempts to write to the file, and fails because it doesn't
-have write access.
+If if they don't know about a secret, Rails attempts to write to the file, and fails because it doesn't have write access.
 
 **Examples**
 
@@ -274,9 +261,7 @@ have write access.
 
 #### Populate the secrets in live environments
 
-Additionally, in case you need the secret to have the same value on all nodes (which is usually the case),
-you need to make sure
-[it's configured for all live environments (GitLab.com, staging, pre)](https://gitlab.com/gitlab-com/gl-infra/k8s-workloads/gitlab-com/-/blob/master/releases/gitlab-external-secrets/values/values.yaml.gotmpl)
+Additionally, in case you need the secret to have the same value on all nodes (which is usually the case), you need to make sure [it's configured for all live environments (GitLab.com, staging, pre)](https://gitlab.com/gitlab-com/gl-infra/k8s-workloads/gitlab-com/-/blob/master/releases/gitlab-external-secrets/values/values.yaml.gotmpl)
 prior to changing this file.
 
 #### Document the new secrets
@@ -288,7 +273,7 @@ prior to changing this file.
    ```yaml
    ---
    upgrades:
-     - reporter: <your username>  # item author username
+     - reporter: <your username> # item author username
        description: |
          In Gitlab 17.8, three new secrets have been added to support the upcoming encryption framework:
          - `active_record_encryption_primary_key`
@@ -297,7 +282,7 @@ prior to changing this file.
 
          **If you have a multi-node configuration, you should ensure these secrets are the same on all nodes.** Otherwise, the application will automatically generate the missing secrets.
 
-         If you use the [GitLab helm chart](https://docs.gitlab.com/charts/) and disabled the [shared-secrets chart](https://docs.gitlab.com/charts/charts/shared-secrets/), you will need to [manually  create these secrets](https://docs.gitlab.com/charts/installation/secrets.html#gitlab-rails-secret).
+         If you use the [GitLab helm chart](https://docs.gitlab.com/charts/) and disabled the [shared-secrets chart](https://docs.gitlab.com/charts/charts/shared-secrets/), you will need to [manually create these secrets](https://docs.gitlab.com/charts/installation/secrets.html#gitlab-rails-secret).
    ```
 
 1. Mention the new secrets in the next Cloud Native GitLab charts upgrade notes.

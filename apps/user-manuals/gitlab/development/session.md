@@ -40,7 +40,7 @@ Gitlab::NamespacedSessionStore.new(:my_feature)[some_key] = value
 
 # Set the session for a block of code, such as for tests
 Gitlab::Session.with_session(my_feature: value) do
-  # Code that uses Session.current[:my_feature]
+ # Code that uses Session.current[:my_feature]
 end
 ```
 
@@ -51,7 +51,7 @@ Session data can be accessed directly through Redis. This can let you check up o
 ```ruby
 # Get a list of sessions
 session_ids = Gitlab::Redis::Sessions.with do |redis|
-  redis.smembers("#{Gitlab::Redis::Sessions::USER_SESSIONS_LOOKUP_NAMESPACE}:#{user.id}")
+ redis.smembers("#{Gitlab::Redis::Sessions::USER_SESSIONS_LOOKUP_NAMESPACE}:#{user.id}")
 end
 
 # Retrieve a specific session

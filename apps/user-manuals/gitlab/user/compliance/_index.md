@@ -17,13 +17,8 @@ GitLab compliance features for users ensure your GitLab groups and projects meet
 
 ## Compliant workflow automation
 
-It is important for compliance teams to be confident that their controls and
-requirements are set up correctly, but also that they stay set up correctly.
-One way of doing this is manually checking settings periodically, but this is
-error prone and time consuming. A better approach is to use single-source-of-truth
-settings and automation to ensure that whatever a compliance team has configured,
-stays configured and working correctly. These features can help you automate
-compliance:
+It is important for compliance teams to be confident that their controls and requirements are set up correctly, but also that they stay set up correctly.
+One way of doing this is manually checking settings periodically, but this is error prone and time consuming. A better approach is to use single-source-of-truth settings and automation to ensure that whatever a compliance team has configured, stays configured and working correctly. These features can help you automate compliance:
 
 | Feature                                                                                                                                  | Instances                            | Groups                               | Projects                             | Description |
 |:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:-------------------------------------|:-------------------------------------|:------------|
@@ -33,13 +28,9 @@ compliance:
 
 ## Audit management
 
-An important part of any compliance program is being able to go back and understand
-what happened, when it happened, and who was responsible. You can use this in audit
-situations as well as for understanding the root cause of issues when they occur.
+An important part of any compliance program is being able to go back and understand what happened, when it happened, and who was responsible. You can use this in audit situations as well as for understanding the root cause of issues when they occur.
 
-It is helpful to have both low-level, raw lists of audit data as well as high-level,
-summary lists of audit data. Between these two, compliance teams can quickly
-identify if problems exist and then drill down into the specifics of those issues.
+It is helpful to have both low-level, raw lists of audit data as well as high-level, summary lists of audit data. Between these two, compliance teams can quickly identify if problems exist and then drill down into the specifics of those issues.
 These features can help provide visibility into GitLab and audit what is happening:
 
 | Feature                                           | Instances                            | Groups                               | Projects                             | Description |
@@ -47,14 +38,11 @@ These features can help provide visibility into GitLab and audit what is happeni
 | [Audit events](audit_events.md)                   | {{< yes >}} | {{< yes >}} | {{< yes >}} | To maintain the integrity of your code, audit events give administrators the ability to view any modifications made in the GitLab server in an advanced audit events system, so you can control, analyze, and track every change. |
 | [Audit reports](audit_events.md)                  | {{< yes >}} | {{< yes >}} | {{< yes >}} | Create and access reports based on the audit events that have occurred. Use pre-built GitLab reports or the API to build your own. |
 | [Audit event streaming](audit_event_streaming.md) | {{< yes >}} | {{< yes >}} | {{< yes >}} | Stream GitLab audit events to an HTTP endpoint or third party service, such as AWS S3 or GCP Logging. |
-| [Compliance center](compliance_center/_index.md)  | {{< no >}} | {{< yes >}} | {{< yes >}} | Quickly get visibility into the compliance posture of your organization through compliance standards adherence reporting and violations reports. Manage your groups compliance frameworks centrally. |
+| [Compliance center](compliance_center/_index.md) | {{< no >}} | {{< yes >}} | {{< yes >}} | Quickly get visibility into the compliance posture of your organization through compliance standards adherence reporting and violations reports. Manage your groups compliance frameworks centrally. |
 
 ## Policy management
 
-Organizations have unique policy requirements, either due to organizational
-standards or mandates from regulatory bodies. The following features help you
-define rules and policies to adhere to workflow requirements, separation of duties,
-and secure supply chain best practices:
+Organizations have unique policy requirements, either due to organizational standards or mandates from regulatory bodies. The following features help you define rules and policies to adhere to workflow requirements, separation of duties, and secure supply chain best practices:
 
 | Feature                                                                                                                                                                                                                                                                | Instances                            | Groups                               | Projects                             | Description |
 |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:-------------------------------------|:-------------------------------------|:------------|

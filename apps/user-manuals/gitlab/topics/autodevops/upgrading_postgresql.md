@@ -12,8 +12,7 @@ title: Upgrading PostgreSQL for Auto DevOps
 
 {{< /details >}}
 
-When `POSTGRES_ENABLED` is `true`, Auto DevOps provides an
-[in-cluster PostgreSQL database](customize.md#postgresql-database-support) for your application.
+When `POSTGRES_ENABLED` is `true`, Auto DevOps provides an [in-cluster PostgreSQL database](customize.md#postgresql-database-support) for your application.
 
 The version of the chart used to provision PostgreSQL:
 
@@ -21,38 +20,29 @@ The version of the chart used to provision PostgreSQL:
 
 GitLab encourages users to migrate their database to the newer PostgreSQL chart.
 
-This guide provides instructions on how to migrate your PostgreSQL database, which
-involves:
+This guide provides instructions on how to migrate your PostgreSQL database, which involves:
 
 1. Taking a database dump of your data.
-1. Installing a new PostgreSQL database using the newer version 8.2.1 of the chart
-   and removing the old PostgreSQL installation.
+1. Installing a new PostgreSQL database using the newer version 8.2.1 of the chart and removing the old PostgreSQL installation.
 1. Restoring the database dump into the new PostgreSQL.
 
 ## Prerequisites
 
-1. Install
-   [`kubectl`](https://kubernetes.io/docs/tasks/tools/).
+1. Install [`kubectl`](https://kubernetes.io/docs/tasks/tools/).
 1. Ensure that you can access your Kubernetes cluster using `kubectl`.
    This varies based on Kubernetes providers.
-1. Prepare for downtime. The steps below include taking the application offline
-   so that the in-cluster database does not get modified after the database dump is created.
-1. Ensure you have not set `POSTGRES_ENABLED` to `false`, as this setting deletes
-   any existing channel 1 database. For more information, see
-   [Detected an existing PostgreSQL database](troubleshooting.md#detected-an-existing-postgresql-database).
+1. Prepare for downtime. The steps below include taking the application offline so that the in-cluster database does not get modified after the database dump is created.
+1. Ensure you have not set `POSTGRES_ENABLED` to `false`, as this setting deletes any existing channel 1 database. For more information, see [Detected an existing PostgreSQL database](troubleshooting.md#detected-an-existing-postgresql-database).
 
 {{< alert type="note" >}}
 
-If you have configured Auto DevOps to have staging,
-consider trying out the backup and restore steps on staging first, or
-trying this out on a review app.
+If you have configured Auto DevOps to have staging, consider trying out the backup and restore steps on staging first, or trying this out on a review app.
 
 {{< /alert >}}
 
 ## Take your application offline
 
-If required, take your application offline to prevent the database from
-being modified after the database dump is created.
+If required, take your application offline to prevent the database from being modified after the database dump is created.
 
 1. Get the Kubernetes namespace for the environment. It typically looks like `<project-name>-<project-id>-<environment>`.
    In this example, the namespace is called `minimal-ruby-app-4349298-production`.
@@ -140,11 +130,9 @@ being modified after the database dump is created.
 ## Retain persistent volumes
 
 By default the [persistent volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
-used to store the underlying data for PostgreSQL is marked as `Delete`
-when the pods and pod claims that use the volume is deleted.
+used to store the underlying data for PostgreSQL is marked as `Delete` when the pods and pod claims that use the volume is deleted.
 
-This is significant as, when you opt into the newer 8.2.1 PostgreSQL, the older 0.7.1 PostgreSQL is
-deleted causing the persistent volumes to be deleted as well.
+This is significant as, when you opt into the newer 8.2.1 PostgreSQL, the older 0.7.1 PostgreSQL is deleted causing the persistent volumes to be deleted as well.
 
 You can verify this by using the following command:
 
@@ -155,16 +143,12 @@ pvc-0da80c08-5239-11ea-9c8d-42010a8e0096   8Gi        RWO            Delete     
 pvc-9085e3d3-5239-11ea-9c8d-42010a8e0096   8Gi        RWO            Delete           Bound    minimal-ruby-app-4349298-production/production-postgres   standard                7d22h
 ```
 
-To retain the persistent volume, even when the older 0.7.1 PostgreSQL is deleted, change
-the retention policy to `Retain`. In this example, the persistent volume names are found
-by looking at the claims names. To keep the volumes for the staging and production
-environments of the `minimal-ruby-app-4349298` application, the volume names are
-`pvc-0da80c08-5239-11ea-9c8d-42010a8e0096` and `pvc-9085e3d3-5239-11ea-9c8d-42010a8e0096`:
+To retain the persistent volume, even when the older 0.7.1 PostgreSQL is deleted, change the retention policy to `Retain`. In this example, the persistent volume names are found by looking at the claims names. To keep the volumes for the staging and production environments of the `minimal-ruby-app-4349298` application, the volume names are `pvc-0da80c08-5239-11ea-9c8d-42010a8e0096` and `pvc-9085e3d3-5239-11ea-9c8d-42010a8e0096`:
 
 ```shell
-$ kubectl patch pv  pvc-0da80c08-5239-11ea-9c8d-42010a8e0096 -p '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'
+$ kubectl patch pv pvc-0da80c08-5239-11ea-9c8d-42010a8e0096 -p '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'
 persistentvolume/pvc-0da80c08-5239-11ea-9c8d-42010a8e0096 patched
-$ kubectl patch pv  pvc-9085e3d3-5239-11ea-9c8d-42010a8e0096 -p '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'
+$ kubectl patch pv pvc-9085e3d3-5239-11ea-9c8d-42010a8e0096 -p '{"spec":{"persistentVolumeReclaimPolicy":"Retain"}}'
 persistentvolume/pvc-9085e3d3-5239-11ea-9c8d-42010a8e0096 patched
 $ kubectl get pv
 NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                                                     STORAGECLASS   REASON   AGE
@@ -176,46 +160,28 @@ pvc-9085e3d3-5239-11ea-9c8d-42010a8e0096   8Gi        RWO            Retain     
 
 {{< alert type="warning" >}}
 
-Using the newer version of PostgreSQL deletes
-the older 0.7.1 PostgreSQL. To prevent the underlying data from being
-deleted, you can choose to retain the [persistent volume](#retain-persistent-volumes).
+Using the newer version of PostgreSQL deletes the older 0.7.1 PostgreSQL. To prevent the underlying data from being deleted, you can choose to retain the [persistent volume](#retain-persistent-volumes).
 
 {{< /alert >}}
 
 {{< alert type="note" >}}
 
-You can also
-[scope](../../ci/environments/_index.md#limit-the-environment-scope-of-a-cicd-variable) the
-`AUTO_DEVOPS_POSTGRES_CHANNEL`, `AUTO_DEVOPS_POSTGRES_DELETE_V1` and
-`POSTGRES_VERSION` variables to specific environments, for example, `staging`.
+You can also [scope](../../ci/environments/_index.md#limit-the-environment-scope-of-a-cicd-variable) the `AUTO_DEVOPS_POSTGRES_CHANNEL`, `AUTO_DEVOPS_POSTGRES_DELETE_V1` and `POSTGRES_VERSION` variables to specific environments, for example, `staging`.
 
 {{< /alert >}}
 
-1. Set `AUTO_DEVOPS_POSTGRES_CHANNEL` to `2`. This opts into using the
-   newer 8.2.1-based PostgreSQL, and removes the older 0.7.1-based
-   PostgreSQL.
-1. Set `AUTO_DEVOPS_POSTGRES_DELETE_V1` to a non-empty value. This flag is a
-   safeguard to prevent accidental deletion of databases.
+1. Set `AUTO_DEVOPS_POSTGRES_CHANNEL` to `2`. This opts into using the newer 8.2.1-based PostgreSQL, and removes the older 0.7.1-based PostgreSQL.
+1. Set `AUTO_DEVOPS_POSTGRES_DELETE_V1` to a non-empty value. This flag is a safeguard to prevent accidental deletion of databases.
    <!-- DO NOT REPLACE when upgrading GitLab's supported version. This is NOT related to GitLab's PostgreSQL version support, but the one deployed by Auto DevOps. -->
-1. If you have a `POSTGRES_VERSION` set, make sure it is set to `9.6.16` or later. This is the
-   minimum PostgreSQL version supported by Auto DevOps. See also the list of
-   [tags available](https://hub.docker.com/r/bitnami/postgresql/tags).
-1. Set `PRODUCTION_REPLICAS` to `0`. For other environments, use
-   `REPLICAS` with an [environment scope](../../ci/environments/_index.md#limit-the-environment-scope-of-a-cicd-variable).
-1. If you have set the `DB_INITIALIZE` or `DB_MIGRATE` variables, either
-   remove the variables, or rename the variables temporarily to
-   `XDB_INITIALIZE` or the `XDB_MIGRATE` to effectively disable them.
-1. Run a new CI pipeline for the branch. In this case, run a new CI
-   pipeline for `main`.
-1. After the pipeline is successful, your application is upgraded
-   with the new PostgreSQL installed. Zero replicas exist at this time, so
-   no traffic is served for your application (to prevent
-   new data from coming in).
+1. If you have a `POSTGRES_VERSION` set, make sure it is set to `9.6.16` or later. This is the minimum PostgreSQL version supported by Auto DevOps. See also the list of [tags available](https://hub.docker.com/r/bitnami/postgresql/tags).
+1. Set `PRODUCTION_REPLICAS` to `0`. For other environments, use `REPLICAS` with an [environment scope](../../ci/environments/_index.md#limit-the-environment-scope-of-a-cicd-variable).
+1. If you have set the `DB_INITIALIZE` or `DB_MIGRATE` variables, either remove the variables, or rename the variables temporarily to `XDB_INITIALIZE` or the `XDB_MIGRATE` to effectively disable them.
+1. Run a new CI pipeline for the branch. In this case, run a new CI pipeline for `main`.
+1. After the pipeline is successful, your application is upgraded with the new PostgreSQL installed. Zero replicas exist at this time, so no traffic is served for your application (to prevent new data from coming in).
 
 ## Restore
 
-1. Get the pod name for the new PostgreSQL, in this example, the pod name is
-   `production-postgresql-0`:
+1. Get the pod name for the new PostgreSQL, in this example, the pod name is `production-postgresql-0`:
 
    ```shell
    $ kubectl get pod --namespace "$APP_NAMESPACE" -l app=postgresql
@@ -248,18 +214,12 @@ You can also
    psql -U user -d production < /tmp/backup.sql
    ```
 
-1. You can now check that your data restored correctly after the restore
-   is complete. You can perform spot checks of your data by using the
-   `psql`.
+1. You can now check that your data restored correctly after the restore is complete. You can perform spot checks of your data by using the `psql`.
 
 ## Reinstate your application
 
-Once you are satisfied the database has been restored, run the following
-steps to reinstate your application:
+Once you are satisfied the database has been restored, run the following steps to reinstate your application:
 
-1. Restore the `DB_INITIALIZE` and `DB_MIGRATE` variables, if previously
-   removed or disabled.
+1. Restore the `DB_INITIALIZE` and `DB_MIGRATE` variables, if previously removed or disabled.
 1. Restore the `PRODUCTION_REPLICAS` or `REPLICAS` variable to its original value.
-1. Run a new CI pipeline for the branch. In this case, run a new CI
-   pipeline for `main`. After the pipeline is successful, your
-   application should be serving traffic as before.
+1. Run a new CI pipeline for the branch. In this case, run a new CI pipeline for `main`. After the pipeline is successful, your application should be serving traffic as before.

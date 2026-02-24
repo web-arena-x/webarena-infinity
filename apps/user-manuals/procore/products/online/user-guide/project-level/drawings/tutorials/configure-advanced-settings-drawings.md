@@ -15,15 +15,15 @@ If you're a Project Administrator, you may find it useful to customize a project
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' on the project's Drawings tool.
+ - 'Admin' on the project's Drawings tool.
 - **Additional Information:**
-  - Any changes to the Drawings settings will be project-wide.
+ - Any changes to the Drawings settings will be project-wide.
 
 ## Video
 
-|  |
+| |
 | --- |
-|  |
+| |
 
 ## Steps
 
@@ -33,14 +33,14 @@ If you're a Project Administrator, you may find it useful to customize a project
 
 ### Drawing Log Settings
 
-1. In **General Settings**, you can edit how your drawings are seen in the Drawings log, add or delete subscribers to your drawings, and edit information about your drawing sets.   
+1. In **General Settings**, you can edit how your drawings are seen in the Drawings log, add or delete subscribers to your drawings, and edit information about your drawing sets.  
      
    ![drawing settings 08.23.2018.png](https://support.procore.com/@api/deki/files/61068/drawing_settings_08.23.2018.png?revision=1)
-   - **Drawing Log Subscribers**﻿: Add or delete users who should be subscribed to your Drawings page. This will send subscribed users email updates whenever a new drawing is uploaded to any set.   
+   - **Drawing Log Subscribers**﻿: Add or delete users who should be subscribed to your Drawings page. This will send subscribed users email updates whenever a new drawing is uploaded to any set.  
      *Note*﻿*:* If you add a group to the drawing log subscribers, any additions or subtractions to the group will not be reflected in this list. For example, if you add a person to an "Internal" group in the Directory, that person will not be added to the drawing log subscribers to reflect the group change. See [Subscribe to the Drawings Log](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/subscribe-to-the-drawings-log "Subscribe to the Drawings Log").
-   - **Number of Drawings per Page**﻿: Select how many drawings will appear on your Drawings Log page. Selecting a lower number will result in faster page load times of the Drawing Log's list page.  
+   - **Number of Drawings per Page**﻿: Select how many drawings will appear on your Drawings Log page. Selecting a lower number will result in faster page load times of the Drawing Log's list page. 
      *Note:*This setting does not apply to the Procore mobile application.
-   - **Allow Standard Level Users to Delete Published Markup**: Mark this checkbox if you would like users with 'Standard' level access to the Drawings tool to be able to delete any published markups. See [Allow Users To Delete Published Markups](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/allow-users-to-delete-published-markups "Allow  Users To Delete Published Markup").
+   - **Allow Standard Level Users to Delete Published Markup**: Mark this checkbox if you would like users with 'Standard' level access to the Drawings tool to be able to delete any published markups. See [Allow Users To Delete Published Markups](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/allow-users-to-delete-published-markups "Allow Users To Delete Published Markup").
    - **Enable Drawings By Area**: Mark the checkbox to enable drawings by area on your project. See the following articles for more information.
      - [What are Drawing Areas?](https://support.procore.com/faq/what-are-drawing-areas "What are Drawing Areas?")
      - [Enable or Disable Drawing Areas](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/enable-or-disable-drawing-areas "Enable or Disable Drawing Areas")
@@ -48,7 +48,7 @@ If you're a Project Administrator, you may find it useful to customize a project
 
 ### Connected Project
 
-Select who should receive notifications when new drawings are copied from an upstream project and are ready to review and publish to your downstream project.  
+Select who should receive notifications when new drawings are copied from an upstream project and are ready to review and publish to your downstream project. 
 *Note:*This section only shows for the downstream project after the projects have been connected.
 
 1. Under, 'Administrative Email Recipients,' select who should receive notifications when new drawings are copied from an upstream project and are ready to review and publish to your downstream project.
@@ -59,24 +59,24 @@ Select who should receive notifications when new drawings are copied from an ups
 ### ​Edit Drawing Sets
 
 - Edit Drawing Sets by clicking into the fields under Set Name and Set Date.
-- Delete sets by clicking the red 'x' across from the set.  
-  *Note:* Sets with drawings in them cannot be deleted; you must first delete all drawings in the set before you can delete the corresponding drawing set. See [Delete](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/delete-drawings "Delete Drawings") [Drawings](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/delete-drawings "Delete Drawings").
+- Delete sets by clicking the red 'x' across from the set. 
+ *Note:* Sets with drawings in them cannot be deleted; you must first delete all drawings in the set before you can delete the corresponding drawing set. See [Delete](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/delete-drawings "Delete Drawings") [Drawings](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/delete-drawings "Delete Drawings").
 - For more information on your options in this section, see [Edit a Drawing Set](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/edit-a-drawing-set-name-or-date "Edit a Drawing Set").
 
 ### Edit Drawing Disciplines
 
 - Edit the names of discipline names by clicking into the fields under Discipline Name. See [Rename Drawing Disciplines](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/rename-drawing-disciplines "Rename Drawing Disciplines").
-- Click the  **more menu (≡)**  to drag-and-drop the drawing disciplines to a different order. This will affect how drawings are arranged on the Drawings list page. See [Move Drawing Disciplines](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/move-drawing-disciplines "Move Drawing Disciplines").
-- Delete disciplines by clicking the red 'x' across from the discipline.  
-  *Note*: Disciplines that have drawings in them cannot be deleted; you must first delete all drawings in the discipline before you can delete the corresponding drawing discipline. See [Delete](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/delete-drawings "Delete Drawings") [Drawings](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/delete-drawings "Delete Drawings").
+- Click the **more menu (≡)** to drag-and-drop the drawing disciplines to a different order. This will affect how drawings are arranged on the Drawings list page. See [Move Drawing Disciplines](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/move-drawing-disciplines "Move Drawing Disciplines").
+- Delete disciplines by clicking the red 'x' across from the discipline. 
+ *Note*: Disciplines that have drawings in them cannot be deleted; you must first delete all drawings in the discipline before you can delete the corresponding drawing discipline. See [Delete](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/delete-drawings "Delete Drawings") [Drawings](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/delete-drawings "Delete Drawings").
 - Click on the **Discipline Abbreviation Setup** page to configure abbreviations for drawing disciplines. You can also add new disciplines here. For information on configuring custom disciplines for automatic recognition when uploading new drawings, see [Configure Default Disciplines](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/configure-default-drawing-disciplines "Configure Default Drawing Disciplines").
 
 ### Permissions Table
 
-1. Click on **Permissions Table** sub tab to manage user permissions of the Drawings tool.   
+1. Click on **Permissions Table** sub tab to manage user permissions of the Drawings tool.  
    ***Tip!*** For a full list of actions users can perform in the Drawings tool, see the [Permissions Matrix](https://support.procore.com/products/online/user-guide/project-level/drawings/permissions "Permissions").
 2. Set each user's permission for the Drawings tool according to your preferences.
-   - The checkmark icon ​![green-check.png](https://support.procore.com/@api/deki/files/90514/icon-permissions-access-check.png?revision=3&size=bestfit&width=12&height=12)  indicates the permission level assigned to the user. For example, in the screenshot below, the user has 'Standard' permissions on the Drawings tool.   
+   - The checkmark icon ​![green-check.png](https://support.procore.com/@api/deki/files/90514/icon-permissions-access-check.png?revision=3&size=bestfit&width=12&height=12)  indicates the permission level assigned to the user. For example, in the screenshot below, the user has 'Standard' permissions on the Drawings tool.  
        
      ![drawingsuser permissions .png](https://support.procore.com/@api/deki/files/1276/drawingsuser_permissions_.png?revision=1&size=bestfit&width=700&height=95)
 

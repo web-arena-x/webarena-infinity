@@ -24,7 +24,7 @@ Local Measure Engage provides full Outbound WhatsApp capabilities to proactively
 
 ### Implementation Steps
 
-Configuring the outbound WhatsApp capability uses the same basic setup as building any Utility type in Engage. Since Outbound WhatsApp is initiated by a Utility, it is simple to employ as all agents nowadays use these for different purposes.  
+Configuring the outbound WhatsApp capability uses the same basic setup as building any Utility type in Engage. Since Outbound WhatsApp is initiated by a Utility, it is simple to employ as all agents nowadays use these for different purposes. 
 ‍The steps to configure and outbound email utility type is as follows:
 
 1. Log in to the Engage admin interface as an administrator.

@@ -28,10 +28,10 @@ You can create components from any collection of layers or objects. These can be
 
 There are two aspects to a component:
 
-- A **main component** that defines the properties of the component.  
-  We've created a component for the destination card in our travel app. It includes all the layers you’ll need to create a card for each destination.
-- An **instance** that’s a copy of the component, which you can add to your designs.  
-  We have four separate instances of the card component. Each instance has a unique photo and relevant text for each destination.
+- A **main component** that defines the properties of the component. 
+ We've created a component for the destination card in our travel app. It includes all the layers you’ll need to create a card for each destination.
+- An **instance** that’s a copy of the component, which you can add to your designs. 
+ We have four separate instances of the card component. Each instance has a unique photo and relevant text for each destination.
 
 ![The city name changes color in the component and across any instances](https://help.figma.com/hc/article_attachments/26610796647831)
 

@@ -644,7 +644,7 @@ A *Direct Cost* is an expense that can be directly attributed to the construct
 
 ###### Direct Message
 
-In Procore's Conversations tool, a **direct message**is a private conversation between two or more individuals in a project. You can access your direct messages in the 'Direct Messages' section of the Conversations tool.  
+In Procore's Conversations tool, a **direct message**is a private conversation between two or more individuals in a project. You can access your direct messages in the 'Direct Messages' section of the Conversations tool. 
 **Note:**A direct message with multiple individuals is different than a **group conversation** in Procore, where a **group** has been created for specific individuals in the project to communicate.
 
 ###### Distribution List
@@ -823,7 +823,7 @@ In Procore, the term *Granular Permissions* refers to task-based privileges that
 
 ###### Group Conversation
 
-In Procore's Conversations tool, a **group** is created for specific individuals in a project to communicate within a designated **group conversation**. For example, a group might be created for 'Electrical'. You can access your group conversations in the 'Groups' section of the Conversations tool.  
+In Procore's Conversations tool, a **group** is created for specific individuals in a project to communicate within a designated **group conversation**. For example, a group might be created for 'Electrical'. You can access your group conversations in the 'Groups' section of the Conversations tool. 
 **Note:**Users can send a **direct message** to multiple individuals in a project without the need for a **group**.
 
 ###### Guarantee

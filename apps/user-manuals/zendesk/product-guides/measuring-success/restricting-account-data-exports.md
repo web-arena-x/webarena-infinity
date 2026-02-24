@@ -6,15 +6,15 @@ Source: https://support.zendesk.com/hc/en-us/articles/5388932900250-Restricting-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Professional or Enterprise |
 
-Location:  Admin Center > Account > Tools > Reports
+Location: Admin Center > Account > Tools > Reports
 
 If the ability to export account data has been enabled in your account by Zendesk, you can [export ticket, user, or organization data from your account](https://support.zendesk.com/hc/en-us/articles/4408886165402) from Admin Center.
 

@@ -38,7 +38,7 @@ To view additional recommendations (up to 25 schools), click the hyperlinked tex
 ![Recommended schools section .png](https://support.joinhandshake.com/hc/article_attachments/35435448396055)
 
 - If no candidate qualifications are set, a gray banner appears with the message "To get school recommendations, change your customizations. We’ll need to know what type of students you’re looking for in order to recommend appropriate schools. Tell us by customizing your recommendations."
-  - To add candidate qualifications, click the black button **Customize recommendations**.
+ - To add candidate qualifications, click the black button **Customize recommendations**.
 
 ![change your customizations.png](https://support.joinhandshake.com/hc/article_attachments/35435432190615)
 
@@ -49,13 +49,13 @@ To view additional recommendations (up to 25 schools), click the hyperlinked tex
 Employers are matched with schools based on the following criteria:
 
 - **Location**: Schools within 250 miles of the job’s primary location.
-  - **Note**: If a job includes multiple locations, the first listed location is used by default. You can change this by customizing your recommendations as outlined in [Customize recommendations.](#h_01FQMJ8MTJ8QT16FKDAV5CDYS9)
-  - For Premium partners: If “various locations” is listed instead of a specific location, no geographic filter is applied.
+ - **Note**: If a job includes multiple locations, the first listed location is used by default. You can change this by customizing your recommendations as outlined in [Customize recommendations.](#h_01FQMJ8MTJ8QT16FKDAV5CDYS9)
+ - For Premium partners: If “various locations” is listed instead of a specific location, no geographic filter is applied.
 - **Candidate qualifications**:
-  - Work authorization
-  - School year
-  - Graduation date
-  - Major groups
+ - Work authorization
+ - School year
+ - Graduation date
+ - Major groups
 
 ### Customize your recommendations
 
@@ -70,25 +70,25 @@ By default, recommendations are based on your job’s existing candidate prefere
 All employers can customize recommendations based on preferences and location:
 
 - **They meet your job's qualifications**
-  - Current preferences are displayed. To edit, click the hyperlinked text "Edit qualifications".
+ - Current preferences are displayed. To edit, click the hyperlinked text "Edit qualifications".
 - **Their school is near your job location(s)**
-  - The location(s) selected are listed with the range of 250 miles.
-  - If the checkbox is disabled, the job's location type is set as remote.
-  - **Note**: Only Premium partners can select the mile radius for each location.
+ - The location(s) selected are listed with the range of 250 miles.
+ - If the checkbox is disabled, the job's location type is set as remote.
+ - **Note**: Only Premium partners can select the mile radius for each location.
 
 \*Premium partners can customize recommendations based on students' selected interests:
 
 - **\*They want to work near your job's location**
-  - Students interested in jobs close to your posting’s location(s).
+ - Students interested in jobs close to your posting’s location(s).
     - Select from a radius of 5, 15, 30, 50, 75, 100, and 250 miles.
     - When a posting lists multiple locations, any student who has expressed interest in at least one of those locations is counted as a match.
 - **\*They're interested in roles like this one**
-  - Students who have indicated interest in the job role(s) associated with your posting.
+ - Students who have indicated interest in the job role(s) associated with your posting.
 
     - *Learn more about* [*Job Roles and Job Role Groups (Employers)*](https://support.joinhandshake.com/hc/en-us/articles/360033423494)*.*
 - **\*They're interested in your industry**
-  - Students who have expressed interest in your industry. Confirm or update your industry in your company settings.
-  - You can view all industries in Handshake by accessing the [Employer Industry Name List](https://support.joinhandshake.com/hc/en-us/articles/360036981454).
+ - Students who have expressed interest in your industry. Confirm or update your industry in your company settings.
+ - You can view all industries in Handshake by accessing the [Employer Industry Name List](https://support.joinhandshake.com/hc/en-us/articles/360036981454).
 
 ![Sidsheet recommendations.png](https://support.joinhandshake.com/hc/article_attachments/35435448404119)
 

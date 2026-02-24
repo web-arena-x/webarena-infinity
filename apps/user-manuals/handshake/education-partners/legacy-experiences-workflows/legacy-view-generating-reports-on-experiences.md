@@ -34,17 +34,17 @@ The report is now ready to view, and includes the following information:
 
 - **Experience ID**
 - **Student Information:**
-  - Email, Major, College, School Year, Graduation Date, Campus Work Authorization, Education Level, Labels
+ - Email, Major, College, School Year, Graduation Date, Campus Work Authorization, Education Level, Labels
 - **Employer Information:**
-  - Name, Industry
+ - Name, Industry
 - **Supervisor Information** (this will only populate data for experiences submitted prior to August 2017, see Approvers Download instructions for more info):
-  - Name, Title, Email, Phone
+ - Name, Title, Email, Phone
 - **Job Information**
-  - Title, Term, Status, Start Date, End Date, Location, Labels, Job Type, Salary, Offer Date, Offer Accepted?, Acceptance Date,
+ - Title, Term, Status, Start Date, End Date, Location, Labels, Job Type, Salary, Offer Date, Offer Accepted?, Acceptance Date,
 - **Experience Information:**
-  - Created At Date, Student Evaluation Count, Approver Evaluation Count, Template, Approver Count
+ - Created At Date, Student Evaluation Count, Approver Evaluation Count, Template, Approver Count
 - **Request Information:**
-  - Request Survey ID, Request Custom Question(s), Request Custom Answer(s)
+ - Request Survey ID, Request Custom Question(s), Request Custom Answer(s)
 
 ## Bulk Action: Approvers Quick Download
 
@@ -72,19 +72,19 @@ It will include the following information:
 
 - **Experience ID**
 - **Student Information:**
-  - Email, Major, College, School Year, Graduation Date, Campus Work Authorization, Education Level, Labels
+ - Email, Major, College, School Year, Graduation Date, Campus Work Authorization, Education Level, Labels
 - **Employer Information:**
-  - Name, Industry
+ - Name, Industry
 - **Supervisor Information** (this will only populate data for experiences submitted prior to August 2017):
-  - Name, Title, Email, Phone
+ - Name, Title, Email, Phone
 - **Job Information**
-  - Title, Term, Status, Start Date, End Date, Location, Labels, Job Type, Salary, Offer Date, Offer Accepted?, Acceptance Date,
+ - Title, Term, Status, Start Date, End Date, Location, Labels, Job Type, Salary, Offer Date, Offer Accepted?, Acceptance Date,
 - **Experience Information:**
-  - Created At Date, Student Evaluation Count, Approver Evaluation Count, Template,
+ - Created At Date, Student Evaluation Count, Approver Evaluation Count, Template,
 - **Approver Information:**(\*the key piece in this download)
-  - Count, Title, First Name, Last Name, Email Address, Approval Status, Response Survey ID, Approver Custom Question(s), Approver Custom Answers(s)
+ - Count, Title, First Name, Last Name, Email Address, Approval Status, Response Survey ID, Approver Custom Question(s), Approver Custom Answers(s)
 - **Request Information:**
-  - Request Survey ID, Request Custom Question(s), Request Custom Answer(s)
+ - Request Survey ID, Request Custom Question(s), Request Custom Answer(s)
 
 ## Bulk Action: Evaluations Quick Download:
 
@@ -112,19 +112,19 @@ The report includes the following information:
 
 - **Experience ID**
 - **Student Information:**
-  - Email, Major, College, School Year, Graduation Date, Campus Work Authorization, Education Level, Labels
+ - Email, Major, College, School Year, Graduation Date, Campus Work Authorization, Education Level, Labels
 - **Employer Information:**
-  - Name, Industry
+ - Name, Industry
 - **Supervisor Information** (this will only populate data for experiences submitted prior to August 2017):
-  - Name, Title, Email, Phone
+ - Name, Title, Email, Phone
 - **Job Information**
-  - Title, Term, Status, Start Date, End Date, Location, Labels, Job Type, Salary, Offer Date, Offer Accepted?, Acceptance Date,
+ - Title, Term, Status, Start Date, End Date, Location, Labels, Job Type, Salary, Offer Date, Offer Accepted?, Acceptance Date,
 - **Experience Information:**
-  - Created At Date, Student Evaluation Count, Approver Evaluation Count, Template, Approver Count
+ - Created At Date, Student Evaluation Count, Approver Evaluation Count, Template, Approver Count
 - **Request Information:**
-  - Request Survey ID, Request Custom Question(s), Request Custom Answer(s)
+ - Request Survey ID, Request Custom Question(s), Request Custom Answer(s)
 - **Evaluation Information** (\*the key piece in this download):
-  - ID, Name, Email, Evaluation On-Behalf Of, Title, Content (Description), Evaluation Custom Question(s), Evaluation Custom Answer(s)
+ - ID, Name, Email, Evaluation On-Behalf Of, Title, Content (Description), Evaluation Custom Question(s), Evaluation Custom Answer(s)
 
 ## Insights Explore (Difficulty Level: Expert)
 

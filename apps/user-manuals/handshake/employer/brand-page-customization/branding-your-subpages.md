@@ -16,12 +16,12 @@ Create up to six subpages, each featuring a banner image, media gallery, and hig
 
 - [Access subpages](#h_01J4A6039WQQ0FQZEECYXG70GK)
 - [Branding your subpage](#h_01J4A607AZ9FJSWXK582P3XPRK)
-  - [Details](#h_01J4A4YQGPNQM2NCP4DVT16M36)
-  - [Work life](#h_01J4A6Q8WGW8TPVE1WBS31YAVW)
-  - [Jobs](#h_01J4A71Q413S1N4XFV13352SGS)
-  - [People](#h_01J4HHY0V7YJJYEXANJE9DCKGX)
-  - [Events](#h_01J4HJGH2MV8C1ZQF8R2QXNERT)
-  - [Gallery](#h_01J4HMT91M8YSSEPZ8CH79V5QV)
+ - [Details](#h_01J4A4YQGPNQM2NCP4DVT16M36)
+ - [Work life](#h_01J4A6Q8WGW8TPVE1WBS31YAVW)
+ - [Jobs](#h_01J4A71Q413S1N4XFV13352SGS)
+ - [People](#h_01J4HHY0V7YJJYEXANJE9DCKGX)
+ - [Events](#h_01J4HJGH2MV8C1ZQF8R2QXNERT)
+ - [Gallery](#h_01J4HMT91M8YSSEPZ8CH79V5QV)
 
 ### Access subpages
 

@@ -6,8 +6,7 @@ title: GitLab upgrade notes
 description: Version-specific upgrade information and breaking changes for GitLab releases.
 ---
 
-Upgrade notes for supported GitLab versions. For upgrade notes for older versions, see the
-[GitLab documentation archives](https://archives.docs.gitlab.com).
+Upgrade notes for supported GitLab versions. For upgrade notes for older versions, see the [GitLab documentation archives](https://archives.docs.gitlab.com).
 
 {{< cards >}}
 

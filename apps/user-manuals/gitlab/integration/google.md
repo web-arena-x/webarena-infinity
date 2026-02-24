@@ -12,8 +12,7 @@ title: Use Google OAuth 2.0 as an OAuth 2.0 authentication provider
 
 {{< /details >}}
 
-To enable the Google OAuth 2.0 OmniAuth provider you must register your application
-with Google. Google generates a client ID and secret key for you to use.
+To enable the Google OAuth 2.0 OmniAuth provider you must register your application with Google. Google generates a client ID and secret key for you to use.
 
 To enable Google OAuth, you must configure the:
 
@@ -27,8 +26,7 @@ To enable Google OAuth, you must configure the:
 1. Select **CREATE PROJECT**.
 1. In **Project name**, enter `GitLab`.
 1. In **Project ID**, Google provides a randomly generated project ID by default.
-   You can use this randomly generated ID or create a new one. If you create a new
-   ID, it must be unique to all Google Developer registered applications.
+   You can use this randomly generated ID or create a new one. If you create a new ID, it must be unique to all Google Developer registered applications.
 
 To see your new project in the list, refresh the page.
 
@@ -42,18 +40,15 @@ To see your new project in the list, refresh the page.
    - **Application type**: Select **Web application**.
    - **Name**: Use the default name or enter your own.
    - **Authorized JavaScript origins**: Enter `https://gitlab.example.com`.
-   - **Authorized redirect URIs**: Enter your domain name followed by the
-     callback URIs one at a time:
+   - **Authorized redirect URIs**: Enter your domain name followed by the callback URIs one at a time:
 
      ```plaintext
      https://gitlab.example.com/users/auth/google_oauth2/callback
      https://gitlab.example.com/-/google_api/auth/callback
      ```
 
-1. You should see a client ID and client secret. Note them down
-   or keep this page open as you need them later.
-1. To enable projects to access [Google Kubernetes Engine](../user/infrastructure/clusters/_index.md),
-   you must also enable the:
+1. You should see a client ID and client secret. Note them down or keep this page open as you need them later.
+1. To enable projects to access [Google Kubernetes Engine](../user/infrastructure/clusters/_index.md), you must also enable the:
    - Google Kubernetes Engine API
    - Cloud Resource Manager API
    - Cloud Billing API
@@ -83,8 +78,7 @@ To see your new project in the list, refresh the page.
    ```
 
 1. Configure the [common settings](omniauth.md#configure-common-settings)
-   to add `google_oauth2` as a single sign-on provider. This enables Just-In-Time
-   account provisioning for users who do not have an existing GitLab account.
+   to add `google_oauth2` as a single sign-on provider. This enables Just-In-Time account provisioning for users who do not have an existing GitLab account.
 1. Add the provider configuration.
 
    For Linux package installations:
@@ -113,8 +107,7 @@ To see your new project in the list, refresh the page.
 
 1. Replace `<YOUR_APP_ID>` with the client ID from the Google Developer page.
 1. Replace `<YOUR_APP_SECRET>` with the client secret from the Google Developer page.
-1. Make sure that you configure GitLab to use a fully-qualified domain name, as
-   Google doesn't accept raw IP addresses.
+1. Make sure that you configure GitLab to use a fully-qualified domain name, as Google doesn't accept raw IP addresses.
 
    For Linux package installations:
 
@@ -134,7 +127,4 @@ To see your new project in the list, refresh the page.
    - If you installed using the Linux package, [reconfigure GitLab](../administration/restart_gitlab.md#reconfigure-a-linux-package-installation).
    - If you self-compiled your installation, [restart GitLab](../administration/restart_gitlab.md#self-compiled-installations).
 
-On the sign in page there should now be a Google icon below the regular sign in
-form. Select the icon to begin the authentication process. Google asks the
-user to sign in and authorize the GitLab application. If everything goes well
-the user is returned to GitLab and is signed in.
+On the sign in page there should now be a Google icon below the regular sign in form. Select the icon to begin the authentication process. Google asks the user to sign in and authorize the GitLab application. If everything goes well the user is returned to GitLab and is signed in.

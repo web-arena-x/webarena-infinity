@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8761641980698-Using-commun
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Copilot |
 
@@ -41,7 +41,7 @@ You can also define your own guidelines to cover a wider range of brand-specific
 
 If you’ve defined your own guidelines, the system follows your guidelines in addition to analyzing the ticket context in an ongoing conversation. If there’s ever a conflict between the tone or writing style inferred from the ticket conversation and your guidelines, your guidelines take precedence.
 
-When the communication guidelines feature is turned on, the [Rewrite in your tone option](https://support.zendesk.com/hc/en-us/articles/5608712782362#topic_fn1_bkp_22c)  is added to the enhanced writing tools menu in the Agent Workspace and [auto assist](https://support.zendesk.com/hc/en-us/articles/8013454025114#topic_dx3_rww_xcc) adapts its suggestions to match an ongoing conversation.
+When the communication guidelines feature is turned on, the [Rewrite in your tone option](https://support.zendesk.com/hc/en-us/articles/5608712782362#topic_fn1_bkp_22c) is added to the enhanced writing tools menu in the Agent Workspace and [auto assist](https://support.zendesk.com/hc/en-us/articles/8013454025114#topic_dx3_rww_xcc) adapts its suggestions to match an ongoing conversation.
 
 Communication guidelines don’t change the core content of an AI-generated response. For example, they won’t override the actual steps in an auto assist procedure. Guidelines are applied to auto assist suggestions only after the system has interpreted the user’s message, searched for relevant content, and generated an initial draft.
 
@@ -51,7 +51,7 @@ Note: OpenAI will not use your data to train its models or improve its services.
 
 Communication guidelines are turned on by default. Admins can turn this feature on or off in Admin Center.
 
-If you turn this feature off, the [Rewrite in your tone option](https://support.zendesk.com/hc/en-us/articles/5608712782362#topic_fn1_bkp_22c)  is removed from the enhanced writing tools menu in the Agent Workspace and auto assist doesn't adapt its suggestions to match the ongoing conversation.
+If you turn this feature off, the [Rewrite in your tone option](https://support.zendesk.com/hc/en-us/articles/5608712782362#topic_fn1_bkp_22c) is removed from the enhanced writing tools menu in the Agent Workspace and auto assist doesn't adapt its suggestions to match the ongoing conversation.
 
 **To turn communication guidelines on or off**
 

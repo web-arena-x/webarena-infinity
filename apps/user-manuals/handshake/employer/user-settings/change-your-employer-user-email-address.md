@@ -12,7 +12,7 @@ On Handshake, you can update your email address as long as the new email address
 - If you created another account using the email address you want to use, or if you need to change a corporate email address to a generic one, contact Support.
 - If you update your email address to one that does not match your company’s domain, you will lose access to your account. Your account status will remain pending until the company profile Owner or Admin reapproves your access.
 
-  - If you are the only user connected to your company profile and need access restored, contact Support.
+ - If you are the only user connected to your company profile and need access restored, contact Support.
 - If you no longer have access to your current email address, review the section[What to do if you can’t access your old email address](#h_01KF3WKWX1RY9WWN9C5EYBYV3X).
 
 ### Update your email address

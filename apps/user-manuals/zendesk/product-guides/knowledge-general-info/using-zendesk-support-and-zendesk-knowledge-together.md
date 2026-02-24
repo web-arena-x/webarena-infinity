@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408882448922-Using-Zendes
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Guide Professional or Enterprise |
 
@@ -63,7 +63,7 @@ In Support, you can also configure what type of user authentication is used; how
 
 | Zendesk Support | Zendesk Knowledge |
 | --- | --- |
-| Define who can submit tickets, if customers are required to register, help center access, authentication methods. See:  - [Understanding options for end-user access and sign-in](https://support.zendesk.com/hc/en-us/articles/4408887573274) | Require users to sign-in to see and use your help center (this allows you to create a closed help center). See:  - [Restricting help center access to signed-in end users](https://support.zendesk.com/hc/en-us/articles/4408842656154) |
+| Define who can submit tickets, if customers are required to register, help center access, authentication methods. See: - [Understanding options for end-user access and sign-in](https://support.zendesk.com/hc/en-us/articles/4408887573274) | Require users to sign-in to see and use your help center (this allows you to create a closed help center). See: - [Restricting help center access to signed-in end users](https://support.zendesk.com/hc/en-us/articles/4408842656154) |
 
 ### Granting agents Knowledge admin privileges
 
@@ -75,7 +75,7 @@ Administrators are defined as *Knowledge admins* and are granted all privileges 
 
 | Zendesk Support | Zendesk Knowledge |
 | --- | --- |
-| Grant an agent Knowledge admin privileges. See:  - [Changing an agent's role to grant Knowledge admin privileges](https://support.zendesk.com/hc/en-us/articles/4408845823386) | View a comparison of role permissions by role. See:  - [Understanding Knowledge roles and privileges](https://support.zendesk.com/hc/en-us/articles/4408827842458#topic_t44_db5_nv) |
+| Grant an agent Knowledge admin privileges. See: - [Changing an agent's role to grant Knowledge admin privileges](https://support.zendesk.com/hc/en-us/articles/4408845823386) | View a comparison of role permissions by role. See: - [Understanding Knowledge roles and privileges](https://support.zendesk.com/hc/en-us/articles/4408827842458#topic_t44_db5_nv) |
 
 ### Restricting view and edit access to specific content in your help center
 
@@ -95,7 +95,7 @@ When you apply a user segment for visibility or management, only those users hav
 
 | Zendesk Support | Zendesk Knowledge |
 | --- | --- |
-| For customers, add tags to their user profile or add them to an organization and use these as criteria for user segments. For agents, use tags and the groups they belong to. Grant an agent Knowledge admin privileges.  See:  - [Adding tags to users and organizations](https://support.zendesk.com/hc/en-us/articles/4408881573658) - [Creating groups](https://support.zendesk.com/hc/en-us/articles/4408894175130) - [Creating organizations](https://support.zendesk.com/hc/en-us/articles/4408882246298) | Create user segments and apply them to articles in the knowledge base. See:   - [Creating user segments for Knowledge user permissions](https://support.zendesk.com/hc/en-us/articles/4408837707290) - [Creating management permissions to define agent editing and publishing rights](https://support.zendesk.com/hc/en-us/articles/4408827952538) - [Setting agent editing and publishing permissions on knowledge base articles](https://support.zendesk.com/hc/en-us/articles/4408834435738) - [Setting view permissions on articles with user segments](https://support.zendesk.com/hc/en-us/articles/4408824005914) |
+| For customers, add tags to their user profile or add them to an organization and use these as criteria for user segments. For agents, use tags and the groups they belong to. Grant an agent Knowledge admin privileges. See: - [Adding tags to users and organizations](https://support.zendesk.com/hc/en-us/articles/4408881573658) - [Creating groups](https://support.zendesk.com/hc/en-us/articles/4408894175130) - [Creating organizations](https://support.zendesk.com/hc/en-us/articles/4408882246298) | Create user segments and apply them to articles in the knowledge base. See:   - [Creating user segments for Knowledge user permissions](https://support.zendesk.com/hc/en-us/articles/4408837707290) - [Creating management permissions to define agent editing and publishing rights](https://support.zendesk.com/hc/en-us/articles/4408827952538) - [Setting agent editing and publishing permissions on knowledge base articles](https://support.zendesk.com/hc/en-us/articles/4408834435738) - [Setting view permissions on articles with user segments](https://support.zendesk.com/hc/en-us/articles/4408824005914) |
 
 ### Directing customers to the self-service content in your help center
 
@@ -111,7 +111,7 @@ Note: You can find other ideas for linking to and promoting your knowledge base 
 
 | Zendesk Support | Zendesk Knowledge |
 | --- | --- |
-| Agents can use Knowledge in the Context panel to insert links to help center articles in their ticket replies. Set up autoreplies to automatically respond to support requests with links to relevant help center articles.  See:  - [Searching for content in the knowledge section](https://support.zendesk.com/hc/en-us/articles/4408826700570) - [Linking, quoting, and pinning content to tickets](https://support.zendesk.com/hc/en-us/articles/5780128753946) - [Quickstart guide: Autoreplies with articles](https://support.zendesk.com/hc/en-us/articles/4408820349850) | Provide the knowledge base content in emails and web form. See:  - [Quickstart guide: Autoreplies with articles](https://support.zendesk.com/hc/en-us/articles/4408820349850) |
+| Agents can use Knowledge in the Context panel to insert links to help center articles in their ticket replies. Set up autoreplies to automatically respond to support requests with links to relevant help center articles. See: - [Searching for content in the knowledge section](https://support.zendesk.com/hc/en-us/articles/4408826700570) - [Linking, quoting, and pinning content to tickets](https://support.zendesk.com/hc/en-us/articles/5780128753946) - [Quickstart guide: Autoreplies with articles](https://support.zendesk.com/hc/en-us/articles/4408820349850) | Provide the knowledge base content in emails and web form. See: - [Quickstart guide: Autoreplies with articles](https://support.zendesk.com/hc/en-us/articles/4408820349850) |
 
 ### Providing feedback about and contributing new content to the knowledge base
 
@@ -127,7 +127,7 @@ On Enterprise plans, agents can use the Team Publishing features to collaborate 
 
 | Zendesk Support | Zendesk Knowledge |
 | --- | --- |
-| Use the Reporting tools in Support to discover which customer issues need documentation. Use a ticket tagging process to flag issues that need documentation.  Use an About field on your ticket forms to capture and categorize issues that need attention and documentation.  Use the Knowledge Capture app to allow agents to contribute to the knowledge base from within the agent interface.  See:  - [Best practices for finding customer issues to start your knowledge base](https://support.zendesk.com/hc/en-us/articles/4408828230554) - [Zendesk on Zendesk: How we use the About field](https://support.zendesk.com/hc/en-us/community/posts/212671827) | Allow agents to directly manage and contribute content to the knowledge base. Allow agents to collaborate on creating and managing articles by setting up collaboration workflows with Team Publishing to review, approve, and publish content (Enterprise plans only).  See:  - [Allowing agents to add, edit, and delete articles in knowledge base sections](https://support.zendesk.com/hc/en-us/articles/4408834435738) - [About Team Publishing](https://support.zendesk.com/hc/en-us/articles/4408832609562) |
+| Use the Reporting tools in Support to discover which customer issues need documentation. Use a ticket tagging process to flag issues that need documentation. Use an About field on your ticket forms to capture and categorize issues that need attention and documentation. Use the Knowledge Capture app to allow agents to contribute to the knowledge base from within the agent interface. See: - [Best practices for finding customer issues to start your knowledge base](https://support.zendesk.com/hc/en-us/articles/4408828230554) - [Zendesk on Zendesk: How we use the About field](https://support.zendesk.com/hc/en-us/community/posts/212671827) | Allow agents to directly manage and contribute content to the knowledge base. Allow agents to collaborate on creating and managing articles by setting up collaboration workflows with Team Publishing to review, approve, and publish content (Enterprise plans only). See: - [Allowing agents to add, edit, and delete articles in knowledge base sections](https://support.zendesk.com/hc/en-us/articles/4408834435738) - [About Team Publishing](https://support.zendesk.com/hc/en-us/articles/4408832609562) |
 
 ## Enhancing and managing the self-service customer experience
 
@@ -154,7 +154,7 @@ On Enterprise plans, you can create multiple ticket forms for different types of
 
 | Zendesk Support | Zendesk Knowledge |
 | --- | --- |
-| Configure and customize the support request form. Note: On Enterprise plans, you can create multiple ticket forms for different types of support requests.  See:  - [Adding custom fields to your tickets and support request forms](https://support.zendesk.com/hc/en-us/articles/4408883152794) - [Creating ticket forms to support multiple request types](https://support.zendesk.com/hc/en-us/articles/4408846520858) | The support request form is displayed to customers in the help center. |
+| Configure and customize the support request form. Note: On Enterprise plans, you can create multiple ticket forms for different types of support requests. See: - [Adding custom fields to your tickets and support request forms](https://support.zendesk.com/hc/en-us/articles/4408883152794) - [Creating ticket forms to support multiple request types](https://support.zendesk.com/hc/en-us/articles/4408846520858) | The support request form is displayed to customers in the help center. |
 
 ### Setting up multiple branded versions of a help center
 
@@ -168,7 +168,7 @@ Enabling multiple brands is done in Zendesk Support. This is where you define ea
 
 | Zendesk Support | Zendesk Knowledge |
 | --- | --- |
-| Add brands and enable separate help centers, as allowed. See:  - [Setting up multiple brands](https://support.zendesk.com/hc/en-us/articles/4408829476378) - [Creating a help center for one of your brands](https://support.zendesk.com/hc/en-us/articles/4408828794778) | Customize the look of and manage the content and users for each branded help center. See:  - [Viewing a help center for one of your brands](https://support.zendesk.com/hc/en-us/articles/4408832814362) |
+| Add brands and enable separate help centers, as allowed. See: - [Setting up multiple brands](https://support.zendesk.com/hc/en-us/articles/4408829476378) - [Creating a help center for one of your brands](https://support.zendesk.com/hc/en-us/articles/4408828794778) | Customize the look of and manage the content and users for each branded help center. See: - [Viewing a help center for one of your brands](https://support.zendesk.com/hc/en-us/articles/4408832814362) |
 
 ### Supporting multiple languages
 
@@ -180,7 +180,7 @@ When you enable other supported languages, you’re responsible for providing tr
 
 | Zendesk Support | Zendesk Knowledge |
 | --- | --- |
-| Configure your account settings to support multiple languages. Manage the translations of content contained in your macros, automations, and triggers using a feature called dynamic content.  Set and detect a user’s language.  Include language as a condition in your business rules.  See:  - [Adding multiple languages to Zendesk Support](https://support.zendesk.com/hc/en-us/articles/4408888770714) - [Providing multiple language support with dynamic content](https://support.zendesk.com/hc/en-us/articles/4408882999066) - [Setting and detecting a user's language](https://support.zendesk.com/hc/en-us/articles/4408888770714#topic_tmu_gno_ze) - [Using a requester's language in your business rules](https://support.zendesk.com/hc/en-us/articles/4408888770714#topic_uqw_ufw_bf) | Specify a default language for your help center and enable any languages you want to support in it. Localize (translate), words used in your help center structure and any other text snippets you want to add to the help center user interface.  Create language versions of your knowledge base articles and select a provider and a process for translating and publishing your articles.  See:  - [Configuring your help center to support multiple languages](https://support.zendesk.com/hc/en-us/articles/4408827609882) - [Localizing help center content](https://support.zendesk.com/hc/en-us/articles/4408834328090) - [Creating and managing translated content for your knowledge base](https://support.zendesk.com/hc/en-us/articles/4408886903450) |
+| Configure your account settings to support multiple languages. Manage the translations of content contained in your macros, automations, and triggers using a feature called dynamic content. Set and detect a user’s language. Include language as a condition in your business rules. See: - [Adding multiple languages to Zendesk Support](https://support.zendesk.com/hc/en-us/articles/4408888770714) - [Providing multiple language support with dynamic content](https://support.zendesk.com/hc/en-us/articles/4408882999066) - [Setting and detecting a user's language](https://support.zendesk.com/hc/en-us/articles/4408888770714#topic_tmu_gno_ze) - [Using a requester's language in your business rules](https://support.zendesk.com/hc/en-us/articles/4408888770714#topic_uqw_ufw_bf) | Specify a default language for your help center and enable any languages you want to support in it. Localize (translate), words used in your help center structure and any other text snippets you want to add to the help center user interface. Create language versions of your knowledge base articles and select a provider and a process for translating and publishing your articles. See: - [Configuring your help center to support multiple languages](https://support.zendesk.com/hc/en-us/articles/4408827609882) - [Localizing help center content](https://support.zendesk.com/hc/en-us/articles/4408834328090) - [Creating and managing translated content for your knowledge base](https://support.zendesk.com/hc/en-us/articles/4408886903450) |
 
 ### Measuring user activity in your help center
 
@@ -198,7 +198,7 @@ For more information about measuring help center activity and the success of you
 
 | Zendesk Support | Zendesk Knowledge |
 | --- | --- |
-| Use the Zendesk Knowledge dashboard in Explore to track knowledge base, search, Knowledge, and bot activity. See:  - [Analyzing knowledge base activity](https://support.zendesk.com/hc/en-us/articles/4408830631962) - [Analyzing help center search results](https://support.zendesk.com/hc/en-us/articles/4408818465562) - [Analyzing your Knowledge activity](https://support.zendesk.com/hc/en-us/articles/4408887529370) - [Analyzing your autoreplies for article recommendations](https://support.zendesk.com/hc/en-us/articles/4409155069466) | Set up a Google Analytics account, add the tracking ID number to the Knowledge Admin settings page, and then track website engagement activity in Google Analytics. See:  - [Enabling Google Analytics for your help center](https://support.zendesk.com/hc/en-us/articles/4408828643098) |
+| Use the Zendesk Knowledge dashboard in Explore to track knowledge base, search, Knowledge, and bot activity. See: - [Analyzing knowledge base activity](https://support.zendesk.com/hc/en-us/articles/4408830631962) - [Analyzing help center search results](https://support.zendesk.com/hc/en-us/articles/4408818465562) - [Analyzing your Knowledge activity](https://support.zendesk.com/hc/en-us/articles/4408887529370) - [Analyzing your autoreplies for article recommendations](https://support.zendesk.com/hc/en-us/articles/4409155069466) | Set up a Google Analytics account, add the tracking ID number to the Knowledge Admin settings page, and then track website engagement activity in Google Analytics. See: - [Enabling Google Analytics for your help center](https://support.zendesk.com/hc/en-us/articles/4408828643098) |
 
 ### Moderating end-user content in your help center
 
@@ -212,7 +212,7 @@ Moderating end-user content requires Knowledge admin privileges, as described in
 
 | Zendesk Support | Zendesk Knowledge |
 | --- | --- |
-| Grant agents Knowledge admin privileges to agents so that they can moderate content in Knowledge. See:  - [Changing an agent's role to grant Knowledge admin privileges](https://support.zendesk.com/hc/en-us/articles/4408845823386) | For administrators and agents with Knowledge admin privileges, enable content moderation, manage end-user contributed content, and handle spam and spam user accounts. See:  - [Moderating end-user content](https://support.zendesk.com/hc/en-us/articles/4408894193562) |
+| Grant agents Knowledge admin privileges to agents so that they can moderate content in Knowledge. See: - [Changing an agent's role to grant Knowledge admin privileges](https://support.zendesk.com/hc/en-us/articles/4408845823386) | For administrators and agents with Knowledge admin privileges, enable content moderation, manage end-user contributed content, and handle spam and spam user accounts. See: - [Moderating end-user content](https://support.zendesk.com/hc/en-us/articles/4408894193562) |
 
 ### Managing spam
 
@@ -228,7 +228,7 @@ For more information about all the spam prevention tools in place in the help ce
 
 | Zendesk Support | Zendesk Knowledge |
 | --- | --- |
-| Zendesk Support filters and prevents spam from incoming support channels such as email. Incoming email that is considered suspicious but not clearly spam is suspended and placed in the Suspended Tickets view.  Users can be suspended when reviewing a suspended ticket and also in the user’s account profile.  See:  - [Understanding and managing suspended tickets and spam](https://support.zendesk.com/hc/en-us/articles/4408889141146) - [Suspending a user](https://support.zendesk.com/hc/en-us/articles/4408889293978) | Manually mark knowledge base comments as spam. Optionally also suspend an end user and delete all the content they created in your help center.  Enable content moderation to control end-user content that appears in your help center.  See:  - [Using the spam filter to prevent spam in help center](https://support.zendesk.com/hc/en-us/articles/4408888801690) - [Marking content as spam and removing it from your help center](https://support.zendesk.com/hc/en-us/articles/4408838281882) |
+| Zendesk Support filters and prevents spam from incoming support channels such as email. Incoming email that is considered suspicious but not clearly spam is suspended and placed in the Suspended Tickets view. Users can be suspended when reviewing a suspended ticket and also in the user’s account profile. See: - [Understanding and managing suspended tickets and spam](https://support.zendesk.com/hc/en-us/articles/4408889141146) - [Suspending a user](https://support.zendesk.com/hc/en-us/articles/4408889293978) | Manually mark knowledge base comments as spam. Optionally also suspend an end user and delete all the content they created in your help center. Enable content moderation to control end-user content that appears in your help center. See: - [Using the spam filter to prevent spam in help center](https://support.zendesk.com/hc/en-us/articles/4408888801690) - [Marking content as spam and removing it from your help center](https://support.zendesk.com/hc/en-us/articles/4408838281882) |
 
 ### Creating and managing tickets from help center comments
 
@@ -240,4 +240,4 @@ Sometimes answering their questions requires help from other people in your supp
 
 | Zendesk Support | Zendesk Knowledge |
 | --- | --- |
-| Manage and resolve tickets created from comments in your help center. | Create tickets from comments to follow up on a user question or take an issue offline. See:  - [Creating a ticket from a knowledge base comment](https://support.zendesk.com/hc/en-us/articles/4408834867610) |
+| Manage and resolve tickets created from comments in your help center. | Create tickets from comments to follow up on a user question or take an issue offline. See: - [Creating a ticket from a knowledge base comment](https://support.zendesk.com/hc/en-us/articles/4408834867610) |

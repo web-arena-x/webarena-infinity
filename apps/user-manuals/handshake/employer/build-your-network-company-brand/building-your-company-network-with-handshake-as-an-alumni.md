@@ -16,12 +16,12 @@ When you create an employer account on Handshake, you can add your alma mater to
 
 By staying connected with your alma mater, you not only strengthen your personal connection but also create opportunities for potential recruitment and networking opportunities between your company and your alma mater.
 
-2. **Enhanced Personal Branding**:  
+2. **Enhanced Personal Branding**: 
 Your name, job title, alma mater, and graduation year are displayed on your Handshake user profile. If you choose to showcase your user profile on your brand page, students can view your user profile.
 
 This visibility enhances your personal branding and allows students to connect with you based on shared educational backgrounds, which fosters mentorship and professional networking relationships.
 
-3. **Streamlined Account Management**:  
+3. **Streamlined Account Management**: 
 With an employer account on Handshake, you can use the same email address for both your alumni and employer account. With this feature, you can easily switch between your employer and alumni accounts, which simplifies the process of managing your online presence.
 
 While you can use the same email address, it's crucial to update it to a personal email as most school email accounts are deactivated after graduation.

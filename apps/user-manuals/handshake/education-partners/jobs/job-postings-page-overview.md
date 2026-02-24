@@ -11,7 +11,7 @@ Topics:
 - [Job Posting Status Tabs](#h_01F7SFY9C6S0RXG68J4KSC9F1K)
 - [Job Posting Side Sheet](#h_01H6C1TGJYNJKDN82BTWTSCQTX)
 - [Search Filters](#h_01H64BBXJEPMJ15MZQFYWM501A)
-  - [All Filters](#h_01H64BBXJEPMJ15MZQFYWM501A)
+ - [All Filters](#h_01H64BBXJEPMJ15MZQFYWM501A)
 - [Create a Saved Search](#h_01GBNM28BJM29KD50MR36FFD9T)
 
 ## Job Posting Status Tabs
@@ -39,16 +39,16 @@ The Job Postings page will include actions for each individual job posting.
 **Note:** The following example is taken from the **Pending** and **In Progress** tabs.
 
 - **Approve job:** Indicated by a checkmark. This action will approve the job instantly.
-  - If the employer is a *New* Employer, you will be asked to set permissions for them. Learn more about this process in [Processing Employer Approval Requests using Job Based Approvals](https://support.joinhandshake.com/hc/en-us/articles/360024477333).
+ - If the employer is a *New* Employer, you will be asked to set permissions for them. Learn more about this process in [Processing Employer Approval Requests using Job Based Approvals](https://support.joinhandshake.com/hc/en-us/articles/360024477333).
 - **Decline job:** Indicated by a circle with a line through it. This action will decline the job instantly.
 - **View job details:** Indicated by an arrow exiting a box. This action will open Job details in a separate tab.
 - **Additional actions:** Indicated by the ellipsis. This action will provide a dropdown menu; depending on the status tab, you will be provided some of the following options
-  - **Set to "In progress"**
-  - **Copy job preview link**
-  - **Manage job labels**
-  - **Manage employer labels**
-  - **Email contacts or creators**
-  - **Decline employer**
+ - **Set to "In progress"**
+ - **Copy job preview link**
+ - **Manage job labels**
+ - **Manage employer labels**
+ - **Email contacts or creators**
+ - **Decline employer**
 
 ![Individual job posting.png](https://support.joinhandshake.com/hc/article_attachments/25997328854295)
 
@@ -62,16 +62,16 @@ Job Posting
 
 - Job title
 - Location
-  - Remote - This will only appear if the job is available for remote workers
+ - Remote - This will only appear if the job is available for remote workers
 - The job post ID number
 - Additional actions: Select the 3 ellipsis button for more actions
-  - View job details
-  - Set to "In progress"
-  - Add label to job
-  - Remove label from job
-  - Email to students
-  - Email contacts or creators
-  - Add to favorite jobs
+ - View job details
+ - Set to "In progress"
+ - Add label to job
+ - Remove label from job
+ - Email to students
+ - Email contacts or creators
+ - Add to favorite jobs
 
 ![Job title, location and posting ID number Additional options.png](https://support.joinhandshake.com/hc/article_attachments/25997328844951)
 
@@ -100,10 +100,10 @@ Employer Information
 - Employer contact: phone number and email address
 - Account owner
 - Additional actions: Select the 3 ellipsis button for more actions
-  - View employer profile
-  - Add label to employer
-  - Remove label from employer
-  - Edit employer collections
+ - View employer profile
+ - Add label to employer
+ - Remove label from employer
+ - Edit employer collections
 
 ![Employer name, location, industry, size, type, website, contact information and owner.png](https://support.joinhandshake.com/hc/article_attachments/25997308810775)
 
@@ -127,24 +127,24 @@ Selecting the **All Filters** option will open a side sheet on the right side of
 - Jobs approved automatically
 - Location Type
 - Locations
-  - Jobs located at a residential address
-  - Employer is located outside of the United States
+ - Jobs located at a residential address
+ - Employer is located outside of the United States
 - Job type
-  - Work-Study
+ - Work-Study
 - Salary type
-  - Paid
-  - Unpaid
+ - Paid
+ - Unpaid
 - Estimated pay
-  - Includes estimated pay (e.g. $50K/yr)
-  - Includes pay range (e.g. $40-60K/yr)
-  - Does not include estimated pay (e.g. $50K/yr)
-  - Does not include pay range (e.g. $40-60K/yr)
+ - Includes estimated pay (e.g. $50K/yr)
+ - Includes pay range (e.g. $40-60K/yr)
+ - Does not include estimated pay (e.g. $50K/yr)
+ - Does not include pay range (e.g. $40-60K/yr)
 - Apply start date
-  - Min
-  - Max
+ - Min
+ - Max
 - Expiration date
-  - Min
-  - Max
+ - Min
+ - Max
     - Expiring soon with no applicants
 - Job role
 - Job function
@@ -159,26 +159,26 @@ Selecting the **All Filters** option will open a side sheet on the right side of
 - Include employer labels
 - Exclude employer labels
 - Employer tags
-  - Premium employers
+ - Premium employers
 - Major group
 - Major
-  - Posted to all majors
-  - Exclude posted to all majors
+ - Posted to all majors
+ - Exclude posted to all majors
 - School year
 - Education level
-  - US work authorization required
-  - US work authorization not required
-  - Open to candidates with OPT/CPT
-  - Eligible for visa sponsorship
+ - US work authorization required
+ - US work authorization not required
+ - Open to candidates with OPT/CPT
+ - Eligible for visa sponsorship
 - Posted by alumni
 - Number of job saves
-  - Minimum
-  - Maximum
+ - Minimum
+ - Maximum
 - Number of applicants
-  - Minimum
-  - Maximum
+ - Minimum
+ - Maximum
 - Interview status
-  - Interviewing on campus
+ - Interviewing on campus
 - Assigned to
 - Show only second requests
 - Marked as favorite job
@@ -188,24 +188,24 @@ Selecting the **All Filters** option will open a side sheet on the right side of
 - Search by keyword
 - Location Type
 - Locations
-  - Jobs located at a residential address
-  - Employer is located outside of the United States
+ - Jobs located at a residential address
+ - Employer is located outside of the United States
 - Job Type
-  - Work study
+ - Work study
 - Salary type
-  - Paid
-  - Unpaid
+ - Paid
+ - Unpaid
 - Estimated pay
-  - Includes estimated pay (e.g. $50K/yr)
-  - Includes pay range (e.g. $40-60K/yr)
-  - Does not include estimated pay (e.g. $50K/yr)
-  - Does not include pay range (e.g. $40-60K/yr)
+ - Includes estimated pay (e.g. $50K/yr)
+ - Includes pay range (e.g. $40-60K/yr)
+ - Does not include estimated pay (e.g. $50K/yr)
+ - Does not include pay range (e.g. $40-60K/yr)
 - Apply start date
-  - Min
-  - Max
+ - Min
+ - Max
 - Expiration date
-  - Min
-  - Max
+ - Min
+ - Max
     - Expiring soon with no applicants
     - Expiration date 1+ year
 - Job role
@@ -220,21 +220,21 @@ Selecting the **All Filters** option will open a side sheet on the right side of
 - Include employer labels
 - Exclude employer labels
 - Employer tags
-  - Premium employers
+ - Premium employers
 - Major group
 - Major
-  - Posted to all majors
-  - Exclude posted to all majors
+ - Posted to all majors
+ - Exclude posted to all majors
 - School year
 - Education level
-  - US work authorization required
-  - US work authorization not required
-  - Open to candidates with OPT/CPT
-  - Eligible for visa sponsorship
+ - US work authorization required
+ - US work authorization not required
+ - Open to candidates with OPT/CPT
+ - Eligible for visa sponsorship
 - Posted by alumni
 - Number of applications
-  - Minimum
-  - Maximum
+ - Minimum
+ - Maximum
 - Interview status
 - Assigned to
 - Show only second requests
@@ -244,24 +244,24 @@ Selecting the **All Filters** option will open a side sheet on the right side of
 - Search by keyword
 - Location Type
 - Locations
-  - Jobs located at a residential address
-  - Employer is located outside of the United States
+ - Jobs located at a residential address
+ - Employer is located outside of the United States
 - Job Type
-  - Work study
+ - Work study
 - Salary type
-  - Paid
-  - Unpaid
+ - Paid
+ - Unpaid
 - Estimated pay
-  - Includes estimated pay (e.g. $50K/yr)
-  - Includes pay range (e.g. $40-60K/yr)
-  - Does not include estimated pay (e.g. $50K/yr)
-  - Does not include pay range (e.g. $40-60K/yr)
+ - Includes estimated pay (e.g. $50K/yr)
+ - Includes pay range (e.g. $40-60K/yr)
+ - Does not include estimated pay (e.g. $50K/yr)
+ - Does not include pay range (e.g. $40-60K/yr)
 - Apply start date
-  - Min
-  - Max
+ - Min
+ - Max
 - Expiration date
-  - Min
-  - Max
+ - Min
+ - Max
 - Job role
 - Job function
 - Employment type
@@ -274,20 +274,20 @@ Selecting the **All Filters** option will open a side sheet on the right side of
 - Include employer labels
 - Exclude employer labels
 - Employer tags
-  - Premium employers
+ - Premium employers
 - Major group
 - Major
-  - Posted to all majors
-  - Exclude posted to all majors
+ - Posted to all majors
+ - Exclude posted to all majors
 - School year
 - Education level
-  - US work authorization required
-  - US work authorization not required
-  - Open to candidates with OPT/CPT
-  - Eligible for visa sponsorship
+ - US work authorization required
+ - US work authorization not required
+ - Open to candidates with OPT/CPT
+ - Eligible for visa sponsorship
 - Number of applications
-  - Minimum
-  - Maximum
+ - Minimum
+ - Maximum
 - Interview status
 - Assigned to
 - Show only second requests
@@ -297,23 +297,23 @@ Selecting the **All Filters** option will open a side sheet on the right side of
 - Search by keyword
 - Location Type
 - Locations
-  - Jobs located at a residential address
-  - Employer is located outside of the United States
+ - Jobs located at a residential address
+ - Employer is located outside of the United States
 - Job Type
 - Salary type
-  - Paid
-  - Unpaid
+ - Paid
+ - Unpaid
 - Estimated pay
-  - Includes estimated pay (e.g. $50K/yr)
-  - Includes pay range (e.g. $40-60K/yr)
-  - Does not include estimated pay (e.g. $50K/yr)
-  - Does not include pay range (e.g. $40-60K/yr)
+ - Includes estimated pay (e.g. $50K/yr)
+ - Includes pay range (e.g. $40-60K/yr)
+ - Does not include estimated pay (e.g. $50K/yr)
+ - Does not include pay range (e.g. $40-60K/yr)
 - Apply start date
-  - Min
-  - Max
+ - Min
+ - Max
 - Expiration date
-  - Min
-  - Max
+ - Min
+ - Max
 - Job function
 - Employment type
 - Duration
@@ -326,8 +326,8 @@ Selecting the **All Filters** option will open a side sheet on the right side of
 - School year
 - Education level
 - Number of applications
-  - Minimum
-  - Maximum
+ - Minimum
+ - Maximum
 - Assigned to
 - Show only second requests
 

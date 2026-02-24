@@ -19,7 +19,7 @@ Code snippets appear in Dev Mode’s Inspect panel when an object is selected on
 - When text is selected, the **Code** section displays a typographic preview, followed by layout, typography, and content information.
 - With all other selections, a box model is displayed with margin, border, and padding details, along with layout and style information.
 
-**Note:**  You can use Figma’s [Code Connect](#h_01HV7C474N11MGDBSTMP1A13MJ) tool to customize code snippets for design system components. With Code Connect, developers will see connected design system code from their libraries instead of auto-generated code when inspecting components in Dev Mode.
+**Note:** You can use Figma’s [Code Connect](#h_01HV7C474N11MGDBSTMP1A13MJ) tool to customize code snippets for design system components. With Code Connect, developers will see connected design system code from their libraries instead of auto-generated code when inspecting components in Dev Mode.
 
 [Learn more about implementing Code Connect in our API docs →](https://www.figma.com/developers/code-connect)
 

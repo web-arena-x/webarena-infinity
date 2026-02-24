@@ -20,13 +20,13 @@ Before tackling any work, read through the issue that has been assigned to you a
 Before writing code, make sure to ask yourself the following questions and have clear answers before you start developing:
 
 - What API data is required? Is it already available in our API or should I ask a Backend counterpart?
-  - If this is GraphQL, write a query proposal and ask your BE counterpart to confirm they are in agreement.
+ - If this is GraphQL, write a query proposal and ask your BE counterpart to confirm they are in agreement.
 - Can I use [GitLab UI components](https://gitlab-org.gitlab.io/gitlab-ui/?path=/docs/base-accordion--docs)? Which components are appropriate and do they have all of the functionality that I need?
 - Are there existing components or utilities in the GitLab project that I could use?
 - [Should this change live behind a feature flag](https://handbook.gitlab.com/handbook/product-development/how-we-work/product-development-flow/feature-flag-lifecycle/#when-to-use-feature-flags)?
 - In which directory should this code live?
 - Should I build part of this feature as reusable? If so, where should it live in the codebase and how do I make it discoverable?
-  - Note: For now this is still being considered, but the `vue_shared` folder is still the preferred directory for GitLab-wide components.
+ - Note: For now this is still being considered, but the `vue_shared` folder is still the preferred directory for GitLab-wide components.
 - What kinds of tests will it require? Consider unit tests **and** [Feature Tests](../testing_guide/frontend_testing.md#get-started-with-feature-tests)? Should I reach out to a [SET](https://handbook.gitlab.com/job-families/engineering/software-engineer-in-test/) for guidance or am I comfortable implementing the tests?
 - How big will this change be? Try to keep diffs to **500+- at the most**.
 

@@ -24,17 +24,17 @@ During the account setup process, you're prompted to provide details. If you pre
 - **Last name** (*Type in the box)*
 - **Headline** (Optional—*Type in the box)*
 - **Pronouns** (*Type in the box to add one or multiple responses, or add your own*)
-  - She/her
-  - He/him
-  - They/them
+ - She/her
+ - He/him
+ - They/them
 - **Location** *(Type in the box, then choose from the dropdown)*
 - **Custom profile link** (*Learn more about custom profile links in* [Create a Custom Profile URL on Handshake](https://support.joinhandshake.com/hc/en-us/articles/34160734624023))
 - **Links** *(optional — add up to 5 links)*
-  - Title
-  - URL (*Must start with https://*)
-  - Description
-  - *Only include links to projects or portfolios you wish to showcase—links to other profile pages will not be accepted.*
-  - **Important**: The links added here are only visible to people who access your profile through a direct profile link (for example, if your profile is set to public and viewed by someone who is not on Handshake). If you want employers on Handshake to have access to your links when they view your profile, be sure to include them in the **Summary** or **Projects** section instead. Learn more in [Completing your Profile in Handshake.](completing-your-profile-in-handshake.md)
+ - Title
+ - URL (*Must start with https://*)
+ - Description
+ - *Only include links to projects or portfolios you wish to showcase—links to other profile pages will not be accepted.*
+ - **Important**: The links added here are only visible to people who access your profile through a direct profile link (for example, if your profile is set to public and viewed by someone who is not on Handshake). If you want employers on Handshake to have access to your links when they view your profile, be sure to include them in the **Summary** or **Projects** section instead. Learn more in [Completing your Profile in Handshake.](completing-your-profile-in-handshake.md)
 
 ![Edit profile popup.png](https://support.joinhandshake.com/hc/article_attachments/34272317338391)
 

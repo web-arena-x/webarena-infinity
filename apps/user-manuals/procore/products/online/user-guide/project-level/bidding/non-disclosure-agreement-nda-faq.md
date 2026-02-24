@@ -22,11 +22,11 @@ When you invite a company to an NDA-protected bid package:
 You can track NDA activity directly within the Bidding tool using the **Non-Disclosure Agreement Activity** column:
 
 - This column displays the company's most recent NDA activity:
-  - Viewed
-  - Downloaded
-  - Signed
-  - Declined
-  - If no activity has occurred, it shows "—"
+ - Viewed
+ - Downloaded
+ - Signed
+ - Declined
+ - If no activity has occurred, it shows "—"
 - Clicking on any cell in this column opens a dedicated **activity pane** showing a full history of the company's NDA actions.
 
 ### Can I filter or hide the NDA Activity column?

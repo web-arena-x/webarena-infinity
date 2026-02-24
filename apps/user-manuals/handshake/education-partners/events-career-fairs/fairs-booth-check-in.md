@@ -11,10 +11,10 @@ We will be exploring how to access QR codes before the fair, and following that 
 Topics:
 
 - [Before the Fair](#h_01H923N38G1A4C6N189YWBVAKW)
-  - [Accessing multiple employer QR codes](#h_01H91VRYVHZ2S5XCBQ4WARQH7C)
-  - [Accessing individual employer QR codes](#h_01H91VRYVH09FGP080ZJM2M8BK)
-  - [Download PNGs for QR Codes](#h_01H91VRYVHKJAMS6XMHSMZ5AT5)
-  - QR code page
+ - [Accessing multiple employer QR codes](#h_01H91VRYVHZ2S5XCBQ4WARQH7C)
+ - [Accessing individual employer QR codes](#h_01H91VRYVH09FGP080ZJM2M8BK)
+ - [Download PNGs for QR Codes](#h_01H91VRYVHKJAMS6XMHSMZ5AT5)
+ - QR code page
 - [After the Fair](#h_01H91VRYVH9M5HE69215TYRBFS)
 
 ## Before the Fair

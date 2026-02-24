@@ -59,24 +59,23 @@ When working with integrations, you might encounter the following issues.
 
 ### SSL certificate errors
 
-When you use a self-signed certificate to integrate GitLab with external applications, you might
-encounter SSL certificate errors in different parts of GitLab.
+When you use a self-signed certificate to integrate GitLab with external applications, you might encounter SSL certificate errors in different parts of GitLab.
 
 As a workaround, do one of the following:
 
 - Add the certificate to the OS trusted chain. For more information, see:
-  - [Adding trusted root certificates to the server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)
-  - [How do you add a certificate authority (CA) to Ubuntu?](https://superuser.com/questions/437330/how-do-you-add-a-certificate-authority-ca-to-ubuntu)
+ - [Adding trusted root certificates to the server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)
+ - [How do you add a certificate authority (CA) to Ubuntu?](https://superuser.com/questions/437330/how-do-you-add-a-certificate-authority-ca-to-ubuntu)
 - For installations that use the Linux package, add the certificate to the GitLab trusted chain:
-  1. [Install the self-signed certificate](https://docs.gitlab.com/omnibus/settings/ssl/#install-custom-public-certificates).
-  1. Concatenate the self-signed certificate with the GitLab trusted certificate.
+ 1. [Install the self-signed certificate](https://docs.gitlab.com/omnibus/settings/ssl/#install-custom-public-certificates).
+ 1. Concatenate the self-signed certificate with the GitLab trusted certificate.
      The self-signed certificate might be overwritten during upgrades.
 
      ```shell
      cat jira.pem >> /opt/gitlab/embedded/ssl/certs/cacert.pem
      ```
 
-  1. Restart GitLab.
+ 1. Restart GitLab.
 
      ```shell
      sudo gitlab-ctl restart
@@ -99,9 +98,6 @@ You can find information in:
 
 ### Error: `Test Failed. Save Anyway`
 
-When you configure an integration on an uninitialized repository, the integration might fail with
-a `Test Failed. Save Anyway` error. This error occurs because the integration uses push data
-to build the test payload when the project does not have push events.
+When you configure an integration on an uninitialized repository, the integration might fail with a `Test Failed. Save Anyway` error. This error occurs because the integration uses push data to build the test payload when the project does not have push events.
 
-To resolve this issue, initialize the repository by pushing a test file to the project
-and configure the integration again.
+To resolve this issue, initialize the repository by pushing a test file to the project and configure the integration again.

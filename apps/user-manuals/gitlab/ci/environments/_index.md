@@ -34,20 +34,19 @@ There are a few ways to view a list of environments for a given project:
 
 - On the project's overview page, if at least one environment is available (that is, not stopped).
 
-  ![A project overview page displaying the number of available environments as an incremental counter.](img/environments_project_home_v15_9.png)
+ ![A project overview page displaying the number of available environments as an incremental counter.](img/environments_project_home_v15_9.png)
 
 - On the left sidebar, select **Operate** > **Environments**. The environments are displayed.
 
-  ![A list of available environments in a GitLab project, showing environment names, statuses, and other relevant details.](img/environments_list_v14_8.png)
+ ![A list of available environments in a GitLab project, showing environment names, statuses, and other relevant details.](img/environments_list_v14_8.png)
 
-- To view a list of deployments for an environment, select the environment name,
-  for example, `staging`. Deployments show up in this list only after a deployment job has created them.
+- To view a list of deployments for an environment, select the environment name, for example, `staging`. Deployments show up in this list only after a deployment job has created them.
 
-  ![A list of deployments for a selected environment, displaying deployment history and related details.](img/deployments_list_v13_10.png)
+ ![A list of deployments for a selected environment, displaying deployment history and related details.](img/deployments_list_v13_10.png)
 
 - To view a list of all manual jobs in a deployment pipeline, select the **Run** ({{< icon name="play" >}}) dropdown list.
 
-  ![Viewing a manual job in a deployment pipeline](img/view_manual_jobs_v17_10.png)
+ ![Viewing a manual job in a deployment pipeline](img/view_manual_jobs_v17_10.png)
 
 ### Environment URL
 
@@ -58,20 +57,19 @@ There are a few ways to view a list of environments for a given project:
 
 {{< /history >}}
 
-The [environment URL](../yaml/_index.md#environmenturl) is displayed in a few
-places in GitLab:
+The [environment URL](../yaml/_index.md#environmenturl) is displayed in a few places in GitLab:
 
 - In a merge request as a link:
 
-  ![Environment URL in merge request](img/environments_mr_review_app_v11_10.png)
+ ![Environment URL in merge request](img/environments_mr_review_app_v11_10.png)
 
 - In the Environments view as a button:
 
-  ![Open live environment from environments view](img/environments_open_live_environment_v14_8.png)
+ ![Open live environment from environments view](img/environments_open_live_environment_v14_8.png)
 
 - In the Deployments view as a button:
 
-  ![Environment URL in deployments](img/deployments_view_v11_10.png)
+ ![Environment URL in deployments](img/deployments_view_v11_10.png)
 
 You can see this information in a merge request if:
 
@@ -84,8 +82,7 @@ For example:
 
 #### Go from source files to public pages
 
-With GitLab [Route Maps](../review_apps/_index.md#route-maps), you can go directly
-from source files to public pages in the environment set for review apps.
+With GitLab [Route Maps](../review_apps/_index.md#route-maps), you can go directly from source files to public pages in the environment set for review apps.
 
 ## Types of environments
 
@@ -136,13 +133,11 @@ Prerequisites:
 To create a static environment, in your `.gitlab-ci.yml` file:
 
 1. Define a job in the `deploy` stage.
-1. In the job, define the environment `name` and `url`. If an
-   environment of that name doesn't exist when the pipeline runs, it is created.
+1. In the job, define the environment `name` and `url`. If an environment of that name doesn't exist when the pipeline runs, it is created.
 
 {{< alert type="note" >}}
 
-Some characters cannot be used in environment names. For more information about the
-`environment` keywords, see the [`.gitlab-ci.yml` keyword reference](../yaml/_index.md#environment).
+Some characters cannot be used in environment names. For more information about the `environment` keywords, see the [`.gitlab-ci.yml` keyword reference](../yaml/_index.md#environment).
 
 {{< /alert >}}
 
@@ -150,18 +145,17 @@ For example, to create an environment named `staging`, with URL `https://staging
 
 ```yaml
 deploy_staging:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - echo "Deploy to staging server"
-  environment:
+ environment:
     name: staging
     url: https://staging.example.com
 ```
 
 ## Create a dynamic environment
 
-To create a dynamic environment, you use [CI/CD variables](#cicd-variables) that are
-unique to each pipeline.
+To create a dynamic environment, you use [CI/CD variables](#cicd-variables) that are unique to each pipeline.
 
 Prerequisites:
 
@@ -171,29 +165,25 @@ To create a dynamic environment, in your `.gitlab-ci.yml` file:
 
 1. Define a job in the `deploy` stage.
 1. In the job, define the following environment attributes:
-   - `name`: Use a related CI/CD variable like `$CI_COMMIT_REF_SLUG`. Optionally, add a static
-     prefix to the environment's name, which [groups in the UI](#group-similar-environments) all
-     environments with the same prefix.
+   - `name`: Use a related CI/CD variable like `$CI_COMMIT_REF_SLUG`. Optionally, add a static prefix to the environment's name, which [groups in the UI](#group-similar-environments) all environments with the same prefix.
    - `url`: Optional. Prefix the hostname with a related CI/CD variable like `$CI_ENVIRONMENT_SLUG`.
 
 {{< alert type="note" >}}
 
-Some characters cannot be used in environment names. For more information about the
-`environment` keywords, see the [`.gitlab-ci.yml` keyword reference](../yaml/_index.md#environment).
+Some characters cannot be used in environment names. For more information about the `environment` keywords, see the [`.gitlab-ci.yml` keyword reference](../yaml/_index.md#environment).
 
 {{< /alert >}}
 
-In the following example, every time the `deploy_review_app` job runs the environment's name and
-URL are defined using unique values.
+In the following example, every time the `deploy_review_app` job runs the environment's name and URL are defined using unique values.
 
 ```yaml
 deploy_review_app:
-  stage: deploy
-  script: make deploy
-  environment:
+ stage: deploy
+ script: make deploy
+ environment:
     name: review/$CI_COMMIT_REF_SLUG
     url: https://$CI_ENVIRONMENT_SLUG.example.com
-  rules:
+ rules:
     - if: $CI_COMMIT_BRANCH == "main"
       when: never
     - if: $CI_COMMIT_BRANCH
@@ -202,20 +192,14 @@ deploy_review_app:
 ### Set a dynamic environment URL
 
 Some external hosting platforms generate a random URL for each deployment, for example:
-`https://94dd65b.amazonaws.com/qa-lambda-1234567`. That makes it difficult to reference the URL in
-the `.gitlab-ci.yml` file.
+`https://94dd65b.amazonaws.com/qa-lambda-1234567`. That makes it difficult to reference the URL in the `.gitlab-ci.yml` file.
 
-To address this problem, you can configure a deployment job to report back a set of
-variables. These variables include the URL that was dynamically generated by the external service.
-GitLab supports the [dotenv (`.env`)](https://github.com/bkeepers/dotenv) file format,
-and expands the `environment:url` value with variables defined in the `.env` file.
+To address this problem, you can configure a deployment job to report back a set of variables. These variables include the URL that was dynamically generated by the external service.
+GitLab supports the [dotenv (`.env`)](https://github.com/bkeepers/dotenv) file format, and expands the `environment:url` value with variables defined in the `.env` file.
 
-To use this feature, specify the
-[`artifacts:reports:dotenv`](../yaml/artifacts_reports.md#artifactsreportsdotenv) keyword in `.gitlab-ci.yml`.
+To use this feature, specify the [`artifacts:reports:dotenv`](../yaml/artifacts_reports.md#artifactsreportsdotenv) keyword in `.gitlab-ci.yml`.
 
-You can also specify a static part of the URL at `environment:url`, such as
-`https://$DYNAMIC_ENVIRONMENT_URL`. If the value of `DYNAMIC_ENVIRONMENT_URL` is `example.com`, the
-final result is `https://example.com`.
+You can also specify a static part of the URL at `environment:url`, such as `https://$DYNAMIC_ENVIRONMENT_URL`. If the value of `DYNAMIC_ENVIRONMENT_URL` is `example.com`, the final result is `https://example.com`.
 
 The assigned URL for the `review/your-branch-name` environment is visible in the UI.
 
@@ -224,46 +208,38 @@ For an overview, see [Set dynamic URLs after a job finished](https://youtu.be/70
 
 In the following example a review app creates a new environment for each merge request:
 
-- The `review` job is triggered by every push, and creates or updates an environment named
-  `review/your-branch-name`. The environment URL is set to `$DYNAMIC_ENVIRONMENT_URL`.
+- The `review` job is triggered by every push, and creates or updates an environment named `review/your-branch-name`. The environment URL is set to `$DYNAMIC_ENVIRONMENT_URL`.
 - When the `review` job finishes, GitLab updates the `review/your-branch-name` environment's URL.
-  It parses the `deploy.env` report artifact, registers a list of variables as runtime-created,
-  expands the `environment:url: $DYNAMIC_ENVIRONMENT_URL` and sets it to the environment
-  URL.
+ It parses the `deploy.env` report artifact, registers a list of variables as runtime-created, expands the `environment:url: $DYNAMIC_ENVIRONMENT_URL` and sets it to the environment URL.
 
 ```yaml
 review:
-  script:
+ script:
     - DYNAMIC_ENVIRONMENT_URL=$(deploy-script)                                 # In script, get the environment URL.
     - echo "DYNAMIC_ENVIRONMENT_URL=$DYNAMIC_ENVIRONMENT_URL" >> deploy.env    # Add the value to a dotenv file.
-  artifacts:
+ artifacts:
     reports:
       dotenv: deploy.env                                                       # Report back dotenv file to rails.
-  environment:
+ environment:
     name: review/$CI_COMMIT_REF_SLUG
     url: $DYNAMIC_ENVIRONMENT_URL                                              # and set the variable produced in script to `environment:url`
     on_stop: stop_review
 
 stop_review:
-  script:
+ script:
     - ./teardown-environment
-  when: manual
-  environment:
+ when: manual
+ environment:
     name: review/$CI_COMMIT_REF_SLUG
     action: stop
 ```
 
 Note the following:
 
-- `stop_review` doesn't generate a dotenv report artifact, so it doesn't recognize the
-  `DYNAMIC_ENVIRONMENT_URL` environment variable. Therefore you shouldn't set `environment:url` in the
-  `stop_review` job.
-- If the environment URL isn't valid (for example, the URL is malformed), the system doesn't update
-  the environment URL.
-- If the script that runs in `stop_review` exists only in your repository and therefore can't use
-  `GIT_STRATEGY: none` or `GIT_STRATEGY: empty`, configure [merge request pipelines](../pipelines/merge_request_pipelines.md)
-  for these jobs. This ensures that runners can fetch the repository even after a feature branch is
-  deleted. For more information, see [Ref Specs for Runners](../pipelines/_index.md#ref-specs-for-runners).
+- `stop_review` doesn't generate a dotenv report artifact, so it doesn't recognize the `DYNAMIC_ENVIRONMENT_URL` environment variable. Therefore you shouldn't set `environment:url` in the `stop_review` job.
+- If the environment URL isn't valid (for example, the URL is malformed), the system doesn't update the environment URL.
+- If the script that runs in `stop_review` exists only in your repository and therefore can't use `GIT_STRATEGY: none` or `GIT_STRATEGY: empty`, configure [merge request pipelines](../pipelines/merge_request_pipelines.md)
+ for these jobs. This ensures that runners can fetch the repository even after a feature branch is deleted. For more information, see [Ref Specs for Runners](../pipelines/_index.md#ref-specs-for-runners).
 
 > [!note]
 > For Windows runners, you should use the PowerShell `Add-Content` command to write to `.env` files.
@@ -276,13 +252,10 @@ Add-Content -Path deploy.env -Value "DYNAMIC_ENVIRONMENT_URL=$DYNAMIC_ENVIRONMEN
 
 Sometimes, instead of using an [industry standard](https://en.wikipedia.org/wiki/Deployment_environment)
 environment name, like `production`, you might want to use a code name, like `customer-portal`.
-While there is no technical reason not to use a name like `customer-portal`, the name
-no longer indicates that the environment is used for production. This can affect how metrics
-like [deployment frequency](../../user/analytics/dora_metrics.md#how-deployment-frequency-is-calculated)
+While there is no technical reason not to use a name like `customer-portal`, the name no longer indicates that the environment is used for production. This can affect how metrics like [deployment frequency](../../user/analytics/dora_metrics.md#how-deployment-frequency-is-calculated)
 are calculated.
 
-To indicate that a specific environment is for a specific use,
-you can use tiers:
+To indicate that a specific environment is for a specific use, you can use tiers:
 
 | Environment tier | Environment name examples |
 |------------------|---------------------------|
@@ -315,27 +288,19 @@ To achieve the same result as renaming an environment:
 
 ## CI/CD variables
 
-To customize your environments and deployments, you can use any of the
-[predefined CI/CD variables](../variables/predefined_variables.md),
-and define custom CI/CD variables.
+To customize your environments and deployments, you can use any of the [predefined CI/CD variables](../variables/predefined_variables.md), and define custom CI/CD variables.
 
 ### Limit the environment scope of a CI/CD variable
 
 By default, all [CI/CD variables](../variables/_index.md) are available to all jobs in a pipeline.
-If a test tool in a job becomes compromised, the tool could attempt to retrieve all
-CI/CD variables available to the job. To help mitigate this kind of supply chain attack,
-you should limit the environment scope of sensitive variables to only the jobs that require them.
+If a test tool in a job becomes compromised, the tool could attempt to retrieve all CI/CD variables available to the job. To help mitigate this kind of supply chain attack, you should limit the environment scope of sensitive variables to only the jobs that require them.
 
-Limit the environment scope of a CI/CD variable by defining which environments it
-can be available for. The default environment scope is the `*` wildcard, so any job
-can access the variable.
+Limit the environment scope of a CI/CD variable by defining which environments it can be available for. The default environment scope is the `*` wildcard, so any job can access the variable.
 
-You can use specific matching to select a particular environment. For example, set
-the variable's environment scope to `production` to only allow jobs with an [environment](../yaml/_index.md#environment)
+You can use specific matching to select a particular environment. For example, set the variable's environment scope to `production` to only allow jobs with an [environment](../yaml/_index.md#environment)
 of `production` to access the variable.
 
-You can also use wildcard matching (`*`) to select a particular environment group,
-like all [review apps](../review_apps/_index.md) with `review/*`.
+You can also use wildcard matching (`*`) to select a particular environment group, like all [review apps](../review_apps/_index.md) with `review/*`.
 
 For example, with these four environments:
 
@@ -355,8 +320,7 @@ These environment scopes match as follows:
 | `review/feature-1`      |              |           | Match              |                    |
 
 You should not use environment-scoped variables with [`rules`](../yaml/_index.md#rules)
-or [`include`](../yaml/_index.md#include). The variables might not be defined when
-GitLab validates the pipeline configuration at pipeline creation.
+or [`include`](../yaml/_index.md#include). The variables might not be defined when GitLab validates the pipeline configuration at pipeline creation.
 
 ## Search environments
 
@@ -384,8 +348,7 @@ To search environments by name:
 
 You can group environments into collapsible sections in the UI.
 
-For example, if all of your environments start with the name `review`,
-then in the UI, the environments are grouped under that heading:
+For example, if all of your environments start with the name `review`, then in the UI, the environments are grouped under that heading:
 
 ![Environment groups](img/environments_dynamic_groups_v13_10.png)
 
@@ -394,17 +357,16 @@ The `$CI_COMMIT_REF_SLUG` variable is populated with the branch name at runtime:
 
 ```yaml
 deploy_review:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - echo "Deploy a review app"
-  environment:
+ environment:
     name: review/$CI_COMMIT_REF_SLUG
 ```
 
 ## Stopping an environment
 
-Stopping an environment means its deployments are not accessible on the target server. You must stop
-an environment before it can be deleted.
+Stopping an environment means its deployments are not accessible on the target server. You must stop an environment before it can be deleted.
 
 When using the `on_stop` action to stop an environment, the job runs if it's not [archived](../../administration/settings/continuous_integration.md#archive-pipelines).
 
@@ -412,9 +374,7 @@ When using the `on_stop` action to stop an environment, the job runs if it's not
 
 {{< alert type="note" >}}
 
-To trigger an `on_stop` action and manually stop an environment from the
-Environments view, the stop and deploy jobs must be in the same
-[`resource_group`](../yaml/_index.md#resource_group).
+To trigger an `on_stop` action and manually stop an environment from the Environments view, the stop and deploy jobs must be in the same [`resource_group`](../yaml/_index.md#resource_group).
 
 {{< /alert >}}
 
@@ -430,83 +390,71 @@ To stop an environment in the GitLab UI:
 GitLab automatically stops environments when the associated branch is deleted or merged.
 This behavior persists even if no explicit `on_stop` CI/CD job is defined.
 
-However, [issue 428625](https://gitlab.com/gitlab-org/gitlab/-/issues/428625) proposes to change this behavior
-so that production and staging environments stop only if an explicit `on_stop` CI/CD job is defined.
+However, [issue 428625](https://gitlab.com/gitlab-org/gitlab/-/issues/428625) proposes to change this behavior so that production and staging environments stop only if an explicit `on_stop` CI/CD job is defined.
 
-You can configure an environment's stopping behavior with the
-[`auto_stop_setting`](../../api/environments.md#update-an-existing-environment)
+You can configure an environment's stopping behavior with the [`auto_stop_setting`](../../api/environments.md#update-an-existing-environment)
 parameter in the Environments API.
 
 ### Stop an environment when a branch is deleted
 
 You can configure environments to stop when a branch is deleted.
 
-In the following example, a `deploy_review` job calls a `stop_review` job to clean up and stop the
-environment.
+In the following example, a `deploy_review` job calls a `stop_review` job to clean up and stop the environment.
 
 - Both jobs must have the same [`rules`](../yaml/_index.md#rules)
-  or [`only/except`](../yaml/deprecated_keywords.md#only--except) configuration. Otherwise,
-  the `stop_review` job might not be included in all pipelines that include the
-  `deploy_review` job, and you cannot trigger `action: stop` to stop the environment automatically.
+ or [`only/except`](../yaml/deprecated_keywords.md#only--except) configuration. Otherwise, the `stop_review` job might not be included in all pipelines that include the `deploy_review` job, and you cannot trigger `action: stop` to stop the environment automatically.
 - The job with [`action: stop` might not run](#the-job-with-action-stop-doesnt-run)
-  if it's in a later stage than the job that started the environment.
-- If you can't use [merge request pipelines](../pipelines/merge_request_pipelines.md),
-  set [`GIT_STRATEGY`](../runners/configure_runners.md#git-strategy) to `none` or `empty`
-  in the `stop_review` job. Then, the [runner](https://docs.gitlab.com/runner/) doesn't
-  try to check out the code after the branch is deleted.
+ if it's in a later stage than the job that started the environment.
+- If you can't use [merge request pipelines](../pipelines/merge_request_pipelines.md), set [`GIT_STRATEGY`](../runners/configure_runners.md#git-strategy) to `none` or `empty` in the `stop_review` job. Then, the [runner](https://docs.gitlab.com/runner/) doesn't try to check out the code after the branch is deleted.
 
 ```yaml
 deploy_review:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - echo "Deploy a review app"
-  environment:
+ environment:
     name: review/$CI_COMMIT_REF_SLUG
     url: https://$CI_ENVIRONMENT_SLUG.example.com
     on_stop: stop_review
 
 stop_review:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - echo "Remove review app"
-  environment:
+ environment:
     name: review/$CI_COMMIT_REF_SLUG
     action: stop
-  when: manual
+ when: manual
 ```
 
 ### Stop an environment when a merge request is merged or closed
 
-When you use the [merge request pipelines](../pipelines/merge_request_pipelines.md) configuration,
-the `stop` trigger is automatically enabled.
+When you use the [merge request pipelines](../pipelines/merge_request_pipelines.md) configuration, the `stop` trigger is automatically enabled.
 
-In the following example, the `deploy_review` job calls a `stop_review` job to clean up and stop
-the environment.
+In the following example, the `deploy_review` job calls a `stop_review` job to clean up and stop the environment.
 
-- When the [**Pipelines must succeed**](../../user/project/merge_requests/auto_merge.md#require-a-successful-pipeline-for-merge) setting is turned on,
-  you can configure the [`allow_failure: true`](../yaml/_index.md#allow_failure)
-keyword on the `stop_review` job to prevent it from
-  blocking your pipelines and merge requests.
+- When the [**Pipelines must succeed**](../../user/project/merge_requests/auto_merge.md#require-a-successful-pipeline-for-merge) setting is turned on, you can configure the [`allow_failure: true`](../yaml/_index.md#allow_failure)
+keyword on the `stop_review` job to prevent it from blocking your pipelines and merge requests.
 
 ```yaml
 deploy_review:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - echo "Deploy a review app"
-  environment:
+ environment:
     name: review/$CI_COMMIT_REF_SLUG
     on_stop: stop_review
-  rules:
+ rules:
     - if: $CI_MERGE_REQUEST_ID
 
 stop_review:
-  stage: deploy
-  script:
+ stage: deploy
+ script:
     - echo "Remove review app"
-  environment:
+ environment:
     name: review/$CI_COMMIT_REF_SLUG
     action: stop
-  rules:
+ rules:
     - if: $CI_MERGE_REQUEST_ID
       when: manual
 ```
@@ -520,9 +468,7 @@ You can set an environment to stop automatically after a certain time period.
 
 {{< alert type="note" >}}
 
-Due to resource limitations, a background worker for stopping environments runs only once every
-hour. This means that environments may not be stopped after the exact time period specified, but are
-instead stopped when the background worker detects expired environments.
+Due to resource limitations, a background worker for stopping environments runs only once every hour. This means that environments may not be stopped after the exact time period specified, but are instead stopped when the background worker detects expired environments.
 
 {{< /alert >}}
 
@@ -532,39 +478,34 @@ After the time period passes, GitLab automatically triggers a job to stop the en
 
 In the following example:
 
-- Each commit on a merge request triggers a `review_app` job that deploys the latest change to the
-  environment and resets its expiry period.
-- If the environment is inactive for more than a week, GitLab automatically triggers the
-  `stop_review_app` job to stop the environment.
+- Each commit on a merge request triggers a `review_app` job that deploys the latest change to the environment and resets its expiry period.
+- If the environment is inactive for more than a week, GitLab automatically triggers the `stop_review_app` job to stop the environment.
 
 ```yaml
 review_app:
-  script: deploy-review-app
-  environment:
+ script: deploy-review-app
+ environment:
     name: review/$CI_COMMIT_REF_SLUG
     on_stop: stop_review_app
     auto_stop_in: 1 week
-  rules:
+ rules:
     - if: $CI_MERGE_REQUEST_ID
 
 stop_review_app:
-  script: stop-review-app
-  environment:
+ script: stop-review-app
+ environment:
     name: review/$CI_COMMIT_REF_SLUG
     action: stop
-  rules:
+ rules:
     - if: $CI_MERGE_REQUEST_ID
       when: manual
 ```
 
-The [`environment:action`](../yaml/_index.md#environmentaction) keyword can be used to reset the time
-that an environment is scheduled to stop. For more information, see
-[Access an environment for preparation or verification purposes](#access-an-environment-for-preparation-or-verification-purposes).
+The [`environment:action`](../yaml/_index.md#environmentaction) keyword can be used to reset the time that an environment is scheduled to stop. For more information, see [Access an environment for preparation or verification purposes](#access-an-environment-for-preparation-or-verification-purposes).
 
 #### View an environment's scheduled stop date and time
 
-When a environment has been [scheduled to stop after a specified time period](#stop-an-environment-after-a-certain-time-period),
-you can view its expiration date and time.
+When a environment has been [scheduled to stop after a specified time period](#stop-an-environment-after-a-certain-time-period), you can view its expiration date and time.
 
 To view an environment's expiration date and time:
 
@@ -576,8 +517,7 @@ The expiration date and time is displayed in the upper-left corner, next to the 
 
 #### Override an environment's scheduled stop date and time
 
-When a environment has been [scheduled to stop after a specified time period](#stop-an-environment-after-a-certain-time-period),
-you can override its expiration.
+When a environment has been [scheduled to stop after a specified time period](#stop-an-environment-after-a-certain-time-period), you can override its expiration.
 
 To override an environment's expiration in the UI:
 
@@ -591,8 +531,7 @@ To override an environment's expiration in the `.gitlab-ci.yml`:
 1. Open the project's `.gitlab-ci.yml`.
 1. Update the `auto_stop_in` setting of the corresponding deploy job to `auto_stop_in: never`.
 
-The `auto_stop_in` setting is overridden and the environment remains active until it's stopped
-manually.
+The `auto_stop_in` setting is overridden and the environment remains active until it's stopped manually.
 
 ### Clean up stale environments
 
@@ -637,41 +576,35 @@ Prerequisites:
 
 - Both the deploy and stop jobs must have the same rules or only/except configuration.
 - The stop job must have the following keywords defined:
-  - `when`, defined at either:
+ - `when`, defined at either:
     - [The job level](../yaml/_index.md#when).
-    - [In a rules clause](../yaml/_index.md#rules). If you use `rules` and `when: manual`, you should
-      also set [`allow_failure: true`](../yaml/_index.md#allow_failure) so the pipeline can complete
-      even if the job doesn't run.
-  - `environment:name`
-  - `environment:action`
+    - [In a rules clause](../yaml/_index.md#rules). If you use `rules` and `when: manual`, you should also set [`allow_failure: true`](../yaml/_index.md#allow_failure) so the pipeline can complete even if the job doesn't run.
+ - `environment:name`
+ - `environment:action`
 
 In the following example:
 
 - A `review_app` job calls a `stop_review_app` job after the first job is finished.
-- The `stop_review_app` is triggered based on what is defined under `when`. In this
-  case, it is set to `manual`, so it needs a
-  [manual action](../jobs/job_control.md#create-a-job-that-must-be-run-manually)
-  from the GitLab UI to run.
-- The `GIT_STRATEGY` is set to `none`. If the `stop_review_app` job is
-  [automatically triggered](#stopping-an-environment),
-  the runner doesn't try to check out the code after the branch is deleted.
+- The `stop_review_app` is triggered based on what is defined under `when`. In this case, it is set to `manual`, so it needs a [manual action](../jobs/job_control.md#create-a-job-that-must-be-run-manually)
+ from the GitLab UI to run.
+- The `GIT_STRATEGY` is set to `none`. If the `stop_review_app` job is [automatically triggered](#stopping-an-environment), the runner doesn't try to check out the code after the branch is deleted.
 
 ```yaml
 review_app:
-  stage: deploy
-  script: make deploy-app
-  environment:
+ stage: deploy
+ script: make deploy-app
+ environment:
     name: review/$CI_COMMIT_REF_SLUG
     url: https://$CI_ENVIRONMENT_SLUG.example.com
     on_stop: stop_review_app
 
 stop_review_app:
-  stage: deploy
-  variables:
+ stage: deploy
+ variables:
     GIT_STRATEGY: none
-  script: make delete-app
-  when: manual
-  environment:
+ script: make delete-app
+ when: manual
+ environment:
     name: review/$CI_COMMIT_REF_SLUG
     action: stop
 ```
@@ -684,18 +617,13 @@ stop_review_app:
 
 {{< /history >}}
 
-To configure multiple **parallel** stop actions on an environment, specify the
-[`on_stop`](../yaml/_index.md#environmenton_stop) keyword across multiple
-[deployment jobs](../jobs/_index.md#deployment-jobs) for the same `environment`, as defined in the
-`.gitlab-ci.yml` file.
+To configure multiple **parallel** stop actions on an environment, specify the [`on_stop`](../yaml/_index.md#environmenton_stop) keyword across multiple [deployment jobs](../jobs/_index.md#deployment-jobs) for the same `environment`, as defined in the `.gitlab-ci.yml` file.
 
 When an environment is stopped, the matching `on_stop` actions from only successful deployment jobs are run in parallel, in no particular order.
 
 {{< alert type="note" >}}
 
-All `on_stop` actions for an environment must belong to the same pipeline. To use multiple `on_stop` actions in
-[downstream pipelines](../pipelines/downstream_pipelines.md), you must configure the environment actions in
-the parent pipeline. For more information, see [downstream pipelines for deployments](../pipelines/downstream_pipelines.md#advanced-example).
+All `on_stop` actions for an environment must belong to the same pipeline. To use multiple `on_stop` actions in [downstream pipelines](../pipelines/downstream_pipelines.md), you must configure the environment actions in the parent pipeline. For more information, see [downstream pipelines for deployments](../pipelines/downstream_pipelines.md#advanced-example).
 
 {{< /alert >}}
 
@@ -704,46 +632,41 @@ In the following example, for the `test` environment there are two deployment jo
 - `deploy-to-cloud-a`
 - `deploy-to-cloud-b`
 
-When the environment is stopped, the system runs `on_stop` actions `teardown-cloud-a` and
-`teardown-cloud-b` in parallel.
+When the environment is stopped, the system runs `on_stop` actions `teardown-cloud-a` and `teardown-cloud-b` in parallel.
 
 ```yaml
 deploy-to-cloud-a:
-  script: echo "Deploy to cloud a"
-  environment:
+ script: echo "Deploy to cloud a"
+ environment:
     name: test
     on_stop: teardown-cloud-a
 
 deploy-to-cloud-b:
-  script: echo "Deploy to cloud b"
-  environment:
+ script: echo "Deploy to cloud b"
+ environment:
     name: test
     on_stop: teardown-cloud-b
 
 teardown-cloud-a:
-  script: echo "Delete the resources in cloud a"
-  environment:
+ script: echo "Delete the resources in cloud a"
+ environment:
     name: test
     action: stop
-  when: manual
+ when: manual
 
 teardown-cloud-b:
-  script: echo "Delete the resources in cloud b"
-  environment:
+ script: echo "Delete the resources in cloud b"
+ environment:
     name: test
     action: stop
-  when: manual
+ when: manual
 ```
 
 ### Stop an environment without running the `on_stop` action
 
-There may be times when you want to stop an environment without running the defined
-[`on_stop`](../yaml/_index.md#environmenton_stop) action. For example, you want to delete many
-environments without using [compute quota](../pipelines/compute_minutes.md).
+There may be times when you want to stop an environment without running the defined [`on_stop`](../yaml/_index.md#environmenton_stop) action. For example, you want to delete many environments without using [compute quota](../pipelines/compute_minutes.md).
 
-To stop an environment without running the defined `on_stop` action, execute the
-[Stop an environment API](../../api/environments.md#stop-an-environment) with the parameter
-`force=true`.
+To stop an environment without running the defined `on_stop` action, execute the [Stop an environment API](../../api/environments.md#stop-an-environment) with the parameter `force=true`.
 
 ### Delete an environment
 
@@ -770,38 +693,32 @@ To delete an environment:
 
 {{< /history >}}
 
-You can define a job that accesses an environment for various purposes, such as verification or preparation. This
-effectively bypasses deployment creation, so that you can adjust your CD workflow more accurately.
+You can define a job that accesses an environment for various purposes, such as verification or preparation. This effectively bypasses deployment creation, so that you can adjust your CD workflow more accurately.
 
 To do so, add either `action: prepare`, `action: verify`, or `action: access` to the `environment` section of your job:
 
 ```yaml
 build:
-  stage: build
-  script:
+ stage: build
+ script:
     - echo "Building the app"
-  environment:
+ environment:
     name: staging
     action: prepare
     url: https://staging.example.com
 ```
 
-This gives you access to environment-scoped variables, and can be used to protect builds from unauthorized access. Also,
-it's effective to avoid the [prevent outdated deployment jobs](deployment_safety.md#prevent-outdated-deployment-jobs) feature.
+This gives you access to environment-scoped variables, and can be used to protect builds from unauthorized access. Also, it's effective to avoid the [prevent outdated deployment jobs](deployment_safety.md#prevent-outdated-deployment-jobs) feature.
 
-If an environment is configured to stop after a certain time period, jobs with the `access` or `prepare`
-action will reset the scheduled stop time. The [`environment:auto_stop_in`](../yaml/_index.md#environmentauto_stop_in)
+If an environment is configured to stop after a certain time period, jobs with the `access` or `prepare` action will reset the scheduled stop time. The [`environment:auto_stop_in`](../yaml/_index.md#environmentauto_stop_in)
 from the most recent successful deployment job to the environment is used when resetting the scheduled time.
-For example, if the most recent deployment used `auto_stop_in: 1 week` and is later accessed by a job with
-`action: access`, the environment will be rescheduled to stop one week from the completion of the accessing job.
+For example, if the most recent deployment used `auto_stop_in: 1 week` and is later accessed by a job with `action: access`, the environment will be rescheduled to stop one week from the completion of the accessing job.
 
 To access an environment without changing the scheduled stop time, use the `verify` action.
 
 ## Environment incident management
 
-Production environments can go down unexpectedly, including for reasons outside
-of your control. For example, issues with external dependencies, infrastructure,
-or human error can cause major issues with an environment. Things like:
+Production environments can go down unexpectedly, including for reasons outside of your control. For example, issues with external dependencies, infrastructure, or human error can cause major issues with an environment. Things like:
 
 - A dependent cloud service goes down.
 - A 3rd party library is updated and it's not compatible with your application.
@@ -821,17 +738,13 @@ to get alerts when there are critical issues that need immediate attention.
 
 {{< /details >}}
 
-If you [set up an alert integration](../../operations/incident_management/integrations.md#configuration),
-alerts for environments are shown on the environments page. The alert with the highest
-severity is shown, so you can identify which environments need immediate attention.
+If you [set up an alert integration](../../operations/incident_management/integrations.md#configuration), alerts for environments are shown on the environments page. The alert with the highest severity is shown, so you can identify which environments need immediate attention.
 
 ![Environment alert](img/alert_for_environment_v13_4.png)
 
-When the issue that triggered the alert is resolved, it is removed and is no
-longer visible on the environments page.
+When the issue that triggered the alert is resolved, it is removed and is no longer visible on the environments page.
 
-If the alert requires a [rollback](deployments.md#retry-or-roll-back-a-deployment), you can select the
-deployment tab from the environment page and select which deployment to roll back to.
+If the alert requires a [rollback](deployments.md#retry-or-roll-back-a-deployment), you can select the deployment tab from the environment page and select which deployment to roll back to.
 
 ### Auto Rollback
 
@@ -842,14 +755,10 @@ deployment tab from the environment page and select which deployment to roll bac
 
 {{< /details >}}
 
-In a typical Continuous Deployment workflow, the CI pipeline tests every commit before deploying to
-production. However, problematic code can still make it to production. For example, inefficient code
-that is logically correct can pass tests even though it causes severe performance degradation.
-Operators and SREs monitor the system to catch these problems as soon as possible. If they find a
-problematic deployment, they can roll back to a previous stable version.
+In a typical Continuous Deployment workflow, the CI pipeline tests every commit before deploying to production. However, problematic code can still make it to production. For example, inefficient code that is logically correct can pass tests even though it causes severe performance degradation.
+Operators and SREs monitor the system to catch these problems as soon as possible. If they find a problematic deployment, they can roll back to a previous stable version.
 
-GitLab Auto Rollback eases this workflow by automatically triggering a rollback when a
-[critical alert](../../operations/incident_management/alerts.md)
+GitLab Auto Rollback eases this workflow by automatically triggering a rollback when a [critical alert](../../operations/incident_management/alerts.md)
 is detected.
 For GitLab to select the appropriate environment for the rollback, the alert should contain a `gitlab_environment_name` key with the name of the environment.
 GitLab selects and redeploys the most recent successful deployment.
@@ -857,8 +766,7 @@ GitLab selects and redeploys the most recent successful deployment.
 Limitations of GitLab Auto Rollback:
 
 - The rollback is skipped if a deployment is running when the alert is detected.
-- A rollback can happen only once in three minutes. If multiple alerts are detected at once, only
-  one rollback is performed.
+- A rollback can happen only once in three minutes. If multiple alerts are detected at once, only one rollback is performed.
 
 GitLab Auto Rollback is turned off by default. To turn it on:
 
@@ -870,8 +778,7 @@ GitLab Auto Rollback is turned off by default. To turn it on:
 
 ## Environment permissions
 
-Depending on your role, you can interact with environments in public
-and private projects.
+Depending on your role, you can interact with environments in public and private projects.
 
 ### View environments
 
@@ -905,13 +812,9 @@ See [Deployment-only access to protected environments](protected_environments.md
 > [!warning]
 > This feature was [deprecated](https://gitlab.com/groups/gitlab-org/configure/-/epics/8) in GitLab 14.5.
 
-If you deploy to your environments with the help of a deployment service (for example,
-the [Kubernetes integration](../../user/infrastructure/clusters/_index.md)), GitLab can open
-a terminal session to your environment. You can then debug issues without leaving your web browser.
+If you deploy to your environments with the help of a deployment service (for example, the [Kubernetes integration](../../user/infrastructure/clusters/_index.md)), GitLab can open a terminal session to your environment. You can then debug issues without leaving your web browser.
 
-The Web terminal is a container-based deployment, which often lacks basic tools (like an editor),
-and can be stopped or restarted at any time. If this happens, you lose all your
-changes. Treat the Web terminal as a debugging tool, not a comprehensive online IDE.
+The Web terminal is a container-based deployment, which often lacks basic tools (like an editor), and can be stopped or restarted at any time. If this happens, you lose all your changes. Treat the Web terminal as a debugging tool, not a comprehensive online IDE.
 
 Web terminals:
 
@@ -922,20 +825,18 @@ In the UI, to view the Web terminal, either:
 
 - From the **Actions** menu, select **Terminal**:
 
-  ![Terminal button on environment index](img/environments_terminal_button_on_index_v14_3.png)
+ ![Terminal button on environment index](img/environments_terminal_button_on_index_v14_3.png)
 
 - On the page for a specific environment, on the right, select **Terminal** ({{< icon name="terminal" >}}).
 
 Select the button to establish the terminal session.
-It works like any other terminal. You're in the container created
-by your deployment so you can:
+It works like any other terminal. You're in the container created by your deployment so you can:
 
 - Run shell commands and get responses in real time.
 - Check the logs.
 - Try out configuration or code tweaks.
 
-You can open multiple terminals to the same environment. They each get their own shell
-session and even a multiplexer like `screen` or `tmux`.
+You can open multiple terminals to the same environment. They each get their own shell session and even a multiplexer like `screen` or `tmux`.
 
 ## Related topics
 
@@ -949,63 +850,60 @@ session and even a multiplexer like `screen` or `tmux`.
 
 ### The job with `action: stop` doesn't run
 
-In some cases, environments do not stop despite an `on_stop` job being configured. This happens when the job
-with the `action: stop` is not in a runnable state due to its `stages:` or `needs:` configuration.
+In some cases, environments do not stop despite an `on_stop` job being configured. This happens when the job with the `action: stop` is not in a runnable state due to its `stages:` or `needs:` configuration.
 
 For example:
 
 - The environment might start in a stage that also has a job that failed.
-  Then the jobs in later stages job don't start. If the job with the `action: stop`
-  for the environment is also in a later stage, it can't start and the environment isn't deleted.
+ Then the jobs in later stages job don't start. If the job with the `action: stop` for the environment is also in a later stage, it can't start and the environment isn't deleted.
 - The job with the `action: stop` might have a dependency on a job that has not yet completed.
 
 To ensure the `action: stop` can always run when needed, you can:
 
 - Put both jobs in the same stage:
 
-  ```yaml
-  stages:
+ ```yaml
+ stages:
     - build
     - test
     - deploy
 
-  ...
+ ...
 
-  deploy_review:
+ deploy_review:
     stage: deploy
     environment:
       name: review/$CI_COMMIT_REF_SLUG
       url: https://$CI_ENVIRONMENT_SLUG.example.com
       on_stop: stop_review
 
-  stop_review:
+ stop_review:
     stage: deploy
     environment:
       name: review/$CI_COMMIT_REF_SLUG
       action: stop
     when: manual
-  ```
+ ```
 
-- Add a [`needs`](../yaml/_index.md#needs) entry to the `action: stop` job so the
-  job can start out of stage order:
+- Add a [`needs`](../yaml/_index.md#needs) entry to the `action: stop` job so the job can start out of stage order:
 
-  ```yaml
-  stages:
+ ```yaml
+ stages:
     - build
     - test
     - deploy
     - cleanup
 
-  ...
+ ...
 
-  deploy_review:
+ deploy_review:
     stage: deploy
     environment:
       name: review/$CI_COMMIT_REF_SLUG
       url: https://$CI_ENVIRONMENT_SLUG.example.com
       on_stop: stop_review
 
-  stop_review:
+ stop_review:
     stage: cleanup
     needs:
       - deploy_review
@@ -1013,12 +911,11 @@ To ensure the `action: stop` can always run when needed, you can:
       name: review/$CI_COMMIT_REF_SLUG
       action: stop
     when: manual
-  ```
+ ```
 
 ### Error: job `would create an environment with an invalid parameter`
 
-If your project is configured to [create a dynamic environment](#create-a-dynamic-environment),
-you might encounter this error in a deployment job because the dynamically generated parameter can't be used for creating an environment:
+If your project is configured to [create a dynamic environment](#create-a-dynamic-environment), you might encounter this error in a deployment job because the dynamically generated parameter can't be used for creating an environment:
 
 ```plaintext
 This job could not be executed because it would create an environment with an invalid parameter.
@@ -1028,23 +925,17 @@ For example, your project has the following `.gitlab-ci.yml`:
 
 ```yaml
 deploy:
-  script: echo
-  environment: production/$ENVIRONMENT
+ script: echo
+ environment: production/$ENVIRONMENT
 ```
 
-Because the `$ENVIRONMENT` variable does not exist in the pipeline, GitLab tries to
-create an environment with a name `production/`, which is invalid in
-[the environment name constraint](../yaml/_index.md#environmentname).
+Because the `$ENVIRONMENT` variable does not exist in the pipeline, GitLab tries to create an environment with a name `production/`, which is invalid in [the environment name constraint](../yaml/_index.md#environmentname).
 
 To fix this, use one of the following solutions:
 
-- Remove `environment` keyword from the deployment job. GitLab has already been
-  ignoring the invalid keyword, therefore your deployment pipelines stay intact
-  even after the keyword removal.
-- Ensure the variable exists in the pipeline. Review the
-  [limitation on supported variables](../variables/where_variables_can_be_used.md#gitlab-ciyml-file).
-- If you have `environment:deployment_tier` in your `.gitlab-ci.yml`, ensure the value is one of the
-  supported tiers: `production`, `staging`, `testing`, `development`, or `other`.
+- Remove `environment` keyword from the deployment job. GitLab has already been ignoring the invalid keyword, therefore your deployment pipelines stay intact even after the keyword removal.
+- Ensure the variable exists in the pipeline. Review the [limitation on supported variables](../variables/where_variables_can_be_used.md#gitlab-ciyml-file).
+- If you have `environment:deployment_tier` in your `.gitlab-ci.yml`, ensure the value is one of the supported tiers: `production`, `staging`, `testing`, `development`, or `other`.
 
 #### If you get this error on review apps
 
@@ -1052,25 +943,20 @@ For example, if you have the following in your `.gitlab-ci.yml`:
 
 ```yaml
 review:
-  script: deploy review app
-  environment: review/$CI_COMMIT_REF_NAME
+ script: deploy review app
+ environment: review/$CI_COMMIT_REF_NAME
 ```
 
-When you create a new merge request with a branch name `bug-fix!`,
-the `review` job tries to create an environment with `review/bug-fix!`.
-However, the `!` is an invalid character for environments, so the
-deployment job fails because it was about to run without an environment.
+When you create a new merge request with a branch name `bug-fix!`, the `review` job tries to create an environment with `review/bug-fix!`.
+However, the `!` is an invalid character for environments, so the deployment job fails because it was about to run without an environment.
 
 To fix this, use one of the following solutions:
 
-- Re-create your feature branch without the invalid characters,
-  such as `bug-fix`.
-- Replace the `CI_COMMIT_REF_NAME`
-  [predefined variable](../variables/predefined_variables.md) with
-  `CI_COMMIT_REF_SLUG` which strips any invalid characters:
+- Re-create your feature branch without the invalid characters, such as `bug-fix`.
+- Replace the `CI_COMMIT_REF_NAME` [predefined variable](../variables/predefined_variables.md) with `CI_COMMIT_REF_SLUG` which strips any invalid characters:
 
-  ```yaml
-  review:
+ ```yaml
+ review:
     script: deploy review app
     environment: review/$CI_COMMIT_REF_SLUG
-  ```
+ ```

@@ -35,8 +35,7 @@ POST /chat/completions
 
 {{< alert type="note" >}}
 
-Requests to this endpoint are proxied to the
-[AI gateway](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/-/blob/main/docs/api.md).
+Requests to this endpoint are proxied to the [AI gateway](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/-/blob/main/docs/api.md).
 
 {{< /alert >}}
 
@@ -66,9 +65,9 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "Authorization: Bearer <YOUR_ACCESS_TOKEN>" \
-  --header "Content-Type: application/json" \
-  --data '{
+ --header "Authorization: Bearer <YOUR_ACCESS_TOKEN>" \
+ --header "Content-Type: application/json" \
+ --data '{
       "content": "how to define class in ruby",
       "additional_context": [
         {
@@ -78,7 +77,7 @@ curl --request POST \
         }
       ]
     }' \
-  --url "https://gitlab.example.com/api/v4/chat/completions"
+ --url "https://gitlab.example.com/api/v4/chat/completions"
 ```
 
 Example response:

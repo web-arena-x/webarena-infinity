@@ -13,8 +13,8 @@ To get information and find records from Salesforce directly, use the Salesforce
 - After you install and link the integration to your Salesforce account, Gemini in Gmail might detect when you receive a message from a potential customer.
 - When you open the message, below the subject line, you get a “Take action on this sales inquiry” suggested prompt.
 - The Salesforce for Gemini integration is only available:
-  - For eligible Workspace accounts.
-  - In English.
+ - For eligible Workspace accounts.
+ - In English.
 
 ## Set up the Salesforce integration
 
@@ -42,11 +42,11 @@ To get information and find records from Salesforce directly, use the Salesforce
 
 - To use the Salesforce in Gemini integration, in your prompt, include the text “in Salesforce.”
 - To manually find any info about the company and draft a reply:
-  1. On your computer, open [Gmail](https://mail.google.com/).
-  2. At the top right, click Ask Gemini ![](//lh3.googleusercontent.com/NbNY5xIMPg1tJn8q8hOUEHHed4oq7paehm3riEqsInKb9U3voOLe5xMdJOc3tjOHog0=h36).
-  3. To find Salesforce information, use the prompt: “@Salesforce find info on [product or company].”
+ 1. On your computer, open [Gmail](https://mail.google.com/).
+ 2. At the top right, click Ask Gemini ![](//lh3.googleusercontent.com/NbNY5xIMPg1tJn8q8hOUEHHed4oq7paehm3riEqsInKb9U3voOLe5xMdJOc3tjOHog0=h36).
+ 3. To find Salesforce information, use the prompt: “@Salesforce find info on [product or company].”
      - Gemini in Gmail provides a response.
-  4. To draft a reply with Gemini, use the prompt: “Draft a reply using this info.”
+ 4. To draft a reply with Gemini, use the prompt: “Draft a reply using this info.”
 
 ## Salesforce for Gemini FAQs
 
@@ -68,8 +68,8 @@ Why do I only get some of the options described on this page?
 
 - Suggested prompts only appear in Gmail on the web. They don’t appear in the Gmail app for Android, iPhone, and iPad.
 - If you think a message is a sales lead, but you don't get the **Take action on this sales inquiry** suggested prompt:
-  - In Gmail, at the top, click Support ![Help & Feedback](//storage.googleapis.com/support-kms-prod/1FORhOTDClt5ZM1Pcov7K5DQV7DEwRYhsC9Q) ![and then](//lh3.googleusercontent.com/3_l97rr0GvhSP2XV5OoCkV2ZDTIisAOczrSdzNCBxhIKWrjXjHucxNwocghoUa39gw=h36) **Send feedback to Google**.
-  - To enter your feedback, follow the on-screen instructions.
+ - In Gmail, at the top, click Support ![Help & Feedback](//storage.googleapis.com/support-kms-prod/1FORhOTDClt5ZM1Pcov7K5DQV7DEwRYhsC9Q) ![and then](//lh3.googleusercontent.com/3_l97rr0GvhSP2XV5OoCkV2ZDTIisAOczrSdzNCBxhIKWrjXjHucxNwocghoUa39gw=h36) **Send feedback to Google**.
+ - To enter your feedback, follow the on-screen instructions.
 
 How do I link another Salesforce account?
 

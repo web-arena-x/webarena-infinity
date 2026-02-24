@@ -48,6 +48,6 @@ QR code check-in behavior depends on the student’s mobile device, not the kios
 - If the Handshake app is installed, the student’s profile data (e.g., name and email) may still pre-fill.
 - **Custom questions** (e.g., competencies, areas of interest, job preferences):
 
-  - Will not appear if the app cannot load the kiosk configuration due to a lack of internet.
-  - If the questions are loaded before losing connection, the student can still complete them.
-  - Any questions that fail to load will not be displayed or saved.
+ - Will not appear if the app cannot load the kiosk configuration due to a lack of internet.
+ - If the questions are loaded before losing connection, the student can still complete them.
+ - Any questions that fail to load will not be displayed or saved.

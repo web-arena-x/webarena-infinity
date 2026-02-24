@@ -31,7 +31,7 @@ Use the Figma mobile app to preview both static designs and prototyping interact
 1. Sign in to the Figma mobile app.
 2. Use the **Recent** or **Search** tabs to find the file or prototype you want to view.
 3. Tap the file or prototype to open it.
-4. From the file, press  > **View prototypes** to present the prototype.
+4. From the file, press > **View prototypes** to present the prototype.
 
 The prototype will play according to its [flow starting point](https://help.figma.com/hc/en-us/articles/360039823894-Set-prototype-device-and-starting-point#Starting_point).
 

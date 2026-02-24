@@ -50,7 +50,7 @@ The left sidebar gives you access to layers, pages, assets and is where you can 
 
 - Use the **Assets** panel to view local components or find components from [kits](../use-libraries/start-designing-with-ui-kits.md) or [libraries](https://help.figma.com/hc/en-us/articles/360041051154) (requires edit access).
 - Access file-level actions, like moving it, publishing a library, creating a branch, or showing the version history.
-- Use the  menu to access more functions, actions, and settings. Or adjust your **Preferences**, like [dark mode](https://help.figma.com/hc/en-us/articles/5576781786647) or scroll behavior.
+- Use the menu to access more functions, actions, and settings. Or adjust your **Preferences**, like [dark mode](https://help.figma.com/hc/en-us/articles/5576781786647) or scroll behavior.
 
 **[Explore the left sidebar →](https://help.figma.com/hc/en-us/articles/360039831974)**
 
@@ -133,7 +133,7 @@ Pages help you organize your design files. Each page is its own canvas, giving y
 
 ![Figma file browser showing pages organized by milestones like overview, user research, and components on a left sidebar.](https://help.figma.com/hc/article_attachments/26978253971991)
 
-To browse a file’s pages, click the current page name in the left sidebar. You can also tap  to create a new page. [**View pages in the sidebar →**](https://help.figma.com/hc/en-us/articles/360039831974#pages)
+To browse a file’s pages, click the current page name in the left sidebar. You can also tap to create a new page. [**View pages in the sidebar →**](https://help.figma.com/hc/en-us/articles/360039831974#pages)
 
 Pages are great for sharing a specific collection of designs. For example, you can create a distinct page for a review or when designs are ready for development.
 
@@ -161,19 +161,19 @@ Layers can sit on top of, behind, next to, or inside other layers. To see how la
 
 Each layer has a name and an icon for the layer type. You might have noticed that some of these icons appear in the toolbar. You can select that tool from the toolbar, or use the keyboard shortcut, to create more layers of that type.
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Layer icon** | **Layer name** | **Shortcut** |
-|  | Frame | `F` |
-|  | Group | `⌘ Command` `G` |
-|  | Component | `⌥ Option` `⌘ Command` `K` or `Ctrl` + `Alt` + `K` |
-|  | Instance | N/A |
-|  | Text | `T` |
-|  | Shape | `R` |
-|  | Image | `⇧ Shift` `⌘ Command` `k` or `Shift` `Ctrl` `k` |
-|  | Auto layout | `Shift` `A` |
-|  | Section | `Shift` `S` |
-|  | GIF or video | `⇧ Shift` `⌘ Command` `k` or `Shift` `Ctrl` `k` |
+| | Frame | `F` |
+| | Group | `⌘ Command` `G` |
+| | Component | `⌥ Option` `⌘ Command` `K` or `Ctrl` + `Alt` + `K` |
+| | Instance | N/A |
+| | Text | `T` |
+| | Shape | `R` |
+| | Image | `⇧ Shift` `⌘ Command` `k` or `Shift` `Ctrl` `k` |
+| | Auto layout | `Shift` `A` |
+| | Section | `Shift` `S` |
+| | GIF or video | `⇧ Shift` `⌘ Command` `k` or `Shift` `Ctrl` `k` |
 
 ### Layer order and hierarchy
 
@@ -185,7 +185,7 @@ This menu has a rectangle that acts as the background. As it's below the other l
 
 ### Layers as containers
 
-We mentioned that layers can be *inside* other layers. You can tell if a layer contains other layers if there is an  **arrow** next to it in the layers panel. Click the  **arrow** to view any layers within that container.
+We mentioned that layers can be *inside* other layers. You can tell if a layer contains other layers if there is an **arrow** next to it in the layers panel. Click the **arrow** to view any layers within that container.
 
 ![](https://help.figma.com/hc/article_attachments/26978253977239)
 
@@ -308,8 +308,7 @@ If you're viewing the file as part of the handoff process, then Dev Mode is for 
 
 # Permissions in design files
 
-Your permissions determine what actions you can take and whether you can make changes to files. We’re not going to do a deep-dive into Figma’s permissions model here. But there’s one concept to understand: the difference between `can
-edit` and `can view` permissions.
+Your permissions determine what actions you can take and whether you can make changes to files. We’re not going to do a deep-dive into Figma’s permissions model here. But there’s one concept to understand: the difference between `can edit` and `can view` permissions.
 
 - People with `can edit` permissions can make changes to a file. That includes everything from moving layers, updating properties, and managing the file itself.
 - People with `can view` permissions can explore pages and prototypes, but they can’t make any changes. Viewers can still contribute to files by giving feedback.

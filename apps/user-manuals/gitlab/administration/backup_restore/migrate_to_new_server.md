@@ -12,44 +12,33 @@ If you're running GitLab Geo, an alternative option is [Geo disaster recovery fo
 
 {{< alert type="warning" >}}
 
-Avoid uncoordinated data processing by both the new and old servers, where multiple
-servers could connect concurrently and process the same data. For example, when using
-[incoming email](../incoming_email.md), if both GitLab instances are
-processing email at the same time, then both instances miss some data.
-This type of problem can occur with other services as well, such as a
-[non-packaged database](https://docs.gitlab.com/omnibus/settings/database.html#using-a-non-packaged-postgresql-database-management-server),
-a non-packaged Redis instance, or non-packaged Sidekiq.
+Avoid uncoordinated data processing by both the new and old servers, where multiple servers could connect concurrently and process the same data. For example, when using [incoming email](../incoming_email.md), if both GitLab instances are processing email at the same time, then both instances miss some data.
+This type of problem can occur with other services as well, such as a [non-packaged database](https://docs.gitlab.com/omnibus/settings/database.html#using-a-non-packaged-postgresql-database-management-server), a non-packaged Redis instance, or non-packaged Sidekiq.
 
 {{< /alert >}}
 
 Prerequisites:
 
-- Some time before your migration, consider notifying your users of upcoming
-  scheduled maintenance with a [broadcast message banner](../broadcast_messages.md).
-- Ensure your backups are complete and current. Create a complete system-level backup, or
-  take a snapshot of all servers involved in the migration, in case destructive commands
-  (like `rm`) are run incorrectly.
+- Some time before your migration, consider notifying your users of upcoming scheduled maintenance with a [broadcast message banner](../broadcast_messages.md).
+- Ensure your backups are complete and current. Create a complete system-level backup, or take a snapshot of all servers involved in the migration, in case destructive commands (like `rm`) are run incorrectly.
 
 ## Prepare the new server
 
 To prepare the new server:
 
-1. Copy the
-   [SSH host keys](https://superuser.com/questions/532040/copy-ssh-keys-from-one-server-to-another-server/532079#532079)
+1. Copy the [SSH host keys](https://superuser.com/questions/532040/copy-ssh-keys-from-one-server-to-another-server/532079#532079)
    from the old server to avoid man-in-the-middle attack warnings.
    See [Manually replicate the primary site's SSH host keys](../geo/replication/configuration.md#step-2-manually-replicate-the-primary-sites-ssh-host-keys) for example steps.
-1. [Install and configure GitLab](https://about.gitlab.com/install/) except
-   [incoming email](../incoming_email.md):
+1. [Install and configure GitLab](https://about.gitlab.com/install/) except [incoming email](../incoming_email.md):
    1. Install GitLab.
    1. Configure by copying `/etc/gitlab` files from the old server to the new server, and update as necessary.
-      Read the
-      [Linux package installation backup and restore instructions](https://docs.gitlab.com/omnibus/settings/backups.html) for more detail.
+      Read the [Linux package installation backup and restore instructions](https://docs.gitlab.com/omnibus/settings/backups.html) for more detail.
    1. If applicable, disable [incoming email](../incoming_email.md).
    1. Block new CI/CD jobs from starting upon initial startup after the backup and restore.
       Edit `/etc/gitlab/gitlab.rb` and set the following:
 
       ```ruby
-      nginx['custom_gitlab_server_config'] = "location = /api/v4/jobs/request {\n    deny all;\n    return 503;\n  }\n"
+      nginx['custom_gitlab_server_config'] = "location = /api/v4/jobs/request {\n    deny all;\n    return 503;\n }\n"
       ```
 
    1. Reconfigure GitLab:
@@ -74,13 +63,12 @@ To prepare the new server:
 ## Prepare and transfer content from the old server
 
 1. Ensure you have an up-to-date system-level backup or snapshot of the old server.
-1. Enable [maintenance mode](../maintenance_mode/_index.md),
-   if supported by your GitLab edition.
+1. Enable [maintenance mode](../maintenance_mode/_index.md), if supported by your GitLab edition.
 1. Block new CI/CD jobs from starting:
    1. Edit `/etc/gitlab/gitlab.rb`, and set the following:
 
       ```ruby
-      nginx['custom_gitlab_server_config'] = "location = /api/v4/jobs/request {\n    deny all;\n    return 503;\n  }\n"
+      nginx['custom_gitlab_server_config'] = "location = /api/v4/jobs/request {\n    deny all;\n    return 503;\n }\n"
       ```
 
    1. Reconfigure GitLab:
@@ -103,8 +91,7 @@ To prepare the new server:
    1. On the Sidekiq dashboard, on its top menu, select **Queues**.
    1. On the Sidekiq dashboard, on its upper right, select **Live Poll**.
       Wait for **Busy** and **Enqueued** to drop to 0.
-      These queues contain work that has been submitted by your users;
-      shutting down before these jobs complete may cause the work to be lost.
+      These queues contain work that has been submitted by your users; shutting down before these jobs complete may cause the work to be lost.
       Make note of the numbers shown in the Sidekiq dashboard for post-migration verification.
 1. Flush the Redis database to disk, and stop GitLab other than the services needed for migration:
 
@@ -168,21 +155,17 @@ To prepare the new server:
 
 ### For instances with a large volume of Git and object data
 
-If your GitLab instance has a large amount of data on local volumes, for example greater than 1 TB,
-backups may take a long time. In that case, you may find it easier to transfer the data to the appropriate volumes on the new instance.
+If your GitLab instance has a large amount of data on local volumes, for example greater than 1 TB, backups may take a long time. In that case, you may find it easier to transfer the data to the appropriate volumes on the new instance.
 
 The main volumes that you might need to migrate manually are:
 
-- The `/var/opt/gitlab/git-data` directory which contains all the Git data. Be sure to read
-  [the moving repositories documentation section](../operations/moving_repositories.md#migrate-to-another-gitlab-instance)
-  to eliminate the chance of Git data corruption.
+- The `/var/opt/gitlab/git-data` directory which contains all the Git data. Be sure to read [the moving repositories documentation section](../operations/moving_repositories.md#migrate-to-another-gitlab-instance)
+ to eliminate the chance of Git data corruption.
 - The `/var/opt/gitlab/gitlab-rails/shared` directory which contains object data, like artifacts.
-- If you are using the bundled PostgreSQL included with the Linux package,
-  you also need to migrate the [PostgreSQL data directory](https://docs.gitlab.com/omnibus/settings/database.html#store-postgresql-data-in-a-different-directory)
-  under `/var/opt/gitlab/postgresql/data`.
+- If you are using the bundled PostgreSQL included with the Linux package, you also need to migrate the [PostgreSQL data directory](https://docs.gitlab.com/omnibus/settings/database.html#store-postgresql-data-in-a-different-directory)
+ under `/var/opt/gitlab/postgresql/data`.
 
-After all GitLab services have been stopped, you can use tools like `rsync` or mounting volume snapshots to move the data
-to the new environment.
+After all GitLab services have been stopped, you can use tools like `rsync` or mounting volume snapshots to move the data to the new environment.
 
 ## Restore data on the new server
 
@@ -207,21 +190,18 @@ to the new environment.
 1. Verify that the Redis database restored correctly:
    1. In the upper-right corner, select **Admin**.
    1. On the left sidebar, select **Monitoring** > **Background jobs**.
-   1. Under the Sidekiq dashboard, verify that the numbers
-      match with what was shown on the old server.
-   1. While still under the Sidekiq dashboard, select **Cron** and then **Enable All**
-      to re-enable periodic background jobs.
+   1. Under the Sidekiq dashboard, verify that the numbers match with what was shown on the old server.
+   1. While still under the Sidekiq dashboard, select **Cron** and then **Enable All** to re-enable periodic background jobs.
 1. Test that read-only operations on the GitLab instance work as expected. For example, browse through project repository files, merge requests, and issues.
 1. Disable [Maintenance Mode](../maintenance_mode/_index.md), if previously enabled.
 1. Test that the GitLab instance is working as expected.
 1. If applicable, re-enable [incoming email](../incoming_email.md) and test it is working as expected.
 1. Update your DNS or load balancer to point at the new server.
-1. Unblock new CI/CD jobs from starting by removing the custom NGINX configuration
-   you added previously:
+1. Unblock new CI/CD jobs from starting by removing the custom NGINX configuration you added previously:
 
    ```ruby
    # The following line must be removed
-   nginx['custom_gitlab_server_config'] = "location = /api/v4/jobs/request {\n    deny all;\n    return 503;\n  }\n"
+   nginx['custom_gitlab_server_config'] = "location = /api/v4/jobs/request {\n    deny all;\n    return 503;\n }\n"
    ```
 
 1. Reconfigure GitLab:

@@ -12,8 +12,7 @@ title: Sidekiq job size limits
 
 {{< /details >}}
 
-[Sidekiq](../sidekiq/_index.md) jobs get stored in
-Redis. To avoid excessive memory for Redis, we:
+[Sidekiq](../sidekiq/_index.md) jobs get stored in Redis. To avoid excessive memory for Redis, we:
 
 - Compress job arguments before storing them in Redis.
 - Reject jobs that exceed the specified threshold limit after compression.
@@ -27,8 +26,7 @@ To access Sidekiq job size limits:
 1. In the upper-right corner, select **Admin**.
 1. Select **Settings** > **Preferences**.
 1. Expand **Sidekiq job size limits**.
-1. Adjust the compression threshold or size limit. The compression can
-   be disabled by selecting the **Track** mode.
+1. Adjust the compression threshold or size limit. The compression can be disabled by selecting the **Track** mode.
 
 ## Available settings
 

@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8847380904346-Creating-and
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Workforce Management (WFM) or Workforce Engagement Management (WEM) |
 
@@ -147,4 +147,4 @@ Deleting a shift permanently removes it from the schedule and the shift pool. An
 
    ![](https://zen-marketing-documentation.s3.us-west-1.amazonaws.com/docs/en/wfm_unassigned_shifts_row_edit.png)
 4. Click the options menu icon (![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/sell_icon_menu_horizontal.png)) next to the shift date and select **Delete**.
-5. Click  **Delete shift**.
+5. Click **Delete shift**.

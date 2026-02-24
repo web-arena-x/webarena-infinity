@@ -22,9 +22,7 @@ Prerequisites:
 
 - You must be authenticated.
 
-The forking operation for a project is asynchronous and is completed in a
-background job. The request returns immediately. To determine whether the
-fork of the project has completed, query the `import_status` for the new project.
+The forking operation for a project is asynchronous and is completed in a background job. The request returns immediately. To determine whether the fork of the project has completed, query the `import_status` for the new project.
 
 ```plaintext
 POST /projects/:id/fork
@@ -46,8 +44,7 @@ POST /projects/:id/fork
 {{< alert type="note" >}}
 
 When using a service account to fork a project, you must provide either `namespace_id` or `namespace_path`.
-Service accounts cannot fork projects to their personal namespace. For more information, see
-[service account access to groups and projects](../user/profile/service_accounts.md#service-account-access-to-groups-and-projects).
+Service accounts cannot fork projects to their personal namespace. For more information, see [service account access to groups and projects](../user/profile/service_accounts.md#service-account-access-to-groups-and-projects).
 
 {{< /alert >}}
 
@@ -91,7 +88,7 @@ Example responses:
 
 ```json
 [
-  {
+ {
     "id": 3,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "description_html": "<p data-sourcepos=\"1:1-1:56\" dir=\"auto\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
@@ -168,7 +165,7 @@ Example responses:
       "members": "http://example.com/api/v4/projects/1/members",
       "cluster_agents": "http://example.com/api/v4/projects/1/cluster_agents"
     }
-  }
+ }
 ]
 ```
 

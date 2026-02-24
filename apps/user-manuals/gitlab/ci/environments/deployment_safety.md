@@ -12,22 +12,18 @@ title: Deployment safety
 
 {{< /details >}}
 
-[Deployment jobs](../jobs/_index.md#deployment-jobs) are a specific kind of CI/CD
-job. They can be more sensitive than other jobs in a pipeline,
-and might need to be treated with extra care. GitLab has several features
-that help maintain deployment security and stability.
+[Deployment jobs](../jobs/_index.md#deployment-jobs) are a specific kind of CI/CD job. They can be more sensitive than other jobs in a pipeline, and might need to be treated with extra care. GitLab has several features that help maintain deployment security and stability.
 
 You can:
 
 - Set appropriate roles to your project. See [Project members permissions](../../user/permissions.md#project-permissions)
-  for the different user roles GitLab supports and the permissions of each.
+ for the different user roles GitLab supports and the permissions of each.
 - [Restrict write-access to a critical environment](#restrict-write-access-to-a-critical-environment)
 - [Prevent deployments during deploy freeze windows](#prevent-deployments-during-deploy-freeze-windows)
 - [Protect production secrets](#protect-production-secrets)
 - [Separate project for deployments](#separate-project-for-deployments)
 
-If you are using a continuous deployment workflow and want to ensure that concurrent deployments to the same environment do not happen,
-you should:
+If you are using a continuous deployment workflow and want to ensure that concurrent deployments to the same environment do not happen, you should:
 
 - [Ensure only one deployment job runs at a time](#ensure-only-one-deployment-job-runs-at-a-time).
 - [Prevent outdated deployment jobs](#prevent-outdated-deployment-jobs).
@@ -37,16 +33,12 @@ For an overview, see [How to secure your CD pipelines/workflow](https://www.yout
 
 ## Restrict write access to a critical environment
 
-By default, environments can be modified by any team member that has at least the
-Developer role.
-If you want to restrict write access to a critical environment (for example a `production` environment),
-you can set up [protected environments](protected_environments.md).
+By default, environments can be modified by any team member that has at least the Developer role.
+If you want to restrict write access to a critical environment (for example a `production` environment), you can set up [protected environments](protected_environments.md).
 
 ## Ensure only one deployment job runs at a time
 
-Pipeline jobs in GitLab CI/CD run in parallel, so it's possible that two deployment
-jobs in two different pipelines attempt to deploy to the same environment at the same
-time. This is not desired behavior as deployments should happen sequentially.
+Pipeline jobs in GitLab CI/CD run in parallel, so it's possible that two deployment jobs in two different pipelines attempt to deploy to the same environment at the same time. This is not desired behavior as deployments should happen sequentially.
 
 You can ensure only one deployment job runs at a time with the [`resource_group` keyword](../yaml/_index.md#resource_group) in your `.gitlab-ci.yml`.
 
@@ -82,26 +74,20 @@ For more information, see [Resource Group documentation](../resource_groups/_ind
 
 {{< /history >}}
 
-The effective execution order of pipeline jobs can vary from run to run, which
-could cause undesired behavior. For example, a [deployment job](../jobs/_index.md#deployment-jobs)
+The effective execution order of pipeline jobs can vary from run to run, which could cause undesired behavior. For example, a [deployment job](../jobs/_index.md#deployment-jobs)
 in a newer pipeline could finish before a deployment job in an older pipeline.
-This creates a race condition where the older deployment finishes later,
-overwriting the "newer" deployment.
+This creates a race condition where the older deployment finishes later, overwriting the "newer" deployment.
 
-You can prevent older deployment jobs from running when a newer deployment
-job is started with the [**Prevent outdated deployment jobs**](../pipelines/settings.md#prevent-outdated-deployment-jobs) setting.
+You can prevent older deployment jobs from running when a newer deployment job is started with the [**Prevent outdated deployment jobs**](../pipelines/settings.md#prevent-outdated-deployment-jobs) setting.
 
 When an older deployment job starts, it fails and is labeled:
 
 - `failed outdated deployment job` in the pipeline view.
-- `The deployment job is older than the latest deployment, and therefore failed.`
-  when viewing the completed job.
+- `The deployment job is older than the latest deployment, and therefore failed.` when viewing the completed job.
 
-When an older deployment job is manual, the **Run** ({{< icon name="play" >}}) button is disabled with a message
-`This deployment job does not run automatically and must be started manually, but it's older than the latest deployment, and therefore can't run.`.
+When an older deployment job is manual, the **Run** ({{< icon name="play" >}}) button is disabled with a message `This deployment job does not run automatically and must be started manually, but it's older than the latest deployment, and therefore can't run.`.
 
-Job age is determined by the job start time, not the commit time, so a newer commit
-can be prevented in some circumstances.
+Job age is determined by the job start time, not the commit time, so a newer commit can be prevented in some circumstances.
 
 ### Job retries for rollback deployments
 
@@ -137,49 +123,31 @@ The improved pipeline flow with the setting enabled:
 
 ## Prevent deployments during deploy freeze windows
 
-If you want to prevent deployments for a particular period, for example during a planned
-vacation period when most employees are out, you can set up a [Deploy Freeze](../../user/project/releases/_index.md#prevent-unintentional-releases-by-setting-a-deploy-freeze).
-During a deploy freeze period, no deployment can be executed. This is helpful to
-ensure that deployments do not happen unexpectedly.
+If you want to prevent deployments for a particular period, for example during a planned vacation period when most employees are out, you can set up a [Deploy Freeze](../../user/project/releases/_index.md#prevent-unintentional-releases-by-setting-a-deploy-freeze).
+During a deploy freeze period, no deployment can be executed. This is helpful to ensure that deployments do not happen unexpectedly.
 
-The next configured deploy freeze is displayed at the top of the
-[environment deployments list](_index.md#view-environments-and-deployments)
+The next configured deploy freeze is displayed at the top of the [environment deployments list](_index.md#view-environments-and-deployments)
 page.
 
 ## Protect production secrets
 
-Production secrets are needed to deploy successfully. For example, when deploying to the cloud,
-cloud providers require these secrets to connect to their services. In the project settings, you can
-define and protect CI/CD variables for these secrets. [Protected variables](../variables/_index.md#protect-a-cicd-variable)
+Production secrets are needed to deploy successfully. For example, when deploying to the cloud, cloud providers require these secrets to connect to their services. In the project settings, you can define and protect CI/CD variables for these secrets. [Protected variables](../variables/_index.md#protect-a-cicd-variable)
 are only passed to pipelines running on [protected branches](../../user/project/repository/branches/protected.md)
 or [protected tags](../../user/project/protected_tags.md).
-The other pipelines don't get the protected variable. You can also
-[scope variables to specific environments](../variables/where_variables_can_be_used.md#variables-with-an-environment-scope).
-We recommend that you use protected variables on protected environments to make sure that the
-secrets aren't exposed unintentionally. You can also define production secrets on the
-[runner side](../runners/configure_runners.md#prevent-runners-from-revealing-sensitive-information).
-This prevents other users with the Maintainer role from reading the secrets and makes sure
-that the runner only runs on protected branches.
+The other pipelines don't get the protected variable. You can also [scope variables to specific environments](../variables/where_variables_can_be_used.md#variables-with-an-environment-scope).
+We recommend that you use protected variables on protected environments to make sure that the secrets aren't exposed unintentionally. You can also define production secrets on the [runner side](../runners/configure_runners.md#prevent-runners-from-revealing-sensitive-information).
+This prevents other users with the Maintainer role from reading the secrets and makes sure that the runner only runs on protected branches.
 
 For more information, see [pipeline security](../pipelines/_index.md#pipeline-security-on-protected-branches).
 
 ## Separate project for deployments
 
-All users with the Maintainer role for the project have access to production secrets. If you need to limit the number of users
-that can deploy to a production environment, you can create a separate project and configure a new
-permission model that isolates the CD permissions from the original project and prevents the
-original users with the Maintainer role for the project from accessing the production secret and CD configuration. You can
-connect the CD project to your development projects by using [multi-project pipelines](../pipelines/downstream_pipelines.md#multi-project-pipelines).
+All users with the Maintainer role for the project have access to production secrets. If you need to limit the number of users that can deploy to a production environment, you can create a separate project and configure a new permission model that isolates the CD permissions from the original project and prevents the original users with the Maintainer role for the project from accessing the production secret and CD configuration. You can connect the CD project to your development projects by using [multi-project pipelines](../pipelines/downstream_pipelines.md#multi-project-pipelines).
 
 ## Protect `.gitlab-ci.yml` from change
 
-A `.gitlab-ci.yml` may contain rules to deploy an application to the production server. This
-deployment usually runs automatically after pushing a merge request. To prevent developers from
-changing the `.gitlab-ci.yml`, you can define it in a different repository. The configuration can
-reference a file in another project with a completely different set of permissions (similar to
-[separating a project for deployments](#separate-project-for-deployments)).
-In this scenario, the `.gitlab-ci.yml` is publicly accessible, but can only be edited by users with
-appropriate permissions in the other project.
+A `.gitlab-ci.yml` may contain rules to deploy an application to the production server. This deployment usually runs automatically after pushing a merge request. To prevent developers from changing the `.gitlab-ci.yml`, you can define it in a different repository. The configuration can reference a file in another project with a completely different set of permissions (similar to [separating a project for deployments](#separate-project-for-deployments)).
+In this scenario, the `.gitlab-ci.yml` is publicly accessible, but can only be edited by users with appropriate permissions in the other project.
 
 For more information, see [Custom CI/CD configuration path](../pipelines/settings.md#specify-a-custom-cicd-configuration-file).
 

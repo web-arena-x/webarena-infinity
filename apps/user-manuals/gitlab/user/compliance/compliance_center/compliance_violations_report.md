@@ -17,15 +17,13 @@ title: Compliance violations report
 - [Renamed](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/112111) to compliance violations report in GitLab 15.9.
 - Ability to create and edit compliance frameworks [introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/394950) in GitLab 16.0.
 - Dynamic compliance violations report
-  - [Introduced](https://gitlab.com/groups/gitlab-org/-/epics/12774) in GitLab 18.2 [with feature flags](../../../administration/feature_flags/_index.md) named `compliance_violations_report` and `enable_project_compliance_violations`. Disabled by default.
-  - [Enabled on GitLab Self-Managed and GitLab Dedicated](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/201027) in GitLab 18.3.
-  - [Generally available](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/201027) in GitLab 18.5. Feature flags `compliance_violations_report` and `enable_project_compliance_violations` removed.
+ - [Introduced](https://gitlab.com/groups/gitlab-org/-/epics/12774) in GitLab 18.2 [with feature flags](../../../administration/feature_flags/_index.md) named `compliance_violations_report` and `enable_project_compliance_violations`. Disabled by default.
+ - [Enabled on GitLab Self-Managed and GitLab Dedicated](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/201027) in GitLab 18.3.
+ - [Generally available](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/201027) in GitLab 18.5. Feature flags `compliance_violations_report` and `enable_project_compliance_violations` removed.
 
 {{< /history >}}
 
-Use the compliance violations report to see a comprehensive view of compliance violations across all projects in
-your group. The report provides detailed information about violated controls, associated audit events, and allows you
-to manage violation statuses.
+Use the compliance violations report to see a comprehensive view of compliance violations across all projects in your group. The report provides detailed information about violated controls, associated audit events, and allows you to manage violation statuses.
 
 ## Enable compliance violations report
 
@@ -104,15 +102,15 @@ When you select **Details** for a specific violation, you can view:
 - The violation ID and status.
 - Location (project) where the violation occurred.
 - Comprehensive audit event information including:
-  - Event author.
-  - Event target.
-  - Event details.
-  - IP address.
-  - Target type.
+ - Event author.
+ - Event target.
+ - Event details.
+ - IP address.
+ - Target type.
 - Violated control information including:
-  - Control name and description.
-  - Associated compliance framework.
-  - Requirements.
+ - Control name and description.
+ - Associated compliance framework.
+ - Requirements.
 - Fix suggestions with links to resolve the violation.
 - Comments and discussion threads related to the violation.
 
@@ -193,8 +191,7 @@ A report is compiled and delivered to your email inbox as an attachment.
 
 {{< alert type="warning" >}}
 
-This feature was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/551236) in GitLab 18.2
-and is planned for removal in 18.8.
+This feature was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/551236) in GitLab 18.2 and is planned for removal in 18.8.
 
 {{< /alert >}}
 
@@ -202,8 +199,7 @@ The static compliance violations report provides a high-level view of merge requ
 
 When you select a row in the static compliance violations report, a drawer appears that provides:
 
-- The project name and [compliance framework label](../../project/working_with_projects.md#add-a-compliance-framework-to-a-project),
-  if the project has one assigned.
+- The project name and [compliance framework label](../../project/working_with_projects.md#add-a-compliance-framework-to-a-project), if the project has one assigned.
 - A link to the merge request that introduced the violation.
 - The merge request's branch path in the format `[source] into [target]`.
 - A list of users that committed changes to the merge request.
@@ -268,8 +264,7 @@ Each compliance violation has one of the following severities.
 
 #### Separation of duties
 
-GitLab supports a separation of duties policy between users who create and approve merge requests. Our criteria for the
-separation of duties is:
+GitLab supports a separation of duties policy between users who create and approve merge requests. Our criteria for the separation of duties is:
 
 - [A merge request creator is not allowed to approve their merge request](../../project/merge_requests/approvals/settings.md#prevent-approval-by-merge-request-creator).
 - [A merge request committer is not allowed to approve a merge request they have added commits to](../../project/merge_requests/approvals/settings.md#prevent-approvals-by-users-who-add-commits).

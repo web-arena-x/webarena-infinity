@@ -17,24 +17,24 @@ We support linking GitLab merge requests for both hosted and self-hosted install
 
 ![Pop-up for setting up the GitLab integration](https://webassets.linear.app/images/ornj730p/production/535b00faf5fdbfad01399eb8bdaffb7ca1efa780-1002x948.png?q=95&auto=format&dpr=2)
 
-1. Navigate to [**GitLab > User Settings > Personal Access Token**](https://gitlab.com/-/profile/personal_access_tokens) or **GitLab > Project Settings > Access Token** to create an API access token.  
-  
+1. Navigate to [**GitLab > User Settings > Personal Access Token**](https://gitlab.com/-/profile/personal_access_tokens) or **GitLab > Project Settings > Access Token** to create an API access token. 
+ 
 An access token is used to query the GitLab API for further information and also used to post issue linkbacks. Because GitLab doesn't support bot accounts, linkbacks are created under the name of the token owner. It's recommended that you create a new user for Linear to act as the bot account.
-2. When creating the token, set the `api` _or_ `read_api` scope.  
-  
+2. When creating the token, set the `api` _or_ `read_api` scope. 
+ 
 If the `read_api` scope is selected, Linear will not post linkbacks to the issue on GitLab merge requests. If using a project access token, the token needs `Reporter` role or higher.
-3. **(Optional)** Enable and set a custom URL for your self-hosted GitLab installation without any path (e.g. `https://gitlab.yourcompany.com`). This URL needs to be accessible to public Internet and is only required for self-hosted installations. The earliest supported version of GitLab is 15.6.  
-  
+3. **(Optional)** Enable and set a custom URL for your self-hosted GitLab installation without any path (e.g. `https://gitlab.yourcompany.com`). This URL needs to be accessible to public Internet and is only required for self-hosted installations. The earliest supported version of GitLab is 15.6. 
+ 
 If you need to grant access to Linear's IPs, they are 35.231.147.226, 35.243.134.228, 34.140.253.14, 34.38.87.206, 34.134.222.122, and 35.222.25.142.
 4. Click **Connect**.
 5. Linear will generate the Webhook URL after it validates the access token. Copy and paste this URL to GitLab in either:
-  1. A Group's Webhook Settings (For a company on GitLab's Premium or Ultimate tiers) to integrate all projects under it.
-  2. A Project's Webhook Settings, to individually connect a specific project.
+ 1. A Group's Webhook Settings (For a company on GitLab's Premium or Ultimate tiers) to integrate all projects under it.
+ 2. A Project's Webhook Settings, to individually connect a specific project.
 6. Enable the following Triggers:
-  1. `Push events`
-  2. `Comments`
-  3. `Merge request events`
-  4. `Pipeline events`
+ 1. `Push events`
+ 2. `Comments`
+ 3. `Merge request events`
+ 4. `Pipeline events`
 7. Under SSL verification, ensure **Enable SSL verification** is checked
 8. Click **Save changes**.
 
@@ -65,7 +65,7 @@ To link multiple Linear issues to a single Merge Request, or to link a Merge Req
 
 The merge request automation allows you to select specific statuses for your Linear issues based on MR changes—saving you the hassle of updating Linear issues manually. 
 
-Customize the MR automation in **Settings > Team > Workflow**. Since this is a team setting, it must be configured for each team in your workspace.  
+Customize the MR automation in **Settings > Team > Workflow**. Since this is a team setting, it must be configured for each team in your workspace. 
 
 
 ![MR status automation set for the following categories: on draft mr open, on mr open, on mr review request, on mr ready for merge, on mr merge](https://webassets.linear.app/images/ornj730p/production/b26feeac53ba12d391fef53daa87a38366e4a6f2-1346x676.png?q=95&auto=format&dpr=2)
@@ -153,7 +153,7 @@ During integration setup, Linear requires an access token. The below is an exhau
 
 <details>
 <summary>Why are my Linear issues not progressing to my "On MR ready for merge" status?</summary>
-We currently only allow issues to transition to the status you've chosen for "On MR ready for merge" if you also have a status selected for "On MR review request or activity". Make sure that you have a status selected for this event.  
+We currently only allow issues to transition to the status you've chosen for "On MR ready for merge" if you also have a status selected for "On MR review request or activity". Make sure that you have a status selected for this event. 
 
 
 ![GitLab MR workflow status events](https://webassets.linear.app/images/ornj730p/production/69971e7151c829466d84567e82fbf516db5c6390-1586x742.png?q=95&auto=format&dpr=2)

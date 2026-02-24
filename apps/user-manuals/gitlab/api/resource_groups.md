@@ -33,13 +33,13 @@ Example of response
 
 ```json
 [
-  {
+ {
     "id": 3,
     "key": "production",
     "process_mode": "unordered",
     "created_at": "2021-09-01T08:04:59.650Z",
     "updated_at": "2021-09-01T08:04:59.650Z"
-  }
+ }
 ]
 ```
 
@@ -52,7 +52,7 @@ GET /projects/:id/resource_groups/:key
 | Attribute | Type    | Required | Description         |
 |-----------|---------|----------|---------------------|
 | `id`      | integer or string     | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
-| `key`     | string  | yes      | The URL-encoded key of the resource group. For example, use `resource%5Fa` instead of `resource_a`. |
+| `key`     | string | yes      | The URL-encoded key of the resource group. For example, use `resource%5Fa` instead of `resource_a`. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
@@ -63,11 +63,11 @@ Example of response
 
 ```json
 {
-  "id": 3,
-  "key": "production",
-  "process_mode": "unordered",
-  "created_at": "2021-09-01T08:04:59.650Z",
-  "updated_at": "2021-09-01T08:04:59.650Z"
+ "id": 3,
+ "key": "production",
+ "process_mode": "unordered",
+ "created_at": "2021-09-01T08:04:59.650Z",
+ "updated_at": "2021-09-01T08:04:59.650Z"
 }
 ```
 
@@ -86,7 +86,7 @@ GET /projects/:id/resource_groups/:key/current_job
 | Attribute | Type    | Required | Description         |
 |-----------|---------|----------|---------------------|
 | `id`      | integer or string     | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
-| `key`     | string  | yes      | The URL-encoded key of the resource group. For example, use `resource%5Fa` instead of `resource_a`. |
+| `key`     | string | yes      | The URL-encoded key of the resource group. For example, use `resource%5Fa` instead of `resource_a`. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" "https://gitlab.example.com/api/v4/projects/50/resource_groups/production/current_job"
@@ -96,20 +96,20 @@ Example of response
 
 ```json
 {
-  "id": 1154,
-  "status": "waiting_for_resource",
-  "stage": "deploy",
-  "name": "deploy_to_production",
-  "ref": "main",
-  "tag": false,
-  "coverage": null,
-  "allow_failure": false,
-  "created_at": "2022-09-28T09:57:04.590Z",
-  "started_at": null,
-  "finished_at": null,
-  "duration": null,
-  "queued_duration": null,
-  "user": {
+ "id": 1154,
+ "status": "waiting_for_resource",
+ "stage": "deploy",
+ "name": "deploy_to_production",
+ "ref": "main",
+ "tag": false,
+ "coverage": null,
+ "allow_failure": false,
+ "created_at": "2022-09-28T09:57:04.590Z",
+ "started_at": null,
+ "finished_at": null,
+ "duration": null,
+ "queued_duration": null,
+ "user": {
     "id": 1,
     "username": "john_smith",
     "name": "John Smith",
@@ -131,8 +131,8 @@ Example of response
     "followers": 0,
     "following": 0,
     "local_time": null
-  },
-  "commit": {
+ },
+ "commit": {
     "id": "3177f39064891bbbf5124b27850c339da331f02f",
     "short_id": "3177f390",
     "created_at": "2022-09-27T17:55:31.000+02:00",
@@ -149,8 +149,8 @@ Example of response
     "committed_date": "2022-09-27T17:55:31.000+02:00",
     "trailers": {},
     "web_url": "https://gitlab.example.com/test/gitlab/-/commit/3177f39064891bbbf5124b27850c339da331f02f"
-  },
-  "pipeline": {
+ },
+ "pipeline": {
     "id": 274,
     "iid": 9,
     "project_id": 50,
@@ -161,11 +161,11 @@ Example of response
     "created_at": "2022-09-28T09:57:04.538Z",
     "updated_at": "2022-09-28T09:57:13.537Z",
     "web_url": "https://gitlab.example.com/test/gitlab/-/pipelines/274"
-  },
-  "web_url": "https://gitlab.example.com/test/gitlab/-/jobs/1154",
-  "project": {
+ },
+ "web_url": "https://gitlab.example.com/test/gitlab/-/jobs/1154",
+ "project": {
     "ci_job_token_scope_enabled": false
-  }
+ }
 }
 ```
 
@@ -178,7 +178,7 @@ GET /projects/:id/resource_groups/:key/upcoming_jobs
 | Attribute | Type    | Required | Description         |
 |-----------|---------|----------|---------------------|
 | `id`      | integer or string     | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
-| `key`     | string  | yes      | The URL-encoded key of the resource group. For example, use `resource%5Fa` instead of `resource_a`. |
+| `key`     | string | yes      | The URL-encoded key of the resource group. For example, use `resource%5Fa` instead of `resource_a`. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
@@ -189,7 +189,7 @@ Example of response
 
 ```json
 [
-  {
+ {
     "id": 1154,
     "status": "waiting_for_resource",
     "stage": "deploy",
@@ -260,7 +260,7 @@ Example of response
     "project": {
       "ci_job_token_scope_enabled": false
     }
-  }
+ }
 ]
 ```
 
@@ -291,10 +291,10 @@ Example response:
 
 ```json
 {
-  "id": 3,
-  "key": "production",
-  "process_mode": "oldest_first",
-  "created_at": "2021-09-01T08:04:59.650Z",
-  "updated_at": "2021-09-01T08:13:38.679Z"
+ "id": 3,
+ "key": "production",
+ "process_mode": "oldest_first",
+ "created_at": "2021-09-01T08:04:59.650Z",
+ "updated_at": "2021-09-01T08:13:38.679Z"
 }
 ```

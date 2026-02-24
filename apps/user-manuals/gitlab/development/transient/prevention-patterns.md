@@ -38,9 +38,9 @@ Add a network condition template to your browser's developer tools to enable you
 **Example**:
 
 - Turtle:
-  - Down: 50kb/s
-  - Up: 20kb/s
-  - Latency: 10000ms
+ - Down: 50kb/s
+ - Up: 20kb/s
+ - Latency: 10000ms
 
 ### Collapsed elements
 
@@ -53,61 +53,46 @@ Including when that expanded content is:
 
 ### Using assertions to detect transient bugs caused by unmet conditions
 
-Transient bugs happen in the context of code that executes under the assumption
-that the application's state meets one or more conditions. We may write a feature
-that assumes a server-side API response always include a group of attributes or that
-an operation only executes when the application has successfully transitioned to a new
-state.
+Transient bugs happen in the context of code that executes under the assumption that the application's state meets one or more conditions. We may write a feature that assumes a server-side API response always include a group of attributes or that an operation only executes when the application has successfully transitioned to a new state.
 
-Transient bugs are difficult to debug because there isn't any mechanism that alerts
-the user or the developer about unsatisfied conditions. These conditions are usually
-not expressed explicitly in the code. A useful debugging technique for such situations
-is placing assertions to make any assumption explicit. They can help detect the cause
-which unmet condition causes the bug.
+Transient bugs are difficult to debug because there isn't any mechanism that alerts the user or the developer about unsatisfied conditions. These conditions are usually not expressed explicitly in the code. A useful debugging technique for such situations is placing assertions to make any assumption explicit. They can help detect the cause which unmet condition causes the bug.
 
 #### Asserting pre-conditions on state mutations
 
-A common scenario that leads to transient bugs is when there is a polling service
-that should mutate state only if a user operation is completed. We can use
-assertions to make this pre-condition explicit:
+A common scenario that leads to transient bugs is when there is a polling service that should mutate state only if a user operation is completed. We can use assertions to make this pre-condition explicit:
 
 ```javascript
 // This action is called by a polling service. It assumes that all pre-conditions
 // are satisfied by the time the action is dispatched.
 export const updateMergeableStatus = ({ commit }, payload) => {
-  commit(types.SET_MERGEABLE_STATUS, payload);
+ commit(types.SET_MERGEABLE_STATUS, payload);
 };
 
 // We can make any pre-condition explicit by adding an assertion
 export const updateMergeableStatus = ({ state, commit }, payload) => {
-  console.assert(
+ console.assert(
     state.isResolvingDiscussion === true,
     'Resolve discussion request must be completed before updating mergeable status'
-  );
-  commit(types.SET_MERGEABLE_STATUS, payload);
+ );
+ commit(types.SET_MERGEABLE_STATUS, payload);
 };
 ```
 
 #### Asserting API contracts
 
-Another useful way of using assertions is to detect if the response payload returned
-by the server-side endpoint satisfies the API contract.
+Another useful way of using assertions is to detect if the response payload returned by the server-side endpoint satisfies the API contract.
 
 #### Related reading
 
-[Debug it!](https://pragprog.com/titles/pbdp/debug-it/) explores techniques to diagnose
-and fix non-deterministic bugs and write software that is easier to debug.
+[Debug it!](https://pragprog.com/titles/pbdp/debug-it/) explores techniques to diagnose and fix non-deterministic bugs and write software that is easier to debug.
 
 ## Backend
 
 ### Sidekiq jobs with locks
 
-When dealing with asynchronous work via Sidekiq, it is possible to have 2 jobs with the same arguments
-getting worked on at the same time. If not handled correctly, this can result in an outdated or inaccurate state.
+When dealing with asynchronous work via Sidekiq, it is possible to have 2 jobs with the same arguments getting worked on at the same time. If not handled correctly, this can result in an outdated or inaccurate state.
 
-For instance, consider a worker that updates a state of an object. Before the worker updates the state
-(for example, `#update_state`) of the object, it needs to check what the appropriate state should be
-(for example, `#check_state`).
+For instance, consider a worker that updates a state of an object. Before the worker updates the state (for example, `#update_state`) of the object, it needs to check what the appropriate state should be (for example, `#check_state`).
 
 When there are 2 jobs being worked on at the same time, it is possible that the order of operations will go like:
 
@@ -118,16 +103,13 @@ When there are 2 jobs being worked on at the same time, it is possible that the 
 
 In this example, `Worker B` is meant to set the updated status. But `Worker A` calls `#update_state` a little too late.
 
-This can be avoided by utilizing either database locks or `Gitlab::ExclusiveLease`. This way, jobs will be
-worked on one at a time. This also allows them to be marked as [idempotent](../sidekiq/idempotent_jobs.md).
+This can be avoided by utilizing either database locks or `Gitlab::ExclusiveLease`. This way, jobs will be worked on one at a time. This also allows them to be marked as [idempotent](../sidekiq/idempotent_jobs.md).
 
 ### Retry mechanism handling
 
 There are times that an object/record will be on a failed state which can be rechecked.
 
-If an object is in a state that can be rechecked, ensure that appropriate messaging is shown to the user
-so they know what to do. Also, make sure that the retry functionality will be able to reset the state
-correctly when triggered.
+If an object is in a state that can be rechecked, ensure that appropriate messaging is shown to the user so they know what to do. Also, make sure that the retry functionality will be able to reset the state correctly when triggered.
 
 ### Error Logging
 

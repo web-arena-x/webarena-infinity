@@ -33,8 +33,7 @@ Use this API to:
 - Configure upstream container registries.
 - Manage cached container images and manifests.
 
-For information about pulling container images through a virtual registry, see
-[Container virtual registry](../user/packages/virtual_registry/container/_index.md).
+For information about pulling container images through a virtual registry, see [Container virtual registry](../user/packages/virtual_registry/container/_index.md).
 
 ## Manage virtual registries
 
@@ -66,14 +65,14 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "group_id": 5,
     "name": "my-container-virtual-registry",
     "description": "My container virtual registry",
     "created_at": "2024-05-30T12:28:27.855Z",
     "updated_at": "2024-05-30T12:28:27.855Z"
-  }
+ }
 ]
 ```
 
@@ -109,12 +108,12 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "group_id": 5,
-  "name": "my-container-virtual-registry",
-  "description": "My container virtual registry",
-  "created_at": "2024-05-30T12:28:27.855Z",
-  "updated_at": "2024-05-30T12:28:27.855Z"
+ "id": 1,
+ "group_id": 5,
+ "name": "my-container-virtual-registry",
+ "description": "My container virtual registry",
+ "created_at": "2024-05-30T12:28:27.855Z",
+ "updated_at": "2024-05-30T12:28:27.855Z"
 }
 ```
 
@@ -144,19 +143,19 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "group_id": 5,
-  "name": "my-container-virtual-registry",
-  "description": "My container virtual registry",
-  "created_at": "2024-05-30T12:28:27.855Z",
-  "updated_at": "2024-05-30T12:28:27.855Z",
-  "registry_upstreams": [
+ "id": 1,
+ "group_id": 5,
+ "name": "my-container-virtual-registry",
+ "description": "My container virtual registry",
+ "created_at": "2024-05-30T12:28:27.855Z",
+ "updated_at": "2024-05-30T12:28:27.855Z",
+ "registry_upstreams": [
     {
       "id": 2,
       "position": 1,
       "upstream_id": 2
     }
-  ]
+ ]
 }
 ```
 
@@ -275,7 +274,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "group_id": 5,
     "url": "https://registry-1.docker.io",
@@ -285,7 +284,7 @@ Example response:
     "username": "user",
     "created_at": "2024-05-30T12:28:27.855Z",
     "updated_at": "2024-05-30T12:28:27.855Z"
-  }
+ }
 ]
 ```
 
@@ -315,7 +314,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "group_id": 5,
     "url": "https://registry-1.docker.io",
@@ -330,7 +329,7 @@ Example response:
       "registry_id": 1,
       "position": 1
     }
-  }
+ }
 ]
 ```
 
@@ -379,20 +378,20 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "group_id": 5,
-  "url": "https://registry-1.docker.io",
-  "name": "Docker Hub",
-  "description": "Docker Hub registry",
-  "cache_validity_hours": 48,
-  "username": "user",
-  "created_at": "2024-05-30T12:28:27.855Z",
-  "updated_at": "2024-05-30T12:28:27.855Z",
-  "registry_upstream": {
+ "id": 1,
+ "group_id": 5,
+ "url": "https://registry-1.docker.io",
+ "name": "Docker Hub",
+ "description": "Docker Hub registry",
+ "cache_validity_hours": 48,
+ "username": "user",
+ "created_at": "2024-05-30T12:28:27.855Z",
+ "updated_at": "2024-05-30T12:28:27.855Z",
+ "registry_upstream": {
     "id": 1,
     "registry_id": 1,
     "position": 1
-  }
+ }
 }
 ```
 
@@ -422,22 +421,22 @@ Example response:
 
 ```json
 {
-  "id": 1,
-  "group_id": 5,
-  "url": "https://registry-1.docker.io",
-  "name": "Docker Hub",
-  "description": "Docker Hub registry",
-  "cache_validity_hours": 24,
-  "username": "user",
-  "created_at": "2024-05-30T12:28:27.855Z",
-  "updated_at": "2024-05-30T12:28:27.855Z",
-  "registry_upstreams": [
+ "id": 1,
+ "group_id": 5,
+ "url": "https://registry-1.docker.io",
+ "name": "Docker Hub",
+ "description": "Docker Hub registry",
+ "cache_validity_hours": 24,
+ "username": "user",
+ "created_at": "2024-05-30T12:28:27.855Z",
+ "updated_at": "2024-05-30T12:28:27.855Z",
+ "registry_upstreams": [
     {
       "id": 1,
       "registry_id": 1,
       "position": 1
     }
-  ]
+ ]
 }
 ```
 
@@ -555,10 +554,10 @@ Example response:
 
 ```json
 {
-  "id": 5,
-  "registry_id": 1,
-  "upstream_id": 2,
-  "position": 2
+ "id": 5,
+ "registry_id": 1,
+ "upstream_id": 2,
+ "position": 2
 }
 ```
 
@@ -647,7 +646,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": "MTUgbGlicmFyeS9uZ2lueC9tYW5pZmVzdC9zaGEyNTY6YWJjZGVmZ2hpams=",
     "group_id": 5,
     "upstream_id": 1,
@@ -662,7 +661,7 @@ Example response:
     "updated_at": "2024-05-30T12:28:27.855Z",
     "downloads_count": 5,
     "downloaded_at": "2024-06-05T14:58:32.855Z"
-  }
+ }
 ]
 ```
 

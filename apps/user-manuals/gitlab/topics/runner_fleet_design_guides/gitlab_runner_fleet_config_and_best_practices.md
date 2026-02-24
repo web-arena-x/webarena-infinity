@@ -13,8 +13,7 @@ title: Design and configure a GitLab Runner fleet on Google Kubernetes Engine
 
 {{< /details >}}
 
-Use these recommendations to analyze your CI/CD build requirements to design, configure,
-and validate a GitLab Runner fleet hosted on Google Kubernetes Engine (GKE).
+Use these recommendations to analyze your CI/CD build requirements to design, configure, and validate a GitLab Runner fleet hosted on Google Kubernetes Engine (GKE).
 
 The following diagram illustrates the path of your runner fleet implementation journey.
 The guide follows these steps:
@@ -34,9 +33,7 @@ This framework includes the following steps:
 
 In this phase, you gather the CI/CD build requirements of the development teams that you support. If applicable, create an inventory of the programming, scripting, and markup languages that are in use.
 
-You might be supporting multiple development teams, various programming languages,
-and build requirements. Start with one team, one project, and one set of CI/CD build
-requirements for the first set of in-depth analysis.
+You might be supporting multiple development teams, various programming languages, and build requirements. Start with one team, one project, and one set of CI/CD build requirements for the first set of in-depth analysis.
 
 To assess expected CI/CD workloads:
 
@@ -54,11 +51,11 @@ The `.gitlab-ci.yml` for the job is as follows:
 
 ```yaml
 tests:
-  image: python:3.11.10-bookworm
-  parallel: 25
-  script:
-  - pip install -r requirements.txt
-  - pytest
+ image: python:3.11.10-bookworm
+ parallel: 25
+ script:
+ - pip install -r requirements.txt
+ - pytest
 ```
 
 To identify the compute and RAM resources needed, use Docker to:
@@ -87,8 +84,7 @@ Complete the following steps to identify the compute and RAM resources needed:
    CMD [ "bash", "/fastapi/entrypoint.sh" ]
    ```
 
-1. Build the image. To simplify the process, perform all operations such as build, store,
-   and run the image locally. This approach eliminates the need of an online registry to pull and push the image.
+1. Build the image. To simplify the process, perform all operations such as build, store, and run the image locally. This approach eliminates the need of an online registry to pull and push the image.
 
    ```shell
    ❯ docker build . -t my-project_dir/fastapi:testing
@@ -151,8 +147,7 @@ Complete the following steps to identify the compute and RAM resources needed:
 
 ### Analyzing the metrics collected
 
-Based on the metrics collected, for this job profile, you can limit the Kubernetes executor job to
-`1 CPU` and `~304 Mi of Memory`. Even if this conclusion is accurate, it might not be practical for all use cases.
+Based on the metrics collected, for this job profile, you can limit the Kubernetes executor job to `1 CPU` and `~304 Mi of Memory`. Even if this conclusion is accurate, it might not be practical for all use cases.
 
 If you use a cluster with a node pool of three `e2-standard-4` nodes to run jobs, the `1 CPU` limit allows only 12 jobs to run simultaneously (an `e2-standard-4` node has 4 vCPU and 16 GB of memory). Additional jobs wait for the running jobs to complete and free up the resources before starting.
 
@@ -178,8 +173,8 @@ To plan runner scope, consider the following questions:
 
 - Do you want project owners and group owners to create and manage their own runners?
 
-  - By default, project and group owners can create runner configuration and register runners to a project or group in GitLab.
-  - This design allows developers to create a build environment quickly. This approach reduces developer friction when getting started with GitLab CI/CD. However, in large organizations, this approach may lead to many underutilized or unused runners across the environment.
+ - By default, project and group owners can create runner configuration and register runners to a project or group in GitLab.
+ - This design allows developers to create a build environment quickly. This approach reduces developer friction when getting started with GitLab CI/CD. However, in large organizations, this approach may lead to many underutilized or unused runners across the environment.
 
 - Does your organization have security or other policies that require segmenting access to certain types of runners to specific groups or projects?
 
@@ -195,26 +190,25 @@ The configuration in the table demonstrates the flexibility available when confi
 
 | Runner Type | Runner Tag       | Scope                                                               | Count of Runner type to offer | Runner Worker Specification | Runner Host Environment | Environment Configuration |
 |:------------|:-----------------|:--------------------------------------------------------------------|:------------------------------|:----------------------------|:------------------------|:--------------------------|
-| Instance    | ci-runner-small  | Available to run CI/CD jobs for all groups and projects by default. | 5                             | 2 vCPU, 8 GB RAM            | Kubernetes              | → 3 nodes <br> → Runner worker compute node \= `e2-standard-2` |
+| Instance    | ci-runner-small | Available to run CI/CD jobs for all groups and projects by default. | 5                             | 2 vCPU, 8 GB RAM            | Kubernetes              | → 3 nodes <br> → Runner worker compute node \= `e2-standard-2` |
 | Instance    | ci-runner-medium | Available to run CI/CD jobs for all groups and projects by default. | 2                             | 4 vCPU, 16 GB RAM           | Kubernetes              | → 3 nodes <br> → Runner worker compute node \= `e2-standard-4` |
-| Instance    | ci-runner-large  | Available to run CI/CD jobs for all groups and projects by default. | 1                             | 8 vCPU, 32 GB RAM           | Kubernetes              | → 3 nodes <br> → Runner worker compute node \= `e2-standard-8` |
+| Instance    | ci-runner-large | Available to run CI/CD jobs for all groups and projects by default. | 1                             | 8 vCPU, 32 GB RAM           | Kubernetes              | → 3 nodes <br> → Runner worker compute node \= `e2-standard-8` |
 
 In the runner fleet configuration example, there are a total of three runner configurations and eight runners actively running CI/CD jobs.
 
 With the Kubernetes executor, you can use the Kubernetes scheduler and overwrite container resources.
-In theory, you can deploy a single GitLab Runner on a Kubernetes cluster with adequate resources. You
-can then overwrite container resources to select the appropriate compute type for each CI/CD job.
+In theory, you can deploy a single GitLab Runner on a Kubernetes cluster with adequate resources. You can then overwrite container resources to select the appropriate compute type for each CI/CD job.
 Implementing this pattern reduces the number of separate runner configurations you need to deploy and operate.
 
 ### Best practices
 
 - Always dedicate a node pool to the runner managers.
-  - Log processing and cache or artifacts management can be CPU intensive.
+ - Log processing and cache or artifacts management can be CPU intensive.
 - Always set a default limit (CPU/Memory for Build/Helper/Service containers) in the `config.toml` file.
 - Always allow maximum overwrite for the resources in the `config.toml` file.
 - In the job definition (`.gitlab-ci.yml`), specify the right limit needed by the jobs.
-  - If not specified, the default values set in the `config.toml` file is used.
-  - If a container exceeds its memory limit, the system automatically terminates it using the Out of Memory (OOM) kill process.
+ - If not specified, the default values set in the `config.toml` file is used.
+ - If a container exceeds its memory limit, the system automatically terminates it using the Out of Memory (OOM) kill process.
 - Use the feature flags `FF_RETRIEVE_POD_WARNING_EVENTS` and `FF_PRINT_POD_EVENTS`. For more details, see the [feature flags documentation](https://docs.gitlab.com/runner/configuration/feature-flags.html).
 
 ## Deploy the runner on GKE
@@ -231,34 +225,27 @@ The following example uses GRIT to deploy the Google Kubernetes cluster and GitL
 To have the cluster and GitLab Runner well configured, consider the following information:
 
 - How many job types do I need to cover?
-  - This information comes from the assess phase. The assess phase aggregates metrics and
-    identifies the number of resulting groups, considering organizational constraints.
+ - This information comes from the assess phase. The assess phase aggregates metrics and identifies the number of resulting groups, considering organizational constraints.
     A "job type" is a collection of categorized jobs identified during the access phase.
     This categorization is based on the maximum resources needed by the job.
 - How many GitLab Runner Managers do I need to run?
-  - This information comes from the plan phase. If the organization manages projects separately,
-    apply this framework to each project individually. This approach is relevant only when multiple job profiles
-    are identified (for the entire organization or for a specific project), and they are all handled by an individual
-    or a fleet of GitLab Runners. A basic configuration typically uses one GitLab Runner Manager per GKE cluster.
+ - This information comes from the plan phase. If the organization manages projects separately, apply this framework to each project individually. This approach is relevant only when multiple job profiles are identified (for the entire organization or for a specific project), and they are all handled by an individual or a fleet of GitLab Runners. A basic configuration typically uses one GitLab Runner Manager per GKE cluster.
 - What is the estimated max concurrent CI/CD jobs?
-  - This information represents an estimate of the maximum number of concurrent CI/CD jobs that
-    are run at any point in time. This information is needed when configuring the GitLab Runner Manager by
-    providing how long it waits during the `Prepare` stage: job pod scheduling on a node with limited available resources.
+ - This information represents an estimate of the maximum number of concurrent CI/CD jobs that are run at any point in time. This information is needed when configuring the GitLab Runner Manager by providing how long it waits during the `Prepare` stage: job pod scheduling on a node with limited available resources.
 
 ### Real life applications for the FastAPI fork
 
 For the FastAPI fork, consider the following information:
 
 - How many job profiles do I need to cover?
-  - You have one job profile with the following characteristics: `1 CPU` and `303 Mi` of memory.
-    As explained in [Analyzing the metrics collected](#analyzing-the-metrics-collected) sections,
-    those raw values change to the following:
+ - You have one job profile with the following characteristics: `1 CPU` and `303 Mi` of memory.
+    As explained in [Analyzing the metrics collected](#analyzing-the-metrics-collected) sections, those raw values change to the following:
     - `400 Mi` for the memory limit instead of `303 Mi` to avoid any job failure due to the memory limits.
     - `0.20` for the CPU instead of `1 CPU`. For this example, you prioritize accuracy and quality over speed when completing tasks.
 - How many GitLab Runner Managers do I need to run?
-  - Only one GitLab Runner Manager is enough for your tests.
+ - Only one GitLab Runner Manager is enough for your tests.
 - What is the expected Workload?
-  - You want to run up to 20 jobs simultaneously at any time.
+ - You want to run up to 20 jobs simultaneously at any time.
 
 Based on these inputs, any GKE Cluster with the following minimum characteristics should be enough:
 
@@ -284,7 +271,7 @@ google_region      = "GCLOUD_REGION"
 google_zone        = "GCLOUD_ZONE"
 name               = "my-grit-gke-cluster"
 node_pools = {
-  "runner-manager" = {
+ "runner-manager" = {
     node_count = 1,
     node_config = {
       machine_type = "e2-standard-2",
@@ -295,8 +282,8 @@ node_pools = {
         "app" = "gitlab-runner",
       }
     },
-  },
-  "worker-pool" = {
+ },
+ "worker-pool" = {
     node_count = 3,
     node_config = {
       machine_type = "e2-standard-4",    #4 vCPU, 16 GB each
@@ -307,7 +294,7 @@ node_pools = {
         "app" = "gitlab-runner-job"
       }
     },
-  },
+ },
 }
 ```
 
@@ -328,7 +315,7 @@ The resulting GitLab Runner configuration for GRIT looks similar to this:
 
 ```terraform
 gitlab_pat         = "glpat-REDACTED"
-gitlab_project_id  = GITLAB_PROJECT_ID
+gitlab_project_id = GITLAB_PROJECT_ID
 runner_description = "my-grit-gitlab-runner"
 runner_image       = "registry.gitlab.com/gitlab-org/ci-cd/gitlab-runner-ubi-images/gitlab-runner-ocp:amd64-v17.3.1"
 helper_image       = "registry.gitlab.com/gitlab-org/ci-cd/gitlab-runner-ubi-images/gitlab-runner-helper-ocp:x86_64-v17.3.1"
@@ -337,13 +324,13 @@ check_interval = 1
 runner_tags    = ["my-custom-tag"]
 config_template    = <<EOT
 [[runners]]
-  name = "my-grit-gitlab-runner"
-  shell = "bash"
-  environment = [
+ name = "my-grit-gitlab-runner"
+ shell = "bash"
+ environment = [
     "FF_RETRIEVE_POD_WARNING_EVENTS=true",
     "FF_PRINT_POD_EVENTS=true",
-  ]
-  [runners.kubernetes]
+ ]
+ [runners.kubernetes]
     image = "alpine"
     cpu_limit = "0.25"
     memory_limit = "400Mi"
@@ -353,18 +340,18 @@ config_template    = <<EOT
     memory_limit_overwrite_max_allowed = "400Mi"
     helper_cpu_limit_overwrite_max_allowed = "150m"
     helper_memory_limit_overwrite_max_allowed = "150Mi"
-  [runners.kubernetes.node_selector]
+ [runners.kubernetes.node_selector]
     "app" = "gitlab-runner-job"
 EOT
 pod_spec = [
-  {
+ {
     name      = "selector",
     patchType = "merge",
     patch     = <<EOT
 nodeSelector:
-  app: "gitlab-runner"
+ app: "gitlab-runner"
 EOT
-  }
+ }
 ]
 ```
 
@@ -379,23 +366,23 @@ In the previous configuration:
 Take the following information in to consideration:
 
 - How many job profiles do I need to cover?
-  - Two profiles (specifications provided takes the helper limits in account):
+ - Two profiles (specifications provided takes the helper limits in account):
     - Medium jobs: `300m CPU` and `200 MiB`
     - CPU-intensive jobs: `1 CPU` and `1 GiB`
 - How many GitLab Runner Managers do I need to run?
-  - One.
+ - One.
 - What is the expected Workload?
-  - Up to 50 medium jobs simultaneously
-  - Up to 25 CPU-intensive jobs simultaneously
+ - Up to 50 medium jobs simultaneously
+ - Up to 25 CPU-intensive jobs simultaneously
 
 #### GKE configuration
 
 - Needs for medium jobs:
-  - CPU: `300m * 50 = 5 CPU` (approximate)
-  - Memory: `200 MiB * 50 = 10 GiB`
+ - CPU: `300m * 50 = 5 CPU` (approximate)
+ - Memory: `200 MiB * 50 = 10 GiB`
 - Needs for CPU-intensive jobs:
-  - CPU: `1 * 25 = 25`
-  - Memory: `1 GiB * 25 = 25 GiB`
+ - CPU: `1 * 25 = 25`
+ - Memory: `1 GiB * 25 = 25 GiB`
 
 The GKE cluster should have:
 
@@ -409,7 +396,7 @@ google_region      = "GCLOUD_REGION"
 google_zone        = "GCLOUD_ZONE"
 name               = "my-grit-gke-cluster"
 node_pools = {
-  "runner-manager" = {
+ "runner-manager" = {
     node_count = 1,
     node_config = {
       machine_type = "e2-standard-2",
@@ -420,8 +407,8 @@ node_pools = {
         "app" = "gitlab-runner",
       }
     },
-  },
-  "medium-pool" = {
+ },
+ "medium-pool" = {
     node_count = 3,
     node_config = {
       machine_type = "e2-standard-4",    #4 vCPU, 16 GB each
@@ -432,8 +419,8 @@ node_pools = {
         "app" = "gitlab-runner-job"
       }
     },
-  },
-  "cpu-intensive-pool" = {
+ },
+ "cpu-intensive-pool" = {
     node_count = 1,
     node_config = {
       machine_type = "e2-highcpu-32", #32 vCPU, 32 GB each
@@ -444,7 +431,7 @@ node_pools = {
         "app" = "gitlab-runner-job"
       }
     },
-  },
+ },
 }
 ```
 
@@ -454,7 +441,7 @@ The current implementation of GRIT doesn't allow the installation of more than o
 
 ```terraform
 gitlab_pat         = "glpat-REDACTED"
-gitlab_project_id  = GITLAB_PROJECT_ID
+gitlab_project_id = GITLAB_PROJECT_ID
 runner_description = "my-grit-gitlab-runner"
 runner_image       = "registry.gitlab.com/gitlab-org/ci-cd/gitlab-runner-ubi-images/gitlab-runner-ocp:amd64-v17.3.1"
 helper_image       = "registry.gitlab.com/gitlab-org/ci-cd/gitlab-runner-ubi-images/gitlab-runner-helper-ocp:x86_64-v17.3.1"
@@ -463,13 +450,13 @@ check_interval = 1
 runner_tags    = ["my-custom-tag"]
 config_template    = <<EOT
 [[runners]]
-  name = "my-grit-gitlab-runner"
-  shell = "bash"
-  environment = [
+ name = "my-grit-gitlab-runner"
+ shell = "bash"
+ environment = [
     "FF_RETRIEVE_POD_WARNING_EVENTS=true",
     "FF_PRINT_POD_EVENTS=true",
-  ]
-  [runners.kubernetes]
+ ]
+ [runners.kubernetes]
     image = "alpine"
     cpu_limit_overwrite_max_allowed = "0.75"
     memory_limit_overwrite_max_allowed = "900Mi"
@@ -477,14 +464,14 @@ config_template    = <<EOT
     helper_memory_limit_overwrite_max_allowed = "100Mi"
 EOT
 pod_spec = [
-  {
+ {
     name      = "selector",
     patchType = "merge",
     patch     = <<EOT
 nodeSelector:
-  app: "gitlab-runner"
+ app: "gitlab-runner"
 EOT
-  }
+ }
 ]
 ```
 
@@ -492,14 +479,14 @@ The `.gitlab-ci.yml` file looks similar to this:
 
 - For medium jobs:
 
-  ```yaml
-  variables:
+ ```yaml
+ variables:
     KUBERNETES_CPU_LIMIT: "200m"
     KUBERNETES_MEMORY_LIMIT: "100Mi"
     KUBERNETES_HELPER_CPU_LIMIT: "100m"
     KUBERNETES_HELPER_MEMORY_LIMIT: "100Mi"
 
-  tests:
+ tests:
     image: some-image:latest
     script:
     - command_1
@@ -508,18 +495,18 @@ The `.gitlab-ci.yml` file looks similar to this:
     - command_n
     tags:
       - my-custom-tag
-  ```
+ ```
 
 - For CPU-intensive jobs:
 
-  ```yaml
-  variables:
+ ```yaml
+ variables:
     KUBERNETES_CPU_LIMIT: "0.75"
     KUBERNETES_MEMORY_LIMIT: "900Mi"
     KUBERNETES_HELPER_CPU_LIMIT: "150m"
     KUBERNETES_HELPER_MEMORY_LIMIT: "100Mi"
 
-  tests:
+ tests:
     image: custom-cpu-intensive-image:latest
     script:
     - cpu_intensive_command_1
@@ -528,7 +515,7 @@ The `.gitlab-ci.yml` file looks similar to this:
     - cpu_intensive_command_n
     tags:
       - my-custom-tag
-  ```
+ ```
 
 > [!note]
 > For an easier configuration, use one GitLab Runner per cluster for job profile. This approach is recommended until GitLab supports either multiple GitLab Runner installations on the same cluster or multiple `[[runners]]` section in the `config.toml` template.
@@ -540,12 +527,12 @@ As a final step in the deployment phase, you must establish a solution to monito
 #### Monitoring best practices
 
 - Monitor job level metrics: job duration, job success and failure rates.
-  - To analyze the job-level metrics, understand which CI/CD jobs are run most frequently and consume the most compute and RAM resources in aggregate. This job profile is a good starting point for evaluating optimization opportunities.
+ - To analyze the job-level metrics, understand which CI/CD jobs are run most frequently and consume the most compute and RAM resources in aggregate. This job profile is a good starting point for evaluating optimization opportunities.
 - Monitor the Kubernetes cluster resource utilization:
-  - CPU utilization
-  - Memory utilization
-  - Network utilization
-  - Disk utilization
+ - CPU utilization
+ - Memory utilization
+ - Network utilization
+ - Disk utilization
 
 See the [Dedicated GitLab Runner monitoring page](https://docs.gitlab.com/runner/monitoring/) for more details on how to proceed.
 

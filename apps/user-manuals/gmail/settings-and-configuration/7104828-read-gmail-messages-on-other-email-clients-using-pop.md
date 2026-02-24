@@ -35,10 +35,10 @@ You can open your messages from Gmail in other mail clients that support POP, l
 
 Go to your client, such as Microsoft Outlook, and check these settings.
 
-|  |  |
+| | |
 | --- | --- |
-| Incoming Mail (POP) Server | pop.gmail.com  Requires SSL: Yes  Port: 995 |
-| Outgoing Mail (SMTP) Server | smtp.gmail.com  Requires SSL: Yes  Requires TLS: Yes (if available)  Requires Authentication: Yes  Port for TLS/STARTTLS: 587  **If you use Gmail with your work or school account**, check with your [administrator](/a/answer/6208960) for the correct SMTP configuration. |
+| Incoming Mail (POP) Server | pop.gmail.com Requires SSL: Yes Port: 995 |
+| Outgoing Mail (SMTP) Server | smtp.gmail.com Requires SSL: Yes Requires TLS: Yes (if available) Requires Authentication: Yes Port for TLS/STARTTLS: 587 **If you use Gmail with your work or school account**, check with your [administrator](/a/answer/6208960) for the correct SMTP configuration. |
 | Server timeouts | Greater than 1 minute (5 is recommended) |
 | Full name or display name | Your name |
 | Account name, username, or email address | Your email address |
@@ -140,7 +140,7 @@ To use POP while the setup is still in process, you can:
 
 - Change your email client to use recent mode.
 - Wait until the process completes.
-  - To check if the process is complete:
+ - To check if the process is complete:
     1. On your computer, open [Gmail](https://mail.google.com/).
     2. At the top right, click Settings ![Settings](//lh3.googleusercontent.com/p3J-ZSPOLtuBBR_ofWTFDfdgAYQgi8mR5c76ie8XQ2wjegk7-yyU5zdRVHKybQgUlQ=h36) ![and then](//lh3.googleusercontent.com/3_l97rr0GvhSP2XV5OoCkV2ZDTIisAOczrSdzNCBxhIKWrjXjHucxNwocghoUa39gw=h36) **See all settings**.
     3. Select the **Forwarding and POP/IMAP** tab.

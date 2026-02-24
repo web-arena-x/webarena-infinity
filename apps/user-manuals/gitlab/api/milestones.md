@@ -37,7 +37,7 @@ Parameters:
 | Attribute                         | Type   | Required | Description |
 | ----------------------------      | ------ | -------- | ----------- |
 | `id`                              | integer or string | yes | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
-| `iids[]`                          | integer array | no | Return only the milestones having the given `iid`. Ignored if `include_ancestors` is `true`.  |
+| `iids[]`                          | integer array | no | Return only the milestones having the given `iid`. Ignored if `include_ancestors` is `true`. |
 | `state`                           | string | no | Return only `active` or `closed` milestones |
 | `title`                           | string | no | Return only the milestones having the given `title` |
 | `search`                          | string | no | Return only milestones with a title or description matching the provided string |
@@ -54,7 +54,7 @@ Example Response:
 
 ```json
 [
-  {
+ {
     "id": 12,
     "iid": 3,
     "project_id": 16,
@@ -66,7 +66,7 @@ Example Response:
     "updated_at": "2013-10-02T09:24:18Z",
     "created_at": "2013-10-02T09:24:18Z",
     "expired": false
-  }
+ }
 ]
 ```
 
@@ -101,7 +101,7 @@ Parameters:
 | `title`       | string         | yes      | The title of a milestone                                                                                        |
 | `description` | string         | no       | The description of the milestone                                                                                |
 | `due_date`    | string         | no       | The due date of the milestone (`YYYY-MM-DD`)                                                                    |
-| `start_date`  | string         | no       | The start date of the milestone (`YYYY-MM-DD`)                                                                  |
+| `start_date` | string         | no       | The start date of the milestone (`YYYY-MM-DD`)                                                                  |
 
 ## Edit milestone
 
@@ -118,10 +118,10 @@ Parameters:
 | `id`           | integer or string | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
 | `milestone_id` | integer        | yes      | The ID of the project's milestone                                                                               |
 | `title`        | string         | no       | The title of a milestone                                                                                        |
-| `description`  | string         | no       | The description of the milestone                                                                                |
+| `description` | string         | no       | The description of the milestone                                                                                |
 | `due_date`     | string         | no       | The due date of the milestone (`YYYY-MM-DD`)                                                                    |
 | `start_date`   | string         | no       | The start date of the milestone (`YYYY-MM-DD`)                                                                  |
-| `state_event`  | string         | no       | The state event of the milestone (close or activate)                                                            |
+| `state_event` | string         | no       | The state event of the milestone (close or activate)                                                            |
 
 ## Delete project milestone
 

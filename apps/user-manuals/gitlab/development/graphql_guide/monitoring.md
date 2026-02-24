@@ -12,12 +12,11 @@ In Kibana we can inspect two kinds of GraphQL logs:
 
 - Logs of each GraphQL query executed within the request.
 - Logs of the full request, which due to [query multiplexing](https://graphql-ruby.org/queries/multiplex.html)
-  may have executed multiple queries.
+ may have executed multiple queries.
 
 ## Logs of each GraphQL query
 
-In a [multiplex query](https://graphql-ruby.org/queries/multiplex.html), each individual query
-is logged separately. We can use subcomponent filtering to inspect these logs.
+In a [multiplex query](https://graphql-ruby.org/queries/multiplex.html), each individual query is logged separately. We can use subcomponent filtering to inspect these logs.
 [Visit Kibana with this filter enabled](https://log.gprd.gitlab.net/goto/a0da8c9a1e9c1f533a058b7d29d13956)
 or set up the subcomponent filter using these steps:
 
@@ -27,9 +26,7 @@ or set up the subcomponent filter using these steps:
    1. Value: `graphql_json`
 1. Select **Refresh**.
 
-You can select Kibana fields from the **Available fields** section of the sidebar to
-add columns to the log table, or [visit this view](https://log.gprd.gitlab.net/goto/5826d3d3affb41cac52e637ffc205905),
-which already has a set of Kibana fields selected.
+You can select Kibana fields from the **Available fields** section of the sidebar to add columns to the log table, or [visit this view](https://log.gprd.gitlab.net/goto/5826d3d3affb41cac52e637ffc205905), which already has a set of Kibana fields selected.
 
 Some relevant Kibana fields include:
 
@@ -60,8 +57,7 @@ Below are some examples of common Kibana filters.
 1. Combine the [subcomponent filter](#logs-of-each-graphql-query) with the following Kibana filter:
    1. Filter: `json.query_analysis.used_fields`
    1. Operator: `is`
-   1. Value: `Type.myField`, where `Type.myField` is the type name and field name as it
-      appears in [our GraphQL API resources documentation](../../api/graphql/reference/_index.md).
+   1. Value: `Type.myField`, where `Type.myField` is the type name and field name as it appears in [our GraphQL API resources documentation](../../api/graphql/reference/_index.md).
 1. Select **Refresh**.
 
 #### See deprecated field usage
@@ -71,16 +67,14 @@ Below are some examples of common Kibana filters.
 1. Combine the [subcomponent filter](#logs-of-each-graphql-query) with the following Kibana filter:
    1. Filter: `json.query_analysis.used_deprecated_fields`
    1. Operator: `is`
-   1. Value: `Type.myField`, where `Type.myField` is the type name and field name as it
-      appears in [our GraphQL API resources documentation](../../api/graphql/reference/_index.md).
+   1. Value: `Type.myField`, where `Type.myField` is the type name and field name as it appears in [our GraphQL API resources documentation](../../api/graphql/reference/_index.md).
 1. Select **Refresh**.
 
 #### See queries that were not made by our frontend
 
 [See example filter](https://log.gprd.gitlab.net/app/r/s/cWkK1).
 
-As mentioned [above](#logs-of-each-graphql-query), `json.meta.caller_id` appears as `graphql:<operation_name>` for queries that
-came from the GitLab frontend, otherwise as `graphql:unknown`. This filter be used to identify internal versus external queries.
+As mentioned [above](#logs-of-each-graphql-query), `json.meta.caller_id` appears as `graphql:<operation_name>` for queries that came from the GitLab frontend, otherwise as `graphql:unknown`. This filter be used to identify internal versus external queries.
 
 1. Combine the [subcomponent filter](#logs-of-each-graphql-query) with the following Kibana filter:
    1. Filter: `json.meta.caller_id`

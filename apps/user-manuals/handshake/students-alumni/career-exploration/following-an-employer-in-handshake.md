@@ -70,13 +70,13 @@ After scanning the QR code to check into an employer's booth at a career fair, a
 If you're following an employer, there are 4 potential notification emails you could receive:
 
 - Employer posts a new job at your school*(email sent when job posting is approved by your school)*
-  - **Note**: the notification email won't be sent if:
+ - **Note**: the notification email won't be sent if:
     - the employer renews an expired job posting
     - the employer extends the job posting expiration date
 - Employer is hosting an info session event at your school *(email sent when event is approved by your school)*
 - Employer’s registration for a career fair is approved (*only for in-person career fairs*)
 - Employer sets their schedule for a career fair (*only for virtual fairs*)
-  - All registered students also get an email 48 hours ahead of a virtual career fair if qualifications are lifted for any employer schedules at the fair.
+ - All registered students also get an email 48 hours ahead of a virtual career fair if qualifications are lifted for any employer schedules at the fair.
 
 All notification emails described will be sent from "[handshake@notifications.joinhandshake.com"](mailto:handshake@notifications.joinhandshake.com%22).
 

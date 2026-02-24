@@ -19,30 +19,22 @@ title: Machine learning model experiments
 
 {{< /history >}}
 
-As you create machine learning models, you likely experiment with different parameters, configurations,
-and feature engineering to improve the model's performance. To replicate your experiments later, you need
-to effectively track the metadata and artifacts. Use GitLab model experiments to track and log parameters,
-metrics, and artifacts directly into GitLab.
+As you create machine learning models, you likely experiment with different parameters, configurations, and feature engineering to improve the model's performance. To replicate your experiments later, you need to effectively track the metadata and artifacts. Use GitLab model experiments to track and log parameters, metrics, and artifacts directly into GitLab.
 
 ## What is an experiment?
 
 In a project, an experiment is a collection of comparable model runs.
-Experiments can be long-lived (for example, when they represent a use case), or
-short-lived (results from hyperparameter tuning triggered by a merge request),
-but usually hold model runs that have a similar set of parameters measured
-by the same metrics.
+Experiments can be long-lived (for example, when they represent a use case), or short-lived (results from hyperparameter tuning triggered by a merge request), but usually hold model runs that have a similar set of parameters measured by the same metrics.
 
 ![Model experiment table showing models and their number of runs, creator and last activity.](img/experiments_v17_9.png)
 
 ## Model run
 
-A model run is a variation of the training of a machine learning model, that can be eventually promoted to a version
-of the model.
+A model run is a variation of the training of a machine learning model, that can be eventually promoted to a version of the model.
 
 ![Experiment run list table with run ID, creation timestamps, creator name, and status.](img/runs_v17_9.png)
 
-The goal of a data scientist is to find the model run whose parameter values lead to the best model
-performance, as indicated by the given metrics.
+The goal of a data scientist is to find the model run whose parameter values lead to the best model performance, as indicated by the given metrics.
 
 ![Experiment details and metadata page showing ML flow run ID, source information, and parameters.](img/run_v17_9.png)
 
@@ -54,10 +46,8 @@ Some example parameters:
 
 ## Track new experiments and runs
 
-Experiment and trials can only be tracked through the
-[MLflow](https://www.mlflow.org/docs/latest/tracking.html) client compatibility.
-See [MLflow client compatibility](mlflow_client.md) for more information
-on how to use GitLab as a backend for the MLflow Client.
+Experiment and trials can only be tracked through the [MLflow](https://www.mlflow.org/docs/latest/tracking.html) client compatibility.
+See [MLflow client compatibility](mlflow_client.md) for more information on how to use GitLab as a backend for the MLflow Client.
 
 ## Explore model runs
 

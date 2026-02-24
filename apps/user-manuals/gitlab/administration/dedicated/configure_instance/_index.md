@@ -46,13 +46,11 @@ To make a configuration change:
 1. At the top of the page, select **Configuration**.
 1. Follow the instructions in the relevant sections below.
 
-For all other instance configurations, submit a support ticket according to the
-[configuration change request policy](_index.md#request-configuration-changes-with-a-support-ticket).
+For all other instance configurations, submit a support ticket according to the [configuration change request policy](_index.md#request-configuration-changes-with-a-support-ticket).
 
 ### Apply configuration changes in Switchboard
 
-You can apply configuration changes made in Switchboard immediately or
-defer them until your next scheduled weekly [maintenance window](../maintenance.md#maintenance-windows).
+You can apply configuration changes made in Switchboard immediately or defer them until your next scheduled weekly [maintenance window](../maintenance.md#maintenance-windows).
 
 When you apply changes immediately:
 

@@ -112,7 +112,7 @@ There are a few options to link Slack messages to existing Linear issues.
 
 #### Sync existing Slack thread with Linear issue
 
-If there is not already a synced thread on the issue, you can choose to sync with an existing Slack thread. To do so, paste the issue's URL into the thread and send the message. Select the overflow menu from inside the unfurl and choose "Sync thread".  
+If there is not already a synced thread on the issue, you can choose to sync with an existing Slack thread. To do so, paste the issue's URL into the thread and send the message. Select the overflow menu from inside the unfurl and choose "Sync thread". 
 
 ![syncing a Linear thread manually](https://webassets.linear.app/images/ornj730p/production/cbeb13764b09360f5e94824645ed7bad148ab041-1556x829.png?q=95&auto=format&dpr=2)
 
@@ -216,7 +216,7 @@ If you are not seeing the expected preview of Linear issues in Slack, please che
 #### Slack Preferences
 
 Certain preview types may be blocked by Slack’s Messages and Media settings.   
-  
+ 
 If you are seeing an empty preview block in Slack when a Linear issue is mentioned, please toggle on “Show text previews of linked websites” in your Slack Preferences > Messages & Media > In-line media and links
 
 ![Slack Messages and Media Settings toggled on](https://webassets.linear.app/images/ornj730p/production/459fe5bfcd919ab55ead0bd67b6dab71d42e7898-377x153.png?q=95&auto=format&dpr=2)
@@ -237,8 +237,8 @@ If your org installed Linear Asks first and the Slack integration discussed on t
 ![Manage apps in Slack](https://webassets.linear.app/images/ornj730p/production/d845d745081aed4e5faa33baa0c0bcbf3a808ac9-651x761.png?q=95&auto=format&dpr=2)
 
 * Reconnect the Slack integration in Linear
-  * Unfurls for public team issues should now work in Slack
-  * Templates available to Slack will need to be reconfigured
+ * Unfurls for public team issues should now work in Slack
+ * Templates available to Slack will need to be reconfigured
 * Reconnect the Asks integration in Linear. You will have to manually re-add the Asks bot to any channels you have configured for Asks in Slack.
-  * Asks team to Linear channel configuration is retained after reconnecting, but you will need to toggle the available templates on for each team.
+ * Asks team to Linear channel configuration is retained after reconnecting, but you will need to toggle the available templates on for each team.
 </details>

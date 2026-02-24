@@ -130,16 +130,16 @@ You can create any of the following types of ticket fields for use in your ticke
 
 - **Drop-down**: This field type allows you to create a list of options that the end user can choose from. For example, a list of products, what kind of support issue they need help with, and so on. The selected item is also added as a ticket tag, which can be used for routing the ticket, setting ticket priority, and so on. See [Using custom ticket fields to route and view tickets](#topic_djh_mvt_3mb).
 
-  Note: Drop-down field lists can contain multiple levels of organization. See [Organizing drop-down list options](https://support.zendesk.com/hc/en-us/articles/4408829395738).
+ Note: Drop-down field lists can contain multiple levels of organization. See [Organizing drop-down list options](https://support.zendesk.com/hc/en-us/articles/4408829395738).
 - **Multi-select**: This field type also allows you to create a list. However, the items in this type of list can be multi-selected, meaning that end users can choose more than one item in the list. This field type is useful when there are multiple conditions that might affect the type of support that is required. The items that are selected also become ticket tags.
 
-  ![multiselect field](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zug_custom_ticket_field_multiselect.png)
+ ![multiselect field](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zug_custom_ticket_field_multiselect.png)
 - **Text**: This field holds a small amount of information (for example, a subject line).
 - **Multi-line**: This is also a text field, but it allows more text on multiple lines (this is used, for example, as the field type for the Description field).
 - **Checkbox**: This field is used for a single data point and the end user can choose it or not. The field selection is shown to agents in the ticket interface (it’s either selected or it’s not).
 - **Numeric**: This field is used to capture a string of numbers, such as an account number.
 
-  For common types of number data that follow fixed patterns, such as phone numbers and zip codes, you use the Regex field.
+ For common types of number data that follow fixed patterns, such as phone numbers and zip codes, you use the Regex field.
 - **Decimal**: This field, also a numeric field, allows you to add a decimal point. You could use this field to prompt end users for currency values.
 - **Date**: When the end user clicks this field, a date picker appears and a date can be selected. You can use this to prompt for a purchase date or appointment date, for example.
 - **Credit card**: This field accepts credit card numbers in standard formats. If the number entered is not in a valid credit card format, the end user is warned and the data is not accepted.

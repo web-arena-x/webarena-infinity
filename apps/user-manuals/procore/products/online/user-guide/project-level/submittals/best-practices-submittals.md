@@ -14,17 +14,17 @@ Table of Contents
 - [Imports](https://support.procore.com/#)
 - [Submittal Builder](https://support.procore.com/#)
 - Submittal Packages 
-  - [Overview](https://support.procore.com/#)
-  - [Itemization](https://support.procore.com/#)
-  - [Creation and Review](https://support.procore.com/#)
-  - [Distribution and Revision](https://support.procore.com/#)
+ - [Overview](https://support.procore.com/#)
+ - [Itemization](https://support.procore.com/#)
+ - [Creation and Review](https://support.procore.com/#)
+ - [Distribution and Revision](https://support.procore.com/#)
 - [Workflow Management](https://support.procore.com/#)
 
 ## Overview
 
-|  |  |
+| | |
 | --- | --- |
-| submittals-illustration.jpg | Introducing Procore's best practices guides for the project's Submittals tool! In these guides, you will find our general recommendations for utilizing Procore's functionality to its greatest extent and maximizing your company's insights and productivity.  These best practices guides are intended to explain the benefits of implementing certain features and are supplemented by Support Center tutorials that provide step-by-step instructions for performing the related actions.  While the recommendations in these guides are generic and may not match your company's existing processes exactly, we encourage you to take a look and see what suggestions you can consider adopting |
+| submittals-illustration.jpg | Introducing Procore's best practices guides for the project's Submittals tool! In these guides, you will find our general recommendations for utilizing Procore's functionality to its greatest extent and maximizing your company's insights and productivity. These best practices guides are intended to explain the benefits of implementing certain features and are supplemented by Support Center tutorials that provide step-by-step instructions for performing the related actions. While the recommendations in these guides are generic and may not match your company's existing processes exactly, we encourage you to take a look and see what suggestions you can consider adopting |
 
 ## Company Level Settings
 
@@ -48,7 +48,7 @@ With Procore's Submittals tool, you can route any type of document that might r
 
 We encourage you to create additional types for your project teams to use. Here are some popular types that we recommend:
 
-|  |  |
+| | |
 | --- | --- |
 | - Attic Stock/Extra Material - Concrete Mix Design - Construction Schedule - Control Plan - Coordination Drawing - Design Calculations - Installation Instructions - Mill Certificate - Safety Data Sheet (SDS) - Operation & Maintenance Manuals (O&Ms) - Other | - Procedures/SOP - Product Data - Product Warranty - Qualifications/Certifications - Record Document - Record Drawing - Sample - Shop Drawing - Tests & Inspections - Training Verification - Workmanship Warranty |
 
@@ -143,12 +143,12 @@ This setting enables an option to prefix the submittal number and revision with 
 Also, submittals in each spec section will be numbered sequentially and independently from submittals in another spec section when this setting is enabled. For example:
 
 - Spec Section: 03 30 00
-  - #03 30 00-001: Concrete Mix Design
-  - #03 30 00-002: Product Data
-  - #03 30 00-003: Expansion Joint Layout
+ - #03 30 00-001: Concrete Mix Design
+ - #03 30 00-002: Product Data
+ - #03 30 00-003: Expansion Joint Layout
 - Spec Section: 07 45 00
-  - #07 45 00-001: Product Data
-  - #07 45 00-002: Samples
+ - #07 45 00-001: Product Data
+ - #07 45 00-002: Samples
 
 ### Considerations
 
@@ -173,11 +173,11 @@ Submittal schedule calculations are an optional but highly recommended feature t
 - **Design Team Review Time:** A user entry field for the calendar days allocated for external teams to review and approve the submittal.
 - **Internal Review Time:** A user entry field for the calendar days allocated for internal teams to review the submittal.
 - **Planned Return Date:** A system-generated field to display the milestone date of when you require an approved submittal from your external reviewers to meet the Required On-site date milestone, also commonly known as the "drop dead date."
-  - The calculation used to determine this is: Required On-site Date - Lead Time
+ - The calculation used to determine this is: Required On-site Date - Lead Time
 - **Planned Internal Review Completed Date:** A system-generated field to display the milestone date of when you require a reviewed submittal from your internal reviewers to meet the Required On-site date milestone.
-  - The calculation used to determine this is: Required On-site Date - Lead Time - Design Team Review Time
+ - The calculation used to determine this is: Required On-site Date - Lead Time - Design Team Review Time
 - **Planned Submit By Date:** A system-generated field to display the milestone date of when you require a submittal to be submitted from your Submitter role to meet the Required On-site date milestone.
-  - The calculation used to determine this is: Required On-site Date - Lead Time - Design Team Review Time - Internal Review Time
+ - The calculation used to determine this is: Required On-site Date - Lead Time - Design Team Review Time - Internal Review Time
 
 These fields support the ability to back-calculate planned due dates for each member of  the workflow process based on specific required on-site dates, lead times, and allotted review times. This setting makes it easier to report on the progress of a submittal to determine if it's on track.
 
@@ -203,9 +203,9 @@ Displaying this information allows you to add and reference these important date
 This setting is highly recommended. When enabled, submittal responses of either 'Reject' or 'Revise and Resubmit' from a workflow approver automatically route the Ball in Court to the Submittal Manager to determine the next step.
 
 - The Submittal Manager will be notified by email that they are now the Ball in Court user due to a 'Reject' or 'Revise and Resubmit' response. When the Ball in Court is routed to the Submittal Manager, they can choose to:
-  - Close the submittal, and create a revision if desired.
-  - Return the Ball in Court to the previous step in the workflow.
-  - Resume the workflow.
+ - Close the submittal, and create a revision if desired.
+ - Return the Ball in Court to the previous step in the workflow.
+ - Resume the workflow.
     - When a workflow is resumed, it will pick up where it left off. For example:
       - If the 'Reject' or 'Revise and Resubmit' response was entered on a step with no other approvers, the workflow moves to the next step. If there is no next step, the workflow completes.
       - If the 'Reject' or 'Revise and Resubmit' response was entered on a step with with more required approvers who haven't responded yet, the workflow will resume at the same step so the other required approvers can respond.
@@ -313,9 +313,9 @@ See [Prepare Submittals for Import to the Procore Imports App](https://support.
 
 Procore's Submittal Imports and Submittal Builder are the two most efficient methods to create a Submittal Registry, but they should not be used in tandem. The lists below show advantages and disadvantages for each option to help you determine which is the best choice for your projects.
 
-|  |  |
+| | |
 | --- | --- |
-| Submittal Builder Advantages  - Submittal Builder can drastically minimize the time to generate a Submittal registry. - Submittal Builder uses OCR to identify and add  the Submittal text from the Spec Section into the Submittal Description.  Disadvantages  - Submittal Builder creates submittals with very limited details, so  there will likely be more work required to add missing data (either manually or via bulk edit) - Submittal Builder can only be run once per Spec Section revision - Submittal Builder is only available in English for the United States, Canada, and Australia. - There are strict requirements regarding Spec Book formatting in order to use Submittal Builder effectively.  Consider Use If:  - You require a simple and quick submittal registry without a lot of detailed information. | Submittal Imports Advantages  - Imports are significantly more detailed in the amount of data that can be included on the initial creation. - Imported submittals require less manual or bulk editing for their data such as:   - Submittal Packages   - Material Procurement Milestone dates   - Locations - You can import as many completed templates as needed  Disadvantages  - Creating the registry on the import template is manual and does not automatically pull in any data from within Procore (such as Spec Sections or other text) - Imports require a third-party program to edit an XLSX or CSV file, such as Excel or Google Sheets  Consider Use If:  - You decide to use Submittal Packages - You want to utilize Procore's [Submittal Schedule Calculation](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/set-up-submittal-schedule-calculations "Set Up Submittal Schedule Calculations") fields to determine "Planned Submit By" dates. - You  have a complex project, such as multiple phases, where you require separate submittals for each phase |
+| Submittal Builder Advantages - Submittal Builder can drastically minimize the time to generate a Submittal registry. - Submittal Builder uses OCR to identify and add  the Submittal text from the Spec Section into the Submittal Description. Disadvantages - Submittal Builder creates submittals with very limited details, so  there will likely be more work required to add missing data (either manually or via bulk edit) - Submittal Builder can only be run once per Spec Section revision - Submittal Builder is only available in English for the United States, Canada, and Australia. - There are strict requirements regarding Spec Book formatting in order to use Submittal Builder effectively. Consider Use If: - You require a simple and quick submittal registry without a lot of detailed information. | Submittal Imports Advantages - Imports are significantly more detailed in the amount of data that can be included on the initial creation. - Imported submittals require less manual or bulk editing for their data such as:   - Submittal Packages   - Material Procurement Milestone dates   - Locations - You can import as many completed templates as needed Disadvantages - Creating the registry on the import template is manual and does not automatically pull in any data from within Procore (such as Spec Sections or other text) - Imports require a third-party program to edit an XLSX or CSV file, such as Excel or Google Sheets Consider Use If: - You decide to use Submittal Packages - You want to utilize Procore's [Submittal Schedule Calculation](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/set-up-submittal-schedule-calculations "Set Up Submittal Schedule Calculations") fields to determine "Planned Submit By" dates. - You  have a complex project, such as multiple phases, where you require separate submittals for each phase |
 
 ##### Tip
 
@@ -377,7 +377,7 @@ Before confirming submittals in the Submittal Builder's review process, you shou
 Submittal Builder creates submittal items with the following user-confirmed fields populated:
 
 - Title
-  - *Note:* Since the Title usually contains text related to the submittal type, verify the "Submittal Type" field is accurate before you configure and apply the Title. Applying the configured title will automatically update any existing titles on submittals waiting to be confirmed. Changing the 'Type' of a submittal manually after configuring the titles won't automatically update the submittal's 'Title'.
+ - *Note:* Since the Title usually contains text related to the submittal type, verify the "Submittal Type" field is accurate before you configure and apply the Title. Applying the configured title will automatically update any existing titles on submittals waiting to be confirmed. Changing the 'Type' of a submittal manually after configuring the titles won't automatically update the submittal's 'Title'.
 - Type
 - Description
 - Submittal Manager
@@ -387,7 +387,7 @@ Submittal Builder creates submittal items with the following fields pre-populate
 - Spec Section Number & Description
 - Status (All submittals created will be in Draft status.)
 - Submittal Number
-  - *Note:*
+ - *Note:*
     - If the project has the "Number Submittals by Spec Section" setting enabled, then the submittals will be numbered accordingly within their spec section. For example:
       - 06 25 09 - **001**
       - 06 25 09 - **002**

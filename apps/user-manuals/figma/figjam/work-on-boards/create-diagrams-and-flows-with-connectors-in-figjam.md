@@ -17,9 +17,9 @@ Learn more about [shapes in FigJam](https://help.figma.com/hc/en-us/articles/150
 
 There are a few types of connectors:
 
-- **Bent connectors**  can be reshaped and wrap around objects to create an indirect path to other objects on the board
+- **Bent connectors** can be reshaped and wrap around objects to create an indirect path to other objects on the board
 - **Curved connectors** can be reshaped and can have a custom path over other objects on the board
-- **Straight lines**  create a direct path to other objects on the board
+- **Straight lines** create a direct path to other objects on the board
 
 ## Create a line
 
@@ -27,7 +27,7 @@ There are a few types of connectors:
 
 Lines snap onto existing shapes and stickies. This way, a shape brings its lines along with it if it's moved around the board.
 
-1. Click  from the shapes menu in the toolbar.
+1. Click from the shapes menu in the toolbar.
 2. Select between bent, curved, or straight connectors. You can also use the keyboard shortcuts `X` or `⇧ Shift``L` to create a bent connector, and `L` for a straight connector.
 3. Click and drag your cursor between the objects you want to connect.
 
@@ -97,7 +97,7 @@ Give your connector's path a different color to illustrate separate flows, paths
 You can pick between solid and dashed styles for your connectors. To alternate between them:
 
 1. Create or select a connector.
-2. Click  in the connector's toolbar.
+2. Click in the connector's toolbar.
 3. Select between **solid** and **dashed**.
 
 ### Stroke
@@ -105,7 +105,7 @@ You can pick between solid and dashed styles for your connectors. To alternate b
 Connector can be given two different stroke weights: thick and thin. To change a connector's stroke weight:
 
 1. Create or select a connector.
-2. Click  in the connector's toolbar. By default, the weight is set to **thin**.
+2. Click in the connector's toolbar. By default, the weight is set to **thin**.
 3. Click the weight you want for your connector.
 
 ### Text
@@ -115,7 +115,7 @@ Connectors can have text labels added to their paths.
 To add text to a path:
 
 1. Create or select a connector.
-2. Click  in the connector's toolbar.
+2. Click in the connector's toolbar.
 3. Add text.
 
 Use `Return` / `Enter` to add a new row to the connector's text label. You can add and remove a background color for your text using the connector's color picker.
@@ -135,9 +135,9 @@ Drag the text label anywhere along the connector's path to make it easier for yo
 When you add text to a connector, you can toggle its background on or off. To do so:
 
 1. Create or select a connector.
-2. Click  to add a label, then add your text. By default, the background is toggled **off**.
+2. Click to add a label, then add your text. By default, the background is toggled **off**.
 3. Click the color picker in the toolbar.
-4. Click  to show the text background.
+4. Click to show the text background.
 
 Note
 

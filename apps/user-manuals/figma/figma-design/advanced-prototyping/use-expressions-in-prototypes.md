@@ -83,7 +83,7 @@ Numerical expressions can be written with the following value types:
 
 The following operators can be used in numerical expressions:
 
-|  |  |
+| | |
 | --- | --- |
 | **Operation** | **Symbol** |
 | Addition | + |
@@ -105,7 +105,7 @@ String literals must be contained in quotations. Number values can be added on t
 
 The following operator can be used in string expressions:
 
-|  |  |
+| | |
 | --- | --- |
 | **Operation** | **Symbol** |
 | Add to string | + |
@@ -123,7 +123,7 @@ Boolean expressions can be written with the following value types:
 
 The following operators can be used in boolean expressions:
 
-|  |  |
+| | |
 | --- | --- |
 | **Operation** | **Symbol** |
 | Equal to | == |
@@ -143,22 +143,21 @@ The following operators can be used in boolean expressions:
 \*\* Numerical and string operators are not used to evaluate boolean expressions, but can be used as supporting operators in [complex expressions](https://help.figma.com/hc/en-us/articles/15253194385943#Complex_expressions_and_order_of_operations).
 
 ![A design of a cake making checklist. On the final step, there is an interaction:
-  Set boolean variable cakeComplete to cakeVisibility == true and frostingVisibility
-  == true and sprinkleVisibility == true.](https://help.figma.com/hc/article_attachments/15307169876247)
+ Set boolean variable cakeComplete to cakeVisibility == true and frostingVisibility == true and sprinkleVisibility == true.](https://help.figma.com/hc/article_attachments/15307169876247)
 
 Boolean expressions must resolve to a `true` or `false` value. When setting a boolean variable with an expression, the result of the expression is evaluated to have either a true or false value—therefore setting the new value of the boolean variable.
 
 For example, take a look at the simple interaction and expression below:
 
 ```
-Set itemCount to 0  
+Set itemCount to 0 
 itemCount > 5
 ```
 
 The value of `itemCount` is `0`, which is not greater than `5`. Therefore, the value of this expression is `false`. However, now take a look at the following example:
 
 ```
-Set itemCount to 6  
+Set itemCount to 6 
 itemCount > 5
 ```
 
@@ -167,9 +166,9 @@ The value of `itemCount` is `6`, which is greater than `5`. Therefore, the value
 Examples of boolean expressions are listed in the tabs below. For these examples, the following statements are true:
 
 ```
-numberVariable1 ==  1  
-numberVariable2 ==  2  
-stringVariable1 ==  red  
+numberVariable1 ==  1 
+numberVariable2 ==  2 
+stringVariable1 ==  red 
 stringVariable2 ==  blue
 ```
 
@@ -181,14 +180,14 @@ Equal to (==) Not equal to (!=) And (and) Or (or)
 **Examples:**
 
 ```
-Set booleanVariable to:  
+Set booleanVariable to: 
 numberVariable1 == numberVariable2
 ```
 
 **Answer:** Since `1` does not equal `2`, `booleanVariable` is set to `false`.
 
 ```
-Set booleanVariable to:  
+Set booleanVariable to: 
 numberVariable1 + 1 == numberVariable2
 ```
 
@@ -200,14 +199,14 @@ numberVariable1 + 1 == numberVariable2
 **Examples:**
 
 ```
-Set booleanVariable to:  
+Set booleanVariable to: 
 stringVariable1 != stringVariable2
 ```
 
 **Answer:** Since `red` does not equal `blue`, `booleanVariable` is set to `true`.
 
 ```
-Set booleanVariable to:  
+Set booleanVariable to: 
 numberVariable1 + 1 != numberVariable2
 ```
 
@@ -219,14 +218,14 @@ numberVariable1 + 1 != numberVariable2
 **Examples:**
 
 ```
-Set booleanVariable to:  
+Set booleanVariable to: 
 numberVariable1 == 1 and numberVariable2 == 2
 ```
 
 **Answer:** Since `1` equals `1` *and* `2` equals `2`, `booleanVariable` is set to `true`.
 
 ```
-Set booleanVariable to:  
+Set booleanVariable to: 
 numberVariable1 > 5 and numberVariable2 == 2
 ```
 
@@ -238,14 +237,14 @@ numberVariable1 > 5 and numberVariable2 == 2
 **Examples:**
 
 ```
-Set booleanVariable to:  
+Set booleanVariable to: 
 stringVariable1 == red or stringVariable2 == purple
 ```
 
 **Answer:** Since `red` does equal `red`, `booleanVariable` is set to `true`.
 
 ```
-Set booleanVariable to:  
+Set booleanVariable to: 
 stringVariable1 == green or stringVariable2 == orange
 ```
 

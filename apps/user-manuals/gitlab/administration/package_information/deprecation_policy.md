@@ -14,24 +14,19 @@ title: Linux package deprecation policy
 
 The Linux packages come with number of different libraries and services which offers users plethora of configuration options.
 
-As libraries and services get updated, their configuration options change
-and become obsolete. To increase maintainability and preserve a working
-setup, various configuration requires removal.
+As libraries and services get updated, their configuration options change and become obsolete. To increase maintainability and preserve a working setup, various configuration requires removal.
 
 ## Configuration deprecation
 
 ### Policy
 
-The Linux package retains configuration for at least **one major**
-version. We can't guarantee that deprecated configuration
-is available in the next major release. See [example](#example) for more details.
+The Linux package retains configuration for at least **one major** version. We can't guarantee that deprecated configuration is available in the next major release. See [example](#example) for more details.
 
 ### Notice
 
 If the configuration becomes obsolete, we announce the deprecation:
 
-- via release blog post on `https://about.gitlab.com/blog/`. The blog post item
-  contains the deprecation notice together with the target removal date.
+- via release blog post on `https://about.gitlab.com/blog/`. The blog post item contains the deprecation notice together with the target removal date.
 - via installation/reconfigure output (if applicable).
 - via official documentation on `https://docs.gitlab.com/`. The documentation update contains the corrected syntax (if applicable) or a date of configuration removal.
 
@@ -41,11 +36,8 @@ This section lists steps necessary for deprecating and removing configuration.
 
 We can differentiate two different types of configuration:
 
-- Sensitive: Configuration that can cause major service outage (like data integrity,
-  installation integrity, or preventing users from reaching the installation)
-- Regular: Configuration that can make a feature unavailable but still makes the
-  installation usable (like a change in default project/group settings, or
-  miscommunication with other components)
+- Sensitive: Configuration that can cause major service outage (like data integrity, installation integrity, or preventing users from reaching the installation)
+- Regular: Configuration that can make a feature unavailable but still makes the installation usable (like a change in default project/group settings, or miscommunication with other components)
 
 We must also differentiate deprecation and removal procedure.
 
@@ -55,8 +47,7 @@ Deprecation procedure is similar for both `sensitive` and `regular` configuratio
 
 Common steps:
 
-1. Create an issue at the [`omnibus-gitlab` issue tracker](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues) with
-   details on deprecation type and other necessary information. Apply the label `deprecation`.
+1. Create an issue at the [`omnibus-gitlab` issue tracker](https://gitlab.com/gitlab-org/omnibus-gitlab/-/issues) with details on deprecation type and other necessary information. Apply the label `deprecation`.
 1. Decide on the removal target for the deprecated configuration
 1. Formulate deprecation notice for each item as noted in [Notice section](#notice)
 
@@ -78,29 +69,22 @@ See the table below for some examples:
 
 #### Removing configuration
 
-When deprecation is announced and removal target set, the milestone for the issue
-should be changed to match the removal target version.
+When deprecation is announced and removal target set, the milestone for the issue should be changed to match the removal target version.
 
 The final comment in the issue must have:
 
 - A text snippet for the release blog post section.
 - A link to a documentation merge request (or documentation snippet) that introduces the change.
 - Either:
-  - A link to a draft merge request that removes the configuration.
-  - Details on what must be done.
+ - A link to a draft merge request that removes the configuration.
+ - Details on what must be done.
 
 ## Example
 
-User configuration available in `/etc/gitlab/gitlab.rb` was introduced in GitLab version 10.0, `gitlab_rails['configuration'] = true`. In GitLab version 10.4.0, a new change was introduced that requires rename of this configuration option. New configuration option is `gitlab_rails['better_configuration'] = true`. Development team translates the old configuration into a new one
-and triggers a deprecation procedure.
+User configuration available in `/etc/gitlab/gitlab.rb` was introduced in GitLab version 10.0, `gitlab_rails['configuration'] = true`. In GitLab version 10.4.0, a new change was introduced that requires rename of this configuration option. New configuration option is `gitlab_rails['better_configuration'] = true`. Development team translates the old configuration into a new one and triggers a deprecation procedure.
 
-This means that these two configuration
-options are valid through GitLab version 10. In other words,
-if you still have `gitlab_rails['configuration'] = true` set in GitLab 10.8.0
-the feature continues working the same way as if you had `gitlab_rails['better_configuration'] = true` set.
-However, setting the old version of the configuration prints out a deprecation
-notice at the end of installation/upgrade/reconfigure run.
+This means that these two configuration options are valid through GitLab version 10. In other words, if you still have `gitlab_rails['configuration'] = true` set in GitLab 10.8.0 the feature continues working the same way as if you had `gitlab_rails['better_configuration'] = true` set.
+However, setting the old version of the configuration prints out a deprecation notice at the end of installation/upgrade/reconfigure run.
 
 In GitLab 11, `gitlab_rails['configuration'] = true` no longer works and you must manually change the configuration in `/etc/gitlab/gitlab.rb` to the new valid configuration.
-**Note** If this configuration option is sensitive and can put integrity of the installation or
-data in danger,the installation or upgrade is aborted.
+**Note** If this configuration option is sensitive and can put integrity of the installation or data in danger,the installation or upgrade is aborted.

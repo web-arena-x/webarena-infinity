@@ -15,12 +15,12 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/231942648-Importer-D
 - **Example:** *2016-11-01*
 
 - yyyy-mm-dd**T**hh:mm:ss
-  - Remember that this assumes UTC time, so if you're in an eastern time zone, you would see this as 8am. (There's a -4:00 offset)
+ - Remember that this assumes UTC time, so if you're in an eastern time zone, you would see this as 8am. (There's a -4:00 offset)
 
 - **Example:** *2016-11-01T12:00:00*
 
 - yyyy-mm-dd**T**hh:mm:ss offset (where timezone offset is either + or -, and hh:mm)
-  - This would show as 12:00pm in the system (if in Eastern)
+ - This would show as 12:00pm in the system (if in Eastern)
 
 - **Example:** *2016-11-01T12:00:00-04:00*
 
@@ -28,8 +28,8 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/231942648-Importer-D
 
 - For most imports, you will only need to use the date format
 - For imports such as appointments, you may use the date-only format **BUT**:
-  - Example: 2016-11-01
-  - This will show as: 2016-10-31 at 8:00PM (if in Eastern)
+ - Example: 2016-11-01
+ - This will show as: 2016-10-31 at 8:00PM (if in Eastern)
 
 - The time defaults to 00:00
 - When translated from UTC, the appointment will appear to have happened the day before

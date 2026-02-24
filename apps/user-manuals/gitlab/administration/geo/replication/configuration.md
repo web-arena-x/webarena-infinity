@@ -15,8 +15,7 @@ title: Configure a new **secondary** site
 
 {{< alert type="note" >}}
 
-This is the final step in setting up a **secondary** Geo site. Stages of the
-setup process must be completed in the documented order.
+This is the final step in setting up a **secondary** Geo site. Stages of the setup process must be completed in the documented order.
 If not, [complete all prior stages](../setup/_index.md#using-linux-package-installations) before proceeding.
 
 {{< /alert >}}
@@ -27,9 +26,7 @@ The basic steps of configuring a **secondary** site are to:
 1. Configure a tracking database on each **secondary** site.
 1. Start GitLab on each **secondary** site.
 
-This document focuses on the first item. You are encouraged to first read
-through all the steps before executing them in your testing/production
-environment.
+This document focuses on the first item. You are encouraged to first read through all the steps before executing them in your testing/production environment.
 
 Prerequisites for **both primary and secondary sites**:
 
@@ -39,17 +36,13 @@ Prerequisites for **both primary and secondary sites**:
 {{< alert type="note" >}}
 
 **Do not** set up any custom authentication for the **secondary** site. This is handled by the **primary** site.
-Any change that requires access to the **Admin** area needs to be done in the
-**primary** site because the **secondary** site is a read-only replica.
+Any change that requires access to the **Admin** area needs to be done in the **primary** site because the **secondary** site is a read-only replica.
 
 {{< /alert >}}
 
 ## Step 1. Manually replicate secret GitLab values
 
-GitLab stores a number of secret values in the `/etc/gitlab/gitlab-secrets.json`
-file which must be the same on all of a site's nodes. Until there is
-a means of automatically replicating these between sites (see [issue #3789](https://gitlab.com/gitlab-org/gitlab/-/issues/3789)),
-they must be manually replicated to **all nodes of the secondary site**.
+GitLab stores a number of secret values in the `/etc/gitlab/gitlab-secrets.json` file which must be the same on all of a site's nodes. Until there is a means of automatically replicating these between sites (see [issue #3789](https://gitlab.com/gitlab-org/gitlab/-/issues/3789)), they must be manually replicated to **all nodes of the secondary site**.
 
 1. SSH into a **Rails node on your primary** site, and execute the command below:
 
@@ -71,8 +64,7 @@ they must be manually replicated to **all nodes of the secondary site**.
    mv /etc/gitlab/gitlab-secrets.json /etc/gitlab/gitlab-secrets.json.`date +%F`
    ```
 
-1. Copy `/etc/gitlab/gitlab-secrets.json` from the **Rails node on your primary** site to **each node on your secondary** site, or
-   copy-and-paste the file contents between nodes:
+1. Copy `/etc/gitlab/gitlab-secrets.json` from the **Rails node on your primary** site to **each node on your secondary** site, or copy-and-paste the file contents between nodes:
 
    ```shell
    sudo editor /etc/gitlab/gitlab-secrets.json
@@ -97,17 +89,11 @@ they must be manually replicated to **all nodes of the secondary site**.
 
 ## Step 2. Manually replicate the **primary** site's SSH host keys
 
-GitLab integrates with the system-installed SSH daemon, designating a user
-(typically named `git`) through which all access requests are handled.
+GitLab integrates with the system-installed SSH daemon, designating a user (typically named `git`) through which all access requests are handled.
 
-In a [Disaster Recovery](../disaster_recovery/_index.md) situation, GitLab system
-administrators promote a **secondary** site to the **primary** site. DNS records for the
-**primary** domain should also be updated to point to the new **primary** site
-(previously a **secondary** site). Doing so avoids the need to update Git remotes and API URLs.
+In a [Disaster Recovery](../disaster_recovery/_index.md) situation, GitLab system administrators promote a **secondary** site to the **primary** site. DNS records for the **primary** domain should also be updated to point to the new **primary** site (previously a **secondary** site). Doing so avoids the need to update Git remotes and API URLs.
 
-This causes all SSH requests to the newly promoted **primary** site to
-fail due to SSH host key mismatch. To prevent this, the primary SSH host
-keys must be manually replicated to the **secondary** site.
+This causes all SSH requests to the newly promoted **primary** site to fail due to SSH host key mismatch. To prevent this, the primary SSH host keys must be manually replicated to the **secondary** site.
 
 The SSH host key path depends on the used software:
 
@@ -206,8 +192,7 @@ In the following steps, replace `<ssh_host_key_path>` with the one you're using:
 
 1. Verify SSH is still functional.
 
-   SSH into your GitLab **secondary** server in a new terminal. If you are unable to connect,
-   verify the permissions are correct according to the previous steps.
+   SSH into your GitLab **secondary** server in a new terminal. If you are unable to connect, verify the permissions are correct according to the previous steps.
 
 ## Step 3. Add the **secondary** site
 
@@ -238,16 +223,10 @@ In the following steps, replace `<ssh_host_key_path>` with the one you're using:
    1. On the left sidebar, select **Geo** > **Sites**.
    1. Select **Add site**.
       ![Adding a secondary site in Geo configuration interface](img/adding_a_secondary_v15_8.png)
-   1. In **Name**, enter the value for `gitlab_rails['geo_node_name']` in
-      `/etc/gitlab/gitlab.rb`. These values must always match **exactly**, character
-      for character.
-   1. In **External URL**, enter the value for `external_url` in `/etc/gitlab/gitlab.rb`. These
-      values must always match, but it doesn't matter if one ends with a `/` and
-      the other doesn't.
+   1. In **Name**, enter the value for `gitlab_rails['geo_node_name']` in `/etc/gitlab/gitlab.rb`. These values must always match **exactly**, character for character.
+   1. In **External URL**, enter the value for `external_url` in `/etc/gitlab/gitlab.rb`. These values must always match, but it doesn't matter if one ends with a `/` and the other doesn't.
    1. Optional. In **Internal URL (optional)**, enter an internal URL for the secondary site.
-   1. Optional. Select which groups or storage shards should be replicated by the
-      **secondary** site. Leave blank to replicate all. For more information, see
-      [selective synchronization](selective_synchronization.md).
+   1. Optional. Select which groups or storage shards should be replicated by the **secondary** site. Leave blank to replicate all. For more information, see [selective synchronization](selective_synchronization.md).
    1. Select **Save changes** to add the **secondary** site.
 1. SSH into **each Rails, and Sidekiq node on your secondary** site and restart the services:
 
@@ -263,8 +242,7 @@ In the following steps, replace `<ssh_host_key_path>` with the one you're using:
 
    If any of the checks fail, check the [troubleshooting documentation](troubleshooting/_index.md).
 
-1. SSH into a **Rails or Sidekiq server on your primary** site and login as root to verify the
-   **secondary** site is reachable or there are any common issues with your Geo setup:
+1. SSH into a **Rails or Sidekiq server on your primary** site and login as root to verify the **secondary** site is reachable or there are any common issues with your Geo setup:
 
    ```shell
    gitlab-rake gitlab:geo:check
@@ -272,14 +250,10 @@ In the following steps, replace `<ssh_host_key_path>` with the one you're using:
 
    If any of the checks fail, check the [troubleshooting documentation](troubleshooting/_index.md).
 
-After the **secondary** site is added to the Geo administration page and restarted,
-the site automatically starts replicating missing data from the **primary** site
-in a process known as **backfill**.
-Meanwhile, the **primary** site starts to notify each **secondary** site of any changes, so
-that the **secondary** site can act on those notifications immediately.
+After the **secondary** site is added to the Geo administration page and restarted, the site automatically starts replicating missing data from the **primary** site in a process known as **backfill**.
+Meanwhile, the **primary** site starts to notify each **secondary** site of any changes, so that the **secondary** site can act on those notifications immediately.
 
-Be sure the secondary site is running and accessible. You can sign in to the
-secondary site with the same credentials as were used with the primary site.
+Be sure the secondary site is running and accessible. You can sign in to the secondary site with the same credentials as were used with the primary site.
 
 ### Add primary and secondary URLs as allowed ActionCable origins
 
@@ -362,8 +336,7 @@ If your **primary** site is using a [custom or self-signed certificate for inbou
 
 ## Step 5. Enable Git access over HTTP/HTTPS and SSH
 
-Geo synchronizes repositories over HTTP/HTTPS, and therefore requires this clone
-method to be enabled. This is enabled by default, but if converting an existing site to Geo it should be checked:
+Geo synchronizes repositories over HTTP/HTTPS, and therefore requires this clone method to be enabled. This is enabled by default, but if converting an existing site to Geo it should be checked:
 
 On the **primary** site:
 
@@ -372,42 +345,33 @@ On the **primary** site:
 1. Expand **Visibility and access controls**.
 1. If using Git over SSH, then:
    1. Ensure "Enabled Git access protocols" is set to "Both SSH and HTTP(S)".
-   1. Follow the steps to configure
-      [fast lookup of authorized SSH keys in the database](../../operations/fast_ssh_key_lookup.md) on
-      **all primary and secondary** sites.
+   1. Follow the steps to configure [fast lookup of authorized SSH keys in the database](../../operations/fast_ssh_key_lookup.md) on **all primary and secondary** sites.
 1. If not using Git over SSH, then set "Enabled Git access protocols" to "Only HTTP(S)".
 
 ## Step 6. Verify proper functioning of the **secondary** site
 
-You can sign in to the **secondary** site with the same credentials you used with
-the **primary** site. After you sign in:
+You can sign in to the **secondary** site with the same credentials you used with the **primary** site. After you sign in:
 
 1. In the upper-right corner, select **Admin**.
 1. Select **Geo** > **Sites**.
-1. Verify that it's correctly identified as a **secondary** Geo site, and that
-   Geo is enabled.
+1. Verify that it's correctly identified as a **secondary** Geo site, and that Geo is enabled.
 
-The initial replication may take some time. The status of the site or the 'backfill' may still in progress. You
-can monitor the synchronization process on each Geo site from the **primary**
-site's **Geo Sites** dashboard in your browser.
+The initial replication may take some time. The status of the site or the 'backfill' may still in progress. You can monitor the synchronization process on each Geo site from the **primary** site's **Geo Sites** dashboard in your browser.
 
 ![Geo dashboard of secondary site](img/geo_dashboard_v14_0.png)
 
-If your installation isn't working properly, check the
-[troubleshooting document](troubleshooting/_index.md).
+If your installation isn't working properly, check the [troubleshooting document](troubleshooting/_index.md).
 
 The two most obvious issues that can become apparent in the dashboard are:
 
 1. Database replication not working well.
-1. Instance to instance notification not working. In that case, it can be
-   something of the following:
+1. Instance to instance notification not working. In that case, it can be something of the following:
    - You are using a custom certificate or custom CA (see the [troubleshooting document](troubleshooting/_index.md)).
    - The instance is firewalled (check your firewall rules).
 
 Disabling a **secondary** site stops the synchronization process.
 
-If repository storages are customized on the **primary** site for multiple
-repository shards you must duplicate the same configuration on each **secondary** site.
+If repository storages are customized on the **primary** site for multiple repository shards you must duplicate the same configuration on each **secondary** site.
 
 Point your users to the [Using a Geo Site guide](usage.md).
 

@@ -38,9 +38,9 @@ You can filter the displayed saved reports using the filters on the left of the 
 - Report Name
 - Description (optional)
 - Sharing settings
-  - Keep private to you
-  - Share with your school
-  - Share with your school and the Handshake Network
+ - Keep private to you
+ - Share with your school
+ - Share with your school and the Handshake Network
 
 ![Report Settings.png](https://support.joinhandshake.com/hc/article_attachments/30938408490903)
 
@@ -54,8 +54,8 @@ You can filter the displayed saved reports using the filters on the left of the 
 
 - Run only one report at a time for the most efficiency
 - Start small and simple and work your way up to more complicated explores
-- The best explores are those that return within a few seconds, if it takes longer than that you should try removing fields and starting simpler  
-  - Also, more filters = less data
+- The best explores are those that return within a few seconds, if it takes longer than that you should try removing fields and starting simpler 
+ - Also, more filters = less data
 - All data can be downloaded to excel –– if you can’t do something in Analytics, you can always download the results and transform there
 - Location searches - Filter on Lat\_long and use syntax of: "100 miles from 41.8781136, -87.6297982"
 - Institution Labels are the labels created/apply to that item by your school.

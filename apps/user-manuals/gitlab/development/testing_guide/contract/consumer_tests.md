@@ -36,13 +36,13 @@ pactWith(PactOptions, PactFn);
 import { pactWith } from 'jest-pact';
 
 pactWith(
-  {
+ {
     consumer: 'MergeRequests#show',
     provider: 'GET discussions',
     log: '../logs/consumer.log',
     dir: '../contracts/project/merge_requests/show',
-  },
-  PactFn
+ },
+ PactFn
 );
 ```
 
@@ -56,14 +56,14 @@ The `PactFn` is where your tests are defined. This is where you set up the mock 
 import { pactWith } from 'jest-pact';
 
 pactWith(
-  {
+ {
     consumer: 'MergeRequests#show',
     provider: 'GET discussions',
     log: '../logs/consumer.log',
     dir: '../contracts/project/merge_requests/show',
-  },
+ },
 
-  (provider) => {
+ (provider) => {
     describe('GET discussions', () => {
       beforeEach(() => {
 
@@ -73,7 +73,7 @@ pactWith(
 
       });
     });
-  },
+ },
 );
 ```
 
@@ -95,14 +95,14 @@ import { pactWith } from 'jest-pact';
 import { Matchers } from '@pact-foundation/pact';
 
 pactWith(
-  {
+ {
     consumer: 'MergeRequests#show',
     provider: 'GET discussions',
     log: '../logs/consumer.log',
     dir: '../contracts/project/merge_requests/show',
-  },
+ },
 
-  (provider) => {
+ (provider) => {
     describe('GET discussions', () => {
       beforeEach(() => {
         const interaction = {
@@ -135,7 +135,7 @@ pactWith(
 
       });
     });
-  },
+ },
 );
 ```
 
@@ -153,14 +153,14 @@ First, set up the client that makes the API request. To do that, create `spec/co
 import axios from 'axios';
 
 export async function getDiscussions(endpoint) {
-  const { url } = endpoint;
+ const { url } = endpoint;
 
-  return axios({
+ return axios({
     method: 'GET',
     baseURL: url,
     url: '/gitlab-org/gitlab-qa/-/merge_requests/1/discussions.json',
     headers: { Accept: '*/*' },
-  })
+ })
 }
 ```
 
@@ -173,14 +173,14 @@ import { Matchers } from '@pact-foundation/pact';
 import { getDiscussions } from '../../../resources/api/project/merge_requests';
 
 pactWith(
-  {
+ {
     consumer: 'MergeRequests#show',
     provider: 'GET discussions',
     log: '../logs/consumer.log',
     dir: '../contracts/project/merge_requests/show',
-  },
+ },
 
-  (provider) => {
+ (provider) => {
     describe('GET discussions', () => {
       beforeEach(() => {
         const interaction = {
@@ -221,7 +221,7 @@ pactWith(
         }));
       });
     });
-  },
+ },
 );
 ```
 
@@ -237,29 +237,29 @@ Create a file under `spec/contracts/consumer/fixtures/project/merge_requests` ca
 import { Matchers } from '@pact-foundation/pact';
 
 const body = Matchers.eachLike({
-  id: Matchers.string('fd73763cbcbf7b29eb8765d969a38f7d735e222a'),
-  project_id: Matchers.integer(6954442),
-  ...
-  resolved: Matchers.boolean(true)
+ id: Matchers.string('fd73763cbcbf7b29eb8765d969a38f7d735e222a'),
+ project_id: Matchers.integer(6954442),
+ ...
+ resolved: Matchers.boolean(true)
 });
 
 const Discussions = {
-  body: Matchers.extractPayload(body),
+ body: Matchers.extractPayload(body),
 
-  success: {
+ success: {
     status: 200,
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
     },
     body,
-  },
+ },
 
-  scenario: {
+ scenario: {
     state: 'a merge request with discussions exists',
     uponReceiving: 'a request for discussions',
-  },
+ },
 
-  request: {
+ request: {
     withRequest: {
       method: 'GET',
       path: '/gitlab-org/gitlab-qa/-/merge_requests/1/discussions.json',
@@ -267,7 +267,7 @@ const Discussions = {
         Accept: '*/*',
       },
     },
-  },
+ },
 };
 
 exports.Discussions = Discussions;
@@ -287,14 +287,14 @@ const CONSUMER_LOG = '../logs/consumer.log';
 const CONTRACT_DIR = '../contracts/project/merge_requests/show';
 
 pactWith(
-  {
+ {
     consumer: CONSUMER_NAME,
     provider: PROVIDER_NAME,
     log: CONSUMER_LOG,
     dir: CONTRACT_DIR,
-  },
+ },
 
-  (provider) => {
+ (provider) => {
     describe(PROVIDER_NAME, () => {
       beforeEach(() => {
         const interaction = {
@@ -313,6 +313,6 @@ pactWith(
         expect(discussions).toEqual(Discussions.body);
       });
     });
-  },
+ },
 );
 ```

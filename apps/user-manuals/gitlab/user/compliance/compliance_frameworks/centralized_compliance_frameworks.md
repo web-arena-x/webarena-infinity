@@ -21,18 +21,15 @@ title: Centralized compliance frameworks
 
 {{< /history >}}
 
-Centralized security compliance frameworks management allows GitLab administrators to centrally manage and enforce
-compliance requirements across all groups and projects in a GitLab instance.
+Centralized security compliance frameworks management allows GitLab administrators to centrally manage and enforce compliance requirements across all groups and projects in a GitLab instance.
 
-By designating a compliance and security policy (CSP) group, you can create compliance frameworks that are automatically
-available to all top-level groups.
+By designating a compliance and security policy (CSP) group, you can create compliance frameworks that are automatically available to all top-level groups.
 
 When you designate a compliance and security policy group:
 
 - All compliance frameworks created in the compliance and security policy group become available to every top-level group in your instance.
 - Group owners can assign these centralized frameworks to their projects.
-- The frameworks appear alongside any group-specific frameworks, with clear indicators showing they come from the compliance and security policy
-  group.
+- The frameworks appear alongside any group-specific frameworks, with clear indicators showing they come from the compliance and security policy group.
 - Compliance and security policy frameworks are read-only for non-members of the compliance and security policy group, ensuring consistent application of compliance standards.
 
 Framework visibility and permissions:
@@ -49,11 +46,9 @@ Framework visibility and permissions:
 
 ## Before you begin
 
-Before you begin, designate a top-level group as your compliance and security policy group to serve as the central location for managing compliance
-frameworks.
+Before you begin, designate a top-level group as your compliance and security policy group to serve as the central location for managing compliance frameworks.
 
-For detailed instructions, see
-[Designate a compliance and security policy group](../../../security/compliance_security_policy_management.md#designate-a-compliance-and-security-policy-group).
+For detailed instructions, see [Designate a compliance and security policy group](../../../security/compliance_security_policy_management.md#designate-a-compliance-and-security-policy-group).
 
 ## Create compliance frameworks in the compliance and security policy group
 
@@ -99,8 +94,7 @@ Apply compliance and security policy frameworks to projects as either a group ow
 
 ### As a group owner
 
-Group owners can view and apply compliance and security policy frameworks to their projects. Compliance and security policy frameworks are read-only on groups and you
-cannot edit or delete them from your group.
+Group owners can view and apply compliance and security policy frameworks to their projects. Compliance and security policy frameworks are read-only on groups and you cannot edit or delete them from your group.
 
 To apply a compliance and security policy framework to projects in your group:
 
@@ -146,8 +140,7 @@ If you need to change which group serves as the compliance and security policy g
 - Frameworks from the new compliance and security policy group become available.
 - Projects must be reassigned to new frameworks if needed.
 
-For detailed instructions, see
-[designate a compliance and security policy group](../../../security/compliance_security_policy_management.md#designate-a-compliance-and-security-policy-group).
+For detailed instructions, see [designate a compliance and security policy group](../../../security/compliance_security_policy_management.md#designate-a-compliance-and-security-policy-group).
 
 ## Integration with security policies
 
@@ -181,8 +174,7 @@ Compliance and security policy frameworks can only be modified from the complian
 
 ## Feedback and support
 
-Because this feature is in [beta](../../../policy/development_stages_support.md#beta), user feedback is actively
-encouraged. Share your experience, suggestions, and any issues through:
+Because this feature is in [beta](../../../policy/development_stages_support.md#beta), user feedback is actively encouraged. Share your experience, suggestions, and any issues through:
 
 - [GitLab issues](https://gitlab.com/gitlab-org/gitlab/-/issues).
 - Your regular GitLab support channels.

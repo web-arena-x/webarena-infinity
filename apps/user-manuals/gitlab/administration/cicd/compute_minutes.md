@@ -19,16 +19,14 @@ title: Compute minutes administration
 
 {{< /history >}}
 
-Administrators can limit the amount of time that projects can use to run jobs on
-[instance runners](../../ci/runners/runners_scope.md) each month. This limit
-is tracked with a [compute minutes quota](../../ci/pipelines/compute_minutes.md).
+Administrators can limit the amount of time that projects can use to run jobs on [instance runners](../../ci/runners/runners_scope.md) each month. This limit is tracked with a [compute minutes quota](../../ci/pipelines/compute_minutes.md).
 Group and project runners are not subject to the compute quota.
 
 On GitLab Self-Managed:
 
 - Compute quotas are disabled by default.
 - Administrators can [assign more compute minutes](#set-the-compute-quota-for-a-group)
-  if a namespace uses all its monthly quota.
+ if a namespace uses all its monthly quota.
 - The [cost factor](../../ci/pipelines/compute_minutes.md#compute-usage-calculation) is `1` for all projects.
 
 On GitLab.com:
@@ -36,15 +34,13 @@ On GitLab.com:
 - To learn about the quotas and cost factors applied, see [compute minutes](../../ci/pipelines/compute_minutes.md).
 - To manage compute minutes as a GitLab team member, see [compute minutes administration for GitLab.com](dot_com_compute_minutes.md).
 
-[Trigger jobs](../../ci/yaml/_index.md#trigger) do not execute on runners, so they do not
-consume compute minutes, even when using [`strategy:depend`](../../ci/yaml/_index.md#triggerstrategy)
+[Trigger jobs](../../ci/yaml/_index.md#trigger) do not execute on runners, so they do not consume compute minutes, even when using [`strategy:depend`](../../ci/yaml/_index.md#triggerstrategy)
 to wait for the [downstream pipeline](../../ci/pipelines/downstream_pipelines.md) status.
 The triggered downstream pipeline consumes compute minutes the same as other pipelines.
 
 ## Set the compute quota for all namespaces
 
-By default, GitLab instances do not have a compute quota. The default value for the quota is `0`,
-which is unlimited.
+By default, GitLab instances do not have a compute quota. The default value for the quota is `0`, which is unlimited.
 
 Prerequisites:
 
@@ -77,8 +73,7 @@ To set a compute quota for a group or namespace:
 1. In the **Compute quota** box, enter the maximum number of compute minutes.
 1. Select **Save changes**.
 
-You can also use the [update group API](../../api/groups.md#update-group-attributes) or the
-[update user API](../../api/users.md#modify-a-user) instead.
+You can also use the [update group API](../../api/groups.md#update-group-attributes) or the [update user API](../../api/users.md#modify-a-user) instead.
 
 ## Reset compute usage
 

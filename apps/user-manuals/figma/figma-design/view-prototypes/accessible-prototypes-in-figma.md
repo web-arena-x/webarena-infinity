@@ -53,8 +53,8 @@ When considering how your Figma Design elements translate to HTML:
 - The prototype actions **Navigate to** and **Open link** are seen by screen readers as links; all other actions are seen by screen readers as buttons
 - Any element in a prototype with an **On click** interaction is seen by the screen reader as an accessible button or link, depending on its triggered action
 - The screen reader navigates through links and lists within design text
-  - Ordered and unordered lists are read as structured and nested lists
-  - Inline links are seen by screen readers as accessible links
+ - Ordered and unordered lists are read as structured and nested lists
+ - Inline links are seen by screen readers as accessible links
 - Any shapes with an image fill appear as an image and have their alt text populated with the layer’s name
 - Top-level frames, components, and component instances become labelled sections using layer names as the accessible label
 

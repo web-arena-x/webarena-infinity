@@ -33,16 +33,16 @@ The "Looking for" section on your profile is designed to help specify what types
 
 This can include job roles, industries, locations, and other preferences. By filling out this section, you can receive more personalized job recommendations and increase your visibility to employers who are looking for candidates with specific interests and qualifications.
 
-**💡Note**: depending on your profile visibility, this section is displayed on your profile if at least one prompt is filled out.  
-  
+**💡Note**: depending on your profile visibility, this section is displayed on your profile if at least one prompt is filled out. 
+ 
 Click the **pencil** icon, located to the right of **Looking for**— then fill in the desired information within the pop-up.
 
 - **What are you looking for right now**? (Select one)
-  - Full-time job
-  - Part-time job
-  - Internship
-  - Campus job
-  - Networking and inspiration
+ - Full-time job
+ - Part-time job
+ - Internship
+ - Campus job
+ - Networking and inspiration
 - **Roles** (*click in the search bar and begin typing to produce results in the dropdown*)
 - **Industries** (*click in the search bar and begin typing to produce results in the dropdown*)
 - **Locations** (*click in the search bar and begin typing to produce results in the dropdown*)
@@ -90,17 +90,17 @@ Within the pop-up, enter the following details:
 - **Employer name**
 - **Job title**
 - **Job type** (select)
-  - Full-time
-  - Part-time
-  - Internship
-  - On-campus
-  - Fellowship
-  - Co-op
-  - Other
+ - Full-time
+ - Part-time
+ - Internship
+ - On-campus
+ - Fellowship
+ - Co-op
+ - Other
 - **Current working here**(check box if you're still in the role)
 - **Time Period**
-  - Start Date (Months and Year)
-  - End Date (Month and year)
+ - Start Date (Months and Year)
+ - End Date (Month and year)
 - **Location**
 - **Description**
 - **Did you use Handshake to get this job? Show it off!** (check box)
@@ -149,8 +149,8 @@ Within the pop-up, enter the following details:
 - **Organization**
 - **Position** (check box if you're still in the role)
 - **Time Period**
-  - Start Date (Month and Year)
-  - End Date (Month and Year)
+ - Start Date (Month and Year)
+ - End Date (Month and Year)
 - **Location**
 - **Description**
 
@@ -171,8 +171,8 @@ Within the pop-up, enter the following details:
 - **Project title**
 - **Role** (check box if you're still working on the project)
 - **Time Period**
-  - Start Date (Month and Year)
-  - End Date (Month and Year)
+ - Start Date (Month and Year)
+ - End Date (Month and Year)
 - **URL**
 - **Description**
 

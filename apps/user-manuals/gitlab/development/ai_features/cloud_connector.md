@@ -5,11 +5,7 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Cloud Connector
 ---
 
-GitLab Cloud Connector is a way to access services common to
-multiple GitLab deployments, instances, and cells. As of now, Cloud Connector is not a
-dedicated service itself, but rather a collection of APIs and code that standardizes the approach to authentication and
-other items when integrating Cloud based services with the GitLab instance. This page aims to explain how to use
-Cloud Connector to link GitLab Rails to a service.
+GitLab Cloud Connector is a way to access services common to multiple GitLab deployments, instances, and cells. As of now, Cloud Connector is not a dedicated service itself, but rather a collection of APIs and code that standardizes the approach to authentication and other items when integrating Cloud based services with the GitLab instance. This page aims to explain how to use Cloud Connector to link GitLab Rails to a service.
 
 ## Ownership
 
@@ -57,17 +53,15 @@ To register a new feature:
 
 As an example, the feature is delivered as new Unit Primitive called `new_feature`.
 
-Call to `Gitlab::AiGateway.headers(user: user, unit_primitive_name: :new_feature, ai_feature_name: ai_feature_name_from_catalog)`
-will give you a set of headers you need to attach to every request to **AI gateway**.
-Refer to [AiFeaturesCatalogue](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/gitlab/llm/utils/ai_features_catalogue.rb) to
-pick the appropriate value of `ai_feature_name_from_catalog`.
+Call to `Gitlab::AiGateway.headers(user: user, unit_primitive_name: :new_feature, ai_feature_name: ai_feature_name_from_catalog)` will give you a set of headers you need to attach to every request to **AI gateway**.
+Refer to [AiFeaturesCatalogue](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/gitlab/llm/utils/ai_features_catalogue.rb) to pick the appropriate value of `ai_feature_name_from_catalog`.
 
 The headers set has everything needed to authenticate your AI request with the **AI gateway**.
 In particular, it includes access token in the `Authorization` field:
 
 - On GitLab.com, it will self-issue a token with scopes that depend on the provided resource:
-  - For a user: scopes will be based on the user's seat assignment
-  - For a namespace: scopes will be based on purchased add-ons for this namespace
+ - For a user: scopes will be based on the user's seat assignment
+ - For a namespace: scopes will be based on purchased add-ons for this namespace
 - On GitLab Self-Managed, it will always include `::CloudConnector::ServiceAccessToken` **JWT** token stored in the database.
 
 The **backend service** (**AI gateway**) must validate this token and any scopes it carries when receiving the request.
@@ -88,7 +82,7 @@ These optional checks can be useful for:
 Implementation approaches:
 
 - **For experimental/free features**: If the feature has free access, this usually means that the experimental features are subject to the [Testing Agreement](https://handbook.gitlab.com/handbook/legal/testing-agreement/).
-  - For GitLab Duo features, the customer needs to enable [experimental toggle](../../user/gitlab_duo/turn_on_off.md#turn-on-beta-and-experimental-features) in order to use experimental features for free.
+ - For GitLab Duo features, the customer needs to enable [experimental toggle](../../user/gitlab_duo/turn_on_off.md#turn-on-beta-and-experimental-features) in order to use experimental features for free.
 
 - **For paid features on GitLab.com and GitLab Self-Managed**: Check if the user is entitled to use the feature before making the backend request.
 
@@ -104,16 +98,16 @@ The following example is for a request to the service called `:new_feature`.
 Add a new policy rule in [ee/global_policy.rb](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/app/policies/ee/global_policy.rb):
 
 ```ruby
-  condition(:new_feature_licensed) do
+ condition(:new_feature_licensed) do
     next true if ::Gitlab::Saas.feature_available?(:new_feature_on_saas)
     ::License.feature_available?(:new_feature)
-  end
+ end
 
-  condition(:user_allowed_to_use_new_feature) do
+ condition(:user_allowed_to_use_new_feature) do
     @user.allowed_to_use?(:new_feature)
-  end
+ end
 
-  rule { new_feature_licensed & user_allowed_to_use_new_feature }.enable :access_new_feature
+ rule { new_feature_licensed & user_allowed_to_use_new_feature }.enable :access_new_feature
 ```
 
 Send the request
@@ -123,21 +117,19 @@ Send the request
 return unauthorized! unless current_user.can?(:access_new_feature)
 
 Gitlab::HTTP.post(
-  "#{ai_gateway_base_url}#{feature_endpoint}",
-  headers: Gitlab::AiGateway.headers(user: user, unit_primitive_name: :new_feature, ai_feature_name: <CORRESPONDING ENTRY FROM AiFeaturesCatalogue>),
-  body: <REQUEST BODY>,
+ "#{ai_gateway_base_url}#{feature_endpoint}",
+ headers: Gitlab::AiGateway.headers(user: user, unit_primitive_name: :new_feature, ai_feature_name: <CORRESPONDING ENTRY FROM AiFeaturesCatalogue>),
+ body: <REQUEST BODY>,
 )
 ```
 
 ### Implement authorization checks in backend service
 
-GitLab Rails calls the **backend service** (**AI gateway**) to deliver functionality that would otherwise be unavailable to GitLab Self-Managed and
-Dedicated instances. For GitLab Rails to be able to call this, there has to be an endpoint exposed.
+GitLab Rails calls the **backend service** (**AI gateway**) to deliver functionality that would otherwise be unavailable to GitLab Self-Managed and Dedicated instances. For GitLab Rails to be able to call this, there has to be an endpoint exposed.
 The backend service must verify each JWT sent by GitLab Rails in the Authorization header.
 
 For more information and examples on the **AI gateway** authorization process, check the [Authorization in AI gateway documentation](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/-/blob/main/docs/auth.md?ref_type=heads#authorization-in-ai-gateway).
 
 ## Testing
 
-An example for how to set up an end-to-end integration with the **AI gateway** as the backend service
-can be found in [install AI gateway](_index.md#install-ai-gateway).
+An example for how to set up an end-to-end integration with the **AI gateway** as the backend service can be found in [install AI gateway](_index.md#install-ai-gateway).

@@ -12,13 +12,11 @@ title: GitLab CI/CD examples
 
 {{< /details >}}
 
-This page contains links to a variety of examples that can help you understand how to
-implement [GitLab CI/CD](../_index.md) for your specific use case.
+This page contains links to a variety of examples that can help you understand how to implement [GitLab CI/CD](../_index.md) for your specific use case.
 
 Examples are available in several forms. As a collection of:
 
-- `.gitlab-ci.yml` [template files](#cicd-templates) maintained in GitLab, for many
-  common frameworks and programming languages.
+- `.gitlab-ci.yml` [template files](#cicd-templates) maintained in GitLab, for many common frameworks and programming languages.
 - Repositories with [example projects](https://gitlab.com/gitlab-examples) for various languages. You can fork and adjust them to your own needs. Projects include an example of using [review apps with a static site served by NGINX](https://gitlab.com/gitlab-examples/review-apps-nginx/).
 - Examples and [other resources](#other-resources) listed in the following sections.
 
@@ -38,9 +36,7 @@ The following table lists examples with step-by-step tutorials that are containe
 
 ### Contributed examples
 
-You can help people that use your favorite programming language by submitting a link
-to a guide for that language. These contributed guides are hosted externally or in
-separate example projects:
+You can help people that use your favorite programming language by submitting a link to a guide for that language. These contributed guides are hosted externally or in separate example projects:
 
 | Use case                      | Resource |
 |-------------------------------|----------|
@@ -55,11 +51,9 @@ separate example projects:
 
 ## CI/CD templates
 
-Get started with GitLab CI/CD and your favorite programming language or framework by using a
-`.gitlab-ci.yml` [template](https://gitlab.com/gitlab-org/gitlab/-/tree/master/lib/gitlab/ci/templates).
+Get started with GitLab CI/CD and your favorite programming language or framework by using a `.gitlab-ci.yml` [template](https://gitlab.com/gitlab-org/gitlab/-/tree/master/lib/gitlab/ci/templates).
 
-When you create a `.gitlab-ci.yml` file in the UI, you can
-choose one of these templates:
+When you create a `.gitlab-ci.yml` file in the UI, you can choose one of these templates:
 
 - [Android (`Android.gitlab-ci.yml`)](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Android.gitlab-ci.yml)
 - [Android with fastlane (`Android-Fastlane.gitlab-ci.yml`)](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Android-Fastlane.gitlab-ci.yml)
@@ -98,9 +92,7 @@ choose one of these templates:
 - [Terraform (`Terraform.gitlab-ci.yml`)](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Terraform.gitlab-ci.yml)
 - [Terraform (`Terraform.latest.gitlab-ci.yml`)](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Terraform.latest.gitlab-ci.yml)
 
-If a programming language or framework template is not in this list, you can contribute
-one. To create a template, submit a merge request
-to [the templates list](https://gitlab.com/gitlab-org/gitlab/-/tree/master/lib/gitlab/ci/templates).
+If a programming language or framework template is not in this list, you can contribute one. To create a template, submit a merge request to [the templates list](https://gitlab.com/gitlab-org/gitlab/-/tree/master/lib/gitlab/ci/templates).
 
 ### Adding templates to your GitLab installation
 

@@ -15,7 +15,7 @@ To delete a bid form from a bid package.
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.
+ - 'Admin' level permissions on the project's Bidding tool.
 
 ## Steps
 
@@ -24,7 +24,7 @@ To delete a bid form from a bid package.
 If you delete a bid form, it is permanently deleted and cannot be recovered.
 
 1. Navigate to the project's **Bidding** tool.
-2. Click **View** for the relevant bid package.  
+2. Click **View** for the relevant bid package. 
    *Note:* You can also click the name of the bid package.
 3. Click **View Bid Forms**.
 4. Click the bid form that you want to delete.

@@ -21,10 +21,8 @@ title: Linked epics API (deprecated)
 
 {{< alert type="warning" >}}
 
-The Epics REST API was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/460668) in GitLab 17.0
-and is planned for removal in v5 of the API.
-From GitLab 17.4 to 18.0, if [the new look for epics](../user/group/epics/_index.md#epics-as-work-items) is enabled, and in GitLab 18.1 and later, use the
-Work Items API instead. For more information, see [migrate epic APIs to work items](graphql/epic_work_items_api_migration_guide.md).
+The Epics REST API was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/460668) in GitLab 17.0 and is planned for removal in v5 of the API.
+From GitLab 17.4 to 18.0, if [the new look for epics](../user/group/epics/_index.md#epics-as-work-items) is enabled, and in GitLab 18.1 and later, use the Work Items API instead. For more information, see [migrate epic APIs to work items](graphql/epic_work_items_api_migration_guide.md).
 This change is a breaking change.
 
 {{< /alert >}}
@@ -42,27 +40,27 @@ GET /groups/:id/related_epic_links
 
 Supported attributes:
 
-| Attribute  | Type           | Required               | Description                                                               |
+| Attribute | Type           | Required               | Description                                                               |
 | ---------- | -------------- | ---------------------- | ------------------------------------------------------------------------- |
 | `id`       | integer or string | Yes | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
-| `created_after` | string | no | Return related epic links created on or after the given time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`)  |
+| `created_after` | string | no | Return related epic links created on or after the given time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`) |
 | `created_before` | string | no | Return related epic links created on or before the given time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`) |
-| `updated_after` | string | no | Return related epic links updated on or after the given time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`)  |
+| `updated_after` | string | no | Return related epic links updated on or after the given time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`) |
 | `updated_before` | string | no | Return related epic links updated on or before the given time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`) |
 
 Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/related_epic_links"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/:id/related_epic_links"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "created_at": "2022-01-31T15:10:44.988Z",
     "updated_at": "2022-01-31T15:10:44.988Z",
@@ -151,7 +149,7 @@ Example response:
         "parent": null
       }
     },
-  }
+ }
 ]
 ```
 
@@ -165,7 +163,7 @@ GET /groups/:id/epics/:epic_iid/related_epics
 
 Supported attributes:
 
-| Attribute  | Type           | Required               | Description                                                               |
+| Attribute | Type           | Required               | Description                                                               |
 | ---------- | -------------- | ---------------------- | ------------------------------------------------------------------------- |
 | `epic_iid` | integer        | Yes | Internal ID of a group's epic                                             |
 | `id`       | integer or string | Yes | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group. |
@@ -261,19 +259,19 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/26/epics/1/related_epics?target_group_id=26&target_epic_iid=5"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/26/epics/1/related_epics?target_group_id=26&target_epic_iid=5"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "created_at": "2022-01-31T15:10:44.988Z",
-  "updated_at": "2022-01-31T15:10:44.988Z",
-  "link_type": "relates_to",
-  "source_epic": {
+ "id": 1,
+ "created_at": "2022-01-31T15:10:44.988Z",
+ "updated_at": "2022-01-31T15:10:44.988Z",
+ "link_type": "relates_to",
+ "source_epic": {
     "id": 21,
     "iid": 1,
     "color": "#1068bf",
@@ -314,8 +312,8 @@ Example response:
       "group": "http://gitlab.example.com/api/v4/groups/26",
       "parent": null
     }
-  },
-  "target_epic": {
+ },
+ "target_epic": {
     "id": 25,
     "iid": 5,
     "color": "#1068bf",
@@ -356,7 +354,7 @@ Example response:
       "group": "http://gitlab.example.com/api/v4/groups/26",
       "parent": null
     }
-  },
+ },
 }
 ```
 
@@ -386,19 +384,19 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/26/epics/1/related_epics/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/26/epics/1/related_epics/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "created_at": "2022-01-31T15:10:44.988Z",
-  "updated_at": "2022-01-31T15:10:44.988Z",
-  "link_type": "relates_to",
-  "source_epic": {
+ "id": 1,
+ "created_at": "2022-01-31T15:10:44.988Z",
+ "updated_at": "2022-01-31T15:10:44.988Z",
+ "link_type": "relates_to",
+ "source_epic": {
     "id": 21,
     "iid": 1,
     "color": "#1068bf",
@@ -439,8 +437,8 @@ Example response:
       "group": "http://gitlab.example.com/api/v4/groups/26",
       "parent": null
     }
-  },
-  "target_epic": {
+ },
+ "target_epic": {
     "id": 25,
     "iid": 5,
     "color": "#1068bf",
@@ -481,6 +479,6 @@ Example response:
       "group": "http://gitlab.example.com/api/v4/groups/26",
       "parent": null
     }
-  },
+ },
 }
 ```

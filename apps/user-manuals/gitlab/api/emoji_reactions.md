@@ -41,8 +41,7 @@ For information on using these endpoints with comments, see [Add reactions to co
 
 {{< /history >}}
 
-Get a list of all emoji reactions for a specified awardable. This endpoint can
-be accessed without authentication if the awardable is publicly accessible.
+Get a list of all emoji reactions for a specified awardable. This endpoint can be accessed without authentication if the awardable is publicly accessible.
 
 ```plaintext
 GET /projects/:id/issues/:issue_iid/award_emoji
@@ -61,15 +60,15 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/issues/80/award_emoji"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/issues/80/award_emoji"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 4,
     "name": "1234",
     "user": {
@@ -84,8 +83,8 @@ Example response:
     "updated_at": "2016-06-15T10:09:34.206Z",
     "awardable_id": 80,
     "awardable_type": "Issue"
-  },
-  {
+ },
+ {
     "id": 1,
     "name": "microphone",
     "user": {
@@ -100,7 +99,7 @@ Example response:
     "updated_at": "2016-06-15T10:09:34.177Z",
     "awardable_id": 80,
     "awardable_type": "Issue"
-  }
+ }
 ]
 ```
 
@@ -112,8 +111,7 @@ Example response:
 
 {{< /history >}}
 
-Get a single emoji reaction from an issue, snippet, or merge request. This endpoint can
-be accessed without authentication if the awardable is publicly accessible.
+Get a single emoji reaction from an issue, snippet, or merge request. This endpoint can be accessed without authentication if the awardable is publicly accessible.
 
 ```plaintext
 GET /projects/:id/issues/:issue_iid/award_emoji/:award_id
@@ -133,28 +131,28 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/issues/80/award_emoji/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/issues/80/award_emoji/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "name": "microphone",
-  "user": {
+ "id": 1,
+ "name": "microphone",
+ "user": {
     "name": "User 4",
     "username": "user4",
     "id": 26,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/7e65550957227bd38fe2d7fbc6fd2f7b?s=80&d=identicon",
     "web_url": "http://gitlab.example.com/user4"
-  },
-  "created_at": "2016-06-15T10:09:34.177Z",
-  "updated_at": "2016-06-15T10:09:34.177Z",
-  "awardable_id": 80,
-  "awardable_type": "Issue"
+ },
+ "created_at": "2016-06-15T10:09:34.177Z",
+ "updated_at": "2016-06-15T10:09:34.177Z",
+ "awardable_id": 80,
+ "awardable_type": "Issue"
 }
 ```
 
@@ -178,28 +176,28 @@ Parameters:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/issues/80/award_emoji?name=blowfish"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/issues/80/award_emoji?name=blowfish"
 ```
 
 Example Response:
 
 ```json
 {
-  "id": 344,
-  "name": "blowfish",
-  "user": {
+ "id": 344,
+ "name": "blowfish",
+ "user": {
     "name": "Administrator",
     "username": "root",
     "id": 1,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "web_url": "http://gitlab.example.com/root"
-  },
-  "created_at": "2016-06-17T17:47:29.266Z",
-  "updated_at": "2016-06-17T17:47:29.266Z",
-  "awardable_id": 80,
-  "awardable_type": "Issue"
+ },
+ "created_at": "2016-06-17T17:47:29.266Z",
+ "updated_at": "2016-06-17T17:47:29.266Z",
+ "awardable_id": 80,
+ "awardable_type": "Issue"
 }
 ```
 
@@ -225,8 +223,8 @@ Parameters:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/issues/80/award_emoji/344"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/issues/80/award_emoji/344"
 ```
 
 ## Add reactions to comments
@@ -235,9 +233,7 @@ Comments (also known as notes) are a sub-resource of issues, merge requests, and
 
 {{< alert type="note" >}}
 
-The examples below describe working with emoji reactions on an issue's comments, but can be
-adapted to comments on merge requests and snippets. Therefore, you have to replace
-`issue_iid` either with `merge_request_iid` or with the `snippet_id`.
+The examples below describe working with emoji reactions on an issue's comments, but can be adapted to comments on merge requests and snippets. Therefore, you have to replace `issue_iid` either with `merge_request_iid` or with the `snippet_id`.
 
 {{< /alert >}}
 
@@ -249,8 +245,7 @@ adapted to comments on merge requests and snippets. Therefore, you have to repla
 
 {{< /history >}}
 
-Get all emoji reactions for a comment (note). This endpoint can
-be accessed without authentication if the comment is publicly accessible.
+Get all emoji reactions for a comment (note). This endpoint can be accessed without authentication if the comment is publicly accessible.
 
 ```plaintext
 GET /projects/:id/issues/:issue_iid/notes/:note_id/award_emoji
@@ -268,15 +263,15 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/issues/80/notes/1/award_emoji"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/issues/80/notes/1/award_emoji"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 2,
     "name": "mood_bubble_lightning",
     "user": {
@@ -291,7 +286,7 @@ Example response:
     "updated_at": "2016-06-15T10:09:34.197Z",
     "awardable_id": 1,
     "awardable_type": "Note"
-  }
+ }
 ]
 ```
 
@@ -303,8 +298,7 @@ Example response:
 
 {{< /history >}}
 
-Get a single emoji reaction for a comment (note). This endpoint can
-be accessed without authentication if the comment is publicly accessible.
+Get a single emoji reaction for a comment (note). This endpoint can be accessed without authentication if the comment is publicly accessible.
 
 ```plaintext
 GET /projects/:id/issues/:issue_iid/notes/:note_id/award_emoji/:award_id
@@ -317,34 +311,34 @@ Parameters:
 | `id`        | integer or string | yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer        | yes      | Internal ID of an issue.                                                     |
 | `note_id`   | integer        | yes      | ID of a comment (note).                                                      |
-| `award_id`  | integer        | yes      | ID of the emoji reaction.                                                       |
+| `award_id` | integer        | yes      | ID of the emoji reaction.                                                       |
 
 Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/issues/80/notes/1/award_emoji/2"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/issues/80/notes/1/award_emoji/2"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 2,
-  "name": "mood_bubble_lightning",
-  "user": {
+ "id": 2,
+ "name": "mood_bubble_lightning",
+ "user": {
     "name": "User 4",
     "username": "user4",
     "id": 26,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/7e65550957227bd38fe2d7fbc6fd2f7b?s=80&d=identicon",
     "web_url": "http://gitlab.example.com/user4"
-  },
-  "created_at": "2016-06-15T10:09:34.197Z",
-  "updated_at": "2016-06-15T10:09:34.197Z",
-  "awardable_id": 1,
-  "awardable_type": "Note"
+ },
+ "created_at": "2016-06-15T10:09:34.197Z",
+ "updated_at": "2016-06-15T10:09:34.197Z",
+ "awardable_id": 1,
+ "awardable_type": "Note"
 }
 ```
 
@@ -369,28 +363,28 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/issues/80/notes/1/award_emoji?name=rocket"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/issues/80/notes/1/award_emoji?name=rocket"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 345,
-  "name": "rocket",
-  "user": {
+ "id": 345,
+ "name": "rocket",
+ "user": {
     "name": "Administrator",
     "username": "root",
     "id": 1,
     "state": "active",
     "avatar_url": "http://www.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon",
     "web_url": "http://gitlab.example.com/root"
-  },
-  "created_at": "2016-06-17T19:59:55.888Z",
-  "updated_at": "2016-06-17T19:59:55.888Z",
-  "awardable_id": 1,
-  "awardable_type": "Note"
+ },
+ "created_at": "2016-06-17T19:59:55.888Z",
+ "updated_at": "2016-06-17T19:59:55.888Z",
+ "awardable_id": 1,
+ "awardable_type": "Note"
 }
 ```
 
@@ -411,12 +405,12 @@ Parameters:
 | `id`        | integer or string | yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `issue_iid` | integer        | yes      | Internal ID of an issue.                                                     |
 | `note_id`   | integer        | yes      | ID of a comment (note).                                                      |
-| `award_id`  | integer        | yes      | ID of an emoji reaction.                                                        |
+| `award_id` | integer        | yes      | ID of an emoji reaction.                                                        |
 
 Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/1/issues/80/award_emoji/345"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/1/issues/80/award_emoji/345"
 ```

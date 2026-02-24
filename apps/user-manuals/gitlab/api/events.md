@@ -18,8 +18,7 @@ title: Events API
 
 {{< /history >}}
 
-Use this API to review event activity. Events can include a wide range of actions including things
-like joining projects, commenting on issues, pushing changes to MRs, or closing epics.
+Use this API to review event activity. Events can include a wide range of actions including things like joining projects, commenting on issues, pushing changes to MRs, or closing epics.
 
 For information about activity retention limits, see:
 
@@ -62,15 +61,15 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/events?target_type=issue&action=created&after=2017-01-31&before=2017-03-01&scope=all"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/events?target_type=issue&action=created&after=2017-01-31&before=2017-03-01&scope=all"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "title": null,
     "project_id": 1,
@@ -92,8 +91,8 @@ Example response:
     "author_username": "user3",
     "imported": false,
     "imported_from": "none"
-  },
-  {
+ },
+ {
     "id": 2,
     "title": null,
     "project_id": 1,
@@ -115,7 +114,7 @@ Example response:
     "author_username": "ted",
     "imported": false,
     "imported_from": "none"
-  }
+ }
 ]
 ```
 
@@ -146,15 +145,15 @@ Parameters:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/users/:id/events"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/users/:id/events"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 3,
     "title": null,
     "project_id": 15,
@@ -175,8 +174,8 @@ Example response:
     "author_username": "root",
     "imported": false,
     "imported_from": "none"
-  },
-  {
+ },
+ {
     "id": 4,
     "title": null,
     "project_id": 15,
@@ -206,8 +205,8 @@ Example response:
       "commit_title": "Add simple search to projects in public area"
     },
     "target_title": null
-  },
-  {
+ },
+ {
     "id": 5,
     "title": null,
     "project_id": 15,
@@ -228,8 +227,8 @@ Example response:
     "author_username": "root",
     "imported": false,
     "imported_from": "none"
-  },
-  {
+ },
+ {
     "id": 7,
     "title": null,
     "project_id": 15,
@@ -268,7 +267,7 @@ Example response:
     "author_username": "root",
     "imported": false,
     "imported_from": "none"
-  }
+ }
 ]
 ```
 
@@ -284,7 +283,7 @@ Parameters:
 
 | Parameter     | Type            | Required | Description |
 | ------------- | --------------- | -------- | ----------- |
-| `project_id`  | integer or string  | yes      | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of a project. |
+| `project_id` | integer or string | yes      | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of a project. |
 | `action`      | string          | no       | If defined, returns events with the specified [action type](../user/profile/contributions_calendar.md#user-contribution-events). |
 | `target_type` | string          | no       | If defined, returns the specified events. Possible values: `epic`, `issue`, `merge_request`, `milestone`, `note`, `project`, `snippet`, and `user`. |
 | `before`      | date (ISO 8601) | no       | If defined, returns events created before the specified date. |
@@ -295,15 +294,15 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/:project_id/events?target_type=issue&action=created&after=2017-01-31&before=2017-03-01"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/:project_id/events?target_type=issue&action=created&after=2017-01-31&before=2017-03-01"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 8,
     "title": null,
     "project_id": 1,
@@ -325,8 +324,8 @@ Example response:
     "author_username": "user3",
     "imported": false,
     "imported_from": "none"
-  },
-  {
+ },
+ {
     "id": 9,
     "title": null,
     "project_id": 1,
@@ -348,8 +347,8 @@ Example response:
     "author_username": "ted",
     "imported": false,
     "imported_from": "none"
-  },
-  {
+ },
+ {
     "id": 10,
     "title": null,
     "project_id": 1,
@@ -390,6 +389,6 @@ Example response:
     "author_username": "root",
     "imported": false,
     "imported_from": "none"
-  }
+ }
 ]
 ```

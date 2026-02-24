@@ -19,7 +19,7 @@ Shapes make up the majority of your layers in any given design. Use the followin
 - [Polygon](https://help.figma.com/hc/en-us/articles/360040450133#polygons)
 - [Star](https://help.figma.com/hc/en-us/articles/360040450133#stars)
 
-You can access these tools from the **Shape tools** menu in the toolbar. Click the arrow next to the  **Rectangle** to open the menu.
+You can access these tools from the **Shape tools** menu in the toolbar. Click the arrow next to the **Rectangle** to open the menu.
 
 ![Shape tools menu open in the toolbar, displaying options like Rectangle, Line, Arrow, Ellipse, Polygon, and Star.](https://help.figma.com/hc/article_attachments/26628361894423)
 
@@ -35,9 +35,9 @@ Note: For designs that require unique or complex shapes, you can build your own 
 
 Use the **Rectangle** tool to create both rectangles and squares.
 
-1. Select the  **Rectangle** tool from the toolbar, or press `R`.
+1. Select the **Rectangle** tool from the toolbar, or press `R`.
 2. Click on a spot in the canvas and drag to create the rectangle. You’ll see the rectangle’s dimensions underneath the bottom edge.
-3. There will be a handle in each corner of the shape, this allows you to resize the shape as you see fit.  
+3. There will be a handle in each corner of the shape, this allows you to resize the shape as you see fit. 
 
    ![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5c7ff8b72c7d3a0cb9324efe/file-IIxHJSx0rf.gif)
 
@@ -49,9 +49,9 @@ In addition to the regular handles, rectangles also have four circle handles on 
 
 The **Line** tool allows you to create lines in any direction. Lines are an effective way of breaking up content within a design, or simulating CSS borders.
 
-1. Select the  **Line** tool from the shape tools or press `L`.
+1. Select the **Line** tool from the shape tools or press `L`.
 2. Click on a spot in the canvas and drag in any direction to create the line.
-3. You can make any changes to its appearance in the **Stroke** section of the right sidebar. This includes the color, position, weight, style, and end point tips or caps. [Learn more →](https://help.figma.com/hc/en-us/articles/360049283914)  
+3. You can make any changes to its appearance in the **Stroke** section of the right sidebar. This includes the color, position, weight, style, and end point tips or caps. [Learn more →](https://help.figma.com/hc/en-us/articles/360049283914) 
 
    ![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5c7ff9782c7d3a0cb9324f0e/file-YtlDR2B0cL.gif)
 
@@ -60,7 +60,7 @@ The **Line** tool allows you to create lines in any direction. Lines are an effe
 You can specify both the length of the dash and the gap between dashes.
 
 1. Draw or select the line.
-2. In the **Stroke** section of the right sidebar, select  to open the **Advanced stroke settings** menu.
+2. In the **Stroke** section of the right sidebar, select to open the **Advanced stroke settings** menu.
 3. Enter the length you want in the **Dash** and the **Gap** fields.
 
 ## Arrows
@@ -74,11 +74,11 @@ Like the line tool, you can make adjustments to the **Stroke** properties. [Lea
 
 ## Ellipses and circles
 
-Use the  **Ellipse** tool to draw both ovals and circles. These can be used as they are, or manipulated to create custom shapes with curved lines.
+Use the **Ellipse** tool to draw both ovals and circles. These can be used as they are, or manipulated to create custom shapes with curved lines.
 
-1. Select the  **Ellipse** tool from the shape tools menu, or press `O`.
+1. Select the **Ellipse** tool from the shape tools menu, or press `O`.
 2. Select a spot in the canvas and drag in any direction to create the ellipse. The shape's dimensions will be shown in blue underneath the layer.
-3. There will be a blue bounding box around the ellipse, with a handle in each corner. This allows you to resize the shape.  
+3. There will be a blue bounding box around the ellipse, with a handle in each corner. This allows you to resize the shape. 
 
    ![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5c7ff98804286350d088b59f/file-SyxYVn027Y.gif)
 
@@ -93,7 +93,7 @@ The default shape for the polygon tool is a triangle, but you can add extra poin
 1. Select the **Polygon** tool from the shape menu.
 2. Select a location in the canvas and drag to create the polygon. The shape's dimensions will be shown in blue underneath the object.
 3. The blue bounding box around the shape has a handle in each corner. This allows you to resize the shape as you see fit.
-4. Enter **Edit object** mode by double-clicking on the polygon layer. This allows you to add additional points to the polygon and manipulate each point individually:  
+4. Enter **Edit object** mode by double-clicking on the polygon layer. This allows you to add additional points to the polygon and manipulate each point individually: 
 
    ![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5c7ff99604286350d088b5a2/file-m2Sbzq1IKG.gif)
 5. You can round the corners of a polygon too. Hover over the handle in the corner until the radius is shown. Click and drag the handle towards the center of the object to round the corners.![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5c7ffbb304286350d088b5f3/file-0PgnPiGSd1.png)
@@ -109,10 +109,10 @@ This allows the bounding box to remain a consistent shape or size, when addition
 The **Star** tool creates polygons that are arranged in a star shape. When you create a star layer, the default will be a five pointed star with ten sides.
 
 1. Select the Star tool from the shape tools menu.
-2. Select a position in the canvas and drag in any direction to create the star.  
+2. Select a position in the canvas and drag in any direction to create the star. 
 
    ![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5c7ff9c404286350d088b5a5/file-oDo6DK0AU1.gif)
-3. You’ll now have three handles you can use to manipulate the star:  
+3. You’ll now have three handles you can use to manipulate the star: 
    - **Count**: How many points there are to the star. The minimum is three and the maximum is 60. ![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5c7ffb7f2c7d3a0cb9324f5b/file-Jkvi0ZEIix.png)
    - **Ratio**: The distance of the inner points of the star from the center. This is represented as percentage of the star's diameter.![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5c7ffb9a04286350d088b5ee/file-PAwNTd4ux5.png)
    - **Radius**: Allows you to round the points of the star.![](https://d33v4339jhl8k0.cloudfront.net/docs/assets/5aa962fe2c7d3a2c4983093d/images/5c7ffb8e04286350d088b5eb/file-9GkVObCJdd.png)

@@ -36,12 +36,12 @@ You can create a text style from any text layer that has the properties you want
 
 1. Select a text layer.
 2. In the **Typography** section of the right sidebar, click  **Styles**.
-3. Click the  **plus icon** to create a new style.
+3. Click the **plus icon** to create a new style.
 4. Give the style a name.
-5. Click  **Add new style breakpoint** in the **Breakpoint** section.
+5. Click **Add new style breakpoint** in the **Breakpoint** section.
 6. Choose an existing breakpoint in your file, or click **Custom** to choose your own breakpoint for this style.
 7. Adjust the font size, line height, letter spacing, and paragraph spacing for that breakpoint as needed.
-8. Click  **Add new style breakpoint** to add another breakpoint, or click **Create style** when you’re done.
+8. Click **Add new style breakpoint** to add another breakpoint, or click **Create style** when you’re done.
 
 Now, when you use this text style on a webpage with multiple breakpoints, it will automatically adjust based on page’s breakpoint width.
 
@@ -55,10 +55,10 @@ You can add breakpoints to text styles created in the file or ones from a librar
 
 1. Select a text layer with the existing style applied.
 2. Click the name of the style in the **Typography** section of the right sidebar.
-3. Hover over the name of the style in the list and click  **Edit style.**
-4. In the **Breakpoint** section, click  **Add new style**.
+3. Hover over the name of the style in the list and click **Edit style.**
+4. In the **Breakpoint** section, click **Add new style**.
 5. Choose an existing breakpoint in your file, or click **Custom** to choose your own breakpoint for this style.
 6. Adjust the font size, line height, letter spacing, and paragraph spacing for that breakpoint as needed.
-7. Click  **Add new style** to add another breakpoint, or click **Create style** when you’re done.
+7. Click **Add new style** to add another breakpoint, or click **Create style** when you’re done.
 
 **Tip:** If you want to reuse the text style’s breakpoint values across multiple files, you can [create and use a variable](https://help.figma.com/hc/en-us/articles/15145852043927-Create-and-manage-variables). Since variable collections can be [published in a library](../../figma-design/create-and-share-libraries/publish-a-library.md), this can help you keep the values consistent across multiple files.

@@ -10,8 +10,7 @@ Use the available logs and [Prometheus metrics](../monitoring/prometheus/_index.
 Metric definitions are available:
 
 - Directly from Prometheus `/metrics` endpoint configured for Gitaly.
-- Using [Grafana Explore](https://grafana.com/docs/grafana/latest/explore/) on a
-  Grafana instance configured against Prometheus.
+- Using [Grafana Explore](https://grafana.com/docs/grafana/latest/explore/) on a Grafana instance configured against Prometheus.
 
 Gitaly can be configured to limit requests based on concurrency of requests (adaptive or non-adaptive).
 
@@ -33,10 +32,10 @@ For example:
 
 ```json
 {
-  "limit.concurrency_queue_length": 1,
-  "limit.concurrency_queue_ms": 0,
-  "limit.limiting_key": "@hashed/79/02/7902699be42c8a8e46fbbb450172651786b22c56a189f7625a6da49081b2451.git",
-  "limit.limiting_type": "per-rpc"
+ "limit.concurrency_queue_length": 1,
+ "limit.concurrency_queue_ms": 0,
+ "limit.limiting_key": "@hashed/79/02/7902699be42c8a8e46fbbb450172651786b22c56a189f7625a6da49081b2451.git",
+ "limit.limiting_type": "per-rpc"
 }
 ```
 
@@ -46,8 +45,8 @@ In Prometheus, look for the following metrics:
 - `gitaly_concurrency_limiting_queued` indicates how many requests for an RPC for a given repository are waiting due to the concurrency limit being reached.
 - `gitaly_concurrency_limiting_acquiring_seconds` indicates how long a request has to wait due to concurrency limits before being processed.
 - `gitaly_requests_dropped_total` provides a total count of requests dropped due to request limiting. The `reason` label indicates why a request was dropped:
-  - `max_size`, because the concurrency queue size was reached.
-  - `max_time`, because the request exceeded the maximum queue wait time as configured in Gitaly.
+ - `max_size`, because the concurrency queue size was reached.
+ - `max_time`, because the request exceeded the maximum queue wait time as configured in Gitaly.
 
 ## Monitor Gitaly pack-objects concurrency limiting
 
@@ -66,10 +65,10 @@ Example configuration:
 
 ```json
 {
-  "limit.concurrency_queue_length": 1,
-  "limit.concurrency_queue_ms": 0,
-  "limit.limiting_key": "1.2.3.4",
-  "limit.limiting_type": "pack-objects"
+ "limit.concurrency_queue_length": 1,
+ "limit.concurrency_queue_ms": 0,
+ "limit.limiting_key": "1.2.3.4",
+ "limit.limiting_type": "pack-objects"
 }
 ```
 
@@ -111,15 +110,15 @@ Example log:
 
 ```json
 {
-  "msg": "Multiplicative decrease",
-  "limit": "pack-objects",
-  "new_limit": 14,
-  "previous_limit": 29,
-  "reason": "cgroup CPU throttled too much",
-  "watcher": "CgroupCpu",
-  "stats.time_diff": 15.0,
-  "stats.throttled_duration": 13.0,
-  "stat.sthrottled_threshold": 0.5
+ "msg": "Multiplicative decrease",
+ "limit": "pack-objects",
+ "new_limit": 14,
+ "previous_limit": 29,
+ "reason": "cgroup CPU throttled too much",
+ "watcher": "CgroupCpu",
+ "stats.time_diff": 15.0,
+ "stats.throttled_duration": 13.0,
+ "stat.sthrottled_threshold": 0.5
 }
 ```
 
@@ -137,8 +136,7 @@ Adaptive concurrency limiting specific metrics:
 
 - `gitaly_concurrency_limiting_current_limit` - A gauge showing the current limit value of an adaptive concurrency limit for each RPC type. Only adaptive limits are included in this metric.
 - `gitaly_concurrency_limiting_backoff_events_total` - Counter indicating the total number of backoff events, representing when and why limits are reduced due to resource pressure.
-- `gitaly_concurrency_limiting_watcher_errors_total` - Counter tracking errors that occur when Gitaly fails to retrieve resource data, which may impact the ability for
-  Gitaly to evaluate the current resource situation.
+- `gitaly_concurrency_limiting_watcher_errors_total` - Counter tracking errors that occur when Gitaly fails to retrieve resource data, which may impact the ability for Gitaly to evaluate the current resource situation.
 
 When investigating issues with adaptive limiting, correlate these metrics with the general concurrency limiting metrics and logs to get a complete picture of system behavior.
 
@@ -146,12 +144,9 @@ When investigating issues with adaptive limiting, correlate these metrics with t
 
 You can observe the status of [control groups (cgroups)](configure_gitaly.md#control-groups) using Prometheus:
 
-- `gitaly_cgroups_reclaim_attempts_total`, a gauge for the total number of times
-  there has been a memory reclaim attempt. This number resets each time a server is
-  restarted.
+- `gitaly_cgroups_reclaim_attempts_total`, a gauge for the total number of times there has been a memory reclaim attempt. This number resets each time a server is restarted.
 - `gitaly_cgroups_cpu_usage`, a gauge that measures CPU usage per cgroup.
-- `gitaly_cgroup_procs_total`, a gauge that measures the total number of
-  processes Gitaly has spawned under the control of cgroups.
+- `gitaly_cgroup_procs_total`, a gauge that measures the total number of processes Gitaly has spawned under the control of cgroups.
 - `gitaly_cgroup_cpu_cfs_periods_total`, a counter that for the value of [`nr_periods`](https://docs.kernel.org/scheduler/sched-bwc.html#statistics).
 - `gitaly_cgroup_cpu_cfs_throttled_periods_total`, a counter for the value of [`nr_throttled`](https://docs.kernel.org/scheduler/sched-bwc.html#statistics).
 - `gitaly_cgroup_cpu_cfs_throttled_seconds_total`, a counter for the value of [`throttled_time`](https://docs.kernel.org/scheduler/sched-bwc.html#statistics) in seconds.
@@ -160,19 +155,15 @@ You can observe the status of [control groups (cgroups)](configure_gitaly.md#con
 
 The following [`pack-objects` cache](configure_gitaly.md#pack-objects-cache) metrics are available:
 
-- `gitaly_pack_objects_cache_enabled`, a gauge set to `1` when the cache is enabled. Available
-  labels: `dir` and `max_age`.
+- `gitaly_pack_objects_cache_enabled`, a gauge set to `1` when the cache is enabled. Available labels: `dir` and `max_age`.
 - `gitaly_pack_objects_cache_lookups_total`, a counter for cache lookups. Available label: `result`.
-- `gitaly_pack_objects_generated_bytes_total`, a counter for the number of bytes written into the
-  cache.
+- `gitaly_pack_objects_generated_bytes_total`, a counter for the number of bytes written into the cache.
 - `gitaly_pack_objects_served_bytes_total`, a counter for the number of bytes read from the cache.
 - `gitaly_streamcache_filestore_disk_usage_bytes`, a gauge for the total size of cache files.
-  Available label: `dir`.
-- `gitaly_streamcache_index_entries`, a gauge for the number of entries in the cache. Available
-  label: `dir`.
+ Available label: `dir`.
+- `gitaly_streamcache_index_entries`, a gauge for the number of entries in the cache. Available label: `dir`.
 
-Some of these metrics start with `gitaly_streamcache` because they are generated by the
-`streamcache` internal library package in Gitaly.
+Some of these metrics start with `gitaly_streamcache` because they are generated by the `streamcache` internal library package in Gitaly.
 
 Example:
 
@@ -197,11 +188,8 @@ gitaly_streamcache_index_entries{dir="/var/opt/gitlab/git-data/repositories/+git
 
 Monitor [server-side repository backups](configure_gitaly.md#configure-server-side-backups) with the following metrics:
 
-- `gitaly_backup_latency_seconds`, a histogram measuring the amount of time in seconds that each phase of a server-side
-  backup takes. The different phases are `refs`, `bundle`, and `custom_hooks` and represent the type of data being
-  processed at each stage.
-- `gitaly_backup_bundle_bytes`, a histogram measuring the upload data rate of Git bundles being pushed to object
-  storage by the Gitaly backup service.
+- `gitaly_backup_latency_seconds`, a histogram measuring the amount of time in seconds that each phase of a server-side backup takes. The different phases are `refs`, `bundle`, and `custom_hooks` and represent the type of data being processed at each stage.
+- `gitaly_backup_bundle_bytes`, a histogram measuring the upload data rate of Git bundles being pushed to object storage by the Gitaly backup service.
 
 Use these metrics especially if your GitLab instance contains large repositories.
 
@@ -209,40 +197,33 @@ Use these metrics especially if your GitLab instance contains large repositories
 
 The following are some queries for monitoring Gitaly:
 
-- Use the following Prometheus query to observe the
-  [type of connections](tls_support.md) Gitaly is serving a production
-  environment:
+- Use the following Prometheus query to observe the [type of connections](tls_support.md) Gitaly is serving a production environment:
 
-  ```prometheus
-  sum(rate(gitaly_connections_total[5m])) by (type)
-  ```
+ ```prometheus
+ sum(rate(gitaly_connections_total[5m])) by (type)
+ ```
 
-- Use the following Prometheus query to monitor the
-  [authentication behavior](tls_support.md#observe-type-of-gitaly-connections) of your GitLab
-  installation:
+- Use the following Prometheus query to monitor the [authentication behavior](tls_support.md#observe-type-of-gitaly-connections) of your GitLab installation:
 
-  ```prometheus
-  sum(rate(gitaly_authentications_total[5m])) by (enforced, status)
-  ```
+ ```prometheus
+ sum(rate(gitaly_authentications_total[5m])) by (enforced, status)
+ ```
 
-  In a system where authentication is configured correctly and where you have live traffic, you
-  see something like this:
+ In a system where authentication is configured correctly and where you have live traffic, you see something like this:
 
-  ```prometheus
-  {enforced="true",status="ok"}  4424.985419441742
-  ```
+ ```prometheus
+ {enforced="true",status="ok"} 4424.985419441742
+ ```
 
-  There may also be other numbers with rate 0, but you only have to take note of the non-zero numbers.
+ There may also be other numbers with rate 0, but you only have to take note of the non-zero numbers.
 
-  The only non-zero number should have `enforced="true",status="ok"`. If you have other non-zero
-  numbers, something is wrong in your configuration.
+ The only non-zero number should have `enforced="true",status="ok"`. If you have other non-zero numbers, something is wrong in your configuration.
 
-  The `status="ok"` number reflects your current request rate. In the previous example, Gitaly is
-  handling about 4000 requests per second.
+ The `status="ok"` number reflects your current request rate. In the previous example, Gitaly is handling about 4000 requests per second.
 
 - Use the following Prometheus query to observe the [Git protocol versions](../git_protocol.md)
-  being used in a production environment:
+ being used in a production environment:
 
-  ```prometheus
-  sum(rate(gitaly_git_protocol_requests_total[1m])) by (grpc_method,git_protocol,grpc_service)
-  ```
+ ```prometheus
+ sum(rate(gitaly_git_protocol_requests_total[1m])) by (grpc_method,git_protocol,grpc_service)
+ ```

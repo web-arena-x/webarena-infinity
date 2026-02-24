@@ -35,16 +35,15 @@ For more information, see the history.
 
 {{< /alert >}}
 
-The Software Development Flow helps you create AI-generated solutions for
-work across the software development lifecycle.
+The Software Development Flow helps you create AI-generated solutions for work across the software development lifecycle.
 Formerly known as GitLab Duo Workflow, this flow:
 
 - Runs in your IDE so that you do not have to switch contexts or tools.
 - Creates and works through a plan, in response to your prompt.
 - Stages proposed changes in your project's repository.
-  You control when to accept, modify, or reject the suggestions.
+ You control when to accept, modify, or reject the suggestions.
 - Understands the context of your project structure, codebase, and history.
-  You can also add your own context, such as relevant GitLab issues or merge requests.
+ You can also add your own context, such as relevant GitLab issues or merge requests.
 
 This flow is available in VS Code, Visual Studio, and JetBrains.
 
@@ -84,11 +83,9 @@ The Software Development Flow officially supports the following languages:
 
 ## APIs that the flow has access to
 
-To create solutions and understand the context of the problem,
-the flow accesses several GitLab APIs.
+To create solutions and understand the context of the problem, the flow accesses several GitLab APIs.
 
-Specifically, an OAuth token with the `ai_workflows` scope has access
-to the following APIs:
+Specifically, an OAuth token with the `ai_workflows` scope has access to the following APIs:
 
 - [Projects API](../../../../api/projects.md)
 - [Search API](../../../../api/search.md)
@@ -103,8 +100,7 @@ to the following APIs:
 ## Audit log
 
 An audit event is created for each API request done by the Software Development Flow.
-On your GitLab Self-Managed instance, you can view these events on the
-[instance audit events](../../../../administration/compliance/audit_event_reports.md#instance-audit-events) page.
+On your GitLab Self-Managed instance, you can view these events on the [instance audit events](../../../../administration/compliance/audit_event_reports.md#instance-audit-events) page.
 
 ## Risks
 
@@ -119,5 +115,4 @@ The Software Development Flow in VS Code, JetBrains IDEs, and Visual Studio runs
 ## Give feedback
 
 The Software Development Flow is in beta and your feedback is crucial to improve it for you and others.
-To report issues or suggest improvements,
-[complete this survey](https://gitlab.fra1.qualtrics.com/jfe/form/SV_9GmCPTV7oH9KNuu).
+To report issues or suggest improvements, [complete this survey](https://gitlab.fra1.qualtrics.com/jfe/form/SV_9GmCPTV7oH9KNuu).

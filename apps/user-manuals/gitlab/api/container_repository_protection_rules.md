@@ -35,7 +35,7 @@ Supported attributes:
 
 | Attribute                     | Type            | Required | Description                    |
 |-------------------------------|-----------------|----------|--------------------------------|
-| `id`                          | integer or string  | Yes      | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the project. |
+| `id`                          | integer or string | Yes      | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the project. |
 
 If successful, returns [`200`](rest/troubleshooting.md#status-codes) and a list of container repository protection rules.
 
@@ -50,27 +50,27 @@ Example request:
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/7/registry/protection/repository/rules"
+ --url "https://gitlab.example.com/api/v4/projects/7/registry/protection/repository/rules"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "project_id": 7,
     "repository_path_pattern": "flightjs/flight0",
     "minimum_access_level_for_push": "maintainer",
     "minimum_access_level_for_delete": "maintainer"
-  },
-  {
+ },
+ {
     "id": 2,
     "project_id": 7,
     "repository_path_pattern": "flightjs/flight1",
     "minimum_access_level_for_push": "maintainer",
     "minimum_access_level_for_delete": "maintainer"
-  },
+ },
 ]
 ```
 
@@ -112,10 +112,10 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --url "https://gitlab.example.com/api/v4/projects/7/registry/protection/repository/rules" \
-  --data '{
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --url "https://gitlab.example.com/api/v4/projects/7/registry/protection/repository/rules" \
+ --data '{
         "repository_path_pattern": "flightjs/flight-needs-to-be-a-unique-path",
         "minimum_access_level_for_push": "maintainer",
         "minimum_access_level_for_delete": "maintainer"
@@ -161,10 +161,10 @@ Example request:
 
 ```shell
 curl --request PATCH \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --header "Content-Type: application/json" \
-  --url "https://gitlab.example.com/api/v4/projects/7/registry/protection/repository/rules/32" \
-  --data '{
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --header "Content-Type: application/json" \
+ --url "https://gitlab.example.com/api/v4/projects/7/registry/protection/repository/rules/32" \
+ --data '{
        "repository_path_pattern": "flight/flight-*"
     }'
 ```
@@ -204,6 +204,6 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/7/registry/protection/repository/rules/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/7/registry/protection/repository/rules/1"
 ```

@@ -15,24 +15,24 @@ After you delete a submittal (see [Delete a Submittal](https://support.procore.c
 ## Things to Consider
 
 - **Required User Permission**:
-  - 'Admin' level permissions on the project's Submittals tool.
+ - 'Admin' level permissions on the project's Submittals tool.
 - **Prerequisites:**
-  - The submittal that you want to retrieve must be in the Recycle Bin. See [Delete a Submittal](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/delete-a-submittal "Delete a Submittal").
+ - The submittal that you want to retrieve must be in the Recycle Bin. See [Delete a Submittal](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/delete-a-submittal "Delete a Submittal").
 - **Limitations**:
-  - To give project teams the ability to restore any deleted item, the Recycle Bin cannot be emptied.
+ - To give project teams the ability to restore any deleted item, the Recycle Bin cannot be emptied.
 - **Additional Information**:
-  - If you want to retrieve a batch of submittals from the Recycle Bin, see [Use Bulk Actions > Retrieve in the Submittals Tool](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/use-bulk-actions-retireve-in-the-submittals-tool "Use Bulk Actions > Retrieve in the Submittals Tool").
+ - If you want to retrieve a batch of submittals from the Recycle Bin, see [Use Bulk Actions > Retrieve in the Submittals Tool](https://support.procore.com/products/online/user-guide/project-level/submittals/tutorials/use-bulk-actions-retireve-in-the-submittals-tool "Use Bulk Actions > Retrieve in the Submittals Tool").
 
 ## Steps
 
 1. Navigate to the project's **Submittals** tool.
-2. Click **Recycle Bin**.   
-   This reveals the Recycle Bin page.   
+2. Click **Recycle Bin**.  
+   This reveals the Recycle Bin page.  
    ![submittals-recycle-tab.png](https://support.procore.com/@api/deki/files/75085/submittals-recycle-tab.png?revision=2)
-3. Locate the desired submittal in the list and click **View**.  
-   ![view-recycled-submittal.png](https://support.procore.com/@api/deki/files/75084/view-recycled-submittal.png?revision=3)  
+3. Locate the desired submittal in the list and click **View**. 
+   ![view-recycled-submittal.png](https://support.procore.com/@api/deki/files/75084/view-recycled-submittal.png?revision=3) 
    This reveals the recycled submittal in view mode.
-4. Click **Retrieve**.  
+4. Click **Retrieve**. 
    A banner confirms that the submittal has been restored from the Recycle Bin.
 
 ## See Also

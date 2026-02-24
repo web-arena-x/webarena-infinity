@@ -29,11 +29,11 @@ These practices help ensure messages forwarded to Gmail pass SPF authentication,
 
 - **Set up SPF and DKIM email authentication:** We recommend email administrators always [set up SPF and DKIM email authentication for their domain](/a/answer/10583557). Email forwarding can affect message authentication, and forwarded messages often fail SPF authentication. This is why we recommend you always set up DKIM authentication, along with SPF, to help ensure your messages are authenticated and delivered as expected.
 - **Avoid breaking DKIM authentication:** Messages that don't pass DKIM aremore likely to be sent to spam. Changes to message contents can cause messages to fail DKIM authentication. Avoid changing the body and message headers protected by DKIM. For messages sent from frequently spoofed domains, Gmail enforces strict authentication requirements. The following actions can cause forwarded messages to fail DKIM:
-  - Modifying the MIME boundaries
-  - Modifying the message Subject
-  - Third-party software modifying the body of the message (including re-encoding the message)
-  - Expanding message recipients with LDAP
-  - Modifying the Subject and other headers protected by the DKIM signing domain (including To, Cc, Date, and Message-ID)
+ - Modifying the MIME boundaries
+ - Modifying the message Subject
+ - Third-party software modifying the body of the message (including re-encoding the message)
+ - Expanding message recipients with LDAP
+ - Modifying the Subject and other headers protected by the DKIM signing domain (including To, Cc, Date, and Message-ID)
 - **Add ARC headers:** To reduce the likelihood that forwarded messages are rejected or marked as spam, we recommend you add ARC headers to forwarded messages. ARC verifies previous authentication checks for forwarded messages, and helps ensure forwarded messages are delivered to the final recipients. [Learn more about ARC](/a/answer/13198639).
 - **Check for previous authentication:** When ARC shows that a forwarded message previously passed authentication, Gmail doesn't automatically authenticate the message. Instead, it does its own authentication check on the message.
 - **Add forwarding headers**: To let email servers know that a message is forwarded, add an X-Forwarded-For: or X-Forwarded-To: message header. Receiving servers manage forwarded messages differently than direct, incoming messages.

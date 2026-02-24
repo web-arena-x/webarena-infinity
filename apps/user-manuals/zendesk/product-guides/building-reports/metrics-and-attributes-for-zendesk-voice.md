@@ -6,37 +6,31 @@ Source: https://support.zendesk.com/hc/en-us/articles/4409156145434-Metrics-and-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Talk Professional or Enterprise |
 
-Use this article to discover the metrics and attributes you can use to build reports
-based on your usage of Zendesk Voice. These datasets are also used for the Voice
-prebuilt dashboards (see [Overview of the Zendesk Voice dashboard](https://support.zendesk.com/hc/en-us/articles/4408827894554)).
+Use this article to discover the metrics and attributes you can use to build reports based on your usage of Zendesk Voice. These datasets are also used for the Voice prebuilt dashboards (see [Overview of the Zendesk Voice dashboard](https://support.zendesk.com/hc/en-us/articles/4408827894554)).
 
 For more information about how to create reports, see [Creating reports](https://support.zendesk.com/hc/en-us/articles/4408821589530).
 
 ## Calls dataset
 
-The Calls dataset contains metrics and attributes that relate to your call
-statistics. This sections lists all the available elements for the dataset, and
-contains the following topics:
+The Calls dataset contains metrics and attributes that relate to your call statistics. This sections lists all the available elements for the dataset, and contains the following topics:
 
 This section contains the following topics:
 
 - [Voice dataset schema](#topic_smk_45f_kkb)
 - [Zendesk Talk metrics](#topic_ucn_xdh_5bb)
-- [Zendesk Talk
-  attributes](#topic_w5f_xdh_5bb)
+- [Zendesk Talk attributes](#topic_w5f_xdh_5bb)
 
 ### Voice dataset schema
 
-Use this diagram to help you understand the elements of the Voice dataset and
-their relationships.
+Use this diagram to help you understand the elements of the Voice dataset and their relationships.
 
 ![Talk calls dataset schema](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Calls.jpg)
 
@@ -173,7 +167,7 @@ Table 2. Voice attributes
 | Call type | The type of call. Values are: - **Callback:** A call where a customer has   selected the [callback   option](../setting-up-your-voice-channel/enabling-customer-callback.md), meaning their places are held in   the queue and their call is automatically returned   when an agent is available to speak with   them. - **Forwarded:** A call that has been forwarded   from the initially dialed number to a different   number, like calls routed to an external number   from the IVR menu. - **Overflow:** A call that cannot currently be   taken by any agents or answered by voicemail, for   any of the reasons described in [Managing overflow   calls and after-hours routing](https://support.zendesk.com/hc/en-us/articles/4408832017690-Managing-overflow-calls-and-after-hours-routing-with-Talk). - **Text back:** A call that is switched over   to text by confirming the customer's number, then   disconnecting the call and sending a text message,   as described in [Routing incoming calls with IVR](../managing-your-voice-channel/routing-incoming-calls-with-ivr.md#topic_sms_bsf_yt). - **Voicemail:** A call that is routed to the   number’s voicemail. - **Regular:** A standard inbound or outbound   call that isn't one of the types above. |
 | Call channel | The channel the call came in on. Allowed values are **phone**, **mobile-sdk**, **web-widget**, **messaging-widget**, and **messaging-mobile-sdk**. |
 | Line type | The type of line the call originated from. Allowed values are **phone** or **digital**. |
-| Call completion status | Indicates how the call was completed. Values are **Abandoned in IVR**, **Abandoned in queue**, **Abandoned in voicemail**, **Abandoned in on-hold**, **Completed**, and **Not answered**.  **Completed** means that the call was successful and the end user was connected with the agent or the call was directed to voicemail or forwarded to an external number. **Not answered** means that the call wasn’t successful. An example of an inbound not answered call is when the end user wasn’t connected with the agent, or the customer left the call in a transition stage that is not included in the abandoned statuses. An example of outbound not answered call is when the end user didn’t answer the agent’s call. |
+| Call completion status | Indicates how the call was completed. Values are **Abandoned in IVR**, **Abandoned in queue**, **Abandoned in voicemail**, **Abandoned in on-hold**, **Completed**, and **Not answered**. **Completed** means that the call was successful and the end user was connected with the agent or the call was directed to voicemail or forwarded to an external number. **Not answered** means that the call wasn’t successful. An example of an inbound not answered call is when the end user wasn’t connected with the agent, or the customer left the call in a transition stage that is not included in the abandoned statuses. An example of outbound not answered call is when the end user didn’t answer the agent’s call. |
 | Call Voice number | The phone number registered in Zendesk. |
 | Call group | Name of the group where the call was answered. |
 | Call callback source | The place from where the callback was requested. Values are **Phone** and **Web Widget (Classic)**. |

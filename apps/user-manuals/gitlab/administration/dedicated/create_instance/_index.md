@@ -17,8 +17,7 @@ The instructions on this page guide you through the onboarding and initial setup
 
 ## Step 1: Get access to Switchboard
 
-Your GitLab Dedicated instance will be set up using Switchboard. To gain access to Switchboard,
-provide the following information to your account team:
+Your GitLab Dedicated instance will be set up using Switchboard. To gain access to Switchboard, provide the following information to your account team:
 
 - Expected number of users.
 - [Total purchased storage](storage_types.md#total-purchased-storage).
@@ -27,14 +26,11 @@ provide the following information to your account team:
 - Whether you want to [bring your own encryption keys (BYOK)](../encryption.md#bring-your-own-key-byok). If so, GitLab provides an AWS account ID, which is necessary to enable BYOK.
 - Whether you want to use Geo migration for inbound migration of your Dedicated instance.
 
-If you've been granted access to Switchboard, you will receive an email invitation with temporary
-credentials to sign in.
+If you've been granted access to Switchboard, you will receive an email invitation with temporary credentials to sign in.
 
-The credentials for Switchboard are separate from any other GitLab credentials you may already have
-to sign in to a GitLab Self-Managed instance or GitLab.com.
+The credentials for Switchboard are separate from any other GitLab credentials you may already have to sign in to a GitLab Self-Managed instance or GitLab.com.
 
-After you first sign in to Switchboard, you must update your password and set up MFA before you can
-complete your onboarding to create a new instance.
+After you first sign in to Switchboard, you must update your password and set up MFA before you can complete your onboarding to create a new instance.
 
 ## Step 2: Create your GitLab Dedicated instance
 
@@ -129,7 +125,6 @@ New GitLab Dedicated instances use the same default settings as GitLab Self-Mana
 
 For instances created in GitLab 18.0 and later, [GitLab Duo Core](../../../subscriptions/subscription-add-ons.md#gitlab-duo-core) features are turned on by default for all users.
 
-If your organization requires data to remain within your specified regions or has restrictions on AI feature usage,
-you can [turn off GitLab Duo Core](../../../user/gitlab_duo/turn_on_off.md#for-an-instance).
+If your organization requires data to remain within your specified regions or has restrictions on AI feature usage, you can [turn off GitLab Duo Core](../../../user/gitlab_duo/turn_on_off.md#for-an-instance).
 
 {{< /alert >}}

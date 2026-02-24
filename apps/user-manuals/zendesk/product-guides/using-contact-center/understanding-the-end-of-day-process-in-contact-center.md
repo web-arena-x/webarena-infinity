@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/9696127155354-Understandin
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Zendesk for Contact Center |
 
@@ -14,9 +14,7 @@ Verified AI summary ◀▼
 
 At the end of your workday, set your status to offline and sign out to ensure no incoming calls or chats are directed to you. This helps manage your availability and maintain a clear boundary between work and personal time. Simply choose "Offline" from the status dropdown and confirm your logout to complete the process.
 
-When agents are done for the day, they must set their status to offline and
-sign out of Zendesk for Contact Center so that no incoming calls or chats come
-through.
+When agents are done for the day, they must set their status to offline and sign out of Zendesk for Contact Center so that no incoming calls or chats come through.
 
 This article contains the following topics:
 

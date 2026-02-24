@@ -13,8 +13,7 @@ description: "Import repositories to GitLab by URL."
 
 {{< /details >}}
 
-You can import your existing repositories by providing the Git URL. You can't import GitLab issues and merge requests
-this way. Other methods provide more complete import methods.
+You can import your existing repositories by providing the Git URL. You can't import GitLab issues and merge requests this way. Other methods provide more complete import methods.
 
 If the repository is too large, the import might time out.
 
@@ -32,11 +31,9 @@ You can import your Git repository by:
 {{< /history >}}
 
 - [Repository by URL import source](../../../administration/settings/import_and_export_settings.md#configure-allowed-import-sources)
-  must be enabled. If not enabled, ask your GitLab administrator to enable it. The Repository by URL import source is enabled
-  by default on GitLab.com.
+ must be enabled. If not enabled, ask your GitLab administrator to enable it. The Repository by URL import source is enabled by default on GitLab.com.
 - At least the Maintainer role on the destination group to import to.
-- If importing a private repository, an access token for authenticated access to the source repository might be required
-  instead of a password.
+- If importing a private repository, an access token for authenticated access to the source repository might be required instead of a password.
 
 ## Import a project by using the UI
 
@@ -44,8 +41,7 @@ You can import your Git repository by:
 1. Select **Import project**.
 1. Select **Repository by URL**.
 1. Enter a **Git repository URL**.
-1. Complete the remaining fields. A username and password (or access token) is required for imports from private
-   repositories.
+1. Complete the remaining fields. A username and password (or access token) is required for imports from private repositories.
 1. Select **Create project**.
 
 Your newly created project is displayed.

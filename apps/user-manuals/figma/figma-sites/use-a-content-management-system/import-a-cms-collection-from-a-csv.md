@@ -64,8 +64,8 @@ Below is a mock dataset you can use to test importing.
 
 Follow these steps to upload your CSV, map the fields, troubleshoot issues, and create your new collection. A collection can currently have a maximum of **100 fields**.
 
-1. From a Figma Sites file, click  **CMS** in the left navigation bar.
-2. Click  **Add collection** and choose **Import CSV**.
+1. From a Figma Sites file, click **CMS** in the left navigation bar.
+2. Click **Add collection** and choose **Import CSV**.
 3. Click **Upload from computer** and select your CSV file.
 4. **Map columns to fields.** For each column, choose a field type from the dropdown. You can rename fields as needed.
 5. Click **Import**. Your collection and items are added to the CMS.

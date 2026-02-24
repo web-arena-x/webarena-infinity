@@ -16,13 +16,13 @@ You can get an AI Overview of an email thread with:
 ## Learn how an AI Overview summarizes your email thread
 
 - You can expand or minimize an AI Overview.
-  - When you minimize an AI Overview, it remains collapsed above the thread until you expand it.
+ - When you minimize an AI Overview, it remains collapsed above the thread until you expand it.
 - If you don’t have an AI Overview, at the top of the thread, select **Summarize this email**.
 - **Android, iPhone, and iPad only:** For emails that contain a to-do with a deadline required from you, an AI Overview can appear with the following information:
-  - The deadline
-  - The task required from you
-  - A short summary of the email
-  - A "Remind me" button
+ - The deadline
+ - The task required from you
+ - A short summary of the email
+ - A "Remind me" button
 
 ## Show an AI Overview at the top of an email thread
 

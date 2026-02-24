@@ -40,7 +40,7 @@ Desktop
 6. Click **Save**.
 Mobile
 
-1. From the [Shopify app](https://www.shopify.com/install/detect), tap the  icon.
+1. From the [Shopify app](https://www.shopify.com/install/detect), tap the icon.
 2. In the **Sales channels** section, tap **Online Store**.
 3. Tap **Pages**.
 4. Tap **Add page**.
@@ -64,7 +64,7 @@ The rich text editor displays text in the **Content** field in the same style th
 
 Learn more about the [rich text editor](https://help.shopify.com/en/manual/shopify-admin/productivity-tools/rich-text-editor).
 
-To edit the HTML code for the page, click the  button to view the HTML and make changes:
+To edit the HTML code for the page, click the button to view the HTML and make changes:
 
 ### Add a link to a page
 
@@ -91,7 +91,7 @@ You can add a Google map for an address to a page in your online store. For exam
 4. Choose the map size that you want, then copy the code in the text box. The code begins with `<iframe src=` and is a tag written in HTML which embeds the map.
 5. From your Shopify admin, go to **Online Store** > [**Pages**](https://admin.shopify.com/pages).
 6. Click the title of the page where you want to display your map.
-7. In the **Content** toolbar, click the  button to view HTML code for your page:
+7. In the **Content** toolbar, click the button to view HTML code for your page:
 8. Paste the code that you copied from Google Maps into the **Content** box. You can embed the map at the bottom of your page by pasting the code after any existing content, or elsewhere on your page.
 9. Click **Show Editor** to switch back to the page editor from the HTML viewer and preview your map.
 10. Click **Save**.

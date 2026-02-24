@@ -79,7 +79,7 @@ Try it out
 
 Let’s create a collection of variables titled “Shapes”. This collection will include one string variable that represents the name of the shape.
 
-1. Deselect all items on the canvas, then find the **Local variables** section in the right sidebar and click  **Open variables**.
+1. Deselect all items on the canvas, then find the **Local variables** section in the right sidebar and click **Open variables**.
 2. Click **Create variable**, and select **String**.
 3. In the **Name** column, enter “shapeName”.
 4. In the **Value** column, enter “circle”.![The variables modal is open. A string variable with the name shapeName has a value of circle.](https://help.figma.com/hc/article_attachments/27771812195735)
@@ -88,13 +88,13 @@ Now, you can apply the `shapeName` variable to your design. For this example, we
 
 1. Recreate the design pictured below. Add an ellipse object, a rectangle object, and two text layers to a frame. Enter “You picked:” as the content of the first text layer.
 2. Click to select the bottom text layer on your frame.
-3. From the **Design** tab in the right sidebar, find the **Text** section and click  **Apply variable**.
+3. From the **Design** tab in the right sidebar, find the **Text** section and click **Apply variable**.
 4. Select the `shapeName` variable from the variable selection panel to apply it to the text content.![A frame with an ellipse object, a square object, a text layer that says YOU PICKED and a selected text layer that says CIRCLE. With the second text layer selected, the mouse is hovering over the Apply variable icon from the Text section of the right sidebar.](https://help.figma.com/hc/article_attachments/27771782046743)
 
 Now, let’s add an interaction with a **Set variable** action.
 
 1. Select the ellipse object.
-2. From the right sidebar, switch to the **Prototype** tab. In in **Interactions** section, click  the plus sign to add a new interaction.
+2. From the right sidebar, switch to the **Prototype** tab. In in **Interactions** section, click the plus sign to add a new interaction.
 3. In the **Interaction** modal, create an interaction with an **On tap/On click** trigger and the **Set variable** action.
 4. Select the `shapeName` variable from the **Target** dropdown menu. In the **Value** field, set the new value to “circle”.
 5. Repeat steps 1-4 for the rectangle object. This time, set the `shapeName` variable to “square”.
@@ -131,7 +131,7 @@ Want to practice with a similar example? Check out the “Try it out” section 
 
 The location where you apply the variable determines the scope of changes in the prototype.
 
-|  |  |
+| | |
 | --- | --- |
 | **Apply variable to:** | **When prototyping:** |
 | Variant properties of component instances | Change the value of the variable to update the variant of the instance. |
@@ -150,11 +150,11 @@ Try it out: Example 1
    1. Create a boolean `circleVisibility` variable with a default false value.
    2. Select the instance of the button.
    3. From the right sidebar, hover over the clicked variant property.
-   4. Select  **Apply variable**.
+   4. Select **Apply variable**.
    5. Click to select the `circleVisibility` variable to bind to the property.![An instance of the false button variant is on the frame. The instance is selected, and the user is hovering over the Apply variable button, where they see a list of variables they can apply.](https://help.figma.com/hc/article_attachments/27771782060055)
 4. Assign the same variable to another layer in your design.
    1. Add an ellipse object to the frame.
-   2. From the **Appearance** section of the right sidebar, right-click the  **Hide** icon.
+   2. From the **Appearance** section of the right sidebar, right-click the **Hide** icon.
    3. Select the `circleVisibility` variable to apply the boolean variable to the visibility of the ellipse layer.![An ellipse object is selected on the frame. From the Appearance section of the right sidebar, a mouse is hovering over the Hide icon.](https://help.figma.com/hc/article_attachments/27771782062743)
 5. Play your prototype to test the interaction. When the interaction is triggered and the component is changed, the value of the variable also changes. This means that if you have that same variable bound to any other values, those will also update.![A prototype plays. When a button is clicked, the button changes to a grayed out variant, and an ellipse appears.](https://help.figma.com/hc/article_attachments/27771812222231)
 

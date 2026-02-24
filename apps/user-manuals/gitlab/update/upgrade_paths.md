@@ -13,46 +13,36 @@ description: Latest version instructions.
 
 {{< /details >}}
 
-An upgrade path involves steps to move from your current GitLab version to the GitLab version you want to
-upgrade to. To determine your upgrade path:
+An upgrade path involves steps to move from your current GitLab version to the GitLab version you want to upgrade to. To determine your upgrade path:
 
 1. Note where in the upgrade path your current version sits, including required upgrade stops.
 1. Consult the [GitLab upgrade notes](versions/_index.md).
 
-Even when not explicitly specified, upgrade GitLab to the latest available patch release of the `major`.`minor` release
-rather than the first patch release. For example, `16.8.7` instead of `16.8.0`.
+Even when not explicitly specified, upgrade GitLab to the latest available patch release of the `major`.`minor` release rather than the first patch release. For example, `16.8.7` instead of `16.8.0`.
 
-Some `major`.`minor` versions are required stops for some or all environments because there are
-fixes for issues relating to the upgrade process.
+Some `major`.`minor` versions are required stops for some or all environments because there are fixes for issues relating to the upgrade process.
 
 ## Required upgrade stops
 
-Upgrade paths include required upgrade stops, which are versions of GitLab that you must upgrade to before upgrading to
-later versions. When moving through an upgrade path:
+Upgrade paths include required upgrade stops, which are versions of GitLab that you must upgrade to before upgrading to later versions. When moving through an upgrade path:
 
 1. Upgrade to the required upgrade stop after your current version.
 1. Allow the background migrations for the upgrade to finish.
 1. Upgrade to the next required upgrade stop.
 
-In GitLab 17.5 and later, to provide a predictable upgrade schedule for instance administrators, required upgrade stops occur
-at versions `x.2.z`, `x.5.z`, `x.8.z`, and `x.11.z`.
+In GitLab 17.5 and later, to provide a predictable upgrade schedule for instance administrators, required upgrade stops occur at versions `x.2.z`, `x.5.z`, `x.8.z`, and `x.11.z`.
 
-To check available patch releases for a specific minor version, you can search for the minor version
-in the [GitLab package repository](https://packages.gitlab.com/gitlab).
+To check available patch releases for a specific minor version, you can search for the minor version in the [GitLab package repository](https://packages.gitlab.com/gitlab).
 
-If you're upgrading a GitLab Helm chart instance, see the
-[list of GitLab Helm chart mappings](https://docs.gitlab.com/charts/installation/version_mappings/#previous-chart-versions).
+If you're upgrading a GitLab Helm chart instance, see the [list of GitLab Helm chart mappings](https://docs.gitlab.com/charts/installation/version_mappings/#previous-chart-versions).
 
 ### Required GitLab 18 upgrade stops
 
 Required upgrade stops occur at versions `18.2`, `18.5`, `18.8`, and `18.11`.
 
-You must upgrade to those versions of GitLab 18 before upgrading to later versions. For each version you upgrade to,
-see the [upgrade notes for GitLab 18](versions/gitlab_18_changes.md). If a version is not
-in the upgrade notes, then there's nothing specific about that version to be aware of.
+You must upgrade to those versions of GitLab 18 before upgrading to later versions. For each version you upgrade to, see the [upgrade notes for GitLab 18](versions/gitlab_18_changes.md). If a version is not in the upgrade notes, then there's nothing specific about that version to be aware of.
 
-Find the patch releases in the GitLab package repository. For example, to search for the latest
-GitLab 18.2 Enterprise Edition version, go to <https://packages.gitlab.com/app/gitlab/gitlab-ee/search?q=18.2>.
+Find the patch releases in the GitLab package repository. For example, to search for the latest GitLab 18.2 Enterprise Edition version, go to <https://packages.gitlab.com/app/gitlab/gitlab-ee/search?q=18.2>.
 
 ### Required GitLab 17 upgrade stops
 
@@ -92,12 +82,9 @@ You must upgrade to these versions of GitLab 15 before upgrading to later versio
 
 ## Upgrade Path tool
 
-To quickly calculate which upgrade stops are required based on your current and desired target GitLab version, see the
-[Upgrade Path tool](https://gitlab-com.gitlab.io/support/toolbox/upgrade-path/). This tool is
-maintained by the GitLab Support team.
+To quickly calculate which upgrade stops are required based on your current and desired target GitLab version, see the [Upgrade Path tool](https://gitlab-com.gitlab.io/support/toolbox/upgrade-path/). This tool is maintained by the GitLab Support team.
 
-To share feedback and help improve the tool, create an issue or merge request in the
-[`upgrade-path` project](https://gitlab.com/gitlab-com/support/toolbox/upgrade-path).
+To share feedback and help improve the tool, create an issue or merge request in the [`upgrade-path` project](https://gitlab.com/gitlab-com/support/toolbox/upgrade-path).
 
 ## Earlier GitLab versions
 

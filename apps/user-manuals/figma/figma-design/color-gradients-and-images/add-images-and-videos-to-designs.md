@@ -23,7 +23,7 @@ Figma supports the following file types:
 
 Figma doesn’t have a specific layer type for images and videos. Instead, these assets are treated as fills. This allows you to add assets to any layer type, including shapes, frames, text layers, and vector networks. Learn more about [using fills](guide-to-fills.md).
 
-When you upload an asset directly to the canvas, Figma creates a rectangle layer with the asset set as the fill. You can identify the asset type by the icon in the **Layers** panel of the left sidebar:  **Image** or  **Video/GIF**.
+When you upload an asset directly to the canvas, Figma creates a rectangle layer with the asset set as the fill. You can identify the asset type by the icon in the **Layers** panel of the left sidebar: **Image** or **Video/GIF**.
 
 ## Asset size limit
 
@@ -47,7 +47,7 @@ You can use the [color picker](https://help.figma.com/hc/en-us/articles/36004100
 
 1. Select a layer on the canvas.
 2. Click on the swatch in the **Fill** or **Stroke** section of the right sidebar to open the color picker.
-3. Select  **Image** or  **Video** from the fill options. A visual placeholder of gray and white checkers is applied to the layer’s fill until you choose a file.
+3. Select **Image** or **Video** from the fill options. A visual placeholder of gray and white checkers is applied to the layer’s fill until you choose a file.
 4. Click **Upload from computer** to upload an existing image, or click **Make an image** to create images [using Figma AI](https://help.figma.com/hc/en-us/articles/24004542669463-Make-or-edit-an-image-with-AI).
 
 ![Canvas with a rectangle layer set to be filled with an uploaded image; fill options include "Upload from computer" and "Make an image".](https://help.figma.com/hc/article_attachments/34326794450967)
@@ -56,7 +56,7 @@ You can use the [color picker](https://help.figma.com/hc/en-us/articles/36004100
 
 **Place image/video** lets you import assets in bulk. You can then choose exactly where you'd like to place each asset. Since Figma treats images and videos as fills, you can also add them to existing objects.
 
-1. Select  **Image/video** from the **Shape tools** menu in the toolbar or use the keyboard shortcut:
+1. Select **Image/video** from the **Shape tools** menu in the toolbar or use the keyboard shortcut:
    - **Mac:** `Shift` `Command` `K`
    - **Windows:** `Shift` `Ctrl` `K`
 2. Select the image or video files you’d like to upload, then click **Open**. The cursor will display a badge showing the number of assets that need to be placed.

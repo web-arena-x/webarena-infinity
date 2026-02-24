@@ -12,10 +12,7 @@ title: Licenses API
 
 {{< /details >}}
 
-In GitLab, there is an API endpoint available for working with various open
-source license templates. For more information on the terms of various
-licenses, see [this site](https://choosealicense.com/) or any of the many other
-resources available online.
+In GitLab, there is an API endpoint available for working with various open source license templates. For more information on the terms of various licenses, see [this site](https://choosealicense.com/) or any of the many other resources available online.
 
 Users with the Guest role can't access the license templates. For more information, see [Project and group visibility](../../user/public_access.md).
 
@@ -41,7 +38,7 @@ Example response:
 
 ```json
 [
-  {
+ {
     "key":"apache-2.0",
     "name":"Apache License 2.0",
     "nickname":null,
@@ -65,8 +62,8 @@ Example response:
       "no-liability"
     ],
     "content":"                                 Apache License\n                           Version 2.0, January 2004\n [...]"
-  },
-  {
+ },
+ {
     "key":"gpl-3.0",
     "name":"GNU General Public License v3.0",
     "nickname":"GNU GPLv3",
@@ -91,8 +88,8 @@ Example response:
       "no-liability"
     ],
     "content":"                    GNU GENERAL PUBLIC LICENSE\n                       Version 3, 29 June 2007\n [...]"
-  },
-  {
+ },
+ {
     "key":"mit",
     "name":"MIT License",
     "nickname":null,
@@ -113,29 +110,27 @@ Example response:
       "no-liability"
     ],
     "content":"The MIT License (MIT)\n\nCopyright (c) [year] [fullname]\n [...]"
-  }
+ }
 ]
 ```
 
 ## Single license template
 
-Get a single license template. You can pass parameters to replace the license
-placeholder.
+Get a single license template. You can pass parameters to replace the license placeholder.
 
 ```plaintext
 GET /templates/licenses/:key
 ```
 
-| Attribute  | Type   | Required | Description |
+| Attribute | Type   | Required | Description |
 |------------|--------|----------|-------------|
 | `key`      | string | yes      | The key of the license template |
-| `project`  | string | no       | The copyrighted project name |
+| `project` | string | no       | The copyrighted project name |
 | `fullname` | string | no       | The full-name of the copyright holder |
 
 {{< alert type="note" >}}
 
-If you omit the `fullname` parameter but authenticate your request, the name of
-the authenticated user replaces the copyright holder placeholder.
+If you omit the `fullname` parameter but authenticate your request, the name of the authenticated user replaces the copyright holder placeholder.
 
 {{< /alert >}}
 
@@ -149,25 +144,25 @@ Example response:
 
 ```json
 {
-  "key":"mit",
-  "name":"MIT License",
-  "nickname":null,
-  "featured":true,
-  "html_url":"http://choosealicense.com/licenses/mit/",
-  "source_url":"http://opensource.org/licenses/MIT",
-  "description":"A permissive license that is short and to the point. It lets people do anything with your code with proper attribution and without warranty.",
-  "conditions":[
+ "key":"mit",
+ "name":"MIT License",
+ "nickname":null,
+ "featured":true,
+ "html_url":"http://choosealicense.com/licenses/mit/",
+ "source_url":"http://opensource.org/licenses/MIT",
+ "description":"A permissive license that is short and to the point. It lets people do anything with your code with proper attribution and without warranty.",
+ "conditions":[
     "include-copyright"
-  ],
-  "permissions":[
+ ],
+ "permissions":[
     "commercial-use",
     "modifications",
     "distribution",
     "private-use"
-  ],
-  "limitations":[
+ ],
+ "limitations":[
     "no-liability"
-  ],
-  "content":"The MIT License (MIT)\n\nCopyright (c) 2016 John Doe\n [...]"
+ ],
+ "content":"The MIT License (MIT)\n\nCopyright (c) 2016 John Doe\n [...]"
 }
 ```

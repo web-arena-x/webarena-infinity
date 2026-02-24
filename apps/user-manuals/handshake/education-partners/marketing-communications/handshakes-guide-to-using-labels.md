@@ -19,10 +19,10 @@ Any career services staff member can view labels, and staff members with the Man
 Click on a topic below to jump to that section: 
 
 - - [Getting started with labels](#getting_started)
-  - [Label types](#label_types)
-  - [How to create and apply labels in Handshake](#create_and_apply)
+ - [Label types](#label_types)
+ - [How to create and apply labels in Handshake](#create_and_apply)
     - [Breakdown of label application and label filters per tab](#breakdown)
-  - [Label usage in Handshake](#label_usage) includes:
+ - [Label usage in Handshake](#label_usage) includes:
     - Permission Labels
     - Qualifications / Required Labels
     - Promote items to Students
@@ -106,7 +106,7 @@ Examples of system labels: 
 
 Labels can be created in your school settings, directly on the item page in some cases, or via the Importer; please refer to [Importing Labels](https://support.joinhandshake.com/hc/en-us/articles/229507687-How-can-I-bulk-upload-labels-for-users-) for more information on this process.
 
-For more information on creation via school settings, refer to [School Settings: Labels](https://support.joinhandshake.com/hc/en-us/articles/218692998).   
+For more information on creation via school settings, refer to [School Settings: Labels](https://support.joinhandshake.com/hc/en-us/articles/218692998).  
 If you'd like to archive normal or public labels, refer to [Archiving Normal or Public Labels](../handshakes-school-settings/labels-archiving-normal-or-public-labels.md).
 
 To create or apply a label directly to an item on a page, follow the steps below: 

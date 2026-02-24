@@ -18,10 +18,7 @@ can [trigger paging](paging.md#paging) for on-call rotations or be used to [crea
 
 ## Integrations list
 
-With at least the Maintainer role, you can view the list of configured
-alerting integrations by navigating to **Settings** > **Monitor**
-in your project's sidebar menu, and expanding the **Alerts** section. The list displays
-the integration name, type, and status (enabled or disabled):
+With at least the Maintainer role, you can view the list of configured alerting integrations by navigating to **Settings** > **Monitor** in your project's sidebar menu, and expanding the **Alerts** section. The list displays the integration name, type, and status (enabled or disabled):
 
 ![Table showing configured alerts details](img/integrations_list_v13_5.png)
 
@@ -31,18 +28,12 @@ GitLab can receive alerts via an HTTP endpoint that you configure.
 
 ### Single Alerting Endpoint
 
-Enabling an alerting endpoint in a GitLab projects activates it to
-receive alert payloads in JSON format. You can always
-[customize the payload](#customize-the-alert-payload-outside-of-gitlab) to your liking.
+Enabling an alerting endpoint in a GitLab projects activates it to receive alert payloads in JSON format. You can always [customize the payload](#customize-the-alert-payload-outside-of-gitlab) to your liking.
 
-1. Sign in to GitLab as a user with the Maintainer role
-   for a project.
+1. Sign in to GitLab as a user with the Maintainer role for a project.
 1. Go to **Settings** > **Monitor** in your project.
-1. Expand the **Alerts** section, and in the **Select integration type** dropdown list,
-   select **Prometheus** for alerts from Prometheus, or **HTTP Endpoint** for any other monitoring tool.
-1. Toggle the **Active** alert setting. The URL and Authorization Key for the webhook configuration
-   are available in the **View credentials** tab after you save the integration. You must also input
-   the URL and Authorization Key in your external service.
+1. Expand the **Alerts** section, and in the **Select integration type** dropdown list, select **Prometheus** for alerts from Prometheus, or **HTTP Endpoint** for any other monitoring tool.
+1. Toggle the **Active** alert setting. The URL and Authorization Key for the webhook configuration are available in the **View credentials** tab after you save the integration. You must also input the URL and Authorization Key in your external service.
 
 ### Alerting Endpoints
 
@@ -53,12 +44,9 @@ receive alert payloads in JSON format. You can always
 
 {{< /details >}}
 
-In [GitLab Premium](https://about.gitlab.com/pricing/), you can create multiple
-unique alerting endpoints to receive alerts from any external source in JSON format,
-and you can [customize the payload](#customize-the-alert-payload-outside-of-gitlab).
+In [GitLab Premium](https://about.gitlab.com/pricing/), you can create multiple unique alerting endpoints to receive alerts from any external source in JSON format, and you can [customize the payload](#customize-the-alert-payload-outside-of-gitlab).
 
-1. Sign in to GitLab as a user with the Maintainer role
-   for a project.
+1. Sign in to GitLab as a user with the Maintainer role for a project.
 1. Go to **Settings** > **Monitor** in your project.
 1. Expand the **Alerts** section.
 1. For each endpoint you want to create:
@@ -66,41 +54,30 @@ and you can [customize the payload](#customize-the-alert-payload-outside-of-gitl
    1. Select **Add new integration**.
    1. In the **Select integration type** dropdown list, select **Prometheus** for alerts from Prometheus, or **HTTP Endpoint** for any other monitoring tool. See details
    1. Name the integration.
-   1. Toggle the **Active** alert setting. The **URL** and **Authorization Key** for the webhook
-      configuration are available in the **View credentials** tab after you save the integration.
+   1. Toggle the **Active** alert setting. The **URL** and **Authorization Key** for the webhook configuration are available in the **View credentials** tab after you save the integration.
       You must also input the URL and Authorization Key in your external service.
-   1. Optional. To map fields from your monitoring tool's alert to GitLab fields, enter a sample
-      payload and select **Parse payload for custom mapping**. Valid JSON is required. If you update
-      a sample payload, you must also remap the fields. For Prometheus integrations, enter a single alert from the payload's `alerts` key instead of the entire payload.
+   1. Optional. To map fields from your monitoring tool's alert to GitLab fields, enter a sample payload and select **Parse payload for custom mapping**. Valid JSON is required. If you update a sample payload, you must also remap the fields. For Prometheus integrations, enter a single alert from the payload's `alerts` key instead of the entire payload.
 
-   1. Optional. If you provided a valid sample payload, select each value in
-      **Payload alert key** to [map to a **GitLab alert key**](#map-fields-in-custom-alerts).
-   1. To save your integration, select **Save Integration**. If desired, you can send a test alert
-      from your integration's **Send test alert** tab after the integration is created.
+   1. Optional. If you provided a valid sample payload, select each value in **Payload alert key** to [map to a **GitLab alert key**](#map-fields-in-custom-alerts).
+   1. To save your integration, select **Save Integration**. If desired, you can send a test alert from your integration's **Send test alert** tab after the integration is created.
 
 The new HTTP Endpoint displays in the [integrations list](#integrations-list).
-You can edit the integration by selecting the {{< icon name="settings" >}} settings icon on the right
-side of the integrations list.
+You can edit the integration by selecting the {{< icon name="settings" >}} settings icon on the right side of the integrations list.
 
 #### Map fields in custom alerts
 
-You can integrate your monitoring tool's alert format with GitLab alerts. To show the
-correct information in the [Alert list](alerts.md#alert-list) and the
-[Alert Details page](alerts.md#alert-details-page), map your alert's fields to
-GitLab fields when you [create an HTTP endpoint](#alerting-endpoints):
+You can integrate your monitoring tool's alert format with GitLab alerts. To show the correct information in the [Alert list](alerts.md#alert-list) and the [Alert Details page](alerts.md#alert-details-page), map your alert's fields to GitLab fields when you [create an HTTP endpoint](#alerting-endpoints):
 
 ![Alert Management List](img/custom_alert_mapping_v13_11.png)
 
 ### Add integration credentials to Alertmanager (Prometheus integrations only)
 
-To send Prometheus alert notifications to GitLab, copy the URL and authorization key from
-your [Prometheus integration](#single-alerting-endpoint) into the
-[`webhook_configs`](https://prometheus.io/docs/alerting/latest/configuration/#webhook_config)
+To send Prometheus alert notifications to GitLab, copy the URL and authorization key from your [Prometheus integration](#single-alerting-endpoint) into the [`webhook_configs`](https://prometheus.io/docs/alerting/latest/configuration/#webhook_config)
 section of the Prometheus Alertmanager configuration:
 
 ```yaml
 receivers:
-  - name: gitlab
+ - name: gitlab
     webhook_configs:
       - http_config:
           authorization:
@@ -116,8 +93,7 @@ receivers:
 
 ### Expected HTTP request attributes
 
-For HTTP Endpoints without [custom mappings](#map-fields-in-custom-alerts), you can customize the payload by sending the following
-parameters. All fields are optional. If the incoming alert does not contain a value for the `Title` field, a default value of `New: Alert` is applied.
+For HTTP Endpoints without [custom mappings](#map-fields-in-custom-alerts), you can customize the payload by sending the following parameters. All fields are optional. If the incoming alert does not contain a value for the `Title` field, a default value of `New: Alert` is applied.
 
 | Property                  | Type            | Description |
 | ------------------------- | --------------- | ----------- |
@@ -132,9 +108,7 @@ parameters. All fields are optional. If the incoming alert does not contain a va
 | `fingerprint`             | String or Array | The unique identifier of the alert. This can be used to group occurrences of the same alert. When the `generic_alert_fingerprinting` feature is enabled, the fingerprint is generated automatically based on the payload (excluding the `start_time`, `end_time`, and `hosts` parameters). |
 | `gitlab_environment_name` | String          | The name of the associated GitLab [environment](../../ci/environments/_index.md). Required to [display alerts on a dashboard](../../user/operations_dashboard/_index.md#adding-a-project-to-the-dashboard). |
 
-You can also add custom fields to the alert's payload. The values of extra
-parameters aren't limited to primitive types (such as strings or numbers), but
-can be a nested JSON object. For example:
+You can also add custom fields to the alert's payload. The values of extra parameters aren't limited to primitive types (such as strings or numbers), but can be a nested JSON object. For example:
 
 ```json
 { "foo": { "bar": { "baz": 42 } } }
@@ -142,8 +116,7 @@ can be a nested JSON object. For example:
 
 {{< alert type="note" >}}
 
-Ensure your requests are smaller than the
-[payload application limits](../../administration/instance_limits.md#generic-alert-json-payloads).
+Ensure your requests are smaller than the [payload application limits](../../administration/instance_limits.md#generic-alert-json-payloads).
 
 {{< /alert >}}
 
@@ -153,19 +126,19 @@ Example payload:
 
 ```json
 {
-  "title": "Incident title",
-  "description": "Short description of the incident",
-  "start_time": "2019-09-12T06:00:55Z",
-  "service": "service affected",
-  "monitoring_tool": "value",
-  "hosts": "value",
-  "severity": "high",
-  "fingerprint": "d19381d4e8ebca87b55cda6e8eee7385",
-  "foo": {
+ "title": "Incident title",
+ "description": "Short description of the incident",
+ "start_time": "2019-09-12T06:00:55Z",
+ "service": "service affected",
+ "monitoring_tool": "value",
+ "hosts": "value",
+ "severity": "high",
+ "fingerprint": "d19381d4e8ebca87b55cda6e8eee7385",
+ "foo": {
     "bar": {
       "baz": 42
     }
-  }
+ }
 }
 ```
 
@@ -200,13 +173,11 @@ You can alter the nested parameters listed below to configure the GitLab alert.
 | `labels/gitlab_environment_name`                                           | String   | No       | The name of the associated GitLab [environment](../../ci/environments/_index.md). Required to [display alerts on a dashboard](../../user/operations_dashboard/_index.md#adding-a-project-to-the-dashboard). |
 | `labels/severity`                                                          | String   | No       | Severity of the alert. Should be one of the [Prometheus severity options](#prometheus-severity-options). Defaults to `critical` if missing or value is not in this list. |
 | `status`                                                                   | String   | No       | Status of the alert in Prometheus. If value is 'resolved', the alert is resolved. |
-| One of `annotations/gitlab_y_label`,  `annotations/title`, `annotations/summary`, or `labels/alertname` | String | No | The Y-Axis label to be used when embedding the metrics for this alert in [GitLab Flavored Markdown](../../user/markdown.md). |
+| One of `annotations/gitlab_y_label`, `annotations/title`, `annotations/summary`, or `labels/alertname` | String | No | The Y-Axis label to be used when embedding the metrics for this alert in [GitLab Flavored Markdown](../../user/markdown.md). |
 
-Additional attributes included under `annotations` are available on
-the [alert details page](alerts.md#alert-details-page). Any other attributes are ignored.
+Additional attributes included under `annotations` are available on the [alert details page](alerts.md#alert-details-page). Any other attributes are ignored.
 
-Attributes aren't limited to primitive types (such as strings or numbers), but
-can be a nested JSON object. For example:
+Attributes aren't limited to primitive types (such as strings or numbers), but can be a nested JSON object. For example:
 
 ```json
 {
@@ -220,8 +191,7 @@ can be a nested JSON object. For example:
 
 {{< alert type="note" >}}
 
-Ensure your requests are smaller than the
-[payload application limits](../../administration/instance_limits.md#generic-alert-json-payloads).
+Ensure your requests are smaller than the [payload application limits](../../administration/instance_limits.md#generic-alert-json-payloads).
 
 {{< /alert >}}
 
@@ -244,8 +214,8 @@ Example alerting rule:
 ```yaml
 groups:
 - name: example
-  rules:
-  - alert: ServiceDown
+ rules:
+ - alert: ServiceDown
     expr: up == 0
     for: 5m
     labels:
@@ -264,15 +234,15 @@ Example request payload:
 
 ```json
 {
-  "version" : "4",
-  "groupKey": null,
-  "status": "firing",
-  "receiver": "",
-  "groupLabels": {},
-  "commonLabels": {},
-  "commonAnnotations": {},
-  "externalURL": "",
-  "alerts": [{
+ "version" : "4",
+ "groupKey": null,
+ "status": "firing",
+ "receiver": "",
+ "groupLabels": {},
+ "commonLabels": {},
+ "commonAnnotations": {},
+ "externalURL": "",
+ "alerts": [{
     "startsAt": "2022-010-30T11:22:40Z",
     "generatorURL": "http://host?g0.expr=up",
     "endsAt": null,
@@ -292,7 +262,7 @@ Example request payload:
         }
       }
     }
-  }]
+ }]
 }
 ```
 
@@ -318,10 +288,10 @@ The authorization key can be used as the Bearer token:
 
 ```shell
 curl --request POST \
-  --data '{"title": "Incident title"}' \
-  --header "Authorization: Bearer <authorization_key>" \
-  --header "Content-Type: application/json" \
-  <url>
+ --data '{"title": "Incident title"}' \
+ --header "Authorization: Bearer <authorization_key>" \
+ --header "Content-Type: application/json" \
+ <url>
 ```
 
 ### Basic authentication
@@ -333,25 +303,24 @@ The authorization key can be used as the `password`. The `username` is left blan
 
 ```shell
 curl --request POST \
-  --data '{"title": "Incident title"}' \
-  --header "Authorization: Basic <base_64_encoded_credentials>" \
-  --header "Content-Type: application/json" \
-  <url>
+ --data '{"title": "Incident title"}' \
+ --header "Authorization: Basic <base_64_encoded_credentials>" \
+ --header "Content-Type: application/json" \
+ <url>
 ```
 
 Basic authentication can also be used with credentials directly in the URL:
 
 ```shell
 curl --request POST \
-  --data '{"title": "Incident title"}' \
-  --header "Content-Type: application/json" \
-  <username:password@url>
+ --data '{"title": "Incident title"}' \
+ --header "Content-Type: application/json" \
+ <username:password@url>
 ```
 
 {{< alert type="warning" >}}
 
-Using your authorization key in the URL is insecure, as it's visible in server logs. We recommend
-using one of the header options described previously if your tooling supports it.
+Using your authorization key in the URL is insecure, as it's visible in server logs. We recommend using one of the header options described previously if your tooling supports it.
 
 {{< /alert >}}
 
@@ -361,14 +330,14 @@ The JSON response body contains a list of any alerts created within the request:
 
 ```json
 [
-  {
+ {
     "iid": 1,
     "title": "Incident title"
-  },
-  {
+ },
+ {
     "iid": 2,
     "title": "Second Incident title"
-  }
+ }
 ]
 ```
 
@@ -377,8 +346,7 @@ Successful responses return a `200` response code.
 ## Triggering test alerts
 
 After a [project maintainer or owner](../../user/permissions.md)
-configures an integration, you can trigger a test
-alert to confirm your integration works properly.
+configures an integration, you can trigger a test alert to confirm your integration works properly.
 
 1. Sign in as a user with at least the Developer role.
 1. Go to **Settings** > **Monitor** in your project.
@@ -399,9 +367,7 @@ GitLab displays an error or success message, depending on the outcome of your te
 
 {{< /details >}}
 
-GitLab groups alerts based on their payload. When an incoming alert contains the same payload as another alert
-(excluding the `start_time` and `hosts` attributes), GitLab groups these alerts
-together and displays a counter on the [Alert Management List](incidents.md)
+GitLab groups alerts based on their payload. When an incoming alert contains the same payload as another alert (excluding the `start_time` and `hosts` attributes), GitLab groups these alerts together and displays a counter on the [Alert Management List](incidents.md)
 and details pages.
 
 If the existing alert is already `resolved`, GitLab creates a new alert instead.
@@ -410,15 +376,10 @@ If the existing alert is already `resolved`, GitLab creates a new alert instead.
 
 ## Recovery alerts
 
-The alert in GitLab is automatically resolved when an HTTP Endpoint
-receives a payload with the end time of the alert set. For HTTP Endpoints
-without [custom mappings](#map-fields-in-custom-alerts), the expected
-field is `end_time`. With custom mappings, you can select the expected field.
+The alert in GitLab is automatically resolved when an HTTP Endpoint receives a payload with the end time of the alert set. For HTTP Endpoints without [custom mappings](#map-fields-in-custom-alerts), the expected field is `end_time`. With custom mappings, you can select the expected field.
 
-GitLab determines which alert to resolve based on the `fingerprint` value that can be provided as
-part of the payload.
-For more information on alert properties and mappings, see
-[Customize the alert payload outside of GitLab](#customize-the-alert-payload-outside-of-gitlab).
+GitLab determines which alert to resolve based on the `fingerprint` value that can be provided as part of the payload.
+For more information on alert properties and mappings, see [Customize the alert payload outside of GitLab](#customize-the-alert-payload-outside-of-gitlab).
 
 You can also configure the associated [incident to be closed automatically](manage_incidents.md#automatically-close-incidents-via-recovery-alerts) when the alert resolves.
 
@@ -439,17 +400,13 @@ You can also configure the associated [incident to be closed automatically](mana
 
 {{< alert type="warning" >}}
 
-We are building deeper integration with Opsgenie and other alerting tools through
-[HTTP endpoint integrations](#single-alerting-endpoint) so you can see alerts in
-the GitLab interface.
+We are building deeper integration with Opsgenie and other alerting tools through [HTTP endpoint integrations](#single-alerting-endpoint) so you can see alerts in the GitLab interface.
 
 {{< /alert >}}
 
 You can monitor alerts using a GitLab integration with [Opsgenie](https://www.atlassian.com/software/opsgenie).
 
-If you enable the Opsgenie integration, you can't have other GitLab alert
-services
-active at the same time.
+If you enable the Opsgenie integration, you can't have other GitLab alert services active at the same time.
 
 To enable Opsgenie integration:
 
@@ -457,9 +414,7 @@ To enable Opsgenie integration:
 1. Go to **Monitor** > **Alerts**.
 1. In the **Integrations** select box, select **Opsgenie**.
 1. Select the **Active** toggle.
-1. In the **API URL** field, enter the base URL for your Opsgenie integration,
-   such as `https://app.opsgenie.com/alert/list`.
+1. In the **API URL** field, enter the base URL for your Opsgenie integration, such as `https://app.opsgenie.com/alert/list`.
 1. Select **Save changes**.
 
-After you enable the integration, go to the **Alerts** page at
-**Monitor** > **Alerts**, and then select **View alerts in Opsgenie**.
+After you enable the integration, go to the **Alerts** page at **Monitor** > **Alerts**, and then select **View alerts in Opsgenie**.

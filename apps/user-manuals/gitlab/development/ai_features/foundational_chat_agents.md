@@ -5,24 +5,17 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Managing foundational agents
 ---
 
-[Foundational agents](../../user/duo_agent_platform/agents/foundational_agents/_index.md) are specialized agents
-that are created and maintained by GitLab, providing more accurate responses for specific use cases. These agents are
-available by default on any place chat and GitLab Duo chat are available, including groups, and are supported on GitLab Duo Self-Hosted.
+[Foundational agents](../../user/duo_agent_platform/agents/foundational_agents/_index.md) are specialized agents that are created and maintained by GitLab, providing more accurate responses for specific use cases. These agents are available by default on any place chat and GitLab Duo chat are available, including groups, and are supported on GitLab Duo Self-Hosted.
 
 ## Create a foundational agent
 
-There are two ways of creating a foundational agent, using the AI Catalog or GitLab Duo Workflow Service. AI Catalog provides
-a user-friendly interface, and it is the preferred approach, but writing a definition on GitLab Duo Workflow Service provides
-more flexibility for complex cases.
+There are two ways of creating a foundational agent, using the AI Catalog or GitLab Duo Workflow Service. AI Catalog provides a user-friendly interface, and it is the preferred approach, but writing a definition on GitLab Duo Workflow Service provides more flexibility for complex cases.
 
 ### Using the AI catalog
 
-1. Create your agent on the [AI Catalog](https://gitlab.com/explore/ai-catalog/agents/), and note its ID. Make sure the agent is set to
-   public. Example: [Planner Agent](https://gitlab.com/explore/ai-catalog/agents/356/) has ID 356.
+1. Create your agent on the [AI Catalog](https://gitlab.com/explore/ai-catalog/agents/), and note its ID. Make sure the agent is set to public. Example: [Planner Agent](https://gitlab.com/explore/ai-catalog/agents/356/) has ID 356.
 
-1. Agents created on the AI Catalog need to be bundled into GitLab Duo Workflow Service, so they can be available to self-hosted
-   setups that do not have access to our SaaS. To achieve this, open an MR to GitLab Duo Workflow Service adding the ID of the
-   agent:
+1. Agents created on the AI Catalog need to be bundled into GitLab Duo Workflow Service, so they can be available to self-hosted setups that do not have access to our SaaS. To achieve this, open an MR to GitLab Duo Workflow Service adding the ID of the agent:
 
    ```diff
    # https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/-/blob/main/Dockerfile
@@ -136,7 +129,7 @@ Control the release of new foundational agents with feature flags:
 ```ruby
 # ee/app/graphql/resolvers/ai/foundational_chat_agents_resolver.rb
 
-  def resolve(*, project_id: nil, namespace_id: nil)
+ def resolve(*, project_id: nil, namespace_id: nil)
     project = GitlabSchema.find_by_gid(project_id)
 
     filtered_agents = []
@@ -146,7 +139,7 @@ Control the release of new foundational agents with feature flags:
     ::Ai::FoundationalChatAgent
  .select {|agent| filtered_agents.exclude?(agent.reference) }
       .sort_by(&:id)
-  end
+ end
 ```
 
 This also allows making a foundational agent available to a specific tier.
@@ -157,20 +150,17 @@ Not every agent is useful in every area. For example, some agents operate in pro
 
 ## Triggers
 
-Triggers are not supported for foundational chat agents. However, if they are defined on AI Catalog, users can
-still add it to their project at which point they can be used through triggers.
+Triggers are not supported for foundational chat agents. However, if they are defined on AI Catalog, users can still add it to their project at which point they can be used through triggers.
 
 ## Versioning
 
-Versioning of agents is not yet supported. Consider potential breaking changes to older GitLab versions
-before doing changes to an agent.
+Versioning of agents is not yet supported. Consider potential breaking changes to older GitLab versions before doing changes to an agent.
 
 ## Local testing
 
 It is possible to test the setup locally.
 
-1. For AI catalog created agents, you need to sync the agents locally. To do so, either create the agent in the local AI
-   Catalog or on GitLab.com AI Catalog. Then, on `$GDK/gitlab-ai-gateway`, run the following command:
+1. For AI catalog created agents, you need to sync the agents locally. To do so, either create the agent in the local AI Catalog or on GitLab.com AI Catalog. Then, on `$GDK/gitlab-ai-gateway`, run the following command:
 
    ```shell
    poetry run fetch-foundational-agents "http://gdk.test:3000 or https://gitlab.com" "<token-to-your-local-gdk>" \
@@ -192,8 +182,7 @@ It is possible to test the setup locally.
 
 The architecture of how Foundational Agents are made available avoids connecting to AI Catalog to fetch definitions at runtime and allows GitLab engineering teams full control over when they are released.
 
-This design could also be extended to support
-[Foundational flows](../../development/ai_features/glossary.md#flow-types).
+This design could also be extended to support [Foundational flows](../../development/ai_features/glossary.md#flow-types).
 
 ### Foundational Agents in Monolith
 
@@ -204,8 +193,7 @@ The [`FoundationalChatAgentsDefinitions`](https://gitlab.com/gitlab-org/gitlab/b
 module manages agent versioning based on the GitLab instance version.
 affecting older GitLab versions, similar to [prompt versioning](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/prompts_migration/#versioning).
 
-Additionally, on [`FoundationalChatAgentsResolver`](https://gitlab.com/gitlab-org/gitlab/blob/master/ee/app/graphql/resolvers/ai/foundational_chat_agents_resolver.rb),
-teams are able to select which conditions can make a foundational chat agent available, for situations like:
+Additionally, on [`FoundationalChatAgentsResolver`](https://gitlab.com/gitlab-org/gitlab/blob/master/ee/app/graphql/resolvers/ai/foundational_chat_agents_resolver.rb), teams are able to select which conditions can make a foundational chat agent available, for situations like:
 
 - does the user have Ultimate,
 - is the feature flag enabled,
@@ -215,36 +203,24 @@ If we relied exclusively on AI Catalog or Duo Workflow Service, such flexibility
 
 #### Version resolution
 
-Agent versions are resolved based on the `version` field in `FoundationalChatAgentsDefinitions.rb`,
-which maps to a
-folder in GitLab Duo Workflow Service (for example, `v1`, `experimental`).
+Agent versions are resolved based on the `version` field in `FoundationalChatAgentsDefinitions.rb`, which maps to a folder in GitLab Duo Workflow Service (for example, `v1`, `experimental`).
 
 In the future, [version resolution will be based on semantic versioning](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/-/issues/1577).
 This will allow:
 
-- **Patch and minor updates** (bug fixes, performance improvements, prompt refinements) to be shipped to existing
-  GitLab versions without requiring a GitLab instance update
-- **Major version releases** for breaking changes that require new GitLab features (such as new tools, API changes,
-  or schema modifications) to be shipped only to compatible GitLab versions
+- **Patch and minor updates** (bug fixes, performance improvements, prompt refinements) to be shipped to existing GitLab versions without requiring a GitLab instance update
+- **Major version releases** for breaking changes that require new GitLab features (such as new tools, API changes, or schema modifications) to be shipped only to compatible GitLab versions
 
 This approach ensures backward compatibility while enabling continuous improvement of foundational agents.
 
 ### Bundling into GitLab Duo Workflow Service
 
-Bundling agents into GitLab Duo Workflow Service makes agents defined in AI Catalog available on all deployments,
-including self-hosted setups.
-[With semantic versioning support](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/-/issues/1577),
-the latest version of each major release will be bundled,
-along with specific pinned versions of each foundational
-agent.
+Bundling agents into GitLab Duo Workflow Service makes agents defined in AI Catalog available on all deployments, including self-hosted setups.
+[With semantic versioning support](https://gitlab.com/gitlab-org/modelops/applied-ml/code-suggestions/ai-assist/-/issues/1577), the latest version of each major release will be bundled, along with specific pinned versions of each foundational agent.
 
-The alternative to this would be to ship the YAML definitions themselves as part of GitLab monolith,
-but that comes with
-the downside of not being able to quickly ship fixes to cloud-connected self-managed instances.
+The alternative to this would be to ship the YAML definitions themselves as part of GitLab monolith, but that comes with the downside of not being able to quickly ship fixes to cloud-connected self-managed instances.
 
-Eventually, if labels are implemented on AI Catalog,
-teams wouldn't need to add their entries to the Dockerfile, versions
-could be fetched by the correct labels.
+Eventually, if labels are implemented on AI Catalog, teams wouldn't need to add their entries to the Dockerfile, versions could be fetched by the correct labels.
 
 ### Creation flow
 
@@ -288,6 +264,4 @@ sequenceDiagram
     Monolith->>User: Return response
 ```
 
-The execution flows are the same whether the user is using a local monolith, GitLab SaaS,
-the cloud-connected DWS or a
-local installation of DWS.
+The execution flows are the same whether the user is using a local monolith, GitLab SaaS, the cloud-connected DWS or a local installation of DWS.

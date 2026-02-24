@@ -7,14 +7,11 @@ title: Authorization
 
 ## Where should permissions be checked?
 
-When deciding where to check permissions, apply defense-in-depth by implementing multiple checks at
-different layers. Starting with low-level layers, such as finders and services,
-followed by high-level layers, such as GraphQL, public REST API, and controllers.
+When deciding where to check permissions, apply defense-in-depth by implementing multiple checks at different layers. Starting with low-level layers, such as finders and services, followed by high-level layers, such as GraphQL, public REST API, and controllers.
 
 For more information, see [guidelines for reusing abstractions](../reusing_abstractions.md).
 
-Protecting the same resources at many points means that if one layer of defense is compromised
-or missing, customer data is still protected by the additional layers.
+Protecting the same resources at many points means that if one layer of defense is compromised or missing, customer data is still protected by the additional layers.
 
 For more information on permissions, see the permissions section in the [secure coding guidelines](../secure_coding_guidelines/_index.md#permissions).
 
@@ -24,8 +21,7 @@ Services or finders are appropriate locations because:
 
 - Multiple endpoints share services or finders so downstream logic is more likely to be re-used.
 - Sometimes authorization logic must be incorporated in DB queries to filter records.
-- You should avoid permission checks at the display layer except to provide better UX,
-  and not as a security check. For example, showing and hiding non-data elements like buttons.
+- You should avoid permission checks at the display layer except to provide better UX, and not as a security check. For example, showing and hiding non-data elements like buttons.
 
 The downsides to defense-in-depth are:
 
@@ -34,31 +30,25 @@ The downsides to defense-in-depth are:
 
 ### Exceptions
 
-Developers can choose to do authorization in only a single area after weighing
-the risks and drawbacks for their specific case.
+Developers can choose to do authorization in only a single area after weighing the risks and drawbacks for their specific case.
 
 Prefer domain logic (services or finders) as the source of truth when making exceptions.
 
 Logic, like backend worker logic, might not need authorization based on the current user.
-If the service or finder's constructor does not expect `current_user`, then it typically does not
-check permissions.
+If the service or finder's constructor does not expect `current_user`, then it typically does not check permissions.
 
 ### Frontend
 
-When using an ability check in UI elements, make sure to also use an ability
-check for the underlying backend code, if there is any. This ensures there is
-absolutely no way to use the feature until the user has proper access.
+When using an ability check in UI elements, make sure to also use an ability check for the underlying backend code, if there is any. This ensures there is absolutely no way to use the feature until the user has proper access.
 
-If the UI element is HAML, you can use embedded Ruby to check if
-`Ability.allowed?(user, action, subject)`.
+If the UI element is HAML, you can use embedded Ruby to check if `Ability.allowed?(user, action, subject)`.
 
-If the UI element is JavaScript or Vue, use the `push_frontend_ability` method,
-which is available to all controllers that inherit from `ApplicationController`.
+If the UI element is JavaScript or Vue, use the `push_frontend_ability` method, which is available to all controllers that inherit from `ApplicationController`.
 You can use this method to expose the ability, for example:
 
 ```ruby
 before_action do
-  push_frontend_ability(ability: :read_project, resource: @project, user: current_user)
+ push_frontend_ability(ability: :read_project, resource: @project, user: current_user)
 end
 ```
 
@@ -66,15 +56,13 @@ You can then check the state of the ability in JavaScript as follows:
 
 ```javascript
 if ( gon.abilities.readProject ) {
-  // ...
+ // ...
 }
 ```
 
-The name of the ability in JavaScript is always camelCase,
-so checking for `gon.abilities.read_project` would not work.
+The name of the ability in JavaScript is always camelCase, so checking for `gon.abilities.read_project` would not work.
 
-To check for an ability in a Vue template, see the
-[developer documentation for access abilities in Vue](../fe_guide/vue.md#accessing-abilities).
+To check for an ability in a Vue template, see the [developer documentation for access abilities in Vue](../fe_guide/vue.md#accessing-abilities).
 
 ### Tips
 

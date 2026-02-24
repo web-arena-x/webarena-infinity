@@ -16,11 +16,11 @@ To post a personal job, create an employer account using a personal or generic e
 
 Employers must meet the following requirements to post a personal job on Handshake:
 
-- Register your employer account using a generic or personal email address.  
-  If you are already connected to a company on Handshake, you may create a secondary employer account to post personal jobs. *Learn* [*How to Create a New Company Profile*](https://support.joinhandshake.com/hc/en-us/articles/219133057).
+- Register your employer account using a generic or personal email address. 
+ If you are already connected to a company on Handshake, you may create a secondary employer account to post personal jobs. *Learn* [*How to Create a New Company Profile*](https://support.joinhandshake.com/hc/en-us/articles/219133057).
 - Personal jobs may not be posted under an existing company page, including the company where you are currently employed.
-- List a personal Facebook or LinkedIn profile as your company website.  
-  A college website may be used only if instructed by the school where the job will be posted.
+- List a personal Facebook or LinkedIn profile as your company website. 
+ A college website may be used only if instructed by the school where the job will be posted.
 - Use “LASTNAME Family” or a similar format as your company profile name.
 
 **Note****:** Even when posting personal jobs, employers must complete the standard verification process. This includes providing a business registration number, such as an EIN, TIN, or local equivalent, and uploading a photo of a government-issued ID.

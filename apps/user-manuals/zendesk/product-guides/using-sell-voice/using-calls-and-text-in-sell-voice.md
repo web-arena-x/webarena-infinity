@@ -46,11 +46,11 @@ Sell Voice is available on all plans and every account comes with complimentary 
    | --- | --- |
    | Contact or lead information | The person you are talking to, company, and phone number. If the contact is associated with a deal, this is also visible. |
    | Call length | A record of the time on the call. For example, 1:41 (1 minute and 41 seconds). |
-   |  | Dial pad. Use the dial pad to enter numbers when navigating a menu or leaving a voicemail. |
-   |  | Delete the recording. |
-   |  | Mute or unmute your microphone. |
-   |  | Call scripts and notes. You can make notes during the call and these are logged against the lead or contact as a call log.  Call scripts are available on the two highest Sell plans and can be defined by an admin user in [Settings > Voice and Text > Scripts](https://app.futuresimple.com/settings/voice/call-scripts) |
-   |  | Call list (if available). You can set up a call list so that you can call contacts or leads in succession. |
+   | | Dial pad. Use the dial pad to enter numbers when navigating a menu or leaving a voicemail. |
+   | | Delete the recording. |
+   | | Mute or unmute your microphone. |
+   | | Call scripts and notes. You can make notes during the call and these are logged against the lead or contact as a call log. Call scripts are available on the two highest Sell plans and can be defined by an admin user in [Settings > Voice and Text > Scripts](https://app.futuresimple.com/settings/voice/call-scripts) |
+   | | Call list (if available). You can set up a call list so that you can call contacts or leads in succession. |
    | End Call | End the call for all parties. |
 6. When the call is complete, a call summary screen is displayed. You can select a call outcome and add notes about the call. If the contact you're calling is associated with a deal, you can also choose a call topic. When you’ve logged the outcome and added notes, click **Save** to attach the call to the lead, contact, or deal.
 

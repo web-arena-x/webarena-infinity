@@ -10,7 +10,7 @@ Your ability to view and manage applicant data depends on your employer account 
 
 - **Basic employers**: **Owners**and **Recruiters**can view and manage applicants only for jobs they have personally created. Jobs posted by other teammates will appear on your list but are **view-only**.
 
-  - After a job is closed, applicant data remains accessible for **30 days**. To view applicant data beyond this period, you must upgrade to an eligible paid plan.
+ - After a job is closed, applicant data remains accessible for **30 days**. To view applicant data beyond this period, you must upgrade to an eligible paid plan.
 - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**, can access and manage applicant data indefinitely for both their own jobs and those posted by teammates, provided they have the appropriate permissions.
 
 Features marked with an asterisk (\*) are available only to Premium partners.*For more information, please check out this*[*resource*](https://www.joinhandshake.com/employers-premium/)*.*
@@ -35,31 +35,31 @@ The filters available to you depend on your Handshake account type.
 
 - **Application status**
 
-  - Applied
-  - Interviewing
-  - Rejected
-  - Hired
+ - Applied
+ - Interviewing
+ - Rejected
+ - Hired
 - **Matching qualifications**
 
-  - Latest graduation date
-  - Minimum GPA
-  - Majors
-  - Work authorization
+ - Latest graduation date
+ - Minimum GPA
+ - Majors
+ - Work authorization
 
     - **Note**: When this filter is applied, candidates who meet your criteria or choose not to disclose their status will appear.
 - **Application date range**
 - **Engagement**
 
-  - Employer invited candidate to apply
+ - Employer invited candidate to apply
 - **Education**
 
-  - Skills
-  - Majors
-  - Schools
+ - Skills
+ - Majors
+ - Schools
 - **Profile attributes**
 
-  - Labels
-  - Not labels
+ - Labels
+ - Not labels
 
 **\*Additional filters for Plus employers**
 
@@ -75,8 +75,8 @@ In addition to all filters above:
 - **Screening questions** (TES only)
 - **Candidate applied through**
 
-  - Handshake
-  - ATS
+ - Handshake
+ - ATS
 
 *To view a candidate's profile, click directly on their name.* *Learn more about*[*Viewing Student Profiles*](https://support.joinhandshake.com/hc/en-us/articles/219133157).
 

@@ -5,11 +5,9 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Database load balancing
 ---
 
-With database load balancing, read-only queries can be distributed across multiple
-PostgreSQL nodes to increase performance.
+With database load balancing, read-only queries can be distributed across multiple PostgreSQL nodes to increase performance.
 
-This documentation provides a technical overview on how database load balancing
-is implemented in GitLab Rails and Sidekiq.
+This documentation provides a technical overview on how database load balancing is implemented in GitLab Rails and Sidekiq.
 
 ## Nomenclature
 
@@ -20,8 +18,7 @@ is implemented in GitLab Rails and Sidekiq.
 
 ## Components
 
-A few Ruby classes are involved in the load balancing process. All of them are
-in the namespace `Gitlab::Database::LoadBalancing`:
+A few Ruby classes are involved in the load balancing process. All of them are in the namespace `Gitlab::Database::LoadBalancing`:
 
 1. `Host`
 1. `LoadBalancer`
@@ -29,13 +26,10 @@ in the namespace `Gitlab::Database::LoadBalancing`:
 1. `Session`
 
 Each workload begins with a new instance of `Gitlab::Database::LoadBalancing::Session`.
-The `Session` keeps track of the database operations that have been performed. It then
-determines if the workload requires a connection to either the primary host or a replica host.
+The `Session` keeps track of the database operations that have been performed. It then determines if the workload requires a connection to either the primary host or a replica host.
 
-When the workload requires a database connection through `ActiveRecord`,
-`ConnectionProxy` first redirects the connection request to `LoadBalancer`.
-`ConnectionProxy` requests either a `read` or `read_write` connection from the `LoadBalancer`
-depending on a few criteria:
+When the workload requires a database connection through `ActiveRecord`, `ConnectionProxy` first redirects the connection request to `LoadBalancer`.
+`ConnectionProxy` requests either a `read` or `read_write` connection from the `LoadBalancer` depending on a few criteria:
 
 1. Whether the query is a read-only or it requires write.
 1. Whether the `Session` has recorded a write operation previously.
@@ -51,11 +45,9 @@ It yields either:
 - A `read_write` connection from the primary's connection pool.
 - A `read` connection from the replicas' connection pools.
 
-When responding to a request for a `read` connection, `LoadBalancer` would
-first attempt to load balance the connection across the replica hosts.
+When responding to a request for a `read` connection, `LoadBalancer` would first attempt to load balance the connection across the replica hosts.
 It looks for the next `online` replica host and yields a connection from the host's connection pool.
-A replica host is considered `online` if it is up-to-date with the primary, based on
-either the replication lag size or time. The thresholds for these requirements are configurable.
+A replica host is considered `online` if it is up-to-date with the primary, based on either the replication lag size or time. The thresholds for these requirements are configurable.
 
 ## Deployment Strategy
 

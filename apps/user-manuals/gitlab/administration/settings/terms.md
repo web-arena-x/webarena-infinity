@@ -16,11 +16,9 @@ title: Terms of Service and Privacy Policy
 An administrator can enforce acceptance of a terms of service and privacy policy.
 When this option is enabled, new and existing users must accept the terms.
 
-When enabled, you can view the Terms of Service at the `-/users/terms` page on the instance,
-for example `https://gitlab.example.com/-/users/terms`.
+When enabled, you can view the Terms of Service at the `-/users/terms` page on the instance, for example `https://gitlab.example.com/-/users/terms`.
 
-The link `Terms and privacy` will become visible in the help menu if any
-terms are defined.
+The link `Terms and privacy` will become visible in the help menu if any terms are defined.
 
 ## Enforce a Terms of Service and Privacy Policy
 
@@ -34,8 +32,7 @@ To enforce acceptance of a Terms of Service and Privacy Policy:
    in this text box.
 1. Select **Save changes**.
 
-For each update to the terms, a new version is stored. When a user accepts or declines the terms,
-GitLab records which version they accepted or declined.
+For each update to the terms, a new version is stored. When a user accepts or declines the terms, GitLab records which version they accepted or declined.
 
 Existing users must accept the terms on their next GitLab interaction.
 If an authenticated user declines the terms, they are signed out.

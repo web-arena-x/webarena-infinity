@@ -39,11 +39,8 @@ These integrations have to do with using GitLab to build application workloads a
 **AWS CodeStar Connections** - enables SCM connections to multiple AWS Services.
 [Configure GitLab](https://docs.aws.amazon.com/dtconsole/latest/userguide/connections-create-gitlab.html).
 [Supported Providers](https://docs.aws.amazon.com/dtconsole/latest/userguide/supported-versions-connections.html).
-[Supported AWS Services](https://docs.aws.amazon.com/dtconsole/latest/userguide/integrations-connections.html) -
-each one may have to make updates to support GitLab, so here is the subset that
-support GitLab. This works with GitLab.com SaaS, GitLab Self-Managed and GitLab Dedicated.
-AWS CodeStar connections are not available in all AWS regions - the exclusion list is
-[documented here](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html).
+[Supported AWS Services](https://docs.aws.amazon.com/dtconsole/latest/userguide/integrations-connections.html) - each one may have to make updates to support GitLab, so here is the subset that support GitLab. This works with GitLab.com SaaS, GitLab Self-Managed and GitLab Dedicated.
+AWS CodeStar connections are not available in all AWS regions - the exclusion list is [documented here](https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html).
 ([12/28/2023](https://aws.amazon.com/about-aws/whats-new/2023/12/codepipeline-gitlab-self-managed/)) `[AWS Built]`
 
 [Video Explanation of AWS CodeStar Connection Integration for AWS (1 min)](https://youtu.be/f7qTSa_bNig)
@@ -112,14 +109,14 @@ Generally solutions demonstrate end-to-end capabilities for the development fram
 ### Serverless
 
 - [Enterprise DevOps Blueprint: Serverless Framework Apps on AWS](https://gitlab.com/guided-explorations/aws/serverless/serverless-framework-aws) - working example code and tutorials. `[GitLab Solution]` `[CI Solution]`
-  - [Tutorial: Serverless Framework Deployment to AWS with GitLab Serverless SAST Scanning](https://gitlab.com/guided-explorations/aws/serverless/serverless-framework-aws/-/blob/master/TUTORIAL.md) `[GitLab Solution]` `[CI Solution]`
-  - [Tutorial: Secure Serverless Framework Development with GitLab Security Policy Approval Rules and Managed DevOps Environments](https://gitlab.com/guided-explorations/aws/serverless/serverless-framework-aws/-/blob/prod/TUTORIAL2-SecurityAndManagedEnvs.md?ref_type=heads) `[GitLab Solution]` `[CI Solution]`
+ - [Tutorial: Serverless Framework Deployment to AWS with GitLab Serverless SAST Scanning](https://gitlab.com/guided-explorations/aws/serverless/serverless-framework-aws/-/blob/master/TUTORIAL.md) `[GitLab Solution]` `[CI Solution]`
+ - [Tutorial: Secure Serverless Framework Development with GitLab Security Policy Approval Rules and Managed DevOps Environments](https://gitlab.com/guided-explorations/aws/serverless/serverless-framework-aws/-/blob/prod/TUTORIAL2-SecurityAndManagedEnvs.md?ref_type=heads) `[GitLab Solution]` `[CI Solution]`
 
 ### Terraform
 
 - [Enterprise DevOps Blueprint: Terraform Deployment to AWS](https://gitlab.com/guided-explorations/aws/terraform/terraform-web-server-cluster)
-  - [Tutorial: Terraform Deployment to AWS with GitLab IaC SAST Scanning](https://gitlab.com/guided-explorations/aws/terraform/terraform-web-server-cluster/-/blob/prod/TUTORIAL.md) `[GitLab Solution]` `[CI Solution]`
-  - [Terraform Deployment to AWS with GitLab Security Policy Approval Rules and Managed DevOps Environments](https://gitlab.com/guided-explorations/aws/terraform/terraform-web-server-cluster/-/blob/prod/TUTORIAL2-SecurityAndManagedEnvs.md) `[GitLab Solution]` `[CI Solution]`
+ - [Tutorial: Terraform Deployment to AWS with GitLab IaC SAST Scanning](https://gitlab.com/guided-explorations/aws/terraform/terraform-web-server-cluster/-/blob/prod/TUTORIAL.md) `[GitLab Solution]` `[CI Solution]`
+ - [Terraform Deployment to AWS with GitLab Security Policy Approval Rules and Managed DevOps Environments](https://gitlab.com/guided-explorations/aws/terraform/terraform-web-server-cluster/-/blob/prod/TUTORIAL2-SecurityAndManagedEnvs.md) `[GitLab Solution]` `[CI Solution]`
 
 ### CloudFormation
 
@@ -148,8 +145,8 @@ Top-level groups on GitLab.com are also known as "Namespaces" and naming one aft
 ### Runner workload authentication and authorization integration
 
 - [Runner Job Authentication using Open ID & JWT Authentication](../../../ci/cloud_services/aws/_index.md). `[GitLab Built]`
-  - [Configure OpenID Connect between GitLab and AWS](https://gitlab.com/guided-explorations/aws/configure-openid-connect-in-aws) `[GitLab Solution]` `[CI Solution]`
-  - [OIDC and Multi-Account Deployment with GitLab and ECS](https://gitlab.com/guided-explorations/aws/oidc-and-multi-account-deployment-with-ecs) `[GitLab Solution]` `[CI Solution]`
+ - [Configure OpenID Connect between GitLab and AWS](https://gitlab.com/guided-explorations/aws/configure-openid-connect-in-aws) `[GitLab Solution]` `[CI Solution]`
+ - [OIDC and Multi-Account Deployment with GitLab and ECS](https://gitlab.com/guided-explorations/aws/oidc-and-multi-account-deployment-with-ecs) `[GitLab Solution]` `[CI Solution]`
 
 ## GitLab infrastructure workloads deployed on AWS
 
@@ -158,15 +155,15 @@ While GitLab can be deployed on a single box for up to 500 users, when it is hor
 ### GitLab Instance Compute & Operations Integration
 
 - Installing GitLab Self-Managed on AWS
-  - [AWS Services that can be used when deploying GitLab](gitlab_instance_on_aws.md)
-  - GitLab Single EC2 Instance. `[GitLab Built]`
+ - [AWS Services that can be used when deploying GitLab](gitlab_instance_on_aws.md)
+ - GitLab Single EC2 Instance. `[GitLab Built]`
     - [Using 5 Seat AWS marketplace subscription](gitlab_single_box_on_aws.md#marketplace-subscription)
     - [Using Prepared AMIs](gitlab_single_box_on_aws.md#official-gitlab-releases-as-amis) - Bring Your Own License for Enterprise Edition.
 
-  - GitLab Cloud Native Hybrid Scaled on AWS EKS and Paas. `[GitLab Built]`
+ - GitLab Cloud Native Hybrid Scaled on AWS EKS and Paas. `[GitLab Built]`
     - [Using GitLab Environment Toolkit (GET)](https://gitlab.com/gitlab-org/gitlab-environment-toolkit) - `[GitLab Solution]`
 
-  - GitLab Instance Scaled on AWS EC2 and PaaS. `[GitLab Built]`
+ - GitLab Instance Scaled on AWS EC2 and PaaS. `[GitLab Built]`
     - [Using GitLab Environment Toolkit (GET)](https://gitlab.com/gitlab-org/gitlab-environment-toolkit) - `[GitLab Solution]`
 
 - [Amazon Managed Grafana](https://docs.aws.amazon.com/grafana/latest/userguide/gitlab-AMG-datasource.html) for GitLab Self-Managed Prometheus metrics. `[AWS Built]`
@@ -177,5 +174,5 @@ While GitLab can be deployed on a single box for up to 500 users, when it is hor
 - [GitLab Runner Infrastructure Toolkit (GRIT)](https://gitlab.com/gitlab-org/ci-cd/runner-tools/grit) - managed infrastructure as code stewarded by the GitLab Runner team. Needed to deploy things like the GitLab Runner Autoscaler. `[GitLab Built]`
 - [Autoscaling GitLab Runner on AWS EC2](https://docs.gitlab.com/runner/configuration/runner_autoscale_aws/). `[GitLab Built]`
 - [GitLab HA Scaling Runner Vending Machine for AWS EC2 ASG](https://gitlab.com/guided-explorations/aws/gitlab-runner-autoscaling-aws-asg/). `[GitLab Solution]`
-  - Runner vending machine training resources.
+ - Runner vending machine training resources.
 - [GitLab EKS Fargate Runners](https://gitlab.com/guided-explorations/aws/eks-runner-configs/gitlab-runner-eks-fargate/-/blob/main/README.md). `[GitLab Solution]`

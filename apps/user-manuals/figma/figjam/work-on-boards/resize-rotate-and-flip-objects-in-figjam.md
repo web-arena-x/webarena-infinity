@@ -28,8 +28,7 @@ Change the width or height of an object. Manual resizing can change the aspect r
 2. Click and drag:
    - the right or left edge to change the object's width
    - the top or bottom edge to change the object's height
-   - a corner handle resize the object in either direction or press `⇧
-     Shift` to resize uniformly
+   - a corner handle resize the object in either direction or press `⇧ Shift` to resize uniformly
 
 You can resize a shape and truncate the text, then reveal it again in editing mode by clicking the blue arrow at the bottom of the shape.
 
@@ -60,7 +59,7 @@ Scale maintains aspect ratio while the contents within them also scale proportio
 
 # Resizing by object type
 
-|  |  |  |  |
+| | | | |
 | --- | --- | --- | --- |
 | **Type** | **Resizing** | **Scale** | **Automatic** |
 | **[Sticky notes](https://help.figma.com/hc/en-us/articles/1500004414322)** | ✓ | ✓ | ✓ |
@@ -102,12 +101,12 @@ Some objects can be rotated around their center points in increments of 15 degre
 ## To rotate an object
 
 1. Click the object to select it
-2. Hover your mouse near the object's corner until the  rotation cursor appears
+2. Hover your mouse near the object's corner until the rotation cursor appears
 3. Click and drag to rotate your selection
 
 Note
 
-The  rotation cursor won't appear if you select an inner layer of an object, like a text layer inside of a shape.
+The rotation cursor won't appear if you select an inner layer of an object, like a text layer inside of a shape.
 
 ## Flipping
 

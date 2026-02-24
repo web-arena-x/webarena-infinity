@@ -48,15 +48,13 @@ To add a secure file to a project:
 {{< alert type="warning" >}}
 
 The content of secure files are not [masked](../variables/_index.md#mask-a-cicd-variable)
-in the job log output. Make sure to avoid outputting secure file contents in the job log,
-especially when logging output that could contain sensitive information.
+in the job log output. Make sure to avoid outputting secure file contents in the job log, especially when logging output that could contain sensitive information.
 
 {{< /alert >}}
 
 ### With the `glab` tool
 
-To download one or more secure files with [`glab`](https://gitlab.com/gitlab-org/cli/),
-you can use the `cli` Docker image in the CI/CD job.
+To download one or more secure files with [`glab`](https://gitlab.com/gitlab-org/cli/), you can use the `cli` Docker image in the CI/CD job.
 
 #### Download all the files in a project
 
@@ -64,8 +62,8 @@ To download all the secure files in a project:
 
 ```yaml
 test:
-  image: registry.gitlab.com/gitlab-org/cli:latest
-  script:
+ image: registry.gitlab.com/gitlab-org/cli:latest
+ script:
     - glab auth login --job-token $CI_JOB_TOKEN --hostname $CI_SERVER_FQDN --api-protocol $CI_SERVER_PROTOCOL
     - glab -R $CI_PROJECT_PATH securefile download --all --output-dir="where/to/save"
 ```
@@ -77,15 +75,13 @@ that are automatically available.
 
 ```yaml
 test:
-  image: registry.gitlab.com/gitlab-org/cli:latest
-  script:
+ image: registry.gitlab.com/gitlab-org/cli:latest
+ script:
     - glab auth login --job-token $CI_JOB_TOKEN --hostname $CI_SERVER_FQDN --api-protocol $CI_SERVER_PROTOCOL
     - glab -R $CI_PROJECT_PATH securefile download $SECURE_FILE_ID --path="where/to/save/file.txt"
 ```
 
-The `SECURE_FILE_ID` CI/CD variable needs to passed to the job explicitly, for example
-in [CI/CD settings](../variables/_index.md#define-a-cicd-variable-in-the-ui) or when
-[running a pipeline manually](../pipelines/_index.md#run-a-pipeline-manually).
+The `SECURE_FILE_ID` CI/CD variable needs to passed to the job explicitly, for example in [CI/CD settings](../variables/_index.md#define-a-cicd-variable-in-the-ui) or when [running a pipeline manually](../pipelines/_index.md#run-a-pipeline-manually).
 Every other variable is a [predefined variable](../variables/predefined_variables.md)
 that is automatically available.
 
@@ -104,21 +100,18 @@ and use it in your CI/CD job.
 > This method is deprecated.
 
 To use your secure files in a CI/CD job, you can use the [`download-secure-files`](https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files)
-tool to download the files in the job. After they are downloaded, you can use them
-with your other script commands.
+tool to download the files in the job. After they are downloaded, you can use them with your other script commands.
 
-Add a command in the `script` section of your job to download the `download-secure-files` tool
-and execute it. The files download into a `.secure_files` directory in the root of the project.
-To change the download location for the secure files, set the path in the `SECURE_FILES_DOWNLOAD_PATH`
-[CI/CD variable](../variables/_index.md).
+Add a command in the `script` section of your job to download the `download-secure-files` tool and execute it. The files download into a `.secure_files` directory in the root of the project.
+To change the download location for the secure files, set the path in the `SECURE_FILES_DOWNLOAD_PATH` [CI/CD variable](../variables/_index.md).
 
 For example:
 
 ```yaml
 test:
-  variables:
+ variables:
     SECURE_FILES_DOWNLOAD_PATH: './where/files/should/go/'
-  script:
+ script:
     - curl --silent "https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer" | bash
 ```
 
@@ -126,21 +119,16 @@ test:
 
 Project-level Secure Files are encrypted on upload using the [Lockbox](https://github.com/ankane/lockbox)
 Ruby gem by using the [`Ci::SecureFileUploader`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/uploaders/ci/secure_file_uploader.rb)
-interface. This interface generates a SHA256 checksum of the source file during upload
-that is persisted with the record in the database so it can be used to verify the contents
-of the file when downloaded.
+interface. This interface generates a SHA256 checksum of the source file during upload that is persisted with the record in the database so it can be used to verify the contents of the file when downloaded.
 
 A [unique encryption key](https://gitlab.com/gitlab-org/gitlab/-/blob/master/app/models/ci/secure_file.rb#L27)
-is generated for each file when it is created and persisted in the database. The encrypted uploaded files
-are stored in either local storage or object storage depending on the [GitLab instance configuration](../../administration/cicd/secure_files.md).
+is generated for each file when it is created and persisted in the database. The encrypted uploaded files are stored in either local storage or object storage depending on the [GitLab instance configuration](../../administration/cicd/secure_files.md).
 
 Individual files can be retrieved with the [secure files download API](../../api/secure_files.md#download-secure-file).
 Metadata can be retrieved with the [list](../../api/secure_files.md#list-project-secure-files)
-or [show](../../api/secure_files.md#show-secure-file-details) API endpoints. Files can also be retrieved
-with the [`glab securefile`](https://gitlab.com/gitlab-org/cli/-/tree/main/docs/source/securefile)
+or [show](../../api/secure_files.md#show-secure-file-details) API endpoints. Files can also be retrieved with the [`glab securefile`](https://gitlab.com/gitlab-org/cli/-/tree/main/docs/source/securefile)
 command. This command automatically verifies the checksum of each file as it is downloaded.
 
 Any project member with at least the Developer role can access Project-level secure files.
-Interactions with Project-level secure files are not included in audit events, but
-[issue 117](https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/readme/-/issues/117)
+Interactions with Project-level secure files are not included in audit events, but [issue 117](https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/readme/-/issues/117)
 proposes adding this functionality.

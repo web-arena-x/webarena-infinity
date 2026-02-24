@@ -31,10 +31,10 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/access_requests"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/:id/access_requests"
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/:id/access_requests"
+ --url "https://gitlab.example.com/api/v4/projects/:id/access_requests"
 ```
 
 Example response:
@@ -81,23 +81,23 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>"  \
-  --url "https://gitlab.example.com/api/v4/groups/:id/access_requests"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/:id/access_requests"
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>"  \
-  --url "https://gitlab.example.com/api/v4/projects/:id/access_requests"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/:id/access_requests"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "username": "raymond_smith",
-  "name": "Raymond Smith",
-  "state": "active",
-  "created_at": "2012-10-22T14:13:35Z",
-  "requested_at": "2012-10-22T14:13:35Z"
+ "id": 1,
+ "username": "raymond_smith",
+ "name": "Raymond Smith",
+ "state": "active",
+ "created_at": "2012-10-22T14:13:35Z",
+ "requested_at": "2012-10-22T14:13:35Z"
 }
 ```
 
@@ -120,23 +120,23 @@ Example request:
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>"  \
-  --url "https://gitlab.example.com/api/v4/groups/:id/access_requests/:user_id/approve?access_level=20"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/:id/access_requests/:user_id/approve?access_level=20"
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>"  \
-  --url "https://gitlab.example.com/api/v4/projects/:id/access_requests/:user_id/approve?access_level=20"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/:id/access_requests/:user_id/approve?access_level=20"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "username": "raymond_smith",
-  "name": "Raymond Smith",
-  "state": "active",
-  "created_at": "2012-10-22T14:13:35Z",
-  "access_level": 20
+ "id": 1,
+ "username": "raymond_smith",
+ "name": "Raymond Smith",
+ "state": "active",
+ "created_at": "2012-10-22T14:13:35Z",
+ "access_level": 20
 }
 ```
 
@@ -158,9 +158,9 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>"  \
-  --url "https://gitlab.example.com/api/v4/groups/:id/access_requests/:user_id"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/:id/access_requests/:user_id"
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/:id/access_requests/:user_id"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/:id/access_requests/:user_id"
 ```

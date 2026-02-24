@@ -21,10 +21,10 @@ Customizing your CSS requires some familiarity with CSS and HTML. Before you cus
 Before you add custom CSS to your theme, review the following considerations:
 
 * The following CSS selectors and properties aren't supported in custom CSS:
-  + At-rules `@import`, `@charset`, and `@namespace` cannot be used
-  + For section-level CSS, only at-rules `@media`, `@container`, `@layer`, and `@supports` are permitted
-  + For section-level CSS, you can't target the ID or classes of the wrapping Shopify Section element rendered by the theme with the `shopify-section` class
-  + The `content` property isn't available in custom CSS
+ + At-rules `@import`, `@charset`, and `@namespace` cannot be used
+ + For section-level CSS, only at-rules `@media`, `@container`, `@layer`, and `@supports` are permitted
+ + For section-level CSS, you can't target the ID or classes of the wrapping Shopify Section element rendered by the theme with the `shopify-section` class
+ + The `content` property isn't available in custom CSS
 * If a custom CSS rule is declared with the tag that's wrapping the parent section element, then it's considered a descendent tag, and the styling rule is applied to that section. Note that by default the parent section is wrapped in a `<div>` tag, but this can be set to any of the [permitted values](https://shopify.dev/themes/architecture/sections/section-schema#tag) in the section schema by theme developers.
 * Currently only the <https://cdn.shopify.com> domain is permitted when using URLs in custom CSS.
 * Custom fonts aren't restricted. However, custom fonts are a separate resource that are downloaded by browsers before text is rendered, which can impact a store's [overall performance](../../../web-performance.md). It's your responsibility to ensure that your storefront isn't negatively affected by custom fonts. [Learn how to use custom fonts in your theme](https://shopify.dev/themes/architecture/settings/fonts#add-shopify-fonts-to-your-theme).

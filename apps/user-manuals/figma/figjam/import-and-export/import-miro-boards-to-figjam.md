@@ -51,7 +51,7 @@ After exporting a board from Miro, you can:
 ### Import into an existing FigJam file
 
 1. Open a FigJam file.
-2. Click the  Figma icon at the top left of the file.
+2. Click the Figma icon at the top left of the file.
 3. Navigate to **File > Import.**
 4. Select Miro on the Where are your files from? screen and click Confirm.
 5. Select one or more Miro PDF files.
@@ -62,7 +62,7 @@ After exporting a board from Miro, you can:
 
 The following table explains how a Miro object gets imported into FigJam.
 
-|  |  |
+| | |
 | --- | --- |
 | **Miro object** | **FigJam object** |
 | Sticky note | Sticky note |

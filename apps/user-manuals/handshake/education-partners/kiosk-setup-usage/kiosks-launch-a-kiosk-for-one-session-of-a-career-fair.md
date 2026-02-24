@@ -11,7 +11,7 @@ In order to make it easy to track attendance for each session of your career fai
 1. Open the career fair
    1. Make sure this fair has multiple sessions
 2. Click **Open Check-In Kiosk** from the Actions section on the left side of the screen![](https://support.joinhandshake.com/hc/article_attachments/25995122427287)
-3. De-select **Allow All Sessions**![](https://support.joinhandshake.com/hc/article_attachments/25995122425879)  
+3. De-select **Allow All Sessions**![](https://support.joinhandshake.com/hc/article_attachments/25995122425879) 
      
    **Note:** If you don't check the **Keep me logged in** box and you have other tabs open, it may effect your cookies and cause your kiosk session to log out unexpectedly. For the best experience, ensure that other tabs are closed before proceeding.
 4. Select the session that you would like to open the kiosk for

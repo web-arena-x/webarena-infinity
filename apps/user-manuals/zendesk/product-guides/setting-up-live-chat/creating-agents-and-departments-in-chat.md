@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408894143898-Creating-age
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Live chat and messaging Team, Professional, or Enterprise |
 

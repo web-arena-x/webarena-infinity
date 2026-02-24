@@ -6,11 +6,11 @@ Source: https://support.zendesk.com/hc/en-us/articles/5823522695450-Supported-he
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support with** | Guide Professional or Enterprise |
 
@@ -46,7 +46,7 @@ This article contains the following topics:
 | Font sizes | X | X | X |
 | Text colors | X | X | X |
 | Text background colors | X | X | X |
-| Strikethrough | X |  |  |
+| Strikethrough | X | | |
 
 ## Alignment
 
@@ -75,16 +75,16 @@ This article contains the following topics:
 
 | Formatting option | Google Docs | Microsoft Word (365) | Microsoft Word (Desktop) |
 | --- | --- | --- | --- |
-| Table formatting |  |  |  |
+| Table formatting | | | |
 | Cells | X | X | X |
 | Cell alignment | X | X | X |
-| Split cells | X | X |  |
-| Cell formatting |  |  |  |
+| Split cells | X | X | |
+| Cell formatting | | | |
 
 ## Images
 
 | Formatting option | Google Docs | Microsoft Word (365) | Microsoft Word (Desktop) |
 | --- | --- | --- | --- |
-| Paste | X | X |  |
-| Image dimension | X |  |  |
-| Importing images | X | X |  |
+| Paste | X | X | |
+| Image dimension | X | | |
+| Importing images | X | X | |

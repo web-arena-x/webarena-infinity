@@ -90,8 +90,7 @@ Value stream analytics supports the following events:
 - Merge request merged
 - Merge request reviewer first assigned
 
-You can share your ideas or feedback about stage events in
-[issue 520962](https://gitlab.com/gitlab-org/gitlab/-/issues/520962).
+You can share your ideas or feedback about stage events in [issue 520962](https://gitlab.com/gitlab-org/gitlab/-/issues/520962).
 
 ## Data aggregation
 
@@ -108,13 +107,9 @@ You can share your ideas or feedback about stage events in
 
 {{< /history >}}
 
-Value stream analytics uses a backend process to collect and aggregate stage-level data, which
-ensures it can scale for large groups with a high number of issues and merge requests. Due to this process,
-there may be a slight delay between when an action is taken (for example, closing an issue) and when the data
-displays on the value stream analytics page.
+Value stream analytics uses a backend process to collect and aggregate stage-level data, which ensures it can scale for large groups with a high number of issues and merge requests. Due to this process, there may be a slight delay between when an action is taken (for example, closing an issue) and when the data displays on the value stream analytics page.
 
-It may take up to 10 minutes to process the data and display results. Data collection may take
-longer than 10 minutes in the following cases:
+It may take up to 10 minutes to process the data and display results. Data collection may take longer than 10 minutes in the following cases:
 
 - If this is the first time you are viewing value stream analytics and have not yet created a value stream.
 - If the group hierarchy has been re-arranged.
@@ -132,8 +127,7 @@ However, you can use custom labels (for example `workflow::blocked`) to track th
 
 You can customize stages in value stream analytics based on pre-defined events.
 To help you with the configuration, GitLab provides a pre-defined list of stages that you can use as a template.
-For example, you can define a stage that starts when you add a label to an issue,
-and ends when you add another label.
+For example, you can define a stage that starts when you add a label to an issue, and ends when you add another label.
 
 The following table gives an overview of the pre-defined stages in value stream analytics.
 
@@ -158,13 +152,12 @@ In this example, milestones have been created and CI/CD for testing and setting 
 
 - 09:00: Create issue. **Issue** stage starts.
 - 11:00: Add issue to a milestone (or backlog), start work on the issue, and create a branch locally.
-  **Issue** stage stops and **Plan** stage starts.
+ **Issue** stage stops and **Plan** stage starts.
 - 12:00: Make the first commit.
 - 12:30: Make the second commit to the branch that mentions the issue number.
-  **Plan** stage stops and **Code** stage starts.
-- 14:00: Push branch and create a merge request that contains the
-  [issue closing pattern](../../project/issues/managing_issues.md#closing-issues-automatically).
-  **Code** stage stops and **Test** and **Review** stages start.
+ **Plan** stage stops and **Code** stage starts.
+- 14:00: Push branch and create a merge request that contains the [issue closing pattern](../../project/issues/managing_issues.md#closing-issues-automatically).
+ **Code** stage stops and **Test** and **Review** stages start.
 - GitLab CI/CD takes 5 minutes to run scripts defined in the [`.gitlab-ci.yml` file](../../../ci/yaml/_index.md).
 - 19:00: Merge the merge request. **Review** stage stops and **Staging** stage starts.
 - 19:30: Deployment to the `production` environment finishes. **Staging** stops.
@@ -180,14 +173,9 @@ Value stream analytics records the following times for each stage:
 
 Keep in mind the following observations related to this example:
 
-- This example demonstrates that it doesn't matter if your first
-  commit doesn't mention the issue number, you can do this later in any commit
-  on the branch you are working on.
-- The **Test** stage is used in the calculation for the overall time of
-  the cycle. It is included in the **Review** process, as every MR should be
-  tested.
-- This example illustrates only **one cycle** of the seven stages. The value stream analytics dashboard
-  shows the median time for multiple cycles.
+- This example demonstrates that it doesn't matter if your first commit doesn't mention the issue number, you can do this later in any commit on the branch you are working on.
+- The **Test** stage is used in the calculation for the overall time of the cycle. It is included in the **Review** process, as every MR should be tested.
+- This example illustrates only **one cycle** of the seven stages. The value stream analytics dashboard shows the median time for multiple cycles.
 
 ### Cumulative label event duration
 
@@ -230,42 +218,41 @@ group = Group.find(-1) # put your group id here
 group_to_aggregate = group.root_ancestor
 
 loop do
-  cursor = {}
-  context = Analytics::CycleAnalytics::AggregationContext.new(cursor: cursor)
-  service_response = Analytics::CycleAnalytics::DataLoaderService.new(group: group_to_aggregate, model: Issue, context: context).execute
+ cursor = {}
+ context = Analytics::CycleAnalytics::AggregationContext.new(cursor: cursor)
+ service_response = Analytics::CycleAnalytics::DataLoaderService.new(group: group_to_aggregate, model: Issue, context: context).execute
 
-  if service_response.success? && service_response.payload[:reason] == :limit_reached
+ if service_response.success? && service_response.payload[:reason] == :limit_reached
     cursor = service_response.payload[:context].cursor
-  elsif service_response.success?
+ elsif service_response.success?
     puts "finished"
     break
-  else
+ else
     puts "failed"
     break
-  end
+ end
 end
 
 loop do
-  cursor = {}
-  context = Analytics::CycleAnalytics::AggregationContext.new(cursor: cursor)
-  service_response = Analytics::CycleAnalytics::DataLoaderService.new(group: group_to_aggregate, model: MergeRequest, context: context).execute
+ cursor = {}
+ context = Analytics::CycleAnalytics::AggregationContext.new(cursor: cursor)
+ service_response = Analytics::CycleAnalytics::DataLoaderService.new(group: group_to_aggregate, model: MergeRequest, context: context).execute
 
-  if service_response.success? && service_response.payload[:reason] == :limit_reached
+ if service_response.success? && service_response.payload[:reason] == :limit_reached
     cursor = service_response.payload[:context].cursor
-  elsif service_response.success?
+ elsif service_response.success?
     puts "finished"
     break
-  else
+ else
     puts "failed"
     break
-  end
+ end
 end
 ```
 
 ## Production environment
 
-Value stream analytics identifies [production environments](../../../ci/environments/_index.md#deployment-tier-of-environments) by looking for project
-[environments](../../../ci/yaml/_index.md#environment) with a name matching any of these patterns:
+Value stream analytics identifies [production environments](../../../ci/environments/_index.md#deployment-tier-of-environments) by looking for project [environments](../../../ci/yaml/_index.md#environment) with a name matching any of these patterns:
 
 - `prod` or `prod/*`
 - `production` or `production/*`
@@ -308,8 +295,7 @@ To view value stream analytics for your group or project:
    - To sort by most recent or oldest workflow item, select the **Last event** header.
    - To sort by most or least amount of time spent in each stage, select the **Duration** header.
 
-A badge next to the workflow items table header shows the number of workflow items that
-completed during the selected stage.
+A badge next to the workflow items table header shows the number of workflow items that completed during the selected stage.
 
 The table shows a list of related workflow items for the selected stage. Based on the stage you select, this can be:
 
@@ -366,8 +352,7 @@ Value stream analytics includes the following [DORA](../../analytics/dora_metric
 - Time to restore service
 - Change failure rate
 
-DORA metrics are calculated based on data from the
-[DORA API](../../../api/dora/metrics.md).
+DORA metrics are calculated based on data from the [DORA API](../../../api/dora/metrics.md).
 
 If you have a GitLab Premium or Ultimate subscription:
 
@@ -378,8 +363,7 @@ If you have a GitLab Premium or Ultimate subscription:
 
 Prerequisites:
 
-- To view deployment metrics, you must have a
-  [production environment configured](#production-environment).
+- To view deployment metrics, you must have a [production environment configured](#production-environment).
 
 To view lifecycle metrics:
 
@@ -400,8 +384,7 @@ To view the [Value Streams Dashboard](../../analytics/value_streams_dashboard.md
 1. On the top bar, select **Search or go to** and find your project or group.
 1. Select **Analyze** > **Value stream analytics**.
 1. Below the **Filter results** text box, in the **Lifecycle metrics** row, select **Value Streams Dashboard / DORA**.
-1. Optional. To open the new page, append this path `/analytics/dashboards/value_streams_dashboard` to the group URL
-   (for example, `https://gitlab.com/groups/gitlab-org/-/analytics/dashboards/value_streams_dashboard`).
+1. Optional. To open the new page, append this path `/analytics/dashboards/value_streams_dashboard` to the group URL (for example, `https://gitlab.com/groups/gitlab-org/-/analytics/dashboards/value_streams_dashboard`).
 
 ## View metrics for each development stage
 
@@ -422,8 +405,7 @@ To view the median time spent in each stage by a group:
 
 {{< alert type="note" >}}
 
-The date range selector filters items by the event time. The event time is when the
-selected stage finished for the given item.
+The date range selector filters items by the event time. The event time is when the selected stage finished for the given item.
 
 {{< /alert >}}
 
@@ -504,8 +486,7 @@ For a video explanation, see [Optimizing merge request review process with Value
 
 ## Label-based stages for custom value streams
 
-To measure complex workflows, you can use [scoped labels](../../project/labels.md#scoped-labels). For example, to measure deployment
-time from a staging environment to production, you could use the following labels:
+To measure complex workflows, you can use [scoped labels](../../project/labels.md#scoped-labels). For example, to measure deployment time from a staging environment to production, you could use the following labels:
 
 - When the code is deployed to staging, the `workflow::staging` label is added to the merge request.
 - When the code is deployed to production, the `workflow::production` label is added to the merge request.
@@ -514,8 +495,7 @@ time from a staging environment to production, you could use the following label
 
 ### Automatic data labeling with webhooks
 
-You can automatically add labels by using [GitLab webhook events](../../project/integrations/webhook_events.md),
-so that a label is applied to merge requests or issues when a specific event occurs.
+You can automatically add labels by using [GitLab webhook events](../../project/integrations/webhook_events.md), so that a label is applied to merge requests or issues when a specific event occurs.
 Then, you can add label-based stages to track your workflow.
 To learn more about the implementation, see the blog post [Applying GitLab Labels Automatically](https://about.gitlab.com/blog/2016/08/19/applying-gitlab-labels-automatically/).
 
@@ -644,12 +624,12 @@ To request the configured value streams for a group, run:
 
 ```graphql
 group(fullPath: "your-group-path") {
-  valueStreams {
+ valueStreams {
     nodes {
       id
       name
     }
-  }
+ }
 }
 ```
 
@@ -657,12 +637,12 @@ Similarly, to request metrics for a project, run:
 
 ```graphl
 project(fullPath: "your-project-path") {
-  valueStreams {
+ valueStreams {
     nodes {
       id
       name
     }
-  }
+ }
 }
 ```
 
@@ -670,14 +650,14 @@ To request metrics for stages of a value stream, run:
 
 ```graphql
 group(fullPath: "your-group-path") {
-  valueStreams(id: "your-value-stream-id") {
+ valueStreams(id: "your-value-stream-id") {
     nodes {
       stages {
         id
         name
       }
     }
-  }
+ }
 }
 ```
 
@@ -694,7 +674,7 @@ Requesting metrics for the stage:
 
 ```graphql
 group(fullPath: "your-group-path") {
-  valueStreams(id: "your-value-stream-id") {
+ valueStreams(id: "your-value-stream-id") {
     nodes {
       stages(id: "your-stage-id") {
         id
@@ -715,7 +695,7 @@ group(fullPath: "your-group-path") {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -737,7 +717,7 @@ Example request with filters:
 
 ```graphql
 group(fullPath: "your-group-path") {
-  valueStreams(id: "your-value-stream-id") {
+ valueStreams(id: "your-value-stream-id") {
     nodes {
       stages(id: "your-stage-id") {
         id
@@ -762,7 +742,7 @@ group(fullPath: "your-group-path") {
         }
       }
     }
-  }
+ }
 }
 ```
 
@@ -799,13 +779,11 @@ Value stream analytics offers different features at the project and group level 
 
 ### 100% CPU utilization by Sidekiq `cronjob:analytics_cycle_analytics`
 
-It is possible that value stream analytics background jobs
-strongly impact performance by monopolizing CPU resources.
+It is possible that value stream analytics background jobs strongly impact performance by monopolizing CPU resources.
 
 To recover from this situation:
 
-1. Disable the feature for all projects in [the Rails console](../../../administration/operations/rails_console.md),
-   and remove existing jobs:
+1. Disable the feature for all projects in [the Rails console](../../../administration/operations/rails_console.md), and remove existing jobs:
 
    ```ruby
    Project.find_each do |p|
@@ -818,9 +796,7 @@ To recover from this situation:
    ```
 
 1. Configure a [Sidekiq routing](../../../administration/sidekiq/processing_specific_job_classes.md)
-   with for example a single `feature_category=value_stream_management`
-   and multiple `feature_category!=value_stream_management` entries.
-   Find other relevant queue metadata in the
-   [Enterprise Edition list](../../../administration/sidekiq/processing_specific_job_classes.md#list-of-available-job-classes).
+   with for example a single `feature_category=value_stream_management` and multiple `feature_category!=value_stream_management` entries.
+   Find other relevant queue metadata in the [Enterprise Edition list](../../../administration/sidekiq/processing_specific_job_classes.md#list-of-available-job-classes).
 1. Enable value stream analytics for one project after another.
    You might need to tweak the Sidekiq routing further according to your performance requirements.

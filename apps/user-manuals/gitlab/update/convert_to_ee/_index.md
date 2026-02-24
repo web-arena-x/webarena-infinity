@@ -21,5 +21,4 @@ If required, you can [revert from Enterprise Edition to Community Edition](rever
 
 ## Convert a self-compiled instance to a Linux package
 
-If you have a self-compiled GitLab instance, you can
-[convert a self-compiled GitLab instance to Linux package](https://docs.gitlab.com/omnibus/update/convert_to_omnibus/).
+If you have a self-compiled GitLab instance, you can [convert a self-compiled GitLab instance to Linux package](https://docs.gitlab.com/omnibus/update/convert_to_omnibus/).

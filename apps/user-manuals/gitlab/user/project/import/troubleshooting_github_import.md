@@ -17,15 +17,14 @@ When importing a project from GitHub to GitLab, you might encounter the followin
 
 ## Manually continue a previously failed import process
 
-In some cases, the GitHub import process can fail to import the repository. This causes GitLab to abort the project import process and requires the
-repository to be imported manually. Administrators can manually import the repository for a failed import process:
+In some cases, the GitHub import process can fail to import the repository. This causes GitLab to abort the project import process and requires the repository to be imported manually. Administrators can manually import the repository for a failed import process:
 
 1. Open a Rails console.
 1. Run the following series of commands in the console:
 
    ```ruby
    project_id = <PROJECT_ID>
-   github_access_token =  <GITHUB_ACCESS_TOKEN>
+   github_access_token = <GITHUB_ACCESS_TOKEN>
    github_repository_path = '<GROUP>/<REPOSITORY>'
 
    github_repository_url = "https://#{github_access_token}@github.com/#{github_repository_path}.git"
@@ -83,15 +82,12 @@ When this limit is reached, the GitHub API instead returns the following error:
 In order to keep the API fast for everyone, pagination is limited for this resource. Check the rel=last link relation in the Link response header to see how far back you can traverse.
 ```
 
-When importing GitHub projects with a large number of comments, select the **Use alternative comments import method**
-[additional item to import](github.md#select-additional-items-to-import) checkbox. This setting makes the import process take longer because it increases the number of network requests
-required to perform the import.
+When importing GitHub projects with a large number of comments, select the **Use alternative comments import method** [additional item to import](github.md#select-additional-items-to-import) checkbox. This setting makes the import process take longer because it increases the number of network requests required to perform the import.
 
 ## GitLab instance cannot connect to GitHub
 
 GitLab Self-Managed instances that run GitLab 15.10 or earlier, and are behind proxies, cannot resolve DNS for `github.com` or `api.github.com`.
-The GitLab instance fails to connect to GitHub during the import and you must add `github.com` and `api.github.com`
-entries in the [allowlist for local requests](../../../security/webhooks.md#allow-outbound-requests-to-certain-ip-addresses-and-domains).
+The GitLab instance fails to connect to GitHub during the import and you must add `github.com` and `api.github.com` entries in the [allowlist for local requests](../../../security/webhooks.md#allow-outbound-requests-to-certain-ip-addresses-and-domains).
 
 ## Related topics
 

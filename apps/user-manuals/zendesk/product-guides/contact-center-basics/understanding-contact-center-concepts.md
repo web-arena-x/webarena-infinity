@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/9459103231770-Understandin
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Zendesk for Contact Center |
 

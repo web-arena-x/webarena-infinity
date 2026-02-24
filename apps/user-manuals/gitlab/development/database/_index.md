@@ -11,7 +11,7 @@ title: Database development guidelines
 - If, at any time, you need help optimizing a query or understanding an `explain` plan, ask for assistance in `#database`.
 - If you're creating a database MR for review, check out our [Database review guidelines](../database_review.md).
 
-  It provides an introduction on database-related changes, migrations, and complex SQL queries.
+ It provides an introduction on database-related changes, migrations, and complex SQL queries.
 
 - If you're a database reviewer or want to become one, check out our [introduction to reviewing database changes](database_reviewer_guidelines.md).
 
@@ -61,8 +61,8 @@ title: Database development guidelines
 - [Resetting the database](database_debugging.md#delete-everything-and-start-over)
 - [Troubleshooting and debugging the database](database_debugging.md)
 - Tracing the source of an SQL query:
-  - In Rails console using [Verbose Query Logs](https://guides.rubyonrails.org/debugging_rails_applications.html#verbose-query-logs)
-  - Using query comments with [Marginalia](database_query_comments.md)
+ - In Rails console using [Verbose Query Logs](https://guides.rubyonrails.org/debugging_rails_applications.html#verbose-query-logs)
+ - Using query comments with [Marginalia](database_query_comments.md)
 
 ## Best practices
 
@@ -84,8 +84,8 @@ title: Database development guidelines
 - [`NOT NULL` constraints](not_null_constraints.md)
 - [Ordering table columns](ordering_table_columns.md)
 - [Pagination guidelines](pagination_guidelines.md)
-  - [Pagination performance guidelines](pagination_performance_guidelines.md)
-  - [Offset pagination optimization](offset_pagination_optimization.md)
+ - [Pagination performance guidelines](pagination_performance_guidelines.md)
+ - [Offset pagination optimization](offset_pagination_optimization.md)
 - [Polymorphic associations](polymorphic_associations.md)
 - [Query count limits](query_count_limits.md)
 - [Query performance guidelines](query_performance.md)
@@ -114,9 +114,7 @@ title: Database development guidelines
 
 ## User information for scaling
 
-For GitLab administrators, information about
-[configuring PostgreSQL for scaling](../../administration/postgresql/_index.md) is available,
-including the major methods:
+For GitLab administrators, information about [configuring PostgreSQL for scaling](../../administration/postgresql/_index.md) is available, including the major methods:
 
 - [Standalone PostgreSQL](../../administration/postgresql/standalone.md)
 - [External PostgreSQL instances](../../administration/postgresql/external.md)

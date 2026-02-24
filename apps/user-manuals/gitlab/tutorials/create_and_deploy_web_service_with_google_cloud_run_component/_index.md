@@ -39,8 +39,7 @@ Learn how to use the [Google Cloud Run component](https://gitlab.com/google-gitl
    - Cloud Storage Admin (`roles/run.admin`) to get, create, and update a service.
    - Service Account users (`roles/iam.serviceAccountUser`) to run operations as the service account
 
-   Run the following commands to grant the `roles/run.admin` and `roles/iam.serviceAccountUser` roles to all principals in your
-   workload identity pool matching `developer_access=true` attribute mapping:
+   Run the following commands to grant the `roles/run.admin` and `roles/iam.serviceAccountUser` roles to all principals in your workload identity pool matching `developer_access=true` attribute mapping:
 
    ```shell
    # Replace ${PROJECT_ID}, ${PROJECT_NUMBER}, ${LOCATION}, ${POOL_ID} with your values below
@@ -51,8 +50,7 @@ Learn how to use the [Google Cloud Run component](https://gitlab.com/google-gitl
 
 ## Configure the IAM integration in a new GitLab project
 
-After you have set up the Google IAM for the integration for your organization or group, you can
-reuse the integration in new projects in that organization or group:
+After you have set up the Google IAM for the integration for your organization or group, you can reuse the integration in new projects in that organization or group:
 
 1. [Create a new GitLab project](../../user/project/_index.md) in your organization or group.
 1. In your GitLab project, select **Settings** > **Integrations**.
@@ -75,8 +73,7 @@ reuse the integration in new projects in that organization or group:
 
 ## Configure the Google Artifact Registry integration in a new GitLab project
 
-You can store multiple container images in Artifact Registry. To reuse the same repository for
-a new GitLab project, configure the Google Artifact Management integration in your project.
+You can store multiple container images in Artifact Registry. To reuse the same repository for a new GitLab project, configure the Google Artifact Management integration in your project.
 
 1. In your GitLab project, select **Settings** > **Integrations**.
 1. Select **Google Artifact Management**
@@ -86,13 +83,11 @@ a new GitLab project, configure the Google Artifact Management integration in yo
    - **Repository name**: the repository name
    - **Repository location**: the location of your repository
 
-1. Select **Save changes**. Don't run the provided script, because your workload identity pool already grants
-   GitLab users in your group or organization the Artifact Registry Reader and Writer role.
+1. Select **Save changes**. Don't run the provided script, because your workload identity pool already grants GitLab users in your group or organization the Artifact Registry Reader and Writer role.
 
 ## Clone your GitLab repository
 
-To use SSH or HTTPS to clone your GitLab repository to your working environment, follow the instructions in
-[Clone a Git repository to your local computer](../../topics/git/clone.md).
+To use SSH or HTTPS to clone your GitLab repository to your working environment, follow the instructions in [Clone a Git repository to your local computer](../../topics/git/clone.md).
 
 ## Create a Dockerfile
 
@@ -129,23 +124,17 @@ To use SSH or HTTPS to clone your GitLab repository to your working environment,
    git push
    ```
 
-   You are prompted to enter your username and
-   [personal access token](../../user/profile/personal_access_tokens.md).
+   You are prompted to enter your username and [personal access token](../../user/profile/personal_access_tokens.md).
 
 The Dockerfile creates an HTTP web service.
 
 ## Create a pipeline
 
-Create a pipeline that builds your Docker image, pushes it to the GitLab container
-registry, copies the image to Google Artifact Registry, and uses Cloud Run to deploy on
-Google Cloud infrastructure.
+Create a pipeline that builds your Docker image, pushes it to the GitLab container registry, copies the image to Google Artifact Registry, and uses Cloud Run to deploy on Google Cloud infrastructure.
 
-1. In your GitLab project, create a
-   [`.gitlab-ci.yml` file](../../ci/quick_start/_index.md#create-a-gitlab-ciyml-file).
+1. In your GitLab project, create a [`.gitlab-ci.yml` file](../../ci/quick_start/_index.md#create-a-gitlab-ciyml-file).
 
-1. To create a pipeline that builds your image, pushes it to the GitLab container
-   registry, copies it to Google Artifact Registry, and uses Cloud Run to deploy,
-   modify the contents of your `.gitlab-ci.yml` file to resemble the following.
+1. To create a pipeline that builds your image, pushes it to the GitLab container registry, copies it to Google Artifact Registry, and uses Cloud Run to deploy, modify the contents of your `.gitlab-ci.yml` file to resemble the following.
 
    In the following example, replace the following:
 
@@ -197,8 +186,7 @@ The pipeline completes the following:
 
 - Builds the image `python-service` with Docker-in-Docker.
 - Stores the image in the GitLab container registry.
-- Pushes the image to Google Artifact Registry with the
-  [Google Artifact Registry GitLab component](https://gitlab.com/explore/catalog/google-gitlab-components/artifact-registry).
+- Pushes the image to Google Artifact Registry with the [Google Artifact Registry GitLab component](https://gitlab.com/explore/catalog/google-gitlab-components/artifact-registry).
 - Deploys `python-service` with the [Google Cloud Run component](https://gitlab.com/google-gitlab-components/cloud-run).
 
 ## View your service in Google Cloud Run
@@ -225,14 +213,11 @@ You can view the welcome page at `http://localhost:8080`.
 
 ## Clean up
 
-To avoid incurring charges to your Google Cloud account for the resources used
-on this page, you can delete your Google Cloud resources, or your entire Google Cloud project.
+To avoid incurring charges to your Google Cloud account for the resources used on this page, you can delete your Google Cloud resources, or your entire Google Cloud project.
 
-If you delete the project containing your workload identity pool, you can't use the integration
-unless you follow all the set up instructions again.
+If you delete the project containing your workload identity pool, you can't use the integration unless you follow all the set up instructions again.
 
-For information on GitLab and Google pricing and project management, see the following
-resources:
+For information on GitLab and Google pricing and project management, see the following resources:
 
 - [GitLab pricing](https://about.gitlab.com/free-trial/devsecops)
 - [Google pricing](https://cloud.google.com/pricing)
@@ -240,12 +225,9 @@ resources:
 
 ### Delete your Google Artifact Registry repository
 
-To delete your Google Artifact Registry repository follow the steps in this section. If you want to delete
-your entire Google Cloud project, follow the steps in
-[Delete your project](#delete-your-google-cloud-project).
+To delete your Google Artifact Registry repository follow the steps in this section. If you want to delete your entire Google Cloud project, follow the steps in [Delete your project](#delete-your-google-cloud-project).
 
-Before you remove the repository, ensure that any images you want to keep
-are available in another location.
+Before you remove the repository, ensure that any images you want to keep are available in another location.
 
 To delete your repository, run the following command:
 
@@ -269,14 +251,10 @@ Replace the following:
 
 **Caution**: Deleting a project has the following effects:
 
-- **Everything in the project is deleted**. If you used an existing project for the tasks in this document, when
-  you delete it, you also delete any other work you've done in the project.
-- **Custom project IDs are lost**. When you created this project, you might have created a custom project ID that
-  you want to use in the future. To preserve the URLs that use the project ID, such as an appspot.com URL, delete selected
-  resources inside the project instead of deleting the whole project.
+- **Everything in the project is deleted**. If you used an existing project for the tasks in this document, when you delete it, you also delete any other work you've done in the project.
+- **Custom project IDs are lost**. When you created this project, you might have created a custom project ID that you want to use in the future. To preserve the URLs that use the project ID, such as an appspot.com URL, delete selected resources inside the project instead of deleting the whole project.
 
-If you plan to explore multiple architectures, tutorials, or quick start tutorials on Google Cloud, reusing projects can help you
-avoid exceeding project quota limits.
+If you plan to explore multiple architectures, tutorials, or quick start tutorials on Google Cloud, reusing projects can help you avoid exceeding project quota limits.
 
 1. In the Google Cloud console, go to the [**Manage resources** page](https://console.cloud.google.com/iam-admin/projects).
 1. In the project list, select the project that you want to delete, and then select **Delete**.

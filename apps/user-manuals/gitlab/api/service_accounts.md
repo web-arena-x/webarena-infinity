@@ -25,8 +25,7 @@ You can also interact with service accounts through the [users API](users.md).
 
 {{< /details >}}
 
-Instance service accounts are available to an entire GitLab instance, but must still be added
-to groups and projects like a human user.
+Instance service accounts are available to an entire GitLab instance, but must still be added to groups and projects like a human user.
 
 To manage personal access tokens for instance service accounts, use the [personal access tokens API](personal_access_tokens.md).
 
@@ -52,7 +51,7 @@ GET /service_accounts
 
 Supported attributes:
 
-| Attribute  | Type   | Required | Description |
+| Attribute | Type   | Required | Description |
 | ---------- | ------ | -------- | ----------- |
 | `order_by` | string | no       | Attribute to order results by. Possible values: `id` or `username`. Default value: `id`. |
 | `sort`     | string | no       | Direction to sort results by. Possible values: `desc` or `asc`. Default value: `desc`. |
@@ -67,16 +66,16 @@ Example response:
 
 ```json
 [
-  {
+ {
     "id": 114,
     "username": "service_account_33",
     "name": "Service account user"
-  },
-  {
+ },
+ {
     "id": 137,
     "username": "service_account_34",
     "name": "john doe"
-  }
+ }
 ]
 ```
 
@@ -99,7 +98,7 @@ POST /service_accounts?email=custom_email@gitlab.example.com
 
 Supported attributes:
 
-| Attribute  | Type   | Required | Description |
+| Attribute | Type   | Required | Description |
 | ---------- | ------ | -------- | ----------- |
 | `name`     | string | no       | Name of the user. If not set, uses `Service account user`. |
 | `username` | string | no       | Username of the user account. If undefined, generates a name prepended with `service_account_`. |
@@ -115,15 +114,14 @@ Example response:
 
 ```json
 {
-  "id": 57,
-  "username": "service_account_6018816a18e515214e0c34c2b33523fc",
-  "name": "Service account user",
-  "email": "service_account_6018816a18e515214e0c34c2b33523fc@noreply.gitlab.example.com"
+ "id": 57,
+ "username": "service_account_6018816a18e515214e0c34c2b33523fc",
+ "name": "Service account user",
+ "email": "service_account_6018816a18e515214e0c34c2b33523fc@noreply.gitlab.example.com"
 }
 ```
 
-If the email address defined by the `email` attribute is already in use by another user,
-returns a `400 Bad request` error.
+If the email address defined by the `email` attribute is already in use by another user, returns a `400 Bad request` error.
 
 ### Update an instance service account
 
@@ -141,10 +139,10 @@ PATCH /service_accounts/:id
 
 Parameters:
 
-| Attribute  | Type           | Required | Description                                                                                                                                                                                                               |
+| Attribute | Type           | Required | Description                                                                                                                                                                                                               |
 |:-----------|:---------------|:---------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `id`       | integer        | yes      | ID of the service account.  |
-| `name`     | string         | no       | Name of the user.  |
+| `id`       | integer        | yes      | ID of the service account. |
+| `name`     | string         | no       | Name of the user. |
 | `username` | string         | no       | Username of the user account. |
 | `email`    | string         | no       | Email of the user account. Custom email addresses require confirmation, unless the email confirmation settings are [turned off](../administration/settings/sign_up_restrictions.md#confirm-user-email). |
 
@@ -158,25 +156,24 @@ Example response:
 
 ```json
 {
-  "id": 57,
-  "username": "service_account_6018816a18e515214e0c34c2b33523fc",
-  "name": "Updated Service Account",
-  "email": "service_account_<random_hash>@noreply.gitlab.example.com",
-  "unconfirmed_email": "custom_email@example.com"
+ "id": 57,
+ "username": "service_account_6018816a18e515214e0c34c2b33523fc",
+ "name": "Updated Service Account",
+ "email": "service_account_<random_hash>@noreply.gitlab.example.com",
+ "unconfirmed_email": "custom_email@example.com"
 }
 ```
 
 ## Group service accounts
 
-Group service accounts are owned by a specific top-level group and can inherit membership to
-subgroups and projects like a human user.
+Group service accounts are owned by a specific top-level group and can inherit membership to subgroups and projects like a human user.
 
 Prerequisites:
 
 - On GitLab.com, you must have the Owner role for the group.
 - On GitLab Self-Managed or GitLab Dedicated you must either:
-  - Be an administrator for the instance.
-  - Have the Owner role in a top-level group and be [allowed to create service accounts](../administration/settings/account_and_limit_settings.md#allow-top-level-group-owners-to-create-service-accounts).
+ - Be an administrator for the instance.
+ - Have the Owner role in a top-level group and be [allowed to create service accounts](../administration/settings/account_and_limit_settings.md#allow-top-level-group-owners-to-create-service-accounts).
 
 ### List all group service accounts
 
@@ -196,7 +193,7 @@ GET /groups/:id/service_accounts
 
 Parameters:
 
-| Attribute  | Type           | Required | Description |
+| Attribute | Type           | Required | Description |
 | ---------- | -------------- | -------- | ----------- |
 | `id`       | integer or string | yes      | The ID or [URL-encoded path of the target group](rest/_index.md#namespaced-paths). |
 | `order_by` | string         | no       | Orders list of users by `username` or `id`. Default is `id`. |
@@ -213,19 +210,19 @@ Example response:
 ```json
 [
 
-  {
+ {
     "id": 57,
     "username": "service_account_group_345_<random_hash>",
     "name": "Service account user",
     "email": "service_account_group_345_<random_hash>@noreply.gitlab.example.com"
-  },
-  {
+ },
+ {
     "id": 58,
     "username": "service_account_group_346_<random_hash>",
     "name": "Service account user",
     "email": "service_account_group_346_<random_hash>@noreply.gitlab.example.com",
     "unconfirmed_email": "custom_email@example.com"
-  }
+ }
 ]
 ```
 
@@ -251,7 +248,7 @@ POST /groups/:id/service_accounts
 
 Supported attributes:
 
-| Attribute  | Type           | Required | Description |
+| Attribute | Type           | Required | Description |
 | ---------- | -------------- | -------- | ----------- |
 | `id`       | integer or string | yes      | ID or [URL-encoded path](rest/_index.md#namespaced-paths) of a top-level group. |
 | `name`     | string         | no       | User account name. If not specified, uses `Service account user`. |
@@ -268,10 +265,10 @@ Example response:
 
 ```json
 {
-  "id": 57,
-  "username": "service_account_group_345_6018816a18e515214e0c34c2b33523fc",
-  "name": "Service account user",
-  "email": "custom_email@example.com"
+ "id": 57,
+ "username": "service_account_group_345_6018816a18e515214e0c34c2b33523fc",
+ "name": "Service account user",
+ "email": "custom_email@example.com"
 }
 ```
 
@@ -295,10 +292,10 @@ PATCH /groups/:id/service_accounts/:user_id
 
 Parameters:
 
-| Attribute  | Type           | Required | Description |
+| Attribute | Type           | Required | Description |
 | ---------- | -------------- | -------- | ----------- |
 | `id`       | integer or string | yes      | The ID or [URL-encoded path of the target group](rest/_index.md#namespaced-paths). |
-| `user_id`  | integer        | yes      | The ID of the service account. |
+| `user_id` | integer        | yes      | The ID of the service account. |
 | `name`     | string         | no       | Name of the user. |
 | `username` | string         | no       | Username of the user. |
 | `email`    | string         | no       | Email of the user account. Custom email addresses require confirmation, unless the group has a matching [verified domain](../user/enterprise_user/_index.md#manage-group-domains) or email confirmation settings are [turned off](../administration/settings/sign_up_restrictions.md#confirm-user-email). |
@@ -313,11 +310,11 @@ Example response:
 
 ```json
 {
-  "id": 57,
-  "username": "service_account_group_345_6018816a18e515214e0c34c2b33523fc",
-  "name": "Updated Service Account",
-  "email": "service_account_group_345_<random_hash>@noreply.gitlab.example.com",
-  "unconfirmed_email": "custom_email@example.com"
+ "id": 57,
+ "username": "service_account_group_345_6018816a18e515214e0c34c2b33523fc",
+ "name": "Updated Service Account",
+ "email": "service_account_group_345_<random_hash>@noreply.gitlab.example.com",
+ "unconfirmed_email": "custom_email@example.com"
 }
 ```
 
@@ -376,7 +373,7 @@ Supported attributes:
 | `created_before`   | datetime (ISO 8601) | no       | If defined, returns tokens created before the specified time. |
 | `expires_after`    | date (ISO 8601)     | no       | If defined, returns tokens that expire after the specified time. |
 | `expires_before`   | date (ISO 8601)     | no       | If defined, returns tokens that expire before the specified time. |
-| `last_used_after`  | datetime (ISO 8601) | no       | If defined, returns tokens last used after the specified time. |
+| `last_used_after` | datetime (ISO 8601) | no       | If defined, returns tokens last used after the specified time. |
 | `last_used_before` | datetime (ISO 8601) | no       | If defined, returns tokens last used before the specified time. |
 | `revoked`          | boolean             | no       | If `true`, only returns revoked tokens. |
 | `search`           | string              | no       | If defined, returns tokens that include the specified value in the name. |
@@ -387,8 +384,8 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/187/service_accounts/195/personal_access_tokens?sort=id_desc&search=token2b&created_before=2025-03-27"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/187/service_accounts/195/personal_access_tokens?sort=id_desc&search=token2b&created_before=2025-03-27"
 ```
 
 Example response:
@@ -440,7 +437,7 @@ Parameters:
 | `name`        | string         | yes      | Name of personal access token. |
 | `description` | string         | no       | Description of personal access token. |
 | `scopes`      | array          | yes      | Array of approved scopes. For a list of possible values, see [Personal access token scopes](../user/profile/personal_access_tokens.md#personal-access-token-scopes). |
-| `expires_at`  | date           | no       | Expiration date of the access token in ISO format (`YYYY-MM-DD`). If not specified, the date is set to the [maximum allowable lifetime limit](../user/profile/personal_access_tokens.md#access-token-expiration). |
+| `expires_at` | date           | no       | Expiration date of the access token in ISO format (`YYYY-MM-DD`). If not specified, the date is set to the [maximum allowable lifetime limit](../user/profile/personal_access_tokens.md#access-token-expiration). |
 
 Example request:
 
@@ -452,16 +449,16 @@ Example response:
 
 ```json
 {
-  "id":6,
-  "name":"service_accounts_token",
-  "revoked":false,
-  "created_at":"2023-06-13T07:47:13.900Z",
-  "scopes":["api"],
-  "user_id":71,
-  "last_used_at":null,
-  "active":true,
-  "expires_at":"2024-06-12",
-  "token":"<token_value>"
+ "id":6,
+ "name":"service_accounts_token",
+ "revoked":false,
+ "created_at":"2023-06-13T07:47:13.900Z",
+ "scopes":["api"],
+ "user_id":71,
+ "last_used_at":null,
+ "active":true,
+ "expires_at":"2024-06-12",
+ "token":"<token_value>"
 }
 ```
 
@@ -484,10 +481,10 @@ DELETE /groups/:id/service_accounts/:user_id/personal_access_tokens/:token_id
 
 Parameters:
 
-| Attribute  | Type           | Required | Description |
+| Attribute | Type           | Required | Description |
 | ---------- | -------------- | -------- | ----------- |
 | `id`       | integer or string | yes      | The ID or [URL-encoded path of the target group](rest/_index.md#namespaced-paths). |
-| `user_id`  | integer        | yes      | The ID of the service account. |
+| `user_id` | integer        | yes      | The ID of the service account. |
 | `token_id` | integer        | yes      | The ID of the token. |
 
 Example request:
@@ -541,15 +538,15 @@ Example response:
 
 ```json
 {
-  "id":7,
-  "name":"service_accounts_token",
-  "revoked":false,
-  "created_at":"2023-06-13T07:54:49.962Z",
-  "scopes":["api"],
-  "user_id":71,
-  "last_used_at":null,
-  "active":true,
-  "expires_at":"2023-06-20",
-  "token":"<token_value>"
+ "id":7,
+ "name":"service_accounts_token",
+ "revoked":false,
+ "created_at":"2023-06-13T07:54:49.962Z",
+ "scopes":["api"],
+ "user_id":71,
+ "last_used_at":null,
+ "active":true,
+ "expires_at":"2023-06-20",
+ "token":"<token_value>"
 }
 ```

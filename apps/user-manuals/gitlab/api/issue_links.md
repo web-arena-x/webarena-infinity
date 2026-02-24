@@ -23,8 +23,7 @@ Use this API to manage [issue links](../user/project/issues/related_issues.md).
 
 ## List issue relations
 
-Get a list of a given issue's [linked issues](../user/project/issues/related_issues.md),
-sorted by the relationship creation datetime (ascending).
+Get a list of a given issue's [linked issues](../user/project/issues/related_issues.md), sorted by the relationship creation datetime (ascending).
 Issues are filtered according to the user authorizations.
 
 ```plaintext
@@ -35,12 +34,12 @@ Parameters:
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths)  |
+| `id`        | integer or string | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
 | `issue_iid` | integer | yes      | The internal ID of a project's issue |
 
 ```json
 [
-  {
+ {
     "id" : 84,
     "iid" : 14,
     "issue_link_id": 1,
@@ -72,7 +71,7 @@ Parameters:
     "link_type": "relates_to",
     "link_created_at": "2016-01-07T12:44:33.959Z",
     "link_updated_at": "2016-01-07T12:44:33.959Z"
-  }
+ }
 ]
 ```
 
@@ -112,16 +111,16 @@ Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/84/issues/14/links/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/84/issues/14/links/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "source_issue" : {
+ "id": 1,
+ "source_issue" : {
     "id" : 83,
     "iid" : 11,
     "project_id" : 4,
@@ -150,8 +149,8 @@ Example response:
     "web_url": "http://example.com/example/example/issues/11",
     "confidential": false,
     "weight": null
-  },
-  "target_issue" : {
+ },
+ "target_issue" : {
     "id" : 84,
     "iid" : 14,
     "project_id" : 4,
@@ -180,8 +179,8 @@ Example response:
     "web_url": "http://example.com/example/example/issues/14",
     "confidential": false,
     "weight": null
-  },
-  "link_type": "relates_to"
+ },
+ "link_type": "relates_to"
 }
 ```
 
@@ -193,8 +192,7 @@ Example response:
 
 {{< /history >}}
 
-Creates a two-way relation between two issues. The user must be allowed to
-update both issues to succeed.
+Creates a two-way relation between two issues. The user must be allowed to update both issues to succeed.
 
 ```plaintext
 POST /projects/:id/issues/:issue_iid/links
@@ -204,22 +202,22 @@ POST /projects/:id/issues/:issue_iid/links
 |---------------------|----------------|----------|--------------------------------------|
 | `id`                | integer or string | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
 | `issue_iid`         | integer        | yes      | The internal ID of a project's issue |
-| `target_project_id` | integer or string | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) of a target project  |
-| `target_issue_iid`  | integer or string | yes      | The internal ID of a target project's issue |
+| `target_project_id` | integer or string | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) of a target project |
+| `target_issue_iid` | integer or string | yes      | The internal ID of a target project's issue |
 | `link_type`         | string         | no       | The type of the relation (`relates_to`, `blocks`, `is_blocked_by`), defaults to `relates_to`). |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/4/issues/1/links?target_project_id=5&target_issue_iid=1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/4/issues/1/links?target_project_id=5&target_issue_iid=1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "source_issue" : {
+ "id": 1,
+ "source_issue" : {
     "id" : 83,
     "iid" : 11,
     "project_id" : 4,
@@ -248,8 +246,8 @@ Example response:
     "web_url": "http://example.com/example/example/issues/11",
     "confidential": false,
     "weight": null
-  },
-  "target_issue" : {
+ },
+ "target_issue" : {
     "id" : 84,
     "iid" : 14,
     "project_id" : 4,
@@ -278,8 +276,8 @@ Example response:
     "web_url": "http://example.com/example/example/issues/14",
     "confidential": false,
     "weight": null
-  },
-  "link_type": "relates_to"
+ },
+ "link_type": "relates_to"
 }
 ```
 
@@ -299,15 +297,15 @@ DELETE /projects/:id/issues/:issue_iid/links/:issue_link_id
 
 | Attribute   | Type    | Required | Description                          |
 |-------------|---------|----------|--------------------------------------|
-| `id`        | integer or string | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths)  |
+| `id`        | integer or string | yes      | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
 | `issue_iid` | integer | yes      | The internal ID of a project's issue |
 | `issue_link_id` | integer or string | yes      | The ID of an issue relationship |
-| `link_type` | string  | no | The type of the relation (`relates_to`, `blocks`, `is_blocked_by`), defaults to `relates_to` |
+| `link_type` | string | no | The type of the relation (`relates_to`, `blocks`, `is_blocked_by`), defaults to `relates_to` |
 
 ```json
 {
-  "id": 1,
-  "source_issue" : {
+ "id": 1,
+ "source_issue" : {
     "id" : 83,
     "iid" : 11,
     "project_id" : 4,
@@ -336,8 +334,8 @@ DELETE /projects/:id/issues/:issue_iid/links/:issue_link_id
     "web_url": "http://example.com/example/example/issues/11",
     "confidential": false,
     "weight": null
-  },
-  "target_issue" : {
+ },
+ "target_issue" : {
     "id" : 84,
     "iid" : 14,
     "project_id" : 4,
@@ -366,7 +364,7 @@ DELETE /projects/:id/issues/:issue_iid/links/:issue_link_id
     "web_url": "http://example.com/example/example/issues/14",
     "confidential": false,
     "weight": null
-  },
-  "link_type": "relates_to"
+ },
+ "link_type": "relates_to"
 }
 ```

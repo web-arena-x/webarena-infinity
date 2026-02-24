@@ -5,16 +5,12 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: GraphQL development guidelines
 ---
 
-This guide contains all the information to successfully contribute to the GitLab
-GraphQL API. This is a living document, and we welcome contributions,
-feedback, and suggestions.
+This guide contains all the information to successfully contribute to the GitLab GraphQL API. This is a living document, and we welcome contributions, feedback, and suggestions.
 
 ## Resources
 
-- [GraphQL API development style guide](../api_graphql_styleguide.md): development style guide for
-  GraphQL.
-- [GraphQL API documentation style guide](../documentation/graphql_styleguide.md): documentation
-  style guide for GraphQL.
+- [GraphQL API development style guide](../api_graphql_styleguide.md): development style guide for GraphQL.
+- [GraphQL API documentation style guide](../documentation/graphql_styleguide.md): documentation style guide for GraphQL.
 - [GraphQL API](../../api/graphql/_index.md): user documentation for the GitLab GraphQL API.
 - [GraphQL authorization](authorization.md): guide to using authorization in GraphQL.
 - [GraphQL BatchLoader](batchloader.md): development documentation on the BatchLoader.

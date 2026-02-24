@@ -7,8 +7,7 @@ title: GitLab Shell feature list
 
 ## Discover
 
-Allows users to identify themselves on an instance with SSH. The command helps to
-confirm quickly whether a user has SSH access to the instance:
+Allows users to identify themselves on an instance with SSH. The command helps to confirm quickly whether a user has SSH access to the instance:
 
 ```shell
 ssh git@<hostname>
@@ -27,8 +26,7 @@ git@<hostname>: Permission denied (publickey).
 
 ## Git operations
 
-GitLab Shell provides support for Git operations over SSH by processing
-`git-upload-pack`, `git-receive-pack` and `git-upload-archive` SSH commands.
+GitLab Shell provides support for Git operations over SSH by processing `git-upload-pack`, `git-receive-pack` and `git-upload-archive` SSH commands.
 It limits the set of commands to predefined Git commands:
 
 - `git archive`
@@ -38,8 +36,7 @@ It limits the set of commands to predefined Git commands:
 
 ## Generate new 2FA recovery codes
 
-Enables users to
-[generate new 2FA recovery codes](../../user/profile/account/two_factor_authentication_troubleshooting.md#regenerate-recovery-codes-with-ssh):
+Enables users to [generate new 2FA recovery codes](../../user/profile/account/two_factor_authentication_troubleshooting.md#regenerate-recovery-codes-with-ssh):
 
 ```shell
 $ ssh git@<hostname> 2fa_recovery_codes
@@ -54,8 +51,7 @@ Your two-factor authentication recovery codes are:
 
 ## Verify 2FA OTP
 
-Allows users to verify their
-[2FA one-time password (OTP)](../../security/two_factor_authentication.md#2fa-for-git-over-ssh-operations):
+Allows users to verify their [2FA one-time password (OTP)](../../security/two_factor_authentication.md#2fa-for-git-over-ssh-operations):
 
 ```shell
 $ ssh git@<hostname> 2fa_verify
@@ -83,7 +79,7 @@ Enables users to use personal access tokens with SSH:
 $ ssh git@<hostname> personal_access_token <name> <scope1[,scope2,...]> [ttl_days]
 
 Token:   glpat-...
-Scopes:  api
+Scopes: api
 Expires: 2022-02-05
 ```
 
@@ -189,7 +185,6 @@ To configure PAT settings in GitLab Shell:
 
 {{< alert type="note" >}}
 
-These settings only affect PAT generation with SSH and do not
-impact PATs created through the web interface.
+These settings only affect PAT generation with SSH and do not impact PATs created through the web interface.
 
 {{< /alert >}}

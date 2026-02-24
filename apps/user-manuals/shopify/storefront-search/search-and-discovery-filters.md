@@ -250,16 +250,16 @@ You can add a [custom metafield filter](search-and-discovery-filters.md#add-meta
 To create visuals for [custom metafield filters](search-and-discovery-filters.md#add-metafield-filters), they must meet the following requirements:
 
 * A metaobject that meets the following criteria:
-  + At least one **color** field or one **file** field with images. Both fields can only support **one value**, lists of values aren't supported.
-  + A field to name the filter value. It must only allow **one value**, a list of values cannot be used as a filter name. The field can be any of the following types:
+ + At least one **color** field or one **file** field with images. Both fields can only support **one value**, lists of values aren't supported.
+ + A field to name the filter value. It must only allow **one value**, a list of values cannot be used as a filter name. The field can be any of the following types:
     - single line text
     - decimal
     - integer
     - boolean (true or false)
 * A metafield definition that meets the following criteria:
-  + The definition is made for either a **Product** or **Variant**.
-  + The metafield type is **Metaobject** and references the metaobject definition created in the previous step.
-  + Set whether the metafields allow either **one entry** or a **list of entries** of the metaobject.
+ + The definition is made for either a **Product** or **Variant**.
+ + The metafield type is **Metaobject** and references the metaobject definition created in the previous step.
+ + Set whether the metafields allow either **one entry** or a **list of entries** of the metaobject.
 * Both the metaobject and metafield definitions need to have [storefront access](https://help.shopify.com/en/manual/custom-data/options) activated.
 
 ### Best practices for visual filters based on custom metafields

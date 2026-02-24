@@ -15,7 +15,7 @@ Your ability to update a job posting’s closing date depends on your employer a
 
 - **Basic employers**:**Owners** and **Recruiters** can only update closing dates for jobs they have personally created. Jobs posted by other teammates will appear in your job list as **view-only** and cannot be edited.
 
-  - To update closing dates for jobs you did not create, you must upgrade to an eligible paid plan.
+ - To update closing dates for jobs you did not create, you must upgrade to an eligible paid plan.
 - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**, can update closing dates on both their own postings and those created by teammates, provided they have the appropriate permissions.
 
 **Topics:**

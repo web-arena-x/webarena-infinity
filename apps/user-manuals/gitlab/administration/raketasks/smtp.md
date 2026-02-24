@@ -24,15 +24,15 @@ Show the contents of the current SMTP secrets.
 
 - Linux package installations:
 
-  ```shell
-  sudo gitlab-rake gitlab:smtp:secret:show
-  ```
+ ```shell
+ sudo gitlab-rake gitlab:smtp:secret:show
+ ```
 
 - Self-compiled installations:
 
-  ```shell
-  bundle exec rake gitlab:smtp:secret:show RAILS_ENV=production
-  ```
+ ```shell
+ bundle exec rake gitlab:smtp:secret:show RAILS_ENV=production
+ ```
 
 **Example output**:
 
@@ -47,15 +47,15 @@ Opens the secret contents in your editor, and writes the resulting content to th
 
 - Linux package installations:
 
-  ```shell
-  sudo gitlab-rake gitlab:smtp:secret:edit EDITOR=vim
-  ```
+ ```shell
+ sudo gitlab-rake gitlab:smtp:secret:edit EDITOR=vim
+ ```
 
 - Self-compiled installations:
 
-  ```shell
-  bundle exec rake gitlab:smtp:secret:edit RAILS_ENV=production EDITOR=vim
-  ```
+ ```shell
+ bundle exec rake gitlab:smtp:secret:edit RAILS_ENV=production EDITOR=vim
+ ```
 
 ### Write raw secret
 
@@ -63,15 +63,15 @@ Write new secret content by providing it on `STDIN`.
 
 - Linux package installations:
 
-  ```shell
-  echo -e "password: '123'" | sudo gitlab-rake gitlab:smtp:secret:write
-  ```
+ ```shell
+ echo -e "password: '123'" | sudo gitlab-rake gitlab:smtp:secret:write
+ ```
 
 - Self-compiled installations:
 
-  ```shell
-  echo -e "password: '123'" | bundle exec rake gitlab:smtp:secret:write RAILS_ENV=production
-  ```
+ ```shell
+ echo -e "password: '123'" | bundle exec rake gitlab:smtp:secret:write RAILS_ENV=production
+ ```
 
 ### Secrets examples
 

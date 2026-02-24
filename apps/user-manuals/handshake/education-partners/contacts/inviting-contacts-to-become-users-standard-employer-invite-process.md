@@ -42,8 +42,7 @@ After sending the invitation, one of three things will occur for each contact:
 
 **2)** Contacts with an account on Handshake, but not associated with your institution, will automatically be approved at your institution and granted your default permissions.
 
-**3)** Contacts with an account on Handshake who are connected with
-your institution will not get an email at all.
+**3)** Contacts with an account on Handshake who are connected with your institution will not get an email at all.
 
 **Pro-tip**: Apply a label to invited contacts
 

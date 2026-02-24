@@ -57,9 +57,8 @@ This option works based on the current signed-in agent’s group, NOT the ticket
 
 For example:
 
-{"Group A":"groupa@zendesk.com",  
-"Group B":"groupb@zendesk.com"}  
-  
+{"Group A":"groupa@zendesk.com", "Group B":"groupb@zendesk.com"}
+ 
 If an agent in Group A is on the ticket AND the ticket is in Open state, then the groupa@zendesk.com address is selected. If an agent in Group B is on the ticket, groupb@zendesk.com address is selected. If the ticket status is NOT in Open state, the app doesn’t update the group mapping specified in the app setting.
 
 The app updates the recipient field only if the current recipient field is empty or if the current recipient is NOT one of the addresses mapped to a group (any of the current agent’s groups) defaults or allowed addresses.
@@ -73,7 +72,7 @@ Any addresses used here must already be listed in the [support addresses](https:
 Specify different default email addresses for each group in JSON format. In the following example, agents in Group A would see email1@example.com as their default email address, while agents in Group B would see email2@example.com as their default email address. Make sure to include the opening and closing curly braces, quotes around each item or set of items, and commas between each group.
 
 ```
-{"Group A": "email1@example.com",  
+{"Group A": "email1@example.com", 
 "Group B": "email2@example.com"}
 ```
 
@@ -96,7 +95,7 @@ In the **Email addresses by group** field, specify the allowed email addresses f
 In the following example, agents in Group A would see email1@example.com and email2@example.com as the email addresses available for their use in support emails. Agents in Group B would see email2@example.com and email3@example.com as the email addresses available for use. As shown in the example, the same email address can be used for more than one group. Make sure to include the opening and closing curly braces, quotes around each item or set of items, and commas between each group.
 
 ```
-{"Group A": "email1@example.com, email2@example.com",  
+{"Group A": "email1@example.com, email2@example.com", 
 "Group B": "email2@example.com, email3@example.com"}
 ```
 

@@ -47,7 +47,7 @@ Note: If you don’t see the **Export** section, try refreshing the page. If tha
 
 If you have `can edit`access to a file, the **Export** section is located toward the bottom of the right sidebar.
 
-If you have `can view` access to a file, the **Export** section is located under the **Properties** tab in the right sidebar.  
+If you have `can view` access to a file, the **Export** section is located under the **Properties** tab in the right sidebar. 
 ![With can view access, all of the editor options in the right sidebar are removed.](https://help.figma.com/hc/article_attachments/29127905491223)
 
 ### Dev Mode
@@ -59,7 +59,7 @@ If you are using Dev Mode, the **Export** section is located in the right sideba
 Use the **Export** section to choose which file format and export settings will be applied to the selection.
 
 1. Select the layers you want to export. If you want to export the entire canvas of the current page, deselect everything on the canvas.
-2. Click the  plus in the **Export** section to add an export configuration. You can add as many export configurations to a selection as needed.
+2. Click the plus in the **Export** section to add an export configuration. You can add as many export configurations to a selection as needed.
 3. Configure the export settings. Learn more about [Figma's export formats and settings →](https://help.figma.com/hc/en-us/articles/13402894554519)
 
 Tip: If you’re exporting a frame with a fill, you can hide the fill in the exported file by deselecting the **Show in exports** checkbox in the **Fill** section in the right sidebar.
@@ -75,7 +75,7 @@ Note: If you use a slash-separated naming convention, objects you export will be
 
 You can bulk export every selection on your current page that has an export configuration applied.
 
-1. Click the  **Main menu** and select **File** > **Export** from the options. You can also use the keyboard shortcut:
+1. Click the **Main menu** and select **File** > **Export** from the options. You can also use the keyboard shortcut:
    - **Mac:** `Shift` `Command` `E`
    - **Windows:** `Shift` `Ctrl` `E`
 2. The **Export** modal displays all the selections with export settings applied. For each selection you can:

@@ -23,8 +23,7 @@ Switchboard users are administrators who can configure and monitor the instance.
 {{< alert type="note" >}}
 
 Switchboard users are separate from the users on your GitLab Dedicated instance.
-For information about configuring authentication for both Switchboard and your GitLab Dedicated instance,
-see [authentication for GitLab Dedicated](authentication/_index.md).
+For information about configuring authentication for both Switchboard and your GitLab Dedicated instance, see [authentication for GitLab Dedicated](authentication/_index.md).
 
 {{< /alert >}}
 
@@ -67,14 +66,13 @@ The support team will help you regain access to your account.
 
 ## Notifications
 
-GitLab sends notifications about instance incidents, maintenance,
-performance issues, and security updates through Switchboard.
+GitLab sends notifications about instance incidents, maintenance, performance issues, and security updates through Switchboard.
 
 Notifications are sent to:
 
 - Switchboard users: Users who can access Switchboard. They receive notifications based on their notification settings.
 - Operational contacts: Designated individuals or groups who serve as the primary point of communication for operational matters.
-  They receive notifications for important instance events and service updates, regardless of their notification settings.
+ They receive notifications for important instance events and service updates, regardless of their notification settings.
 
 Operational contacts receive notifications, even if recipients:
 

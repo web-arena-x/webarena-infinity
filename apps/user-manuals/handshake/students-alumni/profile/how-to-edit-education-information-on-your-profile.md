@@ -22,34 +22,34 @@ To determine if you are able to change your Education Information in Handshake, 
 
 - **School**
 - **Education Level** (drop-down list)
-  - High School
-  - Associates
-  - Certificate
-  - Advanced Certificate
-  - Bachelors
-  - Masters
-  - Doctorate
-  - Postdoctoral Studies
-  - Non-Degree Seeking
-  - Technical Diploma
-  - Master's of Business Administration
-  - Community / Technical college
-  - Accelerated master's
+ - High School
+ - Associates
+ - Certificate
+ - Advanced Certificate
+ - Bachelors
+ - Masters
+ - Doctorate
+ - Postdoctoral Studies
+ - Non-Degree Seeking
+ - Technical Diploma
+ - Master's of Business Administration
+ - Community / Technical college
+ - Accelerated master's
 - **College** (drop-down list)
 - **School Year**(drop-down list)
 - **Time Period**
-  - Start Date (Month and Year)
-  - End Date (Month and Year)
+ - Start Date (Month and Year)
+ - End Date (Month and Year)
     - **Note**: the end date field is only available if you're *not* currently attending the institution
 - **Currently attending** (check box if you're currently attending the institution)
 - **Major** (type to search)
-  - - **Note**: only majors associated with your institution are available via the dropdown
+ - - **Note**: only majors associated with your institution are available via the dropdown
 - **Minor** (type to search)
-  - - **Note**: only majors associated with your institution are available via the dropdown
+ - - **Note**: only majors associated with your institution are available via the dropdown
 - **Cumulative GPA**
-  - Check the box to hide from employers
+ - Check the box to hide from employers
 - **Department GPA**
-  - Check the box to hide from employers
+ - Check the box to hide from employers
 - **Description** (type your response in the box, up to 500 characters)
 
 ![Education Information.png](https://support.joinhandshake.com/hc/article_attachments/36133850980887)

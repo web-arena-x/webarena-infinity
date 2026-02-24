@@ -16,11 +16,9 @@ When working with [job artifacts](job_artifacts.md), you might encounter the fol
 
 ## Job does not retrieve certain artifacts
 
-By default, jobs fetch all artifacts from previous stages, but jobs using `dependencies`
-or `needs` do not fetch artifacts from all jobs by default.
+By default, jobs fetch all artifacts from previous stages, but jobs using `dependencies` or `needs` do not fetch artifacts from all jobs by default.
 
-If you use these keywords, artifacts are fetched from only a subset of jobs. Review
-the keyword reference for information on how to fetch artifacts with these keywords:
+If you use these keywords, artifacts are fetched from only a subset of jobs. Review the keyword reference for information on how to fetch artifacts with these keywords:
 
 - [`dependencies`](../yaml/_index.md#dependencies)
 - [`needs`](../yaml/_index.md#needs)
@@ -28,59 +26,48 @@ the keyword reference for information on how to fetch artifacts with these keywo
 
 ## Job artifacts use too much disk space
 
-If job artifacts are using too much disk space, see the
-[job artifacts administration documentation](../../administration/cicd/job_artifacts_troubleshooting.md#job-artifacts-using-too-much-disk-space).
+If job artifacts are using too much disk space, see the [job artifacts administration documentation](../../administration/cicd/job_artifacts_troubleshooting.md#job-artifacts-using-too-much-disk-space).
 
 ## Error message `No files to upload`
 
-This message appears in job logs when a the runner can't find the file to upload. Either
-the path to the file is incorrect, or the file was not created. You can check the job
-log for other errors or warnings that specify the filename and why it wasn't
-generated.
+This message appears in job logs when a the runner can't find the file to upload. Either the path to the file is incorrect, or the file was not created. You can check the job log for other errors or warnings that specify the filename and why it wasn't generated.
 
 For more detailed job logs, you can [enable CI/CD debug logging](../variables/variables_troubleshooting.md#enable-debug-logging)
-and try the job again. This logging might provide more information about why the file
-wasn't created.
+and try the job again. This logging might provide more information about why the file wasn't created.
 
 ## Error message `FATAL: invalid argument` when uploading a dotenv artifact on a Windows runner
 
-The PowerShell `echo` command writes files with UCS-2 LE BOM (Byte Order Mark) encoding,
-but only UTF-8 is supported. If you try to create a [`dotenv`](../yaml/artifacts_reports.md)
+The PowerShell `echo` command writes files with UCS-2 LE BOM (Byte Order Mark) encoding, but only UTF-8 is supported. If you try to create a [`dotenv`](../yaml/artifacts_reports.md)
 artifact with `echo`, it causes a `FATAL: invalid argument` error.
 
 Use PowerShell `Add-Content` instead, which uses UTF-8:
 
 ```yaml
 test-job:
-  stage: test
-  tags:
+ stage: test
+ tags:
     - windows
-  script:
+ script:
     - echo "test job"
     - Add-Content -Path build.env -Value "MY_ENV_VAR=true"
-  artifacts:
+ artifacts:
     reports:
       dotenv: build.env
 ```
 
 ## Job artifacts do not expire
 
-If some job artifacts are not expiring as expected, check if the
-[**Keep artifacts from most recent successful jobs**](job_artifacts.md#keep-artifacts-from-most-recent-successful-jobs)
+If some job artifacts are not expiring as expected, check if the [**Keep artifacts from most recent successful jobs**](job_artifacts.md#keep-artifacts-from-most-recent-successful-jobs)
 setting is enabled.
 
-When this setting is enabled, job artifacts from the latest successful pipeline
-of each ref do not expire and are not deleted.
+When this setting is enabled, job artifacts from the latest successful pipeline of each ref do not expire and are not deleted.
 
 ## Error message `This job could not start because it could not retrieve the needed artifacts.`
 
-A job fails to start and returns this error message if it can't fetch the artifacts
-it expects. This error is returned when:
+A job fails to start and returns this error message if it can't fetch the artifacts it expects. This error is returned when:
 
-- The job's dependencies are not found. By default, jobs in later stages fetch artifacts
-  from jobs in all earlier stages, so the earlier jobs are all considered dependent.
-  If the job uses the [`dependencies`](../yaml/_index.md#dependencies) keyword, only
-  the listed jobs are dependent.
+- The job's dependencies are not found. By default, jobs in later stages fetch artifacts from jobs in all earlier stages, so the earlier jobs are all considered dependent.
+ If the job uses the [`dependencies`](../yaml/_index.md#dependencies) keyword, only the listed jobs are dependent.
 - The artifacts are already expired. You can set a longer expiry with [`artifacts:expire_in`](../yaml/_index.md#artifactsexpire_in).
 - The job cannot access the relevant resources due to insufficient permissions.
 
@@ -92,12 +79,11 @@ keyword with:
 
 ### For a job configured with `needs:project`
 
-The `could not retrieve the needed artifacts.` error can happen for a job using
-[`needs:project`](../yaml/_index.md#needsproject) with a configuration similar to:
+The `could not retrieve the needed artifacts.` error can happen for a job using [`needs:project`](../yaml/_index.md#needsproject) with a configuration similar to:
 
 ```yaml
 rspec:
-  needs:
+ needs:
     - project: my-group/my-project
       job: dependency-job
       ref: master
@@ -115,12 +101,11 @@ If you use the `CI_JOB_TOKEN`, add the token to the project's [allowlist](ci_job
 
 ### For a job configured with `needs:pipeline:job`
 
-The `could not retrieve the needed artifacts.` error can happen for a job using
-[`needs:pipeline:job`](../yaml/_index.md#needspipelinejob) with a configuration similar to:
+The `could not retrieve the needed artifacts.` error can happen for a job using [`needs:pipeline:job`](../yaml/_index.md#needspipelinejob) with a configuration similar to:
 
 ```yaml
 rspec:
-  needs:
+ needs:
     - pipeline: $UPSTREAM_PIPELINE_ID
       job: dependency-job
       artifacts: true
@@ -128,8 +113,7 @@ rspec:
 
 To troubleshoot this error, verify that:
 
-- The `$UPSTREAM_PIPELINE_ID` CI/CD variable is available in the current pipeline's
-  parent-child pipeline hierarchy.
+- The `$UPSTREAM_PIPELINE_ID` CI/CD variable is available in the current pipeline's parent-child pipeline hierarchy.
 - The `pipeline` and `job` combination exists and resolves to an existing pipeline.
 - `dependency-job` has run and finished successfully.
 
@@ -146,9 +130,9 @@ On GitLab SaaS:
 
 - Run the following [ChatOps](../chatops/_index.md) command:
 
-  ```ruby
-  /chatops run feature set ci_unlock_pipelines_extra_low true
-  ```
+ ```ruby
+ /chatops run feature set ci_unlock_pipelines_extra_low true
+ ```
 
 On GitLab Self-Managed:
 

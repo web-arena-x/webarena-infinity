@@ -6,12 +6,12 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360050727073-Virtual
 
 ## Differences Between a Virtual and Physical Fair Setup
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | **Functionality** | **Virtual - Facilitated in Handshake** | **In Person or Virtual - Facilitated Externally** |
 | Multiple Sessions | 1 session supported *(you can create multiple virtual fairs for the same date)* | Unlimited |
 | Session Length | Up to 6 hours | Unlimited |
-| Charges Per Additional Representative &  Included Representatives per Registration Type | No additional charges supported since scheduling happens outside of the registration process and is limited to 100 representatives per company | Included representatives and charges per additional representatives are custom per registration type |
+| Charges Per Additional Representative & Included Representatives per Registration Type | No additional charges supported since scheduling happens outside of the registration process and is limited to 100 representatives per company | Included representatives and charges per additional representatives are custom per registration type |
 | Student Registration End Date | Is equal to the fair end date so students can continue to register and join sessions throughout the virtual fair *(similar to walking in day of)* | Custom per fair |
 | Nametag printing, student registration limit, physical location, booth map | Inactive on registration form | Active on registration form |
 | Divisions | Registration per division is not supported *(single registration per company)* | Registration per division is supported *(multiple registrations per company)* |
@@ -31,25 +31,25 @@ A virtual fair is a great way to engage students and employers in a remote envir
 Basic Information
 
 - - **Career Fair Name**
-  - **Career Fair Logo** *(for our image size guide, refer to [Handshake Image Size Guide](https://support.joinhandshake.com/hc/en-us/articles/219132827)**)*
-  - \***Career center**  *(this will only appear if you have more than one career center configured for fairs)*
-  - **Point of Contact for Students** *(select from an existing contact or create a new one)*
-  - **Status** 
+ - **Career Fair Logo** *(for our image size guide, refer to [Handshake Image Size Guide](https://support.joinhandshake.com/hc/en-us/articles/219132827)**)*
+ - \***Career center** *(this will only appear if you have more than one career center configured for fairs)*
+ - **Point of Contact for Students** *(select from an existing contact or create a new one)*
+ - **Status** 
     - **Published**: *visible to students and employers*
     - **Drafting**: *only visible to career service users*
 
-  ![new_fair_-_basic_information.png](https://support.joinhandshake.com/hc/article_attachments/25997598066967)
+ ![new_fair_-_basic_information.png](https://support.joinhandshake.com/hc/article_attachments/25997598066967)
 
 Location
 
 The fair must be set to **Virtual** and **facilitated** **in Handshake** for employers to be able to set schedules.
 
 - **Is this career fair in-person or virtual?** 
-  - **In-Person**
-  - **Virtual** *(select Virtual)*
+ - **In-Person**
+ - **Virtual** *(select Virtual)*
 - **Is this career fair facilitated on Handshake?** *(select one)*
-  - **Yes**
-  - **No** *(if no, "*This virtual career fair is facilitated on another site, but students and employers can discover and RSVP through Handshake.*")*
+ - **Yes**
+ - **No** *(if no, "*This virtual career fair is facilitated on another site, but students and employers can discover and RSVP through Handshake.*")*
     - **Student Registration Link** *(add link to textbox if fair is not facilitated on Handshake)*
 - **Location** *(inactive field — this is for in-person fairs only)*
 
@@ -64,26 +64,26 @@ If you would like to run a multi day fair, you can use the duplicate option to q
 - **Time Zone** (*confirm the time zone from the dropdown)*
 - **Student RSVP Limit** *(inactive field — this is for in-person fairs only)*
 - **Start Time & End Time** *(click the calendar icon to the right of the box to choose. V**irtual fairs cannot exceed 6 hours — you'll receive an error message if you select more than 6 hours)*
-  - **Tip**: we recommend a 3 hour fair!
+ - **Tip**: we recommend a 3 hour fair!
 - **Focus Area** *(if you plan to host multiple virtual fairs with specific focus areas for each – for example: Engineering Students, Companies Hiring Designers, etc.)*
 - **Industry focus** *(select employer industries that you'd like to be represented at the fair, if you aren't sure, select All)*
 - **1:1 session duration** *(Select one or multiple. These cannot be changed after an employer has built out their schedule and selected sessions.)*
-  - **10 minutes**
-  - **15 minutes**
-  - **20 minutes**
-  - **30 minutes**
-  - **45 minutes**
-  - **60 minutes**
+ - **10 minutes**
+ - **15 minutes**
+ - **20 minutes**
+ - **30 minutes**
+ - **45 minutes**
+ - **60 minutes**
 - **Group session duration** *(Select one or multiple. These cannot be changed after an employer has built out their schedule and selected sessions.)*
-  - **10 minutes**
-  - **15 minutes**
-  - **20 minutes**
-  - **30 minutes**
-  - **45 minutes**
-  - **60 minutes**
+ - **10 minutes**
+ - **15 minutes**
+ - **20 minutes**
+ - **30 minutes**
+ - **45 minutes**
+ - **60 minutes**
 - **Booth Map** *(inactive field — this is for in-person fairs only)*
 - **Add new date and time** *(not selectable for virtual fairs facilitated in Handshake)*
-  - If you create or edit a fair that has both a **Virtual fair type** and the **Facilitated in Handshake = No** selected, the "Add new date and time" button will be available.
+ - If you create or edit a fair that has both a **Virtual fair type** and the **Facilitated in Handshake = No** selected, the "Add new date and time" button will be available.
 
 ![new_fair_-_dates_and_times.png](https://support.joinhandshake.com/hc/article_attachments/25997598068503)
 
@@ -97,14 +97,14 @@ Student Information
 
 Employer Information
 
-- **Hide this career fair from employers**  *(check the box to hide the fair)*
-  - **Note**: if the fair is hidden, employers won't be able to discover the career fair unless you share the employer preview link with them.
-- **Employer registration start** and **end dates** and **times**  *(click the calendar icon to the right of the box to choose)*
+- **Hide this career fair from employers** *(check the box to hide the fair)*
+ - **Note**: if the fair is hidden, employers won't be able to discover the career fair unless you share the employer preview link with them.
+- **Employer registration start** and **end dates** and **times** *(click the calendar icon to the right of the box to choose)*
 - **Estimated employer registrations** *(enter the number of employers you expect to register for this fair)*
 - **Employer instructions** *(enter any instructions that should be displayed to employers on the registration page, not visible to students)*
 - **Employer payment methods***(select one or both)*
-  - **Credit Card** *(payments have to be enabled at your school to select Credit Card)*
-  - **Other**
+ - **Credit Card** *(payments have to be enabled at your school to select Credit Card)*
+ - **Other**
 - **Payment Instructions** *(enter any payment instructions. These are sent to the employer within the invoice notification email and will also appear on the employer invoice if you allow "Other" as a payment method)*
 - **Approve Employers before invoicing** *(check the box if required)*
 - **Employer refund policy** *(enter the refund policy for the fair. These instructions are sent in the invoice notification email and are on the invoice if you allow manual payments.)*

@@ -45,14 +45,14 @@ To troubleshoot your problem, review the error message in the bounceback email. 
 #### What you can do
 
 - Check for common errors like:
-  - **Spelling errors:** john.doe@gmal.con
-  - **Quotation marks:** john**"**doe@gmail.com
-  - **Dots at the end of the address:** john.doe@gmail.com**….**
-  - **Spaces before or after an address:** john. doe@gmail.com
+ - **Spelling errors:** john.doe@gmal.con
+ - **Quotation marks:** john**"**doe@gmail.com
+ - **Dots at the end of the address:** john.doe@gmail.com**….**
+ - **Spaces before or after an address:** john. doe@gmail.com
 - Review your contact's information:
-  - Make sure you have the person's current email address, as their email address may have changed.
-  - If possible, ask the person for their email address.
-  - To check your contact information, go to [Google Contacts](https://contacts.google.com/).
+ - Make sure you have the person's current email address, as their email address may have changed.
+ - If possible, ask the person for their email address.
+ - To check your contact information, go to [Google Contacts](https://contacts.google.com/).
 
 ### Your email is flagged as spam or temporarily rejected
 
@@ -73,8 +73,8 @@ To troubleshoot your problem, review the error message in the bounceback email. 
 
 - To prevent spam, personal Gmail (@gmail.com) accounts have a limit on the number of emails you can send per day.
 - You specifically get this error message when you send:
-  - More than 500 emails in a day
-  - One email to more than 500 recipients
+ - More than 500 emails in a day
+ - One email to more than 500 recipients
 
 #### What you can do
 
@@ -91,8 +91,8 @@ To troubleshoot your problem, review the error message in the bounceback email. 
 
 - Send the message again at a later time.
 - If you still can't reach the recipient:
-  - Check if there are any mistakes with their email address.
-  - Reach out to your recipient's email provider for support.
+ - Check if there are any mistakes with their email address.
+ - Reach out to your recipient's email provider for support.
 
 ### The recipient's inbox is out of storage space
 
@@ -103,17 +103,17 @@ To troubleshoot your problem, review the error message in the bounceback email. 
 #### What you can do
 
 - The recipient must clear space in their account storage before they can receive new email.
-  - Storage is shared across Google Drive, Gmail, and Google Photos. In addition to emails, your recipient may also need to delete older files or photos.
+ - Storage is shared across Google Drive, Gmail, and Google Photos. In addition to emails, your recipient may also need to delete older files or photos.
 - You can let them know how they can [manage their storage in Drive, Gmail, and Photos](/mail/answer/6374270).
 
 ### You get a "HELO/EHLO" error message
 
 When the mail server that responds to Google identifies itself with an invalid value, you get a "HELO/EHLO argument invalid" error message. For example:
 
-`501 5.5.4 Empty HELO/EHLO argument not allowed, closing connection.  
+`501 5.5.4 Empty HELO/EHLO argument not allowed, closing connection. 
 501 5.5.4 https://support.google.com/mail/?p=helo`
 
-`501 5.5.4 HELO/EHLO argument “...” invalid, closing connection.  
+`501 5.5.4 HELO/EHLO argument “...” invalid, closing connection. 
 501 5.5.4 https://support.google.com/mail/?p=helo`
 
 When mail servers talk to each other, they're required to identify themselves to the receiving server with a HELO or EHLO command. This identification should be the sending machine's fully-qualified IP address or domain name (like mail.example.com). Any other value is considered invalid and can reject your email.
@@ -123,7 +123,7 @@ This error usually occurs with devices like printers, scanners, and fax machines
 #### What you can do
 
 - Contact your email provider.
-  - If you use Gmail for work or school, ask your administrator to send the fully-qualified domain name or IP address of the sending server when they contact Gmail servers.
+ - If you use Gmail for work or school, ask your administrator to send the fully-qualified domain name or IP address of the sending server when they contact Gmail servers.
 - For more information about the HELO/EHLO error message, [go to RFC 5321, section 4.1.1.1](https://datatracker.ietf.org/doc/html/rfc5321#section-4.1.1.1).
 
 ## Related resources

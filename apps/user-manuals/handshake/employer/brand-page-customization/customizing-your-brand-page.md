@@ -37,7 +37,7 @@ The following fields can be edited:
 The following fields can only be updated by Handshake support:
 
 - **Name**
-  - To make any changes to these fields, contact Support.
+ - To make any changes to these fields, contact Support.
 
 When finished, click the black **Save** button in the lower-right corner.
 
@@ -108,11 +108,11 @@ In the pop-up modal, enter the following fields:
 - **Major** (optional)
 - **Graduation year** (optional)
 - **Testimonial**
-  - **Note**: The character limit is 250.
+ - **Note**: The character limit is 250.
 - **Photo** (optional)
-  - A headshot of the person.
-  - The face should be centered (preferably a square or portrait photo).
-  - The file size should be under 20MB.
+ - A headshot of the person.
+ - The face should be centered (preferably a square or portrait photo).
+ - The file size should be under 20MB.
 
 ![Create new testimonial popup.png](https://support.joinhandshake.com/hc/article_attachments/25998877483287)
 

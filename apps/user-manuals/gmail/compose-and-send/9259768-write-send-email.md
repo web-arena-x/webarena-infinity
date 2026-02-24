@@ -214,7 +214,7 @@ Learn how
 1. Open [Gmail](https://mail.google.com).
 2. At the top right, click Settings ![](//storage.googleapis.com/support-kms-prod/YhYIK7TkWoNRkVHA6rsx6prgLR8kwZeNXtFs)![and then](//storage.googleapis.com/support-kms-prod/Th2Tx0uwPMOhsMPn7nRXMUo3vs6J0pto2DTn)**See all settings**.
 3. In the **General** tab, scroll to **Signature** and click **Create new**.
-4. Name your signature, then click **Create**.  
+4. Name your signature, then click **Create**. 
    This name is not your actual signature, but is a name for the signature template.
 5. In the text box at the right, add your signature text.
 6. (Optional) To add text colors, links, and images, use the format bar.
@@ -255,8 +255,7 @@ Learn how
 4. In the **Subject** field, add a descriptor, such as:
    - [URGENT]
    - [REPLY BY DEC 1]
-   - [APPROVAL NEEDED]  
-     **Note:** You can paste in a red exclamation mark ![](//storage.googleapis.com/support-kms-prod/oI6dqXcsu2BXuJLG5DV8XogXUOeSbuqbVjAw) before the descriptor to mark email you send as important.
+   - [APPROVAL NEEDED] **Note:** You can paste in a red exclamation mark ![](//storage.googleapis.com/support-kms-prod/oI6dqXcsu2BXuJLG5DV8XogXUOeSbuqbVjAw) before the descriptor to mark email you send as important.
 5. Compose your message and click **Send**.
 
 ---
@@ -404,7 +403,7 @@ Learn how
 
 1. On your computer, go to [Gmail](https://mail.google.com).
 2. Click ![](//storage.googleapis.com/support-kms-prod/ez5AQYTSwwalQx9hVK7N2sg35g7DL7d63NPa) Compose.
-3. In the bottom right of the window, click Turn on confidential mode ![](//storage.googleapis.com/support-kms-prod/tz1opdCrjkJFyNOJd9648X1w7Qij9UjaQfRZ).  
+3. In the bottom right of the window, click Turn on confidential mode ![](//storage.googleapis.com/support-kms-prod/tz1opdCrjkJFyNOJd9648X1w7Qij9UjaQfRZ). 
    **Tip**: If you've already turned on confidential mode for an email, go to the bottom of the email, then click **Edit**.
 4. Set an expiration date and passcode. These settings impact both the message text and any attachments.
    - **If you choose "No SMS passcode,"** recipients using the Gmail app will be able to open it directly. Recipients who don't use Gmail will get emailed a passcode.

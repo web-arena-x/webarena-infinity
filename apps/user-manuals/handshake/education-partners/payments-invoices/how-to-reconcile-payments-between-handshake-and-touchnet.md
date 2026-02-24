@@ -26,7 +26,7 @@ When generating the invoice report, enter the information specified below:
 
 3. Click on "Data" tab.
 
-4. Select the "Text to Columns" option.  
+4. Select the "Text to Columns" option. 
 ![](/attachments/token/5S5jmPzyiatpSEjlm90VytqVG/?name=inline-625687985.png)
 
 5. Click "Next".
@@ -39,7 +39,7 @@ When generating the invoice report, enter the information specified below:
 
 9. Copy and paste "Charge Sessions IDs" to the newly created columns.
 
-10. Add a new column the right of each one of the "Charge Session IDs" columns and name it "TouchNet Payment Amount".  
+10. Add a new column the right of each one of the "Charge Session IDs" columns and name it "TouchNet Payment Amount". 
 ![](/attachments/token/f1pQ4FzDNPvzAfeoRxjyOBDq0/?name=inline800936196.png)
 
 ### 3. Merge TouchNet and invoice reports

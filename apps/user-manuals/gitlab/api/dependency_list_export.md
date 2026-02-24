@@ -45,9 +45,9 @@ POST /pipelines/:id/dependency_list_exports
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <private_token>" \
-  --url "https://gitlab.example.com/api/v4/pipelines/1/dependency_list_exports" \
-  --data "export_type=sbom"
+ --header "PRIVATE-TOKEN: <private_token>" \
+ --url "https://gitlab.example.com/api/v4/pipelines/1/dependency_list_exports" \
+ --data "export_type=sbom"
 ```
 
 The created dependency list export is automatically deleted at the time specified in the `expires_at` field.
@@ -56,14 +56,14 @@ Example response:
 
 ```json
 {
-  "id": 2,
-  "status": "running",
-  "has_finished": false,
-  "export_type": "sbom",
-  "send_email": false,
-  "expires_at": "2025-04-06T09:35:38.746Z",
-  "self": "http://gitlab.example.com/api/v4/dependency_list_exports/2",
-  "download": "http://gitlab.example.com/api/v4/dependency_list_exports/2/download"
+ "id": 2,
+ "status": "running",
+ "has_finished": false,
+ "export_type": "sbom",
+ "send_email": false,
+ "expires_at": "2025-04-06T09:35:38.746Z",
+ "self": "http://gitlab.example.com/api/v4/dependency_list_exports/2",
+ "download": "http://gitlab.example.com/api/v4/dependency_list_exports/2/download"
 }
 ```
 
@@ -93,8 +93,8 @@ GET /dependency_list_exports/:id
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <private_token>" \
-  --url "https://gitlab.example.com/api/v4/dependency_list_exports/2"
+ --header "PRIVATE-TOKEN: <private_token>" \
+ --url "https://gitlab.example.com/api/v4/dependency_list_exports/2"
 ```
 
 The status code is `202 Accepted` when the dependency list export is being generated, and `200 OK` when it's ready.
@@ -103,10 +103,10 @@ Example response:
 
 ```json
 {
-  "id": 4,
-  "has_finished": true,
-  "self": "http://gitlab.example.com/api/v4/dependency_list_exports/4",
-  "download": "http://gitlab.example.com/api/v4/dependency_list_exports/4/download"
+ "id": 4,
+ "has_finished": true,
+ "self": "http://gitlab.example.com/api/v4/dependency_list_exports/4",
+ "download": "http://gitlab.example.com/api/v4/dependency_list_exports/4/download"
 }
 ```
 
@@ -124,8 +124,8 @@ GET /dependency_list_exports/:id/download
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <private_token>" \
-  --url "https://gitlab.example.com/api/v4/dependency_list_exports/2/download"
+ --header "PRIVATE-TOKEN: <private_token>" \
+ --url "https://gitlab.example.com/api/v4/dependency_list_exports/2/download"
 ```
 
 The response is `404 Not Found` if the dependency list export is not finished yet or was not found.
@@ -134,11 +134,11 @@ Example response:
 
 ```json
 {
-  "bomFormat": "CycloneDX",
-  "specVersion": "1.4",
-  "serialNumber": "urn:uuid:aec33827-20ae-40d0-ae83-18ee846364d2",
-  "version": 1,
-  "metadata": {
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.4",
+ "serialNumber": "urn:uuid:aec33827-20ae-40d0-ae83-18ee846364d2",
+ "version": 1,
+ "metadata": {
     "tools": [
       {
         "vendor": "Gitlab",
@@ -158,8 +158,8 @@ Example response:
         "value": "package-lock.json"
       }
     ]
-  },
-  "components": [
+ },
+ "components": [
     {
       "name": "com.fasterxml.jackson.core/jackson-core",
       "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-core@2.9.2",
@@ -180,7 +180,7 @@ Example response:
         }
       ]
     }
-  ]
+ ]
 }
 
 ```

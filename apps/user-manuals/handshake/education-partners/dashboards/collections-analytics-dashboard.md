@@ -61,14 +61,14 @@ This pops up a box to download this report:
 
 - *Format:* select from the options for a format for this download. CSV is recommended.
 - *Results:* 
-  - With visualizations options applied
-  - As displayed in the data table
+ - With visualizations options applied
+ - As displayed in the data table
 - *Data values:*
-  - Formatted
-  - Unformatted
+ - Formatted
+ - Unformatted
 - *Number of rows to include:*
-  - Current result table
-  - Custom
+ - Current result table
+ - Custom
 
 You can either **open this report in your browser** or **Download** the report.
 

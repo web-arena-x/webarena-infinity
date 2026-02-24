@@ -156,21 +156,18 @@ If your system requires IP allowlisting, contact Support to request this informa
 
 **Unsupported configurations**
 
-**1. Can I use a SOAP URL for my feed?**  
-No. SOAP endpoints are not supported. Use a standard HTTP or HTTPS URL.
+**1. Can I use a SOAP URL for my feed?** No. SOAP endpoints are not supported. Use a standard HTTP or HTTPS URL.
 
-**2. Can I export CSV data to an SFTP server instead of providing an XML feed?**  
-No. Scheduled CSV exports to SFTP are not supported as a replacement for an XML file.
+**2. Can I export CSV data to an SFTP server instead of providing an XML feed?** No. Scheduled CSV exports to SFTP are not supported as a replacement for an XML file.
 
-**3. Can I provide an authenticated (password-protected) XML feed?**  
-No. At the moment, authenticated or password-protected XML feeds are not supported. The XML file must be accessible via a public URL without authentication.
+**3. Can I provide an authenticated (password-protected) XML feed?** No. At the moment, authenticated or password-protected XML feeds are not supported. The XML file must be accessible via a public URL without authentication.
 
 **Troubleshooting common errors**
 
 Based on previous submissions, feeds often fail due to one or more of the following issues:
 
-- **Invalid XML tags**: Spaces or unexpected characters in XML tags.  
-  Example: <job title > instead of <job title>.
+- **Invalid XML tags**: Spaces or unexpected characters in XML tags. 
+ Example: <job title > instead of <job title>.
 - **Incorrect or unexpected field values**: For example, for employment\_type, we expect Full-Time or Part-Time. If you use Onsite, Remote, or Hybrid, an error will occur.
 - **Missing required fields**: Such as title and source\_reference, or missing values within tags.
 - **Incomplete internship or temporary job data**: Missing duration, start\_date, or end\_date. If these fields are not provided, the job may fail to post correctly.

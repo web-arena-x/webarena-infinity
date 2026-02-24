@@ -13,8 +13,7 @@ description: Upgrade steps for all installation methods.
 
 {{< /details >}}
 
-Upgrade a single-node GitLab instance to take advantage of new features and bug fixes. You can also upgrade multi-node
-GitLab instances with or without downtime.
+Upgrade a single-node GitLab instance to take advantage of new features and bug fixes. You can also upgrade multi-node GitLab instances with or without downtime.
 
 {{< cards >}}
 

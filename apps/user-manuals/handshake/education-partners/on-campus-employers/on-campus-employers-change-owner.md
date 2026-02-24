@@ -10,8 +10,8 @@ Follow the steps below to learn how to change owners.
 
 1. Navigate to the **Employers** page using the left navigation menu.
 
-2. Select an On-campus employer.  
-  
+2. Select an On-campus employer. 
+ 
 **Note:** If you’d like to narrow the list of employers to only include on-campus employers, you can select **All Filters**, followed by “On-Campus employers”.
 
 ![On-Campus Employer on All Filters list.png](https://support.joinhandshake.com/hc/article_attachments/25998878260631)

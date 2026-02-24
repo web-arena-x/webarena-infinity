@@ -55,28 +55,26 @@ GET /audit_events
 
 {{< alert type="warning" >}}
 
-Offset-based pagination was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/186194) in GitLab 17.8
-and is planned for removal in 19.0. Use [keyset-based](rest/_index.md#keyset-based-pagination) pagination instead.
+Offset-based pagination was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/186194) in GitLab 17.8 and is planned for removal in 19.0. Use [keyset-based](rest/_index.md#keyset-based-pagination) pagination instead.
 This change is a breaking change.
 
 {{< /alert >}}
 
-This endpoint supports both offset-based and [keyset-based](rest/_index.md#keyset-based-pagination) pagination. You should use keyset-based
-pagination when requesting consecutive pages of results.
+This endpoint supports both offset-based and [keyset-based](rest/_index.md#keyset-based-pagination) pagination. You should use keyset-based pagination when requesting consecutive pages of results.
 
 Read more on [pagination](rest/_index.md#pagination).
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://primary.example.com/api/v4/audit_events"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://primary.example.com/api/v4/audit_events"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 1,
     "author_id": 1,
     "entity_id": 6,
@@ -92,8 +90,8 @@ Example response:
       "entity_path": "flightjs/flight"
     },
     "created_at": "2019-08-30T07:00:41.885Z"
-  },
-  {
+ },
+ {
     "id": 2,
     "author_id": 1,
     "entity_id": 60,
@@ -109,8 +107,8 @@ Example response:
       "entity_path": "flightjs"
     },
     "created_at": "2019-08-27T18:36:44.162Z"
-  },
-  {
+ },
+ {
     "id": 3,
     "author_id": 51,
     "entity_id": 51,
@@ -128,8 +126,8 @@ Example response:
       "entity_path": "Andreas"
     },
     "created_at": "2019-08-22T16:34:25.639Z"
-  },
-  {
+ },
+ {
     "id": 4,
     "author_id": 43,
     "entity_id": 1,
@@ -152,7 +150,7 @@ Example response:
     "target_type": "AuditEvents::Streaming::InstanceHeader",
     "target_id": 32,
     "event_type": "audit_events_streaming_instance_headers_create"
-  }
+ }
 ]
 ```
 
@@ -168,19 +166,19 @@ GET /audit_events/:id
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://primary.example.com/api/v4/audit_events/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://primary.example.com/api/v4/audit_events/1"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "author_id": 1,
-  "entity_id": 6,
-  "entity_type": "Project",
-  "details": {
+ "id": 1,
+ "author_id": 1,
+ "entity_id": 6,
+ "entity_type": "Project",
+ "details": {
     "custom_message": "Project archived",
     "author_name": "Administrator",
     "author_email": "admin@example.com",
@@ -189,8 +187,8 @@ Example response:
     "target_details": "flightjs/flight",
     "ip_address": "127.0.0.1",
     "entity_path": "flightjs/flight"
-  },
-  "created_at": "2019-08-30T07:00:41.885Z"
+ },
+ "created_at": "2019-08-30T07:00:41.885Z"
 }
 ```
 
@@ -211,14 +209,12 @@ A user with:
 
 {{< alert type="warning" >}}
 
-Offset-based pagination was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/186194) in GitLab 17.8
-and is planned for removal in 19.0. Use [keyset-based](rest/_index.md#keyset-based-pagination) pagination instead.
+Offset-based pagination was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/186194) in GitLab 17.8 and is planned for removal in 19.0. Use [keyset-based](rest/_index.md#keyset-based-pagination) pagination instead.
 This change is a breaking change.
 
 {{< /alert >}}
 
-This endpoint supports both offset-based and [keyset-based](rest/_index.md#keyset-based-pagination) pagination. Keyset-based
-pagination is recommended when requesting consecutive pages of results.
+This endpoint supports both offset-based and [keyset-based](rest/_index.md#keyset-based-pagination) pagination. Keyset-based pagination is recommended when requesting consecutive pages of results.
 
 ### Retrieve all group audit events
 
@@ -235,25 +231,24 @@ GET /groups/:id/audit_events
 | Attribute | Type | Required | Description |
 | --------- | ---- | -------- | ----------- |
 | `id` | integer or string | yes | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
-| `created_after` | string | no | Return group audit events created on or after the given time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ)`  |
+| `created_after` | string | no | Return group audit events created on or after the given time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ)` |
 | `created_before` | string | no | Return group audit events created on or before the given time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`) |
 
-By default, `GET` requests return 20 results at a time because the API results
-are paginated.
+By default, `GET` requests return 20 results at a time because the API results are paginated.
 
 Read more on [pagination](rest/_index.md#pagination).
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://primary.example.com/api/v4/groups/60/audit_events"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://primary.example.com/api/v4/groups/60/audit_events"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 2,
     "author_id": 1,
     "entity_id": 60,
@@ -269,8 +264,8 @@ Example response:
       "entity_path": "flightjs"
     },
     "created_at": "2019-08-28T19:36:44.162Z"
-  },
-  {
+ },
+ {
     "id": 1,
     "author_id": 1,
     "entity_id": 60,
@@ -286,7 +281,7 @@ Example response:
       "entity_path": "flightjs"
     },
     "created_at": "2019-08-27T18:36:44.162Z"
-  }
+ }
 ]
 ```
 
@@ -305,19 +300,19 @@ GET /groups/:id/audit_events/:audit_event_id
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://primary.example.com/api/v4/groups/60/audit_events/2"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://primary.example.com/api/v4/groups/60/audit_events/2"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 2,
-  "author_id": 1,
-  "entity_id": 60,
-  "entity_type": "Group",
-  "details": {
+ "id": 2,
+ "author_id": 1,
+ "entity_id": 60,
+ "entity_type": "Group",
+ "details": {
     "custom_message": "Group marked for deletion",
     "author_name": "Administrator",
     "author_email": "admin@example.com",
@@ -326,8 +321,8 @@ Example response:
     "target_details": "flightjs",
     "ip_address": "127.0.0.1",
     "entity_path": "flightjs"
-  },
-  "created_at": "2019-08-28T19:36:44.162Z"
+ },
+ "created_at": "2019-08-28T19:36:44.162Z"
 }
 ```
 
@@ -353,13 +348,12 @@ GET /projects/:id/audit_events
 | Attribute | Type | Required | Description |
 | --------- | ---- | -------- | ----------- |
 | `id` | integer or string | yes | The ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths) |
-| `created_after` | string | no | Return project audit events created on or after the given time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`)  |
+| `created_after` | string | no | Return project audit events created on or after the given time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`) |
 | `created_before` | string | no | Return project audit events created on or before the given time. Format: ISO 8601 (`YYYY-MM-DDTHH:MM:SSZ`) |
 
 {{< alert type="warning" >}}
 
-Offset-based pagination was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/186194) in GitLab 17.8
-and is planned for removal in 19.0. Use [keyset-based](rest/_index.md#keyset-based-pagination) pagination instead.
+Offset-based pagination was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/merge_requests/186194) in GitLab 17.8 and is planned for removal in 19.0. Use [keyset-based](rest/_index.md#keyset-based-pagination) pagination instead.
 This change is a breaking change.
 
 {{< /alert >}}
@@ -371,15 +365,15 @@ Read more on [pagination](rest/_index.md#pagination).
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://primary.example.com/api/v4/projects/7/audit_events"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://primary.example.com/api/v4/projects/7/audit_events"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 5,
     "author_id": 1,
     "entity_id": 7,
@@ -397,8 +391,8 @@ Example response:
         "entity_path": "twitter/typeahead-js"
     },
     "created_at": "2020-05-26T22:55:04.230Z"
-  },
-  {
+ },
+ {
       "id": 4,
       "author_id": 1,
       "entity_id": 7,
@@ -416,7 +410,7 @@ Example response:
           "entity_path": "twitter/typeahead-js"
       },
       "created_at": "2020-05-26T22:55:04.218Z"
-  }
+ }
 ]
 ```
 
@@ -435,19 +429,19 @@ GET /projects/:id/audit_events/:audit_event_id
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://primary.example.com/api/v4/projects/7/audit_events/5"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://primary.example.com/api/v4/projects/7/audit_events/5"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 5,
-  "author_id": 1,
-  "entity_id": 7,
-  "entity_type": "Project",
-  "details": {
+ "id": 5,
+ "author_id": 1,
+ "entity_id": 7,
+ "entity_type": "Project",
+ "details": {
       "change": "prevent merge request approval from committers",
       "from": "",
       "to": "true",
@@ -458,7 +452,7 @@ Example response:
       "target_details": "twitter/typeahead-js",
       "ip_address": "127.0.0.1",
       "entity_path": "twitter/typeahead-js"
-  },
-  "created_at": "2020-05-26T22:55:04.230Z"
+ },
+ "created_at": "2020-05-26T22:55:04.230Z"
 }
 ```

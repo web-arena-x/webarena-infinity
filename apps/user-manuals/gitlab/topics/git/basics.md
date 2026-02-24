@@ -16,8 +16,7 @@ They provide you with the following benefits:
 - Code quality: Facilitates code reviews through merge requests, and helps to maintain code quality and consistency.
 - Backup and recovery: Push changes to remote repositories to ensure your work is backed up and recoverable.
 
-To use Git operations effectively, it's important to understand key concepts such as repositories, branches,
-commits, and merge requests. For more information, see [Get started learning Git](get_started.md).
+To use Git operations effectively, it's important to understand key concepts such as repositories, branches, commits, and merge requests. For more information, see [Get started learning Git](get_started.md).
 
 To learn more about commonly used Git commands, see [Git commands](commands.md).
 
@@ -67,15 +66,14 @@ and [Merge your branch](merge.md).
 
 ## Update your fork
 
-A fork is a personal copy of the repository and all its branches, which you create in a
-namespace of your choice. You can make changes in your own fork and submit them using `git push`.
+A fork is a personal copy of the repository and all its branches, which you create in a namespace of your choice. You can make changes in your own fork and submit them using `git push`.
 For more information, see [Update a fork](forks.md).
 
 ## Related topics
 
 - [Get started learning Git](get_started.md)
-  - [Install Git](how_to_install_git/_index.md)
-  - [Common Git commands](commands.md)
+ - [Install Git](how_to_install_git/_index.md)
+ - [Common Git commands](commands.md)
 - [Advanced operations](advanced.md)
 - [Troubleshooting Git](troubleshooting_git.md)
 - [Git cheat sheet](https://about.gitlab.com/images/press/git-cheat-sheet.pdf)

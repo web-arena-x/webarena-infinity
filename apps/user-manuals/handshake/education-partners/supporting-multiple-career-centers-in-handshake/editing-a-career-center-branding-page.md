@@ -25,7 +25,7 @@ If you have a distributed campus and use the Career Center feature in Handshake,
 ![enable_branding_page.png](https://support.joinhandshake.com/hc/article_attachments/25995551237783)
 
 - **Tip**: Once your Career Center has the **Branding page enabled:** option set to yes, navigate to your individual **User Settings** tomake sure that you are connected to the Career Center you plan to edit.
-  - *Learn how to change this in [Career Services User Settings: Personal Information (Profile)](https://support.joinhandshake.com/hc/en-us/articles/360009190413).*
+ - *Learn how to change this in [Career Services User Settings: Personal Information (Profile)](https://support.joinhandshake.com/hc/en-us/articles/360009190413).*
 
 ### Change the Branding Page
 
@@ -39,7 +39,7 @@ If you have a distributed campus and use the Career Center feature in Handshake,
 3. From the Career Center page, you can:
 
 - Click the **Edit** (pencil) icon in the corner of the profile image or the banner image to edit the branding images
-  - For assistance with image sizes, please refer to our [Image Size Guide](../operations-platform-management/handshake-image-size-guide.md).
+ - For assistance with image sizes, please refer to our [Image Size Guide](../operations-platform-management/handshake-image-size-guide.md).
 - Click the **Edit** tab in the upper-right corner of the branding page to edit the description of the Career Center
 
 ![career_center_page.png](https://support.joinhandshake.com/hc/article_attachments/25995551238807)

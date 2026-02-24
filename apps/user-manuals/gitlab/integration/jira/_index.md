@@ -13,8 +13,7 @@ title: Jira
 {{< /details >}}
 
 Connect your GitLab projects with Jira to maintain a streamlined development workflow across both platforms.
-When your team uses Jira for issue tracking and GitLab for development,
-Jira integrations make the connection between planning and execution.
+When your team uses Jira for issue tracking and GitLab for development, Jira integrations make the connection between planning and execution.
 
 With Jira integrations:
 
@@ -24,13 +23,11 @@ With Jira integrations:
 - Team members discover connections between code changes and requirements tracked in Jira issues.
 - Vulnerability findings from GitLab create issues in Jira for proper tracking and resolution.
 
-You can [import your Jira issues to GitLab](../../user/project/import/jira.md) or
-integrate Jira with GitLab and continue to use both platforms together.
+You can [import your Jira issues to GitLab](../../user/project/import/jira.md) or integrate Jira with GitLab and continue to use both platforms together.
 
 ## Jira integrations
 
-GitLab offers two Jira integrations. You can use one or both integrations
-[depending on the features you need](#feature-availability).
+GitLab offers two Jira integrations. You can use one or both integrations [depending on the features you need](#feature-availability).
 
 ### Jira issues integration
 
@@ -40,8 +37,7 @@ GitLab offers two Jira integrations. You can use one or both integrations
 
 {{< /history >}}
 
-You can use the [Jira issues integration](configure.md) developed by GitLab with
-Jira Cloud, Jira Data Center, or Jira Server. With this integration, you can:
+You can use the [Jira issues integration](configure.md) developed by GitLab with Jira Cloud, Jira Data Center, or Jira Server. With this integration, you can:
 
 - View and search Jira issues directly in GitLab.
 - Refer to Jira issues by ID in GitLab commits and merge requests.
@@ -49,8 +45,7 @@ Jira Cloud, Jira Data Center, or Jira Server. With this integration, you can:
 
 ### Jira development panel
 
-You can use the [Jira development panel](development_panel.md) to
-[view GitLab activity for an issue](https://support.atlassian.com/jira-software-cloud/docs/view-development-information-for-an-issue/)
+You can use the [Jira development panel](development_panel.md) to [view GitLab activity for an issue](https://support.atlassian.com/jira-software-cloud/docs/view-development-information-for-an-issue/)
 including related branches, commits, and merge requests. To configure the Jira development panel:
 
 - **For Jira Cloud**, use the [GitLab for Jira Cloud app](connect-app.md) developed and maintained by GitLab.
@@ -76,8 +71,7 @@ This table shows the features available with the Jira issues integration and the
 ## Privacy considerations
 
 All Jira issues integrations share data outside of GitLab.
-If you integrate a private GitLab project with Jira, the private
-data is shared with users who have access to your Jira project.
+If you integrate a private GitLab project with Jira, the private data is shared with users who have access to your Jira project.
 
 The [Jira issues integration](configure.md) posts GitLab data as comments on Jira issues.
 The [GitLab for Jira Cloud app](connect-app.md) and the [Jira DVCS connector](dvcs/_index.md)

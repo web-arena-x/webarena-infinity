@@ -14,11 +14,11 @@ This action can only be performed by the company profile Owner or Admin. Check o
 
 - [Access brand page](#h_01J3XQCE9SJM94SXGXZYB9P0Z8)
 - [Add your company logo](#h_01HBVK0NRV819SP48CWTHHBZVJ)
-  - [New logo](#h_01J3XVX233J3J2Q15NPCNF6NQ7)
-  - [Edit an existing logo](#h_01J3XRVXFFQRH6TW6YPPEAB1PK)
+ - [New logo](#h_01J3XVX233J3J2Q15NPCNF6NQ7)
+ - [Edit an existing logo](#h_01J3XRVXFFQRH6TW6YPPEAB1PK)
 - [**\***Add your company banner](#h_01HBY77JSV1JG46KHDYHT5XG3Q)
-  - [New banner](#h_01J3XT7JTE25SASSS0SQ74JQK6)
-  - [Edit an existing banner](#h_01J3XWYXRJH5WFXKYBEWHM18WH)
+ - [New banner](#h_01J3XT7JTE25SASSS0SQ74JQK6)
+ - [Edit an existing banner](#h_01J3XWYXRJH5WFXKYBEWHM18WH)
 
 ### 
 

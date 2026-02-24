@@ -20,17 +20,15 @@ title: Epic boards
 
 {{< /history >}}
 
-Epic boards build on the existing [epic tracking functionality](_index.md) and
-[labels](../../project/labels.md). Your epics appear as cards in vertical lists, organized by their assigned
-labels.
+Epic boards build on the existing [epic tracking functionality](_index.md) and [labels](../../project/labels.md). Your epics appear as cards in vertical lists, organized by their assigned labels.
 
 On the top of each list, you can see the number of epics in the list ({{< icon name="epic" >}}) and the total weight of all its epics ({{< icon name="weight" >}}).
 
 <div class="video-fallback">
-  See the video: <a href="https://www.youtube.com/watch?v=eQUnHwbKEkY">Epics and Issue Boards - Project Management</a>.
+ See the video: <a href="https://www.youtube.com/watch?v=eQUnHwbKEkY">Epics and Issue Boards - Project Management</a>.
 </div>
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/eQUnHwbKEkY" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/eQUnHwbKEkY" frameborder="0" allowfullscreen> </iframe>
 </figure>
 
 To view an epic board:
@@ -53,8 +51,7 @@ To create a new epic board:
 1. In the upper-left corner, select the dropdown list with the current board name.
 1. Select **Create new board**.
 1. Enter the new board's title.
-1. Optional. To hide the Open or Closed lists, clear the **Show the Open list** and
-   **Show the Closed list** checkboxes.
+1. Optional. To hide the Open or Closed lists, clear the **Show the Open list** and **Show the Closed list** checkboxes.
 1. Optional. Set board scope:
    1. Next to **Scope**, select **Expand**.
    1. Next to **Labels**, select **Edit** and select the labels to use as board scope.
@@ -109,8 +106,7 @@ To create a new list:
    The new list panel opens.
 
    ![creating a new list between two lists in an issue board](img/issue_board_add_list_between_lists_v17_6.png)
-1. In the **New list** column expand the **Select a label** dropdown list and select the label to use as
-   list scope.
+1. In the **New list** column expand the **Select a label** dropdown list and select the label to use as list scope.
 1. Select **Add to board**.
 
 The new list is inserted in the same position on the board as the new list panel.
@@ -122,8 +118,7 @@ The new list is inserted at the right end of the lists, before **Closed**.
 
 ### Remove a list
 
-Removing a list doesn't have any effect on epics and labels, as it's just the
-list view that's removed. You can always create it again later if you need.
+Removing a list doesn't have any effect on epics and labels, as it's just the list view that's removed. You can always create it again later if you need.
 
 Prerequisites:
 
@@ -158,9 +153,7 @@ There, you can edit all the fields, including the description, comments, or rela
 
 ### Filter epics
 
-Use the filters on top of your epic board to show only
-the results you want. It's similar to the filtering used in the epic list,
-as the metadata from the epics and labels is re-used in the epic board.
+Use the filters on top of your epic board to show only the results you want. It's similar to the filtering used in the epic list, as the metadata from the epics and labels is re-used in the epic board.
 
 You can filter by the following:
 
@@ -170,9 +163,7 @@ You can filter by the following:
 ### View count of issues, weight, and progress of an epic
 
 Epics on an epic board show a summary of their issues, weight, and progress.
-To see the number of open and closed issues and the completed and incomplete
-weight, hover over the issues icon {{< icon name="issues" >}}, weight icon {{< icon name="weight" >}}, or
-progress icon {{< icon name="progress" >}}.
+To see the number of open and closed issues and the completed and incomplete weight, hover over the issues icon {{< icon name="issues" >}}, weight icon {{< icon name="weight" >}}, or progress icon {{< icon name="progress" >}}.
 
 ### Move epics and lists
 
@@ -182,8 +173,7 @@ Prerequisites:
 
 - You must have at least the Planner role for a group.
 
-To move an epic, select the epic card and drag it to another position in its current list or
-into another list. Learn about possible effects in [Dragging epics between lists](#dragging-epics-between-lists).
+To move an epic, select the epic card and drag it to another position in its current list or into another list. Learn about possible effects in [Dragging epics between lists](#dragging-epics-between-lists).
 
 To move a list, select its top bar, and drag it horizontally.
 You can't move the **Open** and **Closed** lists, but you can hide them when editing an epic board.
@@ -196,8 +186,7 @@ You can't move the **Open** and **Closed** lists, but you can hide them when edi
 
 {{< /history >}}
 
-When you have many epics, it's inconvenient to manually drag an epic from the bottom of a board list all
-the way to the top. You can move epics to the top of the list with a menu shortcut.
+When you have many epics, it's inconvenient to manually drag an epic from the bottom of a board list all the way to the top. You can move epics to the top of the list with a menu shortcut.
 
 Your epic is moved to the top of the list even if other epics are hidden by a filter.
 
@@ -218,8 +207,7 @@ To move an epic to the start of the list:
 
 {{< /history >}}
 
-When you have many epics, it's inconvenient to manually drag an epic from the top of a board list all
-the way to the bottom. You can move epics to the bottom of the list with a menu shortcut.
+When you have many epics, it's inconvenient to manually drag an epic from the top of a board list all the way to the bottom. You can move epics to the bottom of the list with a menu shortcut.
 
 Your epic is moved to the bottom of the list even if other epics are hidden by a filter.
 
@@ -234,10 +222,9 @@ To move an epic to the end of the list:
 
 #### Dragging epics between lists
 
-When you drag epics between lists, the result is different depending on the source list
-and the target list.
+When you drag epics between lists, the result is different depending on the source list and the target list.
 
-|                       | To Open        | To Closed  | To label B list                |
+|                       | To Open        | To Closed | To label B list                |
 | --------------------- | -------------- | ---------- | ------------------------------ |
 | **From Open**         | -              | Close epic | Add label B                    |
 | **From Closed**       | Reopen epic    | -          | Reopen epic and add label B    |

@@ -5,8 +5,7 @@ info: To determine the technical writer assigned to the Stage/Group associated w
 title: Contribute to built-in project templates
 ---
 
-GitLab provides some
-[built-in project templates](../../user/project/_index.md#create-a-project-from-a-built-in-template)
+GitLab provides some [built-in project templates](../../user/project/_index.md#create-a-project-from-a-built-in-template)
 that you can use when creating a new project.
 
 Built-in templates are sourced from the following groups:
@@ -17,13 +16,12 @@ Built-in templates are sourced from the following groups:
 Prerequisites:
 
 - You must have a working [GitLab Development Kit (GDK) environment](https://gitlab-org.gitlab.io/gitlab-development-kit/).
-  In particular, PostgreSQL, Praefect, and `sshd` must be working.
+ In particular, PostgreSQL, Praefect, and `sshd` must be working.
 - `wget` should be installed.
 
 ## Add a new built-in project template
 
-If you'd like to contribute a new built-in project template to be distributed
-with GitLab, there are a few steps to follow.
+If you'd like to contribute a new built-in project template to be distributed with GitLab, there are a few steps to follow.
 
 ### Create the project
 
@@ -34,16 +32,11 @@ with GitLab, there are a few steps to follow.
 
 ### Add the logo in `gitlab-svgs`
 
-All templates fetch their icons from the
-[`gitlab-svgs`](https://gitlab.com/gitlab-org/gitlab-svgs) library, so if the
-icon of the template you add is not present, you have to submit one.
+All templates fetch their icons from the [`gitlab-svgs`](https://gitlab.com/gitlab-org/gitlab-svgs) library, so if the icon of the template you add is not present, you have to submit one.
 
 See how to add a [third-party logo](https://gitlab.com/gitlab-org/gitlab-svgs/-/tree/main#adding-third-party-logos-or-trademarks).
 
-After the logo is added to the `main` branch,
-[the bot](https://gitlab.com/gitlab-org/frontend/renovate-gitlab-bot/) picks the
-new release up and create an MR in `gitlab-org/gitlab`. You can now proceed to
-the next step.
+After the logo is added to the `main` branch, [the bot](https://gitlab.com/gitlab-org/frontend/renovate-gitlab-bot/) picks the new release up and create an MR in `gitlab-org/gitlab`. You can now proceed to the next step.
 
 ### Add the template details
 
@@ -52,8 +45,7 @@ Two types of built-in templates are available in GitLab:
 - **Standard templates**: Available in all GitLab tiers.
 - **Enterprise templates**: Available only in GitLab Premium and Ultimate.
 
-To make the project template available when creating a new project, you must
-follow the vendoring process to create a working template.
+To make the project template available when creating a new project, you must follow the vendoring process to create a working template.
 
 #### Standard template
 
@@ -101,8 +93,7 @@ To contribute an Enterprise template:
    gdk start
    ```
 
-1. Run the following in the `gitlab` project, where `<template_name>` is the name you
-   gave the template in `gitlab/project_template.rb`:
+1. Run the following in the `gitlab` project, where `<template_name>` is the name you gave the template in `gitlab/project_template.rb`:
 
    ```shell
    bin/rake "gitlab:update_project_templates[<template_name>]"
@@ -121,8 +112,7 @@ To contribute an Enterprise template:
 
 To contribute a change:
 
-1. Open a merge request in the relevant project, and leave the following comment
-   when you are ready for a review:
+1. Open a merge request in the relevant project, and leave the following comment when you are ready for a review:
 
    ```plaintext
    @gitlab-org/manage/import/backend this is a contribution to update the project
@@ -143,8 +133,7 @@ To contribute a change:
 
 ## Test your built-in project with the GitLab Development Kit
 
-Complete the following steps to test the project template in your own
-GDK instance:
+Complete the following steps to test the project template in your own GDK instance:
 
 1. Start GDK:
 
@@ -152,15 +141,13 @@ GDK instance:
    gdk start
    ```
 
-1. Run the following Rake task, where `<template_name>` is the
-   name of the template in `lib/gitlab/project_template.rb`:
+1. Run the following Rake task, where `<template_name>` is the name of the template in `lib/gitlab/project_template.rb`:
 
    ```shell
    bin/rake "gitlab:update_project_templates[<template_name>]"
    ```
 
-1. Visit GitLab in your browser and create a new project by selecting the
-   project template.
+1. Visit GitLab in your browser and create a new project by selecting the project template.
 
 ## For GitLab team members
 
@@ -168,8 +155,7 @@ Ensure all merge requests have been reviewed by the Security counterpart before 
 
 ### Update all templates
 
-Starting a project from a template needs this project to be exported. On a
-up to date default branch run:
+Starting a project from a template needs this project to be exported. On a up to date default branch run:
 
 ```shell
 gdk start # postgres, praefect, and sshd are required
@@ -184,8 +170,7 @@ Now create a merge request and assign to a Security counterpart to merge.
 
 ### Update a single template
 
-To update just a single template instead of all of them, specify the template name
-between square brackets. For example, for the `jekyll` template, run:
+To update just a single template instead of all of them, specify the template name between square brackets. For example, for the `jekyll` template, run:
 
 ```shell
 bin/rake "gitlab:update_project_templates[jekyll]"
@@ -193,12 +178,10 @@ bin/rake "gitlab:update_project_templates[jekyll]"
 
 ### Review a template merge request
 
-To review a merge request which changes one or more vendored project templates,
-run the `check-template-changes` script:
+To review a merge request which changes one or more vendored project templates, run the `check-template-changes` script:
 
 ```shell
 scripts/check-template-changes vendor/project_templates/<template_name>.tar.gz
 ```
 
-This script outputs a diff of the file changes against the default branch and also verifies that
-the template repository matches the source template project.
+This script outputs a diff of the file changes against the default branch and also verifies that the template repository matches the source template project.

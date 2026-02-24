@@ -7,11 +7,11 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/1500003984082-Resour
 If it appears that a resource article is out of order, there are four possible reasons this could be happening, based on the resource article display logic or the user account you're viewing the resource from:
 
 - Resource articles are displayed based on 1 of 3 variables:
-  - (1) the position order "weight", OR
-  - (2) the position in the library, OR
-  - (3) if the position order "weight" is not greater than "0", and the library position is in the default setting "0", the displayed order is based on resource creation date
+ - (1) the position order "weight", OR
+ - (2) the position in the library, OR
+ - (3) if the position order "weight" is not greater than "0", and the library position is in the default setting "0", the displayed order is based on resource creation date
 - **Note**: if there is a position order "weight" greater than "0", this adjustment will not impact the display order in your Career Services account view.
-  - In order to confirm display order, you can switch to your student account to view the Resources page.
+ - In order to confirm display order, you can switch to your student account to view the Resources page.
 
 *Keep in mind that adding qualifications to a resource will potentially impact the display order for students, depending on who has access to the resource.*
 

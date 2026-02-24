@@ -14,8 +14,7 @@ description: Enable the container registry metadata database with minimal downti
 {{< /details >}}
 
 Import your existing container registry metadata.
-The following procedure is recommended for larger registries (200 GiB or more), or if you want to
-minimize downtime while completing the import.
+The following procedure is recommended for larger registries (200 GiB or more), or if you want to minimize downtime while completing the import.
 
 ## Pre-import repositories (step one)
 
@@ -83,17 +82,13 @@ Prerequisites:
 
 {{< alert type="note" >}}
 
-You should try to schedule the following step as soon as possible
-to reduce the amount of downtime required. Ideally, less than one week
-after step one completes. Any new data written to the registry between steps one and two,
-causes step two to take more time.
+You should try to schedule the following step as soon as possible to reduce the amount of downtime required. Ideally, less than one week after step one completes. Any new data written to the registry between steps one and two, causes step two to take more time.
 
 {{< /alert >}}
 
 ## Import all repository data (step two)
 
-This step requires the registry to be shut down or set in `read-only` mode;
-however, you can expect this step to complete around 90% faster than step one.
+This step requires the registry to be shut down or set in `read-only` mode; however, you can expect this step to complete around 90% faster than step one.
 Allow enough time for downtime while step two is being executed.
 
 {{< tabs >}}
@@ -102,9 +97,7 @@ Allow enough time for downtime while step two is being executed.
 
 1. Ensure the registry is set to `read-only` mode.
 
-   Edit your `/etc/gitlab/gitlab.rb` and add the `maintenance` section to the `registry['storage']`
-   configuration. For example, for a `gcs` backend registry using a `gs://my-company-container-registry`
-   bucket, the configuration could be:
+   Edit your `/etc/gitlab/gitlab.rb` and add the `maintenance` section to the `registry['storage']` configuration. For example, for a `gcs` backend registry using a `gs://my-company-container-registry` bucket, the configuration could be:
 
    ```ruby
    ## Object Storage - Container Registry
@@ -128,9 +121,7 @@ Allow enough time for downtime while step two is being executed.
    sudo -u registry gitlab-ctl registry-database import --step-two --log-to-stdout
    ```
 
-1. If the command completed successfully, all images are now fully imported. You
-   can now enable the database, turn off read-only mode in the configuration, and
-   start the registry service:
+1. If the command completed successfully, all images are now fully imported. You can now enable the database, turn off read-only mode in the configuration, and start the registry service:
 
    ```ruby
    registry['database'] = {
@@ -159,9 +150,7 @@ Allow enough time for downtime while step two is being executed.
 
 1. Ensure the registry is set to `read-only` mode.
 
-   Edit your `/etc/gitlab/gitlab.rb` and add the `maintenance` section to the `registry['storage']`
-   configuration. For example, for a `gcs` backed registry using a `gs://my-company-container-registry`
-   bucket, the configuration could be:
+   Edit your `/etc/gitlab/gitlab.rb` and add the `maintenance` section to the `registry['storage']` configuration. For example, for a `gcs` backed registry using a `gs://my-company-container-registry` bucket, the configuration could be:
 
    ```ruby
    ## Object Storage - Container Registry
@@ -185,9 +174,7 @@ Allow enough time for downtime while step two is being executed.
    sudo gitlab-ctl registry-database import --step-two
    ```
 
-1. If the command completed successfully, all images are now fully imported. You
-   can now enable the database, turn off read-only mode in the configuration, and
-   start the registry service:
+1. If the command completed successfully, all images are now fully imported. You can now enable the database, turn off read-only mode in the configuration, and start the registry service:
 
    ```ruby
    registry['database'] = {
@@ -227,9 +214,7 @@ You can now use the metadata database for all operations!
 
 ## Import remaining data (step three)
 
-Even though the registry is now fully using the database for its metadata, it
-does not yet have access to any potentially unused layer blobs, preventing these
-blobs from being removed by the online garbage collector.
+Even though the registry is now fully using the database for its metadata, it does not yet have access to any potentially unused layer blobs, preventing these blobs from being removed by the online garbage collector.
 
 You may continue to use the registry as normal while step three is being completed.
 

@@ -9,9 +9,9 @@ This article explains what data can be migrated from your current practice manag
 **Tip:** See one of the articles below if your current practice management software does not start with the letters C, D, E, or F.
 
 - - [Migrating Data From Your Current Software [A-B]](https://help.clio.com/hc/en-us/articles/9813809475995)
-  - [Migrating Data From Your Current Software [G-M]](https://help.clio.com/hc/en-us/articles/10263146574107)
-  - [Migrating Data From Your Current Software [N-S]](https://help.clio.com/hc/en-us/articles/9815681343003)
-  - [Migrating Data From Your Current Software [T-Z]](https://help.clio.com/hc/en-us/articles/9812890677531)
+ - [Migrating Data From Your Current Software [G-M]](https://help.clio.com/hc/en-us/articles/10263146574107)
+ - [Migrating Data From Your Current Software [N-S]](https://help.clio.com/hc/en-us/articles/9815681343003)
+ - [Migrating Data From Your Current Software [T-Z]](https://help.clio.com/hc/en-us/articles/9812890677531)
 
 ## Caret Legal
 
@@ -479,9 +479,8 @@ What can I migrate? How do I migrate my data?
 
 1. Go to **File** > **Export** > **Export Calendar to Apple iCal**. Daylite will open the **Export to Apple iCal File Format** window.
 2. To export the entire calendar, select **All Dates**. Otherwise, specify the start and end dates.
-3. The default export location for your calendar is the desktop. To specify a different   
-   location from the desktop, click **Browse,** navigate to the location, and click **Open.**
-4. *Optional:* You can export each appointment category in Daylite as a separate calendar.   
+3. The default export location for your calendar is the desktop. To specify a different location from the desktop, click **Browse,** navigate to the location, and click **Open.**
+4. *Optional:* You can export each appointment category in Daylite as a separate calendar.  
    To do this, select the **Export each category as a separate calendar** checkbox.
 5. Click **Export.**
 

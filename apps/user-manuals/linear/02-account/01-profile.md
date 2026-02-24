@@ -22,11 +22,8 @@ Members can set whether they see their team members' full names or usernames in 
 
 Your email address is your unique ID (User Account) for all workspaces you have created a User for. For example:
 
-Action | Result
---- | ---
-You joined Workspace A using jane.doe@email.com | A User Account was created under jane.doe@gmail.com and a User was created for Workspace A.
-You joined Workspace B. | A User was created for Workspace B under your User Account jane.doe@email.com
-You updated your email address in Workspace B to jdoe@gmail.com | Your email address for your User Account, Workspace A, and Workspace B was updated to jdoe@email.com. Jane.doe@email.com does not exist.
+Action | Result --- | --- You joined Workspace A using jane.doe@email.com | A User Account was created under jane.doe@gmail.com and a User was created for Workspace A.
+You joined Workspace B. | A User was created for Workspace B under your User Account jane.doe@email.com You updated your email address in Workspace B to jdoe@gmail.com | Your email address for your User Account, Workspace A, and Workspace B was updated to jdoe@email.com. Jane.doe@email.com does not exist.
 
 ### Change your email address
 

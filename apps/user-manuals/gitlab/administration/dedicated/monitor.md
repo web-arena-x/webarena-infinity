@@ -45,16 +45,12 @@ To manage log access:
    - To add access: Select **Add ARN**, enter the full ARN path, then select **Save**. For example:
      - User: `arn:aws:iam::123456789012:user/username`
      - Role: `arn:aws:iam::123456789012:role/rolename`
-   - To edit access: Next to an ARN, select the pencil icon ({{< icon name="pencil" >}}),
-     update the ARN, then select **Save**.
-   - To remove access: Next to an ARN, select the trash icon ({{< icon name="remove" >}}),
-     then select **Delete**.
+   - To edit access: Next to an ARN, select the pencil icon ({{< icon name="pencil" >}}), update the ARN, then select **Save**.
+   - To remove access: Next to an ARN, select the trash icon ({{< icon name="remove" >}}), then select **Delete**.
 
 1. Copy the **Logs S3 bucket name**. Your authorized users or roles use this bucket name to access the logs.
 
-After you configure ARN permissions and provide the bucket name to your users,
-they can access all objects in the S3 bucket.
+After you configure ARN permissions and provide the bucket name to your users, they can access all objects in the S3 bucket.
 To verify access, use the [AWS CLI](https://aws.amazon.com/cli/).
 
-For information about how to access S3 buckets in AWS,
-see [Accessing an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html).
+For information about how to access S3 buckets in AWS, see [Accessing an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html).

@@ -13,39 +13,29 @@ title: GitLab Dedicated storage types
 
 {{< /details >}}
 
-GitLab Dedicated provides a single-tenant, fully managed GitLab instance deployed in your preferred AWS
-cloud region. Your account team works with you to determine your storage needs during the procurement
-process.
+GitLab Dedicated provides a single-tenant, fully managed GitLab instance deployed in your preferred AWS cloud region. Your account team works with you to determine your storage needs during the procurement process.
 
-Understanding how storage works in GitLab Dedicated helps you make informed decisions
-about instance configuration and resource management.
+Understanding how storage works in GitLab Dedicated helps you make informed decisions about instance configuration and resource management.
 
 ## Storage components
 
-GitLab Dedicated uses different types of storage for different purposes. The total storage allocation is
-divided between these components based on usage patterns.
+GitLab Dedicated uses different types of storage for different purposes. The total storage allocation is divided between these components based on usage patterns.
 
 ### Total purchased storage
 
-Total purchased storage is the combined storage allocated to a GitLab Dedicated instance, including both
-your repository storage and object storage. This allocation represents the total storage capacity purchased with a
-GitLab Dedicated subscription and configured during instance provisioning.
+Total purchased storage is the combined storage allocated to a GitLab Dedicated instance, including both your repository storage and object storage. This allocation represents the total storage capacity purchased with a GitLab Dedicated subscription and configured during instance provisioning.
 
-When determining storage needs, this is the primary metric used for planning and pricing. The total purchased 
-storage is then distributed between repository storage and object storage based on expected usage patterns.
+When determining storage needs, this is the primary metric used for planning and pricing. The total purchased storage is then distributed between repository storage and object storage based on expected usage patterns.
 
 ### Repository storage
 
-Repository storage refers to the space allocated for Git repositories across your Gitaly nodes. This storage
-is distributed among the Gitaly nodes in your instance based on your reference architecture.
+Repository storage refers to the space allocated for Git repositories across your Gitaly nodes. This storage is distributed among the Gitaly nodes in your instance based on your reference architecture.
 
 #### Repository storage per Gitaly node
 
-Each Gitaly node in your instance has a specific storage capacity. This capacity affects how large individual
-repositories can be, because no single repository can exceed the capacity of a single Gitaly node.
+Each Gitaly node in your instance has a specific storage capacity. This capacity affects how large individual repositories can be, because no single repository can exceed the capacity of a single Gitaly node.
 
-For example, if each Gitaly node has 100 GiB of storage capacity and there are 3 Gitaly nodes, your instance
-can store a total of 300 GiB of repository data, but no single repository can exceed 100 GiB.
+For example, if each Gitaly node has 100 GiB of storage capacity and there are 3 Gitaly nodes, your instance can store a total of 300 GiB of repository data, but no single repository can exceed 100 GiB.
 
 ### Object storage
 
@@ -62,8 +52,7 @@ Object storage in GitLab Dedicated is implemented using Amazon S3 with appropria
 
 ### Blended storage
 
-Blended storage is the overall storage used by a GitLab Dedicated instance, including object
-storage, repository storage, and data transfer.
+Blended storage is the overall storage used by a GitLab Dedicated instance, including object storage, repository storage, and data transfer.
 
 <!-- vale gitlab_base.Spelling = NO -->
 
@@ -76,8 +65,7 @@ You primarily work with the total storage size and repository storage numbers.
 
 ## Storage planning and configuration
 
-Storage planning for a GitLab Dedicated instance involves understanding how object and repository storage is
-allocated across the infrastructure.
+Storage planning for a GitLab Dedicated instance involves understanding how object and repository storage is allocated across the infrastructure.
 
 ### Determining initial storage allocation
 
@@ -90,14 +78,9 @@ The GitLab Dedicated account team helps determine the appropriate storage amount
 
 ### Repository capacity and reference architectures
 
-Your repository storage is distributed across Gitaly nodes. This affects how large
-individual repositories can be, as no single repository can exceed the capacity of a single Gitaly
-node.
+Your repository storage is distributed across Gitaly nodes. This affects how large individual repositories can be, as no single repository can exceed the capacity of a single Gitaly node.
 
-The number of Gitaly nodes for an instance depends on the reference architecture determined during
-onboarding, based primarily on user count. Reference architectures for instances with more than
-2,000 users typically use three Gitaly nodes. For more information, see
-[reference architectures](../../reference_architectures/_index.md).
+The number of Gitaly nodes for an instance depends on the reference architecture determined during onboarding, based primarily on user count. Reference architectures for instances with more than 2,000 users typically use three Gitaly nodes. For more information, see [reference architectures](../../reference_architectures/_index.md).
 
 #### View reference architecture
 
@@ -178,13 +161,11 @@ Changes to storage affect billing.
 
 ### How does storage affect performance?
 
-Proper storage allocation ensures optimal performance. Undersized storage can lead to performance
-issues, particularly for repository operations and CI/CD pipelines.
+Proper storage allocation ensures optimal performance. Undersized storage can lead to performance issues, particularly for repository operations and CI/CD pipelines.
 
 ### How is storage handled for Geo replication?
 
-GitLab Dedicated includes a secondary Geo site for disaster recovery, with storage allocation
-based on your primary site configuration.
+GitLab Dedicated includes a secondary Geo site for disaster recovery, with storage allocation based on your primary site configuration.
 
 ### Can I bring my own S3 bucket for object storage?
 

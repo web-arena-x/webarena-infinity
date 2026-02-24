@@ -12,10 +12,8 @@ Consult these topics for information on development processes for contributing t
 Must-reads:
 
 - [Guide on adapting existing and introducing new components](architecture.md#adapting-existing-and-introducing-new-components)
-- [Code review guidelines](code_review.md) for reviewing code and having code
-  reviewed
-- [Database review guidelines](database_review.md) for reviewing
-  database-related changes and complex SQL queries, and having them reviewed
+- [Code review guidelines](code_review.md) for reviewing code and having code reviewed
+- [Database review guidelines](database_review.md) for reviewing database-related changes and complex SQL queries, and having them reviewed
 - [Secure coding guidelines](secure_coding_guidelines/_index.md)
 - [Pipelines for the GitLab project](pipelines/_index.md)
 - [Avoiding required stops](avoiding_required_stops.md)
@@ -36,8 +34,7 @@ Complementary reads:
 
 For changes to development guidelines, request review and approval from an experienced GitLab Team Member.
 
-For example, if you're documenting a new internal API used exclusively by
-a given group, request an engineering review from one of the group's members.
+For example, if you're documenting a new internal API used exclusively by a given group, request an engineering review from one of the group's members.
 
 Small fixes, like typos, can be merged by any user with at least the Maintainer role.
 
@@ -65,30 +62,24 @@ In these cases, use the following workflow:
      - [Engineering Productivity](https://handbook.gitlab.com/handbook/engineering/infrastructure/engineering-productivity/)
    - [Infrastructure](https://handbook.gitlab.com/handbook/engineering/infrastructure/)
 
-   You can skip this step for MRs authored by EMs or Staff Engineers responsible
-   for their area.
+   You can skip this step for MRs authored by EMs or Staff Engineers responsible for their area.
 
-   If there are several affected groups, you may need approvals at the
-   EM/Staff Engineer level from each affected area.
+   If there are several affected groups, you may need approvals at the EM/Staff Engineer level from each affected area.
 
-1. After completing the reviews, consult with the EM/Staff Engineer
-   author / approver of the MR.
+1. After completing the reviews, consult with the EM/Staff Engineer author / approver of the MR.
 
-   If this is a significant change across multiple areas, request final review
-   and approval from the VP of Development, who is the DRI for development guidelines.
+   If this is a significant change across multiple areas, request final review and approval from the VP of Development, who is the DRI for development guidelines.
 
 Any Maintainer can merge the MR.
 
 #### Technical writing reviews
 
 If you would like a review by a technical writer, post a message in the `#docs` Slack channel.
-Technical writers do not need to review the content, however, and any Maintainer
-other than the MR author can merge.
+Technical writers do not need to review the content, however, and any Maintainer other than the MR author can merge.
 
 ### Reviewer values
 
-As a reviewer or as a reviewee, make sure to familiarize yourself with
-the [reviewer values](https://handbook.gitlab.com/handbook/engineering/workflow/reviewer-values/) we strive for at GitLab.
+As a reviewer or as a reviewee, make sure to familiarize yourself with the [reviewer values](https://handbook.gitlab.com/handbook/engineering/workflow/reviewer-values/) we strive for at GitLab.
 
 Also, any doc content should follow the [Documentation Style Guide](documentation/_index.md).
 
@@ -104,10 +95,6 @@ Also, any doc content should follow the [Documentation Style Guide](documentatio
 
 ## Clear written communication
 
-While writing any comment in an issue or merge request or any other mode of communication,
-follow [IETF standard](https://www.ietf.org/rfc/rfc2119.txt) while using terms like
-"MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT","RECOMMENDED", "MAY",
-and "OPTIONAL".
+While writing any comment in an issue or merge request or any other mode of communication, follow [IETF standard](https://www.ietf.org/rfc/rfc2119.txt) while using terms like "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT","RECOMMENDED", "MAY", and "OPTIONAL".
 
-This ensures that different team members from different cultures have a clear understanding of
-the terms being used.
+This ensures that different team members from different cultures have a clear understanding of the terms being used.

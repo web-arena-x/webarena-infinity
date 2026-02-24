@@ -36,43 +36,43 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360041287613-First-D
    - *Recipients may add multiple offers*
 
 - What is the status of your job offer? 
-  - Accepted
-  - Rejected
-  - Pending
+ - Accepted
+ - Rejected
+ - Pending
 - *(These questions load no matter which status is selected)* Please tell us about the employer: 
-  - Who is the employer?
-  - What city is this position located in?
-  - What industry is your employer in?
+ - Who is the employer?
+ - What city is this position located in?
+ - What industry is your employer in?
 - How many hours per week would you be working?
-  - Over 20 hours a week (Full time)
-  - Under 20 hours a week (Part time)
+ - Over 20 hours a week (Full time)
+ - Under 20 hours a week (Part time)
 - Please tell us about the position: 
-  - What is your position?
-  - What is your job function?
-  - Were you already working at this position during school? (Yes/No)
-  - Is this an internship? (Yes/No)
+ - What is your position?
+ - What is your job function?
+ - Were you already working at this position during school? (Yes/No)
+ - Is this an internship? (Yes/No)
 - How will you be compensated? 
-  - Base Salary
-  - Radio Buttons: Hourly Wage/Annual Salary/Monthly Stipend (a popup will appear asking for confirmation for each selection)
+ - Base Salary
+ - Radio Buttons: Hourly Wage/Annual Salary/Monthly Stipend (a popup will appear asking for confirmation for each selection)
     - Hourly Wage: "You entered an hourly wage of $amount, which is a yearly total of $amount, assuming 40 hours per week and 52 weeks per year. Is this hourly wage correct?" (Yes/No buttons)
     - Annual Salary: "You entered an annual salary of $amount. Is this correct?" (Yes/No buttons)
     - Monthly Stipend: "You entered a monthly stipend of $amount, which is a yearly total of $amount, assuming 12 months worked in a year. Is this monthly stipend correct?" (Yes/No buttons)
-  - Signing Bonus
-  - Other Guaranteed Compensation
-  - Currency
-  - When did you get this offer?
-  - When did you accept it?
-  - When is your start date?
-  - Does this position have an end date?
+ - Signing Bonus
+ - Other Guaranteed Compensation
+ - Currency
+ - When did you get this offer?
+ - When did you accept it?
+ - When is your start date?
+ - Does this position have an end date?
 - Do you believe school-facilitated or graduate-facilitated activities helped prepare you most for the accepted job offer?
-  - School Facilitated
+ - School Facilitated
     - Conversion of Internship
     - Scheduled Interview
     - Career Center Job Posting
     - Career Center Activity
     - School Network / Resources
     - Other School Facilitated Source
-  - Graduate Facilitated
+ - Graduate Facilitated
     - Conversion of Internship
     - Personal Contact
     - Online Posting
@@ -80,7 +80,7 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360041287613-First-D
 
 ### If "I am NOT looking for a job" is selected: What are you primarily doing after graduation?
 
-1. What are you primarily doing after graduation?  
+1. What are you primarily doing after graduation? 
    - Volunteering
    - Military
    - Company Sponsored or Already Employed
@@ -132,20 +132,20 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360041287613-First-D
 #### ***Company Sponsored or Already Employed***
 
 1. Who is your employer?
-2. What industry is your employer in?  
+2. What industry is your employer in? 
    - (Dropdown) MBACSEA industry list
 3. What city is this position located in?
 
 #### ***Starting a New Business as an Owner/Founder***
 
 1. Who is your employer?
-2. What industry is your employer in?  
+2. What industry is your employer in? 
    - (Dropdown) MBACSEA industry list
 3. What city is this position located in?
 
 #### Offer Details
 
-1. What is the status of your job offer?  
+1. What is the status of your job offer? 
    - Accepted
    - Rejected
    - Pending
@@ -154,7 +154,7 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360041287613-First-D
 #### Employer Details
 
 1. Who is the employer who extended this offer?
-2. What industry is your employer in?  
+2. What industry is your employer in? 
    - (Dropdown) MBACSEA industry list
 3. What city is this position located in?
 
@@ -164,28 +164,28 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/360041287613-First-D
    - Over 30 Hours a week
    - Under 30 Hours a week
 2. What is your job title?
-3. Were you already working in this position during school?  
+3. Were you already working in this position during school? 
    - Yes
    - No
 4. What date did you accept this offer?
-5. What is your job function?  
+5. What is your job function? 
    - (Dropdown) MBACSEA job functions
 
 #### Salary Details
 
 1. How are you compensated?
-2. Under how are you compensated?  
+2. Under how are you compensated? 
    - Monthly Stipend
    - Hourly Wage
    - Annual Salary
-3. Does your employer have a bonus structure?  
+3. Does your employer have a bonus structure? 
    - Yes
    - No
 4. What is the amount of your signing bonus in U.S. dollars?
 
 #### Job Source
 
-1. Do you believe that school facilitated or graduate facilitated activities helped prepare you most for the accepted job offer?  
+1. Do you believe that school facilitated or graduate facilitated activities helped prepare you most for the accepted job offer? 
    - School facilitated
      - Conversion of internship; internship obtained through school sources
      - Scheduled interviews on or off campus for full-time employment

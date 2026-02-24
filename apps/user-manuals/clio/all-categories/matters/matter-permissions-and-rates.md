@@ -18,7 +18,7 @@ All firm users can set permissions when creating or editing a matter. Matters ar
 
 1. Go to **Matters**, find your matter, and then click **Edit**. You can also search for the matter in the search bar and click **Edit matter**.
 2. Scroll down to the **Matter permissions** section.
-3. Under **Firm users with access**, select either **Everyone** or **Specific users or groups**.   
+3. Under **Firm users with access**, select either **Everyone** or **Specific users or groups**.  
    - **Everyone:** If you select this option, all firm users will have access to this matter.
    - **Specific users or groups:** If you select this option, you can choose up to 20 firm users and/or groups of users to have access to this matter. Select your users and/or groups under **Add users or groups**. Once added, you can remove a user or group by clicking the minus symbol.
 4. Click **Save matter**.
@@ -33,7 +33,7 @@ Admin view Update permissions in bulk
 
 1. Go to **Matters** > **Matters.**
 2. Click **Filters.**
-3. Under **Admin view**, select either **Matters I have full access** to or **Matters I am restricted from**.   
+3. Under **Admin view**, select either **Matters I have full access** to or **Matters I am restricted from**.  
    - **Matters I have full access:** If you select this option, the matters table will only show matters that you have full access to.
    - **Matters I am restricted from:** If you select this option, the matters table will only show matters that you are restricted from viewing.
 4. Click **Apply filters.**
@@ -41,11 +41,11 @@ Admin view Update permissions in bulk
 **Important:** When you edit matter permissions in bulk, the new permission edits you make will replace the existing permissions. This means that only the new users selected to have access and receive notifications for the matter will have access to the matter. Users previously added to the matter will no longer have access unless they are selected again.
 
 1. Go to **Matters** > **Matters.**
-2. Check the box next to each matter for which you want to change permissions.  
+2. Check the box next to each matter for which you want to change permissions. 
    - The new matter permissions that you choose will affect all of the selected matters.
    - You can select up to 200 matters to edit in bulk.
 3. Click **Edit** and select **Update matter permissions**.
-4. Under **Choose which firm users will have access going forward**, select either **Everyone** or **Specific users or groups**.   
+4. Under **Choose which firm users will have access going forward**, select either **Everyone** or **Specific users or groups**.  
    - **Everyone:** If you select this option, all firm users will have access to this matter.
    - **Specific users or groups:** If you select this option, you can choose up to 20 firm users and/or groups of users to have access to this matter. Select your users and/or groups under **Add users or groups**. Once added, you can remove a user or group by clicking the minus symbol.
 5. *Optional:* Under **Choose who will receive matter notifications going forward**, select the firm users who you want to receive notifications for various matter events. Learn more about user notifications [here](https://help.clio.com/hc/en-us/articles/9290346939547-Set-Up-Clio-Manage#user-notifications-0-7).

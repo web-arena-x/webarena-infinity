@@ -33,8 +33,7 @@ The following placeholders are available:
 
 <!-- vale gitlab_base.Spelling = YES -->
 
-Because these endpoints aren't inside a project's context, the information used to replace the placeholders comes
-from the first group's project by creation date. If the group has no project, the original URL with the placeholders is returned.
+Because these endpoints aren't inside a project's context, the information used to replace the placeholders comes from the first group's project by creation date. If the group has no project, the original URL with the placeholders is returned.
 
 ## List all badges of a group
 
@@ -47,19 +46,19 @@ GET /groups/:id/badges
 | Attribute | Type | Required | Description |
 | --------- | ---- | -------- | ----------- |
 | `id`      | integer or string | yes | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group |
-| `name`    | string         | no  | Name of the badges to return (case-sensitive). |
+| `name`    | string         | no | Name of the badges to return (case-sensitive). |
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/badges?name=Coverage"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/:id/badges?name=Coverage"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "name": "Coverage",
     "id": 1,
     "link_url": "http://example.com/ci_status.svg?project=%{project_path}&ref=%{default_branch}",
@@ -67,7 +66,7 @@ Example response:
     "rendered_link_url": "http://example.com/ci_status.svg?project=example-org/example-project&ref=main",
     "rendered_image_url": "https://shields.io/my/badge",
     "kind": "group"
-  }
+ }
 ]
 ```
 
@@ -86,21 +85,21 @@ GET /groups/:id/badges/:badge_id
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/badges/:badge_id"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/:id/badges/:badge_id"
 ```
 
 Example response:
 
 ```json
 {
-  "name": "Coverage",
-  "id": 1,
-  "link_url": "http://example.com/ci_status.svg?project=%{project_path}&ref=%{default_branch}",
-  "image_url": "https://shields.io/my/badge",
-  "rendered_link_url": "http://example.com/ci_status.svg?project=example-org/example-project&ref=main",
-  "rendered_image_url": "https://shields.io/my/badge",
-  "kind": "group"
+ "name": "Coverage",
+ "id": 1,
+ "link_url": "http://example.com/ci_status.svg?project=%{project_path}&ref=%{default_branch}",
+ "image_url": "https://shields.io/my/badge",
+ "rendered_link_url": "http://example.com/ci_status.svg?project=example-org/example-project&ref=main",
+ "rendered_image_url": "https://shields.io/my/badge",
+ "kind": "group"
 }
 ```
 
@@ -121,22 +120,22 @@ POST /groups/:id/badges
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/badges" \
-  --data "link_url=https://gitlab.com/gitlab-org/gitlab-foss/commits/master&image_url=https://shields.io/my/badge1&name=mybadge&position=0"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/:id/badges" \
+ --data "link_url=https://gitlab.com/gitlab-org/gitlab-foss/commits/master&image_url=https://shields.io/my/badge1&name=mybadge&position=0"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "name": "mybadge",
-  "link_url": "https://gitlab.com/gitlab-org/gitlab-foss/commits/master",
-  "image_url": "https://shields.io/my/badge1",
-  "rendered_link_url": "https://gitlab.com/gitlab-org/gitlab-foss/commits/master",
-  "rendered_image_url": "https://shields.io/my/badge1",
-  "kind": "group"
+ "id": 1,
+ "name": "mybadge",
+ "link_url": "https://gitlab.com/gitlab-org/gitlab-foss/commits/master",
+ "image_url": "https://shields.io/my/badge1",
+ "rendered_link_url": "https://gitlab.com/gitlab-org/gitlab-foss/commits/master",
+ "rendered_image_url": "https://shields.io/my/badge1",
+ "kind": "group"
 }
 ```
 
@@ -158,21 +157,21 @@ PUT /groups/:id/badges/:badge_id
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/badges/:badge_id"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/:id/badges/:badge_id"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 1,
-  "name": "mybadge",
-  "link_url": "https://gitlab.com/gitlab-org/gitlab-foss/commits/master",
-  "image_url": "https://shields.io/my/badge",
-  "rendered_link_url": "https://gitlab.com/gitlab-org/gitlab-foss/commits/master",
-  "rendered_image_url": "https://shields.io/my/badge",
-  "kind": "group"
+ "id": 1,
+ "name": "mybadge",
+ "link_url": "https://gitlab.com/gitlab-org/gitlab-foss/commits/master",
+ "image_url": "https://shields.io/my/badge",
+ "rendered_link_url": "https://gitlab.com/gitlab-org/gitlab-foss/commits/master",
+ "rendered_image_url": "https://shields.io/my/badge",
+ "kind": "group"
 }
 ```
 
@@ -191,8 +190,8 @@ DELETE /groups/:id/badges/:badge_id
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/badges/:badge_id"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/:id/badges/:badge_id"
 ```
 
 ## Preview a badge from a group
@@ -211,17 +210,17 @@ GET /groups/:id/badges/render
 
 ```shell
 curl \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/:id/badges/render?link_url=http%3A%2F%2Fexample.com%2Fci_status.svg%3Fproject%3D%25%7Bproject_path%7D%26ref%3D%25%7Bdefault_branch%7D&image_url=https%3A%2F%2Fshields.io%2Fmy%2Fbadge"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/:id/badges/render?link_url=http%3A%2F%2Fexample.com%2Fci_status.svg%3Fproject%3D%25%7Bproject_path%7D%26ref%3D%25%7Bdefault_branch%7D&image_url=https%3A%2F%2Fshields.io%2Fmy%2Fbadge"
 ```
 
 Example response:
 
 ```json
 {
-  "link_url": "http://example.com/ci_status.svg?project=%{project_path}&ref=%{default_branch}",
-  "image_url": "https://shields.io/my/badge",
-  "rendered_link_url": "http://example.com/ci_status.svg?project=example-org/example-project&ref=main",
-  "rendered_image_url": "https://shields.io/my/badge"
+ "link_url": "http://example.com/ci_status.svg?project=%{project_path}&ref=%{default_branch}",
+ "image_url": "https://shields.io/my/badge",
+ "rendered_link_url": "http://example.com/ci_status.svg?project=example-org/example-project&ref=main",
+ "rendered_image_url": "https://shields.io/my/badge"
 }
 ```

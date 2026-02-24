@@ -52,14 +52,10 @@ to configure pipelines to run for open pull requests.
 
 A status check name can be static or dynamic:
 
-- **Static**: The hostname of your
-  GitLab instance is appended to the status check name.
+- **Static**: The hostname of your GitLab instance is appended to the status check name.
 
-- **Dynamic**: The branch name is appended
-  to the status check name.
+- **Dynamic**: The branch name is appended to the status check name.
 
-The **Enable static status check names** option enables you to configure
-required status checks in GitHub, which need a consistent (static) name to work correctly.
+The **Enable static status check names** option enables you to configure required status checks in GitHub, which need a consistent (static) name to work correctly.
 
-If you [disable this option](#configure-the-integration),
-GitLab uses dynamic status check names instead.
+If you [disable this option](#configure-the-integration), GitLab uses dynamic status check names instead.

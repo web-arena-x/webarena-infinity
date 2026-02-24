@@ -20,8 +20,7 @@ title: GitLab-managed Terraform/OpenTofu state
 
 {{< /history >}}
 
-Managing infrastructure state files across teams requires both security and reliability. GitLab-managed
-OpenTofu state eliminates the typical challenges of state management.
+Managing infrastructure state files across teams requires both security and reliability. GitLab-managed OpenTofu state eliminates the typical challenges of state management.
 With minimal configuration, your OpenTofu states become a natural extension of your GitLab project.
 This integration keeps your infrastructure definitions, code, and state all in one secure location.
 
@@ -36,14 +35,10 @@ With GitLab-managed OpenTofu state, you:
 
 {{< alert type="warning" >}}
 
-**Disaster recovery planning**
-OpenTofu state files are encrypted with the Lockbox Ruby gem when they are at rest on disk and in object storage with a key derived from the `db_key_base` application setting.
+**Disaster recovery planning** OpenTofu state files are encrypted with the Lockbox Ruby gem when they are at rest on disk and in object storage with a key derived from the `db_key_base` application setting.
 [To decrypt a state file, GitLab must be available](https://gitlab.com/gitlab-org/gitlab/-/issues/335739).
-If it is offline, and you use GitLab to deploy infrastructure that GitLab requires (like virtual machines,
-Kubernetes clusters, or network components), you cannot access the state file easily or decrypt it.
-Additionally, if GitLab serves up OpenTofu modules or other dependencies that are required to bootstrap GitLab,
-these will be inaccessible. To work around this issue, make other arrangements to host or back up these dependencies,
-or consider using a separate GitLab instance with no shared points of failure.
+If it is offline, and you use GitLab to deploy infrastructure that GitLab requires (like virtual machines, Kubernetes clusters, or network components), you cannot access the state file easily or decrypt it.
+Additionally, if GitLab serves up OpenTofu modules or other dependencies that are required to bootstrap GitLab, these will be inaccessible. To work around this issue, make other arrangements to host or back up these dependencies, or consider using a separate GitLab instance with no shared points of failure.
 
 {{< /alert >}}
 
@@ -53,9 +48,9 @@ For GitLab Self-Managed, before you can use GitLab for your OpenTofu state files
 
 - An administrator must [set up Terraform/OpenTofu state storage](../../../administration/terraform_state.md).
 - You must turn on the **Infrastructure** menu for your project:
-  1. Go to **Settings** > **General**.
-  1. Expand **Visibility, project features, permissions**.
-  1. Under **Infrastructure**, turn on the toggle.
+ 1. Go to **Settings** > **General**.
+ 1. Expand **Visibility, project features, permissions**.
+ 1. Under **Infrastructure**, turn on the toggle.
 
 ## Initialize an OpenTofu state as a backend by using GitLab CI/CD
 
@@ -67,10 +62,7 @@ Prerequisites:
 {{< alert type="warning" >}}
 
 Like any other job artifact, OpenTofu plan data is viewable by anyone with the Guest role on the repository.
-Neither OpenTofu nor GitLab encrypts the plan file by default. If your OpenTofu `plan.json` or `plan.cache`
-files include sensitive data like passwords, access tokens, or certificates, you should
-encrypt the plan output or modify the project visibility settings. You should also **disable**
-[public pipelines](../../../ci/pipelines/settings.md#change-pipeline-visibility-for-non-project-members-in-public-projects)
+Neither OpenTofu nor GitLab encrypts the plan file by default. If your OpenTofu `plan.json` or `plan.cache` files include sensitive data like passwords, access tokens, or certificates, you should encrypt the plan output or modify the project visibility settings. You should also **disable** [public pipelines](../../../ci/pipelines/settings.md#change-pipeline-visibility-for-non-project-members-in-public-projects)
 and set the [artifact's access flag to 'developer'](../../../ci/yaml/_index.md#artifactsaccess) (`access: 'developer'`).
 This setting ensures artifacts are accessible only to GitLab administrators and project members with at least the Developer role.
 
@@ -78,8 +70,7 @@ This setting ensures artifacts are accessible only to GitLab administrators and 
 
 To configure GitLab CI/CD as a backend:
 
-1. In your OpenTofu project, in a `.tf` file like `backend.tf`,
-   define the [HTTP backend](https://opentofu.org/docs/language/settings/backends/http/):
+1. In your OpenTofu project, in a `.tf` file like `backend.tf`, define the [HTTP backend](https://opentofu.org/docs/language/settings/backends/http/):
 
    ```hcl
    terraform {
@@ -88,11 +79,8 @@ To configure GitLab CI/CD as a backend:
    }
    ```
 
-1. In the root directory of your project repository, create a `.gitlab-ci.yml` file. Use the
-   [OpenTofu CI/CD component](https://gitlab.com/components/opentofu) to form your `.gitlab-ci.yml` file.
-1. Push your project to GitLab. This action triggers a pipeline, which
-   runs the `gitlab-tofu init`, `gitlab-tofu validate`, and
-   `gitlab-tofu plan` commands.
+1. In the root directory of your project repository, create a `.gitlab-ci.yml` file. Use the [OpenTofu CI/CD component](https://gitlab.com/components/opentofu) to form your `.gitlab-ci.yml` file.
+1. Push your project to GitLab. This action triggers a pipeline, which runs the `gitlab-tofu init`, `gitlab-tofu validate`, and `gitlab-tofu plan` commands.
 1. Trigger the manual `deploy` job from the previous pipeline. This action runs the `gitlab-tofu apply` command, which provisions the defined infrastructure.
 
 The output from the previous commands should be viewable in the job logs.
@@ -103,8 +91,7 @@ The `gitlab-tofu` CLI is a wrapper around the `tofu` CLI.
 
 You can use [OpenTofu HTTP configuration variables](https://opentofu.org/docs/language/settings/backends/http/#configuration-variables) when you define your CI/CD jobs.
 
-To customize your `init` and override the OpenTofu configuration,
-use environment variables instead of the `init -backend-config=...` approach.
+To customize your `init` and override the OpenTofu configuration, use environment variables instead of the `init -backend-config=...` approach.
 When you use `-backend-config`, the configuration is:
 
 - Cached in the output of the `plan` command.
@@ -116,12 +103,11 @@ This configuration can lead to problems like [being unable to lock the state fil
 
 By default, the `gitlab-tofu plan` (or `gitlab-terraform plan`) command always writes the plan output to a file named `plan.cache`.
 
-To change the filename, set the `TF_PLAN_CACHE` environment variable in your CI/CD pipeline configuration. For example, to
-set the filename to `my-plan.tfplan`:
+To change the filename, set the `TF_PLAN_CACHE` environment variable in your CI/CD pipeline configuration. For example, to set the filename to `my-plan.tfplan`:
 
 ```yaml
 variables:
-  TF_PLAN_CACHE: "my-plan.tfplan"
+ TF_PLAN_CACHE: "my-plan.tfplan"
 ```
 
 > [!note]
@@ -134,27 +120,22 @@ You can access the GitLab-managed OpenTofu state from your local machine.
 {{< alert type="warning" >}}
 
 On clustered deployments of GitLab, you should not use local storage.
-A split state can occur across nodes, making subsequent OpenTofu executions
-inconsistent. Instead, use a remote storage resource.
+A split state can occur across nodes, making subsequent OpenTofu executions inconsistent. Instead, use a remote storage resource.
 
 {{< /alert >}}
 
-1. Ensure the OpenTofu state has been
-   [initialized for CI/CD](#initialize-an-opentofu-state-as-a-backend-by-using-gitlab-cicd).
+1. Ensure the OpenTofu state has been [initialized for CI/CD](#initialize-an-opentofu-state-as-a-backend-by-using-gitlab-cicd).
 1. Copy a pre-populated OpenTofu `init` command:
 
    1. On the top bar, select **Search or go to** and find your project.
    1. Select **Operate** > **Terraform states**.
-   1. Next to the environment you want to use, select **Actions**
-      ({{< icon name="ellipsis_v" >}}) and select **Copy Terraform init command**.
+   1. Next to the environment you want to use, select **Actions** ({{< icon name="ellipsis_v" >}}) and select **Copy Terraform init command**.
 
 1. Open a terminal and run this command on your local machine.
 
 ## Migrate to a GitLab-managed OpenTofu state
 
-OpenTofu supports copying the state when the backend changes or is
-reconfigured. Use these actions to migrate from another backend to
-GitLab-managed OpenTofu state.
+OpenTofu supports copying the state when the backend changes or is reconfigured. Use these actions to migrate from another backend to GitLab-managed OpenTofu state.
 
 You should use a local terminal to run the commands needed for migrating to GitLab-managed OpenTofu state.
 
@@ -187,22 +168,21 @@ TF_PASSWORD="<gitlab-personal-access-token>"
 TF_ADDRESS="https://gitlab.com/api/v4/projects/${PROJECT_ID}/terraform/state/old-state-name"
 
 tofu init \
-  -backend-config=address=${TF_ADDRESS} \
-  -backend-config=lock_address=${TF_ADDRESS}/lock \
-  -backend-config=unlock_address=${TF_ADDRESS}/lock \
-  -backend-config=username=${TF_USERNAME} \
-  -backend-config=password=${TF_PASSWORD} \
-  -backend-config=lock_method=POST \
-  -backend-config=unlock_method=DELETE \
-  -backend-config=retry_wait_min=5
+ -backend-config=address=${TF_ADDRESS} \
+ -backend-config=lock_address=${TF_ADDRESS}/lock \
+ -backend-config=unlock_address=${TF_ADDRESS}/lock \
+ -backend-config=username=${TF_USERNAME} \
+ -backend-config=password=${TF_PASSWORD} \
+ -backend-config=lock_method=POST \
+ -backend-config=unlock_method=DELETE \
+ -backend-config=retry_wait_min=5
 ```
 
 {{< /tab >}}
 
 {{< /tabs >}}
 
-If the backend is initialized successfully,
-you receive the following response:
+If the backend is initialized successfully, you receive the following response:
 
 ```plaintext
 Initializing the backend...
@@ -225,8 +205,7 @@ commands will detect it and remind you to do so if necessary.
 
 ### Change the backend
 
-Now that `tofu init` has created a `.terraform/` directory that knows where
-the old state is, you can tell it about the new location:
+Now that `tofu init` has created a `.terraform/` directory that knows where the old state is, you can tell it about the new location:
 
 {{< tabs >}}
 
@@ -244,24 +223,22 @@ glab opentofu init <new-state-name> -- -migrate-state
 TF_ADDRESS="https://gitlab.com/api/v4/projects/${PROJECT_ID}/terraform/state/<new-state-name>"
 
 tofu init \
-  -migrate-state \
-  -backend-config=address=${TF_ADDRESS} \
-  -backend-config=lock_address=${TF_ADDRESS}/lock \
-  -backend-config=unlock_address=${TF_ADDRESS}/lock \
-  -backend-config=username=${TF_USERNAME} \
-  -backend-config=password=${TF_PASSWORD} \
-  -backend-config=lock_method=POST \
-  -backend-config=unlock_method=DELETE \
-  -backend-config=retry_wait_min=5
+ -migrate-state \
+ -backend-config=address=${TF_ADDRESS} \
+ -backend-config=lock_address=${TF_ADDRESS}/lock \
+ -backend-config=unlock_address=${TF_ADDRESS}/lock \
+ -backend-config=username=${TF_USERNAME} \
+ -backend-config=password=${TF_PASSWORD} \
+ -backend-config=lock_method=POST \
+ -backend-config=unlock_method=DELETE \
+ -backend-config=retry_wait_min=5
 ```
 
 {{< /tab >}}
 
 {{< /tabs >}}
 
-If the backend is initialized successfully,
-you receive the following response. If you type `yes`, it copies your state from the old location to the new
-location. You can then go back to running it in GitLab CI/CD:
+If the backend is initialized successfully, you receive the following response. If you type `yes`, it copies your state from the old location to the new location. You can then go back to running it in GitLab CI/CD:
 
 ```plaintext
 Initializing the backend...
@@ -273,12 +250,12 @@ has changed. Terraform will now check for existing state in the backends.
 
 Acquiring state lock. This may take a few moments...
 Do you want to copy existing state to the new backend?
-  Pre-existing state was found while migrating the previous "http" backend to the
-  newly configured "http" backend. No existing state was found in the newly
-  configured "http" backend. Do you want to copy this state to the new "http"
-  backend? Enter "yes" to copy and "no" to start with an empty state.
+ Pre-existing state was found while migrating the previous "http" backend to the
+ newly configured "http" backend. No existing state was found in the newly
+ configured "http" backend. Do you want to copy this state to the new "http"
+ backend? Enter "yes" to copy and "no" to start with an empty state.
 
-  Enter a value: yes
+ Enter a value: yes
 
 
 Successfully configured the backend "http"! Terraform will automatically
@@ -299,8 +276,7 @@ commands will detect it and remind you to do so if necessary.
 
 ## Use your GitLab backend as a remote data source
 
-You can use a GitLab-managed OpenTofu state backend as an
-[OpenTofu data source](https://opentofu.org/docs/language/state/remote-state-data/).
+You can use a GitLab-managed OpenTofu state backend as an [OpenTofu data source](https://opentofu.org/docs/language/state/remote-state-data/).
 
 1. In your `main.tf` or other relevant file, declare these variables. Leave the values empty.
 
@@ -345,15 +321,11 @@ You can use a GitLab-managed OpenTofu state backend as an
 
    - **address**: The URL of the remote state backend you want to use as a data source.
      For example, `https://gitlab.com/api/v4/projects/<TARGET-PROJECT-ID>/terraform/state/<TARGET-STATE-NAME>`.
-   - **username**: The username to authenticate with the data source. If you are using
-     a [personal access token](../../profile/personal_access_tokens.md) for
-     authentication, this value is your GitLab username. If you are using GitLab CI/CD, this value is `'gitlab-ci-token'`.
-   - **password**: The password to authenticate with the data source. If you are using a personal access token for
-     authentication, this value is the token value (the token must have the **API** scope).
+   - **username**: The username to authenticate with the data source. If you are using a [personal access token](../../profile/personal_access_tokens.md) for authentication, this value is your GitLab username. If you are using GitLab CI/CD, this value is `'gitlab-ci-token'`.
+   - **password**: The password to authenticate with the data source. If you are using a personal access token for authentication, this value is the token value (the token must have the **API** scope).
      If you are using GitLab CI/CD, this value is the contents of the `${CI_JOB_TOKEN}` CI/CD variable.
 
-Outputs from the data source can now be referenced in your Terraform resources
-using `data.terraform_remote_state.example.outputs.<OUTPUT-NAME>`.
+Outputs from the data source can now be referenced in your Terraform resources using `data.terraform_remote_state.example.outputs.<OUTPUT-NAME>`.
 
 To read the OpenTofu state in the target project, you need at least the Developer role.
 
@@ -368,8 +340,7 @@ To view OpenTofu state files:
 
 ### Manage individual OpenTofu state versions
 
-Manage individual state versions using either
-the GitLab CLI (`glab`) or the API.
+Manage individual state versions using either the GitLab CLI (`glab`) or the API.
 
 Prerequisites:
 
@@ -567,20 +538,20 @@ To reduce exposure of sensitive data:
 
 - GitLab Ultimate customers: Create a custom role that replicates the Developer role but excludes the `admin_terraform_state` permission. This action allows team members to contribute to the Infrastructure as Code (IaC) projects without accessing the Terraform state files that contain sensitive data.
 
-  {{< alert type="note" >}}
+ {{< alert type="note" >}}
 
-  Custom roles are only available on GitLab Ultimate. Customers on Premium or lower tiers do not have access to this mitigation option and should focus on other strategies described previously.
+ Custom roles are only available on GitLab Ultimate. Customers on Premium or lower tiers do not have access to this mitigation option and should focus on other strategies described previously.
 
-  {{< /alert >}}
+ {{< /alert >}}
 
 - OpenTofu users: Turn on state and plan encryption to protect sensitive data at rest. GitLab supports this natively through the [OpenTofu CI/CD component](https://gitlab.com/components/opentofu), which provides encryption configuration. Even if unauthorized users access the state file, encrypted content remains protected.
 
 - All users:
-  - Restrict project membership to users who require access to the infrastructure state.
-  - Use a separate project to store states, adding only necessary users as members.
-  - Use external secret management solutions like HashiCorp Vault or AWS Secrets Manager to reference secrets dynamically rather than storing them in the Terraform configuration.
-  - Mark sensitive values using the Terraform [`sensitive`](https://developer.hashicorp.com/terraform/language/values/variables#suppressing-values-in-cli-output) parameter in variable definitions. This action prevents values from appearing in the CLI output and plan files, though they remain in the state file.
-  - Regularly audit project members with Developer role and review state file contents for inadvertently exposed secrets.
+ - Restrict project membership to users who require access to the infrastructure state.
+ - Use a separate project to store states, adding only necessary users as members.
+ - Use external secret management solutions like HashiCorp Vault or AWS Secrets Manager to reference secrets dynamically rather than storing them in the Terraform configuration.
+ - Mark sensitive values using the Terraform [`sensitive`](https://developer.hashicorp.com/terraform/language/values/variables#suppressing-values-in-cli-output) parameter in variable definitions. This action prevents values from appearing in the CLI output and plan files, though they remain in the state file.
+ - Regularly audit project members with Developer role and review state file contents for inadvertently exposed secrets.
 
 ## Related topics
 

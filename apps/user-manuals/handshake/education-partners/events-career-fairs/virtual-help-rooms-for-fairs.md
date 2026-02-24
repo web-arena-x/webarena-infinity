@@ -61,7 +61,7 @@ Student view day-of view fair:
 
 - The button availability is preset to 1 hour before the fair starts.
 - Our recommendation is to pre-configure your video conference tool to "start" the meeting at 30 minutes till, and include a message for participants to clarify the meeting start time.
-  - You can also emphasize the help room start time in your emails to employers and students before the fair.
+ - You can also emphasize the help room start time in your emails to employers and students before the fair.
 - As another workflow, you can wait until 30 minutes before the fair starts to enable the virtual help room and add the links.
 
 **We are hosting a multi school fair. Who will be able to access the Help Room?**

@@ -61,11 +61,9 @@ To view the number of merge requests merged during a specific date range:
    1. Select a value or enter text to refine the results.
    1. To adjust the date range, from the dropdown list, select an option. Default is **Last 365 days**.
 
-The **Throughput** chart shows issues closed or merge requests merged (not closed) over a period of
-time.
+The **Throughput** chart shows issues closed or merge requests merged (not closed) over a period of time.
 
-The table shows up to 20 merge requests per page, and includes
-the following information about each merge request:
+The table shows up to 20 merge requests per page, and includes the following information about each merge request:
 
 - Merge request name
 - Date merged
@@ -78,12 +76,10 @@ the following information about each merge request:
 
 ## View average time between merge request creation and merge
 
-The number in **Mean time to merge** shows the average time between when a merge request is
-created and when it's merged. Closed and not yet merged merge requests are not included.
+The number in **Mean time to merge** shows the average time between when a merge request is created and when it's merged. Closed and not yet merged merge requests are not included.
 
 To view **Mean time to merge**:
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Analyze** > **Analytics Dashboards**.
-1. Select **Merge request analytics**. The **Mean time to merge** number
-   is displayed on the dashboard.
+1. Select **Merge request analytics**. The **Mean time to merge** number is displayed on the dashboard.

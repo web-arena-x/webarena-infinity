@@ -16,8 +16,7 @@ To enable the Atlassian OmniAuth provider for passwordless authentication you mu
 
 ## Atlassian application registration
 
-1. Go to the [Atlassian developer console](https://developer.atlassian.com/console/myapps/) and sign-in with the Atlassian
-   account to administer the application.
+1. Go to the [Atlassian developer console](https://developer.atlassian.com/console/myapps/) and sign-in with the Atlassian account to administer the application.
 1. Select **Create a new app**.
 1. Choose an App Name, such as 'GitLab', and select **Create**.
 1. Note the `Client ID` and `Secret` for the [GitLab configuration](#gitlab-configuration) steps.
@@ -47,9 +46,7 @@ To enable the Atlassian OmniAuth provider for passwordless authentication you mu
    ```
 
 1. Configure the [common settings](../../integration/omniauth.md#configure-common-settings)
-   to add `atlassian_oauth2` as a single sign-on provider. This enables
-   Just-In-Time account provisioning for users who do not have an existing
-   GitLab account.
+   to add `atlassian_oauth2` as a single sign-on provider. This enables Just-In-Time account provisioning for users who do not have an existing GitLab account.
 1. Add the provider configuration for Atlassian:
 
    For Linux package installations:

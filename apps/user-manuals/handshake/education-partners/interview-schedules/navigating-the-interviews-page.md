@@ -13,11 +13,11 @@ Topics:
 - [Career Centers](#h_01FXQG4AG6YK7TQA1DJ1K2SW6R)
 - [Weekly room availability](#h_01FXQG4GW3QVJHT742BS5P1CND)
 - [Interview Schedule management options](#h_01FXQG4RJZW1NMPTQBEZFQ7YMV)
-  - [Access](#h_01FXQG50JKMF87HV873TGANRT3)
-  - [Search](#h_01FXQG57DCEGB0D6T3A8XB5ZYF)
-  - [Download](#h_01FXQG5DJ3332JG1XZ4DQ3RTGD)
-  - [Create](#h_01FXQG5PPQQNV8ZBYD7TS54VXJ)
-  - [Filter](#h_01FXQG5XCXFNV2YKKCC01PKHB8)
+ - [Access](#h_01FXQG50JKMF87HV873TGANRT3)
+ - [Search](#h_01FXQG57DCEGB0D6T3A8XB5ZYF)
+ - [Download](#h_01FXQG5DJ3332JG1XZ4DQ3RTGD)
+ - [Create](#h_01FXQG5PPQQNV8ZBYD7TS54VXJ)
+ - [Filter](#h_01FXQG5XCXFNV2YKKCC01PKHB8)
 
 ### 
 
@@ -37,15 +37,15 @@ Click the:
 
 - **Download** icon to download room information for the day.
 - **Pencil** icon to edit the number of rooms for the day. 
-  - For more information on updating the room count, refer to [Update Room Availability for Interview Schedules](https://support.joinhandshake.com/hc/en-us/articles/115009710847)**.**
-  - **Note**: if you do not have the option to edit, refer to the troubleshooting steps in [Viewing Interview Schedules by Career Center](https://support.joinhandshake.com/hc/en-us/articles/115009885508).
+ - For more information on updating the room count, refer to [Update Room Availability for Interview Schedules](https://support.joinhandshake.com/hc/en-us/articles/115009710847)**.**
+ - **Note**: if you do not have the option to edit, refer to the troubleshooting steps in [Viewing Interview Schedules by Career Center](https://support.joinhandshake.com/hc/en-us/articles/115009885508).
 
 The week displayed will default to the current week. To change the week, click the:
 
 - **Week of [Day, Date]** button in the center of the page to open a calendar.
 - Arrows to the left and right of the **Week of [Day, Date]** button to find the desired week.  
-  - Right for future
-  - Left for past
+ - Right for future
+ - Left for past
 
 ![view_career_centers.png](https://support.joinhandshake.com/hc/article_attachments/360065123934/view_career_centers.png)
 
@@ -74,14 +74,14 @@ For each interview schedule, you can review the following information:
 - **Rooms Requested** - number of rooms needed for the interview, requested by employer
 - **Rooms Assigned** - number of rooms assigned to the interview
 - **Type** - Interview Schedule type
-  - *For more information on this, refer to [Types of Interviews in Handshake](https://support.joinhandshake.com/hc/en-us/articles/218693248)*
+ - *For more information on this, refer to [Types of Interviews in Handshake](https://support.joinhandshake.com/hc/en-us/articles/218693248)*
 - **Timeline**
-  - Pre App - the interview has been approved, but applications for the job has not opened
-  - In App - interview is currently in the application period; students can apply to the connected job
-  - Pre Sign Up - application period has ended
-  - Sign Up - selected students can reserve their slots
-  - Finalized - interview schedule has been finalized and can't be changed
-  - Completed - interviews have been completed
+ - Pre App - the interview has been approved, but applications for the job has not opened
+ - In App - interview is currently in the application period; students can apply to the connected job
+ - Pre Sign Up - application period has ended
+ - Sign Up - selected students can reserve their slots
+ - Finalized - interview schedule has been finalized and can't be changed
+ - Completed - interviews have been completed
 - **Slots Taken**- number of slots reserved by students
 - **Status** - Approved, Declined, Pending
 
@@ -154,13 +154,13 @@ Use the **Filter** dropdown, located to the left of the status options to narrow
 - Label
 - Employer - name of the company
 - Interview Type
-  - Room Only
-  - Open
-  - Preselect
+ - Room Only
+ - Open
+ - Preselect
 - Payment Status
-  - Unpaid
-  - Invoiced
-  - Paid
+ - Unpaid
+ - Invoiced
+ - Paid
 - Ranges - insert date range of interview
 - Other - tracking Resumes in Handshake
 

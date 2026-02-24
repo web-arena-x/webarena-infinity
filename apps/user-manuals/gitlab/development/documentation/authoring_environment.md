@@ -11,16 +11,15 @@ You can use whichever tools you're most comfortable with.
 Use this guidance to help ensure you have the tools you need.
 
 - Install a code editor, like VS Code or Sublime Text, to work with Markdown files.
-- [Install Git](../../topics/git/how_to_install_git/_index.md) and
-  [add an SSH key to your GitLab profile](../../user/ssh.md#add-an-ssh-key-to-your-gitlab-account).
+- [Install Git](../../topics/git/how_to_install_git/_index.md) and [add an SSH key to your GitLab profile](../../user/ssh.md#add-an-ssh-key-to-your-gitlab-account).
 - Install documentation [linters](testing/_index.md) and configure them in your code editor:
-  - [markdownlint](testing/markdownlint.md)
-  - [Vale](testing/vale.md)
+ - [markdownlint](testing/markdownlint.md)
+ - [Vale](testing/vale.md)
 - If you're using VS Code, [install the GitLab Workflow extension](../../editor_extensions/visual_studio_code/setup.md)
-  to get GitLab Duo Chat and other GitLab features in your editor.
+ to get GitLab Duo Chat and other GitLab features in your editor.
 - [Set up the docs site to build locally](https://gitlab.com/gitlab-org/technical-writing/docs-gitlab-com/-/blob/main/doc/setup.md).
 - Optional. Install the [Conventional Comments](https://gitlab.com/conventionalcomments/conventional-comments-button) extension for Chrome.
-  The plugin adds **Conventional Comment** buttons to GitLab comments.
+ The plugin adds **Conventional Comment** buttons to GitLab comments.
 
 After you're comfortable with your toolset, you can [install the GitLab Development Kit (GDK)](https://gitlab-org.gitlab.io/gitlab-development-kit/), a fully functional self-managed version of GitLab.
 

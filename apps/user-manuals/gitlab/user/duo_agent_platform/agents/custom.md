@@ -35,13 +35,9 @@ For more information, see the history.
 
 {{< /alert >}}
 
-Agents use AI to perform tasks and answer complex questions. Create
-custom agents to accomplish specific tasks, like creating merge
-requests or reviewing code. Or, use the AI Catalog to discover agents
-created by GitLab.
+Agents use AI to perform tasks and answer complex questions. Create custom agents to accomplish specific tasks, like creating merge requests or reviewing code. Or, use the AI Catalog to discover agents created by GitLab.
 
-When you're ready to interact with an agent, you can enable it to
-start using it with GitLab Duo Chat.
+When you're ready to interact with an agent, you can enable it to start using it with GitLab Duo Chat.
 
 ## Agent visibility
 
@@ -94,10 +90,8 @@ To create an agent:
    1. In **Display name**, enter a name for the agent.
    1. In **Description**, enter a description for the agent.
 1. Under **Visibility & access**, for **Visibility**, select **Private** or **Public**.
-1. Under **Prompts**, in **System prompt**, enter a prompt to define
-   the agent's personality, expertise, and behavior.
-1. Optional. Under **Available tools**, from the **Tools** dropdown list,
-   select which tools the agent can access.
+1. Under **Prompts**, in **System prompt**, enter a prompt to define the agent's personality, expertise, and behavior.
+1. Optional. Under **Available tools**, from the **Tools** dropdown list, select which tools the agent can access.
    For example, for the agent to create issues automatically, select **Create issue**.
 
    For a list of available tools, see the [built-in tool definitions](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/ai/catalog/built_in_tool_definitions.rb).
@@ -118,10 +112,8 @@ To create an agent:
 1. Under **Visibility & access**:
    1. From the **Managed by** dropdown list, select a project for the agent.
    1. For **Visibility**, select **Private** or **Public**.
-1. Under **Prompts**, in **System prompt**, enter a prompt to define
-   the agent's personality, expertise, and behavior.
-1. Optional. Under **Available tools**, from the **Tools** dropdown list,
-   select which tools the agent can access.
+1. Under **Prompts**, in **System prompt**, enter a prompt to define the agent's personality, expertise, and behavior.
+1. Optional. Under **Available tools**, from the **Tools** dropdown list, select which tools the agent can access.
    For example, for the agent to create issues automatically, select **Create issue**.
 
    For a list of available tools, see the [built-in tool definitions](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/lib/ai/catalog/built_in_tool_definitions.rb).

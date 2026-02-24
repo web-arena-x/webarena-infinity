@@ -37,10 +37,10 @@ You can update issue statuses manually to reflect the current progress on that t
 For example, our GitHub and GitLab integrations move issues to _In Progress_ when you copy the git branch name and continues to update the status as the PR is drafted, opened, reviewed, and merged. Cycle automations move issues to and from the backlog and you can set issues to close and archive on their own so lists stay relevant.
 
 > [!NOTE]
-> **Special Statuses**  
+> **Special Statuses** 
 > 
 > 
-> * **Backlog** is a status category in Linear. Each team has its own backlog and teams can add additional backlog statuses to group issues down further.  
+> * **Backlog** is a status category in Linear. Each team has its own backlog and teams can add additional backlog statuses to group issues down further. 
 > 
 > * **Triage** is an optional status in Linear that makes it possible to review issues before accepting them and moving them to your team's backlog or cycles.
 
@@ -81,7 +81,7 @@ As with issue views, Project Views are dynamic: when a project meets the filter 
 
 ### Initiatives
 
-Initiatives organize your projects and showcase the goals your company is working towards alongside their progress. Each Initiative contains a manually curated list of projects and Initiatives are presented within a single Initiatives view at the workspace level. This enables high-level planning across multiple projects and long timelines.  
+Initiatives organize your projects and showcase the goals your company is working towards alongside their progress. Each Initiative contains a manually curated list of projects and Initiatives are presented within a single Initiatives view at the workspace level. This enables high-level planning across multiple projects and long timelines. 
 
 
 Leadership and managers can use the top-level Initiatives view in their Linear workspace for a quick overview of ongoing goals, objectives, and their progress. 
@@ -101,7 +101,7 @@ For example, let's say you want to apply the label _bug_ to an issue. You can fo
 * Use the keyboard shortcut `L` 
 * Open the command menu `Cmd/Ctrl` `K` then search `label`.
 
-To do anything else to an issue - add an estimate, set priority, update status, set the assignee, add it to a project - you follow pretty much the same steps. To do anything to a project from the initiative or project view, you also take similar steps.  
+To do anything else to an issue - add an estimate, set priority, update status, set the assignee, add it to a project - you follow pretty much the same steps. To do anything to a project from the initiative or project view, you also take similar steps. 
 
 ### Bulk actions
 
@@ -113,11 +113,7 @@ An `Undo` action (`Cmd/Ctrl` `Z`) reverses most actions.
 
 Your keyboard is the fastest method for using Linear. Even if you don't use keyboard shortcuts normally, we recommend learning ones for common actions such as creating an issue. These are the most helpful to learn:
 
-`C` to create an issue in any view  
-`Cmd/Ctrl` `K` to open the command menu  
-`x` to select  
-`Shift` `Up/Down` or `Shift` `Click` to select multiple  
-`Esc` to go back or clear a list selection
+`C` to create an issue in any view `Cmd/Ctrl` `K` to open the command menu `x` to select `Shift` `Up/Down` or `Shift` `Click` to select multiple `Esc` to go back or clear a list selection
 
 Shortcuts cannot be remapped in Linear at this time, though we may consider adding custom shortcuts in the future.
 

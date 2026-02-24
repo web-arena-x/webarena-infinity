@@ -8,35 +8,29 @@ This article explains how to view and configure settings for an advanced AI agen
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
-This article explains how to view and configure settings for an advanced AI agent on the
-Settings page. [User role](https://support.zendesk.com/hc/en-us/articles/4408832171034#topic_thq_lnf_dgc) determines which settings a user has access
-to. Client admins can access all settings.
+This article explains how to view and configure settings for an advanced AI agent on the Settings page. [User role](https://support.zendesk.com/hc/en-us/articles/4408832171034#topic_thq_lnf_dgc) determines which settings a user has access to. Client admins can access all settings.
 
 This article covers the following topics:
 
-- [Accessing the advanced AI agents settings
-  page](#topic_jb3_qbl_42c)
+- [Accessing the advanced AI agents settings page](#topic_jb3_qbl_42c)
 - [About the general settings](#topic_ygm_pbl_42c)
 - [About the generative AI settings](#topic_mpv_sj4_lfc)
 
 ## Accessing the advanced AI agents settings page
 
-The AI agent settings page opens on General settings. Tabs provide access to other types of
-settings.
+The AI agent settings page opens on General settings. Tabs provide access to other types of settings.
 
 **To access the AI agents settings page**
 
-1. In AI agents - Advanced, in the top-right corner, use the AI agent drop-down field to
-   select the AI agent you want to access the settings for.
+1. In AI agents - Advanced, in the top-right corner, use the AI agent drop-down field to select the AI agent you want to access the settings for.
 2. In the left sidebar, click ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/zqa_settings.png)
    **Settings**.
 
-   The AI agent settings page opens with the general settings
-   displayed.
+   The AI agent settings page opens with the general settings displayed.
 3. View and edit the **General** settings as needed.
 
    See [About the general settings](#topic_ygm_pbl_42c).
@@ -70,8 +64,7 @@ The General settings page allows you to control the following for advanced AI ag
 ## About the generative AI settings
 
 Within the general settings, you can configure how the AI agent uses generative AI.
-Available options depend on the type of AI agent you’re using (expression-based,
-zero-training, or agentic) and when your AI agent was created.
+Available options depend on the type of AI agent you’re using (expression-based, zero-training, or agentic) and when your AI agent was created.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/aiaa_settings_generative_ai.png)
 

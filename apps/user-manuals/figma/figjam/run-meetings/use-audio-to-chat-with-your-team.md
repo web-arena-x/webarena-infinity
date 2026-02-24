@@ -57,8 +57,8 @@ Once you've granted permissions and joined a conversation, a tab indicator will 
 
 Figma uses your computer's default microphone settings. To change your microphone device:
 
-1. Click  in your audio controls.
-2. Use the dropdown fields under  Microphone to select your preferred device.
+1. Click in your audio controls.
+2. Use the dropdown fields under Microphone to select your preferred device.
 
 Tip
 
@@ -66,8 +66,8 @@ Use your computer's system preferences to test your microphone and speaker level
 
 To change a speaker device (Chrome & desktop app only):
 
-1. Click  in your audio controls.
-2. Use the dropdown fields under  Microphone and  Speakers to select your preferred devices. Your setting will be saved automatically.
+1. Click in your audio controls.
+2. Use the dropdown fields under Microphone and Speakers to select your preferred devices. Your setting will be saved automatically.
 
 Note
 
@@ -81,10 +81,10 @@ Each file can hold a single conversation at any given time, allowing for fewer i
 
 To start a conversation:
 
-1. Hover over your avatar in the toolbar and click  to open the **Multiplayer tools** dropdown menu.
-2. Click  **Start conversation**.
+1. Hover over your avatar in the toolbar and click to open the **Multiplayer tools** dropdown menu.
+2. Click **Start conversation**.
 
-To join an active conversation, click  **Join conversation** in the toolbar.
+To join an active conversation, click **Join conversation** in the toolbar.
 
 Figma will confirm that you've successfully started or joined a conversation with a green **Connected** label in your audio controls.
 
@@ -94,16 +94,16 @@ When someone is talking, their avatar bubbles up to the toolbar and their cursor
 
 Audio controls appear when you join a conversation. Use audio controls to:
 
-- Click  to mute/unmute your microphone
-- Click  to access additional settings and change your microphone and speaker sources
+- Click to mute/unmute your microphone
+- Click to access additional settings and change your microphone and speaker sources
 - Click **Leave** to leave the call
 
 ### Mute or unmute your microphone
 
 You can mute or unmute your microphone in your audio controls or in the toolbar.
 
-- Click  to mute your microphone so that participants cannot hear you.
-- Click  to unmute your microphone and allow participants to hear you.
+- Click to mute your microphone so that participants cannot hear you.
+- Click to unmute your microphone and allow participants to hear you.
 
 ### Leave or end conversations
 

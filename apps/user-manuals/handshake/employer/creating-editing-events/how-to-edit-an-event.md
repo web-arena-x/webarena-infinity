@@ -17,7 +17,7 @@ You can edit event details in Handshake to update information such as the date, 
 
 - **Basic employers**: **Owners** and **Recruiters** can edit only the events they have personally created. Events created by other teammates will appear on your list but are **view-only**.
 
-  - To edit events created by teammates, you must upgrade to an eligible paid plan.
+ - To edit events created by teammates, you must upgrade to an eligible paid plan.
 - **On-campus employers, Plus, Pro, Essentials and TES customers**: All users, except **Representatives**, can edit events created by themselves or by teammates, provided they have the appropriate permissions.
 
 *Need to cancel or delete your event? Learn more about* [*Canceling or Deleting an Event*](https://support.joinhandshake.com/hc/en-us/articles/33508908085655).

@@ -5,31 +5,24 @@ info: Any user with at least the Maintainer role can merge updates to this conte
 title: Guidelines for implementing Enterprise Edition features
 ---
 
-- **Place code in `ee/`**: Put all Enterprise Edition (EE) inside the `ee/` top-level directory. The
-  rest of the code must be as close to the Community Edition (CE) files as possible.
-- **Write tests**: As with any code, EE features must have good test coverage to prevent
-  regressions. All `ee/` code must have corresponding tests in `ee/`.
-- **Write documentation.**: Add documentation to the `doc/` directory. Describe
-  the feature and include screenshots, if applicable. Indicate [what editions](documentation/styleguide/availability_details.md)
-  the feature applies to.
+- **Place code in `ee/`**: Put all Enterprise Edition (EE) inside the `ee/` top-level directory. The rest of the code must be as close to the Community Edition (CE) files as possible.
+- **Write tests**: As with any code, EE features must have good test coverage to prevent regressions. All `ee/` code must have corresponding tests in `ee/`.
+- **Write documentation.**: Add documentation to the `doc/` directory. Describe the feature and include screenshots, if applicable. Indicate [what editions](documentation/styleguide/availability_details.md)
+ the feature applies to.
 <!-- markdownlint-disable MD044 -->
-- **Submit a MR to the [`www-gitlab-com`](https://gitlab.com/gitlab-com/www-gitlab-com) project.**: Add the new feature to the
-  [EE features list](https://about.gitlab.com/features/).
+- **Submit a MR to the [`www-gitlab-com`](https://gitlab.com/gitlab-com/www-gitlab-com) project.**: Add the new feature to the [EE features list](https://about.gitlab.com/features/).
 <!-- markdownlint-enable MD044 -->
 
 ## Runtime modes in development
 
-1. **EE Unlicensed**: this is what you have from a plain GDK installation, if you've installed from
-   the [main repository](https://gitlab.com/gitlab-org/gitlab)
-1. **EE licensed**: when
-   you [add a valid license to your GDK](https://gitlab.com/gitlab-org/customers-gitlab-com/-/blob/main/doc/setup/gitlab.md#adding-a-license-from-staging-customers-portal-to-your-gdk)
+1. **EE Unlicensed**: this is what you have from a plain GDK installation, if you've installed from the [main repository](https://gitlab.com/gitlab-org/gitlab)
+1. **EE licensed**: when you [add a valid license to your GDK](https://gitlab.com/gitlab-org/customers-gitlab-com/-/blob/main/doc/setup/gitlab.md#adding-a-license-from-staging-customers-portal-to-your-gdk)
 1. **GitLab.com SaaS**: when you [simulate SaaS](#simulate-a-saas-instance)
 1. **CE**: in any of the states above, when you [simulate CE](#simulate-a-ce-instance-with-a-licensed-gdk)
 
 ## Feature implementation decision flow
 
-The following diagram illustrates how to decide where and how to implement features across the CE/EE/SaaS/Dedicated
-layers:
+The following diagram illustrates how to decide where and how to implement features across the CE/EE/SaaS/Dedicated layers:
 
 ```mermaid
 %%{init: { "fontFamily": "GitLab Sans" }}%%
@@ -94,7 +87,7 @@ flowchart TD
 This diagram shows the four main implementation layers:
 
 - **CE (Green)**: Community Edition features with no licensing requirements.
-  If your target audience is **free users on GitLab.com**, follow the **SaaS** decision path
+ If your target audience is **free users on GitLab.com**, follow the **SaaS** decision path
 - **EE (Orange)**: Enterprise Edition features requiring Premium/Ultimate licenses
 - **SaaS (Pink)**: Features exclusive to GitLab.com SaaS instances
 - **Dedicated (Blue)**: Features that behave differently on GitLab Dedicated instances
@@ -102,8 +95,7 @@ This diagram shows the four main implementation layers:
 Key decision points:
 
 - **File placement**: CE code goes in main directories, EE code in `ee/` subdirectories
-- **Feature guards**: Different methods for each layer (`licensed_feature_available?`, `License.feature_available?`,
-  `Gitlab::Saas.feature_available?`, `Gitlab::Dedicated.feature_available?`)
+- **Feature guards**: Different methods for each layer (`licensed_feature_available?`, `License.feature_available?`, `Gitlab::Saas.feature_available?`, `Gitlab::Dedicated.feature_available?`)
 - **Testing approaches**: Each layer has specific helpers and metadata for testing
 
 ## SaaS-only feature
@@ -111,11 +103,9 @@ Key decision points:
 Use the following guidelines when you develop a feature that is only applicable for SaaS (for example, a CustomersDot integration).
 
 In general, features should be provided for [both SaaS and Self-managed deployments](https://handbook.gitlab.com/handbook/product/product-principles/#parity-between-saas-and-self-managed-deployments).
-However, there are cases when a feature should only be available on SaaS and this guide will help show how that is
-accomplished.
+However, there are cases when a feature should only be available on SaaS and this guide will help show how that is accomplished.
 
-It is recommended you use `Gitlab::Saas.feature_available?`. This enables
-context rich definitions around the reason the feature is SaaS-only.
+It is recommended you use `Gitlab::Saas.feature_available?`. This enables context rich definitions around the reason the feature is SaaS-only.
 
 ### Implementing a SaaS-only feature with `Gitlab::Saas.feature_available?`
 
@@ -153,10 +143,8 @@ Each SaaS feature is defined in a separate YAML file consisting of a number of f
 
 #### Create a new SaaS feature file definition
 
-The GitLab codebase provides [`bin/saas-feature.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/bin/saas-feature.rb),
-a dedicated tool to create new SaaS feature definitions.
-The tool asks various questions about the new SaaS feature, then creates
-a YAML definition in `ee/config/saas_features`.
+The GitLab codebase provides [`bin/saas-feature.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/bin/saas-feature.rb), a dedicated tool to create new SaaS feature definitions.
+The tool asks various questions about the new SaaS feature, then creates a YAML definition in `ee/config/saas_features`.
 
 Only SaaS features that have a YAML definition file can be used when running the development or testing environments.
 
@@ -183,7 +171,7 @@ JH_DISABLED_FEATURES = %i[some_domain_new_feature_name].freeze
 
 override :feature_available?
 def feature_available?(feature)
-  super && JH_DISABLED_FEATURES.exclude?(feature)
+ super && JH_DISABLED_FEATURES.exclude?(feature)
 end
 ```
 
@@ -195,45 +183,39 @@ See [extending CE with EE guide](#extend-ce-features-with-ee-backend-code).
 ### SaaS-only features in tests
 
 Introducing a SaaS-only feature into the codebase creates an additional code path that should be tested.
-Include automated tests for all code affected by a SaaS-only feature, both when the feature is **enabled**
-and **disabled** to ensure the feature works properly.
+Include automated tests for all code affected by a SaaS-only feature, both when the feature is **enabled** and **disabled** to ensure the feature works properly.
 
-Just as we use `Gitlab::Saas.feature_available?(:specific_feature)` instead of `Gitlab.com?` in application code
-to convey **why** something is SaaS-only, we should use specific SaaS feature metadata tags in tests for the same
-reason.
-This creates a clear connection between the feature implementation and its tests, making the codebase more maintainable
-and self-documenting.
+Just as we use `Gitlab::Saas.feature_available?(:specific_feature)` instead of `Gitlab.com?` in application code to convey **why** something is SaaS-only, we should use specific SaaS feature metadata tags in tests for the same reason.
+This creates a clear connection between the feature implementation and its tests, making the codebase more maintainable and self-documenting.
 
 #### Use SaaS feature metadata tags (Recommended)
 
-For most test scenarios, use metadata tags to automatically enable SaaS features without manually calling
-`stub_saas_features`. This approach is particularly useful for integration tests or when you need SaaS features enabled
-for an entire test context.
+For most test scenarios, use metadata tags to automatically enable SaaS features without manually calling `stub_saas_features`. This approach is particularly useful for integration tests or when you need SaaS features enabled for an entire test context.
 
 Add the SaaS feature name, with `saas_` prepended, as metadata to your test context or individual examples:
 
 ```ruby
 # Context-level metadata (applies to all examples in the context)
 describe 'some feature', :saas_gitlab_com_subscriptions do
-  it 'shows SaaS-specific functionality' do
+ it 'shows SaaS-specific functionality' do
     expect(page).to have_content('SaaS Feature')
-  end
+ end
 end
 
 # Individual example metadata
 describe 'some feature' do
-  it 'shows SaaS-specific functionality', :saas_gitlab_com_subscriptions do
+ it 'shows SaaS-specific functionality', :saas_gitlab_com_subscriptions do
     expect(page).to have_content('SaaS Feature')
-  end
+ end
 
-  it 'works without SaaS features' do
+ it 'works without SaaS features' do
     expect(page).not_to have_content('SaaS Feature')
-  end
+ end
 end
 
 # Multiple SaaS features
 context 'with multiple SaaS features', :saas_onboarding, :saas_gitlab_com_subscriptions do
-  # Both 'onboarding' and 'duo_enterprise' features are enabled
+ # Both 'onboarding' and 'duo_enterprise' features are enabled
 end
 ```
 
@@ -244,14 +226,11 @@ This metadata approach:
 - Works with any SaaS feature defined in `Gitlab::Saas::FEATURES`
 - Is cleaner than manually calling `stub_saas_features` in `before` blocks
 
-Use this approach when you need SaaS features enabled for test contexts or specific examples. For more granular control
-or when testing both enabled/disabled states within the same example, continue using the `stub_saas_features` helper
-directly.
+Use this approach when you need SaaS features enabled for test contexts or specific examples. For more granular control or when testing both enabled/disabled states within the same example, continue using the `stub_saas_features` helper directly.
 
 #### Use the `stub_saas_features` helper (Advanced scenarios)
 
-For complex scenarios where you need granular control over feature states or need to test both enabled/disabled paths
-within the same test, use the `stub_saas_features` helper directly.
+For complex scenarios where you need granular control over feature states or need to test both enabled/disabled paths within the same test, use the `stub_saas_features` helper directly.
 
 To enable a SaaS-only feature in a test, use the `stub_saas_features` helper:
 
@@ -265,54 +244,51 @@ A common pattern of testing both paths looks like:
 
 ```ruby
 it 'purchases/additional_minutes is not available by default' do
-  # tests assuming purchases_additional_minutes is not enabled by default
-  ::Gitlab::Saas.feature_available?(:purchases_additional_minutes) # => false
+ # tests assuming purchases_additional_minutes is not enabled by default
+ ::Gitlab::Saas.feature_available?(:purchases_additional_minutes) # => false
 end
 
 context 'when purchases_additional_minutes is available' do
-  before do
+ before do
     stub_saas_features(purchases_additional_minutes: true)
-  end
+ end
 
-  it 'returns true' do
+ it 'returns true' do
     ::Gitlab::Saas.feature_available?(:purchases_additional_minutes) # => true
-  end
+ end
 end
 ```
 
 #### Use the `:saas` metadata helper (Specific scenarios)
 
-The `:saas` metadata helper should be used in specific scenarios where the code relies on the `Gitlab.com?`
-approach rather than specific SaaS features. This includes:
+The `:saas` metadata helper should be used in specific scenarios where the code relies on the `Gitlab.com?` approach rather than specific SaaS features. This includes:
 
 - Code that hasn't been converted to use specific SaaS features yet
-- Areas like database migrations where `Gitlab.com?` checks are the appropriate approach (as exceptions to the SaaS
-  feature pattern)
+- Areas like database migrations where `Gitlab.com?` checks are the appropriate approach (as exceptions to the SaaS feature pattern)
 
 For new SaaS-only features, use the [SaaS feature metadata tags](#use-saas-feature-metadata-tags-recommended) instead.
 
-For more information about tests, see
-[Tests depending on SaaS](testing_guide/best_practices.md#tests-depending-on-saas).
+For more information about tests, see [Tests depending on SaaS](testing_guide/best_practices.md#tests-depending-on-saas).
 
 Example usage in specs:
 
 ```ruby
 # spec/migrations/20240510113339_add_saas_specific_column_spec.rb
 RSpec.describe AddSaasSpecificColumn do
-  it 'adds column for self-managed instances' do
+ it 'adds column for self-managed instances' do
     migrate!
 
     expect(table(:projects)).to have_column(:some_column)
-  end
+ end
 
-  context 'when SaaS', :saas do
+ context 'when SaaS', :saas do
     it 'adds additional SaaS-specific column' do
       migrate!
 
       expect(table(:projects)).to have_column(:some_column)
       expect(table(:projects)).to have_column(:saas_specific_column)
     end
-  end
+ end
 end
 ```
 
@@ -330,8 +306,7 @@ version of the product:
    There are many ways to pass an environment variable to your local GitLab instance.
    For example, you can [create an entry in the `gdk.yml` file](https://gitlab-org.gitlab.io/gitlab-development-kit/configuration/#setting-environment-variables).
 
-1. Enable **Allow use of licensed EE features** to make licensed EE features available to projects
-   only if the project namespace's plan includes the feature.
+1. Enable **Allow use of licensed EE features** to make licensed EE features available to projects only if the project namespace's plan includes the feature.
 
    1. In the upper-right corner, select **Admin**.
    1. On the left sidebar, select **Settings** > **General**.
@@ -349,24 +324,20 @@ version of the product:
 Here's a [📺 video](https://youtu.be/DHkaqXw_Tmc) demonstrating how to do the steps above.
 
 <figure class="video-container">
-  <iframe src="https://www.youtube-nocookie.com/embed/DHkaqXw_Tmc" frameborder="0" allowfullscreen> </iframe>
+ <iframe src="https://www.youtube-nocookie.com/embed/DHkaqXw_Tmc" frameborder="0" allowfullscreen> </iframe>
 </figure>
 
 ## Dedicated instance features
 
 Use the following guidelines when you need to handle GitLab Dedicated instances differently in your code.
 
-GitLab Dedicated instances are always provisioned with the Ultimate tier, as documented in
-the [Dedicated architecture](../administration/dedicated/architecture.md). Because Dedicated is exclusively an
-Enterprise Edition offering, all Dedicated-specific code must be placed in the `ee/` directory structure, following the
-same patterns as other EE features.
+GitLab Dedicated instances are always provisioned with the Ultimate tier, as documented in the [Dedicated architecture](../administration/dedicated/architecture.md). Because Dedicated is exclusively an Enterprise Edition offering, all Dedicated-specific code must be placed in the `ee/` directory structure, following the same patterns as other EE features.
 
 ### Common use cases
 
 Dedicated-specific code is for features that should only be available on Dedicated instances.
 
-In general, features should be provided
-for [both SaaS and Self-managed deployments](https://handbook.gitlab.com/handbook/product/product-principles/#parity-between-saas-and-self-managed-deployments).
+In general, features should be provided for [both SaaS and Self-managed deployments](https://handbook.gitlab.com/handbook/product/product-principles/#parity-between-saas-and-self-managed-deployments).
 However, there are valid cases for Dedicated-only features.
 
 ### Using `Gitlab::Dedicated` methods
@@ -387,9 +358,7 @@ Add the feature to `FEATURES` in `ee/lib/gitlab/dedicated.rb`:
 FEATURES = %i[custom_backup_strategy skip_ultimate_trial_experience].freeze
 ```
 
-The `feature_available?` method enables context-rich definitions through YAML files in `ee/config/dedicated_features/`
-that document why
-the feature behaves differently for Dedicated instances.
+The `feature_available?` method enables context-rich definitions through YAML files in `ee/config/dedicated_features/` that document why the feature behaves differently for Dedicated instances.
 
 #### Dedicated feature definition and validation
 
@@ -428,8 +397,7 @@ milestone: '18.6'
 group: group::acquisition
 ```
 
-Only Dedicated features that have a YAML definition file can be used when running the development or testing
-environments.
+Only Dedicated features that have a YAML definition file can be used when running the development or testing environments.
 
 ### Why Dedicated code must be in `ee/`
 
@@ -439,50 +407,37 @@ All Dedicated-specific code must be placed in the `ee/` directory structure. Thi
 - The codebase maintains clear separation between CE and EE functionality
 - Dedicated instances have access to all Ultimate features plus Dedicated-specific behavior
 
-Just as with SaaS-only features, avoid using `Gitlab::CurrentSettings.gitlab_dedicated_instance?` directly in
-application code. Instead, use `Gitlab::Dedicated.feature_available?(:specific_feature)` to provide context about why
-the feature behaves differently for Dedicated.
+Just as with SaaS-only features, avoid using `Gitlab::CurrentSettings.gitlab_dedicated_instance?` directly in application code. Instead, use `Gitlab::Dedicated.feature_available?(:specific_feature)` to provide context about why the feature behaves differently for Dedicated.
 
 ### Exceptions for database migrations
 
-Database migrations may need to check for Dedicated instances using `Gitlab::CurrentSettings.gitlab_dedicated_instance?`
-when the migration needs to behave differently based on the deployment type. This is acceptable in migrations where the
-`Gitlab::Dedicated.feature_available?` pattern cannot be used.
+Database migrations may need to check for Dedicated instances using `Gitlab::CurrentSettings.gitlab_dedicated_instance?` when the migration needs to behave differently based on the deployment type. This is acceptable in migrations where the `Gitlab::Dedicated.feature_available?` pattern cannot be used.
 
 ## Implement a new EE feature
 
-If you're developing a GitLab Premium or GitLab Ultimate licensed feature, use these steps to
-add your new feature or extend it.
+If you're developing a GitLab Premium or GitLab Ultimate licensed feature, use these steps to add your new feature or extend it.
 
-GitLab license features are added to [`ee/app/models/gitlab_subscriptions/features.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/app/models/gitlab_subscriptions/features.rb). To determine how
-to modify this file, first discuss how your feature fits into our licensing with your Product Manager.
+GitLab license features are added to [`ee/app/models/gitlab_subscriptions/features.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/ee/app/models/gitlab_subscriptions/features.rb). To determine how to modify this file, first discuss how your feature fits into our licensing with your Product Manager.
 
 Use the following questions to guide you:
 
 1. Is this a new feature, or are you extending an existing licensed feature?
-   - If your feature already exists, you don't have to modify `features.rb`, but you
-     must locate the existing feature identifier to [guard it](#guard-your-ee-feature).
-   - If this is a new feature, decide on an identifier, such as `my_feature_name`, to add to the
-     `features.rb` file.
+   - If your feature already exists, you don't have to modify `features.rb`, but you must locate the existing feature identifier to [guard it](#guard-your-ee-feature).
+   - If this is a new feature, decide on an identifier, such as `my_feature_name`, to add to the `features.rb` file.
 1. Is this a **GitLab Premium** or **GitLab Ultimate** feature?
-   - Based on the plan you choose to use the feature in, add the feature identifier to `PREMIUM_FEATURES`
-     or `ULTIMATE_FEATURES`.
+   - Based on the plan you choose to use the feature in, add the feature identifier to `PREMIUM_FEATURES` or `ULTIMATE_FEATURES`.
 1. Will this feature be available globally (system-wide for the GitLab instance)?
-   - Features such as [Geo](../administration/geo/_index.md) and
-     [Database Load Balancing](../administration/postgresql/database_load_balancing.md) are used by the entire instance
-     and cannot be restricted to individual user namespaces. These features are defined in the instance license.
+   - Features such as [Geo](../administration/geo/_index.md) and [Database Load Balancing](../administration/postgresql/database_load_balancing.md) are used by the entire instance and cannot be restricted to individual user namespaces. These features are defined in the instance license.
      Add these features to `GLOBAL_FEATURES`.
 
 ### Guard your EE feature
 
-A licensed feature can only be available to licensed users. You must add a check or guard
-to determine if users have access to the feature.
+A licensed feature can only be available to licensed users. You must add a check or guard to determine if users have access to the feature.
 
 To guard your licensed feature:
 
 1. Locate your feature identifier in `ee/app/models/gitlab_subscriptions/features.rb`.
-1. Use the following methods, where `my_feature_name` is your feature
-   identifier:
+1. Use the following methods, where `my_feature_name` is your feature identifier:
 
    - In a project context:
 
@@ -499,11 +454,10 @@ To guard your licensed feature:
    - For a global (system-wide) feature:
 
      ```ruby
-     License.feature_available?(:my_feature_name)  # true if available in this instance
+     License.feature_available?(:my_feature_name) # true if available in this instance
      ```
 
-1. Optional. If your global feature is also available to namespaces with a paid plan, combine two
-   feature identifiers to allow both administrators and group users. For example:
+1. Optional. If your global feature is also available to namespaces with a paid plan, combine two feature identifiers to allow both administrators and group users. For example:
 
    ```ruby
    License.feature_available?(:my_feature_name) || group.licensed_feature_available?(:my_feature_name_for_namespace) # Both admins and group members can see this EE feature
@@ -511,19 +465,13 @@ To guard your licensed feature:
 
 ### Simulate a CE instance when unlicensed
 
-After the implementation of
-[GitLab CE features to work with unlicensed EE instance](https://gitlab.com/gitlab-org/gitlab/-/issues/2500)
-GitLab Enterprise Edition works like GitLab Community Edition
-when no license is active.
+After the implementation of [GitLab CE features to work with unlicensed EE instance](https://gitlab.com/gitlab-org/gitlab/-/issues/2500)
+GitLab Enterprise Edition works like GitLab Community Edition when no license is active.
 
-CE specs should remain untouched as much as possible and extra specs
-should be added for EE. Licensed features can be stubbed using the
-spec helper `stub_licensed_features` in `EE::LicenseHelpers`.
+CE specs should remain untouched as much as possible and extra specs should be added for EE. Licensed features can be stubbed using the spec helper `stub_licensed_features` in `EE::LicenseHelpers`.
 
-You can force GitLab to act as CE by either deleting the `ee/` directory or by
-setting the [`FOSS_ONLY` environment variable](https://gitlab.com/gitlab-org/gitlab/-/blob/master/config/helpers/is_ee_env.js)
-to something that evaluates as `true`. The same works for running tests
-(for example `FOSS_ONLY=1 yarn jest`).
+You can force GitLab to act as CE by either deleting the `ee/` directory or by setting the [`FOSS_ONLY` environment variable](https://gitlab.com/gitlab-org/gitlab/-/blob/master/config/helpers/is_ee_env.js)
+to something that evaluates as `true`. The same works for running tests (for example `FOSS_ONLY=1 yarn jest`).
 
 ### Simulate a CE instance with a licensed GDK
 
@@ -542,8 +490,7 @@ To simulate a CE instance without deleting the license in a GDK:
    gdk restart
    ```
 
-If you want to revert back to an EE
-installation, remove the environment variable from `gdk.yml` and repeat step 2.
+If you want to revert back to an EE installation, remove the environment variable from `gdk.yml` and repeat step 2.
 
 #### Run feature specs as CE
 
@@ -571,9 +518,7 @@ To do so:
 
 ### Run CI pipelines in a FOSS context
 
-By default, merge request pipelines for development run in an EE-context only. If you are
-developing features that differ between FOSS and EE, you may wish to run pipelines in a
-FOSS context as well.
+By default, merge request pipelines for development run in an EE-context only. If you are developing features that differ between FOSS and EE, you may wish to run pipelines in a FOSS context as well.
 
 To run pipelines in both contexts, add the `~"pipeline:run-as-if-foss"` label to the merge request.
 
@@ -583,10 +528,7 @@ See the [As-if-FOSS jobs and cross project downstream pipeline](pipelines/_index
 
 ### EE-only features
 
-If the feature being developed is not present in any form in CE, we don't
-need to put the code under the `EE` namespace. For example, an EE model could
-go into: `ee/app/models/awesome.rb` using `Awesome` as the class name. This
-is applied not only to models. Here's a list of other examples:
+If the feature being developed is not present in any form in CE, we don't need to put the code under the `EE` namespace. For example, an EE model could go into: `ee/app/models/awesome.rb` using `Awesome` as the class name. This is applied not only to models. Here's a list of other examples:
 
 - `ee/app/controllers/foos_controller.rb`
 - `ee/app/finders/foos_finder.rb`
@@ -603,52 +545,42 @@ is applied not only to models. Here's a list of other examples:
 - `ee/app/views/foo/_bar.html.haml`
 - `ee/config/initializers/foo_bar.rb`
 
-This works because for every path in the CE `eager-load/auto-load`
-path, we add the same `ee/`-prepended path in [`config/application.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/925d3d4ebc7a2c72964ce97623ae41b8af12538d/config/application.rb#L42-52).
+This works because for every path in the CE `eager-load/auto-load` path, we add the same `ee/`-prepended path in [`config/application.rb`](https://gitlab.com/gitlab-org/gitlab/-/blob/925d3d4ebc7a2c72964ce97623ae41b8af12538d/config/application.rb#L42-52).
 This also applies to views.
 
 #### Testing EE-only backend features
 
-To test an EE class that doesn't exist in CE, create the spec file as you usually
-would in the `ee/spec` directory, but without the second `ee/` subdirectory.
+To test an EE class that doesn't exist in CE, create the spec file as you usually would in the `ee/spec` directory, but without the second `ee/` subdirectory.
 For example, a class `ee/app/models/vulnerability.rb` would have its tests in `ee/spec/models/vulnerability_spec.rb`.
 
 By default, licensed features are disabled for specs in `specs/`.
 Specs in the `ee/spec` directory have Starter license initialized by default.
 
-To effectively test your feature
-you must explicitly enable the feature using the `stub_licensed_features` helper, for example:
+To effectively test your feature you must explicitly enable the feature using the `stub_licensed_features` helper, for example:
 
 ```ruby
-  stub_licensed_features(my_awesome_feature_name: true)
+ stub_licensed_features(my_awesome_feature_name: true)
 ```
 
 ### Extend CE features with EE backend code
 
-For features that build on existing CE features, write a module in the `EE`
-namespace and inject it in the CE class, on the last line of the file that the
-class resides in. This makes conflicts less likely to happen during CE to EE
-merges because only one line is added to the CE class - the line that injects
-the module. For example, to prepend a module into the `User` class you would use
-the following approach:
+For features that build on existing CE features, write a module in the `EE` namespace and inject it in the CE class, on the last line of the file that the class resides in. This makes conflicts less likely to happen during CE to EE merges because only one line is added to the CE class - the line that injects the module. For example, to prepend a module into the `User` class you would use the following approach:
 
 ```ruby
 class User < ActiveRecord::Base
-  # ... lots of code here ...
+ # ... lots of code here ...
 end
 
 User.prepend_mod
 ```
 
-Do not use methods such as `prepend`, `extend`, and `include`. Instead, use
-`prepend_mod`, `extend_mod`, or `include_mod`. These methods will try to
-find the relevant EE module by the name of the receiver module, for example;
+Do not use methods such as `prepend`, `extend`, and `include`. Instead, use `prepend_mod`, `extend_mod`, or `include_mod`. These methods will try to find the relevant EE module by the name of the receiver module, for example;
 
 ```ruby
 module Vulnerabilities
-  class Finding
+ class Finding
     #...
-  end
+ end
 end
 
 Vulnerabilities::Finding.prepend_mod
@@ -656,22 +588,17 @@ Vulnerabilities::Finding.prepend_mod
 
 will prepend the module named `::EE::Vulnerabilities::Finding`.
 
-If the extending module does not follow this naming convention, you can also provide the module name
-by using `prepend_mod_with`, `extend_mod_with`, or `include_mod_with`. These methods take a
-_String_ containing the full module name as the argument, not the module itself, like so;
+If the extending module does not follow this naming convention, you can also provide the module name by using `prepend_mod_with`, `extend_mod_with`, or `include_mod_with`. These methods take a _String_ containing the full module name as the argument, not the module itself, like so;
 
 ```ruby
 class User
-  #...
+ #...
 end
 
 User.prepend_mod_with('UserExtension')
 ```
 
-Since the module would require an `EE` namespace, the file should also be
-put in an `ee/` subdirectory. For example, we want to extend the user model
-in EE, so we have a module called `::EE::User` put inside
-`ee/app/models/ee/user.rb`.
+Since the module would require an `EE` namespace, the file should also be put in an `ee/` subdirectory. For example, we want to extend the user model in EE, so we have a module called `::EE::User` put inside `ee/app/models/ee/user.rb`.
 
 This is also not just applied to models. Here's a list of other examples:
 
@@ -689,8 +616,7 @@ This is also not just applied to models. Here's a list of other examples:
 
 #### Testing EE features based on CE features
 
-To test an `EE` namespaced module that extends a CE class with EE features,
-create the spec file as you usually would in the `ee/spec` directory, including the second `ee/` subdirectory.
+To test an `EE` namespaced module that extends a CE class with EE features, create the spec file as you usually would in the `ee/spec` directory, including the second `ee/` subdirectory.
 For example, an extension `ee/app/models/ee/user.rb` would have its tests in `ee/spec/models/ee/user_spec.rb`.
 
 In the `RSpec.describe` call, use the CE class name where the EE module would be used.
@@ -698,35 +624,23 @@ For example, in `ee/spec/models/ee/user_spec.rb`, the test would start with:
 
 ```ruby
 RSpec.describe User do
-  describe 'ee feature added through extension'
+ describe 'ee feature added through extension'
 end
 ```
 
 #### Overriding CE methods
 
-To override a method present in the CE codebase, use `prepend`. It
-lets you override a method in a class with a method from a module, while
-still having access to the class's implementation with `super`.
+To override a method present in the CE codebase, use `prepend`. It lets you override a method in a class with a method from a module, while still having access to the class's implementation with `super`.
 
 There are a few gotchas with it:
 
-- you should always [`extend ::Gitlab::Utils::Override`](utilities.md#override) and use `override` to
-  guard the `overrider` method to ensure that if the method gets renamed in
-  CE, the EE override isn't silently forgotten.
-- when the `overrider` would add a line in the middle of the CE
-  implementation, you should refactor the CE method and split it in
-  smaller methods. Or create a "hook" method that is empty in CE,
-  and with the EE-specific implementation in EE.
-- when the original implementation contains a guard clause (for example,
-  `return unless condition`), we cannot easily extend the behavior by
-  overriding the method, because we can't know when the overridden method
-  (that is, calling `super` in the overriding method) would want to stop early.
-  In this case, we shouldn't just override it, but update the original method
-  to make it call the other method we want to extend, like a
-  [template method pattern](https://en.wikipedia.org/wiki/Template_method_pattern).
-  For example, given this base:
+- you should always [`extend ::Gitlab::Utils::Override`](utilities.md#override) and use `override` to guard the `overrider` method to ensure that if the method gets renamed in CE, the EE override isn't silently forgotten.
+- when the `overrider` would add a line in the middle of the CE implementation, you should refactor the CE method and split it in smaller methods. Or create a "hook" method that is empty in CE, and with the EE-specific implementation in EE.
+- when the original implementation contains a guard clause (for example, `return unless condition`), we cannot easily extend the behavior by overriding the method, because we can't know when the overridden method (that is, calling `super` in the overriding method) would want to stop early.
+ In this case, we shouldn't just override it, but update the original method to make it call the other method we want to extend, like a [template method pattern](https://en.wikipedia.org/wiki/Template_method_pattern).
+ For example, given this base:
 
-  ```ruby
+ ```ruby
     class Base
       def execute
         return unless enabled?
@@ -735,12 +649,11 @@ There are a few gotchas with it:
         # ...
       end
     end
-  ```
+ ```
 
-  Instead of just overriding `Base#execute`, we should update it and extract
-  the behavior into another method:
+ Instead of just overriding `Base#execute`, we should update it and extract the behavior into another method:
 
-  ```ruby
+ ```ruby
     class Base
       def execute
         return unless enabled?
@@ -755,12 +668,11 @@ There are a few gotchas with it:
         # ...
       end
     end
-  ```
+ ```
 
-  Then we're free to override that `do_something` without worrying about the
-  guards:
+ Then we're free to override that `do_something` without worrying about the guards:
 
-  ```ruby
+ ```ruby
     module EE::Base
       extend ::Gitlab::Utils::Override
 
@@ -769,43 +681,39 @@ There are a few gotchas with it:
         # Follow the above pattern to call super and extend it
       end
     end
-  ```
+ ```
 
-When prepending, place them in the `ee/` specific subdirectory, and
-wrap class or module in `module EE` to avoid naming conflicts.
+When prepending, place them in the `ee/` specific subdirectory, and wrap class or module in `module EE` to avoid naming conflicts.
 
-For example to override the CE implementation of
-`ApplicationController#after_sign_out_path_for`:
+For example to override the CE implementation of `ApplicationController#after_sign_out_path_for`:
 
 ```ruby
 def after_sign_out_path_for(resource)
-  current_application_settings.after_sign_out_path.presence || new_user_session_path
+ current_application_settings.after_sign_out_path.presence || new_user_session_path
 end
 ```
 
-Instead of modifying the method in place, you should add `prepend` to
-the existing file:
+Instead of modifying the method in place, you should add `prepend` to the existing file:
 
 ```ruby
 class ApplicationController < ActionController::Base
-  # ...
+ # ...
 
-  def after_sign_out_path_for(resource)
+ def after_sign_out_path_for(resource)
     current_application_settings.after_sign_out_path.presence || new_user_session_path
-  end
+ end
 
-  # ...
+ # ...
 end
 
 ApplicationController.prepend_mod_with('ApplicationController')
 ```
 
-And create a new file in the `ee/` subdirectory with the altered
-implementation:
+And create a new file in the `ee/` subdirectory with the altered implementation:
 
 ```ruby
 module EE
-  module ApplicationController
+ module ApplicationController
     extend ::Gitlab::Utils::Override
 
     override :after_sign_out_path_for
@@ -816,19 +724,17 @@ module EE
         super
       end
     end
-  end
+ end
 end
 ```
 
 ##### Overriding CE class methods
 
-The same applies to class methods, except we want to use
-`ActiveSupport::Concern` and put `extend ::Gitlab::Utils::Override`
-within the block of `class_methods`. Here's an example:
+The same applies to class methods, except we want to use `ActiveSupport::Concern` and put `extend ::Gitlab::Utils::Override` within the block of `class_methods`. Here's an example:
 
 ```ruby
 module EE
-  module Groups
+ module Groups
     module GroupMembersController
       extend ActiveSupport::Concern
 
@@ -841,24 +747,19 @@ module EE
         end
       end
     end
-  end
+ end
 end
 ```
 
 #### Use self-descriptive wrapper methods
 
-When it's not possible/logical to modify the implementation of a method, then
-wrap it in a self-descriptive method and use that method.
+When it's not possible/logical to modify the implementation of a method, then wrap it in a self-descriptive method and use that method.
 
-For example, in GitLab-FOSS, the only user created by the system is
-`Users::Internal.in_organization(Organizations::Organization.first).ghost`
-but in EE there are several types of bot-users that aren't really users. It would
-be incorrect to override the implementation of `User#ghost?`, so instead we add
-a method `#internal?` to `app/models/user.rb`. The implementation:
+For example, in GitLab-FOSS, the only user created by the system is `Users::Internal.in_organization(Organizations::Organization.first).ghost` but in EE there are several types of bot-users that aren't really users. It would be incorrect to override the implementation of `User#ghost?`, so instead we add a method `#internal?` to `app/models/user.rb`. The implementation:
 
 ```ruby
 def internal?
-  ghost?
+ ghost?
 end
 ```
 
@@ -867,7 +768,7 @@ In EE, the implementation `ee/app/models/ee/users.rb` would be:
 ```ruby
 override :internal?
 def internal?
-  super || bot?
+ super || bot?
 end
 ```
 
@@ -878,34 +779,29 @@ Rails initialization code is located in
 - `config/initializers` for CE-only features
 - `ee/config/initializers` for EE features
 
-Use `Gitlab.ee { ... }`/`Gitlab.ee?` in `config/initializers` only when
-splitting is not possible. For example:
+Use `Gitlab.ee { ... }`/`Gitlab.ee?` in `config/initializers` only when splitting is not possible. For example:
 
 ```ruby
 SomeGem.configure do |config|
-  config.base = 'https://example.com'
+ config.base = 'https://example.com'
 
-  config.encryption = true if Gitlab.ee?
+ config.encryption = true if Gitlab.ee?
 end
 ```
 
 #### Extending initializers with class methods
 
-For more complex scenarios where you need to override class methods used in initializers,
-you can use the `prepend_mod_with` pattern similar to models. This approach mirrors how
-`app/models` can be extended and allows for clean separation of CE and EE logic.
+For more complex scenarios where you need to override class methods used in initializers, you can use the `prepend_mod_with` pattern similar to models. This approach mirrors how `app/models` can be extended and allows for clean separation of CE and EE logic.
 
-This pattern is particularly useful for SaaS-only features that need to be configured
-in initializers, where using `Gitlab.ee?` alone is insufficient because the feature
-should only be enabled on SaaS instances, not all EE instances.
+This pattern is particularly useful for SaaS-only features that need to be configured in initializers, where using `Gitlab.ee?` alone is insufficient because the feature should only be enabled on SaaS instances, not all EE instances.
 
 For example, in `config/initializers/doorkeeper.rb`:
 
 ```ruby
 # The initializer calls a class method that can be overridden in EE
 allow_grant_flow_for_client do |grant_flow, client|
-  next false if Applications::CreateService.disable_ropc_for_all_applications?
-  # ... other logic
+ next false if Applications::CreateService.disable_ropc_for_all_applications?
+ # ... other logic
 end
 ```
 
@@ -913,14 +809,14 @@ In the CE service (`app/services/applications/create_service.rb`):
 
 ```ruby
 module Applications
-  class CreateService
+ class CreateService
     # Define class methods that return false by default but can be overridden in EE
     def self.disable_ropc_for_all_applications?
       false
     end
 
     # ... other methods
-  end
+ end
 end
 
 # Allow EE to extend this service
@@ -931,7 +827,7 @@ In the EE extension (`ee/app/services/ee/applications/create_service.rb`):
 
 ```ruby
 module EE
-  module Applications
+ module Applications
     module CreateService
       def self.prepended(base)
         base.singleton_class.prepend(ClassMethods)
@@ -946,53 +842,43 @@ module EE
         end
       end
     end
-  end
+ end
 end
 ```
 
-This pattern allows initializers to call methods that have different behavior in CE vs EE,
-while keeping the initializer code itself unchanged between editions.
+This pattern allows initializers to call methods that have different behavior in CE vs EE, while keeping the initializer code itself unchanged between editions.
 
 ### Code in `config/routes`
 
-When we add `draw :admin` in `config/routes.rb`, the application tries to
-load the file located in `config/routes/admin.rb`, and also try to load the
-file located in `ee/config/routes/admin.rb`.
+When we add `draw :admin` in `config/routes.rb`, the application tries to load the file located in `config/routes/admin.rb`, and also try to load the file located in `ee/config/routes/admin.rb`.
 
-In EE, it should at least load one file, at most two files. If it cannot find
-any files, an error is raised. In CE, since we don't know if an
-EE route exists, it doesn't raise any errors even if it cannot find anything.
+In EE, it should at least load one file, at most two files. If it cannot find any files, an error is raised. In CE, since we don't know if an EE route exists, it doesn't raise any errors even if it cannot find anything.
 
-This means if we want to extend a particular CE route file, just add the same
-file located in `ee/config/routes`. If we want to add an EE only route, we
-could still put `draw :ee_only` in both CE and EE, and add
-`ee/config/routes/ee_only.rb` in EE, similar to `render_if_exists`.
+This means if we want to extend a particular CE route file, just add the same file located in `ee/config/routes`. If we want to add an EE only route, we could still put `draw :ee_only` in both CE and EE, and add `ee/config/routes/ee_only.rb` in EE, similar to `render_if_exists`.
 
 ### Code in `app/controllers/`
 
-In controllers, the most common type of conflict is with `before_action` that
-has a list of actions in CE but EE adds some actions to that list.
+In controllers, the most common type of conflict is with `before_action` that has a list of actions in CE but EE adds some actions to that list.
 
 The same problem often occurs for `params.require` / `params.permit` calls.
 
 **Mitigations**
 
-Separate CE and EE actions/keywords. For instance for `params.require` in
-`ProjectsController`:
+Separate CE and EE actions/keywords. For instance for `params.require` in `ProjectsController`:
 
 ```ruby
 def project_params
-  params.require(:project).permit(project_params_attributes)
+ params.require(:project).permit(project_params_attributes)
 end
 
 # Always returns an array of symbols, created however best fits the use case.
 # It should be sorted alphabetically.
 def project_params_attributes
-  %i[
+ %i[
     description
     name
     path
-  ]
+ ]
 end
 
 ```
@@ -1001,16 +887,16 @@ In the `EE::ProjectsController` module:
 
 ```ruby
 def project_params_attributes
-  super + project_params_attributes_ee
+ super + project_params_attributes_ee
 end
 
 def project_params_attributes_ee
-  %i[
+ %i[
     approvals_before_merge
     issues_template
     merge_requests_template
     ...
-  ]
+ ]
 end
 ```
 
@@ -1018,32 +904,23 @@ end
 
 EE-specific models should be defined in `ee/app/models/`.
 
-To override a CE model create the file in
-`ee/app/models/ee/` and add new code to a `prepended` block.
+To override a CE model create the file in `ee/app/models/ee/` and add new code to a `prepended` block.
 
-ActiveRecord `enums` should be entirely
-[defined in FOSS](database/creating_enums.md#all-of-the-keyvalue-pairs-should-be-defined-in-foss).
+ActiveRecord `enums` should be entirely [defined in FOSS](database/creating_enums.md#all-of-the-keyvalue-pairs-should-be-defined-in-foss).
 
 ### Code in `app/views/`
 
-It's a very frequent problem that EE is adding some specific view code in a CE
-view. For instance the approval code in the project's settings page.
+It's a very frequent problem that EE is adding some specific view code in a CE view. For instance the approval code in the project's settings page.
 
 **Mitigations**
 
-Blocks of code that are EE-specific should be moved to partials. This
-avoids conflicts with big chunks of HAML code that are not fun to
-resolve when you add the indentation to the equation.
+Blocks of code that are EE-specific should be moved to partials. This avoids conflicts with big chunks of HAML code that are not fun to resolve when you add the indentation to the equation.
 
-EE-specific views should be placed in `ee/app/views/`, using extra
-subdirectories if appropriate.
+EE-specific views should be placed in `ee/app/views/`, using extra subdirectories if appropriate.
 
 #### Using `render_if_exists`
 
-Instead of using regular `render`, we should use `render_if_exists`, which
-doesn't render anything if it cannot find the specific partial. We use this
-so that we could put `render_if_exists` in CE, keeping code the same between
-CE and EE.
+Instead of using regular `render`, we should use `render_if_exists`, which doesn't render anything if it cannot find the specific partial. We use this so that we could put `render_if_exists` in CE, keeping code the same between CE and EE.
 
 The advantages of this:
 
@@ -1067,43 +944,23 @@ Resolving an EE template path that is relative to the CE view path doesn't work.
 
 #### Using `render_ce`
 
-For `render` and `render_if_exists`, they search for the EE partial first,
-and then CE partial. They would only render a particular partial, not all
-partials with the same name. We could take the advantage of this, so that
-the same partial path (for example, `projects/settings/archive`) could
-be referring to the CE partial in CE (that is,
-`app/views/projects/settings/_archive.html.haml`), while EE
-partial in EE (that is,
-`ee/app/views/projects/settings/_archive.html.haml`). This way,
-we could show different things between CE and EE.
+For `render` and `render_if_exists`, they search for the EE partial first, and then CE partial. They would only render a particular partial, not all partials with the same name. We could take the advantage of this, so that the same partial path (for example, `projects/settings/archive`) could be referring to the CE partial in CE (that is, `app/views/projects/settings/_archive.html.haml`), while EE partial in EE (that is, `ee/app/views/projects/settings/_archive.html.haml`). This way, we could show different things between CE and EE.
 
-However sometimes we would also want to reuse the CE partial in EE partial
-because we might just want to add something to the existing CE partial. We
-could workaround this by adding another partial with a different name, but it
-would be tedious to do so.
+However sometimes we would also want to reuse the CE partial in EE partial because we might just want to add something to the existing CE partial. We could workaround this by adding another partial with a different name, but it would be tedious to do so.
 
-In this case, we could as well just use `render_ce` which would ignore any EE
-partials. One example would be
-`ee/app/views/projects/settings/_archive.html.haml`:
+In this case, we could as well just use `render_ce` which would ignore any EE partials. One example would be `ee/app/views/projects/settings/_archive.html.haml`:
 
 ```ruby
 - return if @project.self_deletion_scheduled?
 = render_ce 'projects/settings/archive'
 ```
 
-In the above example, we can't use
-`render 'projects/settings/archive'` because it would find the
-same EE partial, causing infinite recursion. Instead, we could use `render_ce`
-so it ignores any partials in `ee/` and then it would render the CE partial
-(that is, `app/views/projects/settings/_archive.html.haml`)
-for the same path (that is, `projects/settings/archive`). This way
-we could easily wrap around the CE partial.
+In the above example, we can't use `render 'projects/settings/archive'` because it would find the same EE partial, causing infinite recursion. Instead, we could use `render_ce` so it ignores any partials in `ee/` and then it would render the CE partial (that is, `app/views/projects/settings/_archive.html.haml`)
+for the same path (that is, `projects/settings/archive`). This way we could easily wrap around the CE partial.
 
 ### Code in `lib/gitlab/background_migration/`
 
-When you create EE-only background migrations, you have to plan for users that
-downgrade GitLab EE to CE. In other words, every EE-only migration has to be present in
-CE code but with no implementation, instead you need to extend it on EE side.
+When you create EE-only background migrations, you have to plan for users that downgrade GitLab EE to CE. In other words, every EE-only migration has to be present in CE code but with no implementation, instead you need to extend it on EE side.
 
 GitLab CE:
 
@@ -1111,12 +968,12 @@ GitLab CE:
 # lib/gitlab/background_migration/prune_orphaned_geo_events.rb
 
 module Gitlab
-  module BackgroundMigration
+ module BackgroundMigration
     class PruneOrphanedGeoEvents
       def perform(table_name)
       end
     end
-  end
+ end
 end
 
 Gitlab::BackgroundMigration::PruneOrphanedGeoEvents.prepend_mod_with('Gitlab::BackgroundMigration::PruneOrphanedGeoEvents')
@@ -1128,7 +985,7 @@ GitLab EE:
 # ee/lib/ee/gitlab/background_migration/prune_orphaned_geo_events.rb
 
 module EE
-  module Gitlab
+ module Gitlab
     module BackgroundMigration
       module PruneOrphanedGeoEvents
         extend ::Gitlab::Utils::Override
@@ -1144,26 +1001,21 @@ module EE
         end
       end
     end
-  end
+ end
 end
 ```
 
 ### Code in `app/graphql/`
 
-EE-specific mutations, resolvers, and types should be added to
-`ee/app/graphql/{mutations,resolvers,types}`.
+EE-specific mutations, resolvers, and types should be added to `ee/app/graphql/{mutations,resolvers,types}`.
 
-To override a CE mutation, resolver, or type, create the file in
-`ee/app/graphql/ee/{mutations,resolvers,types}` and add new code to a
-`prepended` block.
+To override a CE mutation, resolver, or type, create the file in `ee/app/graphql/ee/{mutations,resolvers,types}` and add new code to a `prepended` block.
 
-For example, if CE has a mutation called `Mutations::Tanukis::Create` and you
-wanted to add a new argument, place the EE override in
-`ee/app/graphql/ee/mutations/tanukis/create.rb`:
+For example, if CE has a mutation called `Mutations::Tanukis::Create` and you wanted to add a new argument, place the EE override in `ee/app/graphql/ee/mutations/tanukis/create.rb`:
 
 ```ruby
 module EE
-  module Mutations
+ module Mutations
     module Tanukis
       module Create
         extend ActiveSupport::Concern
@@ -1176,29 +1028,23 @@ module EE
         end
       end
     end
-  end
+ end
 end
 ```
 
 ### Code in `lib/`
 
-Place EE logic that overrides CE in the top-level `EE` module namespace. Namespace the
-class beneath the `EE` module as you usually would.
+Place EE logic that overrides CE in the top-level `EE` module namespace. Namespace the class beneath the `EE` module as you usually would.
 
-For example, if CE has LDAP classes in `lib/gitlab/ldap/` then you would place
-EE-specific overrides in `ee/lib/ee/gitlab/ldap`.
+For example, if CE has LDAP classes in `lib/gitlab/ldap/` then you would place EE-specific overrides in `ee/lib/ee/gitlab/ldap`.
 
 EE-only classes, with no CE counterpart, would be placed in `ee/lib/gitlab/ldap`.
 
 ### Code in `lib/api/`
 
-It can be very tricky to extend EE features by a single line of `prepend_mod_with`,
-and for each different [Grape](https://github.com/ruby-grape/grape) feature, we
-might need different strategies to extend it. To apply different strategies
-easily, we would use `extend ActiveSupport::Concern` in the EE module.
+It can be very tricky to extend EE features by a single line of `prepend_mod_with`, and for each different [Grape](https://github.com/ruby-grape/grape) feature, we might need different strategies to extend it. To apply different strategies easily, we would use `extend ActiveSupport::Concern` in the EE module.
 
-Put the EE module files following
-[Extend CE features with EE backend code](#extend-ce-features-with-ee-backend-code).
+Put the EE module files following [Extend CE features with EE backend code](#extend-ce-features-with-ee-backend-code).
 
 #### EE API routes
 
@@ -1206,7 +1052,7 @@ For EE API routes, we put them in a `prepended` block:
 
 ```ruby
 module EE
-  module API
+ module API
     module MergeRequests
       extend ActiveSupport::Concern
 
@@ -1219,7 +1065,7 @@ module EE
         end
       end
     end
-  end
+ end
 end
 ```
 
@@ -1227,22 +1073,15 @@ We need to use the full qualifier for some constants due to namespace difference
 
 #### EE parameters
 
-We can define `params` and use `use` in another `params` definition to
-include parameters defined in EE. However, we need to define the "interface" first
-in CE in order for EE to override it. We don't have to do this in other places
-due to `prepend_mod_with`, but Grape is complex internally and we couldn't easily
-do that, so we follow regular object-oriented practices that we define the
-interface first here.
+We can define `params` and use `use` in another `params` definition to include parameters defined in EE. However, we need to define the "interface" first in CE in order for EE to override it. We don't have to do this in other places due to `prepend_mod_with`, but Grape is complex internally and we couldn't easily do that, so we follow regular object-oriented practices that we define the interface first here.
 
-For example, suppose we have a few more optional parameters for EE. We can move the
-parameters out of the `Grape::API::Instance` class to a helper module, so we can inject it
-before it would be used in the class.
+For example, suppose we have a few more optional parameters for EE. We can move the parameters out of the `Grape::API::Instance` class to a helper module, so we can inject it before it would be used in the class.
 
 ```ruby
 module API
-  class Projects < Grape::API::Instance
+ class Projects < Grape::API::Instance
     helpers Helpers::ProjectsHelpers
-  end
+ end
 end
 ```
 
@@ -1250,7 +1089,7 @@ Given this CE API `params`:
 
 ```ruby
 module API
-  module Helpers
+ module Helpers
     module ProjectsHelpers
       extend ActiveSupport::Concern
       extend Grape::API::Helpers
@@ -1267,7 +1106,7 @@ module API
         use :optional_project_params_ee
       end
     end
-  end
+ end
 end
 
 API::Helpers::ProjectsHelpers.prepend_mod_with('API::Helpers::ProjectsHelpers')
@@ -1277,7 +1116,7 @@ We could override it in EE module:
 
 ```ruby
 module EE
-  module API
+ module API
     module Helpers
       module ProjectsHelpers
         extend ActiveSupport::Concern
@@ -1289,19 +1128,17 @@ module EE
         end
       end
     end
-  end
+ end
 end
 ```
 
 #### EE helpers
 
-To make it easy for an EE module to override the CE helpers, we need to define
-those helpers we want to extend first. Try to do that immediately after the
-class definition to make it easy and clear:
+To make it easy for an EE module to override the CE helpers, we need to define those helpers we want to extend first. Try to do that immediately after the class definition to make it easy and clear:
 
 ```ruby
 module API
-  module Ci
+ module Ci
     class JobArtifacts < Grape::API::Instance
       # EE::API::Ci::JobArtifacts would override the following helpers
       helpers do
@@ -1310,7 +1147,7 @@ module API
         end
       end
     end
-  end
+ end
 end
 
 API::Ci::JobArtifacts.prepend_mod_with('API::Ci::JobArtifacts')
@@ -1320,7 +1157,7 @@ And then we can follow regular object-oriented practices to override it:
 
 ```ruby
 module EE
-  module API
+ module API
     module Ci
       module JobArtifacts
         extend ActiveSupport::Concern
@@ -1335,21 +1172,17 @@ module EE
         end
       end
     end
-  end
+ end
 end
 ```
 
 #### EE-specific behavior
 
-Sometimes we need EE-specific behavior in some of the APIs. Usually we could
-use EE methods to override CE methods, however API routes are not methods and
-therefore cannot be overridden. We need to extract them into a standalone
-method, or introduce some "hooks" where we could inject behavior in the CE
-route. Something like this:
+Sometimes we need EE-specific behavior in some of the APIs. Usually we could use EE methods to override CE methods, however API routes are not methods and therefore cannot be overridden. We need to extract them into a standalone method, or introduce some "hooks" where we could inject behavior in the CE route. Something like this:
 
 ```ruby
 module API
-  class MergeRequests < Grape::API::Instance
+ class MergeRequests < Grape::API::Instance
     helpers do
       # EE::API::MergeRequests would override the following helpers
       def update_merge_request_ee(merge_request)
@@ -1365,18 +1198,17 @@ module API
 
       # ...
     end
-  end
+ end
 end
 
 API::MergeRequests.prepend_mod_with('API::MergeRequests')
 ```
 
-`update_merge_request_ee` doesn't do anything in CE, but
-then we could override it in EE:
+`update_merge_request_ee` doesn't do anything in CE, but then we could override it in EE:
 
 ```ruby
 module EE
-  module API
+ module API
     module MergeRequests
       extend ActiveSupport::Concern
 
@@ -1388,37 +1220,26 @@ module EE
         end
       end
     end
-  end
+ end
 end
 ```
 
 #### EE `route_setting`
 
-It's very hard to extend this in an EE module, and this is storing
-some meta-data for a particular route. Given that, we could leave the
-EE `route_setting` in CE as it doesn't hurt and we don't use
-those meta-data in CE.
+It's very hard to extend this in an EE module, and this is storing some meta-data for a particular route. Given that, we could leave the EE `route_setting` in CE as it doesn't hurt and we don't use those meta-data in CE.
 
-We could revisit this policy when we're using `route_setting` more and whether
-or not we really need to extend it from EE. For now we're not using it much.
+We could revisit this policy when we're using `route_setting` more and whether or not we really need to extend it from EE. For now we're not using it much.
 
 #### Utilizing class methods for setting up EE-specific data
 
-Sometimes we need to use different arguments for a particular API route, and we
-can't easily extend it with an EE module because Grape has different context in
-different blocks. In order to overcome this, we need to move the data to a class
-method that resides in a separate module or class. This allows us to extend that
-module or class before its data is used, without having to place a
-`prepend_mod_with` in the middle of CE code.
+Sometimes we need to use different arguments for a particular API route, and we can't easily extend it with an EE module because Grape has different context in different blocks. In order to overcome this, we need to move the data to a class method that resides in a separate module or class. This allows us to extend that module or class before its data is used, without having to place a `prepend_mod_with` in the middle of CE code.
 
-For example, in one place we need to pass an extra argument to
-`at_least_one_of` so that the API could consider an EE-only argument as the
-least argument. We would approach this as follows:
+For example, in one place we need to pass an extra argument to `at_least_one_of` so that the API could consider an EE-only argument as the least argument. We would approach this as follows:
 
 ```ruby
 # api/merge_requests/parameters.rb
 module API
-  class MergeRequests < Grape::API::Instance
+ class MergeRequests < Grape::API::Instance
     module Parameters
       def self.update_params_at_least_one_of
         %i[
@@ -1427,18 +1248,18 @@ module API
         ]
       end
     end
-  end
+ end
 end
 
 API::MergeRequests::Parameters.prepend_mod_with('API::MergeRequests::Parameters')
 
 # api/merge_requests.rb
 module API
-  class MergeRequests < Grape::API::Instance
+ class MergeRequests < Grape::API::Instance
     params do
       at_least_one_of(*Parameters.update_params_at_least_one_of)
     end
-  end
+ end
 end
 ```
 
@@ -1446,7 +1267,7 @@ And then we could easily extend that argument in the EE class method:
 
 ```ruby
 module EE
-  module API
+ module API
     module MergeRequests
       module Parameters
         extend ActiveSupport::Concern
@@ -1463,33 +1284,31 @@ module EE
         end
       end
     end
-  end
+ end
 end
 ```
 
-It could be annoying if we need this for a lot of routes, but it might be the
-simplest solution right now.
+It could be annoying if we need this for a lot of routes, but it might be the simplest solution right now.
 
-This approach can also be used when models define validations that depend on
-class methods. For example:
+This approach can also be used when models define validations that depend on class methods. For example:
 
 ```ruby
 # app/models/identity.rb
 class Identity < ActiveRecord::Base
-  def self.uniqueness_scope
+ def self.uniqueness_scope
     [:provider]
-  end
+ end
 
-  prepend_mod_with('Identity')
+ prepend_mod_with('Identity')
 
-  validates :extern_uid,
+ validates :extern_uid,
     allow_blank: true,
     uniqueness: { scope: uniqueness_scope, case_sensitive: false }
 end
 
 # ee/app/models/ee/identity.rb
 module EE
-  module Identity
+ module Identity
     extend ActiveSupport::Concern
 
     class_methods do
@@ -1499,7 +1318,7 @@ module EE
         [*super, :saml_provider_id]
       end
     end
-  end
+ end
 end
 ```
 
@@ -1508,7 +1327,7 @@ Instead of taking this approach, we would refactor our code into the following:
 ```ruby
 # ee/app/models/ee/identity/uniqueness_scopes.rb
 module EE
-  module Identity
+ module Identity
     module UniquenessScopes
       extend ActiveSupport::Concern
 
@@ -1520,23 +1339,23 @@ module EE
         end
       end
     end
-  end
+ end
 end
 
 # app/models/identity/uniqueness_scopes.rb
 class Identity < ActiveRecord::Base
-  module UniquenessScopes
+ module UniquenessScopes
     def self.uniqueness_scope
       [:provider]
     end
-  end
+ end
 end
 
 Identity::UniquenessScopes.prepend_mod_with('Identity::UniquenessScopes')
 
 # app/models/identity.rb
 class Identity < ActiveRecord::Base
-  validates :extern_uid,
+ validates :extern_uid,
     allow_blank: true,
     uniqueness: { scope: Identity::UniquenessScopes.scopes, case_sensitive: false }
 end
@@ -1544,35 +1363,31 @@ end
 
 ### Code in `spec/`
 
-When you're testing EE-only features, avoid adding examples to the
-existing CE specs. Instead, place EE specs in the `ee/spec` folder.
+When you're testing EE-only features, avoid adding examples to the existing CE specs. Instead, place EE specs in the `ee/spec` folder.
 
-By default, CE specs run with EE code loaded as they should remain
-working as-is when EE is running without a license.
+By default, CE specs run with EE code loaded as they should remain working as-is when EE is running without a license.
 
-These specs also need to pass when EE code is removed. You can run
-the tests without EE code by [simulating a CE instance](#simulate-a-ce-instance-with-a-licensed-gdk).
+These specs also need to pass when EE code is removed. You can run the tests without EE code by [simulating a CE instance](#simulate-a-ce-instance-with-a-licensed-gdk).
 
 ### Code in `spec/factories`
 
 Use `FactoryBot.modify` to extend factories already defined in CE.
 
-You cannot define new factories (even nested ones) inside the `FactoryBot.modify` block. You can do so in a
-separate `FactoryBot.define` block as shown in the example below:
+You cannot define new factories (even nested ones) inside the `FactoryBot.modify` block. You can do so in a separate `FactoryBot.define` block as shown in the example below:
 
 ```ruby
 # ee/spec/factories/notes.rb
 FactoryBot.modify do
-  factory :note do
+ factory :note do
     trait :on_epic do
       noteable { create(:epic) }
       project nil
     end
-  end
+ end
 end
 
 FactoryBot.define do
-  factory :note_on_epic, parent: :note, traits: [:on_epic]
+ factory :note_on_epic, parent: :note, traits: [:on_epic]
 end
 ```
 
@@ -1580,10 +1395,7 @@ end
 
 To separate EE-specific JS-files, move the files into an `ee` folder.
 
-For example there can be an
-`app/assets/javascripts/protected_branches/protected_branches_bundle.js` and an
-EE counterpart
-`ee/app/assets/javascripts/protected_branches/protected_branches_bundle.js`.
+For example there can be an `app/assets/javascripts/protected_branches/protected_branches_bundle.js` and an EE counterpart `ee/app/assets/javascripts/protected_branches/protected_branches_bundle.js`.
 The corresponding import statement would then look like this:
 
 ```javascript
@@ -1601,8 +1413,7 @@ import bundle from 'ee_else_ce/protected_branches/protected_branches_bundle.js';
 
 ### Add new EE-only features in the frontend
 
-If the feature being developed is not present in CE, add your entry point in
-`ee/`. For example:
+If the feature being developed is not present in CE, add your entry point in `ee/`. For example:
 
 ```shell
 # Add HTML element to mount
@@ -1615,40 +1426,37 @@ ee/app/assets/javascripts/pages/ee_only_feature/index.js
 ee/app/assets/javascripts/ee_only_feature/index.js
 ```
 
-Feature guarding `licensed_feature_available?` and `License.feature_available?` typical
-occurs in the controller, as described in the [backend guide](#ee-only-features).
+Feature guarding `licensed_feature_available?` and `License.feature_available?` typical occurs in the controller, as described in the [backend guide](#ee-only-features).
 
 #### Testing EE-only frontend features
 
 Add your EE tests to `ee/spec/frontend/` following the same directory structure you use for CE.
 
-Check the note under [Testing EE-only backend features](#testing-ee-only-backend-features) regarding
-enabling licensed features.
+Check the note under [Testing EE-only backend features](#testing-ee-only-backend-features) regarding enabling licensed features.
 
 ### Extend CE features with EE frontend code
 
-Use the [`push_licensed_feature`](#guard-your-ee-feature) to guard frontend features that extend
-existing views:
+Use the [`push_licensed_feature`](#guard-your-ee-feature) to guard frontend features that extend existing views:
 
 ```ruby
 # ee/app/controllers/ee/admin/my_controller.rb
 before_action do
-  push_licensed_feature(:my_feature_name) # for global features
+ push_licensed_feature(:my_feature_name) # for global features
 end
 ```
 
 ```ruby
 # ee/app/controllers/ee/group/my_controller.rb
 before_action do
-  push_licensed_feature(:my_feature_name, @group) # for group pages
+ push_licensed_feature(:my_feature_name, @group) # for group pages
 end
 ```
 
 ```ruby
 # ee/app/controllers/ee/project/my_controller.rb
 before_action do
-  push_licensed_feature(:my_feature_name, @group) # for group pages
-  push_licensed_feature(:my_feature_name, @project) # for project pages
+ push_licensed_feature(:my_feature_name, @group) # for group pages
+ push_licensed_feature(:my_feature_name, @project) # for project pages
 end
 ```
 
@@ -1656,14 +1464,11 @@ Verify your feature appears in `gon.licensed_features` in the browser console.
 
 #### Extend Vue applications with EE Vue components
 
-EE licensed features that enhance existing functionality in the UI add new
-elements or interactions to your Vue application as components.
+EE licensed features that enhance existing functionality in the UI add new elements or interactions to your Vue application as components.
 
 You can import EE components inside CE components to add EE features.
 
-Use an `ee_component` alias to import an EE component. In EE the `ee_component` import alias points
-to the `ee/app/assets/javascripts` directory. While in CE this alias will be resolved to an empty
-component that renders nothing.
+Use an `ee_component` alias to import an EE component. In EE the `ee_component` import alias points to the `ee/app/assets/javascripts` directory. While in CE this alias will be resolved to an empty component that renders nothing.
 
 Here is an example of an EE component imported to a CE component:
 
@@ -1676,31 +1481,28 @@ Here is an example of an EE component imported to a CE component:
 import MyEeComponent from 'ee_component/feature/components/my_ee_component.vue';
 
 export default {
-  components: {
+ components: {
     MyEeComponent,
-  },
+ },
 };
 </script>
 
 <template>
-  <div>
+ <div>
     <!-- ... -->
     <my-ee-component/>
     <!-- ... -->
-  </div>
+ </div>
 </template>
 ```
 
 {{< alert type="note" >}}
 
-An EE component can be imported
-[asynchronously](https://v2.vuejs.org/v2/guide/components-dynamic-async.html#Async-Components) if
-its rendering within CE codebase relies on some check (for example, a feature flag check).
+An EE component can be imported [asynchronously](https://v2.vuejs.org/v2/guide/components-dynamic-async.html#Async-Components) if its rendering within CE codebase relies on some check (for example, a feature flag check).
 
 {{< /alert >}}
 
-Check `glFeatures` to ensure that the Vue components are guarded. The components render only when
-the license is present.
+Check `glFeatures` to ensure that the Vue components are guarded. The components render only when the license is present.
 
 ```vue
 <script>
@@ -1709,20 +1511,20 @@ the license is present.
 import glFeatureFlagMixin from '~/vue_shared/mixins/gl_feature_flags_mixin';
 
 export default {
-  mixins: [glFeatureFlagMixin()],
-  computed: {
+ mixins: [glFeatureFlagMixin()],
+ computed: {
     shouldRenderComponent() {
       // Comes from gon.licensed_features as a camel-case version of `my_feature_name`
       return this.glFeatures.myFeatureName;
     }
-  },
+ },
 };
 </script>
 
 <template>
-  <div v-if="shouldRenderComponent">
+ <div v-if="shouldRenderComponent">
     <!-- EE licensed feature UI -->
-  </div>
+ </div>
 </template>
 ```
 
@@ -1743,22 +1545,22 @@ Do not use mixins unless ABSOLUTELY NECESSARY. Try to find an alternative patter
 
 <script>
 export default {
-  props: {
+ props: {
     tooltipDefaultText: {
       type: String,
     },
-  },
-  computed: {
+ },
+ computed: {
     tooltipText() {
       return this.tooltipDefaultText || "5 issues please";
     }
-  },
+ },
 }
 </script>
 
 <template>
-  <span v-gl-tooltip :title="tooltipText" class="ce-text">Community Edition Only Text</span>
-  <slot name="ee-specific-component">
+ <span v-gl-tooltip :title="tooltipText" class="ce-text">Community Edition Only Text</span>
+ <slot name="ee-specific-component">
 </template>
 ```
 
@@ -1769,28 +1571,28 @@ export default {
 
 <script>
 export default {
-  computed: {
+ computed: {
     tooltipText() {
       if (this.weight) {
         return "5 issues with weight 10";
       }
     }
-  },
-  methods: {
+ },
+ methods: {
     submit() {
       // do something.
     }
-  },
+ },
 }
 </script>
 
 <template>
-  <my-component :tooltipDefaultText="tooltipText">
+ <my-component :tooltipDefaultText="tooltipText">
     <template #ee-specific-component>
       <span class="some-ee-specific">EE Specific Value</span>
       <button @click="submit">Click Me</button>
     </template>
-  </my-component>
+ </my-component>
 </template>
 ```
 
@@ -1803,7 +1605,7 @@ export default {
 **For EE components that need different results for the same computed values, we can pass in props to the CE wrapper as seen in the example.**
 
 - **EE extra HTML**
-  - For the templates that have extra HTML in EE we should move it into a new component and use the `ee_else_ce` import alias
+ - For the templates that have extra HTML in EE we should move it into a new component and use the `ee_else_ce` import alias
 
 #### Extend other JS code
 
@@ -1814,25 +1616,24 @@ To extend JS files, complete the following steps:
    1. For code inside functions that can't be extended, move the code to a new file and use `ee_else_ce` helper:
 
 ```javascript
-  import eeCode from 'ee_else_ce/ee_code';
+ import eeCode from 'ee_else_ce/ee_code';
 
-  function test() {
+ function test() {
     const test = 'a';
 
     eeCode();
 
     return test;
-  }
+ }
 ```
 
-In some cases, you'll need to extend other logic in your application. To extend your JS
-modules, create an EE version of the file and extend it with your custom logic:
+In some cases, you'll need to extend other logic in your application. To extend your JS modules, create an EE version of the file and extend it with your custom logic:
 
 ```javascript
 // app/assets/javascripts/feature/utils.js
 
 export const myFunction = () => {
-  // ...
+ // ...
 };
 
 // ... other CE functions ...
@@ -1841,7 +1642,7 @@ export const myFunction = () => {
 ```javascript
 // ee/app/assets/javascripts/feature/utils.js
 import {
-  myFunction as ceMyFunction,
+ myFunction as ceMyFunction,
 } from '~/feature/utils';
 
 /* eslint-disable import/export */
@@ -1851,9 +1652,9 @@ export * from '~/feature/utils';
 
 // Only override `myFunction`
 export const myFunction = () => {
-  const result = ceMyFunction();
-  // add EE feature logic
-  return result;
+ const result = ceMyFunction();
+ // add EE feature logic
+ return result;
 };
 
 /* eslint-enable import/export */
@@ -1872,13 +1673,13 @@ For example:
 import FriendComponent from 'ee_else_ce/components/friend.vue;'
 
 export default {
-  name: 'ComponentUnderTest',
-  components: { FriendComponent }.
+ name: 'ComponentUnderTest',
+ components: { FriendComponent }.
 }
 </script>
 
 <template>
-  <friend-component />
+ <friend-component />
 </template>
 ```
 
@@ -1890,13 +1691,13 @@ export default {
 import Friend from 'ee_else_ce/components/friend.vue;'
 
 describe('ComponentUnderTest', () => {
-  const findFriend = () => wrapper.find(Friend);
+ const findFriend = () => wrapper.find(Friend);
 
-  it('renders friend', () => {
+ it('renders friend', () => {
     // This would fail in CE if we did `ee/component...`
     // and would fail in EE if we did `~/component...`
     expect(findFriend().exists()).toBe(true);
-  });
+ });
 });
 
 ```
@@ -1930,49 +1731,43 @@ expect(findPinnedSection().props('asyncCount')).toMatchObject(asyncCountData);
 
 #### SCSS code in `assets/stylesheets`
 
-If a component you're adding styles for is limited to EE, it is better to have a
-separate SCSS file in an appropriate directory within `app/assets/stylesheets`.
+If a component you're adding styles for is limited to EE, it is better to have a separate SCSS file in an appropriate directory within `app/assets/stylesheets`.
 
-In some cases, this is not entirely possible or creating dedicated SCSS file is an overkill,
-for example, a text style of some component is different for EE. In such cases,
-styles are usually kept in a stylesheet that is common for both CE and EE, and it is wise
-to isolate such ruleset from rest of CE rules (along with adding comment describing the same)
+In some cases, this is not entirely possible or creating dedicated SCSS file is an overkill, for example, a text style of some component is different for EE. In such cases, styles are usually kept in a stylesheet that is common for both CE and EE, and it is wise to isolate such ruleset from rest of CE rules (along with adding comment describing the same)
 to avoid conflicts during CE to EE merge.
 
 ```scss
 // Bad
 .section-body {
-  .section-title {
+ .section-title {
     background: $gl-header-color;
-  }
+ }
 
-  &.ee-section-body {
+ &.ee-section-body {
     .section-title {
       background: $gl-header-color-cyan;
     }
-  }
+ }
 }
 ```
 
 ```scss
 // Good
 .section-body {
-  .section-title {
+ .section-title {
     background: $gl-header-color;
-  }
+ }
 }
 
 // EE-specific start
 .section-body.ee-section-body {
-  .section-title {
+ .section-title {
     background: $gl-header-color-cyan;
-  }
+ }
 }
 // EE-specific end
 ```
 
 ### GitLab-svgs
 
-Conflicts in `app/assets/images/icons.json` or `app/assets/images/icons.svg` can
-be resolved by regenerating those assets with
-[`yarn run svg`](https://gitlab.com/gitlab-org/gitlab-svgs).
+Conflicts in `app/assets/images/icons.json` or `app/assets/images/icons.svg` can be resolved by regenerating those assets with [`yarn run svg`](https://gitlab.com/gitlab-org/gitlab-svgs).

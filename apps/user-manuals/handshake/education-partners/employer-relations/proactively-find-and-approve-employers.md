@@ -15,14 +15,14 @@ This article highlights how you can proactively approve an Employer on Handshake
 1. Start by selecting **Employers** on the left navigation bar. You will be directed to the *Employer Search* screen. In the upper-left corner, select the **All Employers** tab.
 
    ![Search and All Employers tabs.png](https://support.joinhandshake.com/hc/article_attachments/31299283581975)
-2. This page provides a A-Z list of all employers on Handshake, as well as indicating whether or not the company is public or private, and if your school has connected with them yet. You can search for the name of the employer using the search bar in the left panel, as well as filtering using a variety of different criteria such as location, size and type of industry. Locate the employer you would like to connect with and click on their name to continue.  
+2. This page provides a A-Z list of all employers on Handshake, as well as indicating whether or not the company is public or private, and if your school has connected with them yet. You can search for the name of the employer using the search bar in the left panel, as well as filtering using a variety of different criteria such as location, size and type of industry. Locate the employer you would like to connect with and click on their name to continue. 
      
 
    For more information on the Employer page, please refer to [Employer Page Overview](https://support.joinhandshake.com/hc/en-gb/articles/360024320034).
-3. Once you search for an employer's company name, you can see whether or not your company has already approved the employer by identifying the green text **Approved**on the far right side of the page.  
+3. Once you search for an employer's company name, you can see whether or not your company has already approved the employer by identifying the green text **Approved**on the far right side of the page. 
 
    ![Approved Employer.png](https://support.joinhandshake.com/hc/article_attachments/25992956167319)
-4. If the employer is not approved, you can click to navigate to their page. If wanted, click the **Approve employer** button on the lower-right of the screen.  
+4. If the employer is not approved, you can click to navigate to their page. If wanted, click the **Approve employer** button on the lower-right of the screen. 
 
    ![Approve Employer on Employer page.png](https://support.joinhandshake.com/hc/article_attachments/23215441888535)
 

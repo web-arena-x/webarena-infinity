@@ -34,21 +34,16 @@ For more information, see the history.
 
 {{< /alert >}}
 
-GitLab Duo agents work in parallel to help you create code, research results,
-and perform tasks simultaneously.
+GitLab Duo agents work in parallel to help you create code, research results, and perform tasks simultaneously.
 
-You can create an agent and integrate it with an external
-AI model provider to customize it to your organization's needs.
-Then, in a project issue, epic, or merge request, you can mention that external agent
-in a comment or discussion and ask the agent to complete a task.
+You can create an agent and integrate it with an external AI model provider to customize it to your organization's needs.
+Then, in a project issue, epic, or merge request, you can mention that external agent in a comment or discussion and ask the agent to complete a task.
 
 The external agent:
 
 - Reads and analyzes the surrounding context and repository code.
-- Decides the appropriate action to take, while adhering to project permissions
-  and keeping an audit trail.
-- Runs a CI/CD pipeline and responds inside GitLab with either a ready-to-merge
-  change or an inline comment.
+- Decides the appropriate action to take, while adhering to project permissions and keeping an audit trail.
+- Runs a CI/CD pipeline and responds inside GitLab with either a ready-to-merge change or an inline comment.
 
 The following integrations have been tested by GitLab and are available:
 
@@ -57,8 +52,7 @@ The following integrations have been tested by GitLab and are available:
 
 ## Prerequisites
 
-Before you can create an agent and integrate it with an external AI model
-provider, you must meet the [prerequisites for the GitLab Duo Agent Platform](../_index.md#prerequisites).
+Before you can create an agent and integrate it with an external AI model provider, you must meet the [prerequisites for the GitLab Duo Agent Platform](../_index.md#prerequisites).
 
 To integrate your agent with an external AI model provider, you must also have access credentials which are provided and manged by GitLab.
 
@@ -102,8 +96,7 @@ OpenAI Codex:
 
 ## Configure CI/CD variables
 
-Start by adding variables to your project. These variables determine
-how GitLab connects to the third-party provider.
+Start by adding variables to your project. These variables determine how GitLab connects to the third-party provider.
 
 Prerequisites:
 
@@ -119,13 +112,11 @@ To add or update a variable in the project settings:
    - **Environments**: Select **All (default)**.
    - **Visibility**: Select the desired visibility.
 
-     For personal access token variables, select **Masked** or
-     **Masked and hidden**.
+     For personal access token variables, select **Masked** or **Masked and hidden**.
    - Clear the **Protect variable** checkbox.
    - Clear the **Expand variable reference** checkbox.
    - **Description (optional)**: Enter a variable description.
-   - **Key**: Enter the environment variable name of the CI/CD variable
-     (for example, `GITLAB_HOST`).
+   - **Key**: Enter the environment variable name of the CI/CD variable (for example, `GITLAB_HOST`).
    - **Value**: The value of the personal access token or host.
 1. Select **Add variable**.
 
@@ -221,8 +212,7 @@ To enable an external agent in a top-level group:
 
 The external agent appears in the group's **Automate** > **Agents** page.
 
-A service account is created in the group. The name of the account
-follows this naming convention: `ai-<agent>-<group>`.
+A service account is created in the group. The name of the account follows this naming convention: `ai-<agent>-<group>`.
 
 ### Enable in a project
 
@@ -238,12 +228,9 @@ To enable an external agent in a project:
 1. In the upper-right corner, select **Enable agent from group**.
 1. From the dropdown list, select the external agent you want to enable.
 1. For **Add triggers**, select which event types trigger the external agent:
-   - **Mention**: When the service account user is mentioned
-     in a comment on an issue or merge request.
-   - **Assign**: When the service account user is assigned
-     to an issue or merge request.
-   - **Assign reviewer**: When the service account user is assigned
-     as a reviewer to a merge request.
+   - **Mention**: When the service account user is mentioned in a comment on an issue or merge request.
+   - **Assign**: When the service account user is assigned to an issue or merge request.
+   - **Assign reviewer**: When the service account user is assigned as a reviewer to a merge request.
 1. Select **Enable**.
 
 The external agent appears in the project's **Automate** > **Agents** list.
@@ -267,8 +254,7 @@ Prerequisites:
    @service-account-username Can you help analyze this code change?
    ```
 
-1. After the external agent has completed the task, you see a confirmation, and either a
-   ready-to-merge change or an inline comment.
+1. After the external agent has completed the task, you see a confirmation, and either a ready-to-merge change or an inline comment.
 
 ## Create an external agent manually
 
@@ -296,8 +282,7 @@ In this case, you manually create the service account that is used to run the ag
 
 ### Create a configuration file
 
-If you create external agents by manually adding configuration files,
-you must create a different configuration file for each external agent.
+If you create external agents by manually adding configuration files, you must create a different configuration file for each external agent.
 
 Prerequisites:
 
@@ -310,8 +295,7 @@ To create a configuration file:
 
 ### Create a service account
 
-You must create [a service account](../../../user/profile/service_accounts.md) that has access to
-the projects where you expect to use an external agent.
+You must create [a service account](../../../user/profile/service_accounts.md) that has access to the projects where you expect to use an external agent.
 
 When the agent runs, it uses a combination of the user's memberships and the service account memberships.
 This combination is called a [composite identity](../composite_identity.md).
@@ -320,9 +304,8 @@ Prerequisites:
 
 - On GitLab.com, you must have the Owner role for the top-level group the project belongs to.
 - On GitLab Self-Managed and GitLab Dedicated, you must have one of the following:
-  - Administrator access to the instance.
-  - The Owner role for a top-level group and
-    [permission to create service accounts](../../../administration/settings/account_and_limit_settings.md#allow-top-level-group-owners-to-create-service-accounts).
+ - Administrator access to the instance.
+ - The Owner role for a top-level group and [permission to create service accounts](../../../administration/settings/account_and_limit_settings.md#allow-top-level-group-owners-to-create-service-accounts).
 
 To create and assign the service account:
 
@@ -330,5 +313,4 @@ To create and assign the service account:
 
 You must now [create a trigger](../triggers/_index.md), which determines when the external agent runs.
 
-For example, you can specify the agent to be triggered when you mention a service account
-in a discussion, or when you assign the service account as a reviewer.
+For example, you can specify the agent to be triggered when you mention a service account in a discussion, or when you assign the service account as a reviewer.

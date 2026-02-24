@@ -32,12 +32,12 @@ The template should be filled in with exactly the same values as for the origina
 
 | Parameter | Mandatory | Description |
 | --- | --- | --- |
-| Authentication with Cognito |  |  |
+| Authentication with Cognito | | |
 | EnableCognito | y | Select Existing |
 | UserPoolId | y | Navigate to the userpool which was created by the original CloudFormation stack. AWS Console -> Coginto. Select and open the userpool and copy the ‘User pool ID’ from the ‘User pool overview’ section. Paste the value in this field. |
 | AppClientId | y | After copying the UserPoolId, select the ‘App Integration’ tab and scroll to the bottom. Copy the ‘Client ID’. Paste the value in this field. |
 | DomainPrefix | y | Enter the exact same value as when the initial stack was created. |
-| Email channel for Amazon Connect, using Simple Email Service (SES) |  |  |
+| Email channel for Amazon Connect, using Simple Email Service (SES) | | |
 | EnableEmail | n | Same as original stack |
 | SESRegion | n | Same as original stack |
 | SESBucketName | n | If email was enabled in the original stack, the bucket will already exist. Fill in the same bucket name. |

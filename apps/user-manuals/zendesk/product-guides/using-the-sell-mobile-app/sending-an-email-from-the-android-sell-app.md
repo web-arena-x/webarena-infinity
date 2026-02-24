@@ -43,7 +43,7 @@ You can send an email from the Leads, Contacts, or Deals tabs.
 - To add an attachment, tap the paperclip icon.
 - To insert merge tags within the email, such as First Name, Last Name, Company Name, tap the brackets icon, and select what you'd like to use.
 
-  For rich text formatting options such as bold, italics, underline, and bullet points, tap the corresponding icons at the bottom of the screen.
+ For rich text formatting options such as bold, italics, underline, and bullet points, tap the corresponding icons at the bottom of the screen.
 - When you're finished writing the email, tap the paper plane icon to send.
 
 ## Creating an email template

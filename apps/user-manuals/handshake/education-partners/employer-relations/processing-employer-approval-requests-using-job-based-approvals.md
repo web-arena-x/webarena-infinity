@@ -23,10 +23,10 @@ Topics:
 Job Automatic Approval Settings
 
 1. Select **Jobs** from the left navigation bar to be directed to the job postings page.
-2. To set up your auto-approval settings, click the button **Auto-Approval Settings** on the top right corner of the page.  
+2. To set up your auto-approval settings, click the button **Auto-Approval Settings** on the top right corner of the page. 
      
    To learn more about configuring Auto-Approval Settings, please refer to [Job Automatic Approval Configuration](https://support.joinhandshake.com/hc/en-us/articles/7815751829015).
-3. The following setting has been added as a way to reflect job-based approvals:  
+3. The following setting has been added as a way to reflect job-based approvals: 
      
    **Job is posted by a new employer**: Select this to always review the first job a new employer posts. If you do not select this option, the first job a new employer posts will be approved if it meets your auto-approval criteria.
 
@@ -56,17 +56,17 @@ Approving a job posting from a *New* employer (Approving an employer)
 
 ![Approving a new job from a new employer.png](https://support.joinhandshake.com/hc/article_attachments/27613074936727)
 
-2. This will open the side sheet for *Employer Permissions*. These permissions will be applied after approving the job, as the employer will be approved at the same time. The default permissions that your school has set up in your *School Settings* will be selected automatically. You can make modifications to the permissions for this employer here, or on the Employer’s page in Handshake.  
+2. This will open the side sheet for *Employer Permissions*. These permissions will be applied after approving the job, as the employer will be approved at the same time. The default permissions that your school has set up in your *School Settings* will be selected automatically. You can make modifications to the permissions for this employer here, or on the Employer’s page in Handshake. 
      
    The permissions include:
 
 - Posting permissions:
-  - Post Interview Schedules
-  - Post Work Study Jobs
-  - Post Events
+ - Post Interview Schedules
+ - Post Work Study Jobs
+ - Post Events
 - Auto approvals
-  - Auto-approve all jobs from this employer
-  - Auto-approve all interview schedules from this employer
+ - Auto-approve all jobs from this employer
+ - Auto-approve all interview schedules from this employer
 - Assign employer
 
 **Note:** *Post Jobs* cannot be toggled off and will be applied to all approved employers automatically.
@@ -98,26 +98,26 @@ The decline reason chosen will be added as a comment to the company profile, whi
 
 3. A pop up box will appear with employer decline reasons:
 
-- **Employer industry does not align with our school policy** *(dropdown menu, choose one)*:  
-  - Adult entertainment industry
-  - Alcohol or Tobacco
-  - Cannabis
-  - Firearms
-  - Gambling
-  - Multi-level marketing
-  - Third party recruiter or staffing firm
-  - Ideological objection to industry (please explain)  
+- **Employer industry does not align with our school policy** *(dropdown menu, choose one)*: 
+ - Adult entertainment industry
+ - Alcohol or Tobacco
+ - Cannabis
+ - Firearms
+ - Gambling
+ - Multi-level marketing
+ - Third party recruiter or staffing firm
+ - Ideological objection to industry (please explain) 
     - Comment required
 - **Not compliant with state labor laws** *(dropdown menu, select your state)*
 - **Employer requires up-front costs**
-- **Other** (please explain below)  
-  - Comment required
+- **Other** (please explain below) 
+ - Comment required
 
 After choosing a decline reason, select your choices:
 
 - **Please tell us more about your decision** (text box for required comments or additional information you'd like to share)
 - **Share my name with employer**(Yes / No)
-  - If you select this option, your name will be displayed with the comment.
+ - If you select this option, your name will be displayed with the comment.
 
 To save, click the red button **Decline Employer** in the lower-right corner of the popup.
 
@@ -133,8 +133,8 @@ If an employer chooses to followup via comment, you'll receive a notification of
 
 - notification in Handshake *(accessible via the world icon in the upper-right corner)* ![in_app_notification.png](https://support.joinhandshake.com/hc/article_attachments/26001302789271)
 - notification via email: 
-  - Sent from: "[handshake@notifications.joinhandshake.com"](mailto:handshake@notifications.joinhandshake.com")
-  - Subject: "New comment from COMPANY NAME"![Notification email example.png](https://support.joinhandshake.com/hc/article_attachments/27613074946839)
+ - Sent from: "[handshake@notifications.joinhandshake.com"](mailto:handshake@notifications.joinhandshake.com")
+ - Subject: "New comment from COMPANY NAME"![Notification email example.png](https://support.joinhandshake.com/hc/article_attachments/27613074946839)
 
 If you aren't receiving notifications as expected, double-check your notification preferences for Employers > "Someone comments on an employer approval".
 

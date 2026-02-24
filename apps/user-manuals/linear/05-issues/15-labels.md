@@ -24,7 +24,7 @@ Create labels in [Settings > Workspace > Labels](https://linear.app/settings/lab
 
 You can also create labels in the _Add label_ flow. Take the action to apply a label, then type the name of the label you want to create. The label will be automatically be saved to your team's labels.
 
-If you'd like to create a label or label group directly from the _Add label_ flow, this is available with the syntax `label group`_/`label`_ or `label group:_label_` . For example, using _Type/Bug or Type:Bug_  will create the label group "Type" and the label "Bug".
+If you'd like to create a label or label group directly from the _Add label_ flow, this is available with the syntax `label group`_/`label`_ or `label group:_label_` . For example, using _Type/Bug or Type:Bug_ will create the label group "Type" and the label "Bug".
 
 ![Type/Bug syntax being used to create a label in the group "Type" with the label "Bug"](https://webassets.linear.app/images/ornj730p/production/9074377f9a2bda6f688ee1e008ea1c2249581aad-1312x238.png?q=95&auto=format&dpr=2)
 
@@ -40,7 +40,7 @@ In workspace label settings, optionally select to display both all team and work
 
 Edit label name or color by clicking on those properties in a label row. Or, right click on the row to see additional options like converting to a group, moving to workspace, or deleting the label.
 
-Take bulk actions by selecting multiple labels (`x` or `Shift `+ click), then right-clicking on any selected label to choose an action. You  can move rescope labels to and from the workspace level to a particular team, or change a label's team. If you find duplicates, merge multiple labels into a single label.
+Take bulk actions by selecting multiple labels (`x` or `Shift `+ click), then right-clicking on any selected label to choose an action. You can move rescope labels to and from the workspace level to a particular team, or change a label's team. If you find duplicates, merge multiple labels into a single label.
 
 ### Label descriptions
 

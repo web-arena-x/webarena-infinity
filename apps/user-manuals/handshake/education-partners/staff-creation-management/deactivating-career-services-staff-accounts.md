@@ -11,13 +11,13 @@ If a Career Services staff member is no longer active at your institution, or no
 When making this choice, it may be helpful to consider which workflows are impacted by this user losing access to Handshake.
 
 - What did this user have access to or manage?
-  - In the event that privacy or security is an issue in preventing access, archiving the account provides immediate loss of access to Handshake, which helps in sensitive or urgent situations. You can always followup with our Support Team afterward to request account deletion afterward as well.
+ - In the event that privacy or security is an issue in preventing access, archiving the account provides immediate loss of access to Handshake, which helps in sensitive or urgent situations. You can always followup with our Support Team afterward to request account deletion afterward as well.
 - Will I need to report on any appointments they conducted, account for employer, job, or on-campus interviews approvals, experiences managed, or events/fairs, etc.?
-  - Archiving an account means all data and activity linked to the account is retained in Handshake, ensuring utmost accuracy in relevant reporting.
-  - Deleting the account means all the user's activity and data is removed from Handshake permanently and subsequent reporting.
+ - Archiving an account means all data and activity linked to the account is retained in Handshake, ensuring utmost accuracy in relevant reporting.
+ - Deleting the account means all the user's activity and data is removed from Handshake permanently and subsequent reporting.
 - Did the impacted user also have an On-Campus Employer account? If so, will that access need to change as well?
-  - If the user is an Owner of the On-Campus Employer account and they do not need access, that role will need to be passed off to another staff member in order to manage the company profile and other staff members.
-  - If they are a Recruiter, you can use this article to learn how to deactivate this account: [Deactivating Recruiter Accounts](https://support.joinhandshake.com/hc/en-us/articles/360000294527)
+ - If the user is an Owner of the On-Campus Employer account and they do not need access, that role will need to be passed off to another staff member in order to manage the company profile and other staff members.
+ - If they are a Recruiter, you can use this article to learn how to deactivate this account: [Deactivating Recruiter Accounts](https://support.joinhandshake.com/hc/en-us/articles/360000294527)
 
 ## Additional considerations
 
@@ -28,7 +28,7 @@ Regardless of which deactivation method you choose, there are some additional co
 - Did the user have any other special roles, such as Manage Feature Preferences? If so, you'll want to make sure someone else has that role enabled moving forward.
 - Any actions taken to the Career Services user account will **not** impact other existing account types (Student or Employer) that this person may have in Handshake.
 - If the user has their calendar synced, it'll expire once they are archived. 
-  - **Note**: if the user is reinstated at some point, they'll need to re-connect their 2-way sync set up again.
+ - **Note**: if the user is reinstated at some point, they'll need to re-connect their 2-way sync set up again.
 
 ## 
 

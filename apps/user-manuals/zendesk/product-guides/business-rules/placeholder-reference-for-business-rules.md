@@ -6,46 +6,28 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408886858138-Placeholder-
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **All Suites** | Team, Growth, Professional, Enterprise, or Enterprise Plus |
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
-Placeholders are containers for dynamically generated ticket, user, and custom data. The
-format is a data reference contained within double curly brackets. Since you can also access
-ticket, user, and custom data when defining programming logic, it may be helpful to think
-beyond placeholders and think instead of data objects and their properties that can be used
-for either purpose.
+Placeholders are containers for dynamically generated ticket, user, and custom data. The format is a data reference contained within double curly brackets. Since you can also access ticket, user, and custom data when defining programming logic, it may be helpful to think beyond placeholders and think instead of data objects and their properties that can be used for either purpose.
 
-There are two primary data objects in Zendesk Support: Ticket and User. Each has its own set
-of properties; the User object, for example, contains user properties such as name and email.
-In addition to these two data objects, there are associated data objects. For tickets, there
-are the Comment and Satisfaction Rating objects. For users, there are the Organization and
-Agent objects. There are also custom objects, which are defined by users and can be associated
-with tickets, users, and other Zendesk objects.
+There are two primary data objects in Zendesk Support: Ticket and User. Each has its own set of properties; the User object, for example, contains user properties such as name and email.
+In addition to these two data objects, there are associated data objects. For tickets, there are the Comment and Satisfaction Rating objects. For users, there are the Organization and Agent objects. There are also custom objects, which are defined by users and can be associated with tickets, users, and other Zendesk objects.
 
-Although placeholders can be in HTML format, when a placeholder is sent to a URL target or
-webhook, unformatted text is used to render the placeholder, not HTML. Also, placeholders
-won't work within code blocks.
+Although placeholders can be in HTML format, when a placeholder is sent to a URL target or webhook, unformatted text is used to render the placeholder, not HTML. Also, placeholders won't work within code blocks.
 
-Note: If you're supporting multiple languages, be aware that placeholder values will match the
-language of the requester on the ticket, in most instances. This automatic translation
-cannot be disabled.
+Note: If you're supporting multiple languages, be aware that placeholder values will match the language of the requester on the ticket, in most instances. This automatic translation cannot be disabled.
 
-Support includes *inborn system rules* that suppress placeholders in ticket
-triggers in certain situations. Inborn system rules are rules that you cannot change, modify,
-or override, which dictate the default behavior of Support. These rules may sometimes make it
-seem like placeholders in ticket triggers failed to work, but this isn’t a mistake. These
-rules protect you because they prevent spammers from using your account to distribute spam
-messages. For more information, see [Understanding placeholder suppression rules](https://support.zendesk.com/hc/en-us/articles/4408833443226).
+Support includes *inborn system rules* that suppress placeholders in ticket triggers in certain situations. Inborn system rules are rules that you cannot change, modify, or override, which dictate the default behavior of Support. These rules may sometimes make it seem like placeholders in ticket triggers failed to work, but this isn’t a mistake. These rules protect you because they prevent spammers from using your account to distribute spam messages. For more information, see [Understanding placeholder suppression rules](https://support.zendesk.com/hc/en-us/articles/4408833443226).
 
 The HTML template for email notifications has its own set of placeholders. See [Placeholder reference for the HTML email template](https://support.zendesk.com/hc/en-us/articles/4408886168090#topic_mqn_hpd_x3).
 
-This article categorizes the placeholders by the data they display. When you specify
-placeholders, remember they are case sensitive.
+This article categorizes the placeholders by the data they display. When you specify placeholders, remember they are case sensitive.
 
 - [User data](#topic_qdz_opl_rc)
 - [Organization data](#topic_qgz_opl_rc)
@@ -63,19 +45,14 @@ Related articles:
 
 ## User data
 
-In the context of updating a ticket, there are a number of different types of users. These
-include the following:
+In the context of updating a ticket, there are a number of different types of users. These include the following:
 
 - ticket.requester, who is the person who requested the ticket
 - ticket.assignee, who is the agent assigned to the ticket
-- ticket.submitter, who is either the user who submitted the request or the agent that
-  opened the ticket on behalf of the requester
-- current\_user, who is the user currently updating the ticket (an end user, agent, or
-  Zendesk as the system user)
+- ticket.submitter, who is either the user who submitted the request or the agent that opened the ticket on behalf of the requester
+- current\_user, who is the user currently updating the ticket (an end user, agent, or Zendesk as the system user)
 
-This means that most of the user data listed in the following table can be returned for
-each type of user (for example, {{ticket.submitter.name}}, {{current\_user.name}}, and so
-on).
+This means that most of the user data listed in the following table can be returned for each type of user (for example, {{ticket.submitter.name}}, {{current\_user.name}}, and so on).
 
 Table 1. User object data
 
@@ -92,7 +69,7 @@ Table 1. User object data
 | {{*user*.notes}} | The user's notes. |
 | {{*user*.time\_zone}} | The user's time zone. |
 | {{*user*.role}} | The user's role (Admin, Agent, or End user). |
-| {{*user*.extended\_role}} | When using Support Enterprise agent roles, this returns the name of the agent's Enterprise role. These are the predefined roles: - Advisor - Light Agent - Staff - Team Leader - Legacy Agent - Administrator  If you've created custom agent roles, those role names are returned. If you're not an Enterprise account, using this placeholder returns 'Agent' for all agent users and 'End user' for all end users.  For more information about custom agent roles, see [Creating custom agent roles and assigning agents](https://support.zendesk.com/hc/en-us/articles/4408882153882). |
+| {{*user*.extended\_role}} | When using Support Enterprise agent roles, this returns the name of the agent's Enterprise role. These are the predefined roles: - Advisor - Light Agent - Staff - Team Leader - Legacy Agent - Administrator If you've created custom agent roles, those role names are returned. If you're not an Enterprise account, using this placeholder returns 'Agent' for all agent users and 'End user' for all end users. For more information about custom agent roles, see [Creating custom agent roles and assigning agents](https://support.zendesk.com/hc/en-us/articles/4408882153882). |
 | {{*user*.id}} | The user's ID. |
 | {{*user*.locale}} | The user's locale (for example: en-US). |
 | {{*user*.signature}} | The agent's signature. Only agents have signatures. |
@@ -104,19 +81,13 @@ Table 1. User object data
 
 ### About user name placeholders
 
-The behavior of the first name and last name placeholders depends on the formatting of
-the name on the profile. For example, if you use the name Dutch van der Linde, the
-placeholder *user*.last\_name will show 'Linde'. If you use the name van der Linde,
-Dutch on the profile, then the placeholder *user*.last\_name will show 'van der
-Linde'.
+The behavior of the first name and last name placeholders depends on the formatting of the name on the profile. For example, if you use the name Dutch van der Linde, the placeholder *user*.last\_name will show 'Linde'. If you use the name van der Linde, Dutch on the profile, then the placeholder *user*.last\_name will show 'van der Linde'.
 
-Additionally, in Japan, the first name placeholder refers to the user's last name and the
-last name placeholder refers to the user's first name.
+Additionally, in Japan, the first name placeholder refers to the user's last name and the last name placeholder refers to the user's first name.
 
 ## Organization data
 
-Each type of user can be added to an organization. An organization contains the following
-data properties.
+Each type of user can be added to an organization. An organization contains the following data properties.
 
 Table 2. Organization data object
 
@@ -130,24 +101,17 @@ Table 2. Organization data object
 | {{*user*.organization.notes}} | Notes about the organization. |
 | {{*user*.organization.tags}} | Tags. See [Adding tags to users and organizations](https://support.zendesk.com/hc/en-us/articles/4408881573658). |
 
-Since all users can be added to an organization, you can access the organization data for
-each using Liquid markup. For example, you can return data for each of the these types of
-users (shown here as placeholders):
+Since all users can be added to an organization, you can access the organization data for each using Liquid markup. For example, you can return data for each of the these types of users (shown here as placeholders):
 
 - {{ticket.organization.name}}, which is the ticket requester's organization
-- {{ticket.requester.organization.name}}, which the same as {{ticket.organization.name}}
-  (the requester)
-- {{current\_user.organization.name}}, who is the user currently updating the ticket (an
-  end user or agent)
+- {{ticket.requester.organization.name}}, which the same as {{ticket.organization.name}} (the requester)
+- {{current\_user.organization.name}}, who is the user currently updating the ticket (an end user or agent)
 - {{ticket.assignee.organization.name}}, who is the agent assigned to the ticket
-- {{ticket.submitter.organization.name}}, who is either the user who submitted the
-  request or the agent that opened the ticket on behalf of the requester
+- {{ticket.submitter.organization.name}}, who is either the user who submitted the request or the agent that opened the ticket on behalf of the requester
 
 ## Agent data
 
-You can use the following placeholders in agent signatures only. For information on agent
-signatures, see [Adding an agent signature to ticket email
-notifications](https://support.zendesk.com/hc/en-us/articles/4408822471322).
+You can use the following placeholders in agent signatures only. For information on agent signatures, see [Adding an agent signature to ticket email notifications](https://support.zendesk.com/hc/en-us/articles/4408822471322).
 
 Table 3. Agent data object
 
@@ -175,8 +139,8 @@ Table 4. Ticket object data
 | {{ticket.account}} | The Zendesk account name. |
 | {{ticket.assignee.name}} | Ticket assignee full name or alias (if any). See [User data](#topic_qdz_opl_rc) above. |
 | {{ticket.brand.name}} | The ticket's assigned brand name. |
-| {{ticket.cc\_names}} | Returns the names CCs on the ticket. Note: If you are using [the new CCs and followers](https://support.zendesk.com/hc/en-us/articles/4408843795482) experience and you are adding or updating your placeholders, we recommend using `ticket.email_cc_names` instead of `tickets.cc_names`. They do the same thing.  If you want to return the email addresses of the people CC'd on the message, you can use this Liquid code:  ``` {% for cc in ticket.ccs %}    {{cc.name}} ({{cc.email}}) {% endfor %} ``` |
-| {{ticket.email\_cc\_names}} | With the [new CCs and followers experience](https://support.zendesk.com/hc/en-us/articles/4408843795482), returns the names of CCs on the ticket. With the old CCs experience, returns empty.  Note: If you are using the [new CCs and follower experience](https://support.zendesk.com/hc/en-us/articles/4408843795482) and you are adding or updating your placeholders, we recommend using `ticket.email_cc_names` instead of `tickets.cc_names`. They do the same thing. |
+| {{ticket.cc\_names}} | Returns the names CCs on the ticket. Note: If you are using [the new CCs and followers](https://support.zendesk.com/hc/en-us/articles/4408843795482) experience and you are adding or updating your placeholders, we recommend using `ticket.email_cc_names` instead of `tickets.cc_names`. They do the same thing. If you want to return the email addresses of the people CC'd on the message, you can use this Liquid code: ``` {% for cc in ticket.ccs %}    {{cc.name}} ({{cc.email}}) {% endfor %} ``` |
+| {{ticket.email\_cc\_names}} | With the [new CCs and followers experience](https://support.zendesk.com/hc/en-us/articles/4408843795482), returns the names of CCs on the ticket. With the old CCs experience, returns empty. Note: If you are using the [new CCs and follower experience](https://support.zendesk.com/hc/en-us/articles/4408843795482) and you are adding or updating your placeholders, we recommend using `ticket.email_cc_names` instead of `tickets.cc_names`. They do the same thing. |
 | {{ticket.follower\_names}} | With the [new CCs and followers experience](https://support.zendesk.com/hc/en-us/articles/4408843795482), returns the names of followers. With the old CCs experience, returns empty. |
 | {{ticket.follower\_reply\_type\_message}} | With the [new CCs and followers experience](https://support.zendesk.com/hc/en-us/articles/4408843795482), indicates what type of comment (public or private) triggered the notification. Causes the phrase "Reply to this email to add a comment to the request" or "Reply to this email to add an internal note to the request" to appear in the email notification (see [Customizing default email notifications for CCs and followers](https://support.zendesk.com/hc/en-us/articles/4408843866394)). With the old CCs experience, returns empty. |
 | {{ticket.created\_at}} | Date the ticket was created (for example, May 18, 2014). Note: The year is not included if the ticket was created in the current year. |
@@ -228,45 +192,21 @@ Table 4. Ticket object data
 
 ## Comment data
 
-Because comments are added to tickets, they're accessed with the ticket data object. There
-are four types of comment placeholders:
+Because comments are added to tickets, they're accessed with the ticket data object. There are four types of comment placeholders:
 
-- [**HTML comment
-  placeholders**](#topic_jkz_opl_rc__table_zrv_bzk_wtb) are used for simplified email threading in email
-  applications such as Gmail. For best results, they should not be used with other comment
-  placeholders.
-- [**Standard comment
-  placeholders**](#topic_jkz_opl_rc__table_tlz_opl_rc) allow you to use [liquid hashes](https://support.zendesk.com/hc/en-us/articles/4408883291290) to choose what you want to display, and return a
-  collection of comment and attachment data. For example, you can set up [templates](https://support.zendesk.com/hc/en-us/articles/4408886168090) to iterate over comments using
-  `{{ticket.comments}}`.
-- [**Formatted comment
-  placeholders**](#topic_jkz_opl_rc__table_w5b_hl2_mg) allow you to return preformatted, rendered HTML
-  representations of the standard placeholders, but without a large degree of
-  customization. They simply return comments in predefined formats. For example,
-  `{{ticket.comments_formatted}}` returns a chunk of rendered HTML. The
-  ticket comments will include dates, author, the author’s avatar, and the like.
-- [**Rich text comment
-  placeholders**](#topic_jkz_opl_rc__table_l22_wph_sbb) allow you to use rich text in your customized template (as
-  with the formatted object placeholders) without being restricted to the predefined
-  formatting rules, so you can have more control over the look and feel of your
-  notifications. Rich text objects allow inclusion of attachments only if [Allow agents to attach files in emails](https://support.zendesk.com/hc/en-us/articles/4408832757146) is activated.
+- [**HTML comment placeholders**](#topic_jkz_opl_rc__table_zrv_bzk_wtb) are used for simplified email threading in email applications such as Gmail. For best results, they should not be used with other comment placeholders.
+- [**Standard comment placeholders**](#topic_jkz_opl_rc__table_tlz_opl_rc) allow you to use [liquid hashes](https://support.zendesk.com/hc/en-us/articles/4408883291290) to choose what you want to display, and return a collection of comment and attachment data. For example, you can set up [templates](https://support.zendesk.com/hc/en-us/articles/4408886168090) to iterate over comments using `{{ticket.comments}}`.
+- [**Formatted comment placeholders**](#topic_jkz_opl_rc__table_w5b_hl2_mg) allow you to return preformatted, rendered HTML representations of the standard placeholders, but without a large degree of customization. They simply return comments in predefined formats. For example, `{{ticket.comments_formatted}}` returns a chunk of rendered HTML. The ticket comments will include dates, author, the author’s avatar, and the like.
+- [**Rich text comment placeholders**](#topic_jkz_opl_rc__table_l22_wph_sbb) allow you to use rich text in your customized template (as with the formatted object placeholders) without being restricted to the predefined formatting rules, so you can have more control over the look and feel of your notifications. Rich text objects allow inclusion of attachments only if [Allow agents to attach files in emails](https://support.zendesk.com/hc/en-us/articles/4408832757146) is activated.
 
 **Considerations**:
 
-- It is recommended that [HTML comment placeholders](#topic_jkz_opl_rc__table_zrv_bzk_wtb) be used to avoid issues with attachment [size limits](https://support.zendesk.com/hc/en-us/articles/4408832757146#topic_lv2_cnx_xdb). These placeholders include
-  attachments as inline links if they exceed the size limit. Single attachments and total
-  attachment sizes over the size limit will not be included in placeholders such as
-  `ticket.latest_comment` or
-  `ticket.latest_comment_rich`.
-- With simplified email threading, outbound emails from Zendesk Support don't include
-  inline image attachments from previous user emails. See [Understanding simplified email threading](https://support.zendesk.com/hc/en-us/articles/4565992897562).
-- Agents who are assigned to or following the ticket receive both public comments and
-  internal notes. End users receive only public comments.
-- If you have CCs activated, CCs (including agent CCs) receive email notifications only
-  for public comments. See [Understanding how email notifications are sent to CCs by
-  default](https://support.zendesk.com/hc/en-us/articles/4408843866394).
+- It is recommended that [HTML comment placeholders](#topic_jkz_opl_rc__table_zrv_bzk_wtb) be used to avoid issues with attachment [size limits](https://support.zendesk.com/hc/en-us/articles/4408832757146#topic_lv2_cnx_xdb). These placeholders include attachments as inline links if they exceed the size limit. Single attachments and total attachment sizes over the size limit will not be included in placeholders such as `ticket.latest_comment` or `ticket.latest_comment_rich`.
+- With simplified email threading, outbound emails from Zendesk Support don't include inline image attachments from previous user emails. See [Understanding simplified email threading](https://support.zendesk.com/hc/en-us/articles/4565992897562).
+- Agents who are assigned to or following the ticket receive both public comments and internal notes. End users receive only public comments.
+- If you have CCs activated, CCs (including agent CCs) receive email notifications only for public comments. See [Understanding how email notifications are sent to CCs by default](https://support.zendesk.com/hc/en-us/articles/4408843866394).
 - If you're using dynamic content in your placeholder, some formatting issues may occur.
-  Notably, line breaks may not be applied to multi-line or custom-text fields.
+ Notably, line breaks may not be applied to multi-line or custom-text fields.
 
 Table 5. HTML comment data
 
@@ -279,7 +219,7 @@ Table 6. Standard comment data
 
 | Properties/placeholders | Description |
 | --- | --- |
-| {{ticket.comments}} | Used as a placeholder, {{ticket.comments}} displays all the comments in a ticket in unformatted text. The ticket.comments placeholder also serves as a collection for comment and attachment details. You can access the following data using Liquid markup:   - comment.author.name - comment.created\_at - comment.created\_at\_with\_time - comment.is\_public (**true**  for public comments and  **false**  for   private comments) - comment.value - comment.value\_rich - comment.id - comment.attachments   - attachment.filename   - attachment.url   For an example of accessing this data in business rules, see [Customizing the format and placement of text in comments and email notifications](https://support.zendesk.com/hc/en-us/articles/4408832790042).  Note: This same comment data collection is available when using the ticket.public\_comments, ticket.latest\_comment, and ticket.latest\_public\_comment placeholders. |
+| {{ticket.comments}} | Used as a placeholder, {{ticket.comments}} displays all the comments in a ticket in unformatted text. The ticket.comments placeholder also serves as a collection for comment and attachment details. You can access the following data using Liquid markup:   - comment.author.name - comment.created\_at - comment.created\_at\_with\_time - comment.is\_public (**true**  for public comments and  **false**  for   private comments) - comment.value - comment.value\_rich - comment.id - comment.attachments   - attachment.filename   - attachment.url   For an example of accessing this data in business rules, see [Customizing the format and placement of text in comments and email notifications](https://support.zendesk.com/hc/en-us/articles/4408832790042). Note: This same comment data collection is available when using the ticket.public\_comments, ticket.latest\_comment, and ticket.latest\_public\_comment placeholders. |
 | {{ticket.public\_comments}} | All public comments, most recent first. Unformatted text. |
 | {{ticket.latest\_comment}} | The most recent comment. Unformatted text. Does not include attachments, unless [Allow agents to attach files in emails](https://support.zendesk.com/hc/en-us/articles/4408832757146) is activated. To return attachments, use ticket.latest\_comment\_formatted. |
 | {{ticket.latest\_public\_comment}} | The most recent public comment. Unformatted text. |
@@ -300,20 +240,15 @@ Table 8. Rich text comment data
 | {{ticket.latest\_comment\_rich}} | The most recent comment. Rich text formatting. If [Allow agents to attach files in emails](https://support.zendesk.com/hc/en-us/articles/4408832757146) is activated, attachments are included. |
 | {{ticket.latest\_public\_comment\_rich}} | The most recent public comment. Rich text formatting. If [Allow agents to attach files in emails](https://support.zendesk.com/hc/en-us/articles/4408832757146) is activated, attachments are included. |
 
-Note: [Under certain circumstances](https://support.zendesk.com/hc/en-us/articles/4408833443226) comment placeholders are suppressed
-for *received request* email notifications and will not receive them.
+Note: [Under certain circumstances](https://support.zendesk.com/hc/en-us/articles/4408833443226) comment placeholders are suppressed for *received request* email notifications and will not receive them.
 
 ## Satisfaction rating data
 
-On Suite Growth and above or Support Professional and Enterprise, the following data
-properties are available for [customer satisfaction rating for email and messaging](https://support.zendesk.com/hc/en-us/articles/4408886173338).
+On Suite Growth and above or Support Professional and Enterprise, the following data properties are available for [customer satisfaction rating for email and messaging](https://support.zendesk.com/hc/en-us/articles/4408886173338).
 
-This table lists both current and legacy CSAT placeholders. Legacy placeholders
-work only for the [legacy CSAT experience](https://support.zendesk.com/hc/en-us/articles/4408822875034). The [updated CSAT option](https://support.zendesk.com/hc/en-us/articles/7689997846554) lets you customize the CSAT question, rating
-scale, and rating labels.
+This table lists both current and legacy CSAT placeholders. Legacy placeholders work only for the [legacy CSAT experience](https://support.zendesk.com/hc/en-us/articles/4408822875034). The [updated CSAT option](https://support.zendesk.com/hc/en-us/articles/7689997846554) lets you customize the CSAT question, rating scale, and rating labels.
 
-Note: Using satisfaction rating placeholders outside of business rules
-can result in users other than the requester submitting satisfaction scores.
+Note: Using satisfaction rating placeholders outside of business rules can result in users other than the requester submitting satisfaction scores.
 
 Table 9. Satisfaction rating data object
 
@@ -330,14 +265,9 @@ Table 9. Satisfaction rating data object
 
 ## Custom object data
 
-On all Zendesk Suite plans and Support Enterprise plans, the following data properties are
-available for custom objects. These placeholders are supported by [object triggers](https://support.zendesk.com/hc/en-us/articles/6294230624410).
+On all Zendesk Suite plans and Support Enterprise plans, the following data properties are available for custom objects. These placeholders are supported by [object triggers](https://support.zendesk.com/hc/en-us/articles/6294230624410).
 
-The standard custom object data includes the object's *name*, *ID*, and
-*external ID* values, which all custom objects have. These are a custom object's
-standard fields. The variable custom object data is unique to each custom object and depends
-on the custom fields created to define the object's
-schema.
+The standard custom object data includes the object's *name*, *ID*, and *external ID* values, which all custom objects have. These are a custom object's standard fields. The variable custom object data is unique to each custom object and depends on the custom fields created to define the object's schema.
 
 Table 10. Standard custom object data
 

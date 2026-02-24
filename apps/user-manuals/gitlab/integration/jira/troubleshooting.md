@@ -47,14 +47,14 @@ In the following example, Jira responds with a `404 Not Found`. This error might
 
 ```json
 {
-  "severity": "ERROR",
-  "time": "2023-07-25T21:38:56.510Z",
-  "message": "Error sending message",
-  "client_url": "https://my-jira-cloud.atlassian.net",
-  "client_path": "/rest/api/2/issue/ALPHA-1",
-  "client_status": "404",
-  "exception.class": "JIRA::HTTPError",
-  "exception.message": "Not Found",
+ "severity": "ERROR",
+ "time": "2023-07-25T21:38:56.510Z",
+ "message": "Error sending message",
+ "client_url": "https://my-jira-cloud.atlassian.net",
+ "client_path": "/rest/api/2/issue/ALPHA-1",
+ "client_status": "404",
+ "exception.class": "JIRA::HTTPError",
+ "exception.message": "Not Found",
 }
 ```
 
@@ -75,31 +75,26 @@ If the user can access the issue, Jira responds with a `200 OK` and the returned
 > [!warning]
 > Commands that change data can cause damage if not run correctly or under the right conditions. Always run commands in a test environment first and have a backup instance ready to restore.
 
-To help troubleshoot your Jira issues integration, you can check whether
-GitLab can post a comment to a Jira issue using the project's Jira
-integration settings.
+To help troubleshoot your Jira issues integration, you can check whether GitLab can post a comment to a Jira issue using the project's Jira integration settings.
 
 To do so:
 
-- From a [Rails console](../../administration/operations/rails_console.md#starting-a-rails-console-session),
-  run the following:
+- From a [Rails console](../../administration/operations/rails_console.md#starting-a-rails-console-session), run the following:
 
-  ```ruby
-  jira_issue_id = "ALPHA-1" # Change to your Jira issue ID
-  project = Project.find_by_full_path("group/project") # Change to your project's path
+ ```ruby
+ jira_issue_id = "ALPHA-1" # Change to your Jira issue ID
+ project = Project.find_by_full_path("group/project") # Change to your project's path
 
-  integration = project.integrations.find_by(type: "Integrations::Jira")
-  jira_issue = integration.client.Issue.find(jira_issue_id)
-  jira_issue.comments.build.save!(body: 'This is a test comment from GitLab via the Rails console')
-  ```
+ integration = project.integrations.find_by(type: "Integrations::Jira")
+ jira_issue = integration.client.Issue.find(jira_issue_id)
+ jira_issue.comments.build.save!(body: 'This is a test comment from GitLab via the Rails console')
+ ```
 
 If the command is successful, a comment is added to the Jira issue.
 
 ## GitLab cannot create a Jira issue
 
-When you try to create a Jira issue from a vulnerability, you might see a "field is required" error. For example, `Components is required` because a field called
-"Components" is missing. This occurs because Jira has some required fields
-configured that are not passed by GitLab. To work around this issue:
+When you try to create a Jira issue from a vulnerability, you might see a "field is required" error. For example, `Components is required` because a field called "Components" is missing. This occurs because Jira has some required fields configured that are not passed by GitLab. To work around this issue:
 
 1. Create a new "Vulnerability" [issue type](https://support.atlassian.com/jira-cloud-administration/docs/what-are-issue-types/) in the Jira instance.
 1. Assign the new issue type to the project.
@@ -109,19 +104,16 @@ configured that are not passed by GitLab. To work around this issue:
 
 If GitLab cannot close a Jira issue:
 
-- Ensure the transition ID you set in the Jira settings matches the one
-  your project must have to close an issue. For more information, see
-  [Automatic issue transitions](issues.md#automatic-issue-transitions) and [Custom issue transitions](issues.md#custom-issue-transitions).
+- Ensure the transition ID you set in the Jira settings matches the one your project must have to close an issue. For more information, see [Automatic issue transitions](issues.md#automatic-issue-transitions) and [Custom issue transitions](issues.md#custom-issue-transitions).
 - Make sure the Jira issue is not already marked as resolved:
-  - Check the Jira issue resolution field is not set.
-  - Check the issue is not struck through in Jira lists.
+ - Check the Jira issue resolution field is not set.
+ - Check the issue is not struck through in Jira lists.
 
 ## CAPTCHA after failed sign-in attempts
 
 CAPTCHA might be triggered after consecutive failed sign-in attempts.
 These failed attempts might lead to a `401 Unauthorized` when testing the Jira issues integration settings.
-If CAPTCHA has been triggered, you cannot use the Jira REST API
-to authenticate with the Jira site.
+If CAPTCHA has been triggered, you cannot use the Jira REST API to authenticate with the Jira site.
 
 To resolve this issue, sign in to your Jira instance and complete the CAPTCHA.
 
@@ -144,19 +136,18 @@ This error might also appear in the [`integrations_json.log`](../../administrati
 
 ```json
 {
-  "severity":"ERROR",
-  "integration_class":"Integrations::Jira",
-  "message":"Error sending message",
-  "exception.class":"OpenSSL::SSL::SSLError",
-  "exception.message":"SSL_connect returned=1 errno=0 peeraddr=x.x.x.x:443 state=error: certificate verify failed (unable to get local issuer certificate)",
+ "severity":"ERROR",
+ "integration_class":"Integrations::Jira",
+ "message":"Error sending message",
+ "exception.class":"OpenSSL::SSL::SSLError",
+ "exception.message":"SSL_connect returned=1 errno=0 peeraddr=x.x.x.x:443 state=error: certificate verify failed (unable to get local issuer certificate)",
 }
 ```
 
 The error occurs because the Jira certificate is not publicly trusted or the certificate chain is incomplete.
 Until this issue is resolved, GitLab does not connect to Jira.
 
-To resolve this issue, see
-[Common SSL errors](https://docs.gitlab.com/omnibus/settings/ssl/ssl_troubleshooting.html#common-ssl-errors).
+To resolve this issue, see [Common SSL errors](https://docs.gitlab.com/omnibus/settings/ssl/ssl_troubleshooting.html#common-ssl-errors).
 
 ## Change all Jira projects to instance-level or group-level values
 
@@ -193,8 +184,8 @@ To change all Jira projects in a group (and its subgroups) to use group-level in
 
 - In a [Rails console](../../administration/operations/rails_console.md#starting-a-rails-console-session), run the following:
 
-  ```ruby
-  def reset_integration(target)
+ ```ruby
+ def reset_integration(target)
     integration = target.integrations.find_by(type: Integrations::Jira)
 
     return if integration.nil? # Skip if the project has no Jira issues integration
@@ -211,12 +202,12 @@ To change all Jira projects in a group (and its subgroups) to use group-level in
         BulkUpdateIntegrationService.new(default_integration, [integration]).execute
       end
     end
-  end
+ end
 
-  parent_group = Group.find_by_full_path('top-level-group') # Add the full path of your top-level group
-  current_user = User.find_by_username('admin-user') # Add the username of a user with administrator access
+ parent_group = Group.find_by_full_path('top-level-group') # Add the full path of your top-level group
+ current_user = User.find_by_username('admin-user') # Add the username of a user with administrator access
 
-  unless parent_group.nil?
+ unless parent_group.nil?
     groups = GroupsFinder.new(current_user, { parent: parent_group, include_parent_descendants: true }).execute
 
     # Reset any projects in subgroups to use the parent group integration settings
@@ -232,22 +223,21 @@ To change all Jira projects in a group (and its subgroups) to use group-level in
     parent_group.projects.find_each do |project|
       reset_integration(project)
     end
-  end
-  ```
+ end
+ ```
 
 ## Update the integration password for all projects
 
 > [!warning]
 > Commands that change data can cause damage if not run correctly or under the right conditions. Always run commands in a test environment first and have a backup instance ready to restore.
 
-To reset the Jira user's password for all projects with active Jira issues integrations,
-run the following in a [Rails console](../../administration/operations/rails_console.md#starting-a-rails-console-session):
+To reset the Jira user's password for all projects with active Jira issues integrations, run the following in a [Rails console](../../administration/operations/rails_console.md#starting-a-rails-console-session):
 
 ```ruby
 p = Project.find_by_sql("SELECT p.id FROM projects p LEFT JOIN integrations i ON p.id = i.project_id WHERE i.type_new = 'Integrations::Jira' AND i.active = true")
 
 p.each do |project|
-  project.jira_integration.update_attribute(:password, '<your-new-password>')
+ project.jira_integration.update_attribute(:password, '<your-new-password>')
 end
 ```
 
@@ -303,10 +293,8 @@ Check your Jira issues integration configuration and try again.
 
 Authentication credentials depend on your type of Jira installation:
 
-- **For Jira Cloud**, you must have a Jira Cloud API token
-  and the email address you used to create the token.
-- **For Jira Data Center or Jira Server**, you must have a Jira username and password
-  or, in GitLab 16.0 and later, a Jira personal access token.
+- **For Jira Cloud**, you must have a Jira Cloud API token and the email address you used to create the token.
+- **For Jira Data Center or Jira Server**, you must have a Jira username and password or, in GitLab 16.0 and later, a Jira personal access token.
 
 For more information, see [Jira issues integration](configure.md).
 
@@ -314,8 +302,7 @@ To resolve this issue, update the authentication credentials to match your Jira 
 
 #### Error: `The credentials for accessing Jira are not allowed to access the data`
 
-If your Jira credentials cannot access the Jira project key you specified in the
-[Jira issues integration](configure.md#configure-the-integration), you might see this error:
+If your Jira credentials cannot access the Jira project key you specified in the [Jira issues integration](configure.md#configure-the-integration), you might see this error:
 
 ```plaintext
 The credentials for accessing Jira are not allowed to access the data.
@@ -324,15 +311,13 @@ Check your Jira issues integration credentials and try again.
 
 {{< alert type="warning" >}}
 
-Atlassian deprecated the older JQL search endpoints (`GET/POST /rest/api/2/search`) for Jira Cloud
-on October 31, 2024, with removal scheduled for May 1, 2025.
+Atlassian deprecated the older JQL search endpoints (`GET/POST /rest/api/2/search`) for Jira Cloud on October 31, 2024, with removal scheduled for May 1, 2025.
 Jira Server and Data Center continue to use the `/rest/api/2/search` endpoint.
 For more information, see the [Atlassian deprecation notice](https://developer.atlassian.com/changelog/#CHANGE-2046).
 
 {{< /alert >}}
 
-To resolve this issue, ensure the Jira user you configured in the Jira issues integration has permission to view issues
-associated with the specified Jira project key.
+To resolve this issue, ensure the Jira user you configured in the Jira issues integration has permission to view issues associated with the specified Jira project key.
 
 To verify the Jira user has this permission, do one of the following:
 
@@ -340,62 +325,58 @@ To verify the Jira user has this permission, do one of the following:
 
 {{< tab title="Jira Cloud" >}}
 
-- In your browser, sign in to Jira with the user you configured in the Jira issues integration. Because the Jira API supports
-  cookie-based authentication you can see if any issues are returned in the browser:
+- In your browser, sign in to Jira with the user you configured in the Jira issues integration. Because the Jira API supports cookie-based authentication you can see if any issues are returned in the browser:
 
-  ```plaintext
-  https://<ATLASSIAN_SUBDOMAIN>.atlassian.net/rest/api/3/search/jql?jql=project=<JIRA_PROJECT_KEY>
-  ```
+ ```plaintext
+ https://<ATLASSIAN_SUBDOMAIN>.atlassian.net/rest/api/3/search/jql?jql=project=<JIRA_PROJECT_KEY>
+ ```
 
 - Use `curl` for HTTP basic authentication to access the API and see if any issues are returned:
 
-  ```shell
-  curl --verbose --user "$JIRA_EMAIL:$JIRA_API_TOKEN" \
+ ```shell
+ curl --verbose --user "$JIRA_EMAIL:$JIRA_API_TOKEN" \
     --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
     --request POST \
     --data '{"jql":"project='$JIRA_PROJECT_KEY'"}' \
     "https://$ATLASSIAN_SUBDOMAIN.atlassian.net/rest/api/3/search/jql" | jq
-  ```
+ ```
 
 The API response returns a JSON response:
 
 - `issues` contains an array of the issues that match the Jira project key.
 - `nextPageToken` is provided if there are more results to fetch.
 
-For more information about returned status codes and API details, see the
-[Search for issues using JQL enhanced search (POST)](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-jql-post)
+For more information about returned status codes and API details, see the [Search for issues using JQL enhanced search (POST)](https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-jql-post)
 documentation.
 
 {{< /tab >}}
 
 {{< tab title="Jira Server/Data Center" >}}
 
-- In your browser, sign in to Jira with the user you configured in the Jira issues integration. Because the Jira API supports
-  cookie-based authentication you can see if any issues are returned in the browser:
+- In your browser, sign in to Jira with the user you configured in the Jira issues integration. Because the Jira API supports cookie-based authentication you can see if any issues are returned in the browser:
 
-  ```plaintext
-  <JIRA_SERVER_URL>/rest/api/2/search?jql=project=<JIRA_PROJECT_KEY>
-  ```
+ ```plaintext
+ <JIRA_SERVER_URL>/rest/api/2/search?jql=project=<JIRA_PROJECT_KEY>
+ ```
 
 - Use `curl` for HTTP basic authentication to access the API and see if any issues are returned:
 
-  ```shell
-  curl --verbose --header 'Authorization: Bearer '$JIRA_API_TOKEN'' \
+ ```shell
+ curl --verbose --header 'Authorization: Bearer '$JIRA_API_TOKEN'' \
     --header 'Content-Type: application/json' \
     --header 'Accept: application/json' \
     --request POST \
     --data '{"jql":"project='$JIRA_PROJECT_KEY'"}' \
     "$JIRA_SERVER_URL/rest/api/2/search" | jq
-  ```
+ ```
 
 The API response returns a JSON response:
 
 - `issues` contains an array of the issues that match the Jira project key.
 - `total` is provided if there are more results to fetch.
 
-For more information about returned status codes and API details, see the
-[Perform search with JQL (POST)](https://developer.atlassian.com/server/jira/platform/rest/v10007/api-group-search/#api-api-2-search-post)
+For more information about returned status codes and API details, see the [Perform search with JQL (POST)](https://developer.atlassian.com/server/jira/platform/rest/v10007/api-group-search/#api-api-2-search-post)
 documentation.
 
 {{< /tab >}}

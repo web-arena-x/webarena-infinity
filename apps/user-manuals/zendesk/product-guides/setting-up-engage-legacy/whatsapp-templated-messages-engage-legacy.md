@@ -8,7 +8,7 @@ In the fast-paced world of customer service, businesses are constantly seeking i
 
 ‍
 
-Local Measure's Engage platform offers outbound messaging feature that integrates seamlessly with WhatsApp. This tool is designed to help businesses proactively communicate with their customers, offering a streamlined and efficient way to manage customer interactions across various sectors including BPOs, contact centers, e-commerce, healthcare, financial services, and retail.  
+Local Measure's Engage platform offers outbound messaging feature that integrates seamlessly with WhatsApp. This tool is designed to help businesses proactively communicate with their customers, offering a streamlined and efficient way to manage customer interactions across various sectors including BPOs, contact centers, e-commerce, healthcare, financial services, and retail. 
 ‍
 
 ### ‍**Benefits**
@@ -29,21 +29,20 @@ Local Measure's Engage platform offers outbound messaging feature that integrate
 
 ### Step-by-Step Setup:  ‍
 
-Setting up of a WhatsApp Template  
-‍**Enable WhatsApp Messaging in Engage**:
+Setting up of a WhatsApp Template ‍**Enable WhatsApp Messaging in Engage**:
 
 - Log in to the Engage platform.
 - Navigate to the “Settings” section and select “Channels.”
 - Choose “WhatsApp” from the available options and follow the prompts to link your WhatsApp Business account.
 
 - **Set Up a WhatsApp Template**:
-  - Go to the “Templates” section in the Engage platform.
-  - Click on “Sync” and the templates from your WhatsApp Business account will be pulled into Engage Desktop.
+ - Go to the “Templates” section in the Engage platform.
+ - Click on “Sync” and the templates from your WhatsApp Business account will be pulled into Engage Desktop.
 - **Configure Template Parameters**:
-  - In the template setup, map each placeholder to the corresponding data field from your CRM or database.
-  - Save the template and ensure it’s linked with the correct WhatsApp-approved template.
+ - In the template setup, map each placeholder to the corresponding data field from your CRM or database.
+ - Save the template and ensure it’s linked with the correct WhatsApp-approved template.
 - **Test the Setup**:
-  - Use the template manager in Engage to send a test message to ensure the setup is correct.
-  - Verify that the test message is received and that all dynamic fields are populated correctly.
+ - Use the template manager in Engage to send a test message to ensure the setup is correct.
+ - Verify that the test message is received and that all dynamic fields are populated correctly.
 
 ###### ‍ ‍

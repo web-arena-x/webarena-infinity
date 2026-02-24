@@ -18,9 +18,9 @@ If you're ever locked out of your Google Account, recovery options can help you 
 - Files in Google Drive, which includes PDFs, images, and videos.
 - Meet call recordings.
 - Files created or edited in collaborative content creation apps like Google Docs, Sheets, Slides, Drawings, Forms, Recorder, and Vids.
-  - Files created or edited after June 1, 2021 count against your quota.
-  - Files uploaded or last edited before June 1, 2021 don't count against your quota.
-  - WhatsApp backups on Android.
+ - Files created or edited after June 1, 2021 count against your quota.
+ - Files uploaded or last edited before June 1, 2021 don't count against your quota.
+ - WhatsApp backups on Android.
 
 ### What happens when you're over quota
 
@@ -31,7 +31,7 @@ When you’re over quota, it means you use more storage space than you have avai
 - Your ability to send and receive email in Gmail can be impacted.
 - You can’t create new files in collaborative content creation apps like Google Docs, Sheets, Slides, Drawings, Forms, and Vids. Until you reduce your storage usage, nobody can edit or copy your affected files.
 - You can’t back up new Recorder files.
-  - **Tip:** You can still sign into and access your Google Account.
+ - **Tip:** You can still sign into and access your Google Account.
 
 **If you’re over your quota for 2 years or longer:** If you don't free up or purchase more space to get back under quota, all of your content in your Google Account may be removed including in Gmail, Google Photos, Google Drive (this includes Google Docs, Sheets, Slides, Drawings, Forms, and Vids) and your Android device's backup.
 

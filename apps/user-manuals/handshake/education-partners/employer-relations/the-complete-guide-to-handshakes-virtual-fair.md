@@ -39,7 +39,7 @@ Manual: You can specify instructions for employers to be able to pay with cash, 
 ### Configure Your Fair’s Registration Types
 
 - Set registration types that employers will be able to select and register for.
-  - **Note**: Until registration types are created, employers will not be able to register. If you would like more information on creating your registration types, check out [Fairs: Create Registration Types](https://support.joinhandshake.com/hc/en-us/articles/218693078)!
+ - **Note**: Until registration types are created, employers will not be able to register. If you would like more information on creating your registration types, check out [Fairs: Create Registration Types](https://support.joinhandshake.com/hc/en-us/articles/218693078)!
 
 **Best Practice**: If you would like to have “Early Bird Pricing” for career fairs, we recommend setting up separate registration types for Early Bird, Regular, and Late, add the appropriate amount of each type, and have the registration types available during the correct time frame.
 
@@ -48,7 +48,7 @@ Manual: You can specify instructions for employers to be able to pay with cash, 
 ### Setting Student Qualifications and Invite Only
 
 - Student Qualifications allow you to filter which students will be able to sign up for the fair. Qualifications can be set by school year, GPA, major, college or any labels. If you would like all students to have the opportunity, you can disregard this step! If you use qualifications, all students can still see the fair, but only those who are qualified can sign up.
-  - **Note**: If qualifications are changed after student registrations begin, those already registered will not be able to sign up for any additional sessions. We recommend ensuring desired qualifications are in finalized prior to the registration start.
+ - **Note**: If qualifications are changed after student registrations begin, those already registered will not be able to sign up for any additional sessions. We recommend ensuring desired qualifications are in finalized prior to the registration start.
 - Invite Only will make your fair invite only, you will then need invite students on the “student invite” tab. Only these students will be able to see and sign up for the career fair in Handshake.
 - Allow students from other schools to attend will allow students from other partner schools (and the Handshake Open Network) to sign up for group or 1:1 sessions with employers. For more information on sharing a fair, see [Sharing an Event or Fair with an Additional School](https://support.joinhandshake.com/hc/en-us/articles/219132937-Sharing-an-Event-or-Fair-with-an-Additional-School).
 
@@ -125,18 +125,18 @@ In order to test out video, you'll need to either work with a partner, or you ca
 ### Approving employer registrations
 
 - Decide what criteria will be used in determining whether or not an employers registration will be approved and the workflow of approving registrations.
-  - For example, making sure employers attending the fair are also approved at your school, so both they and students get the best experience!
+ - For example, making sure employers attending the fair are also approved at your school, so both they and students get the best experience!
 - Check out [Fairs: Approving Employer Registrations](https://support.joinhandshake.com/hc/en-us/articles/360055243894) for more information and steps!
 
 ### Supporting your employers
 
 - **Fair registrants will need to create their company's group and 1:1 sessions, other team members will need to claim their schedules, and there will be on-going schedule management needed as team members are unable to attend, new team members are added, etc. Here are some resources that will help you support employers through that:**
-  - [Virtual Fairs: Downloadable Checklist](https://support.joinhandshake.com/hc/en-us/articles/219132917)
-  - [**Virtual Fairs: Monitoring Fair** **Enga****gement**](https://support.joinhandshake.com/hc/en-us/articles/360051323174)
-  - [**Virtual Fairs: Supporting Employers**](https://support.joinhandshake.com/hc/en-us/articles/360049480714)
-  - **[Creating a Schedule for Virtual Fairs](https://support.joinhandshake.com/hc/en-us/articles/360050523014)**
-  - **[Claiming & Participating in a Schedule](https://support.joinhandshake.com/hc/en-us/articles/360051272393)**
-  - **[Managing Schedules for Virtual Fairs](https://support.joinhandshake.com/hc/en-us/articles/360051272433)**
+ - [Virtual Fairs: Downloadable Checklist](https://support.joinhandshake.com/hc/en-us/articles/219132917)
+ - [**Virtual Fairs: Monitoring Fair** **Enga****gement**](https://support.joinhandshake.com/hc/en-us/articles/360051323174)
+ - [**Virtual Fairs: Supporting Employers**](https://support.joinhandshake.com/hc/en-us/articles/360049480714)
+ - **[Creating a Schedule for Virtual Fairs](https://support.joinhandshake.com/hc/en-us/articles/360050523014)**
+ - **[Claiming & Participating in a Schedule](https://support.joinhandshake.com/hc/en-us/articles/360051272393)**
+ - **[Managing Schedules for Virtual Fairs](https://support.joinhandshake.com/hc/en-us/articles/360051272433)**
 
 If an employer needs assistance via you creating a registration on their behalf, refer to [Acting on Behalf of Employers: Registering for a Fair](https://support.joinhandshake.com/hc/en-us/articles/360009561453).
 
@@ -145,9 +145,9 @@ We've also [added Schedule Representatives as an option](../events-fairs-managem
 ### Communication with your students
 
 - You can send updates and reminders about your fair to students by using the “Email Student Attendees” feature. This feature can also be used to market your fair by sending emails to students based on invitation, registration, or checkin status, as well as the following new additions: 
-  - Invited but not Registered or Checked In
-  - Registered and not Checked In
-  - Registered and no sessions
+ - Invited but not Registered or Checked In
+ - Registered and not Checked In
+ - Registered and no sessions
 
 ### Day-of support for employers
 
@@ -160,7 +160,7 @@ Have an employer with issues getting connected to audio or video? Use the links 
 ### Day-of support for students
 
 - Consider registering for your career fair from your Career Center's on-campus employer account - this will allow you to configure a schedule for group sessions and/or 1:1 sessions, during which you can offer support and guidance to students. If you do this, be sure to market your booth to students in advance as well, so they know they can come to your session for guidance!
-  - Make sure you use a naming convention that shows you are available for support, not hiring students! This will help students distinguish.
+ - Make sure you use a naming convention that shows you are available for support, not hiring students! This will help students distinguish.
 - You can also use an external source like Zoom to host "drop-ins" - promote this ahead of time so participants know where to go for help!
 - Refer to [Virtual Fairs: Supporting Students](https://support.joinhandshake.com/hc/en-us/articles/360051037214) for common issues students face.
 
@@ -170,7 +170,7 @@ Have an employer with issues getting connected to audio or video? Use the links 
 
 - [**Virtual Fairs Engagement Kit for Education Partners**](https://joinhandshake.com/career-centers/virtual-engagement-kit/)
 - **[Career Fairs Help Center](https://support.joinhandshake.com/hc/en-us/sections/204176177-Events-Career-Fairs)**
-  - Resources for Career Services are titled per the following:
+ - Resources for Career Services are titled per the following:
     - **Fairs:** indicates an article that is relevant to in-person and virtual fairs
     - **Career Fairs:** indicates an article specific to in-person fairs
     - **Virtual Fairs:** indicates an article specific to fairs hosted virtually

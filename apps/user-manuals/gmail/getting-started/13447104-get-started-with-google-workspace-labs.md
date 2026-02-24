@@ -78,8 +78,8 @@ Google Keep
 If you have trouble accessing Workspace Labs features, try the solutions below:
 
 - You can’t use Workspace Labs if:
-  - You have a school account.
-  - You’re not 18 years or older.
+ - You have a school account.
+ - You’re not 18 years or older.
 - Check that your language is set to English. [Learn how to change the language for your Google Account](/accounts/answer/32047).
 - Check if Workspace Labs is available in your country. [Learn more about where Workspace Labs is available](13607340).
 - If you opt out of Workspace Labs, you can't access Workspace Labs features. [Learn more about exiting Workspace Labs](#labs-opt-out).

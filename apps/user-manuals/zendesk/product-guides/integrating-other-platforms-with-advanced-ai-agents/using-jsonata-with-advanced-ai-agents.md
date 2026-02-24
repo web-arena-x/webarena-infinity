@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/8357756877466-Using-JSONat
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | AI agents - Advanced |
 
@@ -28,9 +28,7 @@ That’s all you need to know about the Exerciser for now! Next up, use a query 
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/bots_Csi8VEb0rx7PRIT104I-sUfXv83fjioHS9Dld9R_yTNporVEnmxEt3tm9zKRHgdga-R0Nwf5C-CVp-dwp1Ih_FA_DLsqnaOqlnpu4apA2Kk96ITwi2z8idgjodTXIAkggeEd1Ot5zJeH8PoUkfpEYg.png)
 
-Root-level field: Account  
-Nested field in root object: Account.'Account Name'  
-If it finds another JSON structure, you can use dot notation to enter the below fields.
+Root-level field: Account Nested field in root object: Account.'Account Name' If it finds another JSON structure, you can use dot notation to enter the below fields.
 
 **Nested field in a root level array****:**
 
@@ -131,10 +129,10 @@ Access any Product Name, regardless of any parent naming:
 Searches backwards in current data structure:
 
 ```
-Account.Order.Product.{  
- 'Account': %.%.`Account Name`,  
- 'Order': %.OrderID,  
- 'Product': `Product Name`  
+Account.Order.Product.{ 
+ 'Account': %.%.`Account Name`, 
+ 'Order': %.OrderID, 
+ 'Product': `Product Name` 
 }
 ```
 
@@ -143,9 +141,9 @@ Account.Order.Product.{
 Creates an index, starting at 0:
 
 ```
-Account.Order#$i[Product.[Quantity > 0]].{  
- 'Order ID': OrderID,  
- 'Order Number': $i + 1  
+Account.Order#$i[Product.[Quantity > 0]].{ 
+ 'Order ID': OrderID, 
+ 'Order Number': $i + 1 
 }
 ```
 
@@ -155,8 +153,8 @@ Temporarily assigns new data structure, allowing cross-object mappings:
 
 ```
 Account@$A.Account.Order@$O.{   
- "Account Name": $A.'Account Name',  
- "OrderID": $O.OrderID  
+ "Account Name": $A.'Account Name', 
+ "OrderID": $O.OrderID 
 }
 ```
 
@@ -182,7 +180,7 @@ Account.Order[0].Product[0].Price <= 100 or Account.Order[0].Product[1].Price <=
 
 ### Supported Operators
 
-|  |  |  |
+| | | |
 | --- | --- | --- |
 | Operator | Priority | Description |
 | Multiply (\*) | 5 | Multiplies two numbers |
@@ -260,7 +258,7 @@ These millis can now be re-transformed into a date format of your choice by defi
 
 Example patterns: <https://www.w3.org/TR/xpath-functions-31/#date-time-examples>
 
-|  |  |
+| | |
 | --- | --- |
 | Specifier | Meaning |
 | Y | Year (absolute value) |
@@ -343,17 +341,17 @@ Note: Consider your CRMs limitations - Zendesk Support offers some basic formatt
 Cards and Carousels are the true strength of JSONata since it handles the data query and aggregation natively, as long as your response follows the same schema. A C&C consists of an array of objects in which each object represents one of your cards. A very simple example of a C&C structure with 2 cards could look something like this:
 
 ```
-[  
- {  
-   "imageURL": data.url1,  
-   "title": data.title1,  
-   "description": data.description1  
- },  
- {  
-   "imageURL": data.url2,  
-   "title": data.title2,  
-   "description": data.description2  
- }  
+[ 
+ { 
+   "imageURL": data.url1, 
+   "title": data.title1, 
+   "description": data.description1 
+ }, 
+ { 
+   "imageURL": data.url2, 
+   "title": data.title2, 
+   "description": data.description2 
+ } 
 ]
 ```
 
@@ -376,40 +374,40 @@ For a straightforward example, let’s construct a C&C on the invoice sample dat
 These are some of the fields we’re interested in. Let’s combine them into one object - be sure to give each key in your target object a name:
 
 ```
-[  
- Account.Order.Product.  
-  {  
+[ 
+ Account.Order.Product. 
+ { 
    "name": 'Product Name',   
    "sku": SKU,   
-   "colour": Description.Colour  
-  }  
+   "colour": Description.Colour 
+ } 
 ]
 ```
 
 If you need a value a level higher, you can simply start your query a level higher. If you also want to include [Account.Order.OrderID] in your array:
 
 ```
-[  
- Account.Order.  
-  {  
+[ 
+ Account.Order. 
+ { 
    "orderId": OrderID,   
    "name": Product.'Product Name',   
    "sku": Product.SKU,   
-   "Colour": Product.Description.Colour  
-  }  
+   "Colour": Product.Description.Colour 
+ } 
 ]
 ```
 
 You will notice that there is no direct 1:1 match anymore since each order can carry multiple items within, which is why this response creates seemingly random arrays of strings. You can solve this by accessing the parent object indirectly (see parent binding), temporarily assigning a different object structure in JSONata (see context variable binding), adding a secondary C&C which cycles through the items in the chosen order, or transforming data further, depending on your ideal UX. Here’s for example a transformed example:
 
 ```
-[  
- Account.Order.  
-  {  
+[ 
+ Account.Order. 
+ { 
    "orderId": OrderID,   
    "name": $join(Product.'Product Name', ", "),   
-   "totalPrice": $sum(Product.Price)  
-  }  
+   "totalPrice": $sum(Product.Price) 
+ } 
 ]
 ```
 
@@ -417,8 +415,8 @@ If you want to bulletproof your query further, let’s add some fail safes in ca
 
 ```
 Account.Order ?   
- [Account.Order[[0..9]].  
-  {  
+ [Account.Order[[0..9]]. 
+ { 
    "orderId": OrderID,   
    "name": $join(Product.'Product Name', ", "),   
    "totalPrice": $sum(Product.Price)}]   

@@ -12,8 +12,7 @@ title: Job logs
 
 {{< /details >}}
 
-Job logs are sent by a runner while it's processing a job. You can see
-logs in places like job pages, pipelines, and email notifications.
+Job logs are sent by a runner while it's processing a job. You can see logs in places like job pages, pipelines, and email notifications.
 
 ## Data flow
 
@@ -46,8 +45,7 @@ To change the location where the job logs are stored:
 
 {{< tab title="Linux package (Omnibus)" >}}
 
-1. Optional. If you have existing job logs, pause continuous integration data
-   processing by temporarily stopping Sidekiq:
+1. Optional. If you have existing job logs, pause continuous integration data processing by temporarily stopping Sidekiq:
 
    ```shell
    sudo gitlab-ctl stop sidekiq
@@ -73,8 +71,7 @@ To change the location where the job logs are stored:
 
    Use `--ignore-existing` so you don't override new job logs with older versions of the same log.
 
-1. If you opted to pause the continuous integration data processing, you can
-   start Sidekiq again:
+1. If you opted to pause the continuous integration data processing, you can start Sidekiq again:
 
    ```shell
    sudo gitlab-ctl start sidekiq
@@ -90,8 +87,7 @@ To change the location where the job logs are stored:
 
 {{< tab title="Self-compiled (source)" >}}
 
-1. Optional. If you have existing job logs, pause continuous integration data
-   processing by temporarily stopping Sidekiq:
+1. Optional. If you have existing job logs, pause continuous integration data processing by temporarily stopping Sidekiq:
 
    ```shell
    # For systems running systemd
@@ -127,8 +123,7 @@ To change the location where the job logs are stored:
 
    Use `--ignore-existing` so you don't override new job logs with older versions of the same log.
 
-1. If you opted to pause the continuous integration data processing, you can
-   start Sidekiq again:
+1. If you opted to pause the continuous integration data processing, you can start Sidekiq again:
 
    ```shell
    # For systems running systemd
@@ -151,8 +146,7 @@ To change the location where the job logs are stored:
 ## Uploading logs to object storage
 
 Archived logs are considered as [job artifacts](job_artifacts.md).
-Therefore, when you [set up the object storage integration](job_artifacts.md#using-object-storage),
-job logs are automatically migrated to it along with the other job artifacts.
+Therefore, when you [set up the object storage integration](job_artifacts.md#using-object-storage), job logs are automatically migrated to it along with the other job artifacts.
 
 See "Phase 3: uploading" in [Data flow](#data-flow) to learn about the process.
 
@@ -164,28 +158,22 @@ For more details, see [Maximum file size for job logs](../instance_limits.md#max
 
 ## Prevent local disk usage
 
-If you want to avoid any local disk usage for job logs,
-you can do so using one of the following options:
+If you want to avoid any local disk usage for job logs, you can do so using one of the following options:
 
 - Turn on [incremental logging](#configure-incremental-logging).
 - Set the [job logs location](#changing-the-job-logs-local-location)
-  to an NFS drive.
+ to an NFS drive.
 
 ## How to remove job logs
 
-There isn't a way to automatically expire old job logs. However, it's safe to remove
-them if they're taking up too much space. If you remove the logs manually, the
-job output in the UI is empty.
+There isn't a way to automatically expire old job logs. However, it's safe to remove them if they're taking up too much space. If you remove the logs manually, the job output in the UI is empty.
 
-For details on how to delete job logs by using GitLab CLI,
-see [Delete job logs](../../user/storage_management_automation.md#delete-job-logs).
+For details on how to delete job logs by using GitLab CLI, see [Delete job logs](../../user/storage_management_automation.md#delete-job-logs).
 
-For the Helm chart, use the storage management tools provided with your object
-storage.
+For the Helm chart, use the storage management tools provided with your object storage.
 
 Alternatively, you can delete job logs with shell commands.
-For example, to delete all job logs older than 60 days, run the following
-command from a shell in your GitLab instance.
+For example, to delete all job logs older than 60 days, run the following command from a shell in your GitLab instance.
 
 > [!warning]
 > The following command permanently deletes the log files and is irreversible.
@@ -220,11 +208,8 @@ find /home/git/gitlab/shared/artifacts -name "job.log" -mtime +60 -delete
 
 {{< /tabs >}}
 
-After the logs are deleted, you can find any broken file references by running
-the Rake task that checks the
-[integrity of the uploaded files](../raketasks/check.md#uploaded-files-integrity).
-For more information, see how to
-[delete references to missing artifacts](../raketasks/check.md#delete-references-to-missing-artifacts).
+After the logs are deleted, you can find any broken file references by running the Rake task that checks the [integrity of the uploaded files](../raketasks/check.md#uploaded-files-integrity).
+For more information, see how to [delete references to missing artifacts](../raketasks/check.md#delete-references-to-missing-artifacts).
 
 ## Incremental logging
 

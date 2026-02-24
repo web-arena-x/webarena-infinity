@@ -15,7 +15,7 @@ A *submittal package* is a container that stores one or more *submittals*. Typ
 ## Things to Consider
 
 - **Required User Permission**:
-  - 'Admin' level permissions on the project's Submittals tool.
+ - 'Admin' level permissions on the project's Submittals tool.
 
 ## Steps
 

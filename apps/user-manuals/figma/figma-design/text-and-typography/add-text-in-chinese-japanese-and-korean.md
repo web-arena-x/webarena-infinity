@@ -62,7 +62,7 @@ You can update the font for a selection of text, or an entire text layer.
 
 1. Select the text layer you want to update.
 2. Open the **Design** tab in the right sidebar.
-3. Click the  next to the current font family.
+3. Click the next to the current font family.
 4. Search for and select the relevant Noto font.
 
 Figma lists Chinese, Japanese, and Korean Noto fonts in shorthand. For example: **Noto Sans Simplified Chinese** is shown as **Noto Sans SC**.

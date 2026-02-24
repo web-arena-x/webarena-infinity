@@ -26,14 +26,7 @@ We use a monorepo, and make use of path filters in the pipeline settings to defi
 
 Here are the pipelines we’re using today:
 
-Name | Type
---- | ---
-Android (production) | Scheduled
-Android Internal | Continuous
-iOS (production) | Scheduled
-iOS Nightly | Continuous
-iOS Internal | Continuous 
-Linear App | Continuous
+Name | Type --- | --- Android (production) | Scheduled Android Internal | Continuous iOS (production) | Scheduled iOS Nightly | Continuous iOS Internal | Continuous Linear App | Continuous
 </details>
 
 ## Releases
@@ -51,5 +44,5 @@ You can filter issues by their release, release stage type, or release pipeline.
 # Configure
 
 1. This feature is currently in beta. If you do not have see releases in [Settings](https://linear.app/settings/releases), or require further support in setup, please contact your account manager.
-2. Open  [Settings > Releases](https://linear.app/settings/releases) and create the pipelines you need for each product/environment combination you support. 
+2. Open [Settings > Releases](https://linear.app/settings/releases) and create the pipelines you need for each product/environment combination you support. 
 3. Reference the [README](https://github.com/linear/linear-release?tab=readme-ov-file) of our open-source tool for a link to the pre-built binary for your platform. We also include a sample GitHub Action for ease, though you can integrate with any CI/CD system that can execute command line tools.

@@ -18,9 +18,7 @@ Spamcheck is available to all tiers, but only on instances using GitLab Enterpri
 
 {{< /alert >}}
 
-[Spamcheck](https://gitlab.com/gitlab-org/gl-security/security-engineering/security-automation/spam/spamcheck) is an anti-spam engine
-developed by GitLab originally to combat rising amount of spam in GitLab.com,
-and later made public to be used in GitLab Self-Managed instances.
+[Spamcheck](https://gitlab.com/gitlab-org/gl-security/security-engineering/security-automation/spam/spamcheck) is an anti-spam engine developed by GitLab originally to combat rising amount of spam in GitLab.com, and later made public to be used in GitLab Self-Managed instances.
 
 ## Enable Spamcheck
 
@@ -38,8 +36,7 @@ Spamcheck is only available for package-based installations:
    sudo gitlab-ctl reconfigure
    ```
 
-1. Verify that the new services `spamcheck` and `spam-classifier` are
-   up and running:
+1. Verify that the new services `spamcheck` and `spam-classifier` are up and running:
 
    ```shell
    sudo gitlab-ctl status
@@ -58,13 +55,7 @@ Spamcheck is only available for package-based installations:
 
 {{< alert type="note" >}}
 
-In single-node instances, Spamcheck runs over `localhost`, and hence is running
-in an unauthenticated mode. If on multi-node instances where GitLab runs on one
-server and Spamcheck runs on another server listening over a public endpoint, it
-is recommended to enforce some sort of authentication using a reverse proxy in
-front of the Spamcheck service that can be used along with an API key. One
-example would be to use `JWT` authentication for this and specifying a bearer
-token as the API key.
+In single-node instances, Spamcheck runs over `localhost`, and hence is running in an unauthenticated mode. If on multi-node instances where GitLab runs on one server and Spamcheck runs on another server listening over a public endpoint, it is recommended to enforce some sort of authentication using a reverse proxy in front of the Spamcheck service that can be used along with an API key. One example would be to use `JWT` authentication for this and specifying a bearer token as the API key.
 [Native authentication for Spamcheck is in the works](https://gitlab.com/gitlab-com/gl-security/engineering-and-research/automation-team/spam/spamcheck/-/issues/171).
 
 {{< /alert >}}
@@ -72,7 +63,4 @@ token as the API key.
 ## Running Spamcheck over TLS
 
 Spamcheck service on its own cannot communicate directly over TLS with GitLab.
-However, Spamcheck can be deployed behind a reverse proxy which performs TLS
-termination. In such a scenario, GitLab can be made to communicate with
-Spamcheck over TLS by specifying `tls://` scheme for the external Spamcheck URL
-instead of `grpc://` in the **Admin** area settings.
+However, Spamcheck can be deployed behind a reverse proxy which performs TLS termination. In such a scenario, GitLab can be made to communicate with Spamcheck over TLS by specifying `tls://` scheme for the external Spamcheck URL instead of `grpc://` in the **Admin** area settings.

@@ -28,7 +28,7 @@ List of filters:
 
 - Survey Type
 - Show only responses where the Employer value is not connected to a Handshake account.
-  - *We recommend editing these responses to connect them with a Handshake employer account where possible.*
+ - *We recommend editing these responses to connect them with a Handshake employer account where possible.*
 - Graduation group
 - Major
 - College

@@ -28,8 +28,7 @@ Get the GitLab public key for signing web commits.
 GET /web_commits/public_key
 ```
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following
-response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute    | Type   | Description                                |
 |--------------|--------|--------------------------------------------|
@@ -39,15 +38,15 @@ Example request:
 
 ```shell
 curl --request GET \
-  --url "https://gitlab.example.com/api/v4/web_commits/public_key"
+ --url "https://gitlab.example.com/api/v4/web_commits/public_key"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAIEAiPWx6WM4lhHNedGfBpPJNPpZ7yKu+dnn1SJejgt4596k6YjzGGphH2TUxwKzxcKDKKezwkpfnxPkSMkuEspGRt/aZZ9wa++Oi7Qkr8prgHc4soW6NUlfDzpvZK2H5E7eQaSeP3SAwGmQKUFHCddNaP0L+hM7zhFNzjFvpaMgJw0="
-  }
+ }
 ]
 ```

@@ -43,8 +43,8 @@ The table graph below the tiles depicts the number of applications received over
 ![Application counts per day.png](https://support.joinhandshake.com/hc/article_attachments/25995549162775)
 
 - Alternatively, you may click the blue text **View table data** below the table to view the data in list format instead. After reviewing the data, click **Close** in the lower-right corner of the pop-up modal. If no one has applied for the job yet, this section displays "No applicants yet". You can take action by clicking on the options listed:
-  - Invite your matches to apply
-  - View recommended schools to add to this job
+ - Invite your matches to apply
+ - View recommended schools to add to this job
 
 ![No applicants yet.png](https://support.joinhandshake.com/hc/article_attachments/25995551916695)
 
@@ -80,10 +80,10 @@ Below the heading are the tiles for **Total** and **Matching**. Click on the **M
 Below the tiles is a donut graph showing the job posting total reach and matching reach.
 
 - **Total**: the total number of early talent with Handshake accounts at schools where this job is approved.
-  - Click the blue hyperlinked text **View all schools you** **posted to** to review schools or post the job to more schools.
-  - *Learn* [*How to Post a Job to Additional Schools*](https://support.joinhandshake.com/hc/en-us/articles/222186587).
+ - Click the blue hyperlinked text **View all schools you** **posted to** to review schools or post the job to more schools.
+ - *Learn* [*How to Post a Job to Additional Schools*](https://support.joinhandshake.com/hc/en-us/articles/222186587).
 - **Matching**: the total number of early talent in your total reach who *also* match all qualifications.
-  - Click the blue hyperlinked text **View matches** to review your matches.
+ - Click the blue hyperlinked text **View matches** to review your matches.
 
 ![Reach section on overview page.png](https://support.joinhandshake.com/hc/article_attachments/25995549171351)
 

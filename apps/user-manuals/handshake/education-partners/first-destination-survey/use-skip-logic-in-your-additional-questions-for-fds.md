@@ -27,11 +27,11 @@ To use the First Destination Template in Handshake, follow the steps below.
 - **Title** - enter the title, which will be displayed to survey recipients
 - **Description** - provide a description as desired
 - **Required for Students?** - check this box if this survey is required for students. If marked, this will display a message under the student's survey section in Handshake. Please refer to [How to Take a Survey in Handshake](https://support.joinhandshake.com/hc/en-us/articles/10100411918359) for the student's perspective of this message.
-  - **Tip**: don't check this box if this is a survey you plan to attach to a form or appointment
+ - **Tip**: don't check this box if this is a survey you plan to attach to a form or appointment
 - **Available to employers?** - check this box if you'd like employers to find and take this survey
 - **Completion Label** - if selected, the label will be applied to any users who complete this survey
-  - **Tip**: if you plan to use a completion label, but the desired label has not been created, open your School Settings in a new tab or window (via right click, open in new tab/window), and create the label. When you come back to the survey creation, the new label should be listed in the dropdown.
-  - For more details, refer to [About Survey Completion Labels](https://support.joinhandshake.com/hc/en-us/articles/115010679687).
+ - **Tip**: if you plan to use a completion label, but the desired label has not been created, open your School Settings in a new tab or window (via right click, open in new tab/window), and create the label. When you come back to the survey creation, the new label should be listed in the dropdown.
+ - For more details, refer to [About Survey Completion Labels](https://support.joinhandshake.com/hc/en-us/articles/115010679687).
 
 When you're ready to proceed, click the blue button **Next** in the bottom-middle of the screen.
 

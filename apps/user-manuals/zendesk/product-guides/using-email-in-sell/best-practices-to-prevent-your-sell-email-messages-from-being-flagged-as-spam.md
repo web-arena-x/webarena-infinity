@@ -46,14 +46,14 @@ The best practice is send no more than 2500 emails per user per week (that's 500
 - Include a physical address in your footer. An address in your footer allows spam filters to associate the email with a legitimate business.
 - Always add an unsubscribe link to your email templates in sequences. The checkbox for this option is selected by default when configuring new sequences and it is strongly recommended not to turn it off . You can also change the language of the unsubscribe link (see the Optional add unsubscribe link to emails step in the [Setting up email and task sequences in Sell](https://support.zendesk.com/hc/en-us/articles/4408842857370#topic_d13_ctp_2qb)).
 
-  Note: In some jurisdictions you are legally bound to include an unsubscribe link in your email.
+ Note: In some jurisdictions you are legally bound to include an unsubscribe link in your email.
 - When creating email message content, follow these guidelines:
-  - Avoid using all caps.
-  - Don't use an excessive amount of exclamation points.
-  - Don't embed video or Javascript code.
-  - Avoid large attachments and attachment types that may be flagged as suspicious (.exe, .zip, .swf, etc.).
-  - Don't use spam trigger words and phishing phrases (WIN, Free!, etc.).
-  - Maintain a good text to image ratio. Don't use an overwhelming number of images or extremely large images.
+ - Avoid using all caps.
+ - Don't use an excessive amount of exclamation points.
+ - Don't embed video or Javascript code.
+ - Avoid large attachments and attachment types that may be flagged as suspicious (.exe, .zip, .swf, etc.).
+ - Don't use spam trigger words and phishing phrases (WIN, Free!, etc.).
+ - Maintain a good text to image ratio. Don't use an overwhelming number of images or extremely large images.
 
 **Sending email messages**
 
@@ -65,4 +65,4 @@ The best practice is send no more than 2500 emails per user per week (that's 500
 **Monitoring your sequences and sender reputation**
 
 - Monitor the open and click rates of your sequences ([Monitoring email sequence usage](https://support.zendesk.com/hc/en-us/articles/4408842857370#topic_ngs_rjh_gkb__section_mjz_lbc_dmb)), work to improve them, and stop using ineffective sequences.
-- Monitor your sender reputation. Use websites such as [Sender Score](https://www.senderscore.org/blocklistlookup/) or  [MX Toolbox](http://mxtoolbox.com/blacklists.aspx), which will tell you if your mail server IP is listed on any popular spam blocklists.
+- Monitor your sender reputation. Use websites such as [Sender Score](https://www.senderscore.org/blocklistlookup/) or [MX Toolbox](http://mxtoolbox.com/blacklists.aspx), which will tell you if your mail server IP is listed on any popular spam blocklists.

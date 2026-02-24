@@ -13,11 +13,9 @@ title: Protected paths
 
 {{< /details >}}
 
-Rate limiting is a technique that improves the security and durability of a web
-application. For more details, see [Rate limits](../../security/rate_limits.md).
+Rate limiting is a technique that improves the security and durability of a web application. For more details, see [Rate limits](../../security/rate_limits.md).
 
-You can rate limit (protect) specified paths. For these paths, GitLab responds with HTTP status
-code `429` to POST requests that exceed 10 requests per minute per IP address and GET requests that exceed 10 requests per minute per IP address at protected paths.
+You can rate limit (protect) specified paths. For these paths, GitLab responds with HTTP status code `429` to POST requests that exceed 10 requests per minute per IP address and GET requests that exceed 10 requests per minute per IP address at protected paths.
 
 For example, the following are limited to a maximum 10 requests per minute:
 
@@ -31,12 +29,11 @@ See also:
 
 - List of paths [protected by default](../instance_limits.md#by-protected-path).
 - [User and IP rate limits](user_and_ip_rate_limits.md#response-headers)
-  for the headers returned to blocked requests.
+ for the headers returned to blocked requests.
 
 ## Configure protected paths
 
-Throttling of protected paths is enabled by default and can be disabled or
-customized.
+Throttling of protected paths is enabled by default and can be disabled or customized.
 
 Prerequisites:
 

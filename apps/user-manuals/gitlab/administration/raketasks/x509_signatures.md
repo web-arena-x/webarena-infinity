@@ -12,8 +12,7 @@ title: X.509 signatures Rake task
 
 {{< /details >}}
 
-When [signing commits with X.509](../../user/project/repository/signed_commits/x509.md),
-the trust anchor might change and the signatures stored in the database must be updated.
+When [signing commits with X.509](../../user/project/repository/signed_commits/x509.md), the trust anchor might change and the signatures stored in the database must be updated.
 
 ## Update all X.509 signatures
 
@@ -54,12 +53,10 @@ When working with X.509 certificates, you might encounter the following issues.
 
 You might get an error that states `GRPC::DeadlineExceeded` when updating X.509 signatures.
 
-This issue occurs when network timeouts or connectivity problems prevent the task from
-completing.
+This issue occurs when network timeouts or connectivity problems prevent the task from completing.
 
 To resolve this issue, the task automatically retries up to 5 times for each signature by default.
-You can customize the retry limit by setting the `GRPC_DEADLINE_EXCEEDED_RETRY_LIMIT`
-environment variable:
+You can customize the retry limit by setting the `GRPC_DEADLINE_EXCEEDED_RETRY_LIMIT` environment variable:
 
 {{< tabs >}}
 

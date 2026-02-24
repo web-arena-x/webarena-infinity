@@ -21,13 +21,10 @@ title: Semantic code search
 
 {{< /history >}}
 
-Semantic code search uses AI to find relevant code snippets
-in your repository based on meaning rather than keyword matching.
+Semantic code search uses AI to find relevant code snippets in your repository based on meaning rather than keyword matching.
 
-Semantic code search converts your codebase into vector embeddings
-and stores these embeddings in a vector database.
-Your search query is also converted into an embedding and then compared against
-your code embeddings to find the most semantically similar results.
+Semantic code search converts your codebase into vector embeddings and stores these embeddings in a vector database.
+Your search query is also converted into an embedding and then compared against your code embeddings to find the most semantically similar results.
 This approach finds relevant code even when keywords do not match.
 
 Improvements to this feature are proposed in [epic 18018](https://gitlab.com/groups/gitlab-org/-/epics/18018)
@@ -36,24 +33,22 @@ and [epic 20110](https://gitlab.com/groups/gitlab-org/-/epics/20110).
 ## Prerequisites
 
 - One of these configured:
-  - Access to the [GitLab AI Gateway](../../administration/gitlab_duo/gateway.md).
-  - A [self-hosted AI Gateway](../../install/install_ai_gateway.md) with access
-    to the Vertex AI `text-embedding-005` model for embedding generation.
+ - Access to the [GitLab AI Gateway](../../administration/gitlab_duo/gateway.md).
+ - A [self-hosted AI Gateway](../../install/install_ai_gateway.md) with access to the Vertex AI `text-embedding-005` model for embedding generation.
 - These features turned on:
-  - For GitLab.com, experiment features for your top-level namespace.
-  - For GitLab Self-Managed, GitLab Duo experiment and beta features for the instance.
+ - For GitLab.com, experiment features for your top-level namespace.
+ - For GitLab Self-Managed, GitLab Duo experiment and beta features for the instance.
 - [GitLab Duo](turn_on_off.md#turn-gitlab-duo-on-or-off) turned on for your project.
 - A supported vector store configured:
-  - Elasticsearch 8.0 and later.
-  - OpenSearch 2.0 and later.
+ - Elasticsearch 8.0 and later.
+ - OpenSearch 2.0 and later.
 - Administrator access.
 
 ## Enable semantic code search
 
 ### With the UI
 
-If your GitLab instance uses Elasticsearch or OpenSearch for advanced search,
-you can enable semantic code search by connecting to the same cluster:
+If your GitLab instance uses Elasticsearch or OpenSearch for advanced search, you can enable semantic code search by connecting to the same cluster:
 
 1. In the upper-right corner, select **Admin**.
 1. Select **Settings** > **Search**.
@@ -62,16 +57,15 @@ you can enable semantic code search by connecting to the same cluster:
 
 ### With the Rails console
 
-To create a custom vector store connection for Elasticsearch or OpenSearch,
-in the Rails console, create a connection with `adapter` and `options`.
+To create a custom vector store connection for Elasticsearch or OpenSearch, in the Rails console, create a connection with `adapter` and `options`.
 
 #### Elasticsearch
 
 ```ruby
 connection = Ai::ActiveContext::Connection.create!(
-  name: "elasticsearch",
-  options: { url: ["http://your-elasticsearch-url:9200"] },
-  adapter_class: "ActiveContext::Databases::Elasticsearch::Adapter"
+ name: "elasticsearch",
+ options: { url: ["http://your-elasticsearch-url:9200"] },
+ adapter_class: "ActiveContext::Databases::Elasticsearch::Adapter"
 )
 connection.activate!
 ```
@@ -90,9 +84,9 @@ Connection options:
 
 ```ruby
 connection = Ai::ActiveContext::Connection.create!(
-  name: "opensearch",
-  options: { url: ["http://your-opensearch-url:9200"] },
-  adapter_class: "ActiveContext::Databases::Opensearch::Adapter"
+ name: "opensearch",
+ options: { url: ["http://your-opensearch-url:9200"] },
+ adapter_class: "ActiveContext::Databases::Opensearch::Adapter"
 )
 connection.activate!
 ```
@@ -109,13 +103,12 @@ Connection options:
 | `aws`                    | boolean          | No       | `false`    | Enables AWS Signature Version 4 signing. |
 | `aws_region`             | string           | No       | None       | AWS region for your OpenSearch domain. |
 | `aws_access_key`         | string           | No       | None       | AWS access key ID. |
-| `aws_secret_access_key`  | string           | No       | None       | AWS secret access key. |
+| `aws_secret_access_key` | string           | No       | None       | AWS secret access key. |
 
 ## Use semantic code search
 
 Semantic code search is available as a GitLab MCP server tool.
-For more information about how to use this tool, see
-[`semantic_code_search`](model_context_protocol/mcp_server_tools.md#semantic_code_search).
+For more information about how to use this tool, see [`semantic_code_search`](model_context_protocol/mcp_server_tools.md#semantic_code_search).
 
 When you first use semantic code search in a GitLab project:
 

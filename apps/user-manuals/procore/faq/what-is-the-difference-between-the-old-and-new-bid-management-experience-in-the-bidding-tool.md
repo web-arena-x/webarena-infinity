@@ -24,13 +24,13 @@ The table below describes processes that have changed or are completed in other
 
 | Action | Legacy Experience | Enhanced Experience |
 | --- | --- | --- |
-| **Add and Invite Bidders** | You can add and invite bidders after creating a bid package.  An 'Add Bidders' button is available at the top of the page. | After creating a bid package, you must create a bid form before you can add bidders.  An 'Add Bidders' button is available after creating the bid form. You can also add bidders from the 'Bidders' tab of the bid form, and the 'Bidding' tab of the bid package. |
+| **Add and Invite Bidders** | You can add and invite bidders after creating a bid package. An 'Add Bidders' button is available at the top of the page. | After creating a bid package, you must create a bid form before you can add bidders. An 'Add Bidders' button is available after creating the bid form. You can also add bidders from the 'Bidders' tab of the bid form, and the 'Bidding' tab of the bid package. |
 | **Open Company Directory to Access Bidder Info** | Click the company’s name from the 'Bidders' table | From the table on the 'Bidding' or 'Bidders' tab, click the vertical ellipsis icon on a bidder row and select Company Directory. |
-| **Manage Bid Recipients** | When inviting bidders, you can update recipients, but not add new contacts.  When adding bidders, you can add a new contact for companies that don't have any default bid contacts, but you can't manage the existing contacts.  Bid recipients can't be edited in the Bidder tables. | You can manage bid recipients and add new contacts when inviting, adding bidders, or from the 'Bidder' tables. |
+| **Manage Bid Recipients** | When inviting bidders, you can update recipients, but not add new contacts. When adding bidders, you can add a new contact for companies that don't have any default bid contacts, but you can't manage the existing contacts. Bid recipients can't be edited in the Bidder tables. | You can manage bid recipients and add new contacts when inviting, adding bidders, or from the 'Bidder' tables. |
 | **Filter and Group Bidders** | You can filter and group bidders by Cost Code and Trade. | You can filter and sort bidders by options such as bid status, location, and business certifications. |
 | **Send a Correspondence** | You could send a correspondence from the Correspondence tab or from the Bulk Actions menu. | You can send a correspondence from the Correspondence tab. You can select recipients by bid form. |
 | **Submit a Bid on Behalf of a Subcontractor** | Click the 'View' button from the 'Bidders' table to open the Bid Sheet tab. | Click the bidders name from the table on the 'Bidding' or 'Bidders' tab to open the Bid modal. |
-| **Resend a Bid Invitation to an Individual** | You can't resend a bid invitation to an individual bid recipient unless you remove all other bid recipients from the company on the 'Reinvite Bidders' page.  *Note:* This is not recommended since it removes the recipients that you previously invited from the bidders table, along with their contact info. | From the table in the 'Bidding' or 'Bidders' tab, you can click an email icon for an individual bid recipient and resend the invitation to them. |
+| **Resend a Bid Invitation to an Individual** | You can't resend a bid invitation to an individual bid recipient unless you remove all other bid recipients from the company on the 'Reinvite Bidders' page. *Note:* This is not recommended since it removes the recipients that you previously invited from the bidders table, along with their contact info. | From the table in the 'Bidding' or 'Bidders' tab, you can click an email icon for an individual bid recipient and resend the invitation to them. |
 
 ### Feature Comparison
 
@@ -41,19 +41,19 @@ See the table below for features available in the Legacy and Enhanced bid manage
 | Action | Legacy Experience | Enhanced Experience |
 | --- | --- | --- |
 | Create and Manage a Bid Package | icon-mindtouch-table-check2.png | icon-mindtouch-table-check2.png |
-| Create and Manage Bid Forms |  | icon-mindtouch-table-check2.png |
+| Create and Manage Bid Forms | | icon-mindtouch-table-check2.png |
 | Search for, Add, and Invite Bidders from the Company Directory | icon-mindtouch-table-check2.png | icon-mindtouch-table-check2.png |
-| Search for, Add, and Invite Bidders from the Procore Construction Network |  | icon-mindtouch-table-check2.png |
+| Search for, Add, and Invite Bidders from the Procore Construction Network | | icon-mindtouch-table-check2.png |
 | Add New Companies and Contacts to the Directory from the Bidding Tool | icon-mindtouch-table-check2.png | icon-mindtouch-table-check2.png |
-| Compare Bids (Bid Leveling) |  | icon-mindtouch-table-check2.png |
-| Resend a Bid Invitation to an Individual Bid Recipient |  | icon-mindtouch-table-check2.png |
-| Download Bid Attachments from 'Bidders' Table |  | icon-mindtouch-table-check2.png |
-| Inline Edit Bid Recipients from 'Bidders' Table |  | icon-mindtouch-table-check2.png |
+| Compare Bids (Bid Leveling) | | icon-mindtouch-table-check2.png |
+| Resend a Bid Invitation to an Individual Bid Recipient | | icon-mindtouch-table-check2.png |
+| Download Bid Attachments from 'Bidders' Table | | icon-mindtouch-table-check2.png |
+| Inline Edit Bid Recipients from 'Bidders' Table | | icon-mindtouch-table-check2.png |
 | Send a Correspondence | icon-mindtouch-table-check2.png | icon-mindtouch-table-check2.png |
 | Award a Bid | icon-mindtouch-table-check2.png | icon-mindtouch-table-check2.png |
-| Soft Award a Bid |  | icon-mindtouch-table-check2.png |
+| Soft Award a Bid | | icon-mindtouch-table-check2.png |
 | Convert an Awarded Bid to a Subcontract or Purchase Order | icon-mindtouch-table-check2.png | icon-mindtouch-table-check2.png |
-| Bid Form Templates |  | *planned for development* |
+| Bid Form Templates | | *planned for development* |
 
 ### FAQ
 

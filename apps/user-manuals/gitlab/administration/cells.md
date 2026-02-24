@@ -40,7 +40,7 @@ To configure your GitLab instance as a Cell instance:
 The cells related configuration in `config/gitlab.yml` is in this format:
 
 ```yaml
-  cell:
+ cell:
     enabled: true
     id: 1
     database:

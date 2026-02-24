@@ -19,12 +19,9 @@ title: Web IDE
 
 {{< /history >}}
 
-The Web IDE is an advanced editor where you can edit multiple files, stage changes, and create
-commits directly in the GitLab UI. Unlike the [Web Editor](../repository/web_editor.md), the Web
-IDE provides a full-featured development environment with source control management.
+The Web IDE is an advanced editor where you can edit multiple files, stage changes, and create commits directly in the GitLab UI. Unlike the [Web Editor](../repository/web_editor.md), the Web IDE provides a full-featured development environment with source control management.
 
-Support for [GitLab Flavored Markdown](../../markdown.md) preview in the Web IDE is proposed in
-[epic 15810](https://gitlab.com/groups/gitlab-org/-/epics/15810).
+Support for [GitLab Flavored Markdown](../../markdown.md) preview in the Web IDE is proposed in [epic 15810](https://gitlab.com/groups/gitlab-org/-/epics/15810).
 
 ## Open the Web IDE
 
@@ -56,9 +53,7 @@ You can access the Web IDE through several methods.
 The Web IDE opens new and modified files in separate tabs, and displays changes side by side.
 To reduce load time, only 10 files with the most lines changed open automatically.
 
-The Web IDE interface displays a merge request icon ({{< icon name="merge-request" >}}) next to
-new or modified files in the left sidebar **Explorer** view. To view changes to a file, right-click
-the file and select **Compare with merge request base**.
+The Web IDE interface displays a merge request icon ({{< icon name="merge-request" >}}) next to new or modified files in the left sidebar **Explorer** view. To view changes to a file, right-click the file and select **Compare with merge request base**.
 
 ## Manage files
 
@@ -82,13 +77,11 @@ To search across open files in the Web IDE:
 
 To upload a file in the Web IDE:
 
-1. On the left side of the Web IDE, select **Explorer** ({{< icon name="documents" >}}), or
-   press <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>E</kbd>.
+1. On the left side of the Web IDE, select **Explorer** ({{< icon name="documents" >}}), or press <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>E</kbd>.
 1. Go to the directory where you want to upload the file.
    To create a new directory:
 
-   - In the **Explorer** view, in the upper right,
-     select **New Folder** ({{< icon name="folder-new" >}}).
+   - In the **Explorer** view, in the upper right, select **New Folder** ({{< icon name="folder-new" >}}).
 
 1. Right-click the directory and select **Upload**.
 1. Select the file you want to upload.
@@ -100,8 +93,7 @@ The files are uploaded and automatically added to the repository.
 
 You do not have to manually save any file you edit in the Web IDE.
 The Web IDE stages the files you modify, so you can [commit the changes](#commit-changes).
-Uncommitted changes are saved in your browser's local storage. They persist
-even if you close the browser tab or refresh the Web IDE.
+Uncommitted changes are saved in your browser's local storage. They persist even if you close the browser tab or refresh the Web IDE.
 
 If your uncommitted changes are not available, you can restore the changes from local history.
 To restore uncommitted changes in the Web IDE:
@@ -112,15 +104,13 @@ To restore uncommitted changes in the Web IDE:
 
 ## Use source control
 
-You can use source control to view modified files, create and switch branches,
-commit changes, and create merge requests.
+You can use source control to view modified files, create and switch branches, commit changes, and create merge requests.
 
 ### View modified files
 
 To view a list of files you modified in the Web IDE:
 
-- On the left side of the Web IDE, select **Source Control** ({{< icon name="branch" >}}), or
-  press <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd>.
+- On the left side of the Web IDE, select **Source Control** ({{< icon name="branch" >}}), or press <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd>.
 
 Your `CHANGES`, `STAGED CHANGES`, and `MERGE CHANGES` are displayed.
 For more information, see the [VS Code documentation](https://code.visualstudio.com/docs/sourcecontrol/overview#_commit).
@@ -141,13 +131,10 @@ To create a branch from the current branch in the Web IDE:
 1. From the dropdown list, select **Create new branch**.
 1. Enter the new branch name.
 
-The Web IDE creates a branch using the checked out branch as base. Alternatively, you can follow
-these steps to create a branch from a different base:
+The Web IDE creates a branch using the checked out branch as base. Alternatively, you can follow these steps to create a branch from a different base:
 
-1. On the left side of the Web IDE, select **Source Control** ({{< icon name="branch" >}}), or
-   press <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd>.
-1. Select the ellipsis menu ({{< icon name="ellipsis_h" >}}) in the upper-right side of the
-   Source Control panel.
+1. On the left side of the Web IDE, select **Source Control** ({{< icon name="branch" >}}), or press <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd>.
+1. Select the ellipsis menu ({{< icon name="ellipsis_h" >}}) in the upper-right side of the Source Control panel.
 1. From the dropdown list, select **Branch** > **Create branch from...**.
 1. From the dropdown list, select the branch that you want to use as base.
 
@@ -155,10 +142,8 @@ If you do not have write access to the repository, **Create new branch** is not 
 
 ### Delete a branch
 
-1. On the left side of the Web IDE, select **Source Control** ({{< icon name="branch" >}}), or
-   press <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd>.
-1. Select the ellipsis menu ({{< icon name="ellipsis_h" >}}) in the upper-right side of the
-   Source Control panel.
+1. On the left side of the Web IDE, select **Source Control** ({{< icon name="branch" >}}), or press <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd>.
+1. Select the ellipsis menu ({{< icon name="ellipsis_h" >}}) in the upper-right side of the Source Control panel.
 1. From the dropdown list, select **Branch** > **Delete branch**.
 1. From the dropdown list, select the branch that you want to delete.
 
@@ -168,8 +153,7 @@ You can't delete protected branches from the Web IDE.
 
 To commit changes in the Web IDE:
 
-1. On the left side of the Web IDE, select **Source Control** ({{< icon name="branch" >}}), or
-   press <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd>.
+1. On the left side of the Web IDE, select **Source Control** ({{< icon name="branch" >}}), or press <kbd>Control</kbd>+<kbd>Shift</kbd>+<kbd>G</kbd>.
 1. Enter your commit message.
 1. Select one of the following commit options:
    - **Commit to current branch** - Commits changes to the current branch
@@ -208,8 +192,7 @@ For more information, see [View missed notifications](#view-missed-notifications
 
 ## Customize the Web IDE
 
-Customize the Web IDE to match your preferences for keyboard shortcuts,
-themes, settings, and synchronization.
+Customize the Web IDE to match your preferences for keyboard shortcuts, themes, settings, and synchronization.
 
 ### Use the Command Palette
 
@@ -224,19 +207,16 @@ To open the Command Palette and run a command in the Web IDE:
 You can use the settings editor to view and edit your user and workspace settings.
 To open the settings editor in the Web IDE:
 
-- On the top menu bar, select **File** > **Preferences** > **Settings**,
-  or press <kbd>Command</kbd>+<kbd>,</kbd>.
+- On the top menu bar, select **File** > **Preferences** > **Settings**, or press <kbd>Command</kbd>+<kbd>,</kbd>.
 
 In the settings editor, you can search for the settings you want to change.
 
 ### Edit keyboard shortcuts
 
-You can use the keyboard shortcuts editor to view and change
-the default keybindings for all available commands.
+You can use the keyboard shortcuts editor to view and change the default keybindings for all available commands.
 To open the keyboard shortcuts editor in the Web IDE:
 
-- On the top menu bar, select **File** > **Preferences** > **Keyboard Shortcuts**,
-  or press <kbd>Command</kbd>+<kbd>K</kbd> then <kbd>Command</kbd>+<kbd>S</kbd>.
+- On the top menu bar, select **File** > **Preferences** > **Keyboard Shortcuts**, or press <kbd>Command</kbd>+<kbd>K</kbd> then <kbd>Command</kbd>+<kbd>S</kbd>.
 
 In the keyboard shortcuts editor, you can search for:
 
@@ -253,8 +233,7 @@ The default theme is **GitLab Dark**.
 
 To change the color theme in the Web IDE:
 
-1. On the top menu bar, select **File** > **Preferences** > **Theme** > **Color Theme**,
-   or press <kbd>Command</kbd>+<kbd>K</kbd> then <kbd>Command</kbd>+<kbd>T</kbd>.
+1. On the top menu bar, select **File** > **Preferences** > **Theme** > **Color Theme**, or press <kbd>Command</kbd>+<kbd>K</kbd> then <kbd>Command</kbd>+<kbd>T</kbd>.
 1. From the dropdown list, preview the themes with the arrow keys.
 1. Select a theme.
 
@@ -307,8 +286,7 @@ To view any notification you might have missed:
 
 {{< /history >}}
 
-The VS Code Extension Marketplace provides access to extensions that enhance the functionality of the
-Web IDE. By default, the GitLab Web IDE connects to the [Open VSX Registry](https://open-vsx.org/).
+The VS Code Extension Marketplace provides access to extensions that enhance the functionality of the Web IDE. By default, the GitLab Web IDE connects to the [Open VSX Registry](https://open-vsx.org/).
 
 {{< alert type="note" >}}
 
@@ -328,8 +306,7 @@ Prerequisites:
 
 To install an extension in the Web IDE:
 
-1. On the top menu bar, select **View** > **Extensions**,
-   or press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>.
+1. On the top menu bar, select **View** > **Extensions**, or press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>.
 1. In the search box, enter the extension name.
 1. Select the extension you want to install.
 1. Select **Install**.
@@ -338,8 +315,7 @@ To install an extension in the Web IDE:
 
 To uninstall an extension in the Web IDE:
 
-1. On the top menu bar, select **View** > **Extensions**,
-   or press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>.
+1. On the top menu bar, select **View** > **Extensions**, or press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd>.
 1. From the list of installed extensions, select the extension you want to uninstall.
 1. Select **Uninstall**.
 
@@ -372,11 +348,9 @@ When working with the Web IDE, you might encounter the following issues.
 When you type in the Web IDE, you might get a four-character offset.
 As a workaround:
 
-1. On the top menu bar, select **File** > **Preferences** > **Settings**,
-   or press <kbd>Command</kbd>+<kbd>,</kbd>.
+1. On the top menu bar, select **File** > **Preferences** > **Settings**, or press <kbd>Command</kbd>+<kbd>,</kbd>.
 1. In the upper-right corner, select **Open Settings (JSON)**.
-1. In the `settings.json` file, add `"editor.disableMonospaceOptimizations": true`
-   or change the `"editor.fontFamily"` setting.
+1. In the `settings.json` file, add `"editor.disableMonospaceOptimizations": true` or change the `"editor.fontFamily"` setting.
 
 For more information, see [VS Code issue 80170](https://github.com/microsoft/vscode/issues/80170).
 
@@ -421,16 +395,11 @@ To update the OAuth callback URL:
 
 {{< /details >}}
 
-You might encounter an error message stating that the access token lifetime cannot be less
-than 5 minutes.
+You might encounter an error message stating that the access token lifetime cannot be less than 5 minutes.
 
-This error occurs when your GitLab instance is configured with an access token expiry time of
-less than 5 minutes. The Web IDE requires access tokens with a minimum lifetime of
-5 minutes to function properly.
+This error occurs when your GitLab instance is configured with an access token expiry time of less than 5 minutes. The Web IDE requires access tokens with a minimum lifetime of 5 minutes to function properly.
 
-To resolve this issue, increase the access token lifetime to at least 5 minutes in your
-instance configuration. For more information about configuring access token expiration,
-see [access token expiration](../../../integration/oauth_provider.md#access-token-expiration).
+To resolve this issue, increase the access token lifetime to at least 5 minutes in your instance configuration. For more information about configuring access token expiration, see [access token expiration](../../../integration/oauth_provider.md#access-token-expiration).
 
 ### Workhorse dependency
 
@@ -440,14 +409,9 @@ see [access token expiration](../../../integration/oauth_provider.md#access-toke
 
 {{< /details >}}
 
-On GitLab Self-Managed, Workhorse must be installed and running in front of the GitLab Rails
-server. If it is not, you might encounter issues when you open the Web IDE or use certain
-features like Markdown preview.
+On GitLab Self-Managed, Workhorse must be installed and running in front of the GitLab Rails server. If it is not, you might encounter issues when you open the Web IDE or use certain features like Markdown preview.
 
-For security, some parts of the Web IDE must run in a separate origin. To support this
-approach, the Web IDE uses Workhorse to route requests appropriately to and from Web IDE
-assets. The Web IDE assets are static frontend assets, so it's unnecessary overhead to rely
-on Rails for this effort.
+For security, some parts of the Web IDE must run in a separate origin. To support this approach, the Web IDE uses Workhorse to route requests appropriately to and from Web IDE assets. The Web IDE assets are static frontend assets, so it's unnecessary overhead to rely on Rails for this effort.
 
 ### CORS issues
 
@@ -463,21 +427,17 @@ GitLab API endpoints (`/api/*`) must include the following HTTP response headers
 | `Access-Control-Expose-Headers` | `Link, X-Total, X-Total-Pages, X-Per-Page, X-Page, X-Next-Page, X-Prev-Page, X-Gitlab-Blob-Id, X-Gitlab-Commit-Id, X-Gitlab-Content-Sha256, X-Gitlab-Encoding, X-Gitlab-File-Name, X-Gitlab-File-Path, X-Gitlab-Last-Commit-Id X-Gitlab-Ref, X-Gitlab-Size, X-Request-Id, ETag` | Headers used by GitLab Rest and GraphQL APIs. |
 | `Vary` | `Origin` | Ensures proper caching behavior for CORS responses. |
 
-The Web IDE dynamically generates the subdomain portion of the extension host domain. Ensure that
-the CORS headers satisfy the following rules:
+The Web IDE dynamically generates the subdomain portion of the extension host domain. Ensure that the CORS headers satisfy the following rules:
 
 - **Pattern matching**: Accept origins matching the pattern `https://*.cdn.web-ide.gitlab-static.net`.
 - **Validation**: Ensure the subdomain contains only alphanumeric characters and is ≤52 characters.
 - **Security**: Never use wildcard (*) for Access-Control-Allow-Origin as this poses security risks.
 
-A GitLab instance default CORS configuration satisfies these requirements. You might find issues when the GitLab Self-Managed
-instance is behind an HTTP reverse proxy server or it uses a custom CORS policy configuration.
+A GitLab instance default CORS configuration satisfies these requirements. You might find issues when the GitLab Self-Managed instance is behind an HTTP reverse proxy server or it uses a custom CORS policy configuration.
 
 ### Offline environments
 
-The Web IDE has limited functionality when it can't connect to the default extension host domain
-(`https://*.cdn.web-ide.gitlab-static.net`). In offline environments, GitLab administrators can
-set up a [custom extension host domain](../../../administration/settings/web_ide.md) as a workaround.
+The Web IDE has limited functionality when it can't connect to the default extension host domain (`https://*.cdn.web-ide.gitlab-static.net`). In offline environments, GitLab administrators can set up a [custom extension host domain](../../../administration/settings/web_ide.md) as a workaround.
 
 ### Report a problem
 

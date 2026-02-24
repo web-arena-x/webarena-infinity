@@ -80,7 +80,7 @@ Meetings can be held in-person or virtually by employers.
 Virtual meetings may be hosted via Handshake Video or an external video tool. Refer to the specific meeting to confirm:
 
 - If the button reads **Join Video**, this indicates the interview is hosted via integrated video on Handshake.
-  - Refer to [Attendee Requirements for Integrated Video](https://support.joinhandshake.com/hc/en-us/articles/4423738147607) for more information to help you have a smooth video experience.
+ - Refer to [Attendee Requirements for Integrated Video](https://support.joinhandshake.com/hc/en-us/articles/4423738147607) for more information to help you have a smooth video experience.
 
 - If the button reads **Join External Video**, this indicates the recruiter has added a link for an external video tool. Click that button to be taken to that platform.
-  - Learn more about available settings and options in [Attending via Video on Handshake](https://support.joinhandshake.com/hc/en-us/articles/4423783488407)!
+ - Learn more about available settings and options in [Attending via Video on Handshake](https://support.joinhandshake.com/hc/en-us/articles/4423783488407)!

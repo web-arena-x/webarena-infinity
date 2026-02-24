@@ -43,8 +43,8 @@ You can edit your notification preferences for the following activities:
 - **Jobs**
 - **Campaigns** (*only visible to premium partners*)
 - **Applications**
-  - You can set application email preferences for each job on the **Job details** tab, under **Hiring team**.
-  - To adjust your application email preferences, refer to [Job Applicant Notification Preferences](https://support.joinhandshake.com/hc/en-us/articles/360000962327).
+ - You can set application email preferences for each job on the **Job details** tab, under **Hiring team**.
+ - To adjust your application email preferences, refer to [Job Applicant Notification Preferences](https://support.joinhandshake.com/hc/en-us/articles/360000962327).
 - **Feed**
 - **Employers**
 - **Notes**

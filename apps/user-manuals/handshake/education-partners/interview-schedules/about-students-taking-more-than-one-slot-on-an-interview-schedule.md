@@ -6,14 +6,14 @@ Source: https://support.joinhandshake.com/hc/en-us/articles/115012543047-About-S
 
 Students are only allotted one time slot per an interview slot. If a student needs to reserve more than one interview slot, we recommend the following for each situation:
 
-- If only one student on the schedule needs to be added to two interview slots, extending the time on one of the slots will cover the time of two interviews.     
-  - **Example**: if the schedule has 30 minute interview slots but the employer would like to interview a student for two of those slots, adjust the slot time to 60 minutes and add the student to that particular slot.
+- If only one student on the schedule needs to be added to two interview slots, extending the time on one of the slots will cover the time of two interviews.    
+ - **Example**: if the schedule has 30 minute interview slots but the employer would like to interview a student for two of those slots, adjust the slot time to 60 minutes and add the student to that particular slot.
     - *For more information on this workflow, refer to [Changing an Interview Slot Time](https://support.joinhandshake.com/hc/en-us/articles/115009715547-Adding-Time-to-Interview-Slots).*
-  - **Note**: once the time is added to the slot, the student will not want to swap slots with another student since the time allocation will not align. 
+ - **Note**: once the time is added to the slot, the student will not want to swap slots with another student since the time allocation will not align. 
     - *Check out [Interview Slot Swaps in Handshake](interview-slot-swaps-in-handshake.md) for more information on this process.*
 
 - If all students on the schedule are needing two interview slots to meet with different interviewers, creating a "Flip Flop" schedule will allow the students to do this. 
-  - **Example**: if the student meets with each interviewer for 30 minutes, the total slot time will be 60 minutes. 
+ - **Example**: if the student meets with each interviewer for 30 minutes, the total slot time will be 60 minutes. 
     - *To create a Flip Flop schedule, follow the steps outlines in [Managing Flip Flop Schedules in Handshake](https://support.joinhandshake.com/hc/en-us/articles/115007004948).*
 
 As a career services user with the Interview Schedules role in Handshake, you have the ability to add a student to a second interview slot if needed. On the Interview Details page:

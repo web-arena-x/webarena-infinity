@@ -12,11 +12,9 @@ GitLab supports Git LFS authentication through SSH.
 
 ## Requirements
 
-GitLab Shell is written in Go, and needs a Go compiler to build. It still requires
-Ruby to build and test, but not to run.
+GitLab Shell is written in Go, and needs a Go compiler to build. It still requires Ruby to build and test, but not to run.
 
-GitLab Shell runs on `port 22` on a Linux package installation. To use a regular SSH
-service, configure it on an alternative port.
+GitLab Shell runs on `port 22` on a Linux package installation. To use a regular SSH service, configure it on an alternative port.
 
 Download and install the [current version of Go](https://go.dev/dl/).
 We follow the [Go Release Policy](https://go.dev/doc/devel/release#policy)
@@ -86,12 +84,9 @@ To contribute to GitLab Shell:
 1. Run `make install` to build the `gitlab-shell` binaries and install them onto the file system.
    The default location is `/usr/local`. To change it, set the `PREFIX` and `DESTDIR` environment variables.
 1. To install GitLab from source on a single machine, run `make setup`.
-   It compiles the GitLab Shell binaries, and ensures that various paths on the file system
-   exist with the correct permissions. Do not run this command unless your installation method
-   documentation instructs you to.
+   It compiles the GitLab Shell binaries, and ensures that various paths on the file system exist with the correct permissions. Do not run this command unless your installation method documentation instructs you to.
 
-For more information, see
-[CONTRIBUTING.md](https://gitlab.com/gitlab-org/gitlab-shell/-/blob/main/CONTRIBUTING.md).
+For more information, see [CONTRIBUTING.md](https://gitlab.com/gitlab-org/gitlab-shell/-/blob/main/CONTRIBUTING.md).
 
 ### Run tests
 
@@ -110,8 +105,7 @@ When contributing, run tests:
 
 ### Configure Gitaly for local testing
 
-Some tests need a Gitaly server. The
-[`docker-compose.yml`](https://gitlab.com/gitlab-org/gitlab-shell/-/blob/main/docker-compose.yml) file runs Gitaly on port 8075.
+Some tests need a Gitaly server. The [`docker-compose.yml`](https://gitlab.com/gitlab-org/gitlab-shell/-/blob/main/docker-compose.yml) file runs Gitaly on port 8075.
 To tell the tests where Gitaly is, set `GITALY_CONNECTION_INFO`:
 
 ```plaintext
@@ -119,39 +113,29 @@ export GITALY_CONNECTION_INFO='{"address": "tcp://localhost:8075", "storage": "d
 make test
 ```
 
-If no `GITALY_CONNECTION_INFO` is set, the test suite still runs, but any
-tests requiring Gitaly are skipped. The tests always run in the CI environment.
+If no `GITALY_CONNECTION_INFO` is set, the test suite still runs, but any tests requiring Gitaly are skipped. The tests always run in the CI environment.
 
 ## Rate limiting
 
 GitLab Shell performs rate-limiting by user account and project for Git operations.
-GitLab Shell accepts Git operation requests and then makes a call to the Rails
-rate-limiter, backed by Redis. If the `user + project` exceeds the rate limit,
-then GitLab Shell then drop further connection requests for that `user + project`.
+GitLab Shell accepts Git operation requests and then makes a call to the Rails rate-limiter, backed by Redis. If the `user + project` exceeds the rate limit, then GitLab Shell then drop further connection requests for that `user + project`.
 
-The rate-limiter is applied at the Git command (plumbing) level. Each command has
-a rate limit of 600 per minute. For example, `git push` has 600 per minute, and
-`git pull` has another 600 per minute.
+The rate-limiter is applied at the Git command (plumbing) level. Each command has a rate limit of 600 per minute. For example, `git push` has 600 per minute, and `git pull` has another 600 per minute.
 
-Because they are using the same plumbing command, `git-upload-pack`, `git pull`,
-and `git clone` are in effect the same command for the purposes of rate-limiting.
+Because they are using the same plumbing command, `git-upload-pack`, `git pull`, and `git clone` are in effect the same command for the purposes of rate-limiting.
 
-Gitaly also has a rate-limiter in place, but calls are never made to Gitaly if
-the rate limit is exceeded in GitLab Shell (Rails).
+Gitaly also has a rate-limiter in place, but calls are never made to Gitaly if the rate limit is exceeded in GitLab Shell (Rails).
 
 ## Logs in GitLab Shell
 
-In general, you can determine the structure, but not content, of a GitLab Shell
-or `gitlab-sshd` session by inspecting the logs. Some guidelines:
+In general, you can determine the structure, but not content, of a GitLab Shell or `gitlab-sshd` session by inspecting the logs. Some guidelines:
 
 - We use [`gitlab.com/gitlab-org/labkit/log`](https://pkg.go.dev/gitlab.com/gitlab-org/labkit/log)
-  for logging.
+ for logging.
 - Always include a correlation ID.
-- Log messages should be invariant and unique. Include accessory information in
-  fields, using `log.WithField`, `log.WithFields`, or `log.WithError`.
+- Log messages should be invariant and unique. Include accessory information in fields, using `log.WithField`, `log.WithFields`, or `log.WithError`.
 - Log both success cases and error cases.
-- Logging too much is better than not logging enough. If a message seems too
-  verbose, consider reducing the log level before removing the message.
+- Logging too much is better than not logging enough. If a message seems too verbose, consider reducing the log level before removing the message.
 
 ## GitLab SaaS
 
@@ -161,7 +145,7 @@ A diagram of the flow of `gitlab-shell` on GitLab.com:
 %%{init: { "fontFamily": "GitLab Sans" }}%%
 graph LR
     a2 --> b2
-    a2  --> b3
+    a2 --> b3
     a2 --> b4
     b2 --> c1
     b3 --> c1

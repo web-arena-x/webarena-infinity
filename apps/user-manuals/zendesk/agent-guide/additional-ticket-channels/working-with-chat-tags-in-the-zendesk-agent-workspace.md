@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/4408822099738-Working-with
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Support** | Team, Professional, or Enterprise |
 
@@ -54,7 +54,7 @@ Agents can manually add tags to tickets during or after a Chat conversation. Dep
 - **To add tags manually**
 - In a ticket, enter new tags into the **Tags** field as needed. Enter a space after each tag.
 
-  ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/uc_chat_tags_manual.png)
+ ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/uc_chat_tags_manual.png)
 
 For more information, see [Adding tags to tickets](https://support.zendesk.com/hc/en-us/articles/4408835059482#topic_vwg_ola_vb).
 

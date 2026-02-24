@@ -9,9 +9,9 @@ A template is the foundation of an interview schedule. Creating a template allow
 Within each template, you will define the:
 
 - Time of day for the interviews 
-  - Example: morning, midday, or evening
+ - Example: morning, midday, or evening
 - Length of each interview slot 
-  - Example: 15, 30, or 45 minutes
+ - Example: 15, 30, or 45 minutes
 
 When an employer requests an interview schedule at your institution, they will choose a template for their day. 
 
@@ -30,13 +30,13 @@ After approving an on campus interview request, you'll be able to apply the temp
 4. Enter the following information:
 
 - **Name** 
-  - This is how the template will be identified in Handshake.
+ - This is how the template will be identified in Handshake.
 - **Career Center**
-  - Choose a Career Center for the template to exist.
+ - Choose a Career Center for the template to exist.
 - **Hidden from Employers?**
-  - Enable this option if you do *not* want the template available to employers.
+ - Enable this option if you do *not* want the template available to employers.
 - **Description**
-  - Add a description to the template.
+ - Add a description to the template.
 
 ![Create_Interview_Schedule_Template.png](https://support.joinhandshake.com/hc/article_attachments/25992975442455)
 
@@ -51,13 +51,13 @@ After approving an on campus interview request, you'll be able to apply the temp
 **Note**: the interview schedule will start at 8am. If you do not want to start at this time, click on the time to edit the slot. Within the popup, edit the below as needed, then click **Save**:
 
 - **Start time**
-  - Click the calendar icon to select a new start time.
+ - Click the calendar icon to select a new start time.
 - **End time**
-  - Click the calendar icon to select a corresponding end time.
+ - Click the calendar icon to select a corresponding end time.
 - **Room**
-  - Select a room, if needed.
+ - Select a room, if needed.
 - **Unavailable?**
-  - Check the box if the slot should be unavailable to students.
+ - Check the box if the slot should be unavailable to students.
     - ***Tip**: we recommend this for a lunch break.*
 
 ![Edit_Slot_Image.png](https://support.joinhandshake.com/hc/article_attachments/25992975438231)

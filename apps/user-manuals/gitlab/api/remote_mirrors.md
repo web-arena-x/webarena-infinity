@@ -12,17 +12,13 @@ title: Project remote mirrors API
 
 {{< /details >}}
 
-Use this API to manage [remote mirrors](../user/project/repository/mirror/push.md). You
-can query and modify the state of these mirrors with the remote mirror API.
+Use this API to manage [remote mirrors](../user/project/repository/mirror/push.md). You can query and modify the state of these mirrors with the remote mirror API.
 
-For security reasons, the `url` attribute in the API response is always scrubbed of username
-and password information.
+For security reasons, the `url` attribute in the API response is always scrubbed of username and password information.
 
 {{< alert type="note" >}}
 
-[Pull mirrors](../user/project/repository/mirror/pull.md) use
-[a different API endpoint](project_pull_mirroring.md#configure-pull-mirroring-for-a-project) to
-display and update them.
+[Pull mirrors](../user/project/repository/mirror/pull.md) use [a different API endpoint](project_pull_mirroring.md#configure-pull-mirroring-for-a-project) to display and update them.
 
 {{< /alert >}}
 
@@ -46,37 +42,36 @@ Supported attributes:
 |-----------|-------------------|----------|----------------------------------------------------------------------------------|
 | `id`      | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths).       |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the
-following response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute                   | Type    | Description |
 |-----------------------------|---------|-------------|
-| `auth_method`               | string  | Authentication method used for the mirror. |
+| `auth_method`               | string | Authentication method used for the mirror. |
 | `enabled`                   | boolean | If `true`, the mirror is enabled. |
 | `host_keys`                 | array   | Array of SSH host key fingerprints for the remote mirror. |
 | `id`                        | integer | ID of the remote mirror. |
 | `keep_divergent_refs`       | boolean | If `true`, divergent refs are kept when mirroring. |
-| `last_error`                | string  | Error message from the last mirror attempt. `null` if successful. |
-| `last_successful_update_at` | string  | Timestamp of the last successful mirror update. ISO 8601 format. |
-| `last_update_at`            | string  | Timestamp of the last mirror attempt. ISO 8601 format. |
-| `last_update_started_at`    | string  | Timestamp when the last mirror attempt started. ISO 8601 format. |
+| `last_error`                | string | Error message from the last mirror attempt. `null` if successful. |
+| `last_successful_update_at` | string | Timestamp of the last successful mirror update. ISO 8601 format. |
+| `last_update_at`            | string | Timestamp of the last mirror attempt. ISO 8601 format. |
+| `last_update_started_at`    | string | Timestamp when the last mirror attempt started. ISO 8601 format. |
 | `only_protected_branches`   | boolean | If `true`, only protected branches are mirrored. |
-| `update_status`             | string  | Status of the mirror update. Possible values: `none`, `scheduled`, `started`, `finished`, `failed`. |
-| `url`                       | string  | Mirror URL with credentials scrubbed for security. |
+| `update_status`             | string | Status of the mirror update. Possible values: `none`, `scheduled`, `started`, `finished`, `failed`. |
+| `url`                       | string | Mirror URL with credentials scrubbed for security. |
 
 Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/42/remote_mirrors"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/42/remote_mirrors"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "enabled": true,
     "id": 101486,
     "auth_method": "ssh_public_key",
@@ -93,7 +88,7 @@ Example response:
         "fingerprint_sha256": "SHA256:HbW3g8zUjNSksFbqTiUWPWg2Bq1x8xdGUrliXFzSnUw"
       }
     ]
-  }
+ }
 ]
 ```
 
@@ -118,8 +113,7 @@ Supported attributes:
 | `id`        | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `mirror_id` | integer           | Yes      | ID of the remote mirror. |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the
-following response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute                   | Type    | Description |
 |-----------------------------|---------|-------------|
@@ -127,41 +121,41 @@ following response attributes:
 | `id`                        | integer | ID of the remote mirror. |
 | `host_keys`                 | array   | Array of SSH host key fingerprints for the remote mirror. |
 | `keep_divergent_refs`       | boolean | If `true`, divergent refs are kept when mirroring. |
-| `last_error`                | string  | Error message from the last mirror attempt. `null` if successful. |
-| `last_successful_update_at` | string  | Timestamp of the last successful mirror update. ISO 8601 format. |
-| `last_update_at`            | string  | Timestamp of the last mirror attempt. ISO 8601 format. |
-| `last_update_started_at`    | string  | Timestamp when the last mirror attempt started. ISO 8601 format. |
+| `last_error`                | string | Error message from the last mirror attempt. `null` if successful. |
+| `last_successful_update_at` | string | Timestamp of the last successful mirror update. ISO 8601 format. |
+| `last_update_at`            | string | Timestamp of the last mirror attempt. ISO 8601 format. |
+| `last_update_started_at`    | string | Timestamp when the last mirror attempt started. ISO 8601 format. |
 | `only_protected_branches`   | boolean | If `true`, only protected branches are mirrored. |
-| `update_status`             | string  | Status of the mirror update. Possible values: `none`, `scheduled`, `started`, `finished`, `failed`. |
-| `url`                       | string  | Mirror URL with credentials scrubbed for security. |
+| `update_status`             | string | Status of the mirror update. Possible values: `none`, `scheduled`, `started`, `finished`, `failed`. |
+| `url`                       | string | Mirror URL with credentials scrubbed for security. |
 
 Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/42/remote_mirrors/101486"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/42/remote_mirrors/101486"
 ```
 
 Example response:
 
 ```json
 {
-  "enabled": true,
-  "id": 101486,
-  "last_error": null,
-  "last_successful_update_at": "2020-01-06T17:32:02.823Z",
-  "last_update_at": "2020-01-06T17:32:02.823Z",
-  "last_update_started_at": "2020-01-06T17:31:55.864Z",
-  "only_protected_branches": true,
-  "keep_divergent_refs": true,
-  "update_status": "finished",
-  "url": "https://*****:*****@gitlab.com/gitlab-org/security/gitlab.git",
-  "host_keys": [
+ "enabled": true,
+ "id": 101486,
+ "last_error": null,
+ "last_successful_update_at": "2020-01-06T17:32:02.823Z",
+ "last_update_at": "2020-01-06T17:32:02.823Z",
+ "last_update_started_at": "2020-01-06T17:31:55.864Z",
+ "only_protected_branches": true,
+ "keep_divergent_refs": true,
+ "update_status": "finished",
+ "url": "https://*****:*****@gitlab.com/gitlab-org/security/gitlab.git",
+ "host_keys": [
     {
       "fingerprint_sha256": "SHA256:HbW3g8zUjNSksFbqTiUWPWg2Bq1x8xdGUrliXFzSnUw"
     }
-  ]
+ ]
 }
 ```
 
@@ -186,33 +180,31 @@ Supported attributes:
 | `id`        | integer or string | Yes      | ID or [URL-encoded path of the project](rest/_index.md#namespaced-paths). |
 | `mirror_id` | integer           | Yes      | ID of the remote mirror. |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the
-following response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute   | Type   | Description                        |
 |-------------|--------|------------------------------------|
-| `public_key`| string | Public key of the remote mirror.  |
+| `public_key`| string | Public key of the remote mirror. |
 
 Example request:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/42/remote_mirrors/101486/public_key"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/42/remote_mirrors/101486/public_key"
 ```
 
 Example response:
 
 ```json
 {
-  "public_key": "ssh-rsa AAAAB3NzaC1yc2EA..."
+ "public_key": "ssh-rsa AAAAB3NzaC1yc2EA..."
 }
 ```
 
 ## Create a pull mirror
 
-Learn how to [configure a pull mirror](project_pull_mirroring.md#configure-pull-mirroring-for-a-project) by using the
-project pull mirroring API.
+Learn how to [configure a pull mirror](project_pull_mirroring.md#configure-pull-mirroring-for-a-project) by using the project pull mirroring API.
 
 ## Create a push mirror
 
@@ -225,8 +217,7 @@ project pull mirroring API.
 
 {{< /history >}}
 
-Create a push mirror for a project. Push mirroring is disabled by default. To enable it, include the optional parameter
-`enabled` when you create the mirror.
+Create a push mirror for a project. Push mirroring is disabled by default. To enable it, include the optional parameter `enabled` when you create the mirror.
 
 ```plaintext
 POST /projects/:id/remote_mirrors
@@ -244,31 +235,30 @@ Supported attributes:
 | `mirror_branch_regex`     | string            | No       | Regular expression for branch names to mirror. Only branches with names matching the regex are mirrored. Requires `only_protected_branches` to be disabled. Premium and Ultimate only. |
 | `only_protected_branches` | boolean           | No       | If `true`, only protected branches are mirrored. |
 
-If successful, returns [`201 Created`](rest/troubleshooting.md#status-codes) and the
-following response attributes:
+If successful, returns [`201 Created`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute                   | Type    | Description |
 |-----------------------------|---------|-------------|
-| `auth_method`               | string  | Authentication method used for the mirror. |
+| `auth_method`               | string | Authentication method used for the mirror. |
 | `enabled`                   | boolean | If `true`, the mirror is enabled. |
 | `host_keys`                 | array   | Array of SSH host key fingerprints for the remote mirror. |
 | `id`                        | integer | ID of the remote mirror. |
 | `keep_divergent_refs`       | boolean | If `true`, divergent refs are kept when mirroring. |
-| `last_error`                | string  | Error message from the last mirror attempt. `null` if successful. |
-| `last_successful_update_at` | string  | Timestamp of the last successful mirror update. ISO 8601 format. |
-| `last_update_at`            | string  | Timestamp of the last mirror attempt. ISO 8601 format. |
-| `last_update_started_at`    | string  | Timestamp when the last mirror attempt started. ISO 8601 format. |
+| `last_error`                | string | Error message from the last mirror attempt. `null` if successful. |
+| `last_successful_update_at` | string | Timestamp of the last successful mirror update. ISO 8601 format. |
+| `last_update_at`            | string | Timestamp of the last mirror attempt. ISO 8601 format. |
+| `last_update_started_at`    | string | Timestamp when the last mirror attempt started. ISO 8601 format. |
 | `only_protected_branches`   | boolean | If `true`, only protected branches are mirrored. |
-| `update_status`             | string  | Status of the mirror update. Possible values: `none`, `scheduled`, `started`, `finished`, `failed`. |
-| `url`                       | string  | Mirror URL with credentials scrubbed for security. |
+| `update_status`             | string | Status of the mirror update. Possible values: `none`, `scheduled`, `started`, `finished`, `failed`. |
+| `url`                       | string | Mirror URL with credentials scrubbed for security. |
 
 Example request:
 
 ```shell
 curl --request POST \
-  --data "url=https://username:token@example.com/gitlab/example.git" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/42/remote_mirrors"
+ --data "url=https://username:token@example.com/gitlab/example.git" \
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/42/remote_mirrors"
 ```
 
 Example response:
@@ -303,8 +293,7 @@ Example response:
 
 {{< /history >}}
 
-Update a remote mirror's configuration. Toggle a remote mirror on or off, or change which types of branches are
-mirrored.
+Update a remote mirror's configuration. Toggle a remote mirror on or off, or change which types of branches are mirrored.
 
 ```plaintext
 PUT /projects/:id/remote_mirrors/:mirror_id
@@ -322,31 +311,30 @@ Supported attributes:
 | `mirror_branch_regex`     | string            | No       | Regular expression for branch names to mirror. Only branches with names matching the regex are mirrored. Does not work with `only_protected_branches` enabled. Premium and Ultimate only. |
 | `only_protected_branches` | boolean           | No       | If `true`, only protected branches are mirrored. |
 
-If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the
-following response attributes:
+If successful, returns [`200 OK`](rest/troubleshooting.md#status-codes) and the following response attributes:
 
 | Attribute                   | Type    | Description |
 |-----------------------------|---------|-------------|
-| `auth_method`               | string  | Authentication method used for the mirror. |
+| `auth_method`               | string | Authentication method used for the mirror. |
 | `enabled`                   | boolean | If `true`, the mirror is enabled. |
 | `host_keys`                 | array   | Array of SSH host key fingerprints for the remote mirror. |
 | `id`                        | integer | ID of the remote mirror. |
 | `keep_divergent_refs`       | boolean | If `true`, divergent refs are kept when mirroring. |
-| `last_error`                | string  | Error message from the last mirror attempt. `null` if successful. |
-| `last_successful_update_at` | string  | Timestamp of the last successful mirror update. ISO 8601 format. |
-| `last_update_at`            | string  | Timestamp of the last mirror attempt. ISO 8601 format. |
-| `last_update_started_at`    | string  | Timestamp when the last mirror attempt started. ISO 8601 format. |
+| `last_error`                | string | Error message from the last mirror attempt. `null` if successful. |
+| `last_successful_update_at` | string | Timestamp of the last successful mirror update. ISO 8601 format. |
+| `last_update_at`            | string | Timestamp of the last mirror attempt. ISO 8601 format. |
+| `last_update_started_at`    | string | Timestamp when the last mirror attempt started. ISO 8601 format. |
 | `only_protected_branches`   | boolean | If `true`, only protected branches are mirrored. |
-| `update_status`             | string  | Status of the mirror update. Possible values: `none`, `scheduled`, `started`, `finished`, `failed`. |
-| `url`                       | string  | Mirror URL with credentials scrubbed for security. |
+| `update_status`             | string | Status of the mirror update. Possible values: `none`, `scheduled`, `started`, `finished`, `failed`. |
+| `url`                       | string | Mirror URL with credentials scrubbed for security. |
 
 Example request:
 
 ```shell
 curl --request PUT \
-  --data "enabled=false" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/42/remote_mirrors/101486"
+ --data "enabled=false" \
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/42/remote_mirrors/101486"
 ```
 
 Example response:
@@ -399,8 +387,8 @@ Example request:
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/42/remote_mirrors/101486/sync"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/42/remote_mirrors/101486/sync"
 ```
 
 ## Delete a remote mirror
@@ -424,6 +412,6 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/projects/42/remote_mirrors/101486"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/projects/42/remote_mirrors/101486"
 ```

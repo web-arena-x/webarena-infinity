@@ -16,12 +16,7 @@ Go to _Team Settings > General > Estimates_ to enable the feature. Teams can use
 
 ### Scale range options
 
-Scale |  |  |  |  | 
---- | --- | --- | --- | --- | ---
-Exponential | 1 | 2 | 4 | 8 | 16
-Fibonacci | 1 | 2 | 3 | 5 | 8
-Linear | 1 | 2 | 3 | 4 | 5
-T-Shirt | XS | S | M | L | XL
+Scale | | | | | --- | --- | --- | --- | --- | --- Exponential | 1 | 2 | 4 | 8 | 16 Fibonacci | 1 | 2 | 3 | 5 | 8 Linear | 1 | 2 | 3 | 4 | 5 T-Shirt | XS | S | M | L | XL
 
 > [!NOTE]
 > When T-Shirt sizes require translation to numerical values (for display in graphs, for instance,) they follow the Fibonacci scale.
@@ -30,12 +25,7 @@ T-Shirt | XS | S | M | L | XL
 
 Enable the extended scale to add two additional values to your scale. 
 
-Extended Scale |   |  
---- | --- | ---
-Exponential | 32 | 64
-Fibonacci | 13 | 21
-Linear | 6 | 7
-T-shirt | XXL | XXXL
+Extended Scale |   | --- | --- | --- Exponential | 32 | 64 Fibonacci | 13 | 21 Linear | 6 | 7 T-shirt | XXL | XXXL
 
 ### Zero estimates
 

@@ -14,18 +14,15 @@ title: Epic Issues API (deprecated)
 
 {{< alert type="warning" >}}
 
-The Epics REST API was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/460668) in GitLab 17.0
-and is planned for removal in v5 of the API.
-From GitLab 17.4 to 18.0, if [the new look for epics](../user/group/epics/_index.md#epics-as-work-items) is enabled, and in GitLab 18.1 and later, use the
-Work Items API instead. For more information, see [migrate epic APIs to work items](graphql/epic_work_items_api_migration_guide.md).
+The Epics REST API was [deprecated](https://gitlab.com/gitlab-org/gitlab/-/issues/460668) in GitLab 17.0 and is planned for removal in v5 of the API.
+From GitLab 17.4 to 18.0, if [the new look for epics](../user/group/epics/_index.md#epics-as-work-items) is enabled, and in GitLab 18.1 and later, use the Work Items API instead. For more information, see [migrate epic APIs to work items](graphql/epic_work_items_api_migration_guide.md).
 This change is a breaking change.
 
 {{< /alert >}}
 
 Every API call to the epic issues API endpoint must be authenticated.
 
-If a user is not a member of a group and the group is private, a `GET` request on that group
-results in a `404` status code.
+If a user is not a member of a group and the group is private, a `GET` request on that group results in a `404` status code.
 
 Epics are available only in GitLab [Premium and Ultimate](https://about.gitlab.com/pricing/).
 If the Epics feature is not available, a `403` status code is returned.
@@ -43,18 +40,18 @@ GET /groups/:id/epics/:epic_iid/issues
 | Attribute           | Type             | Required   | Description                                                                            |
 | ------------------- | ---------------- | ---------- | ---------------------------------------------------------------------------------------|
 | `id`                | integer or string   | yes        | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group                |
-| `epic_iid`          | integer or string   | yes        | The internal ID of the epic.  |
+| `epic_iid`          | integer or string   | yes        | The internal ID of the epic. |
 
 ```shell
 curl --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/epics/5/issues"
+ --url "https://gitlab.example.com/api/v4/groups/1/epics/5/issues"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 76,
     "iid": 6,
     "project_id": 8,
@@ -122,7 +119,7 @@ Example response:
       "project": "http://localhost:3001/api/v4/projects/8"
     },
     "epic_issue_id": 2
-  }
+ }
 ]
 ```
 
@@ -140,21 +137,21 @@ POST /groups/:id/epics/:epic_iid/issues/:issue_id
 | Attribute           | Type             | Required   | Description                                                                            |
 | ------------------- | ---------------- | ---------- | ---------------------------------------------------------------------------------------|
 | `id`                | integer or string   | yes        | The ID or [URL-encoded path](rest/_index.md#namespaced-paths) of the group                |
-| `epic_iid`          | integer or string   | yes        | The internal ID of the epic.  |
+| `epic_iid`          | integer or string   | yes        | The internal ID of the epic. |
 | `issue_id`          | integer or string   | yes        | The ID of the issue.          |
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/epics/5/issues/55"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/epics/5/issues/55"
 ```
 
 Example response:
 
 ```json
 {
-  "id": 11,
-  "epic": {
+ "id": 11,
+ "epic": {
     "id": 30,
     "iid": 5,
     "title": "Ea cupiditate dolores ut vero consequatur quasi veniam voluptatem et non.",
@@ -169,8 +166,8 @@ Example response:
     },
     "start_date": null,
     "end_date": null
-  },
-  "issue": {
+ },
+ "issue": {
     "id": 55,
     "iid": 13,
     "project_id": 8,
@@ -231,7 +228,7 @@ Example response:
       "human_time_estimate": null,
       "human_total_time_spent": null
     }
-  }
+ }
 }
 ```
 
@@ -254,8 +251,8 @@ DELETE /groups/:id/epics/:epic_iid/issues/:epic_issue_id
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/epics/5/issues/11"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/epics/5/issues/11"
 
 ```
 
@@ -263,8 +260,8 @@ Example response:
 
 ```json
 {
-  "id": 11,
-  "epic": {
+ "id": 11,
+ "epic": {
     "id": 30,
     "iid": 5,
     "title": "Ea cupiditate dolores ut vero consequatur quasi veniam voluptatem et non.",
@@ -279,8 +276,8 @@ Example response:
     },
     "start_date": null,
     "end_date": null
-  },
-  "issue": {
+ },
+ "issue": {
     "id": 223,
     "iid": 13,
     "project_id": 8,
@@ -341,7 +338,7 @@ Example response:
       "human_time_estimate": null,
       "human_total_time_spent": null
     }
-  }
+ }
 }
 ```
 
@@ -366,15 +363,15 @@ PUT /groups/:id/epics/:epic_iid/issues/:epic_issue_id
 
 ```shell
 curl --request PUT \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/groups/1/epics/5/issues/11?move_before_id=20"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/groups/1/epics/5/issues/11?move_before_id=20"
 ```
 
 Example response:
 
 ```json
 [
-  {
+ {
     "id": 30,
     "iid": 6,
     "project_id": 8,
@@ -444,6 +441,6 @@ Example response:
     "subscribed": true,
     "epic_issue_id": 11,
     "relative_position": 55
-  }
+ }
 ]
 ```

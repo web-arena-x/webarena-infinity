@@ -13,14 +13,12 @@ title: GitLab Dedicated maintenance operations
 
 {{< /details >}}
 
-GitLab Dedicated provides regular maintenance for your instance to ensure security,
-reliability, and optimal performance during scheduled weekly windows.
+GitLab Dedicated provides regular maintenance for your instance to ensure security, reliability, and optimal performance during scheduled weekly windows.
 
 ## Maintenance windows
 
 Maintenance is performed during scheduled weekly windows outside standard working hours.
-You choose your maintenance window during onboarding, and it cannot be changed after
-your instance is created.
+You choose your maintenance window during onboarding, and it cannot be changed after your instance is created.
 
 ### Maintenance window schedule
 
@@ -43,26 +41,21 @@ During scheduled maintenance windows, the following tasks might be performed:
 
 ### Access during maintenance
 
-Downtime is not expected for the entire duration of your maintenance window. A brief
-service interruption (less than one minute) may occur when compute resources restart
-after upgrades, typically during the first half of the maintenance window.
+Downtime is not expected for the entire duration of your maintenance window. A brief service interruption (less than one minute) may occur when compute resources restart after upgrades, typically during the first half of the maintenance window.
 
-Long-running connections may be interrupted during this period. To minimize disruption,
-you can implement strategies like automatic recovery and retry.
+Long-running connections may be interrupted during this period. To minimize disruption, you can implement strategies like automatic recovery and retry.
 
 Longer service interruptions are rare. If extended downtime is expected, you receive advance notice.
 
 {{< alert type="note" >}}
 
-Performance degradation or downtime during the scheduled maintenance window does not
-count against the system service level availability (SLA).
+Performance degradation or downtime during the scheduled maintenance window does not count against the system service level availability (SLA).
 
 {{< /alert >}}
 
 ### Scheduling exceptions
 
-A production change lock (PCL) is a complete pause on all production changes during periods of reduced team
-availability, such as major holidays. A PCL ensures system stability when support resources are limited.
+A production change lock (PCL) is a complete pause on all production changes during periods of reduced team availability, such as major holidays. A PCL ensures system stability when support resources are limited.
 
 During a PCL, the following is paused:
 
@@ -71,16 +64,14 @@ During a PCL, the following is paused:
 - Automated maintenance
 - New customer onboarding
 
-If a PCL is active during your scheduled upgrade, the upgrade is deferred
-to the first maintenance window after the PCL ends.
+If a PCL is active during your scheduled upgrade, the upgrade is deferred to the first maintenance window after the PCL ends.
 
 When a PCL is active, you see a notification banner in Switchboard.
 
 ## Zero-downtime upgrades
 
 GitLab Dedicated provides zero-downtime upgrades to ensure backward compatibility for your instance.
-When no infrastructure changes or maintenance tasks require downtime,
-you can continue using your instance safely during upgrades.
+When no infrastructure changes or maintenance tasks require downtime, you can continue using your instance safely during upgrades.
 
 To ensure asset availability during version upgrades:
 
@@ -88,14 +79,11 @@ To ensure asset availability during version upgrades:
 1. Browsers cache each static asset.
 1. Each request from the same browser routes to the same server temporarily.
 
-Upgrades are usually unnoticeable. In rare cases, you might experience temporary
-interface inconsistencies during an upgrade. If this occurs, refresh the page
-to resolve any visual inconsistencies.
+Upgrades are usually unnoticeable. In rare cases, you might experience temporary interface inconsistencies during an upgrade. If this occurs, refresh the page to resolve any visual inconsistencies.
 
 {{< alert type="note" >}}
 
-Implementing a caching proxy in your network further reduces the risk of
-interface inconsistencies during upgrades.
+Implementing a caching proxy in your network further reduces the risk of interface inconsistencies during upgrades.
 
 {{< /alert >}}
 
@@ -104,21 +92,16 @@ interface inconsistencies during upgrades.
 Emergency maintenance is initiated when your instance requires urgent actions.
 This maintenance can happen outside your scheduled maintenance windows and cannot be postponed.
 
-For example, when a critical (S1) security vulnerability requires urgent patching,
-your instance receives emergency maintenance to upgrade it to a secure version.
+For example, when a critical (S1) security vulnerability requires urgent patching, your instance receives emergency maintenance to upgrade it to a secure version.
 
-During emergency maintenance, stability and security are prioritized while minimizing
-impact to your service. All changes follow internal processes and undergo appropriate
-internal review and approval before they are applied to your instance.
+During emergency maintenance, stability and security are prioritized while minimizing impact to your service. All changes follow internal processes and undergo appropriate internal review and approval before they are applied to your instance.
 
-You receive advance notice when possible and complete details after the issue
-is resolved. The GitLab team:
+You receive advance notice when possible and complete details after the issue is resolved. The GitLab team:
 
 - Sends notifications to your operational contacts through Switchboard.
 - Copies your Customer Success Manager (CSM) on all communications.
 
-To ensure you receive these notifications,
-[review your contact information](configure_instance/users_notifications.md#manage-email-addresses-for-operational-contacts)
+To ensure you receive these notifications, [review your contact information](configure_instance/users_notifications.md#manage-email-addresses-for-operational-contacts)
 in Switchboard.
 
 ## Related topics

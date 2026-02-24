@@ -11,22 +11,22 @@ Table of Contents
 - [Overview](https://support.procore.com/#)
 - [Key Features](https://support.procore.com/#)
 - Product Deep Dive 
-  - [Experience Overview](https://support.procore.com/#)
-  - [Application Experience](https://support.procore.com/#)
-  - [Mobile Experience](https://support.procore.com/#)
-  - [Partner Ecosystem](https://support.procore.com/#)
-  - [Platform Features](https://support.procore.com/#)
-  - [Core Tools](https://support.procore.com/#)
+ - [Experience Overview](https://support.procore.com/#)
+ - [Application Experience](https://support.procore.com/#)
+ - [Mobile Experience](https://support.procore.com/#)
+ - [Partner Ecosystem](https://support.procore.com/#)
+ - [Platform Features](https://support.procore.com/#)
+ - [Core Tools](https://support.procore.com/#)
 - Product Modules 
-  - [Analytics](https://support.procore.com/#)
-  - [Bid Management](https://support.procore.com/#)
-  - [BIM](https://support.procore.com/#)
-  - [Invoice Management](https://support.procore.com/#)
-  - [Preconstruction](https://support.procore.com/#)
-  - [Project Execution](https://support.procore.com/#)
-  - [Project Financials](https://support.procore.com/#)
-  - [Project Management](https://support.procore.com/#)
-  - [Quality & Safety](https://support.procore.com/#)
+ - [Analytics](https://support.procore.com/#)
+ - [Bid Management](https://support.procore.com/#)
+ - [BIM](https://support.procore.com/#)
+ - [Invoice Management](https://support.procore.com/#)
+ - [Preconstruction](https://support.procore.com/#)
+ - [Project Execution](https://support.procore.com/#)
+ - [Project Financials](https://support.procore.com/#)
+ - [Project Management](https://support.procore.com/#)
+ - [Quality & Safety](https://support.procore.com/#)
 - [Getting Started Guides](https://support.procore.com/#)
 - [Tutorials](https://support.procore.com/#)
 - [Commercial Documentation](https://support.procore.com/#)
@@ -40,7 +40,7 @@ Table of Contents
 
 Available Procore for Government Tools are engineered consistent with the FedRAMP Moderate baseline.
 
-|  |  |
+| | |
 | --- | --- |
 | PFG Logo 3C Black_StoneBGR.png | Welcome to the Procore for Government support site page. The government platform is designed to provide a secure and robust solution intended solely for use on public sector construction projects, not commercial construction.   - **Who It's For**: Procore for Government is exclusively available to U.S. Federal, State, Local, Tribal, and Territorial entities, as well as government contractors working with those entities, and Federally Funded Research Centers and similar lab entities. - **FedRAMP® Moderate Authorized:** Procore for Government is FedRAMP® Moderate Authorized.View the official listing on the [FedRAMP Marketplace icon-external-link.png](https://marketplace.fedramp.gov/products/FR2516365096 "https://marketplace.fedramp.gov/products/FR2516365096"). |
 
@@ -190,7 +190,7 @@ Current integrations include:
 - **Third-Party Applications**: Visit [marketplace.procoregov.com](https://marketplace.procoregov.com/ "https://marketplace.procoregov.com/") ![icon-external-link.png](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAB20lEQVR4AeyY322DMBDGv5CqEuoLI2SEjkA3iKou0ElCN0g3YIC2ygbNKNkgvKUPVehdS1+AgG3uDCK2+GQlxnf38+E/EGEmJYBMLZEhI7YZOa2T1ekxyUT1lKT/cfjLyA1WADaiOmMEEOgWfxnR5UAAUR5ga/OtGRm6wrRG8Y0DgJc+LYAtHEorCIavMI1Q4l1xiD+KrEtfZ2yxQAqH0g7iYGhol+M6SeIlPssS93AokwA5DoRg7tFBTCBo3hQcbJdGBTGBoODzEniluvOyBTFaeTo9Vo2mELQ4PFddOis7kBK9Kw85zjo9UqM0BJn0v7NrQHgH0YKQBmF7F6UJwU7t5gj3cJA2BIekDuIDQh3EF4QqiE8INRBxiAh7AM1XgL//qQk6+8jtEmnPKTanjdNox+Yo47diT/c3XwHof25nqUz2u/diR8YvBWoFQXaMLhUQ9kwjmFNdh1GBID86jxYbZtVg1CDYl1pG2DjrFybCA9X17HCzmNRBOFKerFz3qfqcWlJdV++J2gtIH4BEewCRGEVJGyEjkqMpYStkRGIUJW1caUboA3PLZlXfvJx/U4Y2JL6sdaUZsR4nfx1CRvyNtZmneWeEj930/rCYkMIx3uzBnNBds5kjPwAAAP//utixagAAAAZJREFUAwDjK5905wEPSQAAAABJRU5ErkJggg==) for the list of available apps.
 - **Procore-Built Applications**: Procore Drive (Windows) and Procore Imports (Windows). When connecting Procore Drive to Procore for Government, users must select the checkbox to connect to the government instance on the Settings page.
 
-  To help protect project data, information can only be transferred to external accounting or ERP systems using secure Comma-Separated Values (CSV) files. The App Management tool can be found in the Procore for Government Company Admin tool.
+ To help protect project data, information can only be transferred to external accounting or ERP systems using secure Comma-Separated Values (CSV) files. The App Management tool can be found in the Procore for Government Company Admin tool.
 
 ![pfg-admin-app-managment.png](https://support.procore.com/@api/deki/files/543653/pfg-admin-app-managment.png?revision=1&size=bestfit&width=965&height=466)
 
@@ -743,16 +743,15 @@ This first step is the same for all users.
 
 After clicking the link in the invitation, follow these instructions for your specific role.
 
-- **Path A: For Internal Agency Employees:**  
-  Follow this path if you are an employee of the government agency that owns the Procore for Government account. **Note:**You will NOT need to create or manage a separate password for Procore for Government.
-  1. After clicking the invitation link, your web browser will automatically redirect you to your organization's familiar login page.
-  2. Enter your standard work username and password (the same credentials you use to access your email or other company systems).
-  3. Once you have successfully authenticated, you will be redirected to Procore for Government.
+- **Path A: For Internal Agency Employees:** Follow this path if you are an employee of the government agency that owns the Procore for Government account. **Note:**You will NOT need to create or manage a separate password for Procore for Government.
+ 1. After clicking the invitation link, your web browser will automatically redirect you to your organization's familiar login page.
+ 2. Enter your standard work username and password (the same credentials you use to access your email or other company systems).
+ 3. Once you have successfully authenticated, you will be redirected to Procore for Government.
 - **Path B: For External Collaborators:**
 
-  Follow this path if you are a consultant, partner, or subcontractor invited to the Procore for Government project.
-  1. After clicking the invitation link, you will be directed to the Procore for Government login page.
-  2. Your next step depends on whether you have joined the Procore for Government environment before.
+ Follow this path if you are a consultant, partner, or subcontractor invited to the Procore for Government project.
+ 1. After clicking the invitation link, you will be directed to the Procore for Government login page.
+ 2. Your next step depends on whether you have joined the Procore for Government environment before.
      - **If this is your FIRST time, you will be prompted to create a new account:**
        1. Enter your name and create a strong password for your account.
        2. Follow the on-screen prompts to set up **Multi-Factor Authentication (MFA)**. This is a mandatory security step that requires you to verify your identity using a secondary method, such as an organization-approved authenticator app on your smartphone.
@@ -831,42 +830,42 @@ To ensure you have the most comprehensive and up-to-date security information an
 
 ### Access Control Family (AC)
 
-|  |  | **Customer Responsibility** | **Procore Responsibility** |
+| | | **Customer Responsibility** | **Procore Responsibility** |
 | --- | --- | --- | --- |
-| AC-2(a),  AC-2(b),  AC-2(c),  AC-2(d),  AC-2(e),  AC-2(f),  AC-2(g),  AC-2(h),  AC-2(i),  AC-2(j),  AC-2(k),  AC-2(l) | Account Management | The customer is exclusively responsible for **Company Account Management** within PfG. Upon signing a contract, the customer must create an account using an email address and appoint an Administrator. Access to PfG is tightly controlled through **customer-defined user groups**, which are composed of fine-grained permissions (e.g., hiring manager, recruiter, administrator groups).    The customer must establish conditions for group and role membership and is responsible for creating, managing, modifying, disabling, and removing subsequent accounts for individual users, vendors, and partners in accordance with their organizational policies and procedures. The customer is responsible for authorizing access based on valid authorizations, intended system usage, and other attributes defined by the organization.    Finally, the customer bears the full responsibility for monitoring and auditing account activity, including:   - Performing reviews of user accounts against organizational requirements at least annually. - Developing and implementing processes to ensure they are notified of application account changes (termination/transfer/need-to-know changes) within strict timelines (e.g., 24 hours when accounts are no longer required, 8 hours when users are terminated or transferred). - Aligning account management processes with organizational personnel termination and transfer procedures. | Create and manage system-level accounts (admin, service, maintenance); enforce least privilege and disable inactive accounts; integrate with IdP where applicable. |
-| AC-2(1),  AC-2(4),  AC-2(5),  AC-2(7)(a),  AC-2(7)(b),  AC-2(7)(c),  AC-2(7)(d),  AC-2(9),  AC-2(12)(a),  AC-2(13) | Account Management | The customer holds the **sole responsibility** for the lifecycle and security management of all PfG user accounts within their tenancy, adhering to their organization's policies.   - **Account Creation and Administration**: The customer is responsible for **creating PfG accounts for individual users** (including vendors and partners), and must **establish and administer all user accounts**—particularly **privileged accounts**—in accordance with the organization's **role-based access scheme**. They are also responsible for establishing the process for reissuing **shared and group account credentials** when individuals are removed from the group. - **Account Maintenance and Lifecycle**: The customer must **modify, disable, and remove** accounts, including those for privileged users, in accordance with their organizational policies and procedures. They are encouraged to utilize **automated mechanisms** to support these management functions. - **Monitoring and Control**: The customer is fully responsible for **monitoring the use of all their PfG accounts**. This includes monitoring the use of administrator accounts and monitoring account enabling, disabling, and removal actions within the application. - **High-Risk Incident Response**: The customer must follow their internal process for incident handling and reporting and is specifically responsible for**disabling accounts for individuals determined to pose significant risks to their organization within 1 hour**. - **Session Management**: The customer is responsible for requiring users to **log out** according to their internal access control policy. | Manage the underlying infrastructure, operating system, and security configurations required to support customer accounts, including system-level resource allocation and protection. This ensures the foundational platform is secure and available for the customer to perform all mandated user-level account administration and access enforcement. |
+| AC-2(a), AC-2(b), AC-2(c), AC-2(d), AC-2(e), AC-2(f), AC-2(g), AC-2(h), AC-2(i), AC-2(j), AC-2(k), AC-2(l) | Account Management | The customer is exclusively responsible for **Company Account Management** within PfG. Upon signing a contract, the customer must create an account using an email address and appoint an Administrator. Access to PfG is tightly controlled through **customer-defined user groups**, which are composed of fine-grained permissions (e.g., hiring manager, recruiter, administrator groups).    The customer must establish conditions for group and role membership and is responsible for creating, managing, modifying, disabling, and removing subsequent accounts for individual users, vendors, and partners in accordance with their organizational policies and procedures. The customer is responsible for authorizing access based on valid authorizations, intended system usage, and other attributes defined by the organization.    Finally, the customer bears the full responsibility for monitoring and auditing account activity, including:   - Performing reviews of user accounts against organizational requirements at least annually. - Developing and implementing processes to ensure they are notified of application account changes (termination/transfer/need-to-know changes) within strict timelines (e.g., 24 hours when accounts are no longer required, 8 hours when users are terminated or transferred). - Aligning account management processes with organizational personnel termination and transfer procedures. | Create and manage system-level accounts (admin, service, maintenance); enforce least privilege and disable inactive accounts; integrate with IdP where applicable. |
+| AC-2(1), AC-2(4), AC-2(5), AC-2(7)(a), AC-2(7)(b), AC-2(7)(c), AC-2(7)(d), AC-2(9), AC-2(12)(a), AC-2(13) | Account Management | The customer holds the **sole responsibility** for the lifecycle and security management of all PfG user accounts within their tenancy, adhering to their organization's policies.   - **Account Creation and Administration**: The customer is responsible for **creating PfG accounts for individual users** (including vendors and partners), and must **establish and administer all user accounts**—particularly **privileged accounts**—in accordance with the organization's **role-based access scheme**. They are also responsible for establishing the process for reissuing **shared and group account credentials** when individuals are removed from the group. - **Account Maintenance and Lifecycle**: The customer must **modify, disable, and remove** accounts, including those for privileged users, in accordance with their organizational policies and procedures. They are encouraged to utilize **automated mechanisms** to support these management functions. - **Monitoring and Control**: The customer is fully responsible for **monitoring the use of all their PfG accounts**. This includes monitoring the use of administrator accounts and monitoring account enabling, disabling, and removal actions within the application. - **High-Risk Incident Response**: The customer must follow their internal process for incident handling and reporting and is specifically responsible for**disabling accounts for individuals determined to pose significant risks to their organization within 1 hour**. - **Session Management**: The customer is responsible for requiring users to **log out** according to their internal access control policy. | Manage the underlying infrastructure, operating system, and security configurations required to support customer accounts, including system-level resource allocation and protection. This ensures the foundational platform is secure and available for the customer to perform all mandated user-level account administration and access enforcement. |
 | AC-3 | Access Enforcement | The customer is responsible for establishing and maintaining the logical access policy, defining user roles and privileges (like ensuring least privilege and separation of duties), and actively assigning and managing those roles to the personnel. | Implement role-based access controls (RBAC) on Procore systems; enforce policy through IAM, console permissions, and MFA; verify access prior to granting privileges. |
-| AC-5(a),  AC-5(b) | Separation of Duties | The customer is responsible for defining and documenting **Separation of Duties (SoD)** for individuals authorized to access the PfG application within their organization. Access control is implemented by the customer through **custom roles** designed to ensure SoD is enforced. | Assign distinct roles for system administration, security operations, and compliance; enforce through IAM group policies. |
+| AC-5(a), AC-5(b) | Separation of Duties | The customer is responsible for defining and documenting **Separation of Duties (SoD)** for individuals authorized to access the PfG application within their organization. Access control is implemented by the customer through **custom roles** designed to ensure SoD is enforced. | Assign distinct roles for system administration, security operations, and compliance; enforce through IAM group policies. |
 | AC-6 | Least Privilege | It is the customer's responsibility to define PfG access authorizations to support the principle of least privilege within their organization. | Restrict Procore staff access to only the resources required for operational duties; regularly review elevated privileges; enforce just-in-time access for sensitive actions. |
-| AC-8(a),  AC-8(b) | System Use Notification | When using **identity federation and Single Sign-On (SSO)** to log into PfG, the customer is responsible for ensuring that their **Lightweight Directory Access Protocols (LDAP)**and/or **Active Directory (AD)**systems display a compliant **system use notification message or banner**. Furthermore, the customer must ensure the notification message or banner meets FedRAMP requirements and **remains on screen until users acknowledge the usage conditions**and take explicit action to log on or further access the system. | Display login banners on Procore systems notifying of authorized use only, per FedRAMP and agency guidance. |
-| AC-19(a),  AC-19(b),  AC-19(5) | Access Control for Mobile Devices | For the Procore for Government Mobile App, the customer bears responsibility for enforcing all mobile device policies (including those applicable to their subcontractors) to ensure responsible use. |  |
-| CA-6(a),  CA-6(b),  CA-6(c),  CA-6(d),  CA-6(e) | Authorization | The federal customer, or agency, operating within the **Procore for Government** environment holds the final responsibility for **Authorizing System Operation**.    This involves:   - **Designating the Authority**: Each customer is responsible for designating its own **Authorizing Official (AO)**. - **Risk Acceptance and ATO**: The AO reviews the results of the security assessment (issued in the **Security Assessment Report, or SAR**), examines the **Plan of Action and Milestones (POA&M)**, and determines if the remaining known vulnerabilities pose an acceptable level of risk to agency operations before **issuing an Authority to Operate (ATO)**. - **Change Review**: The customer AO is also responsible for reviewing any **significant changes** proposed by Procore, and subsequently reviewing and approving any updates to FedRAMP package based on additional testing by the 3PAO. | Obtain and Maintain FedRAMP ATO. Ensure the SSP, SAP, SAR, and POA&M remain current; notify the PMO and AO of significant changes or incidents. |
+| AC-8(a), AC-8(b) | System Use Notification | When using **identity federation and Single Sign-On (SSO)** to log into PfG, the customer is responsible for ensuring that their **Lightweight Directory Access Protocols (LDAP)**and/or **Active Directory (AD)**systems display a compliant **system use notification message or banner**. Furthermore, the customer must ensure the notification message or banner meets FedRAMP requirements and **remains on screen until users acknowledge the usage conditions**and take explicit action to log on or further access the system. | Display login banners on Procore systems notifying of authorized use only, per FedRAMP and agency guidance. |
+| AC-19(a), AC-19(b), AC-19(5) | Access Control for Mobile Devices | For the Procore for Government Mobile App, the customer bears responsibility for enforcing all mobile device policies (including those applicable to their subcontractors) to ensure responsible use. | |
+| CA-6(a), CA-6(b), CA-6(c), CA-6(d), CA-6(e) | Authorization | The federal customer, or agency, operating within the **Procore for Government** environment holds the final responsibility for **Authorizing System Operation**.    This involves:   - **Designating the Authority**: Each customer is responsible for designating its own **Authorizing Official (AO)**. - **Risk Acceptance and ATO**: The AO reviews the results of the security assessment (issued in the **Security Assessment Report, or SAR**), examines the **Plan of Action and Milestones (POA&M)**, and determines if the remaining known vulnerabilities pose an acceptable level of risk to agency operations before **issuing an Authority to Operate (ATO)**. - **Change Review**: The customer AO is also responsible for reviewing any **significant changes** proposed by Procore, and subsequently reviewing and approving any updates to FedRAMP package based on additional testing by the 3PAO. | Obtain and Maintain FedRAMP ATO. Ensure the SSP, SAP, SAR, and POA&M remain current; notify the PMO and AO of significant changes or incidents. |
 
 ### Identification and Authentication Family (IA)
 
 | **Column** | Type | **Customer Responsibility** | **Procore Responsibility** |
 | --- | --- | --- | --- |
-| IA-8,  IA-8(1),  IA-8(2)(a),  IA-8(2)(b),  IA-8(4) | Identification and Authentication (Non-Organizational Users) | The customer is responsible for integrating the Procore for Government accounts with their agency's Single Sign-On (SSO) capability using their Identity Provider's (IdP) identity federation.  For agency customers mandated to use a hardware-based smartcard, the system supports integrating this card (such as a PIV card or CAC) with SSO through SAML identity federation. The customer holds the responsibility for successfully completing the integration of the PIV card or CAC with the Procore for Government environment |  |
-| IA-11 | Re-authentication | Customers are responsible for configuring their Identity Provider (IdP) to ensure users are re-authenticated following periods of inactivity and to strictly enforce mandatory session timeouts as required by security policy. |  |
+| IA-8, IA-8(1), IA-8(2)(a), IA-8(2)(b), IA-8(4) | Identification and Authentication (Non-Organizational Users) | The customer is responsible for integrating the Procore for Government accounts with their agency's Single Sign-On (SSO) capability using their Identity Provider's (IdP) identity federation. For agency customers mandated to use a hardware-based smartcard, the system supports integrating this card (such as a PIV card or CAC) with SSO through SAML identity federation. The customer holds the responsibility for successfully completing the integration of the PIV card or CAC with the Procore for Government environment | |
+| IA-11 | Re-authentication | Customers are responsible for configuring their Identity Provider (IdP) to ensure users are re-authenticated following periods of inactivity and to strictly enforce mandatory session timeouts as required by security policy. | |
 
 ### Incident Reporting Family (IR)
 
 | **Column** | Type | **Customer Responsibility** | **Procore Responsibility** |
 | --- | --- | --- | --- |
-| IR-6(a),  IR-6(b) | Incident Reporting | The customer is responsible for reporting all **suspected security incidents or system events** to Procore via email at **[security@procore.com](mailto:security@procore.com "mailto:security@procore.com")**.    Additionally, **Federal government customers** must adhere to their separate reporting obligations, which include reporting incidents to **CISA** as required by **OMB Memo M-07-16**. | Report incidents to FedRAMP PMO, AO, and impacted customers within 1 hour or confirmation per FedRAMP guidance. Submit follow-up reports (24 hr, 3 day, 30 day). DoD reporting within 72 hours. |
+| IR-6(a), IR-6(b) | Incident Reporting | The customer is responsible for reporting all **suspected security incidents or system events** to Procore via email at **[security@procore.com](mailto:security@procore.com "mailto:security@procore.com")**.    Additionally, **Federal government customers** must adhere to their separate reporting obligations, which include reporting incidents to **CISA** as required by **OMB Memo M-07-16**. | Report incidents to FedRAMP PMO, AO, and impacted customers within 1 hour or confirmation per FedRAMP guidance. Submit follow-up reports (24 hr, 3 day, 30 day). DoD reporting within 72 hours. |
 | IR-9(b) | Information Spillage | Customers are responsible for identifying the specific information involved in the information system contamination and for notifying Procore of potential information spillage within their tenant environment via established communication methods within the cloud service agreements. | Maintain documented spillage response procedures (e.g., handling CUI/PII); immediatly isolate and sanitize affected systems. |
 
 ### Risk Assessment Family (RA)
 
 | **Column** | Type | **Customer Responsibility** | **Procore Responsibility** |
 | --- | --- | --- | --- |
-| RA-2(c) | Security Categorization | Each government customer utilizing the PfG system is responsible for designating an AO. The AO must review the SSP, which includes the determined security categorization, as part of the FedRAMP package for the PfG system and authorize the system for their organization's use. |  |
+| RA-2(c) | Security Categorization | Each government customer utilizing the PfG system is responsible for designating an AO. The AO must review the SSP, which includes the determined security categorization, as part of the FedRAMP package for the PfG system and authorize the system for their organization's use. | |
 
 ### System & Services Acquisition Family (SA)
 
 | **Column** | Type | **Customer Responsibility** | **Procore Responsibility** |
 | --- | --- | --- | --- |
-| SA-4(10) | Acquisition Process | Customers can integrate PfG with their SSO through SAML 2.0. Customers are responsible for using only PIV or CAC credentials that are on the FIPS 201-approved product list. |  |
+| SA-4(10) | Acquisition Process | Customers can integrate PfG with their SSO through SAML 2.0. Customers are responsible for using only PIV or CAC credentials that are on the FIPS 201-approved product list. | |
 
 ## Contact Support
 
@@ -878,8 +877,8 @@ Available Procore for Government Tools are engineered consistent with the FedRAM
 
 Support for Procore for Government is available in English. Live chat is not available.
 
-|  |  |  |  |  |  |  |
+| | | | | | | |
 | --- | --- | --- | --- | --- | --- | --- |
-| customer-support-icon.png | **Hours of Operation:**   - Monday - Friday - 7:00 AM to 4:00 PM CT  | **Telephone** | (844) 692-0635 | | **Email** | [support@procoregov.com](mailto:support@procoregov.com "mailto:support@procoregov.com") | | **When contacting support**:  - Do not include sensitive data such as passwords, confidential project details, Controlled Unclassified Information (CUI), Federal Contract Information (FCI), Covered Defense Information (CDI), or any information classified as confidential or restricted. |
+| customer-support-icon.png | **Hours of Operation:**   - Monday - Friday - 7:00 AM to 4:00 PM CT | **Telephone** | (844) 692-0635 | | **Email** | [support@procoregov.com](mailto:support@procoregov.com "mailto:support@procoregov.com") | | **When contacting support**: - Do not include sensitive data such as passwords, confidential project details, Controlled Unclassified Information (CUI), Federal Contract Information (FCI), Covered Defense Information (CDI), or any information classified as confidential or restricted. |
 
 ---

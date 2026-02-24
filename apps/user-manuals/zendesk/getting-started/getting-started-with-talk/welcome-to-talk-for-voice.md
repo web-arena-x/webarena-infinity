@@ -18,7 +18,7 @@ Use these key resources to guide you to success.
 
 ### Get started
 
-To get the best from Talk, you'll want to spend some time getting it set up just right. These setup guides will take you through everything you need to do to get things running.  
+To get the best from Talk, you'll want to spend some time getting it set up just right. These setup guides will take you through everything you need to do to get things running. 
 [Get started](https://support.zendesk.com/hc/en-us/articles/4408838035866)
 
 ---
@@ -27,7 +27,7 @@ To get the best from Talk, you'll want to spend some time getting it set up just
 
 You're given a phone number when you start a suite trial. Once the trial is over, you can purchase additional numbers.
 
-Unlike other Zendesk products, the cost of Talk is based partly on how much you use it. It's important to understand how much your call center number will cost, and our helpful calculators will help you do just that.  
+Unlike other Zendesk products, the cost of Talk is based partly on how much you use it. It's important to understand how much your call center number will cost, and our helpful calculators will help you do just that. 
 [Get a number](https://support.zendesk.com/hc/en-us/articles/4408846483482)
 
 ###
@@ -38,14 +38,14 @@ Unlike other Zendesk products, the cost of Talk is based partly on how much you 
 
 ### Learn about Talk best practices
 
-While you can configure Talk how you want, there are some common best practices that will help you get the best from your call center and help you succeed.  
+While you can configure Talk how you want, there are some common best practices that will help you get the best from your call center and help you succeed. 
 [Learn best practices](https://support.zendesk.com/hc/en-us/articles/4408820557850)
 
 ---
 
 ### Train your agents
 
-After you've set up Talk, help your agents to help your customers. Our agent guide contains everything they need to make successful calls. From making and receiving calls, putting calls on hold, and conference calling, we have them covered.  
+After you've set up Talk, help your agents to help your customers. Our agent guide contains everything they need to make successful calls. From making and receiving calls, putting calls on hold, and conference calling, we have them covered. 
 [View agent guide for ticket channels](https://support.zendesk.com/hc/en-us/sections/5344462743066-Additional-ticket-channels)
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/Sales_Processes_PerfMarket2020-hannahconfetti-oatmilk.jpg)

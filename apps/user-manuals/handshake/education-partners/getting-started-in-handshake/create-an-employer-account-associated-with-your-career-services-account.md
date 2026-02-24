@@ -20,9 +20,9 @@ In order to have both your Career Services account and your Employer account con
 
 - **Set your password** - click **Set your password** to generate an email for your account security, then click the link in the email to create a password
 - **Reset your password** - click **Forgot Password?** if you no longer remember your Handshake password or would like to change it. An email will be sent to your email address for account security – click the link in the email to create a new password.
-  - *For more information on resetting your password, refer to [Reset the Password for a Student Account in Handshake](https://support.joinhandshake.com/hc/en-us/articles/360005683414).*
+ - *For more information on resetting your password, refer to [Reset the Password for a Student Account in Handshake](https://support.joinhandshake.com/hc/en-us/articles/360005683414).*
 - **Log in with your existing password** - if you have already created a Handshake password and know what it is, we recommend typing it in and logging in. This step is important to take note of what Handshake-specific password you have created.
-  - - This will log you back into your Career Center account - we just want to make sure the password is correct before proceeding to create your Employer account!
+ - - This will log you back into your Career Center account - we just want to make sure the password is correct before proceeding to create your Employer account!
 
 Once you're able to log into your Handshake account using this newly created password, you can now proceed to create your Employer User Account.
 
@@ -87,8 +87,8 @@ If you notice this is the case:
 - if they can approve you
 - how they were (or are) using this account
 - determine if it should:
-  - remain as one company profile - OR
-  - if we should provision a new domain space to keep these company profiles separate
+ - remain as one company profile - OR
+ - if we should provision a new domain space to keep these company profiles separate
 
 2. Contact our Support team and provide them with the following information:
 

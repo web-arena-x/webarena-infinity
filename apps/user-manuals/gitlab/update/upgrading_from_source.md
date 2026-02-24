@@ -20,8 +20,7 @@ Upgrade a self-compiled instance to a later version of GitLab.
 Before you upgrade:
 
 1. You must [read required information and perform required steps](plan_your_upgrade.md).
-1. Review the [software requirements](../install/self_compiled/_index.md#software-requirements) for Ruby, Node.js, Go,
-   and PostgreSQL.
+1. Review the [software requirements](../install/self_compiled/_index.md#software-requirements) for Ruby, Node.js, Go, and PostgreSQL.
 
 ## Upgrade a self-compiled instance
 
@@ -74,8 +73,7 @@ If a newer version of Ruby is required, you must update Ruby:
    ruby -v
    ```
 
-1. For instructions on updating to newer versions of Ruby, see
-   [Ruby installation instructions](https://www.ruby-lang.org/en/documentation/installation/).
+1. For instructions on updating to newer versions of Ruby, see [Ruby installation instructions](https://www.ruby-lang.org/en/documentation/installation/).
 
 ### Update Node.js
 
@@ -87,11 +85,9 @@ If a newer version of Node.js is required, you must update Node.js:
    node -v
    ```
 
-1. For instructions on updating to newer versions of Node.js, see
-   [Node.js download instructions](https://nodejs.org/en/download).
+1. For instructions on updating to newer versions of Node.js, see [Node.js download instructions](https://nodejs.org/en/download).
 
-GitLab also requires Yarn `>= v1.10.0` to manage JavaScript dependencies. For more information, see the
-[Yarn website](https://classic.yarnpkg.com/en/docs/install).
+GitLab also requires Yarn `>= v1.10.0` to manage JavaScript dependencies. For more information, see the [Yarn website](https://classic.yarnpkg.com/en/docs/install).
 
 ### Update Go
 
@@ -103,13 +99,11 @@ If a newer version of Go is required, you must update Go:
    go version
    ```
 
-1. For instructions on updating to newer versions of Go, see
-   [Go installation instructions](https://go.dev/doc/install).
+1. For instructions on updating to newer versions of Go, see [Go installation instructions](https://go.dev/doc/install).
 
 ### Update Git
 
-You should use the Git version provided by Gitaly. For more information, see
-[GitLab installation instructions for Git](../install/self_compiled/_index.md#git).
+You should use the Git version provided by Gitaly. For more information, see [GitLab installation instructions for Git](../install/self_compiled/_index.md#git).
 
 ### Update PostgreSQL
 
@@ -121,8 +115,7 @@ If a newer version of PostgreSQL is required, you must update PostgreSQL:
    pg_ctl --version
    ```
 
-1. For instructions on updating to newer versions of PostgreSQL, see
-   [PostgreSQL upgrading documentation](https://www.postgresql.org/docs/16/upgrading.html).
+1. For instructions on updating to newer versions of PostgreSQL, see [PostgreSQL upgrading documentation](https://www.postgresql.org/docs/16/upgrading.html).
 1. Make sure you have the required [PostgreSQL extensions](../install/requirements.md#postgresql).
 
 ### Update the GitLab codebase
@@ -179,8 +172,7 @@ The following sections document how to determine if configuration updates are re
 
 #### New configuration for `gitlab.yml`
 
-There might be new configuration options available for
-[`gitlab.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/config/gitlab.yml.example).
+There might be new configuration options available for [`gitlab.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/config/gitlab.yml.example).
 
 1. View possible new configuration:
 
@@ -199,8 +191,7 @@ There might be new configuration options available for
 
 {{< /history >}}
 
-There might be new configuration options available for
-[`database.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/config/database.yml.postgresql).
+There might be new configuration options available for [`database.yml`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/config/database.yml.postgresql).
 
 1. View possible new configuration:
 
@@ -225,12 +216,10 @@ git diff origin/PREVIOUS_BRANCH:lib/support/nginx/gitlab-ssl origin/BRANCH:lib/s
 git diff origin/PREVIOUS_BRANCH:lib/support/nginx/gitlab origin/BRANCH:lib/support/nginx/gitlab
 ```
 
-The GitLab application no longer sets Strict-Transport-Security in your installation. You must enable it in your
-NGINX configuration to continue using it.
+The GitLab application no longer sets Strict-Transport-Security in your installation. You must enable it in your NGINX configuration to continue using it.
 
 If you are using Apache instead of NGINX, see the updated [Apache templates](https://gitlab.com/gitlab-org/gitlab-recipes/tree/master/web-server/apache).
-Because Apache does not support upstreams behind Unix sockets, you must let GitLab Workhorse listen on a TCP port by
-using [`/etc/default/gitlab`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/support/init.d/gitlab.default.example#L38).
+Because Apache does not support upstreams behind Unix sockets, you must let GitLab Workhorse listen on a TCP port by using [`/etc/default/gitlab`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/support/init.d/gitlab.default.example#L38).
 
 #### SMTP configuration
 
@@ -263,8 +252,7 @@ for an example.
 
 #### Configure SysV init script
 
-There might be new configuration options available for
-[`gitlab.default.example`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/support/init.d/gitlab.default.example).
+There might be new configuration options available for [`gitlab.default.example`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/support/init.d/gitlab.default.example).
 
 1. View possible new configuration:
 
@@ -347,13 +335,11 @@ sudo -u git -H bundle exec rake "gitlab:workhorse:install[/home/git/gitlab-workh
 
 ### Update Gitaly
 
-Upgrade Gitaly servers to the newer version before upgrading the application server. This prevents the gRPC client
-on the application server from sending RPCs that the old Gitaly version does not support.
+Upgrade Gitaly servers to the newer version before upgrading the application server. This prevents the gRPC client on the application server from sending RPCs that the old Gitaly version does not support.
 
 If Gitaly is located on its own server, or you use Gitaly Cluster (Praefect), see [Zero-downtime upgrades](zero_downtime.md).
 
-During the build process, Gitaly [compiles and embeds Git binaries](https://gitlab.com/gitlab-org/gitaly/-/issues/6089),
-which requires additional dependencies.
+During the build process, Gitaly [compiles and embeds Git binaries](https://gitlab.com/gitlab-org/gitaly/-/issues/6089), which requires additional dependencies.
 
 ```shell
 # Install dependencies
@@ -426,15 +412,12 @@ If you have trouble during the upgrade, try some of the steps in the following s
 
 To revert to a previous version, you must follow the upgrading guides for the previous version.
 
-For example, if you have upgraded to GitLab 16.6 and want to revert back to
-16.5, follow the guides for upgrading from 16.4 to 16.5.
+For example, if you have upgraded to GitLab 16.6 and want to revert back to 16.5, follow the guides for upgrading from 16.4 to 16.5.
 
 When reverting:
 
-- You should **not** follow the database migration guides, because the backup has already been migrated to the previous
-  version.
-- If you ran database migrations, you must restore a backup after the downgrade. The version of the code must be
-  compatible with the version of the schema that's used. The older schema is in the backup.
+- You should **not** follow the database migration guides, because the backup has already been migrated to the previous version.
+- If you ran database migrations, you must restore a backup after the downgrade. The version of the code must be compatible with the version of the schema that's used. The older schema is in the backup.
 
 ### Restore from a backup
 

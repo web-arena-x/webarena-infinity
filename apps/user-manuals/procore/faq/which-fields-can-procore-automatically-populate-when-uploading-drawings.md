@@ -9,10 +9,10 @@ Source: https://support.procore.com/faq/which-fields-can-procore-automatically-p
 When you upload new drawings to a project, Procore can automatically populate the following fields using [Optical Character Recognition (OCR)](http://en.wikipedia.org/wiki/Optical_character_recognition) technology to help expedite the upload and review process:
 
 - **Drawing Number**: Pulls directly from the number listed on drawing sheet.
-- **Drawing Title**: Pulls directly from title block on drawing sheet.  
-  *Note:* If you are uploading a drawing revision, Procore will populate the drawing title based off the information entered on the previous drawing revision.
-- **Drawing Discipline**: Populates based on the drawing number's letter prefix.  
-  *Note:* You can set which letters designate which disciplines. See [Configure Default Drawing Disciplines](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/configure-default-drawing-disciplines "Configure Default Drawing Disciplines").
+- **Drawing Title**: Pulls directly from title block on drawing sheet. 
+ *Note:* If you are uploading a drawing revision, Procore will populate the drawing title based off the information entered on the previous drawing revision.
+- **Drawing Discipline**: Populates based on the drawing number's letter prefix. 
+ *Note:* You can set which letters designate which disciplines. See [Configure Default Drawing Disciplines](https://support.procore.com/products/online/user-guide/project-level/drawings/tutorials/configure-default-drawing-disciplines "Configure Default Drawing Disciplines").
 
 ![drawings-auto-populate.png](https://support.procore.com/@api/deki/files/88188/drawings-auto-populate.png?revision=2)
 

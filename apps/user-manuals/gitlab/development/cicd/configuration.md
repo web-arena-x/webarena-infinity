@@ -31,13 +31,13 @@ or [`ee/lib/ee/gitlab/ci/config/entry`](https://gitlab.com/gitlab-org/gitlab/-/t
 An entry is represented by a class that inherits from;
 
 - `Entry::Node`: for simple keywords.
-  (For example, [`Entry::Stage`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/config/entry/stage.rb))
+ (For example, [`Entry::Stage`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/config/entry/stage.rb))
 - `Entry::Simplifiable`: for keywords that have multiple structures.
-  For example, [`Entry::Retry`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/config/entry/retry.rb) can be a simple number or a hash configuration.
+ For example, [`Entry::Retry`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/config/entry/retry.rb) can be a simple number or a hash configuration.
 - `Entry::ComposableArray`: for keywords that have a list of single-type sub-elements.
-  For example, [`Entry::Includes`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/config/entry/includes.rb) has a list of `Entry::Include` elements.
+ For example, [`Entry::Includes`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/config/entry/includes.rb) has a list of `Entry::Include` elements.
 - `Entry::ComposableHash`: for keywords that have single-type sub-elements with user-defined keys.
-  For example, [`Entry::Variables`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/config/entry/variables.rb) has a list of `Entry::Variable` elements with user-defined keys.
+ For example, [`Entry::Variables`](https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/config/entry/variables.rb) has a list of `Entry::Variable` elements with user-defined keys.
 
 ### Helper Classes
 
@@ -54,8 +54,7 @@ By default, from the `Entry::Node` class, the `value` method returns the hash co
 It can be useful for simple entries. For example, `Entry::Paths` has an array of strings as its value. So, it can return the array of strings directly.
 
 In some keywords, we override the `value` method. In this method, we return what and how we want to return from the entry.
-The usage of `Entry::Attributable` and `Entry::Configurable` may have a significant role here. For example,
-in `Entry::Secret`, we have this;
+The usage of `Entry::Attributable` and `Entry::Configurable` may have a significant role here. For example, in `Entry::Secret`, we have this;
 
 ```ruby
 attributes %i[vault file token].freeze
@@ -64,11 +63,11 @@ entry :vault, Entry::Vault::Secret
 entry :file, ::Gitlab::Config::Entry::Boolean
 
 def value
-  {
+ {
     vault: vault_value,
     file: file_value,
     token: token
-  }.compact
+ }.compact
 end
 ```
 
@@ -87,17 +86,17 @@ A common place to check for a feature flag is in the `Gitlab::Config::Entry::Nod
 
 ```ruby
 def value
-  {
+ {
     vault: vault_value,
     file: file_available? ? file_value : nil,
     token: token
-  }.compact
+ }.compact
 end
 
 private
 
 def file_available?
-  ::Gitlab::Ci::Config::FeatureFlags.enabled?(:secret_file_available, type: :beta)
+ ::Gitlab::Ci::Config::FeatureFlags.enabled?(:secret_file_available, type: :beta)
 end
 ```
 
@@ -113,5 +112,4 @@ To solve this problem, we have three options;
 ## Testing and Validation
 
 When adding or modifying an entry, the corresponding spec file must be either added or updated.
-Besides, to have a fully integrated test, it's also important to add/modify tests in the `spec/lib/gitlab/ci/yaml_processor_spec.rb` file or
-the files in `spec/lib/gitlab/ci/yaml_processor/test_cases/*` directory.
+Besides, to have a fully integrated test, it's also important to add/modify tests in the `spec/lib/gitlab/ci/yaml_processor_spec.rb` file or the files in `spec/lib/gitlab/ci/yaml_processor/test_cases/*` directory.

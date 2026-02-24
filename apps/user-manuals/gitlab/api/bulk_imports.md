@@ -31,23 +31,23 @@ POST /bulk_imports
 | Attribute                         | Type    | Required | Description |
 | --------------------------------- | ------- | -------- | ----------- |
 | `configuration`                   | Hash    | Yes      | The source GitLab instance configuration. |
-| `configuration[url]`              | String  | Yes      | Source GitLab instance URL. |
-| `configuration[access_token]`     | String  | Yes      | Access token to the source GitLab instance. |
+| `configuration[url]`              | String | Yes      | Source GitLab instance URL. |
+| `configuration[access_token]`     | String | Yes      | Access token to the source GitLab instance. |
 | `entities`                        | Array   | Yes      | List of entities to import. |
-| `entities[source_type]`           | String  | Yes      | Source entity type. Valid values are `group_entity` and `project_entity`. |
-| `entities[source_full_path]`      | String  | Yes      | Source full path of the entity to import. For example, `gitlab-org/gitlab`. |
-| `entities[destination_slug]`      | String  | Yes      | Destination slug for the entity. GitLab uses the slug as the URL path to the entity. The name of the imported entity is copied from the name of the source entity and not the slug. |
-| `entities[destination_namespace]` | String  | Yes      | Full path of the destination group [namespace](../user/namespace/_index.md) for the entity. For `project_entity`, this value must be an existing group on the destination instance. For `group_entity`, this value can be an existing group on the destination instance or an empty string `""` to create a top-level group on the destination instance (on GitLab Self-Managed and GitLab Dedicated). Personal namespaces are not supported. |
-| `entities[destination_name]`      | String  | No       | Deprecated: Use `destination_slug` instead. Destination slug for the entity. |
+| `entities[source_type]`           | String | Yes      | Source entity type. Valid values are `group_entity` and `project_entity`. |
+| `entities[source_full_path]`      | String | Yes      | Source full path of the entity to import. For example, `gitlab-org/gitlab`. |
+| `entities[destination_slug]`      | String | Yes      | Destination slug for the entity. GitLab uses the slug as the URL path to the entity. The name of the imported entity is copied from the name of the source entity and not the slug. |
+| `entities[destination_namespace]` | String | Yes      | Full path of the destination group [namespace](../user/namespace/_index.md) for the entity. For `project_entity`, this value must be an existing group on the destination instance. For `group_entity`, this value can be an existing group on the destination instance or an empty string `""` to create a top-level group on the destination instance (on GitLab Self-Managed and GitLab Dedicated). Personal namespaces are not supported. |
+| `entities[destination_name]`      | String | No       | Deprecated: Use `destination_slug` instead. Destination slug for the entity. |
 | `entities[migrate_memberships]`   | Boolean | No       | Import user memberships. Defaults to `true`. |
 | `entities[migrate_projects]`      | Boolean | No       | Also import all nested projects of the group (if `source_type` is `group_entity`). Defaults to `true`. |
 
 ```shell
 curl --request POST \
-  --url "https://destination-gitlab-instance.example.com/api/v4/bulk_imports" \
-  --header "PRIVATE-TOKEN: <your_access_token_for_destination_gitlab_instance>" \
-  --header "Content-Type: application/json" \
-  --data '{
+ --url "https://destination-gitlab-instance.example.com/api/v4/bulk_imports" \
+ --header "PRIVATE-TOKEN: <your_access_token_for_destination_gitlab_instance>" \
+ --header "Content-Type: application/json" \
+ --data '{
     "configuration": {
       "url": "https://source-gitlab-instance.example.com",
       "access_token": "<your_access_token_for_source_gitlab_instance>"
@@ -60,18 +60,18 @@ curl --request POST \
         "destination_namespace": "destination/namespace/path"
       }
     ]
-  }'
+ }'
 ```
 
 ```json
 {
-  "id": 1,
-  "status": "created",
-  "source_type": "gitlab",
-  "source_url": "https://gitlab.example.com",
-  "created_at": "2021-06-18T09:45:55.358Z",
-  "updated_at": "2021-06-18T09:46:27.003Z",
-  "has_failures": false
+ "id": 1,
+ "status": "created",
+ "source_type": "gitlab",
+ "source_url": "https://gitlab.example.com",
+ "created_at": "2021-06-18T09:45:55.358Z",
+ "updated_at": "2021-06-18T09:46:27.003Z",
+ "has_failures": false
 }
 ```
 
@@ -81,12 +81,12 @@ curl --request POST \
 GET /bulk_imports
 ```
 
-| Attribute  | Type    | Required | Description                                                                        |
+| Attribute | Type    | Required | Description                                                                        |
 |:-----------|:--------|:---------|:-----------------------------------------------------------------------------------|
 | `per_page` | integer | no       | Number of records to return per page.                                              |
 | `page`     | integer | no       | Page to retrieve.                                                                  |
-| `sort`     | string  | no       | Return records sorted in `asc` or `desc` order by creation date. Default is `desc` |
-| `status`   | string  | no       | Import status.                                                                     |
+| `sort`     | string | no       | Return records sorted in `asc` or `desc` order by creation date. Default is `desc` |
+| `status`   | string | no       | Import status.                                                                     |
 
 The status can be one of the following:
 
@@ -97,8 +97,8 @@ The status can be one of the following:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/bulk_imports?per_page=2&page=1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/bulk_imports?per_page=2&page=1"
 ```
 
 ```json
@@ -130,12 +130,12 @@ curl --request GET \
 GET /bulk_imports/entities
 ```
 
-| Attribute  | Type    | Required | Description                                                                        |
+| Attribute | Type    | Required | Description                                                                        |
 |:-----------|:--------|:---------|:-----------------------------------------------------------------------------------|
 | `per_page` | integer | no       | Number of records to return per page.                                              |
 | `page`     | integer | no       | Page to retrieve.                                                                  |
-| `sort`     | string  | no       | Return records sorted in `asc` or `desc` order by creation date. Default is `desc` |
-| `status`   | string  | no       | Import status.                                                                     |
+| `sort`     | string | no       | Return records sorted in `asc` or `desc` order by creation date. Default is `desc` |
+| `status`   | string | no       | Import status.                                                                     |
 
 The status can be one of the following:
 
@@ -146,8 +146,8 @@ The status can be one of the following:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/bulk_imports/entities?per_page=2&page=1&status=started"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/bulk_imports/entities?per_page=2&page=1&status=started"
 ```
 
 ```json
@@ -227,18 +227,18 @@ GET /bulk_imports/:id
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/bulk_imports/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/bulk_imports/1"
 ```
 
 ```json
 {
-  "id": 1,
-  "status": "finished",
-  "source_type": "gitlab",
-  "source_url": "https://gitlab.example.com",
-  "created_at": "2021-06-18T09:45:55.358Z",
-  "updated_at": "2021-06-18T09:46:27.003Z"
+ "id": 1,
+ "status": "finished",
+ "source_type": "gitlab",
+ "source_url": "https://gitlab.example.com",
+ "created_at": "2021-06-18T09:45:55.358Z",
+ "updated_at": "2021-06-18T09:46:27.003Z"
 }
 ```
 
@@ -248,12 +248,12 @@ curl --request GET \
 GET /bulk_imports/:id/entities
 ```
 
-| Attribute  | Type    | Required | Description                                                                        |
+| Attribute | Type    | Required | Description                                                                        |
 |:-----------|:--------|:---------|:-----------------------------------------------------------------------------------|
 | `per_page` | integer | no       | Number of records to return per page.                                              |
 | `page`     | integer | no       | Page to retrieve.                                                                  |
-| `sort`     | string  | no       | Return records sorted in `asc` or `desc` order by creation date. Default is `desc` |
-| `status`   | string  | no       | Import status.                                                                     |
+| `sort`     | string | no       | Return records sorted in `asc` or `desc` order by creation date. Default is `desc` |
+| `status`   | string | no       | Import status.                                                                     |
 
 The status can be one of the following:
 
@@ -264,8 +264,8 @@ The status can be one of the following:
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/bulk_imports/1/entities?per_page=2&page=1&status=finished"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/bulk_imports/1/entities?per_page=2&page=1&status=finished"
 ```
 
 ```json
@@ -324,8 +324,8 @@ GET /bulk_imports/:id/entities/:entity_id
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/bulk_imports/1/entities/2"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/bulk_imports/1/entities/2"
 ```
 
 ```json
@@ -388,18 +388,18 @@ GET /bulk_imports/:id/entities/:entity_id/failures
 
 ```shell
 curl --request GET \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/bulk_imports/1/entities/2/failures"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/bulk_imports/1/entities/2/failures"
 ```
 
 ```json
 {
-  "relation": "issues",
-  "exception_message": "Error!",
-  "exception_class": "StandardError",
-  "correlation_id_value": "06289e4b064329a69de7bb2d7a1b5a97",
-  "source_url": "https://gitlab.example/project/full/path/-/issues/1",
-  "source_title": "Issue title"
+ "relation": "issues",
+ "exception_message": "Error!",
+ "exception_class": "StandardError",
+ "correlation_id_value": "06289e4b064329a69de7bb2d7a1b5a97",
+ "source_url": "https://gitlab.example/project/full/path/-/issues/1",
+ "source_title": "Issue title"
 }
 ```
 
@@ -419,18 +419,18 @@ POST /bulk_imports/:id/cancel
 
 ```shell
 curl --request POST \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/bulk_imports/1/cancel"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/bulk_imports/1/cancel"
 ```
 
 ```json
 {
-  "id": 1,
-  "status": "canceled",
-  "source_type": "gitlab",
-  "created_at": "2021-06-18T09:45:55.358Z",
-  "updated_at": "2021-06-18T09:46:27.003Z",
-  "has_failures": false
+ "id": 1,
+ "status": "canceled",
+ "source_type": "gitlab",
+ "created_at": "2021-06-18T09:45:55.358Z",
+ "updated_at": "2021-06-18T09:46:27.003Z",
+ "has_failures": false
 }
 ```
 

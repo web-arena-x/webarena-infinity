@@ -6,7 +6,7 @@ Source: https://support.zendesk.com/hc/en-us/articles/9972142485530-Access-log-u
 
 [What's my plan?](https://support.zendesk.com/hc/en-us/articles/5411234991258-plan)
 
-|  |  |
+| | |
 | --- | --- |
 | **Add-on** | Advanced Data Privacy and Protection (ADPP) |
 
@@ -14,13 +14,9 @@ Verified AI summary ◀▼
 
 Use the access log to monitor agent activity, ensuring data privacy and security. Identify unauthorized access, track changes to user data, and prevent potential security risks by filtering access events. Secure API credentials, control access, and detect suspicious activities to maintain compliance and safeguard sensitive information. Leverage both the Admin Center and API workflows for comprehensive oversight.
 
-Location:  Admin Center > Account > Logs > Access log
+Location: Admin Center > Account > Logs > Access log
 
-As described in [Using the access log to monitor agent
-activity](https://support.zendesk.com/hc/en-us/articles/6066010357530), the access log enables monitoring of access events in your account
-related to tickets, user profiles, and searches. By providing detailed, filtered views
-of access events, admins and [agents with permission](https://support.zendesk.com/hc/en-us/articles/4408882153882) can identify unauthorized activities
-and help ensure compliance with data privacy regulations.
+As described in [Using the access log to monitor agent activity](https://support.zendesk.com/hc/en-us/articles/6066010357530), the access log enables monitoring of access events in your account related to tickets, user profiles, and searches. By providing detailed, filtered views of access events, admins and [agents with permission](https://support.zendesk.com/hc/en-us/articles/4408882153882) can identify unauthorized activities and help ensure compliance with data privacy regulations.
 
 This article covers the following topics:
 
@@ -30,24 +26,16 @@ This article covers the following topics:
 
 ## Common use cases
 
-This section includes example use cases to help you better understand how the access
-log can aid in detecting potential security risks. These use cases apply to both the
-Admin Center user interface and the API.
+This section includes example use cases to help you better understand how the access log can aid in detecting potential security risks. These use cases apply to both the Admin Center user interface and the API.
 
-Each use case includes categories and summaries to filter the access log and find
-related access events. For example, in the use case *Monitor changes to contact
-numbers to prevent abuse or fraud*, filter by the **Phone numbers**
-Category and the recommended Summary items (such as **Create Phone Number** and
-**Delete Phone Number**) to surface the related access events.
+Each use case includes categories and summaries to filter the access log and find related access events. For example, in the use case *Monitor changes to contact numbers to prevent abuse or fraud*, filter by the **Phone numbers** Category and the recommended Summary items (such as **Create Phone Number** and **Delete Phone Number**) to surface the related access events.
 
 ![](https://zen-marketing-documentation.s3.amazonaws.com/docs/en/access_log_filter_example.png)
 
 For more information on filtering the access log, see the following topics:
 
-- [Filtering access log data to refine
-  search results](https://support.zendesk.com/hc/en-us/articles/6066010357530#topic_mdl_fy5_3hc)
-- [Zendesk API Reference: Access
-  Logs](https://developer.zendesk.com/api-reference/ticketing/account-configuration/access_logs/)
+- [Filtering access log data to refine search results](https://support.zendesk.com/hc/en-us/articles/6066010357530#topic_mdl_fy5_3hc)
+- [Zendesk API Reference: Access Logs](https://developer.zendesk.com/api-reference/ticketing/account-configuration/access_logs/)
 
 Expand the sections below to learn more about common use cases.
 
@@ -112,8 +100,7 @@ Expand the sections below to learn more about common use cases.
 
 ### Monitor user profile views to detect unauthorized or excessive access
 
-**Scenario**: As an admin, you want to ensure agents can only view customer
-profiles within their groups.
+**Scenario**: As an admin, you want to ensure agents can only view customer profiles within their groups.
 
 **How to use the access log to filter these access events:**
 
@@ -121,19 +108,14 @@ profiles within their groups.
    **Account** in the sidebar, then select **Logs > Access log**.
 2. Click **Filter**.
 3. Apply either of the following activity filter combinations:
-   - **Category**: Users, **Summary**: Show user, List
-     users
-   - **Category**: Profiles API, **Summary**: Get profile by
-     identifier, Get profile by profile ID, Get profiles by user
-     ID
+   - **Category**: Users, **Summary**: Show user, List users
+   - **Category**: Profiles API, **Summary**: Get profile by identifier, Get profile by profile ID, Get profiles by user ID
 4. Click **Apply filters**.
 5. Review the list of events for unauthorized profile views.
 
 ### Monitor critical security settings and account configuration changes
 
-**Scenario:** As an admin, you want to monitor when other Zendesk admins
-change critical security and account settings to ensure your account remains
-secure and compliant.
+**Scenario:** As an admin, you want to monitor when other Zendesk admins change critical security and account settings to ensure your account remains secure and compliant.
 
 **How to use the access log to filter these access events:**
 
@@ -141,35 +123,23 @@ secure and compliant.
    **Account** in the sidebar, then select **Logs > Access log**.
 2. Click **Filter**.
 3. Apply either of the following activity filter combinations:
-   - **Category**: Account settings, **Summary**: Update
-     account settings
-   - **Category**: Staff, **Summary**: Fetch staff users,
-     Update staff user, Change password, Update email identity, Fetch
-     2FA recovery code, Delete 2FA configuration, Set password
+   - **Category**: Account settings, **Summary**: Update account settings
+   - **Category**: Staff, **Summary**: Fetch staff users, Update staff user, Change password, Update email identity, Fetch 2FA recovery code, Delete 2FA configuration, Set password
 4. Click **Apply filters**.
-5. Review the list for security settings or account configuration updates
-   that put your account at risk.
+5. Review the list for security settings or account configuration updates that put your account at risk.
 
 ## Example API workflows
 
 ### Identify trends to help refine permissions
 
-**Scenario**: Your company has a new customer service team, and you want to
-ensure its agents are viewing the correct data to comply with data privacy
-regulations. Your goal is to refine permissions for this group so agents have
-access only to the data they are permitted to see.
+**Scenario**: Your company has a new customer service team, and you want to ensure its agents are viewing the correct data to comply with data privacy regulations. Your goal is to refine permissions for this group so agents have access only to the data they are permitted to see.
 
 **How to use the Access Log API to address the scenario:**
 
-1. Identify an agent of the new team to use their activity as a reference
-   point.
-2. Make an API call filtered by the agent's user ID, which reveals all of the
-   agent's events, including a record of the tickets viewed and searches, at
-   what time, and from which IP address.
+1. Identify an agent of the new team to use their activity as a reference point.
+2. Make an API call filtered by the agent's user ID, which reveals all of the agent's events, including a record of the tickets viewed and searches, at what time, and from which IP address.
 
-   For example, user\_id 1213456789
-   viewed ticket number
-   937.
+   For example, user\_id 1213456789 viewed ticket number 937.
 
    ```
    timestamp: "2023-02-16T19:00:00Z",
@@ -180,9 +150,7 @@ access only to the data they are permitted to see.
    status: 200
    ```
 
-   Also, user\_id 1213456789 opened the profile
-   belonging to user\_id
-   9878654.
+   Also, user\_id 1213456789 opened the profile belonging to user\_id 9878654.
 
    ```
    timestamp: “2023-02-16T19:00:00Z”,
@@ -192,28 +160,20 @@ access only to the data they are permitted to see.
    method: “GET”,
    status: 304
    ```
-3. Use the data to determine whether the agent is accessing tickets assigned to
-   other agent groups or viewing profiles of customers assigned to other
-   agents.
+3. Use the data to determine whether the agent is accessing tickets assigned to other agent groups or viewing profiles of customers assigned to other agents.
 
-   You now have more data to help you set up the proper permissions
-   for agents in the group.
+   You now have more data to help you set up the proper permissions for agents in the group.
 
 ### Investigate suspicious activity
 
-**Scenario**: You are notified that an agent is searching for customer credit
-card numbers. You'd like a complete record of the agent's activity so you can
-take the appropriate steps to investigate the issue.
+**Scenario**: You are notified that an agent is searching for customer credit card numbers. You'd like a complete record of the agent's activity so you can take the appropriate steps to investigate the issue.
 
 **How to use the Access Log API to address the scenario:**
 
 1. Make an API call filtered by the agent's user ID.
-2. Evaluate the search records in the access log to identify repeated searches
-   for sensitive information.
+2. Evaluate the search records in the access log to identify repeated searches for sensitive information.
 
-   For example, this agent is searching for
-   "credit
-   card."
+   For example, this agent is searching for "credit card."
 
    ```
    timestamp: “2023-02-16T19:00:00Z”,
@@ -223,5 +183,4 @@ take the appropriate steps to investigate the issue.
    method: “GET”,
    status: 200
    ```
-3. If applicable, use the access log to help trace which customers have been
-   affected.
+3. If applicable, use the access log to help trace which customers have been affected.

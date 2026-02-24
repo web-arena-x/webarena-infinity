@@ -40,8 +40,7 @@ GitLab Duo is designed to provide contextually relevant information during the l
 
 {{< /history >}}
 
-When you create or edit a merge request, use GitLab Duo Merge Request Summary
-to create a merge request description.
+When you create or edit a merge request, use GitLab Duo Merge Request Summary to create a merge request description.
 
 1. [Create a new merge request](creating_merge_requests.md).
 1. In the **Description** field, put your cursor where you want to insert the description.
@@ -59,18 +58,14 @@ Data usage: The diff of changes between the source branch's head and the target 
 
 ## Use GitLab Duo to review your code
 
-GitLab Duo can review your merge request for potential errors and provide feedback on alignment to
-standards.
+GitLab Duo can review your merge request for potential errors and provide feedback on alignment to standards.
 
 Add GitLab Duo as a reviewer using one of:
 
 - GitLab Duo Code Review (Classic): The classic code review functionality.
-- Code Review Flow: The new flow available through the GitLab Duo Agent Platform. Offers improved
-  context awareness and agentic capabilities.
+- Code Review Flow: The new flow available through the GitLab Duo Agent Platform. Offers improved context awareness and agentic capabilities.
 
-The two options have different requirements and prerequisites. However, you request a review and
-interact with GitLab Duo the same way. Both options also support automatic reviews, custom
-instructions, and custom comments.
+The two options have different requirements and prerequisites. However, you request a review and interact with GitLab Duo the same way. Both options also support automatic reviews, custom instructions, and custom comments.
 
 ### GitLab Duo Code Review (Classic)
 
@@ -222,8 +217,7 @@ Settings cascade from application to group to project. More specific settings ov
 
 ### Customize review instructions for GitLab Duo
 
-You can create custom MR review instructions to ensure consistent and specific
-code review standards in your project.
+You can create custom MR review instructions to ensure consistent and specific code review standards in your project.
 
 Both GitLab Duo Code Review (Classic) and Code Review Flow support custom code review instructions.
 
@@ -303,8 +297,7 @@ Data usage: When you use this feature, the following data is sent to the large l
 
 {{< /history >}}
 
-When preparing to merge your merge request, edit the proposed merge commit message
-by using GitLab Duo Merge Commit Message Generation.
+When preparing to merge your merge request, edit the proposed merge commit message by using GitLab Duo Merge Commit Message Generation.
 
 1. On the top bar, select **Search or go to** and find your project.
 1. Select **Code** > **Merge requests** and find your merge request.
@@ -330,35 +323,28 @@ When working with GitLab Duo in Merge Requests, you might encounter the followin
 
 ### Response not received
 
-If you ask GitLab Duo for a review by mentioning or replying to `@GitLabDuo`,
-and do not receive a response, this might be because you do not have the
-appropriate GitLab Duo add-on.
+If you ask GitLab Duo for a review by mentioning or replying to `@GitLabDuo`, and do not receive a response, this might be because you do not have the appropriate GitLab Duo add-on.
 
-To check your GitLab Duo add-on, ask your group Owner to check the group's
-[GitLab Duo seat assignments](../../../subscriptions/subscription-add-ons.md#view-assigned-gitlab-duo-users).
+To check your GitLab Duo add-on, ask your group Owner to check the group's [GitLab Duo seat assignments](../../../subscriptions/subscription-add-ons.md#view-assigned-gitlab-duo-users).
 
 To change your GitLab Duo add-on, contact your administrator.
 
 ### Unable to assign GitLab Duo to review
 
-If you cannot assign GitLab Duo as a reviewer, it might be because you do not
-have the appropriate GitLab Duo add-on.
+If you cannot assign GitLab Duo as a reviewer, it might be because you do not have the appropriate GitLab Duo add-on.
 
-To check your GitLab Duo add-on, ask your group Owner to check the group's
-[GitLab Duo seat assignments](../../../subscriptions/subscription-add-ons.md#view-assigned-gitlab-duo-users).
+To check your GitLab Duo add-on, ask your group Owner to check the group's [GitLab Duo seat assignments](../../../subscriptions/subscription-add-ons.md#view-assigned-gitlab-duo-users).
 
 To change your GitLab Duo add-on, contact your administrator.
 
 ### Error: `GitLab Duo Code Review was not automatically added...`
 
-If you try to create a merge request with automatic reviews from GitLab Duo
-turned on, you might get the following error message:
+If you try to create a merge request with automatic reviews from GitLab Duo turned on, you might get the following error message:
 
 ```plaintext
 GitLab Duo Code Review was not automatically added because your account requires
 GitLab Duo Enterprise. Contact your administrator to upgrade your account.
 ```
 
-Contact your administrator to ask them to
-[purchase a GitLab Duo Enterprise seat](../../../subscriptions/subscription-add-ons.md#purchase-gitlab-duo)
+Contact your administrator to ask them to [purchase a GitLab Duo Enterprise seat](../../../subscriptions/subscription-add-ons.md#purchase-gitlab-duo)
 and assign it to you.

@@ -12,9 +12,9 @@ Table of Contents:
 
 - Navigating to the label management page
 - Using the label management page
-  - How to Edit a Label
-  - How to Archive a Label
-  - How to download a list of your school's labels
+ - How to Edit a Label
+ - How to Archive a Label
+ - How to download a list of your school's labels
 
 ## Navigating to the label management page
 
@@ -35,8 +35,8 @@ Create a new label by clicking the button **Add label**, located toward the top 
 - Label name (this is the name that will be shown on the items and in reporting)
 - Used for (this is the type of items the label will be applied to)
 - Type
-  - Normal labels: Only visible to the staff at your school
-  - Public labels: Visible by career services staff and students
+ - Normal labels: Only visible to the staff at your school
+ - Public labels: Visible by career services staff and students
     - **Note**: public labels applied to student profiles are *not* visible to students
 
 ![Create or Edit label pop up box.png](https://support.joinhandshake.com/hc/article_attachments/32432293215639)

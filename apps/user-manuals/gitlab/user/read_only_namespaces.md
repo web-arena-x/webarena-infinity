@@ -32,7 +32,7 @@ If you try to execute a restricted action, you might get a `404` error.
 | Container registry | Create, edit, and delete cleanup policies. <br> Push an image to the container registry. |
 | Merge requests | Create and update a merge request. |
 | Package registry | Publish a package. |
-| CI/CD | Create, edit, administer, and run pipelines. <br>  Create, edit, administer, and run builds. <br>  Create and edit admin environments. <br> Create and edit admin deployments. <br>  Create and edit admin clusters. <br> Create and edit admin releases. |
+| CI/CD | Create, edit, administer, and run pipelines. <br> Create, edit, administer, and run builds. <br> Create and edit admin environments. <br> Create and edit admin deployments. <br> Create and edit admin clusters. <br> Create and edit admin releases. |
 | Namespaces | **For exceeded free user limits**: Invite new users. |
 
 ## Read-only projects

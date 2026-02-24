@@ -139,8 +139,7 @@ Parameters:
 | `dismissable`          | boolean           | no       | Can the user dismiss the message? |
 | `theme`                | string            | no       | Color theme for the broadcast message (banners only). |
 
-The `target_access_levels` are defined in the `Gitlab::Access` module. The
-following levels are valid:
+The `target_access_levels` are defined in the `Gitlab::Access` module. The following levels are valid:
 
 - Guest (`10`)
 - Planner (`15`)
@@ -166,8 +165,8 @@ Example request:
 
 ```shell
 curl --data "message=Deploy in progress&target_access_levels[]=10&target_access_levels[]=30&theme=red" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/broadcast_messages"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/broadcast_messages"
 ```
 
 Example response:
@@ -214,8 +213,7 @@ Parameters:
 | `dismissable`          | boolean           | no       | Can the user dismiss the message? |
 | `theme`                | string            | no       | Color theme for the broadcast message (banners only). |
 
-The `target_access_levels` are defined in the `Gitlab::Access` module. The
-following levels are valid:
+The `target_access_levels` are defined in the `Gitlab::Access` module. The following levels are valid:
 
 - Guest (`10`)
 - Planner (`15`)
@@ -241,9 +239,9 @@ Example request:
 
 ```shell
 curl --request PUT \
-  --data "message=Update message" \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/broadcast_messages/1"
+ --data "message=Update message" \
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/broadcast_messages/1"
 ```
 
 Example response:
@@ -282,6 +280,6 @@ Example request:
 
 ```shell
 curl --request DELETE \
-  --header "PRIVATE-TOKEN: <your_access_token>" \
-  --url "https://gitlab.example.com/api/v4/broadcast_messages/1"
+ --header "PRIVATE-TOKEN: <your_access_token>" \
+ --url "https://gitlab.example.com/api/v4/broadcast_messages/1"
 ```

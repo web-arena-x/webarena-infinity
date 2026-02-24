@@ -19,7 +19,7 @@ When you select a bid to award, you have the option to convert it to a subcontra
 ## Things to Consider
 
 - **Required User Permissions:**
-  - 'Admin' level permissions on the project's Bidding tool.
+ - 'Admin' level permissions on the project's Bidding tool.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ When you select a bid to award, you have the option to convert it to a subcontra
 1. Navigate to the project's **Bidding** tool.
 2. Open the bid package.
 3. On the 'Bidding' tab, find the bidder you want to award.
-4. In the 'Bid Status' column, click the drop-down menu and select **Awarded**.   
+4. In the 'Bid Status' column, click the drop-down menu and select **Awarded**.  
    ![bid-status-awarded.png](https://support.procore.com/@api/deki/files/391193/bid-status-awarded.png?revision=1)
 
 ## See Also
