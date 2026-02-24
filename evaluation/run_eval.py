@@ -14,6 +14,7 @@ Usage:
 import argparse
 import asyncio
 import json
+import os
 import signal
 import sys
 from datetime import datetime
@@ -79,14 +80,16 @@ async def main():
         "--use-vision", action="store_true", help="Enable vision for the agent"
     )
     parser.add_argument("--port", type=int, default=8000)
-    parser.add_argument("--output-dir", default="./evaluation/results")
+    parser.add_argument("--output-dir", default=None,
+                        help="Results directory (default: <web-app>/results)")
     parser.add_argument("--web-app", default="apps/gitlab-org-management")
     args = parser.parse_args()
 
     web_app_dir = str(Path(args.web_app).resolve())
+    output_dir = args.output_dir or os.path.join(web_app_dir, "results")
     server_url = f"http://localhost:{args.port}"
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    run_dir = Path(args.output_dir) / f"{args.model}_{timestamp}"
+    run_dir = Path(output_dir) / f"{args.model}_{timestamp}"
     run_dir.mkdir(parents=True, exist_ok=True)
 
     # Load and filter tasks

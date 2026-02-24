@@ -23,7 +23,7 @@ from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(__file__))
 
-from config import APPS_DIR, BRANCH_PREFIX, GIT_REMOTE, REPO_DIR, TOTAL_ENVS
+from config import APPS_DIR, BRANCH_PREFIX, GIT_REMOTE, REPO_DIR
 
 logging.basicConfig(
     level=logging.INFO,
@@ -141,22 +141,34 @@ def aggregate(env_results: list[dict]) -> dict:
     }
 
 
+def load_manifest(path: str) -> list[str]:
+    """Read env_ids from the JSONL manifest."""
+    env_ids = []
+    with open(path) as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                env_ids.append(json.loads(line)["env_id"])
+    return env_ids
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Collect and aggregate results across all environments")
-    parser.add_argument("--total-envs", type=int, default=TOTAL_ENVS)
+    parser.add_argument("--manifest", default=os.path.join(REPO_DIR, "infra", "env_manifest.jsonl"),
+                        help="Path to env_manifest.jsonl")
     parser.add_argument("--output", default=None, help="Output JSON path (default: auto-generated)")
     args = parser.parse_args()
 
-    log.info("Collecting results from %d environments", args.total_envs)
+    env_ids = load_manifest(args.manifest)
+    log.info("Collecting results from %d environments", len(env_ids))
 
     # Stash any local changes before switching branches
     git("stash")
 
     env_results = []
     failed_envs = []
-    for i in range(1, args.total_envs + 1):
-        env_id = f"env-{i:03d}"
-        log.info("Collecting %s (%d/%d)", env_id, i, args.total_envs)
+    for i, env_id in enumerate(env_ids, 1):
+        log.info("Collecting %s (%d/%d)", env_id, i, len(env_ids))
         result = collect_env_results(env_id)
         if result:
             env_results.append(result)
@@ -184,7 +196,7 @@ def main() -> None:
     # Console summary
     log.info("=" * 60)
     log.info("Cross-environment summary:")
-    log.info("  Environments collected: %d / %d", len(env_results), args.total_envs)
+    log.info("  Environments collected: %d / %d", len(env_results), len(env_ids))
     if failed_envs:
         log.info("  Failed to collect: %s", ", ".join(failed_envs[:10]))
     log.info("  Total tasks: %d", summary["total_tasks"])

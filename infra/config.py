@@ -52,7 +52,7 @@ REFERENCE_APP = "gitlab-org-management"  # the example app visible on every bran
 # Git
 # ---------------------------------------------------------------------------
 GIT_REMOTE = "origin"
-BRANCH_PREFIX = "env-"
+BRANCH_PREFIX = ""  # branch name = env_id directly (e.g. "linear-account-settings")
 
 # ---------------------------------------------------------------------------
 # SQS polling

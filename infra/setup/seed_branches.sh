@@ -3,15 +3,14 @@
 # Run from the repo root on any machine with push access.
 #
 # Reads infra/env_manifest.jsonl to determine which docs folder each env gets.
-# Each line: {"env_id": "env-001", "docs_path": "apps/gitlab-org-management/docs/development/activitypub"}
+# Each line: {"env_id": "linear-account-settings", "docs_path": "apps/user-manuals/linear/02-account"}
 #
-# Each branch gets:
-#   - apps/gitlab-org-management/  (reference implementation for Claude Code to learn from)
-#   - apps/{parent_app}/docs/      (full docs tree for the source app, copied from main)
-#   - apps/env-XXX/                (stub directory where Claude generates the environment)
-#   - docs/                        (project-level guides)
-#   - evaluation/                  (eval harness)
-#   - All other apps are REMOVED so Claude Code only sees the reference.
+# Each branch inherits everything from main and adds:
+#   - apps/{env_id}/               (stub directory where Claude generates the environment)
+#   - .claudeignore                (hides irrelevant apps and docs from Claude Code)
+#
+# Nothing is deleted — .claudeignore ensures Claude Code only sees the reference
+# app (apps/gitlab-org-management/), the relevant product docs, and the env stub.
 #
 # Usage:
 #   bash infra/setup/seed_branches.sh                              # seed all envs in manifest
@@ -24,7 +23,7 @@ REFERENCE_APP="gitlab-org-management"
 
 if [ ! -f "$MANIFEST" ]; then
   echo "ERROR: Manifest not found: $MANIFEST"
-  echo "Each line should be: {\"env_id\": \"env-001\", \"docs_path\": \"apps/.../docs/topic\"}"
+  echo "Each line should be: {\"env_id\": \"...\", \"docs_path\": \"apps/user-manuals/...\"}"
   exit 1
 fi
 
@@ -35,6 +34,12 @@ echo "    Reference app: apps/$REFERENCE_APP"
 # Ensure we're on main and up to date
 git checkout main
 git pull origin main
+
+# Collect all product names from apps/user-manuals/
+ALL_PRODUCTS=()
+for d in apps/user-manuals/*/; do
+  ALL_PRODUCTS+=("$(basename "$d")")
+done
 
 COUNT=0
 while IFS= read -r line; do
@@ -62,26 +67,34 @@ while IFS= read -r line; do
 
   git checkout -b "$BRANCH" main
 
-  # Remove all apps except the reference implementation
-  for app_dir in apps/*/; do
-    app_name="$(basename "$app_dir")"
-    if [ "$app_name" != "$REFERENCE_APP" ]; then
-      git rm -rf "$app_dir"
-    fi
-  done
-
   # Create the env stub directory
   mkdir -p "$ENV_DIR"
   echo "# Environment $BRANCH" > "$ENV_DIR/README.md"
 
-  # Copy full docs tree for the parent app from main into the branch.
-  # e.g., docs_path "apps/shopify/docs/themes" -> restore all of "apps/shopify/docs/"
-  PARENT_APP=$(echo "$DOCS_PATH" | cut -d'/' -f2)
-  if [ "$PARENT_APP" != "$REFERENCE_APP" ]; then
-    git checkout main -- "apps/$PARENT_APP/docs/"
-  fi
+  # Build .claudeignore to hide irrelevant apps and docs from Claude Code.
+  # Extract the product name from docs_path (e.g., "apps/user-manuals/shopify/themes" -> "shopify")
+  PRODUCT=$(echo "$DOCS_PATH" | cut -d'/' -f3)
 
-  git add "$ENV_DIR"
+  {
+    echo "# Auto-generated — hide irrelevant apps and docs for this environment"
+    echo ""
+    echo "# Other generated apps (not the reference, not this env)"
+    for app_dir in apps/*/; do
+      app_name="$(basename "$app_dir")"
+      [ "$app_name" = "$REFERENCE_APP" ] && continue
+      [ "$app_name" = "user-manuals" ] && continue
+      [ "$app_name" = "$ENV_ID" ] && continue
+      echo "apps/$app_name/"
+    done
+    echo ""
+    echo "# Other product docs (not the one for this env)"
+    for product in "${ALL_PRODUCTS[@]}"; do
+      [ "$product" = "$PRODUCT" ] && continue
+      echo "apps/user-manuals/$product/"
+    done
+  } > .claudeignore
+
+  git add "$ENV_DIR" .claudeignore
   git commit -m "Seed branch $BRANCH (docs: $DOCS_PATH)"
   git push origin "$BRANCH"
 
